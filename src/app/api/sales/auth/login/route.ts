@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
 import { applySalesSessionCookies } from "@/lib/auth/sales-cookies";
 import { createSalesSession } from "@/lib/auth/sales-session";
 import { withTenantFromRequest } from "@/lib/tenant";
@@ -71,9 +72,14 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      // TODO: Verify password hash
-      // For now, using simple password check in development
-      // In production, use bcrypt.compare(password, user.hashedPassword)
+      // Verify password hash
+      const isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
+      if (!isPasswordValid) {
+        return NextResponse.json(
+          { error: "Invalid email or password." },
+          { status: 401 },
+        );
+      }
 
       const sessionId = randomUUID();
       const refreshToken = randomUUID();
