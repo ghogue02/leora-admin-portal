@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useCart } from "../../_components/CartProvider";
 import { useToast } from "../../_components/ToastProvider";
+import { ProductDrilldownModal } from "../_components/ProductDrilldownModal";
 
 type CatalogItem = {
   skuId: string;
@@ -26,6 +27,13 @@ type CatalogItem = {
       available: number;
     };
   };
+  product?: {
+    tastingNotes?: {
+      aroma?: string;
+      palate?: string;
+      finish?: string;
+    };
+  };
 };
 
 type CatalogResponse = {
@@ -46,6 +54,7 @@ export default function CatalogGrid() {
   const [sortOption, setSortOption] = useState<SortOption>("priority");
   const [pendingSkuId, setPendingSkuId] = useState<string | null>(null);
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
+  const [drilldownSkuId, setDrilldownSkuId] = useState<string | null>(null);
 
   const { addItem, isMutating } = useCart();
   const { pushToast } = useToast();
@@ -390,23 +399,49 @@ export default function CatalogGrid() {
                 key={item.skuId}
                 className="flex flex-col justify-between rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md"
               >
-                <header className="space-y-1">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="uppercase tracking-wide text-gray-500">
-                      {item.category ?? "Uncategorized"}
-                    </span>
-                    <span
-                      className={`rounded-full px-2 py-0.5 font-semibold ${
-                        outOfStock ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"
-                      }`}
-                    >
-                      {outOfStock ? "Out of stock" : `${item.inventory.totals.available} available`}
-                    </span>
-                  </div>
-                  <h2 className="text-lg font-semibold text-gray-900">{item.productName}</h2>
-                  <p className="text-sm text-gray-600">{item.brand ?? "Brand TBD"}</p>
-                  <p className="text-xs text-gray-500">{item.skuCode}</p>
-                </header>
+                <div onClick={() => setDrilldownSkuId(item.skuId)} className="cursor-pointer">
+                  <header className="space-y-1">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="uppercase tracking-wide text-gray-500">
+                        {item.category ?? "Uncategorized"}
+                      </span>
+                      <span
+                        className={`rounded-full px-2 py-0.5 font-semibold ${
+                          outOfStock ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"
+                        }`}
+                      >
+                        {outOfStock ? "Out of stock" : `${item.inventory.totals.available} available`}
+                      </span>
+                    </div>
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1">
+                        <h2 className="text-lg font-semibold text-gray-900 hover:text-indigo-600 transition">
+                          {item.productName}
+                        </h2>
+                        <p className="text-sm text-gray-600">{item.brand ?? "Brand TBD"}</p>
+                        <p className="text-xs text-gray-500">{item.skuCode}</p>
+                      </div>
+                      <span className="flex-shrink-0 text-xs text-indigo-600 hover:text-indigo-800">
+                        View details →
+                      </span>
+                    </div>
+                  </header>
+
+                  {item.product?.tastingNotes?.aroma && (
+                    <div className="mt-2 rounded bg-purple-50 px-2 py-1 border border-purple-100">
+                      <p className="text-xs italic text-purple-800 line-clamp-1">
+                        🍷 {item.product.tastingNotes.aroma}
+                      </p>
+                    </div>
+                  )}
+
+                  {item.product?.tastingNotes && (
+                    <div className="mt-2">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-purple-50 px-2 py-0.5 text-xs font-medium text-purple-700 border border-purple-100">
+                        📖 View tasting notes
+                      </span>
+                    </div>
+                  )}
 
                 <dl className="mt-4 grid grid-cols-2 gap-2 text-xs text-gray-600">
                   <div className="flex justify-between">
@@ -452,6 +487,7 @@ export default function CatalogGrid() {
                       </span>
                     </div>
                   ))}
+                </div>
                 </div>
 
                 <footer className="mt-4 flex flex-col gap-3">
@@ -500,6 +536,14 @@ export default function CatalogGrid() {
             );
           })}
         </div>
+      )}
+
+      {/* Product Drilldown Modal */}
+      {drilldownSkuId && (
+        <ProductDrilldownModal
+          skuId={drilldownSkuId}
+          onClose={() => setDrilldownSkuId(null)}
+        />
       )}
     </section>
   );

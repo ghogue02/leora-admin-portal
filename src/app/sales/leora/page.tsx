@@ -2,6 +2,7 @@
 
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { useToast } from "../_components/ToastProvider";
+import { AutoInsights } from "./_components/AutoInsights";
 
 type CopilotCitation = {
   label: string;
@@ -350,6 +351,9 @@ export default function SalesLeoraCopilotPage() {
           Stop digging through spreadsheets. Start asking questions. Which customers need attention this week? What's driving my revenue? Who should I call today? LeorAI connects your sales data with AI to surface the insights that matter—so you can spend less time analyzing and more time selling.
         </p>
       </header>
+
+      {/* Auto-Insights Section */}
+      <AutoInsights onInsightClick={handleSuggestionClick} />
 
       <section className="grid gap-6 lg:grid-cols-[2fr_1fr]">
         <div className="flex h-[32rem] flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">

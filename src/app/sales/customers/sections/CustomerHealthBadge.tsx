@@ -5,31 +5,41 @@ type CustomerHealthBadgeProps = {
   className?: string;
 };
 
-const BADGE_STYLES: Record<CustomerRiskStatus, { bg: string; text: string; label: string }> = {
+const BADGE_STYLES: Record<CustomerRiskStatus, { bg: string; text: string; border: string; label: string; icon: string }> = {
   HEALTHY: {
-    bg: "bg-emerald-100",
-    text: "text-emerald-700",
+    bg: "bg-green-100",
+    text: "text-green-800",
+    border: "border-green-200",
     label: "Healthy",
+    icon: "✓",
   },
   AT_RISK_CADENCE: {
-    bg: "bg-amber-100",
-    text: "text-amber-700",
-    label: "At Risk (Cadence)",
+    bg: "bg-orange-100",
+    text: "text-orange-800",
+    border: "border-orange-200",
+    label: "At Risk - Cadence",
+    icon: "⚠️",
   },
   AT_RISK_REVENUE: {
-    bg: "bg-orange-100",
-    text: "text-orange-700",
-    label: "At Risk (Revenue)",
+    bg: "bg-red-100",
+    text: "text-red-800",
+    border: "border-red-200",
+    label: "At Risk - Revenue",
+    icon: "📉",
   },
   DORMANT: {
-    bg: "bg-rose-100",
-    text: "text-rose-700",
+    bg: "bg-gray-100",
+    text: "text-gray-800",
+    border: "border-gray-200",
     label: "Dormant",
+    icon: "💤",
   },
   CLOSED: {
     bg: "bg-gray-100",
     text: "text-gray-700",
+    border: "border-gray-300",
     label: "Closed",
+    icon: "🔒",
   },
 };
 
@@ -38,9 +48,10 @@ export default function CustomerHealthBadge({ status, className = "" }: Customer
 
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${style.bg} ${style.text} ${className}`}
+      className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${style.bg} ${style.text} ${style.border} ${className}`}
     >
-      {style.label}
+      <span className="text-xs">{style.icon}</span>
+      <span>{style.label}</span>
     </span>
   );
 }

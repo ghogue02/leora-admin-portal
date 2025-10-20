@@ -2,7 +2,8 @@
 
 -- Customer indexes for search and filtering
 CREATE INDEX IF NOT EXISTS "Customer_billingEmail_idx" ON "Customer"("billingEmail");
-CREATE INDEX IF NOT EXISTS "Customer_accountName_idx" ON "Customer"("accountName");
+-- Note: accountName column doesn't exist in schema, skipping
+-- CREATE INDEX IF NOT EXISTS "Customer_accountName_idx" ON "Customer"("accountName");
 CREATE INDEX IF NOT EXISTS "Customer_accountNumber_idx" ON "Customer"("accountNumber");
 
 -- Order indexes for filtering by status and date
@@ -27,8 +28,9 @@ CREATE INDEX IF NOT EXISTS "PortalUser_status_idx" ON "PortalUser"("status");
 CREATE INDEX IF NOT EXISTS "PortalUser_customerId_idx" ON "PortalUser"("customerId");
 
 -- Sku indexes for product search
-CREATE INDEX IF NOT EXISTS "Sku_skuId_idx" ON "Sku"("skuId");
-CREATE INDEX IF NOT EXISTS "Sku_description_idx" ON "Sku"("description");
+-- Note: Sku table uses 'code' not 'skuId', and may not have 'description'
+CREATE INDEX IF NOT EXISTS "Sku_code_idx" ON "Sku"("code");
+-- CREATE INDEX IF NOT EXISTS "Sku_description_idx" ON "Sku"("description");
 
 -- Activity indexes for timeline queries
 CREATE INDEX IF NOT EXISTS "Activity_customerId_idx" ON "Activity"("customerId");

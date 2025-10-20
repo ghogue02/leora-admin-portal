@@ -16,6 +16,10 @@ export async function GET(request: NextRequest) {
               name: true,
               brand: true,
               category: true,
+              tastingNotes: true,
+              foodPairings: true,
+              servingInfo: true,
+              wineDetails: true,
             },
           },
           inventories: {
@@ -87,6 +91,12 @@ export async function GET(request: NextRequest) {
               onHand: inventoryTotals.onHand,
               available: inventoryTotals.available,
             },
+          },
+          product: {
+            tastingNotes: sku.product.tastingNotes,
+            foodPairings: sku.product.foodPairings,
+            servingInfo: sku.product.servingInfo,
+            wineDetails: sku.product.wineDetails,
           },
         };
       });

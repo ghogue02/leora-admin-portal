@@ -11,6 +11,8 @@ import ProductGoals from "./sections/ProductGoals";
 import UpcomingCalendar from "./sections/UpcomingCalendar";
 import AssignedTasks from "./sections/AssignedTasks";
 import Incentives from "./sections/Incentives";
+import { SkeletonDashboard } from "../_components/SkeletonLoader";
+import { Button } from "../_components/Button";
 
 type DashboardData = {
   salesRep: {
@@ -155,15 +157,7 @@ export default function SalesDashboardPage() {
   if (state.loading) {
     return (
       <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
-        <div className="animate-pulse space-y-6">
-          <div className="h-8 w-64 rounded bg-slate-200" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-32 rounded-lg bg-slate-200" />
-            ))}
-          </div>
-          <div className="h-64 rounded-lg bg-slate-200" />
-        </div>
+        <SkeletonDashboard />
       </main>
     );
   }
@@ -174,15 +168,16 @@ export default function SalesDashboardPage() {
         <section className="rounded-lg border border-red-100 bg-red-50 p-6 text-sm text-red-700">
           <p className="font-medium">We couldn't load your dashboard just now.</p>
           <p className="mt-1">{state.error ?? "Try again shortly or contact support."}</p>
-          <button
-            type="button"
+          <Button
+            variant="secondary"
+            size="sm"
             onClick={() => {
               void load();
             }}
-            className="mt-4 inline-flex items-center rounded-md border border-red-200 px-3 py-2 text-xs font-semibold text-red-700 transition hover:border-red-300 hover:text-red-800"
+            className="mt-4 border-red-200 text-red-700 hover:border-red-300 hover:text-red-800"
           >
             Retry
-          </button>
+          </Button>
         </section>
       </main>
     );

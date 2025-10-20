@@ -5,6 +5,8 @@ import type { CustomerRiskStatus } from "@prisma/client";
 import CustomerTable from "./sections/CustomerTable";
 import CustomerFilters from "./sections/CustomerFilters";
 import CustomerSearchBar from "./sections/CustomerSearchBar";
+import { SkeletonTable } from "../_components/SkeletonLoader";
+import { EmptyCustomers, EmptySearch } from "../_components/EmptyState";
 
 type Customer = {
   id: string;
@@ -203,13 +205,19 @@ export default function SalesCustomersPage() {
       {/* Customer Table */}
       {!error && (
         <>
-          <CustomerTable
-            customers={data?.customers ?? []}
-            sortField={sortField}
-            sortDirection={sortDirection}
-            onSort={handleSort}
-            loading={loading}
-          />
+          {loading && !data ? (
+            <SkeletonTable />
+          ) : data && data.customers.length === 0 ? (
+            searchQuery ? <EmptySearch /> : <EmptyCustomers />
+          ) : (
+            <CustomerTable
+              customers={data?.customers ?? []}
+              sortField={sortField}
+              sortDirection={sortDirection}
+              onSort={handleSort}
+              loading={loading}
+            />
+          )}
 
           {/* Pagination */}
           {data && data.pagination.totalPages > 1 && (

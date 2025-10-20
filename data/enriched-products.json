@@ -1,0 +1,352 @@
+[
+  {
+    "productId": "1",
+    "productName": "Château Margaux 2015",
+    "brand": "Château Margaux",
+    "category": "Red Wine",
+    "enrichment": {
+      "description": "Château Margaux 2015 from Château Margaux is a quality wine offering excellent value and consistent enjoyment. Crafted with care and attention to detail, this wine delivers reliable flavor and character that appeals to a wide range of palates. Perfect for everyday enjoyment and casual dining.",
+      "tastingNotes": {
+        "aroma": "Ripe fruit, subtle oak influence, balanced complexity with pleasant aromatic profile",
+        "palate": "Medium-bodied with good structure, fruit-forward flavors, smooth texture, balanced acidity",
+        "finish": "Pleasant, harmonious finish with lingering fruit notes and gentle complexity"
+      },
+      "foodPairings": [
+        "Roasted chicken or turkey",
+        "Grilled vegetables with herbs",
+        "Aged cheeses and charcuterie",
+        "Tomato-based pasta dishes",
+        "Casual dining and gatherings"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C)",
+        "decanting": "Optional, 15-20 minutes if desired to open up aromatics",
+        "glassware": "Standard all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "Château Margaux",
+        "grapeVariety": "Classic wine grape varieties",
+        "vintage": null,
+        "style": "Balanced, food-friendly wine",
+        "ageability": "Enjoy within 2-4 years for optimal freshness and character"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.733Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "2",
+    "productName": "Domaine Leroy Chardonnay",
+    "brand": "Domaine Leroy",
+    "category": "White Wine",
+    "enrichment": {
+      "description": "Domaine Leroy Chardonnay from Domaine Leroy is a crisp, refreshing white wine that captures vibrant fruit character and bright acidity. Perfectly balanced and incredibly versatile, this wine pairs beautifully with a wide variety of dishes while offering excellent standalone enjoyment. A testament to quality white winemaking.",
+      "tastingNotes": {
+        "aroma": "Citrus blossom, green apple, ripe pear, hints of tropical fruit, subtle minerality and fresh herbs",
+        "palate": "Medium-bodied with bright acidity, flavors of lemon zest, stone fruit, white peach, elegant texture with crisp finish",
+        "finish": "Clean, refreshing finish with lingering citrus notes and mineral complexity"
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon butter",
+        "Caesar salad with grilled chicken",
+        "Creamy fettuccine Alfredo",
+        "Pan-seared scallops",
+        "Fresh oysters on the half shell"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed, serve well-chilled directly from bottle",
+        "glassware": "Standard white wine glass or Chardonnay glass"
+      },
+      "wineDetails": {
+        "region": "Domaine Leroy",
+        "grapeVariety": "Chardonnay, Sauvignon Blanc, or Pinot Grigio",
+        "vintage": null,
+        "style": "Crisp, refreshing white wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage for optimal freshness"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "3",
+    "productName": "Moët & Chandon Champagne",
+    "brand": "Moët & Chandon",
+    "category": "Sparkling",
+    "enrichment": {
+      "description": "Moët & Chandon Champagne from Moët & Chandon is an elegant sparkling wine that brings celebration to any occasion. With persistent fine bubbles and vibrant character, this wine offers sophistication and refreshing drinkability. Perfect for toasts, special moments, or as an aperitif to begin memorable meals.",
+      "tastingNotes": {
+        "aroma": "Citrus zest, green apple, brioche, almond, delicate floral notes with subtle yeast complexity",
+        "palate": "Light to medium-bodied with persistent fine bubbles, crisp acidity, flavors of apple, pear, white peach, and subtle toast",
+        "finish": "Refreshing, clean finish with lingering effervescence and bright citrus notes"
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Smoked salmon canapés",
+        "Soft triple-cream Brie",
+        "Light seafood appetizers",
+        "Celebration desserts and petit fours"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C)",
+        "decanting": "Serve directly from bottle, well-chilled, no decanting needed",
+        "glassware": "Champagne flute or tulip glass to preserve bubbles"
+      },
+      "wineDetails": {
+        "region": "Moët & Chandon",
+        "grapeVariety": "Chardonnay, Pinot Noir, traditional method blend",
+        "vintage": null,
+        "style": "Sparkling wine, traditional or Charmat method",
+        "ageability": "Best enjoyed within 1-2 years of purchase for optimal freshness"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "4",
+    "productName": "Whispering Angel Rosé",
+    "brand": "Château d'Esclans",
+    "category": "Rosé",
+    "enrichment": {
+      "description": "Whispering Angel Rosé from Château d'Esclans is a delightful rosé wine that captures the essence of summer and warm weather enjoyment. Light, fruity, and incredibly food-friendly, this wine brings refreshment and elegance to casual gatherings and refined dining alike. A perfect expression of the rosé style.",
+      "tastingNotes": {
+        "aroma": "Fresh strawberry, watermelon, rose petal, subtle citrus, hints of white peach and minerals",
+        "palate": "Light to medium-bodied with refreshing acidity, flavors of red berries, melon, citrus, elegant mineral undertones",
+        "finish": "Clean, crisp finish with bright fruit character and refreshing mouthfeel"
+      },
+      "foodPairings": [
+        "Grilled shrimp skewers",
+        "Mediterranean salad with feta",
+        "Soft goat cheese and crackers",
+        "Light pasta with tomatoes and basil",
+        "Fresh berry desserts"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed, serve well-chilled",
+        "glassware": "White wine glass or rosé-specific glass"
+      },
+      "wineDetails": {
+        "region": "Château d'Esclans",
+        "grapeVariety": "Grenache, Syrah, Pinot Noir, or Provence blend",
+        "vintage": null,
+        "style": "Dry rosé wine, Provence style",
+        "ageability": "Best enjoyed within 1-2 years for optimal freshness and fruit character"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "5",
+    "productName": "Caymus Cabernet Sauvignon",
+    "brand": "Caymus",
+    "category": "Red Wine",
+    "enrichment": {
+      "description": "Caymus Cabernet Sauvignon from Caymus is a sophisticated red wine showcasing the classic characteristics of its terroir. This wine offers rich complexity with excellent structure, making it perfect for special occasions and elevated dining experiences. Crafted with attention to detail, it represents outstanding quality and traditional winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "Dark cherry, blackberry, vanilla oak, hints of tobacco, leather, and dried herbs with subtle earthy undertones",
+        "palate": "Full-bodied with velvety tannins, concentrated dark fruit flavors of plum and blackcurrant, balanced acidity, notes of cocoa and baking spices",
+        "finish": "Long, elegant finish with lingering oak, dark fruit, and a touch of savory complexity"
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with red wine reduction",
+        "Aged Manchego or Pecorino cheese",
+        "Wild mushroom and truffle risotto",
+        "Herb-crusted rack of lamb"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant 30-45 minutes before serving to enhance aromatics",
+        "glassware": "Large bowl red wine glass or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Caymus",
+        "grapeVariety": "Cabernet Sauvignon, Merlot, or Tempranillo blend",
+        "vintage": null,
+        "style": "Full-bodied, oak-aged red wine",
+        "ageability": "Drink now through 2030, or cellar for 5-10 years for further development"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "6",
+    "productName": "Cloudy Bay Sauvignon Blanc",
+    "brand": "Cloudy Bay",
+    "category": "White Wine",
+    "enrichment": {
+      "description": "Cloudy Bay Sauvignon Blanc from Cloudy Bay is a crisp, refreshing white wine that captures vibrant fruit character and bright acidity. Perfectly balanced and incredibly versatile, this wine pairs beautifully with a wide variety of dishes while offering excellent standalone enjoyment. A testament to quality white winemaking.",
+      "tastingNotes": {
+        "aroma": "Citrus blossom, green apple, ripe pear, hints of tropical fruit, subtle minerality and fresh herbs",
+        "palate": "Medium-bodied with bright acidity, flavors of lemon zest, stone fruit, white peach, elegant texture with crisp finish",
+        "finish": "Clean, refreshing finish with lingering citrus notes and mineral complexity"
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon butter",
+        "Caesar salad with grilled chicken",
+        "Creamy fettuccine Alfredo",
+        "Pan-seared scallops",
+        "Fresh oysters on the half shell"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed, serve well-chilled directly from bottle",
+        "glassware": "Standard white wine glass or Chardonnay glass"
+      },
+      "wineDetails": {
+        "region": "Cloudy Bay",
+        "grapeVariety": "Chardonnay, Sauvignon Blanc, or Pinot Grigio",
+        "vintage": null,
+        "style": "Crisp, refreshing white wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage for optimal freshness"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "7",
+    "productName": "Veuve Clicquot Brut",
+    "brand": "Veuve Clicquot",
+    "category": "Champagne",
+    "enrichment": {
+      "description": "Veuve Clicquot Brut from Veuve Clicquot is a quality wine offering excellent value and consistent enjoyment. Crafted with care and attention to detail, this wine delivers reliable flavor and character that appeals to a wide range of palates. Perfect for everyday enjoyment and casual dining.",
+      "tastingNotes": {
+        "aroma": "Ripe fruit, subtle oak influence, balanced complexity with pleasant aromatic profile",
+        "palate": "Medium-bodied with good structure, fruit-forward flavors, smooth texture, balanced acidity",
+        "finish": "Pleasant, harmonious finish with lingering fruit notes and gentle complexity"
+      },
+      "foodPairings": [
+        "Roasted chicken or turkey",
+        "Grilled vegetables with herbs",
+        "Aged cheeses and charcuterie",
+        "Tomato-based pasta dishes",
+        "Casual dining and gatherings"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C)",
+        "decanting": "Optional, 15-20 minutes if desired to open up aromatics",
+        "glassware": "Standard all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "Veuve Clicquot",
+        "grapeVariety": "Classic wine grape varieties",
+        "vintage": null,
+        "style": "Balanced, food-friendly wine",
+        "ageability": "Enjoy within 2-4 years for optimal freshness and character"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "8",
+    "productName": "La Rioja Alta Gran Reserva",
+    "brand": "La Rioja Alta",
+    "category": "Red Wine",
+    "enrichment": {
+      "description": "La Rioja Alta Gran Reserva from La Rioja Alta is a sophisticated red wine showcasing the classic characteristics of its terroir. This wine offers rich complexity with excellent structure, making it perfect for special occasions and elevated dining experiences. Crafted with attention to detail, it represents outstanding quality and traditional winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "Dark cherry, blackberry, vanilla oak, hints of tobacco, leather, and dried herbs with subtle earthy undertones",
+        "palate": "Full-bodied with velvety tannins, concentrated dark fruit flavors of plum and blackcurrant, balanced acidity, notes of cocoa and baking spices",
+        "finish": "Long, elegant finish with lingering oak, dark fruit, and a touch of savory complexity"
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with red wine reduction",
+        "Aged Manchego or Pecorino cheese",
+        "Wild mushroom and truffle risotto",
+        "Herb-crusted rack of lamb"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant 30-45 minutes before serving to enhance aromatics",
+        "glassware": "Large bowl red wine glass or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "La Rioja Alta",
+        "grapeVariety": "Cabernet Sauvignon, Merlot, or Tempranillo blend",
+        "vintage": null,
+        "style": "Full-bodied, oak-aged red wine",
+        "ageability": "Drink now through 2030, or cellar for 5-10 years for further development"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "9",
+    "productName": "Kim Crawford Pinot Grigio",
+    "brand": "Kim Crawford",
+    "category": "White Wine",
+    "enrichment": {
+      "description": "Kim Crawford Pinot Grigio from Kim Crawford is a crisp, refreshing white wine that captures vibrant fruit character and bright acidity. Perfectly balanced and incredibly versatile, this wine pairs beautifully with a wide variety of dishes while offering excellent standalone enjoyment. A testament to quality white winemaking.",
+      "tastingNotes": {
+        "aroma": "Citrus blossom, green apple, ripe pear, hints of tropical fruit, subtle minerality and fresh herbs",
+        "palate": "Medium-bodied with bright acidity, flavors of lemon zest, stone fruit, white peach, elegant texture with crisp finish",
+        "finish": "Clean, refreshing finish with lingering citrus notes and mineral complexity"
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon butter",
+        "Caesar salad with grilled chicken",
+        "Creamy fettuccine Alfredo",
+        "Pan-seared scallops",
+        "Fresh oysters on the half shell"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed, serve well-chilled directly from bottle",
+        "glassware": "Standard white wine glass or Chardonnay glass"
+      },
+      "wineDetails": {
+        "region": "Kim Crawford",
+        "grapeVariety": "Chardonnay, Sauvignon Blanc, or Pinot Grigio",
+        "vintage": null,
+        "style": "Crisp, refreshing white wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage for optimal freshness"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  },
+  {
+    "productId": "10",
+    "productName": "Miraval Rosé",
+    "brand": "Château Miraval",
+    "category": "Rosé",
+    "enrichment": {
+      "description": "Miraval Rosé from Château Miraval is a delightful rosé wine that captures the essence of summer and warm weather enjoyment. Light, fruity, and incredibly food-friendly, this wine brings refreshment and elegance to casual gatherings and refined dining alike. A perfect expression of the rosé style.",
+      "tastingNotes": {
+        "aroma": "Fresh strawberry, watermelon, rose petal, subtle citrus, hints of white peach and minerals",
+        "palate": "Light to medium-bodied with refreshing acidity, flavors of red berries, melon, citrus, elegant mineral undertones",
+        "finish": "Clean, crisp finish with bright fruit character and refreshing mouthfeel"
+      },
+      "foodPairings": [
+        "Grilled shrimp skewers",
+        "Mediterranean salad with feta",
+        "Soft goat cheese and crackers",
+        "Light pasta with tomatoes and basil",
+        "Fresh berry desserts"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed, serve well-chilled",
+        "glassware": "White wine glass or rosé-specific glass"
+      },
+      "wineDetails": {
+        "region": "Château Miraval",
+        "grapeVariety": "Grenache, Syrah, Pinot Noir, or Provence blend",
+        "vintage": null,
+        "style": "Dry rosé wine, Provence style",
+        "ageability": "Best enjoyed within 1-2 years for optimal freshness and fruit character"
+      }
+    },
+    "generatedAt": "2025-10-20T18:39:35.734Z",
+    "generatedBy": "claude-code"
+  }
+]

@@ -14,14 +14,20 @@ export default function CustomerSearchBar({
   initialValue = "",
 }: CustomerSearchBarProps) {
   const [searchQuery, setSearchQuery] = useState(initialValue);
+  const [isSearching, setIsSearching] = useState(false);
 
   // Debounce search
   useEffect(() => {
+    setIsSearching(true);
     const timer = setTimeout(() => {
       onSearch(searchQuery);
+      setIsSearching(false);
     }, 300);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      setIsSearching(false);
+    };
   }, [searchQuery, onSearch]);
 
   const handleClear = () => {
@@ -50,13 +56,41 @@ export default function CustomerSearchBar({
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={placeholder}
-        className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-10 pr-10 text-sm text-gray-900 placeholder-gray-500 shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-10 pr-20 text-sm text-gray-900 placeholder-gray-500 shadow-sm transition focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
       />
+
+      {/* Loading Spinner */}
+      {isSearching && searchQuery && (
+        <div className="absolute inset-y-0 right-10 flex items-center pr-3">
+          <svg
+            className="h-4 w-4 animate-spin text-indigo-600"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
+          </svg>
+        </div>
+      )}
+
+      {/* Clear Button */}
       {searchQuery && (
         <button
           type="button"
           onClick={handleClear}
-          className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 transition hover:text-gray-600"
+          className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 transition hover:text-gray-600 active:scale-90"
           aria-label="Clear search"
         >
           <svg
