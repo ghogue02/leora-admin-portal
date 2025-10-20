@@ -105,7 +105,7 @@ export async function POST(request: NextRequest) {
           'Invoice Status': invoiceStatus,
           'Line Items': lineItemCount,
           'Total Items': totalItems,
-          'Total Amount': formatCurrencyForCSV(order.total),
+          'Total Amount': formatCurrencyForCSV(order.total ? Number(order.total) : null),
           'Currency': order.currency,
           'Is First Order': order.isFirstOrder ? 'Yes' : 'No',
           'Portal User': order.portalUser?.fullName || '',
