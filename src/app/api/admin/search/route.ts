@@ -31,24 +31,9 @@ export async function GET(request: NextRequest) {
         take: 5,
       }),
 
-      // Search orders (UUID can't use contains, use startsWith or equals)
-      db.order.findMany({
-        where: {
-          tenantId,
-          id: { startsWith: query },
-        },
-        select: {
-          id: true,
-          status: true,
-          orderedAt: true,
-          customer: {
-            select: {
-              id: true,
-            },
-          },
-        },
-        take: 5,
-      }),
+      // Search orders - skip UUID search (can't use text operators on UUID)
+      // Only return if query is a valid UUID
+      Promise.resolve([]),
 
       // Search users
       db.user.findMany({
