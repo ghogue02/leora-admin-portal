@@ -178,10 +178,21 @@ export async function withAdminSession(
     console.error("Admin session resolution failed:", error);
     console.error("Error details:", error instanceof Error ? error.message : 'Unknown error');
     console.error("Error stack:", error instanceof Error ? error.stack : 'No stack');
+
+    // Return detailed error in development/preview
+    const errorDetails = error instanceof Error ? error.message : "Unknown error";
+    const isProd = process.env.NODE_ENV === 'production';
+
     return NextResponse.json(
       {
         error: "Unable to validate session.",
-        details: error instanceof Error ? error.message : "Unknown error"
+        details: isProd ? "Check server logs" : errorDetails,
+        stack: isProd ? undefined : (error instanceof Error ? error.stack : undefined),
+        env: {
+          nodeEnv: process.env.NODE_ENV,
+          hasDatabaseUrl: !!process.env.DATABASE_URL,
+          hasTenantSlug: !!process.env.DEFAULT_TENANT_SLUG,
+        }
       },
       { status: 500 }
     );
