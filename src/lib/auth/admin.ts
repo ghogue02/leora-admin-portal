@@ -176,6 +176,14 @@ export async function withAdminSession(
     return result;
   } catch (error) {
     console.error("Admin session resolution failed:", error);
-    return NextResponse.json({ error: "Unable to validate session." }, { status: 500 });
+    console.error("Error details:", error instanceof Error ? error.message : 'Unknown error');
+    console.error("Error stack:", error instanceof Error ? error.stack : 'No stack');
+    return NextResponse.json(
+      {
+        error: "Unable to validate session.",
+        details: error instanceof Error ? error.message : "Unknown error"
+      },
+      { status: 500 }
+    );
   }
 }
