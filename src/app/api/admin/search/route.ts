@@ -86,19 +86,8 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    if (orders.length > 0) {
-      results.push({
-        type: 'orders',
-        label: 'Orders',
-        results: orders.map((o) => ({
-          id: o.id,
-          type: 'order',
-          title: `Order ${o.id}`,
-          subtitle: o.status,
-          url: `/sales/admin/orders/${o.id}`,
-        })),
-      });
-    }
+    // Orders search disabled (UUID fields don't support text search)
+    // if (orders.length > 0) { ... }
 
     if (users.length > 0) {
       results.push({
