@@ -47,10 +47,18 @@ export async function withTenantFromRequest<T>(
 
 async function resolveDefaultTenant() {
   const defaultSlug = process.env.DEFAULT_TENANT_SLUG;
+  console.log('[Tenant] DEFAULT_TENANT_SLUG from env:', defaultSlug);
+
   if (!defaultSlug) {
+    console.error('[Tenant] DEFAULT_TENANT_SLUG is not set in environment');
     return null;
   }
-  return prisma.tenant.findUnique({
+
+  const tenant = await prisma.tenant.findUnique({
     where: { slug: defaultSlug },
   });
+
+  console.log('[Tenant] Found tenant:', tenant ? `${tenant.slug} (${tenant.id})` : 'NOT FOUND');
+
+  return tenant;
 }
