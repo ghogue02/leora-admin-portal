@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useCart } from "./CartProvider";
 
 const navigation = [
+  { label: "LeorAI", href: "/sales/leora" },
   { label: "Dashboard", href: "/sales/dashboard" },
   { label: "Customers", href: "/sales/customers" },
   { label: "Call Plan", href: "/sales/call-plan" },
@@ -14,7 +15,6 @@ const navigation = [
   { label: "Orders", href: "/sales/orders" },
   { label: "Catalog", href: "/sales/catalog" },
   { label: "Cart", href: "/sales/cart" },
-  { label: "Leora", href: "/sales/leora" },
   { label: "Manager", href: "/sales/manager", adminOnly: true },
   { label: "Admin", href: "/admin", adminOnly: true },
   // Account page removed - sales reps don't have personal addresses

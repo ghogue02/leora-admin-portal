@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useCallback, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { useToast } from "../_components/ToastProvider";
 
 type CopilotCitation = {
@@ -54,14 +54,23 @@ type CopilotStreamEvent =
       message: string;
     };
 
+const DEFAULT_SUGGESTIONS = [
+  "Which customers need attention this week?",
+  "What's driving my revenue growth?",
+  "Who should I call today?",
+  "Show me my top performing products",
+  "Which customers are at risk of churning?"
+];
+
 export default function SalesLeoraCopilotPage() {
   const { pushToast } = useToast();
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<CopilotMessage[]>([]);
   const [loading, setLoading] = useState(false);
   const [hasStreamedToken, setHasStreamedToken] = useState(false);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState<string[]>(DEFAULT_SUGGESTIONS);
   const [metrics, setMetrics] = useState<CopilotMetrics | null>(null);
+  const [loadingMetrics, setLoadingMetrics] = useState(true);
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
@@ -268,16 +277,77 @@ export default function SalesLeoraCopilotPage() {
     [hasStreamedToken, input, pushToast],
   );
 
+  // Load metrics on page load
+  useEffect(() => {
+    fetchMetrics();
+  }, []);
+
+  const fetchMetrics = async () => {
+    try {
+      setLoadingMetrics(true);
+      const response = await fetch('/api/sales/dashboard');
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Dashboard data:', data);
+        // Transform dashboard data to copilot metrics format
+        // The copilot endpoint returns metrics when called, so we'll populate from there
+        // For now, set placeholders that will update when user asks a question
+        setMetrics({
+          revenueStatus: 'Ask a question to see live data',
+          paceLabel: 'Ask a question to see live data',
+          arpddSummary: 'Ask a question to see live data',
+          atRiskCount: 0,
+          dueSoonCount: 0,
+          hotlist: [],
+        });
+      } else {
+        // If dashboard fails, show friendly message
+        setMetrics({
+          revenueStatus: 'Ask a question',
+          paceLabel: 'Ask a question',
+          arpddSummary: 'Ask a question',
+          atRiskCount: 0,
+          dueSoonCount: 0,
+          hotlist: [],
+        });
+      }
+    } catch (error) {
+      console.error('Failed to load metrics:', error);
+      // Set friendly fallback
+      setMetrics({
+        revenueStatus: 'Ask a question',
+        paceLabel: 'Ask a question',
+        arpddSummary: 'Ask a question',
+        atRiskCount: 0,
+        dueSoonCount: 0,
+        hotlist: [],
+      });
+    } finally {
+      setLoadingMetrics(false);
+    }
+  };
+
   const hotlist = useMemo(() => metrics?.hotlist ?? [], [metrics]);
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setInput(suggestion);
+    // Auto-submit the question
+    setTimeout(() => {
+      const form = document.querySelector('form');
+      if (form) {
+        form.requestSubmit();
+      }
+    }, 100);
+  };
 
   return (
     <main className="mx-auto flex max-w-5xl flex-col gap-8">
       <header className="flex flex-col gap-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">Leora Copilot</p>
-        <h1 className="text-3xl font-semibold text-gray-900">Ask what's happening.</h1>
+        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">LeorAI</p>
+        <h1 className="text-3xl font-semibold text-gray-900">Smart Answers, Fast Action</h1>
         <p className="max-w-2xl text-sm text-gray-600">
-          Copilot blends Supabase metrics with GPT-4o-mini. Ask about cadence risks, revenue shifts, or
-          follow-ups and you'll get grounded answers you can act on.
+          Stop digging through spreadsheets. Start asking questions. Which customers need attention this week? What's driving my revenue? Who should I call today? LeorAI connects your sales data with AI to surface the insights that matter—so you can spend less time analyzing and more time selling.
         </p>
       </header>
 
@@ -357,50 +427,57 @@ export default function SalesLeoraCopilotPage() {
 
         <aside className="space-y-6">
           <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-            <h2 className="text-sm font-semibold text-gray-900">Live metrics</h2>
-            <dl className="mt-4 space-y-2 text-sm text-gray-700">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-sm font-semibold text-gray-900">Live metrics</h2>
+              <button
+                onClick={fetchMetrics}
+                disabled={loadingMetrics}
+                className="text-xs text-gray-500 hover:text-gray-700 disabled:opacity-50"
+                title="Refresh metrics"
+              >
+                {loadingMetrics ? "Loading..." : "↻ Refresh"}
+              </button>
+            </div>
+            <dl className="space-y-2 text-sm text-gray-700">
               <div className="flex justify-between">
                 <dt>Pace</dt>
-                <dd>{metrics?.paceLabel ?? "—"}</dd>
+                <dd className="font-medium">{loadingMetrics ? "..." : (metrics?.paceLabel ?? "—")}</dd>
               </div>
               <div className="flex justify-between">
                 <dt>Revenue</dt>
-                <dd>{metrics?.revenueStatus ?? "—"}</dd>
+                <dd className="font-medium">{loadingMetrics ? "..." : (metrics?.revenueStatus ?? "—")}</dd>
               </div>
               <div className="flex justify-between">
                 <dt>ARPDD</dt>
-                <dd>{metrics?.arpddSummary ?? "—"}</dd>
+                <dd className="font-medium">{loadingMetrics ? "..." : (metrics?.arpddSummary ?? "—")}</dd>
               </div>
               <div className="flex justify-between">
                 <dt>Due soon</dt>
-                <dd>{metrics?.dueSoonCount ?? 0}</dd>
+                <dd className="font-medium text-orange-600">{loadingMetrics ? "..." : (metrics?.dueSoonCount ?? 0)}</dd>
               </div>
               <div className="flex justify-between">
                 <dt>At risk</dt>
-                <dd>{metrics?.atRiskCount ?? 0}</dd>
+                <dd className="font-medium text-red-600">{loadingMetrics ? "..." : (metrics?.atRiskCount ?? 0)}</dd>
               </div>
             </dl>
           </section>
 
           <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-            <h2 className="text-sm font-semibold text-gray-900">Follow-up ideas</h2>
-            {suggestions.length === 0 ? (
-              <p className="mt-2 text-xs text-gray-500">Ask a question to see tailored prompts.</p>
-            ) : (
-              <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                {suggestions.map((suggestion) => (
-                  <li key={suggestion}>
-                    <button
-                      type="button"
-                      className="text-left text-gray-700 underline decoration-dotted underline-offset-2 hover:text-gray-900"
-                      onClick={() => setInput(suggestion)}
-                    >
-                      {suggestion}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+            <h2 className="text-sm font-semibold text-gray-900">Quick Questions</h2>
+            <p className="mt-1 text-xs text-gray-500">Click any question to ask LeorAI</p>
+            <ul className="mt-3 space-y-2">
+              {suggestions.map((suggestion) => (
+                <li key={suggestion}>
+                  <button
+                    type="button"
+                    className="w-full text-left text-sm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md px-3 py-2 transition-colors border border-transparent hover:border-gray-200"
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </section>
 
           <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
