@@ -121,7 +121,7 @@ export async function GET(request: NextRequest) {
           const ytdRevenueValue = Number(ytdRevenue._sum.total ?? 0);
           const annualQuota = Number(rep.annualRevenueQuota ?? 0);
           const quotaAchievementPercent =
-            annualQuota > 0 ? (ytdRevenueValue / annualQuota) * 100 : 0;
+            Number(annualQuota) > 0 ? (ytdRevenueValue / annualQuota) * 100 : 0;
 
           return {
             id: rep.id,

@@ -91,7 +91,7 @@ export async function GET(
 
       const ytdRevenue = Number(ytdStats._sum.total ?? 0);
       const annualQuota = Number(salesRep.annualRevenueQuota ?? 0);
-      const annualQuotaPercent = annualQuota > 0 ? (ytdRevenue / annualQuota) * 100 : 0;
+      const annualQuotaPercent = Number(annualQuota) > 0 ? (ytdRevenue / annualQuota) * 100 : 0;
 
       return NextResponse.json({
         rep: {

@@ -86,9 +86,9 @@ export async function POST(request: NextRequest) {
             },
           });
 
-          const ytdRevenue = ytdMetrics._sum.revenue || 0;
-          const annualQuota = rep.annualRevenueQuota || 0;
-          const quotaAchievement = annualQuota > 0 ? (Number(ytdRevenue) / Number(annualQuota)) * 100 : 0;
+          const ytdRevenue = Number(ytdMetrics._sum.revenue || 0);
+          const annualQuota = Number(rep.annualRevenueQuota || 0);
+          const quotaAchievement = annualQuota > 0 ? (ytdRevenue / annualQuota) * 100 : 0;
 
           return {
             'Sales Rep ID': rep.id,
