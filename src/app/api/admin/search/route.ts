@@ -31,11 +31,11 @@ export async function GET(request: NextRequest) {
         take: 5,
       }),
 
-      // Search orders
+      // Search orders (UUID can't use contains, use startsWith or equals)
       db.order.findMany({
         where: {
           tenantId,
-          id: { contains: query, mode: 'insensitive' },
+          id: { startsWith: query },
         },
         select: {
           id: true,
