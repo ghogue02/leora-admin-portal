@@ -1,0 +1,95 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { withAdminSession } from '@/lib/auth/admin';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+/**
+ * POST /api/admin/data-integrity/fix/assign-sales-reps
+ * Bulk assign sales rep to customers
+ */
+export async function POST(request: NextRequest) {
+  return withAdminSession(request, async ({ tenantId, user }) => {
+    try {
+      const body = await request.json();
+      const { customerIds, salesRepId } = body;
+
+      if (!customerIds || !Array.isArray(customerIds) || customerIds.length === 0) {
+        return NextResponse.json(
+          { success: false, error: 'customerIds array is required' },
+          { status: 400 }
+        );
+      }
+
+      if (!salesRepId) {
+        return NextResponse.json(
+          { success: false, error: 'salesRepId is required' },
+          { status: 400 }
+        );
+      }
+
+      // Verify sales rep exists
+      const salesRep = await prisma.salesRep.findUnique({
+        where: { id: salesRepId },
+        select: {
+          id: true,
+          user: {
+            select: {
+              fullName: true,
+            },
+          },
+        },
+      });
+
+      if (!salesRep) {
+        return NextResponse.json(
+          { success: false, error: 'Sales rep not found' },
+          { status: 404 }
+        );
+      }
+
+      // Update customers
+      const result = await prisma.customer.updateMany({
+        where: {
+          tenantId,
+          id: { in: customerIds },
+        },
+        data: {
+          salesRepId,
+        },
+      });
+
+      // Log to audit
+      await prisma.auditLog.create({
+        data: {
+          tenantId,
+          userId,
+          entityType: 'Customer',
+          entityId: salesRepId,
+          action: 'BULK_ASSIGN_SALES_REP',
+          changes: {
+            customerIds,
+            salesRepId,
+            salesRepName: salesRep.user.fullName,
+            count: result.count,
+          },
+        },
+      });
+
+      return NextResponse.json({
+        success: true,
+        data: {
+          updatedCount: result.count,
+          salesRepName: salesRep.user.fullName,
+        },
+        message: `Assigned ${result.count} customer(s) to ${salesRep.user.fullName}`,
+      });
+    } catch (error) {
+      console.error('[Fix API] Error assigning sales reps:', error);
+      return NextResponse.json(
+        { success: false, error: 'Failed to assign sales reps' },
+        { status: 500 }
+      );
+    }
+  });
+}

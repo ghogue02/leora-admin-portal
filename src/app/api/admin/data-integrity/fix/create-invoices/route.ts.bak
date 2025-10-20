@@ -1,0 +1,95 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { withAdminSession } from '@/lib/auth/admin';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+/**
+ * POST /api/admin/data-integrity/fix/create-invoices
+ * Batch create invoices for fulfilled orders
+ */
+export async function POST(request: NextRequest) {
+  return withAdminSession(request, async ({ tenantId, user }) => {
+    try {
+      const body = await request.json();
+      const { orderIds } = body;
+
+      if (!orderIds || !Array.isArray(orderIds) || orderIds.length === 0) {
+        return NextResponse.json(
+          { success: false, error: 'orderIds array is required' },
+          { status: 400 }
+        );
+      }
+
+      // Get orders
+      const orders = await prisma.order.findMany({
+        where: {
+          tenantId,
+          id: { in: orderIds },
+          status: 'FULFILLED',
+        },
+        select: {
+          id: true,
+          customerId: true,
+          total: true,
+          orderedAt: true,
+        },
+      });
+
+      if (orders.length === 0) {
+        return NextResponse.json(
+          { success: false, error: 'No valid fulfilled orders found' },
+          { status: 404 }
+        );
+      }
+
+      // Create invoices in transaction
+      const createdInvoices = await prisma.$transaction(
+        orders.map(order =>
+          prisma.invoice.create({
+            data: {
+              tenantId,
+              orderId: order.id,
+              customerId: order.customerId,
+              status: 'DRAFT',
+              subtotal: order.total || 0,
+              total: order.total || 0,
+              issuedAt: order.orderedAt || new Date(),
+            },
+          })
+        )
+      );
+
+      // Log to audit
+      await prisma.auditLog.create({
+        data: {
+          tenantId,
+          userId,
+          entityType: 'Invoice',
+          entityId: tenantId,
+          action: 'BULK_CREATE_INVOICES',
+          changes: {
+            orderIds,
+            invoiceIds: createdInvoices.map(inv => inv.id),
+            count: createdInvoices.length,
+          },
+        },
+      });
+
+      return NextResponse.json({
+        success: true,
+        data: {
+          createdCount: createdInvoices.length,
+          invoiceIds: createdInvoices.map(inv => inv.id),
+        },
+        message: `Created ${createdInvoices.length} invoice(s)`,
+      });
+    } catch (error) {
+      console.error('[Fix API] Error creating invoices:', error);
+      return NextResponse.json(
+        { success: false, error: 'Failed to create invoices' },
+        { status: 500 }
+      );
+    }
+  });
+}
