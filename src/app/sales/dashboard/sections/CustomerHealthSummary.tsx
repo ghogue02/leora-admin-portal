@@ -1,6 +1,8 @@
 'use client';
 
 import Link from "next/link";
+import { DashboardTile } from "@/components/dashboard/DashboardTile";
+import type { DashboardDrilldownType } from "@/types/drilldown";
 
 type CustomerHealthSummaryProps = {
   customerHealth: {
@@ -11,33 +13,38 @@ type CustomerHealthSummaryProps = {
     closed: number;
     total: number;
   };
+  onDrilldown?: (type: DashboardDrilldownType) => void;
 };
 
-export default function CustomerHealthSummary({ customerHealth }: CustomerHealthSummaryProps) {
+export default function CustomerHealthSummary({ customerHealth, onDrilldown }: CustomerHealthSummaryProps) {
   const healthCards = [
     {
       label: "Healthy",
       count: customerHealth.healthy,
       color: "border-green-200 bg-green-50 text-green-900",
       description: "On track with ordering cadence",
+      drilldownType: 'healthy-customers' as DashboardDrilldownType,
     },
     {
       label: "At Risk (Cadence)",
       count: customerHealth.atRiskCadence,
       color: "border-amber-200 bg-amber-50 text-amber-900",
       description: "Ordering frequency declining",
+      drilldownType: 'at-risk-cadence' as DashboardDrilldownType,
     },
     {
       label: "At Risk (Revenue)",
       count: customerHealth.atRiskRevenue,
       color: "border-orange-200 bg-orange-50 text-orange-900",
       description: "Revenue down 15%+",
+      drilldownType: 'at-risk-revenue' as DashboardDrilldownType,
     },
     {
       label: "Dormant",
       count: customerHealth.dormant,
       color: "border-rose-200 bg-rose-50 text-rose-900",
       description: "45+ days no order",
+      drilldownType: 'dormant-customers' as DashboardDrilldownType,
     },
   ];
 
@@ -47,14 +54,19 @@ export default function CustomerHealthSummary({ customerHealth }: CustomerHealth
     : 0;
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900">Customer Health Summary</h3>
-          <p className="text-xs text-gray-500">
-            Account status across your {customerHealth.total} active customers
-          </p>
-        </div>
+    <DashboardTile
+      drilldownType="customer-health"
+      title="Customer Health Summary"
+      onClick={() => onDrilldown?.('customer-health')}
+    >
+      <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">Customer Health Summary</h3>
+            <p className="text-xs text-gray-500">
+              Account status across your {customerHealth.total} active customers
+            </p>
+          </div>
         <Link
           href="/sales/customers"
           className="text-xs font-semibold text-gray-600 underline decoration-dotted underline-offset-4 transition hover:text-gray-900"
@@ -65,14 +77,18 @@ export default function CustomerHealthSummary({ customerHealth }: CustomerHealth
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {healthCards.map((card) => (
-          <div
+          <DashboardTile
             key={card.label}
-            className={`rounded-lg border p-4 ${card.color}`}
+            drilldownType={card.drilldownType}
+            title={card.label}
+            onClick={() => onDrilldown?.(card.drilldownType)}
           >
-            <p className="text-xs font-semibold uppercase tracking-wide">{card.label}</p>
-            <p className="mt-2 text-3xl font-bold">{card.count}</p>
-            <p className="mt-1 text-xs opacity-75">{card.description}</p>
-          </div>
+            <div className={`rounded-lg border p-4 ${card.color}`}>
+              <p className="text-xs font-semibold uppercase tracking-wide">{card.label}</p>
+              <p className="mt-2 text-3xl font-bold">{card.count}</p>
+              <p className="mt-1 text-xs opacity-75">{card.description}</p>
+            </div>
+          </DashboardTile>
         ))}
       </div>
 
@@ -104,5 +120,6 @@ export default function CustomerHealthSummary({ customerHealth }: CustomerHealth
         )}
       </div>
     </section>
+    </DashboardTile>
   );
 }

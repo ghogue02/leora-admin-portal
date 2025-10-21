@@ -13,6 +13,9 @@ import AssignedTasks from "./sections/AssignedTasks";
 import Incentives from "./sections/Incentives";
 import { SkeletonDashboard } from "../_components/SkeletonLoader";
 import { Button } from "../_components/Button";
+import { DashboardTile } from "@/components/dashboard/DashboardTile";
+import { DrilldownModal } from "@/components/dashboard/DrilldownModal";
+import type { DashboardDrilldownType } from "@/types/drilldown";
 
 type DashboardData = {
   salesRep: {
@@ -120,6 +123,7 @@ export default function SalesDashboardPage() {
     loading: true,
     error: null,
   });
+  const [activeDrilldown, setActiveDrilldown] = useState<DashboardDrilldownType | null>(null);
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
@@ -187,7 +191,11 @@ export default function SalesDashboardPage() {
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
-      <PerformanceMetrics salesRep={salesRep} metrics={metrics} />
+      <PerformanceMetrics
+        salesRep={salesRep}
+        metrics={metrics}
+        onDrilldown={setActiveDrilldown}
+      />
 
       {/* Active Incentives & Competitions - TEMPORARILY DISABLED */}
       {/* <Incentives /> */}
@@ -198,7 +206,10 @@ export default function SalesDashboardPage() {
           lastWeekRevenue={metrics.lastWeek.revenue}
           revenueChangePercent={metrics.comparison.revenueChangePercent}
         />
-        <CustomerHealthSummary customerHealth={customerHealth} />
+        <CustomerHealthSummary
+          customerHealth={customerHealth}
+          onDrilldown={setActiveDrilldown}
+        />
       </div>
 
       {/* Product Performance Goals - TEMPORARILY DISABLED */}
@@ -207,7 +218,10 @@ export default function SalesDashboardPage() {
       {/* 7-10 Day Upcoming Calendar - TEMPORARILY DISABLED */}
       {/* <UpcomingCalendar /> */}
 
-      <CustomersDueList customers={customersDue} />
+      <CustomersDueList
+        customers={customersDue}
+        onDrilldown={setActiveDrilldown}
+      />
 
       {/* Tasks Assigned by Manager - TEMPORARILY DISABLED */}
       {/* <AssignedTasks /> */}
@@ -216,6 +230,15 @@ export default function SalesDashboardPage() {
         <UpcomingEvents events={upcomingEvents} />
         <TasksList tasks={tasks} />
       </div>
+
+      {/* Drilldown Modal */}
+      {activeDrilldown && (
+        <DrilldownModal
+          type={activeDrilldown}
+          onClose={() => setActiveDrilldown(null)}
+          apiEndpoint="/api/sales/insights/drilldown"
+        />
+      )}
     </main>
   );
 }

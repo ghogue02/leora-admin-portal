@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { DrilldownModal } from './DrilldownModal';
+import { DrilldownModal } from '@/components/dashboard/DrilldownModal';
+import type { LegacyDrilldownType } from '@/types/drilldown';
 
 type Insights = {
   summary: {
@@ -67,9 +68,7 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(true);
-  const [drilldownType, setDrilldownType] = useState<
-    'top-customers' | 'top-products' | 'customer-risk' | 'monthly-trend' | 'samples' | 'order-status' | 'recent-activity' | null
-  >(null);
+  const [drilldownType, setDrilldownType] = useState<LegacyDrilldownType | null>(null);
 
   useEffect(() => {
     fetchInsights();

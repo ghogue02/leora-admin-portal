@@ -1,6 +1,8 @@
 'use client';
 
 import Link from "next/link";
+import { DashboardTile } from "@/components/dashboard/DashboardTile";
+import type { DashboardDrilldownType } from "@/types/drilldown";
 
 type Customer = {
   id: string;
@@ -14,9 +16,10 @@ type Customer = {
 
 type CustomersDueListProps = {
   customers: Customer[];
+  onDrilldown?: (type: DashboardDrilldownType) => void;
 };
 
-export default function CustomersDueList({ customers }: CustomersDueListProps) {
+export default function CustomersDueList({ customers, onDrilldown }: CustomersDueListProps) {
   if (customers.length === 0) {
     return (
       <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -29,18 +32,23 @@ export default function CustomersDueList({ customers }: CustomersDueListProps) {
   }
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-lg font-semibold text-gray-900">Customers Due to Order</h3>
-          <p className="text-xs text-gray-500">
-            Based on ordering history and expected cadence
-          </p>
+    <DashboardTile
+      drilldownType="customers-due"
+      title="Customers Due to Order"
+      onClick={() => onDrilldown?.('customers-due')}
+    >
+      <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="flex items-center justify-between">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900">Customers Due to Order</h3>
+            <p className="text-xs text-gray-500">
+              Based on ordering history and expected cadence
+            </p>
+          </div>
+          <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700">
+            {customers.length} customer{customers.length === 1 ? "" : "s"}
+          </span>
         </div>
-        <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700">
-          {customers.length} customer{customers.length === 1 ? "" : "s"}
-        </span>
-      </div>
 
       <ul className="mt-4 space-y-3">
         {customers.map((customer) => (
@@ -95,6 +103,7 @@ export default function CustomersDueList({ customers }: CustomersDueListProps) {
         </ul>
       </div>
     </section>
+    </DashboardTile>
   );
 }
 

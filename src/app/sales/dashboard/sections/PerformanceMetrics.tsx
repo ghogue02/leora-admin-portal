@@ -1,5 +1,8 @@
 'use client';
 
+import { DashboardTile } from "@/components/dashboard/DashboardTile";
+import type { DashboardDrilldownType } from "@/types/drilldown";
+
 type PerformanceMetricsProps = {
   salesRep: {
     name: string;
@@ -29,9 +32,10 @@ type PerformanceMetricsProps = {
       reactivatedCustomers: number;
     } | null;
   };
+  onDrilldown?: (type: DashboardDrilldownType) => void;
 };
 
-export default function PerformanceMetrics({ salesRep, metrics }: PerformanceMetricsProps) {
+export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: PerformanceMetricsProps) {
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -63,28 +67,40 @@ export default function PerformanceMetrics({ salesRep, metrics }: PerformanceMet
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div className={`rounded-lg border p-6 shadow-sm ${quotaProgressColor}`}>
-          <p className="text-xs font-medium uppercase tracking-widest">Weekly Quota Progress</p>
-          <p className="mt-2 text-3xl font-semibold">
-            {metrics.currentWeek.quotaProgress.toFixed(0)}%
-          </p>
-          <p className="mt-2 text-xs">
-            {formatCurrency(metrics.currentWeek.revenue)} of {formatCurrency(salesRep.weeklyQuota)}
-          </p>
-        </div>
+        <DashboardTile
+          drilldownType="weekly-quota"
+          title="Weekly Quota Progress"
+          onClick={() => onDrilldown?.('weekly-quota')}
+        >
+          <div className={`rounded-lg border p-6 shadow-sm ${quotaProgressColor}`}>
+            <p className="text-xs font-medium uppercase tracking-widest">Weekly Quota Progress</p>
+            <p className="mt-2 text-3xl font-semibold">
+              {metrics.currentWeek.quotaProgress.toFixed(0)}%
+            </p>
+            <p className="mt-2 text-xs">
+              {formatCurrency(metrics.currentWeek.revenue)} of {formatCurrency(salesRep.weeklyQuota)}
+            </p>
+          </div>
+        </DashboardTile>
 
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-            This Week Revenue
-          </p>
-          <p className="mt-2 text-3xl font-semibold text-gray-900">
-            {formatCurrency(metrics.currentWeek.revenue)}
-          </p>
-          <p className={`mt-2 text-xs font-semibold ${revenueChangeColor}`}>
-            {metrics.comparison.revenueChange >= 0 ? "+" : ""}
-            {metrics.comparison.revenueChangePercent}% vs last week
-          </p>
-        </div>
+        <DashboardTile
+          drilldownType="this-week-revenue"
+          title="This Week Revenue"
+          onClick={() => onDrilldown?.('this-week-revenue')}
+        >
+          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
+              This Week Revenue
+            </p>
+            <p className="mt-2 text-3xl font-semibold text-gray-900">
+              {formatCurrency(metrics.currentWeek.revenue)}
+            </p>
+            <p className={`mt-2 text-xs font-semibold ${revenueChangeColor}`}>
+              {metrics.comparison.revenueChange >= 0 ? "+" : ""}
+              {metrics.comparison.revenueChangePercent}% vs last week
+            </p>
+          </div>
+        </DashboardTile>
 
         <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
           <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
