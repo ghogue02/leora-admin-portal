@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfWeek, endOfWeek, subWeeks, subMonths } from "date-fns";
+import { Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -22,7 +23,13 @@ export async function GET(request: NextRequest) {
         },
       });
 
-      const salesRepFilter = salesRep ? { salesRepId: salesRep.id } : {};
+      // Get customer IDs for this sales rep (if applicable)
+      const salesRepCustomerIds = salesRep
+        ? (await db.customer.findMany({
+            where: { tenantId, salesRepId: salesRep.id },
+            select: { id: true },
+          })).map(c => c.id)
+        : undefined;
 
       // Run all queries in parallel for performance
       const [
@@ -41,7 +48,7 @@ export async function GET(request: NextRequest) {
           by: ['customerId'],
           where: {
             tenantId,
-            customer: salesRepFilter,
+            ...(salesRepCustomerIds ? { customerId: { in: salesRepCustomerIds } } : {}),
             status: { not: 'CANCELLED' },
           },
           _sum: { total: true },
@@ -55,7 +62,7 @@ export async function GET(request: NextRequest) {
           by: ['status'],
           where: {
             tenantId,
-            customer: salesRepFilter,
+            ...(salesRepCustomerIds ? { customerId: { in: salesRepCustomerIds } } : {}),
           },
           _count: { id: true },
         }),
@@ -65,7 +72,7 @@ export async function GET(request: NextRequest) {
           by: ['riskStatus'],
           where: {
             tenantId,
-            ...salesRepFilter,
+            ...(salesRep ? { salesRepId: salesRep.id } : {}),
             isPermanentlyClosed: false,
           },
           _count: { id: true },
@@ -76,10 +83,7 @@ export async function GET(request: NextRequest) {
           by: ['skuId'],
           where: {
             tenantId,
-            order: {
-              customer: salesRepFilter,
-              status: { not: 'CANCELLED' },
-            },
+            ...(salesRepCustomerIds ? { order: { customerId: { in: salesRepCustomerIds }, status: { not: 'CANCELLED' } } } : { order: { status: { not: 'CANCELLED' } } }),
           },
           _sum: { quantity: true },
           _count: { id: true },
@@ -143,7 +147,7 @@ export async function GET(request: NextRequest) {
           FROM "Order"
           WHERE "orderedAt" >= ${sixMonthsAgo}
             AND "tenantId" = ${tenantId}::uuid
-            ${salesRep ? db.$queryRawUnsafe(`AND "customerId" IN (SELECT id FROM "Customer" WHERE "salesRepId" = '${salesRep.id}')`) : db.$queryRawUnsafe('')}
+            ${salesRep && salesRepCustomerIds ? Prisma.sql`AND "customerId" IN (${Prisma.join(salesRepCustomerIds.map(id => Prisma.sql`${id}::uuid`))})` : Prisma.empty}
           GROUP BY DATE_TRUNC('month', "orderedAt")
           ORDER BY month DESC
         `,

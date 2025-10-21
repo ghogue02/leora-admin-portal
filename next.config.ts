@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     // TODO: Fix all type errors and remove this
     ignoreBuildErrors: true,
   },
+  outputFileTracingRoot: require('path').resolve(__dirname, '../'),
 };
 
 export default nextConfig;

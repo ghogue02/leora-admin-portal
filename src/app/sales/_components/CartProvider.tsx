@@ -8,6 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { useCustomer } from "./CustomerProvider";
 
 type CartSku = {
   id: string;
@@ -91,12 +92,20 @@ export default function CartProvider({ children }: { children: React.ReactNode }
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isMutating, setIsMutating] = useState(false);
+  const { customerId } = useCustomer();
 
   const fetchCart = useCallback(async () => {
+    // Don't fetch cart if no customer is selected
+    if (!customerId) {
+      setCart(null);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("/api/sales/cart", { cache: "no-store" }).catch(() => null);
+      const response = await fetch(`/api/sales/cart?customerId=${customerId}`, { cache: "no-store" }).catch(() => null);
 
       // If fetch failed or no response, silently return
       if (!response) {
@@ -128,7 +137,7 @@ export default function CartProvider({ children }: { children: React.ReactNode }
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [customerId]);
 
   useEffect(() => {
     void fetchCart();

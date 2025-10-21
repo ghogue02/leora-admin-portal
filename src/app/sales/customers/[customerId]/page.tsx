@@ -11,6 +11,7 @@ import ActivityTimeline from "./sections/ActivityTimeline";
 import QuickActions from "./sections/QuickActions";
 import OrderHistory from "./sections/OrderHistory";
 import AccountHolds from "./sections/AccountHolds";
+import CustomerContextSetter from "./sections/CustomerContextSetter";
 
 type PageProps = {
   params: Promise<{
@@ -54,6 +55,9 @@ export default async function CustomerDetailPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 pb-12">
+      {/* Set customer context for cart and other features */}
+      <CustomerContextSetter customerId={customerId} />
+
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-sm text-gray-600">
         <Link
