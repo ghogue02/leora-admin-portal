@@ -4,12 +4,12 @@ import { subMonths } from "date-fns";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { skuId: string } }
+  { params }: { params: Promise<{ skuId: string }> }
 ) {
   return withSalesSession(
     request,
     async ({ db, tenantId }) => {
-      const { skuId } = params;
+      const { skuId } = await params;
 
       // Get SKU with product details
       const sku = await db.sku.findFirst({
@@ -109,7 +109,7 @@ export async function GET(
 
         // Top customers for this product
         db.orderLine.groupBy({
-          by: ['order'],
+          by: ['orderId'],
           where: {
             tenantId,
             skuId,
