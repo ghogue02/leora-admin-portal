@@ -286,28 +286,80 @@ export default function SalesLeoraCopilotPage() {
   const fetchMetrics = async () => {
     try {
       setLoadingMetrics(true);
-      const response = await fetch('/api/sales/dashboard');
+      const response = await fetch('/api/sales/dashboard', {
+        credentials: 'include',
+      });
 
       if (response.ok) {
         const data = await response.json();
         console.log('Dashboard data:', data);
-        // Transform dashboard data to copilot metrics format
-        // The copilot endpoint returns metrics when called, so we'll populate from there
-        // For now, set placeholders that will update when user asks a question
+
+        // Transform dashboard data to live metrics format
+        const currentRevenue = data.metrics?.currentWeek?.revenue ?? 0;
+        const lastRevenue = data.metrics?.lastWeek?.revenue ?? 0;
+        const revenueChange = data.metrics?.comparison?.revenueChangePercent ?? '0';
+        const quotaProgress = data.metrics?.currentWeek?.quotaProgress ?? 0;
+
+        // Calculate average order interval from customers due
+        const customersDue = data.customersDue ?? [];
+        const avgInterval = customersDue.length > 0
+          ? Math.round(
+              customersDue.reduce((sum: number, c: any) => sum + (c.averageOrderIntervalDays ?? 0), 0) /
+              customersDue.length
+            )
+          : 0;
+
+        // Build hotlist from at-risk and due-soon customers
+        const atRiskCustomers = customersDue
+          .filter((c: any) => c.riskStatus === 'AT_RISK_CADENCE')
+          .slice(0, 5);
+        const dueSoonCustomers = customersDue
+          .filter((c: any) => c.daysOverdue > 0 || c.riskStatus === 'HEALTHY')
+          .slice(0, 5);
+
         setMetrics({
-          revenueStatus: 'Ask a question to see live data',
-          paceLabel: 'Ask a question to see live data',
-          arpddSummary: 'Ask a question to see live data',
-          atRiskCount: 0,
-          dueSoonCount: 0,
-          hotlist: [],
+          revenueStatus: currentRevenue > lastRevenue
+            ? `+${revenueChange}% vs last week`
+            : revenueChange === '0'
+            ? 'Flat vs last week'
+            : `${revenueChange}% vs last week`,
+          paceLabel: avgInterval > 0
+            ? `~${avgInterval} days avg`
+            : 'No data yet',
+          arpddSummary: quotaProgress > 0
+            ? `${quotaProgress.toFixed(0)}% to quota`
+            : 'No quota set',
+          atRiskCount: data.customerHealth?.atRiskCadence ?? 0,
+          dueSoonCount: customersDue.filter((c: any) => c.daysOverdue > 0).length,
+          hotlist: [
+            ...atRiskCustomers.map((c: any) => ({
+              customerId: c.id,
+              name: c.name,
+              status: 'atRisk' as const,
+              daysSinceLastOrder: c.lastOrderDate
+                ? Math.floor((Date.now() - new Date(c.lastOrderDate).getTime()) / (1000 * 60 * 60 * 24))
+                : 0,
+              averagePace: c.averageOrderIntervalDays ?? 0,
+              lateness: c.daysOverdue ?? 0,
+            })),
+            ...dueSoonCustomers.slice(0, 5 - atRiskCustomers.length).map((c: any) => ({
+              customerId: c.id,
+              name: c.name,
+              status: 'dueSoon' as const,
+              daysSinceLastOrder: c.lastOrderDate
+                ? Math.floor((Date.now() - new Date(c.lastOrderDate).getTime()) / (1000 * 60 * 60 * 24))
+                : 0,
+              averagePace: c.averageOrderIntervalDays ?? 0,
+              lateness: c.daysOverdue ?? 0,
+            })),
+          ],
         });
       } else {
         // If dashboard fails, show friendly message
         setMetrics({
-          revenueStatus: 'Ask a question',
-          paceLabel: 'Ask a question',
-          arpddSummary: 'Ask a question',
+          revenueStatus: 'Unable to load',
+          paceLabel: 'Unable to load',
+          arpddSummary: 'Unable to load',
           atRiskCount: 0,
           dueSoonCount: 0,
           hotlist: [],
@@ -317,9 +369,9 @@ export default function SalesLeoraCopilotPage() {
       console.error('Failed to load metrics:', error);
       // Set friendly fallback
       setMetrics({
-        revenueStatus: 'Ask a question',
-        paceLabel: 'Ask a question',
-        arpddSummary: 'Ask a question',
+        revenueStatus: 'Error loading',
+        paceLabel: 'Error loading',
+        arpddSummary: 'Error loading',
         atRiskCount: 0,
         dueSoonCount: 0,
         hotlist: [],
