@@ -105,9 +105,9 @@ export function DrilldownModal({
           {!loading && !error && data && (
             <div className="space-y-6">
               {/* Summary Stats */}
-              {data.data.summary && (
+              {data.summary && (
                 <div className="grid gap-4 md:grid-cols-4">
-                  {Object.entries(data.data.summary).map(([key, value]) => (
+                  {Object.entries(data.summary).map(([key, value]) => (
                     <div key={key} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                       <p className="text-xs font-medium uppercase text-gray-500">
                         {key.replace(/([A-Z])/g, ' $1').trim()}
@@ -124,67 +124,75 @@ export function DrilldownModal({
                 </div>
               )}
 
-              {/* Data Table */}
-              {data.data.items && data.columns && (
-                <div className="overflow-hidden rounded-lg border border-gray-200">
-                  <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        {data.columns.map((column) => (
-                          <th
-                            key={column.key}
-                            className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
-                          >
-                            {column.label}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-gray-200 bg-white">
-                      {data.data.items.map((item: any, idx: number) => (
-                        <tr key={idx} className="hover:bg-gray-50">
-                          {data.columns.map((column) => (
-                            <td key={column.key} className="whitespace-nowrap px-6 py-4 text-sm text-gray-900">
-                              {column.format
-                                ? column.format(item[column.key])
-                                : item[column.key]}
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
+              {/* Data Display - Render based on what's available in response */}
+              {data.data && (
+                <div className="space-y-6">
+                  {/* Render any arrays of data as tables */}
+                  {Object.entries(data.data).map(([key, value]) => {
+                    // Skip non-array data
+                    if (!Array.isArray(value) || value.length === 0) return null;
 
-              {/* Chart Visualization */}
-              {data.data.chartData && (
-                <div className="rounded-lg border border-gray-200 bg-gray-50 p-6">
-                  <h3 className="mb-4 text-sm font-semibold text-gray-900">Visualization</h3>
-                  {data.data.chartData.type === 'bar' && (
-                    <BarChart data={data.data.chartData.data} />
-                  )}
-                  {data.data.chartData.type === 'line' && (
-                    <LineChart data={data.data.chartData.data} />
-                  )}
-                  {data.data.chartData.type === 'pie' && (
-                    <PieChart data={data.data.chartData.data} />
-                  )}
+                    // Skip certain keys that are better shown differently
+                    if (['insights', 'chartData'].includes(key)) return null;
+
+                    return (
+                      <div key={key} className="overflow-hidden rounded-lg border border-gray-200">
+                        <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
+                          <h3 className="text-sm font-semibold text-gray-900">
+                            {key.replace(/([A-Z])/g, ' $1').trim().replace(/^./, str => str.toUpperCase())}
+                          </h3>
+                        </div>
+                        <div className="overflow-x-auto">
+                          <table className="min-w-full divide-y divide-gray-200">
+                            <thead className="bg-gray-50">
+                              <tr>
+                                {Object.keys(value[0] || {}).map((colKey) => (
+                                  <th
+                                    key={colKey}
+                                    className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                                  >
+                                    {colKey.replace(/([A-Z])/g, ' $1').trim()}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-200 bg-white">
+                              {value.slice(0, 20).map((item: any, idx: number) => (
+                                <tr key={idx} className="hover:bg-gray-50">
+                                  {Object.entries(item).map(([cellKey, cellValue]: [string, any]) => (
+                                    <td key={cellKey} className="px-6 py-4 text-sm text-gray-900">
+                                      {typeof cellValue === 'number' && cellKey.toLowerCase().includes('revenue')
+                                        ? `$${cellValue.toLocaleString()}`
+                                        : typeof cellValue === 'object' && cellValue !== null
+                                        ? JSON.stringify(cellValue)
+                                        : String(cellValue ?? '')}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
 
               {/* Insights/Analysis */}
-              {data.data.insights && (
+              {data.insights && (
                 <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
                   <h3 className="mb-2 text-sm font-semibold text-blue-900">💡 Insights</h3>
-                  <ul className="space-y-2 text-sm text-blue-800">
-                    {data.data.insights.map((insight: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-2">
+                  <div className="space-y-2 text-sm text-blue-800">
+                    {Object.entries(data.insights).map(([key, value]) => (
+                      <div key={key} className="flex items-start gap-2">
                         <span className="mt-0.5 text-blue-600">•</span>
-                        <span>{insight}</span>
-                      </li>
+                        <span>
+                          <strong>{key.replace(/([A-Z])/g, ' $1').trim()}:</strong> {String(value)}
+                        </span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               )}
             </div>

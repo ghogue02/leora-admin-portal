@@ -102,25 +102,37 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           </div>
         </DashboardTile>
 
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-            Unique Customers
-          </p>
-          <p className="mt-2 text-3xl font-semibold text-gray-900">
-            {metrics.currentWeek.uniqueCustomers}
-          </p>
-          <p className="mt-2 text-xs text-gray-500">Orders this week</p>
-        </div>
+        <DashboardTile
+          drilldownType="unique-customers"
+          title="Unique Customers This Week"
+          onClick={() => onDrilldown?.('unique-customers')}
+        >
+          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
+              Unique Customers
+            </p>
+            <p className="mt-2 text-3xl font-semibold text-gray-900">
+              {metrics.currentWeek.uniqueCustomers}
+            </p>
+            <p className="mt-2 text-xs text-gray-500">Orders this week</p>
+          </div>
+        </DashboardTile>
 
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-            Last Week
-          </p>
-          <p className="mt-2 text-3xl font-semibold text-gray-900">
-            {formatCurrency(metrics.lastWeek.revenue)}
-          </p>
-          <p className="mt-2 text-xs text-gray-500">For comparison</p>
-        </div>
+        <DashboardTile
+          drilldownType="last-week-revenue"
+          title="Last Week Revenue"
+          onClick={() => onDrilldown?.('last-week-revenue')}
+        >
+          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
+              Last Week
+            </p>
+            <p className="mt-2 text-3xl font-semibold text-gray-900">
+              {formatCurrency(metrics.lastWeek.revenue)}
+            </p>
+            <p className="mt-2 text-xs text-gray-500">For comparison</p>
+          </div>
+        </DashboardTile>
       </div>
 
       {metrics.weeklyMetrics && (
