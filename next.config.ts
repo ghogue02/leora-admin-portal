@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   eslint: {
@@ -10,7 +11,10 @@ const nextConfig: NextConfig = {
     // TODO: Fix all type errors and remove this
     ignoreBuildErrors: true,
   },
-  outputFileTracingRoot: require('path').resolve(__dirname, '../'),
+  // Only set outputFileTracingRoot in local development
+  ...(process.env.VERCEL ? {} : {
+    outputFileTracingRoot: path.join(__dirname, '../'),
+  }),
 };
 
 export default nextConfig;
