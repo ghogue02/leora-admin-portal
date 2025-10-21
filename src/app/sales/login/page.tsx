@@ -1,14 +1,38 @@
 'use client';
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SalesLoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "checking">("checking");
   const [error, setError] = useState<string | null>(null);
+
+  // Check if already authenticated on mount
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/sales/auth/me", {
+          method: "GET",
+          credentials: "include",
+        });
+
+        if (response.ok) {
+          // Already logged in, redirect to dashboard
+          router.replace("/sales/dashboard");
+          return;
+        }
+      } catch (error) {
+        // Not logged in, continue to login form
+        console.log("Not authenticated, showing login form");
+      }
+      setStatus("idle");
+    };
+
+    void checkAuth();
+  }, [router]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,6 +55,7 @@ export default function SalesLoginPage() {
     try {
       const response = await fetch("/api/sales/auth/login", {
         method: "POST",
+        credentials: "include", // Important: send and receive cookies
         headers: {
           "Content-Type": "application/json",
           "X-Tenant-Slug": process.env.NEXT_PUBLIC_PORTAL_TENANT_SLUG ?? "well-crafted",
@@ -55,6 +80,18 @@ export default function SalesLoginPage() {
       setStatus("error");
     }
   };
+
+  // Show loading while checking authentication
+  if (status === "checking") {
+    return (
+      <main className="mx-auto flex min-h-screen max-w-xl flex-col justify-center gap-6 px-4 py-12">
+        <div className="text-center">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-gray-900"></div>
+          <p className="mt-4 text-sm text-gray-600">Checking authentication...</p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="mx-auto flex min-h-screen max-w-xl flex-col justify-center gap-6 px-4 py-12">
