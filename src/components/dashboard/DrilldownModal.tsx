@@ -29,10 +29,26 @@ export function DrilldownModal({
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch(`${apiEndpoint}?type=${drilldownType}`);
+
+      // Determine correct endpoint based on drill-down type
+      const dashboardTypes = [
+        'weekly-quota', 'this-week-revenue', 'last-week-revenue', 'unique-customers',
+        'customer-health', 'at-risk-cadence', 'at-risk-revenue', 'dormant-customers',
+        'healthy-customers', 'customers-due', 'upcoming-events', 'pending-tasks'
+      ];
+
+      const isDashboardType = dashboardTypes.includes(drilldownType);
+      const endpoint = isDashboardType
+        ? `/api/sales/dashboard/drilldown/${drilldownType}`
+        : `${apiEndpoint}?type=${drilldownType}`;
+
+      const response = await fetch(endpoint, {
+        credentials: 'include',
+      });
 
       if (!response.ok) {
-        throw new Error('Failed to load detailed data');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to load detailed data');
       }
 
       const drilldownData = await response.json();
