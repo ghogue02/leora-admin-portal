@@ -116,8 +116,15 @@ export async function POST(request: NextRequest) {
       Math.floor(SESSION_TTL_MS / 1000)
     );
 
+    // Add debug headers to verify cookie setting
+    response.headers.set('X-Debug-Session-ID', loginData.sessionId.substring(0, 12));
+    response.headers.set('X-Debug-Cookies-Set', 'true');
+    response.headers.set('X-Debug-Secure-Flag', process.env.NODE_ENV === 'production' ? 'true' : 'false');
+
     console.log('✅ [Login] Cookies applied to response');
     console.log('✅ [Login] Session ID:', loginData.sessionId);
+    console.log('✅ [Login] Secure flag:', process.env.NODE_ENV === 'production');
+    console.log('✅ [Login] Cookie count:', response.cookies.getAll().length);
 
     return response;
   } catch (error) {
