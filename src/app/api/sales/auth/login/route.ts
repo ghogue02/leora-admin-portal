@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const { result } = await withTenantFromRequest(request, async (tenantId, db) => {
+    const { result: loginData } = await withTenantFromRequest(request, async (tenantId, db) => {
       // Find user with sales rep profile
       const user = await db.user.findFirst({
         where: {
@@ -51,34 +51,22 @@ export async function POST(request: NextRequest) {
       });
 
       if (!user) {
-        return NextResponse.json(
-          { error: "Invalid email or password." },
-          { status: 401 },
-        );
+        throw new Error("INVALID_CREDENTIALS");
       }
 
       // Check if user has sales rep profile
       if (!user.salesRepProfile) {
-        return NextResponse.json(
-          { error: "User does not have a sales rep profile." },
-          { status: 403 },
-        );
+        throw new Error("NO_SALES_REP_PROFILE");
       }
 
       if (!user.salesRepProfile.isActive) {
-        return NextResponse.json(
-          { error: "Sales rep account is inactive." },
-          { status: 403 },
-        );
+        throw new Error("SALES_REP_INACTIVE");
       }
 
       // Verify password hash
       const isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
       if (!isPasswordValid) {
-        return NextResponse.json(
-          { error: "Invalid email or password." },
-          { status: 401 },
-        );
+        throw new Error("INVALID_CREDENTIALS");
       }
 
       const sessionId = randomUUID();
@@ -94,7 +82,8 @@ export async function POST(request: NextRequest) {
         expiresAt,
       );
 
-      const response = NextResponse.json({
+      // Return data only, not a response object
+      return {
         user: {
           id: user.id,
           email: user.email,
@@ -108,15 +97,54 @@ export async function POST(request: NextRequest) {
           id: sessionId,
           expiresAt: expiresAt.toISOString(),
         },
-      });
-
-      applySalesSessionCookies(response, sessionId, refreshToken, Math.floor(SESSION_TTL_MS / 1000));
-      return response;
+        sessionId,
+        refreshToken,
+      };
     });
 
-    return result;
+    // Create response OUTSIDE the wrapper to ensure cookies are set correctly
+    const response = NextResponse.json({
+      user: loginData.user,
+      session: loginData.session,
+    });
+
+    // Apply cookies to the final response object
+    applySalesSessionCookies(
+      response,
+      loginData.sessionId,
+      loginData.refreshToken,
+      Math.floor(SESSION_TTL_MS / 1000)
+    );
+
+    console.log('✅ [Login] Cookies applied to response');
+    console.log('✅ [Login] Session ID:', loginData.sessionId);
+
+    return response;
   } catch (error) {
-    console.error("Sales login failed:", error);
+    console.error("❌ [Login] Failed:", error);
+
+    // Handle specific error cases
+    if (error instanceof Error) {
+      if (error.message === "INVALID_CREDENTIALS") {
+        return NextResponse.json(
+          { error: "Invalid email or password." },
+          { status: 401 }
+        );
+      }
+      if (error.message === "NO_SALES_REP_PROFILE") {
+        return NextResponse.json(
+          { error: "User does not have a sales rep profile." },
+          { status: 403 }
+        );
+      }
+      if (error.message === "SALES_REP_INACTIVE") {
+        return NextResponse.json(
+          { error: "Sales rep account is inactive." },
+          { status: 403 }
+        );
+      }
+    }
+
     const message =
       process.env.NODE_ENV === "production" || !(error instanceof Error)
         ? "Unable to authenticate user."

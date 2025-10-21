@@ -114,9 +114,20 @@ export async function withSalesSession(
     console.error("❌ [withSalesSession] Error stack:", error instanceof Error ? error.stack : "No stack");
     console.error("❌ [withSalesSession] Error code:", (error as any).code);
     console.error("❌ [withSalesSession] Error meta:", (error as any).meta);
+    console.error("❌ [withSalesSession] Request URL:", request.url);
+    console.error("❌ [withSalesSession] Session ID was:", sessionId);
+
+    // Provide more specific error message to client
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const isDbError = (error as any).code?.startsWith('P');
+
     return NextResponse.json({
       error: "Unable to validate session.",
-      details: error instanceof Error ? error.message : String(error),
+      details: errorMessage,
+      hint: isDbError
+        ? "Database connection issue. Please check server logs."
+        : "Session may be expired or invalid. Try logging out and back in.",
+      sessionId: sessionId ? "present" : "missing"
     }, { status: 500 });
   }
 }

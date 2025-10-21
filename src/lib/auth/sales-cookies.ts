@@ -26,7 +26,7 @@ export function applySalesSessionCookies(
     secure,
     sameSite: "lax",
     maxAge: maxAgeSeconds * 7,
-    path: "/api/sales/auth",
+    path: "/",
   });
 }
 
