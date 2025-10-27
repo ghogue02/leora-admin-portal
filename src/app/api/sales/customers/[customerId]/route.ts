@@ -440,3 +440,93 @@ export async function GET(
     }
   );
 }
+
+/**
+ * PATCH /api/sales/customers/[customerId]
+ * Update customer status (e.g., mark as closed)
+ */
+export async function PATCH(
+  request: NextRequest,
+  context: RouteContext
+) {
+  return withSalesSession(
+    request,
+    async ({ db, tenantId, session }) => {
+      const { customerId } = await context.params;
+      const body = await request.json();
+
+      // Get sales rep profile
+      const salesRep = await db.salesRep.findUnique({
+        where: {
+          tenantId_userId: {
+            tenantId,
+            userId: session.user.id,
+          },
+        },
+      });
+
+      if (!salesRep) {
+        return NextResponse.json(
+          { error: "Sales rep profile not found" },
+          { status: 404 }
+        );
+      }
+
+      // Get customer
+      const customer = await db.customer.findUnique({
+        where: {
+          id: customerId,
+          tenantId,
+        },
+      });
+
+      if (!customer) {
+        return NextResponse.json(
+          { error: "Customer not found" },
+          { status: 404 }
+        );
+      }
+
+      // Verify customer is assigned to this sales rep
+      if (customer.salesRepId !== salesRep.id) {
+        return NextResponse.json(
+          { error: "You do not have access to this customer" },
+          { status: 403 }
+        );
+      }
+
+      // Prepare update data
+      const updateData: any = {};
+
+      if (typeof body.isPermanentlyClosed === "boolean") {
+        updateData.isPermanentlyClosed = body.isPermanentlyClosed;
+
+        if (body.isPermanentlyClosed && body.closedReason) {
+          updateData.closedReason = body.closedReason;
+        }
+      }
+
+      // Update customer
+      const updatedCustomer = await db.customer.update({
+        where: { id: customerId },
+        data: updateData,
+        include: {
+          salesRep: {
+            include: {
+              user: {
+                select: {
+                  fullName: true,
+                },
+              },
+            },
+          },
+        },
+      });
+
+      return NextResponse.json({
+        customer: updatedCustomer,
+        message: "Customer updated successfully"
+      });
+    }
+  );
+}

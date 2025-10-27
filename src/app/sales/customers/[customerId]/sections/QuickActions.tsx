@@ -19,13 +19,13 @@ export default function QuickActions({
   const [isLoading, setIsLoading] = useState(false);
 
   const handleAddOrder = () => {
-    // TODO: Implement order creation modal/page
-    alert("Add Order feature coming soon!");
+    // Navigate to cart page - customer context will be preserved via session
+    router.push("/sales/cart");
   };
 
   const handleAddToDo = () => {
-    // TODO: Implement task creation modal/page
-    alert("Add To-Do feature coming soon!");
+    // Navigate to tasks page with customer filter
+    router.push(`/sales/tasks?customerId=${customerId}`);
   };
 
   const handleMarkClosed = async () => {
@@ -34,15 +34,34 @@ export default function QuickActions({
     }
 
     const reason = prompt("Please provide a reason for closing this account:");
-    if (!reason) return;
+    if (!reason?.trim()) {
+      alert("A reason is required to close the account.");
+      return;
+    }
 
     setIsLoading(true);
     try {
-      // TODO: Implement close customer API endpoint
-      alert("Mark Closed feature coming soon!");
+      const response = await fetch(`/api/sales/customers/${customerId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          isPermanentlyClosed: true,
+          closedReason: reason.trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Failed to close customer account");
+      }
+
+      alert("Customer account has been marked as permanently closed.");
+      router.refresh();
     } catch (error) {
       console.error("Error closing customer:", error);
-      alert("Failed to close customer account");
+      alert(error instanceof Error ? error.message : "Failed to close customer account");
     } finally {
       setIsLoading(false);
     }
