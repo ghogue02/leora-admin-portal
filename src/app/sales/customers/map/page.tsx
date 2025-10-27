@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { CustomerRiskStatus } from "@prisma/client";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { formatCurrency } from "@/lib/utils/format";
 
 // Initialize Mapbox
 if (typeof window !== "undefined") {
@@ -33,9 +34,21 @@ export default function CustomerMapPage() {
   useEffect(() => {
     async function loadCustomers() {
       try {
+        // Check for Mapbox token
+        if (!mapboxgl.accessToken) {
+          throw new Error("Mapbox token not configured. Please add NEXT_PUBLIC_MAPBOX_TOKEN to your .env.local file.");
+        }
+
         const response = await fetch("/api/sales/customers/map");
         if (!response.ok) throw new Error("Failed to load customer locations");
         const data = await response.json();
+
+        if (!data.customers || data.customers.length === 0) {
+          setError("No customers with geocoded locations found. Customers need latitude/longitude coordinates to appear on the map.");
+          setLoading(false);
+          return;
+        }
+
         setCustomers(data.customers || []);
       } catch (err) {
         setError(err instanceof Error ? err.message : "Unknown error");
@@ -91,12 +104,14 @@ export default function CustomerMapPage() {
       el.style.boxShadow = "0 2px 4px rgba(0,0,0,0.3)";
 
       // Create popup
+      const ytdRevenue = formatCurrency(customer.ytdRevenue);
+
       const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
         <div class="p-2">
           <h3 class="font-semibold text-gray-900">${customer.name}</h3>
           <p class="text-sm text-gray-600">${customer.city}, ${customer.state}</p>
           <p class="text-sm font-semibold text-gray-900 mt-1">
-            YTD Revenue: $${customer.ytdRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            YTD Revenue: ${ytdRevenue}
           </p>
           <p class="text-xs text-gray-500 mt-1">Status: ${customer.riskStatus.replace(/_/g, " ")}</p>
           <a href="/sales/customers/${customer.id}" class="text-sm text-blue-600 hover:underline mt-2 inline-block">
@@ -192,10 +207,49 @@ export default function CustomerMapPage() {
   };
 
   if (error) {
+    const isMapboxError = error.includes("Mapbox token");
+    const isNoDataError = error.includes("No customers");
+
     return (
       <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
-        <div className="rounded-lg border border-red-200 bg-red-50 p-6">
-          <p className="text-sm text-red-700">{error}</p>
+        <header>
+          <h1 className="text-3xl font-semibold text-gray-900">Customer Map</h1>
+          <p className="mt-1 text-sm text-gray-600">
+            Geographic view of all customers with health status and revenue
+          </p>
+        </header>
+
+        <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-6">
+          <h3 className="font-semibold text-yellow-900">
+            {isMapboxError ? "⚠️ Map Configuration Required" : isNoDataError ? "📍 No Customer Locations" : "❌ Error"}
+          </h3>
+          <p className="mt-2 text-sm text-yellow-700">{error}</p>
+
+          {isMapboxError && (
+            <div className="mt-4 rounded-md bg-white p-4 text-sm">
+              <p className="font-medium text-gray-900">To enable the map:</p>
+              <ol className="mt-2 ml-4 list-decimal space-y-1 text-gray-700">
+                <li>Sign up for a free Mapbox account at <a href="https://www.mapbox.com" target="_blank" className="text-blue-600 hover:underline">mapbox.com</a></li>
+                <li>Get your public access token</li>
+                <li>Add to <code className="rounded bg-gray-100 px-1 py-0.5">web/.env.local</code>:</li>
+              </ol>
+              <pre className="mt-2 rounded-md bg-gray-900 p-3 text-xs text-green-400">
+                NEXT_PUBLIC_MAPBOX_TOKEN=your_token_here
+              </pre>
+              <p className="mt-2 text-xs text-gray-600">Then restart your dev server</p>
+            </div>
+          )}
+
+          {isNoDataError && (
+            <div className="mt-4 rounded-md bg-white p-4 text-sm">
+              <p className="font-medium text-gray-900">Customers need geocoded addresses:</p>
+              <ul className="mt-2 ml-4 list-disc space-y-1 text-gray-700">
+                <li>Customer addresses must have latitude/longitude coordinates</li>
+                <li>Use the geocoding API to add coordinates to customer addresses</li>
+                <li>Or manually add coordinates to customer records</li>
+              </ul>
+            </div>
+          )}
         </div>
       </main>
     );

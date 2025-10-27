@@ -6,6 +6,7 @@ import type {
   DrilldownData,
   DrilldownModalProps,
 } from '@/types/drilldown';
+import { formatCurrency, formatNumber, formatPercentage } from '@/lib/utils/format';
 
 // Helper function to get appropriate icon for insight
 function getInsightIcon(key: string, value: any): string {
@@ -251,30 +252,49 @@ export function DrilldownModal({
               {/* Summary Stats */}
               {data.summary && (
                 <div className="grid gap-4 md:grid-cols-4">
-                  {Object.entries(data.summary).map(([key, value]) => (
-                    <div key={key} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                      <p className="text-xs font-medium uppercase text-gray-500">
-                        {key.replace(/([A-Z])/g, ' $1').trim()}
-                      </p>
-                      <div className="mt-1">
-                        {typeof value === 'number' && key.toLowerCase().includes('revenue') ? (
-                          <p className="text-2xl font-bold text-gray-900">${value.toLocaleString()}</p>
-                        ) : typeof value === 'number' ? (
-                          <p className="text-2xl font-bold text-gray-900">{value.toLocaleString()}</p>
-                        ) : typeof value === 'object' && value !== null ? (
-                          <div className="space-y-1">
-                            {Object.entries(value).map(([k, v]) => (
-                              <div key={k} className="text-sm">
-                                <span className="font-semibold">{k}:</span> {String(v)}
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <p className="text-2xl font-bold text-gray-900">{String(value)}</p>
-                        )}
+                  {Object.entries(data.summary).map(([key, value]) => {
+                    const keyLabel = key.replace(/([A-Z])/g, ' $1').trim();
+                    const keyLower = key.toLowerCase();
+
+                    const formattedNumber = (numericValue: number): string => {
+                      if (keyLower.includes('revenue') || keyLower.includes('amount') || keyLower.includes('value')) {
+                        return formatCurrency(numericValue);
+                      }
+
+                      if (
+                        keyLower.includes('percent') ||
+                        keyLower.includes('rate') ||
+                        keyLower.includes('ratio') ||
+                        keyLower.includes('conversion')
+                      ) {
+                        return formatPercentage(numericValue);
+                      }
+
+                      return formatNumber(numericValue);
+                    };
+
+                    return (
+                      <div key={key} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                        <p className="text-xs font-medium uppercase text-gray-500">{keyLabel}</p>
+                        <div className="mt-1">
+                          {typeof value === 'number' ? (
+                            <p className="text-2xl font-bold text-gray-900">{formattedNumber(value)}</p>
+                          ) : typeof value === 'object' && value !== null ? (
+                            <div className="space-y-1">
+                              {Object.entries(value).map(([k, v]) => (
+                                <div key={k} className="text-sm">
+                                  <span className="font-semibold">{formatInsightKey(k)}:</span>{' '}
+                                  {typeof v === 'number' ? formattedNumber(v) : String(v)}
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
+                            <p className="text-2xl font-bold text-gray-900">{String(value)}</p>
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
 
@@ -284,11 +304,18 @@ export function DrilldownModal({
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <span className="font-medium">📊 Data Coverage:</span>
                     <span>{data.metadata.dataCompleteness.message}</span>
-                    {data.metadata.dataCompleteness.showing && data.metadata.dataCompleteness.total && (
-                      <span className="ml-auto text-xs text-gray-500">
-                        ({((Number(data.metadata.dataCompleteness.showing) / Number(data.metadata.dataCompleteness.total)) * 100).toFixed(0)}% complete)
-                      </span>
-                    )}
+                    {data.metadata.dataCompleteness.showing &&
+                      data.metadata.dataCompleteness.total && (
+                        <span className="ml-auto text-xs text-gray-500">
+                          (
+                          {formatPercentage(
+                            (Number(data.metadata.dataCompleteness.showing) /
+                              Number(data.metadata.dataCompleteness.total)) *
+                              100
+                          )}{' '}
+                          complete)
+                        </span>
+                      )}
                   </div>
                 </div>
               )}
@@ -328,23 +355,50 @@ export function DrilldownModal({
                             <tbody className="divide-y divide-gray-200 bg-white">
                               {value.slice(0, 20).map((item: any, idx: number) => (
                                 <tr key={idx} className="hover:bg-gray-50">
-                                  {Object.entries(item).map(([cellKey, cellValue]: [string, any]) => (
-                                    <td key={cellKey} className="px-6 py-4 text-sm text-gray-900">
-                                      {typeof cellValue === 'number' && cellKey.toLowerCase().includes('revenue')
-                                        ? `$${cellValue.toLocaleString()}`
-                                        : typeof cellValue === 'object' && cellValue !== null
-                                        ? (
+                                  {Object.entries(item).map(([cellKey, cellValue]: [string, any]) => {
+                                    const cellKeyLower = cellKey.toLowerCase();
+                                    const formatCellNumber = (numericValue: number): string => {
+                                      if (
+                                        cellKeyLower.includes('revenue') ||
+                                        cellKeyLower.includes('amount') ||
+                                        cellKeyLower.includes('total') ||
+                                        cellKeyLower.includes('value')
+                                      ) {
+                                        return formatCurrency(numericValue);
+                                      }
+
+                                      if (
+                                        cellKeyLower.includes('percent') ||
+                                        cellKeyLower.includes('rate') ||
+                                        cellKeyLower.includes('ratio')
+                                      ) {
+                                        return formatPercentage(numericValue);
+                                      }
+
+                                      return formatNumber(numericValue);
+                                    };
+
+                                    return (
+                                      <td key={cellKey} className="px-6 py-4 text-sm text-gray-900">
+                                        {typeof cellValue === 'number' ? (
+                                          formatCellNumber(cellValue)
+                                        ) : typeof cellValue === 'object' && cellValue !== null ? (
                                           <div className="space-y-1">
                                             {Object.entries(cellValue).map(([k, v]) => (
                                               <div key={k} className="text-xs">
-                                                <span className="font-semibold">{k}:</span> {String(v)}
+                                                <span className="font-semibold">
+                                                  {formatInsightKey(k)}:
+                                                </span>{' '}
+                                                {typeof v === 'number' ? formatCellNumber(v) : String(v)}
                                               </div>
                                             ))}
                                           </div>
-                                        )
-                                        : String(cellValue ?? '')}
-                                    </td>
-                                  ))}
+                                        ) : (
+                                          String(cellValue ?? '')
+                                        )}
+                                      </td>
+                                    );
+                                  })}
                                 </tr>
                               ))}
                             </tbody>
@@ -426,9 +480,7 @@ function BarChart({ data }: { data: Array<{ label: string; value: number }> }) {
             </div>
           </div>
           <div className="w-24 text-right text-sm font-semibold text-gray-900">
-            {typeof item.value === 'number' && item.value > 1000
-              ? `$${item.value.toLocaleString()}`
-              : item.value}
+            {formatNumber(item.value)}
           </div>
         </div>
       ))}
@@ -458,9 +510,7 @@ function LineChart({ data }: { data: Array<{ label: string; value: number }> }) 
             >
               <div className="relative w-2 flex-1 bg-indigo-600 rounded-t">
                 <div className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-gray-900">
-                  {typeof item.value === 'number' && item.value > 1000
-                    ? `$${(item.value / 1000).toFixed(1)}k`
-                    : item.value}
+                  {formatNumber(item.value)}
                 </div>
               </div>
               <div className="mt-2 text-xs text-gray-600">{item.label}</div>
@@ -482,7 +532,7 @@ function PieChart({ data }: { data: Array<{ label: string; value: number; color?
       {/* Legend */}
       <div className="flex-1 space-y-2">
         {data.map((item, idx) => {
-          const percentage = ((item.value / total) * 100).toFixed(1);
+          const percentage = total > 0 ? Math.round((item.value / total) * 100) : 0;
           return (
             <div key={idx} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
@@ -490,7 +540,7 @@ function PieChart({ data }: { data: Array<{ label: string; value: number; color?
                 <span className="text-sm text-gray-700">{item.label}</span>
               </div>
               <div className="text-sm font-semibold text-gray-900">
-                {percentage}% ({item.value})
+                {percentage}% ({formatNumber(item.value)})
               </div>
             </div>
           );
@@ -500,7 +550,7 @@ function PieChart({ data }: { data: Array<{ label: string; value: number; color?
       {/* Visual representation */}
       <div className="flex h-48 w-48 items-center justify-center rounded-full border-8 border-gray-200 bg-gray-50">
         <div className="text-center">
-          <div className="text-2xl font-bold text-gray-900">{total}</div>
+          <div className="text-2xl font-bold text-gray-900">{formatNumber(total)}</div>
           <div className="text-xs text-gray-500">Total</div>
         </div>
       </div>
