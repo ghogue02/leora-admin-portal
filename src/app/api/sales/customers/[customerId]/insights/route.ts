@@ -41,13 +41,17 @@ export async function GET(request: NextRequest, context: RouteContext) {
         status: { not: "CANCELLED" },
       },
       include: {
-        orderLines: {
+        lines: {
           include: {
-            product: {
-              select: {
-                id: true,
-                name: true,
-                category: true,
+            sku: {
+              include: {
+                product: {
+                  select: {
+                    id: true,
+                    name: true,
+                    category: true,
+                  },
+                },
               },
             },
           },
@@ -119,11 +123,11 @@ export async function GET(request: NextRequest, context: RouteContext) {
       const productCounts = new Map<string, { name: string; count: number }>();
 
       orders.forEach((order) => {
-        order.orderLines.forEach((line) => {
-          if (line.product) {
-            const current = productCounts.get(line.product.id) || { name: line.product.name, count: 0 };
+        order.lines.forEach((line) => {
+          if (line.sku?.product) {
+            const current = productCounts.get(line.sku.product.id) || { name: line.sku.product.name, count: 0 };
             current.count += 1;
-            productCounts.set(line.product.id, current);
+            productCounts.set(line.sku.product.id, current);
           }
         });
       });
@@ -144,7 +148,7 @@ export async function GET(request: NextRequest, context: RouteContext) {
 
       // Find products ordered by similar customers but not this one
       const customerProductIds = new Set(
-        orders.flatMap((o) => o.orderLines.map((l) => l.product?.id).filter(Boolean))
+        orders.flatMap((o) => o.lines.map((l) => l.sku?.product?.id).filter(Boolean))
       );
 
       // This is a simplified version - in production, you'd use more sophisticated similarity matching

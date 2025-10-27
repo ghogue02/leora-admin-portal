@@ -33,11 +33,15 @@ export async function GET(request: NextRequest, context: RouteContext) {
           },
         },
         include: {
-          product: {
-            select: {
-              id: true,
-              name: true,
-              sku: true,
+          sku: {
+            include: {
+              product: {
+                select: {
+                  id: true,
+                  name: true,
+                  sku: true,
+                },
+              },
             },
           },
           order: {
@@ -67,8 +71,8 @@ export async function GET(request: NextRequest, context: RouteContext) {
       >();
 
       for (const line of orderLines) {
-        const productId = line.product?.id || "unknown";
-        const productName = line.product?.name || "Unknown Product";
+        const productId = line.sku?.product?.id || "unknown";
+        const productName = line.sku?.product?.name || "Unknown Product";
         const orderDate = line.order.deliveredAt || line.order.createdAt;
         const revenue = Number(line.quantity) * Number(line.unitPrice);
 
@@ -152,10 +156,14 @@ export async function GET(request: NextRequest, context: RouteContext) {
           },
         },
         include: {
-          product: {
-            select: {
-              id: true,
-              name: true,
+          sku: {
+            include: {
+              product: {
+                select: {
+                  id: true,
+                  name: true,
+                },
+              },
             },
           },
           order: {
@@ -175,8 +183,8 @@ export async function GET(request: NextRequest, context: RouteContext) {
       const productTimeline = new Map<string, { name: string; data: number[] }>();
 
       for (const line of orderLines) {
-        const productId = line.product?.id || "unknown";
-        const productName = line.product?.name || "Unknown Product";
+        const productId = line.sku?.product?.id || "unknown";
+        const productName = line.sku?.product?.name || "Unknown Product";
         const orderDate = line.order.deliveredAt || line.order.createdAt;
         const monthIndex = months.findIndex(
           (m) =>
