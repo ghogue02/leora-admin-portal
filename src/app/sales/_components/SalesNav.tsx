@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { useCart } from "./CartProvider";
+import { ChevronDown } from "lucide-react";
 
 const navigation = [
   { label: "LeorAI", href: "/sales/leora" },
@@ -17,7 +18,12 @@ const navigation = [
   { label: "Cart", href: "/sales/cart" },
   { label: "Manager", href: "/sales/manager", adminOnly: true },
   { label: "Admin", href: "/admin", adminOnly: true },
-  // Account page removed - sales reps don't have personal addresses
+];
+
+const toolsMenu = [
+  { label: "📸 Scan Business Card", href: "/sales/customers/scan-card", description: "Auto-populate customer from card" },
+  { label: "📋 Scan License", href: "/sales/customers/scan-license", description: "Create account from liquor license" },
+  { label: "🗺️ Customer Map", href: "/sales/customers/map", description: "Visual map of all customers" },
 ];
 
 export default function SalesNav() {
@@ -109,6 +115,22 @@ function NavList({
   isLoggingOut: boolean;
   vertical?: boolean;
 }) {
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const toolsRef = useRef<HTMLLIElement>(null);
+
+  // Close tools dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (toolsRef.current && !toolsRef.current.contains(event.target as Node)) {
+        setToolsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const isToolsActive = toolsMenu.some(item => pathname.startsWith(item.href));
+
   return (
     <ul
       className={`text-sm font-medium text-gray-600 ${vertical ? "flex flex-col gap-4" : "flex items-center gap-6"}`}
@@ -137,6 +159,40 @@ function NavList({
           </li>
         );
       })}
+
+      {/* Tools Dropdown */}
+      <li className="relative" ref={toolsRef}>
+        <button
+          type="button"
+          onClick={() => setToolsOpen(!toolsOpen)}
+          className={`flex items-center gap-1 transition hover:text-gray-900 ${
+            isToolsActive ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
+          }`}
+        >
+          Tools
+          <ChevronDown className={`h-3 w-3 transition-transform ${toolsOpen ? 'rotate-180' : ''}`} />
+        </button>
+
+        {toolsOpen && (
+          <div className="absolute right-0 top-full mt-2 w-64 rounded-lg border border-gray-200 bg-white py-2 shadow-lg z-50">
+            {toolsMenu.map((tool) => (
+              <Link
+                key={tool.href}
+                href={tool.href}
+                onClick={() => {
+                  setToolsOpen(false);
+                  onNavigate();
+                }}
+                className="block px-4 py-2 text-sm hover:bg-gray-50 transition"
+              >
+                <div className="font-medium text-gray-900">{tool.label}</div>
+                <div className="text-xs text-gray-500">{tool.description}</div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </li>
+
       <li>
         <button
           type="button"

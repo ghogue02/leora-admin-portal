@@ -189,6 +189,29 @@ export default function SalesCustomersPage() {
             </button>
           </div>
         </div>
+
+        {/* Quick Access Tools */}
+        <div className="flex items-center gap-2">
+          <a
+            href="/sales/customers/map"
+            className="inline-flex items-center gap-2 rounded-md border border-indigo-200 bg-indigo-50 px-3 py-2 text-sm font-medium text-indigo-700 transition hover:bg-indigo-100 hover:border-indigo-300"
+          >
+            🗺️ View Map
+          </a>
+          <a
+            href="/sales/customers/scan-card"
+            className="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:border-gray-300"
+          >
+            📸 Scan Business Card
+          </a>
+          <a
+            href="/sales/customers/scan-license"
+            className="inline-flex items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:border-gray-300"
+          >
+            📋 Scan License
+          </a>
+        </div>
+
         <p className="max-w-2xl text-sm text-gray-600">
           {showAllCustomers
             ? "View and manage all customers across all territories."

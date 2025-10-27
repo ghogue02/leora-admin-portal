@@ -230,7 +230,7 @@ export default function SalesDashboardPage() {
             <HelpCircle className="h-4 w-4" />
             Metric Glossary
           </button>
-          <DashboardCustomizer onPreferencesChange={setDashboardPrefs} />
+          {/* <DashboardCustomizer onPreferencesChange={setDashboardPrefs} /> */}
         </div>
       </div>
 

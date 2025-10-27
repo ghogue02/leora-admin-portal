@@ -3,19 +3,20 @@
 import { useEffect, useState } from 'react';
 import { DrilldownModal } from '@/components/dashboard/DrilldownModal';
 import type { LegacyDrilldownType } from '@/types/drilldown';
+import { formatCurrency, formatNumber, formatPercentage } from '@/lib/utils/format';
 
 type Insights = {
   summary: {
-    totalRevenue: string;
+    totalRevenue: number;
     totalOrders: number;
-    topCustomerRevenue: string;
+    topCustomerRevenue: number;
     topCustomerName: string;
   };
   topCustomers: Array<{
     customerId: string;
     name: string;
     state: string | null;
-    revenue: string;
+    revenue: number;
     orderCount: number;
   }>;
   orderStatuses: Array<{
@@ -41,12 +42,12 @@ type Insights = {
     totalGiven: number;
     events: number;
     converted: number;
-    conversionRate: string;
+    conversionRate: number;
   };
   invoices: Array<{
     status: string;
     count: number;
-    total: string;
+    total: number;
   }>;
   carts: Array<{
     status: string;
@@ -55,7 +56,7 @@ type Insights = {
   monthlyTrend: Array<{
     month: string;
     orders: number;
-    revenue: string;
+    revenue: number;
   }>;
 };
 
@@ -123,6 +124,13 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
   const handleQuestionClick = (question: string) => {
     if (onInsightClick) {
       onInsightClick(question);
+      // Scroll to chat input after a brief delay to show the action
+      setTimeout(() => {
+        const chatInput = document.getElementById('copilot-input');
+        if (chatInput) {
+          chatInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 150);
     }
   };
 
@@ -134,11 +142,12 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
   // Get latest month trend
   const latestMonth = insights.monthlyTrend[0];
   const previousMonth = insights.monthlyTrend[1];
-  const monthlyChange = previousMonth
-    ? ((Number(latestMonth?.revenue ?? 0) - Number(previousMonth.revenue)) /
-        Number(previousMonth.revenue)) *
-      100
+  const latestRevenue = latestMonth?.revenue ?? 0;
+  const previousRevenue = previousMonth?.revenue ?? 0;
+  const monthlyChange = previousRevenue !== 0
+    ? ((latestRevenue - previousRevenue) / previousRevenue) * 100
     : 0;
+  const monthlyChangeLabel = formatPercentage(monthlyChange);
 
   return (
     <div className="space-y-4">
@@ -164,13 +173,13 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
           <div className="rounded-md bg-white/60 p-3 backdrop-blur-sm">
             <p className="text-xs text-gray-500">Total Revenue</p>
             <p className="mt-1 text-lg font-bold text-gray-900">
-              ${Number(insights.summary.totalRevenue).toLocaleString()}
+              {formatCurrency(insights.summary.totalRevenue)}
             </p>
           </div>
           <div className="rounded-md bg-white/60 p-3 backdrop-blur-sm">
             <p className="text-xs text-gray-500">Total Orders</p>
             <p className="mt-1 text-lg font-bold text-gray-900">
-              {insights.summary.totalOrders.toLocaleString()}
+              {formatNumber(insights.summary.totalOrders)}
             </p>
           </div>
           <div className="rounded-md bg-white/60 p-3 backdrop-blur-sm">
@@ -179,12 +188,14 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
               {insights.summary.topCustomerName}
             </p>
             <p className="text-xs text-gray-500">
-              ${Number(insights.summary.topCustomerRevenue).toLocaleString()}
+              {formatCurrency(insights.summary.topCustomerRevenue)}
             </p>
           </div>
           <div className="rounded-md bg-white/60 p-3 backdrop-blur-sm">
             <p className="text-xs text-gray-500">Healthy Customers</p>
-            <p className="mt-1 text-lg font-bold text-green-600">{healthyCustomers}</p>
+            <p className="mt-1 text-lg font-bold text-green-600">
+              {formatNumber(healthyCustomers)}
+            </p>
           </div>
         </div>
 
@@ -193,44 +204,64 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
           {atRiskCustomers > 0 && (
             <button
               onClick={() =>
-                handleQuestionClick(`Tell me about the ${atRiskCustomers} at-risk customers`)
+                handleQuestionClick(
+                  `Tell me about the ${formatNumber(atRiskCustomers)} at-risk customers`
+                )
               }
-              className="rounded-full border border-orange-300 bg-orange-50 px-3 py-1 text-xs font-medium text-orange-700 transition hover:bg-orange-100"
+              className="group rounded-full border border-orange-300 bg-orange-50 px-3 py-1.5 text-xs font-medium text-orange-700 transition hover:bg-orange-100 hover:shadow-md"
+              title="Click to ask LeorAI about at-risk customers"
             >
-              ⚠️ {atRiskCustomers} at risk
+              <span className="flex items-center gap-1.5">
+                ⚠️ {formatNumber(atRiskCustomers)} at risk
+                <span className="text-[10px] opacity-60 group-hover:opacity-100 transition-opacity">→ Ask AI</span>
+              </span>
             </button>
           )}
           {dormantCustomers > 0 && (
             <button
               onClick={() =>
                 handleQuestionClick(
-                  `Show me the ${dormantCustomers} dormant customers and how to reactivate them`
+                  `Show me the ${formatNumber(
+                    dormantCustomers
+                  )} dormant customers and how to reactivate them`
                 )
               }
-              className="rounded-full border border-red-300 bg-red-50 px-3 py-1 text-xs font-medium text-red-700 transition hover:bg-red-100"
+              className="group rounded-full border border-red-300 bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 transition hover:bg-red-100 hover:shadow-md"
+              title="Click to ask LeorAI about dormant customers"
             >
-              💤 {dormantCustomers} dormant
+              <span className="flex items-center gap-1.5">
+                💤 {formatNumber(dormantCustomers)} dormant
+                <span className="text-[10px] opacity-60 group-hover:opacity-100 transition-opacity">→ Ask AI</span>
+              </span>
             </button>
           )}
           {monthlyChange > 0 && (
             <button
               onClick={() =>
                 handleQuestionClick(
-                  `Revenue is up ${monthlyChange.toFixed(1)}% this month - what's driving the growth?`
+                  `Revenue is up ${monthlyChangeLabel} this month - what's driving the growth?`
                 )
               }
-              className="rounded-full border border-green-300 bg-green-50 px-3 py-1 text-xs font-medium text-green-700 transition hover:bg-green-100"
+              className="group rounded-full border border-green-300 bg-green-50 px-3 py-1.5 text-xs font-medium text-green-700 transition hover:bg-green-100 hover:shadow-md"
+              title="Click to ask LeorAI about revenue growth"
             >
-              📈 Up {monthlyChange.toFixed(1)}%
+              <span className="flex items-center gap-1.5">
+                📈 Up {monthlyChangeLabel}
+                <span className="text-[10px] opacity-60 group-hover:opacity-100 transition-opacity">→ Ask AI</span>
+              </span>
             </button>
           )}
           <button
             onClick={() =>
               handleQuestionClick('Which customers should I prioritize calling this week?')
             }
-            className="rounded-full border border-indigo-300 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700 transition hover:bg-indigo-100"
+            className="group rounded-full border border-indigo-300 bg-indigo-50 px-3 py-1.5 text-xs font-medium text-indigo-700 transition hover:bg-indigo-100 hover:shadow-md"
+            title="Click to ask LeorAI who to call"
           >
-            📞 Who to call?
+            <span className="flex items-center gap-1.5">
+              📞 Who to call?
+              <span className="text-[10px] opacity-60 group-hover:opacity-100 transition-opacity">→ Ask AI</span>
+            </span>
           </button>
         </div>
       </div>
@@ -263,9 +294,11 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
                   </div>
                   <div className="text-right">
                     <div className="font-semibold text-gray-900">
-                      ${Number(customer.revenue).toLocaleString()}
+                      {formatCurrency(customer.revenue)}
                     </div>
-                    <div className="text-xs text-gray-500">{customer.orderCount} orders</div>
+                    <div className="text-xs text-gray-500">
+                      {formatNumber(customer.orderCount)} orders
+                    </div>
                   </div>
                 </div>
               ))}
@@ -301,12 +334,16 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
                       )}
                     </div>
                   </div>
-                  <div className="text-right">
-                    <div className="font-semibold text-gray-900">{product.units} units</div>
-                    <div className="text-xs text-gray-500">{product.orderCount} orders</div>
+                    <div className="text-right">
+                      <div className="font-semibold text-gray-900">
+                        {formatNumber(product.units)} units
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {formatNumber(product.orderCount)} orders
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
             <button
               onClick={() => handleQuestionClick('What products should I focus on selling?')}
@@ -333,9 +370,11 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
                   <span className="text-gray-700">{month.month}</span>
                   <div className="text-right">
                     <div className="font-semibold text-gray-900">
-                      ${Number(month.revenue).toLocaleString()}
+                      {formatCurrency(month.revenue)}
                     </div>
-                    <div className="text-xs text-gray-500">{month.orders} orders</div>
+                    <div className="text-xs text-gray-500">
+                      {formatNumber(month.orders)} orders
+                    </div>
                   </div>
                 </div>
               ))}
@@ -362,21 +401,27 @@ export function AutoInsights({ onInsightClick }: AutoInsightsProps) {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-700">Samples Given</span>
-                <span className="font-semibold text-gray-900">{insights.samples.totalGiven}</span>
+                <span className="font-semibold text-gray-900">
+                  {formatNumber(insights.samples.totalGiven)}
+                </span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-700">Sample Events</span>
-                <span className="font-semibold text-gray-900">{insights.samples.events}</span>
+                <span className="font-semibold text-gray-900">
+                  {formatNumber(insights.samples.events)}
+                </span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-700">Converted to Orders</span>
-                <span className="font-semibold text-gray-900">{insights.samples.converted}</span>
+                <span className="font-semibold text-gray-900">
+                  {formatNumber(insights.samples.converted)}
+                </span>
               </div>
               <div className="mt-2 border-t border-gray-200 pt-2">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-medium text-gray-900">Conversion Rate</span>
                   <span className="text-lg font-bold text-indigo-600">
-                    {insights.samples.conversionRate}%
+                    {formatPercentage(insights.samples.conversionRate)}
                   </span>
                 </div>
               </div>
