@@ -7,11 +7,11 @@ import { withSalesSession } from "@/lib/auth/sales";
  */
 export async function POST(
   request: NextRequest,
-  { params }: { params: { customerId: string } }
+  context: { params: Promise<{ customerId: string }> }
 ) {
   return withSalesSession(request, async ({ db, tenantId }) => {
     try {
-      const { customerId } = params;
+      const { customerId } = await context.params;
       const body = await request.json();
       const { tagType, tagValue } = body;
 
@@ -56,7 +56,7 @@ export async function POST(
 
       // Create the tag
       const tag = await db.$executeRaw`
-        INSERT INTO "CustomerTag" ("id", "tenantId", "customerId", "tagType", "tagValue", "createdAt")
+        INSERT INTO "CustomerTag" ("id", "tenantId", "customerId", "tagType", "tagValue", "addedAt")
         VALUES (gen_random_uuid(), ${tenantId}::uuid, ${customerId}::uuid, ${tagType}, ${tagValue}, NOW())
         RETURNING *
       `;
@@ -91,11 +91,11 @@ export async function POST(
  */
 export async function GET(
   request: NextRequest,
-  { params }: { params: { customerId: string } }
+  context: { params: Promise<{ customerId: string }> }
 ) {
   return withSalesSession(request, async ({ db, tenantId }) => {
     try {
-      const { customerId } = params;
+      const { customerId } = await context.params;
 
       // Verify customer exists and belongs to tenant
       const customer = await db.customer.findUnique({
@@ -118,12 +118,12 @@ export async function GET(
           "id",
           "tagType",
           "tagValue",
-          "createdAt"
+          "addedAt"
         FROM "CustomerTag"
         WHERE "tenantId" = ${tenantId}::uuid
         AND "customerId" = ${customerId}::uuid
         AND "removedAt" IS NULL
-        ORDER BY "tagType", "createdAt" DESC
+        ORDER BY "tagType", "addedAt" DESC
       `;
 
       return NextResponse.json({
