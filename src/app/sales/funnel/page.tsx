@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Lead, FunnelStage, PipelineMetrics } from '@/lib/models/Lead';
 import FunnelBoard from '@/components/sales/FunnelBoard';
-import PipelineMetrics from '@/components/sales/PipelineMetrics';
+import PipelineMetricsComponent from '@/components/sales/PipelineMetrics';
 
 export default function FunnelPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
@@ -202,7 +202,7 @@ export default function FunnelPage() {
       {/* Metrics */}
       {showMetrics && metrics && (
         <div className="mb-6">
-          <PipelineMetrics metrics={metrics} />
+          <PipelineMetricsComponent metrics={metrics} />
         </div>
       )}
 
