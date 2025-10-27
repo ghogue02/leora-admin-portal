@@ -41,14 +41,31 @@ export async function GET(request: NextRequest) {
 
       if (!portalUser) {
         // Create a portal user for this customer so they can have a cart
-        portalUser = await db.portalUser.create({
-          data: {
+        // Use upsert to avoid unique constraint errors
+        const customer = await db.customer.findUnique({
+          where: { id: customerId },
+          select: { billingEmail: true, name: true }
+        });
+
+        portalUser = await db.portalUser.upsert({
+          where: {
+            tenantId_email: {
+              tenantId,
+              email: customer?.billingEmail || `portal-${customerId}@temp.local`
+            }
+          },
+          create: {
             tenantId,
             customerId,
-            email: customer.billingEmail ?? `${customer.accountNumber}@placeholder.local`,
-            fullName: customer.name,
+            email: customer?.billingEmail ?? `portal-${customerId}@temp.local`,
+            fullName: customer?.name ?? "Unknown",
             status: "ACTIVE",
           },
+          update: {
+            customerId,
+            fullName: customer?.name ?? "Unknown",
+            status: "ACTIVE",
+          }
         });
       }
 

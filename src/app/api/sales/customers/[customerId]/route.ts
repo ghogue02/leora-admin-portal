@@ -72,16 +72,16 @@ export async function GET(
       const ytdStart = startOfYear(now);
       const sixMonthsAgo = subMonths(now, 6);
 
-      // Fetch all related data in parallel
+      // Fetch all related data in parallel (OPTIMIZED)
       const [
         orders,
         activities,
         samples,
-        topProducts,
+        topProductsRaw,
         companyTopProducts,
         invoices,
       ] = await Promise.all([
-        // Order history with invoice links
+        // Order history with invoice links (LIMITED to 50 most recent)
         db.order.findMany({
           where: {
             tenantId,
@@ -90,16 +90,12 @@ export async function GET(
               not: "CANCELLED",
             },
           },
-          include: {
-            lines: {
-              include: {
-                sku: {
-                  include: {
-                    product: true,
-                  },
-                },
-              },
-            },
+          select: {
+            id: true,
+            orderedAt: true,
+            deliveredAt: true,
+            status: true,
+            total: true,
             invoices: {
               select: {
                 id: true,
@@ -109,14 +105,19 @@ export async function GET(
                 issuedAt: true,
               },
             },
+            _count: {
+              select: {
+                lines: true,
+              },
+            },
           },
           orderBy: {
-            deliveredAt: "desc",
+            orderedAt: "desc",
           },
           take: 50,
         }),
 
-        // Activity history
+        // Activity history (LIMITED to 20 most recent)
         db.activity.findMany({
           where: {
             tenantId,
@@ -143,7 +144,7 @@ export async function GET(
           take: 20,
         }),
 
-        // Sample history
+        // Sample history (LIMITED to 50 most recent)
         db.sampleUsage.findMany({
           where: {
             tenantId,
@@ -168,31 +169,32 @@ export async function GET(
           orderBy: {
             tastedAt: "desc",
           },
+          take: 50,
         }),
 
-        // Top products for this customer (by revenue & volume)
-        db.orderLine.groupBy({
-          by: ["skuId"],
-          where: {
-            tenantId,
-            order: {
-              customerId,
-              deliveredAt: {
-                gte: sixMonthsAgo,
-              },
-              status: {
-                not: "CANCELLED",
-              },
-            },
-            isSample: false,
-          },
-          _sum: {
-            quantity: true,
-          },
-          _count: {
-            id: true,
-          },
-        }),
+        // Top products with revenue calculation (OPTIMIZED - single query with aggregation)
+        db.$queryRaw<Array<{
+          skuId: string;
+          totalCases: bigint;
+          revenue: number;
+          orderCount: bigint;
+        }>>`
+          SELECT
+            ol."skuId",
+            SUM(ol.quantity)::bigint as "totalCases",
+            SUM(ol.quantity * ol."unitPrice")::decimal as revenue,
+            COUNT(DISTINCT ol."orderId")::bigint as "orderCount"
+          FROM "OrderLine" ol
+          INNER JOIN "Order" o ON o.id = ol."orderId"
+          WHERE o."customerId" = ${customerId}::uuid
+            AND o."tenantId" = ${tenantId}::uuid
+            AND o."deliveredAt" >= ${sixMonthsAgo}
+            AND o.status != 'CANCELLED'
+            AND ol."isSample" = false
+          GROUP BY ol."skuId"
+          ORDER BY revenue DESC
+          LIMIT 10
+        `,
 
         // Company-wide top 20 products (most recent calculation)
         db.topProduct.findMany({
@@ -246,60 +248,38 @@ export async function GET(
       const avgOrderValue =
         ytdOrders.length > 0 ? ytdRevenue / ytdOrders.length : 0;
 
-      // Get detailed top products with revenue calculation
-      const topProductDetails = await Promise.all(
-        topProducts.slice(0, 10).map(async (tp) => {
-          const sku = await db.sku.findUnique({
-            where: { id: tp.skuId },
-            include: {
-              product: true,
-            },
-          });
+      // Get SKU details for top products (OPTIMIZED - single batch query)
+      const topProductSkuIds = topProductsRaw.map((tp) => tp.skuId);
+      const skus = await db.sku.findMany({
+        where: {
+          id: {
+            in: topProductSkuIds,
+          },
+        },
+        include: {
+          product: true,
+        },
+      });
 
-          // Calculate revenue for this SKU
-          const orderLines = await db.orderLine.findMany({
-            where: {
-              tenantId,
-              skuId: tp.skuId,
-              order: {
-                customerId,
-                deliveredAt: {
-                  gte: sixMonthsAgo,
-                },
-                status: {
-                  not: "CANCELLED",
-                },
-              },
-              isSample: false,
-            },
-            select: {
-              quantity: true,
-              unitPrice: true,
-            },
-          });
+      // Create SKU lookup map for O(1) access
+      const skuMap = new Map(skus.map((sku) => [sku.id, sku]));
 
-          const revenue = orderLines.reduce(
-            (sum, line) =>
-              sum + line.quantity * Number(line.unitPrice),
-            0
-          );
+      // Map top products with SKU details
+      const topProductDetails = topProductsRaw.map((tp) => {
+        const sku = skuMap.get(tp.skuId);
+        return {
+          skuId: tp.skuId,
+          skuCode: sku?.code ?? "",
+          productName: sku?.product.name ?? "",
+          brand: sku?.product.brand ?? "",
+          totalCases: Number(tp.totalCases),
+          revenue: Number(tp.revenue),
+          orderCount: Number(tp.orderCount),
+        };
+      });
 
-          return {
-            skuId: tp.skuId,
-            skuCode: sku?.code ?? "",
-            productName: sku?.product.name ?? "",
-            brand: sku?.product.brand ?? "",
-            totalCases: tp._sum.quantity ?? 0,
-            revenue,
-            orderCount: tp._count.id,
-          };
-        })
-      );
-
-      // Sort by revenue for "Top 10 by Revenue"
-      const topByRevenue = [...topProductDetails].sort(
-        (a, b) => b.revenue - a.revenue
-      );
+      // Sort by revenue for "Top 10 by Revenue" (already sorted from query)
+      const topByRevenue = [...topProductDetails];
 
       // Sort by cases for "Top 10 by Volume"
       const topByCases = [...topProductDetails].sort(
@@ -307,7 +287,7 @@ export async function GET(
       );
 
       // Product gap analysis - Top 20 company wines not yet ordered
-      const orderedSkuIds = new Set(topProducts.map((tp) => tp.skuId));
+      const orderedSkuIds = new Set(topProductsRaw.map((tp) => tp.skuId));
       const recommendations = companyTopProducts
         .filter((tp) => !orderedSkuIds.has(tp.skuId))
         .map((tp) => ({
@@ -317,7 +297,7 @@ export async function GET(
           brand: tp.sku.product.brand,
           category: tp.sku.product.category,
           rank: tp.rank,
-          calculationMode: tp.calculationMode,
+          calculationMode: tp.rankingType,
         }));
 
       // Calculate days since last order
@@ -417,7 +397,7 @@ export async function GET(
           deliveredAt: order.deliveredAt?.toISOString() ?? null,
           status: order.status,
           total: Number(order.total ?? 0),
-          lineCount: order.lines.length,
+          lineCount: order._count.lines,
           invoices: order.invoices.map((inv) => ({
             id: inv.id,
             invoiceNumber: inv.invoiceNumber,

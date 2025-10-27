@@ -1,6 +1,7 @@
 'use client';
 
 import { format } from "date-fns";
+import LogActivityButton from "@/components/shared/LogActivityButton";
 
 type Activity = {
   id: string;
@@ -21,9 +22,11 @@ type Activity = {
 
 type ActivityTimelineProps = {
   activities: Activity[];
+  customerId?: string;
+  customerName?: string;
 };
 
-export default function ActivityTimeline({ activities }: ActivityTimelineProps) {
+export default function ActivityTimeline({ activities, customerId, customerName }: ActivityTimelineProps) {
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -94,8 +97,20 @@ export default function ActivityTimeline({ activities }: ActivityTimelineProps) 
             Chronological history of visits and interactions
           </p>
         </div>
-        <div className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">
-          {activities.length} Activities
+        <div className="flex items-center gap-3">
+          {customerId && (
+            <LogActivityButton
+              customerId={customerId}
+              contextType="customer"
+              contextLabel={customerName}
+              variant="primary"
+              size="sm"
+              label="Log Activity"
+            />
+          )}
+          <div className="rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700">
+            {activities.length} Activities
+          </div>
         </div>
       </div>
 

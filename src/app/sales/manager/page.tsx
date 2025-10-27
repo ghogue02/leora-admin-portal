@@ -4,10 +4,18 @@ import { useState, useEffect } from "react";
 import AllRepsPerformance from "./sections/AllRepsPerformance";
 import TerritoryHealthOverview from "./sections/TerritoryHealthOverview";
 import SampleBudgetOverview from "./sections/SampleBudgetOverview";
+import RepDrilldownModal from "./components/RepDrilldownModal";
+import TerritoryDrilldownModal from "./components/TerritoryDrilldownModal";
+import PerformanceComparison from "./components/PerformanceComparison";
+import RevenueForecast from "./components/RevenueForecast";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function ManagerDashboardPage() {
   const [managerData, setManagerData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const [selectedRepId, setSelectedRepId] = useState<string | null>(null);
+  const [selectedTerritory, setSelectedTerritory] = useState<string | null>(null);
+  const [activeView, setActiveView] = useState("overview");
 
   useEffect(() => {
     loadManagerData();
@@ -50,60 +58,93 @@ export default function ManagerDashboardPage() {
         </div>
       ) : managerData ? (
         <>
-          {/* All Reps Performance Comparison */}
-          <AllRepsPerformance reps={managerData.reps} />
+          {/* Tabs for Different Views */}
+          <Tabs value={activeView} onValueChange={setActiveView} className="w-full">
+            <TabsList className="grid w-full grid-cols-4">
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <TabsTrigger value="performance">Performance</TabsTrigger>
+              <TabsTrigger value="forecast">Forecast</TabsTrigger>
+              <TabsTrigger value="samples">Samples</TabsTrigger>
+            </TabsList>
 
-          {/* Territory Health Overview */}
-          <TerritoryHealthOverview territories={managerData.territories} />
+            <TabsContent value="overview" className="space-y-6 mt-6">
+              {/* Team Stats Summary */}
+              <div className="grid gap-4 md:grid-cols-4">
+                <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                  <p className="text-sm font-medium text-gray-600">Total Revenue (All-Time)</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900">
+                    ${managerData.teamStats?.allTimeRevenue?.toLocaleString() || 0}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-500">
+                    This week: ${managerData.teamStats?.totalRevenue?.toLocaleString() || 0}
+                  </p>
+                </div>
 
-          {/* Sample Budget Overview */}
-          <SampleBudgetOverview budgets={managerData.sampleBudgets} />
+                <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                  <p className="text-sm font-medium text-gray-600">Total Customers</p>
+                  <p className="mt-2 text-3xl font-bold text-gray-900">
+                    {managerData.teamStats?.totalCustomers || 0}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {managerData.teamStats?.activeCustomers || 0} active this week
+                  </p>
+                </div>
 
-          {/* Team Stats Summary */}
-          <div className="grid gap-4 md:grid-cols-4">
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-medium text-gray-600">Total Revenue (This Week)</p>
-              <p className="mt-2 text-3xl font-bold text-gray-900">
-                ${managerData.teamStats?.totalRevenue?.toLocaleString() || 0}
-              </p>
-              {managerData.teamStats?.revenueChange !== undefined && (
-                <p
-                  className={`mt-1 text-sm ${
-                    managerData.teamStats.revenueChange >= 0 ? "text-green-600" : "text-red-600"
-                  }`}
-                >
-                  {managerData.teamStats.revenueChange >= 0 ? "↑" : "↓"}{" "}
-                  {Math.abs(managerData.teamStats.revenueChange).toFixed(1)}% vs last week
-                </p>
-              )}
-            </div>
+                <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                  <p className="text-sm font-medium text-gray-600">At-Risk Customers</p>
+                  <p className="mt-2 text-3xl font-bold text-orange-600">
+                    {managerData.teamStats?.atRiskCustomers || 0}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-500">Require attention</p>
+                </div>
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-medium text-gray-600">Total Customers</p>
-              <p className="mt-2 text-3xl font-bold text-gray-900">
-                {managerData.teamStats?.totalCustomers || 0}
-              </p>
-              <p className="mt-1 text-sm text-gray-500">
-                {managerData.teamStats?.activeCustomers || 0} active this week
-              </p>
-            </div>
+                <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+                  <p className="text-sm font-medium text-gray-600">Team Activities</p>
+                  <p className="mt-2 text-3xl font-bold text-blue-600">
+                    {managerData.teamStats?.totalActivities || 0}
+                  </p>
+                  <p className="mt-1 text-sm text-gray-500">This week</p>
+                </div>
+              </div>
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-medium text-gray-600">At-Risk Customers</p>
-              <p className="mt-2 text-3xl font-bold text-orange-600">
-                {managerData.teamStats?.atRiskCustomers || 0}
-              </p>
-              <p className="mt-1 text-sm text-gray-500">Require attention</p>
-            </div>
+              {/* All Reps Performance Comparison */}
+              <AllRepsPerformance
+                reps={managerData.reps}
+                onRepClick={setSelectedRepId}
+              />
 
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-medium text-gray-600">Team Activities</p>
-              <p className="mt-2 text-3xl font-bold text-blue-600">
-                {managerData.teamStats?.totalActivities || 0}
-              </p>
-              <p className="mt-1 text-sm text-gray-500">This week</p>
-            </div>
-          </div>
+              {/* Territory Health Overview */}
+              <TerritoryHealthOverview
+                territories={managerData.territories}
+                onTerritoryClick={setSelectedTerritory}
+              />
+            </TabsContent>
+
+            <TabsContent value="performance" className="mt-6">
+              <PerformanceComparison reps={managerData.reps} />
+            </TabsContent>
+
+            <TabsContent value="forecast" className="mt-6">
+              <RevenueForecast />
+            </TabsContent>
+
+            <TabsContent value="samples" className="mt-6">
+              <SampleBudgetOverview budgets={managerData.sampleBudgets} />
+            </TabsContent>
+          </Tabs>
+
+          {/* Drill-down Modals */}
+          <RepDrilldownModal
+            repId={selectedRepId}
+            open={!!selectedRepId}
+            onClose={() => setSelectedRepId(null)}
+          />
+
+          <TerritoryDrilldownModal
+            territoryName={selectedTerritory}
+            open={!!selectedTerritory}
+            onClose={() => setSelectedTerritory(null)}
+          />
         </>
       ) : (
         <div className="rounded-lg border border-gray-200 bg-white p-12 text-center">

@@ -1,26 +1,30 @@
 "use client";
 
-import Link from "next/link";
-
 type Rep = {
   id: string;
   name: string;
   email: string;
   territoryName: string;
-  thisWeekRevenue: number;
-  lastWeekRevenue: number;
+  thisMonthRevenue: number;
+  lastMonthRevenue: number;
+  allTimeRevenue: number;
   customersAssigned: number;
   customersActive: number;
   activitiesThisWeek: number;
   quotaAttainment: number;
 };
 
-export default function AllRepsPerformance({ reps }: { reps: Rep[] }) {
+type Props = {
+  reps: Rep[];
+  onRepClick: (repId: string) => void;
+};
+
+export default function AllRepsPerformance({ reps, onRepClick }: Props) {
   return (
     <div className="rounded-lg border border-gray-200 bg-white shadow-sm">
       <div className="border-b p-6">
         <h3 className="text-lg font-semibold">Sales Representatives Performance</h3>
-        <p className="text-sm text-gray-600">Week-over-week comparison</p>
+        <p className="text-sm text-gray-600">Week-over-week comparison - Click rep name for details</p>
       </div>
 
       <div className="overflow-x-auto">
@@ -34,10 +38,10 @@ export default function AllRepsPerformance({ reps }: { reps: Rep[] }) {
                 Territory
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
-                This Week
+                This Month
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
-                Last Week
+                All-Time
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
                 Change
@@ -56,24 +60,29 @@ export default function AllRepsPerformance({ reps }: { reps: Rep[] }) {
           <tbody className="divide-y">
             {reps.map((rep) => {
               const change =
-                rep.lastWeekRevenue > 0
-                  ? ((rep.thisWeekRevenue - rep.lastWeekRevenue) / rep.lastWeekRevenue) * 100
+                rep.lastMonthRevenue > 0
+                  ? ((rep.thisMonthRevenue - rep.lastMonthRevenue) / rep.lastMonthRevenue) * 100
                   : 0;
 
               return (
                 <tr key={rep.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div>
-                      <p className="font-medium text-gray-900">{rep.name}</p>
+                      <button
+                        onClick={() => onRepClick(rep.id)}
+                        className="font-medium text-blue-600 hover:underline text-left"
+                      >
+                        {rep.name}
+                      </button>
                       <p className="text-xs text-gray-500">{rep.email}</p>
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-700">{rep.territoryName}</td>
                   <td className="px-6 py-4 text-right font-semibold">
-                    ${rep.thisWeekRevenue.toLocaleString()}
+                    ${rep.thisMonthRevenue.toLocaleString()}
                   </td>
-                  <td className="px-6 py-4 text-right text-gray-600">
-                    ${rep.lastWeekRevenue.toLocaleString()}
+                  <td className="px-6 py-4 text-right text-gray-900 font-semibold">
+                    ${rep.allTimeRevenue.toLocaleString()}
                   </td>
                   <td className="px-6 py-4 text-right">
                     <span

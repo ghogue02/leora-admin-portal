@@ -33,19 +33,19 @@ function average(numbers: number[]): number {
   return numbers.reduce((sum, n) => sum + n, 0) / numbers.length;
 }
 
-// Assess individual customer health
+// Assess individual customer health - SIMPLIFIED LOGIC
 function assessCustomerHealth(customer: any): any {
   const now = new Date();
   const deliveredOrders = customer.orders.filter((o: any) => o.deliveredAt);
 
+  // RULE 1: No orders = DORMANT
   if (deliveredOrders.length === 0) {
-    // No orders yet - considered healthy (new customer)
     return {
-      riskStatus: CustomerRiskStatus.HEALTHY,
+      riskStatus: CustomerRiskStatus.DORMANT,
       lastOrderDate: null,
       nextExpectedOrderDate: null,
       averageOrderIntervalDays: null,
-      dormancySince: null,
+      dormancySince: customer.dormancySince || now,
       reactivatedDate: null,
     };
   }
@@ -53,20 +53,13 @@ function assessCustomerHealth(customer: any): any {
   // Get last order date
   const lastOrderDate = deliveredOrders[0].deliveredAt;
 
-  // Calculate ordering pace from last 5 orders
-  const last5Orders = deliveredOrders.slice(0, Math.min(5, deliveredOrders.length));
+  // Calculate days since last order
+  const daysSinceLastOrder = Math.floor(
+    (now.getTime() - lastOrderDate.getTime()) / (1000 * 60 * 60 * 24)
+  );
 
-  if (last5Orders.length < 2) {
-    // Only 1 order - can't calculate pace yet, consider healthy
-    return {
-      riskStatus: CustomerRiskStatus.HEALTHY,
-      lastOrderDate,
-      nextExpectedOrderDate: null,
-      averageOrderIntervalDays: null,
-      dormancySince: null,
-      reactivatedDate: null,
-    };
-  }
+  // Calculate ordering pace from last 5 orders (for metrics only)
+  const last5Orders = deliveredOrders.slice(0, Math.min(5, deliveredOrders.length));
 
   // Calculate intervals between orders
   const intervals: number[] = [];
@@ -81,33 +74,30 @@ function assessCustomerHealth(customer: any): any {
   const averageIntervalDays = Math.round(average(intervals));
   const nextExpectedOrderDate = addDays(lastOrderDate, averageIntervalDays);
 
-  // Calculate days overdue
-  const daysOverdue = Math.floor((now.getTime() - nextExpectedOrderDate.getTime()) / (1000 * 60 * 60 * 24));
-
-  // Determine risk status
+  // CORRECTED BUSINESS LOGIC: Check if customer is overdue
+  // RULE 2: Past expected order date = DORMANT (overdue)
+  // RULE 3: Before expected order date = HEALTHY (on track)
   let riskStatus: CustomerRiskStatus;
   let dormancySince: Date | null = null;
   let reactivatedDate: Date | null = null;
 
-  if (daysOverdue >= 45) {
-    // DORMANT: 45+ days overdue
-    riskStatus = CustomerRiskStatus.DORMANT;
-    dormancySince = customer.dormancySince || addDays(nextExpectedOrderDate, 45);
-  } else if (daysOverdue >= 1) {
-    // AT_RISK_CADENCE: 1+ days overdue
-    riskStatus = CustomerRiskStatus.AT_RISK_CADENCE;
+  // Calculate days since expected order date (negative = not due yet, positive = overdue)
+  const daysSinceExpectedOrder = Math.floor(
+    (now.getTime() - nextExpectedOrderDate.getTime()) / (1000 * 60 * 60 * 24)
+  );
 
-    // Check if was dormant and is now reactivating
-    if (customer.riskStatus === CustomerRiskStatus.DORMANT) {
-      reactivatedDate = lastOrderDate;
-    }
+  if (daysSinceExpectedOrder > 0) {
+    // DORMANT: Past expected order date (overdue)
+    riskStatus = CustomerRiskStatus.DORMANT;
+    dormancySince = customer.dormancySince || nextExpectedOrderDate;
   } else {
-    // HEALTHY: On track
+    // HEALTHY: Not yet past expected order date
     riskStatus = CustomerRiskStatus.HEALTHY;
 
     // Check if was dormant and is now reactivated
     if (customer.riskStatus === CustomerRiskStatus.DORMANT) {
       reactivatedDate = lastOrderDate;
+      dormancySince = null;
     }
   }
 

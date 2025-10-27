@@ -1,14 +1,14 @@
 'use client';
 
 type WeeklyRevenueChartProps = {
-  currentWeekRevenue: number;
-  lastWeekRevenue: number;
+  currentMonthRevenue: number;
+  lastMonthRevenue: number;
   revenueChangePercent: string;
 };
 
 export default function WeeklyRevenueChart({
-  currentWeekRevenue,
-  lastWeekRevenue,
+  currentMonthRevenue,
+  lastMonthRevenue,
   revenueChangePercent,
 }: WeeklyRevenueChartProps) {
   const formatCurrency = (value: number) =>
@@ -18,9 +18,9 @@ export default function WeeklyRevenueChart({
       maximumFractionDigits: 0,
     }).format(value);
 
-  const maxValue = Math.max(currentWeekRevenue, lastWeekRevenue);
-  const currentBarHeight = maxValue > 0 ? (currentWeekRevenue / maxValue) * 100 : 0;
-  const lastBarHeight = maxValue > 0 ? (lastWeekRevenue / maxValue) * 100 : 0;
+  const maxValue = Math.max(currentMonthRevenue, lastMonthRevenue);
+  const currentBarHeight = maxValue > 0 ? (currentMonthRevenue / maxValue) * 100 : 0;
+  const lastBarHeight = maxValue > 0 ? (lastMonthRevenue / maxValue) * 100 : 0;
 
   const isPositiveChange = parseFloat(revenueChangePercent) >= 0;
 
@@ -28,8 +28,8 @@ export default function WeeklyRevenueChart({
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">Week-over-Week Revenue</h3>
-          <p className="text-xs text-gray-500">Compare current week to last week</p>
+          <h3 className="text-lg font-semibold text-gray-900">Month-over-Month Revenue</h3>
+          <p className="text-xs text-gray-500">Compare current month to last month</p>
         </div>
         <span
           className={`rounded-full px-3 py-1 text-xs font-semibold ${
@@ -53,10 +53,10 @@ export default function WeeklyRevenueChart({
           </div>
           <div className="mt-3 text-center">
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-              Last Week
+              Last Month
             </p>
             <p className="mt-1 text-lg font-semibold text-gray-900">
-              {formatCurrency(lastWeekRevenue)}
+              {formatCurrency(lastMonthRevenue)}
             </p>
           </div>
         </div>
@@ -72,10 +72,10 @@ export default function WeeklyRevenueChart({
           </div>
           <div className="mt-3 text-center">
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-              This Week
+              This Month
             </p>
             <p className="mt-1 text-lg font-semibold text-gray-900">
-              {formatCurrency(currentWeekRevenue)}
+              {formatCurrency(currentMonthRevenue)}
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function WeeklyRevenueChart({
       <div className="mt-6 rounded-md border border-slate-200 bg-slate-50 p-3 text-sm text-gray-700">
         <p>
           <span className="font-semibold">Note:</span> Revenue is recognized on delivery date,
-          not order date. Week runs Monday-Sunday.
+          not order date. Showing month-to-date for current month vs. full previous month.
         </p>
       </div>
     </section>

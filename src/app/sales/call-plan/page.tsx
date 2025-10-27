@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { startOfWeek, endOfWeek, format, addWeeks, subWeeks } from "date-fns";
 import WeeklyCallPlanGrid from "./sections/WeeklyCallPlanGrid";
 import CallPlanStats from "./sections/CallPlanStats";
+import WeeklyTracker from "./components/WeeklyTracker";
 
 export default function CallPlanPage() {
   const [currentWeekStart, setCurrentWeekStart] = useState<Date>(
@@ -105,6 +106,13 @@ export default function CallPlanPage() {
 
       {/* Stats */}
       {callPlan && <CallPlanStats callPlan={callPlan} />}
+
+      {/* Weekly Execution Tracker */}
+      <WeeklyTracker
+        weekStart={currentWeekStart}
+        callPlanId={callPlan?.id}
+        onUpdate={loadCallPlan}
+      />
 
       {/* Weekly Grid */}
       {loading ? (

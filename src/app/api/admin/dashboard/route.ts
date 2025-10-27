@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
+import { startOfWeek, endOfWeek, startOfMonth } from "date-fns";
 
 /**
  * GET /api/admin/dashboard
@@ -8,11 +9,11 @@ import { withAdminSession } from "@/lib/auth/admin";
 export async function GET(request: NextRequest) {
   return withAdminSession(request, async ({ tenantId, db }) => {
     try {
-      // Get current week dates
+      // Get current week dates (Monday-based to match sales dashboard)
       const now = new Date();
-      const weekStart = new Date(now);
-      weekStart.setDate(now.getDate() - now.getDay()); // Start of week (Sunday)
-      weekStart.setHours(0, 0, 0, 0);
+      const weekStart = startOfWeek(now, { weekStartsOn: 1 }); // Monday
+      const weekEnd = endOfWeek(now, { weekStartsOn: 1 }); // Sunday
+      const monthStart = startOfMonth(now); // First day of current month
 
       // Fetch all metrics in parallel
       const [
@@ -21,6 +22,7 @@ export async function GET(request: NextRequest) {
         activePortalUsers,
         pendingOrders,
         weeklyOrders,
+        mtdOrders,
         customersWithoutSalesRep,
         ordersWithoutInvoice,
         customersWithoutEmail,
@@ -58,18 +60,36 @@ export async function GET(request: NextRequest) {
           },
         }),
 
-        // Orders from this week for revenue calculation
-        db.order.findMany({
+        // Orders from this week for revenue calculation (delivered orders only)
+        db.order.aggregate({
           where: {
             tenantId,
-            orderedAt: {
+            deliveredAt: {
               gte: weekStart,
+              lte: weekEnd,
             },
             status: {
               not: "CANCELLED",
             },
           },
-          select: {
+          _sum: {
+            total: true,
+          },
+        }),
+
+        // Orders from this month for MTD revenue calculation (delivered orders only)
+        db.order.aggregate({
+          where: {
+            tenantId,
+            deliveredAt: {
+              gte: monthStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
             total: true,
           },
         }),
@@ -106,10 +126,9 @@ export async function GET(request: NextRequest) {
         }),
       ]);
 
-      // Calculate weekly revenue
-      const weeklyRevenue = weeklyOrders.reduce((sum, order) => {
-        return sum + (order.total ? Number(order.total) : 0);
-      }, 0);
+      // Calculate weekly revenue and MTD revenue from aggregate results
+      const weeklyRevenue = Number(weeklyOrders._sum.total ?? 0);
+      const mtdRevenue = Number(mtdOrders._sum.total ?? 0);
 
       // Build data integrity alerts
       const alerts = [];
@@ -146,6 +165,7 @@ export async function GET(request: NextRequest) {
           totalCustomers,
           totalOrders,
           weeklyRevenue,
+          mtdRevenue,
           activeUsers: activePortalUsers,
           pendingOrders,
         },

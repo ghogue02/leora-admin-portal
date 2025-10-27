@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { startOfWeek, endOfWeek, eachDayOfInterval, format, addDays } from "date-fns";
+import { startOfMonth, endOfMonth, eachDayOfInterval, format, addDays } from "date-fns";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -24,21 +24,22 @@ export async function GET(request: NextRequest) {
       }
 
       const now = new Date();
-      const currentWeekStart = startOfWeek(now, { weekStartsOn: 1 }); // Monday
-      const currentWeekEnd = endOfWeek(now, { weekStartsOn: 1 }); // Sunday
+      const currentMonthStart = startOfMonth(now);
+      const currentMonthEnd = endOfMonth(now);
 
       const weeklyQuota = Number(salesRep.weeklyRevenueQuota || 0);
+      const monthlyQuota = weeklyQuota * 4.33; // Average weeks per month
 
-      // Get all delivered orders for the current week
-      const weekOrders = await db.order.findMany({
+      // Get all delivered orders for the current month
+      const monthOrders = await db.order.findMany({
         where: {
           tenantId,
           customer: {
             salesRepId: salesRep.id,
           },
           deliveredAt: {
-            gte: currentWeekStart,
-            lte: currentWeekEnd,
+            gte: currentMonthStart,
+            lte: now, // MTD (month-to-date)
           },
           status: {
             not: "CANCELLED",
@@ -75,13 +76,13 @@ export async function GET(request: NextRequest) {
       });
 
       // Calculate daily breakdown
-      const weekDays = eachDayOfInterval({
-        start: currentWeekStart,
-        end: currentWeekEnd,
+      const monthDays = eachDayOfInterval({
+        start: currentMonthStart,
+        end: currentMonthEnd,
       });
 
-      const dailyBreakdown = weekDays.map((day) => {
-        const dayOrders = weekOrders.filter((order) => {
+      const dailyBreakdown = monthDays.map((day) => {
+        const dayOrders = monthOrders.filter((order) => {
           const deliveryDate = order.deliveredAt;
           return (
             deliveryDate &&
@@ -105,7 +106,7 @@ export async function GET(request: NextRequest) {
       });
 
       // Get top contributing customers
-      const customerContributions = weekOrders.reduce((acc, order) => {
+      const customerContributions = monthOrders.reduce((acc, order) => {
         const customerId = order.customer.id;
         if (!acc[customerId]) {
           acc[customerId] = {
@@ -134,12 +135,12 @@ export async function GET(request: NextRequest) {
           accountNumber: contrib.customer.accountNumber,
           revenue: contrib.revenue,
           orderCount: contrib.orderCount,
-          percentOfQuota: weeklyQuota > 0 ? ((contrib.revenue / weeklyQuota) * 100).toFixed(1) : "0",
+          percentOfQuota: monthlyQuota > 0 ? ((contrib.revenue / monthlyQuota) * 100).toFixed(1) : "0",
           orders: contrib.orders,
         }));
 
       // Get top contributing products
-      const productContributions = weekOrders.reduce((acc, order) => {
+      const productContributions = monthOrders.reduce((acc, order) => {
         order.lines.forEach((line) => {
           const productId = line.sku.product.id;
           const revenue = Number(line.unitPrice) * line.quantity;
@@ -170,67 +171,69 @@ export async function GET(request: NextRequest) {
           revenue: contrib.revenue,
           quantity: contrib.quantity,
           orderCount: contrib.orderCount,
-          percentOfQuota: weeklyQuota > 0 ? ((contrib.revenue / weeklyQuota) * 100).toFixed(1) : "0",
+          percentOfQuota: monthlyQuota > 0 ? ((contrib.revenue / monthlyQuota) * 100).toFixed(1) : "0",
         }));
 
       // Calculate current progress
-      const currentRevenue = weekOrders.reduce(
+      const currentRevenue = monthOrders.reduce(
         (sum, order) => sum + Number(order.total || 0),
         0
       );
-      const quotaProgress = weeklyQuota > 0 ? (currentRevenue / weeklyQuota) * 100 : 0;
+      const quotaProgress = monthlyQuota > 0 ? (currentRevenue / monthlyQuota) * 100 : 0;
 
       // Calculate path to goal projections
       const daysElapsed = Math.floor(
-        (now.getTime() - currentWeekStart.getTime()) / (1000 * 60 * 60 * 24)
+        (now.getTime() - currentMonthStart.getTime()) / (1000 * 60 * 60 * 24)
       );
-      const daysRemaining = 7 - daysElapsed;
+      const daysInMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+      const daysRemaining = daysInMonth - daysElapsed;
       const dailyAverage = daysElapsed > 0 ? currentRevenue / daysElapsed : 0;
       const projectedRevenue = currentRevenue + (dailyAverage * daysRemaining);
-      const gapToQuota = weeklyQuota - currentRevenue;
+      const gapToQuota = monthlyQuota - currentRevenue;
       const requiredDailyRate = daysRemaining > 0 ? gapToQuota / daysRemaining : 0;
 
       const pathToGoal = {
         currentRevenue,
-        weeklyQuota,
+        monthlyQuota,
         quotaProgress: quotaProgress.toFixed(1),
         gapToQuota,
         daysElapsed,
         daysRemaining,
+        daysInMonth,
         dailyAverage: dailyAverage.toFixed(2),
         projectedRevenue: projectedRevenue.toFixed(2),
-        projectedProgress: weeklyQuota > 0 ? ((projectedRevenue / weeklyQuota) * 100).toFixed(1) : "0",
+        projectedProgress: monthlyQuota > 0 ? ((projectedRevenue / monthlyQuota) * 100).toFixed(1) : "0",
         requiredDailyRate: requiredDailyRate.toFixed(2),
-        onTrack: projectedRevenue >= weeklyQuota,
-        projectionMessage: projectedRevenue >= weeklyQuota
-          ? `On track to exceed quota by $${(projectedRevenue - weeklyQuota).toFixed(2)}`
+        onTrack: projectedRevenue >= monthlyQuota,
+        projectionMessage: projectedRevenue >= monthlyQuota
+          ? `On track to exceed quota by $${(projectedRevenue - monthlyQuota).toFixed(2)}`
           : `Need $${requiredDailyRate.toFixed(2)}/day to reach quota`,
       };
 
       return NextResponse.json({
         summary: {
-          weeklyQuota,
+          monthlyQuota,
           currentRevenue,
           quotaProgress: quotaProgress.toFixed(1),
-          totalOrders: weekOrders.length,
+          totalOrders: monthOrders.length,
           uniqueCustomers: Object.keys(customerContributions).length,
-          avgOrderValue: weekOrders.length > 0 ? (currentRevenue / weekOrders.length).toFixed(2) : "0",
+          avgOrderValue: monthOrders.length > 0 ? (currentRevenue / monthOrders.length).toFixed(2) : "0",
         },
         dailyBreakdown,
         topCustomers,
         topProducts,
         pathToGoal,
         metadata: {
-          weekStart: currentWeekStart.toISOString(),
-          weekEnd: currentWeekEnd.toISOString(),
+          monthStart: currentMonthStart.toISOString(),
+          monthEnd: currentMonthEnd.toISOString(),
           timestamp: now.toISOString(),
         },
         insights: {
-          momentum: dailyAverage > 0 && dailyAverage > (weeklyQuota / 7)
+          momentum: dailyAverage > 0 && dailyAverage > (monthlyQuota / daysInMonth)
             ? "Ahead of pace - maintain momentum"
             : dailyAverage > 0
             ? "Below target pace - increase activity"
-            : "No sales yet this week - urgent action needed",
+            : "No sales yet this month - urgent action needed",
           topOpportunity: topCustomers.length > 0
             ? `${topCustomers[0].customerName} is top contributor at $${topCustomers[0].revenue.toFixed(2)}`
             : null,

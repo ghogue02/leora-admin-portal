@@ -2,6 +2,7 @@
 
 import { DashboardTile } from "@/components/dashboard/DashboardTile";
 import type { DashboardDrilldownType } from "@/types/drilldown";
+import { MetricTooltip } from "./MetricDefinitions";
 
 type PerformanceMetricsProps = {
   salesRep: {
@@ -10,13 +11,25 @@ type PerformanceMetricsProps = {
     weeklyQuota: number;
   };
   metrics: {
-    currentWeek: {
+    currentMonth: {
       revenue: number;
       uniqueCustomers: number;
       quotaProgress: number;
     };
-    lastWeek: {
+    lastMonth: {
       revenue: number;
+    };
+    mtd?: {
+      revenue: number;
+      uniqueCustomers: number;
+    };
+    ytd?: {
+      revenue: number;
+      uniqueCustomers: number;
+    };
+    allTime: {
+      revenue: number;
+      uniqueCustomers: number;
     };
     comparison: {
       revenueChange: number;
@@ -44,9 +57,9 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
     }).format(value);
 
   const quotaProgressColor =
-    metrics.currentWeek.quotaProgress >= 100
+    metrics.currentMonth.quotaProgress >= 100
       ? "text-green-700 bg-green-50 border-green-200"
-      : metrics.currentWeek.quotaProgress >= 75
+      : metrics.currentMonth.quotaProgress >= 75
       ? "text-amber-700 bg-amber-50 border-amber-200"
       : "text-rose-700 bg-rose-50 border-rose-200";
 
@@ -66,34 +79,40 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
         <DashboardTile
           drilldownType="weekly-quota"
           title="Weekly Quota Progress"
           onClick={() => onDrilldown?.('weekly-quota')}
         >
           <div className={`rounded-lg border p-6 shadow-sm ${quotaProgressColor}`}>
-            <p className="text-xs font-medium uppercase tracking-widest">Weekly Quota Progress</p>
+            <div className="flex items-center">
+              <p className="text-xs font-medium uppercase tracking-widest">Weekly Quota Progress</p>
+              <MetricTooltip metricKey="weekly-quota" />
+            </div>
             <p className="mt-2 text-3xl font-semibold">
-              {metrics.currentWeek.quotaProgress.toFixed(0)}%
+              {metrics.currentMonth.quotaProgress.toFixed(0)}%
             </p>
             <p className="mt-2 text-xs">
-              {formatCurrency(metrics.currentWeek.revenue)} of {formatCurrency(salesRep.weeklyQuota)}
+              {formatCurrency(metrics.currentMonth.revenue)} of {formatCurrency(salesRep.weeklyQuota)}
             </p>
           </div>
         </DashboardTile>
 
         <DashboardTile
           drilldownType="this-week-revenue"
-          title="This Week Revenue"
+          title="This Month Revenue"
           onClick={() => onDrilldown?.('this-week-revenue')}
         >
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              This Week Revenue
-            </p>
+            <div className="flex items-center">
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
+                This Month Revenue
+              </p>
+              <MetricTooltip metricKey="this-week-revenue" />
+            </div>
             <p className="mt-2 text-3xl font-semibold text-gray-900">
-              {formatCurrency(metrics.currentWeek.revenue)}
+              {formatCurrency(metrics.currentMonth.revenue)}
             </p>
             <p className={`mt-2 text-xs font-semibold ${revenueChangeColor}`}>
               {metrics.comparison.revenueChange >= 0 ? "+" : ""}
@@ -102,35 +121,82 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           </div>
         </DashboardTile>
 
+        {/* MTD Revenue - New */}
+        <DashboardTile
+          drilldownType="mtd-revenue"
+          title="MTD Revenue"
+          onClick={() => onDrilldown?.('mtd-revenue')}
+        >
+          <div className="rounded-lg border border-orange-200 bg-orange-50 p-6 shadow-sm">
+            <div className="flex items-center">
+              <p className="text-xs font-medium uppercase tracking-widest text-orange-700">
+                MTD Revenue (Oct 2025)
+              </p>
+              <MetricTooltip metricKey="mtd-revenue" />
+            </div>
+            <p className="mt-2 text-3xl font-semibold text-orange-900">
+              {formatCurrency(metrics.mtd?.revenue || 0)}
+            </p>
+            <p className="mt-2 text-xs text-orange-600">
+              {metrics.mtd?.uniqueCustomers || 0} customers
+            </p>
+          </div>
+        </DashboardTile>
+
+        {/* YTD Revenue - New */}
+        <DashboardTile
+          drilldownType="ytd-revenue"
+          title="YTD Revenue"
+          onClick={() => onDrilldown?.('ytd-revenue')}
+        >
+          <div className="rounded-lg border border-blue-200 bg-blue-50 p-6 shadow-sm">
+            <div className="flex items-center">
+              <p className="text-xs font-medium uppercase tracking-widest text-blue-700">
+                YTD Revenue (2025)
+              </p>
+              <MetricTooltip metricKey="ytd-revenue" />
+            </div>
+            <p className="mt-2 text-3xl font-semibold text-blue-900">
+              {formatCurrency(metrics.ytd?.revenue || 0)}
+            </p>
+            <p className="mt-2 text-xs text-blue-600">
+              {metrics.ytd?.uniqueCustomers || 0} customers
+            </p>
+          </div>
+        </DashboardTile>
+
         <DashboardTile
           drilldownType="unique-customers"
-          title="Unique Customers This Week"
+          title="Unique Customers This Month"
           onClick={() => onDrilldown?.('unique-customers')}
         >
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              Unique Customers
-            </p>
+            <div className="flex items-center">
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
+                Unique Customers
+              </p>
+              <MetricTooltip metricKey="unique-customers" />
+            </div>
             <p className="mt-2 text-3xl font-semibold text-gray-900">
-              {metrics.currentWeek.uniqueCustomers}
+              {metrics.currentMonth.uniqueCustomers}
             </p>
             <p className="mt-2 text-xs text-gray-500">Orders this week</p>
           </div>
         </DashboardTile>
 
         <DashboardTile
-          drilldownType="last-week-revenue"
-          title="Last Week Revenue"
-          onClick={() => onDrilldown?.('last-week-revenue')}
+          drilldownType="all-time-revenue"
+          title="Total Revenue"
+          onClick={() => onDrilldown?.('all-time-revenue')}
         >
           <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
             <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              Last Week
+              Total Revenue
             </p>
             <p className="mt-2 text-3xl font-semibold text-gray-900">
-              {formatCurrency(metrics.lastWeek.revenue)}
+              {formatCurrency(metrics.allTime.revenue)}
             </p>
-            <p className="mt-2 text-xs text-gray-500">For comparison</p>
+            <p className="mt-2 text-xs text-gray-500">All-time across {metrics.allTime.uniqueCustomers} customers</p>
           </div>
         </DashboardTile>
       </div>

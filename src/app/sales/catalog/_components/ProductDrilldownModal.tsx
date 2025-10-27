@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { TastingNotesCard } from './TastingNotesCard';
+import { TechnicalDetailsPanel } from './TechnicalDetailsPanel';
 
 type ProductDetails = {
   product: {
@@ -85,7 +87,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<ProductDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details'>('inventory');
+  const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details' | 'technical'>('inventory');
 
   useEffect(() => {
     fetchProductDetails();
@@ -149,7 +151,8 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                 { key: 'inventory', label: '📦 Inventory', icon: '📦' },
                 { key: 'pricing', label: '💰 Pricing', icon: '💰' },
                 { key: 'sales', label: '📈 Sales History', icon: '📈' },
-                ...(data?.enrichedData ? [{ key: 'details', label: '📖 Product Details', icon: '📖' }] : []),
+                { key: 'technical', label: '📋 Technical Details', icon: '📋' },
+                ...(data?.enrichedData ? [{ key: 'details', label: '🍷 Tasting Notes', icon: '🍷' }] : []),
               ].map((tab) => (
                 <button
                   key={tab.key}
@@ -289,61 +292,44 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                 </div>
               )}
 
-              {/* Product Details Tab */}
+              {/* Technical Details Tab */}
+              {activeTab === 'technical' && (
+                <div>
+                  <TechnicalDetailsPanel
+                    details={{
+                      abv: data.product.abv ?? undefined,
+                      vintage: data.enrichedData?.wineDetails.ageability,
+                      region: data.enrichedData?.wineDetails.region,
+                      producer: data.enrichedData?.wineDetails.region,
+                      grapeVariety: data.enrichedData?.wineDetails.grape,
+                      style: data.enrichedData?.wineDetails.style,
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Tasting Notes Tab */}
               {activeTab === 'details' && data.enrichedData && (
                 <div className="space-y-6">
                   {/* Description */}
-                  <div>
-                    <h3 className="mb-3 text-sm font-semibold text-gray-900">Description</h3>
-                    <p className="text-sm leading-relaxed text-gray-700">{data.enrichedData.description}</p>
-                  </div>
+                  {data.enrichedData.description && (
+                    <div>
+                      <h3 className="mb-3 text-sm font-semibold text-gray-900">Description</h3>
+                      <p className="text-sm leading-relaxed text-gray-700">{data.enrichedData.description}</p>
+                    </div>
+                  )}
 
                   {/* Tasting Notes */}
                   <div>
                     <h3 className="mb-3 text-sm font-semibold text-gray-900">Tasting Notes</h3>
-                    <div className="grid gap-4 md:grid-cols-3">
-                      {/* Aroma Card */}
-                      <div className="rounded-lg border border-purple-200 bg-purple-50 p-4">
-                        <div className="mb-2 flex items-center gap-2">
-                          <span className="text-lg">🍷</span>
-                          <h4 className="font-semibold text-purple-900">Aroma</h4>
-                        </div>
-                        <p className="text-sm text-purple-800">{data.enrichedData.tastingNotes.aroma}</p>
-                      </div>
-
-                      {/* Palate Card */}
-                      <div className="rounded-lg border border-red-200 bg-red-50 p-4">
-                        <div className="mb-2 flex items-center gap-2">
-                          <span className="text-lg">👅</span>
-                          <h4 className="font-semibold text-red-900">Palate</h4>
-                        </div>
-                        <p className="text-sm text-red-800">{data.enrichedData.tastingNotes.palate}</p>
-                      </div>
-
-                      {/* Finish Card */}
-                      <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
-                        <div className="mb-2 flex items-center gap-2">
-                          <span className="text-lg">✨</span>
-                          <h4 className="font-semibold text-amber-900">Finish</h4>
-                        </div>
-                        <p className="text-sm text-amber-800">{data.enrichedData.tastingNotes.finish}</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Food Pairings */}
-                  <div>
-                    <h3 className="mb-3 text-sm font-semibold text-gray-900">Food Pairings</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {data.enrichedData.foodPairings.map((pairing, idx) => (
-                        <span
-                          key={idx}
-                          className="rounded-full border border-green-200 bg-green-100 px-3 py-1 text-sm font-medium text-green-800"
-                        >
-                          {pairing}
-                        </span>
-                      ))}
-                    </div>
+                    <TastingNotesCard
+                      tastingNotes={{
+                        aroma: data.enrichedData.tastingNotes.aroma,
+                        palate: data.enrichedData.tastingNotes.palate,
+                        finish: data.enrichedData.tastingNotes.finish,
+                        foodPairings: data.enrichedData.foodPairings,
+                      }}
+                    />
                   </div>
 
                   {/* Serving Info */}
@@ -373,31 +359,6 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                         </div>
                         <p className="text-sm font-medium text-gray-900">{data.enrichedData.servingInfo.glassware}</p>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Wine Details */}
-                  <div>
-                    <h3 className="mb-3 text-sm font-semibold text-gray-900">Wine Details</h3>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <dl className="grid gap-4 md:grid-cols-2">
-                        <div>
-                          <dt className="text-xs font-medium text-gray-600">Region</dt>
-                          <dd className="mt-1 text-sm font-semibold text-gray-900">{data.enrichedData.wineDetails.region}</dd>
-                        </div>
-                        <div>
-                          <dt className="text-xs font-medium text-gray-600">Grape Variety</dt>
-                          <dd className="mt-1 text-sm font-semibold text-gray-900">{data.enrichedData.wineDetails.grape}</dd>
-                        </div>
-                        <div>
-                          <dt className="text-xs font-medium text-gray-600">Style</dt>
-                          <dd className="mt-1 text-sm font-semibold text-gray-900">{data.enrichedData.wineDetails.style}</dd>
-                        </div>
-                        <div>
-                          <dt className="text-xs font-medium text-gray-600">Ageability</dt>
-                          <dd className="mt-1 text-sm font-semibold text-gray-900">{data.enrichedData.wineDetails.ageability}</dd>
-                        </div>
-                      </dl>
                     </div>
                   </div>
                 </div>

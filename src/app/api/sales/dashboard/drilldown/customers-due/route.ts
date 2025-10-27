@@ -217,7 +217,7 @@ export async function GET(request: NextRequest) {
               customerId: c.id,
               customerName: c.name,
               daysOverdue: c.orderingPattern.daysOverdue,
-              potentialRevenue: Number(c.revenueMetrics.avgOrderValue),
+              potentialRevenue: parseFloat(Number(c.revenueMetrics.avgOrderValue).toFixed(2)),
               action: "Contact urgently - overdue and no recent contact",
             })),
           topRevenue: [...data]
@@ -226,7 +226,7 @@ export async function GET(request: NextRequest) {
             .map((c) => ({
               customerId: c.id,
               customerName: c.name,
-              avgOrderValue: Number(c.revenueMetrics.avgOrderValue),
+              avgOrderValue: parseFloat(Number(c.revenueMetrics.avgOrderValue).toFixed(2)),
             })),
         },
       });

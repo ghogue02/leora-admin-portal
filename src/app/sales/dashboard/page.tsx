@@ -11,11 +11,18 @@ import ProductGoals from "./sections/ProductGoals";
 import UpcomingCalendar from "./sections/UpcomingCalendar";
 import AssignedTasks from "./sections/AssignedTasks";
 import Incentives from "./sections/Incentives";
+import TopProducts from "./sections/TopProducts";
+// import CustomerBalances from "./sections/CustomerBalances";
+// import NewCustomersMetric from "./sections/NewCustomersMetric";
+import ProductGoalsEnhanced from "./sections/ProductGoalsEnhanced";
+import DashboardCustomizer from "./sections/DashboardCustomizer";
+import { MetricGlossaryModal } from "./sections/MetricDefinitions";
 import { SkeletonDashboard } from "../_components/SkeletonLoader";
 import { Button } from "../_components/Button";
 import { DashboardTile } from "@/components/dashboard/DashboardTile";
 import { DrilldownModal } from "@/components/dashboard/DrilldownModal";
 import type { DashboardDrilldownType } from "@/types/drilldown";
+import { HelpCircle } from "lucide-react";
 
 type DashboardData = {
   salesRep: {
@@ -30,13 +37,21 @@ type DashboardData = {
     annualQuota: number;
   };
   metrics: {
-    currentWeek: {
+    currentMonth: {
       revenue: number;
       uniqueCustomers: number;
       quotaProgress: number;
     };
-    lastWeek: {
+    lastMonth: {
       revenue: number;
+    };
+    ytd: {
+      revenue: number;
+      uniqueCustomers: number;
+    };
+    allTime: {
+      revenue: number;
+      uniqueCustomers: number;
     };
     comparison: {
       revenueChange: number;
@@ -124,6 +139,8 @@ export default function SalesDashboardPage() {
     error: null,
   });
   const [activeDrilldown, setActiveDrilldown] = useState<DashboardDrilldownType | null>(null);
+  const [showGlossary, setShowGlossary] = useState(false);
+  const [dashboardPrefs, setDashboardPrefs] = useState<any>(null);
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
@@ -189,47 +206,101 @@ export default function SalesDashboardPage() {
 
   const { salesRep, metrics, customerHealth, upcomingEvents, customersDue, tasks } = state.data;
 
+  const isSectionEnabled = (sectionId: string) => {
+    if (!dashboardPrefs?.sections) return true; // Show all by default
+    const section = dashboardPrefs.sections.find((s: any) => s.id === sectionId);
+    return section?.enabled !== false;
+  };
+
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
-      <PerformanceMetrics
-        salesRep={salesRep}
-        metrics={metrics}
-        onDrilldown={setActiveDrilldown}
-      />
+      {/* Dashboard Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Sales Dashboard</h1>
+          <p className="mt-1 text-sm text-gray-500">
+            Track your performance and manage your territory
+          </p>
+        </div>
+        <div className="flex gap-3">
+          <button
+            onClick={() => setShowGlossary(true)}
+            className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+          >
+            <HelpCircle className="h-4 w-4" />
+            Metric Glossary
+          </button>
+          <DashboardCustomizer onPreferencesChange={setDashboardPrefs} />
+        </div>
+      </div>
+
+      {isSectionEnabled('performance-metrics') && (
+        <PerformanceMetrics
+          salesRep={salesRep}
+          metrics={metrics}
+          onDrilldown={setActiveDrilldown}
+        />
+      )}
+
+      {/* New Metric Cards Row - TEMPORARILY DISABLED */}
+      {/* <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {isSectionEnabled('customer-balances') && (
+          <CustomerBalances onDrilldown={setActiveDrilldown} />
+        )}
+        {isSectionEnabled('new-customers') && (
+          <NewCustomersMetric onDrilldown={setActiveDrilldown} />
+        )}
+      </div> */}
+
+      {/* Top Products Section */}
+      {isSectionEnabled('top-products') && <TopProducts />}
+
+      {/* Customers Due to Order - Moved below Top Products */}
+      {isSectionEnabled('customers-due') && (
+        <CustomersDueList
+          customers={customersDue}
+          onDrilldown={setActiveDrilldown}
+        />
+      )}
 
       {/* Active Incentives & Competitions - TEMPORARILY DISABLED */}
       {/* <Incentives /> */}
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <WeeklyRevenueChart
-          currentWeekRevenue={metrics.currentWeek.revenue}
-          lastWeekRevenue={metrics.lastWeek.revenue}
-          revenueChangePercent={metrics.comparison.revenueChangePercent}
-        />
-        <CustomerHealthSummary
-          customerHealth={customerHealth}
-          onDrilldown={setActiveDrilldown}
-        />
-      </div>
+      {isSectionEnabled('revenue-chart') && isSectionEnabled('customer-health') && (
+        <div className="grid gap-6 lg:grid-cols-2">
+          {isSectionEnabled('revenue-chart') && (
+            <WeeklyRevenueChart
+              currentMonthRevenue={metrics.currentMonth.revenue}
+              lastMonthRevenue={metrics.lastMonth.revenue}
+              revenueChangePercent={metrics.comparison.revenueChangePercent}
+            />
+          )}
+          {isSectionEnabled('customer-health') && (
+            <CustomerHealthSummary
+              customerHealth={customerHealth}
+              onDrilldown={setActiveDrilldown}
+            />
+          )}
+        </div>
+      )}
 
-      {/* Product Performance Goals - TEMPORARILY DISABLED */}
-      {/* <ProductGoals /> */}
+      {/* Product Performance Goals - Enhanced */}
+      {isSectionEnabled('product-goals') && <ProductGoalsEnhanced />}
 
       {/* 7-10 Day Upcoming Calendar - TEMPORARILY DISABLED */}
       {/* <UpcomingCalendar /> */}
 
-      <CustomersDueList
-        customers={customersDue}
-        onDrilldown={setActiveDrilldown}
-      />
-
       {/* Tasks Assigned by Manager - TEMPORARILY DISABLED */}
       {/* <AssignedTasks /> */}
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <UpcomingEvents events={upcomingEvents} />
-        <TasksList tasks={tasks} />
-      </div>
+      {(isSectionEnabled('upcoming-events') || isSectionEnabled('tasks')) && (
+        <div className="grid gap-6 lg:grid-cols-2">
+          {isSectionEnabled('upcoming-events') && (
+            <UpcomingEvents events={upcomingEvents} />
+          )}
+          {isSectionEnabled('tasks') && <TasksList tasks={tasks} />}
+        </div>
+      )}
 
       {/* Drilldown Modal */}
       {activeDrilldown && (
@@ -239,6 +310,9 @@ export default function SalesDashboardPage() {
           apiEndpoint="/api/sales/insights/drilldown"
         />
       )}
+
+      {/* Metric Glossary Modal */}
+      {showGlossary && <MetricGlossaryModal onClose={() => setShowGlossary(false)} />}
     </main>
   );
 }

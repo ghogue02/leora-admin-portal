@@ -16,6 +16,10 @@ export default function CustomerSearchBar({
   const [searchQuery, setSearchQuery] = useState(initialValue);
   const [isSearching, setIsSearching] = useState(false);
 
+  useEffect(() => {
+    setSearchQuery(initialValue);
+  }, [initialValue]);
+
   // Debounce search
   useEffect(() => {
     setIsSearching(true);
@@ -56,6 +60,8 @@ export default function CustomerSearchBar({
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={placeholder}
+        autoComplete="off"
+        aria-label="Search customers"
         className="block w-full rounded-lg border border-gray-300 bg-white py-2.5 pl-10 pr-20 text-sm text-gray-900 placeholder-gray-500 shadow-sm transition focus:border-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
       />
 

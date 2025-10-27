@@ -14,8 +14,9 @@ type PlannedActivity = {
   customerId: string;
   customerName: string;
   activityType: string;
-  activityTypeId: string;
-  notes?: string;
+  activityTypeId?: string | null;
+  activityTypeLabel: string;
+  notes?: string | null;
   completed: boolean;
   estimatedDuration?: number;
 };
@@ -41,6 +42,7 @@ const ACTIVITY_TYPE_COLORS: Record<string, string> = {
   "email": "bg-gray-100 text-gray-800 border-gray-300",
   "text": "bg-yellow-100 text-yellow-800 border-yellow-300",
   "public-event": "bg-pink-100 text-pink-800 border-pink-300",
+  other: "bg-slate-100 text-slate-800 border-slate-300",
 };
 
 export default function WeeklyCallPlanGrid({
@@ -63,13 +65,19 @@ export default function WeeklyCallPlanGrid({
       const taskDate = new Date(task.dueAt);
       const dayIndex = days.findIndex((day) => isSameDay(day.date, taskDate));
       if (dayIndex !== -1) {
+        const activityKey = task.activityTypeKey || task.activityType || "other";
+        const activityLabel =
+          task.activityTypeLabel ||
+          task.activityTypeName ||
+          activityKey.replace(/-/g, " ");
         days[dayIndex].activities.push({
           id: task.id,
           customerId: task.customerId,
           customerName: task.customer?.name || "Unknown",
-          activityType: task.activityType || "visit",
-          activityTypeId: task.activityTypeId,
-          notes: task.description,
+          activityType: activityKey,
+          activityTypeId: task.activityTypeId ?? null,
+          activityTypeLabel: activityLabel,
+          notes: task.description ?? task.notes ?? null,
           completed: task.status === "COMPLETED",
         });
       }
@@ -195,8 +203,8 @@ export default function WeeklyCallPlanGrid({
                             >
                               {activity.customerName}
                             </p>
-                            <p className="text-xs capitalize opacity-75">
-                              {activity.activityType.replace("-", " ")}
+                            <p className="text-xs opacity-75">
+                              {activity.activityTypeLabel}
                             </p>
                             {activity.notes && (
                               <p className="mt-1 text-xs opacity-75">{activity.notes}</p>

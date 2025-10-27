@@ -16,6 +16,7 @@ interface DashboardMetrics {
   totalCustomers: number;
   totalOrders: number;
   weeklyRevenue: number;
+  mtdRevenue: number;
   activeUsers: number;
   pendingOrders: number;
 }
@@ -27,10 +28,26 @@ interface DataIntegrityAlert {
   href: string;
 }
 
+interface RecentActivity {
+  id: string;
+  action: string;
+  entityType: string;
+  entityId: string;
+  timestamp: string;
+  user: {
+    id: string;
+    name: string;
+    email: string;
+  };
+  description: string;
+}
+
 export default function AdminDashboard() {
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
   const [alerts, setAlerts] = useState<DataIntegrityAlert[]>([]);
+  const [recentActivities, setRecentActivities] = useState<RecentActivity[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activitiesLoading, setActivitiesLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -64,7 +81,30 @@ export default function AdminDashboard() {
     }
 
     fetchDashboardData();
+    fetchRecentActivities();
   }, []);
+
+  async function fetchRecentActivities() {
+    try {
+      const response = await fetch("/api/admin/audit-logs/recent", {
+        headers: {
+          "X-Tenant-Slug": process.env.NEXT_PUBLIC_PORTAL_TENANT_SLUG ?? "well-crafted",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch recent activities");
+      }
+
+      const data = await response.json();
+      setRecentActivities(data.activities || []);
+    } catch (err) {
+      console.error("Error fetching recent activities:", err);
+      // Don't set error state, just log it - activities are non-critical
+    } finally {
+      setActivitiesLoading(false);
+    }
+  }
 
   if (loading) {
     return (
@@ -109,9 +149,9 @@ export default function AdminDashboard() {
           color="green"
         />
         <MetricCard
-          title="This Week Revenue"
-          value={`$${(metrics?.weeklyRevenue || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
-          icon={DollarSign}
+          title="MTD Revenue"
+          value={`$${(metrics?.mtdRevenue || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          icon={TrendingUp}
           color="emerald"
         />
         <MetricCard
@@ -177,7 +217,7 @@ export default function AdminDashboard() {
           <QuickActionCard
             title="User Accounts"
             description="Manage user accounts and permissions"
-            href="/admin/users"
+            href="/admin/accounts"
           />
           <QuickActionCard
             title="Inventory"
@@ -192,13 +232,57 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      {/* Recent Activity Placeholder */}
+      {/* Recent Activity */}
       <div>
-        <h2 className="mb-4 text-lg font-semibold text-gray-900">Recent Activity</h2>
-        <div className="rounded-lg border border-slate-200 bg-white p-6">
-          <p className="text-center text-sm text-gray-500">
-            Activity feed will be populated from audit logs
-          </p>
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-lg font-semibold text-gray-900">Recent Activity</h2>
+          <Link
+            href="/admin/audit-logs"
+            className="text-sm text-blue-600 hover:text-blue-800"
+          >
+            View all →
+          </Link>
+        </div>
+        <div className="rounded-lg border border-slate-200 bg-white">
+          {activitiesLoading ? (
+            <div className="p-6 text-center">
+              <div className="inline-block h-6 w-6 animate-spin rounded-full border-2 border-gray-300 border-t-gray-900"></div>
+              <p className="mt-2 text-sm text-gray-500">Loading activities...</p>
+            </div>
+          ) : recentActivities.length === 0 ? (
+            <div className="p-6 text-center text-sm text-gray-500">
+              No recent activity
+            </div>
+          ) : (
+            <div className="divide-y divide-slate-200">
+              {recentActivities.map((activity) => (
+                <div
+                  key={activity.id}
+                  className="flex items-start gap-3 p-4 hover:bg-slate-50 transition"
+                >
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                    {activity.action === 'CREATE' ? '➕' :
+                     activity.action === 'UPDATE' ? '✏️' :
+                     activity.action === 'DELETE' ? '🗑️' : '📝'}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm text-gray-900">{activity.description}</p>
+                    <div className="mt-1 flex items-center gap-2 text-xs text-gray-500">
+                      <span>{activity.user.name}</span>
+                      <span>•</span>
+                      <span>{new Date(activity.timestamp).toLocaleString()}</span>
+                      {activity.entityType && (
+                        <>
+                          <span>•</span>
+                          <span className="capitalize">{activity.entityType.toLowerCase()}</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

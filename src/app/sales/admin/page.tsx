@@ -5,7 +5,7 @@ import RepManagement from "./sections/RepManagement";
 import CustomerAssignment from "./sections/CustomerAssignment";
 import ProductGoals from "./sections/ProductGoals";
 
-type TabType = "reps" | "assignments" | "goals" | "incentives" | "budget";
+type TabType = "reps" | "assignments" | "goals" | "incentives" | "budget" | "jobs";
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<TabType>("reps");
@@ -14,7 +14,9 @@ export default function AdminPage() {
 
   useEffect(() => {
     // Check user role
-    fetch("/api/sales/auth/me")
+    fetch("/api/sales/auth/me", {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         const roles = data.user?.roles || [];
@@ -115,6 +117,12 @@ export default function AdminPage() {
                 } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
               >
                 Sample Budget
+              </button>
+              <button
+                onClick={() => window.location.href = "/sales/admin/jobs"}
+                className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
+              >
+                Job Queue
               </button>
             </nav>
           </div>
