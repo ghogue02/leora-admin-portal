@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { startOfWeek, endOfWeek, subWeeks, eachDayOfInterval, format } from "date-fns";
+import { startOfMonth, endOfMonth, subWeeks, eachDayOfInterval, format } from "date-fns";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -24,10 +24,10 @@ export async function GET(request: NextRequest) {
       }
 
       const now = new Date();
-      const currentWeekStart = startOfWeek(now, { weekStartsOn: 1 }); // Monday
-      const currentWeekEnd = endOfWeek(now, { weekStartsOn: 1 }); // Sunday
-      const lastWeekStart = subWeeks(currentWeekStart, 1);
-      const lastWeekEnd = subWeeks(currentWeekEnd, 1);
+      const currentMonthStart = startOfMonth(now, { weekStartsOn: 1 }); // Monday
+      const currentMonthEnd = endOfMonth(now, { weekStartsOn: 1 }); // Sunday
+      const lastWeekStart = subWeeks(currentMonthStart, 1);
+      const lastWeekEnd = subWeeks(currentMonthEnd, 1);
 
       // Get all delivered orders for the current week with details
       const currentWeekOrders = await db.order.findMany({
@@ -37,8 +37,8 @@ export async function GET(request: NextRequest) {
             salesRepId: salesRep.id,
           },
           deliveredAt: {
-            gte: currentWeekStart,
-            lte: currentWeekEnd,
+            gte: currentMonthStart,
+            lte: now,
           },
           status: {
             not: "CANCELLED",
@@ -98,8 +98,8 @@ export async function GET(request: NextRequest) {
 
       // Group current week revenue by day
       const dailyRevenue = eachDayOfInterval({
-        start: currentWeekStart,
-        end: currentWeekEnd,
+        start: currentMonthStart,
+        end: currentMonthEnd,
       }).map((day) => {
         const dayStart = new Date(day.setHours(0, 0, 0, 0));
         const dayEnd = new Date(day.setHours(23, 59, 59, 999));
@@ -184,7 +184,7 @@ export async function GET(request: NextRequest) {
         return acc;
       }, { byCategory: {} as Record<string, number>, byBrand: {} as Record<string, number> });
 
-      // Get top products sold this week
+      // Get top products sold this month
       const productSales = currentWeekOrders.reduce((acc, order) => {
         order.lines.forEach((line) => {
           const productName = line.sku.product.name;
@@ -259,14 +259,22 @@ export async function GET(request: NextRequest) {
             .sort((a, b) => b.revenue - a.revenue),
         },
         metadata: {
-          weekStart: currentWeekStart.toISOString(),
-          weekEnd: currentWeekEnd.toISOString(),
+          weekStart: currentMonthStart.toISOString(),
+          weekEnd: currentMonthEnd.toISOString(),
           timestamp: now.toISOString(),
         },
         insights: {
-          peakRevenueDay: dailyRevenue.reduce((max, day) =>
-            day.revenue > max.revenue ? day : max
-          ),
+          peakRevenueDay: (() => {
+            const peak = dailyRevenue.reduce((max, day) =>
+              day.revenue > max.revenue ? day : max
+            );
+            return {
+              date: peak.date,
+              dayOfWeek: peak.dayOfWeek,
+              revenue: peak.revenue,
+              orderCount: peak.orderCount,
+            };
+          })(),
           topCustomerContribution:
             topCustomers.length > 0 && currentWeekRevenue > 0
               ? ((topCustomers[0].revenue / currentWeekRevenue) * 100).toFixed(1) + "%"

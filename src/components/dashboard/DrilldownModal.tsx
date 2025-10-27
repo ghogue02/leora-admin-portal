@@ -7,6 +7,73 @@ import type {
   DrilldownModalProps,
 } from '@/types/drilldown';
 
+// Helper function to get appropriate icon for insight
+function getInsightIcon(key: string, value: any): string {
+  const keyLower = key.toLowerCase();
+  const valueStr = String(value).toLowerCase();
+
+  // Rate or progress indicators
+  if (keyLower.includes('rate') || keyLower.includes('progress') || keyLower.includes('quota')) {
+    const numValue = typeof value === 'number' ? value : parseFloat(String(value));
+    if (!isNaN(numValue)) {
+      return numValue >= 80 ? '✅' : numValue >= 50 ? '⚠️' : '🔴';
+    }
+  }
+
+  // Momentum or trend indicators
+  if (keyLower.includes('momentum') || keyLower.includes('change') || keyLower.includes('growth')) {
+    if (valueStr.includes('ahead') || valueStr.includes('above') || valueStr.includes('up') || valueStr.includes('increase')) {
+      return '🚀';
+    }
+    if (valueStr.includes('below') || valueStr.includes('behind') || valueStr.includes('down') || valueStr.includes('decrease')) {
+      return '⚠️';
+    }
+    return '📊';
+  }
+
+  // Peak or top indicators
+  if (keyLower.includes('peak') || keyLower.includes('top') || keyLower.includes('best')) {
+    return '🏆';
+  }
+
+  // Customer or count related
+  if (keyLower.includes('customer') || keyLower.includes('unique')) {
+    return '👥';
+  }
+
+  // Revenue or money related
+  if (keyLower.includes('revenue') || keyLower.includes('contribution') || keyLower.includes('value')) {
+    return '💰';
+  }
+
+  // Diversity or variety
+  if (keyLower.includes('diversity') || keyLower.includes('variety') || keyLower.includes('category')) {
+    return '📊';
+  }
+
+  // Default bullet
+  return '•';
+}
+
+// Helper function to format insight keys into readable labels
+function formatInsightKey(key: string): string {
+  return key
+    .replace(/([A-Z])/g, ' $1')
+    .trim()
+    .replace(/^./, str => str.toUpperCase());
+}
+
+// Helper function to format insight values
+function formatInsightValue(value: any): string {
+  if (typeof value === 'object' && value !== null) {
+    // Handle nested objects (like peakRevenueDay)
+    return Object.entries(value)
+      .map(([k, v]) => `${formatInsightKey(k)}: ${v}`)
+      .join(', ');
+  }
+  return String(value);
+}
+
 export function DrilldownModal({
   type,
   onClose,
@@ -33,6 +100,7 @@ export function DrilldownModal({
       // Determine correct endpoint based on drill-down type
       const dashboardTypes = [
         'weekly-quota', 'this-week-revenue', 'last-week-revenue', 'unique-customers',
+        'mtd-revenue', 'ytd-revenue', 'all-time-revenue',
         'customer-health', 'at-risk-cadence', 'at-risk-revenue', 'dormant-customers',
         'healthy-customers', 'customers-due', 'upcoming-events', 'pending-tasks'
       ];
@@ -60,6 +128,28 @@ export function DrilldownModal({
     }
   };
 
+  // Helper function to format drilldown titles
+  const formatDrilldownTitle = (drilldownType: string): string => {
+    const titles: Record<string, string> = {
+      'weekly-quota': 'Monthly Quota Progress',
+      'this-week-revenue': 'This Week Revenue',
+      'last-week-revenue': 'Last Week Revenue',
+      'unique-customers': 'Unique Customers',
+      'mtd-revenue': 'Month-to-Date Revenue',
+      'ytd-revenue': 'Year-to-Date Revenue',
+      'all-time-revenue': 'All-Time Revenue',
+      'customer-health': 'Customer Health Summary',
+      'at-risk-cadence': 'At Risk Customers (Cadence)',
+      'at-risk-revenue': 'At Risk Customers (Revenue)',
+      'dormant-customers': 'Dormant Customers',
+      'healthy-customers': 'Healthy Customers',
+      'customers-due': 'Customers Due',
+      'upcoming-events': 'Upcoming Events',
+      'pending-tasks': 'Pending Tasks',
+    };
+    return titles[drilldownType] || 'Details';
+  };
+
   if (!type) return null;
 
   return (
@@ -70,7 +160,7 @@ export function DrilldownModal({
           <div className="flex items-start justify-between">
             <div>
               <h2 className="text-xl font-semibold text-gray-900">
-                {loading ? 'Loading...' : data?.title ?? 'Details'}
+                {loading ? 'Loading...' : data?.title ?? formatDrilldownTitle(type)}
               </h2>
               {data?.description && (
                 <p className="mt-1 text-sm text-gray-600">{data.description}</p>
@@ -91,8 +181,62 @@ export function DrilldownModal({
         {/* Content */}
         <div className="overflow-y-auto p-6" style={{ maxHeight: 'calc(90vh - 80px)' }}>
           {loading && (
-            <div className="flex items-center justify-center py-12">
-              <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+            <div className="space-y-6">
+              {/* Summary Stats Skeleton */}
+              <div className="grid gap-4 md:grid-cols-4">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                    <div className="h-4 w-24 rounded bg-gray-200 animate-pulse"></div>
+                    <div className="mt-3 h-8 w-32 rounded bg-gray-300 animate-pulse"></div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Table Header Skeleton */}
+              <div className="overflow-hidden rounded-lg border border-gray-200">
+                <div className="bg-gray-50 px-6 py-3 border-b border-gray-200">
+                  <div className="h-4 w-32 rounded bg-gray-300 animate-pulse"></div>
+                </div>
+
+                {/* Table Content Skeleton */}
+                <div className="bg-white">
+                  {/* Table Headers */}
+                  <div className="flex gap-4 border-b border-gray-200 bg-gray-50 px-6 py-3">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="flex-1">
+                        <div className="h-3 w-20 rounded bg-gray-300 animate-pulse"></div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Table Rows */}
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <div key={i} className="flex gap-4 border-b border-gray-100 px-6 py-4">
+                      {[1, 2, 3, 4].map((j) => (
+                        <div key={j} className="flex-1">
+                          <div className="h-4 w-full rounded bg-gray-200 animate-pulse"></div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Insights Skeleton */}
+              <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
+                <div className="mb-3 h-4 w-24 rounded bg-blue-300 animate-pulse"></div>
+                <div className="space-y-2">
+                  {[1, 2, 3].map((i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <div className="mt-1 h-2 w-2 rounded-full bg-blue-300 animate-pulse"></div>
+                      <div className="flex-1 space-y-1">
+                        <div className="h-3 w-full rounded bg-blue-200 animate-pulse"></div>
+                        <div className="h-3 w-3/4 rounded bg-blue-200 animate-pulse"></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
@@ -112,15 +256,40 @@ export function DrilldownModal({
                       <p className="text-xs font-medium uppercase text-gray-500">
                         {key.replace(/([A-Z])/g, ' $1').trim()}
                       </p>
-                      <p className="mt-1 text-2xl font-bold text-gray-900">
-                        {typeof value === 'number' && key.toLowerCase().includes('revenue')
-                          ? `$${value.toLocaleString()}`
-                          : typeof value === 'number'
-                          ? value.toLocaleString()
-                          : String(value)}
-                      </p>
+                      <div className="mt-1">
+                        {typeof value === 'number' && key.toLowerCase().includes('revenue') ? (
+                          <p className="text-2xl font-bold text-gray-900">${value.toLocaleString()}</p>
+                        ) : typeof value === 'number' ? (
+                          <p className="text-2xl font-bold text-gray-900">{value.toLocaleString()}</p>
+                        ) : typeof value === 'object' && value !== null ? (
+                          <div className="space-y-1">
+                            {Object.entries(value).map(([k, v]) => (
+                              <div key={k} className="text-sm">
+                                <span className="font-semibold">{k}:</span> {String(v)}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="text-2xl font-bold text-gray-900">{String(value)}</p>
+                        )}
+                      </div>
                     </div>
                   ))}
+                </div>
+              )}
+
+              {/* Data Completeness Indicator */}
+              {data.metadata?.dataCompleteness && (
+                <div className="rounded-lg border border-gray-200 bg-gray-50 p-3">
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="font-medium">📊 Data Coverage:</span>
+                    <span>{data.metadata.dataCompleteness.message}</span>
+                    {data.metadata.dataCompleteness.showing && data.metadata.dataCompleteness.total && (
+                      <span className="ml-auto text-xs text-gray-500">
+                        ({((Number(data.metadata.dataCompleteness.showing) / Number(data.metadata.dataCompleteness.total)) * 100).toFixed(0)}% complete)
+                      </span>
+                    )}
+                  </div>
                 </div>
               )}
 
@@ -164,7 +333,15 @@ export function DrilldownModal({
                                       {typeof cellValue === 'number' && cellKey.toLowerCase().includes('revenue')
                                         ? `$${cellValue.toLocaleString()}`
                                         : typeof cellValue === 'object' && cellValue !== null
-                                        ? JSON.stringify(cellValue)
+                                        ? (
+                                          <div className="space-y-1">
+                                            {Object.entries(cellValue).map(([k, v]) => (
+                                              <div key={k} className="text-xs">
+                                                <span className="font-semibold">{k}:</span> {String(v)}
+                                              </div>
+                                            ))}
+                                          </div>
+                                        )
                                         : String(cellValue ?? '')}
                                     </td>
                                   ))}
@@ -182,13 +359,18 @@ export function DrilldownModal({
               {/* Insights/Analysis */}
               {data.insights && (
                 <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
-                  <h3 className="mb-2 text-sm font-semibold text-blue-900">💡 Insights</h3>
+                  <h3 className="mb-2 text-sm font-semibold text-blue-900">
+                    <span className="mr-2">💡</span>
+                    Insights
+                  </h3>
                   <div className="space-y-2 text-sm text-blue-800">
                     {Object.entries(data.insights).map(([key, value]) => (
                       <div key={key} className="flex items-start gap-2">
-                        <span className="mt-0.5 text-blue-600">•</span>
+                        <span className="mt-0.5 text-blue-600 font-bold">
+                          {getInsightIcon(key, value)}
+                        </span>
                         <span>
-                          <strong>{key.replace(/([A-Z])/g, ' $1').trim()}:</strong> {String(value)}
+                          <strong>{formatInsightKey(key)}:</strong> {formatInsightValue(value)}
                         </span>
                       </div>
                     ))}

@@ -1,63 +1,97 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
+  directUrl         = env("DIRECT_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  extensions        = [uuid_ossp(map: "uuid-ossp", schema: "extensions")]
 }
 
 model Tenant {
-  id                  String                  @id @default(uuid()) @db.Uuid
-  slug                String                  @unique
-  name                String
-  timezone            String                  @default("America/New_York")
-  settings            TenantSettings?
-  users               User[]
-  portalUsers         PortalUser[]
-  roles               Role[]
-  priceLists          PriceList[]
-  customers           Customer[]
-  customerAddresses   CustomerAddress[]
-  products            Product[]
-  skus                Sku[]
-  suppliers           Supplier[]
-  inventories         Inventory[]
-  orders              Order[]
-  invoices            Invoice[]
-  payments            Payment[]
-  carts               Cart[]
-  cartItems           CartItem[]
-  portalNotifications PortalNotification[]
-  priceListItems      PriceListItem[]
-  orderLines          OrderLine[]
-  activities          Activity[]
-  activityTypes       ActivityType[]
-  callPlans           CallPlan[]
-  tasks               Task[]
-  accountSnapshots    AccountHealthSnapshot[]
-  salesMetrics        SalesMetric[]
-  complianceFilings   ComplianceFiling[]
-  stateCompliances    StateCompliance[]
-  stateTaxRates       StateTaxRate[]
-  webhookSubs         WebhookSubscription[]
-  webhookEvents       WebhookEvent[]
-  integrationTokens   IntegrationToken[]
-  portalSessions      PortalSession[]
-  salesSessions       SalesSession[]
-  salesReps           SalesRep[]
-  customerAssignments CustomerAssignment[]
-  sampleUsage         SampleUsage[]
-  repWeeklyMetrics    RepWeeklyMetric[]
-  repProductGoals     RepProductGoal[]
-  topProducts         TopProduct[]
-  salesIncentives     SalesIncentive[]
-  calendarEvents      CalendarEvent[]
-  auditLogs           AuditLog[]
-  integritySnapshots  DataIntegritySnapshot[]
-  createdAt           DateTime                @default(now())
-  updatedAt           DateTime                @updatedAt
+  id                      String                    @id @default(uuid()) @db.Uuid
+  slug                    String                    @unique
+  name                    String
+  timezone                String                    @default("America/New_York")
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+  accountSnapshots        AccountHealthSnapshot[]
+  activities              Activity[]
+  activityTypes           ActivityType[]
+  auditLogs               AuditLog[]
+  automatedTriggers       AutomatedTrigger[]
+  calendarEvents          CalendarEvent[]
+  calendarSyncs           CalendarSync[]
+  callPlans               CallPlan[]
+  callPlanAccounts        CallPlanAccount[]
+  callPlanActivities      CallPlanActivity[]
+  carts                   Cart[]
+  cartItems               CartItem[]
+  complianceFilings       ComplianceFiling[]
+  customers               Customer[]
+  customerAddresses       CustomerAddress[]
+  customerAssignments     CustomerAssignment[]
+  integritySnapshots      DataIntegritySnapshot[]
+  deliveryRoutes          DeliveryRoute[]
+  emailCampaigns          EmailCampaign[]
+  imageScans              ImageScan[]
+  integrationTokens       IntegrationToken[]
+  inventories             Inventory[]
+  invoices                Invoice[]
+  mailchimpSyncs          MailchimpSync[]
+  orders                  Order[]
+  orderLines              OrderLine[]
+  payments                Payment[]
+  pickSheets              PickSheet[]
+  pickSheetItems          PickSheetItem[]
+  portalNotifications     PortalNotification[]
+  PortalReplayStatus      PortalReplayStatus[]
+  portalSessions          PortalSession[]
+  portalUsers             PortalUser[]
+  priceLists              PriceList[]
+  priceListItems          PriceListItem[]
+  products                Product[]
+  repProductGoals         RepProductGoal[]
+  repWeeklyMetrics        RepWeeklyMetric[]
+  roles                   Role[]
+  routeExports            RouteExport[]
+  routeStops              RouteStop[]
+  salesIncentives         SalesIncentive[]
+  salesMetrics            SalesMetric[]
+  salesReps               SalesRep[]
+  salesSessions           SalesSession[]
+  sampleFeedbackTemplates SampleFeedbackTemplate[]
+  sampleMetrics           SampleMetrics[]
+  sampleUsage             SampleUsage[]
+  skus                    Sku[]
+  stateCompliances        StateCompliance[]
+  stateTaxRates           StateTaxRate[]
+  suppliers               Supplier[]
+  tasks                   Task[]
+  settings                TenantSettings?
+  territories             Territory[]
+  topProducts             TopProduct[]
+  triggeredTasks          TriggeredTask[]
+  users                   User[]
+  warehouseConfig         WarehouseConfig?
+  webhookEvents           WebhookEvent[]
+  webhookSubs             WebhookSubscription[]
+  savedQueries            SavedQuery[]
+  queryHistory            QueryHistory[]
+  scheduledReports        ScheduledReport[]
+  emailLists              EmailList[]
+  emailListMembers        EmailListMember[]
+  emailTemplates          EmailTemplate[]
+  emailCampaignLists      EmailCampaignList[]
+  emailMessages           EmailMessage[]
+  smsConversations        SMSConversation[]
+  smsMessages             SMSMessage[]
+  smsTemplates            SMSTemplate[]
+  mailchimpConnection     MailchimpConnection?
+  communicationPrefs      CommunicationPreference[]
 }
 
 model TenantSettings {
@@ -68,68 +102,70 @@ model TenantSettings {
   sampleAllowancePerMonth   Int      @default(60)
   createdAt                 DateTime @default(now())
   updatedAt                 DateTime @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant                    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 }
 
 model Role {
-  id        String   @id @default(uuid()) @db.Uuid
-  tenantId  String   @db.Uuid
-  name      String
-  code      String
-  isDefault Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  userRoles   UserRole[]
+  id          String           @id @default(uuid()) @db.Uuid
+  tenantId    String           @db.Uuid
+  name        String
+  code        String
+  isDefault   Boolean          @default(false)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
   portalRoles PortalUserRole[]
+  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   permissions RolePermission[]
+  userRoles   UserRole[]
 
   @@unique([tenantId, code])
   @@index([tenantId])
 }
 
 model Permission {
-  id        String   @id @default(uuid()) @db.Uuid
-  code      String   @unique
+  id        String           @id @default(uuid()) @db.Uuid
+  code      String           @unique
   name      String
-  createdAt DateTime @default(now())
-
-  roles RolePermission[]
+  createdAt DateTime         @default(now())
+  roles     RolePermission[]
 }
 
 model RolePermission {
-  roleId       String @db.Uuid
-  permissionId String @db.Uuid
-
-  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
-  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  roleId       String     @db.Uuid
+  permissionId String     @db.Uuid
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
 
   @@id([roleId, permissionId])
 }
 
 model User {
-  id             String    @id @default(uuid()) @db.Uuid
-  tenantId       String    @db.Uuid
-  email          String
-  fullName       String
-  hashedPassword String
-  isActive       Boolean   @default(true)
-  lastLoginAt    DateTime?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-
-  tenant          Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  roles           UserRole[]
-  activities      Activity[]
-  assignedTasks   Task[]          @relation("AssignedTasks")
-  createdTasks    Task[]          @relation("CreatedTasks")
-  callPlans       CallPlan[]
-  salesRepProfile SalesRep?
-  calendarEvents  CalendarEvent[]
-  salesSessions   SalesSession[]
-  auditLogs       AuditLog[]
+  id               String            @id @default(uuid()) @db.Uuid
+  tenantId         String            @db.Uuid
+  email            String
+  fullName         String
+  hashedPassword   String
+  isActive         Boolean           @default(true)
+  lastLoginAt      DateTime?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  activities       Activity[]
+  auditLogs        AuditLog[]
+  calendarEvents   CalendarEvent[]
+  calendarSyncs    CalendarSync[]
+  callPlans        CallPlan[]
+  emailCampaigns   EmailCampaign[]
+  imageScans       ImageScan[]
+  PickSheet        PickSheet[]
+  RouteExport      RouteExport[]
+  salesRepProfile  SalesRep?
+  salesSessions    SalesSession[]
+  assignedTasks    Task[]            @relation("AssignedTasks")
+  tenant           Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles            UserRole[]
+  savedQueries     SavedQuery[]
+  queryHistory     QueryHistory[]
+  scheduledReports ScheduledReport[]
 
   @@unique([tenantId, email])
   @@index([tenantId])
@@ -138,95 +174,81 @@ model User {
 model UserRole {
   userId String @db.Uuid
   roleId String @db.Uuid
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  role   Role   @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, roleId])
 }
 
 model PortalUser {
-  id            String           @id @default(uuid()) @db.Uuid
-  tenantId      String           @db.Uuid
-  customerId    String?          @db.Uuid
+  id            String               @id @default(uuid()) @db.Uuid
+  tenantId      String               @db.Uuid
+  customerId    String?              @db.Uuid
   email         String
   fullName      String
   portalUserKey String?
-  status        PortalUserStatus @default(ACTIVE)
+  status        PortalUserStatus     @default(ACTIVE)
   lastLoginAt   DateTime?
-  createdAt     DateTime         @default(now())
-  updatedAt     DateTime         @updatedAt
-
-  tenant        Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  customer      Customer?            @relation(fields: [customerId], references: [id], onDelete: SetNull)
-  roles         PortalUserRole[]
-  sessions      PortalSession[]
+  createdAt     DateTime             @default(now())
+  updatedAt     DateTime             @updatedAt
+  activities    Activity[]
   carts         Cart[]
   orders        Order[]
-  activities    Activity[]
   notifications PortalNotification[]
+  sessions      PortalSession[]
+  customer      Customer?            @relation(fields: [customerId], references: [id])
+  tenant        Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles         PortalUserRole[]
 
   @@unique([tenantId, email])
   @@index([tenantId])
 }
 
-enum PortalUserStatus {
-  ACTIVE
-  INVITED
-  DISABLED
-}
-
 model PortalUserRole {
-  portalUserId String @db.Uuid
-  roleId       String @db.Uuid
-
-  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
-  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  portalUserId String     @db.Uuid
+  roleId       String     @db.Uuid
+  portalUser   PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
 
   @@id([portalUserId, roleId])
 }
 
 model PortalSession {
-  id           String   @id @default(uuid()) @db.Uuid
-  tenantId     String   @db.Uuid
-  portalUserId String   @db.Uuid
+  id           String     @id @default(uuid()) @db.Uuid
+  tenantId     String     @db.Uuid
+  portalUserId String     @db.Uuid
   expiresAt    DateTime
-  refreshToken String
-  createdAt    DateTime @default(now())
+  refreshToken String     @unique
+  createdAt    DateTime   @default(now())
+  portalUser   PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+  tenant       Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
-  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
-
-  @@unique([refreshToken])
   @@index([tenantId])
 }
 
 model SalesSession {
-  id           String   @id @default(uuid()) @db.Uuid
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId     String   @db.Uuid
   userId       String   @db.Uuid
-  expiresAt    DateTime
-  refreshToken String
-  createdAt    DateTime @default(now())
+  expiresAt    DateTime @db.Timestamp(6)
+  refreshToken String   @unique
+  createdAt    DateTime @default(now()) @db.Timestamp(6)
+  tenant       Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([refreshToken])
   @@index([tenantId])
   @@index([userId])
 }
 
 model Supplier {
-  id         String   @id @default(uuid()) @db.Uuid
-  tenantId   String   @db.Uuid
+  id         String    @id @default(uuid()) @db.Uuid
+  tenantId   String    @db.Uuid
   name       String
   externalId String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  products Product[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  products   Product[]
+  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, name])
   @@index([tenantId])
@@ -241,109 +263,112 @@ model Product {
   description  String?
   category     String?
   isSampleOnly Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
   tastingNotes Json?
   foodPairings Json?
   servingInfo  Json?
   wineDetails  Json?
   enrichedAt   DateTime?
   enrichedBy   String?   @default("claude-ai")
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-
-  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  supplier Supplier? @relation(fields: [supplierId], references: [id], onDelete: SetNull)
-  skus     Sku[]
+  supplier     Supplier? @relation(fields: [supplierId], references: [id])
+  tenant       Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  skus         Sku[]
 
   @@unique([tenantId, name])
   @@index([tenantId])
 }
 
 model Sku {
-  id             String   @id @default(uuid()) @db.Uuid
-  tenantId       String   @db.Uuid
-  productId      String   @db.Uuid
+  id             String           @id @default(uuid()) @db.Uuid
+  tenantId       String           @db.Uuid
+  productId      String           @db.Uuid
   code           String
   size           String?
   unitOfMeasure  String?
   abv            Float?
   casesPerPallet Int?
-  pricePerUnit   Decimal? @db.Decimal(10, 2)
-  isActive       Boolean  @default(true)
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-
-  tenant         Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  product        Product          @relation(fields: [productId], references: [id], onDelete: Cascade)
-  inventories    Inventory[]
-  priceListItems PriceListItem[]
-  orderLines     OrderLine[]
+  pricePerUnit   Decimal?         @db.Decimal(10, 2)
+  isActive       Boolean          @default(true)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
   cartItems      CartItem[]
-  sampleUsage    SampleUsage[]
+  inventories    Inventory[]
+  orderLines     OrderLine[]
+  pickSheetItems PickSheetItem[]
+  priceListItems PriceListItem[]
   productGoals   RepProductGoal[]
-  topProducts    TopProduct[]
   incentives     SalesIncentive[]
+  sampleMetrics  SampleMetrics[]
+  sampleUsage    SampleUsage[]
+  product        Product          @relation(fields: [productId], references: [id], onDelete: Cascade)
+  tenant         Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  topProducts    TopProduct[]
 
   @@unique([tenantId, code])
   @@index([tenantId])
 }
 
 model Inventory {
-  id        String   @id @default(uuid()) @db.Uuid
-  tenantId  String   @db.Uuid
-  skuId     String   @db.Uuid
+  id        String           @id @default(uuid()) @db.Uuid
+  tenantId  String           @db.Uuid
+  skuId     String           @db.Uuid
   location  String
-  onHand    Int      @default(0)
-  allocated Int      @default(0)
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  sku    Sku    @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  onHand    Int              @default(0)
+  allocated Int              @default(0)
+  updatedAt DateTime         @updatedAt
+  createdAt DateTime         @default(now())
+  aisle     String?
+  row       Int?
+  shelf     String?
+  bin       String?
+  status    InventoryStatus? @default(AVAILABLE)
+  pickOrder Int?
+  sku       Sku              @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant    Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, skuId, location])
   @@index([tenantId])
 }
 
 model PriceList {
-  id          String    @id @default(uuid()) @db.Uuid
-  tenantId    String    @db.Uuid
+  id          String          @id @default(uuid()) @db.Uuid
+  tenantId    String          @db.Uuid
   name        String
-  currency    String    @default("USD")
-  isDefault   Boolean   @default(false)
+  currency    String          @default("USD")
+  isDefault   Boolean         @default(false)
   effectiveAt DateTime?
   expiresAt   DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  tenant Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  items  PriceListItem[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  items       PriceListItem[]
 
   @@unique([tenantId, name])
   @@index([tenantId])
 }
 
 model PriceListItem {
-  id          String   @id @default(uuid()) @db.Uuid
-  tenantId    String   @db.Uuid
-  priceListId String   @db.Uuid
-  skuId       String   @db.Uuid
-  price       Decimal  @db.Decimal(10, 2)
-  minQuantity Int      @default(1)
+  id          String    @id @default(uuid()) @db.Uuid
+  tenantId    String    @db.Uuid
+  priceListId String    @db.Uuid
+  skuId       String    @db.Uuid
+  price       Decimal   @db.Decimal(10, 2)
+  minQuantity Int       @default(1)
   maxQuantity Int?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  tenant    Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  priceList PriceList @relation(fields: [priceListId], references: [id], onDelete: Cascade)
-  sku       Sku       @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  priceList   PriceList @relation(fields: [priceListId], references: [id], onDelete: Cascade)
+  sku         Sku       @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant      Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, priceListId, skuId])
   @@index([tenantId])
 }
 
 model Customer {
-  id                       String             @id @default(uuid()) @db.Uuid
-  tenantId                 String             @db.Uuid
+  id                       String                  @id @default(uuid()) @db.Uuid
+  tenantId                 String                  @db.Uuid
   externalId               String?
   name                     String
   accountNumber            String?
@@ -354,93 +379,101 @@ model Customer {
   city                     String?
   state                    String?
   postalCode               String?
-  country                  String?            @default("US")
-  paymentTerms             String?            @default("Net 30")
+  country                  String?                 @default("US")
+  paymentTerms             String?                 @default("Net 30")
   orderingPaceDays         Int?
-  establishedRevenue       Decimal?           @db.Decimal(12, 2)
+  establishedRevenue       Decimal?                @db.Decimal(12, 2)
+  createdAt                DateTime                @default(now())
+  updatedAt                DateTime                @updatedAt
+  averageOrderIntervalDays Int?
+  closedReason             String?
+  dormancySince            DateTime?
+  isPermanentlyClosed      Boolean                 @default(false)
   lastOrderDate            DateTime?
   nextExpectedOrderDate    DateTime?
-  averageOrderIntervalDays Int?
-  riskStatus               CustomerRiskStatus @default(HEALTHY)
-  dormancySince            DateTime?
   reactivatedDate          DateTime?
-  isPermanentlyClosed      Boolean            @default(false)
-  closedReason             String?
-  salesRepId               String?            @db.Uuid
-  createdAt                DateTime           @default(now())
-  updatedAt                DateTime           @updatedAt
-
-  tenant           Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salesRep         SalesRep?               @relation(fields: [salesRepId], references: [id], onDelete: SetNull)
-  portalUsers      PortalUser[]
-  orders           Order[]
-  invoices         Invoice[]
-  activities       Activity[]
-  accountSnapshots AccountHealthSnapshot[]
-  tasks            Task[]
-  addresses        CustomerAddress[]
-  assignments      CustomerAssignment[]
-  sampleUsage      SampleUsage[]
-  calendarEvents   CalendarEvent[]
+  riskStatus               CustomerRiskStatus      @default(HEALTHY)
+  salesRepId               String?                 @db.Uuid
+  accountType              AccountType?
+  accountPriority          AccountPriority?
+  territory                String?
+  doNotContactUntil        DateTime?               @db.Timestamp(6)
+  latitude                 Float?
+  longitude                Float?
+  geocodedAt               DateTime?               @db.Timestamp(6)
+  accountSnapshots         AccountHealthSnapshot[]
+  activities               Activity[]
+  calendarEvents           CalendarEvent[]
+  callPlanAccounts         CallPlanAccount[]
+  callPlanActivities       CallPlanActivity[]
+  salesRep                 SalesRep?               @relation(fields: [salesRepId], references: [id])
+  tenant                   Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  addresses                CustomerAddress[]
+  assignments              CustomerAssignment[]
+  imageScans               ImageScan[]
+  invoices                 Invoice[]
+  orders                   Order[]
+  pickSheetItems           PickSheetItem[]
+  portalUsers              PortalUser[]
+  sampleUsage              SampleUsage[]
+  tasks                    Task[]
+  triggeredTasks           TriggeredTask[]
 
   @@unique([tenantId, externalId])
   @@index([tenantId])
   @@index([salesRepId])
   @@index([riskStatus])
+  @@index([accountPriority])
+  @@index([accountType])
+  @@index([territory])
 }
 
 model Order {
-  id           String      @id @default(uuid()) @db.Uuid
-  tenantId     String      @db.Uuid
-  customerId   String      @db.Uuid
-  portalUserId String?     @db.Uuid
-  status       OrderStatus @default(DRAFT)
-  orderedAt    DateTime?
-  fulfilledAt  DateTime?
-  deliveredAt  DateTime?
-  deliveryWeek Int?
-  isFirstOrder Boolean     @default(false)
-  total        Decimal?    @db.Decimal(12, 2)
-  currency     String      @default("USD")
-  createdAt    DateTime    @default(now())
-  updatedAt    DateTime    @updatedAt
-
-  tenant     Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  customer   Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  portalUser PortalUser? @relation(fields: [portalUserId], references: [id], onDelete: SetNull)
-  lines      OrderLine[]
-  invoices   Invoice[]
-  payments   Payment[]
-  activities Activity[]
+  id              String      @id @default(uuid()) @db.Uuid
+  tenantId        String      @db.Uuid
+  customerId      String      @db.Uuid
+  portalUserId    String?     @db.Uuid
+  status          OrderStatus @default(DRAFT)
+  orderedAt       DateTime?
+  fulfilledAt     DateTime?
+  total           Decimal?    @db.Decimal(12, 2)
+  currency        String      @default("USD")
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  deliveredAt     DateTime?
+  deliveryWeek    Int?
+  isFirstOrder    Boolean     @default(false)
+  pickSheetStatus String?     @default("not_picked")
+  pickSheetId     String?     @db.Uuid
+  activities      Activity[]
+  invoices        Invoice[]
+  customer        Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  portalUser      PortalUser? @relation(fields: [portalUserId], references: [id])
+  tenant          Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lines           OrderLine[]
+  payments        Payment[]
+  routeStops      RouteStop[]
 
   @@index([tenantId])
   @@index([deliveredAt])
   @@index([deliveryWeek])
 }
 
-enum OrderStatus {
-  DRAFT
-  SUBMITTED
-  FULFILLED
-  CANCELLED
-  PARTIALLY_FULFILLED
-}
-
 model OrderLine {
-  id                  String   @id @default(uuid()) @db.Uuid
-  tenantId            String   @db.Uuid
-  orderId             String   @db.Uuid
-  skuId               String   @db.Uuid
+  id                  String          @id @default(uuid()) @db.Uuid
+  tenantId            String          @db.Uuid
+  orderId             String          @db.Uuid
+  skuId               String          @db.Uuid
   quantity            Int
-  unitPrice           Decimal  @db.Decimal(10, 2)
+  unitPrice           Decimal         @db.Decimal(10, 2)
   appliedPricingRules Json?
-  isSample            Boolean  @default(false)
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  order  Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  sku    Sku    @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  isSample            Boolean         @default(false)
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+  order               Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  sku                 Sku             @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant              Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  PickSheetItem       PickSheetItem[]
 
   @@index([tenantId])
 }
@@ -458,21 +491,12 @@ model Invoice {
   issuedAt      DateTime?
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
-
-  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  order    Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  customer Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
-  payments Payment[]
+  customer      Customer?     @relation(fields: [customerId], references: [id])
+  order         Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  tenant        Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  payments      Payment[]
 
   @@index([tenantId])
-}
-
-enum InvoiceStatus {
-  DRAFT
-  SENT
-  PAID
-  OVERDUE
-  VOID
 }
 
 model Payment {
@@ -486,10 +510,9 @@ model Payment {
   receivedAt DateTime
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-
-  tenant  Tenant  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
-  order   Order?  @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  invoice    Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  order      Order?   @relation(fields: [orderId], references: [id])
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
 }
@@ -501,19 +524,12 @@ model Cart {
   status       CartStatus @default(ACTIVE)
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
-
-  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
-  items      CartItem[]
+  portalUser   PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+  tenant       Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  items        CartItem[]
 
   @@unique([tenantId, portalUserId, status])
   @@index([tenantId])
-}
-
-enum CartStatus {
-  ACTIVE
-  SUBMITTED
-  ABANDONED
 }
 
 model CartItem {
@@ -524,10 +540,9 @@ model CartItem {
   quantity  Int      @default(1)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  cart   Cart   @relation(fields: [cartId], references: [id], onDelete: Cascade)
-  sku    Sku    @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
+  sku       Sku      @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, cartId, skuId])
   @@index([tenantId])
@@ -547,9 +562,8 @@ model CustomerAddress {
   isDefault  Boolean  @default(false)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-
-  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, customerId, label])
   @@index([tenantId])
@@ -557,34 +571,33 @@ model CustomerAddress {
 }
 
 model PortalNotification {
-  id           String    @id @default(uuid()) @db.Uuid
-  tenantId     String    @db.Uuid
-  portalUserId String    @db.Uuid
+  id           String     @id @default(uuid()) @db.Uuid
+  tenantId     String     @db.Uuid
+  portalUserId String     @db.Uuid
   category     String
   title        String
   message      String
   metadata     Json?
   readAt       DateTime?
-  createdAt    DateTime  @default(now())
-
-  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  portalUser PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+  portalUser   PortalUser @relation(fields: [portalUserId], references: [id], onDelete: Cascade)
+  tenant       Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId, portalUserId, createdAt])
   @@index([tenantId, portalUserId, readAt])
 }
 
 model ActivityType {
-  id          String   @id @default(uuid()) @db.Uuid
-  tenantId    String   @db.Uuid
-  name        String
-  code        String
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  tenant     Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  activities Activity[]
+  id                 String             @id @default(uuid()) @db.Uuid
+  tenantId           String             @db.Uuid
+  name               String
+  code               String
+  description        String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  activities         Activity[]
+  tenant             Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  callPlanActivities CallPlanActivity[]
 
   @@unique([tenantId, code])
   @@index([tenantId])
@@ -605,78 +618,62 @@ model Activity {
   outcome        ActivityOutcome?
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
-
-  tenant       Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  activityType ActivityType @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
-  user         User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
-  portalUser   PortalUser?  @relation(fields: [portalUserId], references: [id], onDelete: SetNull)
-  customer     Customer?    @relation(fields: [customerId], references: [id], onDelete: SetNull)
-  order        Order?       @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  activityType   ActivityType     @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
+  customer       Customer?        @relation(fields: [customerId], references: [id])
+  order          Order?           @relation(fields: [orderId], references: [id])
+  portalUser     PortalUser?      @relation(fields: [portalUserId], references: [id])
+  tenant         Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user           User?            @relation(fields: [userId], references: [id])
 
   @@index([tenantId])
-}
-
-enum ActivityOutcome {
-  PENDING
-  SUCCESS
-  FAILED
-  NO_RESPONSE
 }
 
 model CallPlan {
-  id          String    @id @default(uuid()) @db.Uuid
-  tenantId    String    @db.Uuid
-  userId      String    @db.Uuid
+  id          String             @id @default(uuid()) @db.Uuid
+  tenantId    String             @db.Uuid
+  userId      String             @db.Uuid
   name        String
   description String?
   effectiveAt DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  tasks  Task[]
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  weekNumber  Int?
+  year        Int?
+  status      CallPlanStatus?
+  targetCount Int?
+  tenant      Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accounts    CallPlanAccount[]
+  activities  CallPlanActivity[]
+  tasks       Task[]
 
   @@index([tenantId])
+  @@index([status])
+  @@index([tenantId, weekNumber, year], map: "CallPlan_week_idx")
 }
 
 model Task {
-  id           String       @id @default(uuid()) @db.Uuid
-  tenantId     String       @db.Uuid
-  userId       String?      @db.Uuid
-  callPlanId   String?      @db.Uuid
-  customerId   String?      @db.Uuid
-  assignedById String?      @db.Uuid
-  title        String
-  description  String?
-  dueAt        DateTime?
-  priority     TaskPriority @default(MEDIUM)
-  status       TaskStatus   @default(PENDING)
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
-
-  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user       User?     @relation("AssignedTasks", fields: [userId], references: [id], onDelete: SetNull)
-  assignedBy User?     @relation("CreatedTasks", fields: [assignedById], references: [id], onDelete: SetNull)
-  callPlan   CallPlan? @relation(fields: [callPlanId], references: [id], onDelete: SetNull)
-  customer   Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  id             String          @id @default(uuid()) @db.Uuid
+  tenantId       String          @db.Uuid
+  userId         String?         @db.Uuid
+  callPlanId     String?         @db.Uuid
+  customerId     String?         @db.Uuid
+  title          String
+  description    String?
+  dueAt          DateTime?
+  status         TaskStatus      @default(PENDING)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  assignedById   String?         @db.Uuid
+  priority       TaskPriority?   @default(MEDIUM)
+  callPlan       CallPlan?       @relation(fields: [callPlanId], references: [id])
+  customer       Customer?       @relation(fields: [customerId], references: [id])
+  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user           User?           @relation("AssignedTasks", fields: [userId], references: [id])
+  triggeredTasks TriggeredTask[]
 
   @@index([tenantId])
-  @@index([userId])
   @@index([assignedById])
-}
-
-enum TaskStatus {
-  PENDING
-  IN_PROGRESS
-  COMPLETED
-  CANCELLED
-}
-
-enum TaskPriority {
-  LOW
-  MEDIUM
-  HIGH
 }
 
 model AccountHealthSnapshot {
@@ -689,9 +686,8 @@ model AccountHealthSnapshot {
   sampleUtilization Int
   notes             String?
   createdAt         DateTime @default(now())
-
-  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customer          Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  tenant            Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, customerId, snapshotDate])
   @@index([tenantId])
@@ -706,8 +702,7 @@ model SalesMetric {
   revenue    Decimal? @db.Decimal(14, 2)
   volume     Decimal? @db.Decimal(14, 2)
   createdAt  DateTime @default(now())
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
 }
@@ -723,18 +718,9 @@ model ComplianceFiling {
   referenceId String?
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
-}
-
-enum ComplianceStatus {
-  PENDING
-  IN_PROGRESS
-  SUBMITTED
-  ACCEPTED
-  REJECTED
 }
 
 model StateCompliance {
@@ -744,8 +730,7 @@ model StateCompliance {
   enabled   Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, state])
   @@index([tenantId])
@@ -760,41 +745,38 @@ model StateTaxRate {
   expires   DateTime?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant    Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, state, effective])
   @@index([tenantId])
 }
 
 model WebhookSubscription {
-  id        String   @id @default(uuid()) @db.Uuid
-  tenantId  String   @db.Uuid
+  id        String         @id @default(uuid()) @db.Uuid
+  tenantId  String         @db.Uuid
   eventType String
   targetUrl String
   secret    String
-  enabled   Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  tenant Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  events WebhookEvent[]
+  enabled   Boolean        @default(true)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  events    WebhookEvent[]
+  tenant    Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, eventType, targetUrl])
   @@index([tenantId])
 }
 
 model WebhookEvent {
-  id             String   @id @default(uuid()) @db.Uuid
-  tenantId       String   @db.Uuid
-  subscriptionId String?  @db.Uuid
+  id             String               @id @default(uuid()) @db.Uuid
+  tenantId       String               @db.Uuid
+  subscriptionId String?              @db.Uuid
   eventType      String
   payload        Json
-  createdAt      DateTime @default(now())
-
-  tenant       Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  subscription WebhookSubscription? @relation(fields: [subscriptionId], references: [id], onDelete: SetNull)
-  deliveries   WebhookDelivery[]
+  createdAt      DateTime             @default(now())
+  deliveries     WebhookDelivery[]
+  subscription   WebhookSubscription? @relation(fields: [subscriptionId], references: [id])
+  tenant         Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
 }
@@ -808,15 +790,7 @@ model WebhookDelivery {
   responseBody   String?
   deliveredAt    DateTime?
   createdAt      DateTime      @default(now())
-
-  event WebhookEvent @relation(fields: [webhookEventId], references: [id], onDelete: Cascade)
-}
-
-enum WebhookStatus {
-  PENDING
-  SUCCESS
-  FAILED
-  RETRYING
+  event          WebhookEvent  @relation(fields: [webhookEventId], references: [id], onDelete: Cascade)
 }
 
 model IntegrationToken {
@@ -829,48 +803,35 @@ model IntegrationToken {
   metadata     Json?
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant       Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, provider])
   @@index([tenantId])
 }
 
-// ============================================================================
-// SALES REP MANAGEMENT MODELS
-// ============================================================================
-
-enum CustomerRiskStatus {
-  HEALTHY
-  AT_RISK_CADENCE // Ordering frequency declining
-  AT_RISK_REVENUE // Revenue declining 15%+
-  DORMANT // 45+ days no order
-  CLOSED // Permanently closed
-}
-
 model SalesRep {
-  id                      String   @id @default(uuid()) @db.Uuid
-  tenantId                String   @db.Uuid
-  userId                  String   @unique @db.Uuid
+  id                      String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId                String               @db.Uuid
+  userId                  String               @unique @db.Uuid
   territoryName           String
   deliveryDay             String?
-  weeklyRevenueQuota      Decimal? @db.Decimal(12, 2)
-  monthlyRevenueQuota     Decimal? @db.Decimal(12, 2)
-  quarterlyRevenueQuota   Decimal? @db.Decimal(12, 2)
-  annualRevenueQuota      Decimal? @db.Decimal(12, 2)
+  weeklyRevenueQuota      Decimal?             @db.Decimal(12, 2)
+  monthlyRevenueQuota     Decimal?             @db.Decimal(12, 2)
+  quarterlyRevenueQuota   Decimal?             @db.Decimal(12, 2)
+  annualRevenueQuota      Decimal?             @db.Decimal(12, 2)
   weeklyCustomerQuota     Int?
-  sampleAllowancePerMonth Int      @default(60)
-  isActive                Boolean  @default(true)
-  createdAt               DateTime @default(now())
-  updatedAt               DateTime @updatedAt
-
-  tenant        Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user          User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
-  customers     Customer[]
-  assignments   CustomerAssignment[]
-  sampleUsage   SampleUsage[]
-  weeklyMetrics RepWeeklyMetric[]
-  productGoals  RepProductGoal[]
+  sampleAllowancePerMonth Int                  @default(60)
+  isActive                Boolean              @default(true)
+  createdAt               DateTime             @default(now())
+  updatedAt               DateTime             @default(now()) @updatedAt
+  customers               Customer[]
+  assignments             CustomerAssignment[]
+  productGoals            RepProductGoal[]
+  weeklyMetrics           RepWeeklyMetric[]
+  tenant                  Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user                    User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sampleUsage             SampleUsage[]
+  territories             Territory[]
 
   @@unique([tenantId, userId])
   @@index([tenantId])
@@ -878,16 +839,15 @@ model SalesRep {
 }
 
 model CustomerAssignment {
-  id           String    @id @default(uuid()) @db.Uuid
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId     String    @db.Uuid
   salesRepId   String    @db.Uuid
   customerId   String    @db.Uuid
   assignedAt   DateTime  @default(now())
   unassignedAt DateTime?
-
-  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salesRep SalesRep @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
-  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customer     Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  salesRep     SalesRep  @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
+  tenant       Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([salesRepId])
@@ -895,23 +855,25 @@ model CustomerAssignment {
 }
 
 model SampleUsage {
-  id              String    @id @default(uuid()) @db.Uuid
-  tenantId        String    @db.Uuid
-  salesRepId      String    @db.Uuid
-  customerId      String    @db.Uuid
-  skuId           String    @db.Uuid
-  quantity        Int       @default(1)
-  tastedAt        DateTime
-  feedback        String?
-  needsFollowUp   Boolean   @default(false)
-  followedUpAt    DateTime?
-  resultedInOrder Boolean   @default(false)
-  createdAt       DateTime  @default(now())
-
-  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salesRep SalesRep @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
-  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  sku      Sku      @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId         String    @db.Uuid
+  salesRepId       String    @db.Uuid
+  customerId       String    @db.Uuid
+  skuId            String    @db.Uuid
+  quantity         Int       @default(1)
+  tastedAt         DateTime
+  feedback         String?
+  needsFollowUp    Boolean   @default(false)
+  followedUpAt     DateTime?
+  resultedInOrder  Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  feedbackOptions  Json?
+  customerResponse String?
+  sampleSource     String?
+  customer         Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  salesRep         SalesRep  @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
+  sku              Sku       @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant           Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([salesRepId, tastedAt])
@@ -919,7 +881,7 @@ model SampleUsage {
 }
 
 model RepWeeklyMetric {
-  id                        String   @id @default(uuid()) @db.Uuid
+  id                        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId                  String   @db.Uuid
   salesRepId                String   @db.Uuid
   weekStartDate             DateTime
@@ -937,9 +899,8 @@ model RepWeeklyMetric {
   phoneContacts             Int      @default(0)
   textContacts              Int      @default(0)
   createdAt                 DateTime @default(now())
-
-  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salesRep SalesRep @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
+  salesRep                  SalesRep @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
+  tenant                    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, salesRepId, weekStartDate])
   @@index([tenantId])
@@ -948,7 +909,7 @@ model RepWeeklyMetric {
 }
 
 model RepProductGoal {
-  id              String   @id @default(uuid()) @db.Uuid
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId        String   @db.Uuid
   salesRepId      String   @db.Uuid
   skuId           String?  @db.Uuid
@@ -958,11 +919,10 @@ model RepProductGoal {
   periodStart     DateTime
   periodEnd       DateTime
   createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salesRep SalesRep @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
-  sku      Sku?     @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  updatedAt       DateTime @default(now()) @updatedAt
+  salesRep        SalesRep @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
+  sku             Sku?     @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant          Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([salesRepId])
@@ -970,7 +930,7 @@ model RepProductGoal {
 }
 
 model TopProduct {
-  id              String   @id @default(uuid()) @db.Uuid
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId        String   @db.Uuid
   skuId           String   @db.Uuid
   rank            Int
@@ -980,69 +940,71 @@ model TopProduct {
   totalRevenue    Decimal  @db.Decimal(14, 2)
   totalCases      Int
   uniqueCustomers Int
-  rankingType     String // "revenue", "volume", "customers"
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  sku    Sku    @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  rankingType     String
+  sku             Sku      @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant          Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, calculatedAt, rankingType, rank])
   @@index([tenantId, calculatedAt, rankingType])
 }
 
 model SalesIncentive {
-  id             String   @id @default(uuid()) @db.Uuid
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId       String   @db.Uuid
   name           String
   description    String?
   startDate      DateTime
   endDate        DateTime
-  targetMetric   String // "revenue", "cases", "new_customers"
+  targetMetric   String
   targetSkuId    String?  @db.Uuid
   targetCategory String?
   isActive       Boolean  @default(true)
   createdAt      DateTime @default(now())
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  sku    Sku?   @relation(fields: [targetSkuId], references: [id], onDelete: SetNull)
+  sku            Sku?     @relation(fields: [targetSkuId], references: [id])
+  tenant         Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([isActive, startDate, endDate])
 }
 
 model CalendarEvent {
-  id          String   @id @default(uuid()) @db.Uuid
-  tenantId    String   @db.Uuid
-  userId      String   @db.Uuid
-  title       String
-  description String?
-  startTime   DateTime
-  endTime     DateTime
-  eventType   String? // "tasting", "visit", "meeting"
-  customerId  String?  @db.Uuid
-  location    String?
-  createdAt   DateTime @default(now())
-
-  tenant   Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  customer Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  id                String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId          String           @db.Uuid
+  userId            String           @db.Uuid
+  title             String
+  description       String?
+  startTime         DateTime
+  endTime           DateTime
+  eventType         String?
+  customerId        String?          @db.Uuid
+  location          String?
+  createdAt         DateTime         @default(now())
+  callPlanAccountId String?          @db.Uuid
+  externalEventId   String?
+  syncedAt          DateTime?        @db.Timestamp(6)
+  callPlanAccount   CallPlanAccount? @relation(fields: [callPlanAccountId], references: [id], onUpdate: NoAction, map: "CalendarEvent_callPlanAccount_fkey")
+  customer          Customer?        @relation(fields: [customerId], references: [id])
+  tenant            Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user              User             @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([tenantId, userId, startTime])
   @@index([userId, startTime])
+  @@index([callPlanAccountId])
+  @@index([externalEventId])
 }
 
 model AuditLog {
-  id         String   @id @default(uuid()) @db.Uuid
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId   String   @db.Uuid
   userId     String?  @db.Uuid
-  entityType String // "Order", "OrderLine", "Invoice", "Payment", etc.
+  entityType String
   entityId   String   @db.Uuid
-  action     String // "CREATE", "UPDATE", "DELETE", "STATUS_CHANGE"
-  changes    Json? // Before/after values
-  metadata   Json? // Additional context (IP, user agent, etc.)
+  action     String
+  changes    Json?
+  metadata   Json?
   createdAt  DateTime @default(now())
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user   User?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user       User?    @relation(fields: [userId], references: [id], onUpdate: NoAction)
 
   @@index([tenantId])
   @@index([tenantId, entityType, entityId])
@@ -1051,17 +1013,849 @@ model AuditLog {
 }
 
 model DataIntegritySnapshot {
-  id             String   @id @default(uuid()) @db.Uuid
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId       String   @db.Uuid
   snapshotDate   DateTime @default(now())
   totalIssues    Int
   criticalIssues Int
-  qualityScore   Float // 0-100
-  issuesByRule   Json // { ruleId: count }
+  qualityScore   Float
+  issuesByRule   Json
   createdAt      DateTime @default(now())
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  tenant         Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@index([tenantId, snapshotDate])
   @@index([tenantId])
+}
+
+model CallPlanAccount {
+  id             String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String          @db.Uuid
+  callPlanId     String          @db.Uuid
+  customerId     String          @db.Uuid
+  objective      String?
+  addedAt        DateTime        @default(now()) @db.Timestamp(6)
+  contactOutcome ContactOutcome  @default(NOT_ATTEMPTED)
+  contactedAt    DateTime?       @db.Timestamp(6)
+  notes          String?
+  calendarEvents CalendarEvent[]
+  callPlan       CallPlan        @relation(fields: [callPlanId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanAccount_callPlan_fkey")
+  customer       Customer        @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanAccount_customer_fkey")
+  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanAccount_tenant_fkey")
+
+  @@unique([callPlanId, customerId])
+  @@index([tenantId])
+  @@index([callPlanId])
+  @@index([customerId])
+  @@index([contactOutcome])
+}
+
+model CallPlanActivity {
+  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String       @db.Uuid
+  callPlanId     String       @db.Uuid
+  customerId     String       @db.Uuid
+  activityTypeId String       @db.Uuid
+  occurredAt     DateTime     @db.Timestamp(6)
+  notes          String?
+  createdAt      DateTime     @default(now()) @db.Timestamp(6)
+  activityType   ActivityType @relation(fields: [activityTypeId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanActivity_activityType_fkey")
+  callPlan       CallPlan     @relation(fields: [callPlanId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanActivity_callPlan_fkey")
+  customer       Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanActivity_customer_fkey")
+  tenant         Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanActivity_tenant_fkey")
+
+  @@index([tenantId])
+  @@index([callPlanId])
+  @@index([customerId])
+}
+
+model CalendarSync {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String    @db.Uuid
+  userId       String    @db.Uuid
+  provider     String
+  accessToken  String
+  refreshToken String
+  expiresAt    DateTime  @db.Timestamp(6)
+  calendarId   String?
+  isEnabled    Boolean   @default(true)
+  lastSyncAt   DateTime? @db.Timestamp(6)
+  createdAt    DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt    DateTime  @default(now()) @updatedAt @db.Timestamp(6)
+  tenant       Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CalendarSync_tenant_fkey")
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CalendarSync_user_fkey")
+
+  @@unique([tenantId, userId, provider])
+  @@index([tenantId, userId])
+}
+
+model AutomatedTrigger {
+  id          String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String          @db.Uuid
+  triggerType TriggerType
+  name        String
+  description String?
+  isActive    Boolean?        @default(true)
+  config      Json
+  createdAt   DateTime?       @default(now()) @db.Timestamp(6)
+  updatedAt   DateTime?       @default(now()) @updatedAt @db.Timestamp(6)
+  tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tasks       TriggeredTask[]
+
+  @@index([tenantId, triggerType])
+}
+
+model TriggeredTask {
+  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String           @db.Uuid
+  triggerId   String           @db.Uuid
+  taskId      String           @db.Uuid
+  customerId  String           @db.Uuid
+  triggeredAt DateTime?        @default(now()) @db.Timestamp(6)
+  completedAt DateTime?        @db.Timestamp(6)
+  customer    Customer         @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  task        Task             @relation(fields: [taskId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  trigger     AutomatedTrigger @relation(fields: [triggerId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([tenantId, triggerId])
+  @@index([customerId])
+}
+
+model SampleFeedbackTemplate {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId  String    @db.Uuid
+  category  String
+  label     String
+  sortOrder Int?      @default(0)
+  isActive  Boolean?  @default(true)
+  createdAt DateTime? @default(now()) @db.Timestamp(6)
+  tenant    Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([tenantId, label])
+  @@index([tenantId, category])
+}
+
+model SampleMetrics {
+  id                      String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId                String    @db.Uuid
+  skuId                   String    @db.Uuid
+  periodStart             DateTime  @db.Timestamp(6)
+  periodEnd               DateTime  @db.Timestamp(6)
+  totalSamplesGiven       Int?      @default(0)
+  totalCustomersSampled   Int?      @default(0)
+  samplesResultingInOrder Int?      @default(0)
+  conversionRate          Float?    @default(0)
+  totalRevenue            Decimal?  @db.Decimal(12, 2)
+  avgRevenuePerSample     Decimal?  @db.Decimal(12, 2)
+  calculatedAt            DateTime? @default(now()) @db.Timestamp(6)
+  sku                     Sku       @relation(fields: [skuId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tenant                  Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([tenantId, skuId, periodStart])
+  @@index([tenantId, periodStart])
+  @@index([conversionRate])
+}
+
+model WarehouseConfig {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String    @unique @db.Uuid
+  aisleCount   Int?      @default(10)
+  rowsPerAisle Int?      @default(20)
+  shelfLevels  String[]  @default(["Top", "Middle", "Bottom"])
+  pickStrategy String?   @default("aisle_then_row")
+  createdAt    DateTime? @default(now()) @db.Timestamp(6)
+  updatedAt    DateTime? @default(now()) @updatedAt @db.Timestamp(6)
+  tenant       Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model PickSheet {
+  id          String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String           @db.Uuid
+  sheetNumber String
+  status      PickSheetStatus? @default(DRAFT)
+  pickerName  String?
+  createdById String           @db.Uuid
+  startedAt   DateTime?        @db.Timestamp(6)
+  completedAt DateTime?        @db.Timestamp(6)
+  notes       String?
+  createdAt   DateTime?        @default(now()) @db.Timestamp(6)
+  updatedAt   DateTime?        @default(now()) @updatedAt @db.Timestamp(6)
+  User        User             @relation(fields: [createdById], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  items       PickSheetItem[]
+
+  @@unique([tenantId, sheetNumber])
+  @@index([tenantId, status])
+}
+
+model PickSheetItem {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String    @db.Uuid
+  pickSheetId String    @db.Uuid
+  orderLineId String    @db.Uuid
+  skuId       String    @db.Uuid
+  customerId  String    @db.Uuid
+  quantity    Int
+  pickOrder   Int
+  isPicked    Boolean?  @default(false)
+  pickedAt    DateTime? @db.Timestamp(6)
+  customer    Customer  @relation(fields: [customerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  OrderLine   OrderLine @relation(fields: [orderLineId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  pickSheet   PickSheet @relation(fields: [pickSheetId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  sku         Sku       @relation(fields: [skuId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tenant      Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([pickSheetId])
+  @@index([tenantId, pickSheetId, pickOrder])
+}
+
+model RouteExport {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String    @db.Uuid
+  exportDate DateTime? @default(now()) @db.Timestamp(6)
+  orderCount Int
+  filename   String
+  exportedBy String    @db.Uuid
+  User       User      @relation(fields: [exportedBy], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([tenantId, exportDate])
+}
+
+model DeliveryRoute {
+  id               String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId         String      @db.Uuid
+  routeDate        DateTime    @db.Timestamp(6)
+  routeName        String
+  driverName       String
+  truckNumber      String?
+  startTime        DateTime    @db.Timestamp(6)
+  estimatedEndTime DateTime?   @db.Timestamp(6)
+  createdAt        DateTime?   @default(now()) @db.Timestamp(6)
+  updatedAt        DateTime?   @default(now()) @updatedAt @db.Timestamp(6)
+  tenant           Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  stops            RouteStop[]
+
+  @@unique([tenantId, routeDate, routeName])
+  @@index([tenantId, routeDate])
+}
+
+model RouteStop {
+  id               String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId         String        @db.Uuid
+  routeId          String        @db.Uuid
+  orderId          String        @db.Uuid
+  stopNumber       Int
+  estimatedArrival DateTime      @db.Timestamp(6)
+  actualArrival    DateTime?     @db.Timestamp(6)
+  status           String?       @default("pending")
+  notes            String?
+  order            Order         @relation(fields: [orderId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  route            DeliveryRoute @relation(fields: [routeId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tenant           Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([routeId, stopNumber])
+  @@index([tenantId, routeId])
+  @@index([orderId])
+}
+
+model Territory {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String    @db.Uuid
+  name       String
+  salesRepId String?   @db.Uuid
+  boundaries Json?
+  color      String?   @default("#3b82f6")
+  isActive   Boolean?  @default(true)
+  createdAt  DateTime? @default(now()) @db.Timestamp(6)
+  updatedAt  DateTime? @default(now()) @updatedAt @db.Timestamp(6)
+  salesRep   SalesRep? @relation(fields: [salesRepId], references: [id], onUpdate: NoAction)
+  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@index([salesRepId])
+}
+
+model GeocodingCache {
+  id               String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  address          String    @unique
+  latitude         Float
+  longitude        Float
+  formattedAddress String
+  cachedAt         DateTime? @default(now()) @db.Timestamp(6)
+
+  @@index([cachedAt])
+  @@index([address])
+}
+
+model ImageScan {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String    @db.Uuid
+  userId        String    @db.Uuid
+  imageUrl      String
+  scanType      String
+  extractedData Json      @default("{}")
+  customerId    String?   @db.Uuid
+  status        String?   @default("processing")
+  errorMessage  String?
+  createdAt     DateTime? @default(now()) @db.Timestamp(6)
+  completedAt   DateTime? @db.Timestamp(6)
+  customer      Customer? @relation(fields: [customerId], references: [id], onUpdate: NoAction)
+  tenant        Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  user          User      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([tenantId, userId])
+  @@index([status])
+}
+
+model Job {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type        String
+  payload     Json
+  status      String?   @default("pending")
+  attempts    Int?      @default(0)
+  error       String?
+  createdAt   DateTime? @default(now()) @db.Timestamp(6)
+  completedAt DateTime? @db.Timestamp(6)
+
+  @@index([status, createdAt])
+}
+
+model MailchimpSync {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String    @db.Uuid
+  listId     String
+  listName   String
+  lastSyncAt DateTime? @db.Timestamp(6)
+  isActive   Boolean?  @default(true)
+  syncConfig Json?
+  createdAt  DateTime? @default(now()) @db.Timestamp(6)
+  updatedAt  DateTime? @default(now()) @updatedAt @db.Timestamp(6)
+  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([tenantId, listId])
+  @@index([tenantId])
+}
+
+model EmailCampaign {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String    @db.Uuid
+  name          String
+  mailchimpId   String?
+  productIds    String[]  @default([])
+  targetSegment String?
+  status        String?   @default("draft")
+  sentAt        DateTime? @db.Timestamp(6)
+  createdById   String    @db.Uuid
+  createdAt     DateTime? @default(now()) @db.Timestamp(6)
+  createdBy     User      @relation(fields: [createdById], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tenant        Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([tenantId, status])
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model ImportedInvoices {
+  id                     BigInt    @id @default(autoincrement())
+  referenceNumber        Int?      @unique
+  invoiceNumber          String?
+  invoiceDate            String?
+  dueDate                String?
+  total                  Decimal?  @db.Decimal(12, 2)
+  subtotal               Decimal?  @db.Decimal(12, 2)
+  tax                    Decimal?  @db.Decimal(12, 2)
+  customerName           String?
+  customerAddress        String?
+  itemCount              Int?
+  lineItems              String?
+  matched_customer_id    String?   @db.Uuid
+  match_confidence       Decimal?  @db.Decimal(3, 2)
+  match_method           String?
+  imported_at            DateTime? @default(now()) @db.Timestamptz(6)
+  migrated_to_production Boolean?  @default(false)
+  created_order_id       String?   @db.Uuid
+  created_invoice_id     String?   @db.Uuid
+  invoice_type           String?   @default("customer_sale")
+
+  @@index([matched_customer_id], map: "idx_imported_customer")
+  @@index([migrated_to_production], map: "idx_imported_migrated")
+  @@index([referenceNumber], map: "idx_imported_ref")
+}
+
+model PortalReplayStatus {
+  id          String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String          @db.Uuid
+  feed        String
+  status      ReplayRunStatus
+  startedAt   DateTime?
+  completedAt DateTime?
+  recordCount Int?
+  errorCount  Int?
+  durationMs  Int?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @default(now())
+  Tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([tenantId, feed])
+  @@index([tenantId, completedAt])
+}
+
+model SupplierInvoices {
+  id              BigInt    @id @default(autoincrement())
+  referenceNumber Int?      @unique
+  invoiceNumber   String?
+  invoiceDate     String?
+  total           Decimal?  @db.Decimal(12, 2)
+  supplierName    String?
+  itemCount       Int?
+  imported_at     DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model download_log {
+  id               BigInt    @id @default(autoincrement())
+  reference_number Int
+  attempt_status   String
+  message          String?
+  error_details    String?
+  attempted_at     DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@index([reference_number], map: "idx_download_log_reference")
+  @@index([attempt_status], map: "idx_download_log_status")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model invoices {
+  id               BigInt    @id @default(autoincrement())
+  reference_number Int       @unique
+  date             DateTime? @db.Date
+  customer_name    String?
+  delivery_method  String?
+  status           String?
+  invoice_type     String?
+  file_path        String?
+  file_size_kb     Decimal?  @db.Decimal
+  download_status  String?   @default("pending")
+  downloaded_at    DateTime? @db.Timestamptz(6)
+  created_at       DateTime? @default(now()) @db.Timestamptz(6)
+  updated_at       DateTime? @default(now()) @db.Timestamptz(6)
+
+  @@index([date(sort: Desc)], map: "idx_invoices_date")
+  @@index([reference_number], map: "idx_invoices_reference")
+  @@index([download_status], map: "idx_invoices_status")
+}
+
+enum PortalUserStatus {
+  ACTIVE
+  INVITED
+  DISABLED
+}
+
+enum OrderStatus {
+  DRAFT
+  SUBMITTED
+  FULFILLED
+  CANCELLED
+  PARTIALLY_FULFILLED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  VOID
+}
+
+enum CartStatus {
+  ACTIVE
+  SUBMITTED
+  ABANDONED
+}
+
+enum ActivityOutcome {
+  PENDING
+  SUCCESS
+  FAILED
+  NO_RESPONSE
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum ComplianceStatus {
+  PENDING
+  IN_PROGRESS
+  SUBMITTED
+  ACCEPTED
+  REJECTED
+}
+
+enum WebhookStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  RETRYING
+}
+
+enum CustomerRiskStatus {
+  HEALTHY
+  AT_RISK_CADENCE
+  AT_RISK_REVENUE
+  DORMANT
+  CLOSED
+}
+
+enum AccountType {
+  ACTIVE
+  TARGET
+  PROSPECT
+}
+
+enum AccountPriority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum CallPlanStatus {
+  DRAFT
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+}
+
+enum ContactOutcome {
+  NOT_ATTEMPTED
+  NO_CONTACT
+  CONTACTED
+  VISITED
+}
+
+enum TriggerType {
+  SAMPLE_NO_ORDER
+  FIRST_ORDER_FOLLOWUP
+  CUSTOMER_TIMING
+  BURN_RATE_ALERT
+}
+
+enum PickSheetStatus {
+  DRAFT
+  READY
+  PICKING
+  PICKED
+  CANCELLED
+}
+
+enum InventoryStatus {
+  AVAILABLE
+  ALLOCATED
+  PICKED
+  SHIPPED
+}
+
+enum ReplayRunStatus {
+  COMPLETED
+  FAILED
+  RUNNING
+}
+
+// LeorAI Enhancements - Saved Queries and Scheduled Reports
+model SavedQuery {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String    @db.Uuid
+  userId      String    @db.Uuid
+  name        String
+  description String?
+  queryText   String
+  isTemplate  Boolean   @default(false)
+  isShared    Boolean   @default(false)
+  category    String?
+  tags        String[]  @default([])
+  usageCount  Int       @default(0)
+  lastUsedAt  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  tenant      Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+  @@index([tenantId, isTemplate])
+  @@index([lastUsedAt])
+}
+
+model QueryHistory {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String   @db.Uuid
+  userId     String   @db.Uuid
+  queryText  String
+  executedAt DateTime @default(now())
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId, executedAt])
+}
+
+model ScheduledReport {
+  id             String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String              @db.Uuid
+  userId         String              @db.Uuid
+  name           String
+  description    String?
+  reportType     ScheduledReportType
+  frequency      ReportFrequency
+  dayOfWeek      Int? // 0-6 for weekly reports
+  timeOfDay      String              @default("08:00") // HH:mm format
+  recipientEmail String
+  isActive       Boolean             @default(true)
+  lastSentAt     DateTime?
+  nextScheduled  DateTime?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  tenant         Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user           User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+  @@index([isActive, nextScheduled])
+}
+
+enum ScheduledReportType {
+  DAILY_BRIEFING
+  WEEKLY_PERFORMANCE
+  TERRITORY_HEALTH
+  CUSTOM_QUERY
+}
+
+enum ReportFrequency {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
+// Phase 3: Marketing & Communications System
+model EmailList {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String   @db.Uuid
+  name          String
+  description   String?
+  ownerId       String?  @db.Uuid
+  isSmartList   Boolean  @default(false)
+  smartCriteria Json? // For auto-population rules
+  memberCount   Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  tenant    Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  members   EmailListMember[]
+  campaigns EmailCampaignList[]
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@index([ownerId])
+}
+
+model EmailListMember {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String   @db.Uuid
+  listId     String   @db.Uuid
+  customerId String   @db.Uuid
+  addedAt    DateTime @default(now())
+
+  tenant Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  list   EmailList @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  @@unique([listId, customerId])
+  @@index([tenantId])
+  @@index([listId])
+}
+
+model EmailTemplate {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String   @db.Uuid
+  name        String
+  subject     String
+  body        String   @db.Text
+  isShared    Boolean  @default(false)
+  category    String?
+  createdById String   @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@index([category])
+}
+
+model EmailCampaignList {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String    @db.Uuid
+  campaignId     String    @db.Uuid
+  listId         String    @db.Uuid
+  recipientCount Int       @default(0)
+  openRate       Float?
+  clickRate      Float?
+  sentAt         DateTime?
+  createdAt      DateTime  @default(now())
+
+  tenant Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  list   EmailList @relation(fields: [listId], references: [id], onDelete: Cascade)
+
+  @@unique([campaignId, listId])
+  @@index([tenantId])
+  @@index([campaignId])
+}
+
+model EmailMessage {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String      @db.Uuid
+  customerId  String?     @db.Uuid
+  fromAddress String
+  toAddress   String
+  subject     String
+  body        String      @db.Text
+  status      EmailStatus @default(PENDING)
+  sentAt      DateTime?
+  openedAt    DateTime?
+  clickedAt   DateTime?
+  activityId  String?     @db.Uuid
+  templateId  String?     @db.Uuid
+  externalId  String?
+  metadata    Json?
+  createdAt   DateTime    @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([customerId])
+  @@index([status])
+  @@index([externalId])
+}
+
+model SMSConversation {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String    @db.Uuid
+  customerId    String    @db.Uuid
+  phoneNumber   String
+  lastMessageAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  tenant   Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  messages SMSMessage[]
+
+  @@unique([tenantId, customerId, phoneNumber])
+  @@index([tenantId])
+  @@index([customerId])
+}
+
+model SMSMessage {
+  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String       @db.Uuid
+  conversationId String       @db.Uuid
+  fromNumber     String
+  toNumber       String
+  body           String       @db.Text
+  direction      SMSDirection
+  status         SMSStatus    @default(PENDING)
+  deliveredAt    DateTime?
+  activityId     String?      @db.Uuid
+  externalId     String?
+  errorMessage   String?
+  createdAt      DateTime     @default(now())
+
+  tenant       Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  conversation SMSConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([conversationId])
+  @@index([externalId])
+  @@index([status])
+}
+
+model SMSTemplate {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String   @db.Uuid
+  name        String
+  body        String   @db.Text
+  category    String?
+  createdById String   @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@index([category])
+}
+
+model MailchimpConnection {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String    @unique @db.Uuid
+  accessToken  String
+  serverPrefix String
+  lastSyncAt   DateTime?
+  isActive     Boolean   @default(true)
+  audienceId   String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+}
+
+model CommunicationPreference {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String    @db.Uuid
+  customerId     String    @db.Uuid
+  emailOptIn     Boolean   @default(true)
+  smsOptIn       Boolean   @default(false)
+  preferredTime  String? // e.g., "morning", "afternoon", "evening"
+  unsubscribedAt DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, customerId])
+  @@index([tenantId])
+  @@index([customerId])
+}
+
+enum EmailStatus {
+  PENDING
+  SENDING
+  SENT
+  DELIVERED
+  OPENED
+  CLICKED
+  BOUNCED
+  FAILED
+}
+
+enum SMSDirection {
+  INBOUND
+  OUTBOUND
+}
+
+enum SMSStatus {
+  PENDING
+  SENT
+  DELIVERED
+  FAILED
+  RECEIVED
 }

@@ -20,9 +20,13 @@ type Customer = {
   establishedRevenue: number | null;
   dormancySince: string | null;
   location: string | null;
+  lifetimeRevenue: number;
   recentRevenue: number;
+  ytdRevenue: number;
+  mtdRevenue?: number;
   recentOrderCount: number;
   daysOverdue: number;
+  daysUntilExpected: number | null;
   isDueToOrder: boolean;
 };
 
@@ -37,6 +41,8 @@ type CustomersResponse = {
   summary: {
     totalCustomers: number;
     totalRevenue: number;
+    mtdRevenue?: number;
+    ytdRevenue?: number;
     customersDue: number;
     riskCounts: Record<string, number>;
   };
@@ -56,6 +62,7 @@ export default function SalesCustomersPage() {
   const [sortField, setSortField] = useState<SortField>("name");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const [currentPage, setCurrentPage] = useState(1);
+  const [showAllCustomers, setShowAllCustomers] = useState(false);
 
   const loadCustomers = useCallback(async () => {
     setLoading(true);
@@ -74,11 +81,20 @@ export default function SalesCustomersPage() {
         params.set("risk", activeFilter);
       }
 
+      if (activeFilter === "DUE") {
+        params.set("due", "true");
+      }
+
       // Apply sorting
       params.set("sortField", sortField);
       params.set("sortDirection", sortDirection);
       params.set("page", currentPage.toString());
       params.set("pageSize", "50");
+
+      // Apply showAll filter
+      if (showAllCustomers) {
+        params.set("showAll", "true");
+      }
 
       const response = await fetch(`/api/sales/customers?${params.toString()}`, {
         cache: "no-store",
@@ -91,23 +107,14 @@ export default function SalesCustomersPage() {
 
       const payload = (await response.json()) as CustomersResponse;
 
-      // If filter is "DUE", filter client-side for customers due to order
-      if (activeFilter === "DUE") {
-        const filteredCustomers = payload.customers.filter((c) => c.isDueToOrder);
-        setData({
-          ...payload,
-          customers: filteredCustomers,
-        });
-      } else {
-        setData(payload);
-      }
+      setData(payload);
     } catch (error) {
       setError(error instanceof Error ? error.message : "Unable to load customers.");
       setData(null);
     } finally {
       setLoading(false);
     }
-  }, [searchQuery, activeFilter, sortField, sortDirection, currentPage]);
+  }, [searchQuery, activeFilter, sortField, sortDirection, currentPage, showAllCustomers]);
 
   useEffect(() => {
     void loadCustomers();
@@ -147,9 +154,45 @@ export default function SalesCustomersPage() {
       {/* Header */}
       <header className="flex flex-col gap-3">
         <p className="text-xs font-medium uppercase tracking-widest text-gray-500">Customers</p>
-        <h1 className="text-3xl font-semibold text-gray-900">My Customers</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-semibold text-gray-900">
+            {showAllCustomers ? "All Customers" : "My Customers"}
+          </h1>
+          <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white p-1">
+            <button
+              type="button"
+              onClick={() => {
+                setShowAllCustomers(false);
+                setCurrentPage(1);
+              }}
+              className={`rounded-md px-4 py-2 text-sm font-medium transition ${
+                !showAllCustomers
+                  ? "bg-blue-600 text-white shadow-sm"
+                  : "text-gray-700 hover:bg-gray-50"
+              }`}
+            >
+              My Customers
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setShowAllCustomers(true);
+                setCurrentPage(1);
+              }}
+              className={`rounded-md px-4 py-2 text-sm font-medium transition ${
+                showAllCustomers
+                  ? "bg-blue-600 text-white shadow-sm"
+                  : "text-gray-700 hover:bg-gray-50"
+              }`}
+            >
+              All Customers
+            </button>
+          </div>
+        </div>
         <p className="max-w-2xl text-sm text-gray-600">
-          View and manage customers in your territory. Track health status, ordering patterns, and revenue.
+          {showAllCustomers
+            ? "View and manage all customers across all territories."
+            : "View and manage customers in your territory. Track health status, ordering patterns, and revenue."}
         </p>
       </header>
 
@@ -184,6 +227,17 @@ export default function SalesCustomersPage() {
             riskCounts={data.summary.riskCounts}
             customersDueCount={data.summary.customersDue}
           />
+        )}
+        {data && (activeFilter !== "ALL" || activeFilter === "DUE" || searchQuery) && (
+          <p
+            className="text-sm text-gray-500 transition-colors"
+            role="status"
+            aria-live="polite"
+          >
+            Showing {data.pagination.totalCount.toLocaleString()} of{" "}
+            {data.summary.totalCustomers.toLocaleString()} customers{" "}
+            <span className="font-medium text-blue-600">(filtered)</span>
+          </p>
         )}
       </div>
 

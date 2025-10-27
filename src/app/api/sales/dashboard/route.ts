@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
-import { startOfWeek, endOfWeek, subWeeks, getISOWeek, getYear, addDays } from "date-fns";
+import { startOfWeek, endOfWeek, subWeeks, getISOWeek, getYear, addDays, startOfYear, startOfMonth, subMonths, endOfMonth } from "date-fns";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -33,15 +33,23 @@ export async function GET(request: NextRequest) {
       }
 
       const now = new Date();
+      const monthStart = startOfMonth(now); // Start of current month
+      const monthEnd = endOfMonth(now); // End of current month
+      const lastMonthStart = startOfMonth(subMonths(now, 1)); // Start of last month
+      const lastMonthEnd = endOfMonth(subMonths(now, 1)); // End of last month
+      const yearStart = startOfYear(now); // January 1st of current year
+
+      // Keep week calculations for activities only
       const currentWeekStart = startOfWeek(now, { weekStartsOn: 1 }); // Monday
       const currentWeekEnd = endOfWeek(now, { weekStartsOn: 1 }); // Sunday
-      const lastWeekStart = subWeeks(currentWeekStart, 1);
-      const lastWeekEnd = subWeeks(currentWeekEnd, 1);
 
-      // Get current week metrics
+      // Get current month metrics
       const [
-        currentWeekRevenue,
-        lastWeekRevenue,
+        currentMonthRevenue,
+        lastMonthRevenue,
+        mtdRevenue,
+        ytdRevenue,
+        allTimeRevenue,
         customerRiskCounts,
         recentActivities,
         upcomingEvents,
@@ -49,7 +57,7 @@ export async function GET(request: NextRequest) {
         weeklyMetrics,
         pendingTasks,
       ] = await Promise.all([
-        // Current week revenue (delivered orders only)
+        // Current month revenue (MTD - delivered orders only)
         db.order.aggregate({
           where: {
             tenantId,
@@ -57,8 +65,8 @@ export async function GET(request: NextRequest) {
               salesRepId: salesRep.id,
             },
             deliveredAt: {
-              gte: currentWeekStart,
-              lte: currentWeekEnd,
+              gte: monthStart,
+              lte: now,
             },
             status: {
               not: "CANCELLED",
@@ -72,7 +80,7 @@ export async function GET(request: NextRequest) {
           },
         }),
 
-        // Last week revenue for comparison
+        // Last month revenue for comparison (full month)
         db.order.aggregate({
           where: {
             tenantId,
@@ -80,8 +88,8 @@ export async function GET(request: NextRequest) {
               salesRepId: salesRep.id,
             },
             deliveredAt: {
-              gte: lastWeekStart,
-              lte: lastWeekEnd,
+              gte: lastMonthStart,
+              lte: lastMonthEnd,
             },
             status: {
               not: "CANCELLED",
@@ -89,6 +97,71 @@ export async function GET(request: NextRequest) {
           },
           _sum: {
             total: true,
+          },
+        }),
+
+        // MTD revenue (Month-to-Date from start of current month)
+        db.order.aggregate({
+          where: {
+            tenantId,
+            customer: {
+              salesRepId: salesRep.id,
+            },
+            deliveredAt: {
+              gte: monthStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+          _count: {
+            customerId: true,
+          },
+        }),
+
+        // YTD revenue (Year-to-Date from January 1)
+        db.order.aggregate({
+          where: {
+            tenantId,
+            customer: {
+              salesRepId: salesRep.id,
+            },
+            deliveredAt: {
+              gte: yearStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+          _count: {
+            customerId: true,
+          },
+        }),
+
+        // All-time revenue (for display when no current week revenue)
+        db.order.aggregate({
+          where: {
+            tenantId,
+            customer: {
+              salesRepId: salesRep.id,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+          _count: {
+            customerId: true,
           },
         }),
 
@@ -213,9 +286,12 @@ export async function GET(request: NextRequest) {
         }),
       ]);
 
-      // Calculate metrics
-      const currentRevenue = Number(currentWeekRevenue._sum.total ?? 0);
-      const lastRevenue = Number(lastWeekRevenue._sum.total ?? 0);
+      // Calculate metrics - Now using month-over-month
+      const currentRevenue = Number(currentMonthRevenue._sum.total ?? 0);
+      const lastRevenue = Number(lastMonthRevenue._sum.total ?? 0);
+      const mtdRevenueAmount = Number(mtdRevenue._sum.total ?? 0);
+      const ytdRevenueAmount = Number(ytdRevenue._sum.total ?? 0);
+      const totalRevenue = Number(allTimeRevenue._sum.total ?? 0);
       const revenueChange = lastRevenue > 0
         ? ((currentRevenue - lastRevenue) / lastRevenue) * 100
         : 0;
@@ -245,9 +321,10 @@ export async function GET(request: NextRequest) {
         {} as Record<string, number>
       );
 
-      // Calculate quota progress
+      // Calculate quota progress - Now using monthly quota
       const weeklyQuota = Number(salesRep.weeklyRevenueQuota ?? 0);
-      const quotaProgress = weeklyQuota > 0 ? (currentRevenue / weeklyQuota) * 100 : 0;
+      const monthlyQuota = weeklyQuota * 4.33; // Average weeks per month
+      const quotaProgress = monthlyQuota > 0 ? (currentRevenue / monthlyQuota) * 100 : 0;
 
       return NextResponse.json({
         salesRep: {
@@ -256,19 +333,31 @@ export async function GET(request: NextRequest) {
           email: salesRep.user.email,
           territory: salesRep.territoryName,
           deliveryDay: salesRep.deliveryDay,
-          weeklyQuota: Number(salesRep.weeklyRevenueQuota ?? 0),
-          monthlyQuota: Number(salesRep.monthlyRevenueQuota ?? 0),
+          weeklyQuota: weeklyQuota,
+          monthlyQuota: monthlyQuota,
           quarterlyQuota: Number(salesRep.quarterlyRevenueQuota ?? 0),
           annualQuota: Number(salesRep.annualRevenueQuota ?? 0),
         },
         metrics: {
-          currentWeek: {
+          currentMonth: {
             revenue: currentRevenue,
-            uniqueCustomers: currentWeekRevenue._count.customerId,
+            uniqueCustomers: currentMonthRevenue._count.customerId,
             quotaProgress,
           },
-          lastWeek: {
+          lastMonth: {
             revenue: lastRevenue,
+          },
+          mtd: {
+            revenue: mtdRevenueAmount,
+            uniqueCustomers: mtdRevenue._count.customerId,
+          },
+          ytd: {
+            revenue: ytdRevenueAmount,
+            uniqueCustomers: ytdRevenue._count.customerId,
+          },
+          allTime: {
+            revenue: totalRevenue,
+            uniqueCustomers: allTimeRevenue._count.customerId,
           },
           comparison: {
             revenueChange,

@@ -39,16 +39,13 @@ type CustomerHealthUpdate = {
  * Daily Customer Health Assessment Job
  *
  * Runs daily to assess all customers' risk status based on:
- * - Ordering pace (average interval between last 5 orders)
- * - Next expected order date
- * - Revenue trends
- * - Dormancy detection (45+ days since expected order)
+ * - Days since last order
  *
- * Business Rules (from claude-plan.md):
- * - DORMANT: 45+ days since expected order
- * - AT_RISK_CADENCE: Past expected order date by 1+ days
- * - AT_RISK_REVENUE: Recent revenue 15% below established average
- * - HEALTHY: Otherwise
+ * SIMPLIFIED Business Rules:
+ * - HEALTHY: Last order within 45 days
+ * - DORMANT: 45+ days since last order
+ *
+ * Tracks reactivations when dormant customers place new orders.
  */
 export async function run(options: RunOptions = {}) {
   const { tenantId: explicitTenantId, tenantSlug: explicitTenantSlug } = options;
@@ -119,9 +116,8 @@ export async function run(options: RunOptions = {}) {
     console.log(`[customer-health-assessment] Analyzing ${customers.length} active customers...`);
 
     let updatedCount = 0;
+    let healthyCount = 0;
     let dormantCount = 0;
-    let atRiskCadenceCount = 0;
-    let atRiskRevenueCount = 0;
     let reactivatedCount = 0;
 
     // Process each customer
@@ -141,16 +137,14 @@ export async function run(options: RunOptions = {}) {
             // Track statistics
             if (healthUpdate.riskStatus === CustomerRiskStatus.DORMANT) {
               dormantCount++;
-            } else if (healthUpdate.riskStatus === CustomerRiskStatus.AT_RISK_CADENCE) {
-              atRiskCadenceCount++;
-            } else if (healthUpdate.riskStatus === CustomerRiskStatus.AT_RISK_REVENUE) {
-              atRiskRevenueCount++;
+            } else if (healthUpdate.riskStatus === CustomerRiskStatus.HEALTHY) {
+              healthyCount++;
             }
 
-            // Track reactivations (was dormant, now not)
+            // Track reactivations (was dormant, now healthy)
             if (
               customer.dormancySince &&
-              healthUpdate.riskStatus !== CustomerRiskStatus.DORMANT &&
+              healthUpdate.riskStatus === CustomerRiskStatus.HEALTHY &&
               healthUpdate.reactivatedDate
             ) {
               reactivatedCount++;
@@ -172,9 +166,8 @@ export async function run(options: RunOptions = {}) {
     );
     console.log(`  - Total customers analyzed: ${customers.length}`);
     console.log(`  - Customers updated: ${updatedCount}`);
-    console.log(`  - Dormant: ${dormantCount}`);
-    console.log(`  - At Risk (Cadence): ${atRiskCadenceCount}`);
-    console.log(`  - At Risk (Revenue): ${atRiskRevenueCount}`);
+    console.log(`  - Healthy (< 45 days): ${healthyCount}`);
+    console.log(`  - Dormant (45+ days): ${dormantCount}`);
     console.log(`  - Reactivated: ${reactivatedCount}`);
     console.log(`  - Duration: ${duration}ms`);
   } catch (error) {
@@ -198,18 +191,27 @@ async function assessCustomerHealth(
 ): Promise<CustomerHealthUpdate | null> {
   const now = new Date();
 
-  // Skip customers with no orders
-  if (customer.orders.length === 0) {
-    return null;
-  }
-
   // Get delivered orders only (revenue recognition on delivery)
   const deliveredOrders = customer.orders
     .filter((order) => order.deliveredAt !== null)
     .sort((a, b) => b.deliveredAt!.getTime() - a.deliveredAt!.getTime());
 
+  // If customer has NO orders, mark as DORMANT
   if (deliveredOrders.length === 0) {
-    return null;
+    const newStatus = CustomerRiskStatus.DORMANT;
+
+    // Only update if status changed
+    if (customer.riskStatus === newStatus) {
+      return null;
+    }
+
+    return {
+      riskStatus: newStatus,
+      dormancySince: customer.dormancySince || now,
+      lastOrderDate: undefined,
+      nextExpectedOrderDate: undefined,
+      averageOrderIntervalDays: undefined,
+    };
   }
 
   // Calculate ordering pace from last 5 orders
@@ -226,38 +228,32 @@ async function assessCustomerHealth(
     ? differenceInDays(now, nextExpectedOrderDate)
     : 0;
 
-  // Calculate revenue metrics
-  const revenueMetrics = calculateRevenueMetrics(deliveredOrders, customer.establishedRevenue);
+  // Calculate days since last order (simpler approach)
+  const daysSinceLastOrder = differenceInDays(now, lastOrderDate);
 
-  // Determine risk status based on business rules
+  // Determine risk status based on SIMPLIFIED business rules
   let newRiskStatus: CustomerRiskStatus;
   let newDormancySince: Date | null = customer.dormancySince;
   let newReactivatedDate: Date | null = customer.reactivatedDate;
 
-  // Priority order: DORMANT > AT_RISK_CADENCE > AT_RISK_REVENUE > HEALTHY
-  if (daysSinceExpected >= 45) {
-    // Rule 1: 45+ days since expected order = DORMANT
+  // SIMPLIFIED RULES:
+  // - HEALTHY: Ordered within last 45 days
+  // - DORMANT: 45+ days since last order
+  if (daysSinceLastOrder >= 45) {
+    // Rule 1: 45+ days since last order = DORMANT
     newRiskStatus = CustomerRiskStatus.DORMANT;
     if (!customer.dormancySince) {
       newDormancySince = now;
       newReactivatedDate = null;
     }
   } else {
-    // Not dormant, so check if was previously dormant for reactivation
+    // Rule 2: Ordered within 45 days = HEALTHY
+    newRiskStatus = CustomerRiskStatus.HEALTHY;
+
+    // Check if was previously dormant for reactivation tracking
     if (customer.dormancySince) {
       newReactivatedDate = now;
       newDormancySince = null;
-    }
-
-    if (daysSinceExpected >= 1) {
-      // Rule 2: Past expected order date by 1+ days = AT_RISK_CADENCE
-      newRiskStatus = CustomerRiskStatus.AT_RISK_CADENCE;
-    } else if (revenueMetrics.isRevenueDeclined) {
-      // Rule 3: Recent revenue 15% below established average = AT_RISK_REVENUE
-      newRiskStatus = CustomerRiskStatus.AT_RISK_REVENUE;
-    } else {
-      // Rule 4: Otherwise = HEALTHY
-      newRiskStatus = CustomerRiskStatus.HEALTHY;
     }
   }
 

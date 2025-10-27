@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { formatSkuLabel } from "@/lib/utils/format";
 
 type LogSampleUsageModalProps = {
   onClose: () => void;
@@ -115,7 +116,16 @@ export default function LogSampleUsageModal({ onClose, onSuccess }: LogSampleUsa
                   <option value="">Select product...</option>
                   {products.map((sku) => (
                     <option key={sku.id} value={sku.id}>
-                      {sku.product?.brand} {sku.product?.name} - {sku.code}
+                      {formatSkuLabel(
+                        {
+                          code: sku.code,
+                          product: {
+                            brand: sku.product?.brand,
+                            name: sku.product?.name,
+                          },
+                        },
+                        { includeCode: true }
+                      )}
                     </option>
                   ))}
                 </select>

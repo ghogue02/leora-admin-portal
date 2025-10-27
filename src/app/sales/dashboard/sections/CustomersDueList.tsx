@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from "react";
 import Link from "next/link";
 import { DashboardTile } from "@/components/dashboard/DashboardTile";
 import type { DashboardDrilldownType } from "@/types/drilldown";
@@ -20,6 +21,7 @@ type CustomersDueListProps = {
 };
 
 export default function CustomersDueList({ customers, onDrilldown }: CustomersDueListProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
   if (customers.length === 0) {
     return (
       <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -51,7 +53,7 @@ export default function CustomersDueList({ customers, onDrilldown }: CustomersDu
         </div>
 
       <ul className="mt-4 space-y-3">
-        {customers.map((customer) => (
+        {customers.slice(0, isExpanded ? customers.length : 3).map((customer) => (
           <li
             key={customer.id}
             className="flex items-start justify-between gap-3 rounded-md border border-slate-200 px-4 py-3 transition hover:border-slate-300"
@@ -93,6 +95,18 @@ export default function CustomersDueList({ customers, onDrilldown }: CustomersDu
           </li>
         ))}
       </ul>
+
+      {/* Show More / Show Less Button */}
+      {customers.length > 3 && (
+        <div className="mt-4 text-center">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-sm font-medium text-blue-600 hover:text-blue-800 transition"
+          >
+            {isExpanded ? '▲ Show Less' : `▼ Show ${customers.length - 3} More`}
+          </button>
+        </div>
+      )}
 
       <div className="mt-4 rounded-md border border-blue-200 bg-blue-50 p-3 text-sm text-blue-900">
         <p className="font-semibold">Recommended Actions</p>

@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Prisma, CustomerRiskStatus } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
+import {
+  startOfYear,
+  startOfMonth,
+  startOfDay,
+  addDays,
+  subDays,
+  differenceInCalendarDays,
+} from "date-fns";
 
 type SortField = "name" | "lastOrderDate" | "nextExpectedOrderDate" | "revenue";
 type SortDirection = "asc" | "desc";
@@ -34,12 +42,20 @@ export async function GET(request: NextRequest) {
       const sortDirection = (searchParams.get("sortDirection") as SortDirection) || "asc";
       const page = parseInt(searchParams.get("page") || "1", 10);
       const pageSize = Math.min(parseInt(searchParams.get("pageSize") || "50", 10), 100);
+      const showAll = searchParams.get("showAll") === "true";
+      const dueOnly = searchParams.get("due") === "true";
+
+      // Shared visibility scope (ignores UI filters)
+      const baseWhere: Prisma.CustomerWhereInput = {
+        tenantId,
+        // Only filter by salesRepId if not showing all customers
+        ...(showAll ? {} : { salesRepId: salesRep.id }),
+        isPermanentlyClosed: false,
+      };
 
       // Build where clause
       const where: Prisma.CustomerWhereInput = {
-        tenantId,
-        salesRepId: salesRep.id,
-        isPermanentlyClosed: false,
+        ...baseWhere,
       };
 
       // Apply search filter
@@ -51,9 +67,24 @@ export async function GET(request: NextRequest) {
         ];
       }
 
+      const now = new Date();
+      const today = startOfDay(now);
+      const ninetyDaysAgo = startOfDay(subDays(today, 90));
+      const dueWindowEnd = addDays(today, 7);
+
       // Apply risk status filter
       if (riskFilter) {
         where.riskStatus = riskFilter;
+      }
+
+      if (dueOnly) {
+        where.nextExpectedOrderDate = {
+          not: null,
+          lte: dueWindowEnd,
+        };
+        where.riskStatus = {
+          notIn: [CustomerRiskStatus.DORMANT, CustomerRiskStatus.CLOSED],
+        };
       }
 
       // Build order by clause
@@ -76,7 +107,7 @@ export async function GET(request: NextRequest) {
       }
 
       // Execute queries in parallel
-      const [customers, totalCount, riskCounts, allCustomers] = await Promise.all([
+      const [customers, totalCount, riskCounts, allCustomers, customersDueCount] = await Promise.all([
         // Get customers with pagination
         db.customer.findMany({
           where,
@@ -106,9 +137,7 @@ export async function GET(request: NextRequest) {
         db.customer.groupBy({
           by: ["riskStatus"],
           where: {
-            tenantId,
-            salesRepId: salesRep.id,
-            isPermanentlyClosed: false,
+            ...baseWhere,
           },
           _count: {
             _all: true,
@@ -117,13 +146,20 @@ export async function GET(request: NextRequest) {
 
         // Get all customer IDs for revenue calculation
         db.customer.findMany({
-          where: {
-            tenantId,
-            salesRepId: salesRep.id,
-            isPermanentlyClosed: false,
-          },
+          where: baseWhere,
           select: {
             id: true,
+          },
+        }),
+        db.customer.count({
+          where: {
+            ...baseWhere,
+            nextExpectedOrderDate: {
+              lte: dueWindowEnd,
+            },
+            riskStatus: {
+              notIn: [CustomerRiskStatus.DORMANT, CustomerRiskStatus.CLOSED],
+            },
           },
         }),
       ]);
@@ -132,11 +168,35 @@ export async function GET(request: NextRequest) {
       const customerIds = customers.map((c) => c.id);
       const allCustomerIds = allCustomers.map((c) => c.id);
 
-      // Get recent orders (last 90 days) to calculate actual revenue
-      const now = new Date();
-      const ninetyDaysAgo = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
+      // Get all-time orders to calculate actual revenue
+      const monthStart = startOfMonth(now);
+      const yearStart = startOfYear(now);
 
-      const [recentOrders, totalRevenueData] = await Promise.all([
+      const [
+        allTimeOrders,
+        ninetyDayOrders,
+        mtdOrders,
+        ytdOrders,
+        totalRevenueData,
+        mtdRevenueData,
+        ytdRevenueData,
+      ] = await Promise.all([
+        db.order.groupBy({
+          by: ["customerId"],
+          where: {
+            tenantId,
+            customerId: { in: customerIds },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+          _count: {
+            _all: true,
+          },
+        }),
         db.order.groupBy({
           by: ["customerId"],
           where: {
@@ -144,6 +204,7 @@ export async function GET(request: NextRequest) {
             customerId: { in: customerIds },
             deliveredAt: {
               gte: ninetyDaysAgo,
+              lte: now,
             },
             status: {
               not: "CANCELLED",
@@ -156,13 +217,80 @@ export async function GET(request: NextRequest) {
             _all: true,
           },
         }),
+        // MTD orders grouped by customer
+        db.order.groupBy({
+          by: ["customerId"],
+          where: {
+            tenantId,
+            customerId: { in: customerIds },
+            deliveredAt: {
+              gte: monthStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+        }),
+        // YTD orders grouped by customer
+        db.order.groupBy({
+          by: ["customerId"],
+          where: {
+            tenantId,
+            customerId: { in: customerIds },
+            deliveredAt: {
+              gte: yearStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+        }),
         // Calculate total revenue across all customers (not just paginated ones)
         db.order.aggregate({
           where: {
             tenantId,
             customerId: { in: allCustomerIds },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+        }),
+        // Calculate MTD revenue across all customers
+        db.order.aggregate({
+          where: {
+            tenantId,
+            customerId: { in: allCustomerIds },
             deliveredAt: {
-              gte: ninetyDaysAgo,
+              gte: monthStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+        }),
+        // Calculate YTD revenue across all customers
+        db.order.aggregate({
+          where: {
+            tenantId,
+            customerId: { in: allCustomerIds },
+            deliveredAt: {
+              gte: yearStart,
+              lte: now,
             },
             status: {
               not: "CANCELLED",
@@ -174,14 +302,38 @@ export async function GET(request: NextRequest) {
         }),
       ]);
 
-      // Create revenue map
+      // Create revenue maps
       const revenueMap = new Map(
-        recentOrders.map((order) => [
+        allTimeOrders.map((order) => [
           order.customerId,
           {
             revenue: Number(order._sum.total ?? 0),
             orderCount: order._count._all,
           },
+        ])
+      );
+
+      const ninetyDayMap = new Map(
+        ninetyDayOrders.map((order) => [
+          order.customerId,
+          {
+            revenue: Number(order._sum.total ?? 0),
+            orderCount: order._count._all,
+          },
+        ])
+      );
+
+      const mtdRevenueMap = new Map(
+        mtdOrders.map((order) => [
+          order.customerId,
+          Number(order._sum.total ?? 0),
+        ])
+      );
+
+      const ytdRevenueMap = new Map(
+        ytdOrders.map((order) => [
+          order.customerId,
+          Number(order._sum.total ?? 0),
         ])
       );
 
@@ -200,43 +352,55 @@ export async function GET(request: NextRequest) {
         } as Record<string, number>
       );
 
-      // Calculate customers due to order
-      const customersDueCount = customers.filter((c) => {
-        if (!c.nextExpectedOrderDate) return false;
-        const daysUntilExpected = Math.floor(
-          (c.nextExpectedOrderDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
-        );
-        return daysUntilExpected <= 7 && daysUntilExpected >= -3;
-      }).length;
-
       // Serialize customers with calculated metrics
       const serializedCustomers = customers.map((customer) => {
-        const recentData = revenueMap.get(customer.id);
-        const daysOverdue = customer.nextExpectedOrderDate
-          ? Math.max(
-              0,
-              Math.floor((now.getTime() - customer.nextExpectedOrderDate.getTime()) / (1000 * 60 * 60 * 24))
-            )
-          : 0;
+        const allTimeData = revenueMap.get(customer.id);
+        const ninetyDayData = ninetyDayMap.get(customer.id);
+        const mtdRevenueAmount = mtdRevenueMap.get(customer.id) ?? 0;
+        const ytdRevenueAmount = ytdRevenueMap.get(customer.id) ?? 0;
+        const daysUntilExpected = customer.nextExpectedOrderDate
+          ? differenceInCalendarDays(customer.nextExpectedOrderDate, today)
+          : null;
+        const daysOverdue =
+          daysUntilExpected !== null && daysUntilExpected < 0 ? Math.abs(daysUntilExpected) : 0;
+
+        let effectiveRiskStatus = customer.riskStatus;
+        if (
+          customer.nextExpectedOrderDate &&
+          customer.riskStatus === CustomerRiskStatus.HEALTHY &&
+          daysOverdue > 0
+        ) {
+          effectiveRiskStatus = CustomerRiskStatus.AT_RISK_CADENCE;
+        }
+
+        const isDueToOrder =
+          customer.nextExpectedOrderDate &&
+          daysUntilExpected !== null &&
+          daysUntilExpected <= 7 &&
+          ![CustomerRiskStatus.DORMANT, CustomerRiskStatus.CLOSED].includes(effectiveRiskStatus)
+            ? true
+            : false;
 
         return {
           id: customer.id,
           name: customer.name,
           accountNumber: customer.accountNumber,
           billingEmail: customer.billingEmail,
-          riskStatus: customer.riskStatus,
+          riskStatus: effectiveRiskStatus,
           lastOrderDate: customer.lastOrderDate?.toISOString() ?? null,
           nextExpectedOrderDate: customer.nextExpectedOrderDate?.toISOString() ?? null,
           averageOrderIntervalDays: customer.averageOrderIntervalDays,
           establishedRevenue: customer.establishedRevenue ? Number(customer.establishedRevenue) : null,
           dormancySince: customer.dormancySince?.toISOString() ?? null,
           location: customer.city && customer.state ? `${customer.city}, ${customer.state}` : null,
-          recentRevenue: recentData?.revenue ?? 0,
-          recentOrderCount: recentData?.orderCount ?? 0,
+          lifetimeRevenue: allTimeData?.revenue ?? 0,
+          recentRevenue: ninetyDayData?.revenue ?? 0,
+          mtdRevenue: mtdRevenueAmount,
+          ytdRevenue: ytdRevenueAmount,
+          recentOrderCount: ninetyDayData?.orderCount ?? 0,
           daysOverdue,
-          isDueToOrder: customer.nextExpectedOrderDate
-            ? Math.floor((customer.nextExpectedOrderDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)) <= 7
-            : false,
+          isDueToOrder,
+          daysUntilExpected,
         };
       });
 
@@ -251,6 +415,8 @@ export async function GET(request: NextRequest) {
         summary: {
           totalCustomers: allCustomers.length,
           totalRevenue: Number(totalRevenueData._sum.total ?? 0),
+          mtdRevenue: Number(mtdRevenueData._sum.total ?? 0),
+          ytdRevenue: Number(ytdRevenueData._sum.total ?? 0),
           customersDue: customersDueCount,
           riskCounts: riskStatusCounts,
         },

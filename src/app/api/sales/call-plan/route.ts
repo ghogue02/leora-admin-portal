@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfWeek, endOfWeek, parseISO } from "date-fns";
+import { enrichCallPlanTasks } from "@/lib/call-plan/enrich-tasks.server";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -79,19 +80,23 @@ export async function GET(request: NextRequest) {
         },
       });
 
+      const enrichedTasks = await enrichCallPlanTasks(tasks, { db, tenantId });
+
       return NextResponse.json({
         weekStart: weekStart.toISOString(),
         weekEnd: weekEnd.toISOString(),
-        tasks,
+        tasks: enrichedTasks,
       });
     }
+
+    const enrichedTasks = await enrichCallPlanTasks(callPlan.tasks, { db, tenantId });
 
     return NextResponse.json({
       id: callPlan.id,
       name: callPlan.name,
       weekStart: weekStart.toISOString(),
       weekEnd: weekEnd.toISOString(),
-      tasks: callPlan.tasks,
+      tasks: enrichedTasks,
     });
   });
 }

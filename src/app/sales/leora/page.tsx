@@ -3,6 +3,8 @@
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import { useToast } from "../_components/ToastProvider";
 import { AutoInsights } from "./_components/AutoInsights";
+import { QueryBuilder } from "./_components/QueryBuilder";
+import { ScheduledReports } from "./_components/ScheduledReports";
 
 type CopilotCitation = {
   label: string;
@@ -72,6 +74,8 @@ export default function SalesLeoraCopilotPage() {
   const [suggestions, setSuggestions] = useState<string[]>(DEFAULT_SUGGESTIONS);
   const [metrics, setMetrics] = useState<CopilotMetrics | null>(null);
   const [loadingMetrics, setLoadingMetrics] = useState(true);
+  const [showQueryBuilder, setShowQueryBuilder] = useState(false);
+  const [showScheduledReports, setShowScheduledReports] = useState(false);
 
   const handleSubmit = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
@@ -397,8 +401,34 @@ export default function SalesLeoraCopilotPage() {
   return (
     <main className="mx-auto flex max-w-5xl flex-col gap-8">
       <header className="flex flex-col gap-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">LeorAI</p>
-        <h1 className="text-3xl font-semibold text-gray-900">Smart Answers, Fast Action</h1>
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">LeorAI</p>
+            <h1 className="text-3xl font-semibold text-gray-900">Smart Answers, Fast Action</h1>
+          </div>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setShowQueryBuilder(!showQueryBuilder)}
+              className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
+                showQueryBuilder
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
+              }`}
+            >
+              📋 Saved Queries
+            </button>
+            <button
+              onClick={() => setShowScheduledReports(!showScheduledReports)}
+              className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
+                showScheduledReports
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
+              }`}
+            >
+              📅 Scheduled Reports
+            </button>
+          </div>
+        </div>
         <p className="max-w-2xl text-sm text-gray-600">
           Stop digging through spreadsheets. Start asking questions. Which customers need attention this week? What's driving my revenue? Who should I call today? LeorAI connects your sales data with AI to surface the insights that matter—so you can spend less time analyzing and more time selling.
         </p>
@@ -406,6 +436,16 @@ export default function SalesLeoraCopilotPage() {
 
       {/* Auto-Insights Section */}
       <AutoInsights onInsightClick={handleSuggestionClick} />
+
+      {/* Query Builder Section */}
+      {showQueryBuilder && (
+        <QueryBuilder onQuerySelect={handleSuggestionClick} />
+      )}
+
+      {/* Scheduled Reports Section */}
+      {showScheduledReports && (
+        <ScheduledReports />
+      )}
 
       <section className="grid gap-6 lg:grid-cols-[2fr_1fr]">
         <div className="flex h-[32rem] flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">

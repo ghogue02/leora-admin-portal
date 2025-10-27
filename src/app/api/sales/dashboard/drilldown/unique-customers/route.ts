@@ -3,9 +3,12 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { startOfWeek, endOfWeek, format } from "date-fns";
 
 export async function GET(request: NextRequest) {
-  return withSalesSession(
-    request,
-    async ({ db, tenantId, session }) => {
+  return withSalesSession(request, async ({ db, tenantId, session }) => {
+    try {
+      console.log("🔍 [unique-customers] Starting drilldown");
+      console.log("🔍 [unique-customers] Tenant ID:", tenantId);
+      console.log("🔍 [unique-customers] User ID:", session.user.id);
+
       // Get sales rep profile for the logged-in user
       const salesRep = await db.salesRep.findUnique({
         where: {
@@ -17,11 +20,11 @@ export async function GET(request: NextRequest) {
       });
 
       if (!salesRep) {
-        return NextResponse.json(
-          { error: "Sales rep profile not found" },
-          { status: 404 }
-        );
+        console.log("❌ [unique-customers] Sales rep profile not found");
+        return NextResponse.json({ error: "Sales rep profile not found" }, { status: 404 });
       }
+
+      console.log("✅ [unique-customers] Sales rep found:", salesRep.id);
 
       const now = new Date();
       const currentWeekStart = startOfWeek(now, { weekStartsOn: 1 }); // Monday
@@ -48,9 +51,9 @@ export async function GET(request: NextRequest) {
               id: true,
               name: true,
               accountNumber: true,
-              email: true,
+              billingEmail: true,
               phone: true,
-              address: true,
+              street1: true,
               city: true,
               state: true,
               postalCode: true,
@@ -79,78 +82,81 @@ export async function GET(request: NextRequest) {
       });
 
       // Group orders by customer
-      const customerData = currentWeekOrders.reduce((acc, order) => {
-        const customerId = order.customer.id;
-        if (!acc[customerId]) {
-          acc[customerId] = {
-            customer: {
-              id: order.customer.id,
-              name: order.customer.name,
-              accountNumber: order.customer.accountNumber,
-              email: order.customer.email,
-              phone: order.customer.phone,
-              location: {
-                address: order.customer.address,
-                city: order.customer.city,
-                state: order.customer.state,
-                postalCode: order.customer.postalCode,
+      const customerData = currentWeekOrders.reduce(
+        (acc, order) => {
+          const customerId = order.customer.id;
+          if (!acc[customerId]) {
+            acc[customerId] = {
+              customer: {
+                id: order.customer.id,
+                name: order.customer.name,
+                accountNumber: order.customer.accountNumber,
+                email: order.customer.email,
+                phone: order.customer.phone,
+                location: {
+                  address: order.customer.address,
+                  city: order.customer.city,
+                  state: order.customer.state,
+                  postalCode: order.customer.postalCode,
+                },
+                territory: order.customer.territory,
               },
-              territory: order.customer.territory,
-            },
-            orders: [],
-            totalSpent: 0,
-            orderCount: 0,
-            productsPurchased: new Set<string>(),
-            categoriesPurchased: new Set<string>(),
-            firstOrderDate: order.deliveredAt,
-            lastOrderDate: order.deliveredAt,
-          };
-        }
-
-        // Add order details
-        const orderTotal = Number(order.total || 0);
-        acc[customerId].orders.push({
-          id: order.id,
-          orderNumber: order.orderNumber,
-          total: orderTotal,
-          deliveredAt: order.deliveredAt?.toISOString() || null,
-          status: order.status,
-          itemCount: order.lines.length,
-          products: order.lines.map((line) => ({
-            productName: line.sku.product.name,
-            brand: line.sku.product.brand,
-            category: line.sku.product.category,
-            skuCode: line.sku.code,
-            quantity: line.quantity,
-            unitPrice: Number(line.unitPrice),
-            lineTotal: Number(line.unitPrice) * line.quantity,
-          })),
-        });
-
-        // Update aggregates
-        acc[customerId].totalSpent += orderTotal;
-        acc[customerId].orderCount += 1;
-
-        // Track products and categories
-        order.lines.forEach((line) => {
-          acc[customerId].productsPurchased.add(line.sku.product.name);
-          if (line.sku.product.category) {
-            acc[customerId].categoriesPurchased.add(line.sku.product.category);
+              orders: [],
+              totalSpent: 0,
+              orderCount: 0,
+              productsPurchased: new Set<string>(),
+              categoriesPurchased: new Set<string>(),
+              firstOrderDate: order.deliveredAt,
+              lastOrderDate: order.deliveredAt,
+            };
           }
-        });
 
-        // Update date range
-        if (order.deliveredAt) {
-          if (order.deliveredAt < acc[customerId].firstOrderDate!) {
-            acc[customerId].firstOrderDate = order.deliveredAt;
-          }
-          if (order.deliveredAt > acc[customerId].lastOrderDate!) {
-            acc[customerId].lastOrderDate = order.deliveredAt;
-          }
-        }
+          // Add order details
+          const orderTotal = Number(order.total || 0);
+          acc[customerId].orders.push({
+            id: order.id,
+            orderNumber: order.orderNumber,
+            total: orderTotal,
+            deliveredAt: order.deliveredAt?.toISOString() || null,
+            status: order.status,
+            itemCount: order.lines.length,
+            products: order.lines.map((line) => ({
+              productName: line.sku.product.name,
+              brand: line.sku.product.brand,
+              category: line.sku.product.category,
+              skuCode: line.sku.code,
+              quantity: line.quantity,
+              unitPrice: Number(line.unitPrice),
+              lineTotal: Number(line.unitPrice) * line.quantity,
+            })),
+          });
 
-        return acc;
-      }, {} as Record<string, any>);
+          // Update aggregates
+          acc[customerId].totalSpent += orderTotal;
+          acc[customerId].orderCount += 1;
+
+          // Track products and categories
+          order.lines.forEach((line) => {
+            acc[customerId].productsPurchased.add(line.sku.product.name);
+            if (line.sku.product.category) {
+              acc[customerId].categoriesPurchased.add(line.sku.product.category);
+            }
+          });
+
+          // Update date range
+          if (order.deliveredAt) {
+            if (order.deliveredAt < acc[customerId].firstOrderDate!) {
+              acc[customerId].firstOrderDate = order.deliveredAt;
+            }
+            if (order.deliveredAt > acc[customerId].lastOrderDate!) {
+              acc[customerId].lastOrderDate = order.deliveredAt;
+            }
+          }
+
+          return acc;
+        },
+        {} as Record<string, any>
+      );
 
       // Convert to array and add calculated metrics
       const customers = Object.values(customerData)
@@ -213,23 +219,17 @@ export async function GET(request: NextRequest) {
       const topFiveRevenue = customers
         .slice(0, 5)
         .reduce((sum, c) => sum + c.metrics.totalSpent, 0);
-      const customerConcentration =
-        totalRevenue > 0 ? (topFiveRevenue / totalRevenue) * 100 : 0;
+      const customerConcentration = totalRevenue > 0 ? (topFiveRevenue / totalRevenue) * 100 : 0;
 
+      console.log("✅ [unique-customers] Query completed, returning results");
       return NextResponse.json({
         summary,
         data: {
           customers,
           highValueCustomers: highValueCustomers.slice(0, 10),
           newCustomersThisWeek: customers.filter((c) => {
-            const firstOrder = c.dateRange.firstOrder
-              ? new Date(c.dateRange.firstOrder)
-              : null;
-            return (
-              firstOrder &&
-              firstOrder >= currentWeekStart &&
-              firstOrder <= currentWeekEnd
-            );
+            const firstOrder = c.dateRange.firstOrder ? new Date(c.dateRange.firstOrder) : null;
+            return firstOrder && firstOrder >= currentWeekStart && firstOrder <= currentWeekEnd;
           }),
         },
         metadata: {
@@ -247,15 +247,26 @@ export async function GET(request: NextRequest) {
             : null,
           customerConcentration: customerConcentration.toFixed(1) + "%",
           averageOrderFrequency:
-            customers.length > 0
-              ? (totalOrders / customers.length).toFixed(1)
-              : "0",
+            customers.length > 0 ? (totalOrders / customers.length).toFixed(1) : "0",
           highValuePercentage:
             customers.length > 0
               ? ((highValueCustomers.length / customers.length) * 100).toFixed(1) + "%"
               : "0%",
         },
       });
+    } catch (error) {
+      console.error("❌ [unique-customers] Error in drilldown:", error);
+      console.error(
+        "❌ [unique-customers] Error details:",
+        error instanceof Error ? error.message : String(error)
+      );
+      return NextResponse.json(
+        {
+          error: "Failed to load unique customers data",
+          details: error instanceof Error ? error.message : String(error),
+        },
+        { status: 500 }
+      );
     }
-  );
+  });
 }

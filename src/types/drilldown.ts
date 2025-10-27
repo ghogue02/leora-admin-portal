@@ -26,6 +26,9 @@ export type DashboardDrilldownType =
   | 'weekly-quota'           // Weekly quota progress and details
   | 'this-week-revenue'      // Current week revenue breakdown
   | 'last-week-revenue'      // Previous week comparison data
+  | 'mtd-revenue'            // Month-to-Date revenue
+  | 'ytd-revenue'            // Year-to-Date revenue
+  | 'all-time-revenue'       // All-time total revenue
 
   // Customer Tiles
   | 'unique-customers'       // Customers who ordered this week
@@ -605,6 +608,9 @@ export function isDashboardDrilldownType(type: any): type is DashboardDrilldownT
     'weekly-quota',
     'this-week-revenue',
     'last-week-revenue',
+    'mtd-revenue',
+    'ytd-revenue',
+    'all-time-revenue',
     'unique-customers',
     'customer-health',
     'at-risk-cadence',

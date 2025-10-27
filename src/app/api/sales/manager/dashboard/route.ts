@@ -1,16 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { startOfWeek, endOfWeek, subWeeks, startOfMonth, endOfMonth } from "date-fns";
+import { startOfWeek, endOfWeek, subWeeks, startOfMonth, endOfMonth, startOfYear, subMonths } from "date-fns";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId }) => {
     const now = new Date();
-    const weekStart = startOfWeek(now, { weekStartsOn: 1 });
-    const weekEnd = endOfWeek(now, { weekStartsOn: 1 });
-    const lastWeekStart = startOfWeek(subWeeks(now, 1), { weekStartsOn: 1 });
-    const lastWeekEnd = endOfWeek(subWeeks(now, 1), { weekStartsOn: 1 });
     const monthStart = startOfMonth(now);
     const monthEnd = endOfMonth(now);
+    const lastMonthStart = startOfMonth(subMonths(now, 1));
+    const lastMonthEnd = endOfMonth(subMonths(now, 1));
+    const yearStart = startOfYear(now); // January 1st of current year
+
+    // Keep week calculations for activities only
+    const weekStart = startOfWeek(now, { weekStartsOn: 1 });
+    const weekEnd = endOfWeek(now, { weekStartsOn: 1 });
 
     // Get all sales reps
     const salesReps = await db.salesRep.findMany({
@@ -31,16 +34,19 @@ export async function GET(request: NextRequest) {
     // Build rep performance data
     const repsData = await Promise.all(
       salesReps.map(async (rep) => {
-        // This week's revenue
-        const thisWeekOrders = await db.order.aggregate({
+        // This month's revenue (MTD)
+        const thisMonthOrders = await db.order.aggregate({
           where: {
             tenantId,
             customer: {
               salesRepId: rep.id,
             },
             deliveredAt: {
-              gte: weekStart,
-              lte: weekEnd,
+              gte: monthStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
             },
           },
           _sum: {
@@ -48,16 +54,75 @@ export async function GET(request: NextRequest) {
           },
         });
 
-        // Last week's revenue
-        const lastWeekOrders = await db.order.aggregate({
+        // Last month's revenue (full month)
+        const lastMonthOrders = await db.order.aggregate({
           where: {
             tenantId,
             customer: {
               salesRepId: rep.id,
             },
             deliveredAt: {
-              gte: lastWeekStart,
-              lte: lastWeekEnd,
+              gte: lastMonthStart,
+              lte: lastMonthEnd,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+        });
+
+        // MTD revenue
+        const mtdOrders = await db.order.aggregate({
+          where: {
+            tenantId,
+            customer: {
+              salesRepId: rep.id,
+            },
+            deliveredAt: {
+              gte: monthStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+        });
+
+        // YTD revenue
+        const ytdOrders = await db.order.aggregate({
+          where: {
+            tenantId,
+            customer: {
+              salesRepId: rep.id,
+            },
+            deliveredAt: {
+              gte: yearStart,
+              lte: now,
+            },
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          _sum: {
+            total: true,
+          },
+        });
+
+        // All-time revenue
+        const allTimeOrders = await db.order.aggregate({
+          where: {
+            tenantId,
+            customer: {
+              salesRepId: rep.id,
+            },
+            status: {
+              not: "CANCELLED",
             },
           },
           _sum: {
@@ -99,9 +164,16 @@ export async function GET(request: NextRequest) {
           },
         });
 
-        const thisWeekRevenue = Number(thisWeekOrders._sum.total || 0);
-        const quotaAttainment = rep.weeklyRevenueQuota
-          ? (thisWeekRevenue / Number(rep.weeklyRevenueQuota)) * 100
+        const thisMonthRevenue = Number(thisMonthOrders._sum.total || 0);
+        const lastMonthRevenue = Number(lastMonthOrders._sum.total || 0);
+        const mtdRevenueAmount = Number(mtdOrders._sum.total || 0);
+        const ytdRevenueAmount = Number(ytdOrders._sum.total || 0);
+        const allTimeRevenue = Number(allTimeOrders._sum.total || 0);
+
+        // Calculate quota attainment based on monthly quota (weekly quota * 4.33)
+        const monthlyQuota = rep.weeklyRevenueQuota ? Number(rep.weeklyRevenueQuota) * 4.33 : 0;
+        const quotaAttainment = monthlyQuota
+          ? (thisMonthRevenue / monthlyQuota) * 100
           : 0;
 
         return {
@@ -109,8 +181,11 @@ export async function GET(request: NextRequest) {
           name: rep.user.fullName,
           email: rep.user.email,
           territoryName: rep.territoryName,
-          thisWeekRevenue,
-          lastWeekRevenue: Number(lastWeekOrders._sum.total || 0),
+          thisMonthRevenue,
+          lastMonthRevenue,
+          mtdRevenue: mtdRevenueAmount,
+          ytdRevenue: ytdRevenueAmount,
+          allTimeRevenue,
           customersAssigned,
           customersActive,
           activitiesThisWeek,
@@ -172,12 +247,15 @@ export async function GET(request: NextRequest) {
       })
     );
 
-    // Team stats
-    const totalRevenue = repsData.reduce((sum, rep) => sum + rep.thisWeekRevenue, 0);
-    const totalLastWeekRevenue = repsData.reduce((sum, rep) => sum + rep.lastWeekRevenue, 0);
+    // Team stats - Now using month-over-month
+    const totalRevenue = repsData.reduce((sum, rep) => sum + rep.thisMonthRevenue, 0);
+    const totalLastMonthRevenue = repsData.reduce((sum, rep) => sum + rep.lastMonthRevenue, 0);
+    const totalMtdRevenue = repsData.reduce((sum, rep) => sum + rep.mtdRevenue, 0);
+    const totalYtdRevenue = repsData.reduce((sum, rep) => sum + rep.ytdRevenue, 0);
+    const totalAllTimeRevenue = repsData.reduce((sum, rep) => sum + rep.allTimeRevenue, 0);
     const revenueChange =
-      totalLastWeekRevenue > 0
-        ? ((totalRevenue - totalLastWeekRevenue) / totalLastWeekRevenue) * 100
+      totalLastMonthRevenue > 0
+        ? ((totalRevenue - totalLastMonthRevenue) / totalLastMonthRevenue) * 100
         : 0;
 
     return NextResponse.json({
@@ -186,6 +264,9 @@ export async function GET(request: NextRequest) {
       sampleBudgets,
       teamStats: {
         totalRevenue,
+        mtdRevenue: totalMtdRevenue,
+        ytdRevenue: totalYtdRevenue,
+        allTimeRevenue: totalAllTimeRevenue,
         revenueChange,
         totalCustomers: repsData.reduce((sum, rep) => sum + rep.customersAssigned, 0),
         activeCustomers: repsData.reduce((sum, rep) => sum + rep.customersActive, 0),

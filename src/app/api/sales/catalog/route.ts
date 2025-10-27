@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { getInventoryStatus } from "@/lib/inventory/reservation";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -13,13 +14,11 @@ export async function GET(request: NextRequest) {
         include: {
           product: {
             select: {
+              id: true,
               name: true,
               brand: true,
               category: true,
-              tastingNotes: true,
-              foodPairings: true,
-              servingInfo: true,
-              wineDetails: true,
+              description: true,
             },
           },
           inventories: {
@@ -33,9 +32,18 @@ export async function GET(request: NextRequest) {
             include: {
               priceList: {
                 select: {
+                  id: true,
                   name: true,
                   currency: true,
                 },
+              },
+            },
+            where: {
+              priceList: {
+                OR: [
+                  { expiresAt: null },
+                  { expiresAt: { gte: new Date() } },
+                ],
               },
             },
           },
@@ -57,51 +65,47 @@ export async function GET(request: NextRequest) {
         ],
       });
 
-      const items = skus.map((sku) => {
-        // Calculate inventory totals
-        const inventoryTotals = sku.inventories.reduce(
-          (acc, inventory) => {
-            const onHand = inventory.onHand ?? 0;
-            const allocated = inventory.allocated ?? 0;
-            acc.onHand += onHand;
-            acc.available += onHand - allocated;
-            return acc;
-          },
-          { onHand: 0, available: 0 },
-        );
+      // Get inventory status with reservations for each SKU
+      const items = await Promise.all(
+        skus.map(async (sku) => {
+          const inventoryStatus = await getInventoryStatus(db, tenantId, sku.id);
 
-        return {
-          skuId: sku.id,
-          skuCode: sku.code,
-          productName: sku.product.name,
-          brand: sku.product.brand,
-          category: sku.product.category,
-          unitOfMeasure: sku.unitOfMeasure,
-          size: sku.size,
-          priceLists: sku.priceListItems.map((item) => ({
-            priceListId: item.priceListId,
-            priceListName: item.priceList.name,
-            price: Number(item.price),
-            currency: item.priceList.currency,
-            minQuantity: item.minQuantity,
-            maxQuantity: item.maxQuantity,
-          })),
-          inventory: {
-            totals: {
-              onHand: inventoryTotals.onHand,
-              available: inventoryTotals.available,
+          const totals = {
+            onHand: inventoryStatus.onHand,
+            available: inventoryStatus.available,
+            reserved: inventoryStatus.reserved,
+          };
+
+          return {
+            skuId: sku.id,
+            skuCode: sku.code,
+            productName: sku.product.name,
+            brand: sku.product.brand,
+            category: sku.product.category,
+            unitOfMeasure: sku.unitOfMeasure,
+            size: sku.size,
+            priceLists: sku.priceListItems.map((item) => ({
+              priceListId: item.priceList.id,
+              priceListName: item.priceList.name,
+              price: Number(item.price),
+              currency: item.priceList.currency,
+              minQuantity: item.minQuantity,
+              maxQuantity: item.maxQuantity,
+            })),
+            inventory: {
+              totals,
+              lowStock: inventoryStatus.lowStock,
+              outOfStock: inventoryStatus.outOfStock,
             },
-          },
-          product: {
-            tastingNotes: sku.product.tastingNotes,
-            foodPairings: sku.product.foodPairings,
-            servingInfo: sku.product.servingInfo,
-            wineDetails: sku.product.wineDetails,
-          },
-        };
-      });
+            product: {
+              description: sku.product.description,
+            },
+          };
+        }),
+      );
 
       return NextResponse.json({ items });
-    }
+    },
+    { requireSalesRep: false },
   );
 }

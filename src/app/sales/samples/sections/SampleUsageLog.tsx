@@ -2,6 +2,7 @@
 
 import { format } from "date-fns";
 import Link from "next/link";
+import { formatSkuLabel } from "@/lib/utils/format";
 
 type Sample = {
   id: string;
@@ -90,8 +91,16 @@ export default function SampleUsageLog({ samples, onUpdate }: SampleUsageLogProp
                   </div>
 
                   <p className="mt-1 text-sm text-gray-900">
-                    <span className="font-medium">{sample.sku.product.brand || ""}</span>{" "}
-                    {sample.sku.product.name}
+                    {formatSkuLabel(
+                      {
+                        code: sample.sku.code,
+                        product: {
+                          brand: sample.sku.product.brand,
+                          name: sample.sku.product.name,
+                        },
+                      },
+                      { includeCode: false }
+                    )}
                     {sample.quantity > 1 && (
                       <span className="ml-2 text-gray-500">({sample.quantity} samples)</span>
                     )}

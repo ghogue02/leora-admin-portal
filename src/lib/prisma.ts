@@ -1,4 +1,5 @@
 import { Prisma, PrismaClient } from "@prisma/client";
+import { parseLocation } from "./warehouse";
 
 const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient;
@@ -13,6 +14,22 @@ export const prisma =
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
 }
+
+// ============================================================================
+// WAREHOUSE MIDDLEWARE - Auto-calculate pickOrder on Inventory changes
+// ============================================================================
+
+/**
+ * NOTE: Prisma middleware (prisma.$use) was deprecated in Prisma 5+
+ *
+ * For now, pickOrder calculation should be done in API routes using warehouse.ts
+ *
+ * TODO: Convert to Prisma Client Extensions ($extends) if needed in future
+ * See: https://www.prisma.io/docs/concepts/components/prisma-client/client-extensions
+ */
+
+// Middleware commented out - not supported in Prisma 6+
+// Use warehouse.calculatePickOrder() directly in API routes instead
 
 /**
  * Runs the provided callback inside a transaction with the tenant context applied.

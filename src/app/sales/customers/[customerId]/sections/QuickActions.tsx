@@ -2,23 +2,21 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import LogActivityButton from "@/components/shared/LogActivityButton";
 
 type QuickActionsProps = {
   customerId: string;
   isPermanentlyClosed: boolean;
+  customerName?: string;
 };
 
 export default function QuickActions({
   customerId,
   isPermanentlyClosed,
+  customerName,
 }: QuickActionsProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-
-  const handleAddActivity = () => {
-    // TODO: Implement activity creation modal/page
-    alert("Add Activity feature coming soon!");
-  };
 
   const handleAddOrder = () => {
     // TODO: Implement order creation modal/page
@@ -57,13 +55,16 @@ export default function QuickActions({
       </h3>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <button
-          onClick={handleAddActivity}
-          className="flex items-center justify-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-100"
-        >
-          <span className="text-lg">📝</span>
-          Add Activity
-        </button>
+        <div className="flex items-center justify-center">
+          <LogActivityButton
+            customerId={customerId}
+            contextType="customer"
+            contextLabel={customerName}
+            variant="icon"
+            size="md"
+            label="Log Activity"
+          />
+        </div>
 
         <button
           onClick={handleAddOrder}

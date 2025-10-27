@@ -304,9 +304,17 @@ export async function GET(request: NextRequest) {
           timestamp: now.toISOString(),
         },
         insights: {
-          peakRevenueDay: dailyRevenue.reduce((max, day) =>
-            day.revenue > max.revenue ? day : max
-          ),
+          peakRevenueDay: (() => {
+            const peak = dailyRevenue.reduce((max, day) =>
+              day.revenue > max.revenue ? day : max
+            );
+            return {
+              date: peak.date,
+              dayOfWeek: peak.dayOfWeek,
+              revenue: peak.revenue,
+              orderCount: peak.orderCount,
+            };
+          })(),
           topCustomerContribution:
             topCustomers.length > 0 && lastWeekRevenue > 0
               ? ((topCustomers[0].revenue / lastWeekRevenue) * 100).toFixed(1) + "%"

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useCart } from "../../_components/CartProvider";
 import { useToast } from "../../_components/ToastProvider";
 import { ProductDrilldownModal } from "../_components/ProductDrilldownModal";
+import { TastingNotesCard } from "../_components/TastingNotesCard";
 
 type CatalogItem = {
   skuId: string;
@@ -427,20 +428,15 @@ export default function CatalogGrid() {
                     </div>
                   </header>
 
-                  {item.product?.tastingNotes?.aroma && (
-                    <div className="mt-2 rounded bg-purple-50 px-2 py-1 border border-purple-100">
-                      <p className="text-xs italic text-purple-800 line-clamp-1">
-                        🍷 {item.product.tastingNotes.aroma}
-                      </p>
-                    </div>
-                  )}
-
                   {item.product?.tastingNotes && (
-                    <div className="mt-2">
-                      <span className="inline-flex items-center gap-1 rounded-full bg-purple-50 px-2 py-0.5 text-xs font-medium text-purple-700 border border-purple-100">
-                        📖 View tasting notes
-                      </span>
-                    </div>
+                    <TastingNotesCard
+                      tastingNotes={{
+                        aroma: item.product.tastingNotes.aroma,
+                        palate: item.product.tastingNotes.palate,
+                        finish: item.product.tastingNotes.finish,
+                      }}
+                      compact
+                    />
                   )}
 
                 <dl className="mt-4 grid grid-cols-2 gap-2 text-xs text-gray-600">
