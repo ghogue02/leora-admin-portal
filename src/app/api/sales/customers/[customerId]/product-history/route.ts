@@ -70,7 +70,7 @@ export async function GET(request: NextRequest, context: RouteContext) {
         const productId = line.product?.id || "unknown";
         const productName = line.product?.name || "Unknown Product";
         const orderDate = line.order.deliveredAt || line.order.createdAt;
-        const revenue = Number(line.quantity) * Number(line.price);
+        const revenue = Number(line.quantity) * Number(line.unitPrice);
 
         if (!productMap.has(productId)) {
           productMap.set(productId, {
@@ -194,7 +194,7 @@ export async function GET(request: NextRequest, context: RouteContext) {
         }
 
         const product = productTimeline.get(productId)!;
-        product.data[monthIndex] += Number(line.quantity) * Number(line.price);
+        product.data[monthIndex] += Number(line.quantity) * Number(line.unitPrice);
       }
 
       return NextResponse.json({
