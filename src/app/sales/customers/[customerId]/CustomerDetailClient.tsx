@@ -16,6 +16,7 @@ import CustomerContextSetter from "./sections/CustomerContextSetter";
 import OrderDeepDive from "./sections/OrderDeepDive";
 import ProductHistoryReports from "./sections/ProductHistoryReports";
 import CustomerInsights from "./sections/CustomerInsights";
+import CustomerTagManager from "./sections/CustomerTagManager";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -101,6 +102,9 @@ export default function CustomerDetailClient({
 
       {/* Customer Header */}
       <CustomerHeader customer={data.customer} />
+
+      {/* Customer Tags */}
+      <CustomerTagManager customerId={customerId} />
 
       {/* Performance Metrics */}
       <CustomerMetrics

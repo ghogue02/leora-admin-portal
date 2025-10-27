@@ -242,15 +242,10 @@ export default function SalesDashboardPage() {
         />
       )}
 
-      {/* New Metric Cards Row - TEMPORARILY DISABLED */}
-      {/* <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {isSectionEnabled('customer-balances') && (
-          <CustomerBalances onDrilldown={setActiveDrilldown} />
-        )}
-        {isSectionEnabled('new-customers') && (
-          <NewCustomersMetric onDrilldown={setActiveDrilldown} />
-        )}
-      </div> */}
+      {/* Customer Balances Widget */}
+      {isSectionEnabled('customer-balances') && (
+        <CustomerBalances onDrilldown={setActiveDrilldown} />
+      )}
 
       {/* Top Products Section */}
       {isSectionEnabled('top-products') && <TopProducts />}
