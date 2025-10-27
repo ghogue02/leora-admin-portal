@@ -7,11 +7,11 @@ import { withSalesSession } from "@/lib/auth/sales";
  */
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { customerId: string; tagId: string } }
+  context: { params: Promise<{ customerId: string; tagId: string }> }
 ) {
   return withSalesSession(request, async ({ db, tenantId }) => {
     try {
-      const { customerId, tagId } = params;
+      const { customerId, tagId } = await context.params;
 
       // Verify customer exists and belongs to tenant
       const customer = await db.customer.findUnique({
