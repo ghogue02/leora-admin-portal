@@ -39,7 +39,7 @@ export async function GET(request: NextRequest, context: RouteContext) {
                 select: {
                   id: true,
                   name: true,
-                  sku: true,
+                  brand: true,
                 },
               },
             },
