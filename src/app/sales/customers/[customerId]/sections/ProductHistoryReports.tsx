@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Download, TrendingUp, TrendingDown } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { formatCurrency, formatPercentage } from "@/lib/utils/format";
 
 type ProductHistoryReportsProps = {
   customerId: string;
@@ -135,9 +136,7 @@ export default function ProductHistoryReports({ customerId }: ProductHistoryRepo
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="month" />
             <YAxis />
-            <Tooltip
-              formatter={(value: number) => `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
-            />
+            <Tooltip formatter={(value: number) => formatCurrency(value)} />
             <Legend />
             {timeline.products.slice(0, 6).map((product, index) => (
               <Line
@@ -172,7 +171,8 @@ export default function ProductHistoryReports({ customerId }: ProductHistoryRepo
                 trend.trend === "down" ? "text-red-600" :
                 "text-gray-600"
               }`}>
-                {trend.trend === "up" ? "↑" : trend.trend === "down" ? "↓" : "→"} {Math.abs(trend.change).toFixed(1)}%
+                {trend.trend === "up" ? "↑" : trend.trend === "down" ? "↓" : "→"}{" "}
+                {formatPercentage(Math.abs(trend.change))}
               </p>
             </div>
           ))}

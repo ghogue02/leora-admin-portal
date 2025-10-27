@@ -1,5 +1,7 @@
 "use client";
 
+import { formatCurrency, formatNumber, formatPercentage } from "@/lib/utils/format";
+
 type Rep = {
   id: string;
   name: string;
@@ -79,10 +81,10 @@ export default function AllRepsPerformance({ reps, onRepClick }: Props) {
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-700">{rep.territoryName}</td>
                   <td className="px-6 py-4 text-right font-semibold">
-                    ${rep.thisMonthRevenue.toLocaleString()}
+                    {formatCurrency(rep.thisMonthRevenue)}
                   </td>
                   <td className="px-6 py-4 text-right text-gray-900 font-semibold">
-                    ${rep.allTimeRevenue.toLocaleString()}
+                    {formatCurrency(rep.allTimeRevenue)}
                   </td>
                   <td className="px-6 py-4 text-right">
                     <span
@@ -90,14 +92,16 @@ export default function AllRepsPerformance({ reps, onRepClick }: Props) {
                         change >= 0 ? "text-green-600" : "text-red-600"
                       }`}
                     >
-                      {change >= 0 ? "↑" : "↓"} {Math.abs(change).toFixed(1)}%
+                      {change >= 0 ? "↑" : "↓"} {formatPercentage(Math.abs(change))}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-right text-sm">
-                    <span className="font-semibold">{rep.customersActive}</span> /{" "}
-                    {rep.customersAssigned}
+                    <span className="font-semibold">{formatNumber(rep.customersActive)}</span> /{" "}
+                    {formatNumber(rep.customersAssigned)}
                   </td>
-                  <td className="px-6 py-4 text-right text-sm">{rep.activitiesThisWeek}</td>
+                  <td className="px-6 py-4 text-right text-sm">
+                    {formatNumber(rep.activitiesThisWeek)}
+                  </td>
                   <td className="px-6 py-4 text-right">
                     <span
                       className={`text-sm font-semibold ${
@@ -108,7 +112,7 @@ export default function AllRepsPerformance({ reps, onRepClick }: Props) {
                           : "text-red-600"
                       }`}
                     >
-                      {rep.quotaAttainment.toFixed(0)}%
+                      {formatPercentage(rep.quotaAttainment)}
                     </span>
                   </td>
                 </tr>
