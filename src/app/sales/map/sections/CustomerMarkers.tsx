@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
-import { Marker, Popup } from 'react-map-gl';
+import { Marker, Popup } from 'react-map-gl/maplibre';
 import { MapPin } from 'lucide-react';
 import { MapFilters } from '../page';
 import MapPopup from '../components/MapPopup';
