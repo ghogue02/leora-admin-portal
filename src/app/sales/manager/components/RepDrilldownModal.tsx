@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { formatCurrency, formatNumber } from "@/lib/utils/format";
 
 type RepDrilldownData = {
   rep: {
@@ -103,7 +104,7 @@ export default function RepDrilldownModal({ repId, open, onClose }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-8 sm:!max-w-4xl md:!max-w-5xl lg:!max-w-6xl">
         <DialogHeader>
           <DialogTitle>
             {data ? `${data.rep.name} - Performance Details` : "Loading..."}
@@ -132,27 +133,27 @@ export default function RepDrilldownModal({ repId, open, onClose }: Props) {
             <TabsContent value="overview" className="space-y-4">
               <div className="grid gap-4 md:grid-cols-4">
                 <div className="rounded-lg border bg-white p-4">
-                  <p className="text-sm text-gray-600">This Month</p>
+                  <p className="text-sm text-gray-600">This Week</p>
                   <p className="mt-1 text-2xl font-bold">
-                    ${data.stats.thisWeek.toLocaleString()}
+                    {formatCurrency(data.stats.thisWeek)}
                   </p>
                 </div>
                 <div className="rounded-lg border bg-white p-4">
                   <p className="text-sm text-gray-600">This Month</p>
                   <p className="mt-1 text-2xl font-bold">
-                    ${data.stats.thisMonth.toLocaleString()}
+                    {formatCurrency(data.stats.thisMonth)}
                   </p>
                 </div>
                 <div className="rounded-lg border bg-white p-4">
                   <p className="text-sm text-gray-600">This Year</p>
                   <p className="mt-1 text-2xl font-bold">
-                    ${data.stats.thisYear.toLocaleString()}
+                    {formatCurrency(data.stats.thisYear)}
                   </p>
                 </div>
                 <div className="rounded-lg border bg-white p-4">
                   <p className="text-sm text-gray-600">All-Time</p>
                   <p className="mt-1 text-2xl font-bold">
-                    ${data.stats.allTime.toLocaleString()}
+                    {formatCurrency(data.stats.allTime)}
                   </p>
                 </div>
               </div>
@@ -167,7 +168,7 @@ export default function RepDrilldownModal({ repId, open, onClose }: Props) {
                     >
                       <span className="text-sm font-medium">{customer.name}</span>
                       <span className="text-sm text-gray-600">
-                        ${customer.revenue.toLocaleString()}
+                        {formatCurrency(customer.revenue)}
                       </span>
                     </div>
                   ))}
@@ -180,12 +181,12 @@ export default function RepDrilldownModal({ repId, open, onClose }: Props) {
                   <div>
                     <p className="text-sm text-gray-600">Avg Order Value</p>
                     <p className="text-xl font-bold">
-                      ${data.stats.avgOrderValue.toLocaleString()}
+                      {formatCurrency(data.stats.avgOrderValue)}
                     </p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Total Customers</p>
-                    <p className="text-xl font-bold">{data.customers.length}</p>
+                    <p className="text-xl font-bold">{formatNumber(data.customers.length)}</p>
                   </div>
                 </div>
               </div>
@@ -231,9 +232,9 @@ export default function RepDrilldownModal({ repId, open, onClose }: Props) {
                             </Badge>
                           </td>
                           <td className="px-4 py-2 text-right font-semibold">
-                            ${customer.totalRevenue.toLocaleString()}
+                            {formatCurrency(customer.totalRevenue)}
                           </td>
-                          <td className="px-4 py-2 text-right">{customer.orderCount}</td>
+                          <td className="px-4 py-2 text-right">{formatNumber(customer.orderCount)}</td>
                           <td className="px-4 py-2 text-sm text-gray-600">
                             {customer.lastOrderDate
                               ? new Date(customer.lastOrderDate).toLocaleDateString()
@@ -275,7 +276,7 @@ export default function RepDrilldownModal({ repId, open, onClose }: Props) {
                             {new Date(order.deliveredAt).toLocaleDateString()}
                           </td>
                           <td className="px-4 py-2 text-right font-semibold">
-                            ${order.total.toLocaleString()}
+                            {formatCurrency(order.total)}
                           </td>
                           <td className="px-4 py-2">
                             <Badge
@@ -354,7 +355,7 @@ export default function RepDrilldownModal({ repId, open, onClose }: Props) {
                           </td>
                           <td className="px-4 py-2 text-right">
                             <span className="text-red-600 font-semibold">
-                              {customer.daysSinceOrder}
+                              {formatNumber(customer.daysSinceOrder)}
                             </span>
                           </td>
                           <td className="px-4 py-2">
