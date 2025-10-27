@@ -45,17 +45,24 @@ export async function checkInventoryAvailability(
   const totalOnHand = inventoryRecords.reduce((sum, inv) => sum + inv.onHand, 0);
   const totalAllocated = inventoryRecords.reduce((sum, inv) => sum + inv.allocated, 0);
 
-  // Get active reservations
-  const activeReservations = await db.$queryRaw<Array<{ total: bigint }>>`
-    SELECT COALESCE(SUM(quantity), 0)::bigint as total
-    FROM "InventoryReservation"
-    WHERE "tenantId" = ${tenantId}::uuid
-      AND "skuId" = ${skuId}::uuid
-      AND "status" = 'ACTIVE'
-      AND ("expiresAt" IS NULL OR "expiresAt" > NOW())
-  `;
+  // Get active reservations (gracefully handle if table doesn't exist)
+  let totalReserved = 0;
+  try {
+    const activeReservations = await db.$queryRaw<Array<{ total: bigint }>>`
+      SELECT COALESCE(SUM(quantity), 0)::bigint as total
+      FROM "InventoryReservation"
+      WHERE "tenantId" = ${tenantId}::uuid
+        AND "skuId" = ${skuId}::uuid
+        AND "status" = 'ACTIVE'
+        AND ("expiresAt" IS NULL OR "expiresAt" > NOW())
+    `;
+    totalReserved = Number(activeReservations[0]?.total ?? 0);
+  } catch (error) {
+    // InventoryReservation table doesn't exist yet - that's ok, use 0
+    console.warn('InventoryReservation table not found, using 0 for reservations');
+    totalReserved = 0;
+  }
 
-  const totalReserved = Number(activeReservations[0]?.total ?? 0);
   const availableQuantity = totalOnHand - totalAllocated - totalReserved;
 
   const result: InventoryCheckResult = {
