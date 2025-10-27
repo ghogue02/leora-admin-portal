@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useCallback, useRef } from 'react';
-import Map, { NavigationControl, FullscreenControl, ScaleControl, GeolocateControl } from 'react-map-gl';
-import type { MapRef, ViewState } from 'react-map-gl';
+import Map, { NavigationControl, FullscreenControl, ScaleControl, GeolocateControl } from 'react-map-gl/maplibre';
+import type { MapRef, ViewState } from 'react-map-gl/maplibre';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import CustomerMarkers from './CustomerMarkers';
 import HeatMapLayer from './HeatMapLayer';

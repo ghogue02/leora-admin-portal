@@ -1,8 +1,8 @@
 'use client';
 
 import { useMemo, useState, useEffect } from 'react';
-import { Source, Layer } from 'react-map-gl';
-import type { HeatmapLayer } from 'react-map-gl';
+import { Source, Layer } from 'react-map-gl/maplibre';
+import type { HeatmapLayer } from 'react-map-gl/maplibre';
 import { MapFilters } from '../page';
 
 interface HeatMapLayerProps {

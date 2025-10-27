@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Search, Package, Check } from 'lucide-react';
 import FeedbackButtons from '../components/FeedbackButtons';
@@ -20,7 +20,7 @@ type Customer = {
   accountNumber: string;
 };
 
-export default function QuickAssignPage() {
+function QuickAssignPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const preselectedCustomerId = searchParams.get('customerId');
@@ -370,5 +370,20 @@ export default function QuickAssignPage() {
         </section>
       )}
     </main>
+  );
+}
+
+export default function QuickAssignPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <QuickAssignPageContent />
+    </Suspense>
   );
 }
