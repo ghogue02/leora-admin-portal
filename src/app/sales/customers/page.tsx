@@ -5,6 +5,7 @@ import type { CustomerRiskStatus } from "@prisma/client";
 import CustomerTable from "./sections/CustomerTable";
 import CustomerFilters from "./sections/CustomerFilters";
 import CustomerSearchBar from "./sections/CustomerSearchBar";
+import CustomerTagFilter from "./sections/CustomerTagFilter";
 import { SkeletonTable } from "../_components/SkeletonLoader";
 import { EmptyCustomers, EmptySearch } from "../_components/EmptyState";
 

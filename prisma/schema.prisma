@@ -92,6 +92,8 @@ model Tenant {
   smsTemplates            SMSTemplate[]
   mailchimpConnection     MailchimpConnection?
   communicationPrefs      CommunicationPreference[]
+  tagDefinitions          TagDefinition[]
+  customerTags            CustomerTag[]
 }
 
 model TenantSettings {
@@ -418,6 +420,7 @@ model Customer {
   sampleUsage              SampleUsage[]
   tasks                    Task[]
   triggeredTasks           TriggeredTask[]
+  tags                     CustomerTag[]
 
   @@unique([tenantId, externalId])
   @@index([tenantId])
@@ -445,6 +448,9 @@ model Order {
   isFirstOrder    Boolean     @default(false)
   pickSheetStatus String?     @default("not_picked")
   pickSheetId     String?     @db.Uuid
+  isEventSale     Boolean     @default(false)
+  eventType       String?
+  eventNotes      String?
   activities      Activity[]
   invoices        Invoice[]
   customer        Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
@@ -457,6 +463,7 @@ model Order {
   @@index([tenantId])
   @@index([deliveredAt])
   @@index([deliveryWeek])
+  @@index([isEventSale])
 }
 
 model OrderLine {
@@ -1444,6 +1451,59 @@ model invoices {
   @@index([date(sort: Desc)], map: "idx_invoices_date")
   @@index([reference_number], map: "idx_invoices_reference")
   @@index([download_status], map: "idx_invoices_status")
+}
+
+model TagDefinition {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid
+  code        String   // "wine_club", "events", "female_winemakers", etc.
+  displayName String   // "Wine Club", "Events", "Female Winemakers"
+  description String?
+  category    String   @default("SEGMENT") // SEGMENT, PREFERENCE, BEHAVIOR, DEMOGRAPHIC
+  color       String?  // Hex color for UI
+  parentId    String?  @db.Uuid // For hierarchical tags
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  parent       TagDefinition?  @relation("TagHierarchy", fields: [parentId], references: [id])
+  children     TagDefinition[] @relation("TagHierarchy")
+  customerTags CustomerTag[]
+  tenant       Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, code])
+  @@index([tenantId])
+  @@index([category])
+  @@index([parentId])
+}
+
+model CustomerTag {
+  id              String         @id @default(uuid()) @db.Uuid
+  tenantId        String         @db.Uuid
+  customerId      String         @db.Uuid
+  tagDefinitionId String?        @db.Uuid
+  tagType         String         // "wine_club", "events", "female_winemakers"
+  tagValue        String?        // Optional specific value
+  source          String?        @default("MANUAL") // MANUAL, IMPORT, AUTOMATION, EVENT
+  addedBy         String?        @db.Uuid
+  addedAt         DateTime       @default(now())
+  removedAt       DateTime?
+  totalRevenue    Decimal        @default(0) @db.Decimal(14, 2)
+  orderCount      Int            @default(0)
+  lastOrderAt     DateTime?
+
+  customer      Customer       @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  tagDefinition TagDefinition? @relation(fields: [tagDefinitionId], references: [id])
+  tenant        Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, customerId, tagType, removedAt])
+  @@index([tenantId])
+  @@index([customerId])
+  @@index([tagType])
+  @@index([tagType, totalRevenue(sort: Desc)])
+  @@index([removedAt])
+  @@index([tagDefinitionId])
 }
 
 enum PortalUserStatus {
