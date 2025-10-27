@@ -68,7 +68,7 @@ export async function POST(
         AND "customerId" = ${customerId}::uuid
         AND "tagType" = ${tagType}
         AND "removedAt" IS NULL
-        ORDER BY "createdAt" DESC
+        ORDER BY "addedAt" DESC
         LIMIT 1
       `;
 
