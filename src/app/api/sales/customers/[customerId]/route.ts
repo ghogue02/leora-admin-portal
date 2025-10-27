@@ -96,6 +96,25 @@ export async function GET(
             deliveredAt: true,
             status: true,
             total: true,
+            lines: {
+              select: {
+                id: true,
+                quantity: true,
+                unitPrice: true,
+                sku: {
+                  select: {
+                    code: true,
+                    product: {
+                      select: {
+                        id: true,
+                        name: true,
+                        brand: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
             invoices: {
               select: {
                 id: true,

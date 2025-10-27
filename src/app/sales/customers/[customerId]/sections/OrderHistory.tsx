@@ -10,6 +10,19 @@ type Order = {
   status: string;
   total: number;
   lineCount: number;
+  lines: {
+    id: string;
+    quantity: number;
+    unitPrice: number;
+    sku: {
+      code: string;
+      product: {
+        id: string;
+        name: string;
+        brand: string | null;
+      } | null;
+    } | null;
+  }[];
   invoices: {
     id: string;
     invoiceNumber: string | null;
@@ -154,44 +167,85 @@ export default function OrderHistory({ orders }: OrderHistoryProps) {
                 </div>
               </button>
 
-              {expandedOrderId === order.id && order.invoices.length > 0 && (
+              {expandedOrderId === order.id && (
                 <div className="border-t border-slate-200 bg-white p-4">
-                  <h4 className="text-xs font-semibold uppercase tracking-wide text-gray-600">
-                    Invoices
-                  </h4>
-                  <div className="mt-2 space-y-2">
-                    {order.invoices.map((invoice) => (
-                      <div
-                        key={invoice.id}
-                        className="flex items-center justify-between rounded-md border border-slate-200 bg-slate-50 p-3"
-                      >
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-sm font-semibold text-gray-900">
-                              {invoice.invoiceNumber ?? invoice.id.slice(0, 8)}
-                            </span>
-                            <span
-                              className={`rounded-full px-2 py-0.5 text-xs font-semibold ${getInvoiceStatusBadge(
-                                invoice.status
-                              )}`}
-                            >
-                              {invoice.status}
-                            </span>
+                  {/* Order Line Items */}
+                  {order.lines && order.lines.length > 0 && (
+                    <div className="mb-4">
+                      <h4 className="text-xs font-semibold uppercase tracking-wide text-gray-600 mb-2">
+                        Order Items
+                      </h4>
+                      <div className="space-y-1">
+                        {order.lines.map((line) => (
+                          <div
+                            key={line.id}
+                            className="flex items-center justify-between rounded-md bg-slate-50 px-3 py-2 text-sm"
+                          >
+                            <div className="flex-1">
+                              <span className="font-medium text-gray-900">
+                                {line.sku?.product?.name || 'Unknown Product'}
+                              </span>
+                              {line.sku?.product?.brand && (
+                                <span className="ml-2 text-xs text-gray-500">
+                                  {line.sku.product.brand}
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-4 text-right">
+                              <span className="text-gray-600">
+                                Qty: {line.quantity}
+                              </span>
+                              <span className="font-semibold text-gray-900 min-w-[80px]">
+                                {formatCurrency(line.quantity * line.unitPrice)}
+                              </span>
+                            </div>
                           </div>
-                          {invoice.issuedAt && (
-                            <p className="mt-1 text-xs text-gray-500">
-                              Issued {format(new Date(invoice.issuedAt), "MMM d, yyyy")}
-                            </p>
-                          )}
-                        </div>
-                        <div className="text-right">
-                          <p className="font-semibold text-gray-900">
-                            {formatCurrency(invoice.total)}
-                          </p>
-                        </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  )}
+
+                  {/* Invoices */}
+                  {order.invoices.length > 0 && (
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wide text-gray-600 mb-2">
+                        Invoices
+                      </h4>
+                      <div className="space-y-2">
+                        {order.invoices.map((invoice) => (
+                          <div
+                            key={invoice.id}
+                            className="flex items-center justify-between rounded-md border border-slate-200 bg-slate-50 p-3"
+                          >
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-sm font-semibold text-gray-900">
+                                  {invoice.invoiceNumber ?? invoice.id.slice(0, 8)}
+                                </span>
+                                <span
+                                  className={`rounded-full px-2 py-0.5 text-xs font-semibold ${getInvoiceStatusBadge(
+                                    invoice.status
+                                  )}`}
+                                >
+                                  {invoice.status}
+                                </span>
+                              </div>
+                              {invoice.issuedAt && (
+                                <p className="mt-1 text-xs text-gray-500">
+                                  Issued {format(new Date(invoice.issuedAt), "MMM d, yyyy")}
+                                </p>
+                              )}
+                            </div>
+                            <div className="text-right">
+                              <p className="font-semibold text-gray-900">
+                                {formatCurrency(invoice.total)}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
