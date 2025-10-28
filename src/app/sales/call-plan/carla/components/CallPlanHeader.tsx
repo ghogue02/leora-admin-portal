@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,6 +19,7 @@ interface CallPlanHeaderProps {
   onCreatePlan: () => void;
   onExportPDF: () => void;
   onSelectAccounts?: () => void;
+  calendarSyncButton?: ReactNode;
 }
 
 export default function CallPlanHeader({
@@ -32,6 +34,7 @@ export default function CallPlanHeader({
   onCreatePlan,
   onExportPDF,
   onSelectAccounts,
+  calendarSyncButton,
 }: CallPlanHeaderProps) {
   const isAtLimit = selectedCount >= maxAccounts;
 
@@ -61,7 +64,8 @@ export default function CallPlanHeader({
           </p>
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
+          {calendarSyncButton}
           {onSelectAccounts && (
             <Button
               onClick={onSelectAccounts}

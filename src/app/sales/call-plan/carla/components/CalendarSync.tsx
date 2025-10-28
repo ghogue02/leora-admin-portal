@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, RefreshCw, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
@@ -15,7 +15,11 @@ import {
 } from "@/components/ui/dialog";
 import { format } from "date-fns";
 
-type CalendarProvider = "google" | "outlook" | null;
+const tenantHeaders = {
+  "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
+};
+
+type CalendarProvider = "google" | null;
 
 interface CalendarSyncProps {
   callPlanId?: string;
@@ -38,14 +42,14 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
     provider: null,
     syncedEvents: 0,
   });
+  const [scheduleCount, setScheduleCount] = useState<number | null>(null);
 
-  useEffect(() => {
-    loadSyncStatus();
-  }, [callPlanId]);
-
-  const loadSyncStatus = async () => {
+  const loadSyncStatus = useCallback(async () => {
     try {
-      const response = await fetch("/api/sales/call-plan/carla/calendar/status");
+      const response = await fetch("/api/sales/call-plan/carla/calendar/status", {
+        credentials: "include",
+        headers: tenantHeaders,
+      });
       if (response.ok) {
         const data = await response.json();
         setSyncStatus(data);
@@ -53,16 +57,57 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
     } catch (error) {
       console.error("Error loading sync status:", error);
     }
-  };
+  }, []);
 
-  const handleConnect = async (provider: "google" | "outlook") => {
+  const loadScheduleCount = useCallback(async () => {
+    if (!callPlanId) {
+      setScheduleCount(null);
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `/api/sales/call-plan/carla/schedule?callPlanId=${callPlanId}&weekStart=${format(weekStart, "yyyy-MM-dd")}`,
+        {
+          credentials: "include",
+          headers: tenantHeaders,
+        },
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setScheduleCount(Array.isArray(data.schedules) ? data.schedules.length : 0);
+      } else {
+        setScheduleCount(null);
+      }
+    } catch (error) {
+      console.error("Error loading schedule count:", error);
+      setScheduleCount(null);
+    }
+  }, [callPlanId, weekStart]);
+
+  useEffect(() => {
+    loadSyncStatus();
+  }, [loadSyncStatus, callPlanId]);
+
+  useEffect(() => {
+    loadScheduleCount();
+  }, [loadScheduleCount]);
+
+  useEffect(() => {
+    if (showDialog) {
+      loadScheduleCount();
+    }
+  }, [showDialog, loadScheduleCount]);
+
+  const handleConnect = async () => {
     setIsConnecting(true);
     try {
       // Initiate OAuth flow
       const response = await fetch("/api/sales/call-plan/carla/calendar/auth", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ provider }),
+        headers: { "Content-Type": "application/json", ...tenantHeaders },
+        body: JSON.stringify({ provider: "google" }),
+        credentials: "include",
       });
 
       if (response.ok) {
@@ -83,7 +128,7 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
         window.addEventListener("message", async (event) => {
           if (event.data.type === "calendar-auth-success") {
             authWindow?.close();
-            toast.success(`Connected to ${provider === "google" ? "Google Calendar" : "Outlook"}`);
+            toast.success("Connected to Google Calendar");
             await loadSyncStatus();
             setIsConnecting(false);
           } else if (event.data.type === "calendar-auth-error") {
@@ -113,8 +158,9 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
     try {
       const response = await fetch("/api/sales/call-plan/carla/calendar/sync", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...tenantHeaders },
         body: JSON.stringify({ callPlanId, weekStart: weekStart.toISOString() }),
+        credentials: "include",
       });
 
       if (response.ok) {
@@ -122,6 +168,7 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
         toast.success(`Synced ${data.eventCount} events to calendar`);
         await loadSyncStatus();
         setShowDialog(false);
+        await loadScheduleCount();
       } else {
         const error = await response.json();
         toast.error(error.error || "Failed to sync calendar");
@@ -138,6 +185,8 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
     try {
       const response = await fetch("/api/sales/call-plan/carla/calendar/disconnect", {
         method: "POST",
+        headers: tenantHeaders,
+        credentials: "include",
       });
 
       if (response.ok) {
@@ -189,7 +238,7 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
                     <CheckCircle className="h-5 w-5 text-green-600" />
                     <div>
                       <p className="font-medium text-green-900">
-                        {syncStatus.provider === "google" ? "Google Calendar" : "Outlook"}
+                        Google Calendar
                       </p>
                       {syncStatus.lastSync && (
                         <p className="text-sm text-green-700">
@@ -232,7 +281,7 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
 
                 <div className="space-y-2">
                   <Button
-                    onClick={() => handleConnect("google")}
+                    onClick={handleConnect}
                     disabled={isConnecting}
                     className="w-full gap-2"
                     variant="outline"
@@ -244,44 +293,60 @@ export default function CalendarSync({ callPlanId, weekStart }: CalendarSyncProp
                     )}
                     Connect Google Calendar
                   </Button>
-
-                  <Button
-                    onClick={() => handleConnect("outlook")}
-                    disabled={isConnecting}
-                    className="w-full gap-2"
-                    variant="outline"
-                  >
-                    {isConnecting ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <Calendar className="h-4 w-4" />
-                    )}
-                    Connect Outlook Calendar
-                  </Button>
                 </div>
               </div>
             )}
           </div>
 
           {syncStatus.isConnected && (
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setShowDialog(false)}>
-                Close
-              </Button>
-              <Button onClick={handleSync} disabled={isSyncing} className="gap-2">
-                {isSyncing ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    Syncing...
-                  </>
-                ) : (
-                  <>
-                    <RefreshCw className="h-4 w-4" />
-                    Sync to Calendar
-                  </>
+            <>
+              <div className="rounded-lg bg-gray-50 p-4 text-sm text-gray-600">
+                <p className="font-medium text-gray-700 mb-1">What will be synced:</p>
+                <p>
+                  Only accounts with specific time slots on your call plan calendar are included.
+                  Drag accounts from the sidebar onto the calendar before syncing.
+                </p>
+                {scheduleCount !== null && (
+                  <p className="mt-2 text-gray-700">
+                    <span className="font-semibold">{scheduleCount}</span>{" "}
+                    scheduled visit{scheduleCount === 1 ? "" : "s"} ready to sync.
+                  </p>
                 )}
-              </Button>
-            </DialogFooter>
+                {scheduleCount !== null && scheduleCount === 0 && (
+                  <p className="mt-2 text-red-600">
+                    No scheduled accounts yet — add time slots before syncing.
+                  </p>
+                )}
+              </div>
+              <DialogFooter>
+                <Button variant="outline" onClick={() => setShowDialog(false)}>
+                  Close
+                </Button>
+                <Button
+                  onClick={handleSync}
+                  disabled={
+                    isSyncing ||
+                    !callPlanId ||
+                    (scheduleCount !== null && scheduleCount === 0)
+                  }
+                  className="gap-2"
+                >
+                  {isSyncing ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Syncing...
+                    </>
+                  ) : (
+                    <>
+                      <RefreshCw className="h-4 w-4" />
+                      {scheduleCount !== null
+                        ? `Sync ${scheduleCount} scheduled visit${scheduleCount === 1 ? "" : "s"}`
+                        : "Sync to Calendar"}
+                    </>
+                  )}
+                </Button>
+              </DialogFooter>
+            </>
           )}
         </DialogContent>
       </Dialog>

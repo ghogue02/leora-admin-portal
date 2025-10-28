@@ -1,161 +1,207 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import prisma from "@/lib/prisma";
+import { withSalesSession } from "@/lib/auth/sales";
+import { makeGoogleCalendarRequest } from "@/lib/google-calendar";
 
 export async function POST(request: NextRequest) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.email) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+  return withSalesSession(request, async ({ db, tenantId, session }) => {
+    try {
+      const { callPlanId } = await request.json();
 
-    const { callPlanId, weekStart } = await request.json();
+      if (!callPlanId) {
+        return NextResponse.json({ error: "Call plan ID required" }, { status: 400 });
+      }
 
-    if (!callPlanId) {
-      return NextResponse.json({ error: "Call plan ID required" }, { status: 400 });
-    }
+      const user = await db.user.findUnique({
+        where: { id: session.user.id },
+        select: {
+          id: true,
+          calendarProvider: true,
+          calendarAccessToken: true,
+        },
+      });
 
-    const user = await prisma.user.findUnique({
-      where: { email: session.user.email },
-      select: {
-        id: true,
-        calendarProvider: true,
-        calendarAccessToken: true,
-      },
-    });
+      if (!user || user.calendarProvider !== "google" || !user.calendarAccessToken) {
+        return NextResponse.json(
+          { error: "Calendar not connected" },
+          { status: 400 },
+        );
+      }
 
-    if (!user || !user.calendarAccessToken) {
-      return NextResponse.json(
-        { error: "Calendar not connected" },
-        { status: 400 }
-      );
-    }
+      const callPlan = await db.callPlan.findFirst({
+        where: {
+          id: callPlanId,
+          tenantId,
+          userId: user.id,
+        },
+        select: { id: true },
+      });
 
-    // Fetch call plan with accounts
-    const callPlan = await prisma.weeklyCallPlan.findUnique({
-      where: { id: callPlanId },
-      include: {
-        accounts: {
-          include: {
-            customer: {
-              include: {
-                addresses: true,
-              },
+      if (!callPlan) {
+        return NextResponse.json({ error: "Call plan not found" }, { status: 404 });
+      }
+
+      const schedules = await db.callPlanSchedule.findMany({
+        where: {
+          tenantId,
+          callPlanId,
+        },
+        include: {
+          customer: {
+            include: {
+              addresses: true,
             },
           },
         },
-      },
-    });
+        orderBy: [{ scheduledDate: "asc" }, { scheduledTime: "asc" }],
+      });
 
-    if (!callPlan) {
-      return NextResponse.json({ error: "Call plan not found" }, { status: 404 });
-    }
+      if (schedules.length === 0) {
+        return NextResponse.json(
+          { error: "No scheduled accounts to sync", eventCount: 0 },
+          { status: 200 },
+        );
+      }
 
-    let eventCount = 0;
+      let eventCount = 0;
 
-    // Create calendar events based on provider
-    if (user.calendarProvider === "google") {
-      // Google Calendar API
-      for (const planAccount of callPlan.accounts) {
-        const customer = planAccount.customer;
+      const combineDateAndTime = (dateValue: Date, time: string) => {
+        // Parse date and time in local timezone (server timezone)
+        const dateStr = dateValue.toISOString().split('T')[0]; // YYYY-MM-DD
+        const [hours, minutes] = time.split(":").map(Number);
+
+        // Create a date object in the local timezone
+        const year = parseInt(dateStr.split('-')[0]);
+        const month = parseInt(dateStr.split('-')[1]) - 1; // JS months are 0-indexed
+        const day = parseInt(dateStr.split('-')[2]);
+
+        const combined = new Date(year, month, day, hours, minutes, 0, 0);
+        return combined;
+      };
+
+      for (const schedule of schedules) {
+        const customer = schedule.customer;
         const address = customer.addresses?.[0];
 
+        // Format date and time for Google Calendar API
+        // Google expects RFC3339 format: "2025-10-28T12:00:00-04:00" for EDT
+        const dateStr = schedule.scheduledDate.toISOString().split('T')[0]; // YYYY-MM-DD
+        const startDateTimeStr = `${dateStr}T${schedule.scheduledTime}:00`;
+
+        // Calculate end time
+        const [hours, minutes] = schedule.scheduledTime.split(":").map(Number);
+        const endMinutes = hours * 60 + minutes + schedule.duration;
+        const endHours = Math.floor(endMinutes / 60);
+        const endMins = endMinutes % 60;
+        const endTimeStr = `${String(endHours).padStart(2, '0')}:${String(endMins).padStart(2, '0')}`;
+        const endDateTimeStr = `${dateStr}T${endTimeStr}:00`;
+
+        console.log(`[CalendarSync] Syncing ${customer.name}:`, {
+          scheduledDate: dateStr,
+          scheduledTime: schedule.scheduledTime,
+          startDateTimeStr,
+          endDateTimeStr,
+        });
+
         const event = {
-          summary: customer.customerName,
+          summary: customer.name,
           location: address
-            ? `${address.address1}, ${address.city}, ${address.state} ${address.zipCode}`
+            ? `${address.street1}, ${address.city}, ${address.state ?? ""} ${address.postalCode ?? ""}`.trim()
             : "",
-          description: planAccount.objectives || "Call plan visit",
+          description: `Call plan visit - Territory: ${customer.territory || "N/A"}`,
           start: {
-            dateTime: new Date(weekStart).toISOString(),
+            dateTime: startDateTimeStr,
             timeZone: "America/New_York",
           },
           end: {
-            dateTime: new Date(
-              new Date(weekStart).getTime() + 30 * 60000
-            ).toISOString(),
+            dateTime: endDateTimeStr,
             timeZone: "America/New_York",
           },
         };
 
-        // Call Google Calendar API
-        const response = await fetch(
-          "https://www.googleapis.com/calendar/v3/calendars/primary/events",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${user.calendarAccessToken}`,
-              "Content-Type": "application/json",
+        // Check if we already synced this schedule
+        if (schedule.googleEventId) {
+          // Update existing event with auto-refresh token
+          const response = await makeGoogleCalendarRequest(
+            user.id,
+            `https://www.googleapis.com/calendar/v3/calendars/primary/events/${schedule.googleEventId}`,
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(event),
             },
-            body: JSON.stringify(event),
-          }
-        );
+          );
 
-        if (response.ok) {
-          eventCount++;
+          if (response.ok) {
+            eventCount += 1;
+          } else {
+            // Event might have been deleted from Google Calendar, create new one
+            const createResponse = await makeGoogleCalendarRequest(
+              user.id,
+              "https://www.googleapis.com/calendar/v3/calendars/primary/events",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(event),
+              },
+            );
+
+            if (createResponse.ok) {
+              const newEvent = await createResponse.json();
+              // Store the new event ID
+              await db.callPlanSchedule.update({
+                where: { id: schedule.id },
+                data: { googleEventId: newEvent.id },
+              });
+              eventCount += 1;
+            }
+          }
+        } else {
+          // Create new event with auto-refresh token
+          const response = await makeGoogleCalendarRequest(
+            user.id,
+            "https://www.googleapis.com/calendar/v3/calendars/primary/events",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(event),
+            },
+          );
+
+          if (response.ok) {
+            const createdEvent = await response.json();
+            // Store the event ID to prevent future duplicates
+            await db.callPlanSchedule.update({
+              where: { id: schedule.id },
+              data: { googleEventId: createdEvent.id },
+            });
+            eventCount += 1;
+          } else {
+            console.error(
+              `Failed to create Google Calendar event for ${customer.name}:`,
+              await response.text(),
+            );
+          }
         }
       }
-    } else if (user.calendarProvider === "outlook") {
-      // Microsoft Graph API
-      for (const planAccount of callPlan.accounts) {
-        const customer = planAccount.customer;
-        const address = customer.addresses?.[0];
 
-        const event = {
-          subject: customer.customerName,
-          location: {
-            displayName: address
-              ? `${address.address1}, ${address.city}, ${address.state} ${address.zipCode}`
-              : "",
-          },
-          body: {
-            contentType: "HTML",
-            content: planAccount.objectives || "Call plan visit",
-          },
-          start: {
-            dateTime: new Date(weekStart).toISOString(),
-            timeZone: "Eastern Standard Time",
-          },
-          end: {
-            dateTime: new Date(
-              new Date(weekStart).getTime() + 30 * 60000
-            ).toISOString(),
-            timeZone: "Eastern Standard Time",
-          },
-        };
+      await db.user.update({
+        where: { id: user.id },
+        data: { lastCalendarSync: new Date() },
+      });
 
-        // Call Microsoft Graph API
-        const response = await fetch(
-          "https://graph.microsoft.com/v1.0/me/events",
-          {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${user.calendarAccessToken}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(event),
-          }
-        );
-
-        if (response.ok) {
-          eventCount++;
-        }
-      }
+      return NextResponse.json({ eventCount, success: true });
+    } catch (error) {
+      console.error("Error syncing calendar:", error);
+      return NextResponse.json(
+        { error: "Failed to sync calendar" },
+        { status: 500 },
+      );
     }
-
-    // Update last sync time
-    await prisma.user.update({
-      where: { id: user.id },
-      data: { lastCalendarSync: new Date() },
-    });
-
-    return NextResponse.json({ eventCount, success: true });
-  } catch (error) {
-    console.error("Error syncing calendar:", error);
-    return NextResponse.json(
-      { error: "Failed to sync calendar" },
-      { status: 500 }
-    );
-  }
+  });
 }

@@ -1,19 +1,35 @@
 "use client";
 
-import { DraggableAccountData } from "@/types/calendar";
+import type { DraggableAccountData } from "@/types/calendar";
 import { Calendar, MapPin, AlertCircle, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface DraggableAccountProps {
-  account: DraggableAccountData;
-  onDragStart: (account: DraggableAccountData) => void;
+  account: DraggableAccountData & { territory?: string | null };
+  onDragStart: (account: DraggableAccountData & { territory?: string | null }) => void;
 }
 
 export function DraggableAccount({ account, onDragStart }: DraggableAccountProps) {
+  const dragPayload = {
+    id: account.id,
+    customerId: account.customerId,
+    customerName: account.customerName,
+    priority: account.priority || "MEDIUM",
+    accountType: account.accountType ?? "ACTIVE",
+    accountNumber: account.accountNumber ?? null,
+    location: account.location ?? null,
+    objective: account.objective ?? "",
+    territory: account.territory ?? null,
+    lastOrderDate: account.lastOrderDate ?? null,
+    isScheduled: account.isScheduled ?? false,
+  };
+
+  const serializedPayload = JSON.stringify(dragPayload);
+
   const handleDragStart = (e: React.DragEvent) => {
     e.dataTransfer.effectAllowed = "copy";
-    e.dataTransfer.setData("application/json", JSON.stringify(account));
-    onDragStart(account);
+    e.dataTransfer.setData("application/json", serializedPayload);
+    onDragStart({ ...account, ...dragPayload });
   };
 
   const priorityColors = {
@@ -30,6 +46,8 @@ export function DraggableAccount({ account, onDragStart }: DraggableAccountProps
 
   return (
     <div
+      id={`draggable-account-${account.id}`}
+      data-account={serializedPayload}
       draggable={!account.isScheduled}
       onDragStart={handleDragStart}
       className={cn(
