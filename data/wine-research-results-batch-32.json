@@ -1,0 +1,313 @@
+{
+  "researchCompleted": true,
+  "timestamp": "2025-10-20T00:00:00.000Z",
+  "totalWines": 9,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Vieux Chateau Flouquet St Emilion 2019",
+      "description": "A distinguished Saint-Émilion Grand Cru from Vignobles Garzaro, this Bordeaux blend showcases the classic elegance of Right Bank winemaking. Aged 14 months in French oak, it presents a harmonious expression of Merlot-dominant fruit with impressive depth and refinement.",
+      "tastingNotes": {
+        "aroma": "Intense and expressive aromatics reveal layers of blackberry, blueberry, and ripe plum intertwined with red berry nuances. Cedar and warming spice notes emerge from the oak aging, while subtle hints of tobacco and earthy forest floor add complexity to the bouquet. The nose is bright and inviting, promising a wine of considerable character.",
+        "palate": "Velvety texture defines the mid-palate, where rounded tannins and soft acidity create an elegant framework. Rich tones of black fruits and dark berries fill the mouth, supported by integrated oak influence that contributes vanilla and cedar undertones. The wine shows excellent balance between fruit concentration and structural elements, with a medium to full body that demonstrates classic Saint-Émilion finesse.",
+        "finish": "The conclusion is dry and extended, with lingering spicy hints that echo the aromatic profile. Refined tannins persist through the finish, suggesting good aging potential while remaining approachable in its youth."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Roasted rack of lamb with rosemary",
+        "Aged Comté or Gruyère cheese",
+        "Duck confit with cherry gastrique",
+        "Beef bourguignon"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to open up the complex aromatics and soften tannins. Can benefit from up to an hour of aeration.",
+        "glassware": "Bordeaux glass with large bowl to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Saint-Émilion Grand Cru, Bordeaux, France",
+        "grapeVariety": "80% Merlot, 10% Cabernet Franc, 10% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Bordeaux Blend, Right Bank, Oak-Aged Red",
+        "ageability": "Drink now through 2028. The 2019 vintage shows excellent balance for medium-term cellaring, with 5-9 years of optimal drinking window."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Syrah 2021",
+      "description": "A cool-climate Syrah from the prestigious Elgin Valley, crafted by Gyles Webb of Thelema fame. Situated just 9km from the Atlantic Ocean at 140-250m altitude, Sutherland Vineyards produces elegant, refined Syrah that emphasizes finesse over power.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals a harmonious blend of ripe blackberries and dark plums, lifted by delicate violet florals and classic white pepper spice. Smoky cedar nuances add depth, while subtle graphite minerality speaks to the wine's coastal origins. The aromatics show remarkable purity and definition, characteristic of cool-climate Syrah at its finest.",
+        "palate": "Vibrant acidity provides the backbone for juicy black cherry fruit that dances across the palate. Intriguing notes of cured meat and slate-like minerality add savory complexity, preventing the wine from becoming one-dimensional. The texture is supple yet structured, with fine-grained tannins that support rather than dominate. Medium body with excellent energy and freshness throughout.",
+        "finish": "The conclusion is enduring and contemplative, with lingering black fruit essence intertwined with white pepper spiciness. The coastal influence manifests in a refreshing salinity that cleanses the palate and invites another sip."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Wild mushroom risotto with truffle oil",
+        "Charcuterie board with cured meats",
+        "Grilled venison with blackberry reduction",
+        "Roasted beets with goat cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cooler than typical Syrah to preserve freshness",
+        "decanting": "Brief decanting of 15-20 minutes will help the wine open. Not overly tannic, so extended aeration not required.",
+        "glassware": "Medium-sized red wine glass to focus the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Elgin Valley, South Africa",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2021",
+        "style": "Cool-Climate Syrah, Elegant, Coastal-Influenced",
+        "ageability": "Drink now through 2026. This style emphasizes freshness and is best enjoyed within 3-5 years while the vibrant fruit remains prominent."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rioja Lar de Paula Crianza 2016",
+      "description": "An expressive Rioja Crianza from Lar de Paula, showcasing the Tempranillo grape with traditional barrel aging. The Edición Limitada bottling represents the winery's commitment to quality and received an 89/100 critics score for the 2016 vintage.",
+      "tastingNotes": {
+        "aroma": "Dark garnet in the glass, the bouquet opens with concentrated aromas of black plum and cassis, accented by a subtle tar undertone. Ripe blackberries mingle with delicious red fruit notes, while well-judged oak aging contributes hints of vanilla and cedar. A compelling nose that balances fruit concentration with classic Rioja complexity, including forest floor earthiness.",
+        "palate": "Smooth and polished on entry, featuring feathery tannins that provide structure without aggression. The flavor profile unfolds with layers of black currant, purple fig, and toffee, complemented by notes of Valencia orange peel and dried Mediterranean herbs. Grippy tannins add grip mid-palate, while nuanced flavors of maraschino cherry and leather emerge. The wine is balanced, fruity, fresh and intense, showing the hallmarks of quality Tempranillo.",
+        "finish": "Soft and gentle conclusion where the flavors evaporate gracefully, leaving echoes of spice and fruit. The finish demonstrates the wine's accessibility while hinting at its aging potential."
+      },
+      "foodPairings": [
+        "Iberico pork chops with piquillo peppers",
+        "Manchego cheese with quince paste",
+        "Grilled chorizo and white bean stew",
+        "Roasted lamb shoulder with garlic",
+        "Paella with rabbit and snails"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "Decanting for 20-30 minutes recommended to soften the grippy tannins and allow the complex aromatics to emerge fully.",
+        "glassware": "Traditional Rioja glass or large Burgundy-style bowl"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "100% Tempranillo",
+        "vintage": "2016",
+        "style": "Rioja Crianza, Oak-Aged Red",
+        "ageability": "Drink now through 2027. Crianza wines are designed for near-term enjoyment but the 2016 vintage has sufficient structure for 5-7 more years of evolution."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Joncier L'O de Joncier 2020",
+      "description": "A vibrant, biodynamic Grenache from the esteemed Domaine du Joncier in Côtes du Rhône, crafted by winemaker Marine Roussel. This certified organic expression represents pure, accessible Grenache meant for immediate enjoyment rather than extended cellaring.",
+      "tastingNotes": {
+        "aroma": "Powerful aromatics burst from the glass with concentrated red and black fruits. Cherry and raspberry dominate, enhanced by delicate spice notes and a whisper of minerality. The nose is inviting and fruit-forward, with subtle hints of garrigue herbs that speak to its Southern Rhône origins.",
+        "palate": "A fine and greedy juice unfolds with fruity notes that are delicately spiced throughout. Cherry and raspberry flavors continue from the nose, joined by black pepper and intriguing mineral undertones. The wine is juicy and approachable, treated gently during winemaking for minimal extraction, resulting in reasonable alcohol and spice-tinged fruit. Best served slightly chilled to emphasize its refreshing character.",
+        "finish": "Lingering flavors of black pepper and minerality extend the conclusion, with the wine's clean, biodynamic character shining through. The finish is pure and refreshing, encouraging another sip."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean vegetables with herbs",
+        "Herb-roasted chicken with olive tapenade",
+        "Ratatouille",
+        "Soft ripened cheeses like Camembert",
+        "Tuna niçoise salad"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), serve slightly chilled to enhance freshness",
+        "decanting": "No decanting necessary. This is a wine for drinking, not thinking. Pour and enjoy immediately.",
+        "glassware": "Standard red wine glass or even a small tumbler for casual enjoyment"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône, France",
+        "grapeVariety": "100% Grenache (young vines)",
+        "vintage": "2020",
+        "style": "Biodynamic, Organic, Fruit-Forward Red, Low-Intervention",
+        "ageability": "Drink now through 2024. Harvested early with short fermentation (10 days), this wine is designed for immediate enjoyment while the vibrant fruit is at its peak."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Heron Hill Cabernet Franc Classic 2020",
+      "description": "A distinctive Finger Lakes Cabernet Franc from Heron Hill Winery, representing one of the region's flagship varieties. The Classic line showcases traditional cool-climate character through blends of carefully selected grapes from growers around the Finger Lakes.",
+      "tastingNotes": {
+        "aroma": "A twinkle of red berries and plums leads the aromatic profile, enhanced by dried flowers and warming spice. The nose is gentle yet expressive, showing the classic character of Finger Lakes Cabernet Franc with herbal mint tones and slight cedar notes. Medium intensity with excellent purity of fruit.",
+        "palate": "Mid-weight texture carries fresh red berry and plum flavors across the palate. The wine is gentle and fresh, with refreshing acidity providing energy and lift. Fine tannins add structure without overwhelming the delicate fruit and spice components. Refined and silky tannin quality shows careful winemaking, with the wine maintaining elegance throughout. Berry, cherry, and subtle nutmeg notes create a harmonious flavor profile.",
+        "finish": "The conclusion offers good length with persistent red fruit and spice. Tannins are present but measured, creating a balanced finale that demonstrates the wine's food-friendly nature."
+      },
+      "foodPairings": [
+        "Cedar plank salmon with herbs",
+        "Roasted pork tenderloin with apple chutney",
+        "Mushroom and gruyère tart",
+        "Herb-crusted rack of lamb",
+        "Brie and cranberry crostini"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Brief 15-minute decanting will help the wine express itself, though not strictly necessary given the refined tannin structure.",
+        "glassware": "Medium-sized Burgundy glass to capture the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Finger Lakes, New York, USA",
+        "grapeVariety": "Cabernet Franc (varietal or Franc-dominant blend)",
+        "vintage": "2020",
+        "style": "Cool-Climate Cabernet Franc, Medium-Bodied Red",
+        "ageability": "Drink now through 2026. Finger Lakes Cabernet Franc is best enjoyed in its youth to capture the fresh fruit and floral characteristics."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tarpon Cellars Cambaro Rose 2022",
+      "description": "A bright and sophisticated California rosé from Tarpon Cellars' Cambaro line, crafted using organically-farmed fruit from Clarksburg with a unique blend of varieties. This natural wine showcases European-inspired techniques applied to California terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant green strawberry and playful watermelon candy notes that speak to the wine's fresh, fruit-forward character. Peach pit and citrus nuances add complexity, creating an inviting and aromatic bouquet that promises refreshment.",
+        "palate": "Peach pit soda and grapefruit rind flavors dominate the mid-palate, creating a unique flavor profile that balances sweetness and bitterness. The wine is acid-driven, with crisp acidity providing energy and structure throughout. A touch of salinity complements the bright acidity, adding depth and mineral character. Made from an intriguing blend of Muscat Blanc, Sauvignon Blanc, and Tempranillo, the wine shows excellent complexity for a rosé.",
+        "finish": "Crisp and dry conclusion with lingering citrus and stone fruit notes. The saline quality persists, leaving a refreshing, palate-cleansing finish that makes this wine exceptionally food-friendly."
+      },
+      "foodPairings": [
+        "Grilled shrimp with lemon and herbs",
+        "Summer vegetable salad with vinaigrette",
+        "Fresh oysters with mignonette",
+        "Tuna poke bowl",
+        "Goat cheese and heirloom tomato salad"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed. Serve directly from a chilled bottle for maximum freshness.",
+        "glassware": "White wine glass or stemless glass to maintain cool temperature"
+      },
+      "wineDetails": {
+        "region": "Clarksburg, California (Napa production)",
+        "grapeVariety": "Muscat Blanc, Sauvignon Blanc, Tempranillo (also includes Syrah, Grenache, Chenin Blanc, Muscat Canelli)",
+        "vintage": "2022",
+        "style": "Dry Rosé, Natural Wine, Acid-Driven",
+        "ageability": "Drink now through 2024. Rosé is best enjoyed young to capture the vibrant fruit and crisp acidity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Crosarola Superiore 2022",
+      "description": "A Valpolicella Superiore from the esteemed Crosarola estate in the Veneto, representing traditional Italian winemaking with extended aging for enhanced complexity. This wine showcases the classic Corvina-based blend with the depth and structure that \"Superiore\" designation requires.",
+      "tastingNotes": {
+        "aroma": "The bouquet displays elegant balsamic notes of incense and violet candies, creating an aromatic and perfumed impression. Layers unfold to reveal blond tobacco, supple leather, and glazed notes, while dried fruit including sultanas and candied orange peel add sweetness. Black pepper and warming spices complete the complex aromatic profile, with hints of black tea, plum, and blueberry adding depth.",
+        "palate": "Soft and warm on entry, the wine offers great enveloping impact with velvety texture coating the palate. Despite the richness, freshness remains present throughout, providing balance and preventing the wine from becoming heavy. Concentrated cassis and vanilla flavors emerge from the barrel aging, complemented by the bright fruit of regular Valpolicella. The clayey limestone soils contribute to the wine's mineral backbone and silky tannin structure.",
+        "finish": "Nice persistence with a velvet-like conclusion that lingers gently. The finish demonstrates impressive length, with the spice notes and dried fruit character echoing long after the wine is swallowed."
+      },
+      "foodPairings": [
+        "Risotto with porcini mushrooms",
+        "Osso buco with gremolata",
+        "Aged Parmigiano-Reggiano",
+        "Braised short ribs with polenta",
+        "Wild boar ragu with pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 30 minutes to allow the complex aromatics to fully express themselves and to soften the tannins.",
+        "glassware": "Large Burgundy glass or Amarone-style glass to capture the aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Valpolicella Classico Superiore DOC, Veneto, Italy",
+        "grapeVariety": "Corvina, Rondinella, Molinara (traditional Valpolicella blend)",
+        "vintage": "2022",
+        "style": "Valpolicella Superiore, Medium to Full-Bodied Red, Oak-Aged",
+        "ageability": "Drink now through 2029. Superiore designation requires extended aging and higher alcohol, giving this wine 5-7 years of optimal drinking window."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Heron Hill Eclipse Red 2021",
+      "description": "A Bordeaux-style blend from Finger Lakes' Heron Hill Winery, the Eclipse Red represents the estate's commitment to crafting elegant, food-friendly reds. This blend showcases the potential of classic Bordeaux varieties in New York's cool-climate conditions.",
+      "tastingNotes": {
+        "aroma": "Medium to full intensity on the nose with concentrated black and red fruit aromas. Blackberry and cassis lead, supported by bright raspberry notes. Herbal mint tones add complexity and freshness, while slight cedar notes from oak aging provide structure. Berry and dark fruit characteristics dominate, with subtle nutmeg spice adding warmth.",
+        "palate": "Medium body with a refreshing acidity that provides energy and lift throughout. The wine features refined, silky tannins that contribute structure without overwhelming the fruit. Black currant, cherry, and jammy berry flavors fill the mid-palate, creating a fruit-forward but balanced impression. The texture is smooth and approachable, with excellent integration between fruit, acid, and tannin components. Great length speaks to the wine's quality and careful blending.",
+        "finish": "Extended conclusion with persistent dark fruit and subtle spice. The refined tannins continue through the finish, leaving a polished impression that demonstrates the wine's elegance."
+      },
+      "foodPairings": [
+        "Grilled ribeye with compound butter",
+        "Roasted duck breast with cherry sauce",
+        "Beef and mushroom Wellington",
+        "Aged cheddar and caramelized onions",
+        "Herb-crusted prime rib"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 20-30 minutes to allow the wine to open and the tannins to soften, revealing the full complexity of the blend.",
+        "glassware": "Bordeaux glass with tall bowl to enhance the layered aromatics"
+      },
+      "wineDetails": {
+        "region": "Finger Lakes, New York, USA",
+        "grapeVariety": "Cabernet Sauvignon, Merlot, Cabernet Franc (Bordeaux Blend)",
+        "vintage": "2021",
+        "style": "Bordeaux Blend, Full-Bodied Dry Red, Oak-Aged",
+        "ageability": "Drink now through 2028. The 2021 vintage shows good structure for medium-term aging, with 5-7 years of optimal drinking window."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jean Leon 3055 Chardonnay 2024",
+      "description": "A vibrant, modern-style Chardonnay from the prestigious Jean Leon estate in Penedès, Spain. This certified organic and vegan white wine showcases 30-year-old vines grown in clay-limestone soils, fermented in stainless steel to emphasize purity and freshness.",
+      "tastingNotes": {
+        "aroma": "Brilliant, limpid pale yellow in appearance. The nose possesses exquisite aromatic power with intense tropical fruit notes dominating the profile. White peach and exotic fruits like pineapple and mango create a compelling bouquet, complemented by an intriguing aniseed nuance reminiscent of fennel. The aromatics are clean, pure, and inviting, showcasing the varietal character beautifully.",
+        "palate": "Fresh and vibrant entry with high acidity that adds remarkable freshness to the wine. The tropical fruit character continues across the palate, flowing with elegant acidity that provides energy and lift. White peach flavors are pronounced, supported by the wine's clean, stainless steel-fermented profile. The texture is crisp rather than creamy, emphasizing fruit purity over oak influence. Long and persistent with excellent balance between fruit concentration and refreshing acidity.",
+        "finish": "The conclusion is long, lingering, and elegant, with the vibrant acidity carrying the tropical fruit notes through to a clean, refreshing finale. Balanced and harmonious finish that leaves the palate refreshed."
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon and herbs",
+        "Chicken piccata with capers",
+        "Fresh mozzarella and heirloom tomato salad",
+        "Seared scallops with citrus beurre blanc",
+        "Asparagus risotto with parmesan"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), well-chilled",
+        "decanting": "No decanting required. Serve directly from the bottle to preserve the wine's freshness and vibrant character.",
+        "glassware": "Medium-sized white wine glass to concentrate the tropical fruit aromatics"
+      },
+      "wineDetails": {
+        "region": "DO Penedès, Catalonia, Spain",
+        "grapeVariety": "100% Chardonnay (30-year-old vines)",
+        "vintage": "2024",
+        "style": "Unoaked Chardonnay, Organic, Vegan, Fresh and Fruit-Driven",
+        "ageability": "Drink now through 2026. This bright, modern style is best enjoyed young while the vibrant tropical fruit and crisp acidity are at their peak."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

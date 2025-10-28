@@ -11,6 +11,12 @@ export const prisma =
     log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
   });
 
+// Alias for db
+export const db = prisma;
+
+// Default export for compatibility
+export default prisma;
+
 if (process.env.NODE_ENV !== "production") {
   globalForPrisma.prisma = prisma;
 }

@@ -1,0 +1,347 @@
+{
+  "batchNumber": 96,
+  "researchedAt": "2025-10-21T14:25:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Aratas Napa Valley Petite Sirah 2010",
+      "description": "A historic Petite Sirah from Aratas that received the highest rating Wine Spectator had given to a Petite Sirah in over 30 years. Publisher Marvin Shanken's 91-point score and Editor's Pick designation marked this wine as exceptional. Now available as a library selection, this fully mature Petite Sirah showcases the variety's ability to age gracefully while maintaining power and intensity.",
+      "tastingNotes": {
+        "aroma": "Deep, dark and opaque in the glass with a mesmerizing, inky appearance. The bouquet is expressive and layered, opening with concentrated aromas of plum, blackberry, and dark cherry. Notes of black licorice add complexity alongside darker chocolate undertones. Floral hints of violet emerge, providing elegance to the powerful fruit core. The aromatic intensity is captivating.",
+        "palate": "Very well layered with exceptional intensity of fruit flavors that coat the palate. The wine delivers waves of ripe plum, blackberry, and dark cherry supported by notes of licorice and dark chocolate. Despite the power, the wine maintains balance and structure. Somewhat earthy tannins anchor the fruit, providing grip and aging potential. The texture is dense and mouth-filling, characteristic of premium Petite Sirah.",
+        "finish": "Very long lasting finish with persistent fruit and earthy tannins. The wine's intensity carries through to a satisfying conclusion, with layers of fruit, spice, and tannin that linger impressively."
+      },
+      "foodPairings": [
+        "Braised short ribs in red wine sauce",
+        "Grilled ribeye with peppercorn crust",
+        "Wild boar ragu over polenta",
+        "Aged blue cheese",
+        "Dark chocolate flourless cake"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "2 hours recommended to soften mature tannins and open aromatics",
+        "glassware": "Large Syrah or Petite Sirah glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Petite Sirah",
+        "vintage": "2010",
+        "style": "Full-bodied, powerful Petite Sirah with aging",
+        "ageability": "At peak maturity; drink now through 2028"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oceano Zero Chardonnay 2023",
+      "description": "An ultra-premium non-alcoholic Chardonnay from Oceano Wines, sourced from the sustainably-certified Spanish Springs Vineyard along California's San Luis Obispo Coast. This dealcoholized wine maintains the character and complexity of traditional Chardonnay while offering just 6 calories per serving. The single-vineyard, single-vintage approach ensures quality comparable to traditional wines.",
+      "tastingNotes": {
+        "aroma": "Straw gold in color with brilliant clarity. The nose is vibrant and aromatic, opening with ripe Meyer lemon and tangerine zest that provide bright citrus character. Delicate notes of jasmine add floral elegance, while hints of tropical fruit emerge in the background. The aromatic profile is fresh and inviting.",
+        "palate": "Refreshing and well-structured with a dry, balanced profile. The palate delivers flavors of young pineapple and honeydew melon, complemented by notes of spearmint that add herbal complexity. A hint of Granny Smith apple provides crisp fruit character. The wine shows supple texture from the winemaking process, creating a satisfying mouthfeel despite the absence of alcohol. The balance between fruit, acidity, and texture is impressive.",
+        "finish": "Persistent and refreshing with lingering citrus and melon notes. The finish is clean and invigorating, leaving the palate cleansed and satisfied."
+      },
+      "foodPairings": [
+        "Grilled shrimp with citrus butter",
+        "Fresh crudo or ceviche",
+        "Spring vegetable risotto",
+        "Delicate white fish preparations",
+        "Mediterranean mezze platter"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve well-chilled",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "San Luis Obispo Coast, California (Spanish Springs Vineyard)",
+        "grapeVariety": "100% Dealcoholized Chardonnay",
+        "vintage": "2023",
+        "style": "Non-alcoholic white wine (0.29% ABV), single-vineyard",
+        "ageability": "Best consumed within 1-2 years to preserve freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bacio Semi Sweet Red",
+      "description": "A delightful semi-sweet Italian red wine blend, likely from the Baci Dolci ('Sweet Kiss') line produced by Cantina Colli Euganei in Veneto. This refreshing, slightly frizzante wine combines Marzemino and Merlot grapes from the Euganean Hills. The cooperative, supporting 680 local farmers since 1949, crafts approachable wines perfect for casual dining and social occasions.",
+      "tastingNotes": {
+        "aroma": "Intense ruby red color with inviting vibrancy. The nose bursts with aromas of fresh strawberry and black cherry, creating an immediately appealing fruit-forward profile. Hints of rose petals add floral elegance and romance to the bouquet. The aromatic intensity is cheerful and accessible.",
+        "palate": "Medium to full-bodied with generous cherry pie flavors that dominate the palate. The wine shows the freshness of red berries balanced by a gentle touch of sweetness. A refreshing sparkle provides lift and balance to the semi-sweet finish, preventing the wine from becoming cloying. The slight effervescence adds playfulness and keeps the palate engaged. The texture is smooth and approachable.",
+        "finish": "Clean and slightly sweet with lingering cherry and berry notes. The gentle sparkle carries through to the conclusion, leaving a refreshing impression."
+      },
+      "foodPairings": [
+        "Pizza with various toppings",
+        "Pasta with marinara sauce",
+        "Casual antipasti platter",
+        "Mild cheeses and charcuterie",
+        "Fruit-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "No decanting needed; serve slightly chilled",
+        "glassware": "Standard red wine glass or tumbler"
+      },
+      "wineDetails": {
+        "region": "Veneto, Italy (likely Euganean Hills)",
+        "grapeVariety": "Blend of Marzemino and Merlot (likely composition)",
+        "vintage": "NV",
+        "style": "Semi-sweet slightly sparkling red wine",
+        "ageability": "Best enjoyed young and fresh; consume within 1-2 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Getariako Txakolina Basa Lore Rose 2022",
+      "description": "A traditional Basque txakoli rosé from one of the oldest producers in the D.O. Getariako Txakolina, making wine since 1930. The 'Sarea' rosé showcases indigenous Basque grapes Hondarrabi Beltza and Hondarrabi Zuri from vineyards on the slopes above Zarautz beach. With characteristic light effervescence and bright salinity, this wine captures the essence of Basque coastal winemaking.",
+      "tastingNotes": {
+        "aroma": "Pale pink with shades of fuchsia, presenting a bright, elegant appearance. The fine and elegant bubble creates visual appeal. The nose offers traditional txakoli aromatics with bright strawberry leading alongside prickly pear and apricot. Fresh mint adds herbal complexity and coastal character. The aromatic profile is clean, fresh, and inviting.",
+        "palate": "Light to medium-bodied with lively acidity and a touch of fizz characteristic of txakoli. Flavors of strawberry, prickly pear, and apricot dominate, showing pure fruit expression. The wine displays undeniable salinity from the coastal influence, adding a savory mineral edge that enhances food-pairing potential. Hints of mint provide herbal freshness. The texture is crisp and refreshing.",
+        "finish": "Clean and invigorating with persistent mineral and fruit notes. The salinity lingers alongside the gentle effervescence, leaving the palate refreshed and ready for food."
+      },
+      "foodPairings": [
+        "Fresh seafood tapas",
+        "Grilled octopus",
+        "Basque pintxos",
+        "Oysters and shellfish",
+        "Light fish preparations"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C)",
+        "decanting": "No decanting needed; serve very cold",
+        "glassware": "Txakoli glass or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Getariako Txakolina D.O., Basque Country, Spain (Gipuzkoa)",
+        "grapeVariety": "Hondarrabi Beltza and Hondarrabi Zuri",
+        "vintage": "2022",
+        "style": "Light-bodied slightly sparkling rosé with salinity",
+        "ageability": "Best enjoyed young; drink within 1-2 years"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Macauley Cabernet Sauvignon To Kalon 2021",
+      "description": "An exceptional single-vineyard Cabernet from Napa's legendary Beckstoffer To Kalon Vineyard in Oakville. With 97-98 points from top critics and limited production of 2,600 cases, this wine represents the pinnacle of California Cabernet. Winemaker Kirk Venge employs meticulous fermentation in small French oak barrels to craft a wine of extraordinary purity and balance from one of the world's most prestigious vineyard sites.",
+      "tastingNotes": {
+        "aroma": "Inky, deep purple hue indicating exceptional concentration. The nose is captivating with layers of blueberries, black raspberries, and cassis creating a dense fruit core. Flowery incense adds elegance alongside exotic spice notes. The aromatic complexity is remarkable, showing both power and refinement. Subtle notes of graphite and cedar emerge with air.",
+        "palate": "The wine offers wonderful purity with building tannins that provide structure without harshness. Concentrated flavors of dark blue and black fruits dominate, supported by notes of cassis and black raspberry. The wine is full-bodied yet balanced, showing remarkable integration of fruit, tannin, and oak. The overall profile is concentrated yet elegant, powerful yet refined. Layers of flavor unfold across the palate, revealing the vineyard's extraordinary terroir.",
+        "finish": "Long and persistent with remarkable concentration. The tannins are fine-grained and substantial, providing excellent aging potential. The finish showcases the wine's balance and class, with fruit, structure, and complexity all in harmony."
+      },
+      "foodPairings": [
+        "Dry-aged prime ribeye",
+        "Roasted rack of lamb with herbs",
+        "Beef Wellington",
+        "Wild mushroom and truffle risotto",
+        "Aged artisanal cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "2-3 hours recommended for optimal expression",
+        "glassware": "Large Bordeaux or Cabernet-specific glass"
+      },
+      "wineDetails": {
+        "region": "To Kalon Vineyard, Oakville, Napa Valley",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Full-bodied single-vineyard Napa Cabernet, ultra-premium",
+        "ageability": "Drink 2026-2045; has exceptional aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Heron Hill Riesling Classic Dry 2022",
+      "description": "A benchmark Finger Lakes Riesling from one of the region's most respected producers. Receiving 91 points from Wine Enthusiast, this classic dry expression showcases the minerality and purity that make Finger Lakes Riesling world-class. With wonderful intensity, varietal character, and balance, this wine demonstrates the region's ability to produce exceptional dry Riesling with aging potential of 8-12 years.",
+      "tastingNotes": {
+        "aroma": "The nose shows wonderful intensity and pure varietal character. Aromas of ripe peach lead alongside bright lemon and lime, creating layers of stone and citrus fruit. Delicate floral notes add elegance, while honey nuances provide richness without sweetness. A distinctive mineral note runs through the aromatics, characteristic of Finger Lakes terroir.",
+        "palate": "Medium-bodied with energetic acidity that provides excellent structure and lift. The palate delivers concentrated fruit flavors that balance the wine's dryness perfectly. Notes of peach, citrus, and mineral create a complex flavor profile. The wine shows superb length, with flavors that persist and evolve across the palate. The balance between sweet fruit and refreshing acidity is exceptional, creating a harmonious whole.",
+        "finish": "Long and minerally with persistent fruit and acid notes. The wine's low residual sugar (0.7) ensures a dry, crisp conclusion that leaves the palate refreshed."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish",
+        "Pan-seared scallops",
+        "Roasted chicken with herbs",
+        "Asian cuisine with subtle spice",
+        "Goat cheese and herb salad"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve well-chilled",
+        "glassware": "Riesling glass or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Finger Lakes, New York",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2022",
+        "style": "Dry Riesling with mineral character",
+        "ageability": "Age well for 8-12 years in bottle"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Original Cabernet Sauvignon 2022",
+      "description": "A resilient expression of Ukrainian winemaking from the historic Shabo winery, founded in 1822 near Odesa by Swiss emigrants. Made from free-run juice and tank-fermented for immediate enjoyment, this wine represents the 'Victory Vintage' - made under extraordinary circumstances during wartime yet benefiting from excellent climate conditions. With 1200 hectares of vineyards near the Dniester estuary, Shabo produces approachable, food-friendly wines.",
+      "tastingNotes": {
+        "aroma": "The nose opens with characteristic Cabernet herbal notes including green pepper and fresh herbs. Aromas of ripe blackberry and dark cherry provide fruit character, while subtle earthy undertones add complexity. The aromatic profile is fresh and vibrant, showing the youth of the vintage.",
+        "palate": "Delightful and approachable, perfect for weeknight dinners or by-the-glass service. The palate delivers flavors of blackberry and red cherry alongside the herbal green pepper notes from the nose. The wine is medium-bodied with smooth tannins and refreshing acidity. Made from free-run juice and going straight to bottle, the wine maintains freshness and purity of fruit. The texture is soft and easy-drinking.",
+        "finish": "Clean and moderate length with lingering fruit and herb notes. The finish is straightforward and food-friendly, making this an accessible Cabernet for everyday enjoyment."
+      },
+      "foodPairings": [
+        "Grilled burgers and casual BBQ",
+        "Pasta with tomato-based sauces",
+        "Roasted vegetables",
+        "Ukrainian borscht",
+        "Medium-aged cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief 15-minute aeration recommended",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Odesa, Ukraine (Dniester estuary)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2022",
+        "style": "Medium-bodied approachable Cabernet, tank-fermented",
+        "ageability": "Best enjoyed within 2-3 years while fresh"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Antonio Facchin Prosecco Extra Dry Mini   187 ml",
+      "description": "A captivating Prosecco from the historic Antonio Facchin winery, established in 1870 in the UNESCO World Heritage Prosecco Hills. This Extra Dry expression in convenient 187ml single-serve format showcases Glera grapes from the Buffer Zone of the Prosecco Hills. The wine balances sweetness and freshness in the Extra Dry style, offering bright straw yellow color and harmonious character.",
+      "tastingNotes": {
+        "aroma": "Bright straw yellow color with persistent fine bubbles. The nose is fresh, fruity, and floral, showcasing the aromatic character of Glera. Delicate white flowers emerge alongside notes of green apple, pear, and citrus. The aromatic profile is clean and inviting, characteristic of quality Prosecco.",
+        "palate": "The wine delivers a sweetish, harmonic, and pleasant taste profile typical of Extra Dry Prosecco. Flavors of fresh apple, pear, and citrus dominate, supported by delicate floral notes. The mousse is fine and persistent, creating an elegant mouthfeel. The wine balances the slight sweetness with refreshing acidity, maintaining liveliness and drinkability.",
+        "finish": "Clean and refreshing with lingering fruit and floral notes. The finish is pleasant and approachable, perfect for celebrations or casual enjoyment."
+      },
+      "foodPairings": [
+        "Antipasti and Italian appetizers",
+        "Fresh fruit and cheese",
+        "Light seafood dishes",
+        "Brunch preparations",
+        "Wedding cake and celebrations"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C)",
+        "decanting": "No decanting needed; serve well-chilled",
+        "glassware": "Prosecco flute or tulip glass"
+      },
+      "wineDetails": {
+        "region": "Prosecco DOC Treviso, Veneto, Italy (UNESCO Prosecco Hills)",
+        "grapeVariety": "100% Glera",
+        "vintage": "NV",
+        "style": "Sparkling Prosecco - Extra Dry style",
+        "ageability": "Best enjoyed fresh; consume within 1 year"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shadowbox Sonoma County Outline Red Blend 2015",
+      "description": "A bold red blend from Shadowbox Cellars' limited production portfolio, combining 60% Zinfandel with 40% Petite Sirah to create a powerful yet balanced wine. With only 320 cases produced and 20 months aging in oak (15% new), this wine showcases fruit from premium Sonoma County vineyards. The wine represents the Napa-based microwinery's commitment to food-friendly, small-production wines.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with concentrated aromas of blueberries, blackberry compote, and ripe plums. Layers of coconut, cocoa, and roasted coffee emerge from oak influence, while black pepper adds spice complexity. The aromatic intensity is impressive, showing the power of the blend while maintaining aromatic elegance.",
+        "palate": "Big and fruit-forward with generous flavors of dark berries and stone fruit. The wine shows excellent concentration while maintaining its acidity, preventing it from being heavy or one-dimensional. The Zinfandel provides ripe fruit and spice, while the Petite Sirah adds structure and depth. Flavors of cocoa, coffee, and pepper from oak aging integrate well with the fruit. The wine is powerful yet balanced.",
+        "finish": "Long and satisfying with persistent fruit, oak, and spice notes. The tannins are substantial but ripe, providing structure for aging. The finish is hearty and bold, perfect for rich food pairings."
+      },
+      "foodPairings": [
+        "BBQ ribs with bold sauce",
+        "Grilled T-bone steak",
+        "Hearty beef stew",
+        "Smoked brisket",
+        "Aged sharp cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1 hour recommended to integrate oak and fruit",
+        "glassware": "Large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Sonoma County, California",
+        "grapeVariety": "60% Zinfandel, 40% Petite Sirah",
+        "vintage": "2015",
+        "style": "Full-bodied red blend with oak aging",
+        "ageability": "Drink now through 2027-2028"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sky Devil Cabernet Sauvignon 2018",
+      "description": "An unapologetically bold Cabernet Sauvignon from Sky Devil Wines' Formation series, crafted by acclaimed winemaker Kirk Venge. This Napa Valley expression includes small amounts of Merlot, Malbec, and Petit Verdot, aged 21 months in primarily new French oak. With only 392 cases produced, this wine represents the collaboration between friends Jeff Goldberg and Matt Vogt in creating terroir-inspired, extravagant wines.",
+      "tastingNotes": {
+        "aroma": "The nose is finessed yet powerful, offering concentrated aromas of dark cherry and black fruit. Notes of coffee bean add roasted complexity alongside cracked black pepper that provides spice. Subtle hints of vanilla and toast from oak aging integrate seamlessly. The aromatic profile is bold yet refined, showing Kirk Venge's signature style.",
+        "palate": "Unapologetically bold and structured, this wine delivers layers of concentrated dark fruit. The Cabernet Sauvignon dominates with cassis and blackberry, while the small percentages of Merlot, Malbec, and Petit Verdot add complexity and depth. The wine spent 21 months in mostly new oak, contributing structure and spice notes. Despite the power, the wine maintains balance and elegance. The tannins are substantial but refined, showing potential for development.",
+        "finish": "Long and impressive with persistent dark fruit, coffee, and spice notes. The oak influence carries through the finish, adding depth and complexity to the conclusion."
+      },
+      "foodPairings": [
+        "Prime dry-aged New York strip",
+        "Braised lamb shanks",
+        "Beef short ribs with demi-glace",
+        "Wild game preparations",
+        "Aged Gouda or aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "2 hours recommended to tame the power and integrate components",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "Cabernet Sauvignon with small amounts of Merlot, Malbec, and Petit Verdot",
+        "vintage": "2018",
+        "style": "Full-bodied bold Cabernet with extensive oak aging",
+        "ageability": "Drink 2024-2033; has excellent aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    }
+  ]
+}

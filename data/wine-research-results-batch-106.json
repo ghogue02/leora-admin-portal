@@ -1,0 +1,352 @@
+{
+  "batch": 106,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Gondola Sangiovese Mevushal (MD & DC) 2021",
+      "description": "A kosher Sangiovese from the Gondola collection, certified Mevushal and Kosher for Passover under KLBD (Rabbi Padwa) supervision. This Italian-style kosher wine showcases Sangiovese's bright cherry character at an accessible price point. 12% alcohol.",
+      "tastingNotes": {
+        "aroma": "Bright red cherry and strawberry aromas lead the nose with typical Sangiovese character. Subtle notes of dried herbs—oregano and thyme—add complexity. A hint of earth and leather provides depth, while gentle floral notes of violet add elegance.",
+        "palate": "Medium-bodied with vibrant acidity characteristic of Sangiovese. Red cherry and cranberry flavors dominate the palate, supported by earthy undertones and subtle spice. The wine shows good fruit purity with balanced tannins that provide structure without heaviness. Fresh and food-friendly with Italian character.",
+        "finish": "Clean finish with lingering cherry notes and bright acidity. The tannins are soft and approachable, making this versatile for kosher dining."
+      },
+      "foodPairings": [
+        "Tomato-based pasta dishes",
+        "Grilled chicken with herbs",
+        "Pizza margherita or with vegetables",
+        "Aged cheeses and crackers",
+        "Kosher Italian cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "60-63°F (16-17°C)",
+        "decanting": "Brief 15-minute decant to open up aromatics",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Italy",
+        "grapeVariety": "100% Sangiovese",
+        "vintage": "2021",
+        "style": "Kosher Mevushal, Kosher for Passover (KLBD/Rabbi Padwa)",
+        "ageability": "Drink now through 2026 for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Barrel Fermented Chardonnay 2018",
+      "description": "An estate Chardonnay from Hendry Ranch's 114-acre Napa Valley vineyard, farmed by the same family since 1939. Grown in thin, stony soils at 200-300ft elevation northwest of Napa. 100% barrel fermented sur lie with frequent bâtonnage, no malolactic fermentation, aged 11 months in French oak (34% new).",
+      "tastingNotes": {
+        "aroma": "Ripe nectarine and baked apple fruit lead the aromatics with excellent purity. Floral notes of white blossoms add elegance. Toast and spice from Cadus French oak barrels integrate beautifully, providing complexity without overwhelming the fruit. Subtle vanilla and butterscotch notes emerge with air.",
+        "palate": "Rich and textured from barrel fermentation and lees aging with bâtonnage. The palate showcases ripe stone fruit—nectarine, peach, and apricot—balanced by crisp acidity from no malolactic fermentation. Medium to full-bodied with excellent weight and structure. The oak is well-integrated, adding spice and toast without dominating the pure fruit character.",
+        "finish": "Long, clean finish with persistent fruit and subtle oak spice. The bright acidity from avoiding malolactic keeps the conclusion fresh and lively despite the wine's richness."
+      },
+      "foodPairings": [
+        "Roasted chicken with lemon and herbs",
+        "Grilled lobster with butter",
+        "Creamy risotto with mushrooms",
+        "Aged Gruyère or Comté cheese",
+        "Pan-seared scallops"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "No decanting needed; allow to warm slightly in glass",
+        "glassware": "Burgundy or large white wine glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley AVA, California",
+        "grapeVariety": "100% Chardonnay from estate vineyard",
+        "vintage": "2018",
+        "style": "Barrel fermented sur lie, no ML, 11 months French oak (34% new)",
+        "ageability": "Drink now through 2026. Peak drinking window is now"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T14:27:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oleandri Howell Mountain Cabernet 2021",
+      "description": "A premium Cabernet Sauvignon from Game Theory Vineyard on Howell Mountain, approximately 2,000 feet above the Napa Valley floor on volcanic ash and red clay soil. Aged 22 months in new and neutral French oak. Wine Enthusiast describes it as 'beefy and brawny' while Drinkhacker gave it an A rating. Limited production around $135.",
+      "tastingNotes": {
+        "aroma": "Dense layers of ripe raspberry and cassis define the nose with excellent concentration. Cocoa, anise, and graphite add complexity and depth. The Howell Mountain terroir shows through with mineral notes and elevated fruit intensity. Subtle oak-derived vanilla and cedar integrate beautifully.",
+        "palate": "Beefy and brawny with excellent structure characteristic of mountain fruit. Ripe cherries, plums, and raspberries dominate, mixed through with cocoa and oak spice. The palate is dense and luxurious with concentrated dark fruit, fine-grained tannins, and excellent balance. This is a superb representation of classic, opulent California Cabernet with both power and elegance.",
+        "finish": "Long, persistent finish with layers of dark fruit, chocolate, and mineral notes. The tannins are polished and provide excellent structure for aging. The conclusion is refined and harmonious."
+      },
+      "foodPairings": [
+        "Prime dry-aged ribeye or filet mignon",
+        "Braised beef short ribs",
+        "Grilled lamb rack with herbs",
+        "Aged blue cheese or Parmigiano-Reggiano",
+        "Wild game like venison"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 60-90 minutes; young and powerful",
+        "glassware": "Premium Bordeaux or Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Howell Mountain AVA, Napa Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon from Game Theory Vineyard",
+        "vintage": "2021",
+        "style": "Mountain Cabernet, 22 months French oak, volcanic terroir",
+        "ageability": "Drink now through 2041. Shows A+ potential with 5-10 years aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-21T14:29:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bernard Gaucher Champagne Split NV 375 ml",
+      "description": "An under-the-radar grower Champagne from the southern reaches of the region. The Brut Réserve offers excellent value as one of the least expensive Champagne options while maintaining quality. 90% Pinot Noir, 10% Chardonnay. 89/100 average critic score.",
+      "tastingNotes": {
+        "aroma": "Bold and toasty nose with strong mineral accents and honeysuckle notes. The aromatics are fruit-driven with hints of green apple, lemon, and brioche from the Pinot Noir base. Subtle yeasty character adds complexity.",
+        "palate": "Elegant, light, and refreshing on the palate despite the bold nose. Sweet earthiness appears on the tongue, balanced by bright acidity and fine bubbles. Fruit-driven and mouth-filling with wonderful balance. The high Pinot Noir percentage provides body and character while maintaining freshness.",
+        "finish": "Great persistence through the long finish with mineral notes and citrus. The acidity is well-balanced, creating a clean, refreshing conclusion typical of quality Champagne."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood",
+        "Smoked salmon canapés",
+        "Soft-ripened cheeses like Brie",
+        "Fried appetizers and tempura",
+        "Celebratory toasts and aperitifs"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well chilled",
+        "decanting": "No decanting; serve directly chilled",
+        "glassware": "Champagne flute or tulip glass"
+      },
+      "wineDetails": {
+        "region": "Champagne, France (southern reaches)",
+        "grapeVariety": "90% Pinot Noir, 10% Chardonnay",
+        "vintage": "Non-vintage",
+        "style": "Grower Champagne, Brut, traditional method",
+        "ageability": "Drink within 1-2 years of purchase"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-21T14:31:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Reserve Telti-Kuruk 2023",
+      "description": "A unique Ukrainian white wine made from 100% Telti-Kuruk grapes from the Shabo region in southern Ukraine. The name means 'foxtail' in Turkish, referencing the grape cluster shape. This near-extinct variety is not grown anywhere else. Medium-bodied dry white at 11.5% ABV, aged sur lie with bâtonnage. Around $25.",
+      "tastingNotes": {
+        "aroma": "Pale straw color with delicate white wildflower aromatics layered over warm, honeyed tones. The nose evokes pear, peach, pineapple, and mandarin orange with complexity and elegance. Subtle peach and tangerine fruit add tropical character.",
+        "palate": "Expands on the palate with crisp yellow apple, passionfruit, and pluots wrapped in a subtly creamy texture from bâtonnage. The mid-palate shows excellent fruit concentration before a big burst of chalky minerality. Lingering salty minerality provides a unique, terroir-driven character. The wine balances fruit richness with refreshing acidity.",
+        "finish": "Long finish dominated by mineral notes—both chalky and salty—that showcase the unique Shabo terroir. The creamy texture lingers while bright acidity keeps the conclusion fresh and food-friendly."
+      },
+      "foodPairings": [
+        "Fresh seafood and shellfish",
+        "Grilled fish with lemon",
+        "Ukrainian cuisine and varenyky",
+        "Soft cheeses and mild chèvre",
+        "Summer salads with vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "White wine glass with larger bowl"
+      },
+      "wineDetails": {
+        "region": "Shabo, Odesa region, southern Ukraine",
+        "grapeVariety": "100% Telti-Kuruk (unique Ukrainian variety)",
+        "vintage": "2023",
+        "style": "Dry white, aged sur lie with bâtonnage",
+        "ageability": "Drink now through 2026 for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T14:33:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Balcon de Pilatos Maturana 2019",
+      "description": "An exclusive Rioja from near-extinct Maturana Tinta grape—not grown anywhere else in the world. Recovered from 35 vines in a 100-year-old vineyard, now planted in Balcón de Pilatos (8.2 hectares). The variety almost became extinct 1920-1930 due to phylloxera. Aged 11-16 months in new American oak. Very limited production.",
+      "tastingNotes": {
+        "aroma": "Complex and intense spicy aromatics of cocoa, vanilla, and coconut from American oak aging. Subtle notes of blackcurrant and dark berries provide fruit character. Chocolate and warming spices add depth and richness to this unique varietal expression.",
+        "palate": "Smooth and silky with well-structured tannins and broad flavor profile. Dark berry fruit is complemented by spice and chocolate notes from oak aging. The wine reveals fantastic freshness and liveliness from the grape's vital fruit acidity despite its richness. Plush tannins provide excellent structure and mouthfeel.",
+        "finish": "Long, lingering aftertaste with persistent spice, chocolate, and dark fruit. The finish showcases the wine's complexity and the unique character of this rare varietal."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Beef tenderloin with peppercorn sauce",
+        "Aged Manchego or Idiazábal cheese",
+        "Wild mushroom risotto",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to open aromatics",
+        "glassware": "Large Bordeaux or Rioja glass"
+      },
+      "wineDetails": {
+        "region": "DOCa Rioja, Spain (Balcón de Pilatos vineyard)",
+        "grapeVariety": "100% Maturana Tinta (rare, nearly extinct variety)",
+        "vintage": "2019",
+        "style": "Premium Rioja, 11-16 months new American oak",
+        "ageability": "Drink now through 2032. Excellent structure for aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:35:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta do Mourao Tawny 10 Year Port",
+      "description": "A Tawny Port from Quinta do Mourão sold under the S. Leonardo brand. The base wine is around 12 years old, exceeding the 10-year designation. Blend of Touriga Nacional, Touriga Franca, Tinta Roriz, Tinta Barroca, and Tinto Cão. Gold Medal Berlin Wine Trophy 2016, Silver Medal Concours Mondial de Bruxelles 2018, 90/100 Robert Parker.",
+      "tastingNotes": {
+        "aroma": "Tawny color with complex aromatics of raisins and dried fruits. Nutty notes of walnut and almond emerge from the extended barrel aging. Caramel, toffee, and dried figs add layers of sweetness and complexity. Subtle hints of orange peel and holiday spices provide depth.",
+        "palate": "Full-bodied and rich with concentrated flavors of dried fruit, caramel, and nuts. The palate shows excellent balance between sweetness and acidity, with the 12-year-old base wine providing extra complexity. Flavors of raisin, fig, and date are complemented by toasted almond and butterscotch. Smooth and velvety texture.",
+        "finish": "Long, persistent finish with lingering notes of dried fruit, caramel, and nuts. The sweetness is balanced by gentle acidity, creating a harmonious conclusion perfect for dessert pairing or contemplative sipping."
+      },
+      "foodPairings": [
+        "Blue cheese or aged Stilton",
+        "Walnut tart or pecan pie",
+        "Crème brûlée or flan",
+        "Dark chocolate truffles",
+        "Dried fruits and nuts"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C), slightly cool",
+        "decanting": "No decanting needed; ready to pour",
+        "glassware": "Port glass or small red wine glass"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "Touriga Nacional, Touriga Franca, Tinta Roriz, Tinta Barroca, Tinto Cão",
+        "vintage": "Non-vintage (10 Year designation, ~12 year base)",
+        "style": "Tawny Port with extended barrel aging",
+        "ageability": "Ready to drink now; Tawny Ports are released when ready"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T14:37:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dominio De La Abadesa Crianza 2017",
+      "description": "A Crianza from Spain's Dominio de la Abadesa, showcasing traditional Spanish winemaking with oak aging. This wine represents classic Crianza style with balanced fruit and oak integration, offering excellent value and food-friendly character.",
+      "tastingNotes": {
+        "aroma": "Red fruit aromas of cherry and raspberry dominate with subtle oak-derived notes of vanilla and toast. Dried herbs and earthy undertones add complexity. A hint of leather and tobacco from aging provides depth.",
+        "palate": "Medium-bodied with bright red fruit flavors balanced by oak influence. Cherry, plum, and strawberry create the fruit core, while vanilla and spice from Crianza aging add structure. The tannins are smooth and well-integrated, providing balance without heaviness. Good acidity keeps the wine fresh and food-friendly.",
+        "finish": "Medium-length finish with lingering fruit and oak spice. The tannins are soft and approachable, making this versatile for various food pairings."
+      },
+      "foodPairings": [
+        "Grilled chorizo and Spanish tapas",
+        "Roasted lamb with herbs",
+        "Manchego cheese and cured meats",
+        "Paella or Spanish rice dishes",
+        "Tomato-based stews"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief 20-30 minute decant to integrate",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (likely Ribera del Duero or Rioja)",
+        "grapeVariety": "Likely Tempranillo-based blend",
+        "vintage": "2017",
+        "style": "Crianza (aged minimum 2 years, at least 1 in oak)",
+        "ageability": "Drink now through 2027"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-21T14:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ribera del Guadiana Zaleo Joven Tempranillo 2023",
+      "description": "A young (Joven) Tempranillo from Spain's Ribera del Guadiana DO in Extremadura. This fresh, unoaked style showcases pure Tempranillo fruit character without barrel aging. The 2023 vintage offers vibrant fruit and approachable drinkability.",
+      "tastingNotes": {
+        "aroma": "Bright and fruit-forward with fresh red cherry, strawberry, and raspberry aromas. Floral notes of violet add elegance. The unoaked style allows pure fruit expression with subtle herbal undertones and a hint of minerality.",
+        "palate": "Light to medium-bodied with juicy red fruit flavors—cherry, strawberry, and cranberry dominate. Bright acidity keeps the wine fresh and lively. Without oak aging, the fruit purity shines through with excellent vibrancy. Soft tannins provide light structure while maintaining an easy-drinking profile.",
+        "finish": "Clean, refreshing finish with lingering red fruit and bright acidity. The conclusion is crisp and straightforward, perfect for casual enjoyment and versatile food pairing."
+      },
+      "foodPairings": [
+        "Grilled vegetables with olive oil",
+        "Spanish tapas and pintxos",
+        "Light pasta with tomato sauce",
+        "Soft cheeses and charcuterie",
+        "Pizza or casual dining"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C), slightly chilled",
+        "decanting": "No decanting needed",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "DO Ribera del Guadiana, Extremadura, Spain",
+        "grapeVariety": "100% Tempranillo",
+        "vintage": "2023",
+        "style": "Joven (young, unoaked) for fresh fruit expression",
+        "ageability": "Drink within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T14:41:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Darms Lane Fortune 1621 Chardonnay 2023",
+      "description": "A Chardonnay from Darms Lane's Fortune 1621 series. This wine showcases Australian Chardonnay character with balanced fruit and oak integration. The 2023 vintage offers fresh acidity and modern winemaking techniques.",
+      "tastingNotes": {
+        "aroma": "Ripe stone fruit aromatics of white peach, nectarine, and apricot lead the nose. Citrus notes of lemon and grapefruit add brightness. Subtle oak-derived vanilla and butterscotch integrate well, while hints of cashew and almond add complexity.",
+        "palate": "Medium to full-bodied with concentrated stone fruit flavors balanced by bright acidity. Peach, pear, and citrus create a vibrant core, while creamy texture from lees aging adds richness. The oak integration is modern and restrained, providing structure without heaviness. Good balance between fruit, acid, and oak.",
+        "finish": "Clean finish with lingering stone fruit and citrus notes. Refreshing acidity keeps the conclusion lively while subtle oak spice adds persistence."
+      },
+      "foodPairings": [
+        "Grilled chicken with lemon",
+        "Pan-seared scallops",
+        "Creamy pasta dishes",
+        "Soft cheeses like Brie",
+        "Roasted white fish"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Chardonnay or white Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Australia (likely South Australia)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Modern Australian Chardonnay with balanced oak",
+        "ageability": "Drink now through 2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:43:00.000Z"
+      }
+    }
+  ],
+  "metadata": {
+    "batchNumber": 106,
+    "totalWines": 10,
+    "researchedAt": "2025-10-21T14:43:00.000Z",
+    "researchMethod": "WebSearch with professional wine publications and winery sources",
+    "averageConfidence": 0.90
+  }
+}

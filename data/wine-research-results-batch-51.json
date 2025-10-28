@@ -1,0 +1,347 @@
+{
+  "batch": 51,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Getariako Txakolina Basa Lore Igartzeta 2020",
+      "description": "A pristine coastal white from the Basque Country's Getariako Txakolina DO, crafted by one of the region's oldest producers. This unfiltered, unsulfited txakoli captures the essence of the Atlantic shoreline with its distinctive saline minerality and vibrant citrus character, offering an authentic taste of traditional Basque winemaking since 1930.",
+      "tastingNotes": {
+        "aroma": "The nose presents a sophisticated bouquet of subtle floral notes intertwined with exotic fruit nuances and pronounced mineral undertones. Green apple aromatics dominate, accompanied by fresh grape essence and an intriguing minty accent that adds complexity. Fine and delicate fragrance reminiscent of ocean spray and coastal herbs creates an inviting first impression.",
+        "palate": "Light-bodied and refreshingly lemony, the palate delivers gorgeous salinity that transports you seaside with each sip. Vibrant lime notes dance across the tongue, balanced by the wine's natural effervescence from carbonic fermentation. The texture is crisp and clean, with a mineral backbone that speaks to the wine's coastal terroir and traditional production methods.",
+        "finish": "The finish is fresh and easy-drinking with lingering salinity and citrus zest. Mineral notes persist, leaving a clean, refreshing aftertaste that invites the next sip, characteristic of the finest coastal Basque txakolis."
+      },
+      "foodPairings": [
+        "Grilled seafood and shellfish",
+        "Basque pintxos and tapas",
+        "Fresh oysters with lemon",
+        "Tempura vegetables",
+        "Ceviche and raw fish preparations"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 6-8°C (43-46°F)",
+        "decanting": "No decanting needed; pour directly from the bottle with a slight tilt for gentle effervescence",
+        "glassware": "Traditional txakoli glass or small white wine glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Getariako Txakolina DO, Basque Country, Spain",
+        "grapeVariety": "100% Hondarribi Zuri",
+        "vintage": "2020",
+        "style": "Coastal Atlantic white, unfiltered, no added sulfites",
+        "ageability": "Best enjoyed young within 1-2 years to preserve freshness and salinity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Petit Inedito 2018",
+      "description": "A sophisticated Chilean red blend from the prestigious Alto Cachapoal Valley, representing Calyptra's second wine or 'little brother' to their flagship Inédito Limited Edition. This meticulously crafted assemblage showcases the estate's mastery of blending Bordeaux varieties with Rhône's Syrah, aged partially in oak to create a wine that has earned 94 points from Descorchados for its exceptional price-quality ratio.",
+      "tastingNotes": {
+        "aroma": "The expressive nose captivates with vivid aromas of fresh cherry and ripe plum, complemented by enticing fruits of the forest. A delicate floral bouquet interweaves with subtle spice accents, while herbal mountain wine characteristics add depth and complexity. The aromatic profile reveals the wine's careful barrel selection and estate vineyard origins.",
+        "palate": "The mouth entry is juicy and inviting, with firm yet impeccably balanced tannins creating a silky texture. Medium acidity provides structure while maintaining freshness throughout. The palate delivers an abundance of fruity flavors, particularly cassis and black plum, with the wine's 75% barrel aging contributing seamless integration without overpowering the fruit expression.",
+        "finish": "A silky and fresh finish showcases notes of cassis and black plum that linger elegantly. The conclusion is refined and persistent, displaying the hallmarks of premium Alto Cachapoal terroir."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Roasted lamb shoulder with herbs",
+        "Mushroom risotto with truffle oil",
+        "Aged Manchego and hard cheeses",
+        "Chilean empanadas with beef"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 30-45 minutes to soften tannins and enhance fruit expression",
+        "glassware": "Bordeaux-style glass to showcase the blend's complexity"
+      },
+      "wineDetails": {
+        "region": "Alto Cachapoal Valley, Cachapoal Valley DO, Chile",
+        "grapeVariety": "70% Cabernet Sauvignon, 22% Syrah, 8% Merlot",
+        "vintage": "2018",
+        "style": "Bordeaux-style blend with Rhône influence, partial oak aging",
+        "ageability": "Drink now through 2028; the wine's balanced structure supports 5-7 years of cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Gris 2021",
+      "description": "An elegant Virginia white wine from Boxwood Estate Winery in Middleburg, crafted from the distinctive Sauvignon Gris varietal. This ENTAV-certified French clone demonstrates the potential of premium Virginia viticulture, earning recognition with a silver medal at the 2022 Best of Loudoun wine competition and showcasing the sophistication achievable in the Mid-Atlantic region.",
+      "tastingNotes": {
+        "aroma": "The aromatic profile opens with delicate stone fruit notes of white peach and nectarine, interwoven with subtle floral accents characteristic of Sauvignon Gris. Hints of fresh melon and citrus blossom add brightness, while a gentle mineral undertone speaks to the Virginia terroir. The nose is refined and inviting, displaying the varietal's distinctive character.",
+        "palate": "The palate offers medium body with a silky texture that distinguishes Sauvignon Gris from its more common cousin. Flavors of ripe pear and golden apple dominate, complemented by notes of white flowers and a touch of honeyed richness. The wine's natural acidity provides excellent structure and balance, while subtle oak influence adds complexity without overwhelming the fruit.",
+        "finish": "A clean, refreshing finish features lingering stone fruit notes and mineral accents. The conclusion is elegant and moderately long, showcasing the wine's careful winemaking and quality Virginia fruit."
+      },
+      "foodPairings": [
+        "Seared scallops with lemon butter",
+        "Roasted chicken with herbs de Provence",
+        "Gruyère and aged white cheddar",
+        "Crab cakes with remoulade",
+        "Summer vegetable risotto"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 10-12°C (50-54°F)",
+        "decanting": "No decanting necessary; benefits from 15 minutes in glass to open aromatics",
+        "glassware": "Standard white wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia, USA",
+        "grapeVariety": "100% Sauvignon Gris (ENTAV certified French clone)",
+        "vintage": "2021",
+        "style": "Dry white wine with elegant fruit expression",
+        "ageability": "Best enjoyed within 2-4 years to preserve freshness and fruit character"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood White Zinfandel 2021",
+      "description": "A vibrant off-dry rosé from Raywood, the value-driven label of Castoro Cellars in California's Central Coast. This White Zinfandel offers a fresh take on the classic California style, balancing red fruit character with measured sweetness and crisp acidity, making it an approachable and food-friendly wine for diverse occasions.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with bright aromas of fresh strawberry and watermelon, complemented by notes of raspberry and red cherry. Subtle floral hints of rose petal add elegance, while a touch of citrus zest provides lift. The aromatic profile is clean, fresh, and immediately appealing with its vibrant fruit expression.",
+        "palate": "Full of red fruit flavors, the palate delivers fresh strawberry, cherry, and cranberry notes balanced with a bit of sweetness that never becomes cloying. The wine's crisp acidity provides excellent structure, creating a harmonious off-dry style that feels refreshing rather than heavy. Clean and brisk on the mid-palate with a light, juicy texture.",
+        "finish": "The finish is clean and brisk with lingering red berry notes and a refreshing quality. The wine's measured sweetness and bright acidity combine to create a satisfying, balanced conclusion that cleanses the palate."
+      },
+      "foodPairings": [
+        "Spicy Thai and Asian cuisine",
+        "BBQ chicken or pork ribs",
+        "Fresh fruit salads with mint",
+        "Soft cheeses and charcuterie",
+        "Summer picnic fare and light appetizers"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 7-9°C (45-48°F)",
+        "decanting": "No decanting required; serve directly from bottle",
+        "glassware": "White wine glass or all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California, USA",
+        "grapeVariety": "100% Zinfandel (White Zinfandel style)",
+        "vintage": "2021",
+        "style": "Off-dry rosé with bright fruit and balanced sweetness",
+        "ageability": "Best enjoyed young within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta do Mourao Tawny 40 Year Port",
+      "description": "An exceptional aged tawny Port from the prestigious Quinta do Mourão, a small estate located on the bank of the Douro opposite Régua. Producer Miguel Braga calls this his 'contemplation wine,' beginning with the 1948 vintage and representing the pinnacle of the estate's aged tawny production, showcasing decades of patient barrel aging and masterful blending of rare colheita lots.",
+      "tastingNotes": {
+        "aroma": "The complex bouquet reveals extraordinary depth with aromas of candied dried apricots, toasted brown sugar, and deep toffee. Bourbon vanilla emerges alongside Meyer lemon peel and candied blood orange, creating a symphony of aged port aromatics. The nose displays remarkable integration of sugars and acidity developed over four decades in wood, with notes of caramel, roasted nuts, and dried figs adding further layers.",
+        "palate": "The palate showcases beautifully integrated sugars and acidity in perfect harmony. Rich flavors of Meyer lemon, candied blood orange, and toasted brown sugar dominate, intertwined with deep toffee and bourbon vanilla. The texture is silky and luxurious, with layers of dried apricot, fig compote, and butterscotch revealing themselves gradually. The wine's complexity is extraordinary, reflecting its four decades of evolution.",
+        "finish": "The finish is remarkably long and contemplative, with waves of candied fruit, toffee, and gentle spice lingering on the palate. Beautifully balanced acidity prevents any cloying sweetness, leaving a refined, elegant conclusion befitting this exceptional aged tawny."
+      },
+      "foodPairings": [
+        "Enjoy as a contemplation wine on its own",
+        "Crème brûlée or caramel desserts",
+        "Aged tawny cheese or Stilton",
+        "Dried fruit and nut medley",
+        "Dark chocolate truffles"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly cool at 14-16°C (57-61°F)",
+        "decanting": "No decanting needed; open 30 minutes before serving",
+        "glassware": "Small Port glass or sherry copita to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal (estate opposite Régua)",
+        "grapeVariety": "Traditional Port varieties including lots from 1948 vintage",
+        "vintage": "40 Year Tawny (blend beginning with 1948)",
+        "style": "Aged tawny Port with exceptional complexity",
+        "ageability": "Already at peak; will hold for many years once opened if stored properly"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Orchard Lane Sauvignon Blanc 2023",
+      "description": "A vibrant expression of Marlborough Sauvignon Blanc from New Zealand's premier wine region. Sourced from two special vineyards in the heart of Marlborough's Sauvignon Blanc country and fermented separately by block before blending, this wine preserves the crisp tropical fruit flavors and aromatics that have made the region famous, offering exceptional value and typicity.",
+      "tastingNotes": {
+        "aroma": "Youthfully expressed and inviting, the bouquet bursts with ripe tropical aromas of passionfruit and mango, layered with green apple, apricot, and kiwifruit. Jasmine florals add elegance and lift to the aromatic profile, while subtle hints of citrus zest and fresh herbs provide complexity. The nose is vibrant, pure, and expressive of classic Marlborough character.",
+        "palate": "The palate is lively, succulent, and flavoursome, packed with ripe tropical fruit that mirrors the aromatic promise. Rich and rounded in texture with flavors of passionfruit, mango, and ripe citrus fruits, yet maintained by crisp hints of lime and grapefruit that provide freshness and balance. The wine's stainless steel fermentation preserves the varietal purity and bright fruit character.",
+        "finish": "Bright and fresh with plenty of tasty tropical and citrus flavors persisting through the finish. The conclusion is clean and zesty, leaving the palate refreshed and ready for food."
+      },
+      "foodPairings": [
+        "Fresh goat cheese salads",
+        "Grilled prawns with garlic butter",
+        "Sushi and sashimi",
+        "Asian-fusion cuisine",
+        "New Zealand green-lipped mussels"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 8-10°C (46-50°F)",
+        "decanting": "No decanting necessary",
+        "glassware": "Sauvignon Blanc glass or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Marlborough, South Island, New Zealand",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2023",
+        "style": "Classic Marlborough Sauvignon Blanc with vibrant tropical fruit",
+        "ageability": "Best enjoyed at its peak from now to 2025 for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Cabernet Sauvignon  Semi Sweet  (MD & DC) Stained Label 2023",
+      "description": "A kosher semi-sweet Cabernet Sauvignon from Yecla, Spain, imported and distributed across America including Maryland and DC markets. This approachable wine balances Cabernet character with measured sweetness, offering an entry-level red that showcases Spanish winemaking while catering to preferences for softer, fruit-forward styles.",
+      "tastingNotes": {
+        "aroma": "The nose presents bright aromas of ripe cherry and red plum, complemented by notes of milk chocolate and vanilla. Subtle hints of sweet spice and oak appear in the background, while the wine's semi-sweet style adds an inviting fruity lift to the aromatic profile. The bouquet is straightforward and accessible.",
+        "palate": "Cherry and chocolate flavors dominate the palate in this entry-level Cabernet, with the semi-sweet style providing a soft, approachable mouthfeel. Ripe red fruit notes of cherry and berry blend with touches of cocoa and vanilla oak, while the wine's measured sweetness balances any tannic structure. The texture is smooth and easy-drinking.",
+        "finish": "The finish is gentle and fruit-forward with lingering cherry and chocolate notes. The semi-sweet character extends through the conclusion, creating a soft, approachable ending suitable for those preferring less dry red wines."
+      },
+      "foodPairings": [
+        "BBQ ribs with sweet sauce",
+        "Glazed ham or pork tenderloin",
+        "Margherita pizza",
+        "Mild cheddar and Gouda cheese",
+        "Chocolate desserts and brownies"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly cool at 14-16°C (57-61°F)",
+        "decanting": "Brief 15-minute decanting to aerate",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Yecla, Spain",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Semi-sweet kosher red wine",
+        "ageability": "Best enjoyed young within 1-3 years"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Abracadabra 2019",
+      "description": "An exceptional white wine from the legendary Priorat region of Catalonia, crafted by Trossos del Priorat from organically farmed old vines of Grenache and Macabeo. This barrel-fermented white showcases the mineral intensity and complexity that Priorat's unique terroir can bring to white varieties, challenging preconceptions about this predominantly red wine region.",
+      "tastingNotes": {
+        "aroma": "The nose displays great complexity and elegance with pronounced mineral and ash notes that speak to Priorat's distinctive terroir. Tropical fruit aromas of pineapple and guava mingle with citrus notes of lemon and lime, while ripe pear adds depth. Vanilla from barrel fermentation integrates seamlessly with subtle floral notes, creating a sophisticated aromatic profile.",
+        "palate": "The palate is tasty, fresh, and smooth with impressive volume and texture. Layers of tropical fruit, citrus, and orchard fruits unfold, supported by the wine's distinctive mineral backbone. The barrel fermentation adds richness and complexity without overwhelming the fruit, while four months on lees contributes to the wine's silky mouthfeel. Fresh acidity maintains balance and vibrancy throughout.",
+        "finish": "Long and persistent with mineral notes, citrus zest, and gentle vanilla lingering elegantly. The finish showcases Priorat's unique character with its combination of intensity and finesse."
+      },
+      "foodPairings": [
+        "Roasted turbot or monkfish",
+        "Lobster with herb butter",
+        "Aged Manchego and mountain cheeses",
+        "Saffron risotto",
+        "Grilled vegetables with romesco sauce"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 11-13°C (52-55°F)",
+        "decanting": "Can benefit from 20-30 minutes aeration to fully express complexity",
+        "glassware": "Burgundy glass to showcase aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "DOCa Priorat, Catalonia, Spain",
+        "grapeVariety": "Grenache Blanc and Macabeo from old vines",
+        "vintage": "2019",
+        "style": "Barrel-fermented white with organic farming, aged on lees",
+        "ageability": "Drink now through 2026; the wine's structure supports 5-7 years aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte Free to be Riesling 2024",
+      "description": "A captivating South African Riesling from Remhoogte Estate's 'Free to Be' range, sourced from a small mountain vineyard at 350 meters elevation on exposed shale ridges in Stellenbosch's Simonsberg region. Fermented with wild indigenous yeasts, this wine showcases the mineral intensity and fresh character that South African terroir can bring to this noble German variety.",
+      "tastingNotes": {
+        "aroma": "The aromatic profile is fresh, mineral, and inviting with pronounced lemon zest and citrus blossom. Aromatic orchard fruit notes of nectarine and honey-crisp apple add complexity, while the wine's mountain origin contributes distinctive mineral and saline qualities. The nose is pure and expressive, showcasing the terroir's unique character.",
+        "palate": "A fresh, zesty entry leads to sweet fruit flavors balanced by a gentle waxy texture on the mid-palate. The wine offers a mineral and saline journey with layers of lemon zest, nectarine, and crisp apple flavors. Limey acidity brings freshness and length, while the wild yeast fermentation adds textural interest and complexity. The combination of fruit purity and mineral backbone creates exceptional balance.",
+        "finish": "The finish is fresh and mineral-driven with lingering citrus and stone fruit notes. The wine's natural acidity extends the conclusion, leaving a clean, refreshing impression that invites food pairing."
+      },
+      "foodPairings": [
+        "Fresh sushi and sashimi",
+        "Grilled linefish with lemon",
+        "Thai green curry",
+        "Goat cheese salads",
+        "Oysters and shellfish"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 9-11°C (48-52°F)",
+        "decanting": "No decanting needed",
+        "glassware": "Riesling glass or white wine glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Simonsberg, Stellenbosch, Western Cape, South Africa",
+        "grapeVariety": "100% Riesling (Weisser Riesling)",
+        "vintage": "2024",
+        "style": "Dry Riesling with wild yeast fermentation and mountain minerality",
+        "ageability": "Best within 3-5 years; wine's texture and acidity support medium-term cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine de la Denante Saint Veran 2023",
+      "description": "An exceptional white Burgundy from the Mâconnais region, representing outstanding value in Chardonnay. This Gold medal winner at the Concours des Grands Vins de France Mâcon showcases producer Damien Martin's expertise, with the 2023 vintage scoring 90 points from Wine Enthusiast and earning praise for its combination of classic Burgundian character and approachable pricing at $23.",
+      "tastingNotes": {
+        "aroma": "Gorgeous floral notes dominate the nose with aromas of acacia and honeysuckle intertwining with citrusy orchard fruit. Ripe peach (pêche) and pear (poire) provide the aromatic foundation, while a hint of classic Burgundy petrol adds complexity and authenticity. The bouquet is elegant and inviting, showcasing the purity of Chardonnay from this esteemed appellation.",
+        "palate": "The palate is succulent and medium-weight with beautiful texture (onctueuse) developed through eight months aging on fine lees. Flavors of white peach, pear, and citrus fruit dominate, balanced by belle acidité that provides structure and freshness. The wine's half-stainless, half-barrel aging creates seamless integration, adding depth without overwhelming the fruit's purity.",
+        "finish": "A beautifully dry, youthfully austere finish with lingering orchard fruit and mineral notes. The wine's natural acidity extends the conclusion elegantly, leaving a refined impression of classic white Burgundy character."
+      },
+      "foodPairings": [
+        "Poached sole with beurre blanc",
+        "Roasted chicken with tarragon",
+        "Comté and aged Gruyère cheese",
+        "Mushroom and leek tart",
+        "Fresh crab salad with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 9-11°C (48-52°F) when young",
+        "decanting": "No decanting needed; benefits from 15-20 minutes in glass",
+        "glassware": "Burgundy glass to showcase aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Saint-Véran, Mâconnais, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Classic white Burgundy with lees aging (50% stainless, 50% barrel)",
+        "ageability": "Can be conserved 3 to 8 years; drinking beautifully now with cellaring potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

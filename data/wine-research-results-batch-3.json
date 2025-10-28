@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Somontano G Garnacha 2016",
+    "description": "From the Somontano DO in northern Spain, this Garnacha showcases the high-altitude vineyards' ability to preserve freshness while developing ripe fruit character. The 2016 vintage benefits from the region's continental climate, producing a wine with vibrant red fruit and spicy complexity.",
+    "tastingNotes": {
+      "aroma": "The nose opens with an enticing bouquet of ripe red cherry and wild strawberry, layered with notes of crushed herbs and a subtle hint of white pepper. As the wine breathes, delicate floral undertones of dried rose petals emerge, complemented by a whisper of Mediterranean scrubland. The aromatic profile suggests both freshness and concentration, characteristic of high-elevation Garnacha.",
+      "palate": "Medium-bodied with supple tannins, the palate delivers juicy red fruit flavors of cherry and raspberry, accented by hints of sweet balsamic and dried oregano. The wine's natural acidity provides structure and vibrancy, carrying the fruit flavors through the mid-palate with grace. Notes of cocoa powder and subtle earthy minerality add complexity without overwhelming the wine's fruit-forward character.",
+      "finish": "The finish is moderately long with persistent red fruit and a gentle spice note. A touch of licorice and fine-grained tannins provide texture, while the wine's natural acidity leaves the palate refreshed and ready for another sip."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary",
+      "Spanish chorizo and manchego cheese board",
+      "Roasted red pepper and eggplant tapas",
+      "Herb-crusted pork tenderloin",
+      "Tomato-based pasta dishes with Italian sausage"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (15-18°C)",
+      "decanting": "30 minutes of aeration recommended to open up aromatic complexity",
+      "glassware": "Standard red wine glass or universal wine glass"
+    },
+    "wineDetails": {
+      "region": "Somontano DO, Aragón, Spain",
+      "grapeVariety": "100% Garnacha (Grenache)",
+      "vintage": "2016",
+      "style": "Medium-bodied Spanish red wine",
+      "ageability": "Drink now through 2026. This wine is crafted for approachability with some aging potential; it will develop more savory notes over the next few years."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Quinta do Mourao White 40 Year Port   500 ml",
+    "description": "An exceptionally rare aged white port that has undergone four decades of oxidative maturation in oak casks. This wine represents a unique category within Port production, combining the complexity of extended barrel aging with the distinctive character of white Portuguese grape varieties.",
+    "tastingNotes": {
+      "aroma": "Extraordinary complexity greets the nose with aromas of dried apricot, toasted hazelnuts, and honeycomb, layered over notes of orange marmalade and candied lemon peel. The extended barrel aging has imparted rich notes of crème brûlée, butterscotch, and old oak. Subtle hints of dried flowers and delicate spice—cinnamon and nutmeg—weave through the aromatic tapestry. A faint maritime salinity adds intrigue, reminiscent of the wine's coastal Portuguese origins.",
+      "palate": "The palate reveals astounding depth and concentration, with flavors of caramelized fig, dates, and golden raisins forming the core. Layers of toasted almond, toffee, and burnt orange create a luxurious mouthfeel that's simultaneously rich and refined. The wine's natural acidity, preserved despite decades of aging, provides remarkable balance to the sweetness and prevents any cloying sensation. Notes of vanilla, old wood, and a hint of iodine add to the wine's extraordinary complexity.",
+      "finish": "The finish is exceptionally long and evolving, with waves of nutty, caramelized flavors that seem to persist indefinitely. A gentle warmth from the fortification alcohol integrates seamlessly, while the wine's acidity provides a refreshing lift at the very end. Lingering notes of dried fruit and spice invite contemplation."
+    },
+    "foodPairings": [
+      "Aged Stilton or Roquefort cheese",
+      "Crème brûlée or flan",
+      "Toasted almond tart",
+      "Foie gras terrine",
+      "Simply enjoy on its own as a meditation wine"
+    ],
+    "servingInfo": {
+      "temperature": "Slightly chilled, 50-55°F (10-13°C)",
+      "decanting": "No decanting needed; pour directly. Allow to warm slightly in the glass to reveal full aromatic complexity",
+      "glassware": "Small port glass or sherry copita to concentrate aromas"
+    },
+    "wineDetails": {
+      "region": "Douro Valley, Portugal",
+      "grapeVariety": "Traditional white port grapes including Malvasia Fina, Gouveio, Rabigato, and Viosinho",
+      "vintage": "40 year average age (blend of multiple vintages)",
+      "style": "Oxidatively aged white fortified wine",
+      "ageability": "Already fully mature; drink now and over the next 20+ years. Properly stored, this wine is essentially immortal."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Poggio Scudieri Rosso di Montalcino 2019",
+    "description": "Crafted from 100% Sangiovese grown in the prestigious Montalcino appellation, this Rosso offers an accessible expression of the region's terroir. The 2019 vintage showcases bright fruit character with the structure and complexity expected from this renowned Tuscan region, providing excellent value as a younger sibling to Brunello di Montalcino.",
+    "tastingNotes": {
+      "aroma": "The bouquet reveals fresh red cherry and wild strawberry aromas, complemented by notes of violet, dried herbs, and a touch of leather. Underlying hints of terracotta and dried tobacco leaf add complexity, while subtle notes of balsamic and Mediterranean herbs evoke the Tuscan countryside. A delicate touch of sweet spice—clove and cinnamon—emerges with aeration.",
+      "palate": "Medium to medium-full bodied with vibrant acidity and refined tannins that provide structure without heaviness. The palate echoes the nose with flavors of tart cherry, cranberry, and red plum, accented by savory notes of sun-dried tomato and fresh oregano. A mineral backbone provides elegance, while hints of espresso and dark chocolate add depth. The wine's energy and freshness make it immediately appealing while suggesting it will develop gracefully.",
+      "finish": "The finish is clean and moderately long, with persistent cherry fruit and a savory herbal note. Fine-grained tannins provide gentle grip, while the wine's bright acidity keeps the palate refreshed. A subtle earthiness lingers alongside fruit, inviting the next sip."
+    },
+    "foodPairings": [
+      "Bistecca alla Fiorentina (grilled T-bone steak)",
+      "Wild mushroom risotto with Parmigiano-Reggiano",
+      "Tomato-based pasta dishes like pappardelle al ragù",
+      "Grilled vegetables with olive oil and herbs",
+      "Aged Pecorino Toscano cheese"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "30-45 minutes recommended to soften tannins and open aromatics",
+      "glassware": "Bordeaux-style glass or universal wine glass"
+    },
+    "wineDetails": {
+      "region": "Rosso di Montalcino DOCG, Tuscany, Italy",
+      "grapeVariety": "100% Sangiovese (Sangiovese Grosso clone)",
+      "vintage": "2019",
+      "style": "Medium-bodied Tuscan red wine",
+      "ageability": "Drink now through 2029. While approachable young, this wine will develop more savory complexity and integrated tannins over the next 5-7 years."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Valencia Aranleon Bles Roble 2016",
+    "description": "An oak-aged red wine from the Valencia region in eastern Spain, this 'Roble' (oak) bottling demonstrates the Mediterranean character of Valencian viticulture. The wine likely features local varieties or international grapes adapted to Spain's warm climate, with oak aging adding structure and complexity to the region's naturally ripe fruit character.",
+    "tastingNotes": {
+      "aroma": "The nose presents ripe blackberry and plum aromas interwoven with notes of vanilla and toasted oak from barrel aging. Hints of Mediterranean scrub herbs—thyme and lavender—add aromatic complexity, while subtle notes of black pepper and dark chocolate provide depth. A touch of sweet spice reminiscent of clove and star anise emerges as the wine opens.",
+      "palate": "Medium to full-bodied with a smooth, velvety texture enhanced by oak aging. The palate delivers flavors of blackberry jam, dark cherry, and fig, balanced by notes of mocha, cedar, and gentle baking spices. The oak influence is present but integrated, providing structure and a subtle coconut note without overwhelming the fruit. Moderate acidity and soft tannins create an approachable, rounded profile with good concentration.",
+      "finish": "The finish is moderately long with persistent dark fruit flavors and a gentle oakiness. Soft tannins and notes of vanilla and coffee linger pleasantly, while the wine's warmth reflects the Mediterranean sun."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with chimichurri",
+      "Slow-roasted lamb shoulder",
+      "Paella Valenciana with rabbit and chicken",
+      "Aged Manchego or Iberico cheese",
+      "Braised short ribs with root vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (15-18°C)",
+      "decanting": "30 minutes of aeration to integrate oak and fruit",
+      "glassware": "Large-bowled red wine glass"
+    },
+    "wineDetails": {
+      "region": "Valencia DO, Comunidad Valenciana, Spain",
+      "grapeVariety": "Likely Monastrell (Mourvèdre) and/or Tempranillo blend",
+      "vintage": "2016",
+      "style": "Oak-aged Mediterranean red wine",
+      "ageability": "Drink now through 2027. This wine is at peak maturity; enjoy its integrated oak and fruit character over the next few years."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Oleandri Rutherford Cabernet Sauvignon 2019",
+    "description": "A prestigious Cabernet Sauvignon from Rutherford AVA, one of Napa Valley's most celebrated appellations. The 2019 vintage captures the essence of Rutherford's unique terroir, featuring the district's famous gravelly loam soils that impart a distinctive dusty tannin quality alongside concentrated dark fruit character.",
+    "tastingNotes": {
+      "aroma": "The nose opens with intense aromas of cassis and blackberry, layered with notes of graphite, cedar, and cigar box. Classic Rutherford characteristics emerge in the form of dried sage, pencil lead, and the subtle dusty quality that defines the appellation. Hints of dark chocolate, espresso, and sweet tobacco add complexity, while a touch of violet and eucalyptus provides aromatic lift. The integration of French oak is evident in subtle vanilla and baking spice notes.",
+      "palate": "Full-bodied and powerful, the palate delivers concentrated flavors of black currant, blackberry, and black cherry, framed by firm but refined tannins. The famous 'Rutherford dust' character manifests as a fine, powdery tannin structure that coats the palate with elegant grip. Layers of dark chocolate, espresso, and toasted oak provide depth, while hints of mint, anise, and black pepper add savory complexity. The wine's structure suggests excellent aging potential while remaining approachable in its youth.",
+      "finish": "The finish is long and powerful, with persistent dark fruit flavors and integrated oak spice. The dusty tannins characteristic of Rutherford provide texture and grip, while the wine's balanced acidity ensures freshness. Notes of dark chocolate and coffee linger alongside fruit, promising excellent evolution over the coming decade."
+    },
+    "foodPairings": [
+      "Prime dry-aged ribeye or New York strip steak",
+      "Herb-crusted rack of lamb",
+      "Braised beef short ribs with red wine reduction",
+      "Grilled portobello mushrooms with blue cheese",
+      "Aged hard cheeses like aged Gouda or Parmigiano-Reggiano"
+    ],
+    "servingInfo": {
+      "temperature": "62-68°F (17-20°C)",
+      "decanting": "1-2 hours recommended to soften tannins and unlock aromatic complexity",
+      "glassware": "Large Bordeaux-style glass to showcase aromatics"
+    },
+    "wineDetails": {
+      "region": "Rutherford AVA, Napa Valley, California",
+      "grapeVariety": "100% Cabernet Sauvignon (likely with small amounts of traditional Bordeaux blending varieties)",
+      "vintage": "2019",
+      "style": "Full-bodied Napa Valley Cabernet Sauvignon",
+      "ageability": "Drink 2025-2039. This wine will benefit from 3-5 years of cellaring to integrate tannins and develop tertiary complexity, and can age gracefully for 15-20 years."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Rippa Dorii Los Curas 2022",
+    "description": "A young, vibrant wine from what appears to be a Spanish producer, likely showcasing indigenous or international varieties grown in Spain's diverse wine regions. The 2022 vintage captures fresh, accessible fruit character with the expressive quality expected from modern Spanish winemaking.",
+    "tastingNotes": {
+      "aroma": "The nose bursts with youthful energy, offering aromas of fresh red berries—raspberry, strawberry, and red currant—alongside notes of bright cherry and pomegranate. Floral hints of violet and rose petal add aromatic charm, while subtle herbal notes of fresh mint and Mediterranean garrigue provide complexity. A whisper of white pepper and stony minerality suggests careful vineyard selection.",
+      "palate": "Light to medium-bodied with lively acidity and silky tannins, the palate delivers vibrant red fruit flavors that echo the nose. Juicy cherry and raspberry dominate, accented by notes of cranberry and blood orange zest. The wine's freshness and energy make it immediately appealing, with a mineral backbone providing structure. A subtle spiciness and hint of dried herbs add interest without detracting from the wine's fruit-forward character.",
+      "finish": "The finish is clean and refreshing, with bright red fruit and a gentle herbal note. The wine's natural acidity leaves the palate invigorated, while fine tannins provide just enough grip. Perfect for immediate enjoyment."
+    },
+    "foodPairings": [
+      "Charcuterie board with jamón serrano",
+      "Grilled salmon with lemon and herbs",
+      "Chicken paella or arroz con pollo",
+      "Tapas selection including patatas bravas",
+      "Fresh goat cheese and tomato salad"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-15°C), slightly chilled",
+      "decanting": "No decanting needed; enjoy fresh and youthful",
+      "glassware": "Universal wine glass or light red wine glass"
+    },
+    "wineDetails": {
+      "region": "Spain (specific region unknown)",
+      "grapeVariety": "Likely Garnacha, Tempranillo, or Mediterranean blend",
+      "vintage": "2022",
+      "style": "Light to medium-bodied Spanish red wine",
+      "ageability": "Drink now through 2026. This wine is crafted for early consumption; enjoy its fresh, vibrant character over the next 2-3 years."
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.60,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine Fevre Chablis 2021",
+    "description": "A classic Chablis from one of the region's respected producers, showcasing 100% Chardonnay grown in Burgundy's northernmost appellation. The 2021 vintage displays the region's signature minerality and precision, with cool-climate freshness shaped by ancient Kimmeridgian limestone soils that give Chablis its distinctive character.",
+    "tastingNotes": {
+      "aroma": "The nose presents a pristine expression of cool-climate Chardonnay, with aromas of green apple, Asian pear, and fresh citrus—lemon zest and lime. Distinctive mineral notes reminiscent of wet stones, oyster shell, and flint create the classic Chablis signature. Delicate white flowers, particularly acacia, add aromatic elegance, while subtle hints of fresh herbs and a saline quality evoke the region's ancient marine origins. The complete absence of oak allows the terroir to speak clearly.",
+      "palate": "Light to medium-bodied with racy acidity that defines Chablis, the palate delivers crisp flavors of green apple, white peach, and Meyer lemon. The wine's defining characteristic is its remarkable minerality—a flinty, chalky quality that coats the palate with refreshing precision. Notes of citrus zest and subtle pear provide fruit interest, while a distinct saline quality adds depth and complexity. The texture is lean and precise rather than rich, emphasizing purity and terroir expression.",
+      "finish": "The finish is clean, long, and mineral-driven, with a lingering flinty quality and bright citrus notes. The wine's high acidity provides a refreshing, mouth-watering conclusion that calls for food or another sip. A subtle salinity persists, echoing the ancient seabeds beneath the vines."
+    },
+    "foodPairings": [
+      "Fresh oysters and shellfish",
+      "Sole meunière or other delicate white fish",
+      "Goat cheese salad with citrus vinaigrette",
+      "Chicken with tarragon cream sauce",
+      "Sushi and sashimi"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well chilled",
+      "decanting": "No decanting needed; serve directly from a chilled bottle",
+      "glassware": "White wine glass or Burgundy-style glass"
+    },
+    "wineDetails": {
+      "region": "Chablis, Burgundy, France",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2021",
+      "style": "Unoaked, mineral-driven white Burgundy",
+      "ageability": "Drink now through 2028. While enjoyable young, this wine will develop more complexity and softer acidity over 3-5 years, though it will always maintain its fresh, mineral character."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Silverthorn The Genie Cap Classique Brut Rose NV",
+    "description": "A premium South African méthode champenoise sparkling wine from Silverthorn, one of the country's leading Cap Classique producers. Crafted using traditional Champagne methods with extended lees aging, this rosé showcases the elegance and complexity that South African sparkling wines can achieve in cooler climate regions.",
+    "tastingNotes": {
+      "aroma": "The nose offers delicate aromas of wild strawberry, red currant, and white cherry, complemented by subtle notes of brioche and freshly baked bread from extended lees contact. Hints of rose petal and citrus blossom add floral elegance, while underlying notes of almond and cream suggest complexity. A subtle mineral quality and gentle spice note—ginger and white pepper—provide additional layers. The overall impression is refined and inviting.",
+      "palate": "Light to medium-bodied with fine, persistent bubbles and high acidity that creates remarkable freshness. The palate delivers flavors of fresh strawberry, raspberry, and pink grapefruit, balanced by notes of brioche, toasted almond, and subtle cream from lees aging. The wine's texture is creamy yet vibrant, with the mousse providing elegant structure. A mineral backbone and hint of chalky character add complexity, while the wine remains bone-dry despite its fruit expression. The balance between fruit, acidity, and autolytic character is expertly managed.",
+      "finish": "The finish is clean, long, and refreshing, with persistent red berry fruit and a gentle yeastiness. The fine bubbles continue to lift the flavors, while the wine's acidity leaves the palate energized and ready for another sip. A subtle almond and mineral note lingers pleasantly."
+    },
+    "foodPairings": [
+      "Smoked salmon canapés with crème fraîche",
+      "Chicken satay with sweet and sour dipping sauce",
+      "Fresh oysters or sushi",
+      "Pork belly with Asian-inspired glaze",
+      "Strawberry and cream desserts"
+    ],
+    "servingInfo": {
+      "temperature": "42-48°F (6-9°C), well chilled",
+      "decanting": "Not recommended; serve directly from bottle",
+      "glassware": "Champagne flute or tulip-shaped sparkling wine glass"
+    },
+    "wineDetails": {
+      "region": "Western Cape, South Africa (likely Hemel-en-Aarde or Elgin)",
+      "grapeVariety": "Likely Pinot Noir and Chardonnay blend, traditional Cap Classique grapes",
+      "vintage": "Non-vintage (multi-year blend for consistency)",
+      "style": "Méthode champenoise brut rosé sparkling wine",
+      "ageability": "Drink now through 2030. Cap Classique can age gracefully for 5-10 years, developing more complex autolytic and nutty characteristics."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Trespass Encroachment Pinot Noir 2018",
+    "description": "An artisanal Pinot Noir from a small producer, likely crafted in a cooler climate region optimal for this finicky variety. The 2018 vintage showcases the elegance and complexity that Pinot Noir achieves when grown in ideal conditions, with the wine expressing both varietal character and terroir influence.",
+    "tastingNotes": {
+      "aroma": "The bouquet reveals classic Pinot Noir aromatics: ripe cherry, cranberry, and red raspberry mingle with notes of rose petal, dried herbs, and forest floor. As the wine opens, more complex notes emerge—hints of mushroom, black tea, and subtle leather add savory intrigue. A delicate touch of vanilla and toasted oak from barrel aging integrates seamlessly, while underlying notes of earth and spice provide depth. The aromatic profile suggests both fruit purity and complexity.",
+      "palate": "Light to medium-bodied with silky tannins and vibrant acidity that provides structure and lift. The palate echoes the nose with flavors of red cherry, raspberry, and cranberry, layered with notes of pomegranate and red plum. Savory elements—dried herbs, earthy mushroom, and a hint of truffle—add complexity and intrigue. The oak influence is subtle, contributing gentle vanilla and spice without overwhelming the wine's delicate fruit. A mineral quality provides backbone, while the wine's natural acidity ensures balance and food-friendliness.",
+      "finish": "The finish is medium-long with persistent red fruit and subtle earthy notes. Silky tannins provide gentle grip, while the wine's acidity keeps the palate refreshed. Lingering hints of tea, spice, and forest floor invite contemplation."
+    },
+    "foodPairings": [
+      "Roasted duck breast with cherry sauce",
+      "Wild mushroom and gruyère tart",
+      "Grilled salmon with herb butter",
+      "Coq au vin or chicken with mushroom sauce",
+      "Triple cream brie or aged comté cheese"
+    ],
+    "servingInfo": {
+      "temperature": "58-62°F (14-17°C), slightly cool",
+      "decanting": "30-45 minutes recommended to open aromatics and integrate oak",
+      "glassware": "Burgundy-style glass with large bowl to capture aromatics"
+    },
+    "wineDetails": {
+      "region": "Likely Oregon, California Central Coast, or similar cool-climate region",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2018",
+      "style": "Cool-climate Pinot Noir with moderate oak influence",
+      "ageability": "Drink now through 2030. At seven years old, this wine is showing well now with integrated tannins and developing complexity. It will continue to evolve gracefully over the next 5-7 years, gaining more tertiary savory notes."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Scenic Valley Farms Pinot Gris 2021",
+    "description": "A cool-climate Pinot Gris from what appears to be a farm winery or small producer focused on expressing terroir. The 2021 vintage captures the variety's characteristic freshness and fruit purity, likely showcasing a style that balances the crisp acidity of Pinot Grigio with the richer texture associated with Alsatian Pinot Gris.",
+    "tastingNotes": {
+      "aroma": "The nose presents inviting aromas of ripe Bosc pear, Golden Delicious apple, and white peach, complemented by notes of honeysuckle and white flowers. Subtle hints of citrus—lemon zest and lime—add brightness, while delicate notes of green almond and wet stone provide complexity. A whisper of ginger and white pepper suggests gentle spice, while the overall impression remains fresh and fruit-focused. The absence of oak allows the variety's natural aromatics to shine.",
+      "palate": "Medium-bodied with crisp acidity and a slightly oily texture characteristic of quality Pinot Gris. The palate delivers flavors of ripe pear, yellow apple, and white peach, accented by notes of cantaloupe and nectarine. A mineral quality reminiscent of crushed gravel provides structure and terroir expression, while hints of lemon zest and white pepper add vibrancy. The wine maintains freshness through its acidity while offering enough weight and texture to pair with richer foods. A subtle almond note adds interest without overwhelming the fruit.",
+      "finish": "The finish is clean and moderately long, with persistent fruit flavors and a refreshing mineral quality. The wine's acidity leaves the palate invigorated, while a gentle nuttiness and hint of white pepper linger pleasantly."
+    },
+    "foodPairings": [
+      "Pan-seared scallops with lemon butter",
+      "Roasted chicken with root vegetables",
+      "Grilled pork chops with apple chutney",
+      "Creamy pasta with mushrooms and herbs",
+      "Mild soft cheeses like fresh chèvre or burrata"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C), chilled",
+      "decanting": "No decanting needed; pour directly",
+      "glassware": "White wine glass with moderate bowl"
+    },
+    "wineDetails": {
+      "region": "Likely Oregon, Washington, or similar cool-climate American region",
+      "grapeVariety": "100% Pinot Gris",
+      "vintage": "2021",
+      "style": "Medium-bodied, fruit-forward white wine",
+      "ageability": "Drink now through 2025. This wine is best enjoyed within 3-4 years of vintage to appreciate its fresh fruit character and vibrant acidity."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  }
+]

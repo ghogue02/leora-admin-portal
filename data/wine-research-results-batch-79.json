@@ -1,0 +1,332 @@
+[
+  {
+    "productName": "Two Mountain Hidden Horse Red No. 17",
+    "description": "A mysterious proprietary red blend from Two Mountain Winery in Washington's Yakima Valley. The \"Hidden Horse\" name suggests an artisan blend with carefully guarded proportions, while the number 17 may reference the blend formula or vineyard block. Two Mountain is known for working with Bordeaux and Rhône varieties in this high-desert terroir.",
+    "tastingNotes": {
+      "aroma": "The nose opens with enticing dark fruit aromas of blackberry, black plum, and dark cherry, layered with notes of cedar, tobacco, and dried herbs. There's appealing complexity showing as lavender, black olive tapenade, and a hint of game. Subtle oak influence appears as vanilla, cocoa powder, and baking spices. A whisper of crushed violets and graphite adds aromatic lift, while earthy notes of forest floor and leather emerge with aeration.",
+      "palate": "Full-bodied and structured on the palate, this blend delivers concentrated dark fruit flavors with excellent depth. Blackberry compote and black cherry dominate, supported by notes of cassis and dark plum. The tannins are firm and age-worthy, providing backbone without excessive astringency. Well-integrated oak shows as toasted almonds, dark chocolate, and espresso. A savory element runs through the mid-palate with flavors of olive, dried herbs, and a touch of white pepper. The wine maintains freshness with balanced acidity.",
+      "finish": "The finish is long and complex, with persistent dark fruit, fine-grained tannins, and lingering notes of espresso, dark chocolate, and Mediterranean herbs. The wine's youth and structure promise excellent aging potential."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary and garlic",
+      "Braised beef short ribs with root vegetables",
+      "Aged Manchego or hard sheep's milk cheese",
+      "Wild game including venison or duck breast",
+      "Mushroom and truffle risotto with aged Parmesan"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 60-90 minutes to soften tannins and allow complex aromatics to emerge. The wine benefits significantly from aeration.",
+      "glassware": "Large Bordeaux glass to maximize oxygen exposure and showcase layered complexity"
+    },
+    "wineDetails": {
+      "region": "Yakima Valley AVA, Washington State",
+      "grapeVariety": "Proprietary red blend, likely including Cabernet Sauvignon, Merlot, Syrah, or similar varieties",
+      "vintage": "Non-vintage (NV) or specific vintage not indicated",
+      "style": "Full-bodied, complex red blend with Washington's characteristic fruit purity and structure",
+      "ageability": "Can age 8-12 years with proper cellaring. Peak maturity expected in 5-8 years from release."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:05:00.000Z"
+    }
+  },
+  {
+    "productName": "Scenic Valley Farms Chardonnay 2021",
+    "description": "An artisanal Chardonnay from Scenic Valley Farms, reflecting the farm-to-table wine movement where agricultural producers expand into winemaking. This wine likely showcases sustainable farming practices and minimal intervention winemaking, allowing terroir and variety to express themselves authentically. The 2021 vintage offers the wine at an ideal drinking window.",
+    "tastingNotes": {
+      "aroma": "The bouquet reveals classic Chardonnay aromatics with appealing complexity. Aromas of ripe yellow apple and Asian pear lead, complemented by notes of meyer lemon, white peach, and hints of pineapple. There's subtle oak influence showing as vanilla bean, toasted hazelnuts, and buttered toast from malolactic fermentation. Floral notes of acacia blossom and honeysuckle add lift, while a touch of minerality evokes wet stones. Delicate baking spice notes of cinnamon and nutmeg round out the profile.",
+      "palate": "Medium to full-bodied on the palate, this Chardonnay delivers rich fruit flavors balanced by refreshing acidity. Yellow apple and ripe pear dominate, with tropical notes of pineapple and mango adding richness. The texture is creamy and mouth-coating, likely from lees contact and malolactic fermentation. Well-integrated oak appears as vanilla, toasted oak, and hints of caramel without overwhelming the fruit. A subtle mineral backbone runs through the mid-palate, while bright citrus acidity keeps the wine fresh despite its richness.",
+      "finish": "The finish is long and satisfying, with lingering orchard fruit flavors, creamy texture, and balanced oak spice. A touch of citrus pith provides structure and calls for another sip."
+    },
+    "foodPairings": [
+      "Roasted chicken with lemon and herbs",
+      "Lobster or crab with drawn butter",
+      "Creamy pasta dishes like fettuccine Alfredo",
+      "Soft-ripened cheeses such as triple cream brie",
+      "Seared scallops with brown butter and capers"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F) - moderately chilled to preserve texture and aromatics",
+      "decanting": "No decanting needed, though 10-15 minutes of aeration in the glass enhances complexity and allows creamy texture to develop.",
+      "glassware": "White Burgundy glass or large-bowled white wine glass to showcase rich texture and complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Likely California, Oregon, or Washington State based on naming conventions",
+      "grapeVariety": "Chardonnay (100%)",
+      "vintage": "2021",
+      "style": "Medium to full-bodied Chardonnay with balanced oak influence and creamy texture",
+      "ageability": "Drinking beautifully now through 2026. Best enjoyed within 4-5 years of vintage while maintaining freshness and fruit vibrancy."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:07:00.000Z"
+    }
+  },
+  {
+    "productName": "Vina Albina Crianza 2022",
+    "description": "A traditional Rioja Crianza from Viña Albina, one of the historic bodegas in the Rioja Alta region. Crianza designation requires minimum aging of two years, with at least one year in oak, producing wines that balance youthful fruit with developed complexity. Viña Albina exemplifies classic Rioja winemaking with modern refinement.",
+    "tastingNotes": {
+      "aroma": "The nose presents classic Rioja Crianza character with red fruit elegance and subtle oak influence. Aromas of cherry, raspberry, and strawberry are complemented by notes of vanilla, coconut, and sweet cedar from American oak aging. There's appealing complexity showing as dried herbs, tobacco leaf, and leather. Subtle floral notes of violet and dried rose petals add aromatic lift. A touch of balsamic, earth, and clove spice rounds out the traditional profile.",
+      "palate": "Medium-bodied and elegant on the palate, this Crianza showcases Tempranillo's refined character. Red cherry and cranberry flavors dominate, with hints of strawberry and pomegranate. The oak influence is well-integrated, showing as vanilla, sweet spice, and toasted coconut without overwhelming the fruit. Silky tannins provide structure, while bright acidity maintains freshness and food-friendliness. Savory notes of dried herbs, leather, and earth add complexity to the fruit core.",
+      "finish": "The finish is medium to long, featuring persistent red fruit, gentle oak spice, and fine-grained tannins. The wine leaves the palate refreshed with lingering notes of cherry, vanilla, and herbs."
+    },
+    "foodPairings": [
+      "Charcuterie with Spanish chorizo and Ibérico ham",
+      "Roasted lamb with rosemary and garlic",
+      "Manchego cheese and membrillo (quince paste)",
+      "Paella or Spanish rice dishes",
+      "Grilled vegetables with romesco sauce"
+    ],
+    "servingInfo": {
+      "temperature": "15-17°C (59-63°F) - cool room temperature",
+      "decanting": "Light decanting of 20-30 minutes beneficial to open aromatics. Can be poured directly and allowed to breathe in glass.",
+      "glassware": "Standard red wine glass or Rioja-specific tulip glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain (likely Rioja Alta sub-zone)",
+      "grapeVariety": "Primarily Tempranillo, possibly with Garnacha, Graciano, and/or Mazuelo",
+      "vintage": "2022",
+      "style": "Classic Rioja Crianza with traditional oak aging and elegant, balanced character",
+      "ageability": "Drinking well now through 2029. Crianza style designed for earlier consumption than Reserva or Gran Reserva."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:09:00.000Z"
+    }
+  },
+  {
+    "productName": "Costers Del Segre Petit Sios Blanco 2018",
+    "description": "A distinctive white wine from Catalonia's Costers del Segre DO, an inland wine region known for continental climate and limestone soils. The \"Petit Sios\" designation suggests a small production or special vineyard site. With several years of bottle age, this 2018 wine offers the complexity that develops in well-made Mediterranean whites.",
+    "tastingNotes": {
+      "aroma": "The nose reveals evolved aromatics showing the wine's bottle age and development. Primary fruit has evolved from fresh to preserved—think baked yellow apple, poached pear, and hints of golden raisins. There's appealing complexity with notes of toasted almonds, honeycomb, beeswax, and lanolin. Subtle oxidative notes of bruised apple and chamomile tea add intrigue without suggesting fault. A pronounced mineral quality shows as wet stones and chalk, while hints of dried herbs and Mediterranean scrub add aromatic complexity.",
+      "palate": "Medium to full-bodied with a rich, textured palate that shows beautiful evolution. Flavors of mature orchard fruits—baked apple, poached pear, and quince—are complemented by nutty, honeyed notes from bottle age. The wine maintains impressive freshness despite its age, with bright acidity cutting through the richness. A distinctive saline quality adds interest, along with flavors of preserved lemon, dried apricot, and toasted almonds. The texture is creamy and mouth-coating, with excellent weight and glycerin.",
+      "finish": "The finish is long and complex, showing the wine's maturity with harmonious integration of fruit, acidity, and tertiary character. Lingering notes of honey, nuts, and mineral persistence fade slowly with a pleasant, slightly oxidative quality."
+    },
+    "foodPairings": [
+      "Grilled whole fish with almond picada sauce",
+      "Aged Manchego or aged Garrotxa cheese",
+      "Roasted chicken with preserved lemon and olives",
+      "Seafood risotto or paella",
+      "Sautéed mushrooms with garlic and sherry"
+    ],
+    "servingInfo": {
+      "temperature": "11-13°C (52-55°F) - moderately chilled to preserve complexity",
+      "decanting": "Brief decanting of 15-20 minutes can help the wine open, though serve at slightly warmer temperature than young whites to appreciate evolved character.",
+      "glassware": "White Burgundy glass or medium bowl to showcase textured, complex character"
+    },
+    "wineDetails": {
+      "region": "Costers del Segre DO, Catalonia, Spain",
+      "grapeVariety": "Likely Macabeo (Viura), possibly with Chardonnay, Parellada, or other regional varieties",
+      "vintage": "2018",
+      "style": "Full-bodied, textured white with evolved, complex character from bottle age",
+      "ageability": "At peak maturity now; consume within 1-2 years to enjoy developed character before over-oxidation. Already showing beautiful tertiary development."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:11:00.000Z"
+    }
+  },
+  {
+    "productName": "Free Spirits N/A Margarita Cans   250 ml",
+    "description": "A non-alcoholic margarita cocktail in convenient single-serve cans. Free Spirits specializes in premium alcohol-free spirits and ready-to-drink cocktails, offering sophisticated flavor without alcohol. This canned margarita provides the classic cocktail experience in a portable, accessible format for those avoiding alcohol.",
+    "tastingNotes": {
+      "aroma": "Not applicable - this is a non-alcoholic cocktail, not wine. Aromatics would feature lime, agave, and citrus typical of margaritas.",
+      "palate": "Not applicable - this is a non-alcoholic cocktail beverage featuring margarita flavors (lime, orange, agave) without wine characteristics.",
+      "finish": "Not applicable - cocktail finish would be citrus-forward with agave sweetness and tartness."
+    },
+    "foodPairings": [
+      "Mexican and Tex-Mex cuisine (tacos, fajitas, enchiladas)",
+      "Fresh guacamole and tortilla chips",
+      "Ceviche or grilled fish tacos",
+      "Quesadillas with various fillings",
+      "Spicy foods and barbecue"
+    ],
+    "servingInfo": {
+      "temperature": "4-6°C (39-43°F) - serve well chilled over ice",
+      "decanting": "Not applicable - serve directly from can over ice with lime garnish",
+      "glassware": "Margarita glass or rocks glass with salted rim optional"
+    },
+    "wineDetails": {
+      "region": "Not applicable - non-alcoholic cocktail beverage",
+      "grapeVariety": "Not applicable - not wine",
+      "vintage": "Not applicable",
+      "style": "Non-alcoholic ready-to-drink margarita cocktail",
+      "ageability": "Best consumed fresh. Check package date for optimal quality; non-alcoholic beverages have limited shelf life."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:13:00.000Z"
+    }
+  },
+  {
+    "productName": "Darms Lane Fortune 1621 Cabernet Sauvignon 2021",
+    "description": "A premium Cabernet Sauvignon from Darms Lane's Fortune series, with the 1621 designation likely referencing a specific vineyard block or elevation. Darms Lane is a Virginia producer known for crafting serious, age-worthy wines from the state's emerging premium wine regions. The 2021 vintage shows the quality potential of Virginia Cabernet.",
+    "tastingNotes": {
+      "aroma": "The nose presents concentrated Cabernet aromas with impressive depth for Virginia. Black currant and cassis dominate, complemented by blackberry and dark cherry. There's appealing complexity showing as cedar pencil shavings, graphite, tobacco leaf, and hints of eucalyptus. Well-integrated oak appears as vanilla, dark chocolate, and espresso, while subtle bell pepper and sage add herbal intrigue typical of cooler-climate Cabernet. A whisper of violet, crushed rocks, and iron minerality provides aromatic lift.",
+      "palate": "Full-bodied and structured on the palate, this Cabernet delivers concentrated dark fruit with excellent aging potential. Black currant and blackberry dominate, supported by flavors of dark plum, black cherry, and cassis. The tannins are firm and substantial, providing backbone without excessive astringency—evidence of phenolic ripeness. Well-integrated oak shows as toasted oak, vanilla, baking spices, and dark chocolate. Balanced acidity maintains freshness, while a mineral thread runs through the mid-palate. The wine shows impressive concentration and depth.",
+      "finish": "The finish is long and structured, with persistent dark fruit, firm but refined tannins, and lingering notes of espresso, dark chocolate, and graphite. The wine's youth and structure promise excellent development with cellaring."
+    },
+    "foodPairings": [
+      "Grilled ribeye or New York strip steak",
+      "Braised lamb shanks with red wine reduction",
+      "Aged cheddar or cave-aged Gruyère",
+      "Venison medallions with blackberry gastrique",
+      "Mushroom and truffle dishes"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 60-90 minutes to soften tannins and allow the wine to breathe. Young, structured Cabernet benefits significantly from extended aeration.",
+      "glassware": "Large Cabernet/Bordeaux glass to maximize oxygen exposure and showcase concentrated aromatics"
+    },
+    "wineDetails": {
+      "region": "Virginia (likely Monticello AVA or similar premium Virginia appellation)",
+      "grapeVariety": "Cabernet Sauvignon (100% or dominant in Bordeaux blend)",
+      "vintage": "2021",
+      "style": "Full-bodied, structured Cabernet with cool-climate freshness and serious aging potential",
+      "ageability": "Drinking well now but will improve significantly through 2036. Peak maturity expected 2028-2033 with proper cellaring."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:15:00.000Z"
+    }
+  },
+  {
+    "productName": "Domaine de la Denante Macon La Roche Vineuse Chardonnay 2021",
+    "description": "An authentic Burgundian Chardonnay from the Mâconnais region, specifically from the La Roche-Vineuse commune. Domaine de la Denante is a quality-focused grower producing terroir-driven wines from limestone-rich soils. This wine represents excellent value Burgundy, showcasing Chardonnay's purity and minerality without the price tag of Côte d'Or appellations.",
+    "tastingNotes": {
+      "aroma": "The nose reveals classic Mâcon Chardonnay character with elegant, mineral-driven aromatics. Fresh orchard fruits—green apple, pear, and white peach—lead, complemented by citrus notes of lemon zest and grapefruit. There's subtle oak influence showing as toasted hazelnuts and buttered brioche, though the wine remains fruit-focused. Floral hints of white flowers and acacia add aromatic lift, while pronounced minerality evokes crushed limestone, wet chalk, and flint. A touch of honey and beeswax adds complexity.",
+      "palate": "Medium-bodied with excellent balance between richness and freshness. The palate delivers pure Chardonnay fruit—crisp apple, ripe pear, and citrus—supported by vibrant, mouthwatering acidity. A distinctive mineral backbone runs through the wine, providing structure and terroir expression. Subtle oak appears as toasted nuts and light vanilla without dominating. The texture is silky with moderate weight, while the acidity keeps the wine focused and precise. There's impressive length and depth for Mâcon.",
+      "finish": "The finish is clean and persistent, with lingering orchard fruit, bright citrus, and distinctive chalky minerality. The wine leaves the palate refreshed with excellent persistence."
+    },
+    "foodPairings": [
+      "Escargots in garlic butter",
+      "Roasted chicken with herb butter",
+      "Grilled fish with beurre blanc sauce",
+      "Comté or Gruyère cheese",
+      "Seafood risotto or creamy pasta"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F) - moderately chilled to preserve freshness and texture",
+      "decanting": "No decanting needed. Open 10-15 minutes before serving to allow aromatics to develop.",
+      "glassware": "White Burgundy glass to showcase mineral complexity and textured character"
+    },
+    "wineDetails": {
+      "region": "Mâcon-La Roche-Vineuse AOC, Burgundy, France",
+      "grapeVariety": "Chardonnay (100%)",
+      "vintage": "2021",
+      "style": "Medium-bodied, mineral-driven Burgundian Chardonnay with elegant restraint",
+      "ageability": "Drinking beautifully now through 2027. Mâcon Chardonnays are best enjoyed within 5-6 years while maintaining freshness and fruit vibrancy."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:17:00.000Z"
+    }
+  },
+  {
+    "productName": "Nikolaou Kydonitsa 2023",
+    "description": "A rare Greek white wine made from the indigenous Kydonitsa grape variety. Nikolaou Winery focuses on reviving and showcasing Greece's lesser-known native varieties. Kydonitsa produces aromatic, food-friendly wines with distinctive Mediterranean character. This 2023 vintage offers youthful freshness and varietal purity.",
+    "tastingNotes": {
+      "aroma": "The nose is intensely aromatic with distinctive Greek island character. Bright citrus aromas of lemon, lime, and grapefruit lead, complemented by tropical notes of passion fruit and hints of pineapple. There's appealing herbal complexity showing as Mediterranean scrub—thyme, oregano, and wild fennel. Floral notes of orange blossom and chamomile add aromatic lift. A subtle saline quality evokes sea breeze and minerality, while hints of white pepper and stone provide complexity.",
+      "palate": "Medium-bodied with vibrant acidity and excellent energy. The palate bursts with citrus flavors—lemon, lime, and grapefruit—alongside tropical fruit notes of passion fruit and white peach. A distinctive herbal quality runs through the mid-palate with flavors of fresh herbs and subtle anise. The wine's most striking feature is its pronounced saline minerality, giving it unmistakable coastal Mediterranean character. The texture is crisp and refreshing, with enough weight to carry the intense flavors.",
+      "finish": "The finish is long and mineral-driven, with persistent citrus, herb, and saline notes. A pleasant, slightly bitter quality reminiscent of grapefruit pith provides structure and calls for food."
+    },
+    "foodPairings": [
+      "Grilled octopus with lemon and olive oil",
+      "Greek mezze including tzatziki and dolmades",
+      "Fresh oysters or grilled prawns",
+      "Feta cheese and Greek salad",
+      "Grilled white fish with herbs and capers"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F) - well chilled to preserve freshness and acidity",
+      "decanting": "No decanting needed. Serve directly from the bottle, allowing 5 minutes for aromatics to develop.",
+      "glassware": "Medium white wine glass to concentrate aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Greece (specific region unknown, likely Aegean islands or coastal Macedonia)",
+      "grapeVariety": "Kydonitsa (100%)",
+      "vintage": "2023",
+      "style": "Medium-bodied, aromatic Greek white with pronounced minerality and herbal character",
+      "ageability": "Best enjoyed young through 2025 while aromatics and freshness are at their peak. Drink within 2 years of vintage."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:19:00.000Z"
+    }
+  },
+  {
+    "productName": "Cobden Wini North Coast Brut NV",
+    "description": "A sparkling wine produced in the traditional method from California's North Coast region. The non-vintage designation allows the winemaker to blend multiple vintages for consistency and house style. Cobden's \"Wini\" branding suggests a playful, accessible approach to quality sparkling wine, offering celebration in every bottle.",
+    "tastingNotes": {
+      "aroma": "The nose presents classic sparkling wine aromatics with appealing complexity. Aromas of green apple, lemon, and white peach are complemented by notes of brioche, toast, and almond from secondary fermentation and lees aging. There's subtle yeasty character showing as fresh bread and pastry, along with hints of white flowers and honeysuckle. A touch of minerality evokes chalk and wet stones, while delicate citrus blossom adds aromatic lift.",
+      "palate": "Medium-bodied with fine, persistent bubbles and refreshing acidity. The palate delivers crisp fruit flavors of green apple, citrus, and white peach, balanced by toasty, yeasty notes from lees contact. The mousse is creamy and well-integrated, adding textural interest without aggressive fizz. Bright acidity provides structure and keeps the wine lively and refreshing. Subtle nutty notes of almond and hazelnuts add complexity, while the wine maintains an elegant, dry profile with just a touch of residual sugar for balance.",
+      "finish": "The finish is clean and persistent, with lingering citrus, toast, and fine bubbles. The wine leaves the palate refreshed and ready for food or another glass."
+    },
+    "foodPairings": [
+      "Oysters on the half shell",
+      "Fried calamari or tempura vegetables",
+      "Soft cheeses like brie or triple cream",
+      "Smoked salmon and cream cheese canapés",
+      "Celebration cakes and light desserts"
+    ],
+    "servingInfo": {
+      "temperature": "6-8°C (43-46°F) - well chilled but not ice cold",
+      "decanting": "Not applicable for sparkling wine. Serve directly from the bottle to preserve bubbles. Open gently and pour in two stages.",
+      "glassware": "Flute or tulip-shaped sparkling wine glass to preserve bubbles and concentrate aromatics"
+    },
+    "wineDetails": {
+      "region": "North Coast AVA, California (likely Sonoma or Mendocino County)",
+      "grapeVariety": "Likely Chardonnay and Pinot Noir blend (traditional method sparkling)",
+      "vintage": "Non-vintage (NV)",
+      "style": "Brut sparkling wine, traditional method with dry, elegant character",
+      "ageability": "Best enjoyed within 2-3 years of purchase while fresh and lively. Non-vintage sparklings are designed for immediate consumption."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:21:00.000Z"
+    }
+  },
+  {
+    "productName": "Gondola Pinot Noir  Mevushal (MD & DC) 2022",
+    "description": "A kosher Pinot Noir produced under mevushal supervision, making it appropriate for serving in all kosher settings. The MD & DC designation indicates regional distribution focus. Gondola Wines specializes in quality kosher wines that meet both religious requirements and wine quality standards, offering sophisticated kosher options.",
+    "tastingNotes": {
+      "aroma": "The nose presents approachable Pinot Noir character with red fruit purity. Aromas of cherry, raspberry, and strawberry dominate, complemented by subtle floral notes of rose petals and violets. There's light spice showing as cinnamon, clove, and a touch of white pepper. Earthy undertones of forest floor and mushroom add complexity, while subtle oak influence appears as vanilla and toast. The aromatic profile is clean and fruit-forward with moderate complexity.",
+      "palate": "Medium-bodied with silky texture and bright acidity characteristic of Pinot Noir. Red fruit flavors of cherry, raspberry, and cranberry dominate the palate, supported by refreshing acidity that keeps the wine lively. The tannins are soft and well-integrated, providing structure without harshness. Subtle earth and spice notes add interest—think dried herbs, mushroom, and baking spices. Light oak influence shows as vanilla and toast without overwhelming the delicate fruit. The wine maintains Pinot's elegant, transparent character.",
+      "finish": "The finish is medium in length with lingering red fruit, soft tannins, and gentle spice. The wine finishes clean and refreshing, encouraging food pairing."
+    },
+    "foodPairings": [
+      "Roasted chicken or duck breast",
+      "Grilled salmon with herbs",
+      "Mushroom risotto or pasta",
+      "Soft cheeses (if dairy meal) or vegan alternatives",
+      "Root vegetable dishes and earthy preparations"
+    ],
+    "servingInfo": {
+      "temperature": "14-16°C (57-61°F) - slightly cool to preserve fruit freshness",
+      "decanting": "Light decanting of 20-30 minutes beneficial but not essential. Can be poured directly and allowed to breathe in glass.",
+      "glassware": "Burgundy glass or medium red wine glass to showcase Pinot's delicate aromatics"
+    },
+    "wineDetails": {
+      "region": "Likely California or Oregon based on quality kosher wine production",
+      "grapeVariety": "Pinot Noir (100%)",
+      "vintage": "2022",
+      "style": "Medium-bodied, fruit-forward kosher Pinot Noir with accessible character",
+      "ageability": "Best enjoyed young through 2026 while fruit is fresh and vibrant. Mevushal wines best consumed within 3-4 years."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:23:00.000Z"
+    }
+  }
+]

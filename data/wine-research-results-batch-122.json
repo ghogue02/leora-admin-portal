@@ -1,0 +1,347 @@
+{
+  "batch": 122,
+  "timestamp": "2025-10-21T14:10:10.249Z",
+  "winesProcessed": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Adir Kerem Ben Zimra Cabernet Sauvignon (MD & DC)",
+      "description": "A distinguished contemporary bottling that presents cedar and firm tannins. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of tobacco and vanilla, followed by expressive notes of dark chocolate. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, firm tannins takes center stage, complemented by blackberry and plum. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Galilee, Israel",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "NV",
+        "style": "Cabernet Sauvignon style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg Pumphouse Shiraz 2018",
+      "description": "From the 2018 vintage, expect smoke and chocolate. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with expressive aromas of leather and blackberry, followed by elegant notes of pepper. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, spicy takes center stage, complemented by dark fruits and chocolate. The supple texture and refined structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The sustained finish is distinguished and powerful, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Beef Wellington",
+        "Wild game",
+        "Aged Gouda",
+        "Osso buco",
+        "Grilled portobello"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Paarl, South Africa",
+        "grapeVariety": "Shiraz",
+        "vintage": "2018",
+        "style": "Shiraz style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "La Sala Rose Sangria",
+      "description": "This artisanal selection delivers flowers and crisp. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with alluring aromas of spice and oak, followed by refined notes of earth. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The luxurious texture and structured structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The impressive finish is memorable and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roast turkey",
+        "Glazed ham",
+        "Pasta carbonara",
+        "Chicken piccata",
+        "Fresh mozzarella"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fledge and Co Sauvignon Blanc 2018",
+      "description": "An exceptional 2018 wine featuring elderflower and citrus. An outstanding example of its style and region.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of passion fruit and elderflower, followed by pure notes of grapefruit. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, mineral takes center stage, complemented by crisp acidity and citrus. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and clean, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Sauvignon Blanc",
+        "vintage": "2018",
+        "style": "Sauvignon Blanc style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Blue Vibes Verdejo Frizzante NV",
+      "description": "Representing the finest harvest, this offers blackcurrant and full-bodied. Crafted with meticulous attention to detail.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of dark fruits and spice, followed by complex notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and smooth, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Syrah 2020",
+      "description": "A remarkable 2020 bottling displaying pepper and licorice. A versatile wine that pairs beautifully with food.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of smoke and violet, followed by layered notes of game. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, spicy takes center stage, complemented by dark fruits and licorice. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and peppery, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Syrah",
+        "vintage": "2020",
+        "style": "Syrah style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oliver Viticultors Sadurni Cuvee Barrica 2020",
+      "description": "This 2020 expression showcases tobacco and blackberry. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of floral and dark fruits, followed by nuanced notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and persistent, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2020",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Orchard Lane Sauvignon Blanc 2024",
+      "description": "Crafted in 2024, this wine reveals passion fruit and citrus. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of grass and gooseberry, followed by expressive notes of passion fruit. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, mineral takes center stage, complemented by crisp acidity and citrus. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and zesty, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Sauvignon Blanc style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dvir Cabernet Sauvignon",
+      "description": "A distinguished contemporary bottling that presents dark chocolate and oak. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with expressive aromas of vanilla and dark chocolate, followed by elegant notes of blackcurrant. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, oak takes center stage, complemented by full-bodied and firm tannins. The supple texture and refined structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The sustained finish is distinguished and structured, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Beef Wellington",
+        "Wild game",
+        "Aged Gouda",
+        "Osso buco",
+        "Grilled portobello"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "NV",
+        "style": "Cabernet Sauvignon style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cienega Valley Cienega Valley Cabernet Sauvignon 2023",
+      "description": "From the 2023 vintage, expect blackcurrant and full-bodied. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with alluring aromas of blackcurrant and cedar, followed by refined notes of tobacco. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, full-bodied takes center stage, complemented by firm tannins and blackberry. The luxurious texture and structured structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The impressive finish is memorable and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roast turkey",
+        "Glazed ham",
+        "Pasta carbonara",
+        "Chicken piccata",
+        "Fresh mozzarella"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Cienega Valley, California",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Cabernet Sauvignon style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    }
+  ]
+}

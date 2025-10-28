@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 33,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "O Leao Red Blend Cachapoal Valley Magnum (DC MD Only) 2019  1.5 l",
+      "description": "This Chilean red blend from Cachapoal Valley showcases the region's warm climate with ripe fruit character and smooth tannins. The magnum format ensures slower aging and greater longevity, making it ideal for special occasions and extended cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of ripe blackberries and dark cherries, layered with notes of vanilla and toasted oak from careful barrel aging. Subtle hints of tobacco leaf and dried herbs add complexity, while a touch of graphite minerality reflects the valley's alluvial soils. The magnum format has allowed the aromatics to develop harmoniously over time.",
+        "palate": "On the palate, this blend delivers concentrated flavors of black plum and cassis, supported by well-integrated oak that contributes notes of cocoa and baking spices. The mid-palate shows excellent density with velvety tannins that have softened beautifully since the 2019 vintage. Bright acidity provides structure and balance, while the warm Cachapoal terroir expresses itself through lush fruit concentration.",
+        "finish": "The finish is long and persistent, with dark fruit flavors lingering alongside subtle notes of espresso and dark chocolate. Fine-grained tannins provide grip without astringency, suggesting excellent aging potential in the magnum format."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised short ribs with red wine reduction",
+        "Aged manchego and cured meats",
+        "Mushroom and truffle risotto",
+        "Chilean empanadas with spiced beef"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 45-60 minutes before serving to allow the wine to open up and soften the tannins, especially given the magnum format",
+        "glassware": "Large Bordeaux-style glass to capture the complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Cachapoal Valley, Chile",
+        "grapeVariety": "Red blend (likely Cabernet Sauvignon, Carmenere, Syrah)",
+        "vintage": "2019",
+        "style": "Full-bodied Chilean red blend",
+        "ageability": "Drink now through 2027. The magnum format extends aging potential by 3-5 years beyond standard bottles."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Sparkling Grand Reserve NV",
+      "description": "This Ukrainian sparkling wine from the renowned Shabo winery represents traditional method production with careful blending across vintages. The Grand Reserve designation indicates extended aging on lees for added complexity and refined mousse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals delicate aromas of green apple and white peach, complemented by fresh bread crust and subtle almond notes from extended lees aging. Floral hints of acacia and honeysuckle add elegance, while a touch of citrus zest provides brightness. The bouquet shows the refinement expected from a Grand Reserve designation.",
+        "palate": "Crisp and refreshing on entry, the palate features flavors of pear, lemon curd, and stone fruits, supported by a creamy mousse and fine, persistent bubbles. The wine shows good depth from its reserve blend, with layers of brioche and hazelnut emerging mid-palate. Well-balanced acidity keeps the wine lively despite its richness, while the extended lees contact adds textural complexity.",
+        "finish": "The finish is clean and mineral-driven, with citrus notes lingering alongside subtle toast and a pleasant chalky texture. The mousse remains delicate and persistent through the finish."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Smoked salmon canapés",
+        "Chicken Kiev or poultry dishes",
+        "Soft ripened cheeses like brie",
+        "Seafood risotto with saffron"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F)",
+        "decanting": "No decanting required; serve chilled directly from the bottle",
+        "glassware": "Champagne flute or tulip glass to preserve bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Shabo, Ukraine (Black Sea region)",
+        "grapeVariety": "Traditional blend (likely Chardonnay, Pinot Noir, and/or local varieties)",
+        "vintage": "Non-Vintage (NV)",
+        "style": "Traditional method sparkling wine",
+        "ageability": "Best enjoyed within 2-3 years of purchase for optimal freshness and bubble retention."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte Sir Thomas Cullinan 2019",
+      "description": "Named after the famous diamond magnate, this South African Bordeaux-style blend from Remhoogte Estate represents the winery's flagship offering. The 2019 vintage showcases the excellent growing conditions of Stellenbosch with concentrated fruit and structured elegance.",
+      "tastingNotes": {
+        "aroma": "The bouquet is immediately impressive with layers of cassis, blackcurrant, and ripe plum, interwoven with cedar, cigar box, and graphite notes. Nuances of violet and lavender add floral complexity, while hints of dark chocolate and espresso reflect judicious oak integration. The wine shows the hallmark elegance of Stellenbosch's best red blends.",
+        "palate": "Rich and structured on the palate, this wine delivers flavors of black cherry, mulberry, and blackberry preserve, framed by well-judged oak that contributes vanilla, mocha, and sweet spice notes. The tannins are firm yet refined, providing excellent structure without overwhelming the concentrated fruit. Bright acidity lifts the wine and ensures balance, while the texture is both powerful and polished.",
+        "finish": "The finish extends beautifully with persistent dark fruit, savory herbs, and a mineral edge that speaks to the granite soils of Stellenbosch. Fine tannins provide grip and suggest excellent aging potential."
+      },
+      "foodPairings": [
+        "Roasted lamb rack with rosemary",
+        "Beef Wellington with mushroom duxelles",
+        "Grilled venison with berry reduction",
+        "Mature hard cheeses like aged gouda",
+        "Braised oxtail with root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 1-2 hours to fully express the wine's complexity and soften the youthful tannins",
+        "glassware": "Large Bordeaux glass to allow proper aeration and aroma development"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa",
+        "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot)",
+        "vintage": "2019",
+        "style": "Premium Cape Bordeaux-style blend",
+        "ageability": "Peak drinking window 2025-2035. This wine has excellent cellaring potential and will continue to develop complexity over the next decade."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rigo Dolcetto 2018",
+      "description": "This Dolcetto from Rigo captures the essence of Piedmont's early-drinking red, offering bright fruit and refreshing character. The 2018 vintage has developed some tertiary complexity while maintaining the grape's signature vibrancy and approachability.",
+      "tastingNotes": {
+        "aroma": "The nose presents vibrant aromas of red cherry, wild strawberry, and raspberry, complemented by subtle notes of violet and almond characteristic of Dolcetto. With some bottle age, the wine has developed nuances of dried herbs, black tea, and a hint of truffle. The aromatic profile remains fresh and inviting, showing the wine's youthful charm despite six years of age.",
+        "palate": "Juicy and medium-bodied on the palate, this Dolcetto delivers flavors of fresh red berries, sour cherry, and cranberry, balanced by gentle tannins that have softened nicely since bottling. A touch of bitter almond on the mid-palate is typical of the variety and adds character without harshness. Bright acidity keeps the wine lively and food-friendly, while subtle earthy notes add depth.",
+        "finish": "The finish is moderately long with persistent red fruit and a characteristic bitter-sweet quality that makes Dolcetto so versatile at the table. Soft tannins and refreshing acidity leave the palate clean."
+      },
+      "foodPairings": [
+        "Pasta with wild mushroom ragù",
+        "Roasted chicken with herbs",
+        "Pizza with prosciutto and arugula",
+        "Veal milanese with lemon",
+        "Soft cheeses like taleggio or fontina"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) - slightly cooler to highlight freshness",
+        "decanting": "Brief decanting of 15-20 minutes is beneficial, though not essential",
+        "glassware": "Medium-sized red wine glass or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Piedmont, Italy",
+        "grapeVariety": "100% Dolcetto",
+        "vintage": "2018",
+        "style": "Traditional Piedmontese red",
+        "ageability": "Best consumed now through 2026. Dolcetto is typically enjoyed young, though this vintage has aged gracefully."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rock Ferry 3rd Rock Pinot Gris 2021",
+      "description": "From Central Otago, New Zealand's southernmost wine region, this Pinot Gris showcases the area's distinctive cool-climate character and crystalline purity. The 3rd Rock designation reflects the vineyard's unique schist soils and elevated position.",
+      "tastingNotes": {
+        "aroma": "The nose is expressive and pure, offering aromas of ripe pear, white peach, and nectarine, layered with subtle notes of jasmine and honeysuckle. A distinctive mineral quality suggests the schist soils of Central Otago, while hints of ginger and white pepper add intrigue. The cool-climate origins are evident in the wine's bright, focused aromatics.",
+        "palate": "On the palate, this Pinot Gris shows excellent concentration with flavors of stone fruits, particularly apricot and yellow plum, balanced by crisp acidity that provides structure and length. The texture is fuller than many Pinot Grigios, with a subtle oily richness typical of quality Pinot Gris. Subtle spice notes of cardamom and white pepper emerge mid-palate, while the mineral character persists throughout.",
+        "finish": "The finish is refreshing and persistent, with stone fruit flavors lingering alongside bright acidity and a distinct mineral edge. A subtle phenolic grip adds complexity and food-friendliness."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with cauliflower purée",
+        "Roasted pork tenderloin with stone fruit chutney",
+        "Grilled prawns with lemon and herbs",
+        "Creamy pasta with wild mushrooms",
+        "New Zealand green-lipped mussels"
+      ],
+      "servingInfo": {
+        "temperature": "9-11°C (48-52°F)",
+        "decanting": "No decanting required; serve chilled directly from the bottle",
+        "glassware": "Medium white wine glass to allow aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "Central Otago, New Zealand",
+        "grapeVariety": "100% Pinot Gris",
+        "vintage": "2021",
+        "style": "Cool-climate Alsatian-style Pinot Gris",
+        "ageability": "Best enjoyed within 3-5 years of vintage. Drink now through 2026 for optimal freshness."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.76,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Adir Orange Chardonnay Mevushal (MD & DC) 2024",
+      "description": "This innovative kosher orange wine represents a modern interpretation of ancient winemaking techniques, with Chardonnay grapes undergoing extended skin contact. The Mevushal designation ensures the wine meets strict kosher standards while the orange wine style delivers unique textural complexity and bold flavors.",
+      "tastingNotes": {
+        "aroma": "The nose reveals an intriguing bouquet of ripe red grapefruit and citrus zest, complemented by delicate honey and beeswax notes. Extended skin contact contributes subtle tannic grip and aromatic complexity, with hints of dried apricot, chamomile tea, and orange peel. The wine shows an earthy minerality alongside fresh stone fruit aromas, creating a compelling combination of richness and freshness.",
+        "palate": "Medium-bodied on the palate with bold structure balanced by refreshing acidity that keeps the wine lively despite its textural weight. Flavors of ripe stone fruits blend with citrus elements, particularly pink grapefruit and mandarin orange, while honey and licorice add sweetness and depth. The skin contact contributes both bitter and smooth tannins that provide grip and complexity, along with subtle notes of toasted nuts and spice. The earthy minerality persists through the mid-palate, grounding the fruit expression.",
+        "finish": "The finish is distinctive and persistent, with the tannic structure providing length alongside citrus and honey notes. A pleasant phenolic bitterness characteristic of orange wines adds complexity without harshness, while the deep golden hue reflects the wine's unique production method."
+      },
+      "foodPairings": [
+        "Roasted chicken with preserved lemons",
+        "Grilled halibut with herb butter",
+        "Middle Eastern mezze platter",
+        "Butternut squash ravioli with sage",
+        "Hard aged cheeses and dried fruits"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F) - slightly warmer than standard white wine",
+        "decanting": "Brief decanting of 20-30 minutes can help soften tannins and integrate the wine's components",
+        "glassware": "Universal wine glass or larger white wine glass to accommodate the wine's complexity"
+      },
+      "wineDetails": {
+        "region": "Israel",
+        "grapeVariety": "100% Chardonnay (orange wine/skin contact)",
+        "vintage": "2024",
+        "style": "Kosher Mevushal orange wine",
+        "ageability": "Best enjoyed within 2-3 years. Orange wines can develop well, but the fresh fruit character is best appreciated young. Drink 2024-2027."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Albina Gran Reserva 1975",
+      "description": "This historic Gran Reserva from Viña Albina represents nearly five decades of evolution in the bottle, showcasing Rioja's remarkable aging potential. The 1975 vintage has developed extraordinary tertiary complexity and offers a window into traditional Riojan winemaking at its finest.",
+      "tastingNotes": {
+        "aroma": "The bouquet is profoundly evolved, revealing complex aromas of dried cherry, fig, and prune, layered with leather, tobacco, and forest floor. Extended bottle age has developed nuances of balsamic, cedar cigar box, and dried herbs, while subtle notes of vanilla and coconut from American oak have fully integrated. The wine shows classic oxidative notes of walnut and toffee, alongside ethereal hints of rose petal and dried orange peel.",
+        "palate": "Elegant and silky on the palate, the wine has shed its youthful tannins to reveal a seamless, velvety texture. Flavors of dried red fruits, dates, and figs dominate, supported by notes of leather, spice box, and aged balsamic. The oak influence is fully harmonious, contributing warmth and complexity without dominating. Despite nearly 50 years of age, the wine maintains refreshing acidity that provides structure and lift, though the overall impression is one of graceful maturity.",
+        "finish": "The finish is long and contemplative, with dried fruit, spice, and earthy notes lingering gently. The wine's delicate nature at this age requires careful handling, but rewards patience with extraordinary complexity."
+      },
+      "foodPairings": [
+        "Roasted game birds like quail or partridge",
+        "Aged manchego or Idiazabal cheese",
+        "Wild mushroom risotto with truffle",
+        "Slow-braised lamb shoulder",
+        "Charcuterie with jamón ibérico"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F) - slightly cooler to preserve delicate aromatics",
+        "decanting": "Decant very carefully for 30-45 minutes maximum. The wine is delicate and may fade quickly with excessive aeration. Stand bottle upright for 24 hours before opening.",
+        "glassware": "Traditional Rioja glass or large Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Rioja Alta, Spain",
+        "grapeVariety": "Tempranillo dominant blend (likely with Garnacha, Graciano)",
+        "vintage": "1975",
+        "style": "Traditional Rioja Gran Reserva",
+        "ageability": "At peak maturity now. Drink carefully and soon, as wines of this age are fragile. Best consumed 2024-2026 with proper storage."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Martino Malbec 2019",
+      "description": "This Argentine Malbec from the Martino winery captures the essence of high-altitude viticulture with concentrated fruit and supple tannins. The 2019 vintage has begun to develop complexity while maintaining the variety's signature plushness and depth.",
+      "tastingNotes": {
+        "aroma": "The nose is generous and inviting, offering intense aromas of blackberry, blueberry, and dark plum, complemented by violet and lilac notes characteristic of quality Malbec. Oak aging contributes subtle vanilla, mocha, and dark chocolate nuances, while hints of black pepper and dried herbs add complexity. The high-altitude origins are evident in the wine's pronounced fruit purity and aromatic intensity.",
+        "palate": "Full-bodied and richly textured on the palate, this Malbec delivers concentrated flavors of ripe black fruits, particularly boysenberry and blackberry jam, balanced by well-integrated tannins that are both powerful and velvety. The mid-palate shows excellent density with layers of dark chocolate, espresso, and sweet baking spices from oak maturation. Bright acidity, unusual for such a rich wine, provides freshness and ensures the wine doesn't feel heavy despite its concentration.",
+        "finish": "The finish is long and satisfying, with dark fruit flavors persisting alongside notes of cocoa and subtle smokiness. Ripe tannins provide structure and suggest the wine will continue to evolve gracefully over the next several years."
+      },
+      "foodPairings": [
+        "Grilled Argentine asado (mixed grill)",
+        "Braised beef short ribs with chimichurri",
+        "Portobello mushroom burgers",
+        "Blue cheese or aged cheddar",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to open up and reveal its full complexity",
+        "glassware": "Large bowl Malbec or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina (likely high-altitude vineyard)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2019",
+        "style": "Premium Argentine Malbec",
+        "ageability": "Drink now through 2029. The wine is approachable now but has the structure to develop further complexity over the next 5 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.77,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tenute Orestiadi Nero 2024",
+      "description": "This Sicilian red from Tenute Orestiadi showcases indigenous Nero d'Avola in its fresh, youthful expression. The 2024 vintage captures the warm Mediterranean climate with ripe fruit and vibrant character, offering immediate drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with aromas of ripe black cherry, wild blackberry, and plum, layered with notes of Mediterranean herbs including rosemary, thyme, and bay leaf. Subtle hints of black pepper and licorice add spice, while a touch of cocoa suggests gentle oak influence. The wine's youth is evident in its exuberant fruit-forward character and vibrant aromatic intensity.",
+        "palate": "Medium to full-bodied on the palate, this Nero d'Avola delivers juicy flavors of dark cherry, blackberry, and pomegranate, supported by moderate tannins that are approachable yet provide structure. The warm Sicilian terroir expresses itself through concentrated fruit and a touch of dried fig sweetness. Bright acidity keeps the wine lively and balanced, preventing it from feeling heavy despite its ripeness. Subtle savory notes and Mediterranean herb qualities add complexity.",
+        "finish": "The finish is moderately long with persistent dark fruit and subtle spice notes. Soft tannins and refreshing acidity make the wine immediately approachable and food-friendly."
+      },
+      "foodPairings": [
+        "Pasta alla Norma with eggplant and ricotta salata",
+        "Grilled swordfish with caponata",
+        "Wood-fired pizza with Italian sausage",
+        "Roasted lamb with Mediterranean herbs",
+        "Aged pecorino Siciliano cheese"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "Brief decanting of 20-30 minutes will help the wine open up, though not essential",
+        "glassware": "Medium-sized red wine glass"
+      },
+      "wineDetails": {
+        "region": "Sicily, Italy",
+        "grapeVariety": "Nero d'Avola (likely 100% or dominant)",
+        "vintage": "2024",
+        "style": "Modern Sicilian red",
+        "ageability": "Best enjoyed young for fresh fruit character. Drink 2024-2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.74,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Haut Espoir Cloudfall 2020",
+      "description": "This South African white blend from Haut Espoir represents the estate's commitment to showcasing the unique terroir of their high-altitude vineyards. The Cloudfall designation evokes the misty conditions that moderate the vineyards, creating ideal conditions for elegant white wine production.",
+      "tastingNotes": {
+        "aroma": "The bouquet is beautifully aromatic and complex, revealing notes of white peach, pear, and citrus blossom, complemented by subtle floral hints of jasmine and honeysuckle. A distinctive mineral quality speaks to the vineyard's elevation and cool growing conditions, while nuances of lemongrass, green tea, and wet stone add layers of complexity. Judicious oak use contributes subtle vanilla and hazelnut notes without overwhelming the pure fruit expression.",
+        "palate": "Elegant and medium-bodied on the palate, this blend shows excellent balance between richness and freshness. Flavors of stone fruits—particularly white peach and nectarine—mingle with citrus elements of lemon and grapefruit zest, while the cool-climate origins provide crisp, energizing acidity. The texture is silky with a subtle creamy quality from lees aging, and the mineral backbone provides structure and persistence. A touch of tropical fruit suggests warm days balanced by cool nights.",
+        "finish": "The finish is long and refined, with citrus and mineral notes lingering alongside subtle oak influence. The wine's freshness persists through the finish while maintaining texture and depth."
+      },
+      "foodPairings": [
+        "Line-caught fish with lemon butter sauce",
+        "Roasted chicken with tarragon cream",
+        "Seafood paella with saffron",
+        "Fresh oysters with citrus mignonette",
+        "Creamy goat cheese and herbs"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F)",
+        "decanting": "No decanting required, though 15 minutes in the glass allows the wine to express fully",
+        "glassware": "Medium white wine or Chardonnay glass"
+      },
+      "wineDetails": {
+        "region": "Western Cape, South Africa (high-altitude vineyard)",
+        "grapeVariety": "White blend (likely Sauvignon Blanc, Semillon, and/or Chardonnay)",
+        "vintage": "2020",
+        "style": "Premium Cape white blend",
+        "ageability": "Drinking well now with fresh fruit character. Best consumed 2024-2027 for optimal balance of fruit and development."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.73,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

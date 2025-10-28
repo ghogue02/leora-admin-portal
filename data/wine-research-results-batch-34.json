@@ -1,0 +1,347 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "batchId": "batch-34",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Murdoch Hill Sauvignon Blanc 2024",
+      "description": "A vibrant expression of cool-climate Adelaide Hills Sauvignon Blanc from the acclaimed Murdoch Hill estate. This wine showcases the precision and purity that has made the winery a benchmark producer in the region. Crafted with minimal intervention and wild yeasts, it delivers exceptional varietal character.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with intense tropical and citrus aromas, leading with fresh passionfruit, lime zest, and pink grapefruit. Underlying notes of gooseberry and freshly cut grass add complexity, while subtle hints of white flowers and wet stone provide an elegant minerality. The aromatic intensity reflects the cool-climate Adelaide Hills terroir, with remarkable purity and definition.",
+        "palate": "On the palate, this wine displays brilliant acidity and textural precision. Flavors of ripe lemon, green apple, and white peach dominate the mid-palate, supported by a distinctive flinty minerality. The mouthfeel is crisp and refreshing, with excellent weight and concentration. A subtle herbaceous note adds complexity without overwhelming the pure fruit expression. The wine's natural fermentation brings added textural interest and depth.",
+        "finish": "The finish is long and zesty, with persistent citrus flavors and a saline mineral quality that keeps the palate refreshed. A touch of lemongrass and green tea lingers, showcasing the wine's excellent balance between fruit intensity and structural elegance."
+      },
+      "foodPairings": [
+        "Fresh oysters with lemon and shallot mignonette",
+        "Seared scallops with citrus beurre blanc",
+        "Goat cheese salad with herbs and toasted walnuts",
+        "Grilled prawns with herb butter",
+        "Ceviche with lime and coriander"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting required; serve immediately from the refrigerator to preserve freshness and aromatic lift",
+        "glassware": "Medium-sized white wine glass or tulip-shaped Sauvignon Blanc glass"
+      },
+      "wineDetails": {
+        "region": "Adelaide Hills, South Australia",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Crisp, cool-climate white wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage to capture the vibrant fruit and fresh acidity; drink 2024-2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "TVH Block 5 Cabernet Franc 2018",
+      "description": "A distinguished single-block Cabernet Franc showcasing the variety's potential for elegance and complexity. The 2018 vintage allowed for extended hang time, producing concentrated fruit with refined tannins. This wine represents a focused expression of terroir-driven Cabernet Franc from a specific vineyard parcel.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with captivating aromas of ripe red currant, crushed violets, and dark cherry. Secondary notes of graphite, tobacco leaf, and dried herbs add savory complexity, while hints of espresso and dark chocolate from oak aging provide depth. A distinctive bell pepper note adds classic varietal character without dominating. The aromatics suggest careful vineyard management and physiological ripeness.",
+        "palate": "Medium to full-bodied with silky tannins that coat the palate gracefully. Flavors of black raspberry, cassis, and wild strawberry merge with earthy undertones of forest floor and crushed stone. The wine shows excellent mid-palate density with bright acidity providing structure and freshness. Notes of cedar, black tea, and a touch of cracked black pepper add layers of complexity. The integration of fruit, oak, and tannin suggests thoughtful winemaking and proper cellar time.",
+        "finish": "The finish is persistent and refined, with fine-grained tannins and lingering flavors of red fruit and dried herbs. A subtle minerality emerges on the close, with hints of graphite and iron. The length suggests excellent aging potential and structural integrity."
+      },
+      "foodPairings": [
+        "Herb-crusted lamb chops with rosemary jus",
+        "Grilled ribeye steak with chimichurri",
+        "Duck confit with lentils and roasted root vegetables",
+        "Mushroom risotto with Parmigiano-Reggiano",
+        "Aged cheddar and charcuterie board"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant for 45-60 minutes before serving to allow the wine to open and soften the tannins",
+        "glassware": "Large Bordeaux-style red wine glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely premium wine region based on single-block designation)",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2018",
+        "style": "Single-block, terroir-focused red wine",
+        "ageability": "Drinking well now but will continue to develop through 2028-2032; can age 10-14 years total"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bloem Syrah Mourvèdre 2020",
+      "description": "A compelling Rhône-style blend that marries the power of Syrah with the earthy complexity of Mourvèdre. The 2020 vintage produced wines of impressive concentration and aromatic intensity. This blend showcases the synergy between these two varietals, creating a wine greater than the sum of its parts.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense aromas of blackberry, dark plum, and blueberry compote, layered with meaty, savory notes of cured salami and black olive tapenade. Syrah contributes white pepper and smoky bacon, while Mourvèdre adds garrigue, leather, and wild game. Subtle notes of lavender, thyme, and fennel seed add herbal complexity. The aromatic profile suggests warm-climate fruit with classic Rhône character.",
+        "palate": "Full-bodied and richly textured with bold, chewy tannins that provide structure and grip. Dark fruit flavors of boysenberry, blackcurrant, and black cherry dominate, complemented by earthy notes of truffle, mushroom, and wet stone. The mid-palate shows excellent density with integrated acidity keeping the wine balanced despite its power. Flavors of roasted coffee, dark cocoa, and charred oak add depth. The wine's rustic character is balanced by ripe fruit and careful oak integration.",
+        "finish": "Long and powerful, with persistent dark fruit flavors and a savory, meaty quality that lingers. Firm tannins and a touch of black pepper spice extend the finish, while hints of graphite and iron add minerality. The substantial structure suggests excellent aging potential."
+      },
+      "foodPairings": [
+        "Braised short ribs with red wine reduction",
+        "Grilled lamb shoulder with herbes de Provence",
+        "Wild boar ragu over pappardelle",
+        "Smoked brisket with coffee-cocoa rub",
+        "Aged Manchego and cured meats"
+      ],
+      "servingInfo": {
+        "temperature": "17-19°C (62-66°F)",
+        "decanting": "Decant for 1-2 hours before serving to tame the tannins and allow the wine's complexity to emerge",
+        "glassware": "Large, wide-bowled Syrah or Rhône-style glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely warm-climate region based on blend composition)",
+        "grapeVariety": "Syrah and Mourvèdre blend (proportions unknown)",
+        "vintage": "2020",
+        "style": "Rhône-style red blend",
+        "ageability": "Drinking well now but will benefit from 3-5 years of cellaring; can age through 2030-2035"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Reserva 2017",
+      "description": "A classic Rioja Reserva from the esteemed Conde Valdemar estate, representing traditional Spanish winemaking at its finest. The 2017 vintage was exceptional in Rioja, producing wines of great balance and aging potential. This wine has undergone extended aging in oak and bottle before release, developing complex tertiary characteristics.",
+      "tastingNotes": {
+        "aroma": "The bouquet displays mature aromas of dried cherry, cranberry, and strawberry preserves, interwoven with complex notes of vanilla, cedar, and cigar box from extended oak aging. Classic Rioja characteristics emerge with scents of leather, tobacco, coconut, and dill. Subtle hints of dried orange peel, baking spices, and earthy mushroom add layers of complexity. The aromatic profile shows the elegant integration that comes from proper bottle age.",
+        "palate": "Medium-bodied with silky, well-integrated tannins that have softened beautifully with age. Flavors of tart red cherry, pomegranate, and dried fig dominate, complemented by savory notes of leather, earth, and dried herbs. American oak influence is evident but balanced, contributing vanilla, coconut, and sweet spice without overwhelming the fruit. The wine shows excellent acidity that keeps it fresh despite its maturity. A touch of orange zest and tea leaf adds brightness and complexity.",
+        "finish": "The finish is elegant and persistent, with lingering notes of dried cherry, vanilla, and earthy spice. Fine-grained tannins provide gentle grip, while the acidity leaves the palate refreshed. Hints of cedar, tobacco, and orange peel linger, showcasing classic Rioja Reserva character and excellent aging potential."
+      },
+      "foodPairings": [
+        "Roasted suckling pig or lamb",
+        "Iberico ham and aged Manchego cheese",
+        "Mushroom and chorizo risotto",
+        "Grilled lamb chops with rosemary",
+        "Paella with chicken and rabbit"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to breathe and reveal its full complexity",
+        "glassware": "Medium to large Burgundy or Rioja-style glass"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "Primarily Tempranillo with possible Garnacha, Graciano, and/or Mazuelo",
+        "vintage": "2017",
+        "style": "Traditional Rioja Reserva (aged minimum 3 years with at least 1 year in oak)",
+        "ageability": "Drinking beautifully now with excellent complexity; will continue to develop through 2027-2032"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Cupola 2023",
+      "description": "The flagship wine from Boxwood Estate Winery in Middleburg, Virginia, founded by former Washington Redskins owner John Kent Cooke. Cupola represents one of Virginia's finest expressions of Bordeaux-style blends, showcasing the potential of the state's emerging wine region. The 2023 vintage captures the elegance and finesse that has established Boxwood as a benchmark Virginia producer.",
+      "tastingNotes": {
+        "aroma": "The nose presents refined aromas of black cherry, cassis, and ripe plum, interlaced with notes of violet, cedar, and graphite. Subtle hints of dark chocolate, espresso, and sweet tobacco add complexity from well-integrated oak aging. A distinctive Virginia terroir signature emerges with mineral notes and fresh herbs. The aromatics suggest careful vineyard selection and thoughtful blending, with a balance between New World fruit ripeness and Old World elegance.",
+        "palate": "Medium to full-bodied with elegant structure and polished tannins. The palate reveals layers of blackcurrant, dark cherry, and blueberry, supported by bright acidity and fine-grained tannins. Flavors of mocha, vanilla bean, and toasted oak integrate seamlessly with the fruit. A subtle earthiness and crushed stone minerality reflect the Virginia terroir. The wine shows excellent balance and sophistication, with neither fruit nor oak dominating. The mouthfeel is plush yet refined, suggesting careful extraction and barrel selection.",
+        "finish": "Long and harmonious, with persistent dark fruit flavors and subtle oak spice. The tannins are fine and integrated, providing structure without astringency. Notes of dark chocolate, espresso, and dried herbs linger, while a mineral backbone adds length and complexity. The finish demonstrates the wine's aging potential and structural elegance."
+      },
+      "foodPairings": [
+        "Grilled filet mignon with bordelaise sauce",
+        "Roasted duck breast with cherry gastrique",
+        "Braised lamb shanks with root vegetables",
+        "Aged blue cheese and walnut salad",
+        "Wild mushroom and truffle pasta"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant for 45-60 minutes to allow the young wine to open and integrate; young vintage benefits from aeration",
+        "glassware": "Large Bordeaux-style glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia",
+        "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc, and/or Petit Verdot)",
+        "vintage": "2023",
+        "style": "Virginia Bordeaux-style red blend",
+        "ageability": "Can be enjoyed now but will develop beautifully over 8-12 years; drink 2025-2035"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vizar Especial Tempranillo/Syrah 2010",
+      "description": "A mature Spanish blend combining the traditional character of Tempranillo with the bold structure of Syrah. The 2010 vintage has had fifteen years of aging, developing complex tertiary characteristics and integrated tannins. This wine represents an interesting fusion of Spanish tradition and international varietals.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals evolved aromas of dried cherry, prune, and fig, complemented by savory notes of leather saddle, tobacco leaf, and forest floor. Syrah contributes lingering hints of black olive, cured meat, and cracked black pepper, while Tempranillo adds dried strawberry and orange peel. Extended bottle age has developed complex tertiary notes of balsamic, dried herbs, mushroom, and cedar. A subtle earthiness and mineral quality add depth, suggesting the wine has aged gracefully.",
+        "palate": "Medium-bodied with softened, well-integrated tannins that have mellowed beautifully over time. Flavors of dried red fruit, black tea, and balsamic reduction dominate, with underlying notes of leather, earth, and roasted coffee. The Syrah component adds structure and a savory, meaty quality, while Tempranillo provides elegance and bright acidity. Oak influence has integrated completely, contributing subtle vanilla and spice. The wine shows excellent development with a harmonious balance between fruit, tannin, and acid.",
+        "finish": "The finish is long and contemplative, with lingering notes of dried fruit, tobacco, and earthy spice. Soft tannins and persistent acidity keep the wine balanced, while subtle mineral notes add complexity. The length and integration suggest the wine has reached its drinking window and should be enjoyed soon."
+      },
+      "foodPairings": [
+        "Slow-roasted lamb shoulder with garlic and herbs",
+        "Aged Manchego cheese with membrillo",
+        "Beef stew with tomatoes and paprika",
+        "Grilled portobello mushrooms with balsamic reduction",
+        "Charcuterie board with cured Spanish meats"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant gently for 20-30 minutes; the wine is mature and delicate, so extended aeration may not be beneficial",
+        "glassware": "Medium-sized Burgundy or aged red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region unknown)",
+        "grapeVariety": "Tempranillo and Syrah blend (proportions unknown)",
+        "vintage": "2010",
+        "style": "Mature Spanish red blend",
+        "ageability": "Drinking at peak maturity now; enjoy within 2-3 years before further decline; drink 2025-2028"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jardin Enchante Sauvignon Blanc Mevushal (MD & DC)",
+      "description": "A kosher Mevushal Sauvignon Blanc crafted for observant Jewish consumers. Mevushal wines undergo a flash-pasteurization process that allows them to remain kosher even when handled by non-observant individuals. Despite this process, modern winemaking techniques preserve the varietal character and freshness of Sauvignon Blanc.",
+      "tastingNotes": {
+        "aroma": "The nose presents bright, approachable aromas of lemon citrus, green apple, and honeydew melon. Notes of freshly cut grass, lime zest, and white grapefruit add classic Sauvignon Blanc character. Subtle hints of elderflower and green herbs provide aromatic lift. While the Mevushal process can soften aromatics slightly, the wine maintains good varietal expression with clean, fresh fruit character.",
+        "palate": "Medium-bodied with refreshing acidity and crisp texture. Flavors of tart green apple, citrus, and tropical fruit dominate the palate, with undertones of gooseberry and fresh herbs. The mouthfeel is clean and straightforward, with good balance between fruit and acidity. A subtle mineral quality adds interest without overwhelming the fruit. The wine shows honest varietal character despite the pasteurization process, delivering a food-friendly, versatile white wine.",
+        "finish": "The finish is clean and moderately persistent, with lingering citrus and green apple flavors. Bright acidity leaves the palate refreshed, while a subtle herbal note adds complexity. The finish is straightforward and pleasant, making this an excellent choice for casual occasions and diverse food pairings."
+      },
+      "foodPairings": [
+        "Grilled fish with lemon and herbs",
+        "Israeli salad with feta cheese",
+        "Chicken schnitzel with lemon wedges",
+        "Vegetable crudités with hummus",
+        "Fresh mozzarella and tomato salad"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting required; serve well-chilled directly from the refrigerator",
+        "glassware": "Standard white wine glass or universal stemware"
+      },
+      "wineDetails": {
+        "region": "Unknown (produced for MD & DC markets)",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "Non-vintage or recent vintage",
+        "style": "Kosher Mevushal white wine",
+        "ageability": "Best enjoyed young and fresh within 1-2 years of purchase to capture vibrant fruit character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.6,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Well Crafted Vin de France Organic Rose Keg SAMPLE NV",
+      "description": "An organic French rosé designed for keg service, representing a modern approach to wine distribution and sustainability. The non-vintage designation allows for consistent flavor profiling across multiple harvests. This wine combines traditional French rosé character with contemporary packaging innovation suitable for hospitality venues.",
+      "tastingNotes": {
+        "aroma": "The nose offers delicate aromas of fresh strawberry, raspberry, and white peach, with subtle floral notes of rose petals and orange blossom. Light citrus notes of pink grapefruit and lemon zest add brightness. A hint of wet stone minerality and fresh herbs provides complexity. The aromatic profile is clean and inviting, designed to appeal to a broad range of palates while maintaining authentic rosé character.",
+        "palate": "Light to medium-bodied with crisp acidity and a refreshing, clean palate. Flavors of red berries, watermelon, and citrus dominate, with undertones of white peach and melon. The wine shows good balance with bright acidity offsetting the subtle fruit sweetness. A mineral backbone adds structure and interest. The mouthfeel is smooth and accessible, with no rough edges—ideal for by-the-glass service. The organic certification ensures purity of flavor without chemical interference.",
+        "finish": "The finish is clean and moderately persistent, with lingering berry fruit and citrus notes. Refreshing acidity leaves the palate crisp and ready for the next sip. A subtle mineral quality extends the finish, while the light body ensures versatility with diverse foods and occasions."
+      },
+      "foodPairings": [
+        "Grilled salmon with herb butter",
+        "Mediterranean vegetable tart",
+        "Goat cheese and arugula salad",
+        "Charcuterie and soft cheeses",
+        "Provençal-style bouillabaisse"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting required; serve directly from keg or bottle well-chilled",
+        "glassware": "Standard white wine glass or stemless wine glass"
+      },
+      "wineDetails": {
+        "region": "Vin de France (various regions in France)",
+        "grapeVariety": "Unknown blend (likely traditional rosé varietals such as Grenache, Cinsault, or Syrah)",
+        "vintage": "Non-vintage (NV)",
+        "style": "Organic French rosé, keg-conditioned",
+        "ageability": "Designed for immediate consumption; best enjoyed fresh within 6-12 months of kegging"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.55,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oceano Low Alcohol Syrah 2023",
+      "description": "An innovative low-alcohol Syrah crafted for health-conscious wine consumers who seek full flavor without high alcohol content. Modern winemaking techniques such as early harvesting, reverse osmosis, or spinning cone technology allow winemakers to reduce alcohol while preserving varietal character. This wine represents the growing category of lower-alcohol premium wines.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals fresh aromas of red cherry, raspberry, and cranberry, with subtle notes of violet, white pepper, and dried herbs. Despite lower alcohol, the wine maintains Syrah's characteristic spice and herbal complexity. Light oak influence contributes hints of vanilla and toast. A bright, fresh aromatic profile emphasizes fruit purity and varietal character, with less concentration than traditional Syrah but appealing freshness.",
+        "palate": "Light to medium-bodied with soft tannins and vibrant acidity. The palate shows bright red fruit flavors of cherry, raspberry, and red plum, complemented by subtle peppery spice and herbal notes. The lower alcohol (typically 9-11% ABV) creates a lighter, more refreshing mouthfeel while maintaining good flavor intensity. Notes of black tea, dried herbs, and a touch of cocoa add complexity without weight. The wine is surprisingly structured for its alcohol level, with balanced acidity and gentle tannins providing framework.",
+        "finish": "The finish is clean and moderately persistent, with lingering red fruit and peppery spice. Soft tannins and bright acidity keep the wine balanced and refreshing. The lower alcohol allows for extended drinking without palate fatigue, making this an excellent choice for warm weather or extended meals."
+      },
+      "foodPairings": [
+        "Grilled chicken with herbs de Provence",
+        "Salmon with black pepper and lemon",
+        "Vegetable ratatouille",
+        "Turkey burgers with caramelized onions",
+        "Mild cheddar and fruit platter"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), slightly cooler than traditional Syrah",
+        "decanting": "Brief decanting of 15-20 minutes can help the wine open, but not essential",
+        "glassware": "Medium-sized red wine glass or universal stemware"
+      },
+      "wineDetails": {
+        "region": "Unknown (name suggests coastal/ocean influence)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2023",
+        "style": "Low-alcohol red wine (likely 9-11% ABV)",
+        "ageability": "Best enjoyed young and fresh within 2-3 years to capture vibrant fruit character; drink 2024-2027"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Chardonnay 2015",
+      "description": "A mature Hungarian Chardonnay from the Hertelendy estate, showcasing the potential of Central European Chardonnay with nearly a decade of aging. The 2015 vintage has developed complex tertiary characteristics while maintaining the bright acidity typical of cool-climate Hungarian wines. This wine represents an interesting alternative to more familiar Chardonnay regions.",
+      "tastingNotes": {
+        "aroma": "The nose presents evolved aromas of baked apple, poached pear, and honeyed apricot, layered with notes of toasted hazelnut, butterscotch, and crème brûlée from oak aging. Tertiary development brings hints of dried flowers, chamomile, and beeswax. A subtle mineral quality and wet stone character add complexity, while restrained oxidative notes suggest careful cellaring. The aromatic profile shows the wine's maturity while maintaining freshness and elegance.",
+        "palate": "Medium-bodied with creamy texture and well-integrated acidity. Flavors of baked orchard fruit, lemon curd, and toasted almond dominate, complemented by notes of vanilla, caramel, and subtle oak spice. The wine shows excellent development with oxidative characteristics adding complexity—think white mushroom, salted butter, and brioche. Hungarian Chardonnays typically retain higher acidity than warmer climate examples, and this wine's bright acid backbone keeps it balanced despite its age. A distinctive mineral quality and saline finish reflect the terroir.",
+        "finish": "Long and contemplative, with lingering flavors of toasted nuts, honeyed fruit, and subtle oak. The acidity provides lift and structure, while a mineral quality and gentle phenolic grip add complexity. The finish shows the wine's maturity and integration, with all elements in harmony."
+      },
+      "foodPairings": [
+        "Roasted chicken with mushroom cream sauce",
+        "Lobster bisque with crème fraîche",
+        "Aged Gruyère and comté cheese",
+        "Pan-seared scallops with brown butter",
+        "Wild mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "12-14°C (54-57°F), warmer than young Chardonnay to showcase complexity",
+        "decanting": "Brief decanting of 15-30 minutes can help integrate elements, but not essential for mature wine",
+        "glassware": "Large Burgundy-style glass to capture evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Hungary (specific region unknown)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2015",
+        "style": "Aged, oak-influenced Chardonnay",
+        "ageability": "Drinking at peak maturity now; enjoy within 2-3 years as the wine is fully evolved; drink 2025-2028"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.6,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

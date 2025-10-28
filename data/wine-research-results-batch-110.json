@@ -1,0 +1,350 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Maison Roche de Bellene Bourgogne Chardonnay Cuvee Reserve 2020",
+      "description": "A classic Burgundian Chardonnay crafted by renowned winemaker Nicolas Potel, showcasing the terroir of Bourgogne. This Cuvée Reserve represents careful vineyard selection and traditional winemaking techniques, offering exceptional value for premium white Burgundy. The wine balances richness with minerality, characteristic of Côte d'Or influences.",
+      "tastingNotes": {
+        "aroma": "The nose opens with elegant citrus blossom and white peach, layered with subtle notes of toasted hazelnut and wet stone minerality. As it breathes, hints of vanilla bean and crème brûlée emerge from judicious oak aging, while maintaining a fresh backbone of green apple and lemon zest. The aromatics are refined and restrained, typical of quality Burgundian Chardonnay.",
+        "palate": "Medium to full-bodied with a creamy, round texture balanced by bright acidity. The palate delivers flavors of ripe pear, golden delicious apple, and Meyer lemon, complemented by subtle butterscotch and toasted oak notes. The wine shows excellent integration of fruit, oak, and acidity, with a chalky minerality running through the mid-palate. There's a precision and purity to the fruit that speaks to careful winemaking.",
+        "finish": "The finish is long and mineral-driven, with lingering notes of citrus and subtle spice. A refreshing saline quality emerges, leaving the palate cleansed and ready for the next sip."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs and lemon",
+        "Lobster or scallops in butter sauce",
+        "Creamy risotto with mushrooms",
+        "Gruyère or Comté cheese",
+        "Pan-seared halibut with beurre blanc"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "No decanting required; allow 15-20 minutes in glass to open",
+        "glassware": "White Burgundy glass or medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Bourgogne, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2020",
+        "style": "Full-bodied white wine with moderate oak influence",
+        "ageability": "Drink now through 2026. Best enjoyed over the next 3-4 years while maintaining fresh fruit character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Garnacha Mevushal (MD & DC) Stained Labels 2020",
+      "description": "A kosher wine from Chateau Josephine's French vineyards, produced using the Mevushal process to maintain religious certification. This Garnacha (Grenache) showcases Mediterranean fruit character with a modern, approachable style. The stained label designation indicates a discounted offering due to cosmetic label imperfections while the wine inside remains pristine.",
+      "tastingNotes": {
+        "aroma": "Bright red berry aromas dominate, featuring fresh strawberry, raspberry, and cranberry with subtle floral notes of rose petal. Hints of white pepper and dried herbs add complexity, while a touch of Mediterranean garrigue brings an earthy, sun-warmed character. The nose is pure and inviting with moderate intensity.",
+        "palate": "Medium-bodied with soft, approachable tannins and vibrant red fruit flavors. The palate echoes the nose with juicy strawberry and cherry, supported by notes of red plum and pomegranate. A subtle spiciness of cinnamon and clove emerges mid-palate, while maintaining freshness through balanced acidity. The texture is smooth and rounded, making it very food-friendly.",
+        "finish": "Medium length finish with lingering red berry fruit and a gentle herbal note. The wine concludes with clean acidity and fine-grained tannins."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Roasted chicken with Mediterranean herbs",
+        "Vegetable tagine or ratatouille",
+        "Mild hard cheeses like Manchego",
+        "Mushroom and herb risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief 20-30 minute decanting recommended to soften and open the wine",
+        "glassware": "Standard red wine glass or Grenache-specific glass"
+      },
+      "wineDetails": {
+        "region": "France (specific appellation not disclosed)",
+        "grapeVariety": "100% Garnacha (Grenache)",
+        "vintage": "2020",
+        "style": "Medium-bodied, fruit-forward red wine with kosher certification",
+        "ageability": "Drink now through 2025. Best enjoyed young to preserve fresh fruit character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Naive 2021",
+      "description": "A biodynamic natural wine from Languedoc pioneer Chateau Maris, made without added sulfites and minimal intervention. The 'Naive' cuvée represents Robert Eden's philosophy of pure expression, crafted from organic grapes in the La Livinière appellation. This wine exemplifies the natural wine movement while maintaining balance and drinkability.",
+      "tastingNotes": {
+        "aroma": "Vibrant and expressive aromatics showcasing dark cherry, blackberry, and wild blueberry with distinctive natural wine character. Notes of crushed violet, black olive, and garrigue herbs emerge, along with subtle earthy undertones of mushroom and forest floor. There's a fresh, almost electric quality to the fruit, unmarred by sulfites, with hints of black pepper and lavender.",
+        "palate": "Medium-bodied with lively acidity and supple tannins that feel naturally integrated. The palate bursts with pure, unadulterated dark fruit flavors—ripe plum, blackberry, and cassis—complemented by savory notes of olive tapenade and dried Mediterranean herbs. The texture is juicy and energetic with minimal oak influence, allowing the fruit and terroir to shine. There's an appealing rusticity balanced by elegant fruit purity.",
+        "finish": "The finish is fresh and persistent with vibrant fruit and herbal notes. A mineral salinity emerges at the end, characteristic of the schist soils, leaving the palate refreshed."
+      },
+      "foodPairings": [
+        "Grilled vegetables with olive oil and herbs",
+        "Duck confit with lentils",
+        "Wild boar or venison stew",
+        "Aged goat cheese or sheep's milk cheese",
+        "Charcuterie with olives and tapenade"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cooler to preserve freshness",
+        "decanting": "30-45 minutes recommended to allow natural wine characteristics to integrate",
+        "glassware": "Large Burgundy or natural wine glass to aerate"
+      },
+      "wineDetails": {
+        "region": "Minervois-La Livinière, Languedoc, France",
+        "grapeVariety": "Blend of Syrah, Grenache, and Carignan",
+        "vintage": "2021",
+        "style": "Natural/biodynamic wine, medium-bodied red with no added sulfites",
+        "ageability": "Drink now through 2026. Natural wines are best enjoyed relatively young; consume within 3-5 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Albina SIMI SWEET 1963 1500 ml",
+      "description": "An extremely rare vintage sweet wine from Bodegas Riojanas' historic Viña Albina estate, dating back over 60 years. This 1963 magnum represents a remarkable piece of Rioja history, offering a glimpse into traditional Spanish winemaking from an exceptional vintage. The wine has developed profound complexity through extended aging, suitable for collectors and connoisseurs.",
+      "tastingNotes": {
+        "aroma": "The nose reveals extraordinary complexity developed over six decades of aging. Aromas of dried fig, date, and prune intermingle with notes of caramelized sugar, toffee, and oxidative nuttiness reminiscent of aged sherry. Layers of tobacco leaf, leather, and old wood spice emerge, along with hints of orange peel, rancio, and balsamic complexity. The aromatic profile is profound and meditative, showing remarkable preservation.",
+        "palate": "Full-bodied and viscous with luscious sweetness balanced by oxidative character and residual acidity. The palate delivers concentrated flavors of dried fruit compote, molasses, and burnt sugar, interwoven with complex tertiary notes of walnut, cigar box, and old leather. Despite the age, there's still vibrant sweetness and structure, showing how well this wine has matured. The texture is silky and coating, with integrated alcohol warmth.",
+        "finish": "Extremely long and complex finish with persistent dried fruit sweetness, oxidative nuttiness, and gentle warming alcohol. The wine lingers with notes of caramel, spice, and a subtle tannic grip that adds structure."
+      },
+      "foodPairings": [
+        "Aged Spanish cheeses like Manchego or Mahón",
+        "Dark chocolate desserts or chocolate truffles",
+        "Roasted figs with honey and nuts",
+        "Caramelized pear tart",
+        "Simply enjoyed on its own as a meditation wine"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Stand bottle upright for 24 hours before opening; careful decanting recommended due to age and sediment",
+        "glassware": "Port or dessert wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "Likely traditional Rioja varieties (Tempranillo, Garnacha, Mazuelo)",
+        "vintage": "1963",
+        "style": "Aged sweet wine, fully mature with oxidative character",
+        "ageability": "Fully mature; drink now. This wine has reached its peak and should be enjoyed soon."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Viore Sobre Lias 2024",
+      "description": "A fresh, young white wine from Galicia's Rías Baixas region, made 'sobre lías' (on the lees) to enhance texture and complexity. This recently released 2024 vintage showcases the crisp, mineral character of Albariño and other Galician white varietals. The sur lie aging adds creaminess while maintaining the vibrant Atlantic freshness.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with vibrant citrus notes of lemon zest, lime, and grapefruit, complemented by white peach and green apple. Subtle floral hints of white flowers and jasmine emerge, along with characteristic Galician minerality showing wet stone and sea spray. The lees contact adds a subtle brioche and yeasty complexity without overwhelming the bright fruit.",
+        "palate": "Medium-bodied with crisp, refreshing acidity and a slightly creamy texture from lees aging. The palate bursts with citrus flavors—Meyer lemon, white grapefruit, and lime—alongside ripe stone fruit notes of nectarine and white peach. A distinctive saline minerality runs through the mid-palate, reminiscent of ocean spray and granite soils. The lees influence provides subtle richness and a hint of almond.",
+        "finish": "Long, clean finish with persistent citrus and mineral notes. A refreshing salinity and bright acidity leave the palate invigorated and craving the next sip."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish",
+        "Grilled octopus or calamari",
+        "Ceviche or seafood crudo",
+        "Jamón serrano and Manchego",
+        "Fresh goat cheese salad with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from bottle",
+        "glassware": "White wine glass or Albariño-specific tulip glass"
+      },
+      "wineDetails": {
+        "region": "Rías Baixas, Galicia, Spain",
+        "grapeVariety": "Primarily Albariño, possibly with other Galician white varieties",
+        "vintage": "2024",
+        "style": "Crisp, mineral-driven white wine aged on lees",
+        "ageability": "Best enjoyed young and fresh, within 1-3 years to preserve vibrant fruit and acidity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Thelema Mountain Red 2020",
+      "description": "A flagship red blend from Thelema Mountain Vineyards, one of Stellenbosch's most celebrated estates. This wine represents the best of South African winemaking, blending Bordeaux varieties grown at higher elevations for freshness and complexity. Known for their consistent quality and age-worthiness, Thelema's wines showcase the unique terroir of Simonsberg Mountain.",
+      "tastingNotes": {
+        "aroma": "Complex and layered with ripe blackcurrant, dark cherry, and plum, interwoven with notes of cedar, tobacco, and pencil shavings from quality oak aging. Subtle hints of violet, eucalyptus, and Mediterranean herbs reflect the cool mountain terroir. As it opens, nuances of dark chocolate, espresso, and sweet spice emerge. The aromatics are refined and elegant with excellent depth.",
+        "palate": "Full-bodied with structured yet refined tannins and well-integrated acidity. The palate delivers concentrated dark fruit flavors—cassis, blackberry, and black plum—complemented by savory notes of olive tapenade, graphite, and mocha. The oak influence is evident but balanced, adding layers of vanilla, toast, and sweet spice without overwhelming the fruit. The wine shows excellent structure and a silky, polished texture indicative of careful winemaking.",
+        "finish": "Long, elegant finish with persistent dark fruit, refined tannins, and lingering notes of dark chocolate and spice. The mountain freshness comes through with a lift of acidity that keeps the wine balanced."
+      },
+      "foodPairings": [
+        "Grilled ribeye or filet mignon",
+        "Braised lamb shanks with herbs",
+        "Wild game like venison or kudu",
+        "Mature hard cheeses like aged Gouda",
+        "Beef Wellington or beef bourguignon"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60-90 minutes recommended to soften tannins and reveal complexity",
+        "glassware": "Large Bordeaux glass to allow wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa",
+        "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot)",
+        "vintage": "2020",
+        "style": "Full-bodied, structured red blend with excellent aging potential",
+        "ageability": "Drink now through 2032. Will continue to develop complexity over the next 5-7 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Barolo 2020",
+      "description": "A classic Barolo from the prestigious Piedmont region, crafted from 100% Nebbiolo grapes grown in the hills of San Ponzio. This 2020 vintage benefits from excellent growing conditions, producing a wine with both power and elegance. Barolo, known as the 'King of Wines,' requires careful aging to soften its formidable tannins and reveal its complex aromatics.",
+      "tastingNotes": {
+        "aroma": "Classic Barolo aromatics of rose petal, tar, and dried cherry dominate, layered with notes of violet, licorice, and white truffle. As it opens, aromas of leather, tobacco leaf, and forest floor emerge, along with hints of balsamic, mint, and sweet spice. The nose is powerful yet elegant, showing the hallmark complexity of Nebbiolo. Subtle oak notes of vanilla and cedar integrate seamlessly.",
+        "palate": "Full-bodied with formidable yet refined tannins and bright acidity that provides structure and longevity. The palate reveals flavors of sour cherry, cranberry, and pomegranate, complemented by earthy notes of truffle, mushroom, and dried herbs. Mid-palate shows layers of tea, leather, and spice, with the tannins gripping firmly but not harshly. The wine has excellent concentration and depth, typical of quality Barolo.",
+        "finish": "Very long, structured finish with persistent fruit, firm tannins, and a mineral edge. Notes of cherry, rose, and spice linger, along with the characteristic Barolo grip that demands food or further aging."
+      },
+      "foodPairings": [
+        "Braised beef in Barolo wine",
+        "Tajarin pasta with white truffle",
+        "Osso buco or veal shanks",
+        "Aged Parmigiano-Reggiano or Grana Padano",
+        "Wild boar ragu with pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "2-3 hours recommended; young Barolo benefits greatly from aeration",
+        "glassware": "Large Barolo/Nebbiolo glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Barolo DOCG, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2020",
+        "style": "Full-bodied, tannic red wine with high acidity and complex aromatics",
+        "ageability": "Drink from 2026 through 2040. Benefits from 5-10 years of cellaring; peak drinking window 2028-2035."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Vina Albina Gran Reserva 2018",
+      "description": "A prestigious Gran Reserva from one of Rioja's most historic bodegas, established in 1890. This wine represents the pinnacle of traditional Rioja winemaking, having spent a minimum of two years in oak and three years in bottle before release. The 2018 vintage was excellent in Rioja, producing wines with balance between fruit ripeness and freshness.",
+      "tastingNotes": {
+        "aroma": "Elegant and evolved aromatics showcase mature red fruit—dried cherry, strawberry compote, and plum—interwoven with complex tertiary notes from extended aging. Aromas of vanilla, coconut, and sweet tobacco from American oak barrels mingle with leather, cedar, and dried herbs. Subtle hints of balsamic, cola, and earth add depth. The nose shows the hallmark oxidative complexity of traditional Rioja Gran Reserva.",
+        "palate": "Medium to full-bodied with soft, integrated tannins and refreshing acidity that keeps the wine lively despite its age. The palate delivers flavors of red cherry, cranberry, and dried fig, complemented by savory notes of mushroom, leather, and spice box. The oak influence is evident but beautifully integrated, showing vanilla, coconut, and sweet cedar. The texture is silky and refined, with layers of complexity unfolding.",
+        "finish": "Long, harmonious finish with persistent fruit, gentle tannins, and lingering notes of spice and oak. The wine's elegance and balance are evident through the extended finish."
+      },
+      "foodPairings": [
+        "Roasted lamb with garlic and rosemary",
+        "Aged Manchego or Idiazábal cheese",
+        "Ibérico ham and charcuterie",
+        "Duck breast with cherry reduction",
+        "Mushroom risotto or aged beef"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30-45 minutes to allow the wine to open and integrate",
+        "glassware": "Traditional Rioja glass or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Predominantly Tempranillo with Garnacha and Graciano",
+        "vintage": "2018",
+        "style": "Gran Reserva: minimum 2 years in oak, 3 years in bottle; traditional style",
+        "ageability": "Drink now through 2033. Gran Reservas are released ready to drink but can age further for 10-15 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scarpetta Prosecco Brut DOC (NOVA only) 2023",
+      "description": "A crisp, refreshing Prosecco from the renowned Scarpetta estate, crafted by the Foss Marai family who have been making sparkling wines in Veneto for generations. This DOC-level Prosecco delivers excellent quality and value, showcasing the bright, fruity character of Glera grapes grown in the foothills of the Alps. The wine is made using the Charmat method to preserve fresh, primary fruit flavors.",
+      "tastingNotes": {
+        "aroma": "Lively and aromatic with bright notes of green apple, white peach, and pear, complemented by delicate citrus blossom and honeysuckle. Subtle hints of lemon zest and mineral add freshness, while a touch of almond and yeast from the secondary fermentation provides depth. The aromatics are clean, vibrant, and inviting, typical of quality Prosecco.",
+        "palate": "Light to medium-bodied with persistent fine bubbles and refreshing acidity. The palate echoes the nose with crisp green apple, ripe pear, and citrus flavors, along with notes of white flowers and a subtle creaminess from the lees. The wine is balanced and elegant, with a slight off-dry character that adds approachability without being sweet. The mousse is delicate yet persistent.",
+        "finish": "Clean, refreshing finish with lingering fruit and floral notes. The crisp acidity and fine bubbles leave the palate refreshed and ready for another sip."
+      },
+      "foodPairings": [
+        "Aperitivo with prosciutto and melon",
+        "Fresh seafood like shrimp cocktail",
+        "Light pasta with lemon and herbs",
+        "Soft cheeses like fresh mozzarella",
+        "Fruit-based desserts or enjoyed as an aperitif"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from bottle",
+        "glassware": "Prosecco flute or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Prosecco DOC, Veneto, Italy",
+        "grapeVariety": "100% Glera",
+        "vintage": "2023",
+        "style": "Sparkling wine made via Charmat method; Brut style with crisp acidity",
+        "ageability": "Best enjoyed young and fresh, within 12-18 months to preserve bubbles and vibrant fruit."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sky Devil Formation 2021",
+      "description": "An innovative red blend from Columbia Valley, Washington, showcasing the region's ability to produce bold, structured wines. The 'Formation' name likely references the dramatic geological formations of the Columbia Basin, shaped by ancient floods. This wine represents modern Washington winemaking with careful vineyard selection and contemporary techniques.",
+      "tastingNotes": {
+        "aroma": "Bold and expressive with aromas of ripe blackberry, dark cherry, and boysenberry, layered with notes of mocha, dark chocolate, and vanilla from oak aging. Hints of violet, sage, and black pepper add complexity, while subtle eucalyptus and graphite notes reflect the cooler climate influences. The nose shows good intensity with a modern, fruit-forward character.",
+        "palate": "Full-bodied with firm yet approachable tannins and well-integrated acidity. The palate delivers concentrated dark fruit flavors—cassis, black plum, and blueberry—complemented by savory notes of espresso, dark cocoa, and toasted oak. Mid-palate richness is balanced by freshness, with layers of sweet spice, vanilla, and a touch of herbal complexity. The texture is smooth and polished.",
+        "finish": "Long finish with persistent dark fruit, soft tannins, and lingering notes of chocolate and sweet oak spice. The wine's structure and balance suggest good aging potential."
+      },
+      "foodPairings": [
+        "Grilled steak with peppercorn sauce",
+        "Barbecue brisket or smoked meats",
+        "Aged cheddar or Gouda",
+        "Beef short ribs with red wine reduction",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes recommended to soften tannins and open aromatics",
+        "glassware": "Large red wine glass or Cabernet-style glass"
+      },
+      "wineDetails": {
+        "region": "Columbia Valley, Washington State",
+        "grapeVariety": "Red blend (likely Cabernet Sauvignon, Merlot, Syrah)",
+        "vintage": "2021",
+        "style": "Full-bodied, modern-style red blend with oak influence",
+        "ageability": "Drink now through 2029. Best over the next 5-7 years while maintaining fruit vibrancy."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-21T14:08:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 110,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:08:00Z",
+    "averageConfidence": 0.85
+  }
+}

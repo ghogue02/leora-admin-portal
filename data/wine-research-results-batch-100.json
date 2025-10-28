@@ -1,0 +1,347 @@
+{
+  "batchNumber": 100,
+  "completedAt": "2025-10-21T14:30:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Noble Hill Sauvignon Blanc 2022",
+      "description": "A crisp, organic Sauvignon Blanc from Noble Hill's prestigious estate on the Simonsberg mountainside in Franschhoek, South Africa. This small-batch wine reflects the winery's dedication to minimal intervention and organic farming, showcasing the natural character of their mountain vineyards.",
+      "tastingNotes": {
+        "aroma": "The nose presents vibrant aromatics of citrus and tropical fruit, with notes of grapefruit, lime zest, and passionfruit leading the way. Subtle herbaceous undertones reminiscent of fresh-cut grass and elderflower add complexity. Mineral notes suggesting wet stone and flint provide an elegant backdrop, while hints of green bell pepper speak to the wine's varietal character.",
+        "palate": "Fresh and lively on the palate with crisp acidity that energizes the tasting experience. Flavors of zesty lemon, pink grapefruit, and green apple dominate, supported by tropical notes of guava and passion fruit. The organic farming practices shine through in the wine's pure, unadulterated fruit expression. A subtle mineral backbone adds structure and length, while the wine maintains an elegant, light-bodied profile. The texture is clean and refreshing with good concentration.",
+        "finish": "The finish is bright and persistent with lingering citrus and mineral notes. Crisp acidity leaves the palate refreshed and cleansed, making this an excellent wine for multiple courses."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette sauce",
+        "Grilled prawns with lemon aioli",
+        "Goat cheese salad with citrus vinaigrette",
+        "Sushi and sashimi",
+        "Steamed mussels in white wine broth"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled",
+        "decanting": "No decanting needed; serve directly to preserve freshness",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Franschhoek, Simonsberg, South Africa",
+        "grapeVariety": "100% Sauvignon Blanc (organically grown)",
+        "vintage": "2022",
+        "style": "Crisp, mineral-driven white wine",
+        "ageability": "Best enjoyed within 2-3 years to preserve freshness. Drinking window: 2022-2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rigo Barbera 2017",
+      "description": "A classic Barbera from Piedmont crafted in the exceptional 2017 vintage, known for producing Barberas with incredible exuberance and character. This wine showcases the variety's signature high acidity and low tannins, delivering concentrated dark fruit and the vibrant character that hot vintages bring to this versatile Italian grape.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with intense aromatics of fresh red cherries and blackberries, the hallmark of young Barbera. Ripe dark berry compote mingles with notes of black raspberry and plum, while subtle hints of violet and rose petal add floral complexity. Spicy notes ranging from white pepper to licorice emerge with aeration, characteristic of the hot 2017 vintage. Earthy undertones and a touch of leather add depth.",
+        "palate": "Deeply colored and full-bodied, the palate delivers succulent fruit flavors including cherry, raspberry, blackberry and plum. The 2017 vintage's hot, dry growing season has produced exceptional concentration and exuberance. High levels of natural acidity - Barbera's signature characteristic - provide freshness and structure despite the ripe fruit, while low tannins create a smooth, approachable texture. Mid-palate shows layers of dark chocolate and espresso, with continued spicy notes of black pepper and anise. The wine is juicy and fruit-forward with excellent balance.",
+        "finish": "The finish is long and vibrant with persistent red and black fruit flavors. Bright acidity keeps the wine lively and food-friendly, while subtle spice notes linger pleasantly."
+      },
+      "foodPairings": [
+        "Osso buco Milanese",
+        "Truffle risotto",
+        "Grilled sausages with polenta",
+        "Eggplant parmigiana",
+        "Aged Parmigiano-Reggiano or Pecorino"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - slightly cool room temperature",
+        "decanting": "Brief decanting of 20-30 minutes recommended to integrate the wine and soften any youthful edges",
+        "glassware": "Medium bowl red wine glass"
+      },
+      "wineDetails": {
+        "region": "Piedmont, Italy",
+        "grapeVariety": "100% Barbera",
+        "vintage": "2017",
+        "style": "Full-bodied, fruit-forward Italian red",
+        "ageability": "Drinking beautifully now with good aging completed. Enjoy through 2027."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Barolo Gallinotto 2020",
+      "description": "An exceptional Barolo from the renowned Gallinotto vineyard in La Morra, earning outstanding scores: 94 Wine Advocate, 94 Vinous, 93 Jeb Dunnuck, 92 James Suckling, and 91 Wine Spectator. This wine represents a modern, elegant style focused on freshness and precision rather than power, showcasing the finesse possible in great Barolo.",
+      "tastingNotes": {
+        "aroma": "The nose is fascinating and intriguing with hints of dark berries - particularly pomegranate and wild cherry - intermingled with eucalyptus and menthol notes. Orange peel, rose petals, and sour cherries create a complex bouquet, while subtle balsamic notes add depth. Cinnamon candy and rose bud aromatics speak to the wine's elegance. As the wine evolves, notes of chocolate, hazelnuts, and sweet spice emerge, layered with licorice and subtle wood notes from French oak aging.",
+        "palate": "Super-juicy and vibrant on the palate with a clean style focused on freshness and elegance. Crisp acidity provides backbone to the concentrated dark fruit flavors of cherry, raspberry, and red currant. The wine is creamy and inviting with full body yet maintains lightness through its chalky, fine-grained tannins. Flavors evolve to reveal hazelnut, cocoa, and subtle tobacco, with the citrus notes from the nose translating to a bright, lifted quality on the palate. The texture is silky and refined, showing excellent integration of all components.",
+        "finish": "The finish is persistent and full-bodied with a distinctive citrus aftertaste that adds freshness. Fine-grained, chalky tannins provide gentle structure, while the wine's elegant, nutty character lingers beautifully. This is a tasty, refined conclusion that invites contemplation."
+      },
+      "foodPairings": [
+        "Brasato al Barolo (beef braised in Barolo)",
+        "Truffle-topped tajarin pasta",
+        "Roasted game meats like venison or wild boar",
+        "Aged Castelmagno or Parmigiano-Reggiano",
+        "Mushroom risotto with porcini"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - cool room temperature",
+        "decanting": "Decant for 1-2 hours to allow the wine to open fully and integrate",
+        "glassware": "Large Burgundy or Barolo-specific glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Barolo DOCG, Berri vineyard in La Morra, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2020",
+        "style": "Elegant, fresh Barolo aged 18 months in French oak",
+        "ageability": "Excellent aging potential. Recommended drinking: 2026-2042, though approachable now with proper aeration."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg Sydney Back Chardonnay 2020",
+      "description": "A distinguished Chardonnay from Backsberg Estate in Paarl, South Africa, awarded Commended at the International Wine Challenge 2020. This kosher wine is named after Sydney Back and offers an unoaked style that emphasizes fresh fruit and mineral complexity, combining intense fruit-forward flavors with elegant restraint.",
+      "tastingNotes": {
+        "aroma": "The nose presents an alluring complexity combining notes of lemon zest, ripe melon, and hazelnut. Aromas of pineapple and tropical fruit mingle with citrus - particularly lime and grapefruit - while subtle hints of cashew and cream add richness without oak influence. White flowers and stone fruit notes round out the bouquet, creating an inviting and sophisticated aromatic profile.",
+        "palate": "On the palate, the wine delivers a fusion of intense fruit-forward flavors. Pineapple, cashew, and cream create a rich mid-palate, while the wine maintains freshness through bright citrus notes. Lemon, lime, and grapefruit provide a zesty backbone, balanced by ripe melon and stone fruit flavors. The texture is round and satisfying without being heavy, showing good concentration and weight. Despite being unoaked, the wine achieves complexity through the interplay of fruit, mineral, and subtle nutty notes.",
+        "finish": "The finish is fresh with a vibrant citrus conclusion that cleanses the palate. Lingering notes of lemon zest and hazelnut persist, creating balance between richness and refreshment."
+      },
+      "foodPairings": [
+        "Roast chicken with lemon and herbs",
+        "Grilled halibut or other delicate fish",
+        "Lobster or crab with drawn butter",
+        "Creamy pasta dishes without heavy sauces",
+        "Soft cheeses like Brie or young Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - lightly chilled",
+        "decanting": "No decanting needed; serve directly to preserve freshness",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Paarl, Coastal Region, South Africa",
+        "grapeVariety": "100% Chardonnay (unoaked)",
+        "vintage": "2020",
+        "style": "Unoaked, fresh Chardonnay - Kosher for Passover and Mevushal",
+        "ageability": "Best enjoyed within 3-4 years of vintage. Drinking window: 2020-2024."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Les Brebis Ramato 2022",
+      "description": "An elegant orange wine in the Ramato style, showcasing extended skin contact with Pinot Grigio grapes to achieve the characteristic copper-orange hue. This wine represents the original expression of Pinot Grigio, offering complexity, texture, and spice that modern white wine versions cannot match.",
+      "tastingNotes": {
+        "aroma": "The nose reveals complex aromatics of baking spice, dried fruit, and tropical elements characteristic of well-made Ramato. Honey and brown spices mingle with chamomile and earl grey tea, while dried apricots, pear skin, and tropical citrus add fruity dimension. Subtle herbal notes and white flowers provide aromatic lift, with hints of baked apples and caramel from skin contact adding depth and intrigue.",
+        "palate": "On the palate, the wine delivers dried fruit flavors with stone fruit skins creating a tannic, structured backbone. Peach, apricot, and tropical fruits are complemented by spicy notes - cinnamon, ginger, and white pepper. The extended skin contact provides a grippy texture and savory edge that distinguishes this from conventional white wine. Medium-plus body with balanced acidity creates harmony, while flavors of honey, caramel, and tea add complexity. The wine shows both freshness and depth, with excellent persistence of flavor.",
+        "finish": "The finish is long and structured with pleasant tannins from skin contact. Lingering notes of dried fruit, spice, and tea create a complex conclusion, while the wine's savory character leaves the palate intrigued and ready for food."
+      },
+      "foodPairings": [
+        "Moroccan tagine with preserved lemons",
+        "Roasted pork belly with fennel",
+        "Hard aged cheeses like Parmigiano-Reggiano",
+        "Spiced Indian cuisine like tikka masala",
+        "Charcuterie and cured meats"
+      ],
+      "servingInfo": {
+        "temperature": "12-14°C (54-57°F) - slightly warmer than standard white wine to appreciate complexity",
+        "decanting": "Brief decanting of 15-20 minutes can help the wine open and integrate",
+        "glassware": "Medium bowl white wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Origin varies (Ramato style)",
+        "grapeVariety": "100% Pinot Grigio with extended skin contact",
+        "vintage": "2022",
+        "style": "Orange wine / Ramato style - skin contact white",
+        "ageability": "Can age 3-5 years, developing additional complexity. Drinking window: 2022-2027."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Armstrong Family Winery Four Birds 2018",
+      "description": "A well-crafted Bordeaux-style blend from Armstrong Family Winery in Walla Walla, Washington, earning a critic score of 91/100. This Columbia Valley wine blends Cabernet Sauvignon, Cabernet Franc, Merlot, and Petit Verdot, showcasing the quality and concentration that Washington State can achieve with classic Bordeaux varieties.",
+      "tastingNotes": {
+        "aroma": "The nose presents ripe dark berries with excellent concentration and definition. Aromas of blackberry, cassis, and dark cherry lead the way, complemented by subtle notes of cedar, tobacco, and dried herbs. Hints of vanilla and sweet oak from barrel aging add complexity, while earthy undertones and graphite notes provide depth. As the wine opens, floral notes of violet emerge along with hints of dark chocolate and espresso.",
+        "palate": "Juicy and fruit-forward on the palate with a well-defined structure that speaks to quality winemaking. The wine shows lots of concentration and grip while remaining balanced and approachable. Dark fruit flavors - blackberry, black cherry, and plum - dominate, supported by integrated oak notes of vanilla and toast. The Merlot component (often 76% in this blend) provides a plush, velvety texture, while Cabernet Sauvignon and Cabernet Franc add structure and complexity. Tannins are ripe and well-integrated, providing framework without harshness.",
+        "finish": "The finish is long and satisfying with persistent dark fruit and subtle oak spice. Well-balanced tannins provide structure while the wine's concentration ensures lasting flavor. A hint of graphite and earth adds complexity to the conclusion."
+      },
+      "foodPairings": [
+        "Grilled ribeye or New York strip steak",
+        "Braised short ribs with root vegetables",
+        "Roasted leg of lamb with rosemary",
+        "Aged Cheddar or Gruyère cheese",
+        "Wild mushroom and truffle dishes"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - cool room temperature",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and integrate",
+        "glassware": "Large Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Columbia Valley, Walla Walla, Washington",
+        "grapeVariety": "Blend of Cabernet Sauvignon, Cabernet Franc, Merlot, and Petit Verdot",
+        "vintage": "2018",
+        "style": "Bordeaux-style red blend",
+        "ageability": "Drinking well now with good development. Enjoy through 2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mate Brunello di Montalcino 2019",
+      "description": "An exceptional Brunello di Montalcino from the outstanding 2019 vintage, earning 93 points from both Wine Spectator and Decanter. The Máté family estate, a Roman vineyard 2,000 years ago, produces this wine from 7 hectares of varied terroir surrounded by Mediterranean woods, herbs, and wild fruit on the sea-breeze ventilated side of Montalcino.",
+      "tastingNotes": {
+        "aroma": "Extroverted in the glass with complex aromatics. The nose reveals exotic spices and cedar shavings complementing medicinal cherry and sweet rose. Plum, loam, leather, and mineral notes create depth and intrigue, while a hint of vanilla from oak aging adds subtle richness. Coffee, vanilla, and mint lend a sweet glossiness to the red cherry core, while racy acidity keeps everything lifted and vibrant.",
+        "palate": "Richly fruited and concentrated on the palate, this Brunello absorbs its oak overcoat with ease. Coffee, vanilla, and mint create sweet, glossy layers over vibrant red cherry fruit. The wine is gentle yet focused, with plum, leather, and mineral flavors framed by refined tannins. Racy acidity provides backbone and keeps the wine fresh despite its concentration. The texture is silky and well-formed, showing mature tannins that give frame to this stylishly rendered wine. Mid-palate shows excellent balance between fruit richness and structural elements.",
+        "finish": "The finish is long and refined with lingering cherry fruit, mineral notes, and subtle vanilla. Fine tannins provide gentle grip while the wine's vibrant acidity leaves the palate refreshed. The conclusion is elegant and persistent, inviting contemplation."
+      },
+      "foodPairings": [
+        "Bistecca alla Fiorentina (Florentine T-bone steak)",
+        "Wild boar ragu over pappardelle",
+        "Roasted game birds like pheasant or guinea hen",
+        "Aged Pecorino Toscano or Parmigiano-Reggiano",
+        "Braised beef with porcini mushrooms"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - cool room temperature",
+        "decanting": "Decant for 1-2 hours to allow full expression of aromatics and integration",
+        "glassware": "Large Burgundy or Brunello-specific glass"
+      },
+      "wineDetails": {
+        "region": "Brunello di Montalcino DOCG, Tuscany, Italy",
+        "grapeVariety": "100% Sangiovese Grosso",
+        "vintage": "2019",
+        "style": "Premium Brunello - elegant, concentrated, age-worthy",
+        "ageability": "Excellent long-term aging potential. Recommended: 2026-2042, though drinking beautifully now. 1,082 cases produced."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fledge and Co Red NV",
+      "description": "A characterful red blend from The Fledge & Co, based in Calitzdorp in South Africa's Klein Karoo region. This winery specializes in wines from lesser-known, characterful regions, creating blends that showcase personality and terroir. The non-vintage format allows for consistency and blending of multiple harvests for optimal quality.",
+      "tastingNotes": {
+        "aroma": "The nose presents a melange of red and black hedgerow fruits including blackberry, raspberry, and wild berries. Meaty undertones add savory complexity, while exotic spice notes - cardamom, black pepper, and coriander - create intrigue. Aromas of fynbos (indigenous South African flora) add a distinctive regional character. Subtle notes of cocoa nibs, leather, and earth provide depth, while hints of dried herbs contribute to the wine's complexity.",
+        "palate": "On the palate, the wine delivers bright red and black fruit flavors with excellent concentration. Blackberry, black cherry, raspberry, and plum create a juicy, fruit-forward core. The wine shows good structure with powdery yet firm tannins that provide framework without astringency. A savory twist adds complexity to the fruit, while a lilt of acidity keeps everything fresh and balanced. Mid-palate reveals layers of spice, earth, and subtle oak influence. The texture is medium to full-bodied with good weight and presence.",
+        "finish": "The finish is long with persistent fruit and spice notes. Firm but refined tannins provide structure, while the wine's savory character and bright acidity leave the palate intrigued and ready for food."
+      },
+      "foodPairings": [
+        "Braai (South African barbecue) meats",
+        "Bobotie (South African spiced meat dish)",
+        "Grilled lamb sosaties with apricot chutney",
+        "Venison or game stews",
+        "Aged hard cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - cool room temperature",
+        "decanting": "Decant for 30-45 minutes to allow the wine to integrate and soften",
+        "glassware": "Medium to large bowl red wine glass"
+      },
+      "wineDetails": {
+        "region": "Klein Karoo / Western Cape, South Africa",
+        "grapeVariety": "Red blend (likely Portuguese varieties and/or Rhône varieties)",
+        "vintage": "Non-vintage",
+        "style": "Fruit-forward, spicy red blend",
+        "ageability": "Best enjoyed within 2-3 years of purchase for optimal freshness. Drinking window: Current."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.74,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Charbono 2022",
+      "description": "A unique and treat-worthy wine from Castoro Cellars' CCOF certified organic Whale Rock Vineyard in the Templeton Gap of Paso Robles. Charbono is a rare variety, making this wine a distinctive addition to any cellar. The winery has earned acclaim for its Charbono, with the 2020 Whale Rock Reserve earning 92 points and Editors' Choice from Wine Enthusiast.",
+      "tastingNotes": {
+        "aroma": "The nose displays intense aromatics of black cherry, spice, and plum, complemented by notes of toasted oak from barrel aging. Blueberry and blackberry add dark fruit complexity, while subtle hints of vanilla, cedar, and sweet tobacco from oak contribute depth. Earthy undertones and dried herb notes speak to the organic viticulture, while a touch of graphite and mineral adds refinement.",
+        "palate": "On the palate, the wine delivers rich flavors of blueberry, plum, and black cherry as the core fruit profile. Layers of dark chocolate, espresso, and toasted oak add complexity without overwhelming the fruit. The wine shows good concentration and weight from the organic Whale Rock fruit, with a silky texture and soft, well-integrated tannins. Despite its richness, the wine maintains balance and elegance, showing the refined character that earned critical acclaim for Castoro's Charbono program.",
+        "finish": "The finish is lengthy and satisfying with persistent dark fruit flavors and subtle oak spice. Soft tannins provide gentle structure, while the wine's richness and complexity linger beautifully. This is a memorable conclusion that showcases why Charbono is worth seeking out."
+      },
+      "foodPairings": [
+        "Grilled ribeye or porterhouse steak",
+        "Braised short ribs with red wine reduction",
+        "Duck confit with cherry gastrique",
+        "Wild mushroom risotto with truffle oil",
+        "Aged sharp Cheddar or smoked Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - cool room temperature",
+        "decanting": "Decant for 30-60 minutes to allow the wine to open and soften",
+        "glassware": "Large bowl red wine glass"
+      },
+      "wineDetails": {
+        "region": "Whale Rock Vineyard, Templeton Gap, Paso Robles, California",
+        "grapeVariety": "100% Charbono (organically grown, CCOF certified)",
+        "vintage": "2022",
+        "style": "Rich, unique red wine from rare variety",
+        "ageability": "Can age 5-8 years. Drinking window: 2024-2030."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Villar Red 2021",
+      "description": "An elegant red wine from Quinta das Arcas in Portugal's Vinho Verde region, crafted primarily from the indigenous Vinhão grape variety. This wine challenges perceptions of Vinho Verde as purely white and light, offering structure, complexity, and the distinctive character of Portugal's Minho region.",
+      "tastingNotes": {
+        "aroma": "The nose displays intense ruby-red aromatics with fresh and fruity character. Aromas of plum and very ripe wild berries lead the way, complemented by notes of rockrose and macerated red fruits. Subtle fragrances reminiscent of high-quality grape marc add complexity, while delicate floral notes - particularly violets - provide elegance. Hints of black cherry, blackberry, and blueberry create a ripe, inviting bouquet with well-marked acidity keeping everything lifted.",
+        "palate": "The wine shows strong structure that is dense and concentrated, yet maintains elegance and smoothness. Flavors of ripe red fruits - blueberries, black cherries, and blackberries - dominate, with subtle floral fragrances adding complexity. The tannins are soft, well-incorporated, and firm but fruity, providing framework without astringency. The texture is creamy and well-structured with fantastic acidity that keeps the wine fresh and vibrant. Despite its concentration, the wine remains balanced and food-friendly, showing the best of what Vinho Verde reds can achieve.",
+        "finish": "The finish is long and elegant with persistent red fruit flavors. Soft, integrated tannins provide gentle grip, while the wine's vibrant acidity leaves the palate refreshed and ready for another sip."
+      },
+      "foodPairings": [
+        "Grilled Portuguese chouriço or linguiça",
+        "Bacalhau (salt cod) dishes",
+        "Roasted pork loin with black cherry sauce",
+        "Grilled sardines with lemon",
+        "Aged São Jorge or Serra da Estrela cheese"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-60°F) - lightly chilled, cooler than typical reds",
+        "decanting": "Brief decanting of 20-30 minutes recommended to soften tannins and open aromatics",
+        "glassware": "Medium bowl red wine glass"
+      },
+      "wineDetails": {
+        "region": "Vinho Verde, Minho, Portugal",
+        "grapeVariety": "Primarily Vinhão with possible other indigenous varieties",
+        "vintage": "2021",
+        "style": "Structured red Vinho Verde",
+        "ageability": "Best enjoyed within 3-5 years. Drinking window: 2021-2026."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    }
+  ]
+}

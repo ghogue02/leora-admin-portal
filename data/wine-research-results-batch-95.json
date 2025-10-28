@@ -1,0 +1,347 @@
+{
+  "batchNumber": 95,
+  "researchedAt": "2025-10-21T14:10:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Chateau Jupille Carillon Saint Emilion 2016",
+      "description": "A classic Right Bank Bordeaux from Saint-Émilion's Jupille Carillon estate, where 67-year-old vines produce wines of concentrated fruit and elegant structure. This 2016 vintage represents the stellar quality of an exceptional Bordeaux year. The estate's traditional blend of Merlot and Cabernet Franc showcases the limestone terroir of Saint-Émilion.",
+      "tastingNotes": {
+        "aroma": "Intense ruby-red color with inviting aromatics. The nose is rich and complex, opening with ripe blackberry and blueberry fruit aromas. Notes of cassis and forest fruits emerge, complemented by vanilla and sweet spices from oak aging. Hints of licorice and subtle smoky notes add depth, while the aromatic profile remains fresh and integrated.",
+        "palate": "The wine shows excellent balance between power and elegance. Ripe black fruit flavors dominate, with blackberry leading alongside dark cherry and plum. The tannins are still firm but polished, providing structure while the generous fruit ripeness offers sweetness on the mid-palate. Spicy notes and hints of tobacco leaf add complexity. The acidity lifts the fruit and extends the flavor profile.",
+        "finish": "Long and satisfying finish with lingering black fruit and spice notes. The tannins are refined and well-integrated, showing the wine's aging potential while remaining approachable in youth."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb",
+        "Beef tenderloin with red wine reduction",
+        "Coq au vin",
+        "Grilled portobello and vegetable stack",
+        "Aged Comté or Beaufort cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1 hour decanting recommended to soften tannins and open aromatics",
+        "glassware": "Bordeaux glass or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Saint-Émilion, Bordeaux, France",
+        "grapeVariety": "70% Merlot, 30% Cabernet Franc",
+        "vintage": "2016",
+        "style": "Medium to full-bodied Right Bank Bordeaux",
+        "ageability": "Drink 2022-2030; the 2016 vintage has excellent aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Cellars St Peters Church Zinfandel 2019",
+      "description": "A powerful old-vine Zinfandel from the historic St. Peter's Church Vineyard in Alexander Valley. With only 129 cases produced, this limited-production wine showcases winemaker Jeff Cohn's mastery of Zinfandel. The 2019 vintage received 90 points from Jeb Dunnuck, highlighting its balance of power and elegance. This wine represents benchmark California Zinfandel from one of Sonoma's finest sites.",
+      "tastingNotes": {
+        "aroma": "Ripe and expressive with macerated strawberries and cream leading the aromatic profile. The nose shows generous fruit alongside licorice spice and dried flowers. Hints of vanilla and toasted oak complement the fruit, while subtle leather and black pepper add complexity. The aromatic intensity is characteristic of old-vine fruit concentration.",
+        "palate": "This gigantic wine delivers layers of sweet berry fruit on the palate. Flavors of red plum, fresh strawberry, and dark raspberry dominate, supported by notes of dusty earth and exotic spice. Oak char adds depth without overwhelming the fruit. The wine is medium to full-bodied with a chewy, tannic structure that's balanced by supple, velvety tannins. The fruit component is powerfully big yet well-integrated, showing excellent concentration.",
+        "finish": "Long and weighty with persistent fruit and spice notes. The tannins are substantial but ripe, providing structure for extended aging. Hints of vanilla and cinnamon linger on the tail."
+      },
+      "foodPairings": [
+        "BBQ brisket with smoky rub",
+        "Grilled lamb chops with rosemary",
+        "Wild boar ragu over pappardelle",
+        "Aged sharp cheddar",
+        "Spicy Italian sausage pizza"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1-2 hours recommended to tame the power and integrate the components",
+        "glassware": "Large-bowled Zinfandel or Syrah glass"
+      },
+      "wineDetails": {
+        "region": "Alexander Valley, Sonoma County, California",
+        "grapeVariety": "100% Zinfandel (old vine)",
+        "vintage": "2019",
+        "style": "Full-bodied old-vine Zinfandel with power and complexity",
+        "ageability": "Drink now through 2029; has structure for medium-term aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Abadia de Acon Roble 2019",
+      "description": "A modern expression of Tempranillo from Ribera del Duero's acclaimed Abadía de Acón estate. Aged five months in oak barrels, this Roble (young oak) style showcases the intense fruit of high-altitude Ribera with well-integrated wood influence. The wine represents an accessible introduction to the bigger, more powerful style of Tempranillo found in the Duero region.",
+      "tastingNotes": {
+        "aroma": "Deep, dark cherry-red color with marked purple hues, clean and brilliant. The nose is intense and very well-balanced, showing elegant notes of ripe red and black berries. Concentrated aromas of blackberry and dark cherry mingle with chocolate, liquorice, and cocoa. A spicy, toasty background emerges with hints of toffee and roasted coffee beans.",
+        "palate": "Full-bodied, rich and oaky with lip-staining sweet black fruit dominating the palate. The wine is powerful, lively and tasty with attractive layers of ripe fruit accompanied by chocolate, liquorice and cocoa flavors. Notes of vanilla and toast from oak aging integrate seamlessly with the fruit. The texture is dense and mouth-coating, yet the wine maintains balance through refreshing acidity.",
+        "finish": "Persistent and long with lingering notes of dark fruit and spice. The finish showcases the wine's concentration and oak influence, leaving a satisfying impression of ripe fruit and coffee."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Spanish chorizo and potato stew",
+        "Roasted leg of lamb with garlic",
+        "Manchego cheese platter",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "30-45 minutes recommended to soften oak influence and open fruit",
+        "glassware": "Large Bordeaux or Tempranillo-specific glass"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero, Spain",
+        "grapeVariety": "100% Tempranillo",
+        "vintage": "2019",
+        "style": "Full-bodied oak-aged Tempranillo (Roble style)",
+        "ageability": "Drink now through 2025-2026; designed for near-term enjoyment"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boplaas Alvarinho 2023",
+      "description": "Boplaas's maiden vintage of Alvarinho marks an innovative addition to their portfolio of Portuguese varieties. Planted in the drier, warmer climate of Calitzdorp, South Africa, this wine showcases the aromatic complexity and elegance of the Portuguese white grape. Winemaker Margaux Nel spent four months aging the wine on lees to develop texture and complexity while preserving the variety's fresh, aromatic character.",
+      "tastingNotes": {
+        "aroma": "Fresh and elegant with distinctive aromatic complexity. The nose opens with refreshing citrus notes of lime and grapefruit that immediately capture attention. White stone fruit aromas of peach and apricot emerge, complemented by subtle floral notes of orange blossom. The fragrance reveals layers of the variety's natural aromatics, from zesty citrus to delicate flowers.",
+        "palate": "Refreshing lime and grapefruit sing from every glass, lining the palate with vibrant citrus flavors. The wine shows good body and weight from lees aging, creating a textured mouthfeel that balances the crisp acidity. Layers of white peach and subtle minerality add complexity. The wine maintains freshness and elegance throughout, with the fruit carrying beautifully from nose to palate.",
+        "finish": "Clean and invigorating with persistent citrus notes. The finish is refreshing and mineral-driven, leaving the palate cleansed and ready for food."
+      },
+      "foodPairings": [
+        "Grilled prawns with lemon butter",
+        "Fresh oysters and shellfish",
+        "Ceviche with citrus marinade",
+        "Herb-crusted white fish",
+        "Goat cheese and herb salad"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve well-chilled",
+        "glassware": "White wine glass or Albariño-specific glass"
+      },
+      "wineDetails": {
+        "region": "Calitzdorp, Western Cape, South Africa",
+        "grapeVariety": "100% Alvarinho (Albariño)",
+        "vintage": "2023",
+        "style": "Fresh, aromatic white wine with citrus character",
+        "ageability": "Best within 2-3 years to preserve aromatic intensity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "High Camp Cabernet Sauvignon 2021",
+      "description": "An estate Cabernet Sauvignon from High Camp Wines showcasing the 2021 vintage, widely regarded as one of the greatest vintages in decades for California Cabernet. This wine blends Cabernet Sauvignon with small amounts of Petit Verdot, Cabernet Franc, and Sangiovese, aged 18 months in French oak. The result is a concentrated, well-structured wine with approachable tannins and classic California Cab character.",
+      "tastingNotes": {
+        "aroma": "Rich dark red color with inviting aromatics. The nose opens with layers of red and blue fruit including raspberry, blueberry, and boysenberry. Hints of leather and black pepper add complexity, while notes of vanilla and cinnamon from oak aging integrate seamlessly. The aromatic profile is both powerful and nuanced.",
+        "palate": "Full-bodied and concentrated with generous fruit flavors. The palate delivers waves of blue fruit including blueberry and blackberry, supported by notes of black cherry and cassis. Vanilla and cinnamon spice from oak aging add depth without overwhelming the fruit. The wine shows lots of supple, velvety tannins that coat the palate, providing structure while maintaining approachability. The mouthfeel is round and smooth.",
+        "finish": "Long and satisfying with a round, smooth conclusion. The tannins are well-integrated, fading gently while fruit and vanilla notes persist."
+      },
+      "foodPairings": [
+        "Grilled New York strip steak",
+        "BBQ ribs with tangy sauce",
+        "Hearty beef stew with vegetables",
+        "Pizza with sausage and mushrooms",
+        "Aged cheddar or Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45 minutes to 1 hour recommended to integrate oak and fruit",
+        "glassware": "Bordeaux or Cabernet-specific glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Paso Robles or North Coast)",
+        "grapeVariety": "80% Cabernet Sauvignon, 5% Petit Verdot, 5% Cabernet Franc, 10% Sangiovese (approximate blend)",
+        "vintage": "2021",
+        "style": "Full-bodied California Cabernet blend with oak aging",
+        "ageability": "Drink now through 2030; has structure for medium-term aging"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Brama 2018",
+      "description": "An exceptional biodynamic white wine from Languedoc's Château Maris, Europe's first B Corp certified winery. Made from 100% Grenache Gris and aged in new French oak barrels followed by concrete eggs, this wine received a Master Medal at the Drinks Business Global Organic Masters. The wine represents the estate's commitment to sustainable, innovative winemaking while showcasing the unique character of Grenache Gris.",
+      "tastingNotes": {
+        "aroma": "The nose is fresh and focused, opening with vibrant tropical fruits including pineapple and mango. Delicate honeysuckle and white flowers add elegance, while notes of lemon rind provide citrus brightness. A distinctive note of buttered almonds from oak aging adds richness and complexity to the aromatic profile.",
+        "palate": "Medium-bodied with a lovely, elegant texture that's beautifully lifted by the wine's natural acidity. The wine is racy and pure, delivering concentrated tropical fruit flavors alongside citrus and stone fruit. The oak influence is seamlessly integrated, adding depth without overwhelming the fruit. Notes of toasted almond and subtle vanilla complement the fruit core. The texture is refined and sophisticated.",
+        "finish": "Clean and persistent with lingering tropical fruit and subtle oak notes. The acidity carries through to a refreshing conclusion that showcases the wine's purity and elegance."
+      },
+      "foodPairings": [
+        "Seared scallops with beurre blanc",
+        "Lobster with drawn butter",
+        "Roasted chicken with herbs",
+        "Creamy risotto with mushrooms",
+        "Aged Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "Brief 15-20 minute aeration recommended to open aromatics",
+        "glassware": "White Burgundy or large-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Minervois, Languedoc, France",
+        "grapeVariety": "100% Grenache Gris",
+        "vintage": "2018",
+        "style": "Full-bodied oak-aged white wine, biodynamic",
+        "ageability": "Drink now through 2026; has structure for medium-term aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Free Spirits N/A Kentucky Mule Cans   250 ml",
+      "description": "A sophisticated non-alcoholic cocktail crafted with Free Spirits' award-winning Spirit of Bourbon alternative. This ready-to-drink Kentucky Mule combines fresh ginger and Meyer lemon with sweet oak notes, recreating the classic bourbon and ginger cocktail experience without alcohol. With just 75 calories per can and infused with vitamins B3 and B6, it's rated 4.7/5 stars by customers seeking premium alcohol alternatives.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant ginger spice and bright Meyer lemon zest, creating an invigorating aromatic profile. Sweet oak notes emerge, reminiscent of bourbon barrel aging, adding depth and complexity. The combination is authentic and well-balanced, capturing the essence of a classic bourbon cocktail.",
+        "palate": "Fresh flavors of ginger and Meyer lemon mingle effortlessly on the palate, delivering a lively, zingy experience. The Spirit of Bourbon alternative provides sweet oak notes and a subtle warmth that mimics traditional bourbon character. The ginger has a nice burn that adds excitement without heat, while the lemon provides brightness and balance. Real fruit juice contributes natural flavor and body. The mouthfeel is refreshing and satisfying.",
+        "finish": "Clean and refreshing with lingering ginger spice and citrus notes. A subtle oak character persists, providing a satisfying conclusion that leaves no room for cocktail FOMO."
+      },
+      "foodPairings": [
+        "Spicy barbecue chicken wings",
+        "Pulled pork sliders",
+        "Fried chicken sandwich",
+        "Spicy Asian noodles",
+        "Sharp cheddar and crackers"
+      ],
+      "servingInfo": {
+        "temperature": "35-40°F (2-4°C)",
+        "decanting": "Serve directly from chilled can over ice if desired",
+        "glassware": "Highball glass or copper mule mug"
+      },
+      "wineDetails": {
+        "region": "United States",
+        "grapeVariety": "N/A - Non-alcoholic cocktail with Spirit of Bourbon alternative, ginger, Meyer lemon",
+        "vintage": "NV",
+        "style": "Ready-to-drink non-alcoholic cocktail",
+        "ageability": "Best consumed fresh; check best-by date on can"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Gendraud Patrice Chablis Mevushal (MD & DC)",
+      "description": "A classic expression of Chablis from Christophe Patrice under the Gendraud label, certified Mevushal and supervised by OU, Rabbi Padwa, and London Beit Din. Made from 100% Chardonnay grown in Chablis's famous Kimmeridgian limestone soils, this wine captures the mineral-driven purity characteristic of the region. With an average rating of 90.5 points on CellarTracker, it represents quality kosher Chablis for Passover and year-round enjoyment.",
+      "tastingNotes": {
+        "aroma": "Golden dress with an elegant, fine and intense nose. The aromatics open with delicate white flowers including acacia and elderflower, complemented by bright citrus fruits of lemon and grapefruit. A distinctive mineral background emerges, reminiscent of wet stones and chalk, characteristic of Chablis terroir. Hints of fresh pear and green apple add fruit complexity.",
+        "palate": "The palate is balanced and very dry with a refreshing, bracing acidity that's typical of Chablis. The attack is good and lively, continuing with pleasant acidity that lifts the fruit and mineral flavors. Notes of citrus, pear, and subtle mineral nuances create a pure, focused flavor profile. The wine shows excellent tension between fruit and minerality, with the limestone terroir expressing itself clearly.",
+        "finish": "Clean and persistent with dominant mineral notes. The refreshing acidity carries through to an invigorating conclusion that leaves the palate cleansed and ready for food."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Sole meunière",
+        "Goat cheese and herb salad",
+        "Steamed mussels in white wine",
+        "Grilled white fish with lemon"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting required; serve well-chilled",
+        "glassware": "White Burgundy or Chablis glass"
+      },
+      "wineDetails": {
+        "region": "Chablis, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "NV (varies by release)",
+        "style": "Mineral-driven unoaked Chardonnay, Mevushal",
+        "ageability": "Best within 2-3 years to preserve freshness and minerality"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Vecchio Sogno Negroamaro 2023",
+      "description": "A pure expression of Negroamaro from Tenuta Giustini in Puglia's Salento region, representing 'the beginning of our story' for this four-generation family winery. Located in San Giorgio within the Primitivo di Manduria DOC area, the estate combines traditional passion with modern winemaking techniques. This wine is fermented and aged entirely in stainless steel to showcase the pure fruit character of Negroamaro.",
+      "tastingNotes": {
+        "aroma": "Ruby red color with attractive purplish reflections indicating youth and vibrancy. The nose opens with bright red fruit notes of cherry and red currant, complemented by darker notes of blueberry. A distinctive hint of violet adds floral elegance to the fruit-forward profile. The aromatics are fresh, clean, and inviting.",
+        "palate": "Soft and balanced on the palate, delivering pure Negroamaro fruit character without oak influence. Flavors of cherry, currant, and blueberry dominate, showing the variety's natural fruit intensity. The wine maintains elegance despite its concentration, with balanced acidity providing structure and lift. The texture is smooth and approachable, making this an easy-drinking red that doesn't sacrifice character for accessibility.",
+        "finish": "Medium-length finish with lingering red fruit and subtle floral notes. The finish is clean and balanced, showing the wine's food-friendly character."
+      },
+      "foodPairings": [
+        "Pasta with tomato-based red sauce",
+        "Grilled Italian sausages",
+        "Aged Pecorino Romano cheese",
+        "Grilled eggplant parmesan",
+        "Pizza margherita"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief 15-20 minute aeration recommended",
+        "glassware": "Medium-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Salento IGP, Puglia, Italy",
+        "grapeVariety": "100% Negroamaro",
+        "vintage": "2023",
+        "style": "Medium-bodied unoaked red wine with fresh fruit character",
+        "ageability": "Drink now through 2026-2027; best enjoyed in youth"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Jupille Carillon Saint Emilion 2015",
+      "description": "The 2015 vintage from Château Jupille Carillon represents a powerful expression from one of Saint-Émilion's quality-focused estates. Wine Enthusiast praised this Cuvée Prestige for its firm structure and serious wood aging, noting the wine's richness and development potential. Crafted from 70% Merlot and 30% Cabernet Franc from 67-year-old vines, this wine captures the intensity and complexity of a stellar Bordeaux vintage.",
+      "tastingNotes": {
+        "aroma": "Intense and complex nose revealing layers of ripe fruits including blackberry, dark cherry, and plum. Notes of licorice emerge alongside light woody and spicy character that's well integrated. The aromatics show both power and elegance, with hints of graphite, tobacco leaf, and dried herbs adding complexity. The oak influence is present but harmonious.",
+        "palate": "Both fresh and powerful on the palate, showing excellent balance between fruit ripeness and structural elements. Hints of blackberry dominate the fruit core, supported by dark cherry and cassis. The wine displays good sweetness from ripe fruit, with character and depth that reveal the quality of the vintage. Elegant tannins provide structure and aging potential while remaining refined. The acidity lifts the fruit and extends the flavor profile.",
+        "finish": "Long and structured with firm, dry tannins that will soften with age. The finish shows the wine's potential for development, with layers of fruit, spice, and oak that will integrate further over time."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry sauce",
+        "Beef Wellington",
+        "Braised lamb shanks",
+        "Wild mushroom risotto",
+        "Aged Gouda or aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1-2 hours recommended to soften tannins and integrate oak",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Saint-Émilion, Bordeaux, France",
+        "grapeVariety": "70% Merlot, 30% Cabernet Franc",
+        "vintage": "2015",
+        "style": "Full-bodied Right Bank Bordeaux with oak aging",
+        "ageability": "Drinking well now through 2028-2030; reached maturity window"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    }
+  ]
+}

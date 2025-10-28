@@ -1,0 +1,347 @@
+{
+  "batchNumber": 70,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Colle Corviano Chardonnay 2022",
+      "description": "An approachable Italian Chardonnay from the Abruzzo region, this wine showcases the fresh, mineral-driven style typical of Central Italian white wines. Colle Corviano crafts balanced expressions that highlight fruit purity while maintaining vibrant acidity and elegant structure.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromas of ripe golden apples and white peaches, layered with subtle notes of citrus blossom and a whisper of toasted almonds. As the wine breathes, delicate hints of fresh herbs and mineral undertones emerge, adding complexity. A touch of vanilla from gentle oak contact provides a sophisticated backdrop without overwhelming the fresh fruit character.",
+        "palate": "On the palate, this Chardonnay delivers a medium-bodied experience with bright acidity that energizes the taste buds. Flavors of crisp pear and green apple dominate the entry, followed by notes of ripe stone fruit and a hint of lemon zest. The wine's creamy texture balances beautifully with its refreshing citrus elements, while a subtle minerality runs through the mid-palate, lending precision and focus. The integration of fruit and oak is seamless, creating a harmonious whole.",
+        "finish": "The finish is clean and moderately long, with lingering notes of citrus and almond. A pleasant mineral quality persists, accompanied by a refreshing acidity that invites another sip and makes this wine particularly food-friendly."
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon and herbs",
+        "Creamy risotto with asparagus and parmesan",
+        "Roasted chicken with rosemary and garlic",
+        "Fresh mozzarella and tomato salad",
+        "Pasta with white clam sauce"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve directly from the refrigerator after 10-15 minutes",
+        "glassware": "White wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Abruzzo, Italy",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Fresh, mineral-driven Italian white",
+        "ageability": "Drink now through 2026; best enjoyed young to preserve freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Central Valley Banner Day Cabernet Sauvignon 2019",
+      "description": "A robust California Cabernet Sauvignon from the Central Valley, this wine delivers approachable fruit-forward character with smooth tannins. The warm Central Valley climate produces ripe, concentrated fruit that makes for an immediately enjoyable red wine with classic varietal character.",
+      "tastingNotes": {
+        "aroma": "Bold aromas of blackcurrant and ripe blackberry leap from the glass, immediately announcing this wine's generous fruit character. Underlying notes of dark cherry and plum add depth, while hints of cedar, tobacco leaf, and sweet vanilla from oak aging provide complexity. A subtle suggestion of dried herbs and dark chocolate rounds out the aromatic profile, creating an inviting and layered bouquet.",
+        "palate": "The palate is full-bodied and richly textured, opening with concentrated flavors of black fruit compote and cassis. Mid-palate notes of blackberry jam, dark cherry, and hints of mocha create a plush, velvety mouthfeel. Well-integrated tannins provide structure without harshness, while the wine's moderate acidity keeps it balanced and prevents it from feeling heavy. Touches of vanilla, toasted oak, and baking spices add dimension throughout.",
+        "finish": "The finish is warm and lingering, with persistent dark fruit flavors accompanied by notes of vanilla and subtle spice. Soft tannins carry through to the end, leaving a smooth, satisfying conclusion that showcases the wine's approachable nature."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with red wine reduction",
+        "Aged cheddar and charcuterie board",
+        "BBQ beef brisket with smoky sauce",
+        "Mushroom and beef burger with caramelized onions"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief decanting for 30 minutes will soften tannins and open aromatics",
+        "glassware": "Large Bordeaux-style red wine glass"
+      },
+      "wineDetails": {
+        "region": "Central Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Full-bodied, fruit-forward California red",
+        "ageability": "Drink now through 2027; approachable now with potential for short-term cellaring"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte First Light Chenin Blanc 2024",
+      "description": "A vibrant expression of South African Chenin Blanc from the Stellenbosch region, Remhoogte's First Light showcases the variety's versatility and food-friendly nature. This wine captures the essence of cool-climate viticulture with its crisp acidity, pure fruit expression, and mineral complexity that Stellenbosch is renowned for.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with fresh aromas of green apple, pear, and white peach, complemented by bright citrus notes of lime and grapefruit. Delicate floral hints of honeysuckle and acacia blossom add elegance, while subtle undertones of wet stone and chalk speak to the wine's terroir. A suggestion of ripe quince and honey emerges with air, adding a touch of richness without sacrificing the wine's essential freshness.",
+        "palate": "On the palate, this Chenin Blanc is medium-bodied with electric acidity that brings the wine to life. Flavors of crisp green apple and Asian pear dominate the initial attack, followed by juicy white peach and hints of tropical guava. A distinctive mineral seam runs through the core, providing structure and length. The wine's texture is both creamy and refreshing, with a subtle waxy quality characteristic of well-made Chenin. Notes of fresh herbs and a touch of beeswax add complexity without detracting from the wine's purity.",
+        "finish": "The finish is remarkably long and precise, with lingering citrus zest and mineral notes. A subtle hint of almond and white flowers persists, while the wine's vibrant acidity leaves the palate refreshed and eager for food or another sip."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with citrus beurre blanc",
+        "Fresh oysters with mignonette",
+        "Thai green curry with chicken",
+        "Grilled prawns with lemon and garlic",
+        "Goat cheese salad with roasted beets and walnuts"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C)",
+        "decanting": "Not necessary; serve well-chilled directly from refrigerator",
+        "glassware": "White wine glass with moderate bowl for aroma concentration"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2024",
+        "style": "Fresh, mineral-driven South African white",
+        "ageability": "Drink now through 2028; excellent freshness with moderate aging potential"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Chevallier Cuvee Prestige 2022",
+      "description": "A distinguished Rhône Valley blend from Domaine Chevallier, the Cuvée Prestige represents the estate's top selection from their finest vineyard parcels. This wine showcases the rich, sun-drenched character of Southern Rhône wines with depth, complexity, and the garrigue-influenced terroir that defines the region.",
+      "tastingNotes": {
+        "aroma": "The nose reveals an opulent bouquet of ripe dark cherry, blackberry, and plum, interwoven with the classic Rhône Valley aromatics of lavender, thyme, and dried herbs de Provence. Notes of black olive, leather, and cracked black pepper add savory complexity, while hints of violet, star anise, and sweet tobacco emerge with aeration. A subtle smokiness and touch of game round out this multifaceted aromatic profile.",
+        "palate": "Full-bodied and richly concentrated, the palate delivers waves of dark fruit flavors including blackberry, black cherry, and cassis, supported by layers of complexity. Savory elements of roasted meat, tapenade, and dried Mediterranean herbs intermingle with the fruit, creating a compelling interplay. The wine's tannins are firm yet ripe, providing structure for aging while remaining approachable. Notes of garrigue, leather, and sweet spice from oak aging add depth, while the wine maintains balance through moderate acidity and excellent fruit concentration.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit and savory herb notes. Hints of black pepper, licorice, and roasted meat linger, accompanied by fine-grained tannins that promise good aging potential while remaining smooth and integrated."
+      },
+      "foodPairings": [
+        "Braised lamb shanks with rosemary and garlic",
+        "Beef daube Provençale with olives and herbs",
+        "Grilled lamb chops with tapenade",
+        "Duck confit with wild mushrooms",
+        "Aged Comté or Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 1 hour to fully express aromatics and soften tannins",
+        "glassware": "Large Rhône or Burgundy-style glass to capture complexity"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône, France",
+        "grapeVariety": "Grenache, Syrah, Mourvèdre blend (typical GSM)",
+        "vintage": "2022",
+        "style": "Full-bodied Southern Rhône red blend",
+        "ageability": "Drink now through 2032; excellent cellaring potential"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Champagne Bauget-Jouette Blanc de Blancs 2016",
+      "description": "An elegant vintage Champagne crafted entirely from Chardonnay grapes, Bauget-Jouette's Blanc de Blancs 2016 exemplifies the finesse and precision of this prestigious style. With extended aging on lees, this wine has developed complexity and refinement while maintaining the vibrant freshness that makes great Champagne so captivating.",
+      "tastingNotes": {
+        "aroma": "The nose opens with refined aromas of green apple, white peach, and citrus zest, elevated by the wine's fine, persistent mousse. With aeration, layers of brioche, toasted almond, and fresh-baked pastry emerge, testament to its extended lees aging. Delicate notes of white flowers, particularly acacia and hawthorn, add elegance, while subtle hints of chalky minerality and sea spray speak to the terroir. A whisper of honey and lemon curd adds richness without heaviness.",
+        "palate": "On the palate, this Blanc de Blancs is beautifully structured with racy acidity and an ultra-fine bead of bubbles that creates an elegant, creamy mousse. Flavors of crisp apple, Meyer lemon, and white grapefruit provide the foundation, enhanced by notes of blanched almond, brioche, and subtle butterscotch from autolytic aging. The wine's mineral backbone is pronounced, lending precision and focus to the rich, developed flavors. A saline quality adds tension and freshness, while the integration of fruit, aging characters, and acidity is seamless and sophisticated.",
+        "finish": "The finish is exceptionally long and precise, with lingering citrus, mineral, and toasted bread notes. The wine's remarkable balance leaves a lasting impression of elegance and complexity, with a subtle nuttiness and vibrant freshness persisting well after the glass is empty."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Lobster with drawn butter",
+        "Seared scallops with cauliflower purée",
+        "Caviar and blinis with crème fraîche",
+        "Aged Gruyère or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C)",
+        "decanting": "Not necessary; serve in proper Champagne flutes to preserve bubbles",
+        "glassware": "Champagne flute or tulip-shaped glass"
+      },
+      "wineDetails": {
+        "region": "Champagne, France",
+        "grapeVariety": "100% Chardonnay (Blanc de Blancs)",
+        "vintage": "2016",
+        "style": "Vintage Blanc de Blancs Champagne with extended lees aging",
+        "ageability": "Drink now through 2030; excellent structure for continued aging"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeremy Nickel Cellars Chardonnay 2019",
+      "description": "A distinctive California Chardonnay from Jeremy Nickel Cellars, this wine reflects the winemaker's commitment to crafting balanced, terroir-driven wines with restraint and precision. The 2019 vintage showcases the beautiful interplay between ripe fruit, judicious oak influence, and refreshing acidity that defines high-quality California Chardonnay.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents a harmonious blend of ripe yellow apple, white peach, and hints of pineapple, complemented by subtle notes of lemon curd and melon. Oak influence is evident but well-integrated, contributing aromas of vanilla bean, toasted hazelnut, and a whisper of crème brûlée. Floral hints of orange blossom add lift, while a touch of minerality and wet stone provides complexity and depth to the aromatic profile.",
+        "palate": "Medium to full-bodied with a silky, rounded texture, this Chardonnay delivers layers of flavor that unfold gradually. The palate showcases ripe orchard fruits including baked apple and pear, alongside tropical notes of ripe pineapple and mango. Well-judged oak aging adds complexity through flavors of butterscotch, toasted oak, and spiced nuts, while maintaining balance with the fruit. The wine's creamy mouthfeel is complemented by bright acidity that provides freshness and structure, preventing any sense of heaviness despite the wine's richness.",
+        "finish": "The finish is long and satisfying, with lingering notes of baked apple, vanilla, and subtle spice. A hint of caramel and toasted oak persists alongside refreshing citrus notes, while the wine's balanced acidity ensures a clean, appetizing conclusion."
+      },
+      "foodPairings": [
+        "Roasted chicken with herb butter and root vegetables",
+        "Lobster risotto with saffron",
+        "Grilled halibut with lemon-caper sauce",
+        "Creamy pasta carbonara",
+        "Brie or triple-cream cheese with crackers"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Not required; allow 15-20 minutes in glass to fully express aromatics",
+        "glassware": "Large bowl Chardonnay or white Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2019",
+        "style": "Balanced California Chardonnay with judicious oak",
+        "ageability": "Drink now through 2027; approaching peak maturity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Chardonnay Keg 2024  20 l",
+      "description": "An innovative approach to wine packaging from Paso Robles' Castoro Cellars, this 20-liter keg format delivers fresh, fruit-forward Chardonnay perfect for events and gatherings. The keg preserves freshness while eliminating oxygen exposure, keeping the wine in optimal condition from first pour to last, making it ideal for restaurants and large-format service.",
+      "tastingNotes": {
+        "aroma": "The nose is bright and inviting, bursting with fresh aromas of crisp green apple, ripe pear, and citrus. Notes of white flowers and a hint of melon add aromatic interest, while subtle touches of vanilla and cream suggest gentle oak contact or lees aging. The overall impression is one of freshness and approachability, with clean fruit aromatics taking center stage.",
+        "palate": "Light to medium-bodied with a refreshing character, this Chardonnay emphasizes fruit purity and easy drinkability. Flavors of crisp apple, pear, and citrus dominate, supported by a creamy texture that adds appeal without weighing down the palate. Bright acidity keeps the wine lively and food-friendly, while subtle notes of vanilla and butter add a touch of richness. The wine's straightforward, fruit-focused profile makes it extremely versatile and accessible.",
+        "finish": "The finish is clean and moderately persistent, with lingering fruit flavors and refreshing acidity. A hint of citrus zest and apple skin provides a crisp conclusion that invites another sip, making this wine perfect for casual enjoyment and food pairing."
+      },
+      "foodPairings": [
+        "Grilled chicken Caesar salad",
+        "Fish tacos with lime crema",
+        "Shrimp scampi over pasta",
+        "Creamy potato leek soup",
+        "Mild white cheddar and crackers"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Not necessary; serve directly from keg system well-chilled",
+        "glassware": "Standard white wine glass or tumbler for casual service"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2024",
+        "style": "Fresh, fruit-forward California Chardonnay in innovative keg format",
+        "ageability": "Drink fresh; best consumed within 6 months for optimal freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cienega Valley Cienega Valley Chardonnay 2023",
+      "description": "A distinctive expression from California's historic Cienega Valley, one of the state's cooler viticultural regions located in San Benito County. This Chardonnay benefits from the area's limestone soils and significant diurnal temperature variation, resulting in wines with natural acidity, elegance, and mineral complexity that sets them apart from warmer-climate California Chardonnays.",
+      "tastingNotes": {
+        "aroma": "The nose reveals layered aromas of ripe yellow apple, Asian pear, and white nectarine, accented by bright citrus notes of lemon zest and hints of grapefruit. Floral undertones of jasmine and orange blossom add elegance, while subtle mineral notes reminiscent of flint and wet stone speak to the region's unique limestone terroir. A delicate touch of oak contributes hints of vanilla and toasted almond without dominating the fresh fruit character.",
+        "palate": "Medium-bodied with excellent structure, this Chardonnay showcases the balance between ripe fruit and refreshing acidity that defines quality cool-climate viticulture. Flavors of crisp apple, pear, and stone fruit are complemented by citrus notes and a pronounced mineral backbone that provides focus and length. The wine's texture is simultaneously creamy and vibrant, with integrated oak adding subtle richness through notes of vanilla and hazelnut. The natural acidity is bright and persistent, lending energy and ensuring the wine remains lively despite its richness.",
+        "finish": "The finish is long and mineral-driven, with lingering notes of citrus, apple, and subtle spice. A distinctive chalky quality persists alongside refreshing acidity, creating a memorable conclusion that showcases the unique terroir of Cienega Valley."
+      },
+      "foodPairings": [
+        "Pan-seared halibut with lemon and capers",
+        "Roasted pork tenderloin with apple chutney",
+        "Butternut squash ravioli with sage butter",
+        "Grilled swordfish with herb salsa verde",
+        "Aged Manchego or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Not necessary; allow to warm slightly after refrigeration to express full aromatics",
+        "glassware": "White Burgundy glass or large-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Cienega Valley, San Benito County, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Cool-climate California Chardonnay with mineral complexity",
+        "ageability": "Drink now through 2028; has structure for medium-term aging"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Sauvignon Blanc 375 ml 2023  375 ml",
+      "description": "An elegant Virginia Sauvignon Blanc from Boxwood Estate in the Middleburg AVA, this half-bottle showcases the potential for world-class wine production in Virginia's emerging wine country. Boxwood's meticulous viticulture and winemaking creates a vibrant, terroir-driven expression that competes with top Sauvignon Blancs from established regions.",
+      "tastingNotes": {
+        "aroma": "The nose is vibrant and expressive, opening with intense aromas of fresh grapefruit, lime zest, and gooseberry. Notes of passion fruit and white peach add tropical dimension, while herbaceous hints of freshly cut grass, tomato leaf, and elderflower provide classic Sauvignon Blanc character. A distinctive mineral quality reminiscent of crushed stone and wet slate adds complexity, reflecting Virginia's unique terroir.",
+        "palate": "Medium-bodied with electric acidity, this Sauvignon Blanc is both refreshing and sophisticated. The palate bursts with citrus flavors of grapefruit and lemon, complemented by tropical notes of guava and green melon. Herbaceous elements of fresh herbs and green bell pepper add complexity without overwhelming the fruit. A pronounced mineral streak runs through the core, providing structure and length, while the wine's crisp acidity keeps everything focused and lively. The texture is lean yet not austere, with subtle weight that comes from quality fruit rather than manipulation.",
+        "finish": "The finish is crisp, clean, and remarkably long, with persistent citrus and mineral notes. Hints of grapefruit pith and fresh herbs linger, while the wine's vibrant acidity leaves the palate refreshed and ready for food or another sip."
+      },
+      "foodPairings": [
+        "Fresh Chesapeake Bay oysters",
+        "Grilled asparagus with lemon and parmesan",
+        "Goat cheese and herb tart",
+        "Seared tuna with citrus vinaigrette",
+        "Fresh spring salad with vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C)",
+        "decanting": "Not necessary; serve well-chilled directly from refrigerator",
+        "glassware": "Sauvignon Blanc glass or medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg AVA, Virginia",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2023",
+        "style": "Crisp, mineral-driven Virginia Sauvignon Blanc",
+        "ageability": "Drink now through 2026; best enjoyed young for optimal freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ngeringa Estate Pinot Noir 2022",
+      "description": "An exceptional cool-climate Pinot Noir from Ngeringa Estate in the Adelaide Hills, this wine represents some of Australia's finest expression of this noble variety. Crafted from biodynamically farmed vineyards at high elevation, Ngeringa's Pinot Noir combines elegance, complexity, and a distinctive sense of place that rivals top Burgundian examples.",
+      "tastingNotes": {
+        "aroma": "The nose is complex and beguiling, revealing layers of red cherry, wild strawberry, and cranberry, interwoven with earthy notes of forest floor, mushroom, and dried leaves. Floral hints of rose petal and violet add elegance, while subtle spice notes of clove, cinnamon, and white pepper provide intrigue. With aeration, nuances of black tea, sandalwood, and a distinctive herbal quality emerge, speaking to the wine's biodynamic origins and cool-climate terroir. A subtle smokiness and mineral edge add further dimension.",
+        "palate": "Medium-bodied with a silky, refined texture, this Pinot Noir showcases the variety's hallmark elegance and complexity. Flavors of bright red cherry and raspberry dominate the entry, supported by notes of wild strawberry, pomegranate, and hints of rhubarb. Earthy, savory elements including forest floor, dried herbs, and subtle game add complexity and balance the fruit. The wine's fine-grained tannins provide structure without weight, while vibrant acidity keeps the wine fresh and energetic. Notes of tea leaf, mushroom, and warm spice add layers of interest, creating a wine of considerable depth and refinement.",
+        "finish": "The finish is long, precise, and beautifully integrated, with persistent red fruit and earthy notes. Hints of tea, spice, and mineral linger alongside fine tannins, while the wine's excellent acidity ensures a clean, appetizing conclusion that demonstrates both immediate appeal and aging potential."
+      },
+      "foodPairings": [
+        "Duck breast with cherry reduction",
+        "Wild mushroom risotto with truffle oil",
+        "Herb-crusted rack of lamb",
+        "Roasted beet salad with goat cheese and walnuts",
+        "Aged Alpine-style cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Decant for 30-45 minutes to open aromatics and integrate flavors",
+        "glassware": "Burgundy glass with large bowl to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Adelaide Hills, South Australia",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2022",
+        "style": "Cool-climate, biodynamic Australian Pinot Noir with Burgundian elegance",
+        "ageability": "Drink now through 2032; excellent structure for medium to long-term aging"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

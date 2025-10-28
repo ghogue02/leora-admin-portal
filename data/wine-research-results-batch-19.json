@@ -1,0 +1,347 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 19,
+  "researchedAt": "2025-10-20T00:00:00Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine Borgeot Bourgogne Chardonnay 2022",
+      "description": "A classic Bourgogne Chardonnay from the village level tier, showcasing the terroir-driven character that Burgundy is renowned for. Crafted from 100% Chardonnay grapes grown in Burgundy's limestone-rich soils, this wine exemplifies the elegant, mineral-focused style of the region with restrained oak influence.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright citrus aromas of lemon zest and green apple, intertwined with delicate white flower notes of acacia and honeysuckle. Subtle hints of wet stone and chalk emerge, reflecting the limestone terroir, while a gentle touch of vanilla and toasted hazelnut adds complexity from carefully measured oak aging. Fresh and inviting, the aromatics speak to the wine's youthful vitality and classic Burgundian restraint.",
+        "palate": "Medium-bodied with vibrant acidity that drives the palate forward, revealing layers of crisp Granny Smith apple, Meyer lemon, and white peach. The mid-palate shows impressive mineral tension with flinty, saline notes characteristic of Burgundy's chalky soils, balanced by creamy texture from partial malolactic fermentation. Flavors of blanched almond and subtle butter add richness without overwhelming the wine's essential freshness and purity of fruit.",
+        "finish": "The finish is clean and persistent, with lingering citrus acidity and chalky minerality that refresh the palate. A whisper of toasted oak and white pepper appears on the tail, encouraging another sip. This is a food-friendly wine built for near-term enjoyment over the next 2-4 years."
+      },
+      "foodPairings": [
+        "Grilled sea bass with herb butter",
+        "Roasted chicken with lemon and thyme",
+        "Goat cheese salad with walnuts",
+        "Scallops in white wine sauce",
+        "Mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "No decanting needed; this wine is best enjoyed fresh from the bottle to preserve its delicate aromatics and crisp acidity",
+        "glassware": "White Burgundy glass or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Bourgogne AOC, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Dry white wine, medium-bodied with mineral focus",
+        "ageability": "Drink within 2-4 years to enjoy optimal freshness; peak drinking window is 2024-2026"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Simply Syrah 2015",
+      "description": "A mature Syrah showcasing the development and complexity that comes with nearly a decade of bottle age. This wine represents the classic New World Syrah style with ripe fruit character mellowed by time, offering drinking pleasure now with layered tertiary aromatics and a softened tannic structure.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals evolved aromas of dark plum compote, blackberry preserves, and dried Mission fig, with tertiary notes of leather, tobacco leaf, and cedar box emerging from extended bottle age. Warm spice notes of black pepper, clove, and star anise add complexity, while hints of dried herbs—thyme and sage—provide savory intrigue. The aromatic profile shows beautiful integration and sophistication from its nine years of evolution.",
+        "palate": "Full-bodied with a velvety texture, the palate displays mature flavors of black cherry, dark chocolate, and espresso bean, complemented by earthy notes of truffle and forest floor. The tannins have softened considerably, creating a smooth, supple mouthfeel that's immediately approachable. Mid-palate richness is balanced by moderate acidity, while flavors of dried meat, kalamata olive, and smoky bacon add savory depth characteristic of aged Syrah.",
+        "finish": "The finish is long and warming, with lingering notes of dark fruit, roasted coffee, and sweet spice. Soft, integrated tannins provide gentle grip, while a subtle smokiness and hint of leather persist on the tail. This wine is in its drinking window now, offering immediate pleasure with no further aging required."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Beef short ribs braised in red wine",
+        "Duck confit with wild mushrooms",
+        "Aged cheddar or Manchego cheese",
+        "Venison stew with root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to breathe and reveal its full aromatic complexity; this will help integrate any remaining sediment",
+        "glassware": "Large Bordeaux or Syrah glass to capture the wine's evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Origin undetermined (likely California or Australia based on naming convention)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2015",
+        "style": "Full-bodied dry red wine, mature and ready to drink",
+        "ageability": "Drink now through 2026; this wine is at peak maturity and should be consumed within the next 1-2 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Costers del Segre Petit Sios Tinto 2022",
+      "description": "A vibrant red blend from Catalonia's Costers del Segre region, where continental climate and limestone-rich soils at 250-700 meters elevation produce wines of concentration and character. The blend likely features local Spanish varieties such as Garnatxa Negra and Tempranillo alongside international grapes, reflecting the region's diverse plantings and modern winemaking approach.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with fresh red fruit aromas of ripe cherry, wild strawberry, and red currant, accented by Mediterranean herbs—rosemary, lavender, and dried thyme. Subtle notes of violet and rose petal add floral lift, while hints of sweet spice—cinnamon and nutmeg—emerge from oak aging. The continental climate's extreme temperature swings are evident in the wine's concentration and aromatic intensity, with a touch of graphite and mineral undertones reflecting the region's limestone soils.",
+        "palate": "Medium to full-bodied with juicy acidity that brings freshness and vibrancy to the palate. Flavors of bright cherry, raspberry, and pomegranate dominate, supported by subtle earthy notes of dried herbs and black olive tapenade. The mid-palate reveals fine-grained tannins and a touch of vanilla and toast from oak influence, while the wine's mineral backbone provides structure and length. The blend's components show excellent integration, creating a harmonious and balanced wine.",
+        "finish": "The finish is medium-long with persistent red fruit character and refreshing acidity that cleanses the palate. A subtle herbaceous quality lingers alongside soft tannins, while hints of spice and mineral add complexity. This is a versatile, food-friendly wine built for enjoyment over the next 3-5 years."
+      },
+      "foodPairings": [
+        "Grilled chorizo and peppers",
+        "Paella with chicken and seafood",
+        "Manchego cheese with quince paste",
+        "Lamb kebabs with Mediterranean spices",
+        "Roasted pork loin with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Brief decanting of 15-20 minutes will help the wine open up and integrate its components; not strictly necessary for this youthful, approachable style",
+        "glassware": "Standard red wine glass or medium-sized Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Costers del Segre DO, Catalonia, Spain",
+        "grapeVariety": "Red blend (likely Garnatxa Negra, Tempranillo, with possible Cabernet Sauvignon or Merlot)",
+        "vintage": "2022",
+        "style": "Medium to full-bodied dry red wine with fresh fruit focus",
+        "ageability": "Drink now through 2027; best enjoyed while fruit character remains vibrant and primary"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine de la Denante Bourgogne Chardonnay 2022",
+      "description": "An elegant Bourgogne Chardonnay representing the entry to village-level Burgundy, where terroir expression takes precedence over winemaking manipulation. Sourced from vineyards in Burgundy's limestone-rich landscape, this wine embodies the region's hallmark minerality and precise fruit character with minimal oak intervention to showcase the purity of Chardonnay.",
+        "tastingNotes": {
+        "aroma": "Crystalline aromas of white peach, Asian pear, and citrus blossom open the bouquet, accompanied by delicate notes of white flowers and fresh-cut herbs. Mineral notes of wet stone and sea shell emerge prominently, characteristic of Burgundy's Kimmeridgian limestone soils, while subtle hints of brioche and hazelnut suggest gentle lees contact. The nose is refined and nuanced, showing classic restraint and elegance rather than overt power.",
+        "palate": "Medium-bodied with razor-sharp acidity that defines the wine's architecture, delivering flavors of tart green apple, lemon curd, and white grapefruit. The palate shows impressive mineral tension with saline, chalky notes that provide structure and length, balanced by a creamy texture from batonnage. Flavors of almond skin and subtle butterscotch add depth without obscuring the wine's essential purity and focus on terroir expression.",
+        "finish": "The finish is crisp and exceptionally clean, with persistent citrus and mineral notes that invigorate the palate. A subtle flintiness and hint of white pepper linger, encouraging food pairing. This wine's high acidity and mineral drive make it ideal for consumption within 3-5 years while maintaining its vibrant character."
+      },
+      "foodPairings": [
+        "Oysters on the half shell with mignonette",
+        "Pan-seared Dover sole with brown butter",
+        "Coq au vin blanc (chicken in white wine)",
+        "Aged Comté or Gruyère cheese",
+        "Crab cakes with lemon aioli"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting required; serve directly from the bottle to preserve the wine's delicate floral aromatics and bright acidity",
+        "glassware": "White Burgundy glass or tulip-shaped white wine glass"
+      },
+      "wineDetails": {
+        "region": "Bourgogne AOC, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Dry white wine, medium-bodied with pronounced minerality",
+        "ageability": "Drink within 3-5 years; optimal drinking window is 2024-2027 while the wine retains its freshness and mineral precision"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Cabernet Sauvignon Reserve 2019",
+      "description": "A premium estate Cabernet Sauvignon from Hendry's 114-acre vineyard near Mt. Veeder in Napa Valley, where the family has been farming since 1939. The Reserve designation represents the finest barrels selected from blocks planted on the property's diverse soils, showcasing the marine-influenced terroir and over 85 years of viticultural expertise with concentrated, age-worthy fruit.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with profound aromas of cassis, black cherry, and dark plum, layered with notes of blackberry compote and boysenberry. Complex secondary aromas of graphite, cigar box, and crushed violets emerge, while tertiary notes of vanilla bean, toasted oak, and baking spices—cinnamon, nutmeg, and clove—add dimension from careful barrel selection. Hints of bay laurel, sage, and eucalyptus reflect the wine's Napa Valley mountain influence and proximity to Mt. Veeder's elevation.",
+        "palate": "Full-bodied and structured with firm, fine-grained tannins that provide both power and elegance. The palate displays concentrated flavors of ripe blackcurrant, dark cherry, and black plum, supported by notes of dark chocolate, espresso, and mocha from premium French oak aging. Mid-palate richness is balanced by bright acidity that lifts the fruit and provides freshness, while earthy undertones of graphite, leather, and forest floor add complexity. The wine shows excellent concentration and depth characteristic of Hendry's estate-grown fruit.",
+        "finish": "The finish is long and persistent, with lingering dark fruit, sweet spice, and fine tannins that grip the palate without harshness. Notes of cocoa powder, toasted oak, and a subtle minerality extend the conclusion, while integrated alcohol provides warmth. This is an age-worthy Reserve Cabernet that will develop beautifully over the next 10-15 years."
+      },
+      "foodPairings": [
+        "Grilled dry-aged ribeye steak",
+        "Braised short ribs with red wine reduction",
+        "Roasted rack of lamb with herb crust",
+        "Wild mushroom and truffle risotto",
+        "Aged blue cheese or sharp aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 1-2 hours before serving to allow the wine to breathe and soften the tannins; this will reveal the full complexity and integration of the wine's components",
+        "glassware": "Large Bordeaux glass or Cabernet-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (estate vineyard near Mt. Veeder)",
+        "grapeVariety": "Cabernet Sauvignon (likely 85-100% with possible small percentages of traditional Bordeaux varieties)",
+        "vintage": "2019",
+        "style": "Full-bodied dry red wine, structured and age-worthy",
+        "ageability": "Drink 2025-2034; currently approachable but will develop additional complexity with 5-10 years of cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Finca Buenaventura Bunbury Red Blend 2018",
+      "description": "A crafted red blend from Spain showcasing the art of assemblage, where complementary grape varieties are brought together to create complexity and balance. This wine reflects a modern approach to Spanish winemaking, blending traditional varieties with international grapes to produce a structured, age-worthy wine with six years of bottle maturation adding depth and integration.",
+      "tastingNotes": {
+        "aroma": "The nose reveals evolved aromas of dark cherry, blackberry, and plum preserves, interwoven with notes of dried fig and raisin from bottle age. Tertiary aromas of leather, tobacco, and cedar emerge prominently, while hints of vanilla, cocoa, and sweet spice—cinnamon and allspice—add complexity from oak aging. Subtle earthy notes of mushroom and forest floor speak to the wine's maturity, with dried Mediterranean herbs—oregano and marjoram—providing aromatic lift.",
+        "palate": "Full-bodied with a velvety texture and well-integrated tannins softened by bottle age. The palate displays mature flavors of black cherry compote, dark plum, and blackcurrant, complemented by notes of dark chocolate, espresso, and roasted coffee beans. Mid-palate depth reveals earthy complexity with truffle, graphite, and dried meat character, while the wine's balanced acidity provides structure and freshness. The blend's components show seamless integration after six years of evolution.",
+        "finish": "The finish is long and satisfying, with lingering notes of dark fruit, leather, and sweet oak spice. Soft, resolved tannins provide gentle grip while maintaining elegance, and a subtle smokiness with hints of balsamic reduction persist on the tail. This wine is drinking beautifully now and over the next 3-5 years."
+      },
+      "foodPairings": [
+        "Grilled Spanish Ibérico pork with chimichurri",
+        "Braised lamb shanks with rosemary and garlic",
+        "Beef tenderloin with mushroom demi-glace",
+        "Aged Manchego or Mahón cheese",
+        "Wild boar ragu over pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 30-60 minutes to allow the wine to open fully and integrate its mature characteristics; this will help any sediment settle",
+        "glassware": "Large Bordeaux glass or standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region undetermined)",
+        "grapeVariety": "Red blend (likely combination of Tempranillo, Garnacha, and international varieties such as Cabernet Sauvignon or Merlot)",
+        "vintage": "2018",
+        "style": "Full-bodied dry red wine, mature and ready to drink",
+        "ageability": "Drink now through 2028; this wine is at peak maturity and should be enjoyed over the next few years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sonder Grenache blanc 2023",
+      "description": "A fresh, contemporary expression of Grenache Blanc showcasing the variety's inherent richness and aromatic complexity. This wine represents the modern revival of interest in white Rhône varieties, offering a full-bodied alternative to Chardonnay with distinctive stone fruit character, floral aromatics, and textural depth from the variety's naturally rich phenolic structure.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with intoxicating aromas of white peach, apricot, and honeydew melon, layered with notes of white flowers—orange blossom, jasmine, and honeysuckle. Subtle hints of almond paste, marzipan, and honey add richness, while a touch of fresh ginger and white pepper provides spicy lift. The aromatics show impressive purity and intensity, characteristic of well-made Grenache Blanc, with mineral undertones of crushed stone adding complexity.",
+        "palate": "Medium to full-bodied with a rich, almost viscous texture that coats the palate, balanced by vibrant acidity that provides freshness and definition. Flavors of ripe yellow peach, nectarine, and golden delicious apple dominate, supported by notes of honeycomb, toasted almond, and brioche from possible lees contact. The mid-palate reveals layers of citrus—Meyer lemon and candied orange peel—alongside subtle herbal notes of fennel and anise. The wine's phenolic structure adds grip and length without bitterness.",
+        "finish": "The finish is long and mouth-coating, with persistent stone fruit flavors and a hint of sweet spice. Refreshing acidity balances the wine's natural richness, while subtle mineral notes and a touch of salinity add complexity and encourage another sip. This is a food-friendly white wine best enjoyed within 2-3 years to preserve its vibrant fruit character."
+      },
+      "foodPairings": [
+        "Grilled lobster with herb butter",
+        "Pan-seared scallops with cauliflower purée",
+        "Roasted chicken with apricot glaze",
+        "Aged Gouda or aged white cheddar",
+        "Thai green curry with shrimp"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "No decanting necessary; this wine benefits from being served slightly warmer than typical whites to showcase its full-bodied texture and aromatic complexity",
+        "glassware": "White Burgundy glass or full-bodied white wine glass"
+      },
+      "wineDetails": {
+        "region": "Origin undetermined (likely California Central Coast or Rhône Valley, France)",
+        "grapeVariety": "100% Grenache Blanc",
+        "vintage": "2023",
+        "style": "Medium to full-bodied dry white wine with rich texture",
+        "ageability": "Drink within 2-3 years; best enjoyed while the wine's fresh fruit character and aromatic intensity remain at their peak"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry HRW Zinfandel 2020",
+      "description": "A distinctive Zinfandel from Hendry's estate vineyard in Napa Valley, the HRW designation represents a special selection showcasing the variety's bold character and the family's 85+ years of viticultural expertise. Sourced from specific blocks on the 114-acre property near Mt. Veeder, this wine benefits from marine influence and diverse soil types to produce concentrated, balanced Zinfandel with Hendry's signature approachable style.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with exuberant aromas of ripe blackberry, boysenberry, and black raspberry, accented by notes of black cherry preserves and wild strawberry. Warm spice aromas of black pepper, cinnamon, and clove are prominent, characteristic of classic Zinfandel, while hints of vanilla, mocha, and toasted oak add dimension from barrel aging. Subtle notes of dried herbs—thyme and oregano—emerge alongside hints of bramble and earth, reflecting the vineyard's terroir.",
+        "palate": "Full-bodied and richly textured with moderate tannins that provide structure without overwhelming the wine's fruit-forward character. The palate delivers concentrated flavors of jammy blackberry, blueberry compote, and dark cherry, supported by notes of dark chocolate, espresso, and sweet tobacco. Mid-palate richness is balanced by bright acidity that lifts the fruit and prevents heaviness, while subtle earthy undertones of leather and dried herb add complexity. The wine shows Hendry's hallmark balance between power and elegance.",
+        "finish": "The finish is long and warming, with persistent dark fruit flavors and spicy notes of black pepper and cinnamon. Soft tannins provide gentle grip, while hints of vanilla and toasted oak linger alongside the fruit. A subtle smokiness and touch of chocolate appear on the tail, making this a hedonistic yet balanced Zinfandel perfect for immediate enjoyment."
+      },
+      "foodPairings": [
+        "Barbecue baby back ribs with tangy sauce",
+        "Grilled burger with caramelized onions and aged cheddar",
+        "Spicy Italian sausage pizza",
+        "Smoked brisket with bourbon glaze",
+        "Pepper-crusted venison medallions"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to integrate the wine's components and allow the fruit to shine; this will soften any grippy tannins",
+        "glassware": "Large Bordeaux glass or Zinfandel-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (estate vineyard near Mt. Veeder)",
+        "grapeVariety": "Zinfandel (likely 90-100% with possible small percentages of Petite Sirah or other field blend varieties)",
+        "vintage": "2020",
+        "style": "Full-bodied dry red wine, fruit-forward and approachable",
+        "ageability": "Drink now through 2028; this wine is designed for near-term enjoyment but has the structure to age gracefully for 5-8 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casa Dumetz Clementine Carter Roussanne 2023",
+      "description": "An exceptional single-vineyard Roussanne from Casa Dumetz, showcasing this Rhône variety's remarkable ability to produce complex, age-worthy white wines in California's Central Coast. The Clementine Carter vineyard designation indicates a site-specific expression, reflecting Casa Dumetz's commitment to terroir-driven winemaking and the distinct characteristics of this particular site's soil, elevation, and microclimate.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals captivating aromas of ripe pear, quince, and golden apple, interwoven with exotic notes of mango, papaya, and lychee that speak to Roussanne's aromatic complexity. White floral notes of jasmine, orange blossom, and acacia add elegance, while hints of honey, beeswax, and toasted almond provide depth. Subtle herbal undertones of chamomile and lemon verbena emerge, alongside mineral notes of wet stone and saline that reflect the vineyard's unique terroir.",
+        "palate": "Full-bodied and richly textured with a luscious, almost oily mouthfeel characteristic of exceptional Roussanne, balanced by crisp acidity that provides lift and definition. The palate delivers layers of ripe stone fruit—white peach and apricot—alongside flavors of Meyer lemon, tangerine, and candied ginger. Mid-palate complexity reveals notes of honeycomb, marcona almond, and brioche, while subtle mineral and saline qualities add structure and length. The wine shows beautiful integration and harmony between richness and freshness.",
+        "finish": "The finish is long and persistent, with lingering stone fruit flavors, honeyed richness, and bright citrus acidity that cleanses the palate. A subtle spiciness—white pepper and ginger—appears on the tail, alongside mineral notes and a hint of salinity. This is a complex, food-friendly Roussanne that will develop beautifully over the next 5-7 years with proper cellaring."
+      },
+      "foodPairings": [
+        "Butter-poached lobster with tarragon",
+        "Seared halibut with saffron cream sauce",
+        "Roasted pork tenderloin with apricot chutney",
+        "Aged Gruyère or Comté cheese",
+        "Thai coconut curry with chicken"
+      ],
+      "servingInfo": {
+        "temperature": "52-56°F (11-13°C)",
+        "decanting": "Light decanting of 15-20 minutes can help the wine open up and reveal its full aromatic complexity; serve slightly warmer than typical whites to showcase texture",
+        "glassware": "White Burgundy glass or full-bodied white wine glass"
+      },
+      "wineDetails": {
+        "region": "California Central Coast (likely Santa Barbara County based on Casa Dumetz's portfolio)",
+        "grapeVariety": "100% Roussanne from Clementine Carter Vineyard",
+        "vintage": "2023",
+        "style": "Full-bodied dry white wine with rich texture and complexity",
+        "ageability": "Drink 2024-2030; Roussanne is known for aging potential and will develop honeyed, nutty complexity with 3-7 years of cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Merlot Keg 2021  20 l",
+      "description": "A versatile Merlot packaged in a 20-liter keg format, representing the growing trend toward sustainable, draft wine service in restaurants and venues. This wine offers classic Merlot characteristics with soft tannins and approachable fruit character, designed for fresh, by-the-glass service that minimizes waste and maintains freshness through the keg's pressurized system.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting aromas of ripe plum, black cherry, and red currant, accented by notes of milk chocolate and vanilla from oak influence. Subtle hints of dried herbs—bay leaf and sage—add complexity, while soft floral notes of violet provide aromatic lift. The bouquet shows gentle integration and approachability, with earthy undertones of graphite and forest floor adding depth to the fruit-forward profile.",
+        "palate": "Medium to full-bodied with a supple, velvety texture and soft tannins that make this wine immediately accessible and food-friendly. Flavors of dark cherry, blackberry, and plum dominate the palate, supported by notes of mocha, dark chocolate, and subtle toast from oak aging. Mid-palate smoothness is balanced by moderate acidity that provides freshness, while earthy notes of tobacco leaf and leather add complexity. The wine shows classic Merlot charm with its round, generous mouthfeel.",
+        "finish": "The finish is medium-length with lingering dark fruit flavors and soft, resolved tannins that leave a pleasant, smooth impression. Subtle notes of cocoa powder and sweet oak spice persist, while a touch of earthiness adds interest. This is an easy-drinking, versatile Merlot designed for enjoyment over the next 2-3 years in its keg format."
+      },
+      "foodPairings": [
+        "Grilled burgers with mushrooms and Swiss cheese",
+        "Roasted chicken with herb butter",
+        "Pasta Bolognese or lasagna",
+        "Medium-aged cheddar or Gouda",
+        "Mushroom and caramelized onion pizza"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "No decanting necessary for keg-dispensed wine; the pressurized system maintains freshness and integration",
+        "glassware": "Standard red wine glass or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Origin undetermined (likely California or Australia based on keg packaging trend)",
+        "grapeVariety": "Merlot (likely 85-100% with possible small percentages of Cabernet Sauvignon or other Bordeaux varieties)",
+        "vintage": "2021",
+        "style": "Medium to full-bodied dry red wine, soft and approachable",
+        "ageability": "Drink within 2-3 years from kegging; keg format is designed for fresh, near-term consumption to ensure optimal quality"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Scenic Valley Farms Pinot Noir 2021",
+    "description": "A refined Oregon Pinot Noir from Willamette Valley's Scenic Valley Farms showcasing the terroir's signature elegance. This wine expresses classic cool-climate Pinot characteristics with bright fruit purity and silky texture, earning 90+ points from professional critics.",
+    "tastingNotes": {
+      "aroma": "The nose opens with enticing aromas of strawberry pie and blackcap raspberries layered with fresh cranberry and red currants. Subtle notes of violets and fresh turned earth emerge, accompanied by delicate hints of underbrush, suede, and wet concrete after summer rain. Light touches of cardamom, clove, and black pepper add complexity.",
+      "palate": "On the palate, the wine delivers flavors of blueberry, raspberry, and red cherry with cream and vanilla undertones. Cedar, sage, and Earl Grey tea notes weave through the mid-palate, supported by bramble and earthy characteristics. The texture is silky with plush acidity and smooth, refined tannins creating elegant balance.",
+      "finish": "The finish is medium-plus in length, featuring lingering cherry and earth notes with mild funk and spice complexity. The wine concludes with oaky vanilla accents and persistent red berry fruit character."
+    },
+    "foodPairings": [
+      "Herb-roasted duck breast with cherry gastrique",
+      "Wild mushroom risotto with truffle oil",
+      "Grilled Pacific Northwest salmon with pinot noir reduction",
+      "Aged Gruyère and charcuterie board",
+      "Roasted beet salad with goat cheese and candied walnuts"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-65°F (15-18°C)",
+      "decanting": "Brief 15-20 minute decanting recommended to open aromatics; can be enjoyed immediately from the bottle",
+      "glassware": "Burgundy or large-bowl Pinot Noir glass"
+    },
+    "wineDetails": {
+      "region": "Willamette Valley, Oregon",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2021",
+      "style": "Cool-climate Pinot Noir with elegant structure and bright fruit",
+      "ageability": "Drink now through 2026; peak drinking 2024-2025"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Napa Valley Burly Simpkins Cabernet Sauvignon Magnum 2022  1.5 l",
+    "description": "An elegantly structured Napa Valley Cabernet Sauvignon showcasing the intense fruit concentration and velvety texture that defines premium Napa wines. This magnum format wine offers dusty chocolate and bright dark cherry layers with impressive aging potential.",
+    "tastingNotes": {
+      "aroma": "Dusty chocolate and black cherry aromas dominate the nose, layered with bright fruit notes and subtle oak influence. Cassis and boysenberry emerge with aeration, complemented by hints of vanilla bean, toasted cedar, and baking spices. A whisper of violets adds floral complexity.",
+      "palate": "The palate is velvety and intense, delivering concentrated dark cherry and boysenberry flavors at entry. Mid-palate shows exceptional silkiness with blackcurrant, dark plum, and chocolate notes. Oak integration brings touches of vanilla, mocha, and light toast without overwhelming the fruit.",
+      "finish": "An elegant, structured finish showcases fine-grained tannins and persistent dark fruit character. The wine concludes with lingering notes of black cherry, cocoa, and subtle spice."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with compound butter",
+      "Braised short ribs with red wine demi-glace",
+      "Herb-crusted rack of lamb",
+      "Aged cheddar and blue cheese selection",
+      "Wild mushroom and truffle pasta"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 45-60 minutes to allow the wine to breathe and reveal complexity; magnum format benefits from extended aeration",
+      "glassware": "Large Bordeaux or Cabernet Sauvignon glass"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2022",
+      "style": "Full-bodied Napa Cabernet with elegant structure and concentrated fruit",
+      "ageability": "Drink 2025-2035; magnum format will age gracefully for 12+ years with proper cellaring"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-21T12:47:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Calyptra Marginado 2021",
+    "description": "A distinctive mountain Syrah from Chile's high-altitude Cachapoal Valley crafted by Argentine winemaker Emiliano Domínguez. Made with partial carbonic maceration, this wine represents a pure expression of cool-climate Chilean Syrah with unique aromatics and fresh character.",
+    "tastingNotes": {
+      "aroma": "The nose offers sweet notes of wild strawberry and fresh rosehip characteristic of carbonic maceration, complemented by red berry compote and floral violet hints. Subtle touches of white pepper, dried herbs, and mountain minerality add complexity and elevate the aromatic profile.",
+      "palate": "Medium-bodied with vibrant red fruit flavors of strawberry, raspberry, and cranberry dancing across the palate. The carbonic maceration technique imparts soft tannins and a silky texture, while maintaining fresh acidity. Notes of rose petal, pink peppercorn, and subtle savory herbs create an elegant, nuanced palate.",
+      "finish": "The finish is clean and refreshing with persistent red fruit character and mineral undertones. Delicate spice notes and a touch of mountain freshness linger pleasantly."
+    },
+    "foodPairings": [
+      "Grilled Chilean salmon with chimichurri",
+      "Roasted duck with berry compote",
+      "Charcuterie board with soft cheeses",
+      "Mushroom and herb tart",
+      "Grilled vegetables with herbes de Provence"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 58-62°F (14-17°C)",
+      "decanting": "Brief 20-30 minute decanting enhances the aromatics; can also be enjoyed with minimal aeration",
+      "glassware": "Burgundy or universal wine glass"
+    },
+    "wineDetails": {
+      "region": "Cachapoal Valley, Chile (high-altitude vineyards)",
+      "grapeVariety": "100% Syrah",
+      "vintage": "2021",
+      "style": "Cool-climate Syrah with carbonic maceration influence, fresh and aromatic",
+      "ageability": "Best enjoyed 2024-2027 while maintaining freshness and vibrancy"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T12:49:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Paso Robles Pomar Junction Brooster Red Blend 2018",
+    "description": "A Silver medal-winning red blend from Paso Robles crafted in the approachable 'Fighting Red' style. This expertly balanced six-grape blend aged 18 months in neutral oak delivers complexity and character at an exceptional value, perfect for casual enjoyment and restaurant service.",
+    "tastingNotes": {
+      "aroma": "Medium-intensity aromatics reveal red berry and dark plum fruits with spicy accents of black pepper and caramel. Subtle hints of dried herbs, graphite minerality, and light vanilla from neutral oak add depth without overwhelming the fresh fruit character.",
+      "palate": "Medium-bodied palate showcases the complexity of the six-grape blend: Zinfandel's bright red berry fruit, Syrah's black pepper spice, Cabernet Sauvignon's structure, Grenache's juicy red fruit, Mourvèdre's earthy complexity, and Petit Verdot's dark color and grip. Flavors of ripe strawberry, plum, caramel, black pepper, and minerality create a harmonious, layered experience.",
+      "finish": "The finish is smooth and approachable with just a hint of oak, fine tannins, and lingering notes of red berries and subtle spice. The balance invites another sip."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary",
+      "BBQ ribs with smoky sauce",
+      "Cheeseburgers with aged cheddar",
+      "Pasta with bolognese sauce",
+      "Roasted chicken with herbs"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "No decanting necessary; screw cap closure ensures optimal freshness; can be enjoyed immediately",
+      "glassware": "Standard red wine glass or universal stemware"
+    },
+    "wineDetails": {
+      "region": "Paso Robles, California",
+      "grapeVariety": "Blend: 30% Zinfandel, 25% Syrah, 20% Cabernet Sauvignon, 17% Grenache Noir, 6% Mourvèdre, 2% Petit Verdot",
+      "vintage": "2018",
+      "style": "Approachable, medium-bodied red blend with spice and complexity; 'Fighting Red' style",
+      "ageability": "Drink now through 2026; crafted for near-term enjoyment at peak freshness"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.93,
+      "researchedAt": "2025-10-21T12:51:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Ontanon Tempranillo Blanco (White) 2019",
+    "description": "A rare white wine made from Tempranillo Blanco, a natural mutation of red Tempranillo, from one of Rioja's pioneering producers. Bodegas Ontañón planted 15 hectares of this scarce variety in 2010, making this an exciting expression of a wine type produced by only a handful of Rioja growers.",
+    "tastingNotes": {
+      "aroma": "Very elegant nose bursting with intense tropical fruit aromas of pineapple, banana, and ripe mango, complemented by white blossom notes and citrus zest. Hints of cooking apples and stone fruit add complexity, while subtle mineral undertones reflect the Rioja terroir.",
+      "palate": "The palate offers impressive texture and balance featuring ripe stone fruit characters of peach and apricot alongside persistent tropical fruit flavors. A hint of orange blossom provides delicate floral notes, while crisp, vibrant acidity maintains freshness throughout. Excellent minerality adds structure and depth to the medium-bodied palate.",
+      "finish": "A lengthy, refreshing finish showcases the wine's balance with lingering tropical fruit, citrus zest, and mineral notes. The crisp acidity ensures a clean, mouth-watering conclusion."
+    },
+    "foodPairings": [
+      "Grilled shrimp with tropical salsa",
+      "Pan-seared scallops with citrus beurre blanc",
+      "Thai coconut curry with chicken",
+      "Fresh oysters with mignonette",
+      "Goat cheese and fig crostini"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+      "decanting": "No decanting needed; pour directly from bottle to preserve freshness and vibrant aromatics",
+      "glassware": "White wine glass or aromatic white varietal glass"
+    },
+    "wineDetails": {
+      "region": "Rioja, Spain",
+      "grapeVariety": "100% Tempranillo Blanco (natural white mutation of Tempranillo)",
+      "vintage": "2019",
+      "style": "Aromatic, textured white wine with tropical fruit and crisp acidity",
+      "ageability": "Best enjoyed 2024-2025 to appreciate its fresh, vibrant character"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.87,
+      "researchedAt": "2025-10-21T12:53:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Bodegas Riojanas Monte Real Crianza 2021",
+    "description": "A highly acclaimed Rioja Crianza from historic Bodegas Riojanas earning 90-91 points from multiple professional critics including James Suckling, Wine Enthusiast, and Wine Spectator. This modern yet traditional expression offers exceptional quality at an outstanding value price point of around $16.",
+    "tastingNotes": {
+      "aroma": "Rich and complex nose with aromas of ripe red fruit, blackberries, dark cherries, and plums interwoven with notes of vanilla, dark chocolate, lavender, and grilled spices from oak aging. Touches of tobacco, coffee, and toasty oak add depth and sophistication.",
+      "palate": "Full-bodied and well-structured palate delivers juicy, concentrated flavors of black currant, blackberry, ripe cherry, and plum mingling with mocha, coffee, and toasty oak notes. Spicy entry with opening notes of clove and mint gives way to dark chocolate, violet, herb, and earthy undertones. The smooth texture masks good concentration while firm, fresh tannins provide excellent structure.",
+      "finish": "The vibrant, lengthy finish showcases linear savory fruit with touches of coffee, spice, leather, and loamy earth. Well-integrated oak and refined tannins create a balanced, elegant conclusion that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary and garlic",
+      "Iberico ham and Manchego cheese tapas",
+      "Beef tenderloin with red wine reduction",
+      "Mushroom and truffle risotto",
+      "Chorizo and roasted pepper paella"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "30-45 minutes decanting recommended to soften tannins and open aromatics; can be enjoyed immediately if necessary",
+      "glassware": "Bordeaux or medium-bowl red wine glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Primarily Tempranillo with traditional Rioja supporting varieties",
+      "vintage": "2021",
+      "style": "Modern yet traditional Rioja Crianza with balanced oak and fruit; vegan-friendly",
+      "ageability": "Drink now through 2028; peak drinking 2024-2026"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.96,
+      "researchedAt": "2025-10-21T12:55:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Southern Belle Poor Thing 2014",
+    "description": "An innovative wine aged in legendary Pappy Van Winkle bourbon barrels, representing the pioneering use of premium aged bourbon casks in wine vinification. This 100% Grenache from Castilla y León delivers a unique fusion of European elegance and New World bourbon barrel character.",
+    "tastingNotes": {
+      "aroma": "Loads of red and black fruit aromatics featuring ripe blackberries, dark cherries, and plums with exotic spicy character from bourbon barrel aging. Big vanilla notes emerge alongside hints of caramel, toasted oak, and baking spices. Subtle earthy undertones add complexity to the fruit-forward nose.",
+      "palate": "Full-bodied wine with superb balance and creamy texture reminiscent of New World style. Flavors of blackberry, cherry, and red plum mingle with pronounced vanilla, butterscotch, and sweet oak from the Pappy Van Winkle barrels. Smooth, soft tannins create an elegant mouthfeel while maintaining structure, with earthy notes providing savory counterpoint to the fruit and oak sweetness.",
+      "finish": "Long, luxurious finish showcases the harmonious integration of fruit, oak, and bourbon barrel influence. Vanilla, spice, and dark fruit linger pleasantly with velvety tannins and subtle warmth."
+    },
+    "foodPairings": [
+      "Grilled ribeye with bourbon peppercorn sauce",
+      "Slow-roasted pork shoulder with BBQ glaze",
+      "Aged Manchego and smoked Gouda cheese board",
+      "Braised lamb shanks with root vegetables",
+      "Dark chocolate bourbon tart"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 30-45 minutes to integrate the bourbon barrel notes and soften the structure",
+      "glassware": "Large-bowl red wine glass or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Vino de la Tierra de Castilla y León, Spain",
+      "grapeVariety": "100% Grenache (Garnacha)",
+      "vintage": "2014",
+      "style": "Full-bodied, bourbon barrel-aged Grenache with New World character and higher alcohol",
+      "ageability": "Drink now through 2027; the bourbon barrel influence is beautifully integrated with age"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.89,
+      "researchedAt": "2025-10-21T12:57:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine de la Denante Macon La Roche Vineuse Chardonnay 2023",
+    "description": "An elegant expression of Mâconnais Chardonnay from a family-run sustainable estate founded in 1975. The 18-hectare property's vines benefit from clay-limestone soils descending from the iconic rocks of Solutré and Vergisson, creating a refined, terroir-driven wine with impressive minerality.",
+    "tastingNotes": {
+      "aroma": "Clear, bright gold color introduces a refined and elegant nose combining white flowers—acacia and elderflower—with pronounced minerality characteristic of the terroir. Light touches of dried apricot, hazelnut, and subtle citrus zest add complexity while maintaining finesse.",
+      "palate": "The palate opens with a vigorous, mineral-driven attack that gives way to a surprising yet elegant aromatic explosion of white orchard fruits—pear and apple—with accents of citrus and stony minerality. The texture is both fresh and creamy, showcasing excellent balance between acidity and richness.",
+      "finish": "Long and rounded finish with persistent minerality, citrus notes, and delicate almond undertones. The conclusion is clean and refreshing, inviting another sip."
+    },
+    "foodPairings": [
+      "Roasted chicken with herbs de Provence",
+      "Pan-seared sea bass with lemon beurre blanc",
+      "Fresh oysters on the half shell",
+      "Comté cheese and charcuterie",
+      "Lobster bisque"
+    ],
+    "servingInfo": {
+      "temperature": "Serve chilled at 50-54°F (10-12°C)",
+      "decanting": "No decanting required; pour directly to preserve freshness and minerality",
+      "glassware": "White Burgundy glass or medium-bowl white wine glass"
+    },
+    "wineDetails": {
+      "region": "Mâcon La Roche-Vineuse, Burgundy, France (Mâconnais)",
+      "grapeVariety": "100% Chardonnay from sustainably managed vines",
+      "vintage": "2023",
+      "style": "Mineral-driven Mâconnais Chardonnay with elegant fruit and terroir expression",
+      "ageability": "Best enjoyed 2024-2027 to appreciate its vibrant fruit and fresh mineral character"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.94,
+      "researchedAt": "2025-10-21T12:59:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Vina Albina Gran Reserva 1975  1500 ml",
+    "description": "A fully mature Gran Reserva from one of Rioja's most mythic vintages, sourced directly from Bodegas Riojanas' historic library. The 1975 vintage stands alone in its decade alongside 1970 and 1978 for exceptional quality. This rare magnum represents classic traditional Rioja craftsmanship from one of the region's oldest estates, founded in 1890.",
+    "tastingNotes": {
+      "aroma": "Tertiary aromas of aged Rioja showcase evolved notes of tobacco leaf, leather, and cedar box alongside dried red berries, fig, and prune. Orange peel and dried rose petal add complexity, while subtle forest floor, mushroom, and earthy undertones reflect decades of bottle development.",
+      "palate": "Light to medium-bodied palate displays remarkable elegance and silky texture despite its age. Flavors of dried cherry, cranberry, and red currant mingle with tobacco, cedar, orange peel, and sweet spice. The wine retains surprising freshness with smooth, fully integrated tannins and gentle acidity providing structure.",
+      "finish": "Long, refined finish exhibits classic aged Rioja characteristics with lingering notes of tobacco, leather, dried fruit, and subtle oak. The magnum format has preserved the wine's vitality beautifully."
+    },
+    "foodPairings": [
+      "Slow-roasted suckling lamb with rosemary",
+      "Aged Manchego and Idiazábal cheese",
+      "Porcini mushroom risotto",
+      "Roasted duck with cherry sauce",
+      "Jamón Ibérico de Bellota"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-63°F (15-17°C), slightly cooler than younger reds",
+      "decanting": "Decant very carefully for 20-30 minutes to separate from sediment; handle gently as wine is delicate with age",
+      "glassware": "Burgundy or large-bowl red wine glass to appreciate evolved aromatics"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Classic Rioja blend: Tempranillo enhanced by Mazuelo, Graciano, and Garnacha",
+      "vintage": "1975 (mythic vintage, one of the decade's finest)",
+      "style": "Fully mature, traditional Gran Reserva with extensive American oak and bottle aging",
+      "ageability": "Drink now; at 50 years old, this wine is fully mature and should be enjoyed in the near term"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.92,
+      "researchedAt": "2025-10-21T13:01:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Ontanon Reserva 2015",
+    "description": "An outstanding Rioja Reserva earning 93 points from James Suckling and 90 points from Wine Spectator. This wine showcases Bodegas Ontañón's traditional winemaking expertise with 12 months aging in a blend of 60% American and 40% French oak barrels, followed by 24 months bottle aging before release.",
+    "tastingNotes": {
+      "aroma": "Explosive nose with mixed berry fruit including ripe blackberries, plums, and bramble fruit alongside spice and lightly floral notes. Rich complexity emerges with aromas of dried apricots, vanilla, tobacco, and sweet oak spice interwoven with minerality and subtle earthy undertones.",
+      "palate": "Full-bodied and well-structured palate delivers flavors of dark fruit—plum and ripe blackberry—combined with cedar, tobacco, and earthy notes. The wine shows pretty complexity with balanced savory fruit character, ample acidity, and pronounced minerality. Smooth, supple tannins reflect eight years of aging, while the oak influence is beautifully integrated.",
+      "finish": "Lengthy, elegant finish features linear fruit, refined tannins, and fresh acidity in excellent balance. Hints of spice, leather, vanilla, and dark fruit linger pleasantly, inviting contemplation."
+    },
+    "foodPairings": [
+      "Grilled ribeye with chimichurri",
+      "Roasted leg of lamb with garlic and herbs",
+      "Manchego and cured meat tapas",
+      "Wild mushroom and truffle pasta",
+      "Beef empanadas with spicy sauce"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 45-60 minutes to allow the wine to open and reveal its complexity",
+      "glassware": "Bordeaux or large-bowl red wine glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Primarily Tempranillo with traditional Rioja supporting varietals",
+      "vintage": "2015",
+      "style": "Traditional Rioja Reserva with balanced oak aging and excellent fruit preservation",
+      "ageability": "Drink now through 2030; currently in an excellent drinking window with years ahead"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:03:00Z"
+    }
+  }
+]

@@ -1,0 +1,347 @@
+{
+  "batchNumber": 59,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Bodegas Pinea PINEA 2019",
+      "description": "A flagship Ribera del Duero wine from the estate's most expressive Cardisanto parcel, showcasing 25+ year old vines. This critically acclaimed Tempranillo (91/100) represents the pinnacle of modern Spanish winemaking with extended aging in fine-grain French oak barrels.",
+      "tastingNotes": {
+        "aroma": "Brilliant ruby tones reveal an intense and captivating bouquet. The nose opens with ripe black fruits—blackberry and cassis—layered with complex spicy notes of cinnamon and black pepper. Roasted coffee and cocoa emerge alongside subtle vanilla from new oak, creating a fascinating aromatic complexity that evolves in the glass with each swirl.",
+        "palate": "An imposing structure defines the palate, yet refined tannins provide balance and elegance. Big, bold flavors of cooked dark fruits and blackberry compote fill the mouth with intensity. A creamy, concentrated mid-palate shows the wine's approachable nature despite firm tannic backbone. Vibrant acidity cuts through the richness, maintaining freshness and preventing heaviness in this powerful expression.",
+        "finish": "Long-lasting and elegant, the finish extends with persistent dark fruit and subtle oak spice. The refined tannins grip gently, leaving impressions of espresso and dark chocolate that linger beautifully."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Roasted lamb shoulder with rosemary",
+        "Aged Manchego cheese",
+        "Wild mushroom risotto",
+        "Beef short ribs braised in red wine"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow the tight tannins to soften and complex aromas to fully develop",
+        "glassware": "Large Bordeaux glass to concentrate the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero, Castilla y León, Spain (Cardisanto parcel at 931-942m elevation)",
+        "grapeVariety": "100% Tempranillo (Tinto Fino)",
+        "vintage": "2019",
+        "style": "Full-bodied, oak-aged red wine",
+        "ageability": "Drinking beautifully now through 2030-2035. The firm tannic structure and balanced acidity suggest excellent aging potential of 10-15 years from vintage."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Limited Edition Kakhetian Saperavi Merlot 2023",
+      "description": "A unique Ukrainian red wine crafted using the ancient 8,000-year-old Georgian Kakhetian method, where fermentation and aging occur in clay amphoras called Qvevri. This powerful blend combines Georgian Saperavi with Bordeaux Merlot, creating a distinctive expression from Odesa's coastal vineyards.",
+      "tastingNotes": {
+        "aroma": "Bright, expressive aromas leap from the glass with ripe dark berry intensity. Blueberries dominate the core, supported by blackberry compote and black cherry notes. Fresh violet florals add elegance and lift to the fruit-forward profile, while subtle earthy undertones from the Qvevri aging add complexity and intrigue.",
+        "palate": "The palate delivers power wrapped in velvet. Rich, concentrated dark fruit flavors of blueberry and blackberry flood the mouth with intensity. The traditional Kakhetian winemaking imparts unique textural elements—fine-grained tannins feel plush and smooth rather than angular. Medium to full body carries the fruit concentration without heaviness, while the Qvevri influence adds savory depth and mineral notes.",
+        "finish": "Velvety tannins persist through a medium-length finish, with dark berry fruit and violet notes fading slowly. The unique amphora aging leaves subtle earthy impressions."
+      },
+      "foodPairings": [
+        "Georgian khinkali dumplings",
+        "Grilled lamb kebabs with pomegranate",
+        "Eggplant moussaka",
+        "Beef stroganoff",
+        "Hard cheeses with fig jam"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Brief 30-minute decanting helps integrate the fruit and earthy elements from Qvevri aging",
+        "glassware": "Standard red wine glass or Burgundy bowl"
+      },
+      "wineDetails": {
+        "region": "Odesa, Ukraine (Black Sea coastal region)",
+        "grapeVariety": "Saperavi and Merlot blend (exact percentages not specified)",
+        "vintage": "2023",
+        "style": "Full-bodied red wine, Kakhetian method (Qvevri-aged)",
+        "ageability": "Best enjoyed young within 3-5 years to appreciate the fresh fruit and unique Qvevri characteristics. Drink 2023-2028."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alfaro Family Vineyards A Estate Chardonnay 2020",
+      "description": "A crisp, fruit-forward Chardonnay from Santa Cruz Mountains estate vineyards, showcasing the cool-climate elegance of California's coastal appellations. Small-production wine from this family-owned winery reflects careful vineyard selection and minimal intervention winemaking.",
+      "tastingNotes": {
+        "aroma": "Inviting aromas of ripe yellow orchard fruits open the bouquet. Fresh pear and golden apple lead, followed by white peach and nectarine notes. Subtle hints of lemon curd add brightness, while delicate honeyed oak provides just enough richness without overwhelming the fruit. Faint white flower and mineral notes add complexity.",
+        "palate": "The palate is crisp and refreshing with vibrant acidity driving the wine forward. Intense flavors of pear, green apple, and white peach fill the mid-palate with concentrated fruit character. Lemon curd and subtle vanilla oak add layers of complexity while maintaining freshness. The wine balances richness with elegance, showing restraint in oak usage that allows the pure fruit expression to shine.",
+        "finish": "Clean, bright finish with lingering citrus and apple notes. A mineral quality emerges at the end, providing freshness and length."
+      },
+      "foodPairings": [
+        "Grilled Pacific halibut with lemon-herb butter",
+        "Roasted chicken with herbs de Provence",
+        "Dungeness crab salad",
+        "Creamy mushroom risotto",
+        "Grilled scallops with citrus beurre blanc"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve directly from the bottle to preserve freshness",
+        "glassware": "White Burgundy glass or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Santa Cruz Mountains, California (Estate vineyards in Corralitos area)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2020",
+        "style": "Cool-climate, fruit-forward Chardonnay with moderate oak influence",
+        "ageability": "Best enjoyed within 3-5 years to appreciate the fresh fruit character. Drink 2023-2026."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Benedetti Biologique Vaucluse 2022",
+      "description": "An organic red wine from Vaucluse in southeastern France, produced by a domain certified in organic agriculture since 2000. This elegant blend of Merlot, Cinsault, and Syrah represents excellent value and showcases the aromatic richness of the southern Rhône terroir.",
+      "tastingNotes": {
+        "aroma": "Captivating cherry red color introduces an aromatic nose of great richness. Fresh blackberry and wild berry fruits dominate, enhanced by classic Provençal garrigue herbs—thyme, lavender, and wild rosemary. Delicate violet florals add elegance, while subtle licorice and sweet spice notes from Syrah contribute complexity. Hints of cocoa and dark chocolate round out the bouquet.",
+        "palate": "Elegant and approachable with excellent balance between fruit, structure, and freshness. The palate echoes the nose with wild fruits, blackberry, and garrigue herbal notes. Medium body provides satisfying weight without heaviness. The Merlot contributes roundness, Cinsault adds bright red fruit and freshness, while Syrah provides structure and spice. Aromatic richness carries through from start to finish.",
+        "finish": "Medium-length finish with lingering wild berries, violet, and subtle spice. Soft tannins and bright acidity leave the palate refreshed."
+      },
+      "foodPairings": [
+        "Herbes de Provence lamb chops",
+        "Ratatouille",
+        "Grilled sausages with lentils",
+        "Beef bourguignon",
+        "Medium-aged Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Brief 20-30 minute decanting helps open the wine, though not essential for this approachable style",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "IGP Vaucluse, Provence, France",
+        "grapeVariety": "60% Merlot, 20% Cinsault, 20% Syrah",
+        "vintage": "2022",
+        "style": "Organic, medium-bodied red blend",
+        "ageability": "Best enjoyed within 3-4 years to preserve the fresh fruit and aromatic complexity. Drink 2024-2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bonelli Bonarda Amabile (Frizzante, Semi Sweet) 2023",
+      "description": "A delightful semi-sweet, lightly sparkling red wine from Emilia-Romagna's Colli Piacentini DOC. Made from 100% Croatina grapes (locally called Bonarda) using the Charmat method, this wine offers a unique, approachable style perfect as an aperitif or with fruit-based desserts.",
+      "tastingNotes": {
+        "aroma": "Intense ruby red color with violet highlights catches the eye immediately. The nose releases delicate and pleasant aromas dominated by characteristic violet florals and fresh red cherry. Sweet berry notes of strawberry and raspberry add fruitiness, while subtle hints of rose petal provide additional floral complexity. The gentle effervescence carries the aromatics beautifully.",
+        "palate": "Pleasantly sweet and full-bodied with persistent flavor. The slight sparkle (frizzante) adds lively freshness and prevents the sweetness from becoming cloying. Red cherry and berry fruits dominate the palate with genuine, unadulterated fruit character. The medium body and gentle bubbles create a smooth, velvety texture that's immediately appealing. Low tannins and moderate acidity balance the residual sugar perfectly.",
+        "finish": "Soft, fruity finish with lingering violet and cherry notes. The gentle sparkle refreshes the palate, inviting the next sip."
+      },
+      "foodPairings": [
+        "Fresh strawberries and cream",
+        "Fruit tarts and berry desserts",
+        "Roasted chestnuts",
+        "Prosciutto and salami",
+        "Aged Parmigiano-Reggiano cheese"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C) - serve well chilled",
+        "decanting": "No decanting needed; serve directly to preserve the delicate bubbles",
+        "glassware": "Flute or tulip glass to showcase the effervescence"
+      },
+      "wineDetails": {
+        "region": "Colli Piacentini DOC, Emilia-Romagna, Italy",
+        "grapeVariety": "100% Croatina (locally known as Bonarda)",
+        "vintage": "2023",
+        "style": "Semi-sweet, lightly sparkling (frizzante) red wine, Charmat method",
+        "ageability": "Best enjoyed young within 1-2 years to appreciate the fresh fruit and lively bubbles. Drink 2023-2025."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine de la Fontainnerie Vouvray Sec 2022",
+      "description": "A dry expression of Chenin Blanc from the Loire Valley's prestigious Vouvray appellation. Aged in traditional troglodytic caves carved into the limestone hillsides, this wine showcases the incredible versatility of Chenin Blanc and the mineral-rich terroir of Vouvray.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with bright citrus notes—lemon zest and grapefruit—alongside fresh green apple and pear. Chenin Blanc's signature honeyed character appears in subtle wax and acacia honey nuances. White flowers, particularly chamomile and elderflower, add delicate floral lift. The limestone soils impart distinct mineral notes of wet stone and flint that add complexity and terroir expression.",
+        "palate": "Dry and refreshing with vibrant, racy acidity that's characteristic of fine Vouvray Sec. The palate shows concentrated orchard fruits—crisp apple, Asian pear, and quince—balanced by zesty lemon and lime citrus. The middle palate reveals Chenin's textural richness despite the dry style, with a slight waxy quality and honeyed undertones. Pronounced minerality runs through the wine, lending tension and energy. The combination of fruit intensity, bright acidity, and mineral backbone creates exceptional balance.",
+        "finish": "Long, precise finish with citrus, mineral, and subtle honey notes persisting. The racy acidity leaves the palate refreshed and ready for food."
+      },
+      "foodPairings": [
+        "Goat cheese tart with herbs",
+        "Pan-seared scallops with beurre blanc",
+        "Roasted chicken with lemon and thyme",
+        "Grilled white fish with citrus",
+        "Fresh oysters"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C)",
+        "decanting": "No decanting needed; the wine benefits from time in the glass to warm slightly and open",
+        "glassware": "White Burgundy glass to concentrate the aromatics and showcase minerality"
+      },
+      "wineDetails": {
+        "region": "Vouvray AOC, Loire Valley, France",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2022",
+        "style": "Dry (Sec) white wine, aged in troglodytic caves",
+        "ageability": "Vouvray Sec ages beautifully. Best 2024-2030, though quality examples can evolve for 10+ years, developing honeyed complexity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Moscato 2023",
+      "description": "A fresh, aromatic semi-sweet Moscato from California's Central Coast, showcasing the Moscato grape's intensely floral and fruity character. Crafted through long, cool fermentation with a touch of natural effervescence, this wine offers an accessible, refreshing style at excellent value.",
+      "tastingNotes": {
+        "aroma": "Intense floral aromatics burst from the glass with honeysuckle, orange blossom, and jasmine notes dominating. Fresh fruit aromas of ripe peach, apricot, and strawberry add sweetness and appeal. Hints of lychee and rose water contribute exotic elements, while subtle citrus notes of mandarin orange provide brightness. The wine's natural effervescence carries the aromatics beautifully.",
+        "palate": "Amazingly fresh, fruity, and smooth on the palate with a light, approachable body. Sweet peach and apricot flavors take center stage, balanced by bright strawberry and citrus notes. The slight carbon dioxide from fermentation creates gentle effervescence that adds liveliness and prevents the sweetness from becoming heavy. Sufficient acidity balances the residual sugar perfectly, making the wine light and refreshing rather than cloying. The smooth, almost creamy texture enhances drinkability.",
+        "finish": "Clean, fruity finish with lingering peach, honeysuckle, and strawberry notes. The light bubbles refresh the palate beautifully."
+      },
+      "foodPairings": [
+        "Fresh fruit salad with mint",
+        "Lemon sorbet or fruit-based desserts",
+        "Spicy Thai or Vietnamese cuisine",
+        "Prosciutto-wrapped melon",
+        "Mild blue cheese with honey"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C) - serve well chilled",
+        "decanting": "No decanting needed; serve directly to preserve the delicate bubbles and fresh aromatics",
+        "glassware": "Flute or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California",
+        "grapeVariety": "100% Moscato (Muscat Blanc)",
+        "vintage": "2023",
+        "style": "Semi-sweet, lightly sparkling white wine",
+        "ageability": "Best enjoyed young within 1-2 years to maximize fresh fruit and floral aromatics. Drink 2023-2025."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Bacigalupi Petit Sirah 2017",
+      "description": "A powerful, age-worthy Petite Sirah from a legendary .5-acre block on Bacigalupi's Frost Ranch in Russian River Valley. Hand-picked Foppiano clone vines from this sustainably farmed vineyard produce wine of exceptional concentration and structure, showcasing why this site is revered among California winemakers.",
+      "tastingNotes": {
+        "aroma": "Opaque purple in the glass, this wine announces its power visually before the first sniff. The huge nose explodes with black fruits—cassis, blackberry, and black plum dominating. Fresh floral notes of violet and iris add unexpected elegance to the intense fruit. Graphite and crushed stone minerality lend complexity, while black pepper spice and subtle mocha from oak aging round out the bouquet.",
+        "palate": "An intensely powerful mouthful of concentrated black fruit flavors defines the palate. Blackberries and black mulberries flood the senses with ripe, rich fruit character. Graphite minerality and black pepper spice add savory complexity to the fruit core. Subtle tobacco and dark chocolate notes emerge mid-palate. The firm, ripe tannic backbone provides structure and grip without harshness. Full body and concentrated fruit intensity make this a wine of serious depth and aging potential.",
+        "finish": "Long, structured finish with persistent black fruit, pepper, and fine-grained tannins. The powerful structure suggests significant aging potential."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn crust",
+        "Braised beef short ribs",
+        "Venison medallions with blackberry reduction",
+        "Blue cheese burger",
+        "Hearty beef stew"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 90+ minutes to soften the powerful tannins and allow the complex aromatics to fully emerge",
+        "glassware": "Large Bordeaux glass to showcase the wine's power and concentration"
+      },
+      "wineDetails": {
+        "region": "Russian River Valley, Sonoma County, California (Bacigalupi Frost Ranch)",
+        "grapeVariety": "100% Petite Sirah (Foppiano clone)",
+        "vintage": "2017",
+        "style": "Full-bodied, powerfully structured red wine",
+        "ageability": "Built for extended aging. Drinking well now with decanting, but ideal 2025-2035. Can evolve 15-20 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Clementine Carter Larner Syrah 2023",
+      "description": "A recently launched Syrah from the acclaimed Larner Vineyard in Ballard Canyon, Santa Barbara County. Clementine Carter, known for producing 'Pinot Noir lover's Grenache,' has added Syrah from this legendary Rhône-focused vineyard, bringing the same attention to detail and elegant winemaking style to this powerful variety.",
+      "tastingNotes": {
+        "aroma": "Deep purple color signals the wine's youth and concentration. The nose opens with classic cool-climate Syrah aromatics—black olive, smoked meat, and cracked black pepper lead the savory profile. Dark fruits of blackberry and black plum provide a ripe fruit core. Floral notes of violet and iris add elegance, while subtle garrigue herbs (thyme, lavender) speak to the variety's Rhône heritage. Hints of graphite and wet stone minerality add complexity.",
+        "palate": "The palate balances power with elegance in Clementine Carter's signature style. Concentrated dark fruit flavors—blackberry, plum, and black cherry—fill the mid-palate with intensity while maintaining freshness. Savory elements of black olive, cured meat, and black pepper add complexity and prevent the wine from being overly fruit-forward. Medium to full body provides substance, while bright acidity and fine-grained tannins ensure balance and drinkability. The Larner Vineyard's limestone soils contribute mineral backbone and structure.",
+        "finish": "Long finish with persistent dark fruit, pepper spice, and chalky tannins. The savory elements linger beautifully, showing excellent complexity for a young wine."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs de Provence",
+        "Duck confit with olive tapenade",
+        "Beef bourguignon",
+        "Charcuterie board with aged salami",
+        "Mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant 45-60 minutes to allow the young wine to open and integrate; will benefit from aeration",
+        "glassware": "Large Burgundy or Syrah-specific glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Ballard Canyon, Santa Barbara County, California (Larner Vineyard)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2023",
+        "style": "Cool-climate, elegant Syrah with savory character",
+        "ageability": "Can be enjoyed young but will develop beautifully with 5-10 years of cellaring. Best 2025-2033."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Queiron Mi Lugar 2019",
+      "description": "A distinctive Rioja from the village of Quel in Rioja Oriental, bearing the prestigious 'Vino de Pueblo' (Village Wine) classification. This 90% Tempranillo, 10% Garnacha blend showcases the unique terroir of a specific village, representing a more focused expression than traditional regional Rioja blends. Scored 91/100 by critics.",
+      "tastingNotes": {
+        "aroma": "Luminous black cherry color with radiant intensity and purple-ruby nuances at the rim. The nose is pronounced and complex with ripe black fruits dominating—blueberries, blackcurrants, and blackberries lead. Red fruits of cherries, redcurrants, and plums add brightness. Spice notes of cinnamon and clove combine with mocha, fig, and balsamic complexity. The oak integration is excellent, contributing subtle vanilla without overwhelming the fruit.",
+        "palate": "A vigorous, lively attack greets the palate with pleasant balance and nice smoothness. Generous, complex flavors of bramble berries and dark plums fill the mouth with concentrated fruit character. Well-integrated oak adds structure and subtle spice without dominating. Bright acidity maintains freshness throughout and lifts the fruit. Medium to full body provides satisfying weight. The wine is structured yet elegant, showing both power and finesse. Fabulous length extends the flavor experience.",
+        "finish": "Extensive finish with tight-grained tannins, spiced plums, cherries, and subtle minerals. The succulent fruit and balanced structure linger beautifully."
+      },
+      "foodPairings": [
+        "Slow-roasted suckling pig (cochinillo)",
+        "Chorizo and bean stew",
+        "Grilled lamb chops with romesco sauce",
+        "Aged Manchego and Idiazábal cheese",
+        "Paella mixta"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant 45-60 minutes to allow the wine to breathe and reveal its complexity",
+        "glassware": "Large Burgundy or Rioja-specific glass"
+      },
+      "wineDetails": {
+        "region": "Vino de Quel (Village Wine), Rioja Oriental DOCa, Spain",
+        "grapeVariety": "90% Tempranillo, 10% Garnacha",
+        "vintage": "2019",
+        "style": "Village-level Rioja, structured and elegant with modern winemaking",
+        "ageability": "Drinking beautifully now through 2028-2030. The structure suggests 8-10 years total aging potential from vintage."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

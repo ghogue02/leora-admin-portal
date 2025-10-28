@@ -12,7 +12,6 @@
  */
 
 import { google } from 'googleapis';
-import { ConfidentialClientApplication } from '@azure/msal-node';
 import prisma from '@/lib/prisma';
 import { encryptToken, decryptToken } from '@/lib/token-encryption';
 
@@ -102,92 +101,6 @@ async function refreshGoogleToken(
   }
 }
 
-/**
- * Refresh Microsoft Outlook tokens
- */
-async function refreshOutlookToken(
-  tenantId: string,
-  encryptedAccessToken: string,
-  encryptedRefreshToken: string | null
-): Promise<RefreshResult> {
-  try {
-    if (!encryptedRefreshToken) {
-      return {
-        provider: 'outlook',
-        tenantId,
-        success: false,
-        error: 'No refresh token available',
-      };
-    }
-
-    const refreshToken = await decryptToken(encryptedRefreshToken);
-
-    const msalConfig = {
-      auth: {
-        clientId: process.env.MICROSOFT_CLIENT_ID || '',
-        authority: `https://login.microsoftonline.com/${process.env.MICROSOFT_TENANT_ID || 'common'}`,
-        clientSecret: process.env.MICROSOFT_CLIENT_SECRET || '',
-      },
-    };
-
-    const pca = new ConfidentialClientApplication(msalConfig);
-
-    const tokenRequest = {
-      refreshToken,
-      scopes: ['https://graph.microsoft.com/Calendars.ReadWrite'],
-    };
-
-    const response = await pca.acquireTokenByRefreshToken(tokenRequest);
-
-    if (!response?.accessToken) {
-      throw new Error('No access token in refresh response');
-    }
-
-    // Encrypt new tokens
-    const newEncryptedAccessToken = await encryptToken(response.accessToken);
-    const newEncryptedRefreshToken = response.refreshToken
-      ? await encryptToken(response.refreshToken)
-      : encryptedRefreshToken;
-
-    // Update in database
-    await prisma.integrationToken.update({
-      where: {
-        tenantId_provider: {
-          tenantId,
-          provider: 'outlook',
-        },
-      },
-      data: {
-        accessToken: newEncryptedAccessToken,
-        refreshToken: newEncryptedRefreshToken,
-        expiresAt: response.expiresOn || new Date(Date.now() + 3600 * 1000),
-        metadata: {
-          scope: response.scopes?.join(' '),
-          tokenType: response.tokenType,
-          account: response.account?.username,
-        },
-      },
-    });
-
-    console.log(`✓ Refreshed Outlook token for tenant ${tenantId}`);
-
-    return {
-      provider: 'outlook',
-      tenantId,
-      success: true,
-    };
-  } catch (error) {
-    console.error(`✗ Failed to refresh Outlook token for tenant ${tenantId}:`, error);
-    return {
-      provider: 'outlook',
-      tenantId,
-      success: false,
-      error: String(error),
-    };
-  }
-}
-
-/**
  * Main refresh job
  */
 async function refreshAllTokens() {
@@ -204,9 +117,7 @@ async function refreshAllTokens() {
         refreshToken: {
           not: null,
         },
-        provider: {
-          in: ['google', 'outlook'],
-        },
+        provider: 'google',
       },
     });
 
@@ -215,23 +126,11 @@ async function refreshAllTokens() {
     const results: RefreshResult[] = [];
 
     for (const token of expiringTokens) {
-      let result: RefreshResult;
-
-      if (token.provider === 'google') {
-        result = await refreshGoogleToken(
-          token.tenantId,
-          token.accessToken,
-          token.refreshToken
-        );
-      } else if (token.provider === 'outlook') {
-        result = await refreshOutlookToken(
-          token.tenantId,
-          token.accessToken,
-          token.refreshToken
-        );
-      } else {
-        continue;
-      }
+      const result = await refreshGoogleToken(
+        token.tenantId,
+        token.accessToken,
+        token.refreshToken
+      );
 
       results.push(result);
 

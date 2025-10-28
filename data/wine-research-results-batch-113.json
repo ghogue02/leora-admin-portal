@@ -1,0 +1,350 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Crosarola Ripasso 2021",
+      "description": "A Ripasso-style wine from Veneto, made using the traditional appassimento technique where wine is passed over dried grape skins (typically from Amarone production) to add body, complexity, and concentration. This creates a wine between standard Valpolicella and full Amarone in style and price point.",
+      "tastingNotes": {
+        "aroma": "Rich and complex with aromas of dried cherry, raisin, and plum from the Ripasso technique, layered with notes of dark chocolate, espresso, and sweet spice. Hints of leather, tobacco, and dried herbs add sophistication, while subtle cherry liqueur and balsamic notes emerge with aeration. The nose shows excellent depth and concentration.",
+        "palate": "Full-bodied with velvety tannins and balanced acidity. The palate delivers concentrated dried fruit flavors—cherry, fig, and prune—complemented by savory notes of cocoa, coffee, and spice box. The Ripasso process adds richness and warmth, with flavors of mocha, vanilla, and dried herbs. The texture is smooth and luxurious with excellent length.",
+        "finish": "Long, warming finish with persistent dried fruit, chocolate, and spice. The soft tannins and gentle warmth create a satisfying conclusion."
+      },
+      "foodPairings": [
+        "Braised beef or osso buco",
+        "Aged Parmigiano-Reggiano",
+        "Wild mushroom risotto",
+        "Roasted game meats",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes recommended",
+        "glassware": "Large Amarone or Italian red wine glass"
+      },
+      "wineDetails": {
+        "region": "Veneto, Italy",
+        "grapeVariety": "Corvina, Rondinella, and Molinara (traditional Valpolicella blend)",
+        "vintage": "2021",
+        "style": "Ripasso: full-bodied with dried fruit character from appassimento",
+        "ageability": "Drink now through 2029. Best over next 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cantina Castellini Fior Toscano White 2022",
+      "description": "A Tuscan white wine blend showcasing indigenous Italian varieties. Cantina Castellini represents traditional Tuscan winemaking with modern techniques. This wine offers a refreshing alternative to Tuscany's famous reds, perfect for seafood and lighter fare.",
+      "tastingNotes": {
+        "aroma": "Fresh and aromatic with notes of white flowers, citrus blossom, and green apple, complemented by subtle hints of pear, lemon zest, and almond. A gentle mineral quality and herbal notes of thyme add complexity. The nose is clean and inviting.",
+        "palate": "Medium-bodied with bright acidity and crisp character. The palate delivers flavors of citrus—lemon and grapefruit—along with green apple, pear, and subtle tropical notes. A distinctive mineral backbone provides structure, while hints of almond and herbs add depth. The wine is refreshing and balanced.",
+        "finish": "Clean, refreshing finish with lingering citrus and mineral notes. The bright acidity leaves the palate cleansed."
+      },
+      "foodPairings": [
+        "Grilled seafood with lemon",
+        "Tuscan white bean soup",
+        "Fresh mozzarella and tomato",
+        "Fried calamari",
+        "Light pasta with olive oil"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Tuscany, Italy",
+        "grapeVariety": "Blend of Tuscan white varieties (likely Trebbiano, Vermentino, Vernaccia)",
+        "vintage": "2022",
+        "style": "Crisp, mineral-driven white wine",
+        "ageability": "Drink now through 2025. Best enjoyed young."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bandol Fleur de Province Cotes de Province 2021",
+      "description": "A Provençal rosé from the renowned Bandol region, known for producing some of France's most structured and age-worthy rosés. This wine showcases the Mediterranean character of Provence with bright fruit, herbs, and minerality. The Fleur de Provence name evokes the aromatic landscape of the region.",
+      "tastingNotes": {
+        "aroma": "Elegant and complex with aromas of wild strawberry, raspberry, and watermelon, complemented by distinctive Provençal herbs—lavender, thyme, and rosemary. Notes of rose petal, citrus zest, and a stony minerality add sophistication. The nose is pure and evocative of the Mediterranean landscape.",
+        "palate": "Medium-bodied with crisp acidity and a dry, structured profile. The palate delivers vibrant red berry flavors—strawberry, cranberry, and pomegranate—with subtle savory notes of herbs and olive. A pronounced mineral backbone runs through the wine, showing garrigue and sea salt influences. The texture has slight grip and structure, more substantial than typical Provence rosé.",
+        "finish": "Long, dry finish with persistent berry fruit, herbs, and mineral notes. The structure and acidity make this rosé exceptionally food-friendly."
+      },
+      "foodPairings": [
+        "Bouillabaisse or seafood stew",
+        "Grilled sea bass with herbs",
+        "Niçoise salad",
+        "Soft goat cheese",
+        "Ratatouille"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed",
+        "glassware": "White wine or Provence rosé glass"
+      },
+      "wineDetails": {
+        "region": "Côtes de Provence/Bandol, Provence, France",
+        "grapeVariety": "Blend of Mourvèdre, Grenache, Cinsault",
+        "vintage": "2021",
+        "style": "Structured, dry Provençal rosé",
+        "ageability": "Drink now through 2025. Bandol rosés can age 2-4 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Shake Ridge Petite Sirah 2013",
+      "description": "A powerhouse Petite Sirah from the historic Shake Ridge Vineyard in the Sierra Foothills, known for producing intense, age-worthy wines from old vines. Aratas specializes in single-vineyard wines that showcase unique terroir. This 2013 vintage has had time to develop complexity while maintaining its bold character.",
+      "tastingNotes": {
+        "aroma": "Intense and complex with aromas of blackberry, blueberry, and black plum, layered with notes of black pepper, licorice, and violet. Hints of dark chocolate, espresso, and charred oak add depth, while subtle game and leather notes from aging emerge. The nose is powerful yet refined.",
+        "palate": "Full-bodied with massive structure, firm tannins, and bright acidity that provides balance. The palate delivers concentrated dark fruit flavors—blackberry, boysenberry, and cassis—complemented by savory notes of black pepper, smoke, and earth. The wine shows incredible density and power with flavors of mocha, dark chocolate, and sweet spice. Despite the intensity, there's elegance and terroir expression.",
+        "finish": "Very long, structured finish with persistent dark fruit, firm tannins, and lingering spice. The wine's power and concentration suggest further aging potential."
+      },
+      "foodPairings": [
+        "Grilled ribeye or porterhouse steak",
+        "Braised short ribs",
+        "Wild game like venison",
+        "Strong aged cheeses",
+        "Beef bourguignon"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "2-3 hours recommended due to power and tannins",
+        "glassware": "Large Syrah or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Shake Ridge Vineyard, Amador County, Sierra Foothills, California",
+        "grapeVariety": "100% Petite Sirah",
+        "vintage": "2013",
+        "style": "Full-bodied, structured red wine with aging potential",
+        "ageability": "Drink now through 2035. Petite Sirah ages exceptionally well; peak 2025-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Riesling 2022",
+      "description": "A crisp Washington State Riesling from Two Mountain Winery in the Yakima Valley, an area known for producing exceptional aromatic whites. This wine showcases the Pacific Northwest's ability to craft elegant, balanced Rieslings with vibrant acidity and pure fruit character.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with vibrant notes of lime, green apple, and white peach, complemented by white flowers, honeysuckle, and subtle hints of petrol that develop in quality Riesling. A distinctive minerality showing wet stone and slate adds complexity. The nose is pure and captivating.",
+        "palate": "Medium-bodied with razor-sharp acidity and excellent balance. The palate delivers intense citrus flavors—lime, lemon, and grapefruit—balanced by ripe stone fruit notes of peach and apricot. A pronounced mineral backbone provides structure, while the wine shows beautiful tension between fruit sweetness and acidity. The style appears off-dry with residual sugar balanced by bright acidity.",
+        "finish": "Long, clean finish with persistent citrus, mineral notes, and refreshing acidity. The balance of sweetness and acidity creates a harmonious conclusion."
+      },
+      "foodPairings": [
+        "Spicy Asian cuisine",
+        "Fresh oysters or sushi",
+        "Grilled chicken with fruit salsa",
+        "Soft cheeses like Brie",
+        "Fruit-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed",
+        "glassware": "Riesling glass or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington State",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2022",
+        "style": "Off-dry Riesling with vibrant acidity",
+        "ageability": "Drink now through 2030. Riesling ages beautifully for 5-10 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alfaro Family Vineyards A Estate Syrah 2019",
+      "description": "An estate Syrah from Alfaro Family Vineyards in Santa Cruz Mountains, showcasing cool-climate Syrah character. The 'A Estate' designation indicates their top-tier, estate-grown fruit. The 2019 vintage has had time to integrate and develop complexity.",
+      "tastingNotes": {
+        "aroma": "Complex and elegant with aromas of blackberry, black cherry, and plum, layered with signature cool-climate Syrah notes of violet, black olive, and cured meat. Hints of black pepper, smoked bacon, and garrigue herbs add complexity, while subtle oak brings vanilla and toast. The nose is refined and sophisticated.",
+        "palate": "Full-bodied with silky tannins and vibrant acidity that defines Santa Cruz Mountain Syrah. The palate delivers concentrated dark fruit flavors—blackberry, boysenberry, and cassis—complemented by savory elements of olive tapenade, bacon fat, and cracked pepper. Mid-palate shows layers of earth, smoke, and spice. The texture is elegant with excellent balance.",
+        "finish": "Long, complex finish with persistent fruit, fine-grained tannins, and savory notes. The wine's elegance and structure showcase cool-climate terroir."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs",
+        "Duck breast with cherry reduction",
+        "Braised short ribs",
+        "Aged Gouda or hard cheeses",
+        "Mushroom and truffle dishes"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "60-90 minutes recommended",
+        "glassware": "Large Syrah glass"
+      },
+      "wineDetails": {
+        "region": "Santa Cruz Mountains, California",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2019",
+        "style": "Cool-climate Syrah with elegance and savory character",
+        "ageability": "Drink now through 2032. Peak drinking 2025-2029."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Stel + Mar Cabernet Sauvignon (DC, MD, and Southern VA Only) 2021",
+      "description": "A regional Cabernet Sauvignon with distribution limited to the DC, Maryland, and Virginia area. This wine represents approachable California Cabernet with good fruit character and value. The recent vintage showcases fresh fruit and balanced structure.",
+      "tastingNotes": {
+        "aroma": "Fruit-forward with aromas of blackberry, dark cherry, and cassis, complemented by notes of vanilla, mocha, and cedar from oak aging. Hints of eucalyptus and dried herbs add varietal character. The nose is inviting and accessible.",
+        "palate": "Full-bodied with moderate tannins and balanced acidity. The palate delivers concentrated dark fruit flavors—blackberry, plum, and black cherry—with subtle notes of espresso, dark chocolate, and toast. The oak influence adds vanilla and spice while maintaining fruit focus. The wine is smooth and approachable.",
+        "finish": "Medium to long finish with lingering dark fruit and oak spice. Soft tannins make it immediately enjoyable."
+      },
+      "foodPairings": [
+        "Grilled steak or burgers",
+        "Roasted lamb",
+        "Aged cheddar cheese",
+        "Beef stew",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "30-45 minutes recommended",
+        "glassware": "Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "California (specific region not disclosed)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Full-bodied Cabernet with oak aging",
+        "ageability": "Drink now through 2028. Best over next 5-7 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jean Leon Le Havre Cabernet Sauvigon 2020",
+      "description": "A Spanish Cabernet Sauvignon from the Jean Leon estate in Penedès, Catalonia. Jean Leon was a Hollywood restaurateur who founded this estate to produce world-class Cabernet. The Le Havre designation represents estate vineyards planted with French rootstock.",
+      "tastingNotes": {
+        "aroma": "Elegant and complex with aromas of blackcurrant, dark cherry, and plum, interwoven with notes of cedar, tobacco, and graphite. Subtle hints of eucalyptus, mint, and Mediterranean herbs reflect the terroir. The oak influence shows vanilla, toast, and sweet spice. The nose is refined and balanced.",
+        "palate": "Full-bodied with structured tannins and bright acidity. The palate delivers concentrated dark fruit—cassis, blackberry, and black plum—complemented by savory notes of olive, earth, and herbs. The wine shows excellent balance between fruit, oak, and structure. Mid-palate complexity with layers of spice, chocolate, and mineral.",
+        "finish": "Long, elegant finish with persistent fruit, fine-grained tannins, and lingering spice. The wine's structure suggests good aging potential."
+      },
+      "foodPairings": [
+        "Grilled beef or lamb",
+        "Manchego and aged Spanish cheeses",
+        "Wild mushroom dishes",
+        "Beef tenderloin with red wine sauce",
+        "Dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60 minutes recommended",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Penedès, Catalonia, Spain",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2020",
+        "style": "Full-bodied, structured Cabernet with European elegance",
+        "ageability": "Drink now through 2033. Will develop over 10+ years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paloma Vineyards Merlot 2019",
+      "description": "A premium Napa Valley Merlot from Paloma Vineyards in Spring Mountain District, known for producing elegant, age-worthy wines. This single-vineyard Merlot showcases the variety at its best with mountain fruit concentration and complexity.",
+      "tastingNotes": {
+        "aroma": "Rich and complex with aromas of ripe plum, black cherry, and blackberry, layered with notes of dark chocolate, espresso, and cedar. Hints of violet, tobacco, and sweet spice from French oak add sophistication. The nose shows excellent depth and integration.",
+        "palate": "Full-bodied with velvety tannins and balanced acidity. The palate delivers concentrated dark fruit flavors—plum, black cherry, and cassis—complemented by notes of mocha, vanilla, and baking spices. The wine shows remarkable elegance and finesse for Merlot, with silky texture and refined structure. Mountain fruit provides intensity without heaviness.",
+        "finish": "Long, luxurious finish with persistent fruit, fine tannins, and lingering chocolate and spice notes. The wine's balance and elegance are evident through the extended finish."
+      },
+      "foodPairings": [
+        "Roasted duck or game birds",
+        "Beef Wellington",
+        "Mushroom risotto with truffle",
+        "Aged hard cheeses",
+        "Dark chocolate flourless cake"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes recommended",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Spring Mountain District, Napa Valley, California",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2019",
+        "style": "Full-bodied, elegant Merlot with mountain fruit intensity",
+        "ageability": "Drink now through 2032. Peak drinking 2025-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Roero Arneis DOCG 2024",
+      "description": "A fresh, young Arneis from the Roero DOCG in Piedmont, crafted by the esteemed Mauro Molino estate. Arneis is Piedmont's premier white grape, known for its floral aromatics, crisp acidity, and subtle almond notes. This recent 2024 vintage captures the variety's vibrant character.",
+      "tastingNotes": {
+        "aroma": "Delicately aromatic with notes of white flowers, pear, and green apple, complemented by subtle hints of peach, apricot, and citrus blossom. A gentle mineral quality and the characteristic bitter almond note add complexity. The nose is fresh and inviting.",
+        "palate": "Medium-bodied with crisp acidity and elegant texture. The palate delivers flavors of pear, green apple, and white peach, with bright citrus notes and a distinctive mineral backbone. The characteristic bitter almond note appears on the finish, providing structure and interest. The wine is dry and refreshing with excellent balance.",
+        "finish": "Clean, refreshing finish with lingering fruit, mineral notes, and the signature bitter almond character. The crisp acidity leaves the palate cleansed."
+      },
+      "foodPairings": [
+        "Fresh seafood and shellfish",
+        "Risotto with asparagus",
+        "Vitello tonnato",
+        "Soft cheeses like Robiola",
+        "Grilled fish with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Roero DOCG, Piedmont, Italy",
+        "grapeVariety": "100% Arneis",
+        "vintage": "2024",
+        "style": "Crisp, aromatic white wine with mineral character",
+        "ageability": "Drink now through 2026. Best enjoyed young and fresh."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T14:14:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 113,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:14:00Z",
+    "averageConfidence": 0.86
+  }
+}

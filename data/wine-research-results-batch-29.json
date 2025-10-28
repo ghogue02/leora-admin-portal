@@ -1,0 +1,347 @@
+{
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "batchNumber": 29,
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Grateful Palate Strong Arms White Bordeaux 2020",
+      "description": "A rare white Bordeaux from Canon-Fronsac that punches well above its weight class. This exceptional value wine demonstrates classic Sauvignon Blanc character while maintaining authentic Bordeaux Blanc breeding and elegance. The brilliant, almost neon-bright appearance hints at the excitement within the glass.",
+      "tastingNotes": {
+        "aroma": "The nose leaps from the glass with electric intensity, offering a lifted perfume of honeysuckle, ripe melon, and Meyer lemon. Tropical notes of passionfruit emerge alongside subtle hints of cream and vanilla from careful elevage. The aromatics demonstrate remarkable complexity for the price point, with honeysuckle florals weaving through citrus and stone fruit layers.",
+        "palate": "The palate showcases impressive tension between plush, ripe fruit and racy acidity that creates dynamic energy. There's genuine grip and structure here, with flavors of citrus, melon, and tropical fruit balanced by bright mineral freshness. The wine delivers overwhelming pleasure through its combination of richness and verve, displaying remarkable length for a wine at this price.",
+        "finish": "The finish crackles with electricity and nervous energy, leaving lasting impressions of citrus zest and white flowers. Descriptors like 'drama,' 'nerve,' and 'alive' perfectly capture the wine's vivacious character that persists well after the glass is empty."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled sea bass with herb butter",
+        "Goat cheese salad with citrus vinaigrette",
+        "Pan-seared scallops with lemon",
+        "Roasted chicken with tarragon"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve straight from the refrigerator and allow to warm slightly in the glass",
+        "glassware": "White Bordeaux or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Canon-Fronsac, Bordeaux, France",
+        "grapeVariety": "Sauvignon Blanc-dominant Bordeaux Blanc blend",
+        "vintage": "2020",
+        "style": "Dry white Bordeaux with racy acidity",
+        "ageability": "Drink now through 2026; designed for youthful enjoyment showcasing bright fruit and energy"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Zahir Cabernet Sauvignon 2016",
+      "description": "A distinguished Chilean Cabernet Sauvignon from the acclaimed Cachapoal Valley. The Zahir represents Calyptra's premium tier, crafted from select estate fruit. Previous vintages have earned 90-point scores from Wine Enthusiast, establishing this wine's pedigree for structured, age-worthy reds.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with concentrated black fruit aromas of cassis, blackberry, and dark plum, layered with notes of cedar, tobacco leaf, and dried herbs. Chilean Cabernet character shines through with distinctive eucalyptus and mint notes alongside graphite minerality. Subtle oak spice and vanilla add complexity without dominating the fruit expression.",
+        "palate": "Dense and powerful on the palate, displaying ripe black cherry, blackcurrant, and dark chocolate flavors framed by structured tannins. The Cachapoal Valley terroir imparts a characteristic gravelly minerality and bright acidity that lifts the rich fruit. Mid-palate weight is substantial, with integrated oak providing hints of toast and spice while maintaining fruit purity.",
+        "finish": "The finish is long and persistent, with fine-grained tannins and lingering notes of dark fruit, leather, and subtle herbal undertones. The 2016 vintage shows excellent aging development with seven years of bottle evolution."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised short ribs with root vegetables",
+        "Aged Manchego or hard sheep's milk cheese",
+        "Lamb chops with rosemary and garlic",
+        "Mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 45-60 minutes to soften tannins and reveal complexity",
+        "glassware": "Large Bordeaux or Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Cachapoal Valley, Chile",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2016",
+        "style": "Full-bodied, structured Chilean Cabernet Sauvignon",
+        "ageability": "Drinking well now through 2028; can hold longer with proper cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction Grenache Blanc 2016",
+      "description": "Part of Pomar Junction's Cotes de Pomar Blanc, a Mediterranean-inspired white blend from the El Pomar District of Paso Robles. This wine showcases Grenache Blanc as 40% of a thoughtful blend with Roussanne and Viognier, creating a distinctive expression of the region's warm-climate white wine potential.",
+      "tastingNotes": {
+        "aroma": "The nose reveals subtle tropical character that grows in the glass, featuring papaya, banana flower, and candied honeysuckle. Delicate tuberose and white flower aromatics float above ripe tropical fruit notes. The light color belies aromatic intensity that develops with air exposure.",
+        "palate": "Clean and refreshing on the palate with decent acidity providing structure to candied tropical flavors. Mango, guava, and banana notes dominate the mid-palate, showing the wine's ripe, sun-drenched fruit character. The Grenache Blanc contributes weight and texture, while Roussanne adds complexity and Viognier lends floral aromatics and stone fruit nuances.",
+        "finish": "The finish features persistent tropical fruit sweetness balanced by crisp acidity, leaving impressions of ripe stone fruit and honeyed florals."
+      },
+      "foodPairings": [
+        "Thai coconut curry with chicken",
+        "Grilled prawns with mango salsa",
+        "Creamy pasta with lobster",
+        "Brie and tropical fruit platter",
+        "Spicy Asian fusion cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "No decanting required; serve well-chilled",
+        "glassware": "Medium-bodied white wine glass"
+      },
+      "wineDetails": {
+        "region": "El Pomar District, Paso Robles, California",
+        "grapeVariety": "40% Grenache Blanc, 40% Roussanne, 20% Viognier",
+        "vintage": "2016",
+        "style": "Rich, tropical white blend with Mediterranean influences",
+        "ageability": "Best enjoyed now; designed for near-term consumption highlighting fresh fruit"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Grand Marchand Bordeaux Rouge Reserve 2019",
+      "description": "A solid, well-structured Bordeaux rouge from the eastern reaches of Entre-deux-Mers, produced by Les Vignerons Réunis de Monségur cooperative. This Cabernet-dominant blend offers classic Right Bank character with firm structure and generous dark fruit, representing excellent value from a cooperative known for quality.",
+      "tastingNotes": {
+        "aroma": "Dark ruby in color with beautiful aromatics showcasing light pepper spice, vanilla, and cassis. The nose reveals dark red fruit character alongside black currant and subtle chalky mineral notes. Hints of cedar and dried herbs emerge with air, alongside the vanilla and spice from oak aging.",
+        "palate": "The palate is awash with rich, dense cassis flavors that form the wine's core, supported by a good proportion of Cabernet Sauvignon and Cabernet Franc in the blend. Fine tannins provide structure without harshness, while black currant fruit balances firm, dry tannins characteristic of the vintage. A hint of chalky minerality adds terroir expression and complexity to the fruit-forward profile.",
+        "finish": "The finish is solid and satisfying, with persistent dark fruit notes and fine-grained tannins. Ready to drink now, showing good integration and balance that makes it approachable for current enjoyment."
+      },
+      "foodPairings": [
+        "Roasted duck breast with berry reduction",
+        "Beef bourguignon",
+        "Grilled lamb chops with herbs de Provence",
+        "Aged Comté or Gruyère cheese",
+        "Pork tenderloin with black pepper crust"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief 20-30 minute decant to open aromas; not essential",
+        "glassware": "Standard Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Bordeaux (Eastern Entre-deux-Mers), France",
+        "grapeVariety": "Cabernet Sauvignon and Cabernet Franc blend",
+        "vintage": "2019",
+        "style": "Medium to full-bodied Bordeaux rouge with firm structure",
+        "ageability": "Ready to drink now through 2026; designed for approachable near-term enjoyment"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noughty NA White Wine NV",
+      "description": "An exceptional dealcoholized white wine blend from organic grapes, crafted by Thomson & Scott. This non-alcoholic offering combines 55% Chenin Blanc with 45% Chardonnay to create a sophisticated alternative that maintains wine character and complexity while removing alcohol through gentle dealcoholization processes.",
+      "tastingNotes": {
+        "aroma": "Bright notes of yellow apple, lime, and chamomile dominate the aromatic profile, creating an inviting and fresh impression. Honeysuckle and citrus fruit aromas layer with delicate jasmine, offering genuine wine-like complexity. The organic grape sourcing contributes to the pure, clean fruit expression.",
+        "palate": "The palate delivers good balance between acidity and fruitiness, avoiding the pitfalls of excessive sweetness common in non-alcoholic wines. Flavors of yellow apple, lime, and melon are complemented by chamomile and citrus notes. The Chenin Blanc component provides crisp acidity and mineral freshness, while Chardonnay adds body and texture that give the wine satisfying weight despite the absence of alcohol.",
+        "finish": "Clean and refreshing finish with lingering citrus and floral notes. The wine maintains the right balance between fruit and dryness, avoiding simple grape juice character while remaining accessible and enjoyable."
+      },
+      "foodPairings": [
+        "Fresh salads with citrus vinaigrette",
+        "Grilled white fish with herbs",
+        "Light pasta dishes with olive oil",
+        "Fresh fruit and soft cheese",
+        "Vegetarian sushi rolls"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C)",
+        "decanting": "No decanting needed; serve well-chilled",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Dealcoholized blend, organic grapes",
+        "grapeVariety": "55% Chenin Blanc, 45% Chardonnay",
+        "vintage": "Non-Vintage",
+        "style": "Dealcoholized dry white wine, low sugar",
+        "ageability": "Enjoy upon purchase; best consumed fresh"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ontanon Reserva 2010",
+      "description": "A stellar Rioja Reserva from an excellent vintage, produced by Bodegas Ontañón using traditional Tempranillo with Graciano. This wine earned 92 points from Wine Enthusiast, showcasing classic Rioja aging character with perfect balance between fruit, oak, and time. The 2010 vintage is recognized as outstanding for Rioja, and this wine demonstrates why with remarkable grace and aging potential.",
+      "tastingNotes": {
+        "aroma": "Classic Rioja aromas play beautifully together, featuring cured meat, dried cherry, wood spice, tobacco, and vanilla in harmonious complexity. The bouquet reveals mixed berry compote alongside chocolate, toast, and smoke from extended oak aging. Layers of dried fruit, leather, and earthy notes demonstrate the wine's maturity and traditional winemaking approach.",
+        "palate": "Sleek and polished on the palate with plush texture that's full without being heavy. Flavors of plum, berry fruits, vanilla, and oak are perfectly balanced with fine tannins and bright acidity. The wine shows good ripeness balanced with mineral finish, demonstrating excellent integration of primary fruit with secondary and tertiary development from barrel and bottle aging. The combination of fruit concentration and aging complexity creates impressive depth.",
+        "finish": "Powerful finish indicating continued aging potential, with persistent notes of dark fruit, vanilla, and spice. The wine remains balanced and graceful, showing the hallmarks of a Reserva that will continue to develop through 2028 and potentially beyond."
+      },
+      "foodPairings": [
+        "Roasted rack of lamb with garlic",
+        "Spanish chorizo and aged Manchego",
+        "Wild mushroom risotto",
+        "Grilled ribeye with piquillo peppers",
+        "Duck confit with cherry sauce"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 30-45 minutes to reveal full complexity and soften structure",
+        "glassware": "Large Rioja or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo and Graciano blend",
+        "vintage": "2010",
+        "style": "Traditional Rioja Reserva with extended oak aging",
+        "ageability": "Drinking beautifully now through 2028; excellent vintage with graceful aging trajectory"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Apple Tree Lane Sauvignon Blanc 2024",
+      "description": "A vibrant New Zealand Sauvignon Blanc from Marlborough, likely from the Orchard Lane Wines portfolio which celebrates the region's exceptional terroir for this variety. The 2024 vintage showcases the explosive aromatics and intense fruit character that have made Marlborough Sauvignon Blanc world-famous, with impressive depth and texture that elevate it beyond simple fruit-forward wines.",
+      "tastingNotes": {
+        "aroma": "The nose delivers classic Marlborough intensity with passionfruit and lime popsicle aromas leaping from the glass. Tropical notes of mango blend with gooseberry, nettle, and white floral blossoms, particularly elderflower. Underlying mineral notes and hints of snow pea add savory complexity to the fruit-forward aromatics. The bouquet demonstrates lovely aromatic depth with layers of stonefruit and citrus.",
+        "palate": "Medium-light bodied with slippery texture and gentle mouthfeel that belies impressive flavor depth. The palate bursts with ripe tropical fruit including passionfruit, mango, and lime, balanced by crisp citrus notes and herbal undertones of gooseberry and snow pea. Peach and elderflower flavors emerge mid-palate, supported by bright acidity that creates refreshing vibrancy. The wine shows heaps of character with long flavor persistence.",
+        "finish": "The finish is long and invigorating, with crisp acidity carrying citrus and tropical fruit notes well after swallowing. Lime zest and passionfruit linger alongside mineral freshness, creating a clean, mouth-watering conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters with lime mignonette",
+        "Grilled asparagus with lemon butter",
+        "Goat cheese and herb tart",
+        "Ceviche with citrus and cilantro",
+        "Pan-seared halibut with tropical salsa"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C)",
+        "decanting": "No decanting needed; serve well-chilled to preserve vibrant aromatics",
+        "glassware": "Sauvignon Blanc or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Marlborough, New Zealand",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Aromatic Marlborough Sauvignon Blanc with tropical and citrus character",
+        "ageability": "Best enjoyed within 1-2 years to capture fresh fruit vibrancy; drink now through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mountain Brook Chardonnay 2023",
+      "description": "A North Carolina Chardonnay from Mountain Brook Vineyards in Tryon, an estate recognized for producing award-winning wines from the foothills of the Blue Ridge Mountains. Mountain Brook's Chardonnay program has earned recognition from the North Carolina Fine Wines Society, with previous vintages showcasing their ability to craft elegant, balanced wines with both bright fruit and rich texture.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright citrus notes of lemon and lime alongside stone fruit aromas of white peach and green apple. Rich cream and subtle vanilla hints from oak influence add complexity without overwhelming the fruit. Floral notes and mineral undertones contribute to aromatic depth, reflecting the mountain vineyard's terroir and elevation.",
+        "palate": "The palate balances vibrant acidity with creamy texture, showing Mountain Brook's house style of bright citrus fruit complemented by rich, lees-influenced weight. Flavors of crisp apple, citrus zest, and stone fruit are enhanced by subtle oak notes that add vanilla and toast without dominating. The wine demonstrates excellent integration between fruit purity and winemaking technique, with refreshing acidity providing structure and lift.",
+        "finish": "Clean and refreshing finish with lingering citrus and subtle cream notes. The mountain terroir contributes mineral freshness that persists alongside fruit character, creating a satisfying conclusion that invites the next sip."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs and lemon",
+        "Grilled trout with butter and almonds",
+        "Lobster roll with light mayo",
+        "Creamy pasta carbonara",
+        "Baked Brie with honey and nuts"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "No decanting needed; slight chilling enhances freshness",
+        "glassware": "Chardonnay or medium-bodied white wine glass"
+      },
+      "wineDetails": {
+        "region": "Tryon, North Carolina (Blue Ridge Mountains)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Balanced Chardonnay with bright citrus and rich cream notes",
+        "ageability": "Enjoy now through 2026; designed for near-term consumption showcasing fresh fruit"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lolea Citrus Spritz",
+      "description": "A sophisticated Spanish wine cocktail that elevates the traditional spritz concept. This ready-to-serve aperitif combines Spanish white wine with basil and bergamot botanicals, creating a refreshing alternative to traditional wine service. At 8% alcohol and using only natural grape sugars, Lolea offers a lighter, more complex option for modern entertaining.",
+      "tastingNotes": {
+        "aroma": "The nose reveals delicate lemon-yellow hues matched by fresh citrus aromatics that blend seamlessly with complex herbal notes of basil. Bergamot contributes distinctive Earl Grey tea-like citrus character alongside bright lemon and lime. The botanical elements provide sophistication beyond simple fruity cocktails, with honeysuckle and jasmine florals adding layers of complexity.",
+        "palate": "The palate strikes a perfect balance between lively wine acidity and herbal botanical notes from bergamot and basil. Fresh citrus flavors lead, followed by sophisticated herbal undertones that blossom over time to reveal full richness. Light and refreshing at first sip, the wine's botanical aromas develop complexity as the wine warms slightly. Fine, persistent effervescence provides elegant sparkle and textural interest throughout.",
+        "finish": "Crisp and invigorating finish with lingering citrus zest and herbal notes. The combination of wine acidity, botanical complexity, and gentle bubbles creates a refreshing, appetite-stimulating conclusion perfect for aperitif service."
+      },
+      "foodPairings": [
+        "Tapas and Spanish small plates",
+        "Fresh seafood and ceviche",
+        "Light salads with citrus dressing",
+        "Bruschetta and antipasti",
+        "Fresh oysters and shellfish"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C)",
+        "decanting": "Serve directly over ice with citrus garnish; no decanting needed",
+        "glassware": "Large wine glass or spritz glass over ice"
+      },
+      "wineDetails": {
+        "region": "Spain",
+        "grapeVariety": "Spanish white wine blend with basil and bergamot botanicals",
+        "vintage": "Non-Vintage",
+        "style": "Sparkling wine cocktail/aperitif with 8% ABV",
+        "ageability": "Best consumed fresh; enjoy upon purchase"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine d'Avrille Anjou Rouge 2023",
+      "description": "A fresh, fruit-forward Loire Valley red from Château d'Avrillé, a benchmark estate owned by the Biotteau family for four generations. This Anjou Rouge showcases the region's signature Cabernet Franc character with an emphasis on approachable, early-drinking pleasure. The 200-hectare estate in Saint-Jean-des-Mauvrets is known for classic Loire Valley expressions.",
+      "tastingNotes": {
+        "aroma": "The nose offers classic Loire Valley Cabernet Franc aromatics with bright red berry fruits, violet florals, and distinctive herbaceous notes. Fresh strawberry and raspberry lead, complemented by bell pepper and crushed herbs characteristic of the varietal. Subtle earth and mineral notes reflect the cool-climate terroir, while hints of pencil shavings and graphite add complexity.",
+        "palate": "Light to medium-bodied with vibrant acidity and soft tannins designed for early enjoyment. The emphasis is squarely on fresh fruit, with flavors of red cherry, strawberry, and cranberry supported by herbal undertones and mineral freshness. The wine shows excellent varietal typicity with Cabernet Franc's signature peppery spice and leafy character balanced by ripe, juicy fruit. Clean and refreshing with good energy and lift.",
+        "finish": "The finish is fresh and lively with lingering red fruit and subtle herbal notes. Bright acidity and fine tannins create a thirst-quenching conclusion that makes this an ideal food wine for casual dining."
+      },
+      "foodPairings": [
+        "Charcuterie and pâté",
+        "Grilled salmon with herbs",
+        "Roasted chicken with root vegetables",
+        "Mushroom and lentil dishes",
+        "Soft goat cheese from the Loire Valley"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C), slightly chilled",
+        "decanting": "Brief 15-minute decant to aerate; best served with a slight chill",
+        "glassware": "Medium-sized red wine glass or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Anjou, Loire Valley, France",
+        "grapeVariety": "Cabernet Franc (potentially with small amounts of Cabernet Sauvignon or Gamay)",
+        "vintage": "2023",
+        "style": "Light to medium-bodied Loire Valley red, fruit-forward and fresh",
+        "ageability": "Designed for early drinking; enjoy now through 2026 while fruit is fresh and vibrant"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

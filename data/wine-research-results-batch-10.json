@@ -1,0 +1,347 @@
+{
+  "batchNumber": 10,
+  "totalWines": 10,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Noble Hill Mourvèdre Rosé 2024",
+      "description": "Noble Hill's 2024 Mourvèdre Rosé represents South African elegance at its finest, crafted from two distinct estate vineyards in Simonsberg-Paarl. This fresh and expressive rosé showcases the delicate balance achieved between goblet-pruned vines providing concentration and box-pruned vines delivering aromatic lightness. A cool, wet spring yielded particularly refined aromatics and excellent color in this vintage.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant strawberry and watermelon notes, accented by delicate white flower aromatics that lift the fruit character. A subtle mineral freshness emerges on the mid-palate, reflecting the unique terroir of the Simonsberg region. The cool 2024 vintage has enhanced the wine's refined aromatic profile, creating layers of complexity unusual for rosé at this price point.",
+        "palate": "On the palate, lively acidity drives the wine forward while an elegant, slightly creamy texture provides body and structure. Fresh red berry flavors dominate, with the goblet-pruned vineyard contributing depth and concentration balanced by the lighter, more aromatic character from the box-pruned blocks. The wine shows remarkable precision with each element perfectly integrated, displaying a sophistication that elevates it beyond typical rosé.",
+        "finish": "The finish is clean and refreshing with lingering minerality that extends the fruit flavors. The wine's structure allows it to finish dry yet fruity, with subtle saline notes adding complexity. This is a rosé with genuine aging potential, though equally delightful when enjoyed young and fresh."
+      },
+      "foodPairings": [
+        "Grilled salmon with herbs",
+        "Roasted prawns with lemon butter",
+        "Goat cheese and fig salad",
+        "Mediterranean seafood platter",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled to preserve freshness and acidity",
+        "decanting": "No decanting required; serve directly from a chilled bottle to maintain the wine's vibrant character",
+        "glassware": "White wine glass or tulip-shaped rosé glass to concentrate the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, Western Cape, South Africa",
+        "grapeVariety": "100% Mourvèdre from two estate vineyards (goblet-pruned and box-pruned)",
+        "vintage": "2024",
+        "style": "Dry rosé - Fresh, mineral-driven with elegant fruit concentration",
+        "ageability": "Drink now through 2026. While best enjoyed young for maximum freshness, the wine's structure allows for 2+ years of aging potential."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Thelema Chardonnay 2020",
+      "description": "Thelema Mountain Vineyards' 2020 Chardonnay exemplifies world-class South African winemaking, earning 95 points from the International Wine Challenge Gold award and 94 points from renowned critic Tim Atkin. Aged for 10 months on lees in French oak barrels (35% new), this wine showcases the exceptional quality that Thelema consistently achieves from their Stellenbosch mountain vineyards. Limited production of 20,000 bottles makes this a sought-after expression of cool-climate Chardonnay.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents layers of ripe peach and grapefruit marmalade, interwoven with delicate white blossom notes. Complex yeasty character from extended lees aging complements toasty oak nuances, while wet stone minerality adds depth and focus. Tim Atkin notes the wine's \"wonderfully fresh and focused\" aromatic profile, with subtle reductive qualities that enhance complexity without overwhelming the fruit.",
+        "palate": "At 13% alcohol, the palate shows remarkable balance with flavors of yellow apples and toasted almonds at the core, accented by lemon and green apple undertones. A dollop of cream from partial malolactic fermentation provides richness while maintaining the wine's clean, vibrant character. Medium-bodied with great natural acidity, the texture is succulent and fresh with understated concentration that speaks to terroir rather than oak. Nutty and waxy nuances add complexity throughout the mid-palate.",
+        "finish": "The finish is long, textured and spicy, with the 10 months on lees providing weight and persistence. Great acidity keeps the finish refreshing despite the wine's richness, with toasted oak and mineral notes extending the experience. The lovely texture carries through to the end, leaving subtle notes of citrus zest and blanched almonds."
+      },
+      "foodPairings": [
+        "Roasted lobster with drawn butter",
+        "Grilled chicken breast with lemon herb sauce",
+        "Creamy seafood risotto",
+        "Pan-seared scallops with cauliflower purée",
+        "Aged Gruyère or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F) - slightly warmer than typical white wines to appreciate the oak and textural complexity",
+        "decanting": "Brief decanting (15-20 minutes) recommended to open up the complex aromatics and integrate the toasty oak notes",
+        "glassware": "Burgundy glass or large-bowled white wine glass to allow the wine to breathe and develop"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, Western Cape, South Africa",
+        "grapeVariety": "100% Chardonnay from mountain vineyards",
+        "vintage": "2020",
+        "style": "Full-bodied, barrel-aged Chardonnay with partial malolactic fermentation - elegant, mineral-driven with integrated oak",
+        "ageability": "Drink now through 2028. The wine's balanced acidity and structure suggest excellent medium-term aging potential, with 5-8 years total lifespan from vintage."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lanzarote Vino Blanco 2021",
+      "description": "This Lanzarote white wine showcases the unique Malvasía Volcánica grape, a variety officially recognized by the International Organisation of Vine and Wine that exists only on this volcanic island. Representing 70% of Lanzarote's grape production, Malvasía Volcánica is a natural cross between Malvasia and the indigenous Marmajuelo variety. Grown just 125 km from the African coast in extreme conditions, the vines are planted in small volcanic holes (hoyos) and protected by stone walls against fierce Saharan and Atlantic winds.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with enticing tropical fruit aromas of pineapple and apricot, characteristic of the Malvasía Volcánica variety. Beneath the fruit, a distinct volcanic minerality emerges - a signature of Lanzarote's porous black volcanic soils. Subtle floral notes of white blossoms add elegance, while the extreme growing conditions contribute unique saline and smoky nuances that distinguish this wine from mainland Spanish whites.",
+        "palate": "On the palate, the wine is crisp, bright and positively exploding with citrus and mineral flavors. The porous volcanic soil's extreme drainage creates concentrated flavors despite the challenging conditions, with tropical fruit notes of pineapple dancing alongside lemon and grapefruit. A refreshing, almost electric acidity cuts through the richness, enhanced by the maritime influence. The volcanic terroir contributes a distinctive chalky, mineral backbone that runs through the entire palate, creating remarkable complexity for a wine from such harsh conditions.",
+        "finish": "The finish showcases the wine's signature minerality, with saline notes reminiscent of sea spray and volcanic ash. Citrus zest and tropical fruit linger alongside the persistent stony character. The crisp acidity keeps the palate fresh and vibrant, making you reach for another sip. This is a wine that truly tastes of its unique place on earth."
+      },
+      "foodPairings": [
+        "Grilled octopus with paprika",
+        "Fresh oysters and shellfish",
+        "Canarian papas arrugadas with mojo verde",
+        "Ceviche with citrus and chili",
+        "Fried calamari with aioli"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - serve well chilled to emphasize the wine's refreshing acidity and mineral character",
+        "decanting": "No decanting necessary; the wine is ready to drink immediately and benefits from the freshness of direct pouring",
+        "glassware": "Standard white wine glass or smaller tulip glass to concentrate the aromatic tropical and mineral notes"
+      },
+      "wineDetails": {
+        "region": "Lanzarote D.O., Canary Islands, Spain",
+        "grapeVariety": "100% Malvasía Volcánica (a natural cross of Malvasia x Marmajuelo unique to Lanzarote)",
+        "vintage": "2021",
+        "style": "Crisp, mineral-driven volcanic white wine - tank-aged to preserve freshness and varietal character",
+        "ageability": "Best enjoyed young within 2-3 years of vintage to capture the vibrant tropical fruit and fresh acidity. Drink 2021-2024."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Chambourcin 2021",
+      "description": "Zephaniah Farm Vineyard's 2021 Chambourcin earned a Silver Medal at the prestigious 2025 Governor's Cup, showcasing Virginia's growing expertise with French-American hybrid varieties. Handcrafted with skill and passion on a third-generation working farm in Loudoun County, this wine represents one of the finest examples of Chambourcin from Northern Virginia. Zephaniah is consistently ranked among the Top 50 Northern Virginia wineries and has built a reputation for producing some of the best Chambourcin in the state.",
+      "tastingNotes": {
+        "aroma": "The nose opens with rich, deep aromas of black cherry and plum, enveloped in a distinctive smoky ambience that sets this apart from typical red wines. Layers of baking spice emerge - cinnamon, nutmeg, and clove - adding warmth and complexity. The wine shows surprising elegance for a hybrid variety, with subtle violet and dried herb notes complementing the dark fruit core. There's an earthy, forest floor character that speaks to the terroir of Loudoun County.",
+        "palate": "On the palate, the wine is flavorful and bold yet shows excellent balance. Black cherry and mixed berry flavors dominate, supported by notes of pine and even tree pitch that give the wine a distinctive character. The texture is super mellow with silky tannins, while bright acidity provides structure and lift. There's a pleasant tartness that keeps the wine fresh, with new fruit flavors continuing to emerge as the wine opens. The body is medium to full, with concentration that belies the challenging growing conditions of the 2021 vintage.",
+        "finish": "The finish is long and spicy, with baking spice notes of cinnamon and vanilla lingering alongside dark fruit. The smoky character returns on the close, adding complexity and interest. The wine's versatility shines through - it works beautifully at cellar temperature or slightly chilled, and even shows potential as a mulled wine base due to its inherent spice character."
+      },
+      "foodPairings": [
+        "Grilled pork chops with apple chutney",
+        "Smoked brisket or barbecue",
+        "Wild mushroom risotto",
+        "Herb-roasted game birds",
+        "Aged cheddar or smoked Gouda cheese"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) - slightly chilled brings out the wine's bright fruit and spice character; can also be served at cellar temperature",
+        "decanting": "Brief decanting (20-30 minutes) recommended to soften tannins and allow the spice and smoky notes to integrate",
+        "glassware": "Bordeaux or standard red wine glass to allow the aromatic complexity to develop"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Virginia, USA",
+        "grapeVariety": "100% Chambourcin (French-American hybrid variety)",
+        "vintage": "2021",
+        "style": "Medium to full-bodied dry red - spicy, smoky with dark fruit concentration and balanced acidity",
+        "ageability": "Drink now through 2027. The wine is approachable young but has the structure for 3-5 years of aging potential. The 2021 vintage is drinking beautifully now."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Coste Caumartin Chardonnay 2020",
+      "description": "Domaine Coste-Caumartin's legacy traces back nearly a thousand years to the era of the Dukes of Burgundy, making it one of the region's most historically significant estates. This family-owned domaine in the Côte de Beaune produces approximately 65,000 bottles annually, with 25% dedicated to elegant Chardonnay-based white wines. Their 2020 Chardonnay likely comes from their Saint-Romain parcels, where the cooler climate and limestone soils produce wines of remarkable finesse and minerality.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Burgundian Chardonnay character with ripe orchard fruit - green apple, pear, and hints of white peach. Subtle floral notes of acacia and hawthorn blossom add elegance, while well-integrated oak contributes gentle vanilla and hazelnut nuances. The limestone terroir of the Côte de Beaune expresses itself through pronounced wet stone minerality and a flinty, chalky quality that lifts the fruit aromatics. Delicate toasted brioche and butter notes from lees aging add depth without overwhelming the wine's inherent freshness.",
+        "palate": "Medium-bodied and beautifully balanced, the palate shows the precision typical of cooler-climate Burgundy Chardonnay. Crisp green apple and citrus zest flavors form the core, complemented by richer notes of blanched almond and lemon curd. The 2020 vintage's natural acidity provides a vibrant spine, keeping the wine fresh and focused despite its textural richness. There's a lovely tension between the wine's creamy mouthfeel - enhanced by partial malolactic fermentation - and its bright, mineral-driven energy. Subtle oak influence integrates seamlessly, adding structure rather than overt flavor.",
+        "finish": "The finish is long and precise with persistent minerality that seems to echo through the palate. Citrus zest and wet stone notes linger, accompanied by a subtle saline quality characteristic of fine Burgundy whites. The wine's natural acidity ensures a clean, refreshing close that invites another sip. This is Chardonnay that speaks eloquently of place, showing restraint and elegance over power."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs de Provence",
+        "Pan-seared Dover sole with brown butter",
+        "Grilled lobster tail with lemon",
+        "Comté cheese aged 12-18 months",
+        "Creamy leek and potato soup"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F) - serve slightly warmer to appreciate the wine's complexity and texture",
+        "decanting": "Light decanting (15 minutes) can help open up the aromatics, though not essential for the 2020 vintage",
+        "glassware": "Burgundy glass or large-bowled white wine glass to allow the wine's delicate aromatics to develop fully"
+      },
+      "wineDetails": {
+        "region": "Côte de Beaune, Burgundy, France (likely Saint-Romain or Bourgogne Côte d'Or)",
+        "grapeVariety": "100% Chardonnay from limestone soils",
+        "vintage": "2020",
+        "style": "Classic Burgundian Chardonnay - mineral-driven, medium-bodied with elegant oak integration and vibrant acidity",
+        "ageability": "Drink now through 2028. The 2020 vintage shows excellent balance for medium-term aging, with 6-8 years total potential from harvest."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Brothers Red Blend 2019",
+      "description": "Two Mountain Winery's 'Brothers' Reserve represents a unique collaboration between brothers Matt and Patrick Rawn, who each select their favorite barrels from their favorite blocks and estate vineyard sites. Only barrels that make both brothers' lists are included, ensuring exceptional quality and consistency. Sourced from their 300 acres of sustainably farmed estate vineyards in Washington's Yakima Valley, this reserve-level blend showcases the best of what their Rattlesnake Hills terroir can produce. The project originated when the winery consisted only of the Rawn brothers, making barrel selection a friendly competition.",
+      "tastingNotes": {
+        "aroma": "The nose opens with concentrated dark fruit - blackberry, black cherry, and cassis - layered with notes of dark chocolate and espresso. Well-integrated oak contributes cedar and vanilla nuances without overwhelming the fruit, while hints of tobacco leaf and dried herbs add complexity. The estate-grown character shines through with a distinctive minerality reflecting the volcanic soils of the Rattlesnake Hills AVA. Subtle notes of violet and black pepper emerge as the wine opens, showcasing the careful barrel selection process.",
+        "palate": "On the palate, the wine is rich and structured with ripe black fruit flavors at its core. The Yakima Valley's warm days and cool nights have created wines with excellent concentration balanced by refreshing acidity. Velvety tannins provide structure without harshness, suggesting careful oak management and optimal barrel selection. The wine shows layers of complexity - dark plum and blackberry give way to mocha, vanilla, and sweet baking spices on the mid-palate. Each barrel component seems perfectly integrated, a testament to the brothers' meticulous selection process.",
+        "finish": "The finish is long and elegant with persistent dark fruit and subtle oak spice. Fine-grained tannins provide structure for aging while remaining approachable now. The sustainable farming practices and estate fruit quality shine through in the wine's purity and length. Notes of dark chocolate and espresso linger alongside ripe fruit, with the volcanic terroir's minerality adding a distinctive signature at the close."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with red wine reduction",
+        "Roasted leg of lamb with rosemary",
+        "Wild mushroom and truffle risotto",
+        "Aged manchego or aged cheddar cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - slightly below room temperature to preserve freshness while allowing complexity to shine",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open up and the tannins to soften; this is a structured wine that benefits significantly from aeration",
+        "glassware": "Large Bordeaux glass or Cabernet glass to allow the concentrated aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington State, USA (Rattlesnake Hills AVA)",
+        "grapeVariety": "Estate-grown red blend (likely Cabernet Sauvignon-dominant with Merlot and other Bordeaux varieties)",
+        "vintage": "2019",
+        "style": "Full-bodied reserve red blend - concentrated dark fruit with structured tannins and integrated oak",
+        "ageability": "Drink now through 2032. The 2019 vintage shows excellent structure for long-term aging, with 10-13 years total potential. Currently drinking well but will continue to develop complexity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Blocks 7 & 22 Zinfandel 2022",
+      "description": "Hendry's Blocks 7 & 22 Zinfandel showcases fruit from two distinct estate vineyard blocks planted decades apart - Block 7 in 1975 and Block 22 in 1995. Both blocks are planted to Clone 2, a virus-free clone originally sourced from Lodi through the Foundation Plant Services. The 2022 vintage benefits from Napa Valley's excellent growing conditions, producing a wine that wine critic Joe Czerwinski describes as medium to full-bodied, silky-textured and open. Aged for 15 months in French oak barrels (one-third new), this represents exceptional value for single-vineyard Napa Zinfandel.",
+      "tastingNotes": {
+        "aroma": "The 2022 vintage presents an unexpected aromatic profile for Zinfandel, featuring floral notes, tea-like nuances, and even intriguing orange-like aromas alongside bold berry fruit. The nose shows remarkable complexity with layers of wild blackberry, raspberry, and dark cherry lifted by violet and dried rose petal. Only the slightest hint of raisined fruit appears - a testament to optimal picking decisions and the cooler aspects of the 2022 vintage. Subtle French oak contributes notes of vanilla and sweet spice without overwhelming the vibrant fruit character.",
+        "palate": "Medium to full-bodied with a silky texture that's both luxurious and approachable, the palate opens beautifully with layers of fresh berry fruit. The wine showcases Zinfandel's inherent exuberance while maintaining elegance and balance - black cherry, wild strawberry, and cranberry flavors dance across the palate. The one-third new French oak integration is seamless, adding structure and subtle spice rather than overt wood flavors. There's a lovely tension between the wine's richness and its bright acidity, with the different vine ages from Blocks 7 and 22 contributing complexity and depth.",
+        "finish": "The finish is long and velvety, extending the berry fruit flavors with gentle tannins and persistent spice. Joe Czerwinski notes this is 'a fine Zin for drinking young' with a suggested drinking window through 2030. The wine closes with remarkable freshness for Zinfandel, showing subtle orange zest and tea notes alongside the fruit. At a reasonable price point, this represents some of the best value in single-vineyard Napa Zinfandel."
+      },
+      "foodPairings": [
+        "BBQ ribs with tangy sauce",
+        "Grilled lamb chops with herbs",
+        "Pizza with spicy Italian sausage",
+        "Slow-cooked beef stew",
+        "Sharp aged cheddar or aged Gouda cheese"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F) - slightly cooler than room temperature to preserve the wine's fresh berry character and silky texture",
+        "decanting": "Brief decanting (20-30 minutes) recommended to allow the wine to open, though it's approachable immediately thanks to its silky texture",
+        "glassware": "Large red wine glass or Burgundy glass to concentrate the floral and tea-like aromatics alongside the bold fruit"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California, USA (estate vineyard)",
+        "grapeVariety": "100% Zinfandel from Blocks 7 (planted 1975) and 22 (planted 1995), Clone 2",
+        "vintage": "2022",
+        "style": "Medium to full-bodied Napa Zinfandel - silky, elegant with vibrant berry fruit and subtle French oak (15 months, 1/3 new)",
+        "ageability": "Drink 2024-2030 per Joe Czerwinski. While designed for drinking young, the wine's structure and balance suggest 6-8 years total potential."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shadowbox Carneros Pinot Noir 2014",
+      "description": "Shadowbox Cellars produces small-lot, artisanal Pinot Noir from California's prestigious Carneros AVA, a cool-climate region straddling Napa and Sonoma counties. As a boutique producer with production runs of 150 cases or less, Shadowbox focuses on quality over quantity, sourcing from select vineyards in this fog-influenced region. The 2014 vintage represents a wine with significant bottle age, having developed the tertiary characteristics that make mature Pinot Noir so compelling. The Carneros region's maritime influence and clay-loam soils are ideal for producing elegant, structured Pinot Noir.",
+      "tastingNotes": {
+        "aroma": "After a decade of aging, the 2014 vintage presents evolved aromatics characteristic of mature Carneros Pinot Noir. The nose opens with complex notes of dried cherry, cranberry, and pomegranate, transitioning from primary fruit to more nuanced secondary and tertiary aromas. Forest floor, dried autumn leaves, and earthy mushroom notes - specifically white truffles and Hen of the Woods - add remarkable depth. Subtle baking spices including cinnamon and clove emerge, alongside hints of black tea and tobacco. The wine's development has integrated any oak influence into a seamless whole.",
+        "palate": "On the palate, the wine is smooth and refined with a perfect medium body that showcases the elegance of both the region and the variety. Soft yet structural tannins provide framework without heaviness, allowing the evolved fruit flavors to shine. Red berry notes of cherry and raspberry persist alongside savory elements - dried herbs, soy, and umami characteristics that developed with age. The texture is silky and well-integrated, with balanced acidity maintaining freshness despite the wine's maturity. Traces of forest floor and earthy mushroom add complexity throughout the mid-palate.",
+        "finish": "The finish is lingering and complex, with the wine's maturity evident in the persistent savory notes that accompany the fruit. Dried cherry and cranberry flavors extend alongside earthy, forest floor characteristics. The soft tannins and balanced acidity ensure a clean, elegant close with no harsh edges. This is a wine that has reached a beautiful drinking window, showing the rewards of patience with quality Carneros Pinot Noir."
+      },
+      "foodPairings": [
+        "Duck breast with cherry reduction",
+        "Mushroom risotto with truffle oil",
+        "Grilled salmon with herbs",
+        "Roasted chicken with root vegetables",
+        "Aged Gruyère or farmhouse cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) - slightly cooler than room temperature to preserve the wine's delicate aromatics and freshness",
+        "decanting": "Gentle decanting (30-45 minutes) recommended for this mature wine to allow sediment to settle and tertiary aromas to develop; handle carefully",
+        "glassware": "Burgundy glass or large-bowled Pinot Noir glass to showcase the wine's evolved complexity and delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Carneros AVA, California (spanning Napa and Sonoma Counties)",
+        "grapeVariety": "100% Pinot Noir from Carneros vineyards",
+        "vintage": "2014",
+        "style": "Medium-bodied mature Pinot Noir - elegant, earthy with developed tertiary characteristics and soft tannins",
+        "ageability": "Drink now through 2027. At 11 years of age, this wine is in its prime drinking window. The 2014 vintage has aged gracefully and should be enjoyed over the next 2-3 years while the fruit remains vibrant."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo IFWH Exclusive Cabernet Sauvignon 2016",
+      "description": "The Iukuridze Family Wine Heritage (IFWH) collection represents the pinnacle of Ukrainian winemaking from Shabo, the country's premier wine estate. Launched in December 2021 to celebrate the winery's 18th anniversary, this exclusive collection features wines personally selected by founder Vaja Iukuridze from exceptional harvest years. The 2016 Cabernet Sauvignon is designated AOC (controlled denomination of origin) with only 1,000-4,000 bottles produced, making it exceptionally rare. Crafted from grapes over 20 years old from select microplots of the Shabo terroir near the Black Sea, this wine represents Ukraine's finest viticultural achievement.",
+      "tastingNotes": {
+        "aroma": "The nose presents concentrated aromas of blackcurrant, black cherry, and plum, characteristic of the warm Black Sea climate that allows for optimal Cabernet ripeness. Layers of complexity unfold with notes of cedar, graphite, and tobacco leaf, indicating careful oak maturation. The unique maritime influence of the Black Sea region contributes subtle saline notes and a distinct mineral quality. Well-integrated oak adds vanilla, dark chocolate, and coffee bean nuances without overwhelming the ripe fruit. Hints of black olive and Mediterranean herbs reflect the region's proximity to both sea and steppe.",
+        "palate": "On the palate, the wine is full-bodied and richly textured with the concentration expected from old vines and carefully selected microplots. Ripe black fruit flavors - cassis, blackberry, and black plum - dominate the core, supported by structured yet refined tannins. The 2016 vintage's warm growing season has produced a wine of impressive depth and power while maintaining balance through natural acidity. Oak aging has integrated beautifully, contributing mocha, vanilla, and baking spice notes that enhance rather than mask the fruit. The Black Sea terroir expresses itself through a distinctive minerality and subtle maritime influence.",
+        "finish": "The finish is long and powerful with persistent black fruit and oak spice. Firm tannins suggest excellent aging potential, while the wine's concentration ensures flavors linger well after the glass is empty. Notes of dark chocolate, espresso, and cedar extend the experience, with the terroir's unique mineral character providing a distinctive signature. This is a wine built for the cellar, showing the structure and balance for extended aging while remaining approachable now with proper decanting."
+      },
+      "foodPairings": [
+        "Grilled beef tenderloin with peppercorn sauce",
+        "Braised lamb shanks with root vegetables",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Wild mushroom and beef Wellington",
+        "Dark chocolate and espresso dessert"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - slightly below room temperature to preserve structure while allowing aromatics to develop",
+        "decanting": "Decant for 60-90 minutes to allow this powerful, structured wine to open fully; the tannins will soften significantly with aeration",
+        "glassware": "Large Bordeaux glass or Cabernet glass to allow the concentrated aromatics and complex layers to develop"
+      },
+      "wineDetails": {
+        "region": "Shabo, Odessa Oblast, Ukraine (Black Sea coastal region) - AOC designation",
+        "grapeVariety": "100% Cabernet Sauvignon from vines 20+ years old, select microplots",
+        "vintage": "2016",
+        "style": "Full-bodied, reserve-level Cabernet Sauvignon - concentrated, structured with maritime influence and oak aging",
+        "ageability": "Drink now through 2036. The 2016 vintage shows exceptional structure for long-term aging, with 15-20 years total potential. Limited production (1,000-4,000 bottles) makes this a collectible wine."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Albarino 2023",
+      "description": "Hendry Vineyard's 2023 Albariño earned impressive accolades including 94 points from FMW and 90 points from Wine Advocate, establishing it as one of California's finest expressions of this Spanish variety. The wine steers clear of oak influence, allowing the varietal's natural floral and citrus character to shine at full intensity. Sourced from Hendry's estate vineyards in Napa Valley's cooler climate blocks, this Albariño showcases what happens when traditional Spanish varieties meet California's exceptional terroir. At approximately $22.95-$28, it represents outstanding value for estate-grown Napa wine.",
+      "tastingNotes": {
+        "aroma": "The nose commences with a bright, vibrant bouquet of citrus - lime, lemon zest, and grapefruit - that immediately captures attention. Wonderfully floral aromatics of honeysuckle, white flowers, and jasmine add elegance and lift to the citrus core. Wine Advocate notes the variety's 'floral and lime notes shine at full force' without oak interference. Layers of ripe pear and white peach emerge, while intriguing hints of graphite and slate minerality add complexity. The cooler climate blocks produce aromatics of remarkable intensity and purity.",
+        "palate": "Medium-bodied with exceptional vibrancy, the palate presents pear, melon, lemon, and lime flavors in beautiful harmony. Mineral-driven energy courses through the wine with gorgeous pure white stone fruit at its heart. The texture is silky yet precise, with refreshing acidity providing structure and lift. Hendry's estate fruit quality shines through in the wine's concentration and purity of flavor. Melon and pear notes round out the mid-palate before the wine tightens up, leading to a crisp, invigorating finish. The absence of oak allows every nuance of fruit and terroir to express itself clearly.",
+        "finish": "The finish is crisp, refreshing and remarkably long for an unoaked white wine. Slate minerality becomes more pronounced, accented by honeysuckle and citrus zest that linger on the palate. The wine's natural acidity keeps everything bright and lively, making it an ideal 'summer sipper' with peachy notes persisting through the close. This is Albariño that honors its Spanish roots while expressing unmistakable Napa character."
+      },
+      "foodPairings": [
+        "Fresh raw oysters with mignonette",
+        "Grilled prawns with lemon and herbs",
+        "Ceviche with citrus and avocado",
+        "Pan-seared sea bass with salsa verde",
+        "Fresh goat cheese with honey drizzle"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - serve well chilled to emphasize the wine's refreshing acidity and vibrant fruit character",
+        "decanting": "No decanting required; this wine is designed to be enjoyed fresh and vibrant directly from the bottle",
+        "glassware": "Standard white wine glass or smaller tulip glass to concentrate the intense floral and citrus aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California, USA (estate-grown from cooler climate blocks)",
+        "grapeVariety": "100% Albariño (Spanish variety adapted to Napa terroir)",
+        "vintage": "2023",
+        "style": "Medium-bodied, unoaked Albariño - mineral-driven with intense citrus, floral notes and vibrant acidity",
+        "ageability": "Best enjoyed young within 2-3 years of vintage to capture maximum freshness and vibrant fruit character. Drink 2023-2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

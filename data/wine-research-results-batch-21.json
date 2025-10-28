@@ -1,0 +1,346 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "totalWinesResearched": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Martellotto Cabernet Sauvignon 2019",
+      "description": "A powerful Paso Robles Cabernet Sauvignon from one of the finest vintages on record. The 2019 harvest featured extended hang time and near-perfect conditions, allowing grapes to develop exceptional color concentration and complex flavor development. Crafted by Greg Martellotto, whose family has made wine for generations in the Italian tradition.",
+      "tastingNotes": {
+        "aroma": "The nose opens with concentrated black fruit aromas of blackberry and cassis, layered with subtle notes of cedar and vanilla from oak aging. Hints of dark chocolate and espresso emerge as the wine breathes, while underlying notes of dried herbs and tobacco leaf add complexity. The aromatic intensity reflects the exceptional 2019 vintage, with ripe fruit character balanced by savory elements.",
+        "palate": "Rich and full-bodied on the palate, this Cabernet delivers waves of ripe black cherry and plum flavors supported by firm, well-structured tannins. The extended hang time of the 2019 vintage is evident in the wine's depth and concentration, with layers of dark fruit, cocoa, and subtle baking spices. Mid-palate weight is impressive, showing the power typical of Paso Robles while maintaining elegance and balance.",
+        "finish": "The finish is long and persistent, with the structured tannins providing framework for continued aging. Dark fruit flavors linger alongside notes of toasted oak and a touch of minerality, while the wine's natural acidity keeps the palate fresh and vibrant through the extended finish."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with red wine reduction",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Wild mushroom risotto",
+        "Roasted lamb rack with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 1-2 hours before serving to allow the wine to open up and tannins to soften, especially if drinking young",
+        "glassware": "Large Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Full-bodied red wine",
+        "ageability": "Drink now through 2029. The 2019 vintage has excellent aging potential with proper cellaring."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta Picouto de Cima Loureiro 2022",
+      "description": "A fresh and aromatic Vinho Verde from the Minho region of Portugal, showcasing the elegant Loureiro grape variety. This wine exemplifies the floral character and crisp freshness that defines quality Vinho Verde, with bright acidity and delicate fruit flavors that make it wonderfully refreshing.",
+      "tastingNotes": {
+        "aroma": "The bouquet is intensely floral with characteristic notes of orange blossom, honeysuckle, and white flowers that define the Loureiro grape. Underneath the floral lift, there are subtle aromas of lime zest, green apple, and white peach. A gentle minerality adds complexity, while hints of fresh herbs provide an additional aromatic dimension typical of cool-climate Portuguese whites.",
+        "palate": "Light-bodied and crisp on the palate, this Vinho Verde displays vibrant acidity that energizes flavors of citrus fruits, particularly lemon and grapefruit, alongside notes of green apple and pear. The wine has a characteristic slight spritz that enhances its refreshing quality. Green fruit notes are complemented by subtle stone fruit flavors, while the mineral backbone provides structure and length.",
+        "finish": "The finish is clean and zesty with lingering citrus notes and a hint of saline minerality. The wine's natural acidity leaves the palate refreshed and ready for the next sip, with delicate floral echoes persisting on the aftertaste."
+      },
+      "foodPairings": [
+        "Fresh seafood and shellfish, especially grilled sardines",
+        "Ceviche or seafood salads",
+        "Light vegetable dishes and salads",
+        "Goat cheese and fresh cheeses",
+        "Portuguese petiscos (small plates)"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well chilled",
+        "decanting": "No decanting needed; serve directly from refrigerator for maximum freshness and to preserve delicate bubbles",
+        "glassware": "Small white wine glass or tulip-shaped glass"
+      },
+      "wineDetails": {
+        "region": "Vinho Verde DOC, Minho, Portugal",
+        "grapeVariety": "100% Loureiro",
+        "vintage": "2022",
+        "style": "Light, crisp white wine with slight effervescence",
+        "ageability": "Best enjoyed young within 1-2 years of vintage to preserve freshness and floral aromatics. Drink by 2024."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta da Trovisca Ruby Port NV",
+      "description": "A vibrant and fruit-forward ruby port aged three years in stainless steel vats to preserve its youthful character and fresh fruit expression. This versatile port showcases traditional Portuguese grape varieties in a style that emphasizes approachability and bright berry flavors, making it perfect for both traditional and contemporary serving occasions.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with fresh red fruit aromas of strawberry, raspberry, and redcurrant, displaying the vibrant character typical of ruby port. Sweet spice notes of cinnamon and clove emerge alongside the fruit, while subtle hints of chocolate and dried herbs add depth. The aromatic profile is youthful and exuberant, inviting immediate enjoyment.",
+        "palate": "Smooth and fresh on the palate with round, approachable tannins that frame the wine's fruit-forward character. Flavors evocative of strawberry and blackberry dominate, supported by notes of cherry and plum. The wine maintains good structure despite its accessible style, with the fruit nuances balanced by subtle sweetness and integrated alcohol warmth. The texture is silky and the body medium, making this port particularly versatile.",
+        "finish": "The finish offers lingering berry fruit flavors with a touch of chocolate and sweet spice. The wine's freshness carries through to the end, with gentle tannins providing structure without heaviness. A subtle warming sensation from the 19.5% alcohol is well-integrated and not overwhelming."
+      },
+      "foodPairings": [
+        "Chocolate mousse or dark chocolate desserts",
+        "Apple tart or fruit-based desserts",
+        "Dates wrapped with bacon",
+        "Blue cheese and aged Stilton",
+        "Dried fruits and nuts"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C), slightly cool",
+        "decanting": "Brief decanting for 15-20 minutes can help the fruit aromas open, though not essential for this fresh style",
+        "glassware": "Small port glass or tulip-shaped wine glass"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "35% Touriga Franca, 35% Tinta Roriz, 10% Touriga Nacional, 20% field blend",
+        "vintage": "Non-vintage blend",
+        "style": "Ruby Port - youthful, fruit-forward fortified wine",
+        "ageability": "Ready to drink now. Can be kept for several years, though best enjoyed young to appreciate fresh fruit character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Tuscarora Mill Sauvignon Gris (Private Label) 2023",
+      "description": "An elegant Virginia Sauvignon Gris from Boxwood Estate Winery, grown exclusively in the highest-elevation D-Block vineyard on a northwest-southeast exposure. This single-varietal wine showcases the pink-skinned, fleshy fruit character of Sauvignon Gris in the Middleburg AVA, following the award-winning tradition of Boxwood's previous vintages that earned silver medals at the Virginia Governor's Cup.",
+      "tastingNotes": {
+        "aroma": "Powerful floral aromas define this Sauvignon Gris, with notes of honeysuckle, acacia, and white rose petals dominating the bouquet. The high-elevation vineyard site contributes to intense aromatics, with underlying scents of ripe pear, white peach, and citrus blossom. Subtle hints of wet stone and minerality reflect the terroir, while delicate spice notes add complexity to the aromatic profile.",
+        "palate": "On the palate, this wine displays more richness and body than typical Sauvignon Blanc, a characteristic of the pink-skinned Sauvignon Gris grape. Flavors of ripe stone fruits—peach and apricot—blend with crisp apple and Asian pear, while the wine maintains refreshing acidity. The mouthfeel is round and textured, with a subtle creaminess that adds depth. Notes of Meyer lemon and grapefruit provide brightness, balanced by the wine's inherent fleshiness.",
+        "finish": "The finish is long and layered, with floral notes returning alongside persistent stone fruit flavors. The wine's natural acidity keeps the palate fresh while the textured mouthfeel provides satisfying weight. Mineral notes emerge on the finish, reflecting the elevated vineyard site and Virginia terroir."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with citrus butter",
+        "Roasted chicken with herbs",
+        "Crab cakes and shellfish",
+        "Creamy pasta dishes with mushrooms",
+        "Soft-ripened cheeses like Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed, though 15 minutes of aeration in the glass can help open the floral aromatics",
+        "glassware": "Medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg AVA, Virginia",
+        "grapeVariety": "100% Sauvignon Gris",
+        "vintage": "2023",
+        "style": "Medium-bodied aromatic white wine",
+        "ageability": "Best enjoyed within 2-3 years to appreciate fresh floral character and fruit expression. Drink 2023-2026."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mendoza Finca Abril Rapsodia 2017",
+      "description": "A sophisticated Bordeaux-style blend from Mendoza's prestigious Valle de Uco region, crafted by winemaker Adrian Toledo. This reserve-level wine combines traditional French varieties in a harmonious composition, aged for 24 months in French oak barrels with extended maceration of 25-40 days to extract optimal complexity and structure from grapes grown in Perdriel, Lujan de Cuyo.",
+      "tastingNotes": {
+        "aroma": "The nose reveals deep complexity with aromas of ripe blackberry, cassis, and dark plum intermingled with notes of chocolate, gingerbread, and chai spices from the extensive barrel aging. Underlying the rich fruit are scents of cedar, tobacco, and graphite, typical of well-aged Bordeaux blends. Hints of vanilla and toasted oak add a sophisticated dimension, while subtle floral notes of violet provide elegance.",
+        "palate": "Deep in body and powerfully structured, this wine showcases the concentrated fruit character of high-altitude Mendoza vineyards. The palate delivers rich flavors of black cherry, blackcurrant, and plum, accentuated by notes of dark chocolate, espresso, and sweet baking spices including gingerbread and cinnamon. The 24-month barrel aging contributes layers of complexity with toasted oak, vanilla, and subtle leather notes. Tannins are firm yet refined, providing structure for extended aging while supporting the wine's considerable fruit intensity.",
+        "finish": "The finish is long and luxurious, with persistent dark fruit flavors complemented by chocolate, spice, and oak notes. The wine's structure becomes evident on the finish, with fine-grained tannins and balanced acidity ensuring aging potential. Subtle warmth from the alcohol is well-integrated, and the complex spice notes linger impressively."
+      },
+      "foodPairings": [
+        "Savory beef brisket with red wine jus",
+        "Pork tenderloin with prune reduction",
+        "Rack of lamb with herb crust",
+        "Aged Manchego or Gruyère cheese",
+        "Mushroom-stuffed beef tenderloin"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 2 hours before serving to allow this age-worthy wine to open fully and integrate its complex components",
+        "glassware": "Large Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Perdriel, Lujan de Cuyo and Valle de Uco, Mendoza, Argentina",
+        "grapeVariety": "70% Malbec, 20% Cabernet Sauvignon, 10% Cabernet Franc",
+        "vintage": "2017",
+        "style": "Full-bodied Bordeaux-style red blend",
+        "ageability": "Excellent aging potential. Drink 2023-2032. The extended maceration and oak aging provide structure for 10-15 years of cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rock Ferry Orchard Pinot Rose 2022",
+      "description": "A gold medal-winning organic rosé from Rock Ferry's Orchard vineyard in Marlborough, New Zealand, crafted in an elegant French style. This certified organic and vegan wine combines Pinot Noir with small percentages of Pinot Blanc and Pinot Gris, all harvested together and aged on light lees for six months to develop complexity and texture.",
+      "tastingNotes": {
+        "aroma": "The nose displays a beautiful salmon-pink hue's aromatic promise with delicate scents of fresh strawberries, raspberries, and red cherries. Floral notes of white blossoms and rose petals add elegance, while subtle aromas of rock melon (cantaloupe) provide a unique dimension. The French-style winemaking contributes hints of brioche and subtle yeast character from the lees aging, adding complexity beyond typical fruit-forward rosés.",
+        "palate": "The palate is refreshing and well-balanced, showing the precision of cool-climate Marlborough fruit. Berry flavors—particularly wild strawberry and cranberry—are complemented by notes of watermelon and rock melon, creating a harmonious fruit profile. The wine maintains crisp acidity that energizes the palate, while the six-month lees aging contributes subtle texture and a hint of creaminess. The small percentage of Pinot Blanc and Pinot Gris adds depth and complexity to the blend, with delicate citrus notes enhancing the overall freshness.",
+        "finish": "The finish is clean and persistent, with red berry flavors lingering alongside subtle floral notes. The wine's organic farming and minimal intervention winemaking allow the purity of fruit to shine through, while the light lees contact provides a gentle, textured finish with excellent length."
+      },
+      "foodPairings": [
+        "Grilled salmon or tuna",
+        "Mediterranean seafood dishes",
+        "Summer salads with fresh berries and goat cheese",
+        "Light pasta with tomato and basil",
+        "Asian fusion cuisine with moderate spice"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C)",
+        "decanting": "No decanting needed; serve well-chilled to emphasize freshness and fruit purity",
+        "glassware": "Medium white wine glass or rosé-specific glass"
+      },
+      "wineDetails": {
+        "region": "Marlborough, New Zealand",
+        "grapeVariety": "83% Pinot Noir, 9% Pinot Blanc, 8% Pinot Gris",
+        "vintage": "2022",
+        "style": "French-style rosé - dry, elegant, and textured",
+        "ageability": "Best enjoyed within 2-3 years to appreciate fresh fruit and floral character. Drink 2022-2025. Certified organic and vegan."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Born Rambla Rose 2024",
+      "description": "An organic rosé from Barcelona's all-female winemaking team at Born Rosé, crafted from Grenache and Tempranillo grapes grown in the Penedès region. This Bronze Medal winner at the Decanter World Wine Awards represents the new wave of Mediterranean rosés—100% organic, dry, light, pale, and low in alcohol, embodying the team's philosophy that 'we don't make wine, we make rosé.'",
+      "tastingNotes": {
+        "aroma": "Fresh and inviting on the nose with aromas of ripe strawberry, red apple, and subtle red plum. Delicate floral notes add elegance, while a distinctive herbal undertone—characteristic of the Grenache-Tempranillo blend—provides Mediterranean character. The organic farming practices allow pure fruit expression without heavy intervention, creating a clean, vibrant aromatic profile.",
+        "palate": "Fresh, buoyant, and distinctly dry on the palate, this rosé showcases the best of Spanish rosado tradition with a modern, refined approach. Flavors of crisp apple and strawberry dominate, complemented by notes of plum and subtle citrus. The subtle herbal undertone noted on the nose carries through, adding complexity and a savory edge that balances the fruit. The wine is light-bodied with refreshing acidity, while the low alcohol level (typical of Born's style) contributes to its exceptional drinkability.",
+        "finish": "The finish is clean and refreshing with lingering red fruit flavors and that distinctive herbal note providing interest. The dry finish leaves the palate ready for food or another sip, with subtle minerality and bright acidity ensuring the wine maintains its vibrant character through the aftertaste."
+      },
+      "foodPairings": [
+        "Spanish tapas and pintxos",
+        "Grilled vegetables and Mediterranean salads",
+        "Light seafood paella",
+        "Fresh mozzarella and tomato",
+        "Chicken or turkey dishes"
+      ],
+      "servingInfo": {
+        "temperature": "44-48°F (7-9°C), well chilled",
+        "decanting": "No decanting needed; serve directly chilled to maintain freshness and vibrant character",
+        "glassware": "Medium white wine glass or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Penedès, Catalonia, Spain",
+        "grapeVariety": "60% Grenache, 40% Tempranillo",
+        "vintage": "2024",
+        "style": "Dry, light-bodied organic rosé with low alcohol",
+        "ageability": "Best enjoyed young within 1-2 years to appreciate fresh fruit and vibrant character. Drink 2024-2026. 100% organic certified."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Petit Verlot 2018",
+      "description": "A distinctive Napa Valley red from Trespass Vineyard, blending Petit Verdot with Merlot to create a powerful yet balanced wine. Trespass Vineyard ranks in the top 10 estates in Napa Valley with an average rating of 4.5, and this bottling showcases their expertise in crafting age-worthy wines that marry concentrated fruit with savory complexity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of ripe plum and blackberry jam, followed by intriguing savory notes of scorched earth and tobacco that provide wonderful complexity. This balance where 'jam fruit meets mouthwatering savories' defines the wine's unique character. Hints of dried herbs, cedar, and dark chocolate emerge as the wine breathes, while subtle notes of vanilla and toasted oak from barrel aging add polish to the aromatic profile.",
+        "palate": "Powerful and concentrated on the palate, this wine delivers rich flavors of black cherry, plum, and dark berries. Warm spices of clove and cinnamon add complexity, while tart currants provide brightness and balance to the ripe fruit character. The wine shows excellent structure with firm, well-integrated tannins that give it presence without harshness. The Petit Verdot contributes intensity and grip, while the Merlot adds supple texture and roundness. The balance between acidity and tannins is expertly managed, creating a harmonious whole.",
+        "finish": "The finish is long and layered, with dark fruit flavors persisting alongside spice notes and a touch of minerality. The powerful tannin structure becomes evident on the finish, suggesting excellent aging potential, while the wine's natural acidity maintains freshness and prevents heaviness despite the concentration."
+      },
+      "foodPairings": [
+        "Grilled ribeye or New York strip steak",
+        "Braised beef short ribs",
+        "Roasted game meats like venison or wild boar",
+        "Hearty stews and cassoulet",
+        "Aged hard cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 1-2 hours to soften tannins and allow the complex aromatics to fully develop",
+        "glassware": "Large Bordeaux-style glass to accommodate the wine's aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "Petit Verdot and Merlot blend (exact percentages not disclosed)",
+        "vintage": "2018",
+        "style": "Full-bodied, powerful red blend",
+        "ageability": "Excellent aging potential. Drink 2023-2033. The Petit Verdot component provides structure for extended cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Coste Caumartin Haut Cotes de Beaune 2021",
+      "description": "A classic Burgundian Pinot Noir from Domaine Coste-Caumartin, a family estate cultivating vineyards in Pommard since 1793. This wine from the Hautes-Côtes de Beaune appellation reflects over two centuries of winemaking tradition, crafted from sustainably farmed vineyards (HVE certified since 2019) across the family's 13 hectares in Pommard, Saint-Romain, and Beaune.",
+      "tastingNotes": {
+        "aroma": "The nose displays classic Burgundian Pinot Noir character with bright red fruit aromas of cherry, raspberry, and cranberry. Subtle earthy notes reminiscent of forest floor and mushroom add complexity, while delicate floral hints of violet and rose petal provide elegance. The cooler climate and higher elevation of the Hautes-Côtes de Beaune contribute to a fresher, more delicate aromatic profile compared to Côte de Beaune village wines, with hints of spice and mineral notes emerging as the wine opens.",
+        "palate": "On the palate, this wine shows the elegance and finesse typical of well-made Burgundy, with silky tannins and vibrant acidity framing flavors of red cherry, strawberry, and pomegranate. The wine has medium body with excellent balance, displaying purity of fruit without excessive oak influence. Subtle savory notes of herbs and earth add depth and complexity, while the natural acidity keeps the palate fresh and lively. The high environmental value (HVE) farming practices contribute to the wine's transparent expression of terroir.",
+        "finish": "The finish is clean and persistent with lingering red fruit flavors and a touch of mineral salinity. The wine's refined tannins and bright acidity ensure a refreshing finish that invites another sip, while subtle earthy notes provide complexity on the aftertaste."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs de Provence",
+        "Duck breast with cherry reduction",
+        "Mushroom risotto or earthy vegetable dishes",
+        "Gruyère and aged Comté cheese",
+        "Salmon with light cream sauce"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool",
+        "decanting": "Brief decanting for 30 minutes can help the wine open, though not essential for this elegant style",
+        "glassware": "Burgundy-style glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Hautes-Côtes de Beaune, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2021",
+        "style": "Medium-bodied, elegant Burgundian Pinot Noir",
+        "ageability": "Drink 2023-2028. Hautes-Côtes de Beaune wines are typically best enjoyed within 3-7 years to appreciate their fresh fruit and elegant character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paris-Simoneau Les Georges Sauvignon Blanc 2022",
+      "description": "A distinctive Loire Valley Sauvignon Blanc from the Simoneau family estate in Saint-Georges-sur-Cher, where the family has cultivated vineyards since the French Revolution. This IGP Val de Loire cuvée earned 1-star recognition in the 2024 Guide Hachette des Vins, representing excellent value from a 74-hectare estate now managed by Carine Simoneau and Sébastien Paris, who focus on expressive varietal wines.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with intriguing notes of brioche and subtle yeast character, reflecting the wine's tank aging on lees, which adds complexity beyond typical Sauvignon Blanc. Bright citrus aromas of lemon and grapefruit emerge alongside white fruit notes of pear and white peach. A distinctive touch of bonbon arlequin (mixed fruit candy) adds a playful element to the aromatic profile, while subtle mineral and grassy notes typical of Loire Sauvignon Blanc provide freshness.",
+        "palate": "On the palate, this wine shows good expression with notable roundness and slight sweetness that distinguishes it from the razor-sharp acidity of Sancerre. The tank aging contributes to a fuller mouthfeel with subtle creaminess, while flavors of citrus fruits—particularly lemon and lime—blend with white orchard fruits and tropical notes. The wine maintains refreshing acidity balanced by its inherent roundness, creating an approachable yet characterful style. The subtle sweetness referenced in professional notes is gentle and well-integrated, adding to the wine's appeal without making it cloying.",
+        "finish": "The finish offers good length with lingering citrus and white fruit flavors, complemented by those distinctive brioche notes from lees contact. The slight sweetness persists gently on the aftertaste, balanced by refreshing acidity that keeps the palate interested and engaged."
+      },
+      "foodPairings": [
+        "Fresh goat cheese and Loire Valley cheeses",
+        "Grilled white fish with lemon butter",
+        "Chicken salad with herbs and citrus",
+        "Fresh oysters and seafood platters",
+        "Light Asian dishes with ginger and citrus"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve chilled to emphasize freshness",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Saint-Georges-sur-Cher, IGP Val de Loire, Loire Valley, France",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Medium-bodied Loire Sauvignon Blanc with subtle richness",
+        "ageability": "Drink 2023-2025 as recommended by Guide Hachette des Vins. Best enjoyed young to appreciate fresh fruit and aromatic character. Production: 20,000 bottles."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

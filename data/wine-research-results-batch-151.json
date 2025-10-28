@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Scenic Valley Farms Pinot Gris 2022",
+    "description": "An expressive Oregon Pinot Gris from Scenic Valley Farms showcasing the Willamette Valley's ability to produce aromatic, textured white wines with excellent balance. This 2022 vintage offers bright fruit purity and refreshing acidity that makes it incredibly food-friendly and versatile.",
+    "tastingNotes": {
+      "aroma": "Lifted aromas of ripe pear, honeycrisp apple, and white peach dominate the nose, complemented by delicate notes of white flowers, honeysuckle, and citrus blossom. Subtle hints of lemon zest, melon, and wet stone minerality add complexity and elegance to the aromatic profile.",
+      "palate": "Medium-bodied with concentrated flavors of pear, apple, and stone fruit filling the palate. The wine shows excellent texture with a slight richness balanced by crisp acidity. Notes of lemon curd, white peach, and subtle spice create layers of flavor, while mineral undertones add structure and depth.",
+      "finish": "The finish is clean and refreshing with lingering fruit character and bright acidity. Subtle mineral notes and a touch of citrus zest provide a mouth-watering conclusion."
+    },
+    "foodPairings": [
+      "Pan-seared halibut with lemon herb butter",
+      "Roasted chicken with autumn vegetables",
+      "Fresh mozzarella and heirloom tomato salad",
+      "Sushi and sashimi platter",
+      "Goat cheese and fruit appetizers"
+    ],
+    "servingInfo": {
+      "temperature": "Serve chilled at 48-52°F (9-11°C)",
+      "decanting": "No decanting needed; pour directly to preserve freshness and aromatics",
+      "glassware": "Standard white wine glass or aromatic white varietal glass"
+    },
+    "wineDetails": {
+      "region": "Willamette Valley, Oregon",
+      "grapeVariety": "100% Pinot Gris",
+      "vintage": "2022",
+      "style": "Aromatic, medium-bodied Pinot Gris with bright fruit and crisp acidity",
+      "ageability": "Drink now through 2026; best enjoyed 2024-2025 for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.87,
+      "researchedAt": "2025-10-21T13:40:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Mendoza Laderas del Valle Cabernet Sauvignon 2018",
+    "description": "A well-structured Cabernet Sauvignon from the high-altitude vineyards of Mendoza, Argentina's premier wine region. Laderas del Valle ('hillside of the valley') captures the intensity and concentration that comes from mountain viticulture at 3,000+ feet elevation, where cool nights and intense sunlight create wines of remarkable depth and balance.",
+    "tastingNotes": {
+      "aroma": "Intense aromas of blackcurrant, blackberry, and dark cherry dominate the nose, layered with notes of cedar, tobacco, and dark chocolate. Hints of violet, eucalyptus, and subtle mint characteristic of high-altitude Mendoza add aromatic complexity. Nuances of leather, graphite, and toasted oak provide depth.",
+      "palate": "Full-bodied with concentrated dark fruit flavors of cassis, blackberry, and plum filling the palate. The wine shows excellent structure with firm yet refined tannins and balanced acidity. Mid-palate richness reveals layers of dark chocolate, espresso, cedar, and sweet baking spices from oak aging. The high-altitude fruit maintains freshness despite the wine's power.",
+      "finish": "Long, structured finish features persistent dark fruit character, chocolate notes, and fine-grained tannins. The conclusion is balanced and elegant with excellent aging potential."
+    },
+    "foodPairings": [
+      "Argentine-style grilled ribeye steak",
+      "Braised beef short ribs with red wine reduction",
+      "Roasted lamb shoulder with chimichurri",
+      "Aged Manchego and dark chocolate pairing",
+      "Grilled portobello mushrooms with blue cheese"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-66°F (17-19°C)",
+      "decanting": "Decant for 60 minutes to soften tannins and reveal complexity",
+      "glassware": "Large-bowl Cabernet or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Mendoza, Argentina (high-altitude vineyards)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2018",
+      "style": "Full-bodied, structured Cabernet with concentrated fruit and mountain character",
+      "ageability": "Drink 2024-2033; peak drinking 2025-2030"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.86,
+      "researchedAt": "2025-10-21T13:42:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Rioja Bodegas Ontanon Crianza 2015",
+    "description": "A classic Rioja Crianza from Bodegas Ontañón showcasing the house's traditional winemaking style with balanced oak aging. This 2015 vintage offers eight years of bottle development, creating a wine with beautiful integration of fruit, oak, and tertiary complexity that exemplifies mature Rioja at its finest.",
+    "tastingNotes": {
+      "aroma": "Evolved nose displaying red cherry, strawberry, and dried cranberry fruit alongside developed notes of leather, tobacco, and cedar. Aromas of vanilla, cinnamon, and sweet baking spices from American oak mingle with earthy undertones of forest floor and dried herbs. Hints of orange peel and dried flowers add aromatic complexity.",
+      "palate": "Medium-bodied with silky texture and beautifully integrated flavors. Red fruit notes of cherry and cranberry combine with savory elements of leather, tobacco, and earth. The oak influence is harmonious, providing subtle vanilla and spice without dominating. Fresh acidity and smooth, refined tannins create elegant balance.",
+      "finish": "Long, elegant finish with persistent red fruit character, subtle oak spice, and earthy notes. The wine concludes with fine-grained tannins and refreshing acidity that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary",
+      "Iberico ham and Manchego cheese tapas",
+      "Roasted duck with cherry sauce",
+      "Mushroom and truffle pasta",
+      "Beef empanadas with spicy chimichurri"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Brief 30-minute decanting enhances aromatics and integration",
+      "glassware": "Bordeaux or medium-bowl red wine glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Primarily Tempranillo with traditional Rioja varieties",
+      "vintage": "2015",
+      "style": "Traditional Rioja Crianza with developed complexity and balanced oak",
+      "ageability": "Drink now through 2027; currently at peak maturity"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.92,
+      "researchedAt": "2025-10-21T13:44:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Raywood Cabernet Sauvignon 2022",
+    "description": "An approachable Australian Cabernet Sauvignon from Raywood offering excellent value and immediate drinking pleasure. This young 2022 vintage showcases bright fruit character and soft tannins that make it accessible while maintaining varietal typicity.",
+    "tastingNotes": {
+      "aroma": "Vibrant aromas of blackcurrant, blackberry, and ripe plum dominate the nose, complemented by hints of mint, eucalyptus, and violet. Subtle notes of vanilla, cedar, and dark chocolate from oak influence add aromatic depth without overwhelming the fresh fruit character.",
+      "palate": "Medium to full-bodied with concentrated blackberry, cassis, and dark cherry flavors. The wine shows good fruit intensity balanced by moderate tannins and refreshing acidity. Notes of mocha, vanilla, and subtle spice from oak aging complement the ripe fruit core. The texture is smooth and approachable.",
+      "finish": "The finish is clean and fruit-forward with persistent dark berry character and soft tannins. Subtle oak notes and balanced acidity create an accessible, food-friendly conclusion."
+    },
+    "foodPairings": [
+      "Grilled steaks with herb butter",
+      "Beef and mushroom pie",
+      "Lamb burgers with feta and mint",
+      "BBQ ribs with smoky sauce",
+      "Aged cheddar cheese and crackers"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Brief 15-20 minute decanting recommended for young wine",
+      "glassware": "Standard red wine or Cabernet glass"
+    },
+    "wineDetails": {
+      "region": "Australia (specific region unspecified)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2022",
+      "style": "Fruit-forward, accessible Cabernet with soft tannins",
+      "ageability": "Drink now through 2028; best enjoyed 2024-2026"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.84,
+      "researchedAt": "2025-10-21T13:46:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Angoris Villa Locatelli Pinot Grigio 2021",
+    "description": "An elegant Pinot Grigio from the Friuli-Venezia Giulia region of northeastern Italy, produced at the historic Villa Locatelli estate. Angoris crafts wines that showcase the sophisticated, fuller-bodied style of Friulian Pinot Grigio, offering more depth and character than simple Italian whites.",
+    "tastingNotes": {
+      "aroma": "Delicate aromas of ripe pear, green apple, and white peach are complemented by subtle notes of white flowers, acacia blossom, and citrus zest. Hints of almond, honey, and wet stone minerality add complexity characteristic of quality Friulian Pinot Grigio.",
+      "palate": "Medium-bodied with excellent texture and depth unusual for Pinot Grigio. Flavors of pear, apple, and stone fruit dominate, supported by refreshing acidity and subtle mineral undertones. Notes of lemon, white peach, and delicate spice create layers of flavor while maintaining the wine's elegant, refined character.",
+      "finish": "Clean, mineral-driven finish with persistent fruit character and bright acidity. The wine concludes with excellent balance and a subtle almond note that is classic to Friulian Pinot Grigio."
+    },
+    "foodPairings": [
+      "Grilled branzino with lemon and olive oil",
+      "Prosciutto di San Daniele and melon",
+      "Risotto with asparagus and Parmesan",
+      "Fresh mozzarella and tomato caprese",
+      "Pan-seared scallops with herb butter"
+    ],
+    "servingInfo": {
+      "temperature": "Serve chilled at 48-52°F (9-11°C)",
+      "decanting": "No decanting required; pour directly to preserve freshness",
+      "glassware": "Standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "Friuli-Venezia Giulia, Italy (Isonzo del Friuli DOC)",
+      "grapeVariety": "100% Pinot Grigio",
+      "vintage": "2021",
+      "style": "Fuller-bodied Friulian Pinot Grigio with texture and mineral complexity",
+      "ageability": "Drink now through 2025; best enjoyed for fresh fruit character"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.89,
+      "researchedAt": "2025-10-21T13:48:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Penamonte C. Privada 2014 747528",
+    "description": "A special private collection (Colección Privada) wine from Peñamonte, representing a premium selection from this Spanish producer. The ten years of aging have created a wine with developed complexity and mature character, likely from a quality Rioja or Ribera del Duero vineyard.",
+    "tastingNotes": {
+      "aroma": "Evolved nose displaying mature red and black fruit notes of dried cherry, plum, and fig alongside tertiary aromas of leather, tobacco, and cedar box. Nuances of vanilla, cinnamon, and sweet baking spices from oak aging mingle with earthy undertones of forest floor, truffle, and dried herbs.",
+      "palate": "Medium-bodied with silky, refined texture from extended aging. Flavors of dried red fruit, cherry compote, and plum combine with savory notes of leather, tobacco, earth, and mushroom. The oak influence is beautifully integrated providing subtle vanilla and spice. Smooth tannins and fresh acidity create elegant balance.",
+      "finish": "Long, complex finish with persistent dried fruit character, earthy notes, and refined tannins. The wine concludes with excellent balance and the sophisticated character of mature Spanish red wine."
+    },
+    "foodPairings": [
+      "Slow-roasted lamb shoulder with rosemary",
+      "Aged Manchego and cured meat selection",
+      "Wild mushroom risotto with truffle oil",
+      "Roasted duck with cherry reduction",
+      "Beef tenderloin with red wine demi-glace"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-63°F (15-17°C), slightly cooler for aged wines",
+      "decanting": "Gentle 30-minute decanting to separate sediment and open aromatics",
+      "glassware": "Large-bowl red wine or Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Spain (likely Rioja or Ribera del Duero)",
+      "grapeVariety": "Likely Tempranillo-based blend",
+      "vintage": "2014",
+      "style": "Mature, elegant Spanish red with developed tertiary complexity",
+      "ageability": "Drink now through 2026; fully mature and showing beautifully"
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.76,
+      "researchedAt": "2025-10-21T13:50:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Macauley Cabernet Sauvignon Stagecoach 2021",
+    "description": "A premium Napa Valley Cabernet Sauvignon from the legendary Stagecoach Vineyard, one of Napa's most sought-after mountain vineyard sources perched high in the eastern hills. Macauley's access to this exceptional fruit creates a wine of remarkable concentration, complexity, and aging potential.",
+    "tastingNotes": {
+      "aroma": "Intense, complex nose displaying concentrated blackcurrant, blackberry, and dark cherry fruit alongside aromatic notes of violet, cedar, and graphite. Mountain-grown character emerges with hints of wild sage, dusty earth, and crushed rock minerality. Nuances of dark chocolate, espresso, and toasted oak add aromatic depth.",
+      "palate": "Full-bodied and structured with concentrated dark fruit flavors of cassis, blackberry, and black plum dominating the palate. The Stagecoach fruit delivers remarkable intensity and purity with layers of dark chocolate, mocha, cedar, and sweet baking spices. Firm, fine-grained tannins provide excellent structure while maintaining elegance. The wine shows the characteristic mountain freshness and mineral complexity.",
+      "finish": "Very long, powerful finish with persistent dark fruit character, mineral notes, and structured tannins suggesting excellent aging potential. The conclusion is balanced and sophisticated with remarkable depth."
+    },
+    "foodPairings": [
+      "Prime ribeye with compound butter",
+      "Braised short ribs with red wine reduction",
+      "Grilled lamb chops with herb crust",
+      "Aged blue cheese and dark chocolate",
+      "Wild game with berry compote"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 90-120 minutes for this young, powerful wine to open fully",
+      "glassware": "Large Bordeaux or Cabernet Sauvignon glass"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California (Stagecoach Vineyard, Atlas Peak)",
+      "grapeVariety": "100% Cabernet Sauvignon from mountain fruit",
+      "vintage": "2021",
+      "style": "Powerful, structured mountain Cabernet with concentration and aging potential",
+      "ageability": "Drink 2026-2041; this wine will develop beautifully for 15-20 years"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.91,
+      "researchedAt": "2025-10-21T13:52:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Conde Valdemar Crianza 2018",
+    "description": "A classic Rioja Crianza from Bodegas Valdemar, one of Rioja's most respected family-owned estates. The 2018 vintage benefits from five years of aging, creating a wine with beautiful integration of fruit, oak, and developing complexity that exemplifies traditional Rioja winemaking.",
+    "tastingNotes": {
+      "aroma": "Elegant nose displaying red cherry, strawberry, and raspberry fruit alongside developed aromas of vanilla, cedar, and sweet baking spices from oak aging. Notes of leather, tobacco, dried herbs, and subtle earthy undertones add complexity. Hints of orange peel and dried flowers provide aromatic nuance.",
+      "palate": "Medium-bodied with silky texture and refined tannins from extended aging. Flavors of red cherry, cranberry, and plum combine with savory notes of leather, tobacco, and earth. The American oak aging provides well-integrated vanilla and spice. Fresh acidity and smooth tannins create elegant balance typical of quality Crianza.",
+      "finish": "Medium to long finish with persistent red fruit character, subtle oak spice, and earthy complexity. The wine concludes with fine-grained tannins and refreshing acidity."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with garlic and rosemary",
+      "Chorizo and potato tapas",
+      "Roasted chicken with herbs",
+      "Manchego cheese and quince paste",
+      "Mushroom and beef pasta"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Brief 30-minute decanting enhances aromatics",
+      "glassware": "Bordeaux or medium-bowl red wine glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Primarily Tempranillo with traditional Rioja varieties",
+      "vintage": "2018",
+      "style": "Traditional Rioja Crianza with balanced oak and developed complexity",
+      "ageability": "Drink now through 2028; currently drinking beautifully"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:54:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Paris-Simoneau Les Georges Sauvignon Blanc 2024",
+    "description": "A vibrant, fresh Sauvignon Blanc from the Loire Valley's Paris-Simoneau estate. This newly released 2024 vintage showcases the pure, mineral-driven character that makes Loire Sauvignon Blanc among the world's finest expressions of this variety.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic nose bursting with citrus notes of grapefruit, lime, and lemon zest alongside tropical hints of passion fruit and gooseberry. Fresh-cut grass, green bell pepper, and subtle flint provide classic Loire varietal character. Notes of white flowers and wet stone minerality add complexity.",
+      "palate": "Light to medium-bodied with vibrant, zesty flavors of citrus and tropical fruit. The palate shows remarkable purity with grapefruit, lime, and passion fruit dominating, supported by racy acidity and pronounced minerality. Subtle herbal notes and a saline quality add depth and complexity characteristic of Loire terroir.",
+      "finish": "Clean, refreshing finish with persistent citrus character and mouth-watering acidity. The wine concludes with strong mineral notes and a crisp, food-friendly profile."
+    },
+    "foodPairings": [
+      "Fresh oysters with mignonette",
+      "Goat cheese salad with citrus vinaigrette",
+      "Grilled white fish with herbs",
+      "Sushi and sashimi platter",
+      "Asparagus and spring vegetable quiche"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-48°F (7-9°C)",
+      "decanting": "No decanting required; pour directly to preserve aromatics",
+      "glassware": "Standard white wine or Sauvignon Blanc glass"
+    },
+    "wineDetails": {
+      "region": "Loire Valley, France (likely Touraine or Sancerre)",
+      "grapeVariety": "100% Sauvignon Blanc",
+      "vintage": "2024",
+      "style": "Crisp, mineral-driven Loire Sauvignon Blanc with citrus focus",
+      "ageability": "Drink now through 2026; best enjoyed young for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:56:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Raywood Chardonnay Keg 2023  20 l",
+    "description": "A fresh, approachable Australian Chardonnay packaged in eco-friendly 20-liter keg format, perfect for restaurants and events. This 2023 vintage offers bright fruit character and balanced oak influence in a sustainable package that maintains freshness.",
+    "tastingNotes": {
+      "aroma": "Inviting aromas of ripe stone fruit including peach, nectarine, and apricot are complemented by notes of citrus, green apple, and tropical pineapple. Subtle vanilla, butter, and toasted oak add complexity without overwhelming the fresh fruit character.",
+      "palate": "Medium-bodied with concentrated flavors of peach, apple, and citrus. The palate shows good fruit intensity balanced by fresh acidity and moderate oak influence. Notes of vanilla, butterscotch, and subtle spice from oak aging complement the ripe fruit core. The texture is smooth and creamy.",
+      "finish": "The finish is clean and balanced with persistent fruit character and refreshing acidity. Subtle oak notes and good length make this an accessible, food-friendly Chardonnay."
+    },
+    "foodPairings": [
+      "Grilled chicken with lemon herbs",
+      "Pan-seared salmon with butter sauce",
+      "Creamy pasta with mushrooms",
+      "Roasted pork tenderloin",
+      "Soft cheeses and fruit platter"
+    ],
+    "servingInfo": {
+      "temperature": "Serve chilled at 50-54°F (10-12°C)",
+      "decanting": "No decanting required; serve directly from keg system",
+      "glassware": "Standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "Australia (specific region unspecified)",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2023",
+      "style": "Fruit-forward, approachable Chardonnay with balanced oak",
+      "ageability": "Drink now through 2025; keg format ensures freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.83,
+      "researchedAt": "2025-10-21T13:58:00Z"
+    }
+  }
+]

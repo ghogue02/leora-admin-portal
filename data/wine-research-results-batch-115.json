@@ -1,0 +1,350 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Alella Ivori White Magnum 2016 1500 ml",
+      "description": "A unique white wine from the historic Alella DO near Barcelona, presented in magnum format. This aged white showcases the indigenous Pansa Blanca grape and the unique Mediterranean microclimate of coastal Catalonia.",
+      "tastingNotes": {
+        "aroma": "Mature and complex with aromas of golden apple, honey, and dried apricot from aging. Notes of toasted almond, butterscotch, and subtle oxidative character add depth. Hints of beeswax and Mediterranean herbs provide regional character.",
+        "palate": "Full-bodied with softened acidity from age. Rich flavors of ripe orchard fruit, honey, and nuts. The wine shows developed tertiary character with notes of caramel and spice. Creamy texture with balanced oxidation.",
+        "finish": "Long, nutty finish with persistent fruit and gentle warmth."
+      },
+      "foodPairings": [
+        "Aged Manchego cheese",
+        "Roasted chicken with almonds",
+        "Seafood paella",
+        "Creamy risotto",
+        "Grilled lobster"
+      ],
+      "servingInfo": {
+        "temperature": "52-56°F (11-13°C)",
+        "decanting": "30 minutes to allow wine to open",
+        "glassware": "White Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Alella DO, Catalonia, Spain",
+        "grapeVariety": "Pansa Blanca (Xarel-lo) and possibly Chardonnay",
+        "vintage": "2016",
+        "style": "Aged white wine in magnum format",
+        "ageability": "Drink now through 2026. Fully mature."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bloem Chenin Blanc Viognier 2024",
+      "description": "A fresh South African white blend combining aromatic Viognier with the structure and minerality of Chenin Blanc. Bloem showcases modern Cape winemaking with vibrant fruit and balance.",
+      "tastingNotes": {
+        "aroma": "Aromatic and complex with white flowers, stone fruit, and citrus. Viognier adds apricot and honeysuckle while Chenin contributes green apple and minerality.",
+        "palate": "Medium-bodied with crisp acidity. Stone fruit flavors with citrus zest and floral notes. Good texture and balance between varieties.",
+        "finish": "Clean, refreshing finish with lingering fruit and floral notes."
+      },
+      "foodPairings": [
+        "Grilled prawns",
+        "Chicken curry",
+        "Fresh salads",
+        "Soft cheeses",
+        "Asian fusion"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Western Cape, South Africa",
+        "grapeVariety": "Chenin Blanc and Viognier blend",
+        "vintage": "2024",
+        "style": "Aromatic white blend",
+        "ageability": "Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tarpon Cellars Cambaro White 2021",
+      "description": "A unique white blend from Tarpon Cellars in California, showcasing creative winemaking and interesting variety combinations.",
+      "tastingNotes": {
+        "aroma": "Fresh with citrus, white flowers, and subtle tropical notes. Clean and inviting aromatics.",
+        "palate": "Medium-bodied with bright acidity. Citrus and stone fruit flavors with mineral backbone. Balanced and food-friendly.",
+        "finish": "Clean finish with lingering citrus."
+      },
+      "foodPairings": [
+        "Fresh seafood",
+        "Salads",
+        "Grilled fish",
+        "Soft cheeses",
+        "Light pasta"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "White blend (specific varieties not disclosed)",
+        "vintage": "2021",
+        "style": "Crisp white blend",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jean Michel Champagne Rose Brut Mevushal",
+      "description": "A kosher Champagne rosé made through the Mevushal process to maintain religious certification. This wine combines traditional Champagne winemaking with kosher requirements.",
+      "tastingNotes": {
+        "aroma": "Delicate with red berry fruit, citrus, and brioche notes from traditional method production. Subtle floral and yeasty character.",
+        "palate": "Medium-bodied with fine bubbles and crisp acidity. Red berry flavors with citrus and mineral notes. Dry Brut style.",
+        "finish": "Clean, refreshing finish with persistent bubbles."
+      },
+      "foodPairings": [
+        "Smoked salmon",
+        "Sushi",
+        "Soft cheeses",
+        "Fruit desserts",
+        "Aperitif"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "Champagne flute"
+      },
+      "wineDetails": {
+        "region": "Champagne, France",
+        "grapeVariety": "Pinot Noir and Chardonnay blend",
+        "vintage": "NV",
+        "style": "Kosher Champagne Rosé Brut",
+        "ageability": "Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.77,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Sparkling Primo Secco Semi Sweet White NV",
+      "description": "A semi-sweet sparkling wine from Shabo Winery in Ukraine, offering approachable bubbles with gentle sweetness for easy drinking.",
+      "tastingNotes": {
+        "aroma": "Fruity and fresh with white flowers, citrus, and subtle sweetness. Approachable aromatics.",
+        "palate": "Light to medium-bodied with gentle bubbles and balanced sweetness. Citrus and stone fruit with refreshing finish.",
+        "finish": "Soft, sweet finish with lingering fruit."
+      },
+      "foodPairings": [
+        "Fruit desserts",
+        "Light appetizers",
+        "Soft cheeses",
+        "Brunch dishes",
+        "Casual celebrations"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C)",
+        "decanting": "None needed",
+        "glassware": "Sparkling wine flute"
+      },
+      "wineDetails": {
+        "region": "Ukraine",
+        "grapeVariety": "White grape blend",
+        "vintage": "NV",
+        "style": "Semi-sweet sparkling wine",
+        "ageability": "Drink young and fresh."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.68,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ontanon Clarete Rose 2021",
+      "description": "A traditional Clarete-style rosé from Rioja's Ontañón winery. Clarete is a historic Spanish style with light red color, traditionally made by co-fermenting red and white grapes.",
+      "tastingNotes": {
+        "aroma": "Fresh with red berry fruit, citrus, and floral notes. Subtle herbal character typical of Rioja.",
+        "palate": "Light to medium-bodied with crisp acidity. Red cherry and strawberry with mineral backbone. Dry and refreshing.",
+        "finish": "Clean finish with lingering berry fruit."
+      },
+      "foodPairings": [
+        "Tapas",
+        "Grilled vegetables",
+        "Light fish dishes",
+        "Spanish tortilla",
+        "Soft cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "Tempranillo and Viura blend (traditional Clarete style)",
+        "vintage": "2021",
+        "style": "Clarete (light rosé/light red)",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boron Delle Venezie Pinot Grigio 2024",
+      "description": "A fresh, young Pinot Grigio from the Delle Venezie IGT region in northeastern Italy, showcasing the crisp, clean style that made this variety popular worldwide.",
+      "tastingNotes": {
+        "aroma": "Clean and fresh with green apple, pear, and citrus. Subtle floral notes and minerality.",
+        "palate": "Light to medium-bodied with bright acidity. Crisp citrus and orchard fruit flavors. Clean and refreshing.",
+        "finish": "Light, clean finish with subtle fruit."
+      },
+      "foodPairings": [
+        "Antipasti",
+        "Fresh salads",
+        "Grilled fish",
+        "Light pasta",
+        "Aperitivo"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Delle Venezie IGT, Italy",
+        "grapeVariety": "100% Pinot Grigio",
+        "vintage": "2024",
+        "style": "Crisp, light white wine",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Valdemar Estates Walla Walla Cabernet Sauvignon 2021",
+      "description": "A premium Cabernet Sauvignon from Valdemar Estates in Walla Walla Valley, Washington, one of the state's most prestigious wine regions known for structured, elegant reds.",
+      "tastingNotes": {
+        "aroma": "Complex with blackcurrant, dark cherry, and cedar. Notes of vanilla, mocha, and subtle herbs from oak aging.",
+        "palate": "Full-bodied with structured tannins and balanced acidity. Concentrated dark fruit with layers of spice, earth, and oak. Elegant and refined.",
+        "finish": "Long finish with persistent fruit and fine-grained tannins."
+      },
+      "foodPairings": [
+        "Grilled steak",
+        "Roasted lamb",
+        "Aged cheeses",
+        "Beef tenderloin",
+        "Dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60 minutes recommended",
+        "glassware": "Large Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Walla Walla Valley, Washington",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Full-bodied, structured Cabernet",
+        "ageability": "Drink now through 2033."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fortezza di Ventura Prosecco NV",
+      "description": "An approachable Prosecco offering fresh bubbles and fruit character for casual enjoyment and celebrations.",
+      "tastingNotes": {
+        "aroma": "Fresh with green apple, pear, and white flowers. Clean and inviting.",
+        "palate": "Light-bodied with fine bubbles and crisp acidity. Citrus and orchard fruit flavors. Slightly off-dry and refreshing.",
+        "finish": "Clean finish with lingering fruit and bubbles."
+      },
+      "foodPairings": [
+        "Aperitivo",
+        "Fresh seafood",
+        "Light appetizers",
+        "Soft cheeses",
+        "Fruit desserts"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C)",
+        "decanting": "None needed",
+        "glassware": "Prosecco flute"
+      },
+      "wineDetails": {
+        "region": "Prosecco DOC, Italy",
+        "grapeVariety": "100% Glera",
+        "vintage": "NV",
+        "style": "Sparkling wine, Charmat method",
+        "ageability": "Drink young and fresh."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.79,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Chardonnay Kosher (MD & DC)",
+      "description": "A kosher-certified Chardonnay from Chateau Josephine, offering quality wine that meets religious dietary requirements with distribution in the Mid-Atlantic region.",
+      "tastingNotes": {
+        "aroma": "Clean with citrus, green apple, and subtle oak. Notes of vanilla and toasted nuts.",
+        "palate": "Medium-bodied with balanced acidity. Citrus and stone fruit flavors with creamy texture from oak aging.",
+        "finish": "Smooth finish with lingering fruit and subtle oak."
+      },
+      "foodPairings": [
+        "Roasted chicken",
+        "Grilled fish",
+        "Creamy pasta",
+        "Soft cheeses",
+        "Kosher cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "France (specific region not disclosed)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "Not specified",
+        "style": "Kosher Chardonnay with oak influence",
+        "ageability": "Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.76,
+        "researchedAt": "2025-10-21T14:18:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 115,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:18:00Z",
+    "averageConfidence": 0.79
+  }
+}

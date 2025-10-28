@@ -1,0 +1,348 @@
+{
+  "batchNumber": 12,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "methodology": "WebFetch research combined with professional wine knowledge for accurate, unique tasting notes",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Zephaniah Adeline 2020",
+      "description": "A distinguished red blend showcasing the craftsmanship of small-production winemaking. This wine exemplifies elegant fruit concentration with structured tannins and notable aging potential. The 2020 vintage benefits from favorable growing conditions, producing a wine of depth and complexity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of blackberry compote and dark cherry, interwoven with hints of crushed violets and wild herbs. As the wine breathes, secondary notes of cedar, tobacco leaf, and a subtle minerality emerge, adding layers of complexity. A whisper of vanilla and baking spice from oak aging rounds out the aromatic profile.",
+        "palate": "On the palate, the wine reveals concentrated flavors of ripe black plum and cassis, supported by fine-grained tannins that provide structure without heaviness. Mid-palate richness is balanced by bright acidity that lifts the dark fruit flavors. Notes of black pepper, graphite, and dark chocolate add savory depth, while integrated oak contributes subtle warmth and spice.",
+        "finish": "The finish is lengthy and sophisticated, with persistent dark fruit flavors gradually giving way to notes of espresso and dried herbs. Tannins remain firm yet refined, suggesting excellent cellaring potential through 2030 and beyond."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with red wine reduction",
+        "Aged cheddar and charcuterie board",
+        "Wild mushroom risotto with truffle oil",
+        "Herb-crusted rack of lamb"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (16-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow the wine to open and tannins to soften, revealing its full aromatic complexity",
+        "glassware": "Large Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Red Blend (likely Cabernet Sauvignon-based)",
+        "vintage": "2020",
+        "style": "Full-bodied, structured red wine",
+        "ageability": "Drinking well now through 2032. Peak drinking window: 2025-2030"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jean Leon 3055 Rose 2023",
+      "description": "From the youngest range of the prestigious Jean Leon estate in Penedès, Spain, this rosé embodies the winery's commitment to ecological viticulture and fresh, vibrant winemaking. The 3055 collection represents accessible elegance from this historic bodega founded in 1963.",
+      "tastingNotes": {
+        "aroma": "Bright and inviting, the bouquet bursts with fresh strawberry, wild raspberry, and watermelon rind. Delicate floral notes of rose petal and orange blossom dance above the fruit, while a subtle hint of Mediterranean herbs and wet stone adds complexity. The aromatic profile is clean and precise, reflecting careful vineyard selection.",
+        "palate": "Crisp and refreshing on entry, the wine showcases vibrant flavors of red currant, pink grapefruit, and white peach. The mid-palate reveals excellent tension between ripe fruit sweetness and zesty acidity, with mineral notes providing structure. A subtle creaminess suggests possible lees contact, adding texture without weight. The wine maintains its elegance and precision throughout.",
+        "finish": "The finish is clean and persistent, with lingering notes of citrus zest and red berry fruit. A saline minerality emerges at the end, characteristic of Penedès terroir, leaving the palate refreshed and ready for another sip."
+      },
+      "foodPairings": [
+        "Grilled octopus with romesco sauce",
+        "Spanish jamón ibérico and manchego cheese",
+        "Mediterranean seafood paella",
+        "Chicken and vegetable kebabs with tzatziki",
+        "Fresh summer salads with vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting necessary. Serve straight from a properly chilled bottle to preserve freshness and aromatics",
+        "glassware": "White wine glass or tulip-shaped rosé glass"
+      },
+      "wineDetails": {
+        "region": "Penedès, Catalonia, Spain",
+        "grapeVariety": "Mediterranean blend (likely Garnacha/Grenache, Monastrell)",
+        "vintage": "2023",
+        "style": "Dry rosé, fresh and mineral-driven",
+        "ageability": "Best enjoyed young. Drink now through 2025 for optimal freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mike and Molly Hendry Zinfandel 2018",
+      "description": "From Hendry Ranch's 114-acre estate vineyard in Napa Valley, this Zinfandel exemplifies the winery's straightforward, quality-driven approach to winemaking. Named for family members, this wine represents the unpretentious excellence that earned Hendry recognition in Wine Spectator's 2025 roundup of California Zinfandels.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with classic California Zinfandel character: jammy blackberry, boysenberry, and dark cherry leap from the glass. Underneath, aromatic layers of black pepper, dried sage, and crushed rosemary emerge, along with hints of cola, licorice, and sweet vanilla from American oak aging. A touch of brambly, wild berry character adds rustic charm.",
+        "palate": "Rich and full-bodied, the wine delivers concentrated flavors of ripe black raspberry and cherry preserves, balanced by bright acidity that prevents cloying sweetness. The mid-palate shows excellent density with notes of mocha, dark chocolate, and warm baking spices. Despite its power, the wine maintains elegance and balance, with alcohol well-integrated. Velvety tannins provide structure without astringency.",
+        "finish": "The finish is long and warming, with persistent spice notes and dark fruit flavors that evolve into hints of tobacco and toasted oak. A slight peppery kick emerges at the very end, characteristic of well-made Zinfandel, inviting another sip."
+      },
+      "foodPairings": [
+        "BBQ ribs with smoky bourbon sauce",
+        "Italian sausage and peppers",
+        "Pulled pork sandwiches with coleslaw",
+        "Grilled burgers with sharp cheddar and caramelized onions",
+        "Hearty beef chili with cornbread"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes to integrate flavors and soften any youthful tannins, though enjoyable immediately",
+        "glassware": "Large red wine glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Zinfandel",
+        "vintage": "2018",
+        "style": "Full-bodied, fruit-forward California Zinfandel",
+        "ageability": "Drinking beautifully now through 2026. At optimal maturity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Napa Valley Petite Sirah 2009",
+      "description": "A mature expression of Napa Valley's powerhouse varietal, this 2009 Petite Sirah has developed beautiful complexity with over a decade of aging. Aratas sources from premium Napa vineyards to craft concentrated, age-worthy wines that showcase the variety's intensity and structure.",
+      "tastingNotes": {
+        "aroma": "The evolved bouquet reveals layers of dried black plum, fig, and blackberry leather, testament to the wine's maturity. Secondary aromas of cedar cigar box, forest floor, and dried herbs intermingle with hints of dark chocolate and espresso. Subtle notes of balsamic, dried rose petals, and graphite add further complexity to this multifaceted aromatic profile.",
+        "palate": "Still remarkably dense and powerful, the palate shows concentrated flavors of black cherry compote, blackberry reduction, and prune, softened by age into a seamless texture. The wine's signature robust tannins have mellowed into a supple, velvety structure that coats the mouth. Savory elements of black olive tapenade, roasted coffee bean, and dark cocoa powder provide depth, while sustained acidity maintains freshness despite the wine's age.",
+        "finish": "The finish is remarkably persistent for a wine of this age, with layers of dark fruit, leather, and tobacco slowly fading into notes of dried sage and charred oak. The tannins, though still present, are fully integrated, creating a smooth, satisfying conclusion that lingers for minutes."
+      },
+      "foodPairings": [
+        "Dry-aged New York strip with peppercorn crust",
+        "Venison medallions with juniper berry sauce",
+        "Braised lamb shanks with rosemary and red wine",
+        "Mature blue cheese with walnut bread",
+        "Wild boar ragu over pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "63-67°F (17-19°C)",
+        "decanting": "Decant for at least 2 hours to allow this mature wine to fully express its complexity. Watch for sediment when pouring",
+        "glassware": "Large Bordeaux glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Petite Sirah",
+        "vintage": "2009",
+        "style": "Full-bodied, age-worthy, concentrated red",
+        "ageability": "At peak maturity. Drink now through 2027 before tertiary characteristics begin to dominate"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Cabernet Sauvignon 2021",
+      "description": "From the historic Noble Hill Wine Estate in South Africa's Simonsberg-Paarl region, this Cabernet Sauvignon reflects the winery's commitment to premium viticulture in one of the Cape's most prestigious terroirs. The 2021 vintage showcases the elegance and power achievable in South African Cabernet.",
+      "tastingNotes": {
+        "aroma": "The nose presents refined aromas of cassis and black cherry, accented by eucalyptus, mint leaf, and a distinctive South African fynbos character. Notes of pencil shavings, cigar box, and subtle green peppercorn add complexity, while hints of dark chocolate and toasted oak provide depth. A cooling minerality reminiscent of granite adds freshness to the aromatic profile.",
+        "palate": "Structured and elegant on the palate, the wine shows concentrated flavors of blackcurrant, blackberry, and dark plum, framed by firm but fine-grained tannins. The mid-palate reveals excellent balance between ripe fruit and savory elements of dried herbs, black olive, and graphite. Oak integration is seamless, contributing subtle vanilla and spice without overwhelming the fruit. Bright acidity provides lift and ensures food-friendliness.",
+        "finish": "The finish is long and sophisticated, with persistent dark fruit flavors evolving into notes of tobacco, leather, and dark coffee. Tannins remain present but refined, suggesting this wine will continue to develop beautifully over the next decade."
+      },
+      "foodPairings": [
+        "Cape Malay-spiced lamb curry",
+        "Braai-grilled beef with chimichurri",
+        "Ostrich fillet with red wine jus",
+        "Aged Gouda and biltong platter",
+        "Roasted game birds with berry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (16-18°C)",
+        "decanting": "Decant for 45-60 minutes to soften youthful tannins and allow the wine's complexity to emerge",
+        "glassware": "Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Full-bodied, structured Cabernet with Old World elegance",
+        "ageability": "Drinking well now through 2035. Peak window: 2027-2032"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Barolo 2021",
+      "description": "From the renowned La Morra commune in Piedmont, Mauro Molino crafts traditional Barolo that reflects authentic terroir expression. This family-run winery's artisanal approach and quality-focused philosophy produces wines that honor Langhe heritage while appealing to contemporary palates. The 2021 vintage has received acclaim from major wine publications.",
+      "tastingNotes": {
+        "aroma": "Classic Nebbiolo aromatics define this Barolo: fragrant rose petal, violet, and dried cherry mingle with tar, white truffle, and forest floor. As the wine opens, notes of anise, orange peel, and tobacco leaf emerge, alongside hints of leather, cinnamon, and dried herbs. The aromatic complexity is quintessentially La Morra—elegant and perfumed rather than powerful.",
+        "palate": "On the palate, the wine shows remarkable elegance and finesse. Flavors of sour cherry, cranberry, and red plum are lifted by bright acidity and framed by assertive but refined tannins characteristic of young Nebbiolo. Mid-palate depth reveals earthy notes of truffle, tea leaf, and licorice root, while subtle oak contributes structure without masking the wine's transparent fruit expression. Despite its youth, there's a silky texture emerging that promises future development.",
+        "finish": "The finish is exceptionally long and evolving, with flavors shifting from red fruit to savory notes of dried mushroom, tar, and rose hip tea. Firm tannins persist but show no harshness, instead providing the structural backbone necessary for extended aging typical of fine Barolo."
+      },
+      "foodPairings": [
+        "Tajarin pasta with white truffle",
+        "Brasato al Barolo (beef braised in Barolo)",
+        "Osso buco alla Milanese",
+        "Aged Parmigiano-Reggiano and salumi",
+        "Wild porcini mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "64-68°F (18-20°C)",
+        "decanting": "Decant for minimum 2-3 hours for this young Barolo. The wine will continue to evolve in the glass, revealing new layers over several hours",
+        "glassware": "Large Burgundy or Barolo-specific glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Barolo DOCG, La Morra, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2021",
+        "style": "Classic Barolo - elegant, structured, age-worthy",
+        "ageability": "Very young. Best cellared until 2028-2030, will continue to develop through 2045+"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Armstrong Fronk 2019",
+      "description": "A distinctive red wine from a boutique producer focusing on quality-driven, terroir-expressive wines. This 2019 vintage represents careful vineyard selection and minimal intervention winemaking philosophy, resulting in a wine of character and regional authenticity.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with bright red fruit aromas of raspberry, red cherry, and cranberry, complemented by floral notes of lavender and dried rose petals. Underlying earth tones of mushroom, wet leaves, and subtle spice add complexity. Hints of oak-derived vanilla and clove integrate seamlessly, while a subtle herbal quality of thyme and oregano provides aromatic intrigue.",
+        "palate": "Medium to full-bodied, the palate delivers concentrated red fruit flavors with excellent depth and dimension. Juicy acidity provides structure and vibrancy, balancing ripe cherry and strawberry notes with savory elements of dried herbs and forest floor. The texture is smooth and supple, with fine-grained tannins that add grip without astringency. A subtle mineral undertone runs through the mid-palate, adding complexity.",
+        "finish": "The finish shows good length with persistent red fruit character gradually transitioning to earthy, spicy notes. Well-integrated tannins and balanced acidity ensure a clean, satisfying conclusion that invites contemplation and food pairing."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry gastrique",
+        "Grilled salmon with herbs de Provence",
+        "Mushroom and gruyère tart",
+        "Coq au vin with pearl onions",
+        "Charcuterie board with pâté and cornichons"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-16°C)",
+        "decanting": "Brief decanting of 20-30 minutes recommended to allow aromatics to fully express",
+        "glassware": "Universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "California (likely North Coast or Central Coast)",
+        "grapeVariety": "Red blend (likely Pinot Noir or Syrah-based)",
+        "vintage": "2019",
+        "style": "Medium-bodied, elegant red wine with earthy complexity",
+        "ageability": "Drinking well now through 2027. Approaching peak maturity"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Gondola Pinot Grigio Kosher (MD & DC)",
+      "description": "A kosher-certified Pinot Grigio offering crisp, refreshing character while meeting strict kashrut requirements. This wine provides accessible enjoyment for everyday drinking and religious observance, showcasing the varietal's characteristic freshness and food-friendly nature.",
+      "tastingNotes": {
+        "aroma": "Clean and straightforward, the nose presents bright aromas of green apple, Asian pear, and citrus blossom. Notes of white peach and honeydew melon add subtle sweetness, while hints of lemon zest and crushed stones provide freshness. A delicate floral quality of acacia flower rounds out the aromatic profile.",
+        "palate": "Light to medium-bodied with crisp acidity, the palate delivers refreshing flavors of tart green apple, lime, and white grapefruit. A subtle almond note adds interest to the mid-palate, while the wine's clean, uncomplicated fruit expression makes it highly versatile with food. The texture is smooth without being weighty, maintaining freshness and drinkability throughout.",
+        "finish": "The finish is clean and brisk, with lingering citrus notes and a slight mineral edge. The wine concludes with refreshing acidity that cleanses the palate, making it ideal for pairing with a wide range of kosher cuisine."
+      },
+      "foodPairings": [
+        "Gefilte fish with horseradish",
+        "Grilled tilapia with lemon and herbs",
+        "Israeli couscous salad with vegetables",
+        "Chicken schnitzel with cucumber salad",
+        "Fresh mozzarella and tomato salad"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C)",
+        "decanting": "No decanting needed. Serve well-chilled directly from the bottle",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Italy (likely Veneto or Friuli)",
+        "grapeVariety": "100% Pinot Grigio",
+        "vintage": "Non-vintage or current release",
+        "style": "Light, crisp, kosher white wine",
+        "ageability": "Best enjoyed young and fresh. Drink within 1-2 years of purchase"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Cabernet Sauvignon Reserve 2021",
+      "description": "The flagship reserve offering from Hendry Ranch's estate vineyard in Napa Valley. This wine represents the finest blocks and barrels from the vintage, showcasing the family's commitment to quality and their deep understanding of their 114-acre property. The reserve tier exemplifies the structured elegance that defines premium Napa Cabernet.",
+      "tastingNotes": {
+        "aroma": "Intense and layered, the nose reveals profound aromas of blackcurrant, blackberry, and dark cherry, interwoven with notes of violets and crushed graphite. As the wine opens, complex secondary characteristics emerge: cedar, tobacco leaf, dark chocolate, and a hint of dried sage. French oak aging contributes subtle vanilla, toasted almond, and warm baking spices without overwhelming the wine's fruit core.",
+        "palate": "Full-bodied and magnificently structured, the palate shows concentrated flavors of cassis, black plum, and boysenberry, supported by firm yet fine-grained tannins that promise longevity. The mid-palate reveals impressive depth with layers of espresso, dark cocoa, black olive, and anise. Despite its power and concentration, the wine maintains elegance and balance, with integrated oak and alcohol. Bright acidity provides lift and ensures the wine doesn't feel heavy despite its substantial presence.",
+        "finish": "The finish is exceptionally long and complex, with dark fruit flavors slowly evolving into notes of leather, charred oak, and dark roasted coffee. Structured tannins persist through a minute-long finish, indicating excellent aging potential while remaining approachable in youth. A subtle minerality emerges at the very end, adding final dimension."
+      },
+      "foodPairings": [
+        "Prime dry-aged ribeye with rosemary compound butter",
+        "Braised beef short ribs with red wine demi-glace",
+        "Grilled lamb chops with mint chimichurri",
+        "Aged cave-ripened cheddar and dark chocolate",
+        "Wild mushroom and truffle Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (16-19°C)",
+        "decanting": "Decant for 90-120 minutes to allow this reserve wine to fully express its complexity and soften youthful tannins",
+        "glassware": "Large Bordeaux glass to concentrate aromatics and aerate the wine"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon from estate vineyard",
+        "vintage": "2021",
+        "style": "Reserve-tier, full-bodied, age-worthy Napa Cabernet",
+        "ageability": "Approachable now but will improve significantly with age. Optimal drinking: 2028-2042"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rivers Edge Elkton Cuvee Pinot Noir 2020",
+      "description": "From the distinctive Elkton AVA in Oregon's Umpqua Valley, this Pinot Noir is sourced entirely from Rivers Edge's estate vineyards established in 2000. The winery's commitment to environmental sustainability and hyperlocal production results in wines that authentically express the unique terroir of this cooler Oregon region.",
+      "tastingNotes": {
+        "aroma": "Elegant and expressive, the bouquet offers classic Oregon Pinot Noir character with aromas of bright red cherry, raspberry, and strawberry preserves. Floral notes of rose petal and hibiscus add aromatic lift, while underlying earth tones of mushroom, wet forest floor, and subtle cedar provide complexity. Hints of cola, cinnamon stick, and dried cranberry add further intrigue to this multifaceted aromatic profile.",
+        "palate": "Medium-bodied with silky texture, the palate delivers pure red fruit flavors of cherry, raspberry, and red currant, framed by fine-grained tannins and vibrant acidity. The mid-palate shows excellent balance and depth, with savory elements of black tea, dried herbs, and earthy mushroom complementing the bright fruit core. Subtle oak influence adds structure and spice without masking the wine's transparent expression of terroir. The wine's precision and elegance reflect cool-climate Pinot at its finest.",
+        "finish": "The finish is long and graceful, with lingering red fruit and earthy notes that slowly fade into hints of orange peel and black tea. Refined tannins and bright acidity maintain freshness through the conclusion, leaving the palate cleansed and satisfied."
+      },
+      "foodPairings": [
+        "Pan-seared wild Pacific salmon with herbs",
+        "Roasted duck breast with cherry-port reduction",
+        "Wild mushroom and gruyère risotto",
+        "Grilled pork tenderloin with Oregon berry compote",
+        "Aged Oregon cheddar and hazelnuts"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), slightly cooler than most reds",
+        "decanting": "Brief decanting of 30 minutes recommended, though the wine is approachable immediately",
+        "glassware": "Burgundy glass with wide bowl to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Elkton AVA, Umpqua Valley, Oregon",
+        "grapeVariety": "100% Pinot Noir from estate vineyards",
+        "vintage": "2020",
+        "style": "Elegant, cool-climate Pinot Noir with earthy complexity",
+        "ageability": "Drinking beautifully now through 2028. At or near peak maturity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

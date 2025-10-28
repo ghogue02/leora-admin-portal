@@ -1,0 +1,347 @@
+{
+  "batch": 182,
+  "timestamp": "2025-10-21T13:35:19.716Z",
+  "winesProcessed": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Hendry Cabernet Sauvignon 2018",
+      "description": "Crafted in 2018, this wine reveals cedar and firm tannins. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of tobacco and vanilla, followed by complex notes of dark chocolate. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, firm tannins takes center stage, complemented by blackberry and plum. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Cabernet Sauvignon style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rhulmann Cremant D'Alsace Brut Rose NV",
+      "description": "A distinguished contemporary bottling that presents tobacco and blackberry. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of floral and dark fruits, followed by layered notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Darms Lane Pinot Noir Russian River Valley 2022",
+      "description": "From the 2022 vintage, expect mushroom and silky. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of raspberry and earth, followed by nuanced notes of mushroom. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, silky takes center stage, complemented by red fruits and spice. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and lingering, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Russian River Valley, California",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "2022",
+        "style": "Pinot Noir style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Plan de Dieu 2022",
+      "description": "This 2022 selection delivers dark chocolate and oak. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of earth and floral, followed by expressive notes of dark fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and persistent, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2022",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Gigondas 2022",
+      "description": "This 2022 expression showcases blackcurrant and full-bodied. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of dark fruits and spice, followed by pure notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2022",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Heron Hill Blaufrankisch 2024",
+      "description": "Crafted in 2024, this wine reveals cedar and firm tannins. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of oak and earth, followed by complex notes of floral. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2024",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Cabernet Sauvignon 2022",
+      "description": "A distinguished 2022 bottling that presents tobacco and blackberry. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of dark chocolate and blackcurrant, followed by layered notes of cedar. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, blackberry takes center stage, complemented by plum and oak. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2022",
+        "style": "Cabernet Sauvignon style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Costers del Segre Petit Sios Tinto 2023",
+      "description": "From the 2023 vintage, expect vanilla and plum. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of spice and oak, followed by nuanced notes of earth. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2023",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Valdemar Estates Walla Walla Syrah 2021",
+      "description": "This 2021 selection delivers game and dark fruits. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of violet and game, followed by expressive notes of blackberry. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, dark fruits takes center stage, complemented by licorice and bold. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and peppery, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Syrah",
+        "vintage": "2021",
+        "style": "Syrah style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Philippe Guerin Muscadet Sevre et Maine sur Lie 2022",
+      "description": "This 2022 expression showcases blackcurrant and full-bodied. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of dark fruits and spice, followed by pure notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and persistent, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2022",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.716Z"
+      }
+    }
+  ]
+}

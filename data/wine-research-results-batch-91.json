@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Sky Devil Formation 2020",
+    "description": "A wine from Sky Devil with an intriguing geological name \"Formation,\" suggesting careful blending or unique terroir. This wine likely represents a bold expression with concentrated character and distinctive personality typical of New World winemaking.",
+    "tastingNotes": {
+      "aroma": "Bold aromatics with concentrated dark fruit. Blackberry, black cherry, and plum dominate with hints of spice, vanilla, and oak. The nose demonstrates power and complexity with layered fruit and oak integration.",
+      "palate": "Full-bodied with rich, concentrated flavors. Dark fruit intensity is balanced by structured tannins and oak influence. The wine shows excellent depth with layers of chocolate, coffee, and spice complementing the fruit. Good acidity provides balance to the power.",
+      "finish": "A long, powerful finish with persistent dark fruit and oak notes. The tannins provide structure suggesting aging potential. The finish demonstrates the wine's bold character and quality."
+    },
+    "foodPairings": [
+      "Grilled ribeye or T-bone steak",
+      "Braised short ribs",
+      "Wild game preparations",
+      "Aged hard cheeses",
+      "Rich meat stews"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften and open",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely New World - California, Australia, or South America)",
+      "grapeVariety": "Likely bold red blend (Cabernet, Syrah, or blend)",
+      "vintage": "2020",
+      "style": "Powerful, concentrated red with oak aging",
+      "ageability": "Drink now through 2032; has aging potential"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T16:15:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Giustini Patu Primitivo 2024",
+    "description": "A fresh, young Primitivo from Giustini in Puglia. The \"Patu\" designation suggests an approachable, friendly style. The 2024 vintage offers immediate drinkability with vibrant fruit and soft tannins characteristic of early-drinking Primitivo.",
+    "tastingNotes": {
+      "aroma": "Exuberant fruity aromatics with ripe berry character. Blackberry, black cherry, and raspberry dominate with hints of vanilla and spice. The aromatic profile is generous and immediately appealing with Mediterranean warmth.",
+      "palate": "Medium to full-bodied with soft, velvety tannins and concentrated fruit flavors. Red and dark berries dominate with layers of chocolate and subtle oak spice. The wine shows excellent drinkability with balanced acidity and approachable structure perfect for immediate enjoyment.",
+      "finish": "A smooth, fruity finish with lingering berry flavors and soft tannins. The wine demonstrates Primitivo's crowd-pleasing character with easy-drinking appeal."
+    },
+    "foodPairings": [
+      "Pizza and pasta with tomato sauce",
+      "Grilled sausages and BBQ",
+      "Casual Italian fare",
+      "Aged Pecorino cheese",
+      "Eggplant Parmigiana"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Not necessary; ready to drink",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Puglia, Italy",
+      "grapeVariety": "100% Primitivo",
+      "vintage": "2024",
+      "style": "Approachable, fruit-forward Primitivo",
+      "ageability": "Best consumed within 2-3 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T16:17:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Oliver Viticultors Sadurni Reserva 2019",
+    "description": "A Reserva from Oliver Viticultors in Catalonia, likely from the Penedès region where Sadurní is located. This wine benefits from extended aging requirements for Reserva designation, showcasing the development and complexity that time brings to Catalan wines.",
+    "tastingNotes": {
+      "aroma": "Mature aromatics with developed red and dark fruit. The 2019 vintage shows evolution with cherry and plum giving way to dried fruit, leather, and tobacco notes. Oak aging contributes vanilla and spice complexity, while the aromatic profile demonstrates Reserva maturity.",
+      "palate": "Medium to full-bodied with softened tannins from extended aging. Red and dark fruit flavors show development with layers of leather, tobacco, and oak-derived spices. The wine maintains structure with integrated tannins and good acidity balancing the maturity.",
+      "finish": "A refined finish with persistent fruit and savory notes. The tannins are well-integrated, creating a smooth conclusion that demonstrates successful Reserva aging."
+    },
+    "foodPairings": [
+      "Roasted lamb with herbs",
+      "Aged Manchego cheese",
+      "Grilled vegetables with romesco",
+      "Paella and rice dishes",
+      "Spanish charcuterie"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30-45 minutes recommended",
+      "glassware": "Bordeaux or standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Penedès, Catalonia, Spain (likely)",
+      "grapeVariety": "Likely Garnacha, Tempranillo, or Catalan blend",
+      "vintage": "2019",
+      "style": "Reserva with extended oak and bottle aging",
+      "ageability": "Drinking well now; enjoy through 2027"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T16:19:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Two Mountain Merlot 2022",
+    "description": "A Merlot from Two Mountain Winery in Washington's Yakima Valley. This estate-grown wine showcases Merlot's softer, more approachable character with concentrated fruit and velvety texture typical of quality Washington State production.",
+    "tastingNotes": {
+      "aroma": "Aromatic with ripe dark fruit characteristic of Washington Merlot. Black cherry, plum, and blackberry dominate with hints of chocolate, vanilla, and subtle oak spice. The aromatic profile is generous and inviting.",
+      "palate": "Medium to full-bodied with soft, velvety tannins. Dark fruit flavors of black cherry and plum are complemented by notes of chocolate and coffee. The wine shows excellent texture with balanced acidity and approachable structure typical of quality Merlot. The Yakima Valley warmth shines through with ripe, concentrated fruit.",
+      "finish": "A smooth, fruity finish with lingering dark fruit and chocolate notes. The tannins are soft and integrated, creating an approachable conclusion that demonstrates Merlot's crowd-pleasing character."
+    },
+    "foodPairings": [
+      "Roasted chicken with herbs",
+      "Pork tenderloin",
+      "Mushroom risotto",
+      "Aged Gruyère cheese",
+      "Beef stew"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30 minutes helpful but not essential",
+      "glassware": "Bordeaux or standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Yakima Valley, Washington",
+      "grapeVariety": "100% Merlot",
+      "vintage": "2022",
+      "style": "Estate-grown Washington Merlot",
+      "ageability": "Drink now through 2029"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T16:21:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Bonelli Bonarda Secco Dry 2019",
+    "description": "A dry Bonarda from Bonelli showcasing this Italian variety (also known as Croatina). Bonarda produces deeply colored wines with bright acidity and red fruit character. The \"Secco Dry\" designation emphasizes the dry style, differentiating it from frizzante or sweet versions.",
+    "tastingNotes": {
+      "aroma": "Bright red fruit aromatics with cherry, raspberry, and cranberry. Hints of violet and spice add complexity, while subtle earth notes provide depth. The aromatic profile is fresh and vibrant despite the wine's age.",
+      "palate": "Medium-bodied with vibrant acidity characteristic of Bonarda. Red cherry and berry flavors dominate with excellent freshness and purity. The wine shows good structure with fine-grained tannins and the dry style emphasized by crisp acidity. The palate is food-friendly and versatile.",
+      "finish": "A clean, dry finish with lingering red fruit and subtle spice. The acidity persists through the conclusion, leaving a refreshing impression ideal for Italian cuisine."
+    },
+    "foodPairings": [
+      "Pasta with tomato sauce",
+      "Risotto with mushrooms",
+      "Grilled sausages",
+      "Pizza with savory toppings",
+      "Aged Parmigiano-Reggiano"
+    ],
+    "servingInfo": {
+      "temperature": "58-62°F (14-17°C), slightly cooler than typical reds",
+      "decanting": "30 minutes to open",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Italy (likely Piedmont or Lombardy)",
+      "grapeVariety": "100% Bonarda (Croatina)",
+      "vintage": "2019",
+      "style": "Dry Bonarda emphasizing fresh fruit and acidity",
+      "ageability": "Drinking well now; enjoy through 2026"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T16:23:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Vins Mosbach Cremant Rose",
+    "description": "A Crémant rosé from Vins Mosbach, likely from Alsace using traditional method sparkling wine production. Crémant offers quality sparklers at more accessible prices than Champagne, and this rosé showcases fresh fruit with elegant effervescence.",
+    "tastingNotes": {
+      "aroma": "Fresh red berry aromatics with strawberry, raspberry, and red currant. Subtle brioche and yeast notes from traditional method production add complexity. The aromatic profile is clean, elegant, and inviting.",
+      "palate": "Light to medium-bodied with fine, persistent bubbles. Red fruit flavors of strawberry and cherry dominate with refreshing acidity and crisp character. The traditional method adds subtle yeast and bread notes that complement the fruit. The palate is elegant and refined.",
+      "finish": "A crisp, clean finish with lingering red fruit and fine bubbles. The wine demonstrates quality traditional method production with elegance and balance."
+    },
+    "foodPairings": [
+      "Smoked salmon and appetizers",
+      "Fresh strawberries and desserts",
+      "Light seafood dishes",
+      "Soft-ripened cheeses",
+      "Brunch dishes"
+    ],
+    "servingInfo": {
+      "temperature": "42-45°F (6-7°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "Champagne flute or tulip glass"
+    },
+    "wineDetails": {
+      "region": "Likely Alsace, France",
+      "grapeVariety": "Likely Pinot Noir and/or other Alsatian varieties",
+      "vintage": "Non-vintage or recent vintage",
+      "style": "Crémant rosé using traditional method",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T16:25:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Thelema Mountain Red 2016",
+    "description": "A mature red blend from South Africa's prestigious Thelema Mountain Vineyards. With nearly a decade of bottle age, this wine showcases how Stellenbosch reds develop tertiary complexity. Thelema's Mountain Red represents quality Bordeaux-style blending with South African terroir expression.",
+    "tastingNotes": {
+      "aroma": "Evolved aromatics with tertiary development from aging. The primary dark fruit has developed into dried cherry, fig, and plum. Cedar, tobacco, and leather add complexity, while Stellenbosch's characteristic eucalyptus and mint notes persist. The oak is fully integrated after years of aging.",
+      "palate": "Medium to full-bodied with softened tannins. The fruit shows maturity with flavors of dried cherry and plum complemented by savory notes of leather, tobacco, and earth. The wine demonstrates elegance with refined structure and perfect balance from extended aging. Stellenbosch's mineral character provides a backbone.",
+      "finish": "A long, elegant finish with persistent tertiary notes. The tannins are completely integrated, creating a refined conclusion that demonstrates successful aging of Stellenbosch reds."
+    },
+    "foodPairings": [
+      "Roasted lamb with rosemary",
+      "Aged South African cheeses",
+      "Wild mushroom dishes",
+      "Braised venison",
+      "Cape Malay curry"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30-45 minutes to awaken aromas",
+      "glassware": "Large Bordeaux or Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Stellenbosch, Western Cape, South Africa",
+      "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc)",
+      "vintage": "2016",
+      "style": "Mature Bordeaux-style blend with extended aging",
+      "ageability": "Drinking beautifully now; enjoy through 2028"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T16:27:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Sunspell Cabernet Sauvignon 2022",
+    "description": "A Cabernet Sauvignon from Sunspell showcasing the variety's classic character with structured tannins and dark fruit concentration. The 2022 vintage offers youthful vibrancy with excellent aging potential typical of quality Cabernet production.",
+    "tastingNotes": {
+      "aroma": "Classic Cabernet aromatics of blackcurrant, black cherry, and cassis. Cedar and tobacco from oak aging add complexity, while hints of bell pepper and eucalyptus provide varietal character. Subtle violet and spice notes add elegance.",
+      "palate": "Full-bodied with structured tannins and concentrated dark fruit flavors. Blackcurrant and black cherry dominate with layers of dark chocolate, coffee, and oak-derived spices. The wine shows excellent structure with firm tannins and good acidity providing balance and aging potential.",
+      "finish": "A long, structured finish with persistent dark fruit and oak notes. The tannins remain present, providing framework for aging. The finish demonstrates classic Cabernet character with excellent length."
+    },
+    "foodPairings": [
+      "Grilled ribeye or New York strip steak",
+      "Braised beef short ribs",
+      "Roasted lamb with herbs",
+      "Aged cheddar or Manchego",
+      "Wild mushroom Wellington"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften tannins",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely California, Washington, or premium New World)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2022",
+      "style": "Structured Cabernet with oak aging",
+      "ageability": "Drink now through 2034; excellent aging potential"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T16:29:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Shabo Reserve Saperavi 2023",
+    "description": "A Reserve Saperavi from Ukraine's Shabo winery showcasing this Georgian grape variety. Saperavi produces deeply colored, tannic wines with excellent aging potential. The Reserve designation indicates careful selection and extended aging, highlighting this noble variety's character.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with deep dark fruit characteristic of Saperavi. Blackberry, black cherry, and plum dominate with hints of spice, dark chocolate, and oak. The aromatic profile is powerful and distinctive with Saperavi's signature intensity.",
+      "palate": "Full-bodied with powerful tannin structure and concentrated dark fruit flavors. Black fruit intensity is balanced by firm but refined tannins and good acidity. Layers of dark chocolate, coffee, and oak spice add complexity. The wine shows excellent depth typical of quality Saperavi production.",
+      "finish": "A long, powerful finish with persistent dark fruit and structured tannins. The finish demonstrates Saperavi's intensity and aging potential with excellent length."
+    },
+    "foodPairings": [
+      "Grilled lamb kebabs",
+      "Georgian khachapuri and cuisine",
+      "Braised beef with herbs",
+      "Aged hard cheeses",
+      "Rich meat stews"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften powerful tannins",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Shabo, Ukraine (Black Sea region)",
+      "grapeVariety": "100% Saperavi",
+      "vintage": "2023",
+      "style": "Reserve Saperavi with oak aging",
+      "ageability": "Drink now through 2033; excellent aging potential"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T16:31:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Scheid Craftwork Zinfandel 2020",
+    "description": "A Zinfandel from Scheid Vineyards' Craftwork series representing quality California winemaking. Zinfandel showcases ripe berry character, spice, and approachable tannins. The 2020 vintage offers maturity with developed character while maintaining Zin's signature fruit.",
+    "tastingNotes": {
+      "aroma": "Expressive Zinfandel aromatics with ripe berry fruit. Blackberry, raspberry, and black cherry dominate with hints of black pepper, vanilla, and baking spices. The nose shows California warmth with concentrated fruit and oak integration.",
+      "palate": "Full-bodied with generous fruit and balanced structure. Dark berry flavors of blackberry and plum are complemented by layers of chocolate, coffee, and spice. The wine shows Zinfandel's characteristic jammy quality balanced by enough acidity and soft tannins to keep it food-friendly. The palate demonstrates quality California Zinfandel production.",
+      "finish": "A long, fruity finish with persistent berry flavors and spice. The tannins are soft and approachable, creating a smooth conclusion that demonstrates Zinfandel's crowd-pleasing character."
+    },
+    "foodPairings": [
+      "BBQ ribs and smoked meats",
+      "Grilled burgers and sausages",
+      "Pizza with savory toppings",
+      "Braised pork shoulder",
+      "Aged cheddar cheese"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30-45 minutes to open fruit and spice",
+      "glassware": "Large red wine glass"
+    },
+    "wineDetails": {
+      "region": "California (likely Central Coast)",
+      "grapeVariety": "100% Zinfandel",
+      "vintage": "2020",
+      "style": "Ripe, fruit-forward California Zinfandel",
+      "ageability": "Drinking well now; enjoy through 2027"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T16:33:00.000Z"
+    }
+  }
+]

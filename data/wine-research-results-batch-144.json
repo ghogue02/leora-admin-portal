@@ -1,0 +1,346 @@
+{
+  "batchId": 144,
+  "processedAt": "2025-10-21T14:25:20.880Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Harmino Mango  Mevushal NV",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of oak. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte Chronicle Cape Estate Blend 2019",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2019 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of dark fruit. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2019",
+        "style": "Estate-grown",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Govain 2018",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2018 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2018",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Cepas Viejas 2022",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2022",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Pritchett’s Peak Rockpile Zinfandel 2015",
+      "description": "A distinguished Zinfandel showcasing exceptional quality. This wine offers complexity and character with the 2015 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Zinfandel",
+        "vintage": "2015",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Manchuela Bodegas Ponce Buena Pinta 2014",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2014 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2014",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wine Club: Domaine des Orgnes Regal des Cigales White 2024",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2024 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of herbs. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Fresh oysters",
+        "Grilled fish",
+        "Goat cheese salad",
+        "Sushi",
+        "Light seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2024",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Gran Reserva 2017",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2017 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of mixed berries. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2017",
+        "style": "Premium reserve",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tarpon Cellars Oak Knoll Cabernet Sauvignon 2018",
+      "description": "A distinguished Cabernet Sauvignon showcasing exceptional quality. This wine offers complexity and character with the 2018 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of blackcurrant and dark cherry, complemented by notes of cedar, tobacco. As the wine opens, additional layers of complexity emerge with hints of dark cherry. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is bold tannins and full-bodied, delivering flavors of blackberry, dark chocolate, espresso, leather. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is long and structured, with persistent flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow complex aromatics to emerge",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Full-bodied, structured red",
+        "ageability": "Drinking well now through 2028. Can age for 10-15 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2018",
+      "description": "A distinguished Pinot Noir showcasing Sonoma terroir. This wine offers complexity and character with the 2018 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of red cherry and strawberry, complemented by notes of raspberry, earthy. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is silky and medium-bodied, delivering flavors of red fruit, fine tannins, elegant. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is smooth and refined, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Roasted chicken",
+        "Pork tenderloin",
+        "Grilled salmon",
+        "Pasta with meat sauce",
+        "Mushroom dishes"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "Brief 30-minute decant to open aromatics",
+        "glassware": "Burgundy glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Sonoma",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "2018",
+        "style": "Elegant, medium-bodied red",
+        "ageability": "Best enjoyed now through 2023. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.880Z"
+      }
+    }
+  ]
+}

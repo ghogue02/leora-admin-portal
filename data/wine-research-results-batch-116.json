@@ -1,0 +1,348 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Rock Ferry Trig Hill Pinot Noir 2022",
+      "description": "A New Zealand Pinot Noir from Rock Ferry's Trig Hill vineyard, showcasing the elegance and purity of fruit that defines quality Central Otago or Marlborough Pinot Noir.",
+      "tastingNotes": {
+        "aroma": "Aromatic with red cherry, raspberry, and cranberry. Floral notes of violet and rose petal. Subtle earthy and herbal complexity.",
+        "palate": "Medium-bodied with silky tannins and bright acidity. Pure red fruit flavors with earthy undertones and subtle spice. Elegant and refined.",
+        "finish": "Long, elegant finish with persistent fruit and fine tannins."
+      },
+      "foodPairings": [
+        "Roasted duck",
+        "Salmon",
+        "Mushroom risotto",
+        "Soft cheeses",
+        "Grilled lamb"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "30 minutes recommended",
+        "glassware": "Pinot Noir glass"
+      },
+      "wineDetails": {
+        "region": "New Zealand (likely Central Otago or Marlborough)",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2022",
+        "style": "Elegant, cool-climate Pinot Noir",
+        "ageability": "Drink now through 2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Darms Lane Pinot Noir Russian River Valley 2018",
+      "description": "A premium Pinot Noir from Russian River Valley's renowned terroir, crafted by Darms Lane with careful vineyard selection and winemaking. This vintage has developed complexity with age.",
+      "tastingNotes": {
+        "aroma": "Complex with red cherry, strawberry, and earth. Notes of mushroom, forest floor, and subtle oak spice from aging. Elegant and layered.",
+        "palate": "Medium to full-bodied with silky tannins. Red fruit flavors with savory notes of earth, tea, and spice. Beautiful integration and depth.",
+        "finish": "Long, complex finish with persistent fruit and earthy notes."
+      },
+      "foodPairings": [
+        "Duck confit",
+        "Roasted game birds",
+        "Grilled salmon",
+        "Mushroom dishes",
+        "Aged Gruyère"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "45 minutes recommended",
+        "glassware": "Large Pinot Noir glass"
+      },
+      "wineDetails": {
+        "region": "Russian River Valley, Sonoma County, California",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2018",
+        "style": "Premium cool-climate Pinot Noir",
+        "ageability": "Drink now through 2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris La Touge Organic 2018",
+      "description": "An organic red wine from Chateau Maris in Languedoc, showcasing biodynamic farming and minimal intervention winemaking. 'La Touge' represents the estate's commitment to terroir expression.",
+      "tastingNotes": {
+        "aroma": "Ripe with dark fruit, garrigue herbs, and earthy notes. Black olive, lavender, and subtle oak spice. Organic/biodynamic character shines through.",
+        "palate": "Full-bodied with structured tannins. Dark fruit flavors with savory Mediterranean character—herbs, earth, and minerality.",
+        "finish": "Long, earthy finish with persistent fruit and herbal notes."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "Provençal stews",
+        "Wild game",
+        "Aged cheeses",
+        "Duck cassoulet"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60 minutes recommended",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Minervois-La Livinière, Languedoc, France",
+        "grapeVariety": "Syrah, Grenache, Carignan blend",
+        "vintage": "2018",
+        "style": "Organic/biodynamic full-bodied red",
+        "ageability": "Drink now through 2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Optima Alexander Valley Duffy Vineyard Cabernet Sauvignon Reserve 2014",
+      "description": "A premium reserve Cabernet from the prestigious Duffy Vineyard in Alexander Valley. This wine has had significant aging, developing tertiary complexity while maintaining structure.",
+      "tastingNotes": {
+        "aroma": "Mature and complex with blackcurrant, cedar, and tobacco. Notes of leather, earth, and dried herbs from aging. Integrated oak showing vanilla and spice.",
+        "palate": "Full-bodied with resolved tannins and balanced acidity. Dark fruit flavors with savory complexity—earth, tobacco, and cedar. Elegant and refined.",
+        "finish": "Very long finish with persistent fruit, soft tannins, and complex tertiary notes."
+      },
+      "foodPairings": [
+        "Prime ribeye",
+        "Braised short ribs",
+        "Aged hard cheeses",
+        "Wild mushrooms",
+        "Beef Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60-90 minutes recommended",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Duffy Vineyard, Alexander Valley, Sonoma, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2014",
+        "style": "Reserve Cabernet with extended aging",
+        "ageability": "Drink now through 2032."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Marina Alta Blanco 2023",
+      "description": "A fresh Spanish white wine from the Marina Alta region in Alicante, showcasing indigenous Mediterranean varieties and coastal terroir.",
+      "tastingNotes": {
+        "aroma": "Fresh with citrus, white flowers, and subtle herbal notes. Clean Mediterranean character.",
+        "palate": "Medium-bodied with crisp acidity. Citrus and orchard fruit with mineral backbone. Refreshing and balanced.",
+        "finish": "Clean finish with lingering citrus and mineral notes."
+      },
+      "foodPairings": [
+        "Grilled seafood",
+        "Paella",
+        "Fresh salads",
+        "Soft cheeses",
+        "Mediterranean cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Marina Alta, Alicante, Spain",
+        "grapeVariety": "Blend of indigenous Spanish white varieties",
+        "vintage": "2023",
+        "style": "Crisp Mediterranean white",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.77,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Gran Reserva 2004",
+      "description": "A historic Gran Reserva from Bodegas Riojanas' Monte Real line, over 20 years old. This wine represents traditional Rioja at its finest with extensive aging and tertiary development.",
+      "tastingNotes": {
+        "aroma": "Profoundly complex with dried cherry, fig, and prune. Extensive tertiary notes of leather, tobacco, cedar, and earth. Oxidative character with walnut and caramel. Museum-quality aromatics.",
+        "palate": "Medium-bodied with soft, integrated tannins. Dried fruit flavors with savory complexity—leather, tobacco, mushroom, and aged balsamic. Remarkable freshness for age.",
+        "finish": "Extremely long, complex finish with persistent tertiary notes and elegant structure."
+      },
+      "foodPairings": [
+        "Aged Spanish cheeses",
+        "Slow-braised meats",
+        "Wild mushrooms",
+        "Jamón Ibérico",
+        "Meditation wine"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Stand upright 24 hours; careful decanting",
+        "glassware": "Rioja or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo, Graciano, Mazuelo blend",
+        "vintage": "2004",
+        "style": "Fully mature Gran Reserva",
+        "ageability": "Drink now. Fully mature."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Arneis 2023",
+      "description": "A fresh Arneis from Piedmont's Roero region, showcasing the delicate aromatics and crisp character of this traditional white variety.",
+      "tastingNotes": {
+        "aroma": "Delicate with white flowers, pear, and green apple. Subtle almond and citrus notes.",
+        "palate": "Medium-bodied with bright acidity. Citrus and stone fruit with mineral backbone and characteristic bitter almond finish.",
+        "finish": "Clean finish with lingering fruit and almond notes."
+      },
+      "foodPairings": [
+        "Fresh seafood",
+        "Risotto",
+        "Soft cheeses",
+        "Grilled fish",
+        "Antipasti"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Roero, Piedmont, Italy",
+        "grapeVariety": "100% Arneis",
+        "vintage": "2023",
+        "style": "Crisp, aromatic white",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ribera del Guadiana Zaleo Joven Tempranillo 2022",
+      "description": "A young, fresh Tempranillo from the Ribera del Guadiana region in Extremadura, Spain. 'Joven' style means minimal aging for vibrant fruit character.",
+      "tastingNotes": {
+        "aroma": "Bright with fresh cherry, plum, and berry. Subtle herbal notes and floral character.",
+        "palate": "Medium-bodied with soft tannins and juicy fruit. Red cherry and berry flavors with fresh acidity. Approachable and vibrant.",
+        "finish": "Clean finish with lingering fruit."
+      },
+      "foodPairings": [
+        "Tapas",
+        "Grilled meats",
+        "Pizza",
+        "Soft cheeses",
+        "Casual fare"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "15-20 minutes",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Ribera del Guadiana, Extremadura, Spain",
+        "grapeVariety": "100% Tempranillo",
+        "vintage": "2022",
+        "style": "Young, fresh Joven style",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rock Ferry Corners Sauvignon Blanc 2023",
+      "description": "A crisp New Zealand Sauvignon Blanc from Rock Ferry, showcasing the vibrant aromatics and refreshing acidity that made the variety famous in Marlborough.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic with grapefruit, lime, and passion fruit. Herbaceous notes of cut grass and jalapeño. Mineral undertones.",
+        "palate": "Medium-bodied with razor-sharp acidity. Intense citrus and tropical fruit with herbaceous character. Vibrant and refreshing.",
+        "finish": "Long, zesty finish with persistent citrus and mineral notes."
+      },
+      "foodPairings": [
+        "Fresh oysters",
+        "Goat cheese salad",
+        "Grilled fish",
+        "Sushi",
+        "Asian cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "Sauvignon Blanc glass"
+      },
+      "wineDetails": {
+        "region": "New Zealand (likely Marlborough)",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2023",
+        "style": "Aromatic, herbaceous Sauvignon Blanc",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-21T14:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines 5L Wood Crate 0",
+      "description": "This appears to be packaging/merchandise (empty wooden crate) rather than wine. It's a decorative 5-liter wood crate, likely used for gift presentation or shipping, not an actual wine product.",
+      "tastingNotes": {
+        "aroma": "Not applicable - this is packaging/merchandise, not wine.",
+        "palate": "Not applicable - this is packaging/merchandise, not wine.",
+        "finish": "Not applicable - this is packaging/merchandise, not wine."
+      },
+      "foodPairings": [
+        "Not applicable - packaging item"
+      ],
+      "servingInfo": {
+        "temperature": "Not applicable",
+        "decanting": "Not applicable",
+        "glassware": "Not applicable"
+      },
+      "wineDetails": {
+        "region": "Not applicable",
+        "grapeVariety": "Not applicable - this is a wooden crate/packaging",
+        "vintage": "N/A",
+        "style": "Merchandise/packaging item",
+        "ageability": "Not applicable"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-21T14:20:00Z",
+        "note": "This is PACKAGING/MERCHANDISE, not wine - should be removed from wine inventory"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 116,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:20:00Z",
+    "averageConfidence": 0.85,
+    "note": "Wine #10 (Wonderment Wines 5L Wood Crate) is packaging/merchandise, not wine - flagged for removal"
+  }
+}

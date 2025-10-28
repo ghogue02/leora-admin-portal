@@ -1,0 +1,344 @@
+{
+  "batchNumber": 89,
+  "processedAt": "2025-10-21T13:10:15.000Z",
+  "totalWines": 10,
+  "note": "Batch contains 3 non-wine items (wooden case, cooking wines) which have been noted but not enriched with tasting notes",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine du Joncier Regard 2016",
+      "description": "An exceptional organic and biodynamic red from Lirac in the Southern Rhône, produced by one of the region's most dedicated natural winemakers. This complex blend showcases the minerality and elegance that can be achieved through low-yield viticulture and minimal intervention winemaking in the Rhône Valley.",
+      "tastingNotes": {
+        "aroma": "The wine presents a beautiful dark purple-ruby color, opening with a velvety and expressive nose of red fruits including cherry and raspberry, complemented by discrete vegetal notes that add complexity. Aromas of black fruits and spices emerge with aeration, creating layers of aromatic intrigue that speak to the wine's biodynamic origins and careful vineyard management.",
+        "palate": "The palate shows beautiful substance that is both elegant and mineral-driven, offering a complex flavor profile of red fruits accompanied by subtle hints of leather and earth. The wine is ample with silky tannins that are intense yet well-balanced, creating a mouthfeel that is both structured and refined. The minerality and freshness provide great substance, intensity, and elegance throughout the tasting experience.",
+        "finish": "The finish is persistent and beautifully aromatic with excellent length. The wine's mineral character carries through to the end, balanced by lingering red fruit and spice notes that invite contemplation."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs de Provence",
+        "Beef daube Provençale with olives",
+        "Roasted duck with cherry sauce",
+        "Wild boar ragù over pappardelle",
+        "Aged sheep's milk cheese from Provence"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Decanting for 1 hour highly recommended to allow this organic wine to open up and reveal its complexity",
+        "glassware": "Large bowl red wine glass or Rhône-style glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Lirac AOC, Southern Rhône, France",
+        "grapeVariety": "Grenache, Carignan, Cinsault, Syrah blend",
+        "vintage": "2016",
+        "style": "Elegant, mineral-driven organic/biodynamic Rhône red with low yields (12-28 hl/ha)",
+        "ageability": "Drink now through 2028. This wine is drinking beautifully now with proper aeration, and will continue to develop additional complexity over the next 2-3 years with earthy, truffle-like notes emerging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Gieco Familia Gieco Malbec 2022",
+      "description": "A family-crafted Malbec from a small boutique winery in Lujan de Cuyo, one of Argentina's most prestigious wine regions. The Devalle-Gieco family's 16-hectare vineyard in Vistalba produces wines that showcase the unique character of high-altitude Mendoza terroir with careful attention to oak integration.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of ripe black plum, blackberry, and dark cherry, complemented by notes of violet and dried rose petals that are characteristic of quality Argentinian Malbec. A fine touch of oak adds subtle vanilla, toasted cedar, and sweet baking spices, while hints of dark chocolate and espresso provide depth without overwhelming the fruit.",
+        "palate": "The palate is rich and concentrated with flavors of blackberry, black cherry, and cassis forming the core, supported by well-integrated oak that adds notes of vanilla, mocha, and sweet spice. The wine shows excellent structure with velvety tannins that are firm yet refined, providing backbone without harshness. The high-altitude fruit contributes notable freshness and acidity that balances the wine's richness and power.",
+        "finish": "The finish is long and satisfying with persistent dark fruit flavors, chocolate, and spice notes. The tannins are smooth and well-integrated, carrying through with excellent balance and leaving a warm, inviting impression."
+      },
+      "foodPairings": [
+        "Grilled Argentine ribeye or asado",
+        "Braised short ribs with red wine reduction",
+        "Chimichurri-marinated lamb chops",
+        "Portobello mushroom steaks with balsamic glaze",
+        "Aged Manchego or Parmesan cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Decanting for 30-45 minutes recommended to soften tannins and allow the oak to integrate fully with the fruit",
+        "glassware": "Large bowl red wine glass or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Lujan de Cuyo, Vistalba district, Mendoza, Argentina",
+        "grapeVariety": "100% Malbec from 16-hectare family vineyard",
+        "vintage": "2022",
+        "style": "Rich, concentrated high-altitude Malbec with elegant oak integration",
+        "ageability": "Drink now through 2030. This wine will develop additional complexity over the next 5-8 years, with the tannins softening and tertiary notes of leather, tobacco, and dried herbs emerging."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wooden case for 1 bottle NV 2025086",
+      "description": "Wine accessory - wooden presentation case for single bottle. Not a wine product.",
+      "tastingNotes": {
+        "aroma": "N/A - Not a wine product",
+        "palate": "N/A - Not a wine product",
+        "finish": "N/A - Not a wine product"
+      },
+      "foodPairings": [
+        "N/A - Not a wine product"
+      ],
+      "servingInfo": {
+        "temperature": "N/A",
+        "decanting": "N/A",
+        "glassware": "N/A"
+      },
+      "wineDetails": {
+        "region": "N/A - Wine accessory",
+        "grapeVariety": "N/A",
+        "vintage": "N/A",
+        "style": "Wooden wine presentation case",
+        "ageability": "N/A"
+      },
+      "metadata": {
+        "source": "non-wine-item",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Skylark Pinot Blanc 2022",
+      "description": "A crisp, mineral-driven Pinot Blanc from a heritage vineyard in Mendocino County, originally planted by John Fetzer in the 1970s. Skylark crafts elegant, terroir-focused wines that showcase the purity of California's cooler-climate sites with precision and restraint.",
+      "tastingNotes": {
+        "aroma": "The wine pours a light straw yellow color, opening with bright aromas of green apple, lemon skin, and tangerine that provide immediate freshness. Subtle notes of white flowers and citrus blossom add aromatic complexity, while a delicate mineral quality hints at the wine's old-vine character and the distinctive terroir of this historic Mendocino vineyard.",
+        "palate": "The palate is sleek and refined with a pronounced mineral component that lends structure to the fleshy fruits of apple and citrus. Flavors of green apple, Meyer lemon, and white grapefruit dominate, supported by subtle tropical notes that add depth without heaviness. The wine's balanced acidity creates a clean, vibrant mouthfeel that is both refreshing and sophisticated.",
+        "finish": "The finish is crisp and mineral-driven with lingering citrus and apple notes. The wine's bright acidity carries through to the end, leaving a clean, mouth-watering impression that speaks to its old-vine heritage."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Pan-seared scallops with lemon butter",
+        "Grilled sea bass with herbs",
+        "Caesar salad with Parmesan crisp",
+        "Roasted chicken with root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), well chilled",
+        "decanting": "No decanting needed - serve fresh from the refrigerator",
+        "glassware": "Standard white wine glass or smaller tulip-shaped glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Orsi Vineyard, Mendocino County, California",
+        "grapeVariety": "100% Pinot Blanc from 1970s plantings",
+        "vintage": "2022",
+        "style": "Crisp, mineral-driven white wine with tropical and balanced character",
+        "ageability": "Best enjoyed within 2-3 years of vintage to capture the fresh fruit and mineral character at their peak."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wine Kitchen WK White (COOKING WINE)",
+      "description": "Cooking wine product - not intended for drinking. This is a culinary ingredient rather than a table wine.",
+      "tastingNotes": {
+        "aroma": "N/A - Cooking wine product",
+        "palate": "N/A - Cooking wine product",
+        "finish": "N/A - Cooking wine product"
+      },
+      "foodPairings": [
+        "Use in risotto and pasta sauces",
+        "Deglaze pans for chicken or fish",
+        "Add to seafood dishes and shellfish preparations",
+        "Enhance cream-based sauces",
+        "Use in marinades and braises"
+      ],
+      "servingInfo": {
+        "temperature": "N/A - Not for drinking",
+        "decanting": "N/A",
+        "glassware": "N/A - Cooking ingredient"
+      },
+      "wineDetails": {
+        "region": "N/A - Cooking wine",
+        "grapeVariety": "White wine blend",
+        "vintage": "N/A",
+        "style": "Cooking wine with added salt",
+        "ageability": "N/A - Use for cooking purposes"
+      },
+      "metadata": {
+        "source": "non-wine-item",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barcelona Lolea Rose Sangria",
+      "description": "An artisanal rosé sangria from Spain that combines Garnacha rosé and Tempranillo with natural fruit and spices. This frizzante-style sangria is unpasteurized to preserve the wine's characteristics, offering an authentic taste of Spanish tradition with a refreshing fizzy touch.",
+      "tastingNotes": {
+        "aroma": "The nose is vibrant and inviting with aromas of fresh strawberry, raspberry, and cherry complemented by citrus notes of orange peel and lemon zest. Spicy notes of ginger and cinnamon add warmth and complexity, while delicate floral hints of rose petals provide aromatic lift. The fine frizzante carbonation adds a lively, refreshing quality to the aromatic profile.",
+        "palate": "The palate is refreshing and fruit-forward with bright flavors of red berries, citrus, and stone fruit dancing across the tongue. The wine's natural fruit character is enhanced by a spicy ginger background and subtle sweet spices that add depth without cloying. The fine bubbles create a lively, effervescent mouthfeel that is both festive and thirst-quenching.",
+        "finish": "The finish is crisp and refreshing with lingering berry fruit, citrus, and gentle spice notes. The fizzy carbonation carries through to the end, leaving a clean, invigorating impression."
+      },
+      "foodPairings": [
+        "Spanish tapas and pintxos",
+        "Jamón ibérico and cured meats",
+        "Grilled seafood paella",
+        "Fresh fruit platters and summer desserts",
+        "Light Mediterranean salads"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well chilled and served over ice",
+        "decanting": "No decanting needed - serve directly over ice with fresh fruit garnish",
+        "glassware": "Large wine glass or copa filled with ice and fresh citrus slices"
+      },
+      "wineDetails": {
+        "region": "Aragon, Spain",
+        "grapeVariety": "Garnacha rosé and Tempranillo with natural fruit and spices",
+        "vintage": "Non-vintage",
+        "style": "Artisanal frizzante sangria, unpasteurized with natural fruit flavors",
+        "ageability": "Best enjoyed fresh and young within 1-2 years of purchase. Serve chilled over ice for optimal enjoyment."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ribeiro Sameiras Blanco COOKING wine 2015",
+      "description": "Cooking wine from Ribeiro, Spain - intended for culinary use rather than drinking. This is a white wine-based cooking ingredient.",
+      "tastingNotes": {
+        "aroma": "N/A - Cooking wine product",
+        "palate": "N/A - Cooking wine product",
+        "finish": "N/A - Cooking wine product"
+      },
+      "foodPairings": [
+        "Use in Spanish fish and seafood dishes",
+        "Add to shellfish preparations",
+        "Enhance paella and arroz dishes",
+        "Use in garlic and white wine sauces",
+        "Deglaze pans for chicken or pork"
+      ],
+      "servingInfo": {
+        "temperature": "N/A - Not for drinking",
+        "decanting": "N/A",
+        "glassware": "N/A - Cooking ingredient"
+      },
+      "wineDetails": {
+        "region": "Ribeiro, Galicia, Spain",
+        "grapeVariety": "White wine blend",
+        "vintage": "2015",
+        "style": "Cooking wine with added salt",
+        "ageability": "N/A - Use for cooking purposes"
+      },
+      "metadata": {
+        "source": "non-wine-item",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oliver Viticultors Cava Brut Nature",
+      "description": "An organic Cava from the Penedès region crafted by a family-run estate with 55 hectares of ecologically certified vineyards. This Brut Nature cava receives no dosage, allowing the wine's natural acidity and pure fruit character to shine through with refreshing vitality.",
+      "tastingNotes": {
+        "aroma": "The nose is bright and inviting with a pale yellow color showing greenish hints, opening with white fruit aromas of green apple, pear, and citrus. Fresh fruit aromatics are accompanied by a delicate touch of orange blossom that adds floral complexity, while subtle hints of brioche and yeast from traditional method aging provide depth and interest.",
+        "palate": "The palate is crisp and ultimately classic, showcasing the three traditional Cava grapes with precision and balance. Flavors of green apple, lemon, and white peach create a refreshing fruit core, while the wine's naturally high acidity provides energy and structure. The absence of dosage allows the terroir and fruit character to express themselves clearly, creating a pure, vital, and refreshing sparkling wine experience.",
+        "finish": "The finish is clean and refreshing with persistent citrus and mineral notes. The wine's bright acidity lingers, leaving a crisp, mouth-watering impression that makes it an ideal aperitif."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood platters",
+        "Spanish tapas and croquetas",
+        "Fried calamari with lemon",
+        "Goat cheese with honey and almonds",
+        "Light appetizers and canapés"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well chilled",
+        "decanting": "No decanting needed - serve directly from the bottle",
+        "glassware": "Champagne flute or tulip-shaped sparkling wine glass"
+      },
+      "wineDetails": {
+        "region": "Penedès DO, Sant Sadurní d'Anoia, Catalonia, Spain",
+        "grapeVariety": "Xarel·lo, Macabeo, and Parellada (traditional Cava varieties)",
+        "vintage": "Non-vintage",
+        "style": "Organic Brut Nature Cava with no added dosage, traditional method",
+        "ageability": "Best enjoyed within 2-3 years of release to capture the fresh fruit and lively character. Brut Nature cavas are designed for immediate enjoyment."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Beefsteak Malbec 2019",
+      "description": "An award-winning Malbec from high-altitude Mendoza vineyards, inspired by 18th-century dining clubs that celebrated the beefsteak as a symbol of liberty and prosperity. This wine showcases the bright, smooth character of classic high-altitude Argentine Malbec with careful oak aging for richness and complexity.",
+      "tastingNotes": {
+        "aroma": "The nose is attractive and expressive with aromas of bramble, elderberry, and ripe black cherry, complemented by violet and rose petal top notes that are characteristic of quality Malbec. A little pepper adds spice, while oak aging contributes lush vanilla and gently spiced aromatics including cinnamon and clove that balance the wine's dark fruit character.",
+        "palate": "The palate is bright, smooth, and approachable, showcasing succulent dark berry fruit including blackberry, plum, and black cherry. The wine has a rich and layered mouthfeel with a creamy texture and soft tannins that provide structure without harshness. Juicy ripe black-fruit notes are balanced by delicious freshness and acidity that keeps the wine lively and food-friendly.",
+        "finish": "The finish is long and smooth with persistent dark fruit flavors, vanilla, and gentle spice notes. The soft tannins carry through to the end, leaving a warm, satisfying impression."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak or Argentine asado",
+        "Beef empanadas with chimichurri",
+        "BBQ ribs with smoky sauce",
+        "Portobello mushroom burgers",
+        "Aged cheddar or Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Brief decanting of 20-30 minutes will help the wine open up, though it's designed to be approachable upon opening",
+        "glassware": "Large bowl red wine glass or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina (high-altitude vineyards)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2019",
+        "style": "Bright, approachable high-altitude Malbec with oak aging and soft tannins",
+        "ageability": "Drink now through 2027. This wine is designed for relatively near-term enjoyment, though it will develop additional complexity over the next 3-5 years with the fruit integrating further with oak and developing subtle leather notes."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Barbera d'Alba 2021",
+      "description": "An outstanding Barbera d'Alba from a respected Barolo producer in La Morra, earning exceptional scores of 91 points from both Wine Enthusiast and Wine Spectator. This wine showcases the elegance and food-friendly character that Barbera can achieve in Piedmont's calcareous-clayey soils.",
+      "tastingNotes": {
+        "aroma": "The wine pours an inky purple color, opening with vibrant aromas of wild red berries including raspberry and wild strawberry, complemented by sour cherries and black cherry notes. Sweet baking spices add warmth and complexity, while subtle notes of violet, iron, and rooibos tea provide additional aromatic intrigue and a hint of the wine's mineral character.",
+        "palate": "The palate is plush and silky with a wonderful balance between ripe red fruit and savory herbal flavors. Blackberry, black cherry, and red berry flavors are supported by well-structured, soft tannins that provide backbone without harshness. The wine is tart and bright with excellent acidity that lifts the fruit and creates an elegant, defined mouthfeel. Fresh and fruity at the beginning, the wine turns more savory towards the mid-palate with notes of herbs and tea.",
+        "finish": "The finish is long and graceful with fine balance between fruit, acidity, and tannins. The wine's elegant structure lingers beautifully, leaving a sleek, defined impression with subtle notes of iron and violet."
+      },
+      "foodPairings": [
+        "Tajarin (thin egg pasta) with butter and truffles",
+        "Osso buco with saffron risotto",
+        "Roasted duck with cherry reduction",
+        "Mushroom risotto with Parmesan",
+        "Aged Parmigiano-Reggiano or Grana Padano"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Brief decanting of 30 minutes will help the wine open up and showcase its aromatic complexity",
+        "glassware": "Large bowl red wine glass or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Barbera d'Alba DOC, La Morra, Piedmont, Italy",
+        "grapeVariety": "100% Barbera from calcareous-clayey soils",
+        "vintage": "2021",
+        "style": "Elegant, well-structured Barbera with bright acidity and silky tannins",
+        "ageability": "Drink now through 2027. This wine is drinking beautifully now and will maintain its vibrant fruit character for the next 4-6 years, developing additional savory and earthy notes with age."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.97,
+        "researchedAt": "2025-10-21T13:10:15.000Z"
+      }
+    }
+  ]
+}

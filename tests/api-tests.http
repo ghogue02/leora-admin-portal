@@ -1,0 +1,526 @@
+# Leora CRM API Test Collection
+#
+# This file contains HTTP requests for testing all Leora CRM APIs.
+# Use with REST Client extension in VS Code or similar tools.
+#
+# Setup:
+# 1. Install "REST Client" extension in VS Code
+# 2. Update @baseUrl if needed
+# 3. Update @token with valid auth token (if auth is enabled)
+# 4. Click "Send Request" above each request to execute
+
+### Variables
+@baseUrl = http://localhost:3000/api
+@token = YOUR_AUTH_TOKEN_HERE
+@customerId = CUSTOMER_ID_HERE
+@orderId = ORDER_ID_HERE
+@skuId = SKU_ID_HERE
+
+### =======================
+### CUSTOMER APIs
+### =======================
+
+### Get all customers (paginated)
+GET {{baseUrl}}/sales/customers?page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get customers with filters (ACTIVE only)
+GET {{baseUrl}}/sales/customers?risk=ACTIVE&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get customers with search
+GET {{baseUrl}}/sales/customers?search=Wine&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get customers sorted by revenue
+GET {{baseUrl}}/sales/customers?sortField=revenue&sortDirection=desc&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get customers due to order
+GET {{baseUrl}}/sales/customers?page=1&pageSize=50
+# Filter client-side: isDueToOrder = true
+Authorization: Bearer {{token}}
+
+### Get specific customer by ID
+GET {{baseUrl}}/sales/customers/{{customerId}}
+Authorization: Bearer {{token}}
+
+### Get customer metrics
+GET {{baseUrl}}/sales/customers/{{customerId}}/metrics
+Authorization: Bearer {{token}}
+
+### Get customer order history
+GET {{baseUrl}}/sales/customers/{{customerId}}/orders?limit=10
+Authorization: Bearer {{token}}
+
+### Get customer activity timeline
+GET {{baseUrl}}/sales/customers/{{customerId}}/activities?limit=20
+Authorization: Bearer {{token}}
+
+### Get customer top products
+GET {{baseUrl}}/sales/customers/{{customerId}}/top-products?limit=5
+Authorization: Bearer {{token}}
+
+### =======================
+### ORDER APIs
+### =======================
+
+### Get all orders
+GET {{baseUrl}}/sales/orders?page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get orders by customer
+GET {{baseUrl}}/sales/orders?customerId={{customerId}}&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get orders by status
+GET {{baseUrl}}/sales/orders?status=DELIVERED&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get specific order by ID
+GET {{baseUrl}}/sales/orders/{{orderId}}
+Authorization: Bearer {{token}}
+
+### Get order line items
+GET {{baseUrl}}/sales/orders/{{orderId}}/line-items
+Authorization: Bearer {{token}}
+
+### =======================
+### CALL PLAN APIs (CARLA)
+### =======================
+
+### Get all call plans
+GET {{baseUrl}}/sales/call-plans
+Authorization: Bearer {{token}}
+
+### Get active call plan
+GET {{baseUrl}}/sales/call-plans/active
+Authorization: Bearer {{token}}
+
+### Get call plan by ID
+GET {{baseUrl}}/sales/call-plans/CALL_PLAN_ID_HERE
+Authorization: Bearer {{token}}
+
+### Create weekly call plan
+POST {{baseUrl}}/sales/call-plans
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "weekStartDate": "2025-01-20",
+  "weekEndDate": "2025-01-26",
+  "customerIds": [
+    "customer-id-1",
+    "customer-id-2",
+    "customer-id-3",
+    "customer-id-4",
+    "customer-id-5"
+  ],
+  "xGoal": 5,
+  "yGoal": 3
+}
+
+### Update call plan status
+PATCH {{baseUrl}}/sales/call-plans/CALL_PLAN_ID_HERE
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "status": "COMPLETED"
+}
+
+### Delete call plan
+DELETE {{baseUrl}}/sales/call-plans/CALL_PLAN_ID_HERE
+Authorization: Bearer {{token}}
+
+### =======================
+### ACTIVITY APIs
+### =======================
+
+### Get all activities
+GET {{baseUrl}}/sales/activities?page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get activities by customer
+GET {{baseUrl}}/sales/activities?customerId={{customerId}}&page=1&pageSize=20
+Authorization: Bearer {{token}}
+
+### Get activities by type
+GET {{baseUrl}}/sales/activities?activityType=CALL&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Create activity
+POST {{baseUrl}}/sales/activities
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "customerId": "{{customerId}}",
+  "activityType": "CALL",
+  "notes": "Discussed new product line. Customer interested in Chardonnay samples.",
+  "activityDate": "2025-01-25T10:00:00Z"
+}
+
+### Update activity
+PATCH {{baseUrl}}/sales/activities/ACTIVITY_ID_HERE
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "notes": "Updated notes: Customer confirmed order for next week."
+}
+
+### Delete activity
+DELETE {{baseUrl}}/sales/activities/ACTIVITY_ID_HERE
+Authorization: Bearer {{token}}
+
+### =======================
+### SAMPLE APIs (Phase 3)
+### =======================
+
+### Get sample inventory
+GET {{baseUrl}}/sales/samples/inventory
+Authorization: Bearer {{token}}
+
+### Get sample usage log
+GET {{baseUrl}}/sales/samples/usage-log?page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get samples by customer
+GET {{baseUrl}}/sales/samples?customerId={{customerId}}
+Authorization: Bearer {{token}}
+
+### Quick assign sample to customer
+POST {{baseUrl}}/sales/samples/quick-assign
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "customerId": "{{customerId}}",
+  "skuId": "{{skuId}}",
+  "quantity": 1,
+  "feedback": "Loved it",
+  "customerResponse": "Customer wants to order a case next week"
+}
+
+### Log sample feedback (after sample already sent)
+PATCH {{baseUrl}}/sales/samples/SAMPLE_ID_HERE/feedback
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "feedback": "Liked it",
+  "customerResponse": "Will consider ordering in future"
+}
+
+### Get sample budget status
+GET {{baseUrl}}/sales/samples/budget
+Authorization: Bearer {{token}}
+
+### Get sample budget history
+GET {{baseUrl}}/sales/samples/budget/history?period=30d
+Authorization: Bearer {{token}}
+
+### =======================
+### SAMPLE ANALYTICS APIs (Phase 3)
+### =======================
+
+### Get sample conversion metrics
+GET {{baseUrl}}/sales/samples/analytics/conversion?startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### Get sample revenue attribution
+GET {{baseUrl}}/sales/samples/analytics/revenue?startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### Get sample ROI
+GET {{baseUrl}}/sales/samples/analytics/roi?startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### Get conversion funnel data
+GET {{baseUrl}}/sales/samples/analytics/funnel?startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### Get rep leaderboard
+GET {{baseUrl}}/sales/samples/analytics/leaderboard?startDate=2025-01-01&endDate=2025-12-31&limit=10
+Authorization: Bearer {{token}}
+
+### Get sample performance by category
+GET {{baseUrl}}/sales/samples/analytics/by-category?startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### Get supplier report
+GET {{baseUrl}}/sales/samples/analytics/suppliers?startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### Export analytics report (CSV)
+GET {{baseUrl}}/sales/samples/analytics/export?format=csv&startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### Export analytics report (PDF)
+GET {{baseUrl}}/sales/samples/analytics/export?format=pdf&startDate=2025-01-01&endDate=2025-12-31
+Authorization: Bearer {{token}}
+
+### =======================
+### AI RECOMMENDATION APIs (Phase 3)
+### =======================
+
+### Get AI product recommendations for customer
+POST {{baseUrl}}/ai/recommendations
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "customerId": "{{customerId}}",
+  "limit": 5
+}
+
+### Get AI recommendations with context
+POST {{baseUrl}}/ai/recommendations
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "customerId": "{{customerId}}",
+  "context": "Customer recently ordered Chardonnay and asked about Italian wines",
+  "limit": 5
+}
+
+### =======================
+### SKU/PRODUCT APIs
+### =======================
+
+### Get all SKUs
+GET {{baseUrl}}/sales/skus?page=1&pageSize=100
+Authorization: Bearer {{token}}
+
+### Get sample SKUs only
+GET {{baseUrl}}/sales/skus?isSample=true&page=1&pageSize=100
+Authorization: Bearer {{token}}
+
+### Get SKU by ID
+GET {{baseUrl}}/sales/skus/{{skuId}}
+Authorization: Bearer {{token}}
+
+### Search SKUs by name
+GET {{baseUrl}}/sales/skus?search=Chardonnay&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get SKUs by category
+GET {{baseUrl}}/sales/skus?category=White%20Wine&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get SKUs by supplier
+GET {{baseUrl}}/sales/skus?supplier=Test%20Winery%20A&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### =======================
+### DASHBOARD APIs
+### =======================
+
+### Get dashboard summary metrics
+GET {{baseUrl}}/sales/dashboard/summary
+Authorization: Bearer {{token}}
+
+### Get upcoming tasks
+GET {{baseUrl}}/sales/dashboard/tasks?status=pending&limit=10
+Authorization: Bearer {{token}}
+
+### Get upcoming events
+GET {{baseUrl}}/sales/dashboard/events?startDate=2025-01-25&endDate=2025-02-01
+Authorization: Bearer {{token}}
+
+### Get product goals progress
+GET {{baseUrl}}/sales/dashboard/product-goals
+Authorization: Bearer {{token}}
+
+### Get weekly revenue data
+GET {{baseUrl}}/sales/dashboard/revenue/weekly?weeks=4
+Authorization: Bearer {{token}}
+
+### Get incentives
+GET {{baseUrl}}/sales/dashboard/incentives
+Authorization: Bearer {{token}}
+
+### =======================
+### ADMIN APIs
+### =======================
+
+### Get job queue status
+GET {{baseUrl}}/admin/jobs
+Authorization: Bearer {{token}}
+
+### Get specific job details
+GET {{baseUrl}}/admin/jobs/JOB_ID_HERE
+Authorization: Bearer {{token}}
+
+### Get job logs
+GET {{baseUrl}}/admin/jobs/JOB_ID_HERE/logs
+Authorization: Bearer {{token}}
+
+### Trigger manual job (Update Account Types)
+POST {{baseUrl}}/admin/jobs/run
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "jobType": "update-account-types"
+}
+
+### Trigger manual job (Supabase Replay)
+POST {{baseUrl}}/admin/jobs/run
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "jobType": "supabase-replay"
+}
+
+### Retry failed job
+POST {{baseUrl}}/admin/jobs/JOB_ID_HERE/retry
+Authorization: Bearer {{token}}
+
+### Cancel running job
+POST {{baseUrl}}/admin/jobs/JOB_ID_HERE/cancel
+Authorization: Bearer {{token}}
+
+### =======================
+### TASK APIs
+### =======================
+
+### Get all tasks
+GET {{baseUrl}}/sales/tasks?page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get tasks by status
+GET {{baseUrl}}/sales/tasks?status=pending&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get tasks by priority
+GET {{baseUrl}}/sales/tasks?priority=high&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get overdue tasks
+GET {{baseUrl}}/sales/tasks?overdue=true&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Create task
+POST {{baseUrl}}/sales/tasks
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Follow up with customer after sample",
+  "description": "Customer received Chardonnay sample. Follow up to get feedback.",
+  "customerId": "{{customerId}}",
+  "dueDate": "2025-02-01",
+  "priority": "high"
+}
+
+### Update task status
+PATCH {{baseUrl}}/sales/tasks/TASK_ID_HERE
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "status": "completed"
+}
+
+### Delete task
+DELETE {{baseUrl}}/sales/tasks/TASK_ID_HERE
+Authorization: Bearer {{token}}
+
+### =======================
+### AUTOMATION TRIGGER APIs (Phase 3)
+### =======================
+
+### Get automation trigger history
+GET {{baseUrl}}/admin/automation/triggers?page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get triggers by type
+GET {{baseUrl}}/admin/automation/triggers?type=sample-no-order&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Get pending triggers
+GET {{baseUrl}}/admin/automation/triggers?status=pending&page=1&pageSize=50
+Authorization: Bearer {{token}}
+
+### Manually fire trigger (for testing)
+POST {{baseUrl}}/admin/automation/triggers/fire
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "triggerType": "sample-no-order",
+  "customerId": "{{customerId}}",
+  "sampleId": "SAMPLE_ID_HERE"
+}
+
+### =======================
+### SEARCH APIs
+### =======================
+
+### Global search
+GET {{baseUrl}}/search?q=Chardonnay&limit=20
+Authorization: Bearer {{token}}
+
+### Search customers
+GET {{baseUrl}}/search/customers?q=Wine&limit=10
+Authorization: Bearer {{token}}
+
+### Search products/SKUs
+GET {{baseUrl}}/search/products?q=Cabernet&limit=10
+Authorization: Bearer {{token}}
+
+### =======================
+### REPORTS APIs
+### =======================
+
+### Get sales report
+GET {{baseUrl}}/sales/reports/sales?startDate=2025-01-01&endDate=2025-01-31
+Authorization: Bearer {{token}}
+
+### Get customer health report
+GET {{baseUrl}}/sales/reports/customer-health
+Authorization: Bearer {{token}}
+
+### Get territory overview report
+GET {{baseUrl}}/sales/reports/territory
+Authorization: Bearer {{token}}
+
+### Export report (CSV)
+GET {{baseUrl}}/sales/reports/export?type=sales&format=csv&startDate=2025-01-01&endDate=2025-01-31
+Authorization: Bearer {{token}}
+
+### =======================
+### PERFORMANCE BENCHMARK APIs
+### =======================
+
+### Health check
+GET {{baseUrl}}/health
+# Expected: <50ms response
+
+### Database connection check
+GET {{baseUrl}}/health/db
+# Expected: <100ms response
+
+### Cache status
+GET {{baseUrl}}/health/cache
+# Expected: <50ms response
+
+### =======================
+### EXPECTED RESPONSE TIMES
+### =======================
+#
+# Customer list:        <500ms
+# Customer detail:      <300ms
+# Order history:        <200ms
+# Activity timeline:    <200ms
+# Sample assignment:    <200ms
+# Analytics (cached):   <500ms
+# Analytics (uncached): <2000ms
+# AI recommendations:   <10000ms (10s)
+# Search:               <300ms
+# Create/Update:        <200ms
+# Delete:               <100ms

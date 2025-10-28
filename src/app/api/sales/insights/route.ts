@@ -181,8 +181,8 @@ export async function GET(request: NextRequest) {
       const [sampleAgg, samplesConverted] = sampleStats;
       const conversionRate =
         sampleAgg._count.id > 0
-          ? ((samplesConverted / sampleAgg._count.id) * 100).toFixed(1)
-          : '0.0';
+          ? Math.round((samplesConverted / sampleAgg._count.id) * 100)
+          : 0;
 
       // Calculate total revenue
       const totalRevenue = topCustomers.reduce(
@@ -193,16 +193,16 @@ export async function GET(request: NextRequest) {
       // Build insights object
       const insights = {
         summary: {
-          totalRevenue: totalRevenue.toFixed(2),
+          totalRevenue: Math.round(totalRevenue),
           totalOrders: orderStatuses.reduce((sum, s) => sum + s._count.id, 0),
-          topCustomerRevenue: Number(topCustomers[0]?._sum.total ?? 0).toFixed(2),
+          topCustomerRevenue: Math.round(Number(topCustomers[0]?._sum.total ?? 0)),
           topCustomerName: customerMap.get(topCustomers[0]?.customerId)?.name ?? 'Unknown',
         },
         topCustomers: topCustomers.map((c) => ({
           customerId: c.customerId,
           name: customerMap.get(c.customerId)?.name ?? 'Unknown',
           state: customerMap.get(c.customerId)?.state ?? null,
-          revenue: Number(c._sum.total ?? 0).toFixed(2),
+          revenue: Math.round(Number(c._sum.total ?? 0)),
           orderCount: c._count.id,
         })),
         orderStatuses: orderStatuses.map((s) => ({
@@ -219,7 +219,7 @@ export async function GET(request: NextRequest) {
             skuId: p.skuId,
             name: sku?.product.name ?? 'Unknown',
             brand: sku?.product.brand ?? null,
-            units: p._sum.quantity ?? 0,
+            units: Math.round(p._sum.quantity ?? 0),
             orderCount: p._count.id,
           };
         }),
@@ -228,15 +228,15 @@ export async function GET(request: NextRequest) {
           count: a._count.id,
         })),
         samples: {
-          totalGiven: sampleAgg._sum.quantity ?? 0,
+          totalGiven: Math.round(sampleAgg._sum.quantity ?? 0),
           events: sampleAgg._count.id,
-          converted: samplesConverted,
+          converted: Math.round(samplesConverted),
           conversionRate,
         },
         invoices: invoiceStats.map((i) => ({
           status: i.status,
           count: i._count.id,
-          total: Number(i._sum.total ?? 0).toFixed(2),
+          total: Math.round(Number(i._sum.total ?? 0)),
         })),
         carts: cartStats.map((c) => ({
           status: c.status,
@@ -245,7 +245,7 @@ export async function GET(request: NextRequest) {
         monthlyTrend: monthlyTrend.map((m) => ({
           month: m.month,
           orders: Number(m.order_count),
-          revenue: Number(m.total_revenue).toFixed(2),
+          revenue: Math.round(Number(m.total_revenue)),
         })),
       };
 

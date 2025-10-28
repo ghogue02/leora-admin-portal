@@ -1,0 +1,222 @@
+'use client';
+
+import { useState } from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Save, Settings } from 'lucide-react';
+import LocationEditor from './sections/LocationEditor';
+import WarehouseMap from './sections/WarehouseMap';
+import { LocationImport } from './sections/LocationImport';
+import { toast } from 'sonner';
+
+// Disable static generation for this page due to dynamic content
+export const dynamic = 'force-dynamic';
+
+// Mock data - replace with actual API calls
+const mockWarehouseConfig = {
+  aisles: ['A', 'B', 'C', 'D'],
+  rowsPerAisle: 5,
+  shelvesPerRow: 4,
+};
+
+const mockProducts = [
+  {
+    id: '1',
+    sku: 'WG-001',
+    name: 'Premium Wine Glass Set',
+    currentLocation: { aisle: 'A', row: '1', shelf: '1' },
+  },
+  {
+    id: '2',
+    sku: 'CS-102',
+    name: 'Stainless Steel Corkscrew',
+    currentLocation: { aisle: 'A', row: '1', shelf: '2' },
+  },
+  {
+    id: '3',
+    sku: 'WA-205',
+    name: 'Wine Aerator Pourer',
+  },
+  {
+    id: '4',
+    sku: 'DC-301',
+    name: 'Decanter Crystal 1.5L',
+  },
+];
+
+const mockOccupiedLocations = [
+  {
+    aisle: 'A',
+    row: '1',
+    shelf: '1',
+    products: [{ sku: 'WG-001', name: 'Premium Wine Glass Set' }],
+  },
+  {
+    aisle: 'A',
+    row: '1',
+    shelf: '2',
+    products: [{ sku: 'CS-102', name: 'Stainless Steel Corkscrew' }],
+  },
+];
+
+export default function WarehousePage() {
+  const [config, setConfig] = useState(mockWarehouseConfig);
+  const [aisles, setAisles] = useState(config?.aisles?.join(',') || '');
+  const [rowsPerAisle, setRowsPerAisle] = useState(config?.rowsPerAisle?.toString() || '1');
+  const [shelvesPerRow, setShelvesPerRow] = useState(config?.shelvesPerRow?.toString() || '1');
+
+  const handleSaveConfig = () => {
+    const newConfig = {
+      aisles: aisles.split(',').map(a => a.trim()).filter(Boolean),
+      rowsPerAisle: parseInt(rowsPerAisle) || 1,
+      shelvesPerRow: parseInt(shelvesPerRow) || 1,
+    };
+    setConfig(newConfig);
+    toast.success('Warehouse configuration saved');
+  };
+
+  const handleSaveLocation = async (productId: string, location: any) => {
+    // TODO: Implement actual API call
+    console.log('Saving location:', { productId, location });
+    await new Promise(resolve => setTimeout(resolve, 500));
+  };
+
+  const handleImport = async (data: any[]) => {
+    // TODO: Implement actual API call
+    console.log('Importing locations:', data);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+  };
+
+  return (
+    <div className="container mx-auto py-6 px-4 max-w-7xl">
+      {/* Header */}
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold">Warehouse Management</h1>
+        <p className="text-gray-600 mt-1">Configure warehouse layout and manage inventory locations</p>
+      </div>
+
+      <Tabs defaultValue="map" className="space-y-6">
+        <TabsList className="grid w-full grid-cols-4 touch-target">
+          <TabsTrigger value="map">Warehouse Map</TabsTrigger>
+          <TabsTrigger value="locations">Assign Locations</TabsTrigger>
+          <TabsTrigger value="import">Bulk Import</TabsTrigger>
+          <TabsTrigger value="config">Configuration</TabsTrigger>
+        </TabsList>
+
+        {/* Warehouse Map */}
+        <TabsContent value="map">
+          <WarehouseMap
+            config={config}
+            occupiedLocations={mockOccupiedLocations}
+          />
+        </TabsContent>
+
+        {/* Location Assignment */}
+        <TabsContent value="locations">
+          <LocationEditor
+            products={mockProducts}
+            aisles={config.aisles}
+            onSaveLocation={handleSaveLocation}
+          />
+        </TabsContent>
+
+        {/* Bulk Import */}
+        <TabsContent value="import">
+          <LocationImport onImport={handleImport} />
+        </TabsContent>
+
+        {/* Configuration */}
+        <TabsContent value="config">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Settings className="mr-2 h-5 w-5" />
+                Warehouse Configuration
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6 max-w-2xl">
+                <div>
+                  <Label htmlFor="aisles">Aisles (comma-separated)</Label>
+                  <Input
+                    id="aisles"
+                    value={aisles}
+                    onChange={(e) => setAisles(e.target.value)}
+                    placeholder="A,B,C,D"
+                    className="mt-1 touch-target"
+                  />
+                  <p className="text-sm text-gray-600 mt-1">
+                    Enter aisle identifiers separated by commas (e.g., A,B,C,D)
+                  </p>
+                </div>
+
+                <div>
+                  <Label htmlFor="rows">Rows per Aisle</Label>
+                  <Input
+                    id="rows"
+                    type="number"
+                    min="1"
+                    max="20"
+                    value={rowsPerAisle}
+                    onChange={(e) => setRowsPerAisle(e.target.value)}
+                    className="mt-1 touch-target"
+                  />
+                  <p className="text-sm text-gray-600 mt-1">
+                    Number of rows in each aisle
+                  </p>
+                </div>
+
+                <div>
+                  <Label htmlFor="shelves">Shelves per Row</Label>
+                  <Input
+                    id="shelves"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value={shelvesPerRow}
+                    onChange={(e) => setShelvesPerRow(e.target.value)}
+                    className="mt-1 touch-target"
+                  />
+                  <p className="text-sm text-gray-600 mt-1">
+                    Number of shelves in each row
+                  </p>
+                </div>
+
+                {/* Preview */}
+                <div className="p-4 bg-gray-50 border rounded">
+                  <div className="text-sm font-semibold mb-2">Configuration Preview</div>
+                  <div className="space-y-1 text-sm">
+                    <div>
+                      Aisles: <span className="font-mono font-semibold">{aisles}</span>
+                    </div>
+                    <div>
+                      Rows per Aisle: <span className="font-semibold">{rowsPerAisle}</span>
+                    </div>
+                    <div>
+                      Shelves per Row: <span className="font-semibold">{shelvesPerRow}</span>
+                    </div>
+                    <div className="pt-2 border-t mt-2">
+                      Total Locations: <span className="font-bold">
+                        {aisles.split(',').filter(Boolean).length *
+                         parseInt(rowsPerAisle || '1') *
+                         parseInt(shelvesPerRow || '1')}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <Button onClick={handleSaveConfig} size="lg" className="w-full touch-target">
+                  <Save className="mr-2 h-5 w-5" />
+                  Save Configuration
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}

@@ -1,0 +1,347 @@
+{
+  "batch": 63,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Merlot Mevushal (MD & DC) 2023",
+      "description": "A kosher Merlot from Spain's Yecla region, this wine represents excellent value from high-altitude vineyards where ideal ripening conditions develop concentrated fruit character. Mevushal certified under OU and Rabbi Padwa supervision, offering traditional kosher certification with accessible Mediterranean styling.",
+      "tastingNotes": {
+        "aroma": "The nose opens with reserved aromatics that benefit from gentle coaxing, revealing layers of gravel minerality and concentrated blackberry juice. With patience, earthy notes emerge alongside dark fruit, characteristic of Yecla's warm climate and calcareous soils. Subtle hints of dried Mediterranean herbs add complexity to the bouquet.",
+        "palate": "Medium-bodied with approachable tannins, the palate shows ripe cherry and blackberry fruit supported by dusty mineral notes. The warm Spanish growing season translates to generous fruit expression while maintaining food-friendly structure. Soft tannins and balanced acidity create an easy-drinking profile suitable for everyday occasions.",
+        "finish": "The finish is clean and moderately long, with lingering notes of dark fruit and subtle earthy minerality. Mild tannins fade gracefully, leaving a pleasant impression of sun-ripened Mediterranean fruit."
+      },
+      "foodPairings": [
+        "Grilled lamb kebabs with herbs",
+        "Beef brisket with red wine reduction",
+        "Mushroom risotto",
+        "Hard aged cheeses like Manchego",
+        "Roasted eggplant with tahini"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Brief aeration of 15-20 minutes helps open the reserved aromatics",
+        "glassware": "Standard Bordeaux or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Yecla, Spain",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2023",
+        "style": "Dry Red, Kosher Mevushal",
+        "ageability": "Drink now through 2027; best consumed young to enjoy fresh fruit character"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Cabernet Sauvignon Semi Sweet (MD & DC) 2023",
+      "description": "This semi-sweet kosher Cabernet Sauvignon from Yecla, Spain offers an approachable style with bright fruit flavors and gentle sweetness. Perfect for those preferring a softer wine profile, it balances ripe fruit character with just enough structure to remain food-friendly.",
+      "tastingNotes": {
+        "aroma": "Fruity and expressive, the nose bursts with aromas of fresh cherries, black currant, and a distinctive eucalyptus note that adds herbal complexity. The semi-sweet style showcases forward fruit aromatics with hints of vanilla from oak contact. Inviting and approachable, with bright berry fruit leading the way.",
+        "palate": "Rich flavors of black currant and dark cherries dominate the palate, complemented by creamy vanilla notes and gentle sweetness. The semi-sweet profile provides roundness and immediate accessibility, while moderate acidity prevents cloying. Soft tannins and plush fruit create a crowd-pleasing, easy-drinking experience with noticeable but balanced residual sugar.",
+        "finish": "The finish is smooth and fruit-forward with lingering sweet cherry notes and a touch of vanilla. Pleasant sweetness persists without heaviness, making this wine particularly enjoyable for casual sipping."
+      },
+      "foodPairings": [
+        "Spicy barbecue ribs or brisket",
+        "Sweet and sour chicken",
+        "Caramelized onion tart",
+        "Fruit-based desserts like berry cobbler",
+        "Sharp blue cheeses for contrast"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C), slightly cooler to balance sweetness",
+        "decanting": "No decanting needed; ready to pour and enjoy immediately",
+        "glassware": "Standard red wine glass or Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Yecla, Spain",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Semi-Sweet Red, Kosher",
+        "ageability": "Best consumed within 2-3 years to preserve fresh fruit character and balanced sweetness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Los Carneros Chardonnay 2024",
+      "description": "A premium Carneros Chardonnay from the cool-climate Napa side of this renowned appellation, showcasing the region's signature elegance and mineral-driven character. The 2024 vintage captures the essence of this fog-influenced terroir, producing a Chardonnay of depth and complexity.",
+      "tastingNotes": {
+        "aroma": "Noticeably dark golden in the glass, the nose reveals an intriguing and layered bouquet of dessert spices, crème brûlée, and honeysuckle. Aromas of dried straw mingle with ripe melon, suggesting both richness and maturity. The aromatic profile demonstrates the complexity achieved through careful winemaking and potential barrel fermentation.",
+        "palate": "Rich in flavor with notable viscosity and a somewhat creamy texture, this Chardonnay delivers layers of vanilla, baked apple, and tropical fruit. The mouthfeel is generous yet balanced, with good acidity providing structure to the wine's opulent fruit. Oak influence is present but integrated, adding complexity without overwhelming the Carneros terroir character.",
+        "finish": "The finish lingers impressively, with notes of vanilla and toasted oak persisting alongside ripe stone fruit. The wine's richness carries through to the end, leaving a lasting impression of California Chardonnay at its most expressive."
+      },
+      "foodPairings": [
+        "Lobster with drawn butter",
+        "Roasted chicken with herb butter",
+        "Creamy risotto with wild mushrooms",
+        "Grilled sea bass with lemon",
+        "Triple cream Brie or Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "No decanting necessary; chill properly and serve",
+        "glassware": "Burgundy or large-bowled white wine glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Los Carneros AVA, Napa Valley, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2024",
+        "style": "Rich, oak-influenced Chardonnay",
+        "ageability": "Drink now through 2028; can develop additional complexity with 2-3 years of cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Echevarria Propuesta 2017",
+      "description": "An elegant Chilean red blend from the Curicó Valley, showcasing the Echeverria family's dedication to Old World winemaking techniques applied to Chile's exceptional terroir. The 2017 vintage benefits from extended barrel aging and represents the winery's special selection tier.",
+      "tastingNotes": {
+        "aroma": "Classic Cabernet Sauvignon leads the aromatic profile with notes of ripe blackcurrant, cedar, and tobacco leaf. The blend's Petit Verdot component adds floral violet notes and spice, while Cabernet Franc contributes an herbal complexity. With age, secondary aromas of leather and dried herbs have developed, adding sophistication to the bouquet.",
+        "palate": "Elegant and balanced, the palate delivers juicy ripe fruit flavors framed by well-integrated French oak. The 85% Cabernet Sauvignon base provides structure and cassis fruit, while 10% Petit Verdot adds density and dark fruit concentration. 5% Cabernet Franc brings aromatic lift and refined tannins. The wine shows excellent balance between fruit ripeness and freshness, avoiding over-extraction despite Chile's intense sunlight.",
+        "finish": "The finish is smooth and persistent, with ripe fruit flavors extending through a framework of fine-grained tannins. Oak influence from 10-12 months in new French barrels provides subtle vanilla and spice notes that complement rather than dominate the fruit."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised short ribs",
+        "Pasta with Bolognese sauce",
+        "Roasted lamb with rosemary",
+        "Aged Manchego or Parmigiano-Reggiano"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to fully express aromatic complexity and soften tannins",
+        "glassware": "Large Bordeaux glass to showcase the blend's complexity"
+      },
+      "wineDetails": {
+        "region": "Curicó Valley (Entre Cordilleras), Chile",
+        "grapeVariety": "85% Cabernet Sauvignon, 10% Petit Verdot, 5% Cabernet Franc",
+        "vintage": "2017",
+        "style": "Bordeaux-style red blend, oak-aged",
+        "ageability": "Drinking beautifully now; can continue to develop through 2030 with proper cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction Merlot 2013",
+      "description": "A mature Merlot from Paso Robles' renowned Pomar Junction estate, this wine has developed additional complexity with age. The 2013 vintage showcases the warmth of Paso Robles while maintaining varietal character and food-friendly structure.",
+      "tastingNotes": {
+        "aroma": "The aromatics are initially reserved, requiring patience and aeration to fully express themselves. With time, the nose reveals gravel minerality, concentrated blackberry juice, and subtle earthy notes. Ruby in color, the wine shows some evolution appropriate to its age, with hints of dried cherry and leather emerging alongside the fruit.",
+        "palate": "The mouthfeel is moderately light, with gentle, well-integrated tannins that have softened considerably since release. Ruby red cherry fruit dominates, supported by subtle earth and mineral notes characteristic of the Pomar Junction vineyard. Full-bodied for the somewhat delicate structure, the wine delivers accessible fruit flavors without heaviness. Acidity remains fresh despite the wine's age.",
+        "finish": "The finish is clean and moderate in length, with cherry fruit and soft tannins fading gradually. Secondary characteristics of dried herbs and earth linger gently, reflecting the wine's maturation."
+      },
+      "foodPairings": [
+        "Herb-roasted pork tenderloin",
+        "Duck confit with wild mushrooms",
+        "Tomato-based pasta dishes",
+        "Grilled portobello mushrooms",
+        "Medium-aged Gouda or Gruyère"
+      ],
+      "servingInfo": {
+        "temperature": "60-63°F (16-17°C)",
+        "decanting": "Decant for 30 minutes to help open the reserved aromatics and ensure the wine is fully expressive",
+        "glassware": "Burgundy glass to concentrate the subtle aromatics"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2013",
+        "style": "Dry red, estate-grown",
+        "ageability": "Fully mature; drink now through 2026 as the wine is at peak development"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sun Break Liberty Red Cider 500 ml",
+      "description": "A heritage-style artisan cider from Oregon's Willamette Valley, featuring Liberty apples among heirloom varieties. Crafted using méthode traditionnelle and bottle-conditioned for complexity, this cider represents Sun Break's commitment to small-batch, orchard-based production using heritage apple varietals.",
+      "tastingNotes": {
+        "aroma": "Bright and zesty red apple aromatics pop from the glass, accompanied by distinctive rose petal and floral notes characteristic of Liberty apples. The heritage apple blend contributes subtle orchard blossom and fresh-picked fruit complexity. Natural bottle conditioning adds a layer of bread dough and subtle lees character that enhances depth.",
+        "palate": "Crisp and refreshing with vibrant acidity, the palate showcases bright red apple fruit with Liberty apples contributing their signature aromatic quality. The dry profile is food-friendly and complex, with heritage apple varieties adding layers of flavor beyond simple sweetness. Natural carbonation from bottle conditioning creates a fine, persistent mousse. Unfiltered character provides additional texture and authentic orchard expression.",
+        "finish": "The finish is clean and dry with lingering red apple and subtle floral notes. Bright acidity keeps the palate refreshed, while the natural effervescence continues to enliven the finish."
+      },
+      "foodPairings": [
+        "Pork chops with apple compote",
+        "Sharp cheddar or aged Gruyère",
+        "Roasted chicken with herbs",
+        "Fresh oysters or seafood",
+        "Apple galette or tarte tatin"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), well-chilled",
+        "decanting": "Pour carefully to leave sediment in bottle; natural yeast is present due to bottle conditioning",
+        "glassware": "White wine glass or Champagne flute to preserve carbonation"
+      },
+      "wineDetails": {
+        "region": "Willamette Valley, Oregon",
+        "grapeVariety": "Heritage apple blend featuring Liberty apples (45%), Frequin Rouge, and other heirloom varieties",
+        "vintage": "Non-vintage",
+        "style": "Heritage dry cider, méthode traditionnelle, unfiltered, naturally sparkling",
+        "ageability": "Best consumed within 1-2 years to enjoy fresh apple character and optimal carbonation"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Legend 2018",
+      "description": "An exceptional Napa Valley Cabernet Sauvignon from the prestigious Hertelendy estate, the 2018 Legend earned 98 points from multiple critics including Robert Parker Wine Advocate and Jeb Dunnuck. With only 88 cases produced, this wine represents the pinnacle of California winemaking, combining Hungarian and French oak aging with meticulous vineyard selection.",
+      "tastingNotes": {
+        "aroma": "The nose is profound and captivating, offering layered scents of blackcurrant cordial, blackberry pie, and blueberry compote. Deeper exploration reveals touches of mocha, licorice, and black truffles alongside cedar chest and exotic spices. The aromatic complexity reflects both the wine's exceptional fruit quality and its 23 months of barrel aging in 90% new French and Hungarian oak.",
+        "palate": "Full-bodied yet beautifully balanced by notable acidity, the wine displays remarkable concentration without heaviness. The 95% Cabernet Sauvignon base provides intense cassis and black fruit, while 5% Petit Verdot adds structural complexity and floral notes. A remarkable tannin structure creates a well-defined, almost architectural mouthfeel. The wine's power is tempered by exceptional balance, allowing both fruit and terroir to shine. Oak integration is seamless despite high new barrel percentage.",
+        "finish": "The finish is extraordinarily long and persistent, with layers of dark fruit, spice, and oak unfolding over time. Fine-grained tannins provide structure for decades of aging potential, while the wine's notable acidity ensures freshness and longevity."
+      },
+      "foodPairings": [
+        "Dry-aged prime ribeye or New York strip",
+        "Braised lamb shank with rosemary",
+        "Wild mushroom risotto with truffle",
+        "Venison with dark berry reduction",
+        "Aged Parmigiano-Reggiano or cave-aged Gruyère"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 1-2 hours to allow this young, powerful wine to fully express its complexity; further aeration will continue to reveal layers",
+        "glassware": "Large Bordeaux or Cabernet glass to concentrate the profound aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "95% Cabernet Sauvignon, 5% Petit Verdot",
+        "vintage": "2018",
+        "style": "Ultra-premium Cabernet Sauvignon, barrel-aged 23 months in 90% new French and Hungarian oak",
+        "ageability": "Exceptional aging potential; drink 2025-2045 with proper cellaring. Currently in early development with decades ahead."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zacuto Ruby Port NV",
+      "description": "A kosher Ruby Port produced by Oscar Quevedo in Portugal's Douro Valley, representing the intersection of traditional Portuguese Port-making with kosher certification. This wine offers an approachable introduction to the Ruby Port style with rich fruit character and pleasant sweetness.",
+      "tastingNotes": {
+        "aroma": "The nose is complex and inviting, revealing red cherries, cherry jam, and dark chocolate alongside a distinctive touch of black pepper. The aromatic profile showcases the traditional Portuguese grape varieties used in Port production, with concentrated fruit character from fortification. Secondary notes of spice and cocoa add depth to the forward fruit aromatics.",
+        "palate": "Rich flavors of blackberry and rhubarb dominate the palate, providing a beautiful balance of dark fruit sweetness and tart fruit complexity. Young and vibrant, the Ruby Port displays gentle tannins and a slightly dry mid-palate that prevents cloying despite the wine's natural sweetness. The fortification provides warmth and structure while allowing fruit flavors to shine. Well-balanced and approachable, avoiding common pitfalls of overly sweet or hot Port styles.",
+        "finish": "The finish is pleasant and clean with no off notes, showing persistent dark fruit flavors and subtle warmth from fortification. Blackberry and dark chocolate notes linger, with gentle tannins providing structure through the finish."
+      },
+      "foodPairings": [
+        "Dark chocolate torte or brownies",
+        "Blue cheese and walnuts",
+        "Dried figs and dates",
+        "Coffee-rubbed steak",
+        "Pecan pie or nut-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C), slightly cooler than room temperature",
+        "decanting": "Brief decanting of 15-20 minutes helps integrate flavors; not essential but beneficial",
+        "glassware": "Small Port glass or standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "Traditional Portuguese Port varieties (Touriga Nacional, Touriga Franca, Tinta Roriz blend)",
+        "vintage": "Non-vintage (NV)",
+        "style": "Ruby Port, fortified wine, Kosher certified",
+        "ageability": "Ready to drink now; can hold for 5-10 years though best enjoyed while fruit is fresh and vibrant"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jump Mountain Sparkling Gruner Veltliner 2021",
+      "description": "An exceptional Virginia sparkling wine crafted from Grüner Veltliner using méthode traditionnelle. This wine represents Jump Mountain's commitment to growing Austrian varietals in Virginia's Shenandoah Valley, producing a sparkling wine that showcases both the grape's signature characteristics and Virginia's emerging wine quality.",
+      "tastingNotes": {
+        "aroma": "Intriguing and complex, the nose presents a fascinating blend of brioche and vanilla from extended lees contact, complemented by bright citrus notes of lime and lemon zest. Some tasters detect a Riesling-like petrol note that adds complexity and suggests good development potential. The aromatic profile balances yeast-derived autolytic character with Grüner Veltliner's signature fresh fruit and subtle white pepper spice.",
+        "palate": "Crisp and refreshing with vibrant acidity characteristic of Grüner Veltliner, the palate delivers layers of citrus fruit, almond, and subtle bread dough complexity from traditional method production. The fine, persistent mousse creates an elegant mouthfeel, while the wine's underlying structure provides both freshness and depth. Virginia's climate contributes balanced ripeness, allowing the varietal's natural acidity to shine while developing sufficient fruit character. The traditional method aging adds textural complexity without overwhelming the grape's inherent elegance.",
+        "finish": "The finish is clean and lengthy with lingering citrus notes and subtle yeasty complexity. Bright acidity keeps the palate refreshed and calling for another sip, while fine bubbles continue to enliven the finish."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Smoked trout with crème fraîche",
+        "Fried chicken or tempura vegetables",
+        "Goat cheese and herb appetizers",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "42-48°F (6-9°C), well-chilled",
+        "decanting": "No decanting necessary; serve directly from bottle to preserve carbonation",
+        "glassware": "Champagne flute or white wine glass to showcase aromatics and bubbles"
+      },
+      "wineDetails": {
+        "region": "Rockbridge Baths, Shenandoah Valley, Virginia",
+        "grapeVariety": "100% Grüner Veltliner",
+        "vintage": "2021",
+        "style": "Méthode traditionnelle sparkling wine, dry",
+        "ageability": "Drinking beautifully now; can develop additional complexity through 2027 with proper storage"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Syrah 2021",
+      "description": "An estate-grown Syrah from Washington's Yakima Valley, produced by Two Mountain Winery from their certified sustainable vineyards. The 2021 vintage showcases the intense fruit character and aromatic complexity that Yakima Valley Syrah is known for, with bright acidity and approachable tannins.",
+      "tastingNotes": {
+        "aroma": "The nose is impressive and complex, featuring blue fruit, graham cracker spice, and a distinctive richness of wet tobacco leaves with a sprinkle of black pepper. The aromatic profile also reveals touches of bacon and possibly a hint of reductive rubber that adds intrigue. Bright and expressive, the aromatics showcase both fruit purity and savory complexity characteristic of well-made Syrah.",
+        "palate": "Really bright and juicy with excellent acidity, the palate delivers a beautiful melody of blackberry and Bing cherry fruit complemented by touches of cola and cedar leaf. A savory herb mélange adds complexity, while very pretty oak integration provides structure without domination. The wine shows exceptional balance with great acid backbone and supple tannins that provide framework without astringency. Certified sustainable farming practices are evident in the wine's purity and vibrant fruit expression.",
+        "finish": "The finish is clean and persistent with lingering dark fruit, subtle oak spice, and savory herb notes. Supple tannins and bright acidity ensure the wine remains lively through the finish, encouraging food pairing or further contemplation."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs de Provence",
+        "Smoked brisket or barbecue",
+        "Wild mushroom and truffle pasta",
+        "Duck breast with cherry gastrique",
+        "Aged cheddar or smoked Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow aromatics to fully develop and integrate",
+        "glassware": "Large Rhône or Syrah glass to capture the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington State",
+        "grapeVariety": "100% Syrah (estate-grown)",
+        "vintage": "2021",
+        "style": "Dry red, estate-grown from certified sustainable vineyards",
+        "ageability": "Drinking beautifully now through 2029; the wine's excellent acidity and structure support mid-term cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

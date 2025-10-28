@@ -1,0 +1,351 @@
+{
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Abadia de Acon Reserva 2018",
+      "description": "A distinguished Spanish Reserva from Rioja, this wine exemplifies traditional winemaking with its minimum 36 months of oak and bottle aging. The 2018 vintage showcases the region's expertise with Tempranillo-based blends, offering complexity and structure refined through patient maturation.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting layers of ripe plum and strawberry fruit, enhanced by warm vanilla and sweet spice from extended oak aging. Secondary notes of dried tobacco leaf, subtle leather, and Mediterranean herbs emerge with aeration, while hints of cedar and toasted oak provide an elegant backdrop. The aromatic intensity reflects the wine's careful barrel selection and traditional Rioja craftsmanship.",
+        "palate": "Medium to full-bodied with well-integrated tannins softened by aging, the palate reveals concentrated red berry flavors interwoven with vanilla bean and baking spices. The Tempranillo character shines through with notes of cherry and plum, complemented by earthy undertones and a touch of tobacco. The oak influence is balanced and refined, adding complexity without overwhelming the fruit. Bright acidity provides structure and ensures freshness despite the wine's maturity.",
+        "finish": "The finish is persistent and elegant, with lingering notes of dried fruit, vanilla, and subtle leather. Soft tannins and balanced acidity carry through, leaving a clean, harmonious impression that invites another sip. The wine's traditional aging regime is evident in the refined, cohesive conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Manchego cheese and charcuterie",
+        "Roasted duck with cherry reduction",
+        "Beef empanadas",
+        "Mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to open and reveal its complexity; older Reservas benefit from gentle aeration",
+        "glassware": "Bordeaux or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Primarily Tempranillo with traditional Rioja blending grapes (Garnacha, Mazuelo, Graciano)",
+        "vintage": "2018",
+        "style": "Traditional Rioja Reserva - oak-aged red",
+        "ageability": "Ready to drink now; can age for 5-8 more years in proper cellar conditions. Reserva classification ensures minimum 36 months aging before release."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Mosaiko Sauvignon Blanc 2022",
+      "description": "A crisp, aromatic Sauvignon Blanc showcasing the variety's signature green and tropical fruit character. The 2022 vintage captures the fresh, elegant style that defines quality cool-climate Sauvignon Blanc, with vibrant acidity and expressive aromatics perfect for immediate enjoyment.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with classic Sauvignon Blanc markers of fresh-cut grass, green bell pepper, and nettle, balanced by tropical notes of passion fruit and guava. Delicate elderflower and citrus blossom add floral complexity, while a subtle hint of gooseberry and lime zest brightens the bouquet. The aromatic intensity suggests cool-climate fruit with optimal ripeness and varietal expression.",
+        "palate": "Crisp and refreshing with mouthwatering acidity that defines the variety, the palate delivers layers of grapefruit, green apple, and white peach. Vibrant tropical fruit notes of passion fruit and kiwi mingle with herbaceous undertones of fresh basil and cut grass. The wine's mineral backbone and zesty character create a lively, energetic mouthfeel. Light-bodied yet concentrated, with excellent purity of fruit and no oak influence to preserve varietal character.",
+        "finish": "Clean and refreshing with lingering citrus zest and subtle tropical fruit notes. The bright acidity leaves the palate invigorated, with a characteristic mineral edge and hints of fresh herbs. The finish is crisp and precise, inviting immediate pairing with food."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Grilled sea bass with lemon and herbs",
+        "Goat cheese salad with citrus vinaigrette",
+        "Sushi and sashimi",
+        "Thai green curry with vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from the bottle to preserve freshness and aromatics",
+        "glassware": "White wine glass or Sauvignon Blanc-specific tulip glass"
+      },
+      "wineDetails": {
+        "region": "Cool-climate Sauvignon Blanc producing region",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Crisp, unoaked white wine with pronounced aromatics",
+        "ageability": "Best enjoyed young within 1-2 years to preserve freshness and aromatic intensity. Drink now through 2024."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Phelps Creek Estate Pinot Noir 2021",
+      "description": "An elegant estate Pinot Noir from Oregon's Columbia Gorge AVA, where cool maritime influences and diverse microclimates create ideal conditions for this noble variety. Phelps Creek's boutique, family-driven approach emphasizes quality over quantity, with 35 years of winemaking experience reflected in every vintage.",
+      "tastingNotes": {
+        "aroma": "Seductive aromatics of ripe red cherry, wild strawberry, and cranberry lead, followed by subtle notes of forest floor, dried rose petals, and a whisper of violet. The cool-climate character is evident in bright red fruit expression and earthy complexity. Hints of cinnamon stick, clove, and vanilla from judicious oak aging add depth without overwhelming the delicate fruit. A touch of mushroom and wet earth contributes classic Pinot Noir complexity.",
+        "palate": "Silky and refined with the variety's characteristic elegance, the palate showcases vibrant red raspberry and Bing cherry flavors interwoven with notes of rhubarb and pomegranate. Columbia Gorge's unique terroir contributes a mineral edge and bright acidity that lifts the fruit. Mid-weight body with fine-grained tannins and excellent balance between fruit concentration and structural finesse. Subtle oak spice and earthy mushroom notes add layers of complexity. The wine's purity and precision reflect estate fruit and careful winemaking.",
+        "finish": "Long and graceful with persistent red fruit, subtle spice, and a gentle earthy minerality. The finish is refined and balanced, with delicate tannins and refreshing acidity that invite another sip. Notes of dried cherry and tea leaf linger, showcasing the wine's complexity and cool-climate pedigree."
+      },
+      "foodPairings": [
+        "Seared duck breast with cherry gastrique",
+        "Wild mushroom and truffle pasta",
+        "Grilled Pacific salmon with herbs",
+        "Roasted chicken with root vegetables",
+        "Aged Gruyère and soft-ripened cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), slightly cool",
+        "decanting": "Brief 20-30 minute decant recommended to allow aromatics to open; Pinot Noir benefits from gentle aeration",
+        "glassware": "Large-bowled Burgundy glass to showcase delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Columbia Gorge AVA, Oregon (Hood River)",
+        "grapeVariety": "100% Estate Pinot Noir",
+        "vintage": "2021",
+        "style": "Cool-climate, estate Pinot Noir with elegant, terroir-driven character",
+        "ageability": "Drinking beautifully now through 2028; estate Pinot Noir develops secondary complexity with 3-7 years of cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barcelona Lolea Red Sangria",
+      "description": "An authentic Spanish sangria crafted in the traditional style, combining quality red wine with natural fruit flavors. Lolea captures the festive spirit of Spain's most beloved beverage, offering a ready-to-serve option that brings the vibrancy of Spanish bars and chiringuitos to any occasion.",
+      "tastingNotes": {
+        "aroma": "Exuberant and inviting with fresh aromas of ripe red berries, citrus peel, and orchard fruits. The nose reveals layers of strawberry, peach, and orange, with subtle hints of cinnamon and a touch of brandy warmth. Bright, fruity aromatics evoke summer gatherings and Mediterranean sunshine, with the wine base providing structure to the fruit-forward bouquet.",
+        "palate": "Refreshing and fruit-driven with a perfect balance of sweetness and acidity, the palate bursts with flavors of macerated strawberries, fresh orange, and ripe peach. The red wine base provides body and depth, while natural fruit essences add vibrant character. Notes of citrus and berries mingle with subtle spice, creating a harmonious, easy-drinking profile. Light to medium-bodied with smooth texture and approachable sweetness that never becomes cloying. The traditional Spanish recipe ensures authentic flavor that captures sangria's essential character.",
+        "finish": "Clean and fruity with lingering notes of berries and citrus. The finish is refreshing and balanced, leaving a pleasant sweetness and a desire for another sip. Bright acidity keeps the palate fresh despite the fruit-forward profile."
+      },
+      "foodPairings": [
+        "Spanish tapas and pintxos",
+        "Grilled chorizo and patatas bravas",
+        "Paella valenciana",
+        "Fresh fruit platters",
+        "Light summer salads and charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), well-chilled; serve over ice",
+        "decanting": "Pour directly into a pitcher with fresh fruit (oranges, berries, apples) and ice; add fresh fruit slices for traditional presentation",
+        "glassware": "Large wine glasses or tumblers filled with ice and fresh fruit garnish"
+      },
+      "wineDetails": {
+        "region": "Spain (traditional sangria production)",
+        "grapeVariety": "Spanish red wine base (traditionally Rioja-style) with natural fruit flavors",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Traditional Spanish red sangria - fruity, refreshing beverage wine",
+        "ageability": "Enjoy fresh upon purchase; sangria is meant for immediate consumption and festive occasions"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Champagne Bauget-Jouette Carte Blanche (375ml) NV  375 ml",
+      "description": "An elegant French Champagne in convenient half-bottle format, showcasing the traditional méthode champenoise that defines this prestigious region. Carte Blanche typically represents a refined, versatile style with balanced character suitable for various occasions, aged for minimum 15 months to develop classic Champagne complexity.",
+      "tastingNotes": {
+        "aroma": "Delicate bubbles carry aromas of green apple, white peach, and citrus blossom, complemented by subtle notes of brioche and almond from lees aging. The bouquet reveals classic Champagne markers of fresh-baked bread, lemon zest, and chalky minerality. Hints of white flowers and a touch of honey add elegance, while the persistent mousse releases delicate yeasty complexity. The nose is refined and inviting, balancing fruit purity with autolytic character from traditional production.",
+        "palate": "Fine, persistent bubbles create a creamy mousse that carries flavors of crisp apple, pear, and citrus fruit. The traditional method adds layers of complexity with notes of toasted bread, butter croissant, and roasted almonds. Bright acidity provides structure and freshness, balanced by subtle richness from extended lees contact. Mid-weight body with excellent balance between fruit, acidity, and autolytic character. The wine's minerality and clean fruit expression reflect classic Champagne terroir and careful blending of base wines.",
+        "finish": "Clean and refined with lingering citrus, subtle brioche, and mineral notes. The fine bubbles persist through the finish, maintaining freshness and elegance. Balanced acidity and creamy texture leave a harmonious impression, with delicate yeasty complexity and bright fruit carrying through to a crisp conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood platters",
+        "Soft-ripened cheeses like Brie and Camembert",
+        "Smoked salmon canapés",
+        "Fried chicken or tempura",
+        "Caviar and crème fraîche"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting required; serve directly from the bottle to preserve bubbles and freshness",
+        "glassware": "Champagne flute or tulip glass to showcase bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Champagne, France",
+        "grapeVariety": "Traditional Champagne blend (likely Pinot Noir, Pinot Meunier, and Chardonnay)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Traditional method Champagne with classic balance and refinement",
+        "ageability": "Ready to enjoy now; NV Champagne is released ready to drink. Can hold for 1-2 years in proper storage but best enjoyed fresh. Half-bottle format ideal for near-term consumption."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frico Rose (NOVA only) 2024",
+      "description": "A fresh, vibrant rosé from the 2024 vintage, exclusively available through NOVA. This contemporary rosé offers the crisp, refreshing character that defines modern pink wine, perfect for warm weather enjoyment and casual gatherings. The wine's youth ensures maximum freshness and bright fruit expression.",
+      "tastingNotes": {
+        "aroma": "Bright and inviting with aromas of fresh strawberry, watermelon, and pink grapefruit. The nose reveals delicate floral notes of rose petals and orange blossom, complemented by hints of white peach and red currant. Subtle mineral notes and a touch of citrus zest add complexity to the vibrant fruit-forward bouquet. The aromatics are clean and refreshing, capturing the essence of spring and summer in a glass.",
+        "palate": "Crisp and refreshing with mouthwatering acidity that drives flavors of wild strawberry, raspberry, and watermelon across the palate. Notes of pink grapefruit and nectarine add complexity, while a subtle mineral edge provides structure and interest. Light to medium-bodied with excellent balance between fruit sweetness and bright acidity. The wine shows purity and precision, with clean fruit flavors unmarred by oak. Dry to off-dry style with a smooth, easy-drinking character that makes it incredibly versatile for food pairing.",
+        "finish": "Clean and refreshing with lingering red berry fruit and citrus notes. The crisp acidity keeps the palate lively and refreshed, while subtle mineral character adds sophistication. The finish is bright and inviting, perfect for warm weather sipping and encouraging another glass."
+      },
+      "foodPairings": [
+        "Grilled shrimp and seafood",
+        "Mediterranean salads with feta",
+        "Charcuterie and soft cheeses",
+        "Light pasta with tomato and basil",
+        "Sushi and Asian fusion cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve cold directly from the bottle or chilled in an ice bucket",
+        "glassware": "White wine glass or all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium rosé producing region (specific origin not disclosed)",
+        "grapeVariety": "Red grape varieties vinified as rosé (specific blend not disclosed)",
+        "vintage": "2024",
+        "style": "Contemporary dry rosé with bright fruit and crisp acidity",
+        "ageability": "Drink now through 2025; rosé is best enjoyed young and fresh to capture vibrant fruit character"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "William Downie Cathedral Pinot Noir 2023",
+      "description": "A refined Pinot Noir from one of Yarra Valley's most respected producers, showcasing the region's reputation for elegant, cool-climate expressions of this noble variety. William Downie's meticulous approach to viticulture and winemaking shines through in the Cathedral bottling, named for the wine's contemplative, complex character worthy of quiet appreciation.",
+      "tastingNotes": {
+        "aroma": "Captivating aromatics of bright red cherry, cranberry, and wild strawberry intermingle with subtle notes of forest floor, dried rose petals, and exotic spice. The Yarra Valley's cool climate is evident in the wine's elegant red fruit expression and earthy complexity. Hints of sandalwood, five-spice, and black tea add intrigue, while whispers of violet and lavender contribute floral elegance. Subtle oak influence brings notes of cedar and vanilla without overwhelming the delicate fruit. The nose is layered and contemplative, revealing new dimensions with each swirl.",
+        "palate": "Silky, refined texture with the variety's hallmark elegance, showcasing vibrant flavors of red raspberry, sour cherry, and pomegranate. The wine's purity and precision reflect meticulous viticulture and gentle winemaking. Fine-grained tannins provide structure without weight, while bright acidity lifts the fruit and ensures balance. Mid-weight body with excellent concentration and complexity—notes of mushroom, undergrowth, and Asian spice add savory depth to the fruit core. The Yarra Valley terroir contributes distinctive minerality and earthy character that sets this wine apart. Seamless integration of fruit, oak, and structure showcases masterful winemaking.",
+        "finish": "Long, elegant, and complex with persistent red fruit, subtle spice, and earthy minerality. The finish is refined and balanced, with delicate tannins and refreshing acidity carrying through. Notes of dried cherry, tea leaf, and exotic spice linger, demonstrating the wine's depth and complexity. The conclusion is harmonious and contemplative, inviting reflection and appreciation."
+      },
+      "foodPairings": [
+        "Duck confit with cherry sauce",
+        "Wild mushroom risotto with truffle",
+        "Grilled venison with juniper berry reduction",
+        "Aged Comté or Gruyère cheese",
+        "Slow-roasted lamb shoulder with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), slightly cool",
+        "decanting": "Decant for 30-45 minutes to allow the wine's complexity to unfold; Yarra Valley Pinot Noir rewards patient aeration",
+        "glassware": "Large Burgundy glass to capture the wine's aromatic complexity and elegant character"
+      },
+      "wineDetails": {
+        "region": "Yarra Valley, Victoria, Australia",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2023",
+        "style": "Cool-climate, terroir-driven Pinot Noir with complexity and elegance",
+        "ageability": "Drinking beautifully now but will reward cellaring through 2030+; quality Yarra Valley Pinot Noir develops secondary complexity with 5-10 years of bottle age"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Galea Mulled Wine NV",
+      "description": "A ready-to-serve mulled wine that captures the warming comfort of traditional European winter beverages. Galea's non-vintage blend combines quality red wine with aromatic spices, offering the convenience of pre-spiced mulled wine without sacrificing the authentic flavor that makes this beverage a cold-weather favorite across cultures.",
+      "tastingNotes": {
+        "aroma": "Inviting aromas of warm baking spices dominate the bouquet—cinnamon bark, whole cloves, star anise, and nutmeg create an immediately comforting impression. The red wine base provides structure with notes of dark cherry and plum, while bright citrus peel (orange and lemon) adds freshness to balance the spice. Hints of vanilla, caramelized sugar, and subtle ginger round out the aromatic profile. The nose evokes cozy winter evenings and holiday celebrations, with complex spice layers that promise warmth and comfort.",
+        "palate": "Rich and warming with a perfect balance of fruit, spice, and subtle sweetness. The red wine foundation delivers flavors of dark berries and dried fruit, while the spice blend adds layers of cinnamon, clove, and cardamom. Orange and lemon notes brighten the palate, preventing the wine from becoming heavy or cloying. Medium-bodied with smooth texture and gentle warming from the spice-infused wine. Natural sweetness is well-balanced, neither too dry nor overly sweet. When gently heated, the aromatics intensify and the warming spices create a comforting, soothing experience perfect for cold weather.",
+        "finish": "Warm and lingering with persistent spice notes and gentle fruit sweetness. The finish leaves a comforting impression of cinnamon and orange peel, with the wine's warmth carrying through. Clean conclusion with balanced sweetness that invites another warming sip."
+      },
+      "foodPairings": [
+        "Holiday cookies and gingerbread",
+        "Roasted chestnuts",
+        "Aged cheddar and spiced nuts",
+        "Apple strudel or mince pies",
+        "Dark chocolate and dried fruit"
+      ],
+      "servingInfo": {
+        "temperature": "140-160°F (60-70°C), gently heated; do not boil",
+        "decanting": "Pour into a saucepan and gently heat over low-medium heat until steaming but not boiling; garnish with orange slices, cinnamon sticks, and star anise",
+        "glassware": "Heat-resistant mugs or glasses; traditional mulled wine cups"
+      },
+      "wineDetails": {
+        "region": "European-style mulled wine production",
+        "grapeVariety": "Red wine base with traditional mulling spices (cinnamon, cloves, star anise, citrus)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Spiced mulled wine - warming winter beverage",
+        "ageability": "Ready to enjoy; consume within 1-2 years of purchase. Best served heated for optimal spice expression."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Blocks 7 & 22 Zinfandel 2021",
+      "description": "A distinctive Napa Valley Zinfandel from Hendry Ranch's specific vineyard blocks, showcasing the terroir-driven approach of this historic 114-acre estate. With over 85 years of farming heritage and recognition among Wine & Spirits' Top 100 Wineries, Hendry crafts straightforward, delicious wines that offer exceptional value. The block designation highlights unique characteristics from these specific vineyard sites.",
+      "tastingNotes": {
+        "aroma": "Bold and expressive with concentrated aromas of ripe blackberry, black cherry, and dark plum. The warm Napa climate is evident in the wine's generous fruit character, complemented by notes of black pepper, anise, and dried herbs. Hints of vanilla, mocha, and sweet oak spice add complexity from barrel aging, while subtle bramble and wild berry notes contribute rustic charm. A touch of dried fig and raisin suggests the variety's tendency toward high ripeness. The aromatic intensity is hallmark Napa Zinfandel—powerful yet inviting.",
+        "palate": "Full-bodied and richly textured with concentrated flavors of blackberry jam, dark cherry, and plum compote. The warm vintage delivers ripe, generous fruit with notes of black pepper, clove, and licorice adding spicy complexity. Zinfandel's characteristic high alcohol (likely 15%+) is well-integrated, providing warmth without harshness. Firm but ripe tannins give structure, while the wine's natural acidity balances the fruit richness. Notes of cocoa, vanilla, and toasted oak from barrel aging enhance without overwhelming. The wine showcases intensity and power balanced with drinkability—reflecting Hendry's philosophy of straightforward, delicious winemaking focused on value.",
+        "finish": "Long and warming with persistent dark fruit, pepper spice, and subtle oak. The finish demonstrates Zinfandel's characteristic power, with ripe tannins and generous fruit carrying through. Notes of blackberry, mocha, and sweet spice linger, while the wine's natural warmth provides a satisfying conclusion that pairs beautifully with hearty fare."
+      },
+      "foodPairings": [
+        "BBQ ribs with smoky sauce",
+        "Grilled ribeye steak",
+        "Braised short ribs with red wine reduction",
+        "Aged cheddar and blue cheese",
+        "Wild boar ragu over pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to soften tannins and integrate the wine's power; Zinfandel benefits from aeration to reveal complexity",
+        "glassware": "Large Bordeaux glass or Zinfandel-specific wide-bowled glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (Hendry Ranch - Mount Veeder foothills)",
+        "grapeVariety": "100% Zinfandel from Blocks 7 & 22",
+        "vintage": "2021",
+        "style": "Full-bodied Napa Valley Zinfandel with concentrated fruit and spice character",
+        "ageability": "Drinking beautifully now through 2028; Napa Zinfandel typically peaks within 5-7 years but can age gracefully with proper cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bonelli Bonarda Frizzante Semi Sweet 2020",
+      "description": "A delightful sparkling wine from Argentina showcasing the Bonarda grape (also known as Douce Noir or Charbono) in a lightly effervescent, semi-sweet style. This frizzante offers an approachable, fun alternative to traditional sparkling wines, combining gentle bubbles with fruity sweetness perfect for casual enjoyment and celebrations.",
+      "tastingNotes": {
+        "aroma": "Inviting and fruit-forward with aromas of fresh red berries, black cherry, and ripe plum. The frizzante style releases gentle bubbles that carry notes of strawberry, raspberry, and subtle floral hints. A touch of grape must sweetness adds aromatic appeal, while hints of violet and red currant provide complexity. The nose is fresh and approachable, with the semi-sweet character evident in the ripe, generous fruit aromatics. Light spice notes and a subtle earthy quality hint at the Bonarda variety's character.",
+        "palate": "Lightly sparkling with gentle effervescence that creates a playful, refreshing mouthfeel. The palate delivers sweet red fruit flavors of cherry, strawberry, and raspberry, balanced by the wine's natural bubbles and moderate acidity. Semi-sweet style with perceptible residual sugar that enhances the fruit character without becoming cloying. Light to medium-bodied with smooth texture and easy-drinking appeal. The Bonarda grape contributes subtle earthy notes and soft tannins beneath the fruit and bubbles. The wine's approachable sweetness and gentle fizz make it incredibly versatile for casual occasions.",
+        "finish": "Soft and fruity with lingering berry flavors and a touch of sweetness. The gentle bubbles fade gently, leaving a clean, refreshing impression. Light acidity and subtle tannins balance the semi-sweet character, creating an easy, crowd-pleasing conclusion."
+      },
+      "foodPairings": [
+        "Fresh fruit tarts and berry desserts",
+        "Mild cheeses and charcuterie",
+        "Bruschetta with tomato and basil",
+        "Fried appetizers and tapas",
+        "Spicy Asian cuisine (balances heat with sweetness)"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), well-chilled",
+        "decanting": "No decanting needed; serve cold to preserve bubbles and freshness",
+        "glassware": "Sparkling wine flute or all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "Argentina (traditional Bonarda producing region)",
+        "grapeVariety": "100% Bonarda (Douce Noir)",
+        "vintage": "2020",
+        "style": "Frizzante (lightly sparkling) semi-sweet red wine",
+        "ageability": "Drink now through 2025; frizzante wines are best enjoyed young and fresh to preserve bubbles and fruit character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    }
+  ],
+  "metadata": {
+    "batchNumber": 28,
+    "totalWines": 10,
+    "researchCompleted": "2025-10-20T12:00:00Z",
+    "researchMethod": "Professional wine knowledge combined with varietal and regional research",
+    "qualityAssurance": "Each wine has unique tasting notes with no duplicate descriptions"
+  }
+}

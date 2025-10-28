@@ -1,0 +1,347 @@
+{
+  "batchId": 68,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Ontanon Tempranillo Blanco (White) 2023",
+      "description": "A remarkable expression of Tempranillo Blanco, a rare white mutation of red Tempranillo found exclusively in Rioja. This 2023 vintage showcases the grape's elegant character with exceptional freshness and structure. Awarded 90 points by James Suckling and 91 by Planet Grape, it represents the innovative spirit of Bodegas Ontañón.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting tropical notes of fresh pineapple and ripe banana, complemented by cooking apple aromas. White nectarine and green plum provide a stone fruit dimension, while delicate hints of white blossom and orange blossom add floral elegance. Subtle touches of sea spray and dried pineapple bring complexity, creating a multifaceted aromatic profile that is both vibrant and refined.",
+        "palate": "Light to medium-bodied with remarkable texture and phenolic structure unusual for white wine. The palate delivers crisp lemon zest and apricot flavors alongside banana chip and ripe stone fruit characters. A creamy touch provides volume in the mouth, balanced by vital acidity that keeps the wine fresh and lifted. The wine shows both elegance and substance, with a slightly tannic quality that adds grip and interest.",
+        "finish": "Clean and structured with a medium to full length. The stone fruit flavors persist through a fresh, balanced conclusion marked by crisp acidity and a pleasant phenolic backbone that provides definition and staying power."
+      },
+      "foodPairings": [
+        "Grilled white fish with citrus herb butter",
+        "Seared scallops with tropical fruit salsa",
+        "Roasted chicken with apple and fennel",
+        "Creamy seafood risotto",
+        "Fresh goat cheese with stone fruit"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting needed; serve directly from refrigeration",
+        "glassware": "Medium-sized white wine glass or tulip-shaped glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "100% Tempranillo Blanco",
+        "vintage": "2023",
+        "style": "Dry white wine with phenolic structure",
+        "ageability": "Best enjoyed young within 2-3 years to preserve freshness and fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Vieux College Fixin Rouge Les Champs des Charmes 2021",
+      "description": "A distinguished Burgundian Pinot Noir from the Fixin appellation, crafted from vines over 45 years old grown on clay-limestone soils. This 2021 vintage scored 91/100 from critics and represents the quality and terroir expression that Domaine du Vieux Collège consistently delivers from this special lieu-dit.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with a beautiful array of summer flowers and sour cherries, creating an immediately appealing aromatic profile. Dark garnet with purple hues in the glass, the nose reveals sweet plum and red berry notes intertwined with delicate floral characteristics. Black fruit aromas of cherry and cassis emerge, accompanied by subtle herbal spiciness that adds complexity and intrigue.",
+        "palate": "Medium to full-bodied with impressive volume and texture. The palate is marked by crushed red berries and sweet plum flavors, structured with fine-grained tannins that provide grip without harshness. Fresh acidity deftly lifts the wine, maintaining balance and energy throughout. Mild herbal spice notes weave through the fruit, while the clay-limestone terroir imparts a mineral quality and well-kept freshness that is characteristic of quality Fixin.",
+        "finish": "Long and supple with a velvety texture. The red berry flavors persist through the conclusion, supported by refined tannins and bright acidity that ensures the wine finishes clean and elegant with excellent length."
+      },
+      "foodPairings": [
+        "Coq au vin with pearl onions and mushrooms",
+        "Duck breast with cherry gastrique",
+        "Grilled lamb chops with herb crust",
+        "Mushroom and truffle risotto",
+        "Époisses or other washed-rind cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F)",
+        "decanting": "30-45 minutes of decanting recommended to open aromatics and soften tannins",
+        "glassware": "Burgundy glass or large-bowled Pinot Noir glass"
+      },
+      "wineDetails": {
+        "region": "Fixin AOC, Côte de Nuits, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir from 45+ year old vines",
+        "vintage": "2021",
+        "style": "Elegant, refined red Burgundy with gourmand intensity",
+        "ageability": "Drinking well now through 2028; can develop further complexity with 3-5 years of cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Optima Gewurztraminer (Dry) 2017",
+      "description": "A flamboyant and aromatic Gewürztraminer from Dry Creek Valley in Sonoma County, California. This 2017 vintage showcases the explosive aromatics and rich fruit character that Optima Winery is known for, crafted in a dry style that balances the grape's natural exuberance with crisp, refreshing finish.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic and captivating, the nose bursts with gooey passionfruit and luscious honeydew melon. Candied ginger provides exotic spice notes while flower nectar and Chinese hibiscus contribute heady floral perfume. Fresh cucumber flesh adds a cooling herbal element, while guava purée and canned peach create layers of tropical and stone fruit. The overall impression is one of succulent, fragrant fruit meeting an impressive blast of floral intensity.",
+        "palate": "Lively and heavily aromatic on entry, gushing with tropical fruit and floral flavors. Rich, creamy peach dominates alongside lychee and honeydew melon, creating an impression of perceived sweetness despite the dry finish. Mid-palate brings up spice notes of honey, ginger, and a pinch of nutmeg that add complexity. The texture shows a hint of sandy loam minerality, while the crisp structure maintains freshness throughout. Explosive flavors remain vibrant and fruit-forward.",
+        "finish": "Finishes just dry with a refreshing conclusion that counters the rich fruit impression. The aromatic intensity persists through the finish, leaving lasting impressions of tropical fruit and floral perfume while crisp acidity provides clean, balanced closure."
+      },
+      "foodPairings": [
+        "Thai green curry with chicken",
+        "Spicy Szechuan stir-fry",
+        "Vietnamese spring rolls with peanut sauce",
+        "Smoked duck with fruit chutney",
+        "Blue cheese and walnut salad"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting necessary; serve directly chilled",
+        "glassware": "Aromatic white wine glass with moderate bowl"
+      },
+      "wineDetails": {
+        "region": "Dry Creek Valley, Sonoma County, California",
+        "grapeVariety": "100% Gewürztraminer",
+        "vintage": "2017",
+        "style": "Dry aromatic white with exotic fruit and floral character",
+        "ageability": "Best enjoyed within 3-5 years of vintage to preserve aromatic intensity and freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Balcon de Pilatos Maturana 2020",
+      "description": "An exceptional single-varietal expression of Maturana, an almost-extinct grape variety that the Valdemar family rescued and revived beginning in 2001. Awarded 96 points by Wine Enthusiast as a \"Hidden Gem\" and named Best Spanish Red Wine of 2024 at the International Wine Challenge Industry Awards, this wine demonstrates the tremendous potential of this rare varietal grown at 500 meters elevation on limestone soils.",
+      "tastingNotes": {
+        "aroma": "Complex and intense aromatics lead with black currant, pomegranate, and vibrant blackberry. Dried sage and Mediterranean herbs provide savory complexity, while orange zest adds citrus brightness. Slightly brambly dark berry aromas intermingle with sophisticated notes of cocoa, vanilla, and coconut from oak influence. Blueberry and black currant fruit is pure and concentrated, with subtle hints of aniseed adding an intriguing herbal dimension.",
+        "palate": "Tremendously fleshy texture defines the palate experience, with fantastically fresh and lively character driven by vital fruit acidity. Slightly brambly dark berry flavors open generously, followed by layers of bittersweet chocolate, cedar, and dried Mediterranean herbs. The wine is smooth and silky with impressive depth, wrapped in a layer of plush, velvety tannins that provide structure without heaviness. Notes of blackcurrant, blueberry, and pomegranate maintain fruit purity throughout, balanced by complex savory and spice elements.",
+        "finish": "Long and satisfying with plush tannins carrying through dark fruit, chocolate, and herbal notes. The fresh acidity keeps the finish vibrant while the fleshy texture and silky tannins provide a luxurious conclusion with excellent persistence."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised lamb shoulder with rosemary",
+        "Wild mushroom and truffle pasta",
+        "Aged Manchego cheese with quince paste",
+        "Roasted duck with blackberry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "1-2 hours recommended to fully open the complex aromatics and soften the plush tannins",
+        "glassware": "Large Bordeaux-style glass or generously bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain (500m elevation limestone estate)",
+        "grapeVariety": "100% Maturana (rare rescued varietal)",
+        "vintage": "2020",
+        "style": "Full-bodied, complex red with fleshy texture and vital acidity",
+        "ageability": "Excellent aging potential; drink now through 2035 with proper cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Benedetti Cotes du Rhone Vielles Vignes 2021",
+      "description": "An organically grown Côtes du Rhône from vines over 45 years old planted on clay-limestone soils. This 2021 vintage earned 91/100 from critics and exemplifies the gourmand intensity and fresh character that Domaine Benedetti achieves from their old vine holdings in this classic Southern Rhône appellation.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with a beautiful perfume of summer flowers and sour cherries, immediately inviting and expressive. Dark garnet with purple hues in appearance, the nose reveals sweet plum and red berry aromas intertwined with appealing floral notes. Black fruit characteristics emerge, particularly cherry and cassis, creating a layered aromatic profile that balances freshness with ripeness.",
+        "palate": "Ample medium to full-bodied palate with impressive volume and texture. Crushed red berries dominate the flavor profile, supported by sweet plum and black cherry notes. Fine-grained tannins provide excellent structure and grip, while fresh acidity deftly lifts the wine and maintains energy throughout. Mild herbal spiciness weaves through the fruit, adding complexity without overwhelming. The clay-limestone terroir contributes well-kept freshness and a textured quality that gives the wine personality and distinction.",
+        "finish": "Velvety and supple with excellent length. The red and black berry flavors persist through a long conclusion, supported by fine tannins and bright, lifting acidity that ensures a clean, elegant finish with staying power."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb",
+        "Beef bourguignon with root vegetables",
+        "Grilled sausages with lentils",
+        "Ratatouille with grilled vegetables",
+        "Medium-aged Comté or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "30 minutes recommended to enhance aromatics and integrate flavors",
+        "glassware": "Medium to large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône AOC, Southern Rhône, France",
+        "grapeVariety": "Traditional Rhône blend from 45+ year old vines on clay-limestone",
+        "vintage": "2021",
+        "style": "Gourmand, intense organic Côtes du Rhône with old-vine concentration",
+        "ageability": "Drinking beautifully now; will develop further through 2027-2028"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Areale Primitivo di Manduria 2022",
+      "description": "A powerful and generous Primitivo di Manduria from Tenuta Giustini's Areale line. This 2022 vintage reflects a challenging year where careful vineyard management resulted in a small, high-quality crop. Aged in French barrique before light filtration, the wine showcases the rich, warm character that has made Primitivo di Manduria famous.",
+      "tastingNotes": {
+        "aroma": "Deep, intense aromas of ripe cherry and plum compote dominate the bouquet, creating an immediately appealing fruit-forward impression. Damson plum adds darker fruit tones, while tobacco and sweet spices provide complexity and sophistication. Fine roasted aromas from barrel aging complement the fruit, adding layers of vanilla and toasted oak. The overall aromatic profile is generous and shamelessly powerful, yet maintains elegance and balance.",
+        "palate": "Big, firm, and correct in structure with rich cherry and damson fruit at the core. The palate is velvety and dense with lots of ripe fruit presented in a lush, warm package characteristic of Puglian Primitivo. Sweet, spicy tannins provide structure without harshness, while the generous style delivers impressive power and concentration. Plum compote flavors dominate alongside fresh cherry, perfectly rounded off by fine roasted notes from oak influence. The texture is mouth-filling and opulent.",
+        "finish": "Long and warming with persistent cherry and plum fruit. Sweet tannins carry through the conclusion alongside roasted oak notes, creating a satisfying, full-bodied finish that showcases the wine's power while maintaining balance and drinkability."
+      },
+      "foodPairings": [
+        "Grilled porterhouse steak with peppercorn sauce",
+        "Braised short ribs with red wine reduction",
+        "Pasta with wild boar ragù",
+        "Aged Pecorino Romano cheese",
+        "Barbecued lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "1 hour recommended to soften tannins and integrate oak with fruit",
+        "glassware": "Large-bowled red wine glass to accommodate intensity"
+      },
+      "wineDetails": {
+        "region": "Primitivo di Manduria DOP, Puglia, Italy",
+        "grapeVariety": "100% Primitivo",
+        "vintage": "2022",
+        "style": "Big, powerful, warm-climate red with generous fruit and oak influence",
+        "ageability": "Drink now through 2030; will develop secondary complexity with 5-7 years cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Adir Malbec",
+      "description": "An Argentine Malbec showcasing the classic characteristics of this signature grape variety. While specific producer information is limited, this wine expresses the bold fruit character and structured tannins that have made Argentine Malbec internationally renowned, particularly from high-altitude vineyards where the varietal thrives.",
+      "tastingNotes": {
+        "aroma": "The nose opens with concentrated dark fruit aromas of blackberry and black plum, characteristic of quality Argentine Malbec. Ripe black cherry provides additional depth, while subtle notes of violet and dark chocolate add complexity. A touch of vanilla and sweet spice from oak aging integrates seamlessly with the fruit. The overall aromatic profile is bold and inviting with concentrated fruit purity.",
+        "palate": "Full-bodied with rich, jammy dark fruit flavors dominating the palate. Blackberry, plum, and black cherry create a core of ripe fruit intensity, supported by moderate acidity that maintains freshness. Velvety tannins provide structure without aggressive grip, while notes of cocoa, mocha, and toasted oak add layers of complexity. The wine shows the characteristic smooth, round texture of well-made Malbec with good fruit concentration and balanced oak influence.",
+        "finish": "Long and smooth with persistent dark fruit flavors. Velvety tannins carry through alongside chocolate and oak notes, creating a satisfying conclusion with good length and a soft, approachable texture typical of Argentine Malbec."
+      },
+      "foodPairings": [
+        "Argentine-style grilled ribeye (asado)",
+        "Empanadas with spiced beef filling",
+        "Braised beef short ribs",
+        "Hard aged cheeses like Parmigiano-Reggiano",
+        "Grilled portobello mushrooms with chimichurri"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "30-45 minutes recommended to soften tannins and open aromatics",
+        "glassware": "Large Bordeaux-style glass or generously bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Argentina (likely Mendoza region)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "Non-vintage or vintage not specified",
+        "style": "Full-bodied, fruit-forward red with smooth tannins",
+        "ageability": "Best enjoyed within 3-5 years for optimal fruit character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Bacigalupi Petit Sirah 2014",
+      "description": "An exceptional Petite Sirah from the renowned Bacigalupi Vineyard in Russian River Valley. This 2014 vintage was aged in Burgundy oak barrels and praised by Wine Enthusiast for its refinement and balance. Sourced from a sustainably farmed half-acre block of dry-farmed, hand-picked Foppiano clone vines aligned east to west along Westside Road, this wine represents California Petite Sirah at its most elegant.",
+      "tastingNotes": {
+        "aroma": "The nose reveals refined aromatics with strawberry preserve at the forefront, an unusually delicate expression for Petite Sirah. Toasty oak integrates seamlessly, contributing notes of leather, cigar box, and cedar that add sophistication and complexity. The aromatic profile is layered and nuanced, showing excellent balance between fruit and oak influence while maintaining elegance rather than overwhelming power.",
+        "palate": "Refined and balanced rather than brutishly extracted, showcasing a more elegant style of Petite Sirah. Strawberry preserve flavors are wrapped in toasty oak, creating a harmonious marriage of fruit and wood. The texture is soft and fulsome, with richly layered mouthfeel that coats the palate. Leather, cigar box, and cedar notes from oak aging add complexity to the core fruit flavors. Despite Petite Sirah's reputation for massive structure, this wine achieves power through concentration and depth rather than aggressive tannins, making it ultimately delicious and approachable.",
+        "finish": "Long and complex with strawberry fruit persisting alongside toasty oak, leather, and cedar. The soft, fulsome texture carries through the conclusion, while refined tannins provide structure without heaviness, creating a balanced and sophisticated finish."
+      },
+      "foodPairings": [
+        "Grilled New York strip with herb butter",
+        "Braised lamb shanks with rosemary jus",
+        "Wild mushroom and truffle risotto",
+        "Aged Gouda or smoked cheddar",
+        "Venison medallions with blackberry sauce"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "1-2 hours recommended to fully open the complex aromatics and soften tannins",
+        "glassware": "Large Bordeaux or Cabernet glass to accommodate complexity"
+      },
+      "wineDetails": {
+        "region": "Russian River Valley, Sonoma County, California (Bacigalupi Vineyard)",
+        "grapeVariety": "100% Petite Sirah (Foppiano clone, dry-farmed)",
+        "vintage": "2014",
+        "style": "Refined, elegant Petite Sirah with Burgundy oak aging",
+        "ageability": "Drinking beautifully now; can develop further through 2030 with proper cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wooden Gift Box Monte Real Gran Reserva 1998",
+      "description": "An exceptional limited edition Gran Reserva from Bodegas Riojanas, presented in a wooden gift box. This 1998 vintage was the first Monte Real made from 100% Tempranillo and remained in barrels for 40 months before release. With multiple 90+ point scores including 94 from Wine Enthusiast (Editors' Choice), 93 from Josh Raynolds, and 93 from Decanter, this wine represents the pinnacle of traditional Rioja craftsmanship. Only 23,000 bottles were produced.",
+      "tastingNotes": {
+        "aroma": "Elegant and mature with classic primary Tempranillo aromas of bright, ripe black cherry complemented by licorice undertones and leathery hints. Floral cherry and raspberry notes emerge alongside aged wood aromas that are beautifully integrated. Pungent and spicy, the nose shows pure redcurrant and plum, succulent herbs, and vanillin oak spice. A hint of dried flowers adds delicacy, while toasty oak and traditional Rioja spice notes complete the complex aromatic tapestry. The overall impression is one of regal maturity and sophisticated evolution.",
+        "palate": "In regal condition with smooth, integrated tannins and perfectly balanced acidity that speaks to excellent aging potential realized. Dried cherry and red plum create the fruit core, supported by herbs and vanilla in a classic Rioja flavor profile. Supple and lush with impressive depth, the palate shows sweet red fruit flavors framed by gentle, harmonious tannins. Fleshy and sweet on the mid-palate with impressive concentration and focus, while maintaining elegance throughout. The wine demonstrates how well this vintage has aged, with primary fruit still vibrant but enhanced by tertiary complexity.",
+        "finish": "Long and refined with dried cherry and plum persisting through a smooth, integrated conclusion. Gentle tannins and balanced acidity carry the wine to a classic Rioja finish marked by vanilla, spice, and leather notes alongside enduring red fruit character."
+      },
+      "foodPairings": [
+        "Roasted milk-fed lamb with herbs",
+        "Aged Ibérico ham with Manchego",
+        "Duck confit with cherry gastrique",
+        "Wild mushroom and truffle dishes",
+        "Aged sheep's milk cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "1-2 hours recommended to fully appreciate the mature complexity and allow any sediment to settle",
+        "glassware": "Large Rioja or Burgundy glass to capture evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "100% Tempranillo (first Monte Real from 100% Tempranillo)",
+        "vintage": "1998",
+        "style": "Traditional Gran Reserva with 40 months barrel aging, mature and elegant",
+        "ageability": "Drinking beautifully now at 27 years; can continue to develop through 2030+ with proper storage"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.97,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pyren Vineyard Little Ra Ra Rouge 2022",
+      "description": "A light-hearted and joyful expression from Pyren Vineyard in the Pyrenees region of Victoria, Australia. This playful wine sees minimal skin contact resulting in a lighter color, with a small amount of Sauvignon Blanc and Pinot Gris added for aromatic lift. Bottled without fining or filtration, it represents a more experimental, fun approach to Australian Shiraz.",
+      "tastingNotes": {
+        "aroma": "Fresh and inviting with fruitful aromas of firm nectarine and citrus pith that showcase the white grape additions. The nose is aromatic and lifted, displaying the perfumed quality from Sauvignon Blanc and Pinot Gris influence. Light red fruit notes peek through, creating an unusual and intriguing aromatic profile that defies traditional Shiraz expectations. The overall impression is bright, fresh, and appealing.",
+        "palate": "Lithe and elegant with gentle red fruit character that reflects the brief skin contact. The palate is refreshing and light-bodied, focusing on freshness rather than extraction or weight. Nectarine and citrus notes from the white grape blend provide lift and aromatic complexity, while subtle Shiraz fruit offers a delicate red berry backbone. A small portion of firmly pressed Cabernet Franc juice adds structural support without heaviness. The wine is both appealing and food-friendly, designed to be served chilled for maximum refreshment.",
+        "finish": "Clean and refreshing with citrus pith and light red fruit persisting. The finish is crisp and lifted, enhanced by the natural acidity from the white grape additions, creating a wine that finishes bright and inviting rather than heavy or extracted."
+      },
+      "foodPairings": [
+        "Charcuterie board with pâté and cornichons",
+        "Grilled salmon with herb salad",
+        "Chicken teriyaki with Asian greens",
+        "Light pasta dishes with tomato and basil",
+        "Soft goat cheese with fresh fruit"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), lightly chilled",
+        "decanting": "No decanting needed; serve chilled directly from refrigerator",
+        "glassware": "Medium white wine glass or light red wine glass"
+      },
+      "wineDetails": {
+        "region": "Pyrenees, Victoria, Australia",
+        "grapeVariety": "Shiraz with small additions of Sauvignon Blanc and Pinot Gris for aromatics",
+        "vintage": "2022",
+        "style": "Light, aromatic, chillable red with minimal extraction",
+        "ageability": "Best enjoyed young within 2-3 years for optimal freshness and aromatic lift"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

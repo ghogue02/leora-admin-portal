@@ -1,5 +1,7 @@
 "use client";
 
+import { formatNumber } from "@/lib/utils/format";
+
 type Props = {
   territories: any[];
   onTerritoryClick: (territoryName: string) => void;
@@ -22,19 +24,19 @@ export default function TerritoryHealthOverview({ territories, onTerritoryClick 
             <div className="mt-3 space-y-2 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-600">Total Customers:</span>
-                <span className="font-medium">{territory.totalCustomers}</span>
+                <span className="font-medium">{formatNumber(Number(territory.totalCustomers ?? 0))}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-green-600">Healthy:</span>
-                <span className="font-medium">{territory.healthy}</span>
+                <span className="font-medium">{formatNumber(Number(territory.healthy ?? 0))}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-yellow-600">At Risk:</span>
-                <span className="font-medium">{territory.atRisk}</span>
+                <span className="font-medium">{formatNumber(Number(territory.atRisk ?? 0))}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-red-600">Dormant:</span>
-                <span className="font-medium">{territory.dormant}</span>
+                <span className="font-medium">{formatNumber(Number(territory.dormant ?? 0))}</span>
               </div>
             </div>
           </button>

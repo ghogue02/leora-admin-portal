@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Castoro Cellars Zinfusion 2021",
+    "description": "A bold and approachable red blend from Paso Robles that combines Zinfandel with complementary varietals. Castoro Cellars' Zinfusion showcases the rich, fruit-forward character of California's Central Coast with a modern, accessible style perfect for everyday enjoyment.",
+    "tastingNotes": {
+      "aroma": "The nose opens with exuberant aromas of ripe blackberry and boysenberry jam, interwoven with hints of cherry cola and vanilla bean. Secondary notes of baking spices, particularly cinnamon and clove, emerge alongside subtle whispers of toasted oak and dark chocolate. A faint floral undertone of violet adds complexity to the otherwise fruit-driven bouquet.",
+      "palate": "On the palate, this medium to full-bodied wine delivers waves of concentrated dark fruit flavors, led by blackberry compote and plum preserves. The ripe fruit is balanced by well-integrated tannins that provide structure without heaviness. Mid-palate reveals layers of mocha, sweet tobacco, and a touch of black pepper spice. The wine's approachable nature is enhanced by bright acidity that keeps the richness in check and adds vibrancy to each sip.",
+      "finish": "The finish is smooth and moderately long, with lingering notes of dark berry fruit and subtle oak spice. A pleasant warmth from the alcohol content persists, along with a hint of cocoa powder and dried herbs that fade gently on the palate."
+    },
+    "foodPairings": [
+      "BBQ ribs with smoky sauce",
+      "Grilled burgers with aged cheddar",
+      "Pepperoni and sausage pizza",
+      "Braised short ribs with root vegetables",
+      "Beef brisket tacos"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (15-18°C)",
+      "decanting": "30 minutes of aeration recommended to soften tannins and open up fruit aromatics",
+      "glassware": "Large Bordeaux or standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Paso Robles, California",
+      "grapeVariety": "Zinfandel blend with Syrah, Petite Sirah, and Cabernet Sauvignon",
+      "vintage": "2021",
+      "style": "Full-bodied California red blend",
+      "ageability": "Drink now through 2026. Best consumed young to preserve fruit-forward character."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Heron Hill Riesling Reserve 2021",
+    "description": "An elegant expression of Finger Lakes Riesling that balances New York State's signature minerality with ripe fruit character. This Reserve bottling from Heron Hill represents careful vineyard selection and extended aging to showcase the region's potential for world-class aromatic white wines.",
+    "tastingNotes": {
+      "aroma": "The aromatic profile is immediately captivating, displaying pristine notes of white peach, green apple, and Meyer lemon zest. Delicate floral accents of honeysuckle and orange blossom float above the fruit core, while distinctive minerality reminiscent of wet slate and crushed limestone adds depth. A subtle hint of petrol, characteristic of quality Riesling, begins to emerge with air, along with whispers of fresh ginger and white tea.",
+      "palate": "The wine presents a masterful balance between sweetness and acidity, leaning toward off-dry on the palate. Flavors of ripe apricot and nectarine meld seamlessly with tart lime and crisp green apple, creating a dynamic interplay. The mid-palate reveals honeyed richness without being cloying, supported by racy acidity that provides electric energy. Mineral notes of flint and saline persist throughout, adding complexity and a sense of place that speaks to the unique terroir of the Finger Lakes.",
+      "finish": "The finish is remarkably long and clean, with lingering citrus peel and stone fruit notes that seem to go on endlessly. Bright acidity leaves the mouth refreshed and ready for the next sip, while a subtle touch of residual sweetness and mineral salinity lingers on the back palate."
+    },
+    "foodPairings": [
+      "Pan-seared scallops with citrus beurre blanc",
+      "Thai green curry with chicken",
+      "Smoked trout with cream cheese and capers",
+      "Roasted pork tenderloin with apple chutney",
+      "Sharp aged cheddar or Gruyère cheese"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C)",
+      "decanting": "Not necessary, though 15 minutes in the glass allows aromatics to fully develop",
+      "glassware": "White wine glass or Riesling-specific glass to concentrate aromatics"
+    },
+    "wineDetails": {
+      "region": "Finger Lakes, New York",
+      "grapeVariety": "100% Riesling",
+      "vintage": "2021",
+      "style": "Off-dry aromatic white with reserve treatment",
+      "ageability": "Drink now through 2031. Will develop petrol and honey notes with aging while maintaining freshness."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Antonio Facchin Prosecco Extra Dry 2024",
+    "description": "A vibrant and festive Prosecco from the Veneto region that embodies the classic Italian sparkling style. Antonio Facchin's Extra Dry expression offers delicate effervescence and fresh fruit character, perfect for celebratory occasions or as an elegant aperitif.",
+    "tastingNotes": {
+      "aroma": "The nose is lifted and aromatic, bursting with scents of crisp green apple, Asian pear, and white peach. Floral notes of acacia blossoms and elderflower add elegance, while subtle hints of lemon verbena and honeydew melon provide freshness. A light waft of wet stone minerality and yeasty bread dough from the fermentation process adds textural interest to the aromatic profile.",
+      "palate": "Bright and lively on entry, the wine displays gentle bubbles that create a creamy mousse-like texture across the palate. Flavors of orchard fruits—particularly Golden Delicious apple and Bartlett pear—dominate, enhanced by nuances of citrus blossom and candied lemon peel. The Extra Dry designation means a touch of residual sweetness balances the wine's natural acidity, creating an off-dry profile that is refreshing rather than sugary. A subtle salinity and mineral backbone keep the wine focused and prevents it from becoming too fruit-forward.",
+      "finish": "The finish is clean and moderately persistent, with delicate fruit flavors fading into a whisper of almond skin and white flowers. The fine bubbles continue to energize the palate, leaving a refreshing sensation that invites another sip."
+    },
+    "foodPairings": [
+      "Prosciutto and melon appetizers",
+      "Fried calamari with lemon aioli",
+      "Light seafood risotto",
+      "Fresh mozzarella and tomato bruschetta",
+      "Fruit tarts and almond biscotti"
+    ],
+    "servingInfo": {
+      "temperature": "40-45°F (4-7°C), well chilled",
+      "decanting": "Not applicable for sparkling wine; serve directly from bottle",
+      "glassware": "Flute or tulip-shaped sparkling wine glass to preserve bubbles"
+    },
+    "wineDetails": {
+      "region": "Prosecco DOC, Veneto, Italy",
+      "grapeVariety": "100% Glera",
+      "vintage": "2024",
+      "style": "Extra Dry Prosecco (slightly sweet sparkling wine)",
+      "ageability": "Best consumed within 1-2 years of release to preserve freshness and effervescence."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.82,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Pasquiers Sablet Blanc 2023",
+    "description": "A distinctive white wine from the Sablet appellation in the southern Rhône Valley, showcasing the region's ability to produce vibrant, mineral-driven whites alongside its famous reds. This wine blends traditional Rhône white varietals to create a refreshing and food-friendly expression of Mediterranean terroir.",
+    "tastingNotes": {
+      "aroma": "The aromatic profile reveals layers of complexity, opening with notes of ripe yellow plum, golden apple, and pear nectar. White flower aromatics including jasmine and chamomile add a delicate perfume, while hints of fennel seed and dried herbs speak to the wine's Provençal character. A distinctive minerality reminiscent of river stones and chalk dust provides a foundation, alongside subtle notes of blanched almonds and beeswax that suggest careful winemaking.",
+      "palate": "Medium-bodied with excellent texture, the wine coats the palate with flavors of stone fruit—particularly white peach and nectarine—complemented by citrus notes of grapefruit pith and lemon curd. The Mediterranean influence shows through in savory elements of thyme, rosemary, and a faint salinity that evokes coastal breezes. Well-integrated acidity provides structure and freshness, while a subtle roundness from the fruit ripeness prevents the wine from being overly austere. The palate reveals good concentration without heaviness, maintaining elegance throughout.",
+      "finish": "The finish is clean and refreshing with moderate length, leaving impressions of citrus zest, white flowers, and stony minerality. A pleasant herbal note of fennel and anise persists, along with a subtle nuttiness that adds depth to the conclusion."
+    },
+    "foodPairings": [
+      "Grilled Mediterranean sea bass with herbs",
+      "Bouillabaisse or fish stew",
+      "Goat cheese and herb tart",
+      "Roasted chicken with Provençal vegetables",
+      "Seared scallops with white wine sauce"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C)",
+      "decanting": "Not necessary, though 20 minutes in the glass helps aromatics develop",
+      "glassware": "Medium-sized white wine glass to showcase aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Sablet, Côtes du Rhône Villages, France",
+      "grapeVariety": "Blend of Grenache Blanc, Clairette, and Roussanne",
+      "vintage": "2023",
+      "style": "Dry, medium-bodied southern Rhône white",
+      "ageability": "Drink now through 2027. Will develop honeyed and nutty notes with short-term aging."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Moorilla Brut Rose 2018",
+    "description": "An elegant sparkling rosé from Tasmania's prestigious Moorilla Estate, showcasing the island's cool-climate potential for world-class sparkling wines. This traditional method wine demonstrates refined complexity developed through extended aging on lees, rivaling the finest examples from Champagne and beyond.",
+    "tastingNotes": {
+      "aroma": "The nose is sophisticated and layered, revealing aromas of wild strawberry, raspberry coulis, and pink grapefruit zest. Delicate floral notes of rose petals and cherry blossoms emerge alongside more complex tertiary characteristics of brioche, toasted hazelnut, and subtle yeast autolysis from extended lees aging. A whisper of chalky minerality and ocean spray speaks to Tasmania's maritime influence, while hints of candied orange peel and red apple skin add further dimension.",
+      "palate": "The wine enters with refined elegance, displaying persistent fine bubbles that create a creamy, mousse-like texture. Red berry flavors—particularly strawberry and cranberry—are balanced by citrus notes of blood orange and pink grapefruit that provide brightness and energy. The mid-palate reveals impressive depth, with layers of brioche, almond croissant, and a subtle oxidative note that adds savory complexity without overwhelming the fresh fruit. Vibrant acidity cuts through the richness, while the wine's backbone of stony minerality provides structure and length. The integration of fruit, yeast character, and acidity is seamless, showing the hallmarks of quality traditional method production.",
+      "finish": "The finish is exceptionally long and complex, with lingering red fruit flavors intermingling with brioche and hazelnut notes. A saline mineral quality persists, along with a refreshing citrus peel character that leaves the palate cleansed and invigorated."
+    },
+    "foodPairings": [
+      "Salmon gravlax with dill and mustard sauce",
+      "Lobster or crab salad",
+      "Oysters with mignonette",
+      "Charcuterie board with pâté and terrines",
+      "Strawberry shortcake or berry tart"
+    ],
+    "servingInfo": {
+      "temperature": "45-48°F (7-9°C)",
+      "decanting": "Not applicable; serve directly from bottle to preserve effervescence",
+      "glassware": "Tulip-shaped Champagne flute or white wine glass to appreciate aromatics"
+    },
+    "wineDetails": {
+      "region": "Tasmania, Australia",
+      "grapeVariety": "Pinot Noir and Chardonnay blend (traditional method)",
+      "vintage": "2018",
+      "style": "Brut Rosé sparkling wine, traditional method with extended lees aging",
+      "ageability": "Drinking beautifully now through 2028. Extended bottle age has developed tertiary complexity."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.87,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Drimia Sahar Red Blend  (MD & DC)",
+    "description": "An intriguing red blend from Israel's emerging wine region, crafted to showcase the unique terroir of the Judean Hills or Golan Heights. This modern Israeli wine combines international varietals with traditional winemaking to create a bold, fruit-driven expression suitable for contemporary wine drinkers.",
+    "tastingNotes": {
+      "aroma": "The nose presents an inviting bouquet of ripe dark cherries, blackberry preserves, and plum compote, layered with notes of Mediterranean herbs including rosemary, oregano, and dried lavender. Subtle spice notes of black pepper, cardamom, and star anise add intrigue, while hints of cedar wood, vanilla, and espresso suggest oak influence. A faint mineral quality reminiscent of the region's limestone-rich soils emerges with aeration, along with exotic notes of fig paste and date.",
+      "palate": "Medium to full-bodied with velvety texture, the wine delivers concentrated flavors of black cherry, cassis, and mulberry. The fruit is complemented by savory elements of olive tapenade, sun-dried tomato, and leather that speak to Mediterranean character. Well-integrated tannins provide structure without astringency, while judicious oak aging contributes notes of vanilla bean, toasted coconut, and baking chocolate. The wine's acidity is moderate, allowing the ripe fruit to shine while maintaining balance. Layers of warm spice, including cinnamon and nutmeg, add complexity to the mid-palate.",
+      "finish": "The finish is smooth and moderately long, with dark fruit flavors gradually fading into notes of espresso, dark chocolate, and dried herbs. A pleasant warmth from the alcohol content lingers, accompanied by subtle oak spice and a hint of graphite minerality."
+    },
+    "foodPairings": [
+      "Grilled lamb kebabs with tahini sauce",
+      "Beef shawarma with hummus",
+      "Slow-roasted brisket",
+      "Moussaka or Mediterranean eggplant dishes",
+      "Aged Manchego or Pecorino cheese"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "45-60 minutes recommended to soften tannins and integrate oak",
+      "glassware": "Large Bordeaux glass to allow for aeration"
+    },
+    "wineDetails": {
+      "region": "Israel (likely Judean Hills or Golan Heights)",
+      "grapeVariety": "Red blend of Cabernet Sauvignon, Merlot, and Syrah",
+      "vintage": "Non-vintage or recent release",
+      "style": "Full-bodied Mediterranean red blend",
+      "ageability": "Drink now through 2028. Best enjoyed with 2-5 years of bottle age."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Bodegas Riojanas Monte Real Gran Reserva 2001",
+    "description": "A traditional and age-worthy Gran Reserva from one of Rioja's most respected historic bodegas, representing the pinnacle of classical Rioja winemaking. This wine has undergone extensive aging in both barrel and bottle, developing the complex tertiary characteristics that define great Spanish wine and showcasing how Tempranillo evolves with time.",
+    "tastingNotes": {
+      "aroma": "The aromatic profile is a testament to maturity and careful cellaring, revealing evolved notes of dried cherry, fig, and prune alongside savory leather, tobacco leaf, and aged cedar. Classic Rioja characteristics emerge prominently: vanilla from American oak, coconut, and sweet baking spices including cinnamon and nutmeg. Tertiary notes of forest floor, dried mushroom, and autumn leaves add earthy complexity, while hints of balsamic reduction, truffle, and dark chocolate speak to the wine's advanced age. Delicate floral notes of dried rose petals persist, along with a faint oxidative quality that adds depth without indicating decline.",
+      "palate": "The wine has softened beautifully with age, presenting a medium-bodied, silky texture with fully resolved tannins that feel like velvet on the palate. Flavors of dried red fruits—cherry, cranberry, and pomegranate—mingle with savory notes of cured meat, black olive, and soy sauce. The extensive oak aging is evident but not overwhelming, contributing layers of vanilla custard, toasted coconut, and cigar box that integrate seamlessly with the fruit. Bright acidity has been preserved remarkably well, providing lift and preventing the wine from feeling tired or flat. The mid-palate reveals complexity: leather, espresso, dark tea leaves, and a subtle minerality of wet stone.",
+      "finish": "The finish is long and graceful, with lingering notes of dried fruit, oak spice, and leather. A gentle tannic grip remains, along with flavors of dark chocolate, coffee grounds, and a hint of orange peel that fade slowly and elegantly."
+    },
+    "foodPairings": [
+      "Roasted suckling pig or cochinillo",
+      "Braised lamb shanks with rosemary",
+      "Aged Manchego cheese with quince paste",
+      "Wild mushroom risotto",
+      "Grilled ribeye with peppercorn sauce"
+    ],
+    "servingInfo": {
+      "temperature": "60-64°F (16-18°C), slightly cooler than room temperature",
+      "decanting": "1-2 hours recommended to allow mature wine to open and breathe; handle gently to avoid sediment",
+      "glassware": "Large Burgundy glass to concentrate delicate mature aromatics"
+    },
+    "wineDetails": {
+      "region": "Rioja Alta, Spain",
+      "grapeVariety": "Predominantly Tempranillo with Mazuelo and Graciano",
+      "vintage": "2001",
+      "style": "Gran Reserva - extensively aged traditional Rioja (minimum 5 years aging)",
+      "ageability": "At peak maturity now; drink through 2030. Has already undergone 20+ years of evolution."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Pasquiers Sablet Blanc 2022",
+    "description": "A mineral-driven white wine from the Sablet appellation in the southern Rhône Valley, representing the prior vintage of this estate's white wine program. This wine emphasizes freshness and terroir expression through a careful blend of traditional Rhône white varietals grown on the region's distinctive limestone and clay soils.",
+    "tastingNotes": {
+      "aroma": "The bouquet opens with vibrant notes of citrus—lemon verbena, grapefruit zest, and lime leaf—alongside white-fleshed fruits including Asian pear, white peach, and quince. Aromatic herbs characteristic of the garrigue landscape emerge: thyme, fennel, and a touch of wild lavender. The wine displays distinctive minerality reminiscent of crushed seashells and limestone, while subtle notes of acacia honey, white almond, and a faint waxy quality add depth and suggest the wine's development.",
+      "palate": "Medium-bodied with a rounded texture, the wine delivers layers of stone fruit flavors—apricot, nectarine, and yellow plum—balanced by citrus brightness of Meyer lemon and pink grapefruit. A pronounced mineral core runs through the palate, offering sensations of wet stones, saline, and chalk that speak to the terroir. Herbal nuances of fennel seed, tarragon, and anise add savory complexity, while the wine's natural acidity provides structure and freshness. A subtle richness from the fruit's ripeness is kept in check by this vibrant acidity, creating excellent balance. The palate shows good concentration with a slightly oily texture that adds weight without heaviness.",
+      "finish": "The finish is clean and moderately long, showcasing continued citrus and mineral notes. White flower petals, almond skin, and a persistent stony character linger, along with a refreshing herbal quality that leaves the palate energized."
+    },
+    "foodPairings": [
+      "Pan-fried sole with lemon and capers",
+      "Roasted halibut with herb butter",
+      "Ratatouille with fresh herbs",
+      "Grilled vegetables with aioli",
+      "Soft ripened goat cheese"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C)",
+      "decanting": "Not necessary, though 15-20 minutes in the glass enhances aromatics",
+      "glassware": "Medium white wine glass to concentrate mineral and herbal notes"
+    },
+    "wineDetails": {
+      "region": "Sablet, Côtes du Rhône Villages, France",
+      "grapeVariety": "Grenache Blanc, Clairette, and Roussanne blend",
+      "vintage": "2022",
+      "style": "Dry, mineral-driven southern Rhône white",
+      "ageability": "Drink now through 2026. Brief aging will develop nutty and honeyed characteristics."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Oliver Viticultors 10,000 Hours Floral Blanc 2023",
+    "description": "A distinctive aromatic white wine from Spain's innovative Oliver Viticultors, showcasing the winery's commitment to crafting unique, terroir-driven wines. The '10,000 Hours' designation suggests extensive vineyard work and careful attention to detail, while the 'Floral Blanc' name indicates an emphasis on aromatic complexity and perfumed characteristics.",
+    "tastingNotes": {
+      "aroma": "The aromatic profile lives up to its 'Floral' designation, bursting with intense perfume of orange blossom, jasmine, and elderflower. Underneath the floral canopy lie notes of ripe stone fruits—particularly white peach and apricot—along with tropical hints of lychee, passionfruit, and pineapple. Citrus elements of lemon zest, mandarin peel, and bergamot add brightness, while subtle herbal notes of lemon verbena and fresh mint provide complexity. A distinctive minerality reminiscent of wet slate and river stones grounds the exuberant aromatics.",
+      "palate": "Light to medium-bodied with electric acidity, the wine dances across the palate with flavors that mirror the aromatic intensity. Stone fruit notes of nectarine and yellow plum are joined by tropical fruit—guava, kiwi, and starfruit—creating an exotic fruit salad of flavors. The citrus component is pronounced, offering grapefruit, lime, and yuzu that provide freshness and cut. Floral flavors continue on the palate, with rose water and orange blossom adding a delicate perfumed quality. A subtle salinity and mineral backbone prevent the wine from being overwhelmingly fruity, while crisp acidity keeps everything vibrant and focused.",
+      "finish": "The finish is refreshing and moderately long, with lingering floral notes and citrus zest. A mineral quality persists alongside hints of white tea and ginger, leaving the palate cleansed and ready for food or another sip."
+    },
+    "foodPairings": [
+      "Ceviche with citrus and cilantro",
+      "Thai-style fish with lemongrass",
+      "Goat cheese salad with edible flowers",
+      "Steamed mussels in white wine broth",
+      "Light Asian fusion cuisine"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well chilled",
+      "decanting": "Not necessary; serve directly to preserve aromatic lift",
+      "glassware": "Aromatic white wine glass to concentrate floral and fruit aromatics"
+    },
+    "wineDetails": {
+      "region": "Spain (specific region varies by vineyard selection)",
+      "grapeVariety": "Likely Albariño, Verdejo, or aromatic white blend",
+      "vintage": "2023",
+      "style": "Aromatic, floral-driven dry white wine",
+      "ageability": "Best consumed within 2-3 years to preserve aromatic intensity and freshness."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.78,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Tarpon Cellars Dry Creek Zinfandel 2020",
+    "description": "A robust and characterful Zinfandel from Sonoma's renowned Dry Creek Valley, one of California's premier regions for this varietal. Tarpon Cellars crafts this wine to showcase the bold, jammy fruit and spicy character that has made Dry Creek Zinfandel famous, with attention to balance and drinkability.",
+    "tastingNotes": {
+      "aroma": "The nose is powerfully aromatic, opening with explosive scents of blackberry bramble, raspberry jam, and ripe boysenberry. Red fruit notes of cherry pie and cranberry sauce add brightness, while baking spices—cinnamon stick, clove, and vanilla—speak to both the grape's natural character and oak influence. Secondary aromas of black pepper, dried herbs, and a hint of eucalyptus add complexity, alongside subtle notes of dark chocolate, espresso, and toasted caramel from barrel aging. A faint floral hint of violet and dried rose petals emerges with aeration.",
+      "palate": "Full-bodied and opulent, the wine coats the palate with concentrated dark and red fruit flavors. Blackberry, black cherry, and plum dominate, supported by raspberry coulis and pomegranate that provide brightness. The wine's natural high alcohol is balanced by ripe, sweet fruit and integrated tannins that provide structure without harshness. Mid-palate reveals layers of mocha, milk chocolate, and sweet tobacco, along with peppery spice and a touch of licorice. The oak is present but not overwhelming, contributing vanilla, toast, and a hint of coconut. Despite its power, the wine maintains balance through vibrant acidity that cuts through the richness and adds energy.",
+      "finish": "The finish is long and warming, with persistent dark fruit flavors mingling with oak spice and chocolate. A pleasant alcohol warmth lingers alongside hints of black pepper, dried herbs, and a touch of leather that adds savory complexity to the sweet fruit conclusion."
+    },
+    "foodPairings": [
+      "BBQ pulled pork sandwiches",
+      "Grilled tri-tip with chimichurri",
+      "Spicy Italian sausage and peppers",
+      "Hearty beef chili",
+      "Aged Gouda or smoked cheddar"
+    ],
+    "servingInfo": {
+      "temperature": "62-66°F (17-19°C)",
+      "decanting": "30-45 minutes recommended to soften tannins and allow fruit to fully express",
+      "glassware": "Large Bordeaux or Zinfandel-specific glass to accommodate bold aromatics"
+    },
+    "wineDetails": {
+      "region": "Dry Creek Valley, Sonoma County, California",
+      "grapeVariety": "100% Zinfandel from old vine sources",
+      "vintage": "2020",
+      "style": "Full-bodied, fruit-forward California Zinfandel",
+      "ageability": "Drink now through 2028. While enjoyable young, will develop savory complexity with 3-5 years of aging."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.86,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  }
+]

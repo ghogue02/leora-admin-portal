@@ -1,0 +1,346 @@
+{
+  "batchId": 154,
+  "processedAt": "2025-10-21T14:25:20.883Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Crosarola Superiore 2023",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2023 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of mixed berries. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2023",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Charlie & Echo Rainfall",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Croix 1904 Zinfandel",
+      "description": "A distinguished Zinfandel showcasing exceptional quality. This wine offers complexity and character with the 1904 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Zinfandel",
+        "vintage": "1904",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Thelema Chardonnay 2019",
+      "description": "A distinguished Chardonnay showcasing exceptional quality. This wine offers complexity and character with the 2019 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of green apple and pear, complemented by notes of citrus, butter. As the wine opens, additional layers of complexity emerge with hints of butter. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is creamy and medium to full-bodied, delivering flavors of lemon zest, toast, minerality. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is clean and crisp, with lingering flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Lobster with butter",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Soft cheeses",
+        "Risotto"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve chilled",
+        "glassware": "Burgundy or large white wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2019",
+        "style": "Rich, complex white",
+        "ageability": "Best enjoyed now through 2024. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aresca Fiore d Atunno Moscato dAsti 2023",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2023 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2023",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Knuttel Family Russian River Valley Chardonnay, Kate's Pas de Deux 2022",
+      "description": "A distinguished Chardonnay showcasing Russian River Valley terroir. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of green apple and pear, complemented by notes of citrus, butter, vanilla. As the wine opens, additional layers of complexity emerge with hints of tropical fruit. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is creamy and medium to full-bodied, delivering flavors of lemon zest, toast, minerality. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is clean and crisp, with lingering flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Lobster with butter",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Soft cheeses",
+        "Risotto"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve chilled",
+        "glassware": "Burgundy or large white wine glass"
+      },
+      "wineDetails": {
+        "region": "Russian River Valley",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2022",
+        "style": "Rich, complex white",
+        "ageability": "Best enjoyed now through 2027. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Farmers Market Italian Red NV",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of oak. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Rose 2024",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2024 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of herbs. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Mediterranean salads",
+        "Grilled prawns",
+        "Charcuterie",
+        "Light pasta dishes",
+        "Soft cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2024",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casa Dumetz Clementine Carter Mourvedre Santa Barbara County 2021",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2021 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of mixed berries. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2021",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Black Elephant Vintners Cap Classique Brut",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.883Z"
+      }
+    }
+  ]
+}

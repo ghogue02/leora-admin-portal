@@ -1,0 +1,1691 @@
+
+================================================================================
+WINE ENRICHMENT APPLICATION: BATCHES 51-100
+================================================================================
+
+
+================================================================================
+Processing Batch 51
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Getariako Txakolina Basa Lore Igartzeta 2020
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Calyptra Petit Inedito 2018
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Boxwood Gris 2021
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Raywood White Zinfandel 2021
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Quinta do Mourao Tawny 40 Year Port
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Orchard Lane Sauvignon Blanc 2023
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Chateau Josephine Cabernet Sauvignon  Semi Sweet  (MD & DC) Stained Label 2023
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Priorat Trossos Abracadabra 2019
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Remhoogte Free to be Riesling 2024
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Domaine de la Denante Saint Veran 2023
+    ✅ Updated (EXACT match, 0.96 confidence)
+
+Batch 51 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 52
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Well Crafted Vin de France Organic Red Keg NV  2000 ml
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Pasquiers Plan de Dieu 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Clos d'Audhuy Toujours Plus 1L NV  1000 ml
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Getariako Txakolina Basa Lore Igartzeta 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Darms Lane Cabernet Sauvignon, Bon Passe 2016
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Collina San Ponzio Barbera D Alba 2022
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Phelps Creek Cuvee Alexandrine Pinot Noir 2021
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Conde Villar Alvarinho 2024
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Lanzarote Vino Rosado 2021
+    ✅ Updated (EXACT match, 0.83 confidence)
+  Processing: Shabo Reserve Merlot 2022
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 52 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 53
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Baleia Vinho Rocas Red Blend 2023
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Coste Caumartin 1er Cru Clos de Boucherottes 2019
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Phelps Creek Pinot Gris 2022
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: LaMontagne Pinot Noir (Wine Club) 2015
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Anko Malbec Flor de Cardon 2022
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Inversa Bergamot Lemon 250 ml
+    ✅ Updated (FUZZY match: "Inversa Bergamot Lemon   250 ml", 0.6 confidence)
+  Processing: Prima Pave Grand Cuvee NV
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Noughty NA Sparkling Chardonnay NV
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Paso Robles Pomar Junction Zinfandel (Wine Club Only) 2016
+    ✅ Updated (FUZZY match: "Paso Robles Pomar Junction Zinfandel (WINE CLUB ONLY) 2016", 0.85 confidence)
+  Processing: Trespass Intrigue 2018
+    ✅ Updated (EXACT match, 0.7 confidence)
+
+Batch 53 Complete:
+  Success: 10 (8 exact, 2 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 54
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Frico Sangiovese IGT Toscana (NOVA only) 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Rueda Reina De Castilla Oak Aged Verdejo 2022
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Colle Corviano Sangiovese 2022
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Rock Ferry 3rd Rock Chardonnay 2019
+    ✅ Updated (EXACT match, 0.86 confidence)
+  Processing: Crimson Clover RED Cabernet Sauvignon 2019
+    ✅ Updated (EXACT match, 0.84 confidence)
+  Processing: Gendraud Patrice Petit Chablis Mevushal (MD & DC)
+    ✅ Updated (EXACT match, 0.89 confidence)
+  Processing: Paris-Simoneau Brut Rose
+    ✅ Updated (EXACT match, 0.83 confidence)
+  Processing: Central Valley Banner Day Sauvignon Blanc 2024
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Mauro Molino Barbera d'Asti DOCG Leradici 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Priorat Trossos Abracadabra 2022
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 54 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 55
+================================================================================
+
+Failed to read batch 55: SyntaxError: Expected ',' or '}' after property value in JSON at position 3646 (line 46 column 7)
+
+================================================================================
+Processing Batch 56
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Nagelsforst Bergliebe Riesling 2022
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Tigerstone Garnacha 2023
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: TVH The Boss Block 8 Cabernet Sauvignon 2018
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Ontanon Gran Reserva 2011
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Dolce Vita Strawberry Margarita
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Ontanon Reserva Magnum 2011  1500 ml
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Quinta do Mourao White 60 Year Port   500 ml
+    ✅ Updated (EXACT match, 0.78 confidence)
+  Processing: Backsberg John Martin Red Blend 2018
+    ✅ Updated (EXACT match, 0.84 confidence)
+  Processing: Cienega Valley Cienega Valley Pinot Noir 2023
+    ✅ Updated (EXACT match, 0.83 confidence)
+  Processing: Skylark Pinot Blanc 2018
+    ✅ Updated (EXACT match, 0.81 confidence)
+
+Batch 56 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 57
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Hendry HRW Cabernet Sauvignon 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Costers del Segre Petit Sios Tinto 2021
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Raised By Wolves Cabernet Sauvignon (Damaged Labels) 2017
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Bodegas Riojanas Monte Real Gran Reserva 2014
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Castoro Cellars Sparkling Rose Wine Can   250 ml
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Dolce Vita Spritz NV
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Talpiot White
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Fledge & Co. Grenache 2024
+    ✅ Updated (EXACT match, 0.72 confidence)
+  Processing: Luis Blanc Treilles White  (Wine Club Only) 2023
+    ✅ Updated (EXACT match, 0.6 confidence)
+  Processing: Thelema "Vin de Hel" Muscat Late Harvest 2022  375 ml
+    ✅ Updated (EXACT match, 0.95 confidence)
+
+Batch 57 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 58
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Remhoogte Honeybunch 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Dominio de la Abadesa Verdejo 2018
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Dominio de Taurum DO TORO 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Seppeltsfield Para Tawny (100Y) 1925  100 ml
+    ✅ Updated (EXACT match, 1 confidence)
+  Processing: Skylark Pink Belly 2017
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Bitch Bubbly (750ml) NV
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Mountain Brook BRX Rose 2024
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Bodegas Veiga Naum Rias Baixas Albarino 2024
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Martellotto Red Blend 2017
+    ✅ Updated (EXACT match, 1 confidence)
+  Processing: Pasquiers Sablet Rouge 2017
+    ✅ Updated (EXACT match, 0.85 confidence)
+
+Batch 58 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 59
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Bodegas Pinea PINEA 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Shabo Limited Edition Kakhetian Saperavi Merlot 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Alfaro Family Vineyards A Estate Chardonnay 2020
+    ✅ Updated (FUZZY match: "Alfaro Family Vineyards A  Estate Chardonnay 2020", 0.75 confidence)
+  Processing: Domaine Benedetti Biologique Vaucluse 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Bonelli Bonarda Amabile (Frizzante, Semi Sweet) 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Domaine de la Fontainnerie Vouvray Sec 2022
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Raywood Moscato 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Wonderment Wines Bacigalupi Petit Sirah 2017
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Clementine Carter Larner Syrah 2023
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Queiron Mi Lugar 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+
+Batch 59 Complete:
+  Success: 10 (9 exact, 1 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 60
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2019
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Artis NA Brut Rose
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Knuttel Family Wines Tentadora Malbec 2018
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Black Elephant Vintners Back Roads Petite Sirah 2019
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Boplaas Alvarinho 2024
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Domaine d'Avrille Sauvignon Blanc 2023
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Sky Devil Cabernet Franc 2020
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Raywood Sauvignon Blanc 2024
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Campus Oaks Chardonnay 2016
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Jeff Cohn Pure Yum Blend 2023
+    ✅ Updated (EXACT match, 0.7 confidence)
+
+Batch 60 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 61
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Adir Marselan Rosel (MD & DC) 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Libertine Gradient Vineyard Chardonnay 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Priorat Trossos Lo Mon 2018
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Vina Albina Verdejo 2023
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Vina Albina Gran Reserva 2014 5001618
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Giustini Avoglia Susumaniello 2024
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Martino Sangiovese 2020
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Chateau Maris Orange NV
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Poggio Scudieri Chianti Classico Riserva 2019
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Well Crafted Prosecco Freschissimo Keg NV  20000 ml
+    ✅ Updated (EXACT match, 0.72 confidence)
+
+Batch 61 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 62
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Domaine Bizet Sancerre Rouge 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Shabo Reserve Chardonnay 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Collina San Ponzio Barolo 2018
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Chateau Maris Rose Cans NV  250 ml
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Bodegas Riojanas Vina Albina Gran Reserva 2014
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Hendry Block 28 Zinfandel 2021
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Domaine du Joncier iCI 2017
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Domaine Fevre Chablis 2023
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Boron Delle Venezie Pinot Grigio 2023
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Sun Break Idyll Acres Perfection Cider   500 ml
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 62 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 63
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Chateau Josephine Merlot Mevushal (MD & DC) 2023
+    ✅ Updated (FUZZY match: "Chateau Josephine Merlot  Mevushal (MD & DC) 2023", 0.75 confidence)
+  Processing: Chateau Josephine Cabernet Sauvignon Semi Sweet (MD & DC) 2023
+    ✅ Updated (FUZZY match: "Chateau Josephine Cabernet Sauvignon  Mevushal (MD & DC) 2023", 0.9 confidence)
+  Processing: Aratas Los Carneros Chardonnay 2024
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Echevarria Propuesta 2017
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Paso Robles Pomar Junction Merlot 2013
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Sun Break Liberty Red Cider 500 ml
+    ✅ Updated (FUZZY match: "Sun Break Liberty Red Cider   500 ml", 0.85 confidence)
+  Processing: Hertelendy Legend 2018
+    ✅ Updated (EXACT match, 0.98 confidence)
+  Processing: Zacuto Ruby Port NV
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Jump Mountain Sparkling Gruner Veltliner 2021
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Two Mountain Syrah 2021
+    ✅ Updated (EXACT match, 0.93 confidence)
+
+Batch 63 Complete:
+  Success: 10 (7 exact, 3 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 64
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Valdemar Estates Walla Walla Cabernet Sauvignon 2020
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Bodegas Tandem Inmune Garnacha 2023
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Baleia Pinot Noir 2023
+    ✅ Updated (EXACT match, 0.78 confidence)
+  Processing: Rioja Lar de Paula Reserva 2016
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Tibouren Isle Saint Pierre 2021 Rose
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Aratas Veneration Red Blend 2019
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Wonderment Wines Pritchett's Peak Rockpile Zinfandel 2017
+    ✅ Updated (FUZZY match: "Wonderment Wines Pritchett’s Peak Rockpile Zinfandel 2015", 0.87 confidence)
+  Processing: Zephaniah Rose 2023
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Monte Real Cepas Viejas  (6 pack) 2021 5001599
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Free Spirits N/A Negroni Cans   250 ml
+    ✅ Updated (EXACT match, 0.93 confidence)
+
+Batch 64 Complete:
+  Success: 10 (9 exact, 1 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 65
+================================================================================
+
+TypeError: Cannot read properties of undefined (reading 'length')
+    at applyBatch (/Users/greghogue/Leora2/web/scripts/apply-batches-51-100.ts:184:40)
+    at applyBatches51to100 (/Users/greghogue/Leora2/web/scripts/apply-batches-51-100.ts:262:25)
+
+================================================================================
+WINE ENRICHMENT APPLICATION: BATCHES 51-100
+================================================================================
+
+
+================================================================================
+Processing Batch 51
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Getariako Txakolina Basa Lore Igartzeta 2020
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Calyptra Petit Inedito 2018
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Boxwood Gris 2021
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Raywood White Zinfandel 2021
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Quinta do Mourao Tawny 40 Year Port
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Orchard Lane Sauvignon Blanc 2023
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Chateau Josephine Cabernet Sauvignon  Semi Sweet  (MD & DC) Stained Label 2023
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Priorat Trossos Abracadabra 2019
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Remhoogte Free to be Riesling 2024
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Domaine de la Denante Saint Veran 2023
+    ✅ Updated (EXACT match, 0.96 confidence)
+
+Batch 51 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 52
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Well Crafted Vin de France Organic Red Keg NV  2000 ml
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Pasquiers Plan de Dieu 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Clos d'Audhuy Toujours Plus 1L NV  1000 ml
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Getariako Txakolina Basa Lore Igartzeta 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Darms Lane Cabernet Sauvignon, Bon Passe 2016
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Collina San Ponzio Barbera D Alba 2022
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Phelps Creek Cuvee Alexandrine Pinot Noir 2021
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Conde Villar Alvarinho 2024
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Lanzarote Vino Rosado 2021
+    ✅ Updated (EXACT match, 0.83 confidence)
+  Processing: Shabo Reserve Merlot 2022
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 52 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 53
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Baleia Vinho Rocas Red Blend 2023
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Coste Caumartin 1er Cru Clos de Boucherottes 2019
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Phelps Creek Pinot Gris 2022
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: LaMontagne Pinot Noir (Wine Club) 2015
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Anko Malbec Flor de Cardon 2022
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Inversa Bergamot Lemon 250 ml
+    ✅ Updated (FUZZY match: "Inversa Bergamot Lemon   250 ml", 0.6 confidence)
+  Processing: Prima Pave Grand Cuvee NV
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Noughty NA Sparkling Chardonnay NV
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Paso Robles Pomar Junction Zinfandel (Wine Club Only) 2016
+    ✅ Updated (FUZZY match: "Paso Robles Pomar Junction Zinfandel (WINE CLUB ONLY) 2016", 0.85 confidence)
+  Processing: Trespass Intrigue 2018
+    ✅ Updated (EXACT match, 0.7 confidence)
+
+Batch 53 Complete:
+  Success: 10 (8 exact, 2 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 54
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Frico Sangiovese IGT Toscana (NOVA only) 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Rueda Reina De Castilla Oak Aged Verdejo 2022
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Colle Corviano Sangiovese 2022
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Rock Ferry 3rd Rock Chardonnay 2019
+    ✅ Updated (EXACT match, 0.86 confidence)
+  Processing: Crimson Clover RED Cabernet Sauvignon 2019
+    ✅ Updated (EXACT match, 0.84 confidence)
+  Processing: Gendraud Patrice Petit Chablis Mevushal (MD & DC)
+    ✅ Updated (EXACT match, 0.89 confidence)
+  Processing: Paris-Simoneau Brut Rose
+    ✅ Updated (EXACT match, 0.83 confidence)
+  Processing: Central Valley Banner Day Sauvignon Blanc 2024
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Mauro Molino Barbera d'Asti DOCG Leradici 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Priorat Trossos Abracadabra 2022
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 54 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 55
+================================================================================
+
+Failed to read batch 55: SyntaxError: Expected ',' or '}' after property value in JSON at position 3646 (line 46 column 7)
+
+================================================================================
+Processing Batch 56
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Nagelsforst Bergliebe Riesling 2022
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Tigerstone Garnacha 2023
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: TVH The Boss Block 8 Cabernet Sauvignon 2018
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Ontanon Gran Reserva 2011
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Dolce Vita Strawberry Margarita
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Ontanon Reserva Magnum 2011  1500 ml
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Quinta do Mourao White 60 Year Port   500 ml
+    ✅ Updated (EXACT match, 0.78 confidence)
+  Processing: Backsberg John Martin Red Blend 2018
+    ✅ Updated (EXACT match, 0.84 confidence)
+  Processing: Cienega Valley Cienega Valley Pinot Noir 2023
+    ✅ Updated (EXACT match, 0.83 confidence)
+  Processing: Skylark Pinot Blanc 2018
+    ✅ Updated (EXACT match, 0.81 confidence)
+
+Batch 56 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 57
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Hendry HRW Cabernet Sauvignon 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Costers del Segre Petit Sios Tinto 2021
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Raised By Wolves Cabernet Sauvignon (Damaged Labels) 2017
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Bodegas Riojanas Monte Real Gran Reserva 2014
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Castoro Cellars Sparkling Rose Wine Can   250 ml
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Dolce Vita Spritz NV
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Talpiot White
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Fledge & Co. Grenache 2024
+    ✅ Updated (EXACT match, 0.72 confidence)
+  Processing: Luis Blanc Treilles White  (Wine Club Only) 2023
+    ✅ Updated (EXACT match, 0.6 confidence)
+  Processing: Thelema "Vin de Hel" Muscat Late Harvest 2022  375 ml
+    ✅ Updated (EXACT match, 0.95 confidence)
+
+Batch 57 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 58
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Remhoogte Honeybunch 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Dominio de la Abadesa Verdejo 2018
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Dominio de Taurum DO TORO 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Seppeltsfield Para Tawny (100Y) 1925  100 ml
+    ✅ Updated (EXACT match, 1 confidence)
+  Processing: Skylark Pink Belly 2017
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Bitch Bubbly (750ml) NV
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Mountain Brook BRX Rose 2024
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Bodegas Veiga Naum Rias Baixas Albarino 2024
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Martellotto Red Blend 2017
+    ✅ Updated (EXACT match, 1 confidence)
+  Processing: Pasquiers Sablet Rouge 2017
+    ✅ Updated (EXACT match, 0.85 confidence)
+
+Batch 58 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 59
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Bodegas Pinea PINEA 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Shabo Limited Edition Kakhetian Saperavi Merlot 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Alfaro Family Vineyards A Estate Chardonnay 2020
+    ✅ Updated (FUZZY match: "Alfaro Family Vineyards A  Estate Chardonnay 2021", 0.75 confidence)
+  Processing: Domaine Benedetti Biologique Vaucluse 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Bonelli Bonarda Amabile (Frizzante, Semi Sweet) 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Domaine de la Fontainnerie Vouvray Sec 2022
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Raywood Moscato 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Wonderment Wines Bacigalupi Petit Sirah 2017
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Clementine Carter Larner Syrah 2023
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Queiron Mi Lugar 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+
+Batch 59 Complete:
+  Success: 10 (9 exact, 1 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 60
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2019
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Artis NA Brut Rose
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Knuttel Family Wines Tentadora Malbec 2018
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Black Elephant Vintners Back Roads Petite Sirah 2019
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Boplaas Alvarinho 2024
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Domaine d'Avrille Sauvignon Blanc 2023
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Sky Devil Cabernet Franc 2020
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Raywood Sauvignon Blanc 2024
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Campus Oaks Chardonnay 2016
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Jeff Cohn Pure Yum Blend 2023
+    ✅ Updated (EXACT match, 0.7 confidence)
+
+Batch 60 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 61
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Adir Marselan Rosel (MD & DC) 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Libertine Gradient Vineyard Chardonnay 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Priorat Trossos Lo Mon 2018
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Vina Albina Verdejo 2023
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Vina Albina Gran Reserva 2014 5001618
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Giustini Avoglia Susumaniello 2024
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Martino Sangiovese 2020
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Chateau Maris Orange NV
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Poggio Scudieri Chianti Classico Riserva 2019
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Well Crafted Prosecco Freschissimo Keg NV  20000 ml
+    ✅ Updated (EXACT match, 0.72 confidence)
+
+Batch 61 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 62
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Domaine Bizet Sancerre Rouge 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Shabo Reserve Chardonnay 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Collina San Ponzio Barolo 2018
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Chateau Maris Rose Cans NV  250 ml
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Bodegas Riojanas Vina Albina Gran Reserva 2014
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Hendry Block 28 Zinfandel 2021
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Domaine du Joncier iCI 2017
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Domaine Fevre Chablis 2023
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Boron Delle Venezie Pinot Grigio 2023
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Sun Break Idyll Acres Perfection Cider   500 ml
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 62 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 63
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Chateau Josephine Merlot Mevushal (MD & DC) 2023
+    ✅ Updated (FUZZY match: "Chateau Josephine Merlot  Mevushal (MD & DC) 2023", 0.75 confidence)
+  Processing: Chateau Josephine Cabernet Sauvignon Semi Sweet (MD & DC) 2023
+    ✅ Updated (FUZZY match: "Chateau Josephine Cabernet Sauvignon Semi Sweet   (MD & DC) 2023", 0.9 confidence)
+  Processing: Aratas Los Carneros Chardonnay 2024
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Echevarria Propuesta 2017
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Paso Robles Pomar Junction Merlot 2013
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Sun Break Liberty Red Cider 500 ml
+    ✅ Updated (FUZZY match: "Sun Break Liberty Red Cider   500 ml", 0.85 confidence)
+  Processing: Hertelendy Legend 2018
+    ✅ Updated (EXACT match, 0.98 confidence)
+  Processing: Zacuto Ruby Port NV
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Jump Mountain Sparkling Gruner Veltliner 2021
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Two Mountain Syrah 2021
+    ✅ Updated (EXACT match, 0.93 confidence)
+
+Batch 63 Complete:
+  Success: 10 (7 exact, 3 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 64
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Valdemar Estates Walla Walla Cabernet Sauvignon 2020
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Bodegas Tandem Inmune Garnacha 2023
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Baleia Pinot Noir 2023
+    ✅ Updated (EXACT match, 0.78 confidence)
+  Processing: Rioja Lar de Paula Reserva 2016
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Tibouren Isle Saint Pierre 2021 Rose
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Aratas Veneration Red Blend 2019
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Wonderment Wines Pritchett's Peak Rockpile Zinfandel 2017
+    ✅ Updated (FUZZY match: "Wonderment Wines Pritchett’s Peak Rockpile Zinfandel 2017", 0.87 confidence)
+  Processing: Zephaniah Rose 2023
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Monte Real Cepas Viejas  (6 pack) 2021 5001599
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Free Spirits N/A Negroni Cans   250 ml
+    ✅ Updated (EXACT match, 0.93 confidence)
+
+Batch 64 Complete:
+  Success: 10 (9 exact, 1 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 65
+================================================================================
+
+Invalid batch data structure for batch 65
+
+================================================================================
+Processing Batch 66
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Hertelendy Signature Mountain Blend (12 pk) 2017
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Rueda Reina de Castilla Sauvignon Blanc 2015  1.5 l
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Monte Real Crianza 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Mate Mania Cabernet Sauvignon IGT Toscana 2022
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Spicy Wings Tango with Me White NV
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Grateful Palate Bless Your Heart NV
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Thelema Cabernet Sauvignon 2020
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Zephaniah Rose 2024
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Oceano Pinot Noir 2021
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Domaine Chevallier Chablis 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+
+Batch 66 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 67
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Maison Ventenac Reserve de Jeanne 2020
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Les Brebis Eola Hills Pinot Noir 2018
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Barcelona Lolea White Spritz NV
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Rueda Reina De Castilla Oak Aged Verdejo 2019
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Darms Lane Chardonnay, Oak Knoll District 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Raywood Moscato Keg 2021  20 l
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Aresca Cortese 2021
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Bierzo Pilgrim Mencia 2021
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: ZaHa El Corte 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Silverthorn River Dragon Cap Classique Blanc NV
+    ✅ Updated (EXACT match, 0.95 confidence)
+
+Batch 67 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 68
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Ontanon Tempranillo Blanco (White) 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Domaine du Vieux College Fixin Rouge Les Champs des Charmes 2021
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Optima Gewurztraminer (Dry) 2017
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Conde Valdemar Balcon de Pilatos Maturana 2020
+    ✅ Updated (EXACT match, 0.98 confidence)
+  Processing: Domaine Benedetti Cotes du Rhone Vielles Vignes 2021
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Giustini Areale Primitivo di Manduria 2022
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Adir Malbec
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Wonderment Wines Bacigalupi Petit Sirah 2014
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Wooden Gift Box Monte Real Gran Reserva 1998
+    ✅ Updated (EXACT match, 0.97 confidence)
+  Processing: Pyren Vineyard Little Ra Ra Rouge 2022
+    ✅ Updated (EXACT match, 0.9 confidence)
+
+Batch 68 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 69
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Domaine Bizet Sancerre Blanc 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Bitch Bubbly (187ml) NV  187 ml
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Sky Devil Malbec 2019
+    ✅ Updated (EXACT match, 0.78 confidence)
+  Processing: Zephaniah Cabernet Franc 2017
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Giustini Patu Primitivo 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Scarpetta Pinot Grigio DOC Friuli (NOVA only) 2023
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Boxwood Gris 375 ml 2023  375 ml
+    ✅ Updated (EXACT match, 0.91 confidence)
+  Processing: Colle Corviano Trebbiano d'Abruzzo 2024
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Thelema Cabernet Sauvignon 2015
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Fledge and Co Hoeksteen 2016
+    ✅ Updated (EXACT match, 0.94 confidence)
+
+Batch 69 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 70
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Colle Corviano Chardonnay 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Central Valley Banner Day Cabernet Sauvignon 2019
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Remhoogte First Light Chenin Blanc 2024
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Domaine Chevallier Cuvee Prestige 2022
+    ✅ Updated (EXACT match, 0.84 confidence)
+  Processing: Champagne Bauget-Jouette Blanc de Blancs 2016
+    ✅ Updated (EXACT match, 0.86 confidence)
+  Processing: Jeremy Nickel Cellars Chardonnay 2019
+    ✅ Updated (EXACT match, 0.83 confidence)
+  Processing: Castoro Cellars Chardonnay Keg 2024  20 l
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Cienega Valley Cienega Valley Chardonnay 2023
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Boxwood Sauvignon Blanc 375 ml 2023  375 ml
+    ✅ Updated (EXACT match, 0.84 confidence)
+  Processing: Ngeringa Estate Pinot Noir 2022
+    ✅ Updated (EXACT match, 0.9 confidence)
+
+Batch 70 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 71
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Boplaas Gamka Red 2020
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Attwoods Vin de Folie Rouge 2024
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: ZaHa Cabernet Franc 2021
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Bernard Gaucher Champagne NV
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Boplaas Hanepoot 2023
+    ✅ Updated (EXACT match, 0.98 confidence)
+  Processing: Sutherland Cabernet Sauvignon 2019
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Scheid Vineyards Rocklin Ranch Chardonnay 2023
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Adir Plato Cabernet Sauvignon (MD & DC)
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Albina Essencia Tinto Reserva 2011
+    ✅ Updated (EXACT match, 0.96 confidence)
+  Processing: Barrel Oak Farm Taphouse Dubbel 19550 ml
+    ✅ Updated (FUZZY match: "Barrel Oak Farm Taphouse Tripel   19550 ml", 0.88 confidence)
+
+Batch 71 Complete:
+  Success: 10 (9 exact, 1 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 72
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Quinta do Mourao Tawny 20 Year Port
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Two Mountain Show Pony (WINE CLUB ONLY)
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Mauro Molino Langhe Dolcetto 2018
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Toro Fighting Bulls 2018
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Nikolaou Ktima Nemea 2019
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: La Sala Red Sangria
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Vermouth Giardino Mediterranean Dry NV
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Korde Pinea El Castillo Red 2023
+    ✅ Updated (EXACT match, 0.96 confidence)
+  Processing: Ontanon Natura 2020
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Black Elephant Vintners Three Men in a Tub with a Rubber Duck Blend 2024
+    ✅ Updated (EXACT match, 0.87 confidence)
+
+Batch 72 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 73
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Misty Cliffs NA Sauvignon Blanc NV
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Maison Ventenac Cuvee Marie 2024
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Priorat Trossos Pam de Nas 2019
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Collina San Ponzio Dolcetto D Alba 2020
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Abadia de Acon Roble 2022
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Orchard Lane Pinot Noir 2023
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Alella Ivori Garnatxa Syrah 2019
+    ✅ Updated (EXACT match, 0.87 confidence)
+  Processing: Sutherland Cabernet Sauvignon 2022
+    ✅ Updated (EXACT match, 0.96 confidence)
+  Processing: DR Colheita Tinto 2017
+    ✅ Updated (EXACT match, 0.89 confidence)
+  Processing: Gavioli Lambrusco  Emilia Semisweet NV
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 73 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 74
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Endhardt Vineyards Lower Block Sauvignon Blanc 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Sutherland Cabernet Sauvignon 2015
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Domaine des Perrelles Moulin a Vent 2020
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Alella Mayla 2022
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Rueda Isabelino Blanco 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Ngeringa Summit Estate Pinot Noir 2021
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Ontanon Gran Reserva 2005
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Frico Rose (NOVA only) 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Stel + Mar Rose (DC, MD, and Southern VA Only) NV
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Armstrong Family Winery Syrah 2019
+    ✅ Updated (EXACT match, 0.87 confidence)
+
+Batch 74 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 75
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Boxwood Ellie Bird Trellis (Private Label) 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Rioja Alta Ermita de San Felices Reserva 2009
+    ✅ Updated (EXACT match, 0.78 confidence)
+  Processing: Boplaas Gamka Red 2021
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Mallorca Gallinas & Focas Red 2015
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Southern Belle Poor Boy 2020
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Beefsteak The Beast Red Blend 2019
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Sutherland Sauvignon Blanc 2024
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Martellotto M Chardonnay (Wine Club) 2021
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Jeff Cohn Pure Yum Blend 2018
+    ✅ Updated (EXACT match, 0.97 confidence)
+  Processing: Jean Leon La Scala Cabernet Sauvignon 2016
+    ✅ Updated (EXACT match, 0.96 confidence)
+
+Batch 75 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 76
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Heron Hill Riesling Semi Sweet 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Conde Valdemar Tempranillo Blanco (Green Labels) 2022
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Ribeiro Sameiras Blanco 2021
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Mauro Molino Roero Arneis DOCG (Damaged Tops) 2022
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Emek Reb Yose Capricorn Cabernet Sauvignon Mevushal (MD & DC)
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Weinrieder Weissburgunder 2020
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Jeff Cohn Smoke & Mirrors Red Blend 2018
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: O Leao Red Blend (DC-MD Only) 2022
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Paso Robles Pomar Junction Grenache Blanc 2015
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Dominique Portet Sauvignon Blanc 2022
+    ✅ Updated (EXACT match, 0.95 confidence)
+
+Batch 76 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 77
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Domaine Chevallier Petit Chablis 2022
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Domaine du Vieux College Marsannay Rouge Les Favieres 2021
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Fledge and Co Riesling 2018
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Zephaniah Adeline 2018
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Southern Belle Semi Precious 2021
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Dear Mom Sparkletown 187 ml
+    ✅ Updated (FUZZY match: "Dear Mom Sparkletown   187 ml", 0.9 confidence)
+  Processing: Priorat Trossos Lo Mon 2019
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Cantina Fratelli Pardi Montefalco Rosso 2021
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Galea Red Sangria NV
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Alella Marfil Classic 2022
+    ✅ Updated (EXACT match, 0.94 confidence)
+
+Batch 77 Complete:
+  Success: 10 (9 exact, 1 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 78
+================================================================================
+
+Invalid batch data structure for batch 78
+
+================================================================================
+Processing Batch 79
+================================================================================
+
+Invalid batch data structure for batch 79
+
+================================================================================
+Processing Batch 80
+================================================================================
+
+Invalid batch data structure for batch 80
+
+================================================================================
+Processing Batch 81
+================================================================================
+
+Invalid batch data structure for batch 81
+
+================================================================================
+Processing Batch 82
+================================================================================
+
+Invalid batch data structure for batch 82
+
+================================================================================
+Processing Batch 83
+================================================================================
+
+Invalid batch data structure for batch 83
+
+================================================================================
+Processing Batch 84
+================================================================================
+
+Invalid batch data structure for batch 84
+
+================================================================================
+Processing Batch 85
+================================================================================
+
+Invalid batch data structure for batch 85
+
+================================================================================
+Processing Batch 86
+================================================================================
+
+Failed to read batch 86: SyntaxError: Expected ',' or ']' after array element in JSON at position 11223 (line 187 column 5)
+
+================================================================================
+Processing Batch 87
+================================================================================
+
+Invalid batch data structure for batch 87
+
+================================================================================
+Processing Batch 88
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Maison Ventenac Cuvee Marie 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Tibouren Cotes de Provence 2021
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Macauley Bacigalupi Chardonnay 2023
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Adir Marselan
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Raywood Rose 2023
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Poema Moncao Alvarinho Vinho Verde 2015
+    ✅ Updated (EXACT match, 0.89 confidence)
+  Processing: Conde Valdemar La Gargantilla Garnacha 2019
+    ✅ Updated (EXACT match, 0.96 confidence)
+  Processing: Seppeltsfield Grand Tawny 10yr NV
+    ✅ Updated (FUZZY match: "Seppeltsfield Grand Tawny  10yr NV", 0.94 confidence)
+  Processing: Coste Caumartin 1er Cru Rouge Les Chouacheaux 2019
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Raywood Chardonnay 2023
+    ✅ Updated (EXACT match, 0.91 confidence)
+
+Batch 88 Complete:
+  Success: 10 (9 exact, 1 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 89
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Domaine du Joncier Regard 2016
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Bodegas Gieco Familia Gieco Malbec 2022
+    ✅ Updated (EXACT match, 0.86 confidence)
+  Processing: Wooden case for 1 bottle NV 2025086
+    ✅ Updated (EXACT match, 1 confidence)
+  Processing: Skylark Pinot Blanc 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Wine Kitchen WK White (COOKING WINE)
+    ✅ Updated (EXACT match, 1 confidence)
+  Processing: Barcelona Lolea Rose Sangria
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Ribeiro Sameiras Blanco COOKING wine 2015
+    ✅ Updated (EXACT match, 1 confidence)
+  Processing: Oliver Viticultors Cava Brut Nature
+    ✅ Updated (EXACT match, 0.93 confidence)
+  Processing: Beefsteak Malbec 2019
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Mauro Molino Barbera d'Alba 2021
+    ✅ Updated (EXACT match, 0.97 confidence)
+
+Batch 89 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 90
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Bonelli Bonarda Amabile (Frizzante, Semi Sweet) Damaged Labels 2022
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Well Crafted Prosecco Freschissimo Sample Bottle NV
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Rippa Dorii Salomon 2021
+    ✅ Updated (EXACT match, 0.96 confidence)
+  Processing: Les Brebis Willamette Pinot Noir 2018
+    ✅ Updated (EXACT match, 0.89 confidence)
+  Processing: Coelheira Red (WINE CLUB) 2019
+    ✅ Updated (EXACT match, 0.6 confidence)
+  Processing: Chateau Maris Chardonnay 2024
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Two Mountain Sauvignon Blanc 2024
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Castoro Cellars Cabernet Sauvignon 375ml 2020  375 ml
+    ✅ Updated (EXACT match, 0.94 confidence)
+  Processing: Zephaniah Adeline 2017
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Lambert Estate A Thousand Words Chardonnay 2024
+    ✅ Updated (EXACT match, 0.86 confidence)
+
+Batch 90 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 91
+================================================================================
+
+Invalid batch data structure for batch 91
+
+================================================================================
+Processing Batch 92
+================================================================================
+
+Invalid batch data structure for batch 92
+
+================================================================================
+Processing Batch 93
+================================================================================
+
+Invalid batch data structure for batch 93
+
+================================================================================
+Processing Batch 94
+================================================================================
+
+Failed to read batch 94: SyntaxError: Expected ',' or ']' after array element in JSON at position 22872 (line 327 column 7)
+
+================================================================================
+Processing Batch 95
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Chateau Jupille Carillon Saint Emilion 2016
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Jeff Cohn Cellars St Peters Church Zinfandel 2019
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Abadia de Acon Roble 2019
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Boplaas Alvarinho 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: High Camp Cabernet Sauvignon 2021
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Chateau Maris Brama 2018
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Free Spirits N/A Kentucky Mule Cans   250 ml
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Gendraud Patrice Chablis Mevushal (MD & DC)
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Giustini Vecchio Sogno Negroamaro 2023
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Chateau Jupille Carillon Saint Emilion 2015
+    ✅ Updated (EXACT match, 0.9 confidence)
+
+Batch 95 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 96
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Aratas Napa Valley Petite Sirah 2010
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Oceano Zero Chardonnay 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Bacio Semi Sweet Red
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Getariako Txakolina Basa Lore Rose 2022
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Macauley Cabernet Sauvignon To Kalon 2021
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Heron Hill Riesling Classic Dry 2022
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Shabo Original Cabernet Sauvignon 2022
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Antonio Facchin Prosecco Extra Dry Mini   187 ml
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Shadowbox Sonoma County Outline Red Blend 2015
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Sky Devil Cabernet Sauvignon 2018
+    ✅ Updated (EXACT match, 0.9 confidence)
+
+Batch 96 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 97
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Monte Real Gran Reserva 2005 2036046
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Reed Knife Edge Shiraz 2021
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Bodegas Paco Garcia Seis 2018
+    ✅ Updated (EXACT match, 0.65 confidence)
+  Processing: Mendoza Laderas del Valle Malbec 2018
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Hendry Unoaked Chardonnay 2021
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Calyptra Gran Reserva Pinot Noir 2020
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Central Valley Banner Day Cabernet Sauvignon 2023
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Rueda Heredad de Penalosa Verdejo 2022
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Remhoogte Chronicle Cape Estate Blend  1.5 L 2014  1.5 l
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Boxwood Estate Boxwood Red 2021
+    ✅ Updated (EXACT match, 0.8 confidence)
+
+Batch 97 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 98
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Endhardt Vineyards Chardonnay 2022
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Saddleback Zinfandel 2018
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Born Rose Sparkling 2020
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Armstrong Family Winery Ebby James (Syrah) 2020
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Zephaniah Chambourcin 2017
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Hendry Pinot Noir Damaged Labels 2019
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Giustini Avoglia Primitivo 2023
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Alma do Mar Ruby Port Mevushal (MD & DC)
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Hendry Pinot Noir 2022
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Colle Corviano Pecorino 2022
+    ✅ Updated (EXACT match, 0.95 confidence)
+
+Batch 98 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 99
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Adir Dry Riesling Mevushal (MD & DC) 2024
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Valdeorite Cava NV
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Raywood Sauvignon Blanc Keg 2022  20 l
+    ✅ Updated (EXACT match, 0.8 confidence)
+  Processing: Cantina Fratelli Pardi Grechetto 2024
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Skylark Grenache 2014
+    ✅ Updated (EXACT match, 0.85 confidence)
+  Processing: Costers Del Segre Petit Sios Blanco 2024
+    ✅ Updated (EXACT match, 0.92 confidence)
+  Processing: Hertelendy Cabernet Franc 2020
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Vins Mosbach Gewurztraminer 2023
+    ✅ Updated (EXACT match, 0.78 confidence)
+  Processing: Domaine Fevre Grand Cru Les Preuses 2022
+    ✅ Updated (EXACT match, 0.98 confidence)
+  Processing: Chateau De Jonquieres Languedoc 2020
+    ✅ Updated (EXACT match, 0.82 confidence)
+
+Batch 99 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+Processing Batch 100
+================================================================================
+
+Found 10 wines to process
+
+  Processing: Noble Hill Sauvignon Blanc 2022
+    ✅ Updated (EXACT match, 0.75 confidence)
+  Processing: Rigo Barbera 2017
+    ✅ Updated (EXACT match, 0.7 confidence)
+  Processing: Mauro Molino Barolo Gallinotto 2020
+    ✅ Updated (EXACT match, 0.95 confidence)
+  Processing: Backsberg Sydney Back Chardonnay 2020
+    ✅ Updated (EXACT match, 0.88 confidence)
+  Processing: Les Brebis Ramato 2022
+    ✅ Updated (EXACT match, 0.72 confidence)
+  Processing: Armstrong Family Winery Four Birds 2018
+    ✅ Updated (EXACT match, 0.82 confidence)
+  Processing: Mate Brunello di Montalcino 2019
+    ✅ Updated (EXACT match, 0.96 confidence)
+  Processing: Fledge and Co Red NV
+    ✅ Updated (EXACT match, 0.74 confidence)
+  Processing: Castoro Cellars Charbono 2022
+    ✅ Updated (EXACT match, 0.9 confidence)
+  Processing: Conde Villar Red 2021
+    ✅ Updated (EXACT match, 0.8 confidence)
+
+Batch 100 Complete:
+  Success: 10 (10 exact, 0 fuzzy)
+  Not Found: 0
+  Errors: 0
+
+
+================================================================================
+FINAL RESULTS - BATCHES 51-100
+================================================================================
+
+Batches Processed: 50
+Total Wines: 340
+
+Successful Updates: 340 (100.0%)
+  - Exact Matches: 330
+  - Fuzzy Matches: 10
+
+Not Found: 0 (0.0%)
+Errors: 16
+
+Processing Time: 73.65s
+Average Time per Batch: 1.47s
+
+📊 Detailed report saved to: /Users/greghogue/Leora2/web/data/docs/batch-51-100-application-report.json
+

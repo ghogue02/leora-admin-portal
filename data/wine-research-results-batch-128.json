@@ -1,0 +1,348 @@
+{
+  "batchNumber": 128,
+  "processedAt": "2025-10-21T12:39:00.000Z",
+  "wineCount": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Rioja Bodegas Ontanon Crianza 2017",
+      "description": "A traditional Rioja Crianza from 40-year-old vines grown on the slopes of Sierra Yergas in Rioja Baja. Predominantly Tempranillo blended with Garnacha, aged 12 months in American and French oak barrels. This wine represents classic Rioja styling with a balance of fruit intensity and oak influence.",
+      "tastingNotes": {
+        "aroma": "Gritty, muscular aromas lead with charred, smoky black fruits and hints of asphalt. The nose reveals intense black fruit compote with warm spice notes, intermingled with liquorice and mocha undertones. Subtle herbal nuances emerge with aeration, along with touches of leather and tobacco leaf.",
+        "palate": "Medium-full bodied with good natural acidity providing structure. Saucy, savory berry and plum flavors dominate, showing depth and plushness. The wine is fleshy on the palate with balanced notes of black fruit, wood, cherry, and balancing tannins that provide grip without harshness.",
+        "finish": "The finish is moderately long with notes of herbs and tobacco. Supple tannins carry through to a satisfying conclusion with lingering spice and oak character."
+      },
+      "foodPairings": [
+        "Roasted lamb with herbs",
+        "Grilled pork chops",
+        "Iberian ham and charcuterie",
+        "Aged Manchego cheese",
+        "Game birds with berry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30 minutes to allow oak and fruit to integrate; not strictly necessary but beneficial for older bottles",
+        "glassware": "Bordeaux or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja Baja, Spain",
+        "grapeVariety": "Predominantly Tempranillo with Garnacha",
+        "vintage": "2017",
+        "style": "Traditional Rioja Crianza with American and French oak aging",
+        "ageability": "Drink now through 2027. Peak drinking window is currently open."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Estate Reserve White 2021",
+      "description": "A distinctive white blend from the granite slopes of Simonsberg mountains in Paarl, South Africa. This unique assemblage combines 35% Grenache Blanc, 30% Marsanne, 30% Chenin Blanc, and 5% Viognier, creating layers of complexity and mineral character. Multiple 4.5-star ratings and 90+ point scores from international critics.",
+      "tastingNotes": {
+        "aroma": "Aromatic complexity opens with dried apricot and poached pear, layered with delicate floral notes. The granite terroir expresses itself through subtle mineral undertones and flinty characteristics. Hints of white peach, honeysuckle, and orange blossom add elegance and depth.",
+        "palate": "The palate achieves a delicate balance of floral aromatics and fruitful flavors, each component contributing distinct layers. Complex mineral flavors dominate the mid-palate, framed by dried apricot, pear, and stone fruit. The Marsanne provides weight and texture, while Chenin Blanc adds refreshing acidity and the Viognier contributes aromatic lift.",
+        "finish": "Medium-long finish with persistent minerality and stone fruit character. The granite soil signature lingers with excellent freshness and purity."
+      },
+      "foodPairings": [
+        "Pasta with creamy alfredo or pesto sauce",
+        "Grilled sea bass with lemon butter",
+        "Aged Gruyère or Comté cheese",
+        "Roasted chicken with herbs",
+        "Butternut squash risotto"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), slightly warmer than typical whites to showcase complexity",
+        "decanting": "Not necessary, though 15 minutes in glass allows aromas to develop",
+        "glassware": "White Burgundy glass or large-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, South Africa",
+        "grapeVariety": "35% Grenache Blanc, 30% Marsanne, 30% Chenin Blanc, 5% Viognier",
+        "vintage": "2021",
+        "style": "Complex white blend with mineral character from granite soils",
+        "ageability": "Drink now through 2026-2027. Currently at peak expression with aging potential."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:40:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte Vantage Pinotage 2021",
+      "description": "An elegant, refined Pinotage from 2 hectares of bush vines planted high on a granitic ridge in Stellenbosch. The wine represents quality South African Pinotage with 18 months in French oak, showcasing the variety's fruity character while maintaining balance and structure. Multiple awards including 4.5 stars from Platter's and 93 points from Tim Atkin.",
+      "tastingNotes": {
+        "aroma": "Ruby red in appearance, the nose displays intensely concentrated aromatics of raspberry and dark cherry. Delicate floral notes of violet weave through the fruit, complemented by earthy depth and subtle granitic minerality. Hints of black currant and gentle pepper spice add complexity.",
+        "palate": "Refined and elegant on the palate, the wine is driven by concentrated flavors of raspberry, black currant, and dark cherry. Natural earthy depth provides a savory counterpoint to the juicy fruit character. The French oak integration is seamless, lending structure without overwhelming the pure fruit expression. Medium-bodied with well-integrated tannins.",
+        "finish": "Lightly savory finish with lingering red fruit and earthy notes. The granitic terroir signature persists through the moderately long conclusion with excellent balance."
+      },
+      "foodPairings": [
+        "Grilled ostrich or game meats",
+        "Barbecued ribs with spicy glaze",
+        "Mushroom and beef pie",
+        "Aged cheddar or smoked Gouda",
+        "Cape Malay bobotie"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 20-30 minutes to soften tannins and allow fruit to express",
+        "glassware": "Bordeaux glass or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa",
+        "grapeVariety": "100% Pinotage from bush vines on granitic soils",
+        "vintage": "2021",
+        "style": "Elegant, refined Pinotage with French oak maturation (18 months)",
+        "ageability": "Drink now through 2028. Currently drinking well with further aging potential."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:41:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Nymphe De Emue Rose 2022",
+      "description": "An organic and biodynamic rosé from the Minervois region of Languedoc, France. Made from Grenache grapes using biodynamic farming practices, this wine showcases the terroir-driven, mineral-focused approach of Château Maris. Pale salmon pink in color, it represents modern Provençal-style rosé with elegance and freshness.",
+      "tastingNotes": {
+        "aroma": "Pale salmon pink in appearance, the nose offers delicate strawberry bonbons dusted with icing sugar. Fresh aromas of red berries blend with citrus fruits and mineral notes. Subtle hints of maraschino cherries, apricots, and eucalyptus add aromatic complexity, while raspberry brambles provide a wild fruit character.",
+        "palate": "Rounded in the mouth with creamy red fruit textures and a hint of sweetness from the ripe fruit (the wine itself is dry). The mineral core provides backbone and structure. Flavors of tart fruit, citrus zest, and ripe pear dominate, balanced by excellent acidity that gives the wine energy and presence.",
+        "finish": "The finish is dry and citrus fresh with good acidity providing balance and meaning. Lingering mineral notes and pert freshness characterize the clean, refreshing conclusion."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean vegetables",
+        "Bouillabaisse or seafood stew",
+        "Niçoise salad with fresh tuna",
+        "Goat cheese and herb tart",
+        "Provençal chicken with tomatoes and olives"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well chilled",
+        "decanting": "Not necessary; serve directly from bottle, chilled",
+        "glassware": "White wine glass or tulip-shaped rosé glass"
+      },
+      "wineDetails": {
+        "region": "Minervois, Languedoc-Roussillon, France",
+        "grapeVariety": "Grenache (100% organic and biodynamic)",
+        "vintage": "2022",
+        "style": "Pale Provençal-style rosé with mineral focus and organic farming",
+        "ageability": "Drink now through 2024. Best enjoyed young and fresh."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:42:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wine Kitchen WK White",
+      "brand": null,
+      "description": "A proprietary white blend from Wine Kitchen, likely a house selection designed for food pairing versatility. While specific vintage and composition details are limited, this appears to be a restaurant-branded wine focusing on approachability and culinary compatibility.",
+      "tastingNotes": {
+        "aroma": "Clean, fresh aromas of citrus fruits and orchard fruits like apple and pear. Subtle floral notes add aromatic lift. The nose is straightforward and inviting with hints of lemon zest and white flowers.",
+        "palate": "Crisp and refreshing on the palate with bright acidity. Flavors of green apple, citrus, and subtle stone fruit provide a clean, food-friendly profile. Medium-light body with balanced fruit and acidity makes this an easy-drinking, versatile white wine.",
+        "finish": "Clean, refreshing finish with lingering citrus notes and crisp acidity. The conclusion is straightforward and palate-cleansing."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish",
+        "Light pasta with white wine sauce",
+        "Grilled fish with herbs",
+        "Summer salads with vinaigrette",
+        "Soft cheeses and crackers"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well chilled",
+        "decanting": "Not necessary",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely domestic blend)",
+        "grapeVariety": "Proprietary white blend",
+        "vintage": "Non-vintage",
+        "style": "Easy-drinking, food-friendly white blend",
+        "ageability": "Drink within 1-2 years of purchase for optimal freshness"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.60,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casa Dumetz Clementine Carter Grenache Blanc 2024",
+      "description": "A distinctive Grenache Blanc from Santa Barbara County's premier vineyards, produced by the rebranded Clementine Carter (formerly Casa Dumetz) in Los Alamos. The wine showcases an intensity of character from select vineyard sites, co-fermented at cold temperatures in stainless steel to preserve freshness and texture. Blends Grenache Gris from Tierra Alta and organic Grenache from Sta. Rita Hills.",
+      "tastingNotes": {
+        "aroma": "Vibrant aromatics evoke freshly candied citrus—grapefruit, lime, and oranges all in one. The nose displays intensity and energy with bright citrus zest, white flowers, and subtle mineral notes. Hints of white peach and green apple add complexity to the citrus-forward profile.",
+        "palate": "The palate emphasizes texture and elongated presence from super-cold fermentation in stainless steel drums. Intense citrus flavors—grapefruit, lime, candied orange—dominate with excellent weight and body. The wine shows impressive depth for a white, with layers of stone fruit, subtle tropical notes, and minerality providing backbone. Fresh acidity maintains balance and energy throughout.",
+        "finish": "Long, persistent finish with lingering citrus character and mineral notes. The cold fermentation technique creates an elongated finish with excellent purity and freshness."
+      },
+      "foodPairings": [
+        "Grilled prawns with citrus butter",
+        "Ceviche or crudo",
+        "Fresh goat cheese salad",
+        "Roasted chicken with lemon and herbs",
+        "Seared scallops with grapefruit beurre blanc"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "Not necessary; the wine benefits from 10-15 minutes in glass to warm slightly and open up",
+        "glassware": "White Burgundy glass to showcase texture and aromatics"
+      },
+      "wineDetails": {
+        "region": "Santa Barbara County, California (Sta. Rita Hills)",
+        "grapeVariety": "Grenache Blanc, Grenache Gris blend from Tierra Alta and Peake Ranch",
+        "vintage": "2024",
+        "style": "Modern California Grenache Blanc with cold fermentation and textural focus",
+        "ageability": "Drink now through 2027. Best in first 2-3 years for optimal freshness."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T12:44:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Campus Oaks Cabernet Sauvignon 2018",
+      "description": "A fruit-forward yet European-styled Cabernet Sauvignon exclusively from Lodi plantings. The warm Lodi days ripen the fruit fully while cool Delta breezes retain natural acidity. Made in a lighter, fresher European style with complementary oak that enhances rather than overwhelms the fruit character. Single vineyard expression from Lodi Appellation.",
+      "tastingNotes": {
+        "aroma": "Dark purple-garnet appearance leads to ripe aromatics of plum and blackberry. The nose reveals hints of clove and leather, adding complexity to the dark fruit core. Subtle notes of dark chocolate and lightly toasted oak weave through the fruit without dominating.",
+        "palate": "Fruit-forward and easy-drinking with ripe plum and blackberry flavors taking center stage. Dark chocolate notes emerge on the mid-palate, complemented by lightly toasted oak. The wine maintains a European-style freshness with lighter body and bright acidity balancing the ripe fruit. Mild tannins provide structure without heaviness.",
+        "finish": "Fruity and smooth finish with lingering dark fruit and subtle oak character. The tannins are soft and integrated, creating an approachable, food-friendly conclusion."
+      },
+      "foodPairings": [
+        "Grilled ribeye or New York strip steak",
+        "Beef short ribs with red wine reduction",
+        "Aged cheddar or aged Gouda",
+        "Mushroom risotto",
+        "Lamb chops with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Optional; 15-20 minutes allows fruit to express more fully",
+        "glassware": "Bordeaux glass or Cabernet-specific glass"
+      },
+      "wineDetails": {
+        "region": "Lodi AVA, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Fruit-forward California Cab with European-style freshness and balance",
+        "ageability": "Drink now through 2026. Currently in optimal drinking window."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Estate Reserve Red 2021",
+      "description": "A Bordeaux-style blend from the prestigious Simonsberg-Paarl region of South Africa, scoring 92 points. The 2021 vintage combines Cabernet Sauvignon (46%), Merlot (40%), Cabernet Franc (7%), and Petit Verdot (7%) from Noble Hill's decomposed granite slopes. Oak plays a well-integrated supporting role to the expressive fruit character.",
+      "tastingNotes": {
+        "aroma": "The nose opens with fresh black currant and plum aromas, complemented by a distinctive touch of mint. The granitic terroir contributes mineral undertones and cool-climate character. Subtle notes of cedar, graphite, and dark chocolate emerge with aeration, along with hints of dried herbs and tobacco leaf from the oak integration.",
+        "palate": "The palate delivers concentrated flavors of black currant, plum, and dark berries with excellent depth. The Merlot component provides suppleness and mid-palate weight, while Cabernet Sauvignon gives structure and intensity. Cabernet Franc adds herbal complexity and freshness, with Petit Verdot contributing color and tannic grip. Oak plays a well-integrated supporting role, adding spice and complexity without overwhelming the fruit.",
+        "finish": "Long, structured finish with firm but refined tannins. Black fruit flavors persist alongside mineral notes and subtle oak character, concluding with excellent balance and age-worthiness."
+      },
+      "foodPairings": [
+        "Grilled T-bone or porterhouse steak",
+        "Braised lamb shank with root vegetables",
+        "Roast beef with peppercorn sauce",
+        "Aged blue cheese or Stilton",
+        "Venison medallions with berry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow tannins to soften and complex aromas to develop",
+        "glassware": "Large-bowled Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, South Africa",
+        "grapeVariety": "46% Cabernet Sauvignon, 40% Merlot, 7% Cabernet Franc, 7% Petit Verdot",
+        "vintage": "2021",
+        "style": "Bordeaux-style blend with Old World character from granitic soils",
+        "ageability": "Drink now through 2031. Currently approachable but with significant aging potential."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:46:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Cabernet Sauvignon 2018",
+      "description": "A terroir-driven Cabernet Sauvignon from Simonsberg-Paarl's decomposed granite soils, offering exceptional value at around $10. The wine exhibits an earthy, cool, distinctively Old World character that sets it apart from New World fruit bombs. Designed for elegant aging with increased refinement over time.",
+      "tastingNotes": {
+        "aroma": "The nose is defined by the decomposed granite terroir, showing earthy, cool, Old World character. Black fruit aromas—black currant, blackberry—mingle with cedar and a hint of spice. Subtle notes of graphite, pencil lead, and forest floor add complexity, along with touches of dark chocolate and dried herbs.",
+        "palate": "The palate emphasizes the granitic terroir with earthy notes providing a savory backbone to the black fruit core. Flavors of black currant, dark cherry, and plum are complemented by cedar, earth, and spice. The wine shows restraint and elegance rather than power, with medium body and well-integrated oak. Firm tannins provide structure for aging.",
+        "finish": "Medium to long finish with persistent earthy character, black fruit, and mineral notes. The granitic signature continues through the conclusion with refined tannins and excellent balance."
+      },
+      "foodPairings": [
+        "Grass-fed beef burger with aged cheddar",
+        "Roasted leg of lamb with herbs",
+        "Wild mushroom and truffle pasta",
+        "Gruyère or aged Gouda",
+        "Venison stew with root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 30-45 minutes to soften tannins and allow earthy notes to integrate",
+        "glassware": "Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Old World-styled Cabernet with earthy, mineral character from granite soils",
+        "ageability": "Drink now through 2028. Should show increased refinement with age."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T12:47:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Shake Ridge Petite Sirah 2018",
+      "description": "A premium Petite Sirah from Amador County's most sought-after vineyard, Shake Ridge Ranch, planted at 1,650-1,800 feet elevation in ancient volcanic and granitic soils. The wine received 92 points and showcases 30 months in 50% new Hungarian oak plus 36 months of bottle aging before release. Bottled unfiltered and unfined on native yeasts. 100% Petite Sirah harvested October 23, 2018, 14.9% alcohol.",
+      "tastingNotes": {
+        "aroma": "Deep, concentrated aromatics reveal layers of currant, blackberry, and dark plum. Aromatic complexity builds with Aleppo pepper, black pepper, and exotic spice notes. Hints of braised pork, roast duckling, and cigar box add savory depth. The extended bottle aging has integrated the oak beautifully, contributing notes of vanilla, cedar, and dark chocolate.",
+        "palate": "Massively concentrated and structured, the palate delivers intense dark fruit flavors—blackberry, black currant, black plum. The volcanic and granitic soils contribute mineral complexity and firm tannic structure. Flavors of dark chocolate, espresso, and exotic spices weave through the fruit core. The Hungarian oak provides subtle vanilla and spice without overwhelming. Full-bodied with impressive density and layers of flavor.",
+        "finish": "Very long, powerful finish with persistent dark fruit, spice, and mineral notes. Firm but refined tannins from the extended aging provide structure for further cellaring. The high-elevation mountain fruit character lingers with excellent persistence."
+      },
+      "foodPairings": [
+        "Braised short ribs with red wine reduction",
+        "Grilled ribeye with peppercorn crust",
+        "Wild boar ragu over pappardelle",
+        "Aged blue cheese or vintage cheddar",
+        "Barbecued beef brisket"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 60-90 minutes to soften tannins and allow complex aromas to emerge",
+        "glassware": "Large-bowled Bordeaux or Syrah glass"
+      },
+      "wineDetails": {
+        "region": "Shake Ridge Ranch, Amador County, California (Sierra Foothills)",
+        "grapeVariety": "100% Petite Sirah",
+        "vintage": "2018",
+        "style": "Mountain-grown Petite Sirah with extended oak and bottle aging, unfiltered/unfined",
+        "ageability": "Drink now through 2033. Extended aging potential thanks to structure and concentration."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T12:48:00.000Z"
+      }
+    }
+  ]
+}

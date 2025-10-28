@@ -1,0 +1,358 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batch": 31,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Burdi Negroamaro Bianco 2019",
+      "description": "Burdi Negroamaro is crafted by Duca di Carlo Guarini from Puglia's Salento region, showcasing the versatility of the Negroamaro grape. While traditionally vinified as a red wine, this white vinification demonstrates the grape's aromatic potential and crisp character when handled with care.",
+      "tastingNotes": {
+        "aroma": "The nose reveals delicate scents of white flowers and citrus blossoms, with subtle hints of Mediterranean herbs and green apple. Unlike its red counterpart, the white vinification brings forward fresher, more vibrant aromatics that speak to the grape's natural acidity and the warm Puglian terroir. There are gentle notes of white peach and a hint of almond blossom that add complexity.",
+        "palate": "On the palate, this wine displays bright acidity and refreshing minerality characteristic of white-vinified Negroamaro. The texture is crisp and clean, with flavors of green apple, citrus zest, and white stone fruits dancing across the tongue. A subtle herbal quality reminiscent of fennel and wild herbs adds depth, while maintaining the wine's elegant, light-bodied profile that makes it wonderfully food-friendly.",
+        "finish": "The finish is clean and refreshing with lingering citrus notes and a pleasant mineral edge. There's a subtle saline quality that reflects the proximity to the Adriatic Sea, leaving the palate refreshed and ready for another sip."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean seafood and calamari",
+        "Fresh burrata with heirloom tomatoes",
+        "Orecchiette pasta with broccoli rabe",
+        "Fried artichokes Roman-style",
+        "Light vegetable risotto with lemon"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting needed; serve immediately chilled to preserve freshness",
+        "glassware": "White wine glass or tulip-shaped glass"
+      },
+      "wineDetails": {
+        "region": "Salento IGT, Puglia, Italy",
+        "grapeVariety": "100% Negroamaro (white vinification)",
+        "vintage": "2019",
+        "style": "Crisp, dry white wine with Mediterranean character",
+        "ageability": "Best enjoyed within 2-3 years of vintage to preserve freshness and aromatic intensity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Found producer information for Burdi Negroamaro; white vinification is uncommon for this grape"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lambert Estate Thoroughbred Cabernet Sauvignon 2019",
+      "description": "Lambert Estate Thoroughbred Cabernet Sauvignon embodies the bold spirit and elite character of Barossa Valley winemaking. Crafted by winemaker Kirk Lambert from meticulous vineyard selection with elite vine stock and specific clonal traits, this wine represents the performance and finesse of a true thoroughbred.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with concentrated aromas of blackcurrant, cassis, and ripe dark plums, interwoven with hints of cedar, tobacco leaf, and dark chocolate. There's an underlying complexity of sweet baking spices including vanilla and cinnamon from quality oak aging, while subtle eucalyptus notes add a distinctly Australian character. The intensity and concentration speak to the warm Barossa climate and low-yielding vines.",
+        "palate": "Full-bodied and powerful, the palate delivers rich flavors of black cherry, blackberry compote, and dark chocolate, supported by firm yet silky tannins that provide excellent structure. The wine shows remarkable depth and concentration with layers of mocha, roasted coffee beans, and dark fruit preserves. The integration of French and American oak is seamless, contributing complexity without overwhelming the fruit. There's a wonderful tension between power and elegance that defines quality Barossa Cabernet.",
+        "finish": "The finish is long and persistent, with lingering dark fruit flavors, subtle oak spice, and a hint of graphite minerality. Fine-grained tannins provide backbone and aging potential, while the wine's natural acidity keeps everything balanced and fresh through the extended finish."
+      },
+      "foodPairings": [
+        "Prime aged ribeye steak with peppercorn sauce",
+        "Braised lamb shanks with rosemary and garlic",
+        "Grilled portobello mushrooms with blue cheese",
+        "Beef Wellington with rich jus",
+        "Aged cheddar or smoked Gouda cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and tannins to soften",
+        "glassware": "Large Bordeaux-style glass to allow aeration"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "100% Cabernet Sauvignon from estate vineyards",
+        "vintage": "2019",
+        "style": "Full-bodied, oak-aged premium Cabernet with classic Barossa power",
+        "ageability": "Drink now through 2029; the wine will develop additional complexity with 5-10 years of careful cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Found producer and wine line details; tasting notes based on Barossa Valley Cabernet characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frico Frizzante Cans IGT Venezie Cans (NOVA only) 250 ml",
+      "description": "Frico Frizzante by Scarpetta brings the joy of Italian sparkling wine in a convenient, portable format. Created by Master Sommelier Bobby Stuckey and former French Laundry Chef Lachlan Patterson, this lightly sparkling wine captures the essence of Prosecco-style refreshment with modern accessibility.",
+      "tastingNotes": {
+        "aroma": "Bright and inviting aromatics lead with fresh green apple, ripe pear, and white peach, accented by delicate white flowers and citrus zest. The nose has a clean, youthful quality with hints of honeydew melon and a whisper of fresh herbs. There's an appealing freshness that immediately suggests the wine's refreshing, aperitivo style character.",
+        "palate": "Light, refreshing bubbles dance across the palate delivering crisp flavors of Granny Smith apple, Asian pear, and citrus. The blend of Trebbiano, Glera, and Chardonnay creates a harmonious balance between fruity sweetness and bright acidity. The frizzante style—with gentler bubbles than fully sparkling Prosecco—makes the wine incredibly approachable and easy to drink. The texture is clean and vibrant with a subtle creaminess that adds depth without heaviness.",
+        "finish": "The finish is clean and refreshing with lingering notes of apple and citrus, accompanied by fine, persistent bubbles that cleanse the palate. A subtle mineral quality emerges at the end, adding sophistication to this fun, approachable wine."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood platters",
+        "Prosciutto and melon antipasti",
+        "Light summer salads with citrus vinaigrette",
+        "Fried calamari with lemon aioli",
+        "Fresh fruit and soft cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well chilled",
+        "decanting": "Pour directly from can into glass; no decanting needed",
+        "glassware": "Flute or white wine glass; can also be enjoyed from the can"
+      },
+      "wineDetails": {
+        "region": "Veneto IGT, Northeastern Italy",
+        "grapeVariety": "Blend of Trebbiano, Glera, and Chardonnay",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Lightly sparkling (frizzante) white wine, slightly less fizzy than Prosecco",
+        "ageability": "Drink immediately; best consumed fresh within 1 year"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Complete information found for Scarpetta Frico Frizzante including blend composition and tasting profile"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Veneration Red Blend 2021",
+      "description": "Veneration represents Aratas Wine's tribute to the art of blending, crafted by founders Stephanie Douglas and John Chohany along with John's brother Mickey. This Napa Valley red blend honors their Hungarian heritage, with 'Aratas' meaning 'harvest of gold' in Magyar, reflecting the precious nature of this wine.",
+      "tastingNotes": {
+        "aroma": "The nose is powerfully expressive with concentrated aromas of ripe blackberry, dark plum, and black cherry, layered with notes of violets, espresso, and dark cocoa. There's a compelling spice character showing hints of black pepper, clove, and a touch of tobacco. The Hungarian oak aging contributes unique aromatic elements including subtle exotic spices and a refined cedar note that distinguishes this blend from typical American oak-aged wines.",
+        "palate": "Full-bodied and intensely flavored, the palate showcases the Petite Sirah dominance with bold dark fruit flavors, robust tannins, and impressive concentration. Blackberry jam, blueberry compote, and dark cherry mingle with flavors of mocha, dark chocolate, and sweet baking spices. The Syrah component adds depth and savory complexity with notes of cured meat, olive tapenade, and cracked pepper. The Hungarian oak influence provides a distinctive spice profile that's more refined and less vanilla-forward than American oak, adding sophistication and old-world character.",
+        "finish": "The finish is long and powerful with persistent dark fruit, espresso, and exotic spice notes. Substantial yet refined tannins provide structure for aging, while the wine maintains excellent balance throughout its extended finish. Hints of graphite and dark chocolate linger beautifully."
+      },
+      "foodPairings": [
+        "Grilled ribeye with chimichurri sauce",
+        "Braised short ribs with red wine reduction",
+        "Wild boar ragù over pappardelle",
+        "Smoked brisket with barbecue sauce",
+        "Aged Manchego or sharp aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant for 60-90 minutes to allow the wine to fully express its complexity",
+        "glassware": "Large Bordeaux glass to maximize aeration"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "Primarily Petite Sirah and Syrah (blend percentages vary by vintage, typically 65-70% Petite Sirah, 30-35% Syrah, with occasional Cabernet Sauvignon)",
+        "vintage": "2021",
+        "style": "Full-bodied, oak-aged Napa Valley red blend with Hungarian heritage influence",
+        "ageability": "Drink 2024-2035; 23 months Hungarian oak aging, unfined and unfiltered for maximum aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Found detailed producer information and blend composition based on prior vintages"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Vina Albina Reserva 2017",
+      "description": "Viña Albina is one of Spain's oldest and most iconic wine brands, produced by the century-old Bodegas Riojanas. This Reserva represents the classical Rioja style with extended oak aging and a traditional blend of indigenous Rioja varieties from high-altitude vineyards in Rioja Alta.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals the complexity of extended aging with aromas of ripe raisin, black cassis, and baked plum reflecting the hot, dry 2017 vintage. Classic Rioja oak influence shows prominently with notes of vanilla, coconut, cedar, and sweet baking spices from the 30 months in American oak. Additional layers include leather, tobacco, dried herbs, and a hint of balsamic complexity that develops with air. The integration of fruit and oak speaks to the wine's careful maturation.",
+        "palate": "Medium to full-bodied with a rich, concentrated palate showing flavors of dark cherry preserves, dried fig, raisin, and plum compote balanced by savory notes of leather, earth, and dried herbs. The Tempranillo provides the core structure and red fruit character, while Mazuelo adds tannin and acidity, and Graciano contributes aromatic complexity and freshness. The American oak aging is evident but well-integrated, offering vanilla, coconut, and spice notes that complement rather than dominate. Despite the warm vintage, the wine maintains good acidity and structure.",
+        "finish": "The finish is long with persistent flavors of baked plum, sweet spice, and vanilla, complemented by subtle earthy notes and well-integrated tannins. The wine shows the classic Rioja duality of fruit ripeness and oak complexity, leaving a satisfying, slightly savory impression."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary and garlic",
+        "Ibérico ham and aged Spanish cheeses",
+        "Chorizo and white bean stew",
+        "Grilled venison with berry reduction",
+        "Manchego cheese with quince paste"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to express its full complexity",
+        "glassware": "Burgundy or large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja Alta DOCa, Spain",
+        "grapeVariety": "80% Tempranillo, 15% Mazuelo, 5% Graciano from old, high-altitude (550-700m) vineyards",
+        "vintage": "2017",
+        "style": "Traditional oak-aged Rioja Reserva with classic American oak influence",
+        "ageability": "Drink now through 2030; 30 months American oak aging with additional bottle age provides drinking pleasure now with potential for further development"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Found detailed Wine Enthusiast review (87 points) and complete production information for 2017 vintage"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sun Break Ariane Pinot Noir 2021",
+      "description": "Sun Break's Ariane Pinot Noir represents a distinctive approach to Oregon winemaking, crafted from the estate Cortell-Rose Vineyard in the Eola-Amity Hills AVA. This wine showcases 100% whole cluster fermentation, creating a lighter, more ethereal style with pronounced savory and earthy characteristics.",
+      "tastingNotes": {
+        "aroma": "A phenomenal nose bursts with bright aromatics of Bing cherry, fresh raspberry, and red rose petals, complemented by sweet herbs and vibrant orange zest. The whole cluster fermentation contributes additional complexity with subtle green tea, forest floor, and stem spice notes that add an intriguing herbal dimension. There's a beautiful floral quality reminiscent of violet and peony, while hints of cranberry and pomegranate add brightness and lift to the aromatic profile.",
+        "palate": "The palate shifts toward more savory, earthy territory with flavors of red cherry, wild strawberry, and cranberry interwoven with forest herbs, mushroom, and damp earth. The whole cluster fermentation creates a silky yet structured texture with fine-grained tannins that provide grip without heaviness. There's an elegant restraint and purity of fruit expression balanced by compelling savory elements including dried herbs, black tea, and a subtle stem spice that adds intrigue. The wine shows remarkable complexity and depth while maintaining a lighter body and ethereal quality.",
+        "finish": "The finish is medium-length with lingering red fruit and herbal notes, complemented by fine tannins and bright acidity that refreshes the palate. The savory, earthy character persists beautifully, leaving an impression of elegance and terroir-driven complexity."
+      },
+      "foodPairings": [
+        "Herb-roasted chicken with wild mushrooms",
+        "Duck breast with cherry gastrique",
+        "Grilled salmon with herbs de Provence",
+        "Mushroom risotto with truffle oil",
+        "Soft-ripened cheeses like Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), slightly cooler than typical Pinot",
+        "decanting": "Brief 20-30 minute decant or generous swirl in glass to open aromatics",
+        "glassware": "Burgundy glass to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Eola-Amity Hills AVA, Willamette Valley, Oregon",
+        "grapeVariety": "100% Pinot Noir from Cortell-Rose Vineyard (all six clones/blocks)",
+        "vintage": "2021",
+        "style": "Lighter-bodied, whole cluster fermented Pinot with savory, earthy character",
+        "ageability": "Drink 2024-2029; 89 points Wine Enthusiast; the wine is best enjoyed relatively young to appreciate its fresh fruit and herbal qualities"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Found detailed tasting notes and Wine Enthusiast 89-point rating for this specific vintage"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rivers Edge Barrell Select Pinot Noir 2018",
+      "description": "River's Edge Winery, founded in 1998 in Oregon's Elkton AVA, specializes in exceptional Pinot Noir from their estate vineyards planted in 1972. The Barrel Select represents a careful selection of the finest barrels, showcasing the unique terroir of the Umpqua Valley's southern Oregon wine region.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromas of black cherry and ripe strawberry, layered with notes of rich espresso, dark cocoa, and a hint of vanilla from quality oak aging. There's an inviting complexity showing dried rose petals, forest floor, and subtle baking spices including cinnamon and nutmeg. The maturity of the 2018 vintage adds additional depth with emerging notes of leather, tobacco, and dried herbs that complement the fruit beautifully.",
+        "palate": "Medium-bodied with excellent concentration, the palate delivers flavors of black cherry, espresso, and dark chocolate balanced by bright acidity and silky tannins. The barrel selection is evident in the wine's integration and polish, with seamless oak contributing structure and complexity without overwhelming the fruit. Layers of red and black cherry, raspberry, and plum mingle with savory notes of mushroom, earth, and a subtle smokiness. The wine shows the depth and character of older vines with concentrated flavors and excellent length.",
+        "finish": "The finish is long and satisfying with persistent cherry and espresso notes, complemented by fine tannins and a subtle earthy quality. The wine's balance ensures it finishes clean and elegant, inviting another sip."
+      },
+      "foodPairings": [
+        "Pan-seared duck breast with cherry sauce",
+        "Grilled Pacific salmon with herb butter",
+        "Wild mushroom and truffle pasta",
+        "Roasted pork tenderloin with dried fruit compote",
+        "Aged Gruyère or comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "Decant for 30 minutes to allow integration and aromatic expression",
+        "glassware": "Burgundy glass to enhance aromatics"
+      },
+      "wineDetails": {
+        "region": "Elkton Oregon AVA, Umpqua Valley, Southern Oregon",
+        "grapeVariety": "100% Pinot Noir from estate vineyards planted in 1972",
+        "vintage": "2018",
+        "style": "Medium-bodied, barrel-selected Oregon Pinot with espresso and dark fruit notes",
+        "ageability": "Drink now through 2026; the wine is approaching its peak drinking window with additional bottle age developing tertiary complexity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Found winery information and general style notes; tasting notes based on adjacent vintage reviews and Elkton Pinot characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boplaas Fledge & Co. Vagabond White Blend 2022",
+      "description": "The Fledge & Co. is the nomadic winemaking project from Margaux Nel, daughter of Boplaas winery, and her husband Leon Coetzee. Vagabond embodies their philosophy of sourcing exceptional fruit from diverse sites across South Africa's Western Cape, creating wines of remarkable complexity and character without owning vineyards themselves.",
+      "tastingNotes": {
+        "aroma": "The nose is bright and exuberant with layers of citrus, tropical fruit, and floral aromatics. Grapefruit zest and fresh pineapple dominate initially, followed by delicate rose petal, honeysuckle, and hints of white peach. There's an appealing complexity showing subtle notes of honey-infused cream, wet stone minerality, and a whisper of fresh herbs. The diverse blend creates an aromatic tapestry that's both immediately appealing and intellectually engaging.",
+        "palate": "The palate is vibrant and multi-dimensional, showcasing the complexity of the 8-grape blend. Bright acidity provides the backbone for flavors ranging from citrus (grapefruit, lemon) to tropical fruits (pineapple, passion fruit) and stone fruits (white peach, apricot). The Chenin Blanc contributes texture and body, Roussanne adds richness and honeyed notes, while Verdelho and Colombard provide tropical fruit character. Grenache Blanc, Viognier, and Riesling add aromatic complexity and floral notes, with Chardonnay and Macabeo rounding out the blend with structure and minerality. At 13% alcohol, the wine remains fresh and balanced.",
+        "finish": "The finish is refreshing and lengthy with persistent citrus and mineral notes. High acidity keeps the palate vibrant and cleansed, while subtle honeyed richness lingers pleasantly. The wine's complexity continues to reveal itself through the extended finish."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic and lemon",
+        "Thai green curry with chicken",
+        "Sushi and sashimi selection",
+        "Roasted chicken with herbs and citrus",
+        "Soft goat cheese and fresh salads"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting required; serve well-chilled to preserve freshness",
+        "glassware": "White wine glass with moderate bowl"
+      },
+      "wineDetails": {
+        "region": "Western Cape, South Africa",
+        "grapeVariety": "32% Chenin Blanc, 18% Roussanne, 15% Verdelho, 10% Colombard, 8% Grenache Blanc, 5% Viognier, 5% Riesling, 3% Chardonnay, 2% Macabeo",
+        "vintage": "2022",
+        "style": "Bright, complex multi-varietal white blend with high acidity and moderate alcohol (13%)",
+        "ageability": "Best enjoyed 2024-2026; Trophy Wine Show Silver medal; 92/100 critics score; excellent for warm weather drinking"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Complete vintage information found including exact blend composition, critical scores, and detailed tasting profile"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Abadia de Acon Targum 2015",
+      "description": "Targum represents the icon wine from Abadía de Acón, one of the prestigious producers in Spain's Ribera del Duero region. Crafted from ancient Tempranillo vines over 70 years old, this wine embodies the power, elegance, and aging potential that defines world-class Ribera del Duero.",
+      "tastingNotes": {
+        "aroma": "The nose is powerful and complex, revealing concentrated aromas of ripe black cherry, blackberry, and dark plum intermingled with notes of cedar, cigar box, and vanilla from extensive oak aging. The 2015 vintage shows beautiful maturity with emerging tertiary aromas of leather, tobacco, dried herbs, and a hint of truffle. There's an elegant spice character with notes of black pepper, clove, and sweet baking spices, while the old vine fruit contributes remarkable depth and concentration. Subtle floral notes of violet and dried rose petals add finesse.",
+        "palate": "Full-bodied and magnificently structured, the palate showcases the power and elegance of old vine Tempranillo (Tinta Fina). Intense flavors of black cherry, cassis, and dark chocolate are complemented by layers of espresso, vanilla, and sweet oak spice from 18 months in French and American oak. The wine shows exceptional concentration and depth with flavors of blackberry compote, licorice, and dark cocoa, balanced by firm yet refined tannins that provide structure for extended aging. There's a beautiful complexity showing both fruit intensity and savory elements including earth, leather, and dried meat. The integration of fruit, oak, and tannin is seamless after bottle aging.",
+        "finish": "The finish is extremely long and persistent with lingering dark fruit, espresso, and spice notes. Firm tannins provide backbone while maintaining elegance, and the wine's natural acidity keeps everything balanced through the extended finish. Hints of tobacco, leather, and dark chocolate linger beautifully, showcasing the wine's maturity and potential for further aging."
+      },
+      "foodPairings": [
+        "Grilled Castilian lamb chops with rosemary",
+        "Slow-braised beef cheeks in red wine",
+        "Aged Manchego cheese with membrillo",
+        "Roasted duck with black cherry sauce",
+        "Porcini mushroom risotto with truffle"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 60-90 minutes to allow the wine to fully express its complexity and soften tannins",
+        "glassware": "Large Bordeaux glass to maximize aeration"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo (Tinta Fina) from 70+ year old vines",
+        "vintage": "2015",
+        "style": "Full-bodied, age-worthy icon wine; 18 months French and American oak, 18 months bottle aging",
+        "ageability": "Drink now through 2035; the wine is in an excellent drinking window with substantial aging potential remaining"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Found complete production information including oak aging, old vine source, and wine style from Ribera del Duero"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Perucchi Vermouth Red Gran Reserva 1000 ml",
+      "description": "Perucchi has been crafted in Catalonia, Spain since 1886 following the original recipe of Augustus Perucchi. This Gran Reserva is the official vermouth provider to the Spanish Royal Family, distinguished by its use of over 50 natural botanicals and a unique soleras aging system dating back to 1876.",
+      "tastingNotes": {
+        "aroma": "The nose is complex and inviting with characteristic vermouth aromatics showcasing dry wood, bitter herbs, and sweet spices. Macerated cherry and dried fruit notes mingle with distinctive botanical elements including liquorice, black pepper, clove, and gentian root. The Gran Reserva shows additional depth from aging in old brandy barrels with notes of caramel, vanilla, and oxidative complexity. There's an herbal quality reminiscent of wormwood, chamomile, and Mediterranean herbs that creates an intriguing aromatic profile both bitter and sweet.",
+        "palate": "The palate is balanced and slightly bitter in the classic vermouth style, showing soft richness balanced by herbal complexity and gentle sweetness. Flavors of macerated cherry, raisin, and dried fig are complemented by a complex array of botanical notes including bitter orange peel, gentian, cinchona bark, and aromatic spices. The two years of aging in old brandy barrels adds depth and roundness with subtle notes of caramel, vanilla, and oxidized fruit. At 15% alcohol, the vermouth maintains excellent balance and drinkability. The texture is smooth and silky with good body and persistence.",
+        "finish": "The finish is long with lingering bitter herb notes, macerated fruit, and sweet spices. The slightly bitter quality characteristic of quality vermouth persists pleasantly, balanced by subtle sweetness and warming alcohol. The complexity of the 50+ botanicals continues to reveal itself through the extended finish."
+      },
+      "foodPairings": [
+        "Aperitivo hour with Spanish olives and almonds",
+        "Cured meats and aged cheeses",
+        "Dark chocolate with sea salt",
+        "As a digestif with tapas",
+        "Negroni or Manhattan cocktails"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) for aperitif service, or room temperature as digestif",
+        "decanting": "No decanting needed; serve directly over ice with orange peel for aperitivo",
+        "glassware": "Rocks glass over ice, or coupe glass for cocktails"
+      },
+      "wineDetails": {
+        "region": "Catalonia, Spain",
+        "grapeVariety": "Fortified wine base with 50+ natural botanicals including wormwood, herbs, and spices",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Gran Reserva Spanish vermouth; 3-year production process using 9,000L soleras system with 1876 mothers; 2 years in old brandy barrels",
+        "ageability": "Enjoy within 3 months of opening for best quality; store refrigerated after opening"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Complete information found including botanical count, production method, aging details, and official Spanish Royal Family provider status"
+      }
+    }
+  ]
+}

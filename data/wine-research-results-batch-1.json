@@ -1,0 +1,332 @@
+[
+  {
+    "productName": "Black Elephant Vintners Power of Love Chenin Blanc 2024",
+    "description": "A vibrant and full-bodied Chenin Blanc from South Africa's Swartland region, crafted from unirrigated old bush vines. This is the second vintage of the wine, which saw a change of origin from Simonsberg to Swartland, with 5% of proceeds donated to human rights organizations.",
+    "tastingNotes": {
+      "aroma": "The nose bursts with immense vibrancy and freshness, revealing generous aromas of tropical guava, ripe pineapple, and winter melon. These primary fruit notes are complemented by delicate nuances of citrus zest and hints of white pear, creating an inviting and complex bouquet that speaks to the wine's warm-climate origins.",
+      "palate": "On the palate, this Chenin Blanc truly zings with electric energy and fruit-forward character. Flavors of crisp citrus, white pear, and quince dominate the mid-palate, while yellow-fleshed peaches add a luxurious sweetness. The texture is enhanced by two months of full lees contact with regular stirring, which adds richness and a creamy mouthfeel. The lingering blood orange notes add a refreshing bitterness that balances the fruit beautifully.",
+      "finish": "The finish is fresh and balanced, with persistent citrus notes and a subtle minerality from the Swartland terroir. The vibrant acidity carries through, leaving a clean and refreshing impression that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled prawns with lemon butter",
+      "Thai green curry with chicken",
+      "Fresh oysters on the half shell",
+      "Roasted pork tenderloin with apple compote",
+      "Goat cheese salad with citrus vinaigrette"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F)",
+      "decanting": "Not required; serve directly from the bottle",
+      "glassware": "Standard white wine glass or tulip-shaped glass"
+    },
+    "wineDetails": {
+      "region": "Swartland, Western Cape, South Africa",
+      "grapeVariety": "100% Chenin Blanc from unirrigated old bush vines",
+      "vintage": "2024",
+      "style": "Full-bodied, fruit-forward dry white wine",
+      "ageability": "Drink now through 2026; best consumed young for freshness"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Shabo Original Merlot 2022",
+    "description": "A 100% Merlot from Ukraine's historic Shabo winery, crafted with guidance from Bordeaux consultant Stephane Derenoncourt. This wine showcases the potential of Ukrainian viticulture from the Odesa region, combining Old World technique with unique terroir.",
+    "tastingNotes": {
+      "aroma": "The nose presents a medium ruby color introduction, followed by an expressive and elegant bouquet. Delicate floral notes of violets and lilacs dominate initially, interwoven with fresh blackberry, black plum, and subtle reed-like herbaceous touches. The influence of French oak adds layers of vanilla and warm spice, creating a sophisticated aromatic profile that balances fruit purity with oak integration.",
+      "palate": "The palate unfolds with remarkable layers and complexity, revealing nuances of orange blossom that add unexpected floral brightness. Black cherry and red plum flavors form the core, supported by well-integrated oak that contributes structure without overwhelming the fruit. The wine shows excellent balance between acidity and tannins, with a sinewy texture that adds gravitas. Flavors of fig and olive emerge in the mid-palate, adding savory depth and Mediterranean character.",
+      "finish": "Long and elegant, with soft tannins and mild acidity that leave a lasting impression. The finish echoes with dark fruit and subtle spice, showing the wine's ability to age gracefully while remaining approachable now."
+    },
+    "foodPairings": [
+      "Beef borscht with sour cream",
+      "Grilled lamb chops with rosemary",
+      "Mushroom risotto with truffle oil",
+      "Roasted duck breast with cherry sauce",
+      "Aged cheddar and charcuterie board"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Recommend 30 minutes decanting to open up aromatics",
+      "glassware": "Bordeaux-style glass with large bowl"
+    },
+    "wineDetails": {
+      "region": "Odesa, Ukraine",
+      "grapeVariety": "100% Merlot",
+      "vintage": "2022",
+      "style": "Medium to full-bodied red wine with French oak aging",
+      "ageability": "Drink now through 2028; peak 2024-2026"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Sailor Seeks Horse Pinot Noir 2022",
+    "description": "An ethereal and serious Pinot Noir from Tasmania's Huon Valley, crafted with precision and controlled power. This wine represents a masterclass in cool-climate Pinot Noir, balancing wild aromatics with elegant structure.",
+    "tastingNotes": {
+      "aroma": "The nose displays wild, perfumed edges with complex layers of sweet herbs, game meats, and turned earth. Bright raspberry and bramble notes intertwine with unexpected elements of orange peel, roast chestnuts, and souk-like spices. The aromatic profile includes cherry clafoutis sweetness, mint freshness, and crushed stone minerality, creating a captivating and constantly evolving bouquet that pulses with energy.",
+      "palate": "The palate showcases savoury and spacious character with fine detail throughout. Sweet-sour cherry flavors combine with raspberry and herbal notes, while game and earthy undertones add complexity. The texture reveals a laciness to the tannin structure, with mineral-like aspects that speak to the volcanic soils of Tasmania. The wine demonstrates both smashability and seriousness, offering immediate pleasure while rewarding contemplation with its layered complexity.",
+      "finish": "Long and ethereal, with persistent mineral notes and delicate tannins. The finish maintains the wine's elegant energy, leaving impressions of wild berries, subtle spice, and stony minerality."
+    },
+    "foodPairings": [
+      "Duck confit with roasted root vegetables",
+      "Wild mushroom and truffle pasta",
+      "Seared salmon with beetroot purée",
+      "Roasted quail with herb stuffing",
+      "Soft-ripened Tasmanian cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "14-16°C (57-61°F)",
+      "decanting": "30-45 minutes decanting recommended to reveal complexity",
+      "glassware": "Burgundy glass with wide bowl"
+    },
+    "wineDetails": {
+      "region": "Huon Valley, Tasmania, Australia",
+      "grapeVariety": "100% Pinot Noir (including Dijon clones)",
+      "vintage": "2022",
+      "style": "Cool-climate, elegant and ethereal with wild aromatics",
+      "ageability": "Drink 2024-2032; peak 2025-2028"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Barone Di Bernaj Cabernet Sauvignon Terre Siciliane 2021",
+    "description": "A lighter, more food-friendly expression of Cabernet Sauvignon from Sicily, crafted by Cantine Madaudo. This wine showcases the bright, fruit-forward style typical of Sicilian reds with pronounced acidity and approachable character.",
+    "tastingNotes": {
+      "aroma": "The wine presents a deep ruby color in the glass, releasing an intense bouquet of pomegranate and dark cherry. The aromatic profile is pure and fruit-focused, with the bright red fruit taking center stage. Subtle earthy undertones and delicate herbal whispers provide complexity without overshadowing the primary fruit expression. The nose shows more elegance than power, suggesting a Mediterranean approach to this traditionally bold variety.",
+      "palate": "Very fruit-forward on the palate with vibrant cherry leading, followed by tart cranberry and juicy blueberry notes. The wine is lighter than expected for Cabernet Sauvignon, with bright acidity making it wonderfully food-friendly. Complex touches of fresh herbs, cooling mint, and hibiscus-like florals add interest to the mid-palate. Lingering notes of leather and earthy nuances emerge towards the finish, adding depth while maintaining the wine's approachable character.",
+      "finish": "Medium-length finish with persistent red fruit and subtle earthy notes. The pronounced acidity keeps the palate refreshed, while gentle tannins provide structure without heaviness."
+    },
+    "foodPairings": [
+      "Margherita pizza with fresh basil",
+      "Grilled swordfish with capers and olives",
+      "Pasta alla Norma with eggplant",
+      "Sicilian arancini and street food",
+      "Mild pecorino cheese with sun-dried tomatoes"
+    ],
+    "servingInfo": {
+      "temperature": "15-17°C (59-63°F)",
+      "decanting": "Brief 15-minute decanting optional; ready to drink",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Sicily, Italy (IGT Terre Siciliane)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2021",
+      "style": "Light to medium-bodied, fruit-forward with bright acidity",
+      "ageability": "Drink now through 2025; best enjoyed young"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Conde Valdemar Rose 2022",
+    "description": "An elegant rosé from Rioja, Spain, crafted as a blend of Garnacha and Mazuelo grapes. This wine represents the modern Spanish approach to rosé, combining delicate aromatics with refreshing structure and food-friendly versatility.",
+    "tastingNotes": {
+      "aroma": "The wine displays a pale pink hue with subtle purple shades, almost salmon in appearance. Fine floral aromas dominate the nose, standing prominently on rose petals and delicate floral notes from the Mazuelo grape. Slight touches of fresh red fruits, particularly raspberry, add a gentle fruitiness. The aromatic profile is wonderfully fresh and inviting, showing restraint and elegance rather than overt fruit character.",
+      "palate": "Fresh and delicate in the mouth, the palate showcases gentle, subtle fruit character with well-balanced acidity that provides structure and vibrancy. The wine is fruity without being heavy, allowing the Garnacha's elegant herbal character to shine through. Floral notes from the Mazuelo overlay the mid-palate, adding complexity and aromatic lift. The texture is light and refreshing, with a nice acidic backbone that makes it incredibly food-friendly and versatile.",
+      "finish": "Clean and refreshing with subtle herbal notes and persistent floral character. The finish is light yet satisfying, with balanced acidity leaving the palate ready for the next bite of food."
+    },
+    "foodPairings": [
+      "Smoked salmon with dill cream cheese",
+      "Mediterranean salad with feta and olives",
+      "Paella with seafood and saffron",
+      "Grilled calamari with lemon",
+      "Tomato and mozzarella caprese"
+    ],
+    "servingInfo": {
+      "temperature": "6-8°C (43-46°F)",
+      "decanting": "Not required; serve well-chilled",
+      "glassware": "White wine glass or rosé-specific glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "70% Garnacha, 30% Viura (or Garnacha-Mazuelo blend depending on vintage)",
+      "vintage": "2022",
+      "style": "Pale, delicate rosé with floral and herbal character",
+      "ageability": "Drink now through 2024; best enjoyed fresh"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Bodegas Riojanas Monte Real Gran Reserva 2005",
+    "description": "An ultra-classic Rioja Gran Reserva from one of the finest recent vintages, representing the pinnacle of traditional Spanish winemaking. This wine showcases extended aging in American oak and demonstrates the elegance and complexity that comes when a great vintage meets an iconic bottling.",
+    "tastingNotes": {
+      "aroma": "The bouquet is expressive and powerful, offering complex layers of black raspberries and black cherries intermingled with notes of Cuban cigar wrapper and woodsmoke. Fine reductive notes add intrigue, while aromas of spiced meats and a refined base of salty soil tones ground the wine in its terroir. Cloves and brown spices mingle with the characteristic vanilla notes of American oak, creating a dense and captivating aromatic profile. Cedary oak provides an elegant framing to the entire bouquet.",
+      "palate": "Deep, full-bodied, and immensely complex, the wine is just approaching its apogee of peak drinkability. The palate reveals toasty, spicy character with reductive nuances that add depth and intrigue. Dense mulberry fruit shows full brambly character with a structured, meaty style. The texture is rich and layered, with the extended aging providing silky tannins and remarkable integration. Cherry and garnet notes persist throughout, while the discreet red berry fruit base is enhanced by subtle volatile lift.",
+      "finish": "Long and meaty with structured tannins that have softened beautifully with age. The finish shows classic Rioja characteristics of vanilla oak, dried fruits, and warm spices, with a refined earthiness that lingers gracefully."
+    },
+    "foodPairings": [
+      "Roasted leg of lamb with garlic and herbs",
+      "Dry-aged ribeye steak with peppercorn sauce",
+      "Wild game such as venison or wild boar",
+      "Manchego cheese aged 12+ months",
+      "Braised short ribs with root vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "17-19°C (63-66°F)",
+      "decanting": "Recommended 1-2 hours decanting to fully open",
+      "glassware": "Large Bordeaux or Rioja-specific glass"
+    },
+    "wineDetails": {
+      "region": "Rioja Alta DOCa, Spain",
+      "grapeVariety": "Tempranillo-based blend with traditional Rioja varieties",
+      "vintage": "2005",
+      "style": "Classic Gran Reserva with American oak aging, full-bodied and complex",
+      "ageability": "At peak drinkability now; drink 2024-2030"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Patrick Sullivan Chardonnay 2023",
+    "description": "A stunning expression of Chardonnay from one of Australia's most thoughtful viticulturists and winemakers. Crafted from volcanic soils with minimal intervention, this wine transmits its place with precision and complexity, representing Sullivan's focus on terroir-driven winemaking.",
+    "tastingNotes": {
+      "aroma": "Enticing and complex aromas leap from the glass, featuring candied lime and makrut lime leaf that provide exotic citrus character. Ripe apricot adds stone fruit richness, while fresh brioche notes suggest subtle lees influence without heavy oak. Spicy notes weave through the aromatic profile, complemented by white stone fruit and citrus complexity. The nose shows remarkable integration and sophistication, with a touch of flinty sulphides adding mineral intrigue.",
+      "palate": "Vibrant and complex on the palate, the wine showcases crisp acidity and pronounced minerality that speak to the volcanic soils Sullivan favors. Flavors of lemon zest and nectarine provide citrus and stone fruit backbone, while the texture reveals a neat tug of phenolics ensuring textural interest alongside the bright acidity. The wine is satisfying and superbly integrated, with spicy oak elements that enhance rather than dominate. Every element is in perfect balance, creating a wine that is both intellectually engaging and immediately pleasurable.",
+      "finish": "Long and chalky with persistent minerality and citrus notes. The finish shows excellent length and purity, with the flinty, mineral character lingering gracefully alongside subtle fruit and spice."
+    },
+    "foodPairings": [
+      "Pan-seared scallops with cauliflower purée",
+      "Roasted chicken with lemon and herbs",
+      "Lobster with drawn butter",
+      "Creamy mushroom risotto",
+      "Triple cream brie with honeycomb"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F)",
+      "decanting": "Not required; benefits from time in glass",
+      "glassware": "Burgundy-style glass with generous bowl"
+    },
+    "wineDetails": {
+      "region": "Yarra Valley/Gippsland, Victoria, Australia",
+      "grapeVariety": "100% Chardonnay from volcanic soils",
+      "vintage": "2023",
+      "style": "Minimal intervention, terroir-focused, vibrant with pronounced minerality",
+      "ageability": "Drink 2024-2030; will develop beautifully with age"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Mauro Molino Barolo Gallinotto 2021",
+    "description": "A prestigious single-vineyard Barolo from the Gallinotto cru in La Morra, Piedmont. This wine comes from the Molino family's treasure vineyard, located in an area that has regained its past splendor and consistently produces exceptional Nebbiolo with excellent value.",
+    "tastingNotes": {
+      "aroma": "The nose reveals classic Nebbiolo aromatics with orange peel, rose petals, and sour cherries forming the core. Balsamic notes add complexity and depth, while the wine evolves in the glass to reveal chocolate and hazelnut undertones from careful aging. Cinnamon candy, rose bud, and pomegranate contribute floral and spice elements, while herbal and peppery notes add savory intrigue. Wild berry, cedar, pipe tobacco, menthol, and dried flowers create layers of complexity that unfold with time.",
+      "palate": "The palate is creamy and inviting with full body supported by fine-grained tannins. Super-juicy red cherry fruit dominates, accompanied by strawberry, raspberry, and the distinctive bitterness of orange peel that is quintessentially Nebbiolo. Mineral elements add to the whole picture, with a dustier personality and bigger mineral presence that recalls limestone and crushed rock. The frame shows crisp acidity with a light structure of chalky tannins that provide grip without heaviness. Succulent red fruit is balanced by earthy, gravelly elements that ground the wine in its terroir.",
+      "finish": "Incredibly long finish with soft, refined tannins and mild acidity. The tasty, nutty character lingers alongside persistent red fruit and mineral notes, showcasing the wine's complexity and aging potential."
+    },
+    "foodPairings": [
+      "Braised beef in Barolo wine sauce",
+      "Truffle risotto or tajarin pasta",
+      "Osso buco alla Milanese",
+      "Aged Parmigiano-Reggiano",
+      "Wild boar ragu with pappardelle"
+    ],
+    "servingInfo": {
+      "temperature": "18-20°C (64-68°F)",
+      "decanting": "Strongly recommended, 2-3 hours before serving",
+      "glassware": "Large Barolo or Nebbiolo-specific glass"
+    },
+    "wineDetails": {
+      "region": "Barolo DOCG, La Morra, Piedmont, Italy",
+      "grapeVariety": "100% Nebbiolo from Gallinotto vineyard",
+      "vintage": "2021",
+      "style": "Single-vineyard Barolo, elegant with pronounced minerality",
+      "ageability": "Drink 2026-2041; peak 2028-2036"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Raywood Cabernet Sauvignon Keg 2023 20l",
+    "description": "A full-bodied Cabernet Sauvignon from California's Central Coast, available in convenient 20-liter keg format. This wine showcases the rolling valleys terroir with oak aging that adds depth and complexity to berry-forward fruit.",
+    "tastingNotes": {
+      "aroma": "Rich in berry aromas with pronounced blackberry and dark cherry notes forming the foundation. Peppery aromatics add spice and intrigue, weaving through the fruit with an inviting warmth. The oak aging lends vanilla, cedar, and subtle toast notes that integrate well with the fruit. The bouquet is approachable and generous, showing ripe California fruit character with enough complexity to maintain interest.",
+      "palate": "Full-bodied with concentrated berry flavors dominating the palate. Blackberry, black cherry, and cassis provide dark fruit richness, while the peppery spice noted on the nose carries through to add savory depth. The oak aging contributes a deep toasty character that adds structure and warmth to the mid-palate. The wine shows good balance between fruit ripeness and oak influence, with moderate tannins providing grip and ageability. The texture is smooth and approachable, making it versatile for various occasions.",
+      "finish": "Deep and toasty with lingering berry fruit and warm spice. The oak influence is most pronounced on the finish, providing length and structure while the fruit slowly fades, leaving pleasant vanilla and cedar notes."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with herb butter",
+      "BBQ pulled pork sandwiches",
+      "Bacon cheeseburgers with sharp cheddar",
+      "Beef brisket with smoky barbecue sauce",
+      "Aged Gouda or sharp cheddar cheese"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Optional 20-30 minutes to soften oak influence",
+      "glassware": "Standard Cabernet or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Central Coast, California, USA",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2023",
+      "style": "Full-bodied, oak-aged, berry-forward",
+      "ageability": "Drink now through 2027; best enjoyed within 2-3 years"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Chateau Puy Laborde Bordeaux Superieur 2019",
+    "description": "A balanced and approachable Bordeaux Supérieur representing excellent value from this classic French region. This blend showcases traditional Bordeaux varieties with smooth fruit, integrated oak, and versatile food-pairing capabilities.",
+    "tastingNotes": {
+      "aroma": "The wine presents an intense purple color, introducing a nose packed with elegant fruit and floral aromas. Red and dark fruits dominate, with blackberry leading alongside touches of dark cherry and plum. A little leather adds complexity and Old World character, while the floral elements provide lift and aromatic interest. The oak integration is subtle, contributing vanilla smoothness without overwhelming the fruit expression. The overall impression is one of elegance and balance rather than power.",
+      "palate": "Generous and well-rounded on the palate, the wine shows supple and melted tannins that provide structure without astringency. Blackberry fruits touched by vanilla smoothness create a harmonious mid-palate, while the acidity and spice work together to provide balance and vibrancy. The texture is medium-bodied with good depth, showing the characteristic roundness of a successful Bordeaux blend. The fruit remains present throughout, supported by moderate tannins and medium-plus acidity that keeps the wine fresh and food-friendly.",
+      "finish": "Medium finish with balanced fruit and subtle oak influence. The tannins are soft and integrated, while the acidity provides a clean, refreshing conclusion. Notes of dark fruit and subtle spice linger pleasantly."
+    },
+    "foodPairings": [
+      "Roasted duck with orange glaze",
+      "Beef tenderloin with red wine reduction",
+      "Grilled lamb with garlic and rosemary",
+      "Mushroom and gruyere tart",
+      "Semi-aged Comté or Gruyère cheese"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Optional 30-minute decanting to integrate flavors",
+      "glassware": "Bordeaux glass with classic shape"
+    },
+    "wineDetails": {
+      "region": "Bordeaux Supérieur, France",
+      "grapeVariety": "Blend of Merlot, Cabernet Sauvignon, and Cabernet Franc",
+      "vintage": "2019",
+      "style": "Medium-bodied, balanced Bordeaux blend with smooth tannins",
+      "ageability": "Drink now through 2027; approaching peak drinkability"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T01:00:00.000Z"
+    }
+  }
+]

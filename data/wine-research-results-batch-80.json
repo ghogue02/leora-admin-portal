@@ -1,0 +1,332 @@
+[
+  {
+    "productName": "Philippe Guerin Melon de Bourgogne Orange 2021",
+    "description": "An innovative orange wine from Loire Valley producer Philippe Guerin, made from the Melon de Bourgogne grape typically used for Muscadet. Orange wine production involves extended skin contact with white grapes, creating amber-hued wines with added structure and complexity. This represents a modern, natural winemaking approach applied to a traditional Loire variety.",
+    "tastingNotes": {
+      "aroma": "The nose is complex and unconventional, showcasing orange wine's distinctive character. Aromas of dried apricot, orange peel, and apple skin lead, complemented by notes of chamomile tea, saffron, and honey. There's pronounced phenolic character showing as walnut skin, tea leaves, and hay. Subtle oxidative notes of bruised apple and quince add intrigue, while hints of sourdough bread and lees suggest natural fermentation. A touch of coastal minerality and saline persists underneath.",
+      "palate": "Medium to full-bodied with substantial texture and grip from extended skin contact. Flavors of dried stone fruits, orange rind, and apple skin dominate, supported by pronounced tannins unusual in white wine. The wine shows beautiful savory complexity with notes of dried herbs, tea, nuts, and spice. Refreshing acidity cuts through the textural weight, while a distinctive saline minerality adds depth. The phenolic structure gives the wine a slightly astringent, grippy quality that demands food. There's fascinating complexity between fruit, tannin, acidity, and mineral elements.",
+      "finish": "The finish is long and textured, with lingering dried fruit, tea tannins, and saline minerality. The wine leaves a pleasant, slightly drying sensation that calls for another sip and food pairing."
+    },
+    "foodPairings": [
+      "Roasted chicken with root vegetables",
+      "Aged Comté or Gruyère cheese",
+      "Moroccan tagine or Middle Eastern spiced dishes",
+      "Mushroom and truffle preparations",
+      "Rich fish dishes like grilled swordfish or monkfish"
+    ],
+    "servingInfo": {
+      "temperature": "12-14°C (54-57°F) - warmer than typical white wine to appreciate complexity",
+      "decanting": "Decant for 30-45 minutes to allow the wine to breathe and integrate. Orange wines benefit from aeration like red wines.",
+      "glassware": "Large white wine or even light red wine glass to accommodate the wine's structure and complexity"
+    },
+    "wineDetails": {
+      "region": "Loire Valley, France (likely Muscadet region)",
+      "grapeVariety": "Melon de Bourgogne (100%)",
+      "vintage": "2021",
+      "style": "Orange wine (skin-contact white) with natural winemaking and pronounced phenolic character",
+      "ageability": "Drinking well now through 2028. Orange wines often age beautifully, developing more complexity with time."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:26:00.000Z"
+    }
+  },
+  {
+    "productName": "Phelps Creek Riesling 2023",
+    "description": "A vibrant Riesling from Phelps Creek Vineyards in the Columbia Gorge AVA of Oregon. This region's unique east-west orientation creates dramatic climate variation, producing Rieslings with exceptional aromatics and purity. The 2023 vintage captures the grape's youthful exuberance and crystalline precision.",
+    "tastingNotes": {
+      "aroma": "The nose is intensely aromatic with classic Riesling purity. Aromas of lime blossom, green apple, and white peach lead, complemented by notes of meyer lemon and hints of apricot. There's beautiful floral lift showing as orange blossom, jasmine, and honeysuckle. A distinctive mineral quality evokes wet slate, crushed rocks, and river stones. Subtle hints of white pepper, ginger, and petrol (in its most refined form) add complexity. The aromatic profile is crystalline and precise.",
+      "palate": "Medium-bodied with electric acidity and brilliant fruit expression. The palate bursts with citrus and stone fruit flavors—lime, green apple, white peach, and apricot. A touch of residual sugar balances the vibrant acidity, creating an off-dry style that's harmonious and refreshing. The wine's most striking feature is its pronounced mineral backbone—think river rocks and slate—providing structure and terroir expression. The texture is precise and energetic, with the acidity and sweetness in perfect tension.",
+      "finish": "The finish is long and mineral-driven, with persistent fruit, electric acidity, and distinctive slate character. The wine leaves the palate refreshed with excellent persistence and a slight petrol note that's classic to quality Riesling."
+    },
+    "foodPairings": [
+      "Asian cuisine including Thai curry and Vietnamese spring rolls",
+      "Sushi and sashimi",
+      "Spicy dishes with chili heat",
+      "Pork schnitzel or roasted pork belly",
+      "Fresh fruit tarts and light desserts"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F) - well chilled to preserve acidity and aromatics",
+      "decanting": "No decanting needed. Serve directly from the bottle, allowing 5 minutes for aromatics to develop.",
+      "glassware": "Riesling glass or medium white wine glass to concentrate intense aromatics"
+    },
+    "wineDetails": {
+      "region": "Columbia Gorge AVA, Oregon",
+      "grapeVariety": "Riesling (100%)",
+      "vintage": "2023",
+      "style": "Off-dry Riesling with brilliant acidity, aromatic intensity, and mineral focus",
+      "ageability": "Delicious now but will age beautifully through 2033. Quality Riesling develops complex petrol and honey notes with age."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:28:00.000Z"
+    }
+  },
+  {
+    "productName": "Fernanda Capello Chardonnay 2022",
+    "description": "An Argentine Chardonnay from producer Fernanda Capello, representing the country's emerging quality white wine production. While Argentina is famous for Malbec, dedicated producers are showing the country's potential for world-class Chardonnay, particularly from cooler regions with diurnal temperature variation.",
+    "tastingNotes": {
+      "aroma": "The nose presents ripe, generous Chardonnay aromatics with New World character. Aromas of ripe yellow apple, tropical fruit, and white peach lead, complemented by notes of pineapple, ripe pear, and hints of mango. Oak influence is evident with vanilla, toasted coconut, butterscotch, and buttered popcorn from malolactic fermentation. There's subtle spice showing as cinnamon and nutmeg, along with hints of honey and beeswax. A touch of citrus and minerality provides aromatic lift.",
+      "palate": "Full-bodied and rich on the palate with generous fruit expression and creamy texture. Yellow apple and tropical fruit flavors dominate—pineapple, mango, and papaya—supported by ripe pear and stone fruit. The oak integration is pronounced, showing as vanilla, toasted oak, caramel, and butter. The texture is creamy and mouth-coating from lees stirring and malolactic fermentation. Despite the richness, balanced acidity maintains structure and prevents heaviness. The wine shows good concentration and weight.",
+      "finish": "The finish is long and rich, with persistent tropical fruit, creamy texture, and oak spice. Lingering vanilla and butter notes fade slowly with good persistence."
+    },
+    "foodPairings": [
+      "Lobster or crab with drawn butter",
+      "Creamy pasta dishes like fettuccine Alfredo",
+      "Roasted chicken with herb butter",
+      "Triple cream brie or Camembert",
+      "Grilled swordfish or halibut with rich sauces"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F) - moderately chilled to preserve texture and complexity",
+      "decanting": "No decanting needed, though 10-15 minutes of aeration enhances complexity and allows creamy texture to develop.",
+      "glassware": "Large white Burgundy glass to showcase rich texture and complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Argentina (likely Mendoza, Patagonia, or other premium region)",
+      "grapeVariety": "Chardonnay (100%)",
+      "vintage": "2022",
+      "style": "Full-bodied, oak-influenced New World Chardonnay with rich, creamy character",
+      "ageability": "Drinking well now through 2027. Best enjoyed within 5 years while maintaining fruit vibrancy and freshness."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:30:00.000Z"
+    }
+  },
+  {
+    "productName": "Dogwood & Thistle Carignan 2021",
+    "description": "A Carignan from Dogwood & Thistle, likely from California where old-vine Carignan is experiencing a renaissance. Once dismissed as bulk wine grape, Carignan from old vines produces wines of remarkable character and depth. This wine represents the revival of interest in California's viticultural heritage.",
+    "tastingNotes": {
+      "aroma": "The nose reveals Carignan's rustic charm and old-vine complexity. Aromas of red plum, cranberry, and wild berry mix with notes of dried herbs, Mediterranean scrub, and violets. There's appealing earthiness showing as forest floor, dried leaves, and a touch of leather. Subtle spice notes of white pepper, clove, and cinnamon add interest. A whisper of game, iron, and crushed rocks provides aromatic depth. The profile is savory and complex rather than overtly fruity.",
+      "palate": "Medium to full-bodied with vibrant acidity and firm tannins characteristic of Carignan. Red fruit flavors of plum, cranberry, and red cherry are complemented by savory elements—dried herbs, olive tapenade, earth, and spice. The wine maintains excellent freshness with bright, energizing acidity. Tannins are firm and rustic, providing structure and grip. There's beautiful complexity between fruit, earth, herb, and mineral elements. The wine has an old-world character despite California origins.",
+      "finish": "The finish is long and savory, with persistent red fruit, firm tannins, herbs, and earthy notes. The wine leaves a slightly grippy, food-calling impression."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with herbs de Provence",
+      "Cassoulet or hearty bean stews",
+      "Grilled sausages and charcuterie",
+      "Ratatouille and Provençal vegetable dishes",
+      "Aged sheep's milk cheese"
+    ],
+    "servingInfo": {
+      "temperature": "15-17°C (59-63°F) - cool room temperature",
+      "decanting": "Decant for 30-45 minutes to soften tannins and open aromatics. Old-vine Carignan benefits from aeration.",
+      "glassware": "Large red wine glass to allow the wine to breathe and develop savory complexity"
+    },
+    "wineDetails": {
+      "region": "Likely California (Mendocino, Contra Costa, or similar regions with old-vine Carignan)",
+      "grapeVariety": "Carignan (100% or dominant), possibly from old vines",
+      "vintage": "2021",
+      "style": "Medium to full-bodied, savory red with rustic charm and old-vine complexity",
+      "ageability": "Drinking well now through 2029. Will develop more tertiary complexity with 3-5 years aging."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:32:00.000Z"
+    }
+  },
+  {
+    "productName": "Bodegas Riojanas Monte Real Gran Reserva 1998",
+    "description": "An exceptional mature Gran Reserva from Bodegas Riojanas, one of Rioja's most traditional houses. The 1998 vintage is highly regarded in Rioja, and with over 25 years of age, this wine has developed the complex tertiary character that defines great aged Rioja. Gran Reserva requires minimum five years aging before release, with significant time in oak.",
+    "tastingNotes": {
+      "aroma": "The nose reveals beautiful maturity with classic aged Rioja character. Primary fruit has evolved to dried cherry, fig, and prune, complemented by tertiary complexity of leather, tobacco, cedar, and earth. American oak influence appears as coconut, vanilla, and sweet spice, now fully integrated. There's appealing savory development showing as forest floor, dried mushrooms, game, and truffle. Subtle balsamic notes, tea leaves, and dried roses add aromatic layers. The wine shows no signs of decline, only elegant evolution.",
+      "palate": "Medium-bodied with silky, fully resolved tannins from extended aging. The palate offers complex flavors melding fruit, oak, and tertiary character—dried cherry, fig, leather, tobacco, and earth in harmonious balance. The wine's structure has softened beautifully, with tannins now velvety and integrated. Acidity remains fresh enough to maintain vitality, while the texture is supple and refined. Layers of spice, cedar, and dried herbs add to the complexity. The wine demonstrates perfect maturity.",
+      "finish": "The finish is long and complex, showing the wine's evolution with harmonious integration of all elements. Lingering notes of dried fruit, leather, tobacco, and cedar fade slowly with impressive persistence."
+    },
+    "foodPairings": [
+      "Aged Manchego or Idiazábal cheese",
+      "Roasted lamb with rosemary",
+      "Wild mushroom risotto or truffle dishes",
+      "Jamón ibérico de bellota",
+      "Slow-braised game meats"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant carefully for 45-60 minutes, watching for sediment. Aged wines need gentle handling and aeration to fully express complexity.",
+      "glassware": "Large Burgundy or Rioja glass to appreciate evolved aromatics and silky texture"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Tempranillo-based blend, likely with Garnacha, Graciano, and/or Mazuelo",
+      "vintage": "1998",
+      "style": "Traditional Gran Reserva with extended aging and full maturity, showing classic tertiary development",
+      "ageability": "At peak maturity now. Drink within 5 years to enjoy at its prime. Properly stored bottles can continue evolving gracefully through 2030."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:34:00.000Z"
+    }
+  },
+  {
+    "productName": "Two Mountain Merlot 2018",
+    "description": "A Merlot from Two Mountain Winery in Washington's Yakima Valley, a region known for producing exceptional Merlot with ripe fruit and balanced structure. The 2018 vintage has had time to develop complexity while maintaining freshness. Two Mountain focuses on quality winemaking with estate fruit from their hillside vineyards.",
+    "tastingNotes": {
+      "aroma": "The nose presents ripe, approachable Merlot character with developing complexity. Aromas of black cherry, plum, and blackberry lead, complemented by notes of mocha, dark chocolate, and cedar. There's appealing spice showing as vanilla, cinnamon, and clove from oak aging. Subtle herbal notes of sage and dried Mediterranean herbs add interest, along with hints of leather, tobacco, and earth from bottle age. The aromatic profile balances fruit ripeness with savory development.",
+      "palate": "Medium to full-bodied with plush texture and well-integrated tannins. Black cherry and plum flavors dominate, supported by blackberry, cassis, and hints of blueberry. The oak influence is balanced, showing as mocha, vanilla, and toasted nuts without overwhelming the fruit. Tannins have softened beautifully with age, now silky and refined. Balanced acidity maintains freshness and structure. Savory elements of earth, herbs, and spice add complexity to the ripe fruit core.",
+      "finish": "The finish is long and satisfying, with persistent dark fruit, soft tannins, and mocha-chocolate notes. The wine finishes with excellent balance and invites food pairing."
+    },
+    "foodPairings": [
+      "Grilled ribeye or filet mignon",
+      "Roasted duck breast with cherry reduction",
+      "Aged Gouda or aged cheddar",
+      "Mushroom and beef Wellington",
+      "Dark chocolate desserts"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 30-45 minutes to allow the wine to open and integrate. The wine benefits from aeration.",
+      "glassware": "Large Bordeaux glass to showcase Merlot's plush texture and complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Yakima Valley AVA, Washington State",
+      "grapeVariety": "Merlot (100% or dominant in blend)",
+      "vintage": "2018",
+      "style": "Medium to full-bodied Merlot with ripe fruit, balanced oak, and developing complexity",
+      "ageability": "Drinking beautifully now through 2028. At an ideal maturity point with fruit and tertiary character in balance."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:36:00.000Z"
+    }
+  },
+  {
+    "productName": "Cantina Fratelli Pardi Montefalco Rosso 2022",
+    "description": "A Montefalco Rosso from Umbria, Italy, showcasing the region's native Sangiovese alongside indigenous varieties. Cantina Fratelli Pardi represents small-scale, family-driven Italian winemaking. Montefalco Rosso offers an accessible introduction to the region's more famous Sagrantino, with similar structure but more approachable tannins.",
+    "tastingNotes": {
+      "aroma": "The nose presents classic central Italian red wine character with bright fruit and savory complexity. Aromas of red cherry, raspberry, and plum lead, complemented by notes of dried herbs, tobacco, and leather. There's appealing earthiness showing as forest floor, dried flowers, and a hint of truffle. Subtle spice notes of black pepper, clove, and cinnamon add interest. A whisper of violet, tea leaves, and Mediterranean scrub provides aromatic lift. The profile balances fruit with savory, earthy elements.",
+      "palate": "Medium-bodied with vibrant acidity and firm, structured tannins typical of Umbrian reds. Red cherry and plum flavors dominate, supported by cranberry, raspberry, and hints of pomegranate. The acidity is bright and refreshing, making the wine extremely food-friendly. Tannins are firm but fine-grained, providing structure without harshness. Savory elements of dried herbs, earth, leather, and spice add complexity. The wine shows good concentration while maintaining an elegant, restrained character.",
+      "finish": "The finish is medium to long with persistent red fruit, firm tannins, and savory herbal notes. The wine leaves a slightly grippy, food-calling impression typical of Italian reds."
+    },
+    "foodPairings": [
+      "Grilled Umbrian sausages and cured meats",
+      "Pasta with wild boar ragu",
+      "Pecorino cheese aged with hay",
+      "Roasted game birds like quail or guinea fowl",
+      "Truffle-based dishes"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 30-45 minutes to soften tannins and open aromatics. Young Montefalco Rosso benefits from aeration.",
+      "glassware": "Large Italian red wine glass to showcase the wine's structure and savory complexity"
+    },
+    "wineDetails": {
+      "region": "Montefalco DOC, Umbria, Italy",
+      "grapeVariety": "Sangiovese (60-70%) with Sagrantino and other indigenous varieties",
+      "vintage": "2022",
+      "style": "Medium-bodied, structured Italian red with bright acidity and savory character",
+      "ageability": "Drinking well now but will improve through 2030. Can age 5-8 years, developing more tertiary complexity."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:38:00.000Z"
+    }
+  },
+  {
+    "productName": "Aratas Shake Ridge Petite Sirah 2011",
+    "description": "A single-vineyard Petite Sirah from the legendary Shake Ridge vineyard in Amador County's Shenandoah Valley. With over a decade of bottle age, this wine showcases how well-made Petite Sirah evolves, softening its notorious tannic structure while developing complex tertiary character. Shake Ridge is known for producing age-worthy, terroir-driven wines.",
+    "tastingNotes": {
+      "aroma": "The nose reveals mature Petite Sirah with impressive complexity from extended bottle age. Primary fruit has evolved to blackberry compote, dried black cherry, and fig, complemented by tertiary complexity of leather, tobacco, cedar box, and earth. There's appealing savory development showing as dried herbs, game, forest floor, and black olive. Oak influence appears fully integrated as vanilla, cocoa, and espresso. Subtle notes of dried flowers, tar, and graphite add aromatic depth. The wine shows beautiful evolution without any signs of decline.",
+      "palate": "Still full-bodied but with tannins that have softened considerably from their youth. The palate offers complex flavors melding dark fruit, oak, and tertiary character—blackberry preserves, plum, leather, tobacco, and dark chocolate in harmonious balance. The wine's formidable structure has mellowed beautifully, with tannins now velvety and integrated rather than aggressive. Acidity remains fresh enough to maintain vitality and balance. Layers of earth, spice, and dried herbs add to the complexity. The wine demonstrates perfect maturity for Petite Sirah.",
+      "finish": "The finish is long and complex, with persistent dark fruit, silky tannins, and lingering notes of espresso, leather, and dark chocolate. The wine's evolution is evident in the harmonious, integrated finish."
+    },
+    "foodPairings": [
+      "Grilled ribeye or dry-aged beef",
+      "Braised lamb shanks or short ribs",
+      "Aged blue cheese or sharp cheddar",
+      "Wild game including venison or bison",
+      "Smoked and barbecued meats"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 60-90 minutes, watching for sediment. Mature Petite Sirah benefits from extended aeration to fully express its complexity.",
+      "glassware": "Large Bordeaux glass to appreciate evolved aromatics and velvety texture"
+    },
+    "wineDetails": {
+      "region": "Shenandoah Valley AVA, Amador County, California",
+      "grapeVariety": "Petite Sirah (100%)",
+      "vintage": "2011",
+      "style": "Full-bodied, mature Petite Sirah with softened tannins and developed tertiary complexity",
+      "ageability": "At peak maturity now. Drink within 3-5 years to enjoy at its prime. Properly stored bottles can continue to evolve gracefully."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Armstrong Fronk 2016",
+    "description": "A distinctive wine from Armstrong Family Winery with the intriguing \"Fronk\" designation, likely a proprietary blend or special cuvée. With nearly a decade of bottle age, this 2016 wine offers the complexity and integration that comes with extended cellaring. Armstrong is known for creative blending and small-lot production.",
+    "tastingNotes": {
+      "aroma": "The nose reveals mature, complex aromatics showing beautiful bottle age development. Dark fruit aromas have evolved from fresh to preserved—blackberry compote, dried black cherry, and fig dominate. There's impressive tertiary complexity showing as leather, tobacco leaf, cedar box, and forest floor. Oak influence is fully integrated, appearing as vanilla, cocoa powder, and espresso. Subtle notes of game, dried herbs, black olive, and graphite add aromatic depth. A whisper of dried flowers and balsamic provides lift.",
+      "palate": "Full-bodied with tannins that have softened and integrated beautifully with age. The palate offers complex flavors melding dark fruit, oak, and tertiary character—blackberry preserves, plum, dark chocolate, leather, and tobacco in harmonious balance. The wine's structure has evolved from youthful firmness to velvety sophistication. Acidity remains balanced, maintaining the wine's vitality. Layers of earth, spice, dried herbs, and coffee add complexity. The wine shows the hallmarks of successful aging with all elements in harmony.",
+      "finish": "The finish is long and complex, with persistent dark fruit, silky tannins, and lingering notes of espresso, dark chocolate, and tobacco. The wine finishes with impressive balance and integration."
+    },
+    "foodPairings": [
+      "Grilled ribeye or prime rib",
+      "Braised short ribs with red wine reduction",
+      "Aged Gouda or smoked cheddar",
+      "Wild mushroom and truffle dishes",
+      "Duck confit with cherry gastrique"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 60-90 minutes to allow the wine to fully express its complexity. Watch for sediment given the wine's age.",
+      "glassware": "Large Bordeaux glass to appreciate evolved aromatics and velvety texture"
+    },
+    "wineDetails": {
+      "region": "California (specific AVA unknown, likely Napa or Sonoma)",
+      "grapeVariety": "Likely Bordeaux blend or similar California red blend",
+      "vintage": "2016",
+      "style": "Full-bodied California red with mature, complex character from extended bottle age",
+      "ageability": "Drinking at peak maturity now. Consume within 2-4 years to enjoy the wine at its prime."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:42:00.000Z"
+    }
+  },
+  {
+    "productName": "Raywood Merlot 2023",
+    "description": "A young, fresh Merlot from Raywood, showcasing the variety's accessible, fruit-forward character. The 2023 vintage offers youthful vibrancy and immediate drinking pleasure. This wine represents modern Merlot winemaking focused on pure fruit expression and soft, approachable tannins.",
+    "tastingNotes": {
+      "aroma": "The nose is exuberant with fresh, primary fruit aromas. Black cherry, plum, and blackberry dominate, complemented by notes of raspberry and blueberry. There's appealing floral lift with violets and rose petals. Light oak influence shows as vanilla, cocoa, and sweet spice without overwhelming the fruit. Subtle herbal notes of sage and mint add complexity, along with hints of graphite and earth. The aromatic profile is youthful, fresh, and fruit-driven.",
+      "palate": "Medium to full-bodied with plush texture and soft, approachable tannins. Fresh black cherry and plum flavors lead, supported by blackberry, cassis, and hints of milk chocolate. The tannins are silky and well-integrated, making the wine immediately enjoyable. Balanced acidity maintains freshness and structure. Light oak appears as vanilla and mocha without dominating the fruit. The wine emphasizes Merlot's velvety texture and generous fruit character.",
+      "finish": "The finish is medium in length with lingering dark fruit, soft tannins, and gentle chocolate notes. The wine finishes smooth and friendly, perfect for immediate enjoyment."
+    },
+    "foodPairings": [
+      "Grilled burgers and casual barbecue",
+      "Roasted chicken or turkey",
+      "Pizza and pasta with tomato sauce",
+      "Mild to medium aged cheeses",
+      "Mushroom-based dishes"
+    ],
+    "servingInfo": {
+      "temperature": "15-17°C (59-63°F) - slightly cool to preserve freshness",
+      "decanting": "Light decanting of 15-20 minutes beneficial but not essential. Can be poured directly and enjoyed immediately.",
+      "glassware": "Standard red wine glass or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Likely California or Washington State",
+      "grapeVariety": "Merlot (100% or dominant)",
+      "vintage": "2023",
+      "style": "Medium to full-bodied, fruit-forward Merlot with soft tannins and immediate appeal",
+      "ageability": "Best enjoyed young through 2027 while fruit is fresh and vibrant. Not intended for extended aging."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:44:00.000Z"
+    }
+  }
+]

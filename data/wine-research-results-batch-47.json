@@ -1,0 +1,347 @@
+{
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "batchNumber": 47,
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Hertelendy Audere 2018",
+      "description": "A premium Hungarian red blend from the Villány region, Audere represents the bold ambition of Hertelendy Estate. This 2018 vintage showcases the potential of Hungary's warmest wine region through a sophisticated blend of international varietals aged in French oak.",
+      "tastingNotes": {
+        "aroma": "The nose opens with concentrated black cherry and cassis, layered with notes of dark chocolate and espresso. Subtle hints of cedar and vanilla from oak aging mingle with dried Mediterranean herbs and a touch of graphite. As the wine breathes, violet and blackberry preserves emerge, adding complexity and depth to the aromatic profile.",
+        "palate": "Full-bodied and richly textured, the palate delivers ripe black plum and blackcurrant flavors supported by fine-grained tannins. Mid-palate weight is impressive, with layers of dark fruit complemented by notes of tobacco leaf, black pepper, and toasted oak. The wine shows excellent structure with balanced acidity that provides freshness despite its concentration. Integrated oak brings mocha and spice notes that enhance rather than dominate the fruit.",
+        "finish": "The finish is long and sophisticated, with persistent dark fruit flavors gradually giving way to cedar, dark chocolate, and a hint of Mediterranean scrub. Firm but polished tannins provide structure for aging while maintaining approachability. The wine concludes with subtle mineral notes and lingering spice."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "Braised lamb shanks with root vegetables",
+        "Aged Hungarian cheeses with fig compote",
+        "Wild mushroom risotto with truffle oil",
+        "Venison medallions with juniper berry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 60-90 minutes to allow the wine to open and integrate. Young vintage benefits from aeration to soften tannins.",
+        "glassware": "Large Bordeaux-style red wine glass"
+      },
+      "wineDetails": {
+        "region": "Villány, Hungary",
+        "grapeVariety": "Bordeaux-style blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc)",
+        "vintage": "2018",
+        "style": "Full-bodied premium red blend",
+        "ageability": "Drinking well now through 2028. The wine has the structure to age 5-10 years from vintage, with peak drinking from 2023-2026."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Gran Reserva 2014 2036042",
+      "description": "A classic Rioja Gran Reserva from Bodegas Riojanas, Monte Real represents traditional Spanish winemaking at its finest. This 2014 vintage has undergone extensive aging in American oak barrels followed by bottle maturation, resulting in a refined and elegant expression of Rioja's Tempranillo-based wines.",
+      "tastingNotes": {
+        "aroma": "The bouquet is complex and evolved, offering red cherry and strawberry compote alongside dried rose petals and leather. Classic Rioja characteristics shine through with pronounced vanilla, coconut, and sweet spice from American oak aging. Tertiary notes of tobacco, cedar box, and earthy forest floor add layers of intrigue, while a subtle orange peel brightness keeps the aromatics vibrant and lifted.",
+        "palate": "Medium to full-bodied with silky, resolved tannins that speak to its extended aging. Flavors of cherry cola, cranberry, and red plum are woven with notes of butterscotch, cinnamon, and clove. The oak integration is seamless, providing structure without overwhelming the delicate red fruit core. Bright acidity maintains freshness and drives the palate through its mid-length, while subtle savory elements of dried herbs and umami add complexity. The texture is smooth and refined, showing the elegance that comes from patient cellaring.",
+        "finish": "Long and graceful, the finish features lingering cherry and spice notes with a gentle grip from fine tannins. The wine fades slowly with hints of vanilla, dried fruit, and a touch of minerality. A clean, slightly tannic conclusion demonstrates the wine's continued aging potential while remaining beautifully integrated and ready to enjoy."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with garlic and rosemary",
+        "Manchego cheese with quince paste",
+        "Iberico ham and Spanish charcuterie board",
+        "Duck confit with wild mushrooms",
+        "Slow-cooked pork shoulder with paprika"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F)",
+        "decanting": "Decant for 30-45 minutes to awaken aromatics. The wine is well-integrated but benefits from brief aeration to enhance complexity.",
+        "glassware": "Traditional Bordeaux glass or Rioja-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "85% Tempranillo, 10% Graciano, 5% Mazuelo",
+        "vintage": "2014",
+        "style": "Traditional Rioja Gran Reserva",
+        "ageability": "Drinking beautifully now through 2030. Gran Reserva requires minimum 2 years in oak and 3 years bottle aging before release. This wine has reached its drinking window but will hold for another 5-8 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Cabernet Sauvignon 2019",
+      "description": "Hendry Vineyard, a Napa Valley estate with deep roots dating back to the 1939, crafts this exceptional Cabernet Sauvignon from their sustainably farmed blocks. The 2019 vintage benefited from ideal growing conditions, producing concentrated fruit with balanced acidity and refined tannins characteristic of their meticulous vineyard management.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with layers of blackcurrant, black cherry, and blueberry preserve. The nose reveals compelling secondary notes of crushed violets, graphite, and pencil shavings alongside hints of sage and bay laurel. French oak contributes subtle toast, vanilla bean, and baking spices without masking the pure fruit expression. As the wine opens, nuances of dark cocoa and espresso bean emerge, adding depth and sophistication.",
+        "palate": "Powerful yet refined, this Cabernet delivers concentrated flavors of cassis, black plum, and boysenberry. The texture is luxurious and velvety, with ripe, finely structured tannins that coat the palate. Mid-palate richness is balanced by fresh acidity that provides energy and lift. Notes of dark chocolate, coffee grounds, and black olive add savory complexity to the ripe fruit core. The wine shows impressive density and extract while maintaining elegance and precision. Mineral undertones and hints of crushed stone add another dimension to the layered profile.",
+        "finish": "The finish is exceptionally long and complete, with black fruit flavors persisting alongside oak-derived spice and cocoa. Tannins are firm but supple, providing structure for aging while ensuring current drinkability. The wine concludes with lingering notes of dark berries, espresso, and a subtle herbal character that adds freshness."
+      },
+      "foodPairings": [
+        "Prime dry-aged ribeye steak",
+        "Braised short ribs with red wine reduction",
+        "Grilled portobello mushrooms with blue cheese",
+        "Rack of lamb with herb crust",
+        "Aged cheddar with dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "17-18°C (63-64°F)",
+        "decanting": "Decant for 90 minutes to 2 hours. This young Cabernet benefits significantly from extended aeration to soften tannins and reveal its full aromatic complexity.",
+        "glassware": "Large-bowled Cabernet Sauvignon glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Premium Napa Valley Cabernet",
+        "ageability": "Drinking well now but built for the long haul. Optimal drinking from 2025-2035, with potential to evolve gracefully through 2040 with proper cellaring."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fledge and Co Elgin Chardonnay 2017",
+      "description": "From the cool-climate Elgin Valley in South Africa, this Chardonnay showcases the region's ability to produce elegant, mineral-driven white wines. Fledge and Co employs thoughtful winemaking techniques to highlight the terroir while creating a wine with both freshness and complexity.",
+      "tastingNotes": {
+        "aroma": "The nose is refined and complex, opening with citrus blossom, green apple, and ripe pear. Stone fruit notes of white peach and nectarine add richness, while undertones of flint and wet stone provide minerality. Subtle oak influence brings hints of toasted hazelnut, butter, and a whisper of vanilla. Fresh herbs and a touch of honeysuckle add brightness and aromatic lift.",
+        "palate": "Medium-bodied with excellent texture and creamy mouthfeel, likely from partial malolactic fermentation and lees stirring. The palate offers layers of lemon curd, Granny Smith apple, and yellow plum, balanced by vibrant acidity that provides structure and length. Subtle oak integration contributes notes of brioche and toasted almonds without overwhelming the fruit. A saline minerality runs through the wine, adding complexity and a sense of place. The texture is rich but not heavy, with a fine balance between fruit concentration and refreshing acidity.",
+        "finish": "The finish is clean and persistent, with citrus and stone fruit flavors lingering alongside mineral notes. A subtle creaminess from lees contact provides texture, while bright acidity ensures a refreshing conclusion. Hints of crushed stone and white flowers emerge on the aftertaste."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with lemon butter sauce",
+        "Roasted chicken with herb stuffing",
+        "Lobster risotto with saffron",
+        "Grilled halibut with citrus beurre blanc",
+        "Creamy pasta carbonara"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F)",
+        "decanting": "No decanting needed, but allow the wine to warm slightly in the glass to reveal its full aromatic complexity.",
+        "glassware": "Medium-sized white Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Elgin, South Africa",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2017",
+        "style": "Cool-climate Chardonnay with moderate oak influence",
+        "ageability": "At its peak now through 2026. The wine has developed tertiary complexity while maintaining freshness. Drink over the next 1-2 years to enjoy its current elegance."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Sauvignon Blanc 2022",
+      "description": "Boxwood Winery in Virginia's Middleburg wine region produces this fresh and expressive Sauvignon Blanc. The 2022 vintage captures the essence of Virginia's terroir while showcasing the varietal's characteristic brightness and aromatic intensity.",
+      "tastingNotes": {
+        "aroma": "Vibrant and expressive, the nose bursts with grapefruit zest, lime leaf, and passion fruit. Fresh-cut grass and gooseberry provide classic Sauvignon Blanc markers, while white flowers and elderflower add delicate aromatics. Subtle mineral notes of crushed chalk and river stone emerge, reflecting the wine's terroir. A hint of jalapeño and green bell pepper adds herbaceous complexity without dominating.",
+        "palate": "Crisp and refreshing with zesty acidity that energizes the palate. Flavors of Meyer lemon, white grapefruit, and green apple are complemented by tropical notes of guava and kiwi. The texture is light to medium-bodied with a clean, mineral-driven core. Bright citrus acidity provides structure and length, while subtle herbaceous notes add dimension. The wine maintains excellent balance between fruit intensity and refreshing crispness, with a slight saline quality that enhances its food-friendly nature.",
+        "finish": "The finish is clean and persistent, with lingering citrus and mineral notes. Crisp acidity leaves the palate refreshed, while subtle tropical fruit flavors fade gracefully. A slight grassy note and hint of lime zest provide a bright, invigorating conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette sauce",
+        "Grilled shrimp tacos with lime crema",
+        "Goat cheese salad with citrus vinaigrette",
+        "Steamed mussels in white wine broth",
+        "Asparagus and herb tart"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting necessary. Serve well-chilled directly from the bottle.",
+        "glassware": "Tulip-shaped white wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Fresh, aromatic Sauvignon Blanc",
+        "ageability": "Best enjoyed young for optimal freshness. Drink now through 2025 to capture its vibrant fruit and crisp acidity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Blocks 7 & 22 Zinfandel Magnum 2019  1.5 l",
+      "description": "This special magnum bottling showcases fruit from two distinct vineyard blocks on the Hendry estate in Napa Valley. Blocks 7 and 22 produce concentrated, expressive Zinfandel that captures the variety's bold character while maintaining balance and finesse. The larger format ensures slower aging and enhanced development.",
+      "tastingNotes": {
+        "aroma": "Exuberant and richly perfumed, the nose explodes with ripe blackberry, raspberry jam, and black cherry liqueur. Baking spice notes of cinnamon, clove, and allspice are prominent, joined by vanilla and caramel from oak aging. Underlying notes of black pepper, dried herbs, and a hint of eucalyptus add complexity. As the wine opens, darker elements emerge—dried fig, raisin, and mocha—creating a multi-layered aromatic experience. A subtle floral note of rose petals adds elegance to the powerful fruit.",
+        "palate": "Full-bodied and rich with concentrated flavors of wild blackberry, strawberry preserves, and dark cherry. The texture is plush and generous, with soft, ripe tannins that provide structure without astringency. Mid-palate weight is impressive, showing the concentration typical of old-vine Zinfandel. Flavors of black pepper, anise, and dark chocolate intermingle with the ripe fruit, while toasted oak contributes caramel and mocha notes. Despite its power, the wine maintains balance through fresh acidity and doesn't tip into jammy territory. The large magnum format has allowed for slower, more graceful integration of all elements.",
+        "finish": "Long and warming, with persistent berry fruit and spice flavors. The alcohol is well-integrated but provides a gentle heat that complements the wine's richness. Soft tannins and lingering notes of dark chocolate, espresso, and dried fruit create a satisfying, complete conclusion."
+      },
+      "foodPairings": [
+        "Barbecue ribs with spicy dry rub",
+        "Grilled Italian sausages with peppers and onions",
+        "Smoked brisket with tangy barbecue sauce",
+        "Wild boar ragu over pappardelle",
+        "Dark chocolate brownies with sea salt"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F)",
+        "decanting": "Decant for 45-60 minutes, especially given the magnum format. The larger bottle size means the wine may need more time to open than standard 750ml bottles.",
+        "glassware": "Large-bowled red wine glass to capture the aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Zinfandel from Blocks 7 & 22",
+        "vintage": "2019",
+        "style": "Rich, full-bodied Napa Zinfandel",
+        "ageability": "Drinking beautifully now through 2029. The magnum format will age more slowly and gracefully than standard bottles. Peak drinking from 2024-2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Sur Lie Chenin Blanc 2021",
+      "description": "Noble Hill Estate in South Africa's Simonsberg-Paarl region crafts this expressive Chenin Blanc using extended sur lie aging to add texture and complexity. The 2021 vintage showcases the versatility of Chenin Blanc, balancing fresh fruit with richer, more textural elements.",
+      "tastingNotes": {
+        "aroma": "The nose is inviting and multifaceted, offering ripe pear, golden apple, and quince alongside honeysuckle and acacia blossom. Sur lie aging contributes subtle notes of brioche, almond paste, and fresh bread dough that add richness without heaviness. Bright citrus notes of lemon zest and orange blossom provide lift, while hints of chamomile and wet stone add complexity. A subtle tropical element of guava and pineapple emerges with air.",
+        "palate": "Medium-bodied with excellent texture and a creamy, rounded mouthfeel from extended lees contact. The palate delivers flavors of ripe orchard fruits—apple, pear, and white peach—balanced by refreshing acidity that keeps the wine lively. Sur lie aging provides a yeasty, almost nutty quality that adds depth and complexity. Notes of honey, lanolin, and beeswax contribute richness, while citrus acidity maintains freshness and prevents the wine from becoming heavy. A mineral thread runs through the wine, adding structure and length. The balance between fruit concentration, textural complexity, and bright acidity is exemplary.",
+        "finish": "Long and satisfying, the finish features lingering stone fruit and citrus flavors with a creamy texture from lees influence. Bright acidity provides a clean, refreshing conclusion while subtle nutty and mineral notes add complexity. The wine fades gracefully with hints of honey and white flowers."
+      },
+      "foodPairings": [
+        "Pan-seared trout with brown butter and almonds",
+        "Roasted chicken with lemon and thyme",
+        "Creamy seafood chowder",
+        "Grilled pork chops with apple chutney",
+        "Aged Gouda or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F)",
+        "decanting": "No decanting required, but allow to warm slightly in the glass to reveal the full complexity from sur lie aging.",
+        "glassware": "White Burgundy glass or similar medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, South Africa",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2021",
+        "style": "Sur lie aged Chenin Blanc with textural complexity",
+        "ageability": "Drinking well now through 2027. The wine has the structure and acidity to develop further complexity over the next 2-3 years while maintaining freshness."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Costiero Rose 2024",
+      "description": "A fresh and vibrant rosé from the Giustini estate, this 2024 vintage captures the essence of Italian coastal winemaking. Costiero (meaning 'coastal') reflects the Mediterranean influence on this wine's bright, refreshing character.",
+      "tastingNotes": {
+        "aroma": "Delicate and inviting, the nose offers fresh strawberry, wild raspberry, and watermelon alongside rose petals and orange blossom. Subtle herbal notes of fresh basil and mint add complexity, while a hint of sea breeze salinity reflects its coastal origins. White peach and nectarine provide stone fruit accents, creating an aromatic profile that's both refreshing and nuanced.",
+        "palate": "Light to medium-bodied with crisp, refreshing acidity that energizes the palate. Flavors of red berries—strawberry, raspberry, and cranberry—dominate, complemented by subtle notes of citrus zest and white peach. The texture is clean and bright with a slight mineral quality that adds depth. A delicate saline note enhances the wine's food-friendly nature and reinforces its coastal character. The wine shows excellent balance between fruit, acidity, and subtle savory elements, making it incredibly versatile and easy to drink.",
+        "finish": "The finish is clean and refreshing, with lingering red berry flavors and bright acidity. A subtle mineral note and hint of citrus provide a crisp, mouth-watering conclusion. The wine leaves the palate refreshed and ready for the next sip."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean vegetables with olive oil",
+        "Fresh burrata with tomatoes and basil",
+        "Seafood pasta with cherry tomatoes",
+        "Prosciutto and melon",
+        "Herbed chicken salad with lemon vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting needed. Serve well-chilled for maximum refreshment.",
+        "glassware": "Standard white wine glass or rosé-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Abruzzo, Italy",
+        "grapeVariety": "Montepulciano (likely primary grape for Italian rosé)",
+        "vintage": "2024",
+        "style": "Fresh, Mediterranean-style rosé",
+        "ageability": "Best consumed young to preserve freshness. Drink now through 2026 for optimal fruit and acidity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Misty Cliffs NA Cabernet Sauvignon &  Merlot NV",
+      "description": "This non-alcoholic wine from South Africa's Misty Cliffs range offers the character of traditional Bordeaux varietals without the alcohol. Using advanced dealcoholization techniques, this blend maintains the flavor profile of Cabernet Sauvignon and Merlot while providing a sophisticated non-alcoholic option.",
+      "tastingNotes": {
+        "aroma": "The nose presents red currant, black cherry, and plum alongside subtle oak notes of vanilla and cedar. Herbal hints of eucalyptus and dried herbs add complexity, while a touch of bell pepper reflects the Cabernet character. The aromatic profile, while lighter than traditional wine, maintains recognizable varietal characteristics.",
+        "palate": "Light to medium-bodied with flavors reminiscent of red and black fruits—cherry, blackberry, and cassis. The dealcoholization process maintains fruit character while creating a lighter texture than traditional wine. Subtle oak influence provides notes of vanilla and spice, while soft tannins add structure. The wine shows pleasant balance between fruit sweetness and acidity, with herbal undertones adding complexity. While it lacks the weight and depth of alcoholic wine, it successfully captures the essential character of Cabernet Sauvignon and Merlot.",
+        "finish": "The finish is moderate in length with lingering fruit flavors and subtle oak notes. Soft tannins provide a gentle grip, while the wine concludes cleanly without the warming sensation of alcohol. A slight herbal note adds interest to the aftertaste."
+      },
+      "foodPairings": [
+        "Grilled vegetable skewers",
+        "Mushroom and lentil stew",
+        "Turkey burgers with caramelized onions",
+        "Tomato-based pasta dishes",
+        "Aged cheddar or Gouda cheese"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F)",
+        "decanting": "Brief aeration of 15-20 minutes can help open the aromatics.",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "South Africa",
+        "grapeVariety": "Cabernet Sauvignon and Merlot blend (dealcoholized)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Non-alcoholic red wine blend",
+        "ageability": "Best consumed fresh. Drink within 12-18 months of purchase for optimal flavor."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Colle Corviano Pecorino 2023",
+      "description": "From the Abruzzo region of Italy, this Pecorino showcases one of Italy's most exciting indigenous white varietals. Colle Corviano crafts this fresh, aromatic wine that captures the variety's distinctive character and the terroir of the Adriatic hillsides.",
+      "tastingNotes": {
+        "aroma": "Aromatic and expressive, the nose offers white peach, green apple, and citrus blossom alongside delicate floral notes of acacia and chamomile. Herbal elements of fennel, fresh herbs, and a hint of anise add complexity and Mediterranean character. Subtle mineral notes of flint and wet stone provide depth, while a touch of almond and white pepper adds intrigue. The aromatic profile is fresh, inviting, and distinctly Italian.",
+        "palate": "Medium-bodied with excellent structure and a rich, almost oily texture characteristic of Pecorino. The palate delivers flavors of ripe stone fruits—peach, apricot, and nectarine—balanced by bright citrus notes of lemon and grapefruit. Fresh acidity provides energy and lift, while a distinctive saline minerality adds complexity and a sense of place. Subtle nutty notes and hints of fennel seed contribute to the wine's unique personality. The texture is more substantial than many Italian whites, with a slight glycerol richness that doesn't compromise freshness.",
+        "finish": "Long and satisfying, the finish features persistent stone fruit and citrus flavors with pronounced minerality. A subtle almond note and herbal character add complexity, while bright acidity ensures a clean, refreshing conclusion. The wine leaves a slightly saline impression that enhances its food-friendly nature."
+      },
+      "foodPairings": [
+        "Grilled branzino with lemon and herbs",
+        "Seafood risotto with saffron",
+        "Fried calamari with aioli",
+        "Pecorino cheese (no relation) with honey",
+        "Pasta alle vongole (clams)"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F)",
+        "decanting": "No decanting necessary. Serve chilled.",
+        "glassware": "Medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Abruzzo, Italy",
+        "grapeVariety": "100% Pecorino",
+        "vintage": "2023",
+        "style": "Fresh, aromatic Italian white",
+        "ageability": "Best enjoyed young for optimal freshness and aromatics. Drink now through 2026, though Pecorino can develop interesting complexity with 2-3 years of aging."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

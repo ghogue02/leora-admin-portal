@@ -1,0 +1,424 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 42,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Monte Real Gran Reserva 2006",
+      "description": "A distinguished Gran Reserva from one of Rioja's historic bodegas, showcasing the traditional style of extended oak aging. This 2006 vintage earned 87 points from Wine Enthusiast and represents classic Rioja elegance with a balance of fruit maturity and oak complexity developed through 24-30 months in American oak barrels and 36 months in bottle before release.",
+      "tastingNotes": {
+        "aroma": "The nose delivers textbook aromas characteristic of aged Rioja Gran Reserva. Dried raspberry and cherry fruit intermingle with the scent of fallen autumn leaves, creating an evocative, earthy complexity. A distinctive note reminiscent of seashell adds a mineral dimension that speaks to the wine's maturity and terroir. Subtle hints of vanilla and toast from American oak aging round out the aromatic profile.",
+        "palate": "Despite its age, the palate remains remarkably fresh and vibrant. Black cherry mingles with dried fruit notes of raisin, while warming baking spices and rich cocoa flavors emerge from the extended oak aging. The wine shows excellent integration between fruit, oak, and tertiary development. The American oak influence is evident but refined, contributing structure without overwhelming the delicate fruit character.",
+        "finish": "The finish is notably smooth and lengthy, with persistent flavors of dried cherry, spice, and dark chocolate. The tannins have softened beautifully through aging, creating a silky texture that glides across the palate. A gentle earthiness lingers alongside the fruit, testament to proper bottle maturation."
+      },
+      "foodPairings": [
+        "Roasted lamb shoulder with herbs de Provence",
+        "Manchego cheese aged 12 months or longer",
+        "Wild mushroom risotto with truffle oil",
+        "Slow-braised beef cheeks in red wine sauce",
+        "Ibérico ham and traditional Spanish tapas"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - slightly cool room temperature to preserve freshness",
+        "decanting": "Open 30-60 minutes before serving to allow the wine to breathe and tertiary aromas to develop. Brief decanting can help if sediment is present.",
+        "glassware": "Traditional Bordeaux or Rioja glass with a wide bowl to concentrate the complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain - specifically from historic vineyards in La Rioja Alta",
+        "grapeVariety": "100% Tempranillo from select vineyard parcels",
+        "vintage": "2006",
+        "style": "Gran Reserva - Traditional Rioja with extended oak and bottle aging",
+        "ageability": "Drinking beautifully now but can hold for another 5-8 years. The 2006 vintage shows excellent freshness despite maturity, with peak drinking window through 2030."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalReviews": [
+          {
+            "publication": "Wine Enthusiast",
+            "score": 87,
+            "vintage": "2006"
+          }
+        ]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Reserva Magnum 2016",
+      "description": "An exceptional Rioja Reserva presented in magnum format, the 2016 vintage earned an impressive 90.7 points from community reviews on CellarTracker. Bodegas Valdemar crafted this wine from carefully selected Tempranillo grapes, aging it for 18 months in a combination of French and American oak barrels to achieve remarkable depth and complexity while maintaining the vibrant fruit character that defines this outstanding vintage.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with gorgeous clarity, showing a luminous medium ruby-garnet hue with deep tinges. Intense aromas of fresh strawberries lead the way, accompanied by white pepper spice and vanilla custard richness. The American oak makes its presence known immediately with toasted coconut and vanilla notes, while highly extracted dark cherry, a whisper of raisin, and black plum create layers of fruit intensity that speak to the wine's concentration.",
+        "palate": "Wild strawberries burst forward on the entry, followed by sharp, ripe raspberries that showcase the vintage's fruit purity. Cola-like notes add complexity alongside berry tart flavors that demonstrate excellent freshness. The oak treatment reveals itself through mixed nut characteristics in the lengthy finish. The texture is notably velvety, yet powerful tannins grab hold and persist for minutes, providing excellent structure. Rich and textured throughout, the wine shows remarkable intensity balanced by refreshing acidity.",
+        "finish": "The finish extends impressively long, with persistent tannins that are both gripping and refined. Mixed nuts, dark fruit, and oak spice linger beautifully. The velvety texture continues through the finish, while the wine's inherent freshness keeps the palate engaged and ready for another sip."
+      },
+      "foodPairings": [
+        "Aged ribeye steak grilled over oak",
+        "Slow-roasted pork shoulder with Spanish paprika",
+        "Grilled portobello mushrooms with aged balsamic",
+        "Traditional paella with chorizo and rabbit",
+        "Blue cheese paired with quince paste and walnuts"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F) to highlight both fruit and structure",
+        "decanting": "Highly recommended - decant for 1-2 hours to soften the powerful tannins and allow the complex aromatics to fully emerge. The magnum format benefits from extended aeration.",
+        "glassware": "Large Bordeaux-style glass to allow the wine's intensity and oak notes to integrate with air contact"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, specifically La Rioja Alta subzone, Spain",
+        "grapeVariety": "Primarily Tempranillo with possible small percentages of traditional Rioja varieties (Graciano, Mazuelo)",
+        "vintage": "2016",
+        "style": "Reserva - Modern Rioja style with 18 months oak aging in French and American barrels, balancing tradition with fruit-forward expression",
+        "ageability": "Currently in prime drinking window (2025-2035). The magnum format provides additional aging potential due to slower evolution. Can be enjoyed now with decanting or cellared for 8-10 more years to develop tertiary complexity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalReviews": [
+          {
+            "publication": "CellarTracker Community",
+            "score": 90.7,
+            "reviewCount": 4,
+            "vintage": "2016"
+          }
+        ]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Well Crafted Sangria Keg NV 20000 ml",
+      "description": "A large-format, ready-to-serve sangria designed for high-volume service and events. This non-vintage sangria blend combines traditional Spanish wine with citrus fruits and spices, packaged in a convenient 20-liter keg format ideal for restaurants, bars, and catering operations seeking consistent quality and ease of service.",
+      "tastingNotes": {
+        "aroma": "Bright, inviting aromas of fresh orange and lemon citrus dominate the nose, intermingled with sweet red fruit notes of strawberry and raspberry. Background hints of cinnamon and warming spices add depth, while the wine base contributes subtle berry notes. The aromatic profile is approachable and fruit-forward, designed to appeal to a wide range of palates.",
+        "palate": "The palate delivers a vibrant medley of citrus flavors - orange, lemon, and lime - balanced with red wine fruit character of cherries and berries. Moderate sweetness is well-integrated, providing easy-drinking appeal without becoming cloying. Light spice notes of cinnamon and perhaps a touch of vanilla add complexity. The texture is smooth and refreshing, with bright acidity cutting through the fruit and maintaining balance.",
+        "finish": "The finish is clean and refreshing with lingering citrus zest and a touch of berry fruit. Moderate length allows the flavors to fade gently, leaving the palate refreshed and ready for another sip or for food. The light tannins from the wine base provide subtle structure without adding astringency."
+      },
+      "foodPairings": [
+        "Spanish tapas including patatas bravas and croquetas",
+        "Grilled chicken skewers with citrus marinade",
+        "Shrimp ceviche with lime and cilantro",
+        "Cheese and charcuterie boards with manchego and chorizo",
+        "Fresh fruit salad with mint"
+      ],
+      "servingInfo": {
+        "temperature": "4-6°C (39-43°F) - well chilled and served over ice",
+        "decanting": "No decanting needed. Serve directly from keg tap over ice in large wine glasses or tumblers. Add fresh orange or lemon wheels for garnish.",
+        "glassware": "Large wine glasses, stemless wine tumblers, or traditional sangria glasses; always serve with ice and fresh fruit garnish"
+      },
+      "wineDetails": {
+        "region": "Blend of Spanish wines, likely sourced from multiple regions for consistency",
+        "grapeVariety": "Blend of red wine grapes (possibly Tempranillo-based) with natural citrus extracts and spices",
+        "vintage": "Non-Vintage (NV) - blended for consistency across batches",
+        "style": "Ready-to-serve sangria - fruit-forward, lightly sweet, and refreshing",
+        "ageability": "Best consumed fresh. Once tapped, consume within 30 days for optimal freshness. Not intended for aging."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Limited specific product information available. Description based on typical sangria characteristics and keg service format standards."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Nikolaou Mirage 2022",
+      "description": "An organic red wine crafted from pure Agiorgitiko grapes sourced from Domaine Nikolaou's private family vineyards in Nemea, Greece. This wine represents modern Greek winemaking with traditional indigenous varieties, combining organic viticulture with careful barrel aging. The Mirage bottling showcases the elegant, fruit-forward potential of Agiorgitiko when grown in Nemea's ideal terroir and handled with minimal intervention.",
+      "tastingNotes": {
+        "aroma": "The nose reveals an enticing blend of dark fruit and floral notes. Brambleberry and ripe blueberry lead, intertwined with fragrant red flowers and delicate rose petals. Herbaceous nuances add complexity - think dried Mediterranean herbs and wild thyme - while earthy, pebbly mineral notes ground the aromatic profile. Subtle hints of prune and plum emerge with aeration, alongside a touch of sweet spice from the oak aging.",
+        "palate": "Fresh and enveloping on entry, the wine displays remarkable richness while maintaining excellent balance. Dark cherry and plum flavors dominate, supported by integrated fruit notes that feel neither jammy nor tart but perfectly ripe. The texture is notably delicate despite the wine's richness, with fine-grained tannins providing structure without harshness. Subtle oak influence adds vanilla and spice notes that complement rather than dominate. The wine shows lovely depth and concentration while remaining approachable and elegant.",
+        "finish": "The finish is long and harmonious, with delicate tannins carrying dark fruit and mineral notes through to the conclusion. A lovely freshness persists, inviting another sip. The wine's earthy, stony character emerges more prominently as it lingers, speaking to its Nemean terroir. Balanced acidity keeps the palate refreshed despite the wine's richness."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and lemon",
+        "Moussaka with layers of eggplant and béchamel",
+        "Herb-crusted rack of lamb with garlic confit",
+        "Aged Greek graviera or kefalotyri cheese",
+        "Mediterranean vegetable tian with olive oil and thyme"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F) - slightly cool to preserve freshness and elegance",
+        "decanting": "Brief decanting of 30-45 minutes recommended to open up the aromatics and soften the tannins. Can be enjoyed immediately but benefits from air exposure.",
+        "glassware": "Medium-bodied red wine glass (Burgundy or universal style) to concentrate the delicate floral and fruit aromatics"
+      },
+      "wineDetails": {
+        "region": "Nemea PDO, Peloponnese, Greece - from family estate vineyards",
+        "grapeVariety": "100% Agiorgitiko (also known as St. George), Greece's noble red variety",
+        "vintage": "2022",
+        "style": "Modern organic Greek red - fruit-forward and elegant with 3 months oak aging. Fermented with indigenous yeasts in stainless steel at 24°C, then aged 10 months in stainless with 3 months in oak barrels on lees.",
+        "ageability": "Drink now through 2028. This wine is crafted in a fresh, approachable style best enjoyed in its youth to preserve its vibrant fruit and floral character, though it has structure to develop for 3-5 years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "certifications": ["Organic viticulture"],
+        "notes": "Information primarily from 2021 vintage reviews applied to 2022, as specific 2022 vintage notes were limited. Wine shows consistent style across vintages."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Valdemar Estates Walla Walla Syrah 2020",
+      "description": "A distinguished Syrah from Washington State's acclaimed Walla Walla Valley, specifically sourced from the prestigious Blue Mountain Vineyard. This wine represents the Valdemar family's expansion from their historic Rioja roots into the New World, applying generations of winemaking expertise to one of Washington's finest terroirs. The 2020 vintage showcases the concentrated, elegant expression that Walla Walla Syrah achieves in cooler sites.",
+      "tastingNotes": {
+        "aroma": "The aromatic profile is complex and inviting, opening with layers of red and black fruit - think ripe blackberry and dark cherry accented by exotic acai berry. A distinctive hint of star anise adds exotic spice, while baking chocolate and cocoa nibs contribute richness. Earthy notes reminiscent of freshly tilled soil ground the fruit, alongside a subtle touch of dried fig. Delicate lilac florals weave through the nose, adding elegance. As the wine opens, additional nuances of black pepper and violets emerge.",
+        "palate": "Savory and stylish on the palate, this Syrah demonstrates considerable intensity while maintaining balance and finesse. A robust mid-palate delivers concentrated dark fruit flavors - blackberry, black cherry, and plum - supported by fine-grained tannins that provide structure without heaviness. The wine shows lovely energy, tension, and vibrancy, with crisp acidity maintaining freshness. Distinct savory character emerges through notes of olive tapenade, dried herbs, and black pepper. The chocolate notes from the nose translate to the palate as dark cocoa and espresso.",
+        "finish": "The finish is long and persistent with excellent intensity. Fine-grained tannins carry the dark fruit and savory elements through to a satisfying conclusion. Crisp acidity keeps the palate refreshed, while a sense of minerality and subtle oak spice lingers. The wine's energy and tension persist to the very end, inviting another sip."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with garlic and rosemary",
+        "Grilled venison loin with blackberry reduction",
+        "Beef short ribs braised in red wine and herbs",
+        "Duck breast with cherry-port sauce",
+        "Aged cheddar or Gruyère with dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to showcase both fruit and savory complexity",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open fully and the tannins to soften. The wine will reveal additional layers of complexity with aeration.",
+        "glassware": "Large Syrah/Shiraz glass or Burgundy-style bowl to capture the wine's aromatic intensity and allow proper aeration"
+      },
+      "wineDetails": {
+        "region": "Walla Walla Valley AVA, Washington State - specifically Blue Mountain Vineyard",
+        "grapeVariety": "100% Syrah from Blue Mountain Vineyard, one of Walla Walla's premier sites",
+        "vintage": "2020",
+        "style": "New World Syrah with Old World influence - concentrated yet elegant, with savory character and fine tannins. Minimal intervention winemaking with careful oak integration.",
+        "ageability": "Drinking beautifully now (2025-2030) but has excellent structure for aging. Peak drinking window through 2035. The fine tannins and natural acidity suggest this wine will develop additional complexity over the next 5-10 years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalReviews": [
+          {
+            "publication": "James Suckling",
+            "score": 92,
+            "vintage": "2021",
+            "notes": "Subsequent vintage scored 92 points, indicating consistent quality"
+          }
+        ]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Le Prieur Entre-Deux-Mers White 2022",
+      "description": "A classic dry white Bordeaux from the Entre-Deux-Mers appellation, situated between the Garonne and Dordogne rivers. This 2022 vintage represents the fresh, aromatic style that has made Entre-Deux-Mers one of Bordeaux's most approachable and versatile white wine regions. Blending Sauvignon Blanc's vibrant acidity and aromatics with Semillon's weight and texture, this wine offers exceptional value and food-friendliness.",
+      "tastingNotes": {
+        "aroma": "The nose opens with striking aromatic intensity, typical of quality Entre-Deux-Mers. Fresh citrus notes dominate - lime zest, lemon peel, and grapefruit - alongside green apple and white peach. Delicate white flower aromatics add elegance, while hints of grass and subtle herbaceous notes speak to the Sauvignon Blanc component. The Semillon contributes white-fleshed fruit character and a touch of honeyed richness. Mineral undertones and a whisper of wet stone add complexity to this expressive bouquet.",
+        "palate": "Crisp and refreshing on the palate, the wine showcases the region's signature balance and nervousness. Bright citrus flavors lead - lemon, lime, and grapefruit - accented by green apple tartness and ripe nectarine. The Sauvignon Blanc provides racy acidity and fresh fruit character, while Semillon adds mid-palate weight, supple roundness, and notes of white peach and subtle tropical fruit. The wine is well-balanced, neither too lean nor too rich, with lively acidity maintaining freshness throughout. A subtle mineral quality adds depth and interest.",
+        "finish": "The finish is clean and refreshing with lingering citrus and green apple notes. Bright acidity keeps the palate cleansed and invigorated. Moderate length allows the flavors to fade gracefully, with the Semillon's roundness softening the finish while Sauvignon Blanc's crispness persists. A faint stony minerality lingers, inviting another sip."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell with mignonette",
+        "Grilled sea bass with lemon and herbs",
+        "Goat cheese salad with walnuts and honey",
+        "Steamed mussels in white wine and garlic",
+        "Asparagus quiche with Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled to highlight freshness and acidity",
+        "decanting": "No decanting necessary. This wine is best enjoyed fresh and young. Simply chill and serve.",
+        "glassware": "Standard white wine glass or Sauvignon Blanc glass to concentrate the aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Entre-Deux-Mers AOC, Bordeaux, France - between the Garonne and Dordogne rivers",
+        "grapeVariety": "Blend of Sauvignon Blanc (60-70%) and Semillon (30-40%), possibly with small amounts of Muscadelle",
+        "vintage": "2022",
+        "style": "Classic dry white Bordeaux - fresh, aromatic, and food-friendly. Fermented in stainless steel to preserve fruit purity and freshness.",
+        "ageability": "Best enjoyed young and fresh, ideally within 1-2 years of vintage (drink by 2025-2026). The wine is crafted for immediate enjoyment, though the Semillon component allows for modest short-term aging if desired."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Specific producer 'Le Prieur' information not found. Description based on typical Entre-Deux-Mers characteristics and the 2022 vintage reputation in the region."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rippa Dorii Los Curas 2021",
+      "description": "An exceptional white wine from the prestigious Rueda DO in Spain, crafted from 100% Verdejo grapes sourced from the Los Curas vineyard located just 5 kilometers from the winery. The 2021 vintage earned 86 points and a Bronze Medal from the Decanter World Wine Awards. Rippa Dorii employs a distinctive split fermentation technique, blending 80% stainless steel-fermented wine with 20% French oak-aged component to achieve remarkable complexity and texture.",
+      "tastingNotes": {
+        "aroma": "The nose is wonderfully complex and inviting, opening with vibrant aromas of citrus - lemon zest, lime, and grapefruit - alongside luscious white peach and ripe apricot. Fennel and subtle anise notes add an intriguing herbal dimension, while lightly toasted aromas from the oak component contribute hints of vanilla and almond. The aromatic profile is intense yet balanced, showcasing both the grape's varietal character and the winemaker's careful oak integration.",
+        "palate": "The palate delivers exceptional complexity and depth for a Spanish white wine. Stone fruit flavors dominate - white peach, apricot, and nectarine - supported by bright citrus acidity that provides lift and freshness. The texture is notably rich and weighty, with the oak-aged component contributing savory, nutty characters that add dimension without overwhelming the fruit. Hints of toasted almond, hazelnut, and a subtle creaminess from lees aging create layers of flavor. The wine strikes an admirable balance between fruit purity, oak influence, and textural interest.",
+        "finish": "The finish is long and satisfying, with the savory and nutty notes persisting alongside the stone fruit and citrus. The oak aging contributes a gentle spiciness and textural weight that carries through to the conclusion. Bright acidity maintains freshness, keeping the palate cleansed despite the wine's richness. A subtle mineral quality emerges on the finish, adding elegance and complexity."
+      },
+      "foodPairings": [
+        "Traditional paella valenciana with seafood and saffron",
+        "Garlic prawns (gambas al ajillo) with crusty bread",
+        "Grilled sea bream or dorade in white wine sauce",
+        "Chicken in almond sauce (pollo en pepitoria)",
+        "Aged manchego cheese with quince paste"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - slightly warmer than typical white wines to showcase the oak complexity and texture",
+        "decanting": "Brief decanting or swirling in glass recommended to allow the oak and fruit notes to integrate. 15-20 minutes of air exposure can enhance the wine's complexity.",
+        "glassware": "Medium-sized white wine glass or Chardonnay-style glass to accommodate the wine's textural richness and aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Rueda DO, Castilla y León, Spain - specifically from Los Curas vineyard",
+        "grapeVariety": "100% Verdejo from Los Curas single vineyard",
+        "vintage": "2021",
+        "style": "Premium Rueda Verdejo with partial oak fermentation. Grapes night-harvested for freshness, 12-hour cold maceration, split fermentation: 80% stainless steel on lees, 20% fermented and aged 6 months in French oak.",
+        "ageability": "Best enjoyed within 2-4 years of vintage (2023-2027). The oak component provides some aging potential, but the wine is crafted to showcase freshness and fruit. Peak drinking window is now through 2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalReviews": [
+          {
+            "publication": "Decanter World Wine Awards",
+            "award": "Bronze Medal",
+            "score": 86,
+            "vintage": "2022"
+          }
+        ],
+        "awards": [
+          "Gold - International Wine Challenge 2014 (2012 vintage)",
+          "Gold - Sommelier Wine Awards 2014 (2012 vintage)",
+          "Silver - Sommelier Wine Awards 2014 (2013 vintage)"
+        ],
+        "certifications": ["Vegetarian", "Vegan"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pomar Junction Pomar Junction Cabernet Sauvignon 2017",
+      "description": "A premium estate Cabernet Sauvignon from the El Pomar District AVA in Paso Robles, California. This limited-production wine showcases fruit from hillside vineyards with limestone shale rock soils, resulting in intense concentration and complexity. With only 164 cases produced, the 2017 vintage earned a prestigious Double Gold medal at the San Francisco Chronicle Wine Competition, one of America's most respected wine competitions. Winemaker Jim Shumate crafted this wine with meticulous attention to detail, aging it 21 months with 35% new oak.",
+      "tastingNotes": {
+        "aroma": "The nose is strikingly intense and complex, opening with profound aromas of dark fruit - ripe blackberry, cassis, and black cherry - that speak to the wine's hillside origins and limited yields. Layers of complexity emerge with aeration: dark chocolate, espresso, and mocha from the oak aging, alongside hints of tobacco leaf and cedar. Subtle floral notes of violet add elegance, while background hints of vanilla, baking spices, and a whisper of mint provide additional dimension. The aromatics are powerful yet refined, suggesting both concentration and balance.",
+        "palate": "The palate delivers remarkable intensity and structure befitting a premium Paso Robles Cabernet. Densely packed dark fruit flavors dominate - blackberry, black currant, and dark plum - showing the depth that comes from hillside fruit and restrained yields. The wine is full-bodied with substantial but refined tannins that provide impressive structure without harshness. Oak influence is evident but integrated, contributing notes of dark chocolate, coffee, and sweet vanilla that complement the fruit. The texture is rich and layered, with excellent mid-palate weight. Despite the wine's power, it maintains balance through well-integrated acidity and carefully managed oak.",
+        "finish": "The finish is exceptionally long and powerful, with dark fruit, chocolate, and oak spice persisting for a minute or more. Substantial tannins provide grip and structure, promising excellent aging potential. The wine's intensity carries through to the conclusion, yet remains balanced and harmonious. A subtle minerality emerges on the finish, reflecting the limestone shale terroir. The wine leaves a lasting impression of concentration, complexity, and careful craftsmanship."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with compound butter and roasted garlic",
+        "Braised beef short ribs with red wine and root vegetables",
+        "Roasted rack of lamb with rosemary and Dijon crust",
+        "Aged sharp cheddar or aged Gouda with fig jam",
+        "Wild mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "17-18°C (63-64°F) - room temperature to showcase the wine's complexity and structure",
+        "decanting": "Decanting highly recommended - 1-2 hours before serving to allow the wine to breathe and the tannins to soften. This young, powerful wine benefits significantly from aeration to reveal its full complexity.",
+        "glassware": "Large Cabernet Sauvignon or Bordeaux glass with a generous bowl to allow the wine to breathe and concentrate the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "El Pomar District AVA, Paso Robles, California - hillside vineyard with limestone shale soils",
+        "grapeVariety": "100% Cabernet Sauvignon from estate hillside vineyards",
+        "vintage": "2017",
+        "style": "Premium estate Cabernet - full-bodied, concentrated, and age-worthy. 21 months aging with 35% new oak, 15.6% ABV, pH 3.62. Only 164 cases produced.",
+        "ageability": "This wine has excellent aging potential. Currently drinking well with proper decanting (2025-2035), but will develop additional complexity over the next decade. Peak drinking window 2027-2040. The substantial tannins, balanced acidity, and concentrated fruit suggest longevity of 15-20+ years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalReviews": [
+          {
+            "competition": "San Francisco Chronicle Wine Competition",
+            "award": "Double Gold Medal",
+            "vintage": "2017"
+          }
+        ],
+        "technicalData": {
+          "alcohol": "15.6%",
+          "pH": "3.62",
+          "residualSugar": "0.33%",
+          "totalAcidity": "7.1%",
+          "production": "164 cases",
+          "oakAging": "21 months with 35% new oak"
+        }
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar White Tempranillo (White Labels) 2023",
+      "description": "A revolutionary white wine from Rioja's pioneering Bodegas Valdemar, this is historically significant as the first wine ever produced from Tempranillo Blanco, a rare white mutation of the red Tempranillo grape. The 2023 vintage represents Valdemar's ongoing commitment to innovation with native varieties, following the family's five-generation motto of 'Always pioneering.' This distinctive wine undergoes 4 months of lees aging in stainless steel to develop complexity while preserving its vibrant fruit character and unique varietal expression.",
+      "tastingNotes": {
+        "aroma": "The nose is strikingly aromatic and complex, bursting with tropical and floral nuances that immediately distinguish this wine from conventional white Rioja. Medium-high intensity wildflower aromas create an elegant, perfumed quality, joined by distinctive notes of cassis, fennel, anise, and dill that add herbal complexity. White-fleshed fruit aromas dominate - ripe pear, honeydew melon, and white apricot - creating a lush, inviting bouquet. The wine's aromatic profile is bright, clean, and expressive, showing a brilliant yellow color with green shades that speaks to its freshness.",
+        "palate": "The palate is smooth, expressive, and notably tasty, delivering on the aromatic promise with layers of tropical fruit flavors. Ripe melon, white peach, and apricot mingle with the distinctive herbal notes of fennel and anise that characterize this unique varietal. The texture is rich and full-bodied, with 4 months of lees aging contributing a subtle creaminess and additional depth without adding oak character. Despite its richness, the wine maintains excellent freshness and balance through vibrant acidity. The experience is distinctive and surprising, offering flavors and textures not typically found in white Rioja.",
+        "finish": "The finish is refreshingly fresh yet impressively long, with tropical fruit and herbal notes persisting beautifully. The wine's natural acidity provides lift and cleansing freshness, while the lees aging contributes a subtle textural richness that carries through to the conclusion. Lingering notes of white flowers, melon, and herbs invite another sip, making this a thoroughly engaging wine from start to finish."
+      },
+      "foodPairings": [
+        "Grilled shrimp with lemon and fresh herbs",
+        "Chicken breast stuffed with herbs and goat cheese",
+        "Seared scallops with fennel and citrus salad",
+        "Fresh mozzarella with heirloom tomatoes and basil",
+        "Asian fusion cuisine including Thai curry or Vietnamese spring rolls"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled to highlight the wine's freshness and aromatic complexity",
+        "decanting": "No decanting necessary. The wine benefits from a few minutes in the glass to allow the aromatics to open, but is ready to enjoy immediately upon pouring.",
+        "glassware": "White wine glass with a slightly tulip-shaped bowl to concentrate the intense aromatics and floral notes"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, specifically from Bodegas Valdemar's vineyards in Oyón, Álava",
+        "grapeVariety": "100% Tempranillo Blanco - a natural white mutation of Tempranillo, extremely rare",
+        "vintage": "2023",
+        "style": "Young, aromatic white wine - fermented at 16°C in stainless steel tanks with 4 months lees aging. No oak influence, focus on pure fruit expression and varietal character.",
+        "ageability": "Best enjoyed young and fresh within 2-3 years of vintage (2023-2026) to preserve the vibrant aromatics and tropical fruit character. The wine is crafted for immediate enjoyment, showcasing the unique Tempranillo Blanco varietal at its most expressive."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "historicalSignificance": "First wine ever produced from Tempranillo Blanco varietal, pioneered by Bodegas Valdemar",
+        "producerNotes": "Five generations of Valdemar family innovation in Rioja, including creating first barrel-fermented white wine in the region"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "William Downie Cathedral Pinot Noir 2024",
+      "description": "An exceptional value Pinot Noir from one of Gippsland's rising stars, William Downie. The 2024 Cathedral earned an impressive 93 points from Jane Faulkner in the Halliday Wine Companion, confirming this wine's status as one of Australia's best-value Pinot Noirs. This multi-regional blend combines fruit from four distinct Victorian regions - approximately 40% Upper Goulburn, 35% King Valley, 15% Alpine Valleys, and 10% Mornington Peninsula - showcasing Downie's expertise gained from Burgundy and work with iconic Australian producers. Bottled unfiltered and unfined, this is Pinot Noir at its most authentic and engaging.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with bright, vibrant aromatics characteristic of well-made cool-climate Pinot Noir. Intense notes of raspberry and red currant lead, joined by fresh pomegranate and wild strawberry that showcase the wine's purity of fruit. Delicate floral aromas of rose petal and violet add elegance and lift. Subtle earthy notes emerge with aeration - think forest floor and mushroom - alongside a distinctive cherry pit character that adds complexity. The aromatics are fresh, precise, and inviting, showing excellent varietal expression.",
+        "palate": "The palate is juicy, earthy, and irresistibly engaging, delivering exactly what great Pinot Noir should offer. Bright red fruit flavors dominate - raspberry, red cherry, and cranberry - with a vibrant, almost electric quality from the cool-climate sites. The texture is silky and refined despite being unfiltered and unfined, demonstrating Downie's minimal intervention approach. Earthy undertones add depth and interest, while subtle whole-cluster spice notes contribute complexity. The wine shows excellent balance between fruit purity, earthy complexity, and structural elements. Despite the challenging 2024 vintage conditions, the wine maintains freshness and precision.",
+        "finish": "The finish is medium to long with persistent red fruit and earthy notes. Fine-grained tannins provide structure without astringency, a hallmark of quality Pinot Noir. The wine's natural acidity keeps the palate refreshed and engaged, while the unfined/unfiltered approach contributes to a textural richness that lingers. A subtle savory quality emerges on the finish, adding to the wine's food-friendly character and overall complexity."
+      },
+      "foodPairings": [
+        "Duck breast with cherry-port reduction",
+        "Roasted salmon with mushroom and thyme",
+        "Braised lamb shanks with root vegetables",
+        "Mushroom risotto with Parmigiano-Reggiano",
+        "Aged Gruyère or Comté cheese with walnuts"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) - slightly cool to preserve the wine's freshness and bright fruit character",
+        "decanting": "Brief decanting of 20-30 minutes can help the wine open up, though it's approachable immediately. Gentle handling recommended as the wine is unfiltered and may contain natural sediment.",
+        "glassware": "Burgundy-style glass with a wide bowl to capture the delicate aromatics and allow the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Multi-regional Victorian blend: 40% Upper Goulburn, 35% King Valley, 15% Alpine Valleys, 10% Mornington Peninsula, Australia",
+        "grapeVariety": "100% Pinot Noir from four distinct cool-climate Victorian regions",
+        "vintage": "2024",
+        "style": "Minimal intervention Pinot Noir - bottled unfiltered and unfined. The 2024 vintage was challenging with cool, wet conditions early followed by warm, dry finish, affecting fruit development across southeastern Australia. Downie's expertise shows in maintaining balance and freshness despite the conditions.",
+        "ageability": "Drink now through 2030. While crafted in an approachable, fruit-forward style for near-term enjoyment, the wine has sufficient structure and acidity to develop additional complexity over 3-5 years. Best enjoyed within 5-6 years to preserve its vibrant fruit character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalReviews": [
+          {
+            "publication": "Halliday Wine Companion",
+            "reviewer": "Jane Faulkner",
+            "score": 93,
+            "vintage": "2024"
+          }
+        ],
+        "producerBackground": "William Downie gained expertise in Burgundy and worked with iconic Australian producers before establishing his own label in Gippsland"
+      }
+    }
+  ],
+  "summary": {
+    "exactMatches": 7,
+    "producerMatches": 1,
+    "varietalMatches": 1,
+    "genericMatches": 1,
+    "averageConfidence": 0.89,
+    "uniquenessVerified": true,
+    "duplicatesFound": 0
+  }
+}

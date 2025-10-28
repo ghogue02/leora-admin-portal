@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Manchuela Bodegas Ponce La Casilla",
+    "description": "From Bodegas Ponce in the Manchuela DO of central Spain, La Casilla represents natural winemaking at its finest. Bodegas Ponce is known for working with old vine Bobal and indigenous varieties, producing wines with minimal intervention that showcase the unique terroir of this emerging Spanish wine region.",
+    "tastingNotes": {
+      "aroma": "The nose opens with fresh red berry fruits and characteristic natural wine aromatics. Cherry, raspberry, and pomegranate are complemented by earthy, mineral notes. Hints of Mediterranean herbs and subtle floral elements add complexity, while the wine maintains purity and freshness.",
+      "palate": "Medium-bodied with vibrant acidity and pure fruit expression. The palate shows juicy red fruit flavors with excellent tension between fruit and earth. Mineral undertones reflect the limestone-rich soils of Manchuela, while soft tannins provide structure without heaviness. The wine demonstrates energy and drinkability characteristic of natural winemaking.",
+      "finish": "A clean, refreshing finish with persistent red fruit and mineral notes. The natural winemaking approach shines through with authentic, unmanipulated character. The finish is lively and invites food pairing."
+    },
+    "foodPairings": [
+      "Grilled vegetables and ratatouille",
+      "Charcuterie and cured meats",
+      "Paella and rice dishes",
+      "Roasted chicken with herbs",
+      "Spanish tapas"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), slightly chilled",
+      "decanting": "30 minutes aeration helpful",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Manchuela DO, Castilla-La Mancha, Spain",
+      "grapeVariety": "Likely Bobal or blend with indigenous varieties",
+      "vintage": "Current release",
+      "style": "Natural wine with minimal intervention",
+      "ageability": "Best consumed within 3-5 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T14:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Giustini Avoglia Primitivo (Damaged Labels) 2022",
+    "description": "A Primitivo from Puglia showcasing Southern Italy's signature grape (genetically identical to Zinfandel). Giustini produces fruit-forward, accessible wines that highlight Primitivo's ripe berry character and Mediterranean warmth. The 2022 vintage offers fresh, vibrant fruit with approachable tannins.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with ripe dark berries, blackberry jam, and sweet cherry. Notes of dried fig and raisin add complexity, while hints of spice, vanilla, and chocolate from oak aging provide depth. The aromatic profile is generous and immediately appealing with Mediterranean warmth.",
+      "palate": "Full-bodied with concentrated dark fruit flavors and soft, velvety tannins. Blackberry, black cherry, and plum dominate with layers of chocolate, coffee, and baking spices. The wine shows good balance despite the ripeness, with enough acidity to keep everything fresh. The palate is rich and satisfying with Primitivo's characteristic warmth.",
+      "finish": "A long, fruity finish with persistent dark berry flavors and subtle spice. The tannins are soft and integrated, creating a smooth, accessible conclusion. The finish demonstrates Primitivo's crowd-pleasing character."
+    },
+    "foodPairings": [
+      "Grilled sausages and BBQ",
+      "Pizza with savory toppings",
+      "Pasta with meat sauce",
+      "Aged Pecorino or Parmigiano-Reggiano",
+      "Braised short ribs"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30 minutes to soften and open",
+      "glassware": "Large red wine glass"
+    },
+    "wineDetails": {
+      "region": "Puglia, Italy",
+      "grapeVariety": "100% Primitivo",
+      "vintage": "2022",
+      "style": "Fruit-forward, approachable Primitivo with oak influence",
+      "ageability": "Drink now through 2028; best enjoyed while fruit is vibrant"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T14:47:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Perucchi Vermouth Blanco Extra Dry",
+    "description": "An extra dry white vermouth showcasing the traditional art of aromatized wine production. Vermouth Blanco combines a white wine base with botanicals, herbs, and spices, creating a complex aperitif. The extra dry designation indicates minimal sweetness, emphasizing herbal and botanical character over residual sugar.",
+    "tastingNotes": {
+      "aroma": "Complex herbal and botanical aromatics dominate with notes of wormwood, chamomile, and citrus peel. Hints of vanilla and spice add depth, while the wine base provides subtle fruit character. The aromatic profile is sophisticated and inviting with classic vermouth character.",
+      "palate": "Dry and crisp with pronounced herbal bitterness balanced by subtle sweetness. Botanical flavors of artemisia, gentian, and various herbs create complexity. Citrus notes provide brightness, while the wine base adds body and structure. The extra dry style emphasizes the botanicals over sweetness.",
+      "finish": "A clean, dry finish with lingering herbal and botanical notes. Subtle bitterness persists, characteristic of quality dry vermouth. The finish is refreshing and versatile for cocktails or aperitif service."
+    },
+    "foodPairings": [
+      "Served as an aperitif with olives and nuts",
+      "Classic martini cocktails",
+      "Oysters and fresh seafood",
+      "Mixed with soda and citrus",
+      "Light appetizers and antipasti"
+    ],
+    "servingInfo": {
+      "temperature": "40-45°F (4-7°C), well-chilled or over ice",
+      "decanting": "Not necessary",
+      "glassware": "Small wine glass, coupe, or in cocktails"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely Spain, Italy, or France)",
+      "grapeVariety": "White wine base with botanical infusions",
+      "vintage": "Non-vintage",
+      "style": "Extra dry white vermouth",
+      "ageability": "Best consumed within 1-2 years of opening; store refrigerated"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T14:49:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Valdemar Edicion Limitada  (Valdemar Family) Conde Valdemar Edicion Limitada 2019",
+    "description": "A limited edition wine from Bodegas Valdemar, one of Rioja's most respected family-owned estates. The Edicion Limitada represents the pinnacle of their production, showcasing exceptional vineyard sites and extended aging. This wine demonstrates Rioja's ability to produce age-worthy, complex wines with both tradition and elegance.",
+    "tastingNotes": {
+      "aroma": "Complex aromatics of ripe red and black fruits with classic Rioja character. Cherry, plum, and blackberry are complemented by notes of vanilla, toast, and cedar from oak aging. Hints of leather, tobacco, and spice add tertiary complexity, while subtle floral notes provide elegance.",
+      "palate": "Full-bodied with concentrated fruit and refined tannin structure. The palate shows layers of dark fruit, oak-derived spice, and savory notes. Well-integrated oak adds complexity without overwhelming the fruit, while the acidity provides freshness and balance. The wine demonstrates excellent structure and aging potential typical of limited production Rioja.",
+      "finish": "A long, elegant finish with persistent fruit, spice, and oak notes. The tannins are refined and integrated, providing structure for further aging. The finish showcases the wine's quality and complexity with excellent length."
+    },
+    "foodPairings": [
+      "Roasted lamb with rosemary",
+      "Aged Spanish cheeses",
+      "Grilled ribeye steak",
+      "Wild mushroom risotto",
+      "Braised short ribs"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to fully express complexity",
+      "glassware": "Large Bordeaux or Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Tempranillo-based blend (likely with Graciano, Mazuelo)",
+      "vintage": "2019",
+      "style": "Limited edition, extended oak aging, premium Rioja",
+      "ageability": "Excellent aging potential; drink now through 2035"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T14:51:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Korde Pinea Rose 2021",
+    "description": "A rosé from Korde showcasing Mediterranean character and elegance. The \"Pinea\" name suggests pine influence or terroir, characteristic of coastal Mediterranean regions. This wine offers refreshing character with food-friendly versatility typical of quality rosé production.",
+    "tastingNotes": {
+      "aroma": "Fresh red berry aromatics of strawberry, raspberry, and watermelon create an inviting bouquet. Subtle floral notes add elegance, while hints of citrus and Mediterranean herbs provide complexity. The aromatic profile is clean, bright, and appealing.",
+      "palate": "Light to medium-bodied with crisp acidity and pure red fruit flavors. Strawberry and cherry dominate with refreshing citrus notes providing balance. The wine shows good texture with mineral undertones that add depth and interest. The palate is clean, fresh, and versatile for food pairing.",
+      "finish": "A crisp, dry finish with lingering red fruit and subtle herbal notes. The acidity persists through the conclusion, leaving a refreshing impression that invites another sip."
+    },
+    "foodPairings": [
+      "Mediterranean salads",
+      "Grilled fish and seafood",
+      "Fresh mozzarella and tomato",
+      "Paella and rice dishes",
+      "Light tapas and appetizers"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass or rosé-specific glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely Mediterranean - Spain, France, or Italy)",
+      "grapeVariety": "Unknown (likely Grenache, Tempranillo, or Mediterranean varieties)",
+      "vintage": "2021",
+      "style": "Dry Mediterranean rosé",
+      "ageability": "Best consumed young; drink now through 2025"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T14:53:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Boxwood Topiary 375ml 2019  375 ml",
+    "description": "A half-bottle (375ml) of Boxwood's Topiary wine from Virginia's prestigious Boxwood Estate Winery. The Topiary is typically a Bordeaux-style blend showcasing Middleburg's terroir. The smaller format is perfect for intimate occasions while the 2019 vintage offers mature character with bottle age development.",
+    "tastingNotes": {
+      "aroma": "Mature Bordeaux-blend aromatics with developed black fruit, cedar, and tobacco notes. The 2019 vintage shows evolution with hints of leather and forest floor complementing the black cherry and cassis. Subtle oak influence adds vanilla and spice complexity.",
+      "palate": "Medium to full-bodied with softened tannins from aging. Black fruit flavors show maturity with dried cherry, plum, and hints of fig. Oak-derived notes of cedar and tobacco add complexity, while Virginia's characteristic acidity provides freshness and balance. The wine demonstrates elegant aging with integrated structure.",
+      "finish": "A refined finish with persistent dark fruit and savory notes. The tannins are well-integrated, creating a smooth conclusion. The finish shows the wine's development and Virginian terroir expression."
+    },
+    "foodPairings": [
+      "Grilled lamb chops",
+      "Roasted duck breast",
+      "Aged cheddar cheese",
+      "Mushroom and truffle dishes",
+      "Beef tenderloin"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30-45 minutes recommended",
+      "glassware": "Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Middleburg, Virginia",
+      "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc)",
+      "vintage": "2019",
+      "style": "Bordeaux-style blend with Virginia expression, half-bottle format",
+      "ageability": "Drinking well now with mature character; enjoy through 2027"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T14:55:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Shabo Grande Reserve Telti-Kuruk 2023",
+    "description": "From Ukraine's Shabo winery, the Grande Reserve Telti-Kuruk showcases the country's winemaking heritage. Shabo produces wines from the Black Sea region, utilizing both international and indigenous varieties. This wine represents Ukrainian winemaking's modern approach while respecting local traditions.",
+    "tastingNotes": {
+      "aroma": "The nose opens with ripe dark fruit aromatics typical of Black Sea viticulture. Black cherry, plum, and blackberry are complemented by subtle spice and oak notes. Hints of dried herbs and earth add complexity reflective of Ukrainian terroir.",
+      "palate": "Medium to full-bodied with concentrated fruit flavors and good structure. Dark berry fruits dominate with balanced oak influence adding vanilla and spice. The wine shows good weight and texture with tannins providing structure for food pairing. Acidity keeps everything fresh and balanced.",
+      "finish": "A moderately long finish with persistent dark fruit and spice notes. The tannins are approachable and integrated, creating a smooth conclusion that demonstrates quality winemaking."
+    },
+    "foodPairings": [
+      "Grilled meats and kebabs",
+      "Ukrainian borscht with beef",
+      "Roasted lamb with herbs",
+      "Aged hard cheeses",
+      "Hearty stews"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "45 minutes recommended",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Shabo, Ukraine (Black Sea region)",
+      "grapeVariety": "Unknown (possibly indigenous Ukrainian varieties or international blends)",
+      "vintage": "2023",
+      "style": "Grande Reserve suggesting extended aging or premium selection",
+      "ageability": "Drink now through 2029"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T14:57:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "San Juan Jelu Pinot Noir 2013",
+    "description": "A mature Pinot Noir from Argentina's San Juan region, offering over a decade of bottle age. While San Juan is better known for warm-climate varieties, quality Pinot Noir can be produced from cooler sites. This wine demonstrates significant development and tertiary complexity from extended aging.",
+    "tastingNotes": {
+      "aroma": "Mature Pinot Noir aromatics with evolved red fruit, earth, and forest floor notes. Primary cherry and raspberry have developed into dried cherry, mushroom, and leather. Hints of sous bois and truffle add complexity, while subtle oak-derived notes of vanilla and spice persist.",
+      "palate": "Medium-bodied with softened tannins and mature character. The fruit has evolved from fresh to dried with flavors of cherry compote, dried cranberry, and plum. Earthy notes dominate with mushroom, leather, and forest floor adding complexity. The wine shows silky texture and integrated structure from aging.",
+      "finish": "A refined finish with persistent earthy and dried fruit notes. The tannins are fully integrated and soft, creating an elegant conclusion. The finish demonstrates the wine's maturity and development."
+    },
+    "foodPairings": [
+      "Roasted duck with cherry sauce",
+      "Mushroom risotto with truffle oil",
+      "Grilled salmon with herbs",
+      "Aged Brie or Camembert",
+      "Coq au vin"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), cooler than young reds",
+      "decanting": "Handle carefully; brief 20-minute aeration if needed",
+      "glassware": "Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "San Juan, Argentina",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2013",
+      "style": "Mature Pinot Noir with significant bottle age",
+      "ageability": "At peak maturity; consume within 2-3 years"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T14:59:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Daughters and Sons Cabernet Sauvignon 2020",
+    "description": "A Cabernet Sauvignon from Daughters and Sons showcasing the variety's classic character. This wine demonstrates structured tannins, dark fruit concentration, and oak influence typical of quality Cabernet production. The 2020 vintage offers youthful vibrancy with potential for development.",
+    "tastingNotes": {
+      "aroma": "Classic Cabernet aromatics of blackcurrant, black cherry, and cassis dominate the nose. Cedar and tobacco from oak aging add complexity, while hints of bell pepper and eucalyptus provide varietal character. Subtle violet and spice notes add elegance.",
+      "palate": "Full-bodied with structured tannins and concentrated dark fruit flavors. Blackcurrant and black cherry are complemented by layers of dark chocolate, coffee, and oak-derived spices. The wine shows excellent structure with firm but refined tannins providing grip for aging or rich food pairing. Good acidity balances the power.",
+      "finish": "A long, structured finish with persistent dark fruit and oak notes. The tannins remain present, providing framework for aging. The finish demonstrates classic Cabernet character with excellent length."
+    },
+    "foodPairings": [
+      "Grilled ribeye or New York strip steak",
+      "Braised beef short ribs",
+      "Roasted lamb with herbs",
+      "Aged cheddar or Gouda",
+      "Wild mushroom Wellington"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften tannins",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely California, Washington, or New World)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2020",
+      "style": "Structured Cabernet with oak aging",
+      "ageability": "Drink now through 2032; has good aging potential"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:01:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Shabo Original Dry Rose 2023",
+    "description": "A dry rosé from Ukraine's Shabo winery representing the Black Sea region's approach to rosé production. This wine offers fresh, fruit-forward character with the versatility and food-friendliness characteristic of quality dry rosés. The 2023 vintage provides youthful vibrancy and immediate drinkability.",
+    "tastingNotes": {
+      "aroma": "Fresh red berry aromatics of strawberry, raspberry, and red currant create an inviting bouquet. Subtle floral notes add elegance, while hints of citrus provide brightness. The aromatic profile is clean, vibrant, and appealing with Mediterranean influence from the Black Sea region.",
+      "palate": "Light to medium-bodied with crisp acidity and pure red fruit flavors. Strawberry and watermelon dominate with refreshing citrus notes balancing the fruit. The wine shows clean character with good texture and a dry finish that makes it highly versatile for food pairing.",
+      "finish": "A crisp, dry finish with lingering red fruit and citrus notes. The acidity persists, leaving a refreshing impression ideal for summer drinking and food pairing."
+    },
+    "foodPairings": [
+      "Grilled fish and seafood",
+      "Summer salads with vinaigrette",
+      "Fresh mozzarella and tomato",
+      "Grilled chicken kebabs",
+      "Light appetizers and mezze"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "Shabo, Ukraine (Black Sea region)",
+      "grapeVariety": "Unknown (likely Saperavi, Merlot, or local varieties)",
+      "vintage": "2023",
+      "style": "Dry rosé",
+      "ageability": "Best consumed within 1-2 years for optimal freshness; drink now through 2025"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:03:00.000Z"
+    }
+  }
+]

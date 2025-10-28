@@ -1,0 +1,40 @@
+{
+  "batchId": 138,
+  "processedAt": "2025-10-21T12:39:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Armstrong Family Winery Cabernet Sauvignon 2017",
+      "description": "A sophisticated Walla Walla Valley Cabernet Sauvignon that emphasizes elegance over power. This wine showcases the Armstrong Family's restrained winemaking philosophy, delivering balanced fruit expression with impressive structure and aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant notes of raspberry and cherry, layered with aromatic herbs and dark chocolate. Subtle tobacco leaf and hints of pencil shavings emerge as the wine breathes, revealing the complexity of 2017's growing season. Underlying mineral notes speak to the volcanic soils of Walla Walla Valley.",
+        "palate": "On the palate, ripe cherry and blackberry flavors are framed by well-integrated oak. The mid-palate shows excellent weight with flavors of dark chocolate, dried herbs, and a touch of espresso. Ripe, polished tannins provide structure without heaviness, while bright acidity maintains balance and freshness throughout.",
+        "finish": "The finish is long and harmonious, with lingering notes of dark fruit, subtle baking spices, and a whisper of cedar. The tannins remain supple and refined, inviting contemplation and suggesting excellent aging potential for 5-10 years."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Smoked pork roast with blackberry glaze",
+        "Aged cheddar burgers with caramelized onions",
+        "Braised short ribs with root vegetables",
+        "Roasted leg of lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and soften. Young vintage benefits from aeration to reveal full aromatic complexity.",
+        "glassware": "Large Bordeaux-style glass to concentrate aromas"
+      },
+      "wineDetails": {
+        "region": "Walla Walla Valley, Washington",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2017",
+        "style": "Elegant, restrained Cabernet with balanced fruit and structure",
+        "ageability": "Drinking well now through 2027. The refined tannin structure suggests graceful evolution over 5-10 years in proper cellaring conditions."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T12:40:00.000Z"
+      }
+    }
+  ]
+}

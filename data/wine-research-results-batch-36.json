@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 36,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Costers Del Segre Petit Sios Blanco 2020",
+      "description": "A vibrant white blend from Catalonia's Costers del Segre region, showcasing Mediterranean freshness. This wine reflects the high-altitude vineyards and continental climate that define this innovative Catalan appellation.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting notes of white peach and green apple, complemented by delicate citrus blossom and hints of fennel. Subtle mineral undertones emerge, suggesting the limestone-rich soils of the region. A gentle herbal character adds complexity, with whispers of thyme and fresh-cut grass.",
+        "palate": "Medium-bodied with refreshing acidity that carries flavors of ripe pear and lemon zest across the palate. The mid-palate reveals layers of stone fruit, white flowers, and a touch of almond skin. The wine's texture is smooth yet energetic, with a fine phenolic grip that adds structure without heaviness.",
+        "finish": "The finish is clean and persistent, with lingering notes of citrus and a saline minerality that calls for another sip. A subtle bitter almond note on the tail adds sophistication."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean sea bass with herbs",
+        "Catalan-style butifarra sausage",
+        "Manchego cheese and quince paste",
+        "Roasted vegetable paella",
+        "Grilled prawns with garlic and olive oil"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting required; serve directly from refrigerator after brief settling",
+        "glassware": "Medium-sized white wine glass or universal tasting glass"
+      },
+      "wineDetails": {
+        "region": "Costers del Segre, Catalonia, Spain",
+        "grapeVariety": "Blend of local white varieties (likely Macabeo, Parellada, Xarel·lo)",
+        "vintage": "2020",
+        "style": "Fresh, aromatic Mediterranean white",
+        "ageability": "Best enjoyed within 2-3 years of vintage for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bloem Chenin Blanc Viognier 2023",
+      "description": "An innovative South African blend that marries Chenin Blanc's versatility with Viognier's aromatic intensity. This wine represents the modern Cape winemaking approach, combining traditional varietals with creative blending.",
+      "tastingNotes": {
+        "aroma": "Expressive aromatics leap from the glass, dominated by Viognier's signature apricot and honeysuckle notes interwoven with Chenin's quince and yellow apple. The bouquet is enhanced by orange blossom, ripe papaya, and a hint of sweet spice reminiscent of cardamom. Underlying all is a subtle lanolin character that adds textural interest.",
+        "palate": "The entry is rich and textured, with Viognier's viscous mouthfeel balanced by Chenin Blanc's vibrant acidity. Flavors of ripe stone fruits—peach and nectarine—mingle with tropical notes of pineapple and mango. A creamy texture develops mid-palate, likely from lees contact, while the Chenin provides freshness and structure. Subtle notes of honey and candied ginger add complexity.",
+        "finish": "The finish is generous and lingering, with the stone fruit flavors persisting alongside a gentle phenolic grip. A touch of white pepper spice emerges at the end, with refreshing citrus acidity providing balance and lift."
+      },
+      "foodPairings": [
+        "Cape Malay curry with coconut rice",
+        "Grilled linefish with mango salsa",
+        "Roasted chicken with apricot glaze",
+        "Butternut squash ravioli with sage butter",
+        "Creamy seafood risotto"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F)",
+        "decanting": "Not necessary, though 15 minutes in the glass allows aromatics to fully express",
+        "glassware": "Large-bowled white Burgundy glass to capture aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Western Cape, South Africa",
+        "grapeVariety": "Chenin Blanc, Viognier blend",
+        "vintage": "2023",
+        "style": "Aromatic, textured white blend",
+        "ageability": "Drink now through 2026; the freshness will soften but complexity will develop"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Albina Gran Reserva 2018",
+      "description": "A classic Rioja Gran Reserva from one of the region's historic producers, showcasing the elegance and complexity that comes from extended aging. This wine represents traditional Spanish winemaking at its finest, with time in both barrel and bottle developing layers of sophistication.",
+      "tastingNotes": {
+        "aroma": "The nose reveals mature complexity with an elegant bouquet of dried cherry, leather, and cedar. Secondary aromas of tobacco leaf, vanilla, and sweet spice emerge from extended oak aging. There's a distinctive earthiness—dried mushroom and forest floor—alongside notes of preserved plum and dark chocolate. Subtle hints of balsamic and dried herbs add further dimension.",
+        "palate": "The palate shows beautiful integration, with silky tannins fully resolved from years of aging. Flavors of red cherry compote and cranberry are interlaced with savory notes of cured meat, cigar box, and roasted coffee bean. The American and French oak influence is evident but refined, contributing vanilla, coconut, and toasted spice. Mid-palate richness is balanced by bright acidity that keeps the wine fresh despite its age.",
+        "finish": "Long and satisfying, with the fruit and oak elements in harmonious balance. Lingering notes of dried fruit, sweet tobacco, and a hint of orange peel persist, while fine-grained tannins provide subtle structure through the extended finish."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with rosemary",
+        "Aged Manchego or Iberico cheese",
+        "Braised oxtail with red wine reduction",
+        "Wild mushroom risotto",
+        "Charcuterie board with jamón ibérico"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant 30-45 minutes before serving to allow the wine to open and shed any sediment",
+        "glassware": "Large Bordeaux or Rioja glass to showcase aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo with possible Garnacha, Mazuelo, Graciano",
+        "vintage": "2018",
+        "style": "Traditional Gran Reserva with extended aging",
+        "ageability": "Drinking beautifully now; will continue to develop through 2030-2035"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Finca Buenaventura Descarriados Gran Malbec 2018",
+      "description": "A powerful Argentine Malbec that showcases the depth and concentration possible from high-altitude Mendoza vineyards. This 'Gran' Malbec represents a premium selection, likely from older vines and extended oak aging, delivering intensity and complexity.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with concentrated notes of blackberry, cassis, and black plum dominating the bouquet. The nose reveals layers of complexity with violet florals, dark chocolate, and espresso emerging. Oak influence is apparent through vanilla, toasted oak, and sweet spice notes of clove and cinnamon. Subtle hints of dried herbs, graphite, and leather add sophistication.",
+        "palate": "Full-bodied and richly textured, with ripe black fruit flavors filling the mouth. The palate shows dark berry compote, blackcurrant, and plum sauce, supported by notes of mocha, dark chocolate, and caramelized oak. The wine's structure is substantial, with firm but ripe tannins providing backbone. Despite the power, there's balance from the high-altitude acidity that prevents heaviness. Underlying minerality and a hint of black pepper add complexity.",
+        "finish": "The finish is long and persistent, with the dark fruit flavors slowly fading to reveal oak spice, cocoa, and a touch of tobacco. The tannins remain present but refined, suggesting good aging potential."
+      },
+      "foodPairings": [
+        "Argentine asado with chimichurri",
+        "Grilled ribeye steak with peppercorn sauce",
+        "Slow-braised short ribs",
+        "Aged hard cheeses like aged Provolone",
+        "Venison tenderloin with wild berry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant 1-2 hours before serving to soften tannins and allow the wine to breathe",
+        "glassware": "Large Bordeaux glass to provide ample aeration"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina (likely Luján de Cuyo or Uco Valley)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2018",
+        "style": "Premium, oak-aged Malbec with concentration and power",
+        "ageability": "Drinking well now but will continue to evolve through 2028-2032"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Swerwer Rooi-Groen Semillon 2023",
+      "description": "An intriguing South African Semillon that likely plays with the varietal's dual personality, suggested by the 'Rooi-Groen' (Red-Green) name. This wine showcases Semillon's ability to range from fresh and citrus-driven to richer and more textured styles.",
+      "tastingNotes": {
+        "aroma": "The nose presents a fascinating duality with bright citrus notes of lemon and grapefruit alongside richer elements of lanolin and beeswax. Green apple and gooseberry provide crisp fruit character, while subtle fig and chamomile add complexity. There's an underlying waxy quality typical of Semillon, with hints of fresh straw and white flowers.",
+        "palate": "Medium-bodied with a distinctive textural quality that sets Semillon apart from other white varieties. The palate shows flavors of Meyer lemon, white grapefruit, and green melon, balanced by a richer undercurrent of toasted hazelnut and wet stone. The acidity is refreshing but not piercing, providing structure while allowing the wine's inherent texture to shine. A subtle herbaceous note—fresh grass and nettles—adds interest.",
+        "finish": "The finish is clean and moderately long, with citrus zest and mineral notes persisting. A characteristic waxy texture lingers, along with a pleasant bitterness reminiscent of lemon pith."
+      },
+      "foodPairings": [
+        "Grilled linefish with lemon butter",
+        "Roasted chicken with herbs",
+        "Creamy pasta with asparagus",
+        "Soft goat cheese salad",
+        "Grilled calamari with garlic aioli"
+      ],
+      "servingInfo": {
+        "temperature": "9-11°C (48-52°F)",
+        "decanting": "No decanting needed; allow to warm slightly in glass to reveal texture",
+        "glassware": "Medium white wine glass or Sauvignon Blanc glass"
+      },
+      "wineDetails": {
+        "region": "South Africa (likely Western Cape)",
+        "grapeVariety": "100% Semillon",
+        "vintage": "2023",
+        "style": "Fresh, textured Semillon with varietal character",
+        "ageability": "Best enjoyed young (1-3 years), though Semillon can age beautifully for those who prefer developed characteristics"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Queiron El Arca Single Vineyard 2020",
+      "description": "A distinctive single vineyard expression from Spain's Queiron estate, showcasing terroir-driven winemaking. The 'El Arca' designation suggests a special parcel producing wine with unique character and complexity from focused vineyard management.",
+      "tastingNotes": {
+        "aroma": "The bouquet is complex and layered, opening with ripe dark cherry and blackberry, followed by notes of Mediterranean herbs—rosemary and thyme. There's a distinctive mineral character suggesting slate or schist soils, along with hints of violets and black olive. Oak aging contributes subtle vanilla and sweet spice, while earthy notes of truffle and dried leaves add depth.",
+        "palate": "Medium to full-bodied with excellent concentration from the single vineyard fruit. The palate reveals flavors of red and black fruit—cherry, plum, and blackberry—alongside savory elements of cured meat, black pepper, and sun-dried tomato. The tannins are firm but well-integrated, providing structure without astringency. Bright acidity keeps the wine fresh and lively, while the mineral backbone adds length and complexity.",
+        "finish": "The finish is elegant and persistent, with fruit, earth, and spice notes intermingling. A distinctive saline quality emerges at the end, along with fine-grained tannins that provide subtle grip."
+      },
+      "foodPairings": [
+        "Roasted lamb with herbs de Provence",
+        "Grilled Iberian pork chops",
+        "Mushroom and truffle risotto",
+        "Aged sheep's milk cheese",
+        "Beef tenderloin with chimichurri"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "Decant 30-60 minutes before serving to allow the wine to open and integrate",
+        "glassware": "Large red wine glass to showcase aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Spain (specific appellation undetermined, likely Castilla y León or similar)",
+        "grapeVariety": "Likely Tempranillo or regional red blend",
+        "vintage": "2020",
+        "style": "Single vineyard, terroir-driven red",
+        "ageability": "Drinking well now through 2028-2030"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Rose 2023",
+      "description": "A refreshing rosé likely from South Africa's cool-climate Sutherland region, one of the highest and coldest wine-growing areas in the country. This wine captures the crisp acidity and bright fruit character that defines cool-climate rosé production.",
+      "tastingNotes": {
+        "aroma": "Delicate aromatics of fresh strawberry and raspberry dominate, complemented by notes of watermelon and pink grapefruit. Floral hints of rose petal and orange blossom add elegance, while a subtle herbal character—fresh mint and basil—provides complexity. There's a mineral undertone suggesting the unique terroir of high-altitude viticulture.",
+        "palate": "Light to medium-bodied with vibrant acidity that makes this wine refreshing and food-friendly. The palate shows bright red berry flavors—wild strawberry, cranberry, and red currant—with a citrus edge of pink grapefruit and blood orange. The wine is dry with just a hint of residual sweetness that balances the acidity. A subtle salinity and mineral quality add interest, while the texture is crisp and clean.",
+        "finish": "The finish is fresh and lively, with lingering berry fruit and citrus notes. A subtle bitter almond character on the tail adds complexity, while the wine's natural acidity leaves the palate refreshed and ready for the next sip."
+      },
+      "foodPairings": [
+        "Grilled prawns with herbs",
+        "Summer salads with berry vinaigrette",
+        "Fresh sushi and sashimi",
+        "Chilled gazpacho",
+        "Soft cheeses with crackers"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well chilled",
+        "decanting": "No decanting needed; serve straight from refrigerator",
+        "glassware": "Tulip-shaped rosé glass or small white wine glass"
+      },
+      "wineDetails": {
+        "region": "Sutherland, Northern Cape, South Africa",
+        "grapeVariety": "Undetermined (possibly Cinsault, Pinotage, or Pinot Noir-based)",
+        "vintage": "2023",
+        "style": "Dry, crisp, cool-climate rosé",
+        "ageability": "Best enjoyed within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cantina Fratelli Pardi Sacrantino 2019",
+      "description": "A powerful expression of Sagrantino di Montefalco, one of Italy's most structured and age-worthy red wines. This wine from Cantina Fratelli Pardi showcases the intense tannins and concentrated fruit that make Sagrantino legendary among collectors and enthusiasts.",
+      "tastingNotes": {
+        "aroma": "Intense and complex, the nose reveals concentrated dark fruit—blackberry, black cherry, and plum—alongside notes of black tea, dried violets, and dark chocolate. There's a distinctive earthy quality with truffle, leather, and tobacco leaf emerging. Oak aging contributes vanilla, toasted oak, and sweet baking spices. Hints of tar, licorice, and dried herbs add further complexity.",
+        "palate": "Full-bodied and powerfully structured, this wine showcases Sagrantino's legendary tannins, which are firm and gripping yet refined from aging. The palate is dense with flavors of blackberry jam, cassis, and preserved plum, supported by notes of espresso, dark chocolate, and balsamic. Despite the intensity, there's balance from bright acidity and underlying minerality. The wine's concentration is remarkable, with layers of fruit, earth, and spice unfolding with each sip.",
+        "finish": "Exceptionally long and persistent, the finish showcases the wine's structure with firm but fine-grained tannins that linger for minutes. Dark fruit, bitter chocolate, and a hint of iron or blood orange remain, along with the characteristic astringency that defines young Sagrantino."
+      },
+      "foodPairings": [
+        "Braised wild boar with polenta",
+        "Grilled bistecca alla fiorentina",
+        "Aged Pecorino Romano cheese",
+        "Truffle-infused pasta dishes",
+        "Roasted lamb with rosemary and garlic"
+      ],
+      "servingInfo": {
+        "temperature": "17-19°C (63-66°F)",
+        "decanting": "Essential—decant 2-3 hours before serving to soften tannins and allow the wine to open fully",
+        "glassware": "Large Bordeaux glass with generous bowl for aeration"
+      },
+      "wineDetails": {
+        "region": "Montefalco, Umbria, Italy",
+        "grapeVariety": "100% Sagrantino",
+        "vintage": "2019",
+        "style": "Traditional Sagrantino di Montefalco DOCG",
+        "ageability": "Still quite young; will continue to develop beautifully through 2035-2040 or beyond"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aresca Fiore d Atunno Moscato dAsti 2020",
+      "description": "A delicately sweet, lightly sparkling Moscato d'Asti from Piedmont's renowned Asti region. This 'Autumn Flower' (Fiore d'Autunno) captures the aromatic intensity and gentle effervescence that make Moscato d'Asti a beloved dessert wine worldwide.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic with intoxicating notes of orange blossom, honeysuckle, and jasmine. The nose is dominated by fresh peach, apricot, and ripe Muscat grape, with underlying hints of lychee, rose water, and honey. There's a citrus element of mandarin orange and Meyer lemon zest, while subtle spice notes of ginger and white pepper add complexity.",
+        "palate": "Light-bodied and gently sparkling (frizzante), with fine bubbles that create a soft, creamy mousse on the palate. The wine is sweet but balanced by refreshing acidity that prevents cloying. Flavors mirror the aromatics—ripe peach, apricot nectar, and honeyed Muscat grape—with additional notes of candied citrus peel and tropical fruit. The low alcohol (typically 5-6%) makes this wine delicate and easy-drinking, while the persistent bubbles add textural interest.",
+        "finish": "The finish is sweet and aromatic, with lingering notes of peach, honey, and orange blossom. The gentle effervescence continues to lift the flavors, leaving the palate with a clean, slightly honeyed impression."
+      },
+      "foodPairings": [
+        "Fresh fruit tarts and crostatas",
+        "Panna cotta with berry coulis",
+        "Light biscotti or amaretti cookies",
+        "Fresh peaches with mascarpone",
+        "Creamy cheesecake"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well chilled",
+        "decanting": "Not recommended; serve directly to preserve delicate bubbles",
+        "glassware": "Flute or small tulip glass to concentrate aromatics and preserve effervescence"
+      },
+      "wineDetails": {
+        "region": "Asti DOCG, Piedmont, Italy",
+        "grapeVariety": "100% Moscato Bianco (White Muscat)",
+        "vintage": "2020",
+        "style": "Sweet, lightly sparkling (frizzante) dessert wine",
+        "ageability": "Best enjoyed young (within 1-2 years) to preserve freshness and aromatics"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frascole Chianti Rufina Riserva 2017",
+      "description": "An elegant Chianti Rufina Riserva from the esteemed Frascole estate, representing one of Chianti's most refined sub-zones. Rufina is known for producing Chianti with exceptional aging potential and distinctive character from its high-altitude vineyards northeast of Florence.",
+      "tastingNotes": {
+        "aroma": "Classic Chianti aromatics of red cherry and violet are complemented by more complex notes developed from Riserva aging. The bouquet shows layers of dried cherry, plum, and cranberry alongside earthy elements of leather, tobacco, and forest floor. Oak influence is subtle and integrated, contributing vanilla, cedar, and sweet spice. Herbal notes of sage and dried oregano add a Tuscan character, while hints of balsamic and tea leaf provide depth.",
+        "palate": "Medium to full-bodied with the structured elegance that defines Rufina. The palate reveals bright red fruit—cherry, raspberry, and pomegranate—balanced by savory notes of dried herbs, mushroom, and cured meat. The acidity is vibrant and mouthwatering, typical of the cooler Rufina climate, while the tannins are firm but refined from extended aging. Underlying minerality and a hint of iron add complexity, while the oak is well-integrated, providing support without dominating.",
+        "finish": "Long and sophisticated, with the fruit and earth elements in beautiful harmony. Red cherry and dried herb notes persist, accompanied by fine-grained tannins and bright acidity. A subtle note of orange peel and anise emerges at the very end."
+      },
+      "foodPairings": [
+        "Bistecca alla fiorentina (Florentine T-bone steak)",
+        "Wild boar ragu with pappardelle",
+        "Aged Tuscan Pecorino cheese",
+        "Osso buco with saffron risotto",
+        "Grilled lamb chops with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant 45-60 minutes before serving to allow the wine to open and integrate",
+        "glassware": "Large Burgundy or Chianti glass to showcase aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Chianti Rufina DOCG, Tuscany, Italy",
+        "grapeVariety": "Primarily Sangiovese with possible small additions of Canaiolo, Colorino",
+        "vintage": "2017",
+        "style": "Traditional Chianti Rufina Riserva with extended aging",
+        "ageability": "Drinking beautifully now; will continue to develop through 2027-2032"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

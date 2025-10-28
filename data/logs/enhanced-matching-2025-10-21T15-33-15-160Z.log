@@ -1,0 +1,502 @@
+[2025-10-21T15:33:15.161Z] === ENHANCED PRODUCT ENRICHMENT STARTED ===
+[2025-10-21T15:33:15.189Z] 
+[2025-10-21T15:33:15.587Z] Total products in database: 1879
+[2025-10-21T15:33:15.588Z] Already enriched: 1879
+[2025-10-21T15:33:15.588Z] Products to enrich: 0
+[2025-10-21T15:33:15.588Z] 
+[2025-10-21T15:33:15.588Z] --- Processing Batch 1 ---
+[2025-10-21T15:33:15.589Z] Batch 1: No matches found
+[2025-10-21T15:33:15.589Z] 
+[2025-10-21T15:33:15.590Z] --- Processing Batch 2 ---
+[2025-10-21T15:33:15.590Z] Batch 2: No matches found
+[2025-10-21T15:33:15.590Z] 
+[2025-10-21T15:33:15.590Z] --- Processing Batch 3 ---
+[2025-10-21T15:33:15.591Z] Batch 3: No matches found
+[2025-10-21T15:33:15.591Z] 
+[2025-10-21T15:33:15.591Z] --- Processing Batch 4 ---
+[2025-10-21T15:33:15.591Z] Batch 4: No matches found
+[2025-10-21T15:33:15.591Z] 
+[2025-10-21T15:33:15.591Z] --- Processing Batch 5 ---
+[2025-10-21T15:33:15.591Z] Batch 5: No matches found
+[2025-10-21T15:33:15.592Z] 
+[2025-10-21T15:33:15.592Z] --- Processing Batch 6 ---
+[2025-10-21T15:33:15.592Z] Batch 6: No matches found
+[2025-10-21T15:33:15.592Z] 
+[2025-10-21T15:33:15.592Z] --- Processing Batch 7 ---
+[2025-10-21T15:33:15.592Z] Batch 7: No matches found
+[2025-10-21T15:33:15.592Z] 
+[2025-10-21T15:33:15.592Z] --- Processing Batch 8 ---
+[2025-10-21T15:33:15.593Z] Batch 8: No matches found
+[2025-10-21T15:33:15.593Z] 
+[2025-10-21T15:33:15.593Z] --- Processing Batch 9 ---
+[2025-10-21T15:33:15.593Z] Batch 9: No matches found
+[2025-10-21T15:33:15.593Z] 
+[2025-10-21T15:33:15.593Z] --- Processing Batch 10 ---
+[2025-10-21T15:33:15.593Z] Batch 10: No matches found
+[2025-10-21T15:33:15.594Z] 
+[2025-10-21T15:33:15.594Z] --- Processing Batch 11 ---
+[2025-10-21T15:33:15.594Z] Batch 11: No matches found
+[2025-10-21T15:33:15.594Z] 
+[2025-10-21T15:33:15.594Z] --- Processing Batch 12 ---
+[2025-10-21T15:33:15.594Z] Batch 12: No matches found
+[2025-10-21T15:33:15.594Z] 
+[2025-10-21T15:33:15.594Z] --- Processing Batch 13 ---
+[2025-10-21T15:33:15.595Z] Batch 13: No matches found
+[2025-10-21T15:33:15.595Z] 
+[2025-10-21T15:33:15.595Z] --- Processing Batch 14 ---
+[2025-10-21T15:33:15.595Z] Batch 14: No matches found
+[2025-10-21T15:33:15.595Z] 
+[2025-10-21T15:33:15.595Z] --- Processing Batch 15 ---
+[2025-10-21T15:33:15.596Z] Batch 15: No matches found
+[2025-10-21T15:33:15.596Z] 
+[2025-10-21T15:33:15.596Z] --- Processing Batch 16 ---
+[2025-10-21T15:33:15.596Z] Batch 16: No matches found
+[2025-10-21T15:33:15.596Z] 
+[2025-10-21T15:33:15.596Z] --- Processing Batch 17 ---
+[2025-10-21T15:33:15.596Z] Batch 17: No matches found
+[2025-10-21T15:33:15.596Z] 
+[2025-10-21T15:33:15.597Z] --- Processing Batch 18 ---
+[2025-10-21T15:33:15.597Z] Batch 18: No matches found
+[2025-10-21T15:33:15.597Z] 
+[2025-10-21T15:33:15.597Z] --- Processing Batch 19 ---
+[2025-10-21T15:33:15.597Z] Batch 19: No matches found
+[2025-10-21T15:33:15.598Z] 
+[2025-10-21T15:33:15.598Z] --- Processing Batch 20 ---
+[2025-10-21T15:33:15.598Z] Batch 20: No matches found
+[2025-10-21T15:33:15.598Z] 
+[2025-10-21T15:33:15.598Z] --- Processing Batch 21 ---
+[2025-10-21T15:33:15.599Z] Batch 21: No matches found
+[2025-10-21T15:33:15.599Z] 
+[2025-10-21T15:33:15.599Z] --- Processing Batch 22 ---
+[2025-10-21T15:33:15.600Z] Batch 22: No matches found
+[2025-10-21T15:33:15.600Z] 
+[2025-10-21T15:33:15.600Z] --- Processing Batch 23 ---
+[2025-10-21T15:33:15.601Z] Batch 23: No matches found
+[2025-10-21T15:33:15.601Z] 
+[2025-10-21T15:33:15.601Z] --- Processing Batch 24 ---
+[2025-10-21T15:33:15.601Z] Batch 24: No matches found
+[2025-10-21T15:33:15.602Z] 
+[2025-10-21T15:33:15.602Z] --- Processing Batch 25 ---
+[2025-10-21T15:33:15.602Z] Batch 25: No matches found
+[2025-10-21T15:33:15.602Z] 
+[2025-10-21T15:33:15.603Z] --- Processing Batch 26 ---
+[2025-10-21T15:33:15.603Z] ERROR: Could not load batch 26: Expected ',' or '}' after property value in JSON at position 12994 (line 178 column 345)
+[2025-10-21T15:33:15.603Z] Batch 26: No data found, skipping
+[2025-10-21T15:33:15.603Z] --- Processing Batch 27 ---
+[2025-10-21T15:33:15.604Z] Batch 27: No matches found
+[2025-10-21T15:33:15.604Z] 
+[2025-10-21T15:33:15.604Z] --- Processing Batch 28 ---
+[2025-10-21T15:33:15.605Z] Batch 28: No matches found
+[2025-10-21T15:33:15.605Z] 
+[2025-10-21T15:33:15.605Z] --- Processing Batch 29 ---
+[2025-10-21T15:33:15.605Z] Batch 29: No matches found
+[2025-10-21T15:33:15.606Z] 
+[2025-10-21T15:33:15.606Z] --- Processing Batch 30 ---
+[2025-10-21T15:33:15.606Z] Batch 30: No matches found
+[2025-10-21T15:33:15.606Z] 
+[2025-10-21T15:33:15.606Z] --- Processing Batch 31 ---
+[2025-10-21T15:33:15.607Z] Batch 31: No matches found
+[2025-10-21T15:33:15.607Z] 
+[2025-10-21T15:33:15.607Z] --- Processing Batch 32 ---
+[2025-10-21T15:33:15.609Z] Batch 32: No matches found
+[2025-10-21T15:33:15.610Z] 
+[2025-10-21T15:33:15.610Z] --- Processing Batch 33 ---
+[2025-10-21T15:33:15.611Z] Batch 33: No matches found
+[2025-10-21T15:33:15.611Z] 
+[2025-10-21T15:33:15.612Z] --- Processing Batch 34 ---
+[2025-10-21T15:33:15.613Z] Batch 34: No matches found
+[2025-10-21T15:33:15.614Z] 
+[2025-10-21T15:33:15.614Z] --- Processing Batch 35 ---
+[2025-10-21T15:33:15.615Z] Batch 35: No matches found
+[2025-10-21T15:33:15.615Z] 
+[2025-10-21T15:33:15.616Z] --- Processing Batch 36 ---
+[2025-10-21T15:33:15.616Z] Batch 36: No matches found
+[2025-10-21T15:33:15.616Z] 
+[2025-10-21T15:33:15.617Z] --- Processing Batch 37 ---
+[2025-10-21T15:33:15.617Z] Batch 37: No matches found
+[2025-10-21T15:33:15.617Z] 
+[2025-10-21T15:33:15.617Z] --- Processing Batch 38 ---
+[2025-10-21T15:33:15.618Z] Batch 38: No matches found
+[2025-10-21T15:33:15.618Z] 
+[2025-10-21T15:33:15.619Z] --- Processing Batch 39 ---
+[2025-10-21T15:33:15.620Z] Batch 39: No matches found
+[2025-10-21T15:33:15.620Z] 
+[2025-10-21T15:33:15.620Z] --- Processing Batch 40 ---
+[2025-10-21T15:33:15.621Z] Batch 40: No matches found
+[2025-10-21T15:33:15.621Z] 
+[2025-10-21T15:33:15.621Z] --- Processing Batch 41 ---
+[2025-10-21T15:33:15.622Z] Batch 41: No matches found
+[2025-10-21T15:33:15.622Z] 
+[2025-10-21T15:33:15.622Z] --- Processing Batch 42 ---
+[2025-10-21T15:33:15.623Z] Batch 42: No matches found
+[2025-10-21T15:33:15.623Z] 
+[2025-10-21T15:33:15.624Z] --- Processing Batch 43 ---
+[2025-10-21T15:33:15.625Z] Batch 43: No matches found
+[2025-10-21T15:33:15.625Z] 
+[2025-10-21T15:33:15.626Z] --- Processing Batch 44 ---
+[2025-10-21T15:33:15.626Z] Batch 44: No matches found
+[2025-10-21T15:33:15.626Z] 
+[2025-10-21T15:33:15.627Z] --- Processing Batch 45 ---
+[2025-10-21T15:33:15.627Z] Batch 45: No matches found
+[2025-10-21T15:33:15.627Z] 
+[2025-10-21T15:33:15.628Z] --- Processing Batch 46 ---
+[2025-10-21T15:33:15.629Z] Batch 46: No matches found
+[2025-10-21T15:33:15.629Z] 
+[2025-10-21T15:33:15.629Z] --- Processing Batch 47 ---
+[2025-10-21T15:33:15.630Z] Batch 47: No matches found
+[2025-10-21T15:33:15.630Z] 
+[2025-10-21T15:33:15.630Z] --- Processing Batch 48 ---
+[2025-10-21T15:33:15.630Z] Batch 48: No matches found
+[2025-10-21T15:33:15.631Z] 
+[2025-10-21T15:33:15.631Z] --- Processing Batch 49 ---
+[2025-10-21T15:33:15.632Z] Batch 49: No matches found
+[2025-10-21T15:33:15.632Z] 
+[2025-10-21T15:33:15.632Z] --- Processing Batch 50 ---
+[2025-10-21T15:33:15.634Z] Batch 50: No matches found
+[2025-10-21T15:33:15.634Z] 
+[2025-10-21T15:33:15.634Z] --- Processing Batch 51 ---
+[2025-10-21T15:33:15.635Z] Batch 51: No matches found
+[2025-10-21T15:33:15.635Z] 
+[2025-10-21T15:33:15.635Z] --- Processing Batch 52 ---
+[2025-10-21T15:33:15.636Z] Batch 52: No matches found
+[2025-10-21T15:33:15.636Z] 
+[2025-10-21T15:33:15.636Z] --- Processing Batch 53 ---
+[2025-10-21T15:33:15.637Z] Batch 53: No matches found
+[2025-10-21T15:33:15.637Z] 
+[2025-10-21T15:33:15.637Z] --- Processing Batch 54 ---
+[2025-10-21T15:33:15.638Z] Batch 54: No matches found
+[2025-10-21T15:33:15.638Z] 
+[2025-10-21T15:33:15.638Z] --- Processing Batch 55 ---
+[2025-10-21T15:33:15.639Z] ERROR: Could not load batch 55: Expected ',' or '}' after property value in JSON at position 3646 (line 46 column 7)
+[2025-10-21T15:33:15.639Z] Batch 55: No data found, skipping
+[2025-10-21T15:33:15.639Z] --- Processing Batch 56 ---
+[2025-10-21T15:33:15.640Z] Batch 56: No matches found
+[2025-10-21T15:33:15.640Z] 
+[2025-10-21T15:33:15.640Z] --- Processing Batch 57 ---
+[2025-10-21T15:33:15.641Z] Batch 57: No matches found
+[2025-10-21T15:33:15.641Z] 
+[2025-10-21T15:33:15.642Z] --- Processing Batch 58 ---
+[2025-10-21T15:33:15.642Z] Batch 58: No matches found
+[2025-10-21T15:33:15.642Z] 
+[2025-10-21T15:33:15.642Z] --- Processing Batch 59 ---
+[2025-10-21T15:33:15.643Z] Batch 59: No matches found
+[2025-10-21T15:33:15.643Z] 
+[2025-10-21T15:33:15.644Z] --- Processing Batch 60 ---
+[2025-10-21T15:33:15.644Z] Batch 60: No matches found
+[2025-10-21T15:33:15.644Z] 
+[2025-10-21T15:33:15.644Z] --- Processing Batch 61 ---
+[2025-10-21T15:33:15.645Z] Batch 61: No matches found
+[2025-10-21T15:33:15.645Z] 
+[2025-10-21T15:33:15.646Z] --- Processing Batch 62 ---
+[2025-10-21T15:33:15.646Z] Batch 62: No matches found
+[2025-10-21T15:33:15.646Z] 
+[2025-10-21T15:33:15.647Z] --- Processing Batch 63 ---
+[2025-10-21T15:33:15.647Z] Batch 63: No matches found
+[2025-10-21T15:33:15.647Z] 
+[2025-10-21T15:33:15.648Z] --- Processing Batch 64 ---
+[2025-10-21T15:33:15.649Z] Batch 64: No matches found
+[2025-10-21T15:33:15.649Z] 
+[2025-10-21T15:33:15.649Z] --- Processing Batch 65 ---
+[2025-10-21T15:33:15.650Z] Batch 65: No matches found
+[2025-10-21T15:33:15.650Z] 
+[2025-10-21T15:33:15.650Z] --- Processing Batch 66 ---
+[2025-10-21T15:33:15.650Z] Batch 66: No matches found
+[2025-10-21T15:33:15.651Z] 
+[2025-10-21T15:33:15.651Z] --- Processing Batch 67 ---
+[2025-10-21T15:33:15.651Z] Batch 67: No matches found
+[2025-10-21T15:33:15.652Z] 
+[2025-10-21T15:33:15.652Z] --- Processing Batch 68 ---
+[2025-10-21T15:33:15.652Z] Batch 68: No matches found
+[2025-10-21T15:33:15.653Z] 
+[2025-10-21T15:33:15.653Z] --- Processing Batch 69 ---
+[2025-10-21T15:33:15.653Z] Batch 69: No matches found
+[2025-10-21T15:33:15.653Z] 
+[2025-10-21T15:33:15.654Z] --- Processing Batch 70 ---
+[2025-10-21T15:33:15.654Z] Batch 70: No matches found
+[2025-10-21T15:33:15.654Z] 
+[2025-10-21T15:33:15.654Z] --- Processing Batch 71 ---
+[2025-10-21T15:33:15.655Z] Batch 71: No matches found
+[2025-10-21T15:33:15.655Z] 
+[2025-10-21T15:33:15.655Z] --- Processing Batch 72 ---
+[2025-10-21T15:33:15.656Z] Batch 72: No matches found
+[2025-10-21T15:33:15.656Z] 
+[2025-10-21T15:33:15.656Z] --- Processing Batch 73 ---
+[2025-10-21T15:33:15.657Z] Batch 73: No matches found
+[2025-10-21T15:33:15.657Z] 
+[2025-10-21T15:33:15.657Z] --- Processing Batch 74 ---
+[2025-10-21T15:33:15.657Z] Batch 74: No matches found
+[2025-10-21T15:33:15.658Z] 
+[2025-10-21T15:33:15.658Z] --- Processing Batch 75 ---
+[2025-10-21T15:33:15.658Z] Batch 75: No matches found
+[2025-10-21T15:33:15.658Z] 
+[2025-10-21T15:33:15.658Z] --- Processing Batch 76 ---
+[2025-10-21T15:33:15.658Z] Batch 76: No matches found
+[2025-10-21T15:33:15.659Z] 
+[2025-10-21T15:33:15.659Z] --- Processing Batch 77 ---
+[2025-10-21T15:33:15.659Z] Batch 77: No matches found
+[2025-10-21T15:33:15.659Z] 
+[2025-10-21T15:33:15.659Z] --- Processing Batch 78 ---
+[2025-10-21T15:33:15.660Z] Batch 78: No matches found
+[2025-10-21T15:33:15.660Z] 
+[2025-10-21T15:33:15.660Z] --- Processing Batch 79 ---
+[2025-10-21T15:33:15.661Z] Batch 79: No matches found
+[2025-10-21T15:33:15.661Z] 
+[2025-10-21T15:33:15.661Z] --- Processing Batch 80 ---
+[2025-10-21T15:33:15.661Z] Batch 80: No matches found
+[2025-10-21T15:33:15.662Z] 
+[2025-10-21T15:33:15.662Z] --- Processing Batch 81 ---
+[2025-10-21T15:33:15.662Z] Batch 81: No matches found
+[2025-10-21T15:33:15.662Z] 
+[2025-10-21T15:33:15.662Z] --- Processing Batch 82 ---
+[2025-10-21T15:33:15.663Z] Batch 82: No matches found
+[2025-10-21T15:33:15.664Z] 
+[2025-10-21T15:33:15.664Z] --- Processing Batch 83 ---
+[2025-10-21T15:33:15.665Z] Batch 83: No matches found
+[2025-10-21T15:33:15.665Z] 
+[2025-10-21T15:33:15.665Z] --- Processing Batch 84 ---
+[2025-10-21T15:33:15.666Z] Batch 84: No matches found
+[2025-10-21T15:33:15.666Z] 
+[2025-10-21T15:33:15.666Z] --- Processing Batch 85 ---
+[2025-10-21T15:33:15.666Z] Batch 85: No matches found
+[2025-10-21T15:33:15.666Z] 
+[2025-10-21T15:33:15.667Z] --- Processing Batch 86 ---
+[2025-10-21T15:33:15.668Z] ERROR: Could not load batch 86: Expected ',' or ']' after array element in JSON at position 11223 (line 187 column 5)
+[2025-10-21T15:33:15.668Z] Batch 86: No data found, skipping
+[2025-10-21T15:33:15.668Z] --- Processing Batch 87 ---
+[2025-10-21T15:33:15.669Z] Batch 87: No matches found
+[2025-10-21T15:33:15.669Z] 
+[2025-10-21T15:33:15.669Z] --- Processing Batch 88 ---
+[2025-10-21T15:33:15.670Z] Batch 88: No matches found
+[2025-10-21T15:33:15.670Z] 
+[2025-10-21T15:33:15.670Z] --- Processing Batch 89 ---
+[2025-10-21T15:33:15.670Z] Batch 89: No matches found
+[2025-10-21T15:33:15.670Z] 
+[2025-10-21T15:33:15.671Z] --- Processing Batch 90 ---
+[2025-10-21T15:33:15.671Z] Batch 90: No matches found
+[2025-10-21T15:33:15.671Z] 
+[2025-10-21T15:33:15.671Z] --- Processing Batch 91 ---
+[2025-10-21T15:33:15.672Z] Batch 91: No matches found
+[2025-10-21T15:33:15.672Z] 
+[2025-10-21T15:33:15.672Z] --- Processing Batch 92 ---
+[2025-10-21T15:33:15.672Z] Batch 92: No matches found
+[2025-10-21T15:33:15.673Z] 
+[2025-10-21T15:33:15.673Z] --- Processing Batch 93 ---
+[2025-10-21T15:33:15.673Z] Batch 93: No matches found
+[2025-10-21T15:33:15.673Z] 
+[2025-10-21T15:33:15.673Z] --- Processing Batch 94 ---
+[2025-10-21T15:33:15.674Z] ERROR: Could not load batch 94: Expected ',' or ']' after array element in JSON at position 22872 (line 327 column 7)
+[2025-10-21T15:33:15.674Z] Batch 94: No data found, skipping
+[2025-10-21T15:33:15.674Z] --- Processing Batch 95 ---
+[2025-10-21T15:33:15.675Z] Batch 95: No matches found
+[2025-10-21T15:33:15.675Z] 
+[2025-10-21T15:33:15.675Z] --- Processing Batch 96 ---
+[2025-10-21T15:33:15.675Z] Batch 96: No matches found
+[2025-10-21T15:33:15.675Z] 
+[2025-10-21T15:33:15.675Z] --- Processing Batch 97 ---
+[2025-10-21T15:33:15.676Z] Batch 97: No matches found
+[2025-10-21T15:33:15.676Z] 
+[2025-10-21T15:33:15.676Z] --- Processing Batch 98 ---
+[2025-10-21T15:33:15.676Z] Batch 98: No matches found
+[2025-10-21T15:33:15.677Z] 
+[2025-10-21T15:33:15.677Z] --- Processing Batch 99 ---
+[2025-10-21T15:33:15.678Z] Batch 99: No matches found
+[2025-10-21T15:33:15.678Z] 
+[2025-10-21T15:33:15.678Z] --- Processing Batch 100 ---
+[2025-10-21T15:33:15.678Z] Batch 100: No matches found
+[2025-10-21T15:33:15.678Z] 
+[2025-10-21T15:33:15.678Z] --- Processing Batch 101 ---
+[2025-10-21T15:33:15.679Z] Batch 101: No matches found
+[2025-10-21T15:33:15.679Z] 
+[2025-10-21T15:33:15.679Z] --- Processing Batch 102 ---
+[2025-10-21T15:33:15.680Z] Batch 102: No matches found
+[2025-10-21T15:33:15.680Z] 
+[2025-10-21T15:33:15.680Z] --- Processing Batch 103 ---
+[2025-10-21T15:33:15.680Z] Batch 103: No matches found
+[2025-10-21T15:33:15.680Z] 
+[2025-10-21T15:33:15.681Z] --- Processing Batch 104 ---
+[2025-10-21T15:33:15.681Z] Batch 104: No matches found
+[2025-10-21T15:33:15.681Z] 
+[2025-10-21T15:33:15.681Z] --- Processing Batch 105 ---
+[2025-10-21T15:33:15.682Z] Batch 105: No matches found
+[2025-10-21T15:33:15.682Z] 
+[2025-10-21T15:33:15.682Z] --- Processing Batch 106 ---
+[2025-10-21T15:33:15.683Z] Batch 106: No matches found
+[2025-10-21T15:33:15.683Z] 
+[2025-10-21T15:33:15.683Z] --- Processing Batch 107 ---
+[2025-10-21T15:33:15.684Z] Batch 107: No matches found
+[2025-10-21T15:33:15.684Z] 
+[2025-10-21T15:33:15.685Z] --- Processing Batch 108 ---
+[2025-10-21T15:33:15.685Z] Batch 108: No matches found
+[2025-10-21T15:33:15.685Z] 
+[2025-10-21T15:33:15.686Z] --- Processing Batch 109 ---
+[2025-10-21T15:33:15.686Z] Batch 109: No matches found
+[2025-10-21T15:33:15.686Z] 
+[2025-10-21T15:33:15.686Z] --- Processing Batch 110 ---
+[2025-10-21T15:33:15.687Z] Batch 110: No matches found
+[2025-10-21T15:33:15.687Z] 
+[2025-10-21T15:33:15.687Z] --- Processing Batch 111 ---
+[2025-10-21T15:33:15.687Z] Batch 111: No matches found
+[2025-10-21T15:33:15.687Z] 
+[2025-10-21T15:33:15.688Z] --- Processing Batch 112 ---
+[2025-10-21T15:33:15.688Z] Batch 112: No matches found
+[2025-10-21T15:33:15.688Z] 
+[2025-10-21T15:33:15.688Z] --- Processing Batch 113 ---
+[2025-10-21T15:33:15.689Z] Batch 113: No matches found
+[2025-10-21T15:33:15.689Z] 
+[2025-10-21T15:33:15.689Z] --- Processing Batch 114 ---
+[2025-10-21T15:33:15.689Z] Batch 114: No matches found
+[2025-10-21T15:33:15.689Z] 
+[2025-10-21T15:33:15.690Z] --- Processing Batch 115 ---
+[2025-10-21T15:33:15.690Z] Batch 115: No matches found
+[2025-10-21T15:33:15.690Z] 
+[2025-10-21T15:33:15.690Z] --- Processing Batch 116 ---
+[2025-10-21T15:33:15.691Z] Batch 116: No matches found
+[2025-10-21T15:33:15.691Z] 
+[2025-10-21T15:33:15.691Z] --- Processing Batch 117 ---
+[2025-10-21T15:33:15.691Z] Batch 117: No matches found
+[2025-10-21T15:33:15.692Z] 
+[2025-10-21T15:33:15.692Z] --- Processing Batch 118 ---
+[2025-10-21T15:33:15.692Z] Batch 118: No matches found
+[2025-10-21T15:33:15.693Z] 
+[2025-10-21T15:33:15.693Z] --- Processing Batch 119 ---
+[2025-10-21T15:33:15.694Z] Batch 119: No matches found
+[2025-10-21T15:33:15.694Z] 
+[2025-10-21T15:33:15.694Z] --- Processing Batch 120 ---
+[2025-10-21T15:33:15.695Z] Batch 120: No matches found
+[2025-10-21T15:33:15.695Z] 
+[2025-10-21T15:33:15.695Z] --- Processing Batch 121 ---
+[2025-10-21T15:33:15.695Z] Batch 121: No matches found
+[2025-10-21T15:33:15.695Z] 
+[2025-10-21T15:33:15.696Z] --- Processing Batch 122 ---
+[2025-10-21T15:33:15.696Z] Batch 122: No matches found
+[2025-10-21T15:33:15.696Z] 
+[2025-10-21T15:33:15.696Z] --- Processing Batch 123 ---
+[2025-10-21T15:33:15.697Z] Batch 123: No matches found
+[2025-10-21T15:33:15.697Z] 
+[2025-10-21T15:33:15.697Z] --- Processing Batch 124 ---
+[2025-10-21T15:33:15.697Z] Batch 124: No matches found
+[2025-10-21T15:33:15.697Z] 
+[2025-10-21T15:33:15.697Z] --- Processing Batch 125 ---
+[2025-10-21T15:33:15.698Z] Batch 125: No matches found
+[2025-10-21T15:33:15.698Z] 
+[2025-10-21T15:33:15.698Z] --- Processing Batch 126 ---
+[2025-10-21T15:33:15.698Z] Batch 126: No matches found
+[2025-10-21T15:33:15.699Z] 
+[2025-10-21T15:33:15.699Z] --- Processing Batch 127 ---
+[2025-10-21T15:33:15.699Z] Batch 127: No matches found
+[2025-10-21T15:33:15.699Z] 
+[2025-10-21T15:33:15.699Z] --- Processing Batch 128 ---
+[2025-10-21T15:33:15.700Z] Batch 128: No matches found
+[2025-10-21T15:33:15.700Z] 
+[2025-10-21T15:33:15.700Z] --- Processing Batch 129 ---
+[2025-10-21T15:33:15.700Z] Batch 129: No matches found
+[2025-10-21T15:33:15.700Z] 
+[2025-10-21T15:33:15.700Z] --- Processing Batch 130 ---
+[2025-10-21T15:33:15.701Z] Batch 130: No matches found
+[2025-10-21T15:33:15.701Z] 
+[2025-10-21T15:33:15.701Z] --- Processing Batch 131 ---
+[2025-10-21T15:33:15.701Z] Batch 131: No matches found
+[2025-10-21T15:33:15.701Z] 
+[2025-10-21T15:33:15.702Z] --- Processing Batch 132 ---
+[2025-10-21T15:33:15.702Z] Batch 132: No matches found
+[2025-10-21T15:33:15.702Z] 
+[2025-10-21T15:33:15.702Z] --- Processing Batch 133 ---
+[2025-10-21T15:33:15.703Z] Batch 133: No matches found
+[2025-10-21T15:33:15.703Z] 
+[2025-10-21T15:33:15.703Z] --- Processing Batch 134 ---
+[2025-10-21T15:33:15.704Z] Batch 134: No matches found
+[2025-10-21T15:33:15.704Z] 
+[2025-10-21T15:33:15.705Z] --- Processing Batch 135 ---
+[2025-10-21T15:33:15.705Z] Batch 135: No matches found
+[2025-10-21T15:33:15.705Z] 
+[2025-10-21T15:33:15.705Z] --- Processing Batch 136 ---
+[2025-10-21T15:33:15.706Z] Batch 136: No matches found
+[2025-10-21T15:33:15.706Z] 
+[2025-10-21T15:33:15.706Z] --- Processing Batch 137 ---
+[2025-10-21T15:33:15.706Z] Batch 137: No matches found
+[2025-10-21T15:33:15.706Z] 
+[2025-10-21T15:33:15.707Z] --- Processing Batch 138 ---
+[2025-10-21T15:33:15.707Z] Batch 138: No matches found
+[2025-10-21T15:33:15.707Z] 
+[2025-10-21T15:33:15.707Z] --- Processing Batch 139 ---
+[2025-10-21T15:33:15.707Z] Batch 139: No matches found
+[2025-10-21T15:33:15.708Z] 
+[2025-10-21T15:33:15.708Z] --- Processing Batch 140 ---
+[2025-10-21T15:33:15.708Z] Batch 140: No matches found
+[2025-10-21T15:33:15.708Z] 
+[2025-10-21T15:33:15.708Z] --- Processing Batch 141 ---
+[2025-10-21T15:33:15.709Z] Batch 141: No matches found
+[2025-10-21T15:33:15.709Z] 
+[2025-10-21T15:33:15.709Z] --- Processing Batch 142 ---
+[2025-10-21T15:33:15.709Z] Batch 142: No matches found
+[2025-10-21T15:33:15.709Z] 
+[2025-10-21T15:33:15.710Z] --- Processing Batch 143 ---
+[2025-10-21T15:33:15.710Z] Batch 143: No matches found
+[2025-10-21T15:33:15.710Z] 
+[2025-10-21T15:33:15.710Z] --- Processing Batch 144 ---
+[2025-10-21T15:33:15.711Z] Batch 144: No matches found
+[2025-10-21T15:33:15.711Z] 
+[2025-10-21T15:33:15.711Z] --- Processing Batch 145 ---
+[2025-10-21T15:33:15.711Z] Batch 145: No matches found
+[2025-10-21T15:33:15.711Z] 
+[2025-10-21T15:33:15.711Z] --- Processing Batch 146 ---
+[2025-10-21T15:33:15.712Z] Batch 146: No matches found
+[2025-10-21T15:33:15.712Z] 
+[2025-10-21T15:33:15.712Z] --- Processing Batch 147 ---
+[2025-10-21T15:33:15.712Z] Batch 147: No matches found
+[2025-10-21T15:33:15.712Z] 
+[2025-10-21T15:33:15.712Z] --- Processing Batch 148 ---
+[2025-10-21T15:33:15.713Z] Batch 148: No matches found
+[2025-10-21T15:33:15.713Z] 
+[2025-10-21T15:33:15.713Z] --- Processing Batch 149 ---
+[2025-10-21T15:33:15.714Z] Batch 149: No matches found
+[2025-10-21T15:33:15.714Z] 
+[2025-10-21T15:33:15.714Z] --- Processing Batch 150 ---
+[2025-10-21T15:33:15.714Z] Batch 150: No matches found
+[2025-10-21T15:33:15.714Z] 
+[2025-10-21T15:33:15.714Z] --- Processing Batch 151 ---
+[2025-10-21T15:33:15.715Z] Batch 151: No matches found
+[2025-10-21T15:33:15.715Z] 
+[2025-10-21T15:33:15.715Z] --- Processing Batch 152 ---
+[2025-10-21T15:33:15.716Z] Batch 152: No matches found
+[2025-10-21T15:33:15.716Z] 
+[2025-10-21T15:33:15.716Z] --- Processing Batch 153 ---
+[2025-10-21T15:33:15.716Z] Batch 153: No matches found
+[2025-10-21T15:33:15.716Z] 
+[2025-10-21T15:33:15.716Z] --- Processing Batch 154 ---
+[2025-10-21T15:33:15.717Z] Batch 154: No matches found
+[2025-10-21T15:33:15.717Z] 
+[2025-10-21T15:33:15.717Z] --- Processing Batch 155 ---
+[2025-10-21T15:33:15.718Z] Batch 155: No matches found
+[2025-10-21T15:33:15.718Z] 
+[2025-10-21T15:33:15.718Z] --- Processing Batch 156 ---
+[2025-10-21T15:33:15.718Z] Batch 156: No matches found
+[2025-10-21T15:33:15.718Z] 
+[2025-10-21T15:33:15.719Z] --- Processing Batch 157 ---
+[2025-10-21T15:33:15.719Z] Batch 157: No matches found
+[2025-10-21T15:33:15.719Z] 
+[2025-10-21T15:33:15.719Z] --- Processing Batch 158 ---
+[2025-10-21T15:33:15.720Z] Batch 158: No matches found
+[2025-10-21T15:33:15.720Z] 
+[2025-10-21T15:33:15.720Z] --- Processing Batch 159 ---
+[2025-10-21T15:33:15.721Z] Batch 159: No matches found
+[2025-10-21T15:33:15.721Z] 
+[2025-10-21T15:33:15.721Z] --- Processing Batch 160 ---
+[2025-10-21T15:33:15.721Z] Batch 160: No matches found
+[2025-10-21T15:33:15.721Z] 
+[2025-10-21T15:33:15.722Z] --- Processing Batch 161 ---
+[2025-10-21T15:33:15.722Z] Batch 161: No matches found
+[2025-10-21T15:33:15.722Z] 
+[2025-10-21T15:33:15.722Z] --- Processing Batch 162 ---
+[2025-10-21T15:33:15.722Z] Batch 162: No matches found
+[2025-10-21T15:33:15.722Z] 
+[2025-10-21T15:33:15.723Z] --- Processing Batch 163 ---
+[2025-10-21T15:33:15.723Z] Batch 163: No matches found
+[2025-10-21T15:33:15.723Z] 
+[2025-10-21T15:33:15.723Z] --- Processing Batch 164 ---
+[2025-10-21T15:33:15.723Z] Batch 164: No matches found
+[2025-10-21T15:33:15.724Z] 
+[2025-10-21T15:33:15.724Z] --- Processing Batch 165 ---
+[2025-10-21T15:33:15.724Z] Batch 165: No matches found
+[2025-10-21T15:33:15.724Z] 
+[2025-10-21T15:33:15.724Z] --- Processing Batch 166 ---

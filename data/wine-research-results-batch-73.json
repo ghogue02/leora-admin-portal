@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batch": 73,
+  "processedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Misty Cliffs NA Sauvignon Blanc NV",
+      "description": "A dealcoholized Sauvignon Blanc from South Africa's coastal region that delivers authentic varietal character without alcohol. This innovative wine preserves the crisp, vibrant nature of Sauvignon Blanc while offering a guilt-free alternative at just 15 calories per serving.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting aromas of white peach and green pineapple, creating a tropical-meets-temperate aromatic profile. Subtle hints of bell pepper emerge, a classic Sauvignon Blanc marker that confirms the wine's varietal authenticity. The bouquet remains fresh and bright, avoiding the cooked or flat characteristics often found in non-alcoholic alternatives.",
+        "palate": "On the palate, classic Sauvignon Blanc acidity takes center stage with zesty grapefruit and lime flavors dominating. Crisp citrus mingles with delicate pear and stone fruit notes, while a subtle minerality adds depth and complexity. The mouthfeel is surprisingly similar to traditional wine, with refreshing tartness balanced by just enough natural sweetness to avoid juice-like qualities. The wine maintains impressive balance throughout, never veering into cloying territory.",
+        "finish": "The finish is clean and refreshing with lingering citrus zest and a nose-tingling hint of green bell pepper. The acidity persists pleasantly, leaving the palate cleansed and ready for the next sip or bite of food."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish",
+        "Goat cheese salad with citrus vinaigrette",
+        "Grilled white fish with lemon and herbs",
+        "Thai green curry or spicy Vietnamese cuisine",
+        "Asparagus and spring vegetable dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Well-chilled at 45-48°F (7-9°C)",
+        "decanting": "No decanting needed; serve immediately from refrigerator",
+        "glassware": "Standard white wine glass or Sauvignon Blanc-specific tulip glass"
+      },
+      "wineDetails": {
+        "region": "Coastal Region, South Africa",
+        "grapeVariety": "100% Sauvignon Blanc (dealcoholized)",
+        "vintage": "Non-Vintage",
+        "style": "Dealcoholized White Wine - Crisp and Aromatic",
+        "ageability": "Best enjoyed fresh within 1 year of purchase; no aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Cuvee Marie 2024",
+      "description": "A Loire-inspired white wine crafted in the Languedoc from Vermentino and Colombard grapes. This refreshing blend earned 92/100 points for its purity and finesse, offering exceptional value as a sophisticated aperitif wine with Mediterranean character.",
+      "tastingNotes": {
+        "aroma": "An expressive and complex nose bursts with tropical pineapple and bright citrus fruits, accented by a delicate touch of honey that adds richness without heaviness. The aromatic profile is clean and lifted, with fine floral notes emerging as the wine opens in the glass. The Vermentino contributes elegant Mediterranean herbs while Colombard brings characteristic aromatic citrus intensity.",
+        "palate": "Crisp and dynamic on entry, the palate delivers fresh, pure citrus fruit with excellent textural interest. The wine shows lovely acid structure that keeps everything lively and precise, while subtle saline notes add complexity and a sense of place. Grapefruit and lemon dominate the flavor spectrum, supported by white peach and a hint of tropical fruit. The blend achieves wonderful harmony - Vermentino provides delicacy and smoothness while Colombard adds pop and aromatic freshness.",
+        "finish": "A tapered, saline finish with persistent citrus and a lovely acid line that cleanses the palate. The conclusion is pure and fine, with lingering grapefruit notes and mineral undertones that invite another sip."
+      },
+      "foodPairings": [
+        "Fresh sushi and sashimi",
+        "Mediterranean grilled prawns with lemon",
+        "Summer aperitif with light appetizers",
+        "Goat cheese crostini with honey",
+        "Ceviche or crudo preparations"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 46-50°F (8-10°C)",
+        "decanting": "No decanting required; best enjoyed fresh and cool",
+        "glassware": "Medium-sized white wine glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Languedoc-Roussillon, Southern France (Vin de Pays d'Oc)",
+        "grapeVariety": "Vermentino (Rolle) and Colombard blend",
+        "vintage": "2024",
+        "style": "Crisp, Aromatic White - Loire-inspired style from Languedoc",
+        "ageability": "Best enjoyed young within 1-2 years to preserve freshness and aromatics"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Pam de Nas 2019",
+      "description": "A classic Priorat blend from Grenache and Carignan that showcases the region's distinctive mineral terroir. Aged 12 months in French barriques and refined 20 months in bottle, this wine earned 90/100 points for its composed elegance and characteristic schisty minerality.",
+      "tastingNotes": {
+        "aroma": "The nose reveals great aromatic expressiveness with complex layers of dark berry fruit, balsamic herbs, and Mediterranean spices. Mineral and herbaceous notes evoke the region's characteristic terroir - think thyme, rosemary, and the scent of sun-warmed slate. Subtle oak influence adds toasty undertones without masking the wine's inherent complexity. As it opens, fruity notes intensify while maintaining perfect balance with earthy, mineral elements.",
+        "palate": "Tight and intense on the palate with well-etched structure and remarkable focus. Dark, schisty black fruits dominate - blackberry, black cherry, and plum - with mineral undertones that speak to Priorat's unique llicorella (slate) soils. The wine is fleshy yet fresh, offering substantial volume and length without heaviness. Velvety tannins provide elegant structure rather than astringency, while balanced acidity keeps everything lifted and precise. Touches of toasted oak, chocolate, and spice add complexity to the mineral-driven fruit core.",
+        "finish": "Long, mineral-laden finish with persistent dark fruit, subtle spice, and a distinctive slate-like character. The tannins are mild and refined, allowing the wine's inherent elegance to shine through. The conclusion is fresh and inviting despite the wine's power and concentration."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Aged Manchego or hard sheep's milk cheeses",
+        "Braised short ribs with wild mushrooms",
+        "Catalan-style grilled vegetables with romesco sauce",
+        "Duck confit with black olive tapenade"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (15-18°C) to highlight aromatics and structure",
+        "decanting": "Decant 30-60 minutes before serving to allow the wine to open fully",
+        "glassware": "Large Bordeaux-style glass to capture complex aromatics"
+      },
+      "wineDetails": {
+        "region": "DOCa Priorat, Catalonia, Spain",
+        "grapeVariety": "Grenache (Garnatxa) and Carignan (Cariñena) blend",
+        "vintage": "2019",
+        "style": "Classic Priorat Red - Mineral-driven, Medium to Full-bodied",
+        "ageability": "Drink now through 2027; can age 3-5 years from vintage with proper cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Dolcetto D Alba 2020",
+      "description": "A traditional Dolcetto from a century-old family vineyard in Barolo, representing Piedmont's beloved everyday wine. This approachable red showcases the varietal's characteristic fruit-forward profile with bright acidity and soft tannins, perfect for casual dining and early enjoyment.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with vibrant red berry aromas - raspberry, red cherry, and wild strawberry - accented by subtle violet florals and baking spice. Hints of blackberry and blueberry add depth, while gentle rose petal notes provide elegance. The aromatic profile is straightforward yet charming, with touches of almond and spice emerging as the wine breathes.",
+        "palate": "On the palate, this Dolcetto delivers exactly what Piedmont locals crave - plenty of juicy fruit with minimal tannin interference and refreshing acidity. Raspberry jam dominates the flavor spectrum, joined by red cherry, clove, and orange zest that add complexity and brightness. The wine shows deep fruity flavors balanced by a characteristic almond note on the mid-palate. The tannic texture is soft and approachable rather than grippy, making this supremely food-friendly. Nice acidity provides structure and makes the wine versatile across various dishes.",
+        "finish": "The finish is clean and moderately persistent, with lingering red fruit, subtle spice, and that telltale bitter almond note that marks quality Dolcetto. The conclusion is refreshing rather than heavy, inviting another glass."
+      },
+      "foodPairings": [
+        "Classic Piedmontese pasta dishes with meat ragù",
+        "Margherita pizza or casual Italian fare",
+        "Grilled sausages with peppers and onions",
+        "Mushroom risotto or pasta with porcini",
+        "Mild to medium-aged cheeses and antipasti platters"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly cool at 55-60°F (13-15°C) to emphasize freshness",
+        "decanting": "No decanting necessary; this wine is ready to enjoy immediately",
+        "glassware": "Standard red wine glass or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Dolcetto d'Alba DOCG, Piedmont, Italy",
+        "grapeVariety": "100% Dolcetto",
+        "vintage": "2020",
+        "style": "Traditional Piedmontese Red - Light to Medium-bodied, Fruit-forward",
+        "ageability": "Best enjoyed young within 2-3 years of vintage; minimal aging potential"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Abadia de Acon Roble 2022",
+      "description": "A modern expression of Ribera del Duero Tempranillo that balances power with accessibility. Aged five months in new Bordeaux oak, this wine earned 4.5 stars from Platter's Guide for its impressive integration of fruit, oak, and structure at an exceptional price point.",
+      "tastingNotes": {
+        "aroma": "The nose is intense and elegant, displaying attractive notes of ripe red and black berries - cherry, blackberry, and cassis - lifted by chocolate and liquorice accents. The oak treatment is evident but well-integrated, contributing spicy background notes with hints of toffee, coffee, and vanilla. The aromatic profile is fresh despite the wine's depth, with ripe fruit taking center stage while wood components provide supporting complexity.",
+        "palate": "Powerful and lively on the palate, this wine delivers impressive concentration without heaviness. Good cherry fruit dominates, enriched by layers of chocolate, liquorice, and cocoa that add sweetness and texture. The five months in new Bordeaux oak has left its mark with toasty, spicy notes and hints of coffee and vanilla, but the fruit intensity keeps everything in balance. The wine is juicy and accessible, with the oak well-integrated rather than dominating. The tannic structure is present but refined, providing grip without astringency.",
+        "finish": "The finish is enveloping, persistent, and long, with lingering dark fruit, chocolate, and sweet spice. Hints of liquorice and cocoa extend the conclusion, while integrated tannins provide structure. The wine leaves a lasting impression of both power and elegance."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak or chuletón",
+        "Roasted lamb with herbs and garlic",
+        "Aged Manchego or Zamorano cheese",
+        "Chorizo and other cured Spanish meats",
+        "Mushroom-based dishes and truffle preparations"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-64°F (16-18°C) to balance fruit and structure",
+        "decanting": "Decant 20-30 minutes to allow oak and fruit to integrate further",
+        "glassware": "Large Bordeaux or Tempranillo-specific glass"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo (Tinto Fino)",
+        "vintage": "2022",
+        "style": "Modern Ribera del Duero Red - Medium to Full-bodied, Oak-influenced",
+        "ageability": "Drink now through 2028; best enjoyed within 3-5 years of vintage"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Orchard Lane Pinot Noir 2023",
+      "description": "An estate-grown Pinot Noir from Marlborough's cool climate vineyards, crafted to showcase elegance and varietal purity. This wine represents the New Zealand approach to Pinot Noir - fruit-forward yet refined, with balanced structure and accessible charm.",
+      "tastingNotes": {
+        "aroma": "The nose presents a delicate yet expressive combination of red berry fruits - ripe raspberry, red cherry, and wild strawberry - intermingled with subtle plum notes. Gentle spice accents emerge, including hints of cinnamon and clove, while delicate floral undertones add lift and complexity. The aromatic profile is pure and clean, showcasing classic cool-climate Pinot Noir character without heavy oak influence. As the wine opens, subtle earthy notes and hints of dried herbs appear, adding dimension.",
+        "palate": "Well-balanced and elegant on the palate, with supple, lightly balanced tannins that provide structure without weight. The red berry fruit core continues from the nose - bright cherry, raspberry, and plum dominate with excellent freshness and purity. The wine shows lovely acid balance that keeps everything vibrant and food-friendly, while the tannins are fine-grained and silky rather than grippy. Medium body with surprising depth, the wine delivers complexity through subtle spice layers and a hint of forest floor earthiness. The overall impression is one of refinement and restraint.",
+        "finish": "The finish is clean and moderately persistent, with lingering red fruit, subtle spice, and gentle tannins. The wine concludes with elegance, leaving pleasant acidity and a touch of savory complexity that invites food pairing or another sip."
+      },
+      "foodPairings": [
+        "Pan-seared salmon with herb butter",
+        "Roasted duck breast with cherry reduction",
+        "Mushroom and truffle risotto",
+        "Grilled lamb chops with rosemary",
+        "Aged Gruyère or medium-aged hard cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 55-60°F (13-16°C) to preserve elegance and aromatics",
+        "decanting": "Brief 15-20 minute decant recommended to allow aromatics to develop",
+        "glassware": "Burgundy-style glass to concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Marlborough, New Zealand",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2023",
+        "style": "New Zealand Pinot Noir - Medium-bodied, Elegant, Fruit-forward",
+        "ageability": "Best enjoyed within 3-5 years; drink 2024-2028 for optimal freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alella Ivori Garnatxa Syrah 2019",
+      "description": "A Mediterranean red blend from Catalonia's coastal DO Alella, combining Grenache and Syrah with Cabernet Sauvignon. Aged fourteen months in French oak, this wine represents outstanding value from one of Spain's smallest and most historic wine regions, located just north of Barcelona.",
+      "tastingNotes": {
+        "aroma": "The nose opens with concentrated dark fruit aromatics - ripe blackberry, black cherry, and plum - characteristic of warm-climate Grenache and Syrah. Spicy notes emerge with nuances of black pepper, dried herbs, and garrigue reflecting the Mediterranean terroir. The oak aging contributes subtle vanilla, toast, and sweet spice without overwhelming the fruit. Hints of lavender and wild herbs add complexity and sense of place, while a touch of leather and earth provides depth as the wine opens.",
+        "palate": "On the palate, this blend showcases impressive concentration and structure balanced by Mediterranean warmth and generosity. The Grenache provides ripe red berry fruit and soft, approachable tannins, while Syrah adds dark fruit intensity, spicy backbone, and structural grip. Cabernet Sauvignon contributes cassis notes and firm tannic architecture. The wine shows excellent integration of fruit, oak, and tannin, with flavors of blackberry, plum, and dark cherry enriched by notes of cocoa, vanilla, and sweet spice from the barrel aging. Medium to full body with balanced acidity keeps the wine from feeling heavy despite its richness.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit, integrated oak spice, and fine-grained tannins. Hints of Mediterranean herbs and a touch of minerality linger, while the wine's structure suggests moderate aging potential. The conclusion is warm and generous yet refined."
+      },
+      "foodPairings": [
+        "Grilled Catalan butifarra sausages or charcuterie",
+        "Slow-roasted lamb shoulder with herbs de Provence",
+        "Beef and vegetable stew with Mediterranean spices",
+        "Aged sheep's milk cheeses like Manchego",
+        "Wild mushroom and game dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (16-18°C) to highlight structure and aromatics",
+        "decanting": "Decant 30-45 minutes to allow oak and fruit to fully integrate",
+        "glassware": "Large red wine glass or Syrah-specific glass"
+      },
+      "wineDetails": {
+        "region": "DO Alella, Catalonia, Spain",
+        "grapeVariety": "Grenache (Garnatxa), Syrah, and Cabernet Sauvignon blend",
+        "vintage": "2019",
+        "style": "Mediterranean Red Blend - Medium to Full-bodied, Oak-aged",
+        "ageability": "Drink now through 2026; best enjoyed within 5-7 years of vintage"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Cabernet Sauvignon 2022",
+      "description": "A cool-climate South African Cabernet from Elgin Valley's Sutherland Vineyards, just 9km from the Atlantic Ocean. This wine earned 4.5 stars from Platter's 2025 Guide for its vibrant expression of Cabernet grown at altitude in maritime-influenced soils, showcasing cassis purity and seamless tannin integration.",
+      "tastingNotes": {
+        "aroma": "The nose displays vibrant, lifted aromatics of dark berry fruits with prominent cassis taking center stage - a hallmark of cool-climate Cabernet. Layers of blackberry, black cherry, and mulberry emerge, accented by complex spice notes including cedar, tobacco leaf, and hints of dark chocolate. The maritime influence contributes subtle graphite minerality and herbal nuances - bay leaf and eucalyptus - that add intrigue without overwhelming the pure fruit expression. As the wine opens, violet florals and sweet vanilla oak appear, testament to the 18-month barrel program.",
+        "palate": "On the palate, this Cabernet reveals impressive depth and intensity while maintaining cool-climate elegance and freshness. The cassis and dark berry core continues with additional layers of blackcurrant, plum, and dark cherry, supported by the wine's remarkable fruit intensity. Spice elements - pepper, clove, and cedar - add complexity without dominating. What truly distinguishes this wine is the seamless integration of tannins with fruit - the structure is present and firm enough to support aging, yet refined and silky enough to provide immediate drinking pleasure. The 25% new French oak is perfectly balanced, contributing vanilla, toast, and subtle coffee notes without masking the fruit. Atlantic influence shows in the wine's freshness and mineral backbone.",
+        "finish": "The finish is long, satisfying, and lingering with persistent cassis, dark fruit, and fine-grained tannins. Subtle spice, graphite minerality, and oak-derived complexity extend the conclusion. The mouthfeel remains seamless and elegant, inviting another sip while demonstrating the wine's aging potential. The wine leaves a lasting impression of both power and refinement."
+      },
+      "foodPairings": [
+        "Grilled venison or kudu (South African game meats)",
+        "Herb-crusted rack of lamb",
+        "Aged Stilton or strong blue cheeses",
+        "Beef Wellington with mushroom duxelles",
+        "Mature hard cheeses like aged Cheddar or Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (16-18°C) to balance fruit and structure",
+        "decanting": "Decant 45-60 minutes to allow tannins to soften and aromatics to develop fully",
+        "glassware": "Large Bordeaux or Cabernet-specific glass to showcase complexity"
+      },
+      "wineDetails": {
+        "region": "Elgin Valley, Western Cape, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon, Clone 338C",
+        "vintage": "2022",
+        "style": "Cool-Climate Cabernet Sauvignon - Full-bodied, Structured, Maritime-influenced",
+        "ageability": "Drink 2025-2032; optimal drinking window 2026-2030 with proper cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "DR Colheita Tinto 2017",
+      "description": "A traditional Douro red from Portugal's premier wine region, showcasing the region's indigenous grape varieties and characteristic mineral-driven structure. This wine demonstrates the serious dry core and ageability that distinguish quality Douro reds from more fruit-forward New World styles.",
+      "tastingNotes": {
+        "aroma": "The nose presents restrained yet compelling aromatics of dark berries and fresh fruit basket notes - blackberry, cassis, and ripe plum dominate. As the wine opens, additional complexity emerges with hints of dried herbs, tobacco, and subtle earthy minerality that speaks to the Douro's schist soils. The aromatic profile shows maturity and development from the 2017 vintage, with tertiary notes of leather and dried flowers beginning to appear alongside the primary fruit.",
+        "palate": "The palate reveals the wine's true character with impressive tannic grip and structural density. A seriously dry core provides the backbone, balanced by generous black fruits that are developing beautifully - blackberry, cassis, and dark plum show ripeness without overextraction. The minerality from the region's characteristic schist soils comes through clearly, adding a stony, almost chalky quality that enhances complexity. Medium to full weight on the palate, the wine surprises with its tannic presence and slight bite from balanced alcohol and fresh acids. Tart red fruit and dark plums round out the flavor profile, while the wine's structure suggests continued evolution with age. The tannins are firm and present, characteristic of traditional Douro reds built for the table and cellar.",
+        "finish": "The finish is moderately long with persistent tannins, dark fruit, and mineral notes. The dry, structured conclusion demonstrates classic Douro character - this is a wine built for food and aging rather than solo sipping. Fine, lingering tannins and fresh acidity leave the palate cleansed and ready for food."
+      },
+      "foodPairings": [
+        "Grilled Portuguese chouriço or linguiça sausages",
+        "Bacalhau à Brás or other traditional cod preparations",
+        "Slow-braised beef or lamb with garlic and wine",
+        "Aged Portuguese cheeses like Serra da Estrela",
+        "Hearty bean and meat stews"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-64°F (16-18°C) to soften tannins while preserving structure",
+        "decanting": "Decant 60-90 minutes to allow tannins to soften and fruit to emerge",
+        "glassware": "Large red wine glass or Portuguese-style copa"
+      },
+      "wineDetails": {
+        "region": "Douro DOC, Portugal",
+        "grapeVariety": "Traditional Douro blend (likely Touriga Nacional, Touriga Franca, Tinta Roriz)",
+        "vintage": "2017",
+        "style": "Traditional Douro Red - Full-bodied, Structured, Mineral-driven",
+        "ageability": "Drink now through 2030; wine is developing well and can age 5-10+ years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Gavioli Lambrusco  Emilia Semisweet NV",
+      "description": "A traditional sparkling red Lambrusco from Emilia-Romagna, Italy's heartland of this distinctive style. This semisweet expression balances effervescence, fruit-forward character, and gentle sweetness, making it perfect for casual enjoyment and surprisingly versatile food pairing.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with fresh, vibrant red berry aromatics that immediately signal the wine's approachable, festive character. Dominant notes of ripe strawberry and raspberry create an intensely fruity profile, accented by hints of wild forest berries and delicate florals. The aromatic intensity is remarkable for a sparkling wine, developing an almost irresistible berry-forward character that promises pleasure. Light spice notes and subtle earthy undertones add just enough complexity to keep the wine interesting without compromising its joyful exuberance.",
+        "palate": "On the palate, this Lambrusco delivers exactly what the style promises - fresh, sparkling, fruity pleasure with a light, refreshing attack. The effervescence is gentle and creamy rather than aggressive, creating a pleasant mousse that carries the fruit flavors beautifully. Strawberry and raspberry dominate with additional notes of red cherry and wild berries, while the semisweet style provides balance without cloying. The sweetness level is carefully judged - enough to soften the wine's natural acidity and enhance fruit expression, but restrained enough to maintain food-friendliness. The wine shows surprising freshness and vibrancy, with the bubbles providing lift and making each sip feel celebratory.",
+        "finish": "The finish is clean and moderately persistent, with lingering red berry fruit, gentle bubbles, and refreshing acidity that balances the residual sugar. The wine concludes on a fresh, fruity note that invites another glass, leaving the palate cleansed despite the semisweet profile."
+      },
+      "foodPairings": [
+        "Traditional Emilian charcuterie - prosciutto di Parma, mortadella, salami",
+        "Pizza and casual Italian fare",
+        "Parmigiano-Reggiano and other aged Italian cheeses",
+        "Grilled sausages or porchetta",
+        "Surprisingly good with spicy Asian cuisine or BBQ"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C) to enhance refreshment and balance sweetness",
+        "decanting": "No decanting; serve directly from a chilled bottle to preserve bubbles",
+        "glassware": "Flute or tulip glass to concentrate aromatics and maintain effervescence"
+      },
+      "wineDetails": {
+        "region": "Emilia-Romagna IGT, Italy",
+        "grapeVariety": "Lambrusco (specific sub-variety not specified)",
+        "vintage": "Non-Vintage",
+        "style": "Sparkling Red - Frizzante, Semisweet, Fruit-forward",
+        "ageability": "Best enjoyed fresh within 1-2 years; no aging potential or needed"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

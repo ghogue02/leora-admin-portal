@@ -1,0 +1,347 @@
+{
+  "batchId": "batch-54",
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Frico Sangiovese IGT Toscana (NOVA only) 2022",
+      "description": "A vibrant expression of Tuscan Sangiovese showcasing the accessible charm of the IGT classification. This 2022 vintage captures the essence of central Italy's signature grape with bright acidity and authentic regional character, offering exceptional value for everyday enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright red cherry and wild strawberry notes, complemented by hints of dried Mediterranean herbs including oregano and thyme. Subtle earthy undertones of terracotta and dried rose petals add complexity, while a whisper of black tea and tobacco leaf emerges with air. The aromatic profile speaks to the warm Tuscan sun and the traditional winemaking approach.",
+        "palate": "Medium-bodied with lively acidity that defines classic Sangiovese, the palate delivers flavors of tart red cherry, cranberry, and pomegranate. The wine's natural freshness is balanced by gentle tannins that provide structure without heaviness. Mid-palate notes of orange zest and sun-dried tomato add savory complexity, while the characteristic Sangiovese acidity keeps the wine energetic and food-friendly throughout.",
+        "finish": "The finish is clean and refreshing with lingering notes of red fruit and a subtle bitter almond character typical of Sangiovese. Fine-grained tannins provide a gentle grip, while bright acidity encourages another sip. A touch of herbal minerality persists, making this an ideal companion to rustic Italian cuisine."
+      },
+      "foodPairings": [
+        "Margherita pizza with fresh basil and San Marzano tomatoes",
+        "Pasta alla puttanesca with olives, capers, and anchovies",
+        "Grilled Italian sausages with roasted peppers",
+        "Medium-aged Pecorino Toscano cheese",
+        "Eggplant parmigiana with marinara sauce"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C) - slightly cool to showcase the bright fruit",
+        "decanting": "30 minutes of breathing recommended to soften tannins and open aromatics",
+        "glassware": "Medium-sized Burgundy or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Toscana IGT, Central Italy",
+        "grapeVariety": "100% Sangiovese",
+        "vintage": "2022",
+        "style": "Dry red wine - medium-bodied, fruit-forward Tuscan style",
+        "ageability": "Drink now through 2026. Best enjoyed young to preserve fresh fruit character and vibrant acidity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rueda Reina De Castilla Oak Aged Verdejo 2022",
+      "description": "An elevated expression of Verdejo from Spain's premier white wine region, Rueda. This oak-aged interpretation balances the grape's natural citrus vibrancy with subtle vanilla complexity from barrel fermentation, creating a sophisticated white wine that transcends the typical fresh, unoaked style.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals layers of ripe white peach and golden apple intertwined with delicate vanilla and toasted almond from oak aging. Fresh fennel and white flower notes add aromatic lift, while hints of lemon verbena and wet stone provide mineral complexity. A subtle beeswax quality emerges, indicative of careful oak integration that enhances rather than overwhelms the fruit.",
+        "palate": "Rich and textured on the palate, this Verdejo displays flavors of ripe pear, white nectarine, and Meyer lemon, supported by creamy oak influence that adds weight and complexity. The wine's natural acidity remains vibrant despite oak treatment, providing balance to the fuller body. Mid-palate notes of hazelnut, butter, and a touch of spice from barrel fermentation create depth, while maintaining the variety's characteristic freshness and mineral edge.",
+        "finish": "The finish is long and satisfying, with lingering notes of citrus zest and toasted oak harmonizing beautifully. A pleasant butterscotch quality from lees contact adds richness, while crisp acidity ensures the wine doesn't feel heavy. The mineral backbone typical of Rueda's high-altitude vineyards provides a clean, refreshing conclusion that invites the next sip."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with brown butter and capers",
+        "Roasted chicken with lemon and herbs",
+        "Creamy seafood risotto with saffron",
+        "Grilled halibut with garlic aioli",
+        "Manchego cheese with membrillo (quince paste)"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C) - cool but not too cold to appreciate oak complexity",
+        "decanting": "15-20 minutes in the glass allows oak integration to harmonize with fruit",
+        "glassware": "White Burgundy glass or medium-sized Chardonnay glass"
+      },
+      "wineDetails": {
+        "region": "Rueda DO, Castilla y León, Spain",
+        "grapeVariety": "100% Verdejo with partial oak fermentation and aging",
+        "vintage": "2022",
+        "style": "Dry white wine - oak-aged, fuller-bodied style with creamy texture",
+        "ageability": "Drink now through 2027. Oak-aged Verdejo develops honeyed complexity with 2-3 years of age but maintains freshness for 4-5 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Colle Corviano Sangiovese 2022",
+      "description": "A pure expression of Sangiovese that highlights the grape's natural elegance and food-friendly character. This 2022 vintage offers authentic Italian winemaking with emphasis on fruit purity and terroir expression, delivering classic Sangiovese characteristics in an approachable, everyday format.",
+      "tastingNotes": {
+        "aroma": "Aromatic notes of fresh red plum and morello cherry dominate the nose, layered with violet petals and crushed raspberry. Earthy nuances of leather, dried fig, and a hint of balsamic add savory complexity. Subtle undertones of graphite and clay minerality speak to the wine's Italian heritage, while a delicate spice note of cracked black pepper emerges with aeration.",
+        "palate": "The palate showcases pure, focused red fruit flavors of cherry, raspberry, and red currant, supported by Sangiovese's signature bright acidity and fine-grained tannins. Medium weight with excellent balance, the wine displays subtle earthiness mid-palate with notes of dried mushroom and sun-baked earth. A touch of fennel seed and dried orange peel adds aromatic lift, while maintaining the grape's characteristic lean, elegant structure that makes it so versatile at the table.",
+        "finish": "The finish is persistent and savory, with red fruit notes gradually giving way to earthy minerality and a pleasant tannic grip. Hints of black cherry skin and espresso grounds add depth, while the bright acidity cleanses the palate completely. A subtle iron-like quality typical of quality Sangiovese lingers, ending with refreshing tartness."
+      },
+      "foodPairings": [
+        "Wild boar ragu with pappardelle pasta",
+        "Bistecca alla Fiorentina with rosemary",
+        "Mushroom and truffle risotto",
+        "Aged Parmigiano-Reggiano and prosciutto di Parma",
+        "Osso buco with gremolata"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (16-19°C) - slightly below room temperature",
+        "decanting": "45 minutes of decanting recommended to fully express aromatics and soften structure",
+        "glassware": "Classic Italian red wine glass or medium Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Central Italy (specific appellation not designated)",
+        "grapeVariety": "100% Sangiovese",
+        "vintage": "2022",
+        "style": "Dry red wine - traditional Sangiovese style with earthy elegance",
+        "ageability": "Drink now through 2028. Will develop tertiary complexity over 3-4 years, with earthy and leather notes becoming more prominent."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rock Ferry 3rd Rock Chardonnay 2019",
+      "description": "A distinctive New Zealand Chardonnay that balances Old World restraint with New World fruit expression. The 2019 vintage showcases careful oak management and extended lees aging, resulting in a wine of considerable complexity and aging potential that reflects thoughtful winemaking and terroir expression.",
+      "tastingNotes": {
+        "aroma": "The nose presents ripe stone fruit aromas of yellow peach, nectarine, and apricot, interwoven with subtle oak notes of toasted hazelnut and crème brûlée. Citrus blossom and fresh grapefruit zest add brightness, while a mineral flinty quality provides complexity. Delicate spice notes of cardamom and white pepper emerge, along with a saline coastal character that speaks to New Zealand's maritime climate.",
+        "palate": "Rich and textured with a creamy mouthfeel from extended lees contact, the palate delivers concentrated flavors of baked apple, poached pear, and golden delicious apple. Well-integrated oak provides structure and complexity through notes of vanilla bean, cashew, and subtle butterscotch, while maintaining the wine's elegance. The mid-palate shows layers of Meyer lemon curd, white peach, and a distinctive mineral streak that adds precision and length. Balanced acidity ensures the wine remains fresh despite its richness.",
+        "finish": "The finish is long and sophisticated, with toasted oak and ripe stone fruit harmonizing with a chalky mineral quality. A pleasant salinity emerges on the back palate, adding complexity and freshness. Lingering notes of lemon zest, vanilla, and almond provide an elegant conclusion with excellent persistence that suggests good aging potential."
+      },
+      "foodPairings": [
+        "Butter-poached lobster with tarragon",
+        "Roasted turbot with cauliflower purée",
+        "Chicken supreme with wild mushroom cream sauce",
+        "Aged Gruyère and Comté cheeses",
+        "Seared sea bass with fennel and citrus"
+      ],
+      "servingInfo": {
+        "temperature": "52-56°F (11-13°C) - cool to showcase complexity without muting aromatics",
+        "decanting": "20-30 minutes in a wide glass to fully express oak integration and fruit development",
+        "glassware": "Large white Burgundy glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "New Zealand (likely Marlborough or Central Otago based on producer style)",
+        "grapeVariety": "100% Chardonnay with oak fermentation and lees aging",
+        "vintage": "2019",
+        "style": "Dry white wine - full-bodied, oak-influenced style with significant aging potential",
+        "ageability": "Drink now through 2029. Currently showing beautifully with 6 years of age, will continue to develop honeyed and nutty complexity over the next 4 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Crimson Clover RED Cabernet Sauvignon 2019",
+      "description": "A bold California Cabernet Sauvignon that delivers classic varietal character with ripe fruit concentration and structured tannins. The 2019 vintage captures the warmth and generosity of the growing season, producing a wine with immediate appeal while maintaining enough structure for medium-term cellaring.",
+      "tastingNotes": {
+        "aroma": "Concentrated aromas of ripe blackberry, cassis, and black cherry lead the bouquet, complemented by dark chocolate, cedar, and sweet tobacco. Hints of eucalyptus and dried sage add herbaceous complexity, while vanilla and toasted oak from barrel aging provide depth. A subtle violet and graphite note emerges, along with warm baking spices of clove and nutmeg that suggest quality oak integration.",
+        "palate": "Full-bodied and richly textured, the palate offers intense flavors of blackcurrant, dark plum, and boysenberry, supported by firm yet ripe tannins that provide excellent structure. The oak influence is evident through notes of mocha, espresso, and vanilla, integrated seamlessly with the concentrated fruit. Mid-palate richness reveals layers of black olive, dark cocoa, and a touch of mint, while maintaining balance through moderate acidity. The wine's density and extract suggest careful vineyard management and optimal ripeness.",
+        "finish": "The finish is long and powerful, with persistent dark fruit flavors gradually transitioning to oak-derived notes of smoke, char, and sweet spice. Firm tannins provide a gripping structure that will soften with time, while the fruit concentration ensures the wine doesn't feel austere. Hints of black licorice and dark chocolate linger, with a warming alcohol presence that speaks to the wine's generosity."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with garlic herb butter",
+        "Braised short ribs with red wine reduction",
+        "Aged cheddar and blue cheese selection",
+        "Rack of lamb with rosemary and mint",
+        "Portobello mushroom burgers with caramelized onions"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (16-19°C) - slightly below room temperature to balance richness",
+        "decanting": "60-90 minutes of decanting recommended to soften tannins and fully express complexity",
+        "glassware": "Large Bordeaux glass to showcase aromatics and allow wine to breathe"
+      },
+      "wineDetails": {
+        "region": "California (likely Central Valley or Central Coast based on name)",
+        "grapeVariety": "Predominantly Cabernet Sauvignon with possible small amounts of blending grapes",
+        "vintage": "2019",
+        "style": "Dry red wine - full-bodied, oak-aged California style with ripe fruit and structured tannins",
+        "ageability": "Drink now through 2032. Currently showing well with 6 years of age, will continue to soften and develop tertiary complexity over the next 6-7 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Gendraud Patrice Petit Chablis Mevushal (MD & DC)",
+      "description": "A kosher Mevushal Petit Chablis that maintains the essential character of Burgundy's northernmost appellation while adhering to strict religious winemaking protocols. This wine offers the classic Chablis profile of crisp minerality and citrus precision, produced in a format suitable for kosher observance.",
+      "tastingNotes": {
+        "aroma": "The nose expresses classic Chablis character with bright green apple, fresh lemon, and limestone minerality taking center stage. Delicate white flower notes of acacia and chamomile add aromatic lift, while subtle hints of oyster shell and wet flint provide the distinctive mineral signature of the region. A whisper of green almond and fresh herbs adds complexity without overwhelming the wine's essential purity and freshness.",
+        "palate": "Lean and crystalline on the palate, this Petit Chablis showcases vibrant acidity and penetrating mineral flavors that define the appellation. Citrus notes of lemon zest, lime, and green apple dominate, supported by a chalky, saline quality that speaks to Kimmeridgian limestone soils. The wine remains unoaked, allowing the pure expression of Chardonnay and terroir to shine through. Light-bodied with excellent tension and energy, the palate displays remarkable clarity and focus.",
+        "finish": "The finish is clean, refreshing, and intensely mineral, with lingering citrus notes and a distinctive saline quality. A subtle green herb note and continued stony minerality provide persistence, while the bright acidity ensures a mouthwatering conclusion. The wine's unoaked profile allows the terroir to speak clearly through to the very end."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell with mignonette",
+        "Grilled fish with lemon and herbs",
+        "Goat cheese salad with citrus vinaigrette",
+        "Steamed mussels with white wine and shallots",
+        "Sushi and sashimi selection"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C) - well-chilled to emphasize minerality and freshness",
+        "decanting": "No decanting needed; best enjoyed immediately from a chilled bottle",
+        "glassware": "Small white wine glass or Chablis glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Petit Chablis AOC, Burgundy, France",
+        "grapeVariety": "100% Chardonnay from Kimmeridgian limestone soils",
+        "vintage": "Non-vintage or current release",
+        "style": "Dry white wine - lean, mineral-driven Chablis style, Mevushal kosher certified",
+        "ageability": "Drink young within 2-3 years of release. Petit Chablis is best enjoyed for its youthful freshness and vibrant acidity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paris-Simoneau Brut Rose",
+      "description": "An elegant French sparkling rosé that combines the celebratory nature of fine bubbles with delicate fruit character and refreshing acidity. This Brut Rosé offers sophisticated effervescence suitable for aperitifs or pairing with lighter cuisine, showcasing careful winemaking and attention to balance.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of fresh strawberry, wild raspberry, and white cherry greet the nose, accompanied by hints of rose petal and orange blossom. Subtle notes of brioche and toasted almond from secondary fermentation add complexity, while a mineral quality provides elegance. Light citrus notes of pink grapefruit and blood orange add vibrancy, creating an inviting and refined aromatic profile that speaks to quality sparkling wine production.",
+        "palate": "Fine, persistent bubbles create a creamy mousse texture on the palate, carrying flavors of red berry fruits including cranberry, strawberry, and pomegranate. The wine maintains excellent freshness through bright acidity, balanced by subtle yeasty richness from lees contact. Mid-palate notes of watermelon, white peach, and a touch of almond paste add dimension, while the Brut dosage provides just enough sweetness to round out the wine without masking its essential dryness. The overall impression is one of elegance and refinement.",
+        "finish": "The finish is clean and refreshing with lingering red fruit notes and a pleasant mineral quality. Fine bubbles continue to dance on the palate, while subtle toasty notes and citrus zest provide complexity. A slight salinity and chalk-like minerality emerge on the back palate, leading to a crisp, mouthwatering conclusion that encourages another sip."
+      },
+      "foodPairings": [
+        "Smoked salmon canapés with crème fraîche",
+        "Fresh strawberries with cream",
+        "Prosciutto-wrapped melon",
+        "Soft-ripened cheeses like Brie and Camembert",
+        "Delicate seafood ceviche with citrus"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C) - well-chilled to preserve bubbles and enhance freshness",
+        "decanting": "No decanting needed; serve directly from bottle to preserve effervescence",
+        "glassware": "Champagne flute or tulip glass to maintain bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "France (specific region not designated, likely traditional method production)",
+        "grapeVariety": "Traditional sparkling blend likely including Pinot Noir, Chardonnay, and/or Pinot Meunier",
+        "vintage": "Non-vintage blend for consistency",
+        "style": "Sparkling rosé wine - Brut style (dry) with traditional method production",
+        "ageability": "Drink now through 2027. Non-vintage sparkling wines are best enjoyed within 2-3 years of purchase for optimal freshness and bubble integration."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Central Valley Banner Day Sauvignon Blanc 2024",
+      "description": "A vibrant, newly released Sauvignon Blanc from California's Central Valley that captures the grape's characteristic aromatic intensity and crisp acidity. The 2024 vintage offers immediate freshness and exuberant fruit character, perfect for warm weather enjoyment and casual dining.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic with intense notes of grapefruit, lime zest, and passion fruit dominating the bouquet. Fresh-cut grass, gooseberry, and jalapeño pepper add classic Sauvignon Blanc herbaceous character, while hints of lemongrass and elderflower provide additional aromatic complexity. A subtle tropical note of guava and kiwi emerges, suggesting optimal ripeness and varietal purity. The aromatic profile is youthful, exuberant, and immediately appealing.",
+        "palate": "Crisp and refreshing on the palate with zingy acidity that defines quality Sauvignon Blanc. Flavors of green apple, white grapefruit, and Meyer lemon dominate, supported by herbaceous notes of fresh basil and bell pepper. The wine remains light to medium-bodied with a lean, focused structure that emphasizes purity and freshness. Mid-palate flavors of lime cordial, white peach, and a distinctive mineral quality add interest, while maintaining the variety's characteristic bright, energetic profile.",
+        "finish": "The finish is clean and zesty with lingering citrus notes and a pleasant herbal quality. Mouth-watering acidity ensures a refreshing conclusion, while subtle tropical fruit and mineral notes provide persistence. A touch of green peppercorn and fresh-cut grass linger, creating an invigorating finish that cleanses the palate completely."
+      },
+      "foodPairings": [
+        "Grilled shrimp tacos with cilantro lime slaw",
+        "Fresh goat cheese salad with vinaigrette",
+        "Ceviche with citrus and avocado",
+        "Grilled asparagus with lemon",
+        "Oysters with jalapeño mignonette"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C) - well-chilled to emphasize freshness and aromatics",
+        "decanting": "No decanting needed; best served immediately to preserve vibrant aromatics",
+        "glassware": "Small to medium white wine glass to concentrate intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Central Valley, California",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Dry white wine - crisp, aromatic New World style with bright acidity",
+        "ageability": "Drink now through 2026. This wine is best enjoyed young and fresh to capture its vibrant aromatics and zesty character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Barbera d'Asti DOCG Leradici 2022",
+      "description": "A distinguished Barbera d'Asti from the renowned Piedmontese producer Mauro Molino, whose family has crafted exceptional wines in the region for generations. The Leradici vineyard site produces Barbera with exceptional depth and complexity, showcasing the grape's signature acidity alongside concentrated fruit and careful oak integration.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense aromas of ripe black cherry, plum compote, and blackberry jam, intertwined with notes of violet, iris, and dried rose petals. Subtle oak influence adds layers of vanilla, cinnamon, and toasted hazelnut, while earthy undertones of truffle, wet earth, and tobacco provide Piedmontese complexity. A hint of balsamic vinegar and dark chocolate emerges with air, suggesting the wine's depth and concentration. The aromatic intensity speaks to low yields and optimal ripeness.",
+        "palate": "Rich and full-bodied with Barbera's hallmark bright acidity providing structure and balance to concentrated dark fruit flavors. The palate delivers waves of black cherry, boysenberry, and damson plum, supported by fine-grained tannins from oak aging. Mid-palate complexity emerges through notes of espresso, dark cocoa, and sweet spice, while maintaining remarkable freshness despite the wine's richness. The acidity cuts through the density, creating a wine of considerable energy and length that pairs beautifully with rich Piedmontese cuisine.",
+        "finish": "The finish is long and persistent with dark fruit flavors gradually transitioning to earthy and spicy notes. Bright acidity continues through to the end, providing a mouthwatering quality that belies the wine's richness. Lingering notes of cherry skin, coffee grounds, and subtle oak spice create complexity, while a pleasant mineral quality emerges on the back palate. The wine's structure suggests excellent aging potential beyond typical Barbera."
+      },
+      "foodPairings": [
+        "Brasato al Barolo (beef braised in Barolo wine)",
+        "Agnolotti del plin with butter and sage",
+        "Tajarin pasta with white truffle",
+        "Aged Castelmagno or Toma Piemontese cheese",
+        "Slow-roasted pork shoulder with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C) - slightly cool to showcase vibrant acidity",
+        "decanting": "45-60 minutes of decanting recommended to integrate oak and soften structure",
+        "glassware": "Medium-sized Burgundy glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Barbera d'Asti DOCG, Piedmont, Italy - Leradici vineyard site",
+        "grapeVariety": "100% Barbera with oak aging",
+        "vintage": "2022",
+        "style": "Dry red wine - premium Barbera d'Asti with oak influence and significant structure",
+        "ageability": "Drink now through 2030. This quality Barbera will develop tertiary complexity over 5-8 years, with earthy and truffle notes becoming more prominent."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Abracadabra 2022",
+      "description": "An expressive red wine from Spain's legendary Priorat region, where ancient vines grow in dramatic slate and quartzite llicorella soils. Trossos represents a modern interpretation of Priorat's traditional blends, balancing power with elegance and showcasing the unique minerality that makes this region one of Spain's most prestigious appellations.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with layers of ripe blackberry, black plum, and dark cherry, interwoven with garrigue herbs including lavender, rosemary, and wild thyme. The distinctive mineral character of llicorella slate emerges as graphite and crushed stone, while notes of violet, licorice, and dark cocoa add complexity. Subtle oak influence provides hints of vanilla, cedar, and sweet tobacco, integrated seamlessly with the concentrated fruit. The aromatic profile speaks to the region's unique terroir and Mediterranean climate.",
+        "palate": "Full-bodied and concentrated with remarkable depth and structure, the palate delivers intense flavors of blackberry compote, cassis, and dark plum, supported by fine-grained tannins and balanced acidity. The llicorella soils impart a distinctive mineral quality that runs through the wine like a backbone, adding precision to the generous fruit. Mid-palate complexity reveals layers of black olive, dried fig, espresso, and bitter chocolate, while Mediterranean herb notes of oregano and sage add savory dimension. Despite the wine's power, it maintains remarkable elegance and balance.",
+        "finish": "The finish is long, powerful, and intensely mineral, with persistent dark fruit flavors gradually giving way to slate, graphite, and earthy notes. Fine tannins provide structure that suggests excellent aging potential, while the mineral backbone ensures the wine doesn't feel heavy despite its concentration. Lingering notes of dark chocolate, espresso, and dried herbs provide complexity, ending with the distinctive salty-mineral quality that defines great Priorat."
+      },
+      "foodPairings": [
+        "Grilled Ibérico pork secreto with chimichurri",
+        "Braised lamb shanks with rosemary and garlic",
+        "Aged Manchego and Mahón cheeses",
+        "Wild mushroom and truffle risotto",
+        "Catalan-style beef stew with chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (16-19°C) - slightly below room temperature",
+        "decanting": "90-120 minutes of decanting recommended to fully express complexity and soften tannins",
+        "glassware": "Large Bordeaux glass to showcase aromatic intensity and allow wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Priorat DOCa, Catalonia, Spain - llicorella slate soils",
+        "grapeVariety": "Traditional Priorat blend likely including Garnacha, Cariñena, Cabernet Sauvignon, and Syrah",
+        "vintage": "2022",
+        "style": "Dry red wine - powerful, mineral-driven Priorat style with significant aging potential",
+        "ageability": "Drink now through 2037. Young Priorat benefits from significant aging; this wine will develop extraordinary complexity over 10-15 years with proper cellaring."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

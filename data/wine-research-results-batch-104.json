@@ -1,0 +1,347 @@
+{
+  "batchId": 104,
+  "processedAt": "2025-10-21T14:26:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Bodegas Paco Garcia Tempranillo Blanco 2019",
+      "description": "This rare white Tempranillo from Bodegas Paco Garcia showcases an unusual expression of Spain's most famous red grape. White Tempranillo offers fresh, aromatic character with good acidity and moderate body. An intriguing Spanish white wine that demonstrates innovative winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose presents fresh aromas of white flowers, citrus, and green apple, with subtle herbal notes and a touch of minerality. Hints of stone fruit including peach and apricot add complexity, while a delicate floral character provides elegance. The aromatic profile is clean and vibrant.",
+        "palate": "Medium-bodied with crisp acidity and clean fruit flavors. Notes of citrus, apple, and stone fruit dominate, complemented by herbal undertones and mineral notes. The wine displays good balance with refreshing acidity and subtle depth. Mid-palate shows layers of fruit and herb flavors.",
+        "finish": "The finish is clean and moderately long with persistent citrus and floral notes. Crisp acidity leaves the palate refreshed and ready for food."
+      },
+      "foodPairings": [
+        "Grilled white fish with herbs",
+        "Seafood paella",
+        "Fresh salads with lemon dressing",
+        "Soft goat cheese",
+        "Tapas and light appetizers"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 46-50°F (8-10°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (exact region varies)",
+        "grapeVariety": "100% Tempranillo Blanco",
+        "vintage": "2019",
+        "style": "Fresh, aromatic Spanish white wine",
+        "ageability": "Best enjoyed within 3-5 years; drink now through 2024"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tarara Late Harvest Petit Manseng 2010 (375 ml)",
+      "description": "This late harvest Petit Manseng from Tarara Winery showcases Virginia's ability to produce world-class dessert wines. The 2010 vintage has developed considerable complexity with age. A luscious, well-balanced dessert wine with remarkable aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense aromas of apricot, honey, and candied citrus peel, with notes of tropical fruits including pineapple and mango. Complex secondary aromas of orange marmalade, ginger, and baking spices emerge. Hints of caramel and butterscotch from bottle age add richness.",
+        "palate": "Full-bodied with luscious sweetness balanced by vibrant acidity. Flavors of dried apricot, honey, and tropical fruits dominate, complemented by notes of candied ginger, orange zest, and crème brûlée. The wine displays excellent balance despite the sweetness, with refreshing acidity providing lift. Mid-palate complexity includes flavors of marmalade and spice.",
+        "finish": "The finish is very long and persistent with lingering notes of honey, apricot, and spice. Balanced sweetness and acidity create a harmonious, mouthwatering conclusion."
+      },
+      "foodPairings": [
+        "Foie gras or pâté",
+        "Blue cheese like Roquefort",
+        "Crème brûlée or custard desserts",
+        "Fruit tarts with apricot",
+        "Spicy Asian cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "Small dessert wine glass"
+      },
+      "wineDetails": {
+        "region": "Virginia",
+        "grapeVariety": "100% Petit Manseng",
+        "vintage": "2010",
+        "style": "Late harvest dessert wine with aging complexity",
+        "ageability": "Excellent aging potential; drink now through 2035"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Colle Corviano Montepulciano 2023",
+      "description": "This Montepulciano from Colle Corviano showcases the Abruzzo variety's characteristic dark fruit and soft tannins. The 2023 vintage is fresh and youthful, offering immediate drinking pleasure. An approachable Italian red wine with food-friendly character.",
+      "tastingNotes": {
+        "aroma": "The nose presents aromas of dark cherry, plum, and blackberry, with notes of violet, dried herbs, and a touch of earth. Subtle hints of spice and tobacco add complexity. The aromatic profile is fruit-forward and inviting.",
+        "palate": "Medium to full-bodied with soft, rounded tannins and moderate acidity. Flavors of dark cherry, plum, and berry fruits dominate, complemented by notes of earth, herbs, and subtle spice. The wine displays good concentration with smooth texture. Mid-palate shows depth with layers of fruit and savory notes.",
+        "finish": "The finish is moderately long with persistent dark fruit and earthy notes. Soft tannins and balanced structure create an easy-drinking conclusion."
+      },
+      "foodPairings": [
+        "Pasta with meat sauce",
+        "Grilled sausages",
+        "Pizza with cured meats",
+        "Pecorino cheese",
+        "Grilled vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-64°F (16-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes recommended",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Abruzzo, Italy",
+        "grapeVariety": "100% Montepulciano",
+        "vintage": "2023",
+        "style": "Fresh, fruit-forward Abruzzo red",
+        "ageability": "Best within 3-5 years; drink now through 2028"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mendoza Avarizza Malbec 2021",
+      "description": "This Argentine Malbec from Mendoza showcases the variety's signature dark fruit and velvety texture. The wine represents excellent value from Argentina's premier wine region. A classic expression of Mendoza Malbec with ripe fruit and smooth character.",
+      "tastingNotes": {
+        "aroma": "The nose reveals aromas of blackberry, plum, and dark cherry, with notes of violet, mocha, and vanilla. Hints of tobacco and leather add complexity, while subtle spice notes emerge. The aromatic profile is rich and inviting.",
+        "palate": "Full-bodied with velvety tannins and moderate acidity. Flavors of ripe dark berries dominate, complemented by notes of dark chocolate, espresso, and sweet oak. The wine displays classic Malbec richness with smooth texture and good depth. Mid-palate shows layers of fruit, spice, and earth.",
+        "finish": "The finish is long and satisfying with persistent dark fruit and chocolate notes. Smooth tannins and balanced structure create a generous conclusion."
+      },
+      "foodPairings": [
+        "Grilled Argentine steak",
+        "Empanadas",
+        "Braised short ribs",
+        "Aged cheeses",
+        "Grilled lamb"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-66°F (17-19°C)",
+        "decanting": "Decant for 30-45 minutes to integrate",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2021",
+        "style": "Full-bodied Argentine Malbec",
+        "ageability": "Drink now through 2029; optimal drinking window"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rippa Dorii Crianza 2021",
+      "description": "This Spanish Crianza from Rippa Dorii showcases traditional oak aging with modern winemaking. The wine offers classic Spanish character with balance and structure. A well-crafted expression of Spanish red wine with food-friendly appeal.",
+      "tastingNotes": {
+        "aroma": "The nose presents aromas of red cherry, plum, and strawberry, with notes of vanilla, toast, and cedar from oak aging. Hints of leather, tobacco, and dried herbs add complexity. The aromatic profile shows traditional Crianza character.",
+        "palate": "Medium to full-bodied with soft, integrated tannins and balanced acidity. Flavors of red fruit are complemented by oak-derived notes of vanilla, spice, and toast. The wine displays good concentration with smooth texture. Mid-palate shows depth with layers of fruit and savory notes.",
+        "finish": "The finish is moderately long with persistent fruit and oak notes. Soft tannins and balanced structure create a harmonious conclusion."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary",
+        "Manchego cheese",
+        "Paella",
+        "Chorizo and tapas",
+        "Grilled vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (16-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes recommended",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (likely Rioja or similar)",
+        "grapeVariety": "Likely Tempranillo-based blend",
+        "vintage": "2021",
+        "style": "Traditional Spanish Crianza with oak aging",
+        "ageability": "Drink now through 2028"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rioja Bodegas Ontanon Reserva 2010",
+      "description": "This aged Rioja Reserva from Bodegas Ontañón showcases traditional extended aging with considerable bottle development. The 2010 vintage has evolved beautifully, displaying tertiary complexity. A mature, elegant Rioja ready for immediate enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose reveals complex aromas of dried cherry, leather, and tobacco, with notes of cedar, vanilla, and earth. Tertiary aromas of forest floor, mushroom, and truffle emerge from extended aging. Hints of balsamic and spice add depth. The aromatic profile shows beautiful evolution.",
+        "palate": "Medium-bodied with silky, resolved tannins and balanced acidity. Flavors of dried red fruit are complemented by savory notes of leather, tobacco, earth, and cedar. The wine displays excellent maturity with complex, layered flavors. Mid-palate shows depth with tertiary characteristics dominating.",
+        "finish": "The finish is long and elegant with persistent savory notes and gentle tannins. The wine's maturity creates a harmonious, sophisticated conclusion."
+      },
+      "foodPairings": [
+        "Roasted game birds",
+        "Aged Manchego or Idiazábal",
+        "Wild mushroom dishes",
+        "Slow-roasted lamb",
+        "Cured Ibérico ham"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Gentle decanting recommended to remove sediment",
+        "glassware": "Bordeaux or Rioja glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo with possible Garnacha and Graciano",
+        "vintage": "2010",
+        "style": "Reserva with extended aging (minimum 3 years, 1 in oak)",
+        "ageability": "At peak maturity; drink now through 2028"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dogwood & Thistle Shenandoah Riesling 2023",
+      "description": "This Virginia Riesling from Dogwood & Thistle showcases the Shenandoah Valley's potential for aromatic white wines. The 2023 vintage is fresh and vibrant with excellent balance. A refined expression of Virginia terroir with food-friendly character.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Riesling aromatics of lime, green apple, and white flowers, with notes of citrus blossom and honey. Subtle mineral notes and a hint of petrol add complexity. The aromatic profile is fresh and inviting.",
+        "palate": "Light to medium-bodied with electric acidity and bright fruit flavors. Notes of lime, apple, and stone fruit dominate, with supporting flavors of honey and citrus. The wine displays excellent balance between sweetness and acidity. Mid-palate shows good depth with mineral notes.",
+        "finish": "The finish is clean and refreshing with persistent citrus and mineral notes. Crisp acidity creates a mouthwatering conclusion."
+      },
+      "foodPairings": [
+        "Spicy Thai or Indian cuisine",
+        "Grilled chicken with fruit salsa",
+        "Fresh seafood",
+        "Soft cheeses",
+        "Apple-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Shenandoah Valley, Virginia",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2023",
+        "style": "Virginia Riesling with balance and freshness",
+        "ageability": "Best within 3-5 years; drink now through 2028"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Bizet Sancerre Rose 2023",
+      "description": "This Sancerre Rosé from Domaine Bizet showcases Pinot Noir in a delicate pink expression from Loire's limestone soils. The wine offers crisp acidity and refined fruit character. An elegant French rosé with minerality and freshness.",
+      "tastingNotes": {
+        "aroma": "The nose reveals delicate aromas of strawberry, raspberry, and red currant, with notes of citrus and white flowers. Subtle mineral notes of chalk and flint add complexity. The aromatic profile is fresh and refined.",
+        "palate": "Light to medium-bodied with crisp acidity and clean fruit flavors. Flavors of red berries and citrus dominate, complemented by distinct minerality. The wine displays excellent tension between fruit and acidity. Mid-palate shows subtle depth with saline notes.",
+        "finish": "The finish is clean and refreshing with persistent berry and mineral notes. Crisp acidity leaves the palate cleansed."
+      },
+      "foodPairings": [
+        "Grilled salmon",
+        "Fresh salads",
+        "Goat cheese",
+        "Seafood platters",
+        "Light appetizers"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "White wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Sancerre AOC, Loire Valley, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2023",
+        "style": "Crisp, mineral-driven Loire rosé",
+        "ageability": "Best enjoyed young; drink within 1-2 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Le Prieur Entre-Deux-Mers White 2023",
+      "description": "This white Bordeaux from the Entre-Deux-Mers region showcases Sauvignon Blanc and Sémillon in a fresh, aromatic style. The wine offers excellent value from this historic Bordeaux appellation. A crisp, food-friendly white wine with regional character.",
+      "tastingNotes": {
+        "aroma": "The nose presents aromas of citrus, green apple, and white flowers, with notes of grapefruit and fresh herbs. Subtle mineral notes add complexity. The aromatic profile is clean and vibrant.",
+        "palate": "Medium-bodied with crisp acidity and clean fruit flavors. Notes of citrus, apple, and stone fruit dominate, with supporting herbal and mineral notes. The wine displays good balance and refreshing character. Mid-palate shows subtle depth.",
+        "finish": "The finish is clean and moderately long with persistent citrus notes. Crisp acidity creates a refreshing conclusion."
+      },
+      "foodPairings": [
+        "Grilled fish",
+        "Oysters",
+        "Fresh salads",
+        "Goat cheese",
+        "Seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 46-50°F (8-10°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Entre-Deux-Mers AOC, Bordeaux, France",
+        "grapeVariety": "Sauvignon Blanc and Sémillon blend",
+        "vintage": "2023",
+        "style": "Fresh, crisp Bordeaux white",
+        "ageability": "Best within 2-3 years; drink now through 2026"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Taste Rose",
+      "description": "This approachable rosé wine offers fresh fruit flavors and easy-drinking character. The wine is designed for casual enjoyment with broad appeal. A versatile rosé perfect for warm weather and relaxed occasions.",
+      "tastingNotes": {
+        "aroma": "The nose presents fresh aromas of strawberry, watermelon, and citrus. Light floral notes add subtle complexity. The aromatic profile is straightforward and fruit-driven.",
+        "palate": "Light-bodied with crisp acidity and clean fruit flavors. Flavors of red berries and citrus dominate with a refreshing, uncomplicated character. The wine displays good balance and easy drinkability.",
+        "finish": "The finish is short and clean with lingering berry notes. Refreshing acidity provides balance."
+      },
+      "foodPairings": [
+        "Fresh salads",
+        "Light appetizers",
+        "Grilled chicken",
+        "Soft cheeses",
+        "Summer picnics"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 40-45°F (4-7°C)",
+        "decanting": "Not required; serve ice-cold",
+        "glassware": "Casual wine glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (mass production)",
+        "grapeVariety": "Unknown blend",
+        "vintage": "Current release",
+        "style": "Light, approachable rosé",
+        "ageability": "Best enjoyed immediately; drink within 1 year"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-21T14:26:00.000Z"
+      }
+    }
+  ]
+}

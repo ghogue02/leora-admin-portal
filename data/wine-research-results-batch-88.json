@@ -1,0 +1,347 @@
+{
+  "batchNumber": 88,
+  "processedAt": "2025-10-21T12:39:05.874Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Cuvee Marie 2023",
+      "description": "A vibrant and refreshing white wine from the Languedoc region that showcases the crisp character of Colombard and Rolle. This IGP Pays d'Oc white offers explosive citrus notes and remarkable freshness, perfect for sunny occasions and casual gatherings.",
+      "tastingNotes": {
+        "aroma": "The nose is bright and delicate, opening with pronounced lemon and stone fruit aromatics complemented by subtle hints of pear and white flowers. As the wine breathes, notes of fresh pineapple and grapefruit emerge, adding tropical complexity, while a gentle whisper of honey provides roundness to the otherwise vibrant aromatic profile.",
+        "palate": "Super juicy and clean on entry, the wine broadens beautifully across the mid-palate with flavors of lemon, citrus zest, and ripe apricot dancing alongside warm stone fruit notes. The fresh, dynamic mouthfeel is marked by a tangy, thirst-quenching citrus and floral profile that showcases the wine's explosive character and notable acidity.",
+        "finish": "The finish is long and lingering with persistent citrus zest notes. The wine's fresh acidity carries through to the end, leaving a clean, refreshing impression that invites another sip."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood platters",
+        "Goat cheese salad with citrus vinaigrette",
+        "Grilled white fish with lemon and herbs",
+        "Light summer appetizers and crudités",
+        "Pan-seared scallops with butter sauce"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting needed - serve directly from the refrigerator",
+        "glassware": "Standard white wine glass or smaller tulip-shaped glass"
+      },
+      "wineDetails": {
+        "region": "IGP Pays d'Oc, Languedoc, France",
+        "grapeVariety": "80% Colombard, 20% Rolle (Vermentino)",
+        "vintage": "2023",
+        "style": "Fresh, crisp white wine with citrus and tropical notes",
+        "ageability": "Drink now through 2026. Best enjoyed young and fresh within 2 years of vintage."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tibouren Cotes de Provence 2021",
+      "description": "A distinctive rosé crafted from the rare Tibouren grape, a near-extinct Provençale varietal that produces wines of remarkable depth and character. This Cru Classé rosé showcases the unique terroir of Côtes de Provence with extended lees aging that sets it apart from typical Provence rosés.",
+      "tastingNotes": {
+        "aroma": "The wine presents an enchanting nose with a salmon-orange hue, opening with bright red fruits including red currant, cranberry, and strawberry, complemented by delicate peach notes. As it evolves in the glass, the aromatics mature into smooth, spicy layers with orange zest, clove, and a distinctive salty mineral character that speaks to its coastal origins.",
+        "palate": "Fresh and beautifully textured on entry, the palate is anchored by a pronounced mineral thread that runs from front to back. Layers of smoke and citrus zest add complexity, while the wine broadens in the mid-palate with additional stone fruit and red berry flavors. The mouthfeel is more substantial than typical Provence rosés, thanks to extended lees aging in century-old foudres.",
+        "finish": "The finish is long and mineral-driven with lingering notes of smoke, spice, and salty sea air. The wine's unique aging process imparts a complexity that persists well after the glass is empty."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean sea bass with herbs",
+        "Bouillabaisse or other Provençal fish stews",
+        "Roasted chicken with garlic and rosemary",
+        "Goat cheese tart with caramelized onions",
+        "Charcuterie board with dry-cured meats"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), slightly warmer than typical rosé",
+        "decanting": "Brief aeration recommended to allow the wine to open up and reveal its complexity",
+        "glassware": "White wine glass or Burgundy-style glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Côtes de Provence Cru Classé, Provence, France",
+        "grapeVariety": "90% Tibouren, 10% Grenache",
+        "vintage": "2021",
+        "style": "Complex, mineral-driven rosé with extended lees aging",
+        "ageability": "Drink now through 2026. This wine can age better than typical rosés due to its structure and lees aging, developing additional complexity over 3-5 years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Macauley Bacigalupi Chardonnay 2023",
+      "description": "An elegant Russian River Valley Chardonnay from the legendary Bacigalupi vineyard, the same site that contributed 40% of the grapes to Chateau Montelena's historic 1973 Chardonnay that won the Judgment of Paris. This wine captures the essence of its esteemed Russian River terroir with precision and refinement.",
+      "tastingNotes": {
+        "aroma": "The nose is bright, crisp, and refreshing, showcasing gorgeous floral notes alongside citrus blossom and white flowers. Aromas of Meyer lemon, lime zest, and tropical fruit including pineapple and mango emerge, complemented by subtle hints of vanilla and toasted oak. The wine's aromatic profile reflects the vineyard's heritage clones from the 1970s.",
+        "palate": "The palate is marked by amazing acidity that provides structure and energy to the wine. Lovely citrus flavors of lemon and grapefruit lead, followed by layers of tropical fruit including pineapple and stone fruit notes of white peach and nectarine. The wine shows beautiful balance between fruit intensity and elegant restraint, with a creamy texture from lees contact that adds richness without heaviness.",
+        "finish": "The finish is long and refreshing with persistent citrus and mineral notes. The wine's bright acidity carries through to the end, leaving a clean, vibrant impression with subtle hints of toasted almond and vanilla."
+      },
+      "foodPairings": [
+        "Dungeness crab with drawn butter",
+        "Pan-seared halibut with lemon beurre blanc",
+        "Roasted chicken with herbs and root vegetables",
+        "Lobster risotto with fresh tarragon",
+        "Grilled prawns with garlic and white wine sauce"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F)",
+        "decanting": "No decanting necessary, though 15-20 minutes of aeration will allow the wine to show its full aromatic complexity",
+        "glassware": "Burgundy or white Bordeaux glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Russian River Valley, Sonoma County, California",
+        "grapeVariety": "100% Chardonnay from Bacigalupi Vineyard heritage clones",
+        "vintage": "2023",
+        "style": "Elegant, balanced California Chardonnay with bright acidity and refined oak integration",
+        "ageability": "Drink now through 2028. The wine will develop additional complexity over 3-5 years, with the fruit becoming more integrated with oak and developing richer, nutty characteristics."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Adir Marselan",
+      "description": "A distinctive wine from Adir Winery in Israel's Upper Galilee, crafted from the Marselan grape variety. This family-owned winery combines five decades of agricultural experience with grapes grown in the prestigious Kerem Ben Zimra vineyards, creating wines that reflect the unique terroir of the Galilee region.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with vibrant aromas of fresh strawberries and ripe raspberries, accompanied by delicate rose petals and dried rose leaves that add a floral complexity. Bright red grapefruit and citrus notes emerge, along with subtle hints of lavender and orange zest that provide aromatic lift and Mediterranean character.",
+        "palate": "The palate is refreshing and lively, showcasing strawberry and raspberry fruit flavors alongside peach and green apple notes. A distinctive grassy, vegetal quality adds complexity without overwhelming the fruit, while orange and citrus flavors provide brightness. The wine's notable acidity creates a crisp, clean mouthfeel that carries the flavors with energy and precision.",
+        "finish": "The finish is long and refreshing with persistent berry fruit and citrus notes. The wine's bright acidity lingers, leaving a clean impression with subtle floral and herb nuances."
+      },
+      "foodPairings": [
+        "Mediterranean mezze platter with hummus and baba ganoush",
+        "Grilled lamb kebabs with herbs",
+        "Fresh Greek salad with feta cheese",
+        "Pan-seared salmon with citrus glaze",
+        "Israeli couscous with roasted vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), lightly chilled",
+        "decanting": "Brief aeration of 15-20 minutes will help the wine open up and reveal its aromatic complexity",
+        "glassware": "Standard white or rosé wine glass"
+      },
+      "wineDetails": {
+        "region": "Galilee, Kerem Ben Zimra, Israel",
+        "grapeVariety": "100% Marselan (Cabernet Sauvignon x Grenache cross)",
+        "vintage": "Non-vintage or current release",
+        "style": "Vibrant, fruit-forward wine with Mediterranean character and refreshing acidity",
+        "ageability": "Best enjoyed within 2-3 years of release while the fruit is fresh and the floral aromatics are at their peak."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Rose 2023",
+      "description": "A highly regarded rosé from California's Central Coast that earned 90 points from Wine Enthusiast, placing it in their 'Excellent - Highly recommended' category. This wine showcases the bright, fresh character of Central Coast fruit with a vibrant acidity that makes it exceptionally food-friendly.",
+      "tastingNotes": {
+        "aroma": "The nose presents a lighter hue in the glass, opening with aromas of dusty minerals and tart red fruit that provide an earthy, savory complexity. Notes of fresh cherry and pomegranate emerge, complemented by distinctive anise and herb characteristics that add aromatic intrigue and Mediterranean flair.",
+        "palate": "The palate features a fun, energetic level of acidity that pops with bright flavors of cherry, pomegranate, and red berry fruit. Herb flavors including thyme and dried herbs add savory complexity, while the wine's refreshing acidity creates a lively, vibrant mouthfeel. The tart red fruit character is balanced by subtle mineral notes that add depth.",
+        "finish": "The finish is crisp and refreshing with lingering cherry and pomegranate notes. The wine's vibrant acidity carries through to the end, leaving a clean, mouth-watering impression with herbal nuances."
+      },
+      "foodPairings": [
+        "Grilled chicken breast with herbs",
+        "Salmon burgers with avocado and arugula",
+        "Mediterranean vegetable platter",
+        "Fresh strawberry and goat cheese salad",
+        "Light pasta dishes with tomato-based sauces"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting needed - best served fresh and cold directly from the refrigerator",
+        "glassware": "Standard white wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California",
+        "grapeVariety": "Blend of red varieties (specific composition not disclosed)",
+        "vintage": "2023",
+        "style": "Bright, fruit-forward rosé with notable acidity and herb characteristics",
+        "ageability": "Best enjoyed within 1-2 years of vintage to capture the fresh fruit and vibrant acidity at their peak."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Poema Moncao Alvarinho Vinho Verde 2015",
+      "description": "A premium Reserva Alvarinho from the prestigious Monção e Melgaço sub-region of Vinho Verde, produced by Quinta do Louridal. This limited and numbered edition showcases the exceptional quality that can be achieved with extended lees aging in this renowned Alvarinho DOC region.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced mineral notes that evolve into exotic lychee and ripe orange aromatics, creating a captivating aromatic profile. The wine's microclimate of hot, dry summers with cool nights contributes to the development of fresh and elegant aromas that speak to the terroir's unique character.",
+        "palate": "The palate is dense and rich, showcasing perfectly balanced fruit flavors with a freshness that results from prolonged aging on fine lees. Layers of lychee, citrus, and stone fruit are supported by a mineral backbone that provides structure and complexity. The wine's texture is notably fuller than typical Vinho Verde, with a creamy mouthfeel that adds richness without sacrificing the region's characteristic freshness.",
+        "finish": "The finish is long and mineral-driven with persistent citrus and lychee notes. The wine's freshness carries through to the end, balanced by the richness imparted by lees aging."
+      },
+      "foodPairings": [
+        "Grilled octopus with olive oil and lemon",
+        "Bacalhau (salt cod) dishes traditional to northern Portugal",
+        "Seared scallops with citrus butter",
+        "Roasted chicken with herbs and potatoes",
+        "Aged Manchego or other semi-hard cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), slightly warmer than typical Vinho Verde to appreciate complexity",
+        "decanting": "Brief aeration of 15-20 minutes recommended to allow the wine to open up and reveal its layers of complexity",
+        "glassware": "White Burgundy or larger bowl white wine glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Monção e Melgaço DOC, Vinho Verde, Portugal",
+        "grapeVariety": "100% Alvarinho (Albariño)",
+        "vintage": "2015",
+        "style": "Rich, complex Alvarinho Reserva with extended lees aging and notable ageability",
+        "ageability": "Drink now through 2027. This wine has already developed considerable complexity and can continue to age gracefully for several more years, developing honeyed and nutty characteristics."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar La Gargantilla Garnacha 2019",
+      "description": "A spectacular single-vineyard Garnacha from Rioja that earned 94 points from Wine Enthusiast and recognition as a 'Hidden Gem.' This 100% Garnacha showcases the intensity and elegance that old-vine Garnacha can achieve in Rioja's unique terroir, preserving the grape's vibrant acidity and delicate character.",
+      "tastingNotes": {
+        "aroma": "The nose is beautifully expressive with vibrant red berry notes including raspberry and strawberry, complemented by floral nuances of violets and rose petals. Spicy notes of cinnamon and clove emerge, along with hints of dark chocolate and caramel that add depth and complexity. The aromatic profile is both intense and elegant, showcasing the terroir's unique characteristics.",
+        "palate": "The palate opens with dark chocolate and caramel flavors wrapped in muscular yet refined tannins, rapidly joined by brilliant acidity that provides energy and lift. Flavors of pomegranate, blackberry, and orange zest create a complex fruit profile that is both powerful and delicate. The wine is flavourful and fleshy with good acidity that carries the intense fruit through a long, satisfying progression.",
+        "finish": "The finish is remarkably long with persistent dark berry fruit, spice, and subtle chocolate notes. The wine's vibrant acidity and structured tannins linger, providing excellent balance and inviting another sip."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Beef short ribs braised in red wine",
+        "Roasted duck breast with cherry reduction",
+        "Aged Manchego or Idiazabal cheese",
+        "Wild mushroom risotto with Parmesan"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Decanting for 30-45 minutes recommended to allow the wine to open up and soften the tannins",
+        "glassware": "Large bowl red wine glass or Burgundy glass to capture aromatics and allow aeration"
+      },
+      "wineDetails": {
+        "region": "Rioja D.O.Ca., Spain",
+        "grapeVariety": "100% Garnacha from La Gargantilla vineyard",
+        "vintage": "2019",
+        "style": "Intense, elegant single-vineyard Garnacha with vibrant acidity and structured tannins",
+        "ageability": "Drink now through 2032. The wine has excellent aging potential and will develop additional complexity over the next 5-10 years, with the tannins softening and the fruit integrating further with spice and earth notes."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Seppeltsfield Grand Tawny 10yr NV",
+      "description": "A distinguished fortified wine from Australia's Barossa Valley, representing the perfect entry point into Seppeltsfield's world-renowned fortified wine program. Component wines are aged individually in small oak casks for 10 years before careful selection and blending into the Para Grand Tawny solera, which is worked annually.",
+      "tastingNotes": {
+        "aroma": "The nose is lifted and complex, showcasing stunning aromas of raisin, sticky toffee pudding, and prunes that speak to the wine's extended oak maturation. Notes of praline, vanilla nougat, and espresso emerge, complemented by toasted Atherton almonds, orange zest, and salted dark chocolate. The aromatic profile is both rich and elegant, displaying the pronounced rancio character that develops from years in barrel.",
+        "palate": "The palate is full-bodied, rich, and luscious with concentrated, lingering flavors of toasted almonds, praline, and vanilla nougat. Delectable flavors of cocoa, dairy milk chocolate, and caramel create layers of sweetness and complexity. The wine is smooth and mellow, with a seamless integration of fruit, oak, and spirit that speaks to its careful aging and blending.",
+        "finish": "The finish is exceptionally long with persistent flavors of toffee, roasted nuts, and dark chocolate. The wine's richness lingers beautifully, leaving a warm, satisfying impression with subtle hints of orange zest and espresso."
+      },
+      "foodPairings": [
+        "Chocolate torte or dark chocolate desserts",
+        "Sticky toffee pudding with caramel sauce",
+        "Aged Stilton or other blue cheeses",
+        "Almond biscotti or amaretti cookies",
+        "Tiramisu or coffee-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), lightly chilled or cool room temperature",
+        "decanting": "No decanting needed - pour directly from bottle. Once opened, the wine will keep for months due to its fortified nature",
+        "glassware": "Small port or dessert wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "Traditional Portuguese fortified wine varieties",
+        "vintage": "Non-vintage (10-year average age)",
+        "style": "Rich, complex Tawny Port style with extended oak aging and solera blending",
+        "ageability": "Ready to drink upon release. The wine is already at peak maturity and will maintain its quality for many years in bottle. Once opened, it will keep for 6-12 months."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Coste Caumartin 1er Cru Rouge Les Chouacheaux 2019",
+      "description": "A distinguished Premier Cru red Burgundy from the esteemed Beaune appellation, produced by Domaine Coste-Caumartin. This historic estate, with roots dating back to the time of the Dukes of Burgundy, is now managed by Jerome and Benoit Sordet who balance traditional Burgundian techniques with modern precision.",
+      "tastingNotes": {
+        "aroma": "The nose opens with classic Burgundian Pinot Noir aromatics of red cherry, raspberry, and wild strawberry, complemented by delicate floral notes of violet and rose petal. As the wine breathes, earthy notes of forest floor, mushroom, and subtle truffle emerge, along with hints of sweet spice including cinnamon and clove. The aromatic profile reflects the Premier Cru vineyard's limestone-rich terroir.",
+        "palate": "The palate is elegant and refined, showcasing red fruit flavors of cherry and cranberry supported by fine-grained tannins that provide structure without heaviness. Flavors of earth, dried herbs, and subtle oak spice add complexity, while the wine's bright acidity provides energy and lift. The mouthfeel is silky and persistent, with a mineral quality that speaks to the Beaune terroir.",
+        "finish": "The finish is long and graceful with lingering red fruit, earth, and spice notes. The wine's fine tannins and bright acidity carry through to the end, leaving an impression of elegance and terroir expression."
+      },
+      "foodPairings": [
+        "Coq au vin or other classic Burgundian preparations",
+        "Roasted duck breast with cherry sauce",
+        "Grilled salmon with herbs and butter",
+        "Mushroom risotto with Parmesan",
+        "Aged Comté or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F), cool room temperature",
+        "decanting": "Decanting for 45-60 minutes recommended to allow the wine to open up and reveal its complexity. The 2019 vintage is still young and will benefit from aeration.",
+        "glassware": "Burgundy glass with a large bowl to capture the wine's delicate aromatics and allow proper aeration"
+      },
+      "wineDetails": {
+        "region": "Beaune Premier Cru Les Chouacheux, Côte de Beaune, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2019",
+        "style": "Elegant, terroir-driven Premier Cru Burgundy with classic Pinot Noir characteristics",
+        "ageability": "Drink now through 2035. The 2019 vintage in Burgundy was excellent, and this wine will develop additional complexity over the next 10-15 years, with the fruit integrating further with earth, truffle, and spice notes."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Chardonnay 2023",
+      "description": "A beautifully balanced California Chardonnay from the Central Coast that eschews heavy oak in favor of fresh fruit expression and bright acidity. The wine is fermented and aged on the lees for added complexity and richness, creating an elegant, food-friendly style.",
+      "tastingNotes": {
+        "aroma": "The nose presents oak-free aromatics reminiscent of fresh vinyl and crisp apple, showcasing pure fruit expression. Aromas of freshly cut apple, sliced lime, and wild mint create a refreshing aromatic profile, with subtle hints of lemon blossom and citrus zest adding complexity. The wine's clean, vibrant character is immediately apparent.",
+        "palate": "The palate is marked by bright citrus flavors of lemon and lime, complemented by green apple and stone fruit notes. Flavors of lemon pith and ashy chalk add a distinctive mineral quality, while light baking spice from sur lie aging provides subtle complexity and richness. The wine's medium body and refreshing acidity create a clean, vibrant mouthfeel that carries the flavors with precision.",
+        "finish": "The finish is crisp and refreshing with lingering citrus and mineral notes. The wine's bright acidity and clean fruit expression carry through to the end, leaving a mouth-watering impression."
+      },
+      "foodPairings": [
+        "Grilled chicken Caesar salad",
+        "Pan-seared halibut with lemon and capers",
+        "Vegetarian pasta with cream sauce",
+        "Roasted pork tenderloin with apples",
+        "Fresh crab cakes with remoulade"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), lightly chilled",
+        "decanting": "No decanting necessary - the wine is ready to enjoy upon opening. Brief aeration of 15 minutes will help it open up.",
+        "glassware": "Standard white wine glass or Chardonnay-specific glass"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Fresh, fruit-forward Chardonnay with minimal oak influence and bright acidity",
+        "ageability": "Best enjoyed within 2-3 years of vintage to capture the fresh fruit and vibrant acidity at their peak. The wine is designed for immediate enjoyment rather than extended aging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-21T12:39:05.874Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "batchNumber": 49,
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Muller Gruver Vetliner NV",
+      "description": "An Austrian-style Grüner Veltliner offering bright acidity and distinctive white pepper aromatics. This versatile white wine balances mineral-driven structure with fresh fruit character, making it an excellent food companion.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant citrus blossom and green apple, followed by the grape's signature white pepper spice. Subtle mineral notes reminiscent of wet stone emerge, along with hints of fresh herbs including cilantro and lemongrass. The aromatic profile suggests crisp, refreshing character with herbal complexity.",
+        "palate": "The palate delivers precise, focused flavors of lime zest, green pear, and unripe peach. The wine's medium body carries bright acidity that provides excellent structure and lift. A distinctive savory quality with white pepper spice weaves through the fruit, while subtle stone fruit notes add depth without weighing down the wine's energetic character.",
+        "finish": "The finish is clean and mineral-driven with lingering citrus and pepper spice. The refreshing acidity persists, leaving the palate cleansed and ready for the next bite, with a subtle chalky minerality that speaks to classic Grüner Veltliner character."
+      },
+      "foodPairings": [
+        "Grilled white fish with lemon and herbs",
+        "Fresh goat cheese salad with arugula",
+        "Thai green curry with vegetables",
+        "Asparagus risotto",
+        "Wiener Schnitzel"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve directly from refrigeration for optimal freshness and aromatic expression",
+        "glassware": "Medium-sized white wine glass or Austrian Grüner Veltliner-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Austria (likely Niederösterreich or Weinviertel)",
+        "grapeVariety": "100% Grüner Veltliner",
+        "vintage": "Non-Vintage",
+        "style": "Dry white wine with mineral-driven character",
+        "ageability": "Best enjoyed within 2-3 years of release to preserve fresh fruit and vibrant acidity; drink now through 2026"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Roebuck Estates Blanc de Noir 2018",
+      "description": "A South African Blanc de Noir showcasing the elegant potential of black grapes vinified as white wine. This sophisticated sparkling or still wine demonstrates restrained fruit character with mineral complexity, reflecting careful winemaking and quality vineyard sources.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of wild strawberry and raspberry provide a subtle fruit foundation, while floral notes of white rose petals add elegance. The bouquet reveals hints of brioche and almond, suggesting possible lees aging, with underlying mineral notes of crushed stone. A touch of citrus zest brightens the overall aromatic impression.",
+        "palate": "The palate shows refined red berry fruit flavors including strawberry and cranberry, balanced by crisp acidity that provides structure and freshness. Light-bodied yet complex, the wine displays subtle creamy texture with hints of citrus pith and wet stone minerality. The fruit expression remains delicate rather than powerful, emphasizing finesse and elegance over concentration.",
+        "finish": "The finish is clean and dry with persistent mineral notes and lingering red fruit echoes. Fine acidity keeps the palate refreshed, while subtle nutty undertones from potential aging add complexity that extends the conclusion pleasantly."
+      },
+      "foodPairings": [
+        "Oysters on the half shell",
+        "Seared scallops with citrus beurre blanc",
+        "Prosciutto-wrapped melon",
+        "Grilled prawns with herb butter",
+        "Soft-ripened cheeses like Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C)",
+        "decanting": "No decanting required; chill thoroughly before serving to highlight delicate aromatics and refreshing character",
+        "glassware": "Champagne flute if sparkling, or white wine glass if still"
+      },
+      "wineDetails": {
+        "region": "South Africa (likely Stellenbosch or Western Cape)",
+        "grapeVariety": "Pinot Noir or Pinotage (Blanc de Noir method)",
+        "vintage": "2018",
+        "style": "Blanc de Noir - white or sparkling wine from black grapes",
+        "ageability": "At 7 years of age, approaching maturity; drink now through 2026 to enjoy developed character before decline"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Primitivo 2021",
+      "description": "A Napa Valley expression of Primitivo (Zinfandel's Italian cousin) from the renowned Hendry Ranch estate vineyard. This wine demonstrates the variety's characteristic ripe fruit intensity with California sunshine, balanced by thoughtful winemaking that honors both Italian heritage and New World terroir.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with concentrated aromas of blackberry jam, dark cherry, and ripe plum, complemented by warm baking spices including cinnamon and clove. Notes of dried fig and raisin suggest the variety's tendency toward ripeness, while hints of vanilla oak, black pepper, and Mediterranean herbs add complexity. A subtle earthy undertone of leather and tobacco emerges with air.",
+        "palate": "Rich and full-bodied, the palate delivers layers of dark fruit including blackberry, black cherry, and boysenberry, supported by the variety's signature peppery spice. The wine shows good structure with moderate tannins that provide grip without astringency. Flavors of mocha, dark chocolate, and sweet oak integrate well with the fruit, while maintaining balance despite the wine's generous alcohol and extract.",
+        "finish": "The finish is long and warming with persistent dark fruit, spice, and a pleasant touch of espresso and vanilla. Soft tannins carry through, leaving a plush, mouth-filling impression with just enough structure to support rich foods."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "Italian sausage and peppers",
+        "Braised short ribs with red wine reduction",
+        "Wood-fired pizza with Italian meats",
+        "Aged Pecorino Romano and charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes before serving to soften tannins and allow the wine's complex aromatics to fully express themselves",
+        "glassware": "Large Bordeaux or red wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (Hendry Ranch estate)",
+        "grapeVariety": "100% Primitivo (Zinfandel clone)",
+        "vintage": "2021",
+        "style": "Full-bodied dry red wine with ripe fruit character",
+        "ageability": "Drink now through 2028; the wine is approachable young but will develop more complexity over the next 3-5 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Information partially based on Hendry Winery website research"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Reserva de Familia 2020",
+      "description": "A distinguished Rioja Reserva from Bodegas Riojanas representing the estate's flagship family reserve bottling. This wine exemplifies traditional Rioja winemaking with extended oak aging, showcasing the elegance and complexity that comes from both careful viticulture and patient cellar work in one of Spain's most celebrated wine regions.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals classic Rioja Reserva character with aromas of red cherry and strawberry preserved in brandy, interwoven with notes of vanilla bean, cedar, and sweet tobacco from American oak aging. Subtle hints of leather, dried rose petals, and earthy mushroom add complexity, while a touch of balsamic and spice box suggests proper bottle age. The overall impression is refined and elegant rather than overtly fruity.",
+        "palate": "Medium to full-bodied with silky tannins that speak to quality aging, the palate offers flavors of red cherry, cranberry, and dried fig complemented by savory notes of roasted red pepper and tomato leaf. The oak influence shows as vanilla, coconut, and sweet spice that integrate harmoniously with the fruit. Bright acidity provides structure and lift, carrying the complex flavors across the palate with elegance and balance.",
+        "finish": "The finish is long and satisfying with lingering notes of spiced cherry, cedar, and a subtle earthy minerality. Fine-grained tannins provide gentle grip while the wine's acidity keeps the conclusion fresh and food-friendly, with echoes of vanilla and dried herbs persisting."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with rosemary",
+        "Iberian ham and Manchego cheese",
+        "Mushroom risotto with truffle oil",
+        "Chorizo and bean stew",
+        "Grilled vegetables with romesco sauce"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to breathe and fully express its complex aromatics; older Reservas benefit from gentle aeration",
+        "glassware": "Burgundy or large-bowled red wine glass to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Primarily Tempranillo with likely additions of Graciano and/or Mazuelo",
+        "vintage": "2020",
+        "style": "Rioja Reserva - traditional style with extended oak and bottle aging",
+        "ageability": "Drink now through 2035; at 5 years old, the wine is approaching its prime drinking window with many years of graceful evolution ahead"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bitch Grenache 2021",
+      "description": "A bold, fruit-forward expression of Grenache showcasing the variety's natural exuberance and charm. This wine likely originates from a warm climate region where Grenache thrives, delivering generous ripe fruit character with the grape's characteristic spicy complexity and smooth, approachable texture.",
+      "tastingNotes": {
+        "aroma": "Exuberant aromas burst from the glass with ripe raspberry, strawberry compote, and red cherry liqueur, complemented by notes of dried cranberry and pomegranate. A distinctive garrigue character emerges with hints of lavender, thyme, and crushed herbs. Background notes of white pepper, cinnamon stick, and a touch of cocoa add complexity, while subtle floral nuances of violet and rose petal provide aromatic lift.",
+        "palate": "The palate is medium to full-bodied with lush, silky texture characteristic of quality Grenache. Flavors of ripe red berries including strawberry, raspberry, and cherry mingle with notes of red plum and candied orange peel. The wine's natural alcohol provides warmth and body, while soft tannins and moderate acidity create a smooth, generous mouthfeel. Spice notes of white pepper and cinnamon persist throughout, adding dimension to the fruit-forward profile.",
+        "finish": "The finish is warm and satisfying with lingering red fruit, sweet spice, and a touch of herbal character. Soft tannins fade gently while the wine's fruity essence persists, leaving a pleasant impression of ripeness balanced by just enough structure."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herb marinade",
+        "Spanish tapas and charcuterie",
+        "Ratatouille or Mediterranean vegetable dishes",
+        "Moroccan tagine with dried fruits",
+        "Soft cheeses like young Manchego or Brie"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool",
+        "decanting": "Brief decanting of 20-30 minutes can enhance aromatics and soften the texture, though not strictly necessary for this approachable style",
+        "glassware": "Medium-sized red wine glass or Grenache-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Likely Spain, Southern France, or Australia",
+        "grapeVariety": "100% Grenache (Garnacha)",
+        "vintage": "2021",
+        "style": "Fruit-forward dry red wine with soft tannins",
+        "ageability": "Best enjoyed within 3-5 years of vintage to capture vibrant fruit; drink now through 2026 while the wine retains its youthful exuberance"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Korde Pinea Tinto 2023",
+      "description": "A youthful red wine that captures the fresh, vibrant character of its recent vintage. This contemporary-style tinto emphasizes bright fruit and accessibility, representing a modern approach to red wine that prioritizes immediate drinkability and pure fruit expression over extended aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose shows youthful vibrancy with aromas of fresh red cherry, wild strawberry, and ripe plum, complemented by subtle floral notes of violet. Hints of sweet spice including cinnamon and a touch of vanilla suggest light oak contact, while earthy undertones of dried herbs and mineral add complexity. The overall aromatic profile is fresh and inviting with bright fruit at the forefront.",
+        "palate": "Medium-bodied with juicy acidity and approachable tannins, the palate delivers flavors of red cherry, raspberry, and cranberry with subtle darker fruit notes of blackberry. The wine's fresh character is supported by lively acidity that provides energy and lift, while modest tannins offer structure without astringency. Hints of mocha and baking spice from oak integration blend seamlessly with the fruit, maintaining the wine's focus on accessibility.",
+        "finish": "The finish is clean and moderately persistent with bright red fruit flavors and refreshing acidity. Soft tannins provide gentle grip while the wine's youthful energy carries through, leaving a pleasant impression of fruit-forward charm."
+      },
+      "foodPairings": [
+        "Grilled chicken with chimichurri sauce",
+        "Margherita pizza with fresh basil",
+        "Pasta with tomato-based sauces",
+        "Grilled vegetable skewers",
+        "Mild aged cheeses and cured meats"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C), lightly chilled",
+        "decanting": "No decanting necessary; this youthful wine is ready to drink immediately, though 15 minutes of aeration can open up aromatics",
+        "glassware": "Standard red wine glass or universal stemware"
+      },
+      "wineDetails": {
+        "region": "Likely Spain or Portugal",
+        "grapeVariety": "Likely Tempranillo, Tinta de Toro, or local Portuguese varieties",
+        "vintage": "2023",
+        "style": "Fresh, fruit-forward red wine for early consumption",
+        "ageability": "Drink now through 2027; this wine is crafted for near-term enjoyment to capture its youthful fruit character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Moorilla Extra Brut 2018",
+      "description": "A sophisticated Tasmanian sparkling wine from the acclaimed Moorilla estate, showcasing the region's exceptional potential for premium sparkling wine production. This Extra Brut cuvée demonstrates minimal dosage, allowing the wine's natural acidity and fruit purity to shine through with remarkable clarity and elegance.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with precise aromas of green apple, lemon zest, and white peach, complemented by notes of brioche and toasted almond from extended lees aging. Delicate floral hints of white flowers and honeysuckle add elegance, while subtle mineral notes of chalk and flint speak to the wine's cool-climate origins. A whisper of fresh ginger and citrus blossom provides aromatic lift.",
+        "palate": "The palate is vibrant and focused with fine, persistent bubbles that carry flavors of citrus, green apple, and nectarine. The Extra Brut dosage (very low sugar) allows the wine's bright acidity to dominate, creating a taut, refreshing structure that highlights purity and precision. Creamy autolytic character from lees aging adds complexity with hints of brioche, hazelnut, and cultured butter, while the wine's mineral backbone provides a distinctive sense of place.",
+        "finish": "The finish is exceptionally long and dry with lingering citrus and mineral notes. The wine's crisp acidity persists, cleansing the palate completely, while subtle nutty and yeasty undertones add depth and length to the conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Seared scallops with citrus",
+        "Smoked salmon and crème fraîche",
+        "Shellfish platters and caviar",
+        "Aged Comté or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C)",
+        "decanting": "No decanting; serve well-chilled directly from the bottle to preserve fine bubbles and vibrant character",
+        "glassware": "Champagne flute or tulip glass to concentrate aromatics and showcase persistent mousse"
+      },
+      "wineDetails": {
+        "region": "Tasmania, Australia (Moorilla estate)",
+        "grapeVariety": "Likely Chardonnay and/or Pinot Noir (traditional method blend)",
+        "vintage": "2018",
+        "style": "Traditional method Extra Brut sparkling wine (very dry, minimal dosage)",
+        "ageability": "At 7 years, showing beautiful development; drink now through 2030 to enjoy mature character while retaining freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Information partially based on Moorilla winery website research"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Rose Pays D'OC 2024",
+      "description": "A fresh, organic rosé from one of the world's most environmentally sustainable wineries, Château Maris in the Languedoc region of southern France. This wine represents the estate's commitment to biodynamic viticulture and minimal intervention winemaking, delivering pure fruit expression from the sun-drenched Pays d'Oc terroir.",
+      "tastingNotes": {
+        "aroma": "The nose presents vibrant aromas of fresh strawberry, wild raspberry, and watermelon, complemented by delicate floral notes of rose petal and orange blossom. Hints of citrus zest and white peach add complexity, while subtle herbal undertones of lavender and thyme reflect the wine's Provençal character. A mineral edge of wet stone provides freshness and lift to the aromatic profile.",
+        "palate": "The palate is crisp and refreshing with bright acidity that drives flavors of strawberry, raspberry, and pink grapefruit. Light-bodied and elegant, the wine shows excellent balance between fruit sweetness and mineral-driven structure. Notes of melon and nectarine add depth, while the wine's organic, low-intervention approach preserves natural freshness and purity of fruit. The texture is silky yet energetic, with a subtle saline quality that enhances food compatibility.",
+        "finish": "The finish is clean and dry with lingering red berry fruit and citrus notes. Refreshing acidity persists, leaving the palate cleansed and invigorated, with subtle mineral and herbal echoes that extend the wine's conclusion pleasantly."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean vegetables with olive oil",
+        "Bouillabaisse or seafood stew",
+        "Niçoise salad with fresh tuna",
+        "Goat cheese and herb tart",
+        "Provençal dishes and ratatouille"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve cold directly from refrigeration to maximize refreshing character",
+        "glassware": "White wine glass or Provence rosé glass with wider bowl"
+      },
+      "wineDetails": {
+        "region": "Pays d'Oc IGP, Languedoc, France (Château Maris estate)",
+        "grapeVariety": "Likely Grenache, Syrah, and Cinsault blend (traditional Provence varieties)",
+        "vintage": "2024",
+        "style": "Dry rosé wine, organic and biodynamic",
+        "ageability": "Drink now through 2026; rosés are best enjoyed young to capture vibrant fruit and refreshing acidity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Information partially based on Château Maris website research confirming B Corp certification and environmental focus"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Leira Reyero Albarino 2023",
+      "description": "A pristine expression of Albariño from the prestigious Rías Baixas region of Galicia, Spain. This wine showcases the variety's hallmark combination of vibrant acidity, stone fruit character, and saline minerality that has made Albariño one of Spain's most celebrated white wines and a perfect companion to seafood.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with intense aromas of white peach, apricot, and ripe pear, complemented by citrus notes of lemon zest and grapefruit. Delicate floral hints of orange blossom and jasmine add elegance, while subtle saline and mineral notes evoke the wine's coastal Atlantic origins. A whisper of honeydew melon and wet stone provides additional aromatic complexity.",
+        "palate": "The palate is vibrant and focused with racy acidity that carries flavors of stone fruit including peach, nectarine, and apricot, along with citrus notes of lime and pink grapefruit. Medium-bodied with excellent texture and weight, the wine displays a distinctive saline minerality that speaks to its proximity to the Atlantic Ocean. The fruit remains pure and precise, supported by crisp acidity that provides energy and length, with subtle notes of almond skin adding depth.",
+        "finish": "The finish is long and refreshing with persistent citrus and stone fruit flavors. The wine's bracing acidity continues through the conclusion, while a pronounced mineral and saline quality leaves the palate cleansed and eager for the next sip."
+      },
+      "foodPairings": [
+        "Grilled octopus with paprika and olive oil",
+        "Fresh clams, mussels, or oysters",
+        "Galician-style seafood including pulpo a la gallega",
+        "Ceviche or raw fish preparations",
+        "Aged Manchego cheese and almonds"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting required; serve well-chilled to emphasize the wine's refreshing acidity and aromatic purity",
+        "glassware": "Medium-sized white wine glass or Albariño-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Rías Baixas DO, Galicia, Spain",
+        "grapeVariety": "100% Albariño",
+        "vintage": "2023",
+        "style": "Dry white wine with coastal influence and high acidity",
+        "ageability": "Drink now through 2027; best enjoyed within 3-4 years to capture the wine's vibrant fruit and refreshing character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barrel Oak Farm Taphouse Tripel 58670 ml",
+      "description": "A Belgian-style Tripel ale from Barrel Oak Farm, representing the strong golden ale tradition of Trappist brewing. This beer showcases the classic characteristics of the style including high alcohol content, complex yeast-driven aromatics, and a deceptively light body that belies its strength, making it a sophisticated choice for beer enthusiasts.",
+      "tastingNotes": {
+        "aroma": "The nose presents complex Belgian yeast character with aromas of banana, clove, and bubble gum, complemented by notes of honey, pear, and white grape. Subtle spice notes of coriander and white pepper add complexity, while hints of orange peel and citrus zest provide aromatic lift. A whisper of pilsner malt sweetness and floral hops round out the bouquet.",
+        "palate": "The palate is surprisingly light-bodied despite the beer's high alcohol content, with effervescent carbonation that creates a champagne-like texture. Flavors of pear, apple, and stone fruit mingle with honey sweetness and Belgian yeast spice including clove and pepper. The beer's noble hop character provides subtle floral and herbal notes without bitterness, while the alcohol warmth is well-integrated and smooth. A delicate malt backbone supports the complex flavor profile.",
+        "finish": "The finish is long, dry, and warming with lingering fruit and spice notes. The carbonation persists, cleansing the palate, while subtle hop bitterness emerges to balance the residual sweetness and provide a satisfying conclusion."
+      },
+      "foodPairings": [
+        "Belgian waffles with fresh berries",
+        "Roasted chicken with herbs",
+        "Triple cream cheeses like Brillat-Savarin",
+        "Spicy Thai or Vietnamese cuisine",
+        "Apple tart or fruit-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), cellar temperature",
+        "decanting": "Pour carefully into a tulip glass, leaving sediment in the bottle if present; no formal decanting needed",
+        "glassware": "Belgian Tulip glass or goblet to concentrate aromatics and showcase the beer's color"
+      },
+      "wineDetails": {
+        "region": "Barrel Oak Farm, United States",
+        "grapeVariety": "Belgian-style Tripel ale (Pilsner malt, Belgian yeast, noble hops, candi sugar)",
+        "vintage": "N/A (beer)",
+        "style": "Belgian Tripel - strong golden ale with complex yeast character",
+        "ageability": "Can age gracefully for 1-3 years; drink now or cellar to develop more complex, mellow character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "This is a beer, not wine - Belgian Tripel style ale"
+      }
+    }
+  ]
+}

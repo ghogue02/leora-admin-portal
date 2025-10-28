@@ -1,0 +1,356 @@
+{
+  "batchId": 101,
+  "processedAt": "2025-10-21T14:23:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Patrick Lambert Gourmandise Chinon 2021",
+      "description": "This vibrant Chinon from Patrick Lambert showcases the Loire Valley's signature Cabernet Franc with a modern, fruit-forward approach. The 'Gourmandise' designation hints at its approachable, pleasure-driven style that emphasizes freshness and immediate drinkability. A charming expression of Loire terroir with food-friendly acidity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright red fruit aromatics of fresh strawberry, raspberry, and red currant, complemented by subtle herbal notes of green pepper and fresh tobacco leaf. Delicate floral hints of violet emerge with air, alongside whispers of graphite minerality that speak to the Loire's tuffeau limestone soils. The bouquet maintains an inviting freshness that is characteristic of well-made Chinon.",
+        "palate": "Medium-bodied with lively acidity, the palate delivers juicy red berry flavors intertwined with earthy undertones and a hint of crushed stone minerality. The tannins are fine-grained and well-integrated, providing structure without heaviness. Mid-palate weight is enhanced by subtle savory notes of dried herbs and a touch of spice, creating a beautifully balanced progression from entry to finish.",
+        "finish": "The finish is medium-length, clean, and refreshing with lingering notes of tart cherry and a whisper of black pepper. A slight chalky texture on the finish reinforces the wine's mineral character, inviting another sip."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs de Provence",
+        "Grilled salmon with lentils",
+        "Mushroom and gruyère tart",
+        "Duck rillettes with cornichons",
+        "Aged goat cheese with fig jam"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly chilled at 55-60°F (13-15°C)",
+        "decanting": "Not necessary; brief aeration of 15-20 minutes in glass will open aromatics",
+        "glassware": "Universal wine glass or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Chinon, Loire Valley, France",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2021",
+        "style": "Medium-bodied red wine, fruit-forward Loire style",
+        "ageability": "Best enjoyed within 3-5 years; drink now through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Abadia de Acon Crianza 2019",
+      "brand": null,
+      "description": "This Crianza from Abadia de Acon represents traditional Spanish winemaking at its finest, with extended oak aging that imparts complexity and structure. Hailing from a respected bodega, this wine showcases the hallmark characteristics of Tempranillo-based blends with classic oak treatment. A well-crafted expression that bridges traditional and modern Spanish wine styles.",
+      "tastingNotes": {
+        "aroma": "The nose reveals layers of mature red fruit—cherry, plum, and dried cranberry—enhanced by sweet oak influences of vanilla, coconut, and toasted cedar. Subtle tertiary notes of leather, tobacco, and dried Mediterranean herbs add complexity. With aeration, hints of baking spice including cinnamon and clove emerge, showcasing the wine's oak maturation.",
+        "palate": "Medium to full-bodied with a supple, rounded texture that reflects the Crianza aging regimen. Ripe red fruit flavors meld seamlessly with oak-derived notes of vanilla and sweet spice, while bright acidity keeps the wine fresh and vibrant. The tannins are soft and well-integrated, providing gentle structure that complements rather than dominates. Flavors of blackberry compote, dried fig, and cocoa powder add depth to the mid-palate.",
+        "finish": "The finish is moderately long with persistent notes of oak spice, dried cherry, and a hint of tobacco. A pleasant warmth and smooth texture linger, leaving a satisfying impression of maturity and balance."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Manchego cheese and cured chorizo",
+        "Slow-roasted pork shoulder",
+        "Mushroom risotto with truffle oil",
+        "Beef empanadas with chimichurri"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 30 minutes to allow oak and fruit integration",
+        "glassware": "Large Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Spain (likely Rioja or Ribera del Duero)",
+        "grapeVariety": "Primarily Tempranillo with possible Garnacha or Graciano",
+        "vintage": "2019",
+        "style": "Crianza - aged minimum 2 years with at least 1 year in oak",
+        "ageability": "Drink now through 2028; optimal drinking window is present"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Campus Oaks Old Vine Zinfandel 2019",
+      "brand": null,
+      "description": "This Old Vine Zinfandel from Campus Oaks celebrates California's most distinctive grape variety with fruit sourced from mature vineyards. The 'Old Vine' designation indicates vines typically 35+ years old, producing concentrated, complex fruit with natural balance. A bold, expressive Zinfandel that showcases the variety's signature jammy fruit and spicy character.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with exuberant aromas of blackberry jam, boysenberry, and ripe dark cherry, complemented by notes of black pepper, anise, and dried herbs. Secondary aromas of vanilla, mocha, and sweet oak emerge, along with hints of sun-dried tomato and Mediterranean scrub. The aromatic intensity is impressive, characteristic of concentrated old-vine fruit.",
+        "palate": "Full-bodied and richly textured with layers of ripe dark fruit flavors including blackberry, plum, and black raspberry. The wine displays classic Zinfandel spiciness with notes of cracked black pepper, cinnamon, and clove, balanced by flavors of dark chocolate and espresso from oak aging. Despite the fruit intensity, the wine maintains surprising elegance with integrated tannins and sufficient acidity to provide structure. Mid-palate flavors of fig, date, and licorice add complexity.",
+        "finish": "The finish is long and warming with lingering notes of blackberry preserves, baking spices, and a hint of vanilla. Smooth tannins and a touch of warmth from the alcohol create a satisfying, mouth-coating conclusion."
+      },
+      "foodPairings": [
+        "BBQ baby back ribs with smoky sauce",
+        "Grilled tri-tip steak with chimichurri",
+        "Wild mushroom and sausage pizza",
+        "Braised short ribs with polenta",
+        "Aged cheddar with pepper jelly"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 63-67°F (17-19°C)",
+        "decanting": "Decant for 45 minutes to 1 hour to soften and integrate flavors",
+        "glassware": "Large Bordeaux or Syrah glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Lodi, Paso Robles, or Dry Creek Valley)",
+        "grapeVariety": "100% Zinfandel from vines 35+ years old",
+        "vintage": "2019",
+        "style": "Full-bodied, fruit-forward California Zinfandel",
+        "ageability": "Best enjoyed now through 2027; drink within 5-8 years of vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Harmino Wave Sparkling Rose Mevushal",
+      "brand": null,
+      "description": "This kosher Mevushal sparkling rosé from Harmino Wave offers festive bubbles suitable for celebrations while adhering to strict kosher wine production standards. The 'Mevushal' designation indicates the wine has been flash-pasteurized, maintaining its kosher status even when handled by non-Jewish individuals. A refreshing, approachable sparkler with bright fruit flavors.",
+      "tastingNotes": {
+        "aroma": "The nose presents delicate aromas of fresh strawberry, raspberry, and watermelon, with hints of citrus blossom and rose petal. Light, yeasty notes add complexity, while a subtle minerality provides a clean backdrop. The aromatics are fresh and inviting, typical of quality sparkling rosé production.",
+        "palate": "Light to medium-bodied with lively bubbles and crisp acidity that refreshes the palate. Flavors of red berries, including strawberry and cranberry, dominate, complemented by notes of pink grapefruit and a hint of brioche. The mousse is creamy and persistent, creating a pleasant textural element. The wine maintains a dry to off-dry profile with balanced fruit sweetness and citrus-driven acidity.",
+        "finish": "The finish is clean and refreshing with lingering notes of red berries and a subtle mineral edge. The fine bubbles persist, leaving the palate cleansed and ready for another sip."
+      },
+      "foodPairings": [
+        "Smoked salmon canapés",
+        "Fresh berry salad with mint",
+        "Sushi and sashimi platter",
+        "Goat cheese and crackers",
+        "Chicken satay with peanut sauce"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 42-47°F (6-8°C)",
+        "decanting": "Not required; serve directly from refrigerator",
+        "glassware": "Flute or tulip-shaped sparkling wine glass"
+      },
+      "wineDetails": {
+        "region": "Certified Kosher production",
+        "grapeVariety": "Likely Grenache, Syrah, or Pinot Noir for rosé base",
+        "vintage": "Non-vintage (NV)",
+        "style": "Sparkling rosé wine, Mevushal kosher certified",
+        "ageability": "Best enjoyed young and fresh; drink within 1-2 years of purchase"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Le Petit Jard Bordeaux (MD & DC) 2022",
+      "brand": null,
+      "description": "This approachable Bordeaux from Le Petit Jard represents the accessible face of France's most famous wine region, offering classic varietal character at an everyday price point. The 2022 vintage benefits from favorable growing conditions across Bordeaux, producing wines with ripe fruit and balanced structure. A versatile red wine ideal for casual dining.",
+      "tastingNotes": {
+        "aroma": "The nose opens with aromas of ripe blackcurrant, plum, and dark cherry, accompanied by subtle notes of cedar, graphite, and dried herbs. Light touches of violet and earthy forest floor add complexity, while gentle oak influences provide background structure. The aromatic profile is classic Bordeaux, showcasing the region's signature blend characteristics.",
+        "palate": "Medium-bodied with a supple, approachable texture and well-integrated tannins. Flavors of blackberry, cassis, and red plum dominate the palate, complemented by notes of tobacco, pencil shavings, and a hint of dark chocolate. The wine displays good freshness with balanced acidity that lifts the fruit flavors. Mid-palate depth is enhanced by subtle earthy notes and fine-grained tannins.",
+        "finish": "The finish is moderately long with persistent dark fruit flavors and a touch of spice. Soft tannins and balanced acidity create a smooth, food-friendly conclusion."
+      },
+      "foodPairings": [
+        "Roast beef with au jus",
+        "Grilled lamb chops with mint",
+        "Beef bourguignon",
+        "Hard cheeses like Comté or aged Gruyère",
+        "Duck confit with potatoes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (16-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes recommended to open up flavors",
+        "glassware": "Standard Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Bordeaux, France",
+        "grapeVariety": "Merlot-dominant blend with Cabernet Sauvignon and possibly Cabernet Franc",
+        "vintage": "2022",
+        "style": "Medium-bodied Bordeaux red blend",
+        "ageability": "Drink now through 2027; best enjoyed within 3-5 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Barolo (375 ml) 2019",
+      "brand": null,
+      "description": "This half-bottle Barolo from the esteemed Mauro Molino estate offers an accessible format for enjoying one of Italy's greatest wines. The 2019 vintage in Barolo was marked by excellent conditions, producing wines with aromatic intensity, structured tannins, and aging potential. A traditional expression of Nebbiolo from La Morra, showcasing elegance and power in perfect balance.",
+      "tastingNotes": {
+        "aroma": "The nose reveals classic Barolo aromatics of tar and roses, complemented by layers of red cherry, dried strawberry, and blood orange. Secondary notes of leather, tobacco, truffle, and dried herbs emerge with air. Subtle hints of licorice, cinnamon, and crushed rock minerality add complexity. The bouquet is intense yet refined, characteristic of Nebbiolo from La Morra.",
+        "palate": "Full-bodied with commanding structure, the palate showcases bright red fruit flavors of sour cherry, cranberry, and pomegranate, balanced by savory notes of earth, mushroom, and white truffle. The tannins are firm and grippy but finely textured, providing the architectural backbone for aging. High acidity cuts through the wine's power, creating freshness and lift. Mid-palate complexity includes flavors of dried rose petal, anise, and blood orange zest.",
+        "finish": "The finish is very long and persistent with evolving notes of cherry skin, dried flowers, and minerality. The tannins grip firmly but elegantly, while vibrant acidity ensures a clean, mouthwatering conclusion that calls for rich food."
+      },
+      "foodPairings": [
+        "Braised beef short ribs with porcini",
+        "Truffle risotto or tajarin pasta",
+        "Osso buco alla Milanese",
+        "Aged Parmigiano-Reggiano or Grana Padano",
+        "Wild boar ragu with pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 1-2 hours to soften tannins and reveal complexity",
+        "glassware": "Large Burgundy or Barolo-specific glass"
+      },
+      "wineDetails": {
+        "region": "Barolo DOCG, La Morra, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2019",
+        "style": "Traditional Barolo with extended aging (minimum 38 months, 18 in oak)",
+        "ageability": "Excellent aging potential; drink 2025-2040, optimal 2028-2035"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Chardonnay 2022",
+      "brand": null,
+      "description": "This Chardonnay from Castoro Cellars represents Paso Robles' approachable style of white wine production, balancing fruit ripeness with refreshing acidity. The winery's commitment to sustainable farming and hands-on winemaking ensures consistent quality. A versatile, food-friendly Chardonnay that showcases California sunshine without excessive oak.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright aromas of golden apple, ripe pear, and citrus blossom, complemented by notes of pineapple and honeydew melon. Subtle oak influences add hints of vanilla and butter, while mineral undertones provide freshness. Light tropical notes of papaya and a whisper of toasted hazelnut round out the aromatic profile.",
+        "palate": "Medium-bodied with a creamy texture balanced by crisp acidity. Flavors of apple, pear, and stone fruit dominate, with supporting notes of lemon curd, vanilla, and a touch of butterscotch. The oak treatment is moderate, adding texture and complexity without overwhelming the fruit. Mid-palate richness is balanced by citrus-driven freshness and a subtle mineral quality.",
+        "finish": "The finish is clean and moderately long with lingering notes of apple and citrus. A pleasant creaminess coats the palate while bright acidity keeps the wine fresh and lively."
+      },
+      "foodPairings": [
+        "Grilled chicken with lemon and herbs",
+        "Pan-seared halibut with beurre blanc",
+        "Creamy pasta carbonara",
+        "Roasted turkey breast",
+        "Brie and apple slices"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 48-52°F (9-11°C)",
+        "decanting": "Not required; brief aeration in glass is sufficient",
+        "glassware": "Medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Medium-bodied California Chardonnay with moderate oak",
+        "ageability": "Best enjoyed within 2-4 years; drink now through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Vieux College Marsannay Rouge \"Les Recilles\" 2021",
+      "brand": null,
+      "description": "This single-vineyard Marsannay from Domaine du Vieux College showcases the northernmost appellation of Burgundy's Côte d'Or with terroir-driven Pinot Noir. The 'Les Recilles' vineyard designation indicates a specific lieu-dit known for producing elegant, mineral-driven wines. A refined expression of Marsannay that offers Burgundian character at an accessible price point.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Burgundian Pinot Noir aromatics of red cherry, raspberry, and strawberry, layered with notes of rose petal, dried herbs, and forest floor. Subtle mineral notes of wet stone and chalk emerge, along with hints of spice including cinnamon and white pepper. With air, delicate oak influences of vanilla and toasted oak appear, adding complexity without dominating.",
+        "palate": "Medium-bodied with silky tannins and vibrant acidity characteristic of northern Burgundy. Flavors of bright red fruit—cherry, cranberry, and pomegranate—are complemented by earthy undertones of mushroom and damp leaves. The wine displays excellent tension between fruit purity and savory complexity, with fine-grained tannins providing elegant structure. Mid-palate notes of tea, orange peel, and subtle oak spice add layers of interest.",
+        "finish": "The finish is moderately long with persistent red fruit and earthy notes. A minerally, chalky texture lingers alongside fine tannins, creating a mouthwatering conclusion typical of quality Burgundy."
+      },
+      "foodPairings": [
+        "Coq au vin with pearl onions",
+        "Roasted duck breast with cherry reduction",
+        "Grilled salmon with herbed butter",
+        "Mushroom and thyme tart",
+        "Époisses or other washed-rind cheese"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly cool at 58-62°F (14-17°C)",
+        "decanting": "Light decanting of 30 minutes to open aromatics",
+        "glassware": "Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Marsannay AOC, Côte de Nuits, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2021",
+        "style": "Village-level Burgundy with lieu-dit designation",
+        "ageability": "Drink now through 2030; optimal drinking 2024-2028"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frascole Chianti Rufina 2022",
+      "brand": null,
+      "description": "This Chianti Rufina from Frascole represents one of Tuscany's most distinguished sub-zones, known for wines with greater structure and aging potential than basic Chianti. The Rufina area's higher elevation and cooler climate produce Sangiovese with vibrant acidity and elegant aromatics. A classic expression of Tuscan terroir with food-friendly character.",
+      "tastingNotes": {
+        "aroma": "The nose reveals bright aromas of sour cherry, red plum, and strawberry, characteristic of Sangiovese from cooler sites. Notes of violet, dried herbs (oregano and sage), and tomato leaf add classic Italian complexity. Subtle hints of leather, tobacco, and earthy forest floor emerge with air, while gentle oak influences provide background structure with whispers of vanilla and spice.",
+        "palate": "Medium-bodied with pronounced acidity and fine-grained tannins that provide excellent structure. Flavors of red cherry, cranberry, and pomegranate dominate, complemented by savory notes of dried herbs, earth, and a touch of balsamic. The wine displays classic Chianti character with bright fruit balanced by rustic, earthy elements. Mid-palate complexity includes notes of orange peel, tea, and subtle spice.",
+        "finish": "The finish is moderately long with persistent cherry and herbal notes. The tannins grip gently while vibrant acidity leaves the palate refreshed and ready for food."
+      },
+      "foodPairings": [
+        "Pasta with wild boar ragu",
+        "Bistecca alla Fiorentina",
+        "Ribollita (Tuscan vegetable soup)",
+        "Aged Pecorino Toscano",
+        "Grilled sausages with cannellini beans"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-64°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to soften and integrate",
+        "glassware": "Medium-sized red wine or Chianti glass"
+      },
+      "wineDetails": {
+        "region": "Chianti Rufina DOCG, Tuscany, Italy",
+        "grapeVariety": "Primarily Sangiovese with permitted supporting varieties",
+        "vintage": "2022",
+        "style": "Traditional Chianti Rufina with elevated acidity and structure",
+        "ageability": "Drink now through 2029; best within 5-7 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wine Kitchen WK Red (Tinto)",
+      "brand": null,
+      "description": "This house red from Wine Kitchen offers an approachable, everyday drinking wine designed for casual enjoyment and food pairing. The 'Tinto' designation indicates a red wine blend, likely featuring popular Spanish or Portuguese varieties. An unpretentious, value-oriented wine perfect for relaxed dining.",
+      "tastingNotes": {
+        "aroma": "The nose presents straightforward aromas of ripe red and black fruits including cherry, plum, and blackberry. Notes of vanilla and light oak spice add background complexity, while subtle hints of dried herbs and earth provide interest. The aromatic profile is clean and approachable without excessive complexity.",
+        "palate": "Medium-bodied with soft, rounded tannins and moderate acidity. Flavors of dark cherry, plum, and berry fruits dominate, supported by notes of cocoa, vanilla, and a touch of spice. The wine is smooth and easy-drinking with a fruit-forward profile that emphasizes accessibility. Mid-palate weight is balanced by gentle tannins and sufficient acidity for food pairing.",
+        "finish": "The finish is clean and moderately short with lingering fruit flavors and soft tannins. A pleasant, uncomplicated conclusion that invites casual sipping."
+      },
+      "foodPairings": [
+        "Grilled burgers and hot dogs",
+        "Margherita pizza",
+        "Spaghetti with marinara sauce",
+        "Roasted chicken thighs",
+        "Charcuterie board with mild cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (16-18°C)",
+        "decanting": "Not required; ready to drink immediately",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain or Portugal (exact origin varies)",
+        "grapeVariety": "Red blend of common varieties (possibly Tempranillo, Garnacha, or Portuguese varieties)",
+        "vintage": "Non-vintage or current release",
+        "style": "Everyday drinking red wine, fruit-forward and approachable",
+        "ageability": "Best enjoyed young; drink within 1-2 years of purchase"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-21T14:23:00.000Z"
+      }
+    }
+  ]
+}

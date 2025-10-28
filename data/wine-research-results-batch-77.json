@@ -1,0 +1,347 @@
+{
+  "batchId": "batch-77",
+  "totalWines": 10,
+  "researchCompletedAt": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine Chevallier Petit Chablis 2022",
+      "description": "A crisp and mineral-driven Petit Chablis from one of Burgundy's most celebrated appellations. Produced from 100% Chardonnay grown on Kimmeridgian limestone soils, this wine showcases the pure, unadulterated expression of Chablis terroir with vibrant acidity and classic citrus character.",
+      "tastingNotes": {
+        "aroma": "The nose opens with brilliant clarity, revealing layers of green apple, Meyer lemon, and lime zest. Fresh white flowers emerge alongside wet stone minerality and subtle hints of oyster shell. A delicate note of crispy pear adds complexity, while citrus traces reminiscent of lime zest provide brightness and vivacity to the aromatic profile.",
+        "palate": "The palate is lively and chiseled with electrifying acidity that defines classic Chablis character. Flavors of Granny Smith apple, fresh lime, and white grapefruit dominate, supported by fine chalky minerality that coats the mouth. The stainless steel aging preserves remarkable freshness and purity, creating a wine with exceptional tension and verve. Medium-bodied with crisp definition, it displays the precision and finesse that only true Chablis can deliver.",
+        "finish": "The finish is clean and refreshing with lingering mineral notes and citrus peel. Excellent persistence showcases the wine's quality, leaving a mouthwatering acidity that invites another sip. The characteristic Chablis minerality extends beautifully through the aftertaste."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish",
+        "Grilled sea bass with lemon and herbs",
+        "Goat cheese salad with citrus vinaigrette",
+        "Chicken piccata with capers",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting required; serve directly from refrigerator after chilling",
+        "glassware": "Chablis or white Burgundy glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Petit Chablis, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Dry, mineral-driven white wine",
+        "ageability": "Drink now through 2026. Best enjoyed young to preserve freshness and citrus character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Vieux College Marsannay Rouge Les Favieres 2021",
+      "description": "An elegant and refined Pinot Noir from the Marsannay appellation in Burgundy's Côte de Nuits. Produced by the seventh generation of the Guyard family using organic viticulture practices, this wine showcases the distinctive character of the Les Favières vineyard with remarkable depth and aromatic persistence.",
+      "tastingNotes": {
+        "aroma": "The nose is intense and elegant, displaying a complex array of black fruits including blackberry, black cherry, and cassis. Warming spices of clove and white pepper add dimension, while subtle violet floral notes provide lift. There's an earthy complexity with hints of forest floor and dried herbs that speak to its Burgundian origins.",
+        "palate": "Dark ruby in color with violet reflections, the palate reveals beautifully integrated tannins that create a wine of exceptional finesse. Black fruit flavors dominate—ripe blackberry and black cherry—complemented by baking spices and a touch of minerality. The texture is silky and refined, with medium body and excellent balance between fruit concentration and acidity. The organic farming practices shine through in the wine's purity and precision.",
+        "finish": "Great length defines the finish, with aromatic persistence that extends well beyond the initial taste. The tannins remain well-integrated, providing structure without harshness. Spice notes and dark fruit echoes linger, leaving a sophisticated and memorable impression."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry reduction",
+        "Coq au vin with wild mushrooms",
+        "Grilled lamb chops with herbes de Provence",
+        "Brie de Meaux or Camembert cheese",
+        "Beef bourguignon"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F)",
+        "decanting": "Brief 30-minute decanting recommended to open aromatics and soften tannins",
+        "glassware": "Burgundy balloon glass to showcase Pinot Noir's delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Marsannay Les Favières, Côte de Nuits, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2021",
+        "style": "Organic, medium-bodied red Burgundy with elegance and finesse",
+        "ageability": "Enjoy now through 2028. Will develop tertiary complexity with 3-5 years of cellaring."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fledge and Co Riesling 2018",
+      "description": "A distinctive dry Riesling from South Africa's Western Cape, crafted by husband-and-wife winemaking team Leon Coetzee and Margaux Nel. Sourced from characterful, lesser-known regions across the Cape, this wine showcases expressive aromatics with razor-sharp acidity despite containing 5 grams of residual sugar.",
+      "tastingNotes": {
+        "aroma": "The nose is immediately striking and unconventional, opening with unusual notes of rubber boots and petrol that are hallmarks of aged Riesling. Bright lemon peel and pink grapefruit provide citrus backbone, while delicate white flowers—jasmine and orange blossom—add elegance. There's an intriguing mineral edge with wet stone and slate characteristics that speak to the terroir.",
+        "palate": "Despite the presence of 5 grams of residual sugar, the wine feels bone dry on the palate thanks to razor-sharp acidity that cuts through with precision. Intense citrus flavors of lemon, lime, and grapefruit dominate, balanced by green apple and subtle tropical hints. The mouthfeel is crisp and focused with electric energy, showing the winemakers' skill in balancing sweetness with acidity. Light to medium body with exceptional purity and tension.",
+        "finish": "The finish is long and vibrant, maintaining that characteristic dry sensation despite the residual sugar. Citrus zest and mineral notes persist, with lingering acidity that cleanses the palate completely. The petrol character reappears subtly, adding complexity to the aftertaste."
+      },
+      "foodPairings": [
+        "Thai green curry with chicken",
+        "Vietnamese spring rolls with fish sauce",
+        "Seared scallops with mango salsa",
+        "Spicy pork schnitzel",
+        "Aged Gouda or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting needed; the wine benefits from cool service to maintain acidity",
+        "glassware": "Riesling glass with narrow bowl to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Western Cape, South Africa",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2018",
+        "style": "Off-dry Riesling with high acidity and expressive aromatics",
+        "ageability": "Drinking beautifully now through 2030. Riesling develops petrol notes and honey complexity with age."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Adeline 2018",
+      "description": "A tropical and aromatic white wine blend from Zephaniah Farm Vineyard in Virginia's Loudoun County. Named after the winery owner's wife, Adeline has evolved from its original sweet dessert wine style to a sophisticated dry blend featuring Muscat Ottonel, Vidal Blanc, and Petit Manseng, showcasing Virginia's emerging wine identity.",
+      "tastingNotes": {
+        "aroma": "Highly floral and perfumed, the nose bursts with aromatic intensity. Prominent notes of lemongrass and fresh pine needles create an herbal-floral character unique to this blend. Tropical fruit aromas of ripe pineapple and juicy mango dominate, complemented by stone fruit notes of white peach and apricot. The Muscat Ottonel contributes its characteristic rose petal and orange blossom aromatics.",
+        "palate": "The palate delivers on the tropical promise of the nose, with bold flavors of pineapple, mango, and passion fruit taking center stage. Tree fruit notes of golden apple and ripe pear provide balance, while the fermentation in stainless steel preserves vibrant freshness. Medium-bodied with bright acidity that prevents the fruit from becoming cloying. The blend shows excellent integration, with each variety contributing distinct characteristics—Muscat for aromatics, Vidal for structure, and Petit Manseng for acidity.",
+        "finish": "The finish is clean and refreshing with lingering tropical fruit notes. Hints of honeysuckle and citrus zest emerge in the aftertaste, along with subtle minerality. The wine maintains its freshness through the finish, avoiding any heaviness despite the ripe fruit character."
+      },
+      "foodPairings": [
+        "Coconut shrimp with sweet chili sauce",
+        "Grilled halibut with tropical fruit salsa",
+        "Thai chicken satay with peanut sauce",
+        "Fresh fruit tart with vanilla cream",
+        "Aged white cheddar or mild blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "9-11°C (48-52°F)",
+        "decanting": "No decanting required; chill and serve to preserve aromatic intensity",
+        "glassware": "Aromatic white wine glass to capture floral and tropical notes"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Northern Virginia, USA",
+        "grapeVariety": "Blend: 50% Muscat Ottonel, 27% Viognier, 9% Petit Manseng, 9% Vermentino, 5% Vidal Blanc (composition may vary by vintage)",
+        "vintage": "2018",
+        "style": "Aromatic dry white blend with tropical fruit character",
+        "ageability": "Best enjoyed within 2-4 years of vintage to preserve aromatic intensity and tropical fruit character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Southern Belle Semi Precious 2021",
+      "description": "An opulent and limited-production Syrah from The Grateful Palate's Southern Belle collection. This wine represents the pinnacle of the Southern Belle range, showcasing a silky, velvety style with ripe fruit concentration and generous oak influence, designed for lovers of big, bold New World reds.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic and decadent, revealing layers of dark fruit and oak influence. Ripe blueberry pie leads, surrounded by cassis and blackberry preserves. A prominent spice box character emerges with notes of cinnamon, nutmeg, and clove. Toasty, spicy oak adds vanilla, coconut, and sweet cedar notes. Hints of plum pudding and dark chocolate provide richness and depth to the complex aromatic profile.",
+        "palate": "Utterly seamless and luscious on the palate, this wine displays remarkable textural elegance despite its power. The mouthfeel is silky, velvety, and opulent, coating the palate with rich dark fruit flavors. Ripe blueberry, blackberry, and plum dominate, enhanced by sweet oak notes of vanilla and toast. The 14.5% alcohol is beautifully integrated, adding warmth without heat. Dark chocolate and espresso notes emerge mid-palate, adding complexity. The tannins are much more suave and composed than expected, providing structure without grittiness.",
+        "finish": "Long and warm finish with persistent notes of spice box and dark fruit. The oak influence extends through the aftertaste with lingering vanilla and toasted wood. Ripe, sweet fruit echoes remain, balanced by gentle tannins. This is a hedonistic, crowd-pleasing finish that leaves a lasting impression."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "Braised short ribs with red wine reduction",
+        "Venison medallions with blackberry gastrique",
+        "Aged cheddar or smoked Gouda",
+        "Dark chocolate flourless cake"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 45-60 minutes to integrate oak and soften the opulent fruit",
+        "glassware": "Large Bordeaux glass to allow the wine to breathe and showcase complexity"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region not disclosed)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2021",
+        "style": "Full-bodied, oak-aged Syrah with New World ripeness and concentration",
+        "ageability": "Enjoy now through 2027. The oak influence will integrate further with 2-3 years of aging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dear Mom Sparkletown 187 ml",
+      "description": "A playful and approachable sparkling Pinot Gris from Oregon, crafted by Dear Mom Wine Co. and packaged in convenient 187ml cans. This wine delivers serious quality in a fun format, combining fresh acidity with aromatic complexity while maintaining a completely dry finish that makes it perfect for outdoor adventures.",
+      "tastingNotes": {
+        "aroma": "Straw-colored with persistent fine bubbles, the nose opens with pronounced floral aromatics of orange blossom, honeysuckle, and white flowers. Fresh apricot and white peach provide stone fruit character, while subtle hints of wet stone add minerality. Delicate citrus notes of lemon zest emerge, along with faint traces of toast from the sparkling wine production.",
+        "palate": "The palate showcases bright acidity and excellent nuance for a canned sparkling wine. Crisp flavors of green apple and Anjou pear dominate, complemented by juicy white peach and apricot. Honeysuckle sweetness appears mid-palate, though the wine remains technically dry. The bubbles are fine and persistent, creating a creamy mousse that adds texture. Light-bodied and refreshing with vibrant energy, this wine punches above its weight in terms of complexity and balance.",
+        "finish": "Completely dry on the finish with cleansing acidity that refreshes the palate. Lingering notes of citrus and stone fruit remain, along with subtle mineral character. The bubbles persist through the aftertaste, maintaining the wine's lively character. This is a finish designed to relax the mind and ease the nerves—nothing pretentious, just pure enjoyment."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette sauce",
+        "Smoked salmon canapés",
+        "Cheese and charcuterie board",
+        "Light salads with vinaigrette",
+        "Afternoon picnic fare"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F)",
+        "decanting": "No decanting needed; serve directly from can or pour into glass",
+        "glassware": "Flute or white wine glass; can be enjoyed directly from the can"
+      },
+      "wineDetails": {
+        "region": "Oregon, USA",
+        "grapeVariety": "Sparkling Pinot Gris (some sources mention Viognier, Roussanne, and Marsanne blend; composition may vary)",
+        "vintage": "Non-Vintage",
+        "style": "Dry sparkling wine with floral and stone fruit character",
+        "ageability": "Enjoy immediately. Sparkling wines in cans are designed for fresh consumption."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Lo Mon 2019",
+      "description": "A powerful and concentrated red wine from Spain's prestigious Priorat DO, crafted by Trossos del Priorat. This wine exemplifies the region's distinctive terroir, sourced from steep vineyards planted on mineral-rich llicorella slate soils. Aged for 12 months in French oak followed by 18 months in bottle, Lo Món represents exceptional value from one of Spain's most celebrated appellations.",
+      "tastingNotes": {
+        "aroma": "Deep cherry red with violet reflections, the nose is remarkably complex and layered. Balsamic nuances of eucalyptus and Mediterranean herbs open the aromatics, followed by concentrated red fruit notes of raspberry, blackberry, and wild strawberry. Citrus peel adds brightness, while prominent mineral notes of ash, graphite, and wet slate reflect the llicorella soils. Black pepper and sweet spices—vanilla, cinnamon—emerge from the oak aging. Dark chocolate and creamy oak round out this multifaceted aromatic profile.",
+        "palate": "Powerful and long on the palate with remarkable concentration and balance. The entry is strong and heavy, delivering waves of ripe dark fruit—blackberry, plum, and black cherry. Velvety tannins coat the mouth, providing structure without harshness despite their strength. Spicy hints of black pepper and baking spices integrate with sweet oak influence. The wine is very luscious and rich, showing the characteristic Priorat concentration while maintaining freshness from the region's high-altitude vineyards. Medium to full-bodied with excellent depth.",
+        "finish": "Long and warm finish that brings back the aroma of sweet spices and ripe fruit. The mineral freshness characteristic of Priorat's slate soils extends through the aftertaste, preventing any heaviness. Strong tannins persist but remain round and velvety. Dark chocolate and espresso notes linger alongside the fruit concentration."
+      },
+      "foodPairings": [
+        "Grilled Iberian pork shoulder",
+        "Braised lamb shanks with rosemary",
+        "Aged Manchego or Idiazábal cheese",
+        "Wild boar stew with root vegetables",
+        "Grilled portobello mushrooms with garlic"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 60-90 minutes to soften tannins and integrate oak with fruit",
+        "glassware": "Large Bordeaux glass to allow the concentrated wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Priorat DOCa, Catalonia, Spain",
+        "grapeVariety": "Blend of traditional Priorat varieties (typically Garnacha, Cariñena, Syrah)",
+        "vintage": "2019",
+        "style": "Full-bodied, mineral-driven red with concentration and power",
+        "ageability": "Enjoy now through 2029. Will develop tertiary complexity with 5-8 years of cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cantina Fratelli Pardi Montefalco Rosso 2021",
+      "description": "A classic and honest expression of Montefalco Rosso from Umbria's underappreciated wine region. Produced by the Pardi family with a blend of Sangiovese, Merlot, Cabernet, and other approved red varieties, this wine showcases Mediterranean character with excellent balance and very good value. Professional critics awarded this vintage 88-90 points, praising its freshness and class.",
+      "tastingNotes": {
+        "aroma": "Bright, medium-deep garnet color introduces a truly honest and classic nose. Mediterranean red fruits dominate—red cherry, red plum, and wild strawberry—with subtle notes of red poppy flowers adding floral complexity. A spiced herbaceous structure provides depth with hints of dried oregano, thyme, and bay leaf. Earthy undertones of forest floor and dusty earth add rustic character. A distinctive hint of Himalayan salt and mineral notes speak to the terroir. Warmed spices and green herbs complete the complex aromatic profile.",
+        "palate": "Medium-bodied and beautifully balanced, this wine displays exceptional appeal and drinkability. The palate mirrors the nose with flavors of ripe cranberry, tart cherry, and red currant. Dusty earth and grilled red fruits add savory complexity, while tart plum provides acidity. Very good freshness defines the structure, supported by soft tannins that never overpower. Good acidity keeps the wine lively and food-friendly. The integration of varieties is seamless, with Sangiovese providing the backbone and Merlot/Cabernet adding depth.",
+        "finish": "The finish is classy and refined with moderate length. Tart red fruit notes persist alongside earthy minerality. Soft tannins and good acidity extend through the aftertaste, maintaining balance. Herbal notes re-emerge subtly, adding complexity to the clean finish."
+      },
+      "foodPairings": [
+        "Wild boar ragu with pappardelle",
+        "Porchetta with roasted vegetables",
+        "Grilled sausages with lentils",
+        "Pecorino Toscano or aged Parmigiano-Reggiano",
+        "Mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F)",
+        "decanting": "Brief 20-30 minute decanting to open aromatics; not essential",
+        "glassware": "Medium-sized red wine glass"
+      },
+      "wineDetails": {
+        "region": "Montefalco Rosso DOC, Umbria, Italy",
+        "grapeVariety": "Blend: 75% Sangiovese, 15% Merlot and Cabernet, 10% other approved red varieties",
+        "vintage": "2021",
+        "style": "Medium-bodied Italian red with Mediterranean character and excellent value",
+        "ageability": "Enjoy now through 2025-2026. Best consumed within 3-4 years to preserve freshness and fruit character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Galea Red Sangria NV",
+      "description": "An organic red sangria from Barcelona, Spain, crafted from Tempranillo, Merlot, and Syrah grapes with natural orange and cassis essences. This ready-to-drink sangria showcases deep fruit flavors with a refreshing frizzante touch and only 7% alcohol, making it perfect for casual gatherings. Organic, gluten-free, and vegan-friendly.",
+      "tastingNotes": {
+        "aroma": "The nose opens with juicy, deep notes of dark cherry and black cherry, enhanced by natural orange essence that adds bright citrus character. Cassis provides blackcurrant intensity, while subtle cocoa notes add richness. An earthy, rustic quality emerges with hints of Mediterranean herbs. A touch of fresh ginger adds an unexpected and delightful spice element. The organic fruit character shines through with purity and authenticity.",
+        "palate": "The palate delivers concentrated dark fruit flavors with dark cherry and cassis dominating. Natural orange essence provides citrus brightness that balances the fruit sweetness, creating harmony between ripe and fresh elements. Subtle cocoa notes add depth mid-palate, while the hint of ginger provides warming spice. The frizzante touch—light carbonation—is very well integrated, giving special freshness and liveliness to the experience. Light-bodied at 7% alcohol, making it dangerously drinkable and perfect for extended enjoyment.",
+        "finish": "The finish is refreshing and clean with the frizzante carbonation maintaining vibrancy through the aftertaste. Dark cherry and orange notes linger, along with subtle spice from the ginger. The lower alcohol content prevents any heaviness, leaving a mouthwatering sensation that invites another sip."
+      },
+      "foodPairings": [
+        "Spanish tapas—patatas bravas, croquetas",
+        "Grilled chorizo and manchego cheese",
+        "Paella or seafood rice dishes",
+        "Fresh fruit platters",
+        "Light summer salads with citrus dressing"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), serve well chilled over ice",
+        "decanting": "No decanting needed; serve directly from bottle over ice with fresh fruit garnish",
+        "glassware": "Large wine glass or tumbler with ice, garnished with orange slices and berries"
+      },
+      "wineDetails": {
+        "region": "Barcelona, Catalonia, Spain",
+        "grapeVariety": "Organic blend: Tempranillo, Merlot, Syrah with natural orange and cassis essences",
+        "vintage": "Non-Vintage",
+        "style": "Organic frizzante red sangria with natural fruit essences, 7% ABV",
+        "ageability": "Enjoy immediately. Sangria is designed for fresh, immediate consumption."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alella Marfil Classic 2022",
+      "description": "A fresh and balanced white wine from the small but mighty Alella DO near Barcelona, produced by Cooperativa Alella Vinícola's Marfil brand since the 1920s. Made primarily from the indigenous Pansa Blanca grape using ecological farming methods, this wine showcases the characteristic texture and minerality of Alella's unique coastal terroir.",
+      "tastingNotes": {
+        "aroma": "Pale yellow with greenish hues, clean and bright in appearance. The nose displays large aromatic intensity focused on citrus and white fruits. Meyer lemon, lime, and grapefruit provide the citrus backbone, while white peach, green apple, and pear contribute orchard fruit character. Sweet, plummy notes add unexpected richness, while balsamic touches of fresh herbs—basil, fennel—provide Mediterranean complexity. The aromatic profile is both vibrant and layered.",
+        "palate": "Very fresh and beautifully balanced on the palate, this wine showcases the distinctive creamy texture found in Pansa Blanca wines from Alella. White fruit flavors of apple and pear dominate, supported by citrus zest and a characteristic mineral edge. The notable freshness is perfectly balanced with the alcoholic content and minimal residual sugar, creating harmony. Good acidity provides structure and length, while the four months of aging in stainless steel preserves purity. Medium-bodied with exceptional drinkability.",
+        "finish": "Intense finish for a medium-bodied wine, with white fruit and citrus notes persisting. The characteristic Pansa Blanca texture extends through the aftertaste—slightly creamy yet fresh. Mineral notes and good acidity linger, leaving a clean and refreshing impression that invites food pairing."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean seafood—sardines, prawns",
+        "Jamón ibérico and Manchego cheese",
+        "Pan con tomate with olive oil",
+        "Grilled vegetables with romesco sauce",
+        "Chicken with almond sauce"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting required; serve chilled to preserve freshness",
+        "glassware": "Medium white wine glass to showcase aromatics and texture"
+      },
+      "wineDetails": {
+        "region": "Alella DO, Catalonia, Spain",
+        "grapeVariety": "90% Pansa Blanca (local name for Xarel-lo), 10% Garnacha Blanca",
+        "vintage": "2022",
+        "style": "Fresh, mineral-driven white wine with characteristic creamy texture from organic farming",
+        "ageability": "Enjoy now through 2025. Best consumed within 2-3 years to preserve freshness and aromatic intensity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

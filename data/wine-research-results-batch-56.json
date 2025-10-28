@@ -1,0 +1,347 @@
+{
+  "batchId": "batch-56",
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Nagelsforst Bergliebe Riesling 2022",
+      "description": "A crisp German Riesling showcasing the mineral-driven elegance of the Nagelsforst estate. This 2022 vintage balances vibrant acidity with delicate fruit expression, offering the transparency of flavor that defines quality German Riesling.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pristine apple and white peach aromas, layered with delicate jasmine florals and wet stone minerality. Subtle hints of citrus zest and green pear emerge as the wine breathes, revealing the characteristic precision of cool-climate German Riesling. A whisper of honeysuckle adds aromatic complexity without overwhelming the wine's elegant restraint.",
+        "palate": "On the palate, this wine delivers crisp Granny Smith apple and Meyer lemon flavors supported by racy acidity that energizes the entire experience. The mid-palate shows lovely tree fruit concentration with touches of white peach and nectarine, while the wine's mineral backbone provides tension and drive. A trace of residual sweetness balances the high acidity, creating harmony rather than cloying sweetness.",
+        "finish": "The finish is clean and refreshing with lingering notes of citrus pith and slate minerality. The wine's vibrant acidity leaves the palate cleansed and eager for the next sip, making it exceptionally food-friendly."
+      },
+      "foodPairings": [
+        "Lightly smoked trout with horseradish cream",
+        "Thai green curry with shrimp",
+        "Grilled chicken with lemon and herbs",
+        "Fresh goat cheese salad with vinaigrette",
+        "Vietnamese spring rolls with nuoc cham"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled to emphasize crispness",
+        "decanting": "No decanting needed; serve directly from the refrigerator for maximum freshness",
+        "glassware": "Narrow white wine glass or Riesling-specific glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Germany (Rheinhessen or Pfalz region likely based on producer)",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2022",
+        "style": "Dry to off-dry German Riesling with bright acidity",
+        "ageability": "Drink now through 2027; quality German Riesling can develop petrol and honey notes with 5-10 years of aging"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tigerstone Garnacha 2023",
+      "description": "A vibrant young Garnacha showcasing the variety's signature red fruit intensity and approachable style. This 2023 vintage captures the exuberant, fruit-forward character that makes Garnacha so appealing in its youth.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of fresh strawberries and red raspberries leap from the glass, accented by subtle white pepper and dried herb notes. The wine shows youthful exuberance with hints of cherry candy and a touch of floral violet character. As it opens, nuances of Mediterranean garrigue and sun-warmed stones add complexity to the fruit-driven profile.",
+        "palate": "The palate delivers juicy red fruit flavors with ripe strawberry and raspberry at the forefront, supported by relatively high alcohol that provides warmth and body. Soft tannins and modest acidity create an approachable, medium-bodied texture that emphasizes fruit purity over structural complexity. Subtle spice notes of white pepper and cinnamon emerge mid-palate, adding interest without overwhelming the primary fruit character.",
+        "finish": "The finish shows friendly length with lingering strawberry fruit and gentle spice. A touch of warmth from the alcohol carries through, while the wine's soft structure ensures easy drinkability."
+      },
+      "foodPairings": [
+        "Grilled Spanish chorizo and peppers",
+        "Lamb kebabs with rosemary",
+        "Mushroom and cheese quesadillas",
+        "Paella with chicken and rabbit",
+        "Aged Manchego cheese with quince paste"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) - slightly cool to emphasize freshness",
+        "decanting": "Brief 15-minute decanting recommended to open up aromatics and soften the wine",
+        "glassware": "Medium-sized red wine glass to allow fruit aromatics to express"
+      },
+      "wineDetails": {
+        "region": "Spain (likely Aragón, Catalonia, or Campo de Borja)",
+        "grapeVariety": "100% Garnacha (Grenache)",
+        "vintage": "2023",
+        "style": "Fruit-forward, medium-bodied red with soft tannins",
+        "ageability": "Best enjoyed within 2-3 years to preserve vibrant fruit character; Garnacha is prone to oxidation with extended aging"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "TVH The Boss Block 8 Cabernet Sauvignon 2018",
+      "description": "A distinguished single-block Cabernet Sauvignon demonstrating the structured power and complexity that define premium expressions of this noble variety. The 2018 vintage offers concentrated fruit with well-integrated oak and the firm tannic backbone characteristic of age-worthy Cabernet.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals classic blackcurrant intensity accented by cedar, cigar box, and graphite mineral notes. Layers of dark cherry and blackberry mingle with bourbon vanilla and toasted oak from barrel aging. With aeration, subtle eucalyptus and dried tobacco leaf emerge, adding complexity and intrigue. A hint of crushed violets provides an elegant floral counterpoint to the wine's darker elements.",
+        "palate": "Full-bodied and assertive, the palate showcases ripe cassis and black cherry fruit supported by substantial but refined tannins. The wine's high phenolic content provides structure and grip, while pronounced acidity maintains freshness and balance. Mid-palate concentration reveals layers of dark plum, espresso, and dark chocolate, framed by well-integrated French oak that contributes vanilla, baking spice, and a creamy texture. The wine's power is evident but controlled, showing the careful winemaking that defines premium Cabernet.",
+        "finish": "The finish is long and authoritative, with firm but polished tannins carrying dark fruit and oak-derived spice through to a persistent conclusion. Notes of black tea and pencil shaving linger, promising excellent aging potential over the next decade."
+      },
+      "foodPairings": [
+        "Dry-aged ribeye steak with compound butter",
+        "Braised short ribs with red wine reduction",
+        "Grilled portobello mushrooms with blue cheese",
+        "Roasted leg of lamb with rosemary and garlic",
+        "Aged cheddar or Parmigiano-Reggiano cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - cool room temperature to showcase structure",
+        "decanting": "Decant 60-90 minutes before serving to soften tannins and reveal aromatic complexity",
+        "glassware": "Large Bordeaux-style glass to allow wine to breathe and aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "Single vineyard block (region not specified, likely premium wine region)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Full-bodied, oak-aged premium Cabernet with firm structure",
+        "ageability": "Drink now through 2033; peak drinking window likely 2025-2030 as tannins soften and complexity develops"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ontanon Gran Reserva 2011",
+      "description": "A distinguished Rioja Gran Reserva representing over five years of careful aging in oak and bottle. This 2011 vintage exemplifies the classic Rioja style with its harmonious integration of fruit, oak, and tertiary complexity that only extended maturation can achieve.",
+      "tastingNotes": {
+        "aroma": "The nose reveals evolved complexity with dried cherry, leather, and tobacco leaf aromas layered over the signature Rioja vanilla and coconut from extended oak aging. Secondary notes of dried fig, mushroom, and forest floor add earthy depth, while hints of balsamic and cedar provide additional dimension. The wine's bouquet shows the elegant maturity achieved through minimum 60 months of aging, with fruit and oak now seamlessly married.",
+        "palate": "On the palate, this Gran Reserva delivers mature red fruit flavors of cranberry and dried strawberry complemented by savory notes of cured meat, leather, and sweet spice. The oak influence is pronounced but integrated, contributing vanilla, nutmeg, and a silky texture rather than raw wood flavors. Tempranillo's characteristic medium body is enhanced by supporting varieties, while moderate tannins softened by age provide gentle structure. The wine's acidity remains vibrant despite its maturity, ensuring balance and freshness.",
+        "finish": "The finish is long and complex, with lingering notes of dried cherry, tobacco, and vanilla spice. The wine's evolved character shows throughout, with savory elements and oak seamlessly integrated into a harmonious conclusion that invites contemplation."
+      },
+      "foodPairings": [
+        "Roasted lamb shoulder with herbs de Provence",
+        "Aged Spanish Ibérico ham and Manchego cheese",
+        "Wild mushroom risotto with truffle oil",
+        "Grilled veal chops with shallot reduction",
+        "Cassoulet with duck confit and white beans"
+      ],
+      "servingInfo": {
+        "temperature": "16-17°C (61-63°F) - slightly cool room temperature for complexity",
+        "decanting": "Decant 30-45 minutes to aerate and allow the wine's complexity to unfold; older wines are delicate",
+        "glassware": "Classic Bordeaux or Rioja glass with generous bowl for aroma development"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Primarily Tempranillo with Garnacha, Mazuelo, and/or Graciano",
+        "vintage": "2011",
+        "style": "Classic oak-aged Rioja Gran Reserva with mature, evolved character",
+        "ageability": "At peak drinking now through 2027; Gran Reserva already aged minimum 60 months before release (24 months oak, 36 months bottle)"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dolce Vita Strawberry Margarita",
+      "description": "A ready-to-drink wine cocktail combining the refreshing appeal of margarita flavors with wine-based spirits. This convenient libation delivers strawberry sweetness and citrus tang in a pre-mixed format perfect for casual entertaining.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of fresh strawberries dominate, accented by lime zest and a hint of agave sweetness. The nose shows candied fruit character with tropical undertones and a subtle alcoholic lift. Light citrus and berry notes create an inviting, approachable bouquet reminiscent of summer fruit cocktails.",
+        "palate": "The palate delivers sweet strawberry flavor balanced by tart lime acidity, creating the classic margarita profile in a wine-based format. The texture is light and refreshing with moderate sweetness, while citrus brightness prevents cloying. The wine base provides body and subtle complexity beneath the dominant fruit and cocktail flavors, making this an easy-drinking sipper for warm weather enjoyment.",
+        "finish": "The finish is brief and refreshing with lingering strawberry and lime notes. A touch of sweetness remains, along with subtle alcoholic warmth that signals this is a cocktail beverage rather than traditional wine."
+      },
+      "foodPairings": [
+        "Chips and fresh guacamole",
+        "Fish tacos with mango salsa",
+        "Grilled shrimp skewers",
+        "Fresh fruit salad",
+        "Light summer appetizers and poolside snacks"
+      ],
+      "servingInfo": {
+        "temperature": "4-6°C (39-43°F) - serve ice cold, ideally over ice with fresh fruit garnish",
+        "decanting": "No decanting needed; serve directly over ice or blend frozen for a slushy texture",
+        "glassware": "Margarita glass or highball glass with ice, garnished with fresh strawberry and lime"
+      },
+      "wineDetails": {
+        "region": "Wine cocktail product (region of production not specified)",
+        "grapeVariety": "Wine-based cocktail with natural flavors",
+        "vintage": "Non-vintage ready-to-drink product",
+        "style": "Sweet wine cocktail with strawberry and margarita flavors",
+        "ageability": "Consume immediately; no aging potential - best enjoyed fresh within months of purchase"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ontanon Reserva Magnum 2011  1500 ml",
+      "description": "A classic Rioja Reserva presented in magnum format, allowing for slower, more graceful aging. This 2011 vintage has benefited from minimum three years of maturation, with the larger bottle size providing enhanced development and longevity compared to standard 750ml bottles.",
+      "tastingNotes": {
+        "aroma": "The magnum format has preserved freshness while allowing elegant evolution, presenting red cherry and plum aromas with pronounced vanilla and coconut from oak aging. Notes of dried herbs, leather, and subtle balsamic add complexity, while the wine retains more primary fruit character than Gran Reserva due to its shorter aging requirement. Hints of cocoa powder and sweet spice round out the aromatic profile, showing the hallmark Rioja oak signature without overwhelming the fruit.",
+        "palate": "Medium-bodied with bright red fruit flavors of cherry and raspberry, supported by silky tannins softened through aging. The oak influence is clear but balanced, contributing vanilla, cinnamon, and a creamy texture that enhances the wine's natural fruit character. The magnum format has allowed slower oxygen integration, resulting in fresher fruit expression and more vibrant acidity compared to standard bottles. Supporting grape varieties add structure and complexity to the Tempranillo base, creating layers of flavor and interest.",
+        "finish": "The finish shows moderate length with lingering cherry fruit, vanilla spice, and subtle earthy notes. The wine's balanced nature and magnum aging suggest graceful development ahead, with tannins remaining refined and integrated."
+      },
+      "foodPairings": [
+        "Roast duck with cherry reduction",
+        "Grilled lamb chops with garlic and rosemary",
+        "Spanish-style stuffed peppers",
+        "Aged sheep's milk cheese (Manchego, Zamorano)",
+        "Beef empanadas with chimichurri"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F) - cool room temperature to showcase both fruit and structure",
+        "decanting": "Decant 30 minutes before serving to aerate; magnum may contain sediment after aging",
+        "glassware": "Medium-sized red wine glass to concentrate aromatics and allow gradual opening"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Primarily Tempranillo with Garnacha and possibly Mazuelo or Graciano",
+        "vintage": "2011",
+        "style": "Traditional oak-aged Rioja Reserva in magnum format (1500ml)",
+        "ageability": "Drink now through 2028; magnum format ages more slowly, preserving freshness - Reserva aged minimum 36 months (12 months oak, remaining in bottle)"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta do Mourao White 60 Year Port   500 ml",
+      "description": "An extraordinary aged white port representing six decades of careful oxidative maturation. This rare expression showcases the profound complexity that extreme age brings to fortified wine, offering a meditation on time and the winemaker's art.",
+      "tastingNotes": {
+        "aroma": "The nose reveals extraordinary complexity born of 60 years of oxidative aging, with intense aromas of toasted hazelnuts, dried apricot, and orange marmalade. Notes of caramel, butterscotch, and toffee mingle with hints of dried flowers and aged wood. The wine shows tawny-like characteristics with honeyed richness and subtle rancio notes that speak to its extended barrel aging. Delicate spice notes of nutmeg and cinnamon add further dimension to this profoundly complex bouquet.",
+        "palate": "On the palate, this 60-year-old white port delivers concentrated flavors of candied orange peel, dried fig, and roasted almonds, balanced by surprising freshness that defies its age. The sweetness is rich but not cloying, supported by bright acidity that has survived decades of oxidative aging. Flavors of crème brûlée, honeycomb, and toasted nuts layer over a core of dried stone fruit, while the wine's fortification provides warmth and structure. The texture is silky and refined, with seamless integration of all elements achieved only through extensive time.",
+        "finish": "The finish is exceptionally long and complex, with waves of nutty, caramelized flavors interwoven with citrus peel and honey. The wine's richness lingers beautifully, leaving impressions of toasted almond, orange zest, and gentle spice that invite prolonged contemplation."
+      },
+      "foodPairings": [
+        "Crème brûlée or flan",
+        "Roasted almonds and dried apricots",
+        "Foie gras terrine with brioche",
+        "Blue cheese (Stilton or Roquefort) with walnuts",
+        "Apple tart with caramel sauce"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - lightly chilled to balance richness and highlight acidity",
+        "decanting": "No decanting needed; pour directly from bottle, though wine may benefit from 10-15 minutes in glass",
+        "glassware": "Small port or sherry glass to concentrate intense aromatics; serve in small portions"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "Traditional white port grapes (likely Malvasia Fina, Rabigato, Viosinho, Gouveio)",
+        "vintage": "Aged approximately 60 years (blend of vintages aged in barrel)",
+        "style": "Aged white port with oxidative, tawny-like character - rare and highly complex",
+        "ageability": "At peak now; already extensively aged - consume within 1-2 years of opening bottle for best experience"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg John Martin Red Blend 2018",
+      "description": "A distinguished South African red blend named after the Backsberg estate's founder, John Martin Back. This 2018 vintage represents the estate's premium tier, showcasing the potential of carefully selected Bordeaux varieties grown in the Cape's diverse terroir.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with concentrated dark fruit aromas of blackberry, cassis, and plum, complemented by notes of cigar box, eucalyptus, and graphite. Oak aging contributes vanilla, dark chocolate, and subtle coffee bean notes without overwhelming the fruit. Hints of dried herbs, black olive, and a characteristic Cape fynbos character add regional identity and complexity. With aeration, violet florals and sweet spice emerge, revealing the wine's layered nature.",
+        "palate": "Full-bodied and structured, the palate showcases ripe black fruit flavors underpinned by firm but polished tannins characteristic of Cabernet-based blends. The wine shows excellent concentration with dark cherry, blackcurrant, and black plum at the core, supported by well-integrated oak that provides vanilla spice and a creamy mid-palate texture. Supporting varieties likely add softness and aromatic complexity to the Cabernet base, creating a harmonious ensemble. Balanced acidity maintains freshness despite the wine's power and richness.",
+        "finish": "The finish is long and authoritative with persistent dark fruit and oak-derived spice. Firm tannins provide structure while remaining approachable, suggesting both immediate enjoyment and cellaring potential. Notes of dark chocolate and espresso linger alongside fruit, creating a satisfying conclusion."
+      },
+      "foodPairings": [
+        "Grilled kudu or venison steaks",
+        "Braised oxtail with red wine sauce",
+        "Cape Malay bobotie (spiced meat dish)",
+        "Aged hard cheeses (aged Gouda or Parmesan)",
+        "Lamb shank with rosemary and root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - cool room temperature to showcase structure and complexity",
+        "decanting": "Decant 45-60 minutes before serving to soften tannins and open aromatics",
+        "glassware": "Large Bordeaux-style glass to allow wine to breathe and develop in the glass"
+      },
+      "wineDetails": {
+        "region": "Paarl, Western Cape, South Africa",
+        "grapeVariety": "Bordeaux-style blend (likely Cabernet Sauvignon dominant with Merlot, Cabernet Franc, and/or Petit Verdot)",
+        "vintage": "2018",
+        "style": "Full-bodied, oak-aged premium red blend with firm structure",
+        "ageability": "Drink now through 2030; peak drinking likely 2024-2028 as tannins integrate and complexity develops"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cienega Valley Cienega Valley Pinot Noir 2023",
+      "description": "A fresh expression of California Pinot Noir from the distinctive Cienega Valley AVA in San Benito County. This 2023 vintage captures the region's unique terroir, where limestone soils and cooling maritime influences create ideal conditions for elegant Pinot Noir.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with vibrant red fruit aromatics of fresh cherry, raspberry, and strawberry characteristic of youthful Pinot Noir. Floral notes of violet and rose petal add elegance, while subtle earthy undertones of mushroom and forest floor hint at complexity to come. Light touches of vanilla and baking spice suggest judicious oak influence, while the wine retains the bright, pure fruit character that defines quality California Pinot. A whisper of cola and crushed herbs adds intrigue.",
+        "palate": "Light to medium-bodied with silky texture and bright acidity, the palate delivers intense red cherry and cranberry flavors accented by hints of pomegranate and red currant. The wine shows the fruit-forward style emerging in modern California Pinot, with ripe fruit flavors balanced by refreshing acidity and delicate tannins. Oak influence is restrained, allowing the variety's inherent elegance and the region's terroir to shine. Mid-palate depth reveals layers of strawberry, earth, and subtle spice, while the wine's light tannin structure ensures approachability.",
+        "finish": "The finish is medium in length with persistent red fruit and a touch of earthy complexity. Bright acidity carries through, leaving the palate refreshed and the wine showing excellent food-pairing versatility. Subtle spice and herb notes linger, inviting the next sip."
+      },
+      "foodPairings": [
+        "Grilled salmon with dill and lemon",
+        "Roasted duck breast with cherry gastrique",
+        "Mushroom risotto with Parmigiano-Reggiano",
+        "Herb-roasted chicken with root vegetables",
+        "Soft-ripened cheeses (Brie, Camembert)"
+      ],
+      "servingInfo": {
+        "temperature": "13-15°C (55-59°F) - slightly cool to emphasize fruit and acidity",
+        "decanting": "Brief 15-20 minute decanting helpful to open aromatics, or simply pour and swirl in glass",
+        "glassware": "Burgundy-style glass with wide bowl to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Cienega Valley AVA, San Benito County, California",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2023",
+        "style": "Fruit-forward California Pinot Noir with silky texture and bright acidity",
+        "ageability": "Best enjoyed within 3-5 years to preserve vibrant fruit character; drink 2024-2028"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Skylark Pinot Blanc 2018",
+      "description": "An expressive Pinot Blanc showcasing the variety's versatility and food-friendly character. This 2018 vintage demonstrates how careful winemaking can coax complexity and depth from this sometimes understated grape, delivering both freshness and substance.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals bright aromas of green apple, Asian pear, and citrus fruits, layered with delicate white flowers and subtle mineral notes. Hints of honeysuckle and acacia blossom add aromatic lift, while the wine shows stronger floral characteristics typical of varietally pure Pinot Blanc. With aeration, nuances of stone fruit—white peach and apricot—emerge alongside a gentle honeyed quality that speaks to the wine's maturity. A whisper of toasted almond suggests possible lees contact or oak influence.",
+        "palate": "Full-bodied for a white wine, the palate balances richness with refreshing acidity that keeps the wine lively and bright. Flavors of crisp apple and citrus fruit dominate, supported by notes of ripe pear and subtle stone fruit complexity. The wine's relatively high acidity provides structure and ensures food compatibility, while a creamy mid-palate texture suggests sur lie aging or partial barrel fermentation. The overall impression is one of balance between fruit purity, textural interest, and crisp freshness that makes Pinot Blanc so versatile at the table.",
+        "finish": "The finish is clean and moderately long, with lingering apple and citrus notes accompanied by subtle minerality. The wine's bright acidity leaves the palate refreshed while gentle creaminess provides satisfaction, creating a harmonious conclusion that invites food pairing."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with brown butter",
+        "Roasted chicken with lemon and thyme",
+        "Grilled asparagus with Parmesan",
+        "Fresh oysters on the half shell",
+        "Creamy pasta with spring vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "9-11°C (48-52°F) - well chilled to emphasize crispness and acidity",
+        "decanting": "No decanting needed; serve directly from refrigerator",
+        "glassware": "Medium-sized white wine glass to allow aromatics to develop while maintaining freshness"
+      },
+      "wineDetails": {
+        "region": "California (specific region not specified, possibly Mendocino or Santa Barbara County)",
+        "grapeVariety": "100% Pinot Blanc",
+        "vintage": "2018",
+        "style": "Full-bodied, crisp white wine with high acidity and stone fruit character",
+        "ageability": "At peak now; Pinot Blanc typically made for near-term consumption - drink through 2025"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

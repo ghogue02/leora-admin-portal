@@ -1,0 +1,347 @@
+{
+  "batch": 76,
+  "totalWines": 10,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Heron Hill Riesling Semi Sweet 2023",
+      "description": "A beautifully balanced semi-sweet Riesling from New York's Finger Lakes region that showcases the cool climate character of Keuka Lake. The 2023 vintage earned Silver at the New York Wine Classic and exemplifies Heron Hill's mastery of this grape variety. At 9% ABV, this is an approachable, food-friendly white wine that captures the essence of Finger Lakes Riesling.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with intense aromatics of ripe white peach and lemon curd, intertwined with fresh ginger spice and delicate white floral notes. Underlying mineral tones add complexity, while hints of honeysuckle and pear blossom create an inviting bouquet. Subtle honeyed accents emerge as the wine opens, along with whispers of ripe melon that speak to the wine's semi-sweet character.",
+        "palate": "Medium-bodied with electric acidity that brings the wine to life on the palate, balancing the subtle sweetness with precision. Bright citrus and stone fruit flavors dominate, particularly tangerine and white peach, while the underlying minerality adds structure and depth. The mouthfeel is juicy and fresh, with a pleasant lemon-lime bitterness that keeps the honeyed apple characteristics in perfect equilibrium. This is a wine of remarkable balance, where sweetness never overwhelms the vibrant fruit and crisp acidity.",
+        "finish": "The finish is soft and smooth with excellent length, allowing the citrus and stone fruit notes to linger gracefully. A touch of minerality and elegant petrol notes emerge on the tail, adding sophistication to the semi-sweet style. The wine leaves the palate refreshed and ready for another sip."
+      },
+      "foodPairings": [
+        "Spicy Asian cuisine (Thai curry, Szechuan dishes)",
+        "Roasted pork tenderloin with apple glaze",
+        "Grilled vegetables with herb butter",
+        "Mild Indian curries and tikka masala",
+        "Fresh fruit tarts and light desserts"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled to emphasize freshness",
+        "decanting": "No decanting needed; this wine is ready to enjoy immediately from the bottle",
+        "glassware": "Standard white wine glass or Riesling-specific stemware to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Finger Lakes, Keuka Lake, New York",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2023",
+        "style": "Semi-Sweet White Wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage to preserve fresh fruit character; drink now through 2026"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Tempranillo Blanco (Green Labels) 2022",
+      "description": "A pioneering white wine from Rioja that showcases the rare white mutation of Tempranillo, a grape variety Bodegas Valdemar has championed for years. Harvested from the prestigious Finca Alto Cantabria estate in Rioja Alta, this 2022 vintage earned a Gold Medal at the Concours Mondial in Brussels. The wine represents a modern expression of Rioja's innovative spirit while maintaining traditional quality standards.",
+      "tastingNotes": {
+        "aroma": "The nose opens with striking aromatic herb notes, particularly fennel and spearmint, creating an herbaceous complexity rarely found in white Rioja. Tropical fruit aromas follow, featuring melon, ripe pear, and fresh pineapple that add lushness to the profile. A delicate touch of elderflower provides floral elegance, while the wine's pale yellow color with greenish hues hints at its youthful vibrancy and fresh character.",
+        "palate": "Mouth-coating and fresh, with exceptional balance between fruit richness and bright acidity. The tropical fruit notes translate beautifully to the palate, where they're joined by a distinctive salty minerality from the calcareous soils of Alto Cantabria. The wine shows impressive length and structure, with the aromatic herb character weaving through layers of citrus and stone fruit. Extended aging on fine lees for 4 months adds subtle creaminess and textural complexity without overwhelming the wine's inherent freshness.",
+        "finish": "Long and balanced, with lingering tropical fruit flavors complemented by a refreshing herbal quality. The salty mineral note returns on the finish, adding a savory dimension that makes this wine particularly food-friendly. The clean, bright conclusion leaves the palate energized."
+      },
+      "foodPairings": [
+        "Grilled white fish with herb butter",
+        "Seafood paella or seafood risotto",
+        "Fresh oysters and shellfish",
+        "Roasted chicken with lemon and herbs",
+        "Soft goat cheese and herb salads"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) to preserve aromatic complexity",
+        "decanting": "Not necessary; fermented and aged in stainless steel to preserve freshness",
+        "glassware": "Medium-sized white wine glass to capture aromatic herbs and tropical fruit notes"
+      },
+      "wineDetails": {
+        "region": "Rioja Alta, Spain - Finca Alto Cantabria estate",
+        "grapeVariety": "100% Tempranillo Blanco (white Tempranillo)",
+        "vintage": "2022",
+        "style": "Fresh, Aromatic White Wine",
+        "ageability": "Drink within 2-4 years to enjoy peak freshness and aromatic intensity; best consumed 2022-2026"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ribeiro Sameiras Blanco 2021",
+      "description": "A sophisticated white blend from Galicia's Ribeiro region, produced by Adega Antonio Cajide in Ribadavia. This wine showcases the indigenous grape varieties of northwestern Spain through a complex blend of seven grapes, anchored by Treixadura, Albariño, and Godello. Four months in French oak barrels adds structure and complexity while preserving the wine's essential freshness and regional character.",
+      "tastingNotes": {
+        "aroma": "Medium intensity aromatics with a pronounced fruity character centered on white fruit, particularly white peach and green apple. Fresh herbal notes of fennel, bay leaf, and cut grass add aromatic complexity, while subtle honeyed nuances suggest time on lees. The bouquet is frank and inviting, with white flower aromatics and delicate memories of honey that enhance the wine's expressiveness. As it opens, light toasty notes from barrel aging emerge without dominating the fresh fruit character.",
+        "palate": "The attack is confident and broad, with good structure and a slight sweetness that rounds out the mouthfeel. Excellent unctuousness provides textural richness, balanced perfectly by bright acidity that brings freshness and energy. The fruity notes announced on the nose translate beautifully, joined by citric elements that add vibrancy. The wine shows impressive breadth and body for a white, with integrated oak adding subtle complexity rather than heavy wood influence. The combination of fruit purity and textural sophistication creates a compelling drinking experience.",
+        "finish": "Persistent and engaging, with citrus memories returning on the tail along with a slight pleasant bitterness that adds dimension. The aftertaste is long and clean, with the wine's natural freshness and acidity ensuring the finish remains lively and appetizing. White fruit and honeyed notes linger gently."
+      },
+      "foodPairings": [
+        "Grilled octopus (pulpo a la gallega)",
+        "Seafood tapas and Spanish appetizers",
+        "Grilled white fish with garlic and olive oil",
+        "Creamy risotto or pasta dishes",
+        "Manchego cheese and Spanish charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - slightly warmer than typical whites to appreciate oak influence",
+        "decanting": "Brief aeration helpful to integrate oak and fruit; 15-20 minutes in glass recommended",
+        "glassware": "Burgundy-style white wine glass to enhance complexity and texture"
+      },
+      "wineDetails": {
+        "region": "Ribeiro DO, Galicia, Spain",
+        "grapeVariety": "55% Treixadura, 20% Albariño, 12% Godello, 8% Lado, 2% Loureira Blanca, 2% Torrontés, 1% Caíño Blanco",
+        "vintage": "2021",
+        "style": "Complex, Oak-Aged White Blend",
+        "ageability": "Drink within 3-5 years; the oak integration suggests moderate aging potential through 2026"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Roero Arneis DOCG (Damaged Tops) 2022",
+      "description": "An incredibly expressive Arneis from one of Piedmont's respected producers in the Roero DOCG zone. This 2022 vintage captures the essence of the Roero terroir with vibrant fruit and floral notes characteristic of this historic white grape variety. At 12.5% ABV, the wine demonstrates the crisp freshness and aromatic intensity that has made Roero Arneis a benchmark for Italian white wines.",
+      "tastingNotes": {
+        "aroma": "The wine bursts with vibrant citrus and tropical fruit aromatics, particularly grapefruit and ripe mango that create an inviting and fruit-forward bouquet. Floral undertones of honeysuckle and lily add elegance and lift, while subtle mineral notes hint at the wine's terroir. The aromatic profile is intense yet refined, showcasing the expressive nature of well-grown Arneis. Light hints of white peach and apple round out the complex nose, creating layers of interest with each swirl of the glass.",
+        "palate": "Fresh and intense on the palate, with citrus and stone fruit flavors taking center stage in a harmonious, easy-drinking style. The wine's excellent acidity provides outstanding structure, creating a lively framework that makes this an ideal partner for food. Crisp apple and lemon notes dance across the tongue, while the tropical mango character from the nose translates beautifully to the mid-palate. The texture is clean and refreshing, with a mineral backbone that adds complexity and prevents the fruit from becoming heavy. This is an elegant wine that captures the characteristic Arneis balance of fruit intensity and structural freshness.",
+        "finish": "Clean and persistent, with citrus notes lingering gracefully and the wine's natural acidity keeping the palate refreshed. The floral elements return subtly on the tail, while a flinty mineral quality adds sophistication to the close. The finish invites another sip, making this a thoroughly pleasurable drinking experience."
+      },
+      "foodPairings": [
+        "Grilled seafood and light fish preparations",
+        "Vegetable risotto or pasta primavera",
+        "Fresh mozzarella and tomato salad",
+        "Roasted chicken with herbs",
+        "Seafood pasta with white wine sauce"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) to emphasize freshness and aromatics",
+        "decanting": "No decanting required; serve directly from the refrigerator",
+        "glassware": "Standard white wine glass or light-bodied white wine stemware"
+      },
+      "wineDetails": {
+        "region": "Roero DOCG, Piedmont, Italy",
+        "grapeVariety": "100% Arneis",
+        "vintage": "2022",
+        "style": "Crisp, Aromatic Italian White Wine",
+        "ageability": "Best enjoyed within 2-3 years to preserve fresh fruit and floral character; drink 2022-2025"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Emek Reb Yose Capricorn Cabernet Sauvignon Mevushal (MD & DC)",
+      "description": "A premium kosher Cabernet Sauvignon from the Galilee region of Israel, produced under strict Mevushal supervision with OU and Badatz Jerusalem Edah Hachareidis certification. Aged 18 months in oak barrels, this wine demonstrates the serious winemaking taking place in Israel's premium wine regions. The Capricorn designation represents the winery's focus on quality and traditional winemaking methods.",
+      "tastingNotes": {
+        "aroma": "Rich and concentrated aromas of dark berries dominate the nose, particularly blackcurrant and blackberry, with undertones of cedar and sweet baking spices from the extended oak aging. Notes of dark chocolate and espresso add depth, while hints of Mediterranean herbs—rosemary and thyme—reflect the wine's Galilee terroir. As the wine opens, subtle vanilla and toast notes emerge from the 18-month barrel regimen, complementing rather than overwhelming the intense fruit character. A touch of tobacco leaf and graphite adds sophistication to the bouquet.",
+        "palate": "Full-bodied and structured, with ripe Cabernet tannins providing a firm but approachable framework. The dark fruit core translates powerfully to the palate, where blackcurrant and plum flavors are enriched by layers of dark chocolate and coffee. The oak influence is well-integrated, contributing warmth and spice—cinnamon, clove, and vanilla—without dominating the fruit expression. Mid-palate weight is substantial, with good concentration and density that speaks to quality fruit selection. The wine shows excellent balance between fruit ripeness, oak influence, and natural acidity, creating a cohesive and satisfying whole.",
+        "finish": "Long and warming, with persistent dark fruit flavors accented by oak-derived spice and a touch of leather. The tannins remain present but refined on the finish, suggesting this wine can develop further with short-term cellaring. A hint of dark chocolate lingers on the tail, along with subtle Mediterranean herb notes that add regional character."
+      },
+      "foodPairings": [
+        "Grilled ribeye or prime rib",
+        "Braised short ribs or lamb shanks",
+        "Roasted lamb with rosemary and garlic",
+        "Aged hard cheeses and charcuterie",
+        "Mushroom risotto or beef Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-65°F) - slightly cool room temperature",
+        "decanting": "Recommended 1-2 hours before serving to soften tannins and integrate oak",
+        "glassware": "Large Bordeaux-style glass to allow the wine to breathe and aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "Galilee, Israel",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "Non-vintage",
+        "style": "Full-Bodied, Oak-Aged Red Wine",
+        "ageability": "Can age 3-5 years from release; the oak aging suggests good structure for medium-term cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Weinrieder Weissburgunder 2020",
+      "description": "A rich and minerally Weissburgunder (Pinot Blanc) from Weinrieder, a specialist white wine producer in Austria's Weinviertel region. Owner Friedrich Rieder has built a reputation for producing high-quality, fruit-driven wines from the best south and southwest-facing sites in Kleinhadersdorf. The estate's focus on long cool fermentations with extended lees contact creates wines of depth and complexity.",
+      "tastingNotes": {
+        "aroma": "Delicate yet layered aromas showcase the refined nature of Austrian Weissburgunder, with white orchard fruits—particularly ripe pear and golden apple—forming the aromatic core. Subtle almond and hazelnut notes hint at extended lees aging, while gentle floral accents add elegance to the bouquet. Unlike the more exuberant styles of New World Pinot Blanc, this wine shows restraint and precision, with mineral undertones that speak to the wine's terroir. Light honeyed notes emerge as the wine warms, along with whispers of white flowers and fresh bread dough that add complexity without heaviness.",
+        "palate": "The palate is medium-bodied with soft yet persistent acidity that provides structure without sharpness. Rich and minerally, the wine shows excellent texture from extended lees contact in stainless steel tanks, creating a creamy mouthfeel that complements the pure fruit flavors. White peach and pear dominate, supported by subtle stone fruit character and a distinctive mineral backbone that adds depth and interest. The wine's restrained style allows the terroir to shine through, with chalky minerality providing length and complexity. This is a sophisticated expression of Weissburgunder that emphasizes elegance over power.",
+        "finish": "Clean and mineral-driven, with lingering white fruit notes and a refreshing stony quality that keeps the palate engaged. The soft acidity maintains freshness through the finish, while subtle nutty notes from lees aging add a final layer of complexity. The wine closes with poise and balance."
+      },
+      "foodPairings": [
+        "Grilled white fish or trout almondine",
+        "Roasted chicken with root vegetables",
+        "Creamy pasta dishes or risotto",
+        "Pork schnitzel or veal preparations",
+        "Austrian cheeses and charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) to appreciate texture and complexity",
+        "decanting": "Not necessary; brief aeration in glass beneficial to open aromas",
+        "glassware": "Medium-sized white wine glass to concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Weinviertel, Austria - Kleinhadersdorf",
+        "grapeVariety": "100% Weissburgunder (Pinot Blanc)",
+        "vintage": "2020",
+        "style": "Elegant, Mineral-Driven White Wine",
+        "ageability": "Drink within 3-5 years; the lees aging provides structure for moderate development through 2025"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Smoke & Mirrors Red Blend 2018",
+      "description": "A critically acclaimed red blend from renowned California winemaker Jeff Cohn, earning 92 points from Wine Enthusiast, Jeb Dunnuck, and Wine Spectator. The 2018 vintage from Sonoma County combines 60% Zinfandel with 28% Syrah and 6% each of Grenache and Petite Sirah, creating a bold yet balanced expression of California's finest red varieties. This wine showcases Cohn's masterful blending skills and understanding of Rhône-style winemaking adapted to California terroir.",
+      "tastingNotes": {
+        "aroma": "The nose is earthy and aromatic, leading with garrigue, dried lavender, and black licorice that give the wine a distinctly Mediterranean character. Dark berry aromatics follow—ripe plums, blackberries, and black cherry—creating a lush fruit core. Peppery herbs and cedary spice add complexity, while notes of tar, dried flowers, and graphite provide depth and intrigue. As the wine opens, fruitcake spices emerge along with hints of violet and dark chocolate, creating a multi-layered aromatic experience that rewards contemplation. The bouquet is both powerful and refined, balancing New World fruit ripeness with Old World savory elements.",
+        "palate": "Bold and plump with a thick, meaty texture that coats the palate generously. The wine is medium to full-bodied with soft, supple tannins that provide structure without astringency. Fresh, multilayered flavors of raspberry and dark berry fruits are joined by fruitcake spices—clove, cinnamon, nutmeg—that add warmth and complexity. The earthy garrigue character translates beautifully, with herbes de Provence weaving through the fruit. Black licorice and dark chocolate notes add richness, while the blend's natural acidity keeps everything balanced and fresh despite the wine's substantial body. The wine is charming and pure, with excellent integration of all components.",
+        "finish": "Long and satisfying, with dark fruit flavors persisting alongside spice and herb notes. The tannins remain soft and rounded through the finish, making this wine approachable now while suggesting it can develop further. A touch of black pepper and dried flowers returns on the tail, with the wine's earthy character providing a savory conclusion that pairs beautifully with food."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herb crust",
+        "Beef short ribs or braised brisket",
+        "Wild mushroom risotto or pasta",
+        "Duck confit or roasted game birds",
+        "Aged cheddar or gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-65°F) - cool room temperature",
+        "decanting": "Recommended 30-60 minutes; CellarTracker reviewers noted significant improvement with aeration",
+        "glassware": "Large Bordeaux or Rhône-style glass to allow the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Sonoma County, California",
+        "grapeVariety": "60% Zinfandel, 28% Syrah, 6% Grenache, 6% Petite Sirah",
+        "vintage": "2018",
+        "style": "Bold, Rhône-Style Red Blend",
+        "ageability": "Drinking beautifully now; can develop 3-5 more years. Optimal drinking window 2018-2028"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "O Leao Red Blend (DC-MD Only) 2022",
+      "description": "An elegant Portuguese-style red blend that showcases the refined character of international varietals. This wine presents a silky, mineral-driven profile with exceptional balance and finesse. The blend combines Shiraz, Cabernet Sauvignon, Cabernet Franc, and Carménère to create a sophisticated wine that bridges Old World elegance with New World fruit expression.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright red fruit aromatics—particularly red cherry, cranberry, and raspberry—that provide freshness and lift. These are complemented by notes of fresh spices, particularly black pepper and subtle clove, that add aromatic complexity. A layer of dried fruits, including fig and dried plum, contributes depth without heaviness. The influence of French oak barrels is evident but restrained, offering light touches of mocha, cocoa, and toasted nuts that enhance rather than dominate the fruit. Subtle violet and herb notes add further intrigue to this complex bouquet.",
+        "palate": "The palate reveals the wine's defining characteristic: a unique, silky sensation that sets it apart from more robust red blends. Medium-bodied and elegant, the wine shows impressive minerality that provides structure and length. The red fruit core from the nose translates beautifully, with red cherry and raspberry flavors leading, supported by hints of dark plum and blackberry. The oak influence is perfectly integrated, contributing warmth and subtle spice—vanilla, cinnamon, light mocha—without overwhelming the fruit purity. What truly distinguishes this wine is its mineral backbone, which adds complexity and a sense of place, creating a refined drinking experience that emphasizes finesse over power.",
+        "finish": "Silky and persistent, with lingering red fruit notes and a distinctive mineral quality that keeps the palate engaged. The tannins are fine-grained and well-integrated, providing structure without astringency. Light spice and mocha notes return on the tail, while the wine's natural acidity ensures a fresh, clean conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled lamb with herbs and garlic",
+        "Duck breast with cherry reduction",
+        "Mushroom and truffle pasta",
+        "Aged manchego or Portuguese cheese",
+        "Roasted pork loin with dried fruit compote"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F) to appreciate silky texture and minerality",
+        "decanting": "Brief decanting of 20-30 minutes recommended to integrate oak and enhance silky texture",
+        "glassware": "Medium-bodied red wine glass to concentrate aromatics while allowing wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Portuguese-style blend (specific region unconfirmed)",
+        "grapeVariety": "Shiraz/Syrah, Cabernet Sauvignon, Cabernet Franc, Carménère",
+        "vintage": "2022",
+        "style": "Elegant, Mineral-Driven Red Blend",
+        "ageability": "Drink within 3-5 years to enjoy fresh fruit and silky texture; optimal 2022-2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction Grenache Blanc 2015",
+      "description": "A tropical and aromatic white wine from Pomar Junction Vineyard & Winery in Paso Robles, showcasing Grenache Blanc in a blend with complementary Rhône varieties. This 2015 vintage demonstrates the versatility of white Rhône grapes in California's warm climate, balancing tropical fruit richness with bright acidity and aromatic complexity. Pomar Junction has earned Double Gold awards for their wines, establishing them as a quality producer in the region.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with vibrant tropical aromas, particularly pineapple, ripe melon, and juicy white peach that create an inviting, fruit-forward character. Citrus notes of key lime and Meyer lemon add brightness and lift, while subtle coconut nuances hint at the wine's richness. Fresh floral elements—particularly white flowers and hints of honeysuckle—provide aromatic elegance. The bouquet is intensely aromatic and expressive, with the tropical fruit character taking center stage while remaining balanced by citrus freshness. Light notes of stone fruit and a whisper of vanilla round out the complex nose.",
+        "palate": "The attack is generous and fruit-driven, with the tropical aromatics translating seamlessly to the palate. Complex layers of pineapple, melon, and stone fruit create a lush mid-palate, while dancing acidity prevents the wine from becoming heavy or cloying. Citrus flavors—particularly key lime and lemon zest—provide freshness and structure, cutting through the ripe fruit and adding vibrancy. The wine shows excellent balance between its generous fruit character and bright acidity, with a subtle spiciness adding dimension. The mouthfeel is full and coating without being overly rich, creating an approachable yet sophisticated drinking experience. Notes of coconut and light vanilla suggest subtle oak influence that enhances rather than dominates.",
+        "finish": "The finish is long and fruit-forward, with tropical and citrus notes persisting gracefully. The wine's natural acidity keeps the palate refreshed, while the spicy quality returns on the tail, adding a final layer of complexity. A hint of white pepper and stone fruit lingers, making this a thoroughly enjoyable and food-friendly wine."
+      },
+      "foodPairings": [
+        "Grilled shrimp or lobster with butter",
+        "Thai coconut curry or mango chicken",
+        "Fresh ceviche or fish tacos",
+        "Roasted chicken with tropical fruit salsa",
+        "Soft ripened cheeses and fruit"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) to balance tropical richness with refreshing acidity",
+        "decanting": "Not necessary; serve well-chilled directly from refrigerator",
+        "glassware": "Medium-sized white wine glass to concentrate tropical aromatics"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "Grenache Blanc, Roussanne, Viognier blend",
+        "vintage": "2015",
+        "style": "Tropical, Aromatic White Rhône-Style Blend",
+        "ageability": "Mature vintage best consumed soon; drink now for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dominique Portet Sauvignon Blanc 2022",
+      "description": "A Bordeaux-influenced Sauvignon Blanc from Australia's prestigious Yarra Valley, crafted by ninth-generation winemaker Dominique Portet. This was the first wine released under the Dominique Portet label in 2000 and represents a distinctive approach to the variety, employing barrel fermentation with lees stirring to create complexity and texture reminiscent of white Bordeaux. Executive winemaker Ben Portet continues his father's legacy of producing elegant, food-friendly wines.",
+      "tastingNotes": {
+        "aroma": "The nose presents a sophisticated blend of citrus and white stone fruits, particularly lemon, lime, and white peach, that provide the aromatic foundation. White blossom and delicate floral notes add elegance and lift, while subtle hints of dry grass and fresh herbs reflect classic Sauvignon Blanc character. What distinguishes this wine is the presence of honeycomb and subtle gunflint notes from barrel fermentation and lees contact, adding layers of complexity beyond typical varietal expression. Light toasty nuances emerge as the wine opens, speaking to the Bordeaux-influenced winemaking approach. The aromatic profile is refined and integrated, balancing fruit purity with textural complexity.",
+        "palate": "The palate reveals exceptional structure and roundness unusual for Sauvignon Blanc, with the barrel fermentation and lees stirring creating a creamy, delicate mouthfeel that sets this wine apart. Citrus and stone fruit flavors dominate—particularly white peach, lemon, and lime—supported by bright natural acidity that provides framework and energy. The texture is notably creamy and textural, with subtle weight and body that make this wine more substantial than typical Sauvignon Blanc. Honeycomb and light mineral notes add complexity, while the oak influence remains perfectly integrated, enhancing rather than masking the varietal character. This is a wine that emphasizes elegance, balance, and food compatibility over overt fruit or herbaceous character.",
+        "finish": "Long and refined, with persistent citrus notes and a distinctive mineral quality. The creamy texture continues through the finish, with honeycomb and stone fruit flavors lingering gracefully. The wine's bright acidity ensures a fresh, clean conclusion while the barrel influence adds length and sophistication. A subtle flinty quality returns on the tail, adding a final layer of complexity."
+      },
+      "foodPairings": [
+        "Grilled white fish with beurre blanc",
+        "Oysters and fresh shellfish",
+        "Roasted chicken with lemon and herbs",
+        "Creamy pasta or seafood risotto",
+        "Fresh goat cheese and herb salad"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - slightly warmer than typical Sauvignon Blanc to appreciate texture",
+        "decanting": "Brief aeration in glass helpful to integrate oak and enhance creaminess",
+        "glassware": "Bordeaux-style white wine glass to appreciate complexity and texture"
+      },
+      "wineDetails": {
+        "region": "Yarra Valley, Victoria, Australia - Coldstream",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Barrel-Fermented, Textural Sauvignon Blanc",
+        "ageability": "Can develop 2-4 years; the barrel fermentation provides structure for short-term aging through 2026"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

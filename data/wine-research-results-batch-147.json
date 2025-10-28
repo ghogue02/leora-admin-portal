@@ -1,0 +1,346 @@
+{
+  "batchId": 147,
+  "processedAt": "2025-10-21T14:25:20.881Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Shabo Original Merlot 2024",
+      "description": "A distinguished Merlot showcasing exceptional quality. This wine offers complexity and character with the 2024 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of plum and black cherry, complemented by notes of chocolate, herbs. As the wine opens, additional layers of complexity emerge with hints of bay leaf. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is smooth and medium to full-bodied, delivering flavors of velvety, soft tannins, ripe fruit. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is round and approachable, with balanced flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Roasted chicken",
+        "Pork tenderloin",
+        "Grilled salmon",
+        "Pasta with meat sauce",
+        "Mushroom dishes"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes for optimal expression",
+        "glassware": "Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Merlot",
+        "vintage": "2024",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Avoglia Susumaniello 2022",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2022",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Southern Belle Red Blend 2022",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of herbs. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2022",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scheid Vineyards Craftwork Cabernet Sauvignon 2023",
+      "description": "A distinguished Cabernet Sauvignon showcasing exceptional quality. This wine offers complexity and character with the 2023 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of blackcurrant and dark cherry, complemented by notes of cedar, tobacco. As the wine opens, additional layers of complexity emerge with hints of cassis. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is bold tannins and full-bodied, delivering flavors of blackberry, dark chocolate, espresso, leather. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is long and structured, with persistent flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow complex aromatics to emerge",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Full-bodied, structured red",
+        "ageability": "Drinking well now through 2033. Can age for 10-15 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Gondola Chianti Reserve Mevushal (MD & DC)",
+      "description": "A distinguished Red Blend showcasing Chianti terroir. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of dark fruit. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Chianti",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Premium reserve",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Stel + Mar Pinot Noir (DC, MD, and Southern VA Only) NV",
+      "description": "A distinguished Pinot Noir showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of red cherry and strawberry, complemented by notes of raspberry, earthy. As the wine opens, additional layers of complexity emerge with hints of violets. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is silky and medium-bodied, delivering flavors of red fruit, fine tannins, elegant. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is smooth and refined, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Roasted chicken",
+        "Pork tenderloin",
+        "Grilled salmon",
+        "Pasta with meat sauce",
+        "Mushroom dishes"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "Brief 30-minute decant to open aromatics",
+        "glassware": "Burgundy glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "NV",
+        "style": "Elegant, medium-bodied red",
+        "ageability": "Best enjoyed now through 2030. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Geteriako Txakolina Basa Lore 2024",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2024 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2024",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Pam de Nas 2014",
+      "description": "A distinguished Red Blend showcasing Priorat terroir. This wine offers complexity and character with the 2014 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Priorat",
+        "grapeVariety": "Red Blend",
+        "vintage": "2014",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Farm Winery The Big Game 2012",
+      "description": "A distinguished Red Blend showcasing Paso Robles terroir. This wine offers complexity and character with the 2012 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of oak. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Paso Robles",
+        "grapeVariety": "Red Blend",
+        "vintage": "2012",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rigo Chardonnay 2019",
+      "description": "A distinguished Chardonnay showcasing exceptional quality. This wine offers complexity and character with the 2019 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of green apple and pear, complemented by notes of citrus, butter. As the wine opens, additional layers of complexity emerge with hints of butter. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is creamy and medium to full-bodied, delivering flavors of lemon zest, toast, minerality. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is clean and crisp, with lingering flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Lobster with butter",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Soft cheeses",
+        "Risotto"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve chilled",
+        "glassware": "Burgundy or large white wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2019",
+        "style": "Rich, complex white",
+        "ageability": "Best enjoyed now through 2024. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.881Z"
+      }
+    }
+  ]
+}

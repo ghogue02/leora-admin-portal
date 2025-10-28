@@ -4,6 +4,14 @@ import type { Prisma, PrismaClient } from "@prisma/client";
 const TENANT_ID_HEADER = "x-tenant-id";
 const TENANT_SLUG_HEADER = "x-tenant-slug";
 
+function getDefaultTenantSlug() {
+  return (
+    process.env.DEFAULT_TENANT_SLUG ||
+    process.env.NEXT_PUBLIC_TENANT_SLUG ||
+    "well-crafted"
+  );
+}
+
 export type TenantContext<T> = {
   tenantId: string;
   result: T;
@@ -46,17 +54,14 @@ export async function withTenantFromRequest<T>(
 }
 
 async function resolveDefaultTenant() {
-  const defaultSlug = process.env.DEFAULT_TENANT_SLUG;
-  console.log('[Tenant] DEFAULT_TENANT_SLUG from env:', defaultSlug);
+  const defaultSlug = getDefaultTenantSlug();
+  console.log('[Tenant] Using default tenant slug:', defaultSlug);
 
-  if (!defaultSlug) {
-    console.error('[Tenant] DEFAULT_TENANT_SLUG is not set in environment');
-    return null;
-  }
-
-  const tenant = await prisma.tenant.findUnique({
-    where: { slug: defaultSlug },
-  });
+  const tenant = defaultSlug
+    ? await prisma.tenant.findUnique({
+        where: { slug: defaultSlug },
+      })
+    : null;
 
   console.log('[Tenant] Found tenant:', tenant ? `${tenant.slug} (${tenant.id})` : 'NOT FOUND');
 

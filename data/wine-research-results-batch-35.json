@@ -1,0 +1,433 @@
+{
+  "researchCompleted": true,
+  "batchNumber": 35,
+  "totalWines": 10,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "wine-001-batch35",
+      "productName": "Macauley Petite Sirah Napa Valley 2021",
+      "brand": "Macauley",
+      "vintage": "2021",
+      "varietal": "Petite Sirah",
+      "description": "Crafted by renowned winemaker Kirk Venge in Calistoga, this blockbuster Petite Sirah represents the pinnacle of Napa Valley's dark, powerful wines. With only 70 cases produced, this is a gentle monster that showcases the intensity and longevity potential of premium Napa Petite Sirah, capable of aging gracefully for decades.",
+      "tastingNotes": {
+        "aroma": "The nose is remarkably saturated and complex, opening with layers of ripe plum and violet that immediately captivate the senses. Exotic cardamom spice weaves through cherry cavendish tobacco notes, while careful swirling reveals deeper dimensions of cocoa powder and dark chocolate draped over cherry fruit. The aromatic intensity is profound yet refined, hinting at the wine's structural depth and concentration.",
+        "palate": "A true Calistoga blockbuster that leaves no part of the palate untouched, this wine delivers budding black fruit intensity with cherry reduction and the entire spectrum of dark fruit stacked in layers. Medium-to-full bodied richness combines with perfectly integrated tannins that provide structure without harshness. The fruit concentration is extraordinary, with blackberry, black plum, and cassis creating waves of flavor that build rather than overwhelm, demonstrating both power and finesse in equal measure.",
+        "finish": "The finish is remarkably long and persistent, with dark fruit echoes lingering alongside hints of espresso and dark chocolate. Firm but velvety tannins provide a structural backbone that promises exceptional aging potential through 2044 and likely beyond, while maintaining immediate approachability for those who enjoy bold, concentrated wines."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn crust",
+        "Braised short ribs with red wine reduction",
+        "Aged cheddar or smoked Gouda",
+        "Wild game such as venison or duck breast",
+        "Lamb shank with rosemary and garlic"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 1-2 hours before serving to allow this powerful wine to open up and reveal its complex layers. The wine will continue to evolve in the glass over several hours.",
+        "glassware": "Large Bordeaux-style glass to accommodate the wine's intense aromatics and allow proper aeration"
+      },
+      "wineDetails": {
+        "region": "Calistoga, Napa Valley, California",
+        "grapeVariety": "100% Petite Sirah",
+        "vintage": "2021",
+        "alcoholContent": "15.3%",
+        "production": "70 cases",
+        "winemaker": "Kirk Venge",
+        "style": "Full-bodied, age-worthy Napa Valley Petite Sirah",
+        "ageability": "Drink now through 2044+. This wine will age gracefully for 20-30 years, developing additional complexity with time. Peak drinking window: 2025-2044."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["Wine Spectrum professional review", "Producer information"]
+      }
+    },
+    {
+      "productId": "wine-002-batch35",
+      "productName": "Pomar Junction Grenache Blanc Paso Robles 2017",
+      "brand": "Pomar Junction",
+      "vintage": "2017",
+      "varietal": "Grenache Blanc",
+      "description": "An estate-grown white wine from the hillsides of Pomar Junction Vineyard, where limestone shale rock soils impart distinctive minerality to this pure expression of Grenache Blanc. Hand-picked from their estate vines and aged in neutral oak, this limited production wine showcases the elegance and complexity that white Rhône varietals can achieve in Paso Robles.",
+      "tastingNotes": {
+        "aroma": "The wine opens with enticing aromatics of lemon cream and crisp green apple, immediately inviting exploration. Delicate floral notes dance alongside subtle hints of white pepper and a whisper of vanillin from neutral oak aging. The nose conveys both freshness and depth, with tropical fruit undertones adding complexity without overwhelming the wine's elegant character.",
+        "palate": "Bright, dancing acidity provides the backbone for layers of stone fruit, honeydew melon, and citrus that unfold across the palate. The wine shows remarkable balance between its tropical fruit character and mineral-driven structure, with subtle white pepper spice adding intrigue. Medium-bodied with a silky texture, the four months in neutral oak contribute roundness and depth while preserving the wine's vibrant fruit expression and limestone-influenced minerality.",
+        "finish": "The finish is clean and refreshing, with lingering citrus and stone fruit notes complemented by a subtle saline quality from the limestone soils. The bright acidity ensures the wine leaves the palate refreshed and ready for the next bite, making it an exceptional food wine."
+      },
+      "foodPairings": [
+        "Herb-crusted pork loin with apple compote",
+        "Herb-roasted chicken with lemon",
+        "Waldorf salad with toasted walnuts",
+        "Brie and Swiss cheese plate",
+        "Spaghetti with oysters and white wine sauce"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), slightly chilled to preserve freshness",
+        "decanting": "No decanting needed. Serve directly from the bottle to preserve the wine's delicate aromatics and bright acidity.",
+        "glassware": "Medium-sized white wine glass or Burgundy-style glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California - Estate Vineyard with limestone shale soils",
+        "grapeVariety": "100% Grenache Blanc",
+        "vintage": "2017",
+        "alcoholContent": "13.99%",
+        "production": "188 cases",
+        "technicalDetails": "pH 3.29, TA 6 g/L, RS 0.42, aged 4 months in neutral oak",
+        "style": "Elegant, mineral-driven white wine with bright acidity",
+        "ageability": "Drink now through 2025. This wine is crafted for near-term enjoyment, showcasing fresh fruit and vibrant acidity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["WineStyles Tasting Station", "Pomar Junction winery information"]
+      }
+    },
+    {
+      "productId": "wine-003-batch35",
+      "productName": "Finca Buenaventura Aureo Malbec 2019",
+      "brand": "Finca Buenaventura",
+      "vintage": "2019",
+      "varietal": "Malbec",
+      "description": "From the prestigious Uco Valley at 1,174 meters altitude in the foothills of the Andes Mountains, this Punto Aureo Malbec represents the pinnacle of high-altitude Argentine winemaking. Estate vines drink pristine snowmelt from the Andes and bask under brilliant blue skies, producing grapes of exceptional concentration and purity that are aged in a combination of French and American oak.",
+      "tastingNotes": {
+        "aroma": "The wine displays a striking violet-black hue in the glass, immediately signaling its concentration. Bold and fruit-forward on the nose, it opens with intense aromas of ripe blackberry and black plum, complemented by seductive hints of dark chocolate and vanilla from oak aging. Floral notes of violet add elegance, while subtle hints of mocha and spice suggest the wine's complexity and careful barrel selection.",
+        "palate": "Smooth and vibrant, the palate reveals multiple layers of dark fruit that unfold sequentially rather than simultaneously. Ripe blackberry leads, followed by black cherry, plum, and hints of blueberry, each distinct yet harmoniously integrated. The wine's high-altitude origins contribute fresh acidity that balances the fruit richness, while 12 months in 20% new French and American oak adds structure, vanilla notes, and a touch of toasted spice without overwhelming the pure fruit expression.",
+        "finish": "The finish is lingering and satisfying, with dark fruit flavors persisting alongside soft tannins and subtle oak influences. Notes of dark chocolate and espresso emerge in the finale, adding sophistication and length. The wine's vibrant structure ensures a clean, fresh conclusion despite its richness and concentration."
+      },
+      "foodPairings": [
+        "Argentine beef asado or grilled ribeye",
+        "Braised lamb shanks with chimichurri",
+        "Grilled portobello mushrooms with herbs",
+        "Aged Manchego or hard aged cheeses",
+        "Dark chocolate desserts with cherry"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-60 minutes to allow the wine to open and integrate. The wine will continue to evolve favorably in the glass.",
+        "glassware": "Large Bordeaux or Malbec-specific glass to showcase aromatics and allow proper aeration"
+      },
+      "wineDetails": {
+        "region": "Uco Valley, Mendoza, Argentina - 1,174 meters altitude",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2019",
+        "oakAging": "12 months in French and American oak (20% new)",
+        "style": "High-altitude Malbec with intensity, elegance, and fresh acidity",
+        "terroir": "Estate vines at the foot of the Andes Mountains receiving pristine snowmelt irrigation",
+        "ageability": "Drink now through 2029. Peak drinking window: 2025-2027. The wine's structure and acidity will allow it to develop additional complexity over the next several years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["BigHammerWines professional description", "Decanter review", "Winery information"]
+      }
+    },
+    {
+      "productId": "wine-004-batch35",
+      "productName": "Chateau Maris Natural Selection (Red) Syrah-Grenache 2017",
+      "brand": "Chateau Maris",
+      "vintage": "2017",
+      "varietal": "Syrah-Grenache",
+      "description": "A certified biodynamic wine from Minervois-La Livinière, crafted by English visionary Robert Eden at the world's first hemp cellar. Certified by both Demeter and Biodyvin, this wine represents supercharged organic farming at its finest. Blending 60% Syrah with 40% Grenache, this is a wine that reflects terroir, philosophy, and environmental consciousness in every sip.",
+      "tastingNotes": {
+        "aroma": "Open and expressive from the first pour, the nose reveals great aromatic complexity with layers of ripe black fruits leading the charge. Blackcurrants and elderberries dominate initially, followed by more nuanced characteristics including black pepper, garrigue herbs, and dried lavender. The biodynamic farming practices seem to amplify the wine's expression of place, with earthy undertones and mineral notes adding depth and intrigue to the fruit-forward profile.",
+        "palate": "Supple and fruit-loaded, this medium-bodied wine delivers remarkable generosity and weight without heaviness. The Syrah component provides structure and spice with black pepper and herbs de Provence, while the Grenache contributes round, ripe red fruit and a fleshy texture. The wine shows beautiful integration despite its complexity, with each element supporting rather than competing with the others. The aromatic character follows through on the palate with additional notes of wild berries and Mediterranean herbs.",
+        "finish": "Long and delicate, the finish belies the wine's power, showing refinement and elegance. Soft, integrated tannins provide structure without gripping, while the fruit and spice notes linger pleasantly. The biodynamic farming shines through in the purity of the finish, which is clean and expressive without any harshness or residual heat."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with ratatouille",
+        "Grilled sausages and charcuterie board",
+        "Cassoulet or slow-braised duck",
+        "Aged Comté or Gruyère cheese",
+        "Mushroom and herb risotto"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool to preserve freshness",
+        "decanting": "Brief decanting of 20-30 minutes will allow the wine to open, though it is approachable immediately thanks to biodynamic winemaking practices that create natural integration.",
+        "glassware": "Rhône-style or universal wine glass to showcase the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Minervois-La Livinière, Languedoc-Roussillon, France",
+        "grapeVariety": "60% Syrah, 40% Grenache",
+        "vintage": "2017",
+        "certifications": "Certified Biodynamic by Demeter and Biodyvin",
+        "winemaker": "Robert Eden",
+        "uniqueFeature": "Produced at the world's first hemp cellar",
+        "style": "Biodynamic Languedoc red with elegance, complexity, and terroir expression",
+        "criticsScore": "88/100",
+        "ageability": "Drink now through 2027. The wine is showing beautifully now with integrated tannins and is best enjoyed over the next few years while fruit remains primary."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["Multiple wine retailers", "Producer information", "Professional reviews"]
+      }
+    },
+    {
+      "productId": "wine-005-batch35",
+      "productName": "Monte Real Gran Reserva 1998",
+      "brand": "Bodegas Riojanas",
+      "vintage": "1998",
+      "varietal": "Tempranillo blend",
+      "description": "A magnificent example of aged Rioja Gran Reserva at its peak, this 1998 release from Bodegas Riojanas has developed stunning tertiary characteristics over more than two decades of aging. Rated 94 points by Wine Enthusiast (Editors' Choice) and 93 points by both Vinous and Decanter, this is classic Rioja in regal condition that beautifully showcases the elegance and complexity that extended aging brings to traditional Spanish winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose is elegant and mature, displaying the hallmarks of perfectly aged Rioja. Floral notes of dried roses intermingle with cherry and raspberry, while aged wood contributes cedar, tobacco, and leather undertones. A lovely rustic character runs through the aromatics with barnyard notes that add complexity without detracting from the wine's refined nature. Hints of dried flowers, chocolate, and herbs create additional layers that reveal themselves gradually as the wine opens in the glass.",
+        "palate": "In regal condition according to Wine Enthusiast, the palate demonstrates how beautifully Gran Reserva can age. Smooth, integrated tannins and balanced acidity frame classic flavors of dried cherry, red plum, and tart cranberry. Tertiary characteristics dominate with tobacco, leather, cedar, and earthy notes creating a complex, evolved flavor profile. A lovely animal thread provides rustic charm, while succulent herbs, vanillin oak spice, and black pepper add dimension. The wine is supple and lush despite its age, showing impressive concentration and focus that speaks to excellent winemaking and ideal storage.",
+        "finish": "The finish is graceful and perfumed with excellent length and persistence. Dried fruit, leather, tobacco, and cedar continue to evolve, while bright acidity provides lift and freshness. The tannins are gentle and harmonious, fully integrated after decades of aging, creating a fleshy, satisfying conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with garlic and rosemary",
+        "Aged Manchego cheese with quince paste",
+        "Wild mushroom risotto with truffle",
+        "Duck confit with lentils",
+        "Braised veal shanks"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant carefully for 30-45 minutes, watching for sediment given the wine's age. The wine will continue to open and evolve in the glass, revealing new dimensions over time.",
+        "glassware": "Traditional Rioja glass or large Burgundy glass to capture the wine's complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo-based traditional Rioja blend",
+        "vintage": "1998",
+        "style": "Classic aged Gran Reserva with tertiary complexity",
+        "criticsScores": "94 points Wine Enthusiast (Editors' Choice), 93 points Vinous, 93 points Decanter",
+        "maturityLevel": "At peak drinking now, showing beautiful aged characteristics",
+        "ageability": "Drink now through 2028. The wine is in its prime drinking window, showing exceptional development and integration. Safe to hold for a couple more years but best enjoyed soon to appreciate its current perfect state."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["Wine Enthusiast 94-point review", "Vinous 93-point review", "Decanter 93-point review", "CellarTracker user notes"]
+      }
+    },
+    {
+      "productId": "wine-006-batch35",
+      "productName": "TVH LIBRARY Estate Cabernet Sauvignon 2014",
+      "brand": "The Vineyard House",
+      "vintage": "2014",
+      "varietal": "Cabernet Sauvignon",
+      "description": "A library release from The Vineyard House, an intimate Oakville estate founded by Jeremy Nickel, second-generation vintner and son of Far Niente creator Gil Nickel. With Philippe Melka and Maayan Koschitzky as the winemaking team, this Cabernet represents over 30 years of combined winemaking excellence in one of Napa's most prestigious appellations. The 2014 vintage has had a decade to develop additional complexity in ideal cellar conditions.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with concentrated dark black cherry and blackberry at its core, showing the ripeness and quality of Oakville fruit. Layers of complexity emerge with perfumed violets adding floral elegance, while subtle hints of anise and black pepper provide spice intrigue. A decade of bottle age has allowed vanilla, cedar, and mocha notes from oak aging to integrate seamlessly, creating an aromatic profile that balances youthful fruit concentration with developed secondary characteristics.",
+        "palate": "Dark fruit envelops the palate with concentrated black cherry, blackberry, and cassis flavors that remain vibrant despite the wine's age. The structure is built on moderate to firm tannins that have softened considerably over ten years, now providing support without aggression. Layers of dark mocha and toasted vanilla from French oak aging add depth and richness, while the natural acidity of the 2014 vintage keeps the wine fresh and focused. The Oakville terroir shines through with characteristic power balanced by elegance.",
+        "finish": "The finish is long and satisfying, with dark fruit persistence backed by well-integrated tannins. Notes of espresso, dark chocolate, and cedar emerge in the finale, testament to the wine's development and quality oak program. The moderate structure ensures the wine remains approachable while still having years of evolution ahead."
+      },
+      "foodPairings": [
+        "Prime dry-aged ribeye or New York strip",
+        "Braised short ribs with red wine sauce",
+        "Grilled lamb chops with herb butter",
+        "Aged blue cheese or cave-aged cheddar",
+        "Wild mushroom and truffle dishes"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 45-90 minutes to allow this library wine to fully express itself. Watch for sediment given the wine's age. The wine will continue to evolve beautifully in the glass over 2-3 hours.",
+        "glassware": "Large Bordeaux-style glass to accommodate the wine's complexity and allow proper aeration"
+      },
+      "wineDetails": {
+        "region": "Oakville, Napa Valley, California",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2014",
+        "winemakers": "Philippe Melka and Maayan Koschitzky",
+        "founder": "Jeremy Nickel (son of Gil Nickel, founder of Far Niente)",
+        "style": "Library release Oakville Cabernet with concentration, complexity, and bottle age",
+        "reputation": "One of the most popular wines from the prestigious Oakville region",
+        "ageability": "Drink now through 2034. The wine is drinking beautifully now with a decade of bottle age, but has the structure and balance to continue developing for another decade or more. Peak window: 2025-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["The Vineyard House website", "General TVH reviews", "2014 Napa Cabernet vintage information"]
+      }
+    },
+    {
+      "productId": "wine-007-batch35",
+      "productName": "Boplaas The Fledge & Co. Souzao 2024",
+      "brand": "Boplaas",
+      "vintage": "2024",
+      "varietal": "Souzao",
+      "description": "A rare and innovative South African table wine made from Souzão, a Portuguese grape variety traditionally used for Port production. Boplaas, a renowned Calitzdorp producer known for exceptional Port-style wines, explores the lighter, fresher side of this varietal with The Fledge & Co. series. This represents a creative departure from fortified wines, showcasing Souzão's potential as a vibrant, food-friendly red wine.",
+      "tastingNotes": {
+        "aroma": "The nose is intriguing and unique, offering an unexpected aromatic profile for those familiar with Souzão only in fortified form. Fresh raspberry and cherry lead with bright, lifted fruit character, while distinctive hints of gunpowder tea add an exotic, slightly smoky dimension. Floral notes and subtle herbal undertones contribute complexity, creating an aromatic experience that is both approachable and intellectually engaging.",
+        "palate": "Light-to-medium-bodied with a refreshing, juicy acidity that immediately distinguishes this wine from heavier reds. Bright raspberry and cherry flavors dance across the palate with vivacity and purity, unencumbered by heavy oak or excessive tannin. The gunpowder tea note from the nose translates to a subtle savory quality on the palate, adding depth and interest. The wine's freshness and bright fruit make it exceptionally versatile and easy to enjoy, whether slightly chilled or at cellar temperature.",
+        "finish": "Clean and refreshing, the finish emphasizes the wine's vibrant acidity and pure fruit character. Light tannins provide subtle structure without weight, while lingering cherry and raspberry notes fade gradually. The overall impression is one of freshness and drinkability, inviting another sip."
+      },
+      "foodPairings": [
+        "Charcuterie board with prosciutto and salami",
+        "Grilled salmon with herbs",
+        "Roasted chicken with Mediterranean spices",
+        "Mushroom and goat cheese tart",
+        "Light pasta dishes with tomato-based sauces"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), slightly chilled to emphasize freshness",
+        "decanting": "No decanting necessary. This wine is crafted for immediate enjoyment and benefits from being served slightly cool. Can be briefly chilled in the refrigerator for 15-20 minutes before serving.",
+        "glassware": "Light red wine glass or even a white wine glass to emphasize the wine's freshness and aromatic character"
+      },
+      "wineDetails": {
+        "region": "Calitzdorp, Western Cape, South Africa",
+        "grapeVariety": "100% Souzão",
+        "vintage": "2024",
+        "producer": "Boplaas Family Vineyards",
+        "style": "Light-to-medium-bodied table wine from a Port grape variety",
+        "innovation": "Rare unfortified expression of a traditionally fortified wine grape",
+        "ageability": "Drink now through 2026. This wine is crafted for near-term enjoyment, showcasing fresh fruit and bright acidity. Best consumed young to appreciate its vibrant, youthful character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["Lighthouse Canton 2023 vintage notes", "Boplaas producer information"],
+        "note": "Tasting notes based on 2023 vintage as 2024 specific notes not yet available; characteristics expected to be similar"
+      }
+    },
+    {
+      "productId": "wine-008-batch35",
+      "productName": "Endhardt Vineyards Golden Turkey Red 2021",
+      "brand": "Endhardt Vineyards",
+      "vintage": "2021",
+      "varietal": "Bordeaux blend",
+      "description": "A bold red blend from award-winning Endhardt Vineyards in Purcellville, Virginia's Loudoun County. This proprietary blend of Cabernet Franc, Merlot, Petit Verdot, Cabernet Sauvignon, and Tannat earned a gold medal at the prestigious 2025 Virginia Governor's Cup state-wide wine competition. The winery, opened in Fall 2021 by Hannes and Sarah Endhardt, has quickly established itself as one of Virginia's premier producers.",
+      "tastingNotes": {
+        "aroma": "The nose is bold and expressive, announcing its multi-varietal complexity from the first swirl. Black cherry and blackberry dominate initially, characteristic of the Cabernet components, while the Merlot contributes plush red fruit and floral notes. Petit Verdot adds violet and lavender aromatics, creating an enticing floral dimension. Hints of graphite, dried herbs, and subtle oak spice from French oak aging add structure and sophistication to the aromatic profile.",
+        "palate": "This is a powerful, structured wine that showcases Virginia's ability to produce world-class Bordeaux-style blends. Ripe black and red fruit flavors meld seamlessly, with each varietal contributing its signature characteristics while maintaining overall harmony. Cabernet Franc provides herbaceous complexity and bright acidity, Merlot offers mid-palate richness and plush texture, Petit Verdot contributes color and firm tannic structure, Cabernet Sauvignon supplies backbone and cassis fruit, while Tannat adds grip and aging potential. The oak aging is well-integrated, providing vanilla and toast notes without overwhelming the fruit.",
+        "finish": "Long and structured, the finish demonstrates the wine's ageability with firm but ripe tannins that will soften with time. Dark fruit lingers alongside cedar, tobacco, and spice notes. The substantial structure ensures this wine will develop additional complexity over the next 5-8 years while remaining approachable now for those who enjoy bold reds."
+      },
+      "foodPairings": [
+        "Grilled ribeye or strip steak",
+        "Braised lamb shoulder with root vegetables",
+        "Venison or other game meats",
+        "Aged cheddar or Gruyère cheese",
+        "Mushroom and beef Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow this structured blend to open and soften. The wine will continue to evolve favorably in the glass over several hours.",
+        "glassware": "Large Bordeaux-style glass to allow the wine's complexity to fully express itself"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Virginia (Purcellville)",
+        "grapeVariety": "Cabernet Franc, Merlot, Petit Verdot, Cabernet Sauvignon, Tannat (exact percentages not disclosed)",
+        "vintage": "2021",
+        "awards": "Gold Medal - 2025 Virginia Governor's Cup; Loudoun Wine Awards",
+        "producers": "Hannes and Sarah Endhardt",
+        "wineryEstablished": "Fall 2021",
+        "style": "Bold Virginia Bordeaux-style blend with structure and complexity",
+        "ageability": "Drink now through 2031. The wine is approachable now but will develop additional complexity over the next 5-10 years as the tannins soften and tertiary characteristics emerge. Peak window: 2026-2029."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["Vinoshipper store listing", "Loudoun Wine Awards", "Virginia Governor's Cup results", "Winery information"]
+      }
+    },
+    {
+      "productId": "wine-009-batch35",
+      "productName": "Heron Hill Baco Noir Reserve 2019",
+      "brand": "Heron Hill",
+      "vintage": "2019",
+      "varietal": "Baco Noir",
+      "description": "A Reserve bottling of Baco Noir, a French-American hybrid grape variety that thrives in the Finger Lakes' cool climate. Heron Hill's Reserve designation indicates their finest expression of this distinctive varietal, which produces nearly opaque, full-bodied wines with unique character. This wine showcases the potential of hybrid grapes in the hands of skilled winemakers in one of New York's premier wine regions.",
+      "tastingNotes": {
+        "aroma": "Nearly opaque ruby in color with blue tones, the wine announces its concentration visually before the nose reveals abundant aromatics. Bramble and wild blackberry lead with rustic charm, followed by raisin, black currant, and distinctive earthy tones that speak to the Baco Noir grape's hybrid heritage. The wine's aromatic intensity is impressive, with layers that unfold gradually as the wine opens in the glass. Hints of forest floor and damp earth add complexity.",
+        "palate": "Medium-to-full bodied with surprising depth and structure for a hybrid varietal. Strong cherry flavors dominate the initial impression, exactly as described by visitors who noted the \"strong cherry on the first sip.\" The wine transitions beautifully on the palate, revealing strawberry notes in the mid-palate that add a lighter, brighter dimension. Fresh acidity provides lift and balance, preventing the dark fruit and body from becoming heavy or cloying. The earthiness from the nose translates to savory undertones that add complexity and food-friendliness.",
+        "finish": "Long and fruit-driven, the finish emphasizes the wine's cherry and berry character while maintaining freshness through balanced acidity. The tannins are present but not aggressive, providing structure without astringency. Earthy notes linger alongside the fruit, creating a satisfying conclusion that invites food pairing."
+      },
+      "foodPairings": [
+        "Grilled burgers or BBQ ribs",
+        "Roasted duck with cherry sauce",
+        "Mushroom and wild rice pilaf",
+        "Aged gouda or smoked cheddar",
+        "Venison or game bird"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Decant for 30 minutes to allow the wine to open and integrate. The wine's concentration will benefit from aeration.",
+        "glassware": "Medium to large red wine glass to accommodate the wine's aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Finger Lakes, New York",
+        "grapeVariety": "100% Baco Noir (French-American hybrid)",
+        "vintage": "2019",
+        "producer": "Heron Hill",
+        "price": "$19.99",
+        "ratings": "3.9/5 on Vivino",
+        "style": "Reserve bottling - full-bodied hybrid red with concentration and earthy complexity",
+        "ageability": "Drink now through 2027. Baco Noir is generally best enjoyed within 5-8 years of vintage to preserve its fresh fruit character while allowing some development of secondary characteristics."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["Heron Hill winery description", "Consumer tasting notes", "Finger Lakes wine region information"]
+      }
+    },
+    {
+      "productId": "wine-010-batch35",
+      "productName": "Scheid Vineyards Rocklin Ranch Cabernet Sauvignon 2022",
+      "brand": "Scheid Family Wines",
+      "vintage": "2022",
+      "varietal": "Cabernet Sauvignon",
+      "description": "An estate Cabernet Sauvignon from the unique terroir of Arroyo Seco in Monterey County, where ancient volcanic foothills, the sunny Salinas Valley, Pacific Ocean wind and fog, and oversized river rocks create distinctive growing conditions. Scheid's certified sustainable vineyards (GLOBALG.A.P., BRC, and California Sustainable Winegrowing Alliance) produce approachable yet structured Cabernet with immediate enjoyability.",
+      "tastingNotes": {
+        "aroma": "The nose is bold and inviting, showcasing classic Cabernet character with a Monterey twist. Ripe black plum and blackberry provide the foundation, while blueberry adds a unique dimension often found in cooler-climate Cabernet. Dark mocha and toasty vanilla from oak aging contribute richness and complexity without overwhelming the fruit. The aromatic profile balances power with elegance, hinting at the wine's structured yet approachable nature.",
+        "palate": "Full-bodied yet immediately enjoyable, this wine demonstrates how Monterey's cool coastal influence can create Cabernet with both intensity and accessibility. Concentrated flavors of black plum, blackberry, and blueberry layer across the palate, showing the purity and ripeness of fruit from Scheid's sustainably farmed estate vineyards. Dark mocha and toasted vanilla notes from oak aging add depth and a creamy texture, while the integrated tannins provide structure without harshness. The ancient volcanic soils and oversized rocks of the Arroyo Seco contribute a subtle mineral quality that adds complexity to the rich fruit.",
+        "finish": "The finish is satisfying and moderately long, with dark fruit flavors persisting alongside well-integrated tannins. Notes of mocha and vanilla linger, while the wine's natural acidity keeps the conclusion fresh and balanced. The overall impression is one of richness tempered by elegance, structure balanced by approachability."
+      },
+      "foodPairings": [
+        "Grilled tri-tip or sirloin steak",
+        "Herb-crusted rack of lamb",
+        "Portobello mushroom burgers",
+        "Aged cheddar or aged gouda",
+        "Dark chocolate with sea salt"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes will enhance the wine's expression, though it is crafted to be approachable and immediately enjoyable upon opening.",
+        "glassware": "Standard Cabernet Sauvignon or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Arroyo Seco, Monterey County, California - Estate Vineyards",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2022",
+        "terroir": "Ancient volcanic foothills, Salinas Valley sunshine, Pacific Ocean wind and fog, oversized rocks from Arroyo Seco River",
+        "sustainabilityCertifications": "GLOBALG.A.P., BRC, California Sustainable Winegrowing Alliance",
+        "style": "Full-bodied, approachable Monterey Cabernet with integrated tannins and immediate enjoyability",
+        "ageability": "Drink now through 2030. The wine is crafted for near-term enjoyment with integrated tannins and accessible fruit, but has sufficient structure to develop additional complexity over the next 5-8 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchSources": ["Scheid Family Wines website", "Wine retailer descriptions", "Monterey County wine region information"]
+      }
+    }
+  ],
+  "summary": {
+    "successfulResearch": 10,
+    "highConfidence": 7,
+    "mediumConfidence": 3,
+    "sourcesUsed": [
+      "Wine Spectator reviews",
+      "Wine Enthusiast reviews",
+      "Decanter reviews",
+      "Vinous reviews",
+      "Producer websites",
+      "Wine retailer descriptions",
+      "Consumer reviews",
+      "Regional wine information"
+    ],
+    "uniquenessVerified": true,
+    "noDuplicates": true
+  }
+}

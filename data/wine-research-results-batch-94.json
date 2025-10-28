@@ -1,0 +1,347 @@
+{
+  "batchNumber": 94,
+  "researchedAt": "2025-10-21T13:55:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Chateau de Cor Bugeaud Red  Mevushal (DC & MD)",
+      "description": "A smooth, balanced kosher Bordeaux blend from the Blaye Côtes de Bordeaux region, crafted from 70% Merlot and 30% Cabernet Sauvignon. This Mevushal wine remains unoaked to showcase pure fruit expression and elegant structure. Supervised by OU and Rabbi Padwa, it represents accessible Bordeaux craftsmanship.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with characteristic Bordeaux notes of fresh mint and aromatic thyme, interwoven with dark cherry and blackcurrant. Subtle earth tones emerge, giving way to violet and graphite minerality. The nose is inviting yet refined, showing the typical savory character of Right Bank Bordeaux.",
+        "palate": "Medium-bodied with seamless integration of ripe Merlot softness and Cabernet structure. Flavors of black cherry, plum, and cassis are complemented by hints of tobacco leaf and dried herbs. The smooth, unoaked profile allows the fruit to shine, while fine-grained tannins provide elegant grip. A mineral thread runs through the mid-palate, adding complexity.",
+        "finish": "The finish is clean and moderately long, with lingering notes of dark fruit and subtle spice. Tannins fade gracefully, leaving a smooth, balanced aftertaste that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herb crust",
+        "Roasted chicken with root vegetables",
+        "Beef brisket with caramelized onions",
+        "Mushroom and lentil stew",
+        "Hard cheeses like aged Manchego"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief 15-20 minute aeration recommended to open aromatics and soften tannins",
+        "glassware": "Standard Bordeaux or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Blaye Côtes de Bordeaux, France",
+        "grapeVariety": "70% Merlot, 30% Cabernet Sauvignon",
+        "vintage": "NV",
+        "style": "Medium-bodied dry red, Right Bank Bordeaux style",
+        "ageability": "Drink now through 2-3 years; designed for approachable early consumption"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Antonio Facchin Prosecco Rosato 2024",
+      "description": "A fresh and elegant Prosecco Rosé from the Veneto region, made exclusively from Glera grapes with a touch of Pinot Noir for color. This award-winning producer crafts vibrant sparkling wines that showcase the delicate fruit and floral character of the terroir. The 2024 vintage captures the essence of Italian sparkle with contemporary rosé appeal.",
+      "tastingNotes": {
+        "aroma": "The nose is decidedly intense, bursting with fresh raspberry and red currant aromas. Delicate notes of wild strawberry emerge alongside subtle hints of rose petal and white pomegranate. The bouquet is both elegant and expressive, with a refined floral edge that adds complexity to the red fruit core.",
+        "palate": "Dry and austere with surprising fullness for a Prosecco, the palate delivers concentrated flavors of small red fruits. The mousse is creamy and fine-bubbled, creating a luxurious texture. Pomegranate and wild strawberry dominate, supported by crisp acidity that provides lift and freshness. The wine is harmonious and sapid, with a pleasantly zingy finish.",
+        "finish": "The finish is clean and refreshing, marked by a pleasantly acidic sensation that leaves the palate invigorated. Subtle hints of citrus zest linger alongside fading red fruit notes."
+      },
+      "foodPairings": [
+        "Prosciutto and melon antipasti",
+        "Strawberry and goat cheese salad",
+        "Grilled shrimp skewers",
+        "Margherita pizza",
+        "Fresh berry tart"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C)",
+        "decanting": "No decanting needed; serve directly from chilled bottle",
+        "glassware": "Tulip-shaped sparkling wine flute or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Veneto, Italy (Prosecco DOC)",
+        "grapeVariety": "Glera with Pinot Noir for color",
+        "vintage": "2024",
+        "style": "Sparkling Rosé - Extra Dry",
+        "ageability": "Best consumed within 1-2 years to preserve freshness and effervescence"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alfaro Family Vineyards A Estate Pinot Noir 2024",
+      "description": "A bright and elegant estate Pinot Noir from the cool-climate Santa Cruz Mountains appellation. The Alfaro family's meticulous vineyard management and estate fruit sourcing produce wines of distinctive character and terroir expression. This 'A' Estate bottling represents their flagship Pinot Noir, showcasing the mountain fruit's natural vibrancy.",
+      "tastingNotes": {
+        "aroma": "Ruby-hued with captivating aromatics of bright red cherry and fresh raspberry. Subtle notes of crushed violet, dried rose petals, and forest floor add complexity. A whisper of vanilla from oak aging integrates seamlessly with the fruit, while hints of cola and baking spice provide intrigue.",
+        "palate": "Medium-bodied with excellent balance, the palate bursts with flavors of Bing cherry and wild raspberry. The fruit is pure and expressive, accented by notes of cinnamon spice, vanilla bean, and a touch of earthy mushroom. Well-integrated tannins provide structure without heaviness, while refreshing acidity lifts the fruit and extends the flavor profile. The texture is silky and refined.",
+        "finish": "The finish is clean and moderately persistent, with lingering cherry fruit and subtle spice notes. A touch of minerality emerges on the tail, adding sophistication."
+      },
+      "foodPairings": [
+        "Wood-fired pizza with wild mushrooms",
+        "Duck breast with cherry reduction",
+        "Grilled salmon with herb butter",
+        "Roasted beet and goat cheese salad",
+        "Aged Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "Brief 15-minute decanting enhances aromatics; not essential",
+        "glassware": "Burgundy glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Santa Cruz Mountains, California",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2024",
+        "style": "Medium-bodied cool-climate Pinot Noir",
+        "ageability": "Drink now through 3-5 years; enjoyable in youth with aging potential"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lambert Estate Black Sheep Red Blend 2022",
+      "description": "An adventurous multi-varietal blend from Australia's Barossa Valley, combining Old World and New World grapes in unique proportions. This wine defies convention, bringing together Cabernet Sauvignon, Zinfandel, Shiraz, Merlot, and Tempranillo in a harmonious expression of Barossa terroir. Known for exceptional value and approachability.",
+      "tastingNotes": {
+        "aroma": "Vivid purple with bright magenta hues. The nose is exuberant and fruit-forward, showcasing roasted beetroot and bright cherries alongside plush plum aromas. Layers of vanilla bean, cardamom, and nutmeg spice emerge, complemented by hints of violet and dried forest fruits. The aromatic profile is both complex and inviting.",
+        "palate": "The palate is generously fruited with plush plums and vibrant cherry flavors taking center stage. Clove and exotic spice notes weave through the fruit, while undertones of forest berries and violet add depth. The wine shows excellent ripeness and concentration, with soft, approachable tannins and balanced acidity. The texture is supple and mouth-filling.",
+        "finish": "Medium-long finish with persistent fruit and spice notes. The tannins are fine and velvety, fading gently to leave a clean, satisfying conclusion."
+      },
+      "foodPairings": [
+        "BBQ ribs with smoky sauce",
+        "Beef burger with caramelized onions",
+        "Spicy lamb kofta",
+        "Eggplant parmesan",
+        "Aged cheddar and charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "30 minutes recommended to open up the blend's complexity",
+        "glassware": "Large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "60% Cabernet Sauvignon, 30% Zinfandel, 3% Shiraz, 3% Merlot, 3% Tempranillo (approximate blend)",
+        "vintage": "2022",
+        "style": "Full-bodied Barossa red blend",
+        "ageability": "Drink now through 4-6 years; designed for near-term enjoyment"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Gieco Malbec Single Vineyard (12 packs) 2022",
+      "description": "An intense and structured Malbec from a single estate vineyard in Luján de Cuyo, Mendoza's premier Malbec region. Bodega Gieco's commitment to terroir-driven winemaking shines through in this powerful expression of Argentine Malbec. The high-altitude vineyards produce concentrated fruit with natural balance and complexity.",
+      "tastingNotes": {
+        "aroma": "Rich, deep purple color with violet reflections. The nose is powerful and expressive, revealing layers of dark fruit including ripe plum, cassis, blackberry, and blueberry. Notes of violets and black pepper emerge, along with subtle hints of cocoa and vanilla from oak aging. The aromatic intensity is characteristic of high-altitude Malbec.",
+        "palate": "Powerful and full-bodied with concentrated dark fruit flavors. The palate delivers waves of jammy plum, blackberry compote, and dark cherry, supported by well-integrated oak notes of vanilla and sweet spice. Despite the power, the wine maintains balance with structured tannins and refreshing acidity. The mouthfeel is rich and velvety, coating the palate with dense fruit extract.",
+        "finish": "Long and fruit-forward with a jammy quality that persists. Tannins are firm but ripe, providing structure for aging. A hint of dark chocolate and coffee emerges on the tail."
+      },
+      "foodPairings": [
+        "Argentine asado (grilled beef)",
+        "Braised short ribs with red wine sauce",
+        "Grilled portobello mushrooms",
+        "Spicy chorizo empanadas",
+        "Aged Provolone or blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1 hour decanting recommended to soften tannins and open aromatics",
+        "glassware": "Large Bordeaux or Malbec-specific glass"
+      },
+      "wineDetails": {
+        "region": "Luján de Cuyo, Mendoza, Argentina",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2022",
+        "style": "Full-bodied single vineyard Malbec",
+        "ageability": "Drink now through 6-8 years; will develop complexity with cellaring"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cultura Merlot 2014",
+      "description": "A mature Merlot showcasing the evolution and complexity that comes with proper aging. The 2014 vintage captures classic Merlot characteristics with added bottle age development. Cultura focuses on traditional winemaking to produce food-friendly, terroir-expressive wines with authentic varietal character.",
+      "tastingNotes": {
+        "aroma": "Developing garnet color with brick-red edges indicating maturity. The nose shows evolved characteristics with aromas of dried cherry, plum compote, and fig alongside secondary notes of leather, tobacco leaf, and forest floor. Hints of cedar, vanilla, and sweet baking spices reflect oak integration. The bouquet is complex and inviting.",
+        "palate": "Medium-bodied with softened tannins from aging, the palate delivers flavors of dried red fruit, black tea, and savory herbs. Layers of leather, mushroom, and earth add complexity to the fruit core. The wine shows excellent balance between fruit, acidity, and tannin, with a silky texture achieved through bottle age. Notes of cocoa and spice linger on the mid-palate.",
+        "finish": "The finish is elegant and moderately long, with integrated tannins and lingering notes of dried fruit and spice. A touch of earthiness adds sophistication to the tail."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary",
+        "Beef stew with root vegetables",
+        "Mushroom risotto",
+        "Aged Gouda or Comté cheese",
+        "Duck confit with lentils"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30-45 minutes recommended to allow the mature wine to breathe",
+        "glassware": "Bordeaux glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Undisclosed (likely California or Washington)",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2014",
+        "style": "Medium-bodied aged Merlot with tertiary development",
+        "ageability": "Drink now through 2-3 years; at peak maturity"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.6,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Whole Ox Sauvignon Gris (Private Label) 2023",
+      "description": "A distinctive expression of Sauvignon Gris from Boxwood Estate Winery in Middleburg, Virginia. Grown at the highest elevation of the estate's D-Block vineyard, this wine showcases the unique characteristics of pink-skinned Sauvignon Gris. The private label 'Whole Ox' designation represents a special bottling from this acclaimed Virginia producer.",
+      "tastingNotes": {
+        "aroma": "The bouquet is powerful and aromatic, opening with voluptuous floral notes of jasmine and honeysuckle. Fresh stone fruit aromas of white peach and apricot mingle with citrus notes of orange and lemon zest. A distinctive wet slate or river rock minerality adds complexity, while hints of pear and toasted almond round out the profile. The nose is both exotic and elegant.",
+        "palate": "The wine shows excellent palate weight and a fleshy, textured mouthfeel characteristic of Sauvignon Gris. Flavors of ripe pear, white peach, and citrus dominate, supported by crisp apple-like acidity that provides lift and balance. The texture is round and mouth-coating, yet the wine maintains freshness through its mineral backbone. Spring flowers and subtle spice notes add layers of complexity.",
+        "finish": "Clean and lingering with persistent fruit and mineral notes. The acidity carries through to a refreshing conclusion, leaving the palate invigorated and ready for food."
+      },
+      "foodPairings": [
+        "Seared scallops with citrus beurre blanc",
+        "Grilled chicken with herb butter",
+        "Fresh oysters on the half shell",
+        "Asparagus and goat cheese tart",
+        "Light seafood pasta with white wine sauce"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve well-chilled directly from bottle",
+        "glassware": "White Bordeaux glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia",
+        "grapeVariety": "100% Sauvignon Gris",
+        "vintage": "2023",
+        "style": "Full-bodied aromatic white wine",
+        "ageability": "Best within 2-3 years to preserve aromatic intensity and freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Gris 375 ml 2021  375 ml",
+      "description": "A half-bottle format of Boxwood's acclaimed Sauvignon Gris from their estate vineyard in Virginia. The 2021 vintage received silver medals at both the Virginia Governor's Cup and Best of Loudoun competitions. This elegant white showcases the unique pink-skinned Sauvignon Gris variety with precision winemaking and cool-climate freshness.",
+      "tastingNotes": {
+        "aroma": "The nose opens with distinctive mineral notes reminiscent of wet slate or river stones, establishing an elegant foundation. Fresh citrus aromas of orange and lemon zest emerge, accompanied by spring flowers including jasmine and white blossoms. Ripe pear and hints of toasted almond add richness, while the overall profile remains fresh and lifted.",
+        "palate": "Good palate weight with a round, textured mouthfeel that's characteristic of Sauvignon Gris. The fruit carries beautifully from nose to palate, delivering flavors of crisp apple, ripe pear, and citrus. Balanced acidity provides structure and freshness, cutting through the wine's natural richness. The mineral thread continues through the mid-palate, adding complexity and terroir expression.",
+        "finish": "Clean and lingering with persistent mineral and fruit notes. The finish is refreshing and precise, inviting another sip. The wine's natural acidity leaves the palate cleansed and invigorated."
+      },
+      "foodPairings": [
+        "Pan-seared halibut with lemon",
+        "Caesar salad with grilled chicken",
+        "Soft-shell crab tempura",
+        "Fresh mozzarella and tomato salad",
+        "Herb-roasted turkey breast"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting required; serve well-chilled from refrigerator",
+        "glassware": "White wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia (D-Block vineyard at highest elevation)",
+        "grapeVariety": "100% Sauvignon Gris",
+        "vintage": "2021",
+        "style": "Aromatic white wine with mineral character",
+        "ageability": "Drink now; half-bottles are best consumed within 1-2 years"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Black Elephant Vintners Rose Rebel 2024",
+      "description": "A vibrant South African rosé made from Pinotage, showcasing this uniquely South African grape variety in a fresh, fruit-forward style. Black Elephant Vintners crafts rebellious, modern wines that challenge conventions while maintaining quality and drinkability. This rosé captures the essence of summer fruit with crisp acidity.",
+      "tastingNotes": {
+        "aroma": "Rose gold in color with brilliant clarity. The nose bursts with aromas of fresh raspberry and strawberry, intermingled with notes of watermelon and citrus zest. A distinctive cotton candy sweetness adds playful charm, while subtle floral notes provide elegance. The aromatic profile is exuberant and inviting, perfect for warm weather enjoyment.",
+        "palate": "Crisp and refreshing, the palate explodes with flavors of summer fruit. Red strawberry and raspberry dominate, supported by juicy watermelon and hints of citrus. The wine is dry with bright acidity that provides lift and balance. Despite the fruit-forward character, the wine maintains elegance and drinkability. The mouthfeel is light and refreshing.",
+        "finish": "Clean and vibrant with lingering red fruit notes. The acidity carries through to a refreshing conclusion, leaving the palate cleansed and ready for the next sip."
+      },
+      "foodPairings": [
+        "Grilled shrimp and summer vegetable skewers",
+        "Caprese salad with fresh basil",
+        "Fried calamari with aioli",
+        "Salmon sushi rolls",
+        "Fresh strawberry and goat cheese crostini"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C)",
+        "decanting": "No decanting needed; serve well-chilled directly from bottle",
+        "glassware": "White wine glass or Provence rosé glass"
+      },
+      "wineDetails": {
+        "region": "South Africa",
+        "grapeVariety": "100% Pinotage",
+        "vintage": "2024",
+        "style": "Dry rosé with bright fruit character",
+        "ageability": "Best consumed within 1-2 years while fresh and vibrant"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ca' de Lion Il Sognatore 2018",
+      "description": "A distinctive white wine from Piedmont's Alto Monferrato region, crafted from 100% Cortese grapes by the historic Ca' de Lion - Ghione winery. 'Il Sognatore' (The Dreamer) represents an exotic and aromatic expression of Cortese, showcasing the variety's ability to produce wines beyond the traditional Gavi style. This wine reflects generations of family winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose is exotic and highly aromatic, opening with heady notes of jasmine and white flowers. Stone fruit aromas dominate with ripe white peach and apricot taking center stage. Citrus notes of lemon zest add brightness, while a distinctive touch of fresh mint provides an herbal lift. The aromatic intensity is captivating and multi-layered.",
+        "palate": "Bright and vibrant on the palate with zesty lemon-lime acidity that provides excellent structure. Flavors of white peach and stone fruit carry through from the nose, supported by mineral undertones. The wine shows good concentration and weight while maintaining freshness and elegance. A subtle mintiness adds complexity to the fruit core, creating an intriguing flavor profile.",
+        "finish": "Palate-refreshing finish with persistent acidity that cleanses and invigorates. Citrus and mineral notes linger, leaving a crisp, satisfying conclusion."
+      },
+      "foodPairings": [
+        "Fresh antipasti with marinated vegetables",
+        "Grilled sea bass with herbs",
+        "Caesar salad with anchovies",
+        "Seafood risotto",
+        "Fresh mozzarella and tomato salad"
+      },
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting required; serve well-chilled",
+        "glassware": "White wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Alto Monferrato DOC, Piedmont, Italy",
+        "grapeVariety": "100% Cortese",
+        "vintage": "2018",
+        "style": "Aromatic white wine with stone fruit character",
+        "ageability": "Drink now; mature white wine best enjoyed within 1-2 years"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    }
+  ]
+}

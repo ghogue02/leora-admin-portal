@@ -14,6 +14,7 @@ import {
   AreaChart,
 } from "recharts";
 import { Badge } from "@/components/ui/badge";
+import { formatCurrency, formatPercentage } from "@/lib/utils/format";
 
 type ForecastData = {
   reps: {
@@ -122,21 +123,21 @@ export default function RevenueForecast() {
           <div className="rounded-lg border bg-blue-50 p-4">
             <p className="text-sm text-gray-600">Projected Annual Revenue</p>
             <p className="mt-1 text-3xl font-bold text-blue-600">
-              ${data.teamForecast.projectedAnnual.toLocaleString()}
+              {formatCurrency(data.teamForecast.projectedAnnual)}
             </p>
             <p className="mt-1 text-xs text-gray-500">Based on current pace</p>
           </div>
           <div className="rounded-lg border bg-white p-4">
             <p className="text-sm text-gray-600">YTD Actual</p>
             <p className="mt-1 text-3xl font-bold text-gray-900">
-              ${data.teamForecast.ytdActual.toLocaleString()}
+              {formatCurrency(data.teamForecast.ytdActual)}
             </p>
             <p className="mt-1 text-xs text-gray-500">Year to date performance</p>
           </div>
           <div className="rounded-lg border bg-white p-4">
             <p className="text-sm text-gray-600">Current Weekly Pace</p>
             <p className="mt-1 text-3xl font-bold text-gray-900">
-              ${data.teamForecast.currentPace.toLocaleString()}
+              {formatCurrency(data.teamForecast.currentPace)}
             </p>
             <p className="mt-1 text-xs text-gray-500">Average per week</p>
           </div>
@@ -152,7 +153,7 @@ export default function RevenueForecast() {
             <XAxis dataKey="month" />
             <YAxis />
             <Tooltip
-              formatter={(value: number) => `$${value.toLocaleString()}`}
+              formatter={(value: number) => formatCurrency(Number(value))}
               labelStyle={{ color: "#000" }}
             />
             <Legend />
@@ -229,14 +230,14 @@ export default function RevenueForecast() {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <p className="font-bold text-blue-600">
-                        ${rep.projectedAnnual.toLocaleString()}
+                        {formatCurrency(rep.projectedAnnual)}
                       </p>
                       <p className="text-xs text-gray-500">
-                        ${rep.currentPace.toLocaleString()}/wk
+                        {formatCurrency(rep.currentPace)}/wk
                       </p>
                     </td>
                     <td className="px-6 py-4 text-right font-semibold">
-                      ${rep.ytdActual.toLocaleString()}
+                      {formatCurrency(rep.ytdActual)}
                     </td>
                     <td className="px-6 py-4 text-right">
                       <span
@@ -248,7 +249,7 @@ export default function RevenueForecast() {
                             : "text-red-600"
                         }`}
                       >
-                        {ytdVsTarget.toFixed(0)}%
+                        {formatPercentage(ytdVsTarget)}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-center">

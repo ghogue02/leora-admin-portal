@@ -1,0 +1,2782 @@
+[
+  {
+    "batchNumber": 1,
+    "fileName": "wine-research-results-batch-1.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Conde Valdemar Rose 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Conde Valdemar Rose 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 2,
+    "fileName": "wine-research-results-batch-2.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 55,
+    "passRate": 0,
+    "checks": {
+      "requiredFields": {
+        "passed": 0,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 0,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 0,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 0,
+        "total": 1
+      }
+    },
+    "issues": [
+      {
+        "checkName": "description",
+        "passed": false,
+        "message": "Description too short (47 chars, min 50)",
+        "severity": "error"
+      },
+      {
+        "checkName": "invalid_vintage",
+        "passed": false,
+        "message": "Invalid vintage year: Not applicable",
+        "severity": "error"
+      }
+    ],
+    "highQualityExamples": [
+      "Shipping- Domestic (55)"
+    ],
+    "lowQualityExamples": [
+      "Shipping- Domestic (55)"
+    ]
+  },
+  {
+    "batchNumber": 3,
+    "fileName": "wine-research-results-batch-3.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Domaine Fevre Chablis 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Domaine Fevre Chablis 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 4,
+    "fileName": "wine-research-results-batch-4.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Natte Valleij Cinsault Stellenbosch 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Natte Valleij Cinsault Stellenbosch 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 5,
+    "fileName": "wine-research-results-batch-5.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Stel + Mar Andrew Cabernet Sauvignon (DC/MD Only) 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Stel + Mar Andrew Cabernet Sauvignon (DC/MD Only) 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 6,
+    "fileName": "wine-research-results-batch-6.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Rioja Lar de Paula Madurado 2018 (100)"
+    ],
+    "lowQualityExamples": [
+      "Rioja Lar de Paula Madurado 2018 (100)"
+    ]
+  },
+  {
+    "batchNumber": 7,
+    "fileName": "wine-research-results-batch-7.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Pomar Junction Sidetrack Red 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Pomar Junction Sidetrack Red 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 8,
+    "fileName": "wine-research-results-batch-8.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Korde Pinea Rose 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Korde Pinea Rose 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 9,
+    "fileName": "wine-research-results-batch-9.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Fernanda Capello Prosecco Brut NV (100)"
+    ],
+    "lowQualityExamples": [
+      "Fernanda Capello Prosecco Brut NV (100)"
+    ]
+  },
+  {
+    "batchNumber": 10,
+    "fileName": "wine-research-results-batch-10.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Hendry Blocks 7 & 22 Zinfandel 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Hendry Blocks 7 & 22 Zinfandel 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 11,
+    "fileName": "wine-research-results-batch-11.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Shabo Grande Reserve Cabernet - Merlot 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Shabo Grande Reserve Cabernet - Merlot 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 12,
+    "fileName": "wine-research-results-batch-12.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Armstrong Fronk 2019 (100)"
+    ],
+    "lowQualityExamples": [
+      "Armstrong Fronk 2019 (100)"
+    ]
+  },
+  {
+    "batchNumber": 13,
+    "fileName": "wine-research-results-batch-13.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Rock Ferry Brut Rose 2016 (100)"
+    ],
+    "lowQualityExamples": [
+      "Rock Ferry Brut Rose 2016 (100)"
+    ]
+  },
+  {
+    "batchNumber": 14,
+    "fileName": "wine-research-results-batch-14.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Casablanca Valley D. Bosler Pinot Noir 2018 (100)"
+    ],
+    "lowQualityExamples": [
+      "Casablanca Valley D. Bosler Pinot Noir 2018 (100)"
+    ]
+  },
+  {
+    "batchNumber": 15,
+    "fileName": "wine-research-results-batch-15.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Mendoza Finca Abril Rapsodia 2013 (100)"
+    ],
+    "lowQualityExamples": [
+      "Mendoza Finca Abril Rapsodia 2013 (100)"
+    ]
+  },
+  {
+    "batchNumber": 16,
+    "fileName": "wine-research-results-batch-16.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Bonelli Bonarda Secco 2020 (100)"
+    ],
+    "lowQualityExamples": [
+      "Bonelli Bonarda Secco 2020 (100)"
+    ]
+  },
+  {
+    "batchNumber": 17,
+    "fileName": "wine-research-results-batch-17.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Viore Sobre Lias 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Viore Sobre Lias 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 18,
+    "fileName": "wine-research-results-batch-18.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Bodegas Tandem Inmune Garnacha 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Bodegas Tandem Inmune Garnacha 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 19,
+    "fileName": "wine-research-results-batch-19.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Domaine de la Denante Bourgogne Chardonnay 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Domaine de la Denante Bourgogne Chardonnay 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 20,
+    "fileName": "wine-research-results-batch-20.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 21,
+    "fileName": "wine-research-results-batch-21.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Paris-Simoneau Les Georges Sauvignon Blanc 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Paris-Simoneau Les Georges Sauvignon Blanc 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 22,
+    "fileName": "wine-research-results-batch-22.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Shabo Reserve Pinot Grigio 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Shabo Reserve Pinot Grigio 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 23,
+    "fileName": "wine-research-results-batch-23.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Dominio de la Abadesa Verdejo 2016 (100)"
+    ],
+    "lowQualityExamples": [
+      "Dominio de la Abadesa Verdejo 2016 (100)"
+    ]
+  },
+  {
+    "batchNumber": 24,
+    "fileName": "wine-research-results-batch-24.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Calyptra Mosaiko Cabernet Sauvignon 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Calyptra Mosaiko Cabernet Sauvignon 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 25,
+    "fileName": "wine-research-results-batch-25.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Collina San Ponzio Nebbiolo D Alba 2018 (100)"
+    ],
+    "lowQualityExamples": [
+      "Collina San Ponzio Nebbiolo D Alba 2018 (100)"
+    ]
+  },
+  {
+    "batchNumber": 27,
+    "fileName": "wine-research-results-batch-27.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Lueria Terrace  (MD & DC) 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Lueria Terrace  (MD & DC) 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 28,
+    "fileName": "wine-research-results-batch-28.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Abadia de Acon Reserva 2018 (100)"
+    ],
+    "lowQualityExamples": [
+      "Abadia de Acon Reserva 2018 (100)"
+    ]
+  },
+  {
+    "batchNumber": 29,
+    "fileName": "wine-research-results-batch-29.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Noughty NA White Wine NV (100)"
+    ],
+    "lowQualityExamples": [
+      "Noughty NA White Wine NV (100)"
+    ]
+  },
+  {
+    "batchNumber": 30,
+    "fileName": "wine-research-results-batch-30.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Pasquiers Sablet Blanc 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Pasquiers Sablet Blanc 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 31,
+    "fileName": "wine-research-results-batch-31.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Lambert Estate Thoroughbred Cabernet Sauvignon 2019 (100)"
+    ],
+    "lowQualityExamples": [
+      "Lambert Estate Thoroughbred Cabernet Sauvignon 2019 (100)"
+    ]
+  },
+  {
+    "batchNumber": 32,
+    "fileName": "wine-research-results-batch-32.json",
+    "totalWines": 9,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Rioja Lar de Paula Crianza 2016 (100)"
+    ],
+    "lowQualityExamples": [
+      "Rioja Lar de Paula Crianza 2016 (100)"
+    ]
+  },
+  {
+    "batchNumber": 33,
+    "fileName": "wine-research-results-batch-33.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Haut Espoir Cloudfall 2020 (100)"
+    ],
+    "lowQualityExamples": [
+      "Haut Espoir Cloudfall 2020 (100)"
+    ]
+  },
+  {
+    "batchNumber": 34,
+    "fileName": "wine-research-results-batch-34.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 95,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 0,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Oceano Low Alcohol Syrah 2023 (95)"
+    ],
+    "lowQualityExamples": [
+      "Oceano Low Alcohol Syrah 2023 (95)"
+    ]
+  },
+  {
+    "batchNumber": 35,
+    "fileName": "wine-research-results-batch-35.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Boplaas The Fledge & Co. Souzao 2024 (100)"
+    ],
+    "lowQualityExamples": [
+      "Boplaas The Fledge & Co. Souzao 2024 (100)"
+    ]
+  },
+  {
+    "batchNumber": 36,
+    "fileName": "wine-research-results-batch-36.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Costers Del Segre Petit Sios Blanco 2020 (100)"
+    ],
+    "lowQualityExamples": [
+      "Costers Del Segre Petit Sios Blanco 2020 (100)"
+    ]
+  },
+  {
+    "batchNumber": 37,
+    "fileName": "wine-research-results-batch-37.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Boxwood Ellie Bird Topiary (Private Label) 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Boxwood Ellie Bird Topiary (Private Label) 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 38,
+    "fileName": "wine-research-results-batch-38.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Clos d'Audhuy Les Polissons 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Clos d'Audhuy Les Polissons 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 39,
+    "fileName": "wine-research-results-batch-39.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Noble Hill Sur Lie Chenin Blanc 2020 (100)"
+    ],
+    "lowQualityExamples": [
+      "Noble Hill Sur Lie Chenin Blanc 2020 (100)"
+    ]
+  },
+  {
+    "batchNumber": 40,
+    "fileName": "wine-research-results-batch-40.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 95,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 0,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Taste Rose Keg NV  20000 ml (95)"
+    ],
+    "lowQualityExamples": [
+      "Taste Rose Keg NV  20000 ml (95)"
+    ]
+  },
+  {
+    "batchNumber": 41,
+    "fileName": "wine-research-results-batch-41.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Tigerstone Garnacha 2020 (100)"
+    ],
+    "lowQualityExamples": [
+      "Tigerstone Garnacha 2020 (100)"
+    ]
+  },
+  {
+    "batchNumber": 42,
+    "fileName": "wine-research-results-batch-42.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Pomar Junction Pomar Junction Cabernet Sauvignon 2017 (100)"
+    ],
+    "lowQualityExamples": [
+      "Pomar Junction Pomar Junction Cabernet Sauvignon 2017 (100)"
+    ]
+  },
+  {
+    "batchNumber": 43,
+    "fileName": "wine-research-results-batch-43.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Remhoogte Honeybunch 2024 (100)"
+    ],
+    "lowQualityExamples": [
+      "Remhoogte Honeybunch 2024 (100)"
+    ]
+  },
+  {
+    "batchNumber": 44,
+    "fileName": "wine-research-results-batch-44.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Dogwood & Thistle Cavalier Cuvee Pinot Noir (Private Label) 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Dogwood & Thistle Cavalier Cuvee Pinot Noir (Private Label) 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 45,
+    "fileName": "wine-research-results-batch-45.json",
+    "totalWines": 0,
+    "sampledWines": 0,
+    "overallScore": null,
+    "passRate": null,
+    "checks": {
+      "requiredFields": {
+        "passed": 0,
+        "total": 0
+      },
+      "validVintages": {
+        "passed": 0,
+        "total": 0
+      },
+      "meaningfulNotes": {
+        "passed": 0,
+        "total": 0
+      },
+      "validConfidence": {
+        "passed": 0,
+        "total": 0
+      },
+      "foodPairings": {
+        "passed": 0,
+        "total": 0
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [],
+    "lowQualityExamples": []
+  },
+  {
+    "batchNumber": 46,
+    "fileName": "wine-research-results-batch-46.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Zephaniah Steamship White 2017 (100)"
+    ],
+    "lowQualityExamples": [
+      "Zephaniah Steamship White 2017 (100)"
+    ]
+  },
+  {
+    "batchNumber": 47,
+    "fileName": "wine-research-results-batch-47.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Fledge and Co Elgin Chardonnay 2017 (100)"
+    ],
+    "lowQualityExamples": [
+      "Fledge and Co Elgin Chardonnay 2017 (100)"
+    ]
+  },
+  {
+    "batchNumber": 48,
+    "fileName": "wine-research-results-batch-48.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Valdemar Estates Columbia Valley Chardonnay 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Valdemar Estates Columbia Valley Chardonnay 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 49,
+    "fileName": "wine-research-results-batch-49.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Hendry Primitivo 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Hendry Primitivo 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 50,
+    "fileName": "wine-research-results-batch-50.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Boxwood Reserve 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Boxwood Reserve 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 51,
+    "fileName": "wine-research-results-batch-51.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Calyptra Petit Inedito 2018 (100)"
+    ],
+    "lowQualityExamples": [
+      "Calyptra Petit Inedito 2018 (100)"
+    ]
+  },
+  {
+    "batchNumber": 52,
+    "fileName": "wine-research-results-batch-52.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Clos d'Audhuy Toujours Plus 1L NV  1000 ml (100)"
+    ],
+    "lowQualityExamples": [
+      "Clos d'Audhuy Toujours Plus 1L NV  1000 ml (100)"
+    ]
+  },
+  {
+    "batchNumber": 53,
+    "fileName": "wine-research-results-batch-53.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Baleia Vinho Rocas Red Blend 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Baleia Vinho Rocas Red Blend 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 54,
+    "fileName": "wine-research-results-batch-54.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Rock Ferry 3rd Rock Chardonnay 2019 (100)"
+    ],
+    "lowQualityExamples": [
+      "Rock Ferry 3rd Rock Chardonnay 2019 (100)"
+    ]
+  },
+  {
+    "batchNumber": 56,
+    "fileName": "wine-research-results-batch-56.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Ontanon Reserva Magnum 2011  1500 ml (100)"
+    ],
+    "lowQualityExamples": [
+      "Ontanon Reserva Magnum 2011  1500 ml (100)"
+    ]
+  },
+  {
+    "batchNumber": 57,
+    "fileName": "wine-research-results-batch-57.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Thelema \"Vin de Hel\" Muscat Late Harvest 2022  375 ml (100)"
+    ],
+    "lowQualityExamples": [
+      "Thelema \"Vin de Hel\" Muscat Late Harvest 2022  375 ml (100)"
+    ]
+  },
+  {
+    "batchNumber": 58,
+    "fileName": "wine-research-results-batch-58.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Dominio de la Abadesa Verdejo 2018 (100)"
+    ],
+    "lowQualityExamples": [
+      "Dominio de la Abadesa Verdejo 2018 (100)"
+    ]
+  },
+  {
+    "batchNumber": 59,
+    "fileName": "wine-research-results-batch-59.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Bodegas Pinea PINEA 2019 (100)"
+    ],
+    "lowQualityExamples": [
+      "Bodegas Pinea PINEA 2019 (100)"
+    ]
+  },
+  {
+    "batchNumber": 60,
+    "fileName": "wine-research-results-batch-60.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Domaine d'Avrille Sauvignon Blanc 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Domaine d'Avrille Sauvignon Blanc 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 61,
+    "fileName": "wine-research-results-batch-61.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Adir Marselan Rosel (MD & DC) 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Adir Marselan Rosel (MD & DC) 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 62,
+    "fileName": "wine-research-results-batch-62.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Boron Delle Venezie Pinot Grigio 2023 (100)"
+    ],
+    "lowQualityExamples": [
+      "Boron Delle Venezie Pinot Grigio 2023 (100)"
+    ]
+  },
+  {
+    "batchNumber": 63,
+    "fileName": "wine-research-results-batch-63.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Two Mountain Syrah 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Two Mountain Syrah 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 64,
+    "fileName": "wine-research-results-batch-64.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Monte Real Cepas Viejas  (6 pack) 2021 5001599 (100)"
+    ],
+    "lowQualityExamples": [
+      "Monte Real Cepas Viejas  (6 pack) 2021 5001599 (100)"
+    ]
+  },
+  {
+    "batchNumber": 65,
+    "fileName": "wine-research-results-batch-65.json",
+    "totalWines": 0,
+    "sampledWines": 0,
+    "overallScore": null,
+    "passRate": null,
+    "checks": {
+      "requiredFields": {
+        "passed": 0,
+        "total": 0
+      },
+      "validVintages": {
+        "passed": 0,
+        "total": 0
+      },
+      "meaningfulNotes": {
+        "passed": 0,
+        "total": 0
+      },
+      "validConfidence": {
+        "passed": 0,
+        "total": 0
+      },
+      "foodPairings": {
+        "passed": 0,
+        "total": 0
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [],
+    "lowQualityExamples": []
+  },
+  {
+    "batchNumber": 66,
+    "fileName": "wine-research-results-batch-66.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Zephaniah Rose 2024 (100)"
+    ],
+    "lowQualityExamples": [
+      "Zephaniah Rose 2024 (100)"
+    ]
+  },
+  {
+    "batchNumber": 67,
+    "fileName": "wine-research-results-batch-67.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Silverthorn River Dragon Cap Classique Blanc NV (100)"
+    ],
+    "lowQualityExamples": [
+      "Silverthorn River Dragon Cap Classique Blanc NV (100)"
+    ]
+  },
+  {
+    "batchNumber": 68,
+    "fileName": "wine-research-results-batch-68.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Wooden Gift Box Monte Real Gran Reserva 1998 (100)"
+    ],
+    "lowQualityExamples": [
+      "Wooden Gift Box Monte Real Gran Reserva 1998 (100)"
+    ]
+  },
+  {
+    "batchNumber": 69,
+    "fileName": "wine-research-results-batch-69.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Sky Devil Malbec 2019 (100)"
+    ],
+    "lowQualityExamples": [
+      "Sky Devil Malbec 2019 (100)"
+    ]
+  },
+  {
+    "batchNumber": 70,
+    "fileName": "wine-research-results-batch-70.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Jeremy Nickel Cellars Chardonnay 2019 (100)"
+    ],
+    "lowQualityExamples": [
+      "Jeremy Nickel Cellars Chardonnay 2019 (100)"
+    ]
+  },
+  {
+    "batchNumber": 71,
+    "fileName": "wine-research-results-batch-71.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Bernard Gaucher Champagne NV (100)"
+    ],
+    "lowQualityExamples": [
+      "Bernard Gaucher Champagne NV (100)"
+    ]
+  },
+  {
+    "batchNumber": 72,
+    "fileName": "wine-research-results-batch-72.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "La Sala Red Sangria (100)"
+    ],
+    "lowQualityExamples": [
+      "La Sala Red Sangria (100)"
+    ]
+  },
+  {
+    "batchNumber": 73,
+    "fileName": "wine-research-results-batch-73.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Gavioli Lambrusco  Emilia Semisweet NV (100)"
+    ],
+    "lowQualityExamples": [
+      "Gavioli Lambrusco  Emilia Semisweet NV (100)"
+    ]
+  },
+  {
+    "batchNumber": 74,
+    "fileName": "wine-research-results-batch-74.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Endhardt Vineyards Lower Block Sauvignon Blanc 2022 (100)"
+    ],
+    "lowQualityExamples": [
+      "Endhardt Vineyards Lower Block Sauvignon Blanc 2022 (100)"
+    ]
+  },
+  {
+    "batchNumber": 75,
+    "fileName": "wine-research-results-batch-75.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Beefsteak The Beast Red Blend 2019 (100)"
+    ],
+    "lowQualityExamples": [
+      "Beefsteak The Beast Red Blend 2019 (100)"
+    ]
+  },
+  {
+    "batchNumber": 76,
+    "fileName": "wine-research-results-batch-76.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Ribeiro Sameiras Blanco 2021 (100)"
+    ],
+    "lowQualityExamples": [
+      "Ribeiro Sameiras Blanco 2021 (100)"
+    ]
+  },
+  {
+    "batchNumber": 77,
+    "fileName": "wine-research-results-batch-77.json",
+    "totalWines": 10,
+    "sampledWines": 1,
+    "overallScore": 100,
+    "passRate": 100,
+    "checks": {
+      "requiredFields": {
+        "passed": 1,
+        "total": 1
+      },
+      "validVintages": {
+        "passed": 1,
+        "total": 1
+      },
+      "meaningfulNotes": {
+        "passed": 1,
+        "total": 1
+      },
+      "validConfidence": {
+        "passed": 1,
+        "total": 1
+      },
+      "foodPairings": {
+        "passed": 1,
+        "total": 1
+      }
+    },
+    "issues": [],
+    "highQualityExamples": [
+      "Galea Red Sangria NV (100)"
+    ],
+    "lowQualityExamples": [
+      "Galea Red Sangria NV (100)"
+    ]
+  }
+]

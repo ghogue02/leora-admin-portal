@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Sparkles, ShoppingCart, X, Clock, AlertCircle, TrendingUp } from 'lucide-react';
+import { formatCurrency } from '@/lib/utils/format';
 
 interface Product {
   id: string;
@@ -280,7 +281,7 @@ export function ProductRecommendations({
               {/* Product details */}
               <div className="flex items-center justify-between text-sm">
                 <span className="font-semibold text-green-600">
-                  ${product.price.toFixed(2)}
+                  {formatCurrency(product.price)}
                 </span>
                 {product.stock_quantity !== undefined && (
                   <span className="text-xs text-gray-500">

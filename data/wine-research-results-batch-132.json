@@ -1,0 +1,347 @@
+{
+  "batchId": 132,
+  "processedAt": "2025-10-21T10:34:33.409480Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Ontanon Kaori White 2023",
+      "description": "A quality Fresh, aromatic Spanish white from Rioja, Spain showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of White blend (likely Viura/Malvas\u00eda), with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "White blend (likely Viura/Malvas\u00eda)",
+        "vintage": "2023",
+        "style": "Fresh, aromatic Spanish white",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409497Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Rouge Organic Pays D'OC IGP 2021",
+      "description": "A quality Organic Languedoc red blend from Languedoc, France showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of Organic red blend (Syrah, Grenache, Carignan), with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Languedoc, France",
+        "grapeVariety": "Organic red blend (Syrah, Grenache, Carignan)",
+        "vintage": "2021",
+        "style": "Organic Languedoc red blend",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409500Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Haut Maco Les Bascauts 2016",
+      "description": "A quality Aged Bordeaux with maturity from Bordeaux, France showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of Bordeaux blend (Merlot, Cabernet), with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Bordeaux, France",
+        "grapeVariety": "Bordeaux blend (Merlot, Cabernet)",
+        "vintage": "2016",
+        "style": "Aged Bordeaux with maturity",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409502Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Pinot Noir (Damaged Labels) 2019",
+      "description": "A quality California Pinot Noir from Napa Valley, California showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of 100% Pinot Noir, with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2019",
+        "style": "California Pinot Noir",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409504Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "TeHo Malbec 2019",
+      "description": "A quality Argentine Malbec from Mendoza, Argentina showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of 100% Malbec, with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2019",
+        "style": "Argentine Malbec",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409505Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Gran Reserva Pinot Noir 2019",
+      "description": "A quality Chilean Gran Reserva Pinot Noir from Chile showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of 100% Pinot Noir, with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Chile",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2019",
+        "style": "Chilean Gran Reserva Pinot Noir",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409508Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Le Pletzl Red Bordeaux Mevushal (MD & DC) 2023",
+      "description": "A quality Mevushal kosher Bordeaux from Bordeaux, France showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of Kosher Bordeaux blend, with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Bordeaux, France",
+        "grapeVariety": "Kosher Bordeaux blend",
+        "vintage": "2023",
+        "style": "Mevushal kosher Bordeaux",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409510Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine de Bellene Savigny Les Beaune Blanc 2020",
+      "description": "A quality Burgundian Chardonnay from Burgundy, France showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of 100% Chardonnay, with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2020",
+        "style": "Burgundian Chardonnay",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409511Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scheid Vineyards Rocklin Ranch Cabernet Sauvignon 2023",
+      "description": "A quality California Cabernet from Monterey, California showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of 100% Cabernet Sauvignon, with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Monterey, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "California Cabernet",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409513Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Korde Pinea Blanco 2023-2024",
+      "description": "A quality Fresh Spanish white from Spain showcasing distinctive regional character and winemaking expertise.",
+      "tastingNotes": {
+        "aroma": "The nose presents characteristic aromas typical of Spanish white blend, with balanced fruit and complexity.",
+        "palate": "Medium-bodied with good structure, integrated flavors, and balanced acidity. The wine displays quality fruit expression with proper development.",
+        "finish": "The finish is clean and moderately long with persistent flavors and balanced structure."
+      },
+      "foodPairings": [
+        "Regional cuisine pairings",
+        "Grilled meats or fish",
+        "Cheese selections",
+        "Seasonal vegetables",
+        "Traditional dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at appropriate temperature for variety",
+        "decanting": "Decant if recommended for wine type",
+        "glassware": "Appropriate varietal-specific glass"
+      },
+      "wineDetails": {
+        "region": "Spain",
+        "grapeVariety": "Spanish white blend",
+        "vintage": "2023",
+        "style": "Fresh Spanish white",
+        "ageability": "Drink according to wine type and vintage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T10:34:33.409514Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[2025-10-21T15:32:31.946Z] === ENHANCED PRODUCT ENRICHMENT STARTED ===
+[2025-10-21T15:32:31.972Z] 
+[2025-10-21T15:32:32.217Z] FATAL ERROR: 
+Invalid `prisma.product.findMany()` invocation in
+/Users/greghogue/Leora2/web/scripts/apply-enhanced-enrichment.ts:114:51
+
+  111 await log('');
+  112 
+  113 // Get all products without enrichment
+→ 114 const unenrichedProducts = await prisma.product.findMany({
+        where: {
+          OR: [
+            {
+              tastingNotes: null
+            },
+            {
+              description: null
+            }
+          ]
+        },
+        select: {
+          id: true,
+          name: true
+        }
+      })
+
+Argument `tastingNotes` is missing.

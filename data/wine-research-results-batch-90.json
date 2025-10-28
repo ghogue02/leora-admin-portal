@@ -1,0 +1,347 @@
+{
+  "batchNumber": 90,
+  "processedAt": "2025-10-21T13:45:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Bonelli Bonarda Amabile (Frizzante, Semi Sweet) Damaged Labels 2022",
+      "description": "A delightful semi-sweet, lightly sparkling red wine from the Colli Piacentini region of Emilia-Romagna. This frizzante showcases the charming character of Bonarda with violet and cherry aromatics, offering a pleasant and approachable style perfect for casual enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant violet and cherry aromas that are characteristic of Bonarda, creating an inviting and aromatic profile. The ruby red color shows hints of violet tones that mirror the aromatic expression, while subtle red berry notes add complexity to the otherwise straightforward but charming bouquet.",
+        "palate": "The palate is pleasant and delicate with medium body, showcasing the wine's semi-sweet character balanced by natural frizzante carbonation. Cherry and red berry flavors dominate, supported by gentle bubbles that lift the fruit and create a refreshing, lively mouthfeel. The wine's sweetness is well-integrated, never cloying, making it highly approachable and versatile.",
+        "finish": "The finish is clean and refreshing with lingering cherry and violet notes carried by the fine bubbles. The wine's gentle sweetness persists alongside the fruit character."
+      },
+      "foodPairings": [
+        "Charcuterie and cured meats",
+        "Fresh strawberries and berries",
+        "Fruit tarts and pastries",
+        "Roasted nuts and dried fruits",
+        "Serve as a refreshing aperitif"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting needed - serve fresh and cold to preserve the frizzante carbonation",
+        "glassware": "Sparkling wine flute or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "DOC Colli Piacentini, Emilia-Romagna, Italy",
+        "grapeVariety": "100% Bonarda (Croatina)",
+        "vintage": "2022",
+        "style": "Semi-sweet frizzante red wine with violet and cherry character",
+        "ageability": "Best enjoyed within 1-2 years of vintage while the fruit is fresh and the carbonation is lively."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Well Crafted Prosecco Freschissimo Sample Bottle NV",
+      "description": "A sample-sized bottle of Italian Prosecco designed for tasting and evaluation. Freschissimo indicates a focus on fresh, crisp character typical of quality Prosecco.",
+      "tastingNotes": {
+        "aroma": "The nose presents typical Prosecco aromatics of green apple, pear, and white flowers, with citrus notes of lemon and lime adding freshness. Subtle hints of acacia blossom provide floral lift.",
+        "palate": "The palate is fresh and lively with flavors of green apple, pear, and citrus supported by fine bubbles. The wine's crisp acidity creates a clean, refreshing mouthfeel that is immediately approachable.",
+        "finish": "The finish is clean and refreshing with lingering apple and citrus notes carried by persistent bubbles."
+      },
+      "foodPairings": [
+        "Aperitif service",
+        "Light appetizers and canapés",
+        "Seafood and shellfish",
+        "Fresh salads",
+        "Fruit-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well chilled",
+        "decanting": "No decanting needed",
+        "glassware": "Prosecco flute or tulip glass"
+      },
+      "wineDetails": {
+        "region": "Veneto, Italy (typical Prosecco region)",
+        "grapeVariety": "Glera (Prosecco grape)",
+        "vintage": "Non-vintage",
+        "style": "Fresh, crisp sparkling wine - sample bottle",
+        "ageability": "Best enjoyed immediately upon release."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rippa Dorii Salomon 2021",
+      "description": "An exceptional single-vineyard Tempranillo from the Salomón parcel in Ribera del Duero, showcasing a more elegant and fresh style than typical powerful Ribera reds. From 40-year-old bush vines in Fuentecén, this wine emphasizes purity and freshness over tannin and power, representing the excellence of the 2021 vintage.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic with an almost opaque purple color, opening with complex aromas of very ripe black fruits including currants, blackberries, and plums. Subtle notes of incense, tobacco, clove, and chocolate add layers of complexity, while hints of black olive tapenade and lightly floral, minty notes provide additional aromatic intrigue. The bouquet is both powerful and refined.",
+        "palate": "The palate is luscious and enveloping with intense, well-integrated acidity that provides structure and lift. Complex flavors of forest fruits, cassis, and balsamic notes create depth, while the wine's purity allows the terroir to shine through. The tannins are sweet and excellently balanced, neither overwhelming nor harsh, creating a mouthfeel that is both rich and elegant with notable freshness.",
+        "finish": "The finish is long and fresh with persistent dark fruit and spice notes. The wine's bright acidity carries through to the end, creating a pure, clean finish that invites another sip."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary and garlic",
+        "Grilled ribeye or chuletón",
+        "Ibérico pork loin",
+        "Wild mushroom risotto",
+        "Aged Manchego or Zamorano cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Decanting for 45-60 minutes highly recommended to allow this elegant wine to open up and reveal its complexity",
+        "glassware": "Large bowl red wine glass or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Fuentecén, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo from 40+ year-old Salomón parcel bush vines",
+        "vintage": "2021",
+        "style": "Elegant, fresh Ribera del Duero emphasizing purity and balance over power",
+        "ageability": "Drink now through 2033. The excellent 2021 vintage and elegant style suggest strong aging potential of 10-15 years, developing tertiary notes of leather, tobacco, and earth."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Les Brebis Willamette Pinot Noir 2018",
+      "description": "An elegant, terroir-driven Pinot Noir from Oregon's Eola-Amity Hills crafted by a small family winery dedicated to minimal intervention. Fermented with native yeasts and aged in French oak, this wine showcases the light, earthy character that defines quality Willamette Valley Pinot Noir.",
+      "tastingNotes": {
+        "aroma": "The nose is beautifully expressive with light earthy aromas including forest floor and mushroom, complemented by vibrant red fruit notes of strawberry and cherry. Subtle hints of rose petal and dried herbs add aromatic complexity, while a delicate spicy quality emerges from the native yeast fermentation and French oak aging.",
+        "palate": "The palate is light and elegant, fruit-forward with flavors of juicy strawberry, black cherry, and red cherry that create an inviting core. Savory notes of truffles, game, and leafy greens add complexity and depth, while the wine's silky texture and integrated tannins provide structure without weight. The overall impression is one of balance and finesse.",
+        "finish": "The finish is graceful with lingering red fruit and earthy notes. The wine's savory character carries through to the end, leaving a complex, satisfying impression."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry reduction",
+        "Grilled salmon with herbs",
+        "Mushroom risotto with Parmesan",
+        "Roasted chicken with root vegetables",
+        "Aged Gruyère or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F), cool room temperature",
+        "decanting": "Brief decanting of 30 minutes recommended to allow the wine to open up, especially if drinking young",
+        "glassware": "Burgundy glass with a large bowl to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Eola-Amity Hills AVA, Willamette Valley, Oregon",
+        "grapeVariety": "100% Pinot Noir from sustainably grown grapes",
+        "vintage": "2018",
+        "style": "Light, elegant Pinot Noir with earthy character, native yeast fermentation, minimal intervention",
+        "ageability": "Drink now through 2028. This wine is drinking beautifully now and will develop additional earthy, savory complexity over the next 5-7 years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Coelheira Red (WINE CLUB) 2019",
+      "description": "A Portuguese red wine from a wine club selection. Based on the name 'Coelheira' (Portuguese), this is likely a blend from a Portuguese wine region showcasing traditional varieties and winemaking techniques.",
+      "tastingNotes": {
+        "aroma": "The nose presents traditional Portuguese red wine aromatics with ripe dark fruits including blackberry and plum, complemented by earthy notes and hints of Mediterranean herbs. Subtle spice and oak influence add complexity.",
+        "palate": "The palate showcases rich dark fruit flavors supported by moderate tannins and balanced acidity. The wine's structure suggests traditional Portuguese winemaking with good concentration and depth.",
+        "finish": "The finish is medium to long with lingering dark fruit and spice notes. The wine's balanced structure carries through to the end."
+      },
+      "foodPairings": [
+        "Grilled Portuguese-style meats",
+        "Roasted lamb with herbs",
+        "Hearty stews and braises",
+        "Aged sheep's milk cheese",
+        "Charcuterie and cured meats"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Decanting for 30-45 minutes recommended",
+        "glassware": "Standard red wine glass or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Portugal (specific region not identified)",
+        "grapeVariety": "Portuguese red blend (specific varieties not identified)",
+        "vintage": "2019",
+        "style": "Traditional Portuguese red wine",
+        "ageability": "Drink now through 2026. Best enjoyed over the next 4-5 years."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.60,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Chardonnay 2024",
+      "description": "A biodynamic Chardonnay from one of the world's most sustainable wineries, B Corp certified Château Maris in Languedoc. The estate is renowned for its organic and biodynamic practices, producing wines that express terroir with purity and environmental consciousness.",
+      "tastingNotes": {
+        "aroma": "The nose is aromatic and fresh, showcasing tropical fruits including pineapple and mango, complemented by honeysuckle and lemon rind. Notes of peach add stone fruit complexity, while subtle mineral undertones speak to the biodynamic viticulture and terroir expression.",
+        "palate": "The palate is fresh and focused with vibrant tropical fruit flavors balanced by bright acidity. The wine's clean, pure fruit expression reflects minimal intervention winemaking, while subtle richness from lees contact adds texture without heaviness. The overall impression is one of freshness and balance.",
+        "finish": "The finish is crisp and clean with lingering citrus and tropical fruit notes. The wine's bright acidity carries through to the end, leaving a refreshing impression."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean fish",
+        "Seafood paella",
+        "Roasted chicken with lemon and herbs",
+        "Goat cheese salad",
+        "Light pasta with cream sauce"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), well chilled",
+        "decanting": "No decanting needed - serve fresh",
+        "glassware": "Standard white wine glass or Chardonnay-specific glass"
+      },
+      "wineDetails": {
+        "region": "Languedoc, France (Cru La Livinière)",
+        "grapeVariety": "100% Chardonnay from organic/biodynamic vineyards",
+        "vintage": "2024",
+        "style": "Fresh, aromatic biodynamic Chardonnay with tropical fruit character",
+        "ageability": "Best enjoyed within 2-3 years of vintage to capture the fresh fruit and vibrant character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Sauvignon Blanc 2024",
+      "description": "A vibrant Sauvignon Blanc from Washington State's first certified-sustainable vineyards in Yakima Valley. This family-owned, small-production winery crafts premium estate-grown wines that showcase the unique character of Eastern Washington terroir.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with tropical fruit aromatics including starfruit, kiwi, and golden pineapple, creating an exotic and inviting bouquet. Hints of fresh-cut grass add classic Sauvignon Blanc character, while subtle notes of citrus blossom provide aromatic lift.",
+        "palate": "The palate explodes with flavors of guava, passion fruit, overripe peaches, and mango that create a lush, fruit-forward core. Just a touch of zesty anise adds complexity and interest, while the wine's bright acidity provides structure and balance. The mouthfeel is fresh and vibrant, showcasing the purity of sustainable viticulture.",
+        "finish": "The finish is long and tropical with lingering passion fruit and citrus notes. The wine's refreshing acidity carries through to the end, leaving a clean, invigorating impression."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood",
+        "Thai green curry",
+        "Goat cheese with herbs",
+        "Grilled chicken with mango salsa",
+        "Ceviche and citrus-based dishes"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting needed - serve fresh from the refrigerator",
+        "glassware": "Standard white wine glass or Sauvignon Blanc-specific glass"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley AVA, Washington State",
+        "grapeVariety": "100% Sauvignon Blanc from certified-sustainable estate vineyards",
+        "vintage": "2024",
+        "style": "Tropical, fruit-forward Sauvignon Blanc with vibrant acidity",
+        "ageability": "Best enjoyed within 1-2 years of vintage to capture the fresh tropical fruit character at its peak."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Cabernet Sauvignon 375ml 2020  375 ml",
+      "description": "A half-bottle (375ml) of Paso Robles Cabernet Sauvignon from the esteemed Whale Rock Vineyard. This broad-shouldered wine showcases the power and richness that Paso Robles Cabernet can achieve, with formidable aging potential despite its approachable nature.",
+      "tastingNotes": {
+        "aroma": "The nose is rich and inviting with aromas of black currant, blackberry, and plum creating a dark fruit core. Mocha, cocoa, and woodsmoke notes from aging in American and French oak add complexity, while subtle hints of cassis and dark berry provide additional depth.",
+        "palate": "The palate is packed with black fruit and raspberry flavors framed by mocha nuances from oak aging. Flavors of boysenberry, plum, and dark chocolate create richness, while integrated oak adds vanilla and toasted notes. The wine's structure is broad-shouldered with ripe tannins that provide backbone without harshness, creating a mouthfeel that is both powerful and refined.",
+        "finish": "The finish is long and satisfying with persistent dark fruit, chocolate, and oak spice notes. The tannins are well-integrated, carrying through with excellent balance."
+      },
+      "foodPairings": [
+        "Grilled ribeye or New York strip steak",
+        "Braised short ribs",
+        "BBQ brisket",
+        "Aged cheddar or aged Gouda",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F), slightly cool room temperature",
+        "decanting": "Decanting for 30-45 minutes recommended to soften tannins and allow oak to integrate",
+        "glassware": "Large bowl red wine glass or Cabernet-specific glass"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, Whale Rock Vineyard, California",
+        "grapeVariety": "100% Cabernet Sauvignon from estate Whale Rock Vineyard",
+        "vintage": "2020",
+        "style": "Rich, powerful Paso Robles Cabernet with oak aging and aging potential",
+        "ageability": "Drink now through 2032. Ready to drink now but also has formidable aging potential of 10+ years, developing additional complexity with time."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Adeline 2017",
+      "description": "A tropical-style white blend from Zephaniah Farm Vineyard in Virginia's Loudoun County. This wine showcases the diversity of white grapes that can thrive in Virginia's climate, blending aromatic and fruit-forward varieties into a distinctive American wine.",
+      "tastingNotes": {
+        "aroma": "The nose is aromatic and tropical with pronounced pineapple and mango aromas that create an exotic, inviting bouquet. Tree fruit notes including apple and pear add complexity, while floral hints from aromatic varieties like Muscat provide lift and interest.",
+        "palate": "The palate showcases vibrant tropical flavors of pineapple and mango supported by bright acidity. Tree fruit flavors add depth and balance, while the wine's clean, fruit-forward character reflects stainless steel fermentation. The mouthfeel is fresh and lively, showcasing the purity of Virginia fruit.",
+        "finish": "The finish is clean and refreshing with lingering tropical fruit and citrus notes. The wine's bright acidity carries through to the end."
+      },
+      "foodPairings": [
+        "Grilled shrimp with mango salsa",
+        "Thai coconut curry",
+        "Fresh crab cakes",
+        "Fruit-based salads",
+        "Soft cheeses with tropical fruit"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting needed - serve fresh",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Northern Virginia, USA",
+        "grapeVariety": "White blend including Muscat Ottonel, Viognier, Petit Manseng, Vermentino, and/or Vidal Blanc",
+        "vintage": "2017",
+        "style": "Tropical, aromatic white blend with pineapple and mango character",
+        "ageability": "Best enjoyed within 2-3 years of vintage while the tropical fruit character is fresh and vibrant."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lambert Estate A Thousand Words Chardonnay 2024",
+      "description": "An opulent, oak-influenced Chardonnay from Barossa Valley that showcases the rich, toasty style this region can produce. Hand-picked and basket-pressed, this wine is slowly fermented and aged on lees to develop complexity and creamy texture.",
+      "tastingNotes": {
+        "aroma": "The nose presents vibrant gold color with fruity aromas of lemon, pineapple, and nectarine creating a tropical and stone fruit core. Toasty oak notes of butterscotch, melted butter, and vanilla add richness and complexity, while subtle hazelnut undertones provide additional interest.",
+        "palate": "The palate is opulent and creamy with rich notes of hazelnut and butterscotch from oak aging framing the stone fruit flavors. Fleshy yellow fruit and vanilla tones create depth, while the wine's creamy texture from lees aging adds richness. The oak influence is prominent, giving the wine a toasty character that some may find dominant.",
+        "finish": "The finish is long and rich with lingering butterscotch, vanilla, and toasted oak notes. The wine's creamy texture persists through the finish."
+      },
+      "foodPairings": [
+        "Lobster with drawn butter",
+        "Roasted chicken with cream sauce",
+        "Grilled scallops",
+        "Rich seafood pasta",
+        "Soft, creamy cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F), lightly chilled",
+        "decanting": "No decanting needed, though brief aeration may help integrate oak",
+        "glassware": "Chardonnay or white Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "100% Chardonnay from Lambert Estate Vineyard",
+        "vintage": "2024",
+        "style": "Rich, opulent Chardonnay with prominent oak influence and creamy texture",
+        "ageability": "Drink now through 2027. This oak-influenced style is best enjoyed within 2-3 years to capture the fruit before oak dominates further."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-21T13:45:00.000Z"
+      }
+    }
+  ]
+}

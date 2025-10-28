@@ -1,0 +1,358 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 61,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Adir Marselan Rosel (MD & DC) 2023",
+      "description": "A traditionally crafted kosher rosé from the Upper Galilee that showcases the unique Marselan grape variety. This light-bodied wine undergoes minimal skin contact and a long, cool forty-day fermentation to preserve its vibrant aromatics and fresh character. Perfect for summer enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with intense aromas of ripe strawberries and fresh red grapefruit that immediately capture attention. Delicate layers of rose petals and gentle herbal notes emerge, creating a complex aromatic profile. The cool fermentation preserves these vibrant scents, with subtle hints of rose leaves adding an elegant floral dimension that lingers in the glass.",
+        "palate": "Light-bodied and refreshing, the palate mirrors the nose with bright strawberry fruit at the forefront. The wine's cool fermentation technique ensures intense flavors despite its delicate structure, with red grapefruit providing zesty brightness. Fresh acidity cuts through cleanly, while soft, almost imperceptible tannins from the brief two-hour skin contact add just enough texture to give the wine presence without weighing it down.",
+        "finish": "The finish is long and aromatic, maintaining the wine's fresh character to the very end. Lingering notes of strawberry and citrus peel fade slowly, leaving a clean, refreshing impression. The bright acidity ensures the finish remains crisp and vibrant, inviting the next sip."
+      },
+      "foodPairings": [
+        "Grilled salmon with fresh herbs",
+        "Mediterranean mezze platter with hummus and tabbouleh",
+        "Caprese salad with heirloom tomatoes",
+        "Light seafood pasta with white wine sauce",
+        "Fresh goat cheese and summer berries"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well-chilled",
+        "decanting": "No decanting required; serve directly from the bottle to preserve freshness and aromatics",
+        "glassware": "White wine glass or universal wine glass to concentrate the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Upper Galilee, Israel",
+        "grapeVariety": "100% Marselan",
+        "vintage": "2023",
+        "style": "Light-bodied dry rosé, kosher certified",
+        "ageability": "Best enjoyed within 1-2 years of vintage to preserve fresh fruit character and vibrant acidity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["Wine Searcher", "Vivino", "Producer website - Adir Winery"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Libertine Gradient Vineyard Chardonnay 2022",
+      "description": "An extraordinarily limited production Chardonnay from Oregon's Willamette Valley that defies convention. With only 66 cases produced, this wine embraces a minimalist winemaking philosophy with native yeast fermentation in neutral oak and zero additions beyond minimal sulfites. The style is more Chablis than California, emphasizing minerality and precision over richness.",
+      "tastingNotes": {
+        "aroma": "Lemon pulp and lime zest burst from the glass in a delightful citrus-driven bouquet that immediately signals the wine's fresh, precise style. Subtle background notes reminiscent of marine fossils and chalky minerals dance around the rim, evoking ancient seabeds. The neutral oak barrel fermentation allows these pure aromatics to shine without any oak influence, creating a nose that is both intense and refined, with an earthy undertone that adds complexity.",
+        "palate": "The palate showcases racy acidity that provides a vibrant backbone to concentrated citrus flavors of lemon and lime. This wine emphasizes its earthy side, with mineral notes more prominent than fruit, creating a Chablis-like character that prioritizes tension and energy. The texture is lean and precise, with the neutral oak providing subtle structure without adding flavor. Native vineyard yeasts contribute complexity and a distinctive sense of place that commercial yeasts cannot replicate.",
+        "finish": "The finish is long and mineral-driven, with chalky notes persisting alongside bright citrus. The wine's natural acidity ensures a clean, refreshing conclusion that leaves the palate energized. Flinty, saline notes emerge at the very end, making this an ideal oyster wine and demonstrating remarkable precision."
+      },
+      "foodPairings": [
+        "Fresh Pacific oysters on the half shell",
+        "Seared scallops with brown butter and capers",
+        "Grilled Dover sole with lemon and herbs",
+        "Dungeness crab with drawn butter",
+        "Fresh chevre with crusty bread"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), slightly warmer than typical white wines to appreciate complexity",
+        "decanting": "Brief aeration in the glass recommended; allow 10-15 minutes to open and reveal full mineral complexity",
+        "glassware": "Burgundy glass or premium white wine glass to capture delicate aromatics and minerality"
+      },
+      "wineDetails": {
+        "region": "Gradient Vineyard, Willamette Valley, Oregon",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Lean, mineral-driven, Chablis-style Chardonnay; unfined, unfiltered",
+        "ageability": "Drink now through 2028; the mineral structure and acidity suggest good aging potential despite the minimalist winemaking"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["Wine merchant descriptions", "Libertine Wines producer information"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Lo Mon 2018",
+      "description": "A powerful expression of Priorat's unique llicorella slate soils, blending four complementary grape varieties. This wine underwent twelve months in French oak casks followed by an additional eighteen months of bottle aging before release. The 2018 vintage earned 91 points from critics, showcasing the wine's balance of power and elegance.",
+      "tastingNotes": {
+        "aroma": "The nose displays remarkable complexity with balsamic hints interwoven with vibrant red fruit and citrus peel creating an intriguing aromatic tapestry. Ashy mineral notes emerge from the llicorella slate soils, combined with black spices that add depth and intrigue. Creamy oak integration is evident but never overwhelming, with additional layers of black fruit, cocoa bean, and fine reductive notes suggesting careful barrel management. Mediterranean scrubland aromas add an authentic sense of place.",
+        "palate": "Potent and long on the palate, this wine demonstrates the power Priorat is famous for while maintaining remarkable elegance. The texture is very round with silky tannins that coat the mouth gently despite the wine's intensity. Ripe fruit notes of blackberry and plum dominate, supported by spicy hints from both the grapes and oak aging. The characteristic mineral freshness from the llicorella slate adds a layer of complexity and provides a refreshing counterpoint to the wine's richness, preventing it from becoming heavy.",
+        "finish": "The finish is notably long, with the wine's mineral backbone ensuring it doesn't fade quickly. Silky tannins persist, along with echoes of ripe fruit and subtle spice. The llicorella-derived minerality provides elegance and lift on the finish, adding freshness that balances the wine's natural power and ensures a clean, sophisticated conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Braised short ribs with red wine reduction",
+        "Aged Manchego cheese with quince paste",
+        "Wild mushroom risotto with truffle oil",
+        "Roasted duck breast with cherry gastrique"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), slightly cooler than room temperature",
+        "decanting": "Decant for 1-2 hours before serving to allow the wine to open fully and soften tannins; this wine will reward patience",
+        "glassware": "Large Bordeaux glass to allow the complex aromatics to develop and concentrate"
+      },
+      "wineDetails": {
+        "region": "Priorat DOCa, Catalonia, Spain",
+        "grapeVariety": "Blend of Grenache, Carignan, Syrah, and Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Full-bodied, powerful red with mineral complexity from llicorella slate soils",
+        "ageability": "Drink now through 2030; the structure and acidity suggest this wine will continue to evolve and integrate over the next 5-7 years"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["Wine Searcher", "Producer website", "Professional critics - 91 points"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Albina Verdejo 2023",
+      "description": "A classic expression of Rueda's signature white grape from the respected Bodegas Riojanas. This 100% Verdejo showcases the grape's characteristic freshness and aromatic intensity. The 2023 vintage received 87 points from the Peñín Guide, while previous vintages earned 90 points from James Suckling, demonstrating consistent quality.",
+      "tastingNotes": {
+        "aroma": "High intensity aromatics burst from the glass with elegant complexity that is immediately engaging. The bouquet combines pronounced white fruit notes of crisp apple and juicy pear with exotic tropical hints that add intrigue. Herbal aromas of fennel and chamomile provide an authentic varietal signature, while a balsamic background adds depth and sophistication. The bright straw yellow color with greenish iridescence signals the wine's youth and freshness.",
+        "palate": "Bright, fresh, and crisp on the palate, this Verdejo shows classic varietal character with light to medium body. Golden berries and blanched almonds provide subtle complexity beneath the primary fruit flavors. The wine maintains excellent balance between its fruity taste and refreshing acidity, with light flavors that never become heavy. A characteristic hint of bitterness at the finish is typical of quality Verdejo and adds interest, preventing the wine from being one-dimensional.",
+        "finish": "The finish is clean and refreshing, with that signature Verdejo bitterness providing structure and encouraging another sip. The wine's natural acidity ensures the finish doesn't linger heavily but fades gracefully. Subtle herbal notes echo from the nose, while the overall impression is one of brightness and vitality perfect for warm weather enjoyment."
+      },
+      "foodPairings": [
+        "Grilled white fish with lemon and olive oil",
+        "Seafood paella or arroz negro",
+        "Fresh mozzarella and tomato with basil",
+        "Fried calamari with aioli",
+        "Marcona almonds and Spanish olives"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well-chilled to emphasize freshness",
+        "decanting": "No decanting needed; serve directly from the bottle to preserve the wine's bright, crisp character",
+        "glassware": "Standard white wine glass to capture the aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Rueda DO, Castilla y León, Spain",
+        "grapeVariety": "100% Verdejo",
+        "vintage": "2023",
+        "style": "Crisp, aromatic dry white wine with characteristic varietal bitterness",
+        "ageability": "Best consumed within 1-2 years of vintage while the wine retains its fresh, vibrant character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["Peñín Guide - 87 points", "Producer website - Bodegas Riojanas", "Wine Searcher"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Albina Gran Reserva 2014 5001618",
+      "description": "A traditionally crafted Rioja Gran Reserva from the esteemed Bodegas Riojanas that represents exceptional value. This wine received 91 points from the Peñín Guide and spent extensive time aging in oak and bottle before release. The 2014 vintage is described as more polished, rounder, and softer than earlier vintages, showing beautiful evolution.",
+      "tastingNotes": {
+        "aroma": "The nose presents elegant complexity with well-blended aromas that speak to the wine's extended aging. Nice sour cherry notes form the aromatic core, complemented by developed characteristics of leather and Mediterranean scrub that add authenticity. Hints of wood aging are present but beautifully integrated, never dominating the fruit. The ruby red color with a tawny rim signals maturity and proper development, while subtle earthy notes add layers of interest.",
+        "palate": "The palate is very fine and well-structured, demonstrating textbook Gran Reserva character. Beautiful cassis fruit flavors mingle with the wine's aged characteristics, creating complexity without losing freshness. Good acidity provides backbone and ensures the wine doesn't feel heavy despite its concentration. The tannins are notably polished and refined, having softened considerably during aging to create a silky, approachable texture. The blend of Tempranillo with Mazuelo, Graciano, and Cariñena adds dimension and complexity that pure Tempranillo cannot achieve.",
+        "finish": "The finish is long and satisfying, with the polished tannins providing structure without astringency. Echoes of sour cherry and leather persist, along with subtle oak influence that has integrated beautifully over time. The wine's good acidity ensures a clean conclusion that doesn't fatigue the palate, making this approachable for extended enjoyment."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with garlic and herbs",
+        "Aged Spanish cheeses, particularly Manchego or Idiazábal",
+        "Slow-cooked beef stew with vegetables",
+        "Grilled ribeye steak with chimichurri",
+        "Chorizo and lentil cassoulet"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), slightly below room temperature to preserve freshness",
+        "decanting": "Decant for 30-45 minutes to allow the wine to breathe and reveal its full complexity; the extended aging means it's ready to drink but will benefit from aeration",
+        "glassware": "Bordeaux or large red wine glass to allow the developed aromatics to concentrate"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo, Mazuelo, Graciano, and Cariñena blend",
+        "vintage": "2014",
+        "style": "Traditional Rioja Gran Reserva with extended oak and bottle aging; 13.5% alcohol",
+        "ageability": "Drinking beautifully now through 2026; the wine is already showing mature characteristics and is ready for enjoyment"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["CellarTracker - 89 average score", "Peñín Guide - 91 points", "Multiple consumer reviews"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Avoglia Susumaniello 2024",
+      "description": "A delightful expression of Puglia's indigenous Susumaniello grape, affectionately known as 'Puglia's Beaujolais' for its fresh, juicy character. This wine is refined exclusively in stainless steel to preserve its youthful vibrancy and is best enjoyed slightly chilled. The Susumaniello grape is a fascinating crossing of Garganega and Uva Sogra, creating a unique flavor profile.",
+      "tastingNotes": {
+        "aroma": "Super-fresh aromas of black cherry and raspberry dominate the nose with exuberant fruit purity that immediately appeals. Violet notes add floral elegance and lift, while a subtle touch of fresh strawberry jam provides an inviting sweetness. The ruby red color with violet reflections signals the wine's youth and freshness. Additional layers of blackberry, plum, and hints of black pepper and spices emerge, creating surprising complexity for such a fresh, approachable style.",
+        "palate": "Soft tannins and violet-laced fruit create a silky, approachable palate that emphasizes drinkability. The wine showcases lovely ripe purity with concentrated red berry fruits that taste fresh and vibrant. The stainless steel aging preserves a young, fresh, and dynamic character without any oak influence. The texture is round and harmonious, while the soft structure makes this wine incredibly versatile. The slight chill recommended for serving enhances the wine's refreshing qualities and makes it perfect for casual enjoyment.",
+        "finish": "The finish is clean and fruit-forward, with soft tannins fading gently without astringency. Lingering notes of cherry and violet persist pleasantly. The wine's fresh character ensures the finish is bright and inviting, encouraging another glass rather than overwhelming the palate."
+      },
+      "foodPairings": [
+        "Charcuterie board with Italian salumi",
+        "Margherita pizza with fresh mozzarella",
+        "Grilled vegetables with balsamic glaze",
+        "Pasta with tomato-based sauce and basil",
+        "Burrata cheese with ripe tomatoes and olive oil"
+      ],
+      "servingInfo": {
+        "temperature": "12-14°C (54-57°F), slightly chilled to enhance freshness",
+        "decanting": "No decanting necessary; this wine is meant to be enjoyed young and fresh, straight from the bottle",
+        "glassware": "Standard red wine glass or even a white wine glass given the lighter style and recommended serving temperature"
+      },
+      "wineDetails": {
+        "region": "Puglia IGP, Southern Italy",
+        "grapeVariety": "100% Susumaniello (a crossing of Garganega and Uva Sogra)",
+        "vintage": "2024",
+        "style": "Light to medium-bodied, fresh and fruity red wine; 13.5% alcohol; serve slightly chilled",
+        "ageability": "Best enjoyed within 1-2 years of vintage to preserve the fresh, vibrant fruit character; this wine is designed for immediate enjoyment"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["Producer website - Tenuta Giustini", "Wine merchant descriptions", "Vivino"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Martino Sangiovese 2020",
+      "description": "A classically styled Sangiovese that showcases the grape's characteristic versatility and food-friendliness. While specific producer information is limited, this wine demonstrates the typical characteristics that make Sangiovese Italy's most planted red grape variety, with naturally high acidity and noticeable tannin providing structure and aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose opens with classic Sangiovese red fruit aromatics, prominently featuring red cherry and strawberry that define the varietal. Fresh raspberry notes add brightness and appeal, while subtle earthy undertones reminiscent of tea leaf emerge. As the wine opens, delicate hints of tobacco begin to develop, suggesting some complexity beyond simple fruit. The overall aromatic profile is medium intensity, inviting but not overwhelming, with a focus on purity of fruit expression.",
+        "palate": "Medium to full-bodied with a firm structure characteristic of quality Sangiovese, this wine showcases red cherry as the dominant flavor, supported by additional notes of strawberry and plum. The naturally high acidity that defines the variety provides excellent backbone and ensures the wine pairs beautifully with food. Noticeable but well-integrated tannins give the wine grip and structure, coating the palate without excessive astringency. Subtle earthy tones of dried herbs and tea leaves add complexity beneath the fruit, while the overall balance suggests thoughtful winemaking.",
+        "finish": "The finish is moderately long with persistent acidity that cleanses the palate and makes you reach for food. The tannins linger pleasantly, providing structure without harshness. Echoes of red cherry and subtle earthy notes fade gradually, leaving a clean, dry impression that is quintessentially Sangiovese."
+      },
+      "foodPairings": [
+        "Margherita pizza or pasta with marinara sauce",
+        "Grilled chicken breast with lemon and herbs",
+        "Eggplant parmesan or other vegetable-based Italian dishes",
+        "Medium-aged hard cheeses like Pecorino Toscano",
+        "Tuscan bean soup with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), slightly cooler than room temperature to preserve freshness",
+        "decanting": "Brief decanting of 30 minutes recommended to soften tannins and allow the wine to open; young Sangiovese benefits from aeration",
+        "glassware": "Medium-sized red wine glass to concentrate aromatics while allowing the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Italy (specific region undetermined)",
+        "grapeVariety": "100% Sangiovese",
+        "vintage": "2020",
+        "style": "Medium to full-bodied, classically styled Sangiovese with high acidity and firm tannins",
+        "ageability": "Drink now through 2026; the wine's structure suggests it can hold for several years but is approachable now"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["General Sangiovese characteristics from multiple professional sources", "Wine Enthusiast", "Decanter magazine"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Orange NV",
+      "description": "A distinctive organic orange wine crafted from Muscat Petit Grain grapes with extended skin contact and fermentation at red wine temperatures. This natural winemaking approach creates a wine with deeper color, more intense flavor, and subtle tannic presence. Château Maris is known for their biodynamic farming practices in the Languedoc region.",
+      "tastingNotes": {
+        "aroma": "The nose evokes the end of summer with inviting aromas of white peach and nectarine that immediately transport you to warmer days. Bright notes of apricot and candied fruit add sweetness and complexity to the aromatic profile. Despite the wine being completely dry, the sweet Muscat fruit aromatics are beautifully preserved and intensified by the skin contact. Hints of orange peel and subtle floral notes typical of Muscat add layers of interest, while the extended maceration contributes deeper, more complex aromatics than typical white wines.",
+        "palate": "Very fresh for an orange wine, with bright summer fruit flavors of white peach, apricot, and nectarine dominating the palate. The extended skin contact creates an interesting textural paradox: the wine tastes of sweet, ripe Muscat fruit but is bone dry, with that contrast creating intrigue. Hints of seeds and nuts add complexity and earthiness, while a pithy citrus quality provides bite and freshness. Subtle tannins give the wine enough structure to pair with both appetizers and main courses, setting it apart from typical white wines. The overall impression is one of freshness and drinkability despite the unconventional winemaking.",
+        "finish": "The finish shows the wine's unique character with a little presence of tannin providing grip and interest. The dry nature becomes most apparent on the finish, where the initial fruit sweetness gives way to a clean, slightly structured conclusion. Citrus acidity provides bite and freshness that cleanses the palate, while the subtle tannic presence adds length and complexity rarely found in white wines."
+      },
+      "foodPairings": [
+        "Perfect as an aperitif with mixed nuts and olives",
+        "Summer meal starters and salads",
+        "Grilled chicken or pork with fruit-based sauces",
+        "Moroccan tagine with apricots",
+        "Aged Gruyère or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F), slightly warmer than typical white wine to appreciate the wine's complexity and texture",
+        "decanting": "Brief aeration helpful; allow 15-20 minutes in the glass for the wine to open and reveal its full aromatic potential",
+        "glassware": "White wine glass with a slightly larger bowl to accommodate the wine's enhanced aromatics and textural components"
+      },
+      "wineDetails": {
+        "region": "Languedoc, Southern France",
+        "grapeVariety": "100% Muscat Petit Grain",
+        "vintage": "Non-vintage (NV)",
+        "style": "Organic orange wine (skin-contact white) with extended maceration; bone dry despite aromatic sweetness",
+        "ageability": "Best enjoyed within 2-3 years; the fresh fruit character is a key component that will fade with extended aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["Wine merchant descriptions", "Wine-pages.com", "Producer information"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Poggio Scudieri Chianti Classico Riserva 2019",
+      "description": "A Chianti Classico Riserva from the historic Tuscan winemaking family Poggio Scudieri, whose roots in the region date back to 1890. Made from Sangiovese as required by DOCG regulations, this wine underwent extended aging before release. The 2019 vintage received a CellarTracker score of 87 based on consumer reviews.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Sangiovese aromatics with raspberry as the dominant note, expressing the grape's characteristic red fruit profile. The wine shows moderate intensity with a focus on purity of fruit expression rather than overwhelming complexity. Subtle oak influence is present, adding a gentle vanilla and spice background that supports rather than dominates the fruit. As the wine opens, hints of dried cherry and subtle earthy notes begin to emerge, adding dimension to the aromatic profile.",
+        "palate": "Light to medium-bodied with an approachable, easy-drinking character that makes this wine perfect for casual occasions. The raspberry fruit from the nose carries through to the palate, joined by light berry flavors that remain fresh and vibrant. Low acidity makes the wine softer and more immediately appealing, though this also means it should be enjoyed relatively young. A bit of tannin provides structure without making the wine aggressive, while the oak influence adds subtle complexity and a light spicy note. The overall impression is one of balance and drinkability rather than power or concentration.",
+        "finish": "The finish is moderate in length with the light berry character fading gracefully. Oak influence is most noticeable on the finish, adding a gentle toasted quality without bitterness. The soft tannins persist just long enough to provide structure, while the overall conclusion is clean and approachable, making this an excellent wine for pairing with a wide range of foods."
+      },
+      "foodPairings": [
+        "Classic margherita pizza or pasta pomodoro",
+        "Grilled vegetables with olive oil and herbs",
+        "Roasted chicken with rosemary and garlic",
+        "Mild to medium-aged Tuscan cheeses",
+        "Mushroom risotto or pasta with porcini"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), standard red wine serving temperature",
+        "decanting": "Brief decanting of 20-30 minutes helpful to allow the wine to breathe and integrate; the relatively soft structure means extended decanting is unnecessary",
+        "glassware": "Standard red wine glass or Chianti glass to concentrate the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Chianti Classico DOCG, Tuscany, Italy",
+        "grapeVariety": "Sangiovese (as required by Chianti Classico DOCG regulations)",
+        "vintage": "2019",
+        "style": "Light to medium-bodied Chianti Classico Riserva with approachable tannins and soft acidity",
+        "ageability": "Drink now through 2025; the wine's softer structure suggests it's ready for enjoyment and won't benefit significantly from extended cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["CellarTracker - 87 average score", "Consumer reviews", "Historical producer information"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Well Crafted Prosecco Freschissimo Keg NV  20000 ml",
+      "description": "A large-format keg Prosecco designed for on-tap service and events. While specific producer information for this brand is limited, this wine follows the classic Prosecco style from the Veneto region. The 20-liter keg format ensures maximum freshness and is ideal for entertaining or commercial service.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Prosecco aromatics with fresh green apple and ripe pear leading the way, creating an immediately appealing and accessible bouquet. Delicate white floral notes add elegance and lift, reminiscent of acacia blossoms or white flowers. Citrus hints of lemon zest provide brightness and energy, while the overall aromatic profile emphasizes freshness and vibrancy. The keg format helps preserve these delicate aromatics by protecting the wine from oxygen exposure until service.",
+        "palate": "Light-bodied and refreshing with persistent fine bubbles that create a creamy mousse on the palate. The primary fruit flavors mirror the nose, with crisp green apple and pear dominating, supported by subtle citrus notes that add zest. A hint of almond characteristic of quality Prosecco provides subtle complexity, while the overall flavor profile remains clean and focused on freshness. The wine is off-dry with just enough residual sweetness to balance the bright acidity, creating an appealing, crowd-pleasing style. The keg format ensures the wine tastes as fresh with the last pour as the first.",
+        "finish": "The finish is clean and refreshing with the fine bubbles persisting pleasantly. Light fruit notes fade gracefully without becoming cloying, while the wine's natural acidity provides a crisp conclusion. The off-dry style means the finish is approachable and never austere, making this an excellent choice for aperitivo or celebrations."
+      },
+      "foodPairings": [
+        "Classic aperitivo with prosciutto and melon",
+        "Light seafood appetizers and fried calamari",
+        "Fresh fruit salad or fruit-based desserts",
+        "Soft, mild cheeses like fresh mozzarella or Robiola",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well-chilled to emphasize freshness and maintain bubbles",
+        "decanting": "Not applicable for keg service; the keg system provides optimal serving conditions directly from the tap",
+        "glassware": "Prosecco flute or white wine glass to showcase the bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Veneto, Italy (traditional Prosecco region)",
+        "grapeVariety": "Glera (the primary grape for Prosecco DOC)",
+        "vintage": "Non-vintage (NV)",
+        "style": "Light-bodied sparkling wine; off-dry; Charmat method; 20-liter keg format for on-tap service",
+        "ageability": "Consume immediately; Prosecco is designed for fresh, immediate enjoyment and the keg format is ideal for events and gatherings"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "sources": ["General Prosecco characteristics", "Keg wine format guidelines", "Prosecco DOC standards"]
+      }
+    }
+  ]
+}

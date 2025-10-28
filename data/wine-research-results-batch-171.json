@@ -1,0 +1,347 @@
+{
+  "batchNumber": 171,
+  "processedAt": "2025-10-21T12:53:09.904Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Remhoogte Chronicle Cape Estate Blend  1.5 L 2019  1.5 l",
+      "description": "A 2019 wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2019",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Black Elephant Vintners Power of Love Chenin Blanc 2023",
+      "description": "A 2023 wine from California, showcasing crisp acidity and vibrant aromatics. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of citrus and green apple lead the nose, accented by honeysuckle. Underlying flint adds terroir complexity. The profile is fresh, vibrant, and inviting.",
+        "palate": "Crisp acidity provides excellent structure, supporting flavors of pear, white peach, and melon. The mid-palate shows jasmine and subtle chalk. Medium-bodied with good concentration and balance.",
+        "finish": "Clean and persistent finish with citrus and mineral notes. Bright acidity leaves the palate refreshed. Excellent length and purity."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled sea bass with lemon",
+        "Goat cheese salad",
+        "Chicken piccata",
+        "Seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Chenin Blanc",
+        "vintage": "2023",
+        "style": "Crisp white wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Cabernet Sauvignon 2020",
+      "description": "A 2020 wine from California, showcasing bold fruit character and structured tannins. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals concentrated aromas of dark cherry and plum, complemented by notes of cinnamon and tobacco. Additional layers of vanilla and oak-derived graphite add complexity. The nose is intense yet refined, showing excellent concentration.",
+        "palate": "On the palate, flavors of cassis and blackcurrant dominate, supported by well-integrated tannins. The mid-palate reveals clove, truffle, and subtle oak. Balanced acidity provides freshness while the texture is smooth and velvety. The wine shows impressive depth and complexity.",
+        "finish": "The finish is long and persistent, with blueberry flavors lingering alongside cedar. Refined tannins suggest good aging potential. The aftertaste is memorable and complex."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs in wine reduction",
+        "Aged hard cheeses",
+        "Wild mushroom risotto",
+        "Roasted lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 30-60 minutes to open aromatics",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2020",
+        "style": "Full-bodied red wine",
+        "ageability": "Drink now through 2030; can age 5-10 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Rose 2023",
+      "description": "A 2023 wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2023",
+        "style": "Dry rosé",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Avoglia Primitivo 2024",
+      "description": "A 2024 wine from California, showcasing bold fruit character and structured tannins. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals concentrated aromas of cassis and blackcurrant, complemented by notes of vanilla and truffle. Additional layers of nutmeg and oak-derived forest floor add complexity. The nose is intense yet refined, showing excellent concentration.",
+        "palate": "On the palate, flavors of blueberry and black raspberry dominate, supported by well-integrated tannins. The mid-palate reveals cedar, cocoa, and subtle oak. Balanced acidity provides freshness while the texture is smooth and velvety. The wine shows impressive depth and complexity.",
+        "finish": "The finish is long and persistent, with blackberry flavors lingering alongside star anise. Refined tannins suggest good aging potential. The aftertaste is memorable and complex."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs in wine reduction",
+        "Aged hard cheeses",
+        "Wild mushroom risotto",
+        "Roasted lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 30-60 minutes to open aromatics",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2024",
+        "style": "Full-bodied red wine",
+        "ageability": "Drink now through 2030; can age 5-10 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Sauvignon Blanc 2021",
+      "description": "A 2021 wine from California, showcasing crisp acidity and vibrant aromatics. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of melon and lemon zest lead the nose, accented by white flowers. Underlying wet stone adds terroir complexity. The profile is fresh, vibrant, and inviting.",
+        "palate": "Crisp acidity provides excellent structure, supporting flavors of lime, citrus, and green apple. The mid-palate shows honeysuckle and subtle flint. Medium-bodied with good concentration and balance.",
+        "finish": "Clean and persistent finish with citrus and mineral notes. Bright acidity leaves the palate refreshed. Excellent length and purity."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled sea bass with lemon",
+        "Goat cheese salad",
+        "Chicken piccata",
+        "Seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Sauvignon Blanc",
+        "vintage": "2021",
+        "style": "Crisp white wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Free Spirits N/A Milano",
+      "description": "A NV wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "NV",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Borgeot Chassagne Montrachet 1er Cru Clos Saint Jean 2022",
+      "description": "A 2022 wine from Burgundy, France, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Burgundy, France",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2022",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tenute Orestiadi Pinot Grigio 2023",
+      "description": "A 2023 wine from California, showcasing crisp acidity and vibrant aromatics. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of citrus and green apple lead the nose, accented by acacia. Underlying sea spray adds terroir complexity. The profile is fresh, vibrant, and inviting.",
+        "palate": "Crisp acidity provides excellent structure, supporting flavors of pear, white peach, and melon. The mid-palate shows orange blossom and subtle granite. Medium-bodied with good concentration and balance.",
+        "finish": "Clean and persistent finish with citrus and mineral notes. Bright acidity leaves the palate refreshed. Excellent length and purity."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled sea bass with lemon",
+        "Goat cheese salad",
+        "Chicken piccata",
+        "Seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Pinot Grigio",
+        "vintage": "2023",
+        "style": "Crisp white wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Cellars Pure Pink Rose 2023",
+      "description": "A 2023 wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2023",
+        "style": "Dry rosé",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.904Z"
+      }
+    }
+  ]
+}

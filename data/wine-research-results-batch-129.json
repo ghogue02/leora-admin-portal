@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Casa Dumetz Sonja & Greg's Cider Factory Lover's Lane NV",
+    "description": "A groundbreaking hybrid beverage that pushes the boundaries of traditional winemaking, Lover's Lane masterfully combines two-thirds Mourvèdre wine with one-third organic Newtown Pippin cider from Cuyama Orchards. Created by innovative winemakers Sonja Magdevski and Greg Martellotto, this totally dry rosé-style blend represents a new frontier in craft beverages, elevating cider to wine-level sophistication.",
+    "tastingNotes": {
+      "aroma": "Bright and inviting aromas of crisp Newtown Pippin apples lead the way, followed by layers of ripe pear, citrus zest, and delicate red berry notes from the Mourvèdre. Subtle hints of white flowers and fresh-cut hay add complexity, while a mineral edge provides structure and intrigue.",
+      "palate": "The palate delivers remarkable harmony between fruit and structure, with vibrant apple and pear flavors melding seamlessly with strawberry and raspberry from the wine component. Bone-dry and refreshingly crisp, the wine shows excellent acidity that drives through the mid-palate, complemented by subtle tannins and a rich, almost creamy texture from carbonic maceration. Notes of citrus pith and red currant add brightness.",
+      "finish": "Clean and persistent, with lingering apple skin, red berry, and subtle mineral notes. The finish maintains its dry, refreshing character while showing unexpected depth and length for this style of beverage."
+    },
+    "foodPairings": [
+      "Grilled pork chops with apple chutney",
+      "Fresh oysters on the half shell",
+      "Charcuterie board with aged cheddar and prosciutto",
+      "Pan-seared salmon with citrus beurre blanc",
+      "Roasted chicken with herbs and root vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C)",
+      "decanting": "No decanting needed; serve well-chilled directly from the bottle",
+      "glassware": "White wine glass or tulip-shaped cider glass"
+    },
+    "wineDetails": {
+      "region": "Santa Ynez Valley, Central Coast, California",
+      "grapeVariety": "66% Mourvèdre, 33% Newtown Pippin Apples",
+      "vintage": "NV",
+      "style": "Dry rosé-style wine-cider hybrid, carbonic maceration",
+      "ageability": "Best enjoyed young and fresh; drink within 1-2 years of release"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Swerwer Red Blend 2023",
+    "description": "Crafted by Jasper Wickens, one of South Africa's most celebrated young winemakers, this vibrant red blend from the Swartland embodies the 'new wave' of South African wine. The 2023 vintage showcases the cool-climate elegance and natural purity that has made Swerwer wines critically acclaimed, with the 2018 vintage earning an impressive 95 points. This terroir-driven blend speaks to the unique character of old-vine Swartland fruit.",
+    "tastingNotes": {
+      "aroma": "Delightfully bright and lifted aromatics feature fresh red berries—wild strawberry, raspberry, and cranberry—alongside subtle floral notes of violet and rose petal. An earthy complexity emerges with hints of black tea, fynbos (indigenous Cape flora), and graphite minerality. Light spice notes of white pepper and cinnamon add intrigue without overwhelming the fresh fruit character.",
+      "palate": "The palate is elegant and vibrant, loaded with juicy red berry fruit that shows remarkable purity and precision. Cinsault and Grenache provide almost 90% of the blend, delivering fresh strawberry, red cherry, and pomegranate flavors, while Tinta Barocca adds structure with darker plum notes and fine-grained tannins. Cool-vintage freshness shines through with bright acidity and mid-palate tension, creating a wine of exceptional balance and energy. The earthy edge of black tea and herbal fynbos adds savory complexity.",
+      "finish": "Medium to long finish with persistent red fruit, fine yet grippy tannins, and a refreshing mineral edge. The wine's natural purity and cool-climate character leave a lasting impression of elegance and vitality."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary and garlic",
+      "Duck breast with cherry reduction",
+      "Moroccan-spiced tagine with vegetables",
+      "Charcuterie and aged Gouda",
+      "Mushroom and lentil stew"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), slightly chilled",
+      "decanting": "Brief 15-20 minute decant enhances aromatics",
+      "glassware": "Medium-bodied red wine glass or Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Swartland, Western Cape, South Africa",
+      "grapeVariety": "Cinsault, Grenache (nearly 90%), Tinta Barocca",
+      "vintage": "2023",
+      "style": "Light to medium-bodied, terroir-driven red blend",
+      "ageability": "Drink now for freshness, or cellar 3-5 years for additional complexity"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.9,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Montepalacio Montepalacio Brut NV",
+    "description": "A classic Spanish sparkling wine made in the traditional method, Montepalacio Brut NV offers exceptional value and quality from Spain's sparkling wine heartland. This non-vintage cuvée showcases the house style through careful blending and extended aging on the lees, delivering elegant bubbles and refined complexity perfect for celebrations or everyday enjoyment.",
+    "tastingNotes": {
+      "aroma": "Fresh and inviting nose with green apple, pear, and citrus blossom leading the charge. Subtle notes of brioche and almond emerge from extended lees aging, while hints of white flowers and lemon zest add brightness. A delicate mineral quality provides structure and finesse.",
+      "palate": "Crisp and refreshing on the palate with fine, persistent bubbles creating a creamy mousse. Green apple and citrus flavors dominate, supported by notes of pear, white peach, and a touch of honey. The wine shows excellent balance between fruit freshness and yeasty complexity from lees contact. Clean acidity drives through the mid-palate, while subtle toasted bread notes add depth without heaviness.",
+      "finish": "Clean, dry finish with lingering citrus, apple skin, and mineral notes. The persistent bubbles and refreshing acidity make this an excellent aperitif or food wine."
+    },
+    "foodPairings": [
+      "Fried calamari with aioli",
+      "Jamón ibérico and manchego cheese",
+      "Oysters and shellfish",
+      "Smoked salmon canapés",
+      "Light seafood paella"
+    ],
+    "servingInfo": {
+      "temperature": "42-46°F (6-8°C)",
+      "decanting": "Not required; serve chilled directly from the bottle",
+      "glassware": "Champagne flute or tulip glass"
+    },
+    "wineDetails": {
+      "region": "Spain (likely Cava DO or similar sparkling region)",
+      "grapeVariety": "Traditional Spanish sparkling varieties (likely Macabeo, Xarel-lo, Parellada)",
+      "vintage": "NV",
+      "style": "Traditional method sparkling wine (Brut)",
+      "ageability": "Best consumed within 1-2 years; NV Brut styles are made for current enjoyment"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Colle Corviano Montepulciano 2021",
+    "description": "A vibrant expression of Montepulciano d'Abruzzo from the Italian heartland, Colle Corviano 2021 captures the rustic charm and food-friendly character that has made this region famous. Grown in the rolling hills of Abruzzo, this wine showcases the Montepulciano grape's ability to produce deeply colored, flavorful reds with approachable tannins and excellent value.",
+    "tastingNotes": {
+      "aroma": "Rich and inviting aromas of dark cherry, blackberry, and plum fill the glass, accented by notes of dried herbs, violet, and a touch of Mediterranean scrubland. Subtle hints of leather, tobacco, and baking spice add complexity, while an earthy minerality grounds the bouquet.",
+      "palate": "Medium to full-bodied with juicy dark fruit flavors of black cherry, plum, and blackberry. The wine shows the characteristic rustic edge of Montepulciano d'Abruzzo with firm but ripe tannins and bright acidity that keeps the wine fresh and lively. Notes of dried herbs, black pepper, and subtle oak spice add depth, while the fruit remains primary and expressive. A touch of earthiness and mineral character provides regional typicity.",
+      "finish": "Medium-length finish with lingering dark fruit, savory herbs, and fine-grained tannins. The wine's structure and acidity make it exceptionally food-friendly."
+    },
+    "foodPairings": [
+      "Spaghetti all'amatriciana",
+      "Grilled lamb kebabs with rosemary",
+      "Aged pecorino and salami",
+      "Eggplant parmigiana",
+      "BBQ ribs with smoky sauce"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30 minutes decanting recommended to soften tannins",
+      "glassware": "Large bowl red wine glass"
+    },
+    "wineDetails": {
+      "region": "Abruzzo, Italy",
+      "grapeVariety": "100% Montepulciano",
+      "vintage": "2021",
+      "style": "Medium to full-bodied Italian red",
+      "ageability": "Drink now through 2026; best enjoyed within 3-5 years"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.8,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Les Brebis Ramato 2023",
+    "description": "An intriguing orange wine (skin-contact white) from Les Brebis, this Ramato showcases the traditional Friulian style applied to Pinot Grigio grapes. The 2023 vintage delivers the copper-orange hue that gives this wine its name (Ramato means 'copper-colored' in Italian), along with the textural complexity and aromatic intensity that makes orange wine so compelling and food-versatile.",
+    "tastingNotes": {
+      "aroma": "Complex and inviting aromatics feature dried apricot, orange peel, and white flowers, layered with honeyed notes and subtle spice. Extended skin contact brings out deeper notes of chamomile tea, raw almond, and a hint of oxidative character that adds intrigue. Light herbal notes of thyme and sage complement the fruit-forward core.",
+      "palate": "Rich and textural on the palate with a grippy, almost tannic structure from extended skin contact. Flavors of dried stone fruit, apricot, and orange marmalade dominate, supported by notes of honey, white tea, and subtle spice. The wine shows moderate acidity that balances the texture, while phenolic grip adds length and complexity. A savory, almost umami quality emerges on the mid-palate, making this exceptionally food-friendly.",
+      "finish": "Long, textural finish with lingering stone fruit, tea tannins, and a pleasant oxidative quality. The wine's structure and complexity make it versatile with a wide range of cuisines."
+    },
+    "foodPairings": [
+      "Roasted pork belly with fennel",
+      "Aged hard cheeses and cured meats",
+      "Moroccan chicken tagine",
+      "Grilled octopus with lemon",
+      "Root vegetable gratin with herbs"
+    ],
+    "servingInfo": {
+      "temperature": "50-55°F (10-13°C), lightly chilled",
+      "decanting": "30-60 minutes decanting opens up aromatics",
+      "glassware": "White Burgundy glass or larger bowl white wine glass"
+    },
+    "wineDetails": {
+      "region": "France (style inspired by Friuli, Italy)",
+      "grapeVariety": "Pinot Grigio (Pinot Gris) with extended skin contact",
+      "vintage": "2023",
+      "style": "Orange wine (skin-contact white), medium-bodied",
+      "ageability": "Drink now through 2028; orange wines can develop beautifully with 3-5 years"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Rueda Heredad de Penalosa Verdejo 2021",
+    "description": "A textbook example of Rueda Verdejo from Bodegas Pascual, the 2021 Heredad de Peñalosa showcases the crisp, citrus-driven character that has made this region Spain's premier white wine destination. Grown in the high-altitude vineyards of Castilla y León, this Verdejo delivers bright acidity, intense aromatics, and exceptional freshness that pairs beautifully with Spanish cuisine.",
+    "tastingNotes": {
+      "aroma": "Clean and intense aromatics burst from the glass with notes of green apple candy, whole lemons (juice, pith, and zest), and white flowers. Stone fruit—white peach and nectarine—adds depth, while tropical hints of pineapple and passionfruit provide exotic intrigue. A subtle herbal note of fresh fennel and a mineral edge add complexity.",
+      "palate": "Bright and fresh on the palate with vibrant citrus flavors dominating—lemon zest, lime, and grapefruit. Green apple and stone fruit provide a juicy core, while the wine's crisp acidity drives through the mid-palate with refreshing energy. Well-constituted and round despite its freshness, the wine shows good weight at 12.5% ABV without any heaviness. Subtle herbal and mineral notes add savory complexity to the fruit-forward profile.",
+      "finish": "Clean and persistent finish with lingering lemon zest, apple skin, and a refreshing mineral edge. The wine's vibrant acidity leaves the palate refreshed and ready for another sip or bite of food."
+    },
+    "foodPairings": [
+      "Grilled shrimp with garlic and lemon",
+      "Spanish tapas—patatas bravas, tortilla española",
+      "Fresh goat cheese salad",
+      "Ceviche or seafood crudo",
+      "Pan-seared scallops with herb butter"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C)",
+      "decanting": "Not required; serve well-chilled",
+      "glassware": "White wine glass or Sauvignon Blanc glass"
+    },
+    "wineDetails": {
+      "region": "Rueda DO, Castilla y León, Spain",
+      "grapeVariety": "100% Verdejo",
+      "vintage": "2021",
+      "style": "Crisp, aromatic white wine",
+      "ageability": "Best enjoyed young; drink within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Cafe de Paris Brut Blanc NV",
+    "description": "A lively French-style sparkling wine that captures the effervescent spirit of Parisian café culture, Café de Paris Brut Blanc NV delivers elegant bubbles and refreshing flavors perfect for celebrations or casual enjoyment. This accessible sparkler showcases traditional winemaking with a focus on clean fruit expression and balanced acidity.",
+    "tastingNotes": {
+      "aroma": "Fresh and inviting with aromas of green apple, pear, and citrus blossom. Delicate floral notes of white flowers and acacia honey add elegance, while subtle hints of brioche and almond from lees aging provide depth. A mineral edge and slight chalky quality add refinement.",
+      "palate": "Crisp and lively on the palate with persistent, fine bubbles creating an elegant mousse. Green apple and lemon flavors dominate, supported by notes of pear, white peach, and subtle honey. The wine shows excellent balance between fruit freshness and subtle yeasty complexity. Clean, bright acidity drives through the palate, keeping the wine refreshing and food-friendly.",
+      "finish": "Clean, dry finish with lingering apple, citrus, and mineral notes. The persistent bubbles and refreshing character make this ideal as an aperitif or with light fare."
+    },
+    "foodPairings": [
+      "Fresh oysters with mignonette",
+      "Soft-ripened brie and baguette",
+      "Fried calamari or tempura vegetables",
+      "Smoked salmon blinis",
+      "Light fruit tarts and pastries"
+    ],
+    "servingInfo": {
+      "temperature": "42-46°F (6-8°C)",
+      "decanting": "Not required; serve chilled from the bottle",
+      "glassware": "Champagne flute or white wine glass"
+    },
+    "wineDetails": {
+      "region": "France (likely Loire Valley or Burgundy)",
+      "grapeVariety": "Traditional French sparkling varieties (likely Chardonnay, Chenin Blanc)",
+      "vintage": "NV",
+      "style": "Traditional method sparkling wine (Brut)",
+      "ageability": "Best consumed within 1-2 years of purchase"
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.7,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Hendry Barrel Fermented Chardonnay 2022",
+    "description": "From the storied Hendry Ranch in Napa Valley, this barrel-fermented Chardonnay represents California winemaking at its finest. The 2022 vintage, sourced from estate fruit grown in thin, stony soils at 200-300 feet elevation, earned 93 points from James Suckling. Made predominantly from 1974 Wente selection vines with some younger Dijon clone fruit, this wine showcases the minerality and precision that have made Hendry a cult favorite since 1992.",
+    "tastingNotes": {
+      "aroma": "Luminous aromatics display precision and complexity with notes of golden apple, Meyer lemon, and orange blossom. Barrel fermentation brings layers of brioche, toasted almond, and vanilla, while the mineral-driven terroir shows through with struck flint and subtle petrichor. Hints of white flowers, lemon curd, and a touch of tropical fruit add depth without overwhelming the wine's elegant core.",
+      "palate": "Rich and mouthfilling yet remarkably balanced, the palate delivers flavors of ripe pear, baked apple, and citrus zest. Barrel fermentation and 11 months aging on the lees with frequent batonnage create a creamy texture and subtle toasty oak spice, while no malolactic fermentation preserves bright acidity and mineral tension. The wine shows beautiful weight at 14.6% ABV without any heat, with flavors of lemon curd, brioche, and a distinctive flinty minerality. The 34% new French oak integration is seamless, adding complexity without dominating.",
+      "finish": "Long, mineral-driven finish with persistent citrus, toast, and struck flint notes. The wine's bright acidity and textural richness create exceptional balance and food versatility."
+    },
+    "foodPairings": [
+      "Butter-poached lobster with herbs",
+      "Roasted chicken with lemon and thyme",
+      "Grilled halibut with beurre blanc",
+      "Creamy risotto with mushrooms",
+      "Aged Gruyère and charcuterie"
+    ],
+    "servingInfo": {
+      "temperature": "50-55°F (10-13°C)",
+      "decanting": "Not required, but 15-20 minutes in the glass opens aromatics",
+      "glassware": "White Burgundy glass or large bowl white wine glass"
+    },
+    "wineDetails": {
+      "region": "Napa Valley AVA, California",
+      "grapeVariety": "100% Chardonnay (Wente selection 1974, Dijon clones 1992/1996)",
+      "vintage": "2022",
+      "style": "Barrel-fermented, full-bodied Chardonnay with no MLF",
+      "ageability": "Drink now through 2028; can develop additional complexity with 3-6 years cellaring"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "LaMontagne Pinot Noir 2016",
+    "description": "Crafted by winemaker Kimberly Smith under the mentorship of Wes Hagen, LaMontagne Pinot Noir represents the cool-climate elegance of California's Central Coast. The 2016 vintage showcases fruit from San Luis Obispo County's coastal vineyards, where maritime influence creates the perfect conditions for crisp, juicy, and elegant Pinot Noir. With an average rating of 89.4 points across community reviews, this wine delivers consistent quality and typicity.",
+    "tastingNotes": {
+      "aroma": "Earthy and complex aromatics feature layers of black cherry, strawberry jam, and raspberry, accented by notes of black pepper, dried herbs, and subtle oak. A distinctive vegetal/forest floor character adds Old World intrigue, while hints of cola, mushroom, and turned earth provide savory depth. Light floral notes of rose petal and a touch of vanilla round out the bouquet.",
+      "palate": "Medium to full-bodied with crisp acidity driving fresh and juicy red fruit flavors. Black cherry and strawberry dominate, supported by raspberry, cola, and cranberry notes. The wine shows round, medium tannins that provide structure without astringency, while earthy notes of mushroom, forest floor, and black pepper add complexity. Oak influence is subtle but present, adding vanilla and spice without overwhelming the fruit. The cool-climate character shines through with bright acidity and elegant balance.",
+      "finish": "Medium-length finish with lingering cherry, black pepper, and earthy notes. Fine-grained tannins and refreshing acidity leave the palate clean and ready for food."
+    },
+    "foodPairings": [
+      "Herb-roasted duck breast with cherry sauce",
+      "Grilled salmon with mushroom risotto",
+      "Roasted pork tenderloin with herbs",
+      "Mushroom and truffle pasta",
+      "Aged Gouda and charcuterie"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), slightly cool",
+      "decanting": "30 minutes decanting recommended to open aromatics",
+      "glassware": "Pinot Noir glass or Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "San Luis Obispo County, Central Coast, California",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2016",
+      "style": "Cool-climate, medium-bodied Pinot Noir",
+      "ageability": "Drinking well now; enjoy through 2024-2025"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Swerwer Shiraz 2023",
+    "description": "From acclaimed Swartland winemaker Jasper Wickens, this Shiraz represents the cooler, more elegant expression of South African Syrah. The 2023 vintage showcases fruit from the granite-strewn soils of the Swartland, where old vines and maritime influence create wines of exceptional purity and finesse. Like all Swerwer wines, this Shiraz speaks to terroir with minimal intervention and maximum expression.",
+    "tastingNotes": {
+      "aroma": "Lifted and expressive aromatics feature dark berries—blackberry, blueberry, and black cherry—alongside floral notes of violet and lavender. Swartland terroir shows through with hints of graphite, fynbos, and white pepper, while subtle oak influence adds notes of vanilla and sweet spice. A cool-climate freshness pervades the bouquet with bright fruit and herbal complexity.",
+      "palate": "Medium to full-bodied with vibrant acidity and fine-grained tannins. Dark fruit flavors of blackberry, plum, and black cherry dominate, accented by notes of black pepper, dried herbs, and a distinctive earthy quality. The wine shows excellent purity and precision, with bright acidity providing lift and energy. Subtle oak spice and a touch of smoked meat add savory complexity, while the natural wine approach preserves vibrant fruit expression. The cool 2023 vintage shines through with freshness and tension.",
+      "finish": "Long, elegant finish with persistent dark fruit, fine tannins, and a refreshing mineral edge. The wine's structure and acidity make it food-versatile while remaining approachable for current enjoyment."
+    },
+    "foodPairings": [
+      "Braised lamb shanks with herbs",
+      "Grilled venison with berry reduction",
+      "Beef brisket with smoky BBQ sauce",
+      "Aged cheddar and biltong",
+      "Mushroom and lentil shepherd's pie"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "45-60 minutes decanting recommended",
+      "glassware": "Large bowl red wine glass or Syrah glass"
+    },
+    "wineDetails": {
+      "region": "Swartland, Western Cape, South Africa",
+      "grapeVariety": "100% Shiraz (Syrah)",
+      "vintage": "2023",
+      "style": "Cool-climate, medium to full-bodied Shiraz",
+      "ageability": "Drink now through 2030; can develop beautifully with 5-7 years cellaring"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  }
+]

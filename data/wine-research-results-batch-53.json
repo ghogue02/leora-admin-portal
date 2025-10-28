@@ -1,0 +1,347 @@
+{
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "batchId": "batch-53",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "baleia-vinho-rocas-2023",
+      "productName": "Baleia Vinho Rocas Red Blend 2023",
+      "description": "A Portuguese red blend from the Vinho Regional Lisboa region, showcasing the maritime influence of Atlantic coastal viticulture. This contemporary expression balances traditional Portuguese varietals with modern winemaking techniques, offering exceptional value and food-friendliness.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant red cherry and wild strawberry, interwoven with subtle notes of Mediterranean herbs—rosemary and dried thyme. A whisper of ocean breeze minerality emerges, characteristic of the coastal terroir, alongside hints of black pepper and crushed stone. As the wine breathes, delicate floral notes of violet appear, adding complexity to the aromatic profile.",
+        "palate": "Medium-bodied with refreshing acidity that drives the palate forward. Bright flavors of cranberry and pomegranate mingle with earthy undertones of clay and wet stone. The mid-palate reveals touches of sun-dried tomato and dried sage, reflecting the Portuguese landscape. Silky tannins provide structure without heaviness, while maintaining the wine's inherent freshness and vivacity.",
+        "finish": "The finish is clean and persistent, marked by lingering red fruit and a savory, almost umami quality. A mineral edge carries through, leaving the palate refreshed and ready for the next sip, with subtle herbal notes echoing in the aftertaste."
+      },
+      "foodPairings": [
+        "Grilled sardines with lemon and olive oil",
+        "Bacalhau à Brás (Portuguese salt cod)",
+        "Roasted pork tenderloin with herbs",
+        "Tomato-based seafood stew",
+        "Aged Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief 15-20 minute decant recommended to allow the wine to open and integrate its aromatic components",
+        "glassware": "Medium-sized Bordeaux glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Vinho Regional Lisboa, Portugal",
+        "grapeVariety": "Traditional Portuguese red blend (likely Castelão, Touriga Nacional, Aragonez)",
+        "vintage": "2023",
+        "style": "Fresh, coastal-influenced red blend",
+        "ageability": "Drink now through 2027. Best enjoyed in its youth to preserve the vibrant fruit and freshness."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "coste-caumartin-boucherottes-2019",
+      "productName": "Coste Caumartin 1er Cru Clos de Boucherottes 2019",
+      "description": "A distinguished Premier Cru Burgundy from the Pommard appellation, representing one of Burgundy's most sought-after terroirs. This monopole vineyard produces wines of remarkable depth and elegance, expressing the iron-rich soils and precise winemaking heritage of the Côte de Beaune.",
+      "tastingNotes": {
+        "aroma": "Profoundly complex aromatics reveal layers of dark cherry, wild raspberry, and crushed rose petals. Earthy notes of forest floor, truffle, and damp autumn leaves emerge alongside subtle hints of sandalwood and Ceylon tea. With air, nuances of sous-bois, leather, and a delicate smokiness from well-integrated oak appear. The aromatic intensity suggests excellent vineyard expression and meticulous cellaring potential.",
+        "palate": "Concentrated yet refined, displaying the classic Pommard structure with muscular tannins wrapped in velvety fruit. Flavors of black cherry, cassis, and blood orange dominate, supported by earthy minerality and hints of iron and wet stone. The mid-palate shows remarkable depth with layers of baking spices—clove, star anise, and white pepper—complemented by subtle oak-derived vanilla and tobacco leaf. The texture is simultaneously powerful and graceful, with brilliant acidity maintaining precision throughout.",
+        "finish": "Long and noble, the finish extends with persistent dark fruit, mineral complexity, and a saline edge. Firm but resolved tannins grip gently, while the wine's terroir-driven character resonates with echoes of earth, stone, and spice. The conclusion is decidedly Burgundian—elegant, complex, and utterly compelling."
+      },
+      "foodPairings": [
+        "Coq au vin with pearl onions and mushrooms",
+        "Duck breast with cherry reduction",
+        "Beef bourguignon",
+        "Roasted lamb rack with rosemary",
+        "Aged Comté or Époisses cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-62°F (16-17°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to unfurl its complexity; younger bottles may benefit from up to 90 minutes",
+        "glassware": "Large Burgundy balloon glass to capture aromatic nuances"
+      },
+      "wineDetails": {
+        "region": "Pommard Premier Cru, Côte de Beaune, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2019",
+        "style": "Classic Pommard—structured, age-worthy Premier Cru",
+        "ageability": "Excellent aging potential. Drink 2025-2035, with peak drinking window 2027-2032. The 2019 vintage's balance and structure ensure longevity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "phelps-creek-pinot-gris-2022",
+      "productName": "Phelps Creek Pinot Gris 2022",
+      "description": "An exceptional expression of Pinot Gris from Oregon's Columbia Gorge AVA, where dramatic elevation changes and unique microclimates create wines of uncommon character. Phelps Creek's sustainable farming and cool-climate viticulture produce Pinot Gris with European sensibility and Pacific Northwest freshness.",
+      "tastingNotes": {
+        "aroma": "The nose presents a captivating bouquet of ripe Bartlett pear, golden apple, and white peach, accented by honeysuckle and acacia blossoms. Subtle mineral notes reminiscent of wet river stones reflect the Columbia River Gorge terroir, while hints of lemon zest and ginger add aromatic lift. A delicate suggestion of almond skin and faint baking spices contribute texture and complexity to the aromatic profile.",
+        "palate": "Medium-bodied with vibrant acidity that energizes the palate. Flavors of Asian pear and Fuji apple lead, followed by notes of nectarine, citrus confit, and a whisper of vanilla bean. The wine shows excellent balance between fruit richness and mineral-driven precision, with a subtle creaminess that suggests brief lees contact. Hints of toasted hazelnut and meyer lemon appear mid-palate, adding dimension without overwhelming the wine's essential freshness.",
+        "finish": "The finish is crisp and refreshing with excellent length, marked by persistent stone fruit and citrus notes. A minerally backbone carries through, leaving a clean, mouth-watering impression with echoes of orchard fruit and subtle spice."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with beurre blanc",
+        "Roasted chicken with herbs and root vegetables",
+        "Gruyère and mushroom tart",
+        "Thai green curry with vegetables",
+        "Fresh Dungeness crab with drawn butter"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting necessary; serve directly from the bottle, ensuring proper chilling",
+        "glassware": "White wine glass or aromatic white varietal glass"
+      },
+      "wineDetails": {
+        "region": "Columbia Gorge AVA, Oregon",
+        "grapeVariety": "100% Pinot Gris",
+        "vintage": "2022",
+        "style": "Crisp, mineral-driven Pinot Gris with European styling",
+        "ageability": "Best enjoyed 2024-2027. While capable of short-term aging, this wine is crafted to showcase youthful freshness and aromatic purity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "lamontagne-pinot-noir-2015",
+      "productName": "LaMontagne Pinot Noir (Wine Club) 2015",
+      "description": "A wine club exclusive Pinot Noir showcasing the elegance and complexity that comes with bottle age. This 2015 vintage has evolved gracefully, developing tertiary characteristics while maintaining its core of refined fruit and structural integrity, representing the producer's commitment to expressing site-specific terroir.",
+      "tastingNotes": {
+        "aroma": "The bouquet has matured beautifully, displaying evolved aromas of dried cherry, cranberry compote, and stewed plum. Earthy notes of mushroom, forest floor, and autumn leaves dominate, interwoven with hints of cedar, leather, and pipe tobacco. Subtle nuances of potpourri, dried rose petals, and a delicate herbal quality emerge, showcasing the wine's graceful evolution. A whisper of baking spice—cinnamon and nutmeg—adds warmth and complexity.",
+        "palate": "Medium-bodied with softened tannins that have integrated seamlessly over time. The palate reveals flavors of tart cherry, raspberry coulis, and hints of fig, balanced by earthy undertones of tea leaf and composted earth. Secondary characteristics include notes of soy, dried herbs, and a touch of truffle, creating a savory dimension. The wine maintains lovely acidity that keeps it fresh despite its age, with subtle oak integration providing structure without dominating. The texture is silky and refined, characteristic of mature Pinot Noir.",
+        "finish": "The finish is long and contemplative, marked by lingering earth tones, dried fruit, and a gentle tannic grip. Subtle mineral notes persist, along with echoes of spice and leather, creating a satisfying and complex conclusion."
+      },
+      "foodPairings": [
+        "Wild mushroom risotto with truffle oil",
+        "Slow-roasted duck leg confit",
+        "Grilled salmon with herbs de Provence",
+        "Aged cheddar or Gruyère cheese",
+        "Beef Wellington with mushroom duxelles"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Gentle decanting for 30 minutes recommended to separate any sediment and allow the wine to express its evolved complexity",
+        "glassware": "Large Burgundy glass to appreciate the developed aromatics"
+      },
+      "wineDetails": {
+        "region": "Specific region unknown; likely Oregon or California based on style",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2015",
+        "style": "Aged, mature Pinot Noir with developed tertiary characteristics",
+        "ageability": "Drink now through 2028. At 10 years of age, this wine is in its optimal drinking window and should be enjoyed over the next few years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "anko-malbec-flor-de-cardon-2022",
+      "productName": "Anko Malbec Flor de Cardon 2022",
+      "description": "A high-altitude Argentine Malbec from the renowned Uco Valley region, where extreme elevation and dramatic temperature swings produce wines of exceptional concentration and purity. The 'Flor de Cardón' designation references the iconic cactus flower of the Andes, symbolizing the wine's mountain origin and resilient character.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic with intense black fruit—blackberry, blueberry, and black cherry—interlaced with violet and lavender floral notes. The high-altitude terroir expresses itself through pronounced minerality, with hints of graphite and crushed stone. Additional layers reveal dark chocolate, espresso, and a subtle smokiness, while hints of Mediterranean herbs like oregano and black olive add savory complexity. The aromatic intensity is remarkable, suggesting excellent fruit concentration from low-yielding mountain vines.",
+        "palate": "Full-bodied and powerfully structured, showcasing the characteristic density of high-altitude Malbec. Flavors of ripe blackberry, cassis, and dark plum dominate, supported by notes of mocha, vanilla, and sweet tobacco from judicious oak aging. The mid-palate reveals extraordinary depth with hints of black pepper, anise, and a distinctive mineral core that reflects the Andean terroir. Velvety tannins provide substantial structure while remaining supple and integrated. The wine's natural acidity—enhanced by high-altitude growing conditions—maintains freshness despite the wine's power and concentration.",
+        "finish": "The finish is long and bold, extending with persistent dark fruit, espresso, and mineral notes. Firm tannins provide grip and structure, while the wine's inherent freshness prevents any sense of heaviness. The conclusion is marked by lingering chocolate, spice, and a distinctive rocky minerality."
+      },
+      "foodPairings": [
+        "Argentine asado (grilled ribeye or skirt steak)",
+        "Braised short ribs with red wine reduction",
+        "Grilled lamb chops with chimichurri",
+        "Aged Provolone or Manchego cheese",
+        "Dark chocolate dessert with sea salt"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to soften tannins and integrate the wine's powerful components",
+        "glassware": "Large Bordeaux or Cabernet glass to allow the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Uco Valley, Mendoza, Argentina (elevation approximately 3,500-5,000 feet)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2022",
+        "style": "High-altitude, concentrated Argentine Malbec",
+        "ageability": "Drink 2025-2032. The wine's structure and concentration suggest excellent aging potential, with peak drinking likely 2027-2030."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "inversa-bergamot-lemon-250ml",
+      "productName": "Inversa Bergamot Lemon 250 ml",
+      "description": "A innovative sparkling beverage infused with bergamot and lemon, offering a sophisticated non-wine alternative with complex citrus aromatics. This Italian-inspired creation captures the essence of Mediterranean citrus culture in a refreshing, versatile format ideal for aperitivo or creative cocktails.",
+      "tastingNotes": {
+        "aroma": "Vibrant and uplifting aromatics dominated by bright bergamot oil, reminiscent of Earl Grey tea, alongside fresh lemon zest and subtle orange blossom. Delicate herbal notes of lemon verbena and hints of honeysuckle add complexity, while a faint mineral quality provides depth. The nose is intensely citrus-forward yet nuanced and refined.",
+        "palate": "Crisp and effervescent with lively carbonation that dances on the palate. The flavor profile is anchored by pronounced bergamot—both sweet and slightly bitter—balanced by bright lemon acidity. Mid-palate reveals subtle sweetness that enhances the citrus without becoming cloying, alongside hints of white tea and faint floral notes. The carbonation is fine and persistent, providing textural interest and refreshment.",
+        "finish": "Clean and invigorating, the finish features lingering bergamot oils and lemon essence with a gentle bitter edge that cleanses the palate. The carbonation dissipates gradually, leaving a refreshing citrus impression."
+      },
+      "foodPairings": [
+        "Aperitivo hour with light antipasti",
+        "Fresh oysters or seafood crudo",
+        "Lemon-herb grilled chicken",
+        "Summer salads with citrus vinaigrette",
+        "As a mixer for sophisticated spritz-style cocktails"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), well chilled",
+        "decanting": "Not applicable; serve directly from the bottle over ice if desired",
+        "glassware": "Champagne flute, coupe, or highball glass depending on service style"
+      },
+      "wineDetails": {
+        "region": "Italy (presumed based on bergamot sourcing)",
+        "grapeVariety": "N/A - Citrus-infused sparkling beverage",
+        "vintage": "N/A",
+        "style": "Sparkling citrus beverage with bergamot and lemon",
+        "ageability": "Enjoy immediately upon purchase for optimal freshness and carbonation."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.60,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "prima-pave-grand-cuvee-nv",
+      "productName": "Prima Pave Grand Cuvee NV",
+      "description": "A non-vintage sparkling wine crafted in the traditional method, blending multiple vintages to achieve consistency and complexity. This Grand Cuvée represents the producer's house style, offering elegance, refinement, and the celebratory character that defines quality sparkling wine.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate notes of green apple, white peach, and citrus blossom, complemented by subtle yeasty complexity from extended lees aging. Hints of brioche, toasted almond, and a whisper of vanilla add depth, while fresh mineral notes reminiscent of chalk and wet stone provide terroir character. Delicate floral nuances of white flowers and honeysuckle appear with air, creating an inviting and sophisticated aromatic profile.",
+        "palate": "Medium-bodied with vibrant acidity and persistent, fine bubbles that create an elegant mousse. Flavors of crisp apple, pear, and lemon zest dominate, balanced by creamy notes of brioche and pastry from autolytic aging. The mid-palate reveals touches of white cherry, almond, and subtle honey, while maintaining refreshing minerality throughout. The texture is simultaneously creamy and energetic, with the wine's dosage perfectly balanced to enhance fruit without adding sweetness.",
+        "finish": "The finish is clean and lengthy, marked by lingering citrus, mineral notes, and a gentle saline quality. Fine bubbles persist, leaving the palate refreshed with echoes of toast and orchard fruit."
+      },
+      "foodPairings": [
+        "Oysters on the half shell",
+        "Lobster or crab salad",
+        "Prosciutto and melon",
+        "Soft-ripened cheeses like Brie or Camembert",
+        "Celebration toasts and aperitifs"
+      ],
+      "servingInfo": {
+        "temperature": "42-47°F (6-8°C), well chilled",
+        "decanting": "Not recommended for sparkling wine; serve directly from the bottle",
+        "glassware": "Champagne flute or tulip glass to preserve bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Region unknown; likely France or another traditional method region",
+        "grapeVariety": "Likely Chardonnay and/or Pinot Noir blend",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Traditional method sparkling wine, brut style",
+        "ageability": "Drink upon release. NV sparklings are typically released ready to enjoy, though this wine may improve for 1-2 years with proper storage."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "noughty-na-sparkling-chardonnay-nv",
+      "productName": "Noughty NA Sparkling Chardonnay NV",
+      "description": "A pioneering non-alcoholic sparkling wine crafted from Chardonnay grapes, utilizing innovative dealcoholization technology while preserving the wine's essential character. Noughty represents the new generation of sophisticated alcohol-free alternatives, offering the celebratory experience of sparkling wine without the alcohol content.",
+      "tastingNotes": {
+        "aroma": "Surprisingly complex aromatics featuring green apple, white peach, and citrus notes reminiscent of traditional sparkling wine. Delicate floral hints of elderflower and acacia emerge, alongside subtle notes of fresh bread and a light mineral quality. The nose is clean and inviting, without the cloying sweetness sometimes associated with non-alcoholic wines.",
+        "palate": "Light to medium-bodied with lively carbonation that mimics traditional sparkling wine texture. Flavors of crisp apple, pear, and lemon dominate, with subtle tropical fruit notes adding dimension. The wine maintains good acidity that provides structure and prevents sweetness from overwhelming the palate. A gentle creaminess appears mid-palate, suggesting contact with lees or similar winemaking techniques. The overall impression is refreshing and wine-like, achieving remarkable similarity to alcoholic sparkling wine.",
+        "finish": "Clean and moderately long, with lingering apple and citrus notes. The carbonation dissipates gracefully, leaving a refreshing conclusion without residual heaviness or artificial aftertaste."
+      },
+      "foodPairings": [
+        "Daytime celebrations and brunches",
+        "Light seafood like shrimp cocktail",
+        "Fresh salads with vinaigrette",
+        "Soft cheeses and fruit platters",
+        "As a sophisticated non-alcoholic toast"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), well chilled",
+        "decanting": "Not applicable; serve directly from the bottle",
+        "glassware": "Champagne flute or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Sourced from quality Chardonnay vineyards (specific region unknown)",
+        "grapeVariety": "100% Chardonnay (dealcoholized)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Non-alcoholic sparkling wine, <0.5% ABV",
+        "ageability": "Best enjoyed fresh upon purchase. Non-alcoholic wines are crafted for immediate consumption."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "pomar-junction-zinfandel-2016",
+      "productName": "Paso Robles Pomar Junction Zinfandel (Wine Club Only) 2016",
+      "description": "A wine club exclusive Zinfandel from Paso Robles' exceptional 2016 vintage, showcasing the region's ability to produce powerful yet balanced Zinfandel. The Pomar Junction vineyard captures Paso's warm days and cool nights, creating wines of remarkable concentration with preserved acidity and complex flavor development.",
+      "tastingNotes": {
+        "aroma": "Exuberant aromatics bursting with ripe brambleberry, blackberry jam, and boysenberry, characteristic of Paso Robles Zinfandel at its finest. Layers of baking spices emerge—cinnamon, clove, and allspice—alongside vanilla and mocha from oak aging. Additional complexity comes from notes of black pepper, dried herbs, and a subtle earthiness. Hints of dark chocolate and espresso add depth, while a whisper of dried fig and raisin suggests the wine's concentration without crossing into over-ripeness.",
+        "palate": "Full-bodied and richly textured, displaying Zinfandel's hallmark opulence tempered by the 2016 vintage's natural acidity. Flavors of ripe blackberry, black cherry, and plum dominate, supported by notes of mocha, vanilla bean, and sweet oak. The mid-palate reveals excellent complexity with hints of black licorice, dried tobacco, cocoa nibs, and a distinctive peppery spice. Despite the wine's power and concentration, it maintains balance and avoids excessive alcohol heat. Velvety tannins provide structure while the wine's inherent fruit sweetness is balanced by savory elements and bright acidity.",
+        "finish": "Long and warming, the finish extends with persistent dark fruit, chocolate, and baking spices. A subtle peppery note carries through, while soft tannins provide gentle grip. The conclusion is satisfying and bold, with echoes of oak, spice, and concentrated fruit."
+      },
+      "foodPairings": [
+        "BBQ ribs with tangy sauce",
+        "Grilled tri-tip steak (Paso Robles specialty)",
+        "Smoked brisket or pulled pork",
+        "Aged cheddar or smoked gouda",
+        "Dark chocolate brownies or chocolate cake"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 30-45 minutes to integrate the wine's powerful components and soften any residual tannins",
+        "glassware": "Large Bordeaux or Zinfandel-specific glass"
+      },
+      "wineDetails": {
+        "region": "Paso Robles AVA, Central Coast, California",
+        "grapeVariety": "100% Zinfandel (likely with small amount of traditional field blend varietals)",
+        "vintage": "2016",
+        "style": "Bold, concentrated Paso Robles Zinfandel",
+        "ageability": "Drink now through 2030. At 9 years of age, this wine is drinking beautifully and should be enjoyed over the next 4-5 years while the fruit remains vibrant."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "trespass-intrigue-2018",
+      "productName": "Trespass Intrigue 2018",
+      "description": "An artfully crafted red blend that lives up to its enigmatic name, combining complementary varietals to create a wine of complexity and intrigue. This blend represents modern winemaking at its finest—selecting the best components from each vintage to achieve harmony, depth, and exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The nose opens with an intriguing melange of dark cherry, blackcurrant, and plum, interwoven with nuances of cedar, graphite, and dried herbs. Subtle notes of violet and rose petal add floral complexity, while hints of vanilla, cocoa, and sweet oak from barrel aging provide depth. Additional layers reveal black olive tapenade, dried sage, and a whisper of smokiness. The aromatic profile suggests a sophisticated blend of Bordeaux and possibly Rhône varietals, creating multilayered complexity.",
+        "palate": "Medium to full-bodied with excellent structure and integrated tannins. The palate showcases dark fruit flavors—blackberry, black plum, and cassis—balanced by earthy notes of graphite, tobacco leaf, and dried Mediterranean herbs. Oak influence is present but judicious, contributing vanilla, baking spice, and a subtle toastiness without overwhelming the fruit. The mid-palate reveals touches of dark chocolate, espresso, and a distinctive savory quality reminiscent of black olive and cured meat. Bright acidity maintains freshness and balance throughout, while the wine's texture is simultaneously plush and structured.",
+        "finish": "The finish is long and contemplative, marked by persistent dark fruit, earth, and spice. Firm but refined tannins provide grip and structure, suggesting the wine's aging potential. Echoes of oak, herb, and mineral complexity linger, creating a satisfying and multidimensional conclusion."
+      },
+      "foodPairings": [
+        "Braised lamb shanks with rosemary",
+        "Grilled ribeye with compound butter",
+        "Wild mushroom and truffle risotto",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Herb-crusted rack of lamb"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the blend's components to integrate and the wine's complexity to fully express itself",
+        "glassware": "Large Bordeaux glass to capture the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Specific region unknown; likely California, Washington, or another New World region",
+        "grapeVariety": "Red blend (composition unknown; likely Cabernet Sauvignon, Merlot, Syrah, or similar)",
+        "vintage": "2018",
+        "style": "Sophisticated, age-worthy red blend",
+        "ageability": "Drink now through 2032. The wine is currently showing beautifully but has the structure to continue evolving gracefully over the next 7+ years."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

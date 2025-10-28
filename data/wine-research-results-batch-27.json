@@ -1,0 +1,348 @@
+{
+  "researched": true,
+  "batchNumber": 27,
+  "totalWines": 10,
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Libertine One Heart Vineyard Albarino",
+      "description": "A vibrant expression of Albariño showcasing the aromatic intensity and crisp character that defines this Spanish varietal. This wine captures the essence of coastal viticulture with its refreshing acidity and mineral-driven profile, offering a sophisticated interpretation of one of Spain's most celebrated white grapes.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense floral aromatics reminiscent of white blossoms and orange peel, layered with bright citrus notes of Meyer lemon and lime zest. Subtle undertones of stone fruit emerge, particularly white peach and apricot, while a distinctive saline minerality adds complexity and coastal character to the bouquet.",
+        "palate": "Light to medium-bodied with exceptional freshness, the palate delivers crisp flavors of grapefruit, green apple, and nectarine. The wine's hallmark high acidity provides structure and vibrancy, while delicate notes of wet stone and sea spray contribute a distinctive mineral edge. The mouthfeel is clean and refreshing, with a subtle roundness that balances the wine's natural crispness.",
+        "finish": "The finish is persistent and invigorating, leaving lingering notes of citrus pith and white peach. A bright mineral quality extends through the lengthy conclusion, maintaining the wine's refreshing character and inviting another sip."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic and herb butter",
+        "Fresh oysters on the half shell",
+        "Ceviche with citrus and cilantro",
+        "Pan-seared scallops with lemon beurre blanc",
+        "Spanish paella with seafood"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting required; serve directly from a well-chilled bottle to preserve aromatic freshness",
+        "glassware": "White wine glass or tulip-shaped glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "One Heart Vineyard (specific region not disclosed)",
+        "grapeVariety": "100% Albariño",
+        "vintage": "NV",
+        "style": "Crisp, aromatic white wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage to capture peak freshness and aromatic intensity"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Villa Amandine Rouge  (Wine Club Only)",
+      "description": "A refined Côtes du Rhône Villages expression from Séguret, this elegant red showcases the harmonious marriage of Syrah and Grenache. The wine demonstrates the sophisticated balance possible in Southern Rhône viticulture, offering both immediate appeal and notable structure for medium-term aging.",
+      "tastingNotes": {
+        "aroma": "The nose presents an expressive bouquet of fresh rose petals and peony, beautifully intertwined with bright red cherry and wild strawberry aromas. Secondary notes of pipe tobacco, fresh bay leaf, and gentle tar provide complexity, while subtle hints of black olive and violet add Mediterranean character. A delicate thread of white pepper and smoke enhances the aromatic profile.",
+        "palate": "Medium-bodied with an almost weightless elegance, the palate reveals concentrated flavors of mulberry, black cherry, and underripe plum. The wine shows beautiful refinement with silky tannins and fine-grained structure, supported by classy, perky acidity. A subtle oak influence contributes hints of vanilla and baking spice, while earthy elements of dried herbs and soft licorice add dimension without heaviness.",
+        "finish": "The finish is long and satisfying, marked by cutting red-cherry acidity and feathery-fine tannins. Lingering notes of blackberry, subtle spice, and chalky minerality provide a rustic yet refined conclusion that is both honest and crunchy, inviting contemplation."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with rosemary jus",
+        "Grilled duck breast with cherry reduction",
+        "Beef daube Provençale with olives",
+        "Ratatouille with aged Gruyère",
+        "Charcuterie board with pâté and aged salami"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to open and reveal its full aromatic complexity",
+        "glassware": "Bordeaux-style glass or large bowl red wine glass"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône Villages Séguret, Southern Rhône Valley, France",
+        "grapeVariety": "Syrah and Grenache blend (exact proportions not disclosed)",
+        "vintage": "NV",
+        "style": "Elegant, medium-bodied Rhône red",
+        "ageability": "Drink now through 5-7 years; the wine's balance and structure support moderate aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Langhe Dolcetto 2022",
+      "description": "An approachable yet sophisticated Dolcetto from one of Piedmont's respected producers, this wine exemplifies the varietal's characteristic fruit-forward charm while showcasing the elegant tannin structure that defines quality Langhe viticulture. Perfect as an everyday wine that never compromises on character.",
+      "tastingNotes": {
+        "aroma": "Bright, expressive aromatics lead with raspberry and fresh red fruit, complemented by beautiful violet florals and subtle almond notes. Gamey undertones add intrigue, while secondary notes of cola, dried autumn leaves, and forest floor provide earthy complexity that elevates this beyond simple fruit expression.",
+        "palate": "The mouthfeel is notably rich, soft, and supple, showcasing Dolcetto's naturally generous texture. Vibrant red fruit flavors dominate—particularly cherry, raspberry, and cranberry—supported by light, fine-grained tannins and medium acidity. Subtle earthy notes of mushroom and smoke intermingle with hints of vanilla, dark chocolate, and tobacco, adding layers of complexity to the fruit-forward core.",
+        "finish": "The finish is smooth and elegant, with soft tannins extending the wine's approachable character. Lingering notes of red cherry and a whisper of almond skin provide a satisfying conclusion that encourages pairing with food."
+      },
+      "foodPairings": [
+        "Mushroom risotto with Parmigiano-Reggiano",
+        "Grilled Italian sausages with peppers",
+        "Margherita pizza with fresh basil",
+        "Roasted chicken with rosemary and garlic",
+        "Aged pecorino cheese with honey"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Brief 15-20 minute decanting enhances aromatics, though not essential for enjoyment",
+        "glassware": "Standard red wine glass or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Langhe DOC, Piedmont, Italy",
+        "grapeVariety": "100% Dolcetto",
+        "vintage": "2022",
+        "style": "Soft, fruit-forward red with elegant structure",
+        "ageability": "Best enjoyed within 3-5 years while fruit remains vibrant; designed for early consumption"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lueria Terrace  (MD & DC) 2023",
+      "description": "A distinguished kosher red blend from Israel's Upper Galilee, crafted from grapes grown on unique volcanic terraces at 850 meters elevation. This wine showcases the exceptional terroir of the region, combining the structured elegance of Bordeaux varietals with the spiced richness characteristic of Mediterranean viticulture.",
+      "tastingNotes": {
+        "aroma": "The wine displays a deep purple hue in the glass, revealing an aromatic profile of ripe red berries and dark plum. Initial notes of blackcurrant and cherry mingle with subtle spice elements, while the volcanic terroir contributes distinctive mineral undertones. Hints of toasted oak and vanilla from barrel aging add complexity without overwhelming the fruit.",
+        "palate": "Full-bodied with notable richness, the palate delivers concentrated flavors of red currant, blackberry, and plum skin, enhanced by integrated spice notes. The volcanic rock, limestone, and Terra Rossa soil composition imparts a distinctive minerality that threads through the wine's structure. The 60% Cabernet Sauvignon provides the backbone, while 25% Shiraz adds peppery spice and 15% Cabernet Franc contributes aromatic lift and finesse.",
+        "finish": "The finish is long and pleasant, characterized by persistent fruit notes and well-integrated tannins from 12 months of French oak aging. The conclusion is warm and satisfying, with lingering spice and dark fruit notes that demonstrate the wine's aging in separate varietals before final blending."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb compound butter",
+        "Braised short ribs with root vegetables",
+        "Lamb tagine with dried fruits and almonds",
+        "Aged hard cheeses like Manchego or aged Gouda",
+        "Roasted duck with pomegranate glaze"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow integration of oak and fruit; the wine benefits from aeration",
+        "glassware": "Large bowl Cabernet or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Upper Galilee, Israel (terrace vineyards at 850m elevation)",
+        "grapeVariety": "60% Cabernet Sauvignon, 25% Shiraz, 15% Cabernet Franc",
+        "vintage": "2023",
+        "style": "Full-bodied kosher red blend",
+        "ageability": "Drink now through 7-10 years; the Cabernet component provides structure for medium-term cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Croix Narrow Gauge Pinot Noir",
+      "description": "A regional expression of Russian River Valley Pinot Noir from select vineyard sites, this wine represents the fuller, broader style of the appellation while maintaining the aromatic complexity and balanced acidity that defines great California Pinot. Consistently scoring 92 points, it offers exceptional value for the quality delivered.",
+      "tastingNotes": {
+        "aroma": "The nose is distinctively earthy, opening with black tea, baking spice, and aromatic potpourri alongside warm black cherry. Layers of cinnamon, peppercorn, dried leaves, and rose water create complexity, while subtle notes of sweet earth, crushed red berries, and allspice add depth. The aromatics showcase classic Russian River Valley Pinot character with expressive intensity.",
+        "palate": "Medium-bodied with a silky, refined texture, the palate delivers focused flavors of crisp rhubarb, red cherry, and pomegranate, complemented by dark notes of black currant and mulberry. The wine shows concentrated fruit balanced by tongue-curling acidity and a stemmy freshness that provides structure. Earthy elements of black earth and hints of smoked cherry intermingle with cardamom and sweet spice, creating a multi-dimensional tasting experience.",
+        "finish": "The finish demonstrates excellent length with fine tannins and persistent acidity keeping the wine vibrant. Lingering notes of baked cherry, black tea, and subtle spice fade gracefully, with earthy undertones providing a grounded, satisfying conclusion."
+      },
+      "foodPairings": [
+        "Grilled salmon with pinot noir reduction",
+        "Duck confit with wild mushrooms",
+        "Roasted pork tenderloin with cherry compote",
+        "Mushroom and truffle risotto",
+        "Aged Comté or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "30-45 minutes of decanting recommended to soften tannins and allow spice notes to emerge",
+        "glassware": "Burgundy-style glass with a large bowl to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Russian River Valley, Sonoma County, California",
+        "grapeVariety": "100% Pinot Noir (blend of select Russian River Valley vineyards)",
+        "vintage": "NV",
+        "style": "Fuller-bodied, aromatic Russian River Valley Pinot Noir",
+        "ageability": "Drink now through 5-8 years; the wine's structure and acidity support moderate aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Simonskop Chenin Blanc 2022",
+      "description": "An organically farmed, barrel-aged Chenin Blanc from a single vineyard planted in 1987 on mountainous granite soils in South Africa's Simonsberg region. This wine demonstrates the textural complexity and mineral precision achievable with old-vine Chenin Blanc, balancing richness with vibrant acidity in the finest Cape tradition.",
+      "tastingNotes": {
+        "aroma": "The nose opens with aromas of quince, white peach, and honeysuckle, beautifully accented by subtle almond and wet stone minerality. Plump notes of honeyed apple and apricot emerge, while hints of baking spice from oak integration add complexity. The aromatic profile suggests both fruit ripeness and cool-climate minerality in harmonious balance.",
+        "palate": "The palate shows exceptional texture with a creamy mid-palate derived from barrel aging, balanced by crisp orchard fruit flavors of green apple and pear. Zesty citrus notes provide lift, while layers of white peach and apricot add richness. A distinctive chalky minerality from the granite soils threads through the wine, providing structure and precision. The dry-farmed, organic vineyard character contributes purity and intensity to the fruit expression.",
+        "finish": "The finish is long and clean, marked by refreshing citrus-mineral acidity that balances the wine's textural richness. Lingering notes of peach, citrus zest, and wet stone provide a satisfying, food-friendly conclusion. The almond and honeyed elements fade gracefully, leaving a mineral impression."
+      },
+      "foodPairings": [
+        "Roasted chicken with lemon and herbs",
+        "Grilled line fish with citrus beurre blanc",
+        "Butternut squash ravioli with brown butter",
+        "Cape Malay curry with mild spicing",
+        "Aged farmhouse goat cheese"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Brief 15 minutes in decanter or glass allows oak to integrate; serve slightly warmer than typical whites to appreciate texture",
+        "glassware": "White Burgundy glass or medium-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg, Stellenbosch, South Africa",
+        "grapeVariety": "100% Chenin Blanc from single vineyard",
+        "vintage": "2022",
+        "style": "Barrel-aged, organic, old-vine Chenin Blanc",
+        "ageability": "Drink now through 5-7 years; old vine intensity and barrel aging provide structure for medium-term evolution"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine de la Denante Bourgogne Pinot Noir 2023",
+      "description": "A classic Bourgogne Rouge showcasing the approachable side of Burgundian Pinot Noir, with the characteristic richness and earthy complexity that defines the region. This wine offers authentic Burgundian character at an accessible price point, demonstrating balanced fruit expression with subtle terroir influence.",
+      "tastingNotes": {
+        "aroma": "The wine presents a rich garnet color, revealing appealing aromas of grilled plum, blackberry, and integrated baking spices. Notes of dark cherry emerge alongside subtle hints of bramble fruit, while a gentle earthiness adds complexity. The aromatic profile suggests ripe fruit balanced by classic Burgundian restraint.",
+        "palate": "Round and graceful on the palate, the wine delivers concentrated flavors of dark cherry, blueberry, and bramble berries. The texture is smooth and inviting, with black plum skin tannins providing structure without heaviness. Earthy elements characteristic of Burgundy emerge on the mid-palate, adding dimension to the fruit-forward core. The wine shows medium body with well-integrated oak influence.",
+        "finish": "The finish extends gracefully with slightly earthy notes persisting alongside dark fruit flavors. Black plum skin tannins provide grip without astringency, while subtle spice notes linger. The conclusion is balanced and food-friendly, inviting pairing with classic Burgundian cuisine."
+      },
+      "foodPairings": [
+        "Coq au vin with pearl onions and mushrooms",
+        "Grilled duck breast with black cherry sauce",
+        "Beef bourguignon with root vegetables",
+        "Mushroom and Gruyère tart",
+        "Soft-ripened French cheeses like Époisses or Langres"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "30 minutes of decanting recommended to allow tannins to soften and earthy notes to emerge",
+        "glassware": "Classic Burgundy glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Bourgogne AOC, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2023",
+        "style": "Classic Bourgogne Rouge with fruit-forward character",
+        "ageability": "Drink now through 5-6 years; designed for near-term enjoyment while retaining Burgundian structure"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Moscato 2022",
+      "description": "A refreshingly sweet Moscato from California's Central Coast, crafted through long, cool stainless-steel fermentation to preserve the grape's distinctive aromatic character. This wine balances sweetness with bright acidity, creating a light, approachable style perfect for casual enjoyment and versatile food pairing.",
+      "tastingNotes": {
+        "aroma": "Intense floral aromas dominate the nose, featuring white blossoms, honeysuckle, and orange blossom. A beautiful bouquet of fresh fruit aromas follows, with forward notes of ripe peach, apricot, and tropical lychee. The aromatics are vibrant and inviting, showcasing the Moscato grape's natural perfume.",
+        "palate": "Amazingly fresh, fruity, and smooth on the palate, with concentrated flavors of white peach, nectarine, and juicy pear. The wine is sweet yet light and crisp, with enough natural acidity to prevent any cloying heaviness. The texture is refreshing rather than thick, demonstrating skilled winemaking that balances residual sugar with bright acidity. Subtle hints of honey and citrus add complexity to the fruit-forward core.",
+        "finish": "The finish is smooth and mouth-watering, with lingering peach and floral notes fading gracefully. The conclusion is clean and refreshing, leaving a pleasant sweetness that invites another sip without overwhelming the palate."
+      },
+      "foodPairings": [
+        "Fresh fruit tart with vanilla cream",
+        "Spicy Asian cuisine like Thai curry",
+        "Prosciutto-wrapped melon",
+        "Soft blue cheeses like Gorgonzola dolce",
+        "Lemon panna cotta with berry compote"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C); serve well-chilled",
+        "decanting": "No decanting needed; serve directly from refrigerator to preserve freshness and effervescence",
+        "glassware": "Flute or small white wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California",
+        "grapeVariety": "100% Moscato (Muscat Blanc)",
+        "vintage": "2022",
+        "style": "Sweet, aromatic white wine with balanced acidity",
+        "ageability": "Best consumed within 1-2 years of release to enjoy peak freshness and aromatic intensity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "TVH Block 5 Cabernet Franc 2021",
+      "description": "An exceptional estate Cabernet Franc from the prestigious Hermosa Vineyard's Crabb's Black Burgundy Block 5, located adjacent to Harlan Estate. Crafted by renowned winemakers Philippe Melka and Maayan Koschitzky, this wine represents the pinnacle of California Cabernet Franc, offering extraordinary complexity and aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose opens with captivating aromas of red and black currants, intertwined with fresh violet florals and supple leather notes. Beautiful black cherry emerges alongside nuanced hints of dried flowers, new saddle leather, and unsmoked tobacco. Subtle spice elements of white pepper and exotic spices add complexity, while the aromatic intensity suggests concentrated fruit from a exceptional vineyard site.",
+        "palate": "Full-bodied with remarkable richness, the palate delivers flawless balance between power and elegance. Concentrated flavors of black cherry, cassis, and currant dominate, supported by silky, refined tannins that coat the palate. Notes of dried violet petals, tobacco leaf, and subtle cedar from oak aging add layers of complexity. The wine shows outstanding structure with integrated acidity providing freshness despite its impressive weight and concentration.",
+        "finish": "The finish is long and persistent, demonstrating the exceptional quality of fruit and site. Silky tannins extend gracefully, carrying flavors of dark fruit, leather, and spice through a conclusion that seems almost endless. The wine's impeccable balance suggests significant aging potential over the coming decade."
+      },
+      "foodPairings": [
+        "Dry-aged prime ribeye with herb butter",
+        "Braised lamb shoulder with root vegetables",
+        "Wild mushroom and truffle risotto",
+        "Venison loin with black cherry reduction",
+        "Aged cave-aged Gruyère or Comté"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 60-90 minutes to allow full expression; young vintage benefits from extended aeration",
+        "glassware": "Large bowl Bordeaux or Cabernet glass to capture complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Hermosa Vineyard, Napa Valley, California (Block 5, adjacent to Harlan Estate)",
+        "grapeVariety": "100% Cabernet Franc from estate Crabb's Black Burgundy Block",
+        "vintage": "2021",
+        "style": "Full-bodied, age-worthy estate Cabernet Franc",
+        "ageability": "Drink now through 10-12+ years; exceptional structure supports extended cellaring and development"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Grand Marchand Reserve Bordeaux Left Bank 2020",
+      "description": "A distinguished Left Bank Bordeaux from the excellent 2020 vintage, awarded Gold at the Concours de Bordeaux Vins d'Aquitaine. This wine represents classic Bordeaux blending and structure, showcasing the elegant fruit expression and refined tannins characteristic of Left Bank viticulture in an outstanding vintage.",
+      "tastingNotes": {
+        "aroma": "The nose reveals a sophisticated bouquet of black and red fruits, with prominent cassis, blackberry, and ripe plum. Aromatic complexity emerges with notes of exotic spices, sandalwood, and subtle cedar from oak aging. Hints of graphite and tobacco leaf add classic Left Bank character, while the fruit remains pure and focused, reflecting the exceptional quality of the 2020 vintage.",
+        "palate": "The palate is friande (appealing and inviting), delivering concentrated dark fruit flavors balanced by elegant structure. Fine-grained tannins provide grip without astringency, while the wine's beautiful architecture demonstrates classic Left Bank composition. Flavors of blackcurrant and plum intermingle with notes of dark chocolate, espresso, and subtle baking spices. The wine shows medium to full body with integrated acidity maintaining freshness.",
+        "finish": "The finish extends gracefully with persistent fruit notes and well-integrated oak influence. Fine tannins provide structure through the long conclusion, while subtle spice and mineral elements add complexity. The wine demonstrates excellent balance and the aging potential characteristic of quality Left Bank Bordeaux from the stellar 2020 vintage."
+      },
+      "foodPairings": [
+        "Roasted rack of lamb with herb crust",
+        "Beef Wellington with mushroom duxelles",
+        "Duck confit with black cherry gastrique",
+        "Aged hard cheeses like aged Cheddar or Gouda",
+        "Grilled ribeye with Bordelaise sauce"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow tannins to soften and oak to integrate with fruit",
+        "glassware": "Classic Bordeaux glass with tall bowl"
+      },
+      "wineDetails": {
+        "region": "Bordeaux Left Bank, France",
+        "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon-dominant with Merlot and possibly Cabernet Franc)",
+        "vintage": "2020",
+        "style": "Classic Left Bank Bordeaux with structured elegance",
+        "ageability": "Drink now through 8-12 years; the excellent 2020 vintage and Left Bank structure support medium to long-term aging"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

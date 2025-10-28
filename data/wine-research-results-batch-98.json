@@ -1,0 +1,347 @@
+{
+  "batchNumber": 98,
+  "researchedAt": "2025-10-21T12:45:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Endhardt Vineyards Chardonnay 2022",
+      "description": "Endhardt Vineyards, one of Virginia's rising star wineries in Purcellville, crafted this Chardonnay from their second harvest after planting in 2021. This young estate has already earned recognition, with their 2023 vintage securing a silver medal at the Virginia Governor's Cup, marking them as a producer to watch in Loudoun County's burgeoning wine scene.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright orchard fruit aromatics of crisp green apple and Asian pear, layered with subtle notes of Meyer lemon zest and honeysuckle. There's a delicate minerality reminiscent of wet stone, characteristic of Virginia's terroir, alongside hints of vanilla and toasted hazelnut from restrained oak influence. Fresh acidity lifts the aromatics, creating an inviting and elegant bouquet.",
+        "palate": "Medium-bodied with refreshing acidity that drives flavors of ripe Bartlett pear, golden apple, and citrus across the palate. The wine shows excellent balance between fruit expression and structure, with a creamy mid-palate texture that doesn't overwhelm the bright fruit character. Subtle notes of brioche and butter emerge, suggesting partial malolactic fermentation, while maintaining the crisp, clean profile that defines quality Virginia Chardonnay.",
+        "finish": "The finish is clean and moderately long, with lingering notes of citrus zest and a pleasant mineral quality. There's a refreshing acidity that leaves the palate cleansed and ready for another sip, with just a whisper of oak spice on the very end. The wine's youthful energy shines through, suggesting it will develop additional complexity with 1-2 years of bottle age."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with lemon butter sauce",
+        "Grilled chicken with herb and lemon marinade",
+        "Creamy lobster risotto",
+        "Fresh oysters on the half shell with mignonette",
+        "Virginia ham and aged Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C) - moderately chilled to preserve freshness",
+        "decanting": "No decanting needed; serve directly from bottle. May benefit from 10-15 minutes of breathing time in the glass",
+        "glassware": "Medium-sized white Burgundy glass or standard Chardonnay glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Purcellville, Loudoun County, Virginia",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Balanced, medium-bodied Virginia Chardonnay with restrained oak",
+        "ageability": "Drink now through 2026; best enjoyed within 2-3 years to capture fresh fruit character and vibrant acidity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Saddleback Zinfandel 2018",
+      "description": "Saddleback Cellars' 2018 Old Vine Zinfandel represents the 23rd vintage of this iconic Napa Valley wine, crafted by legendary winemaker Nils Venge, known as the 'King of Cab' and the first American to achieve a perfect 100-point score from Robert Parker. This Zinfandel showcases the depth and complexity achievable from Napa's heritage vineyards, aged to perfection and ready to drink.",
+      "tastingNotes": {
+        "aroma": "Beautifully balanced aromatics open with fresh notes of black cardamom and exotic spices, layered with bright Japanese plum and white pepper. Deeper inhalation reveals concentrated dark berry compote, brambleberry, and hints of dried herbs. There's a subtle smokiness from oak aging, intermingled with vanilla bean and a touch of cocoa that adds complexity. The nose is inviting yet restrained, showing the elegance that comes with proper aging.",
+        "palate": "Medium to full-bodied with a gorgeous melange of ripe fruit flavors centered on bright Japanese plum, blackberry preserves, and red cherry. The wine shows excellent structure with supple, well-integrated tannins that provide framework without harshness. White pepper and baking spices dance across the mid-palate, while the wine maintains remarkable freshness despite its concentration. There's a savory quality that emerges, with hints of dried sage and black tea adding dimension to the ripe fruit core.",
+        "finish": "The finish is long and satisfying, with persistent notes of dark fruit and spice that linger well after the sip. A touch of vanilla oak and pepper remains on the palate, balanced by bright acidity that keeps the wine fresh and food-friendly. The tannins are fine-grained and polished, showing the benefit of six years of aging since harvest."
+      },
+      "foodPairings": [
+        "Grilled tri-tip with chimichurri sauce",
+        "BBQ pork ribs with blackberry glaze",
+        "Wild mushroom and sausage pizza",
+        "Braised lamb shanks with rosemary",
+        "Aged cheddar and charcuterie board"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C) - slightly below room temperature",
+        "decanting": "Decant 30 minutes before serving to allow the wine to open up and showcase its complexity",
+        "glassware": "Large bowl red wine glass or Zinfandel-specific stemware to capture aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Oakville, Napa Valley, California",
+        "grapeVariety": "100% Old Vine Zinfandel",
+        "vintage": "2018",
+        "style": "Medium to full-bodied Napa Valley Zinfandel with elegant spice and balanced fruit",
+        "ageability": "Drinking beautifully now through 2028; well-aged and showing mature complexity with excellent balance"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Born Rose Sparkling 2020",
+      "description": "Born Rosé from Barcelona is an organic sparkling wine crafted using the Charmat method from 100% Pinot Noir grapes grown in the Penedès region. This wine embodies the essence of celebration with its elegant pale pink color and persistent fine bubbles, created by one of the region's master winemakers to capture the fresh, fruity character that makes Spanish sparkling wines so approachable and delightful.",
+      "tastingNotes": {
+        "aroma": "Elegant and full of nuance, the nose opens with bright citrus aromas of orange zest and pink grapefruit, intermingled with fresh red fruits including ripe cherry and wild strawberry. Delicate white flower notes of orange blossom and rose petal add a romantic quality, while subtle menthol and mineral undertones provide complexity. The aromatics are lifted and fresh, inviting immediate enjoyment.",
+        "palate": "The wine is crisp and fresh from the first sip, with a balanced mouthfeel driven by bright, refreshing acidity. Red berry flavors of strawberry and raspberry dominate the palate, complemented by citrus notes of grapefruit and lemon. There's a pleasant sweetness of ripe fruit balanced by racy acidity, creating a harmonious profile. The fine, persistent bubbles provide a creamy texture while maintaining the wine's energy and vibrancy.",
+        "finish": "The finish is clean and refreshing, with lingering notes of sweet red fruit and citrus that persist on the palate. A touch of minerality emerges at the end, adding depth and keeping the wine from being one-dimensional. The bubbles continue to dance on the tongue, leaving a pleasant sensation that invites another sip."
+      },
+      "foodPairings": [
+        "Fresh seafood tapas with alioli",
+        "Smoked salmon and cream cheese canapés",
+        "Berry pavlova or fruit tarts",
+        "Charcuterie with Manchego cheese",
+        "Fried calamari with lemon"
+      ],
+      "servingInfo": {
+        "temperature": "43-46°F (6-8°C) - well-chilled to preserve bubbles and freshness",
+        "decanting": "Serve directly from bottle, no decanting needed. Keep chilled in ice bucket during service",
+        "glassware": "Champagne flute or tulip glass to preserve bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Penedès, Barcelona, Spain",
+        "grapeVariety": "100% organic Pinot Noir",
+        "vintage": "2020",
+        "style": "Crisp, fresh sparkling rosé - Charmat method",
+        "ageability": "Best enjoyed within 1-2 years of purchase to capture peak freshness and vibrant fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Armstrong Family Winery Ebby James (Syrah) 2020",
+      "description": "Armstrong Family Winery has built a reputation for exceptional Syrah wines from Washington State, with their Discovery Vineyard Syrah winning Best of Show at the 2020 Great Northwest Invitational. The Ebby James bottling represents their commitment to crafting elegant, terroir-driven Syrah that balances power with finesse, showcasing the quality achievable from Washington's premium vineyard sites.",
+      "tastingNotes": {
+        "aroma": "The nose opens with a captivating blend of wild blackberry cobbler and dark cherry compote, layered with mocha and espresso bean notes. There's a pronounced savory quality with dried herbs, black olive tapenade, and smoky bacon fat that adds complexity. Stony mineral accents emerge alongside violet and lavender floral notes, while subtle white pepper and cracked black pepper provide an aromatic spice component.",
+        "palate": "Full-bodied with substantial structure, the wine delivers a delightful punch on the mid-palate in terms of flavor density and finesse. Dark fruit flavors of blackberry, plum, and black cherry dominate, supported by savory elements of cured meat, olive, and herb de Provence. The wine shows excellent texture with fine-grained tannins that provide grip without astringency, while maintaining the vibrancy and energy characteristic of Washington Syrah. Mocha and dark chocolate notes add richness without overwhelming the dark fruit core.",
+        "finish": "Long and layered finish with persistent dark fruit, savory herbs, and subtle spice that lingers well after the sip. The tannins are polished and supportive, with a mineral quality that adds complexity. A touch of smoke and white pepper remains on the palate, balanced by bright acidity that keeps the wine fresh despite its concentration."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Braised short ribs with red wine reduction",
+        "Wild game stew with root vegetables",
+        "Smoked brisket with peppercorn crust",
+        "Aged Gouda and dark chocolate pairing"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C) - cellar temperature to room temperature",
+        "decanting": "Decant 45-60 minutes before serving to allow the wine to open and integrate",
+        "glassware": "Large bowl red Burgundy or Syrah glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Washington State (likely Columbia Valley or Walla Walla Valley)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2020",
+        "style": "Full-bodied, complex Washington Syrah with savory and dark fruit character",
+        "ageability": "Drinking window 2024-2032; wine shows excellent structure for medium-term aging"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Chambourcin 2017",
+      "description": "Zephaniah Farm Vineyard in Leesburg, Virginia is recognized as one of the state's Top 100 wineries and has earned particular acclaim for their Chambourcin wines, with the 2021 vintage receiving a silver medal at the Governor's Cup. The 2017 vintage showcases the winery's expertise with this French-American hybrid grape, demonstrating how Virginia producers have mastered this variety to create wines of depth and character.",
+      "tastingNotes": {
+        "aroma": "The nose presents a complex array of dark fruit aromatics, led by black cherry compote and ripe plum, with undertones of blackberry preserves. There's a distinctive smoky quality reminiscent of a wood-fired hearth, alongside notes of black pepper, clove, and dried tobacco leaf. Subtle earthy elements emerge, including forest floor and dried leaves, while a hint of vanilla and oak spice adds complexity from barrel aging.",
+        "palate": "Medium to full-bodied with rich, concentrated dark fruit flavors anchored by black cherry and dark plum. The wine shows good structural backbone with moderate tannins that have softened nicely with age, creating a smooth, approachable mouthfeel. Baking spices including cinnamon and nutmeg appear on the mid-palate, complemented by hints of coffee and dark cocoa. There's a pleasant tartness that provides balance, keeping the wine from becoming overly heavy or jammy.",
+        "finish": "The finish is moderately long with persistent notes of dark fruit and warming spice. A subtle smokiness lingers alongside dried herb notes of sage and thyme, while the tannins remain soft and well-integrated. The wine's mature character is evident, showing the benefits of six years of aging with smooth, rounded edges and harmonious integration of all components."
+      },
+      "foodPairings": [
+        "Slow-cooked pot roast with root vegetables",
+        "Grilled portobello mushrooms with balsamic glaze",
+        "Venison medallions with blackberry sauce",
+        "Smoked pulled pork with BBQ sauce",
+        "Aged Virginia cheddar and dark bread"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C) - slightly cool to preserve freshness",
+        "decanting": "Decant 30 minutes or serve slightly chilled; can also be enjoyed as mulled wine in winter months",
+        "glassware": "Standard red wine glass or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Leesburg, Loudoun County, Virginia",
+        "grapeVariety": "100% Chambourcin (French-American hybrid)",
+        "vintage": "2017",
+        "style": "Medium to full-bodied, fruit-forward Virginia red with spice and smoky complexity",
+        "ageability": "Drinking well now; mature wine that should be enjoyed within the next 1-2 years at peak"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Pinot Noir Damaged Labels 2019",
+      "description": "Hendry Ranch Wines, one of Napa Valley's best-kept secrets, has been crafting exceptional Pinot Noir from their estate vineyard since 1972. The 2019 vintage with damaged labels offers exceptional value for this critically acclaimed wine, which Wine Enthusiast rated 91 points. The Hendry vineyard's unique location in the transitional zone between cool Carneros and warmer Napa Valley creates ideal conditions for balanced Pinot Noir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromas of bright red cherry and wild strawberry, layered with subtle notes of potpourri and dried rose petals. There's a delicate earthiness reminiscent of forest floor and mushroom, characteristic of quality Pinot Noir, alongside hints of black tea and sandalwood. Subtle oak influence shows as vanilla bean and toasted hazelnut, while a touch of savory herb adds complexity. The aromatics are lifted and pure, showing the wine's elegance.",
+        "palate": "Medium-bodied with a silky, plush texture that coats the palate beautifully. The wine delivers vibrant flavors of ripe cherry, cranberry, and red raspberry, balanced by bright acidity that maintains freshness. There's an underlying mineral quality that adds depth, along with subtle notes of persimmon and pomegranate that emerge on the mid-palate. The wine positions itself perfectly between the bright acidity of Burgundy and the full-fruit approach of California Pinot Noir, showing excellent balance and finesse.",
+        "finish": "The finish is moderately long and elegant, with lingering notes of red fruit and a touch of spice. Silky tannins provide gentle structure while remaining soft and approachable. A mineral quality persists, along with hints of smoke and tea that add complexity to the fade. The wine's vibrant acidity and rich cherry character linger pleasantly, inviting another sip."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry gastrique",
+        "Grilled salmon with herb butter",
+        "Wild mushroom risotto with Parmesan",
+        "Coq au vin with pearl onions",
+        "Soft-ripened Camembert with crusty bread"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C) - cool cellar temperature to preserve aromatics",
+        "decanting": "Brief decanting of 15-20 minutes beneficial but not essential; wine is approachable upon opening",
+        "glassware": "Burgundy glass or large bowl Pinot Noir glass to concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (transitional zone near Carneros)",
+        "grapeVariety": "100% Pinot Noir (Dijon clones and Swan selection)",
+        "vintage": "2019",
+        "style": "Silky, medium-bodied California Pinot Noir with bright acidity and elegant fruit",
+        "ageability": "Drinking beautifully now through 2027; wine is in its prime drinking window"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Avoglia Primitivo 2023",
+      "description": "Tenuta Giustini's Avoglia Primitivo represents the fresh, dynamic expression of Puglia's signature grape variety, crafted by Giuseppe Papadopoli and his sons in San Giorgio Jonico, at the heart of the Primitivo di Manduria DOC. This wine showcases the juicy, approachable style of Primitivo aged exclusively in stainless steel to preserve fruit purity and vibrant character, offering exceptional value from one of southern Italy's most exciting wine regions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with an inviting bouquet of dark wild berries, featuring concentrated aromas of blackberry jam, ripe blueberry, and black cherry compote. There are distinctive notes of dried black fruit including prune and fig, layered with hints of tobacco leaf and supple leather that add complexity. A subtle earthiness emerges alongside sweet baking spices of cinnamon and vanilla, while the wine's ruby red color with violet reflections hints at its youthful vibrancy.",
+        "palate": "Full-bodied and juicy with excellent fruit density, the wine delivers concentrated flavors of ripe blackberry, black cherry, and plum across the palate. The texture is smooth and approachable, with soft, well-integrated tannins that provide structure without astringency. There's a pleasant sweetness to the ripe fruit that never becomes cloying, balanced by moderate acidity that keeps the wine fresh and food-friendly. Notes of cocoa and sweet spice add dimension to the fruit-forward core, while the wine maintains remarkable elegance despite its concentration.",
+        "finish": "The finish is moderately long with persistent dark fruit flavors and a touch of spice. Soft tannins and balanced acidity create a harmonious fade, with lingering notes of blackberry and subtle tobacco that remain on the palate. The wine's youthful energy and approachability shine through, making it immediately enjoyable while hinting at potential for short-term development."
+      },
+      "foodPairings": [
+        "Grilled Italian sausages with peppers and onions",
+        "Orecchiette pasta with lamb ragu",
+        "Wood-fired pizza with spicy salami",
+        "Braised pork shoulder with rosemary",
+        "Aged Pecorino Romano with honey and walnuts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C) - slightly below room temperature",
+        "decanting": "Brief decanting of 15-20 minutes allows the wine to open; readily approachable upon opening",
+        "glassware": "Large bowl red wine glass or Zinfandel glass to capture aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "San Giorgio Jonico, Primitivo di Manduria DOC, Puglia, Italy",
+        "grapeVariety": "100% Primitivo",
+        "vintage": "2023",
+        "style": "Full-bodied, fruit-forward Pugliese Primitivo with elegant balance and approachability",
+        "ageability": "Best enjoyed within 2-4 years to capture fresh fruit character; drink now through 2027"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alma do Mar Ruby Port Mevushal (MD & DC)",
+      "description": "Alma do Mar Ruby Port is an authentic Portuguese Port wine crafted in the Douro Valley under strict kosher supervision (OU, Rabbi Padwa). This Mevushal wine represents a sophisticated sweet red with deep traditional character, earning praise from wine expert Adam Montefiore for showing excellent Ruby Port characteristics including ripe, rich fruit and impressive length. At 19% ABV, it delivers the fortified power and complexity Port lovers seek.",
+      "tastingNotes": {
+        "aroma": "The nose opens with a deep, captivating bouquet of concentrated red and black fruit jam, featuring intense aromas of blackberry preserves, black cherry compote, and strawberry reduction. Rich oak influence shows through notes of vanilla, cedar, and sweet tobacco, while exotic spices of cinnamon, clove, and cardamom add layers of complexity. There's a subtle floral quality of dried roses alongside hints of dark chocolate and coffee that enhance the wine's aromatic depth.",
+        "palate": "Full-bodied and richly textured with a velvety, mouth-coating presence characteristic of quality Ruby Port. The wine delivers waves of ripe, concentrated fruit flavors including blackberry, plum, and dark cherry, all elevated by the wine's natural sweetness. Oak-derived notes of vanilla and baking spice integrate beautifully with the fruit core, while the high alcohol content (19%) provides warmth without harshness. The wine is fruit-forward and approachable, showing the ripe, generous character that defines the Ruby Port style.",
+        "finish": "The finish is impressively long and persistent, with concentrated dark fruit and spice lingering well after the sip. A pleasant bitter edge of dark chocolate and espresso emerges, balanced by sweet fruit and warming alcohol. Tart cranberry notes add brightness to the fade, while the wine's richness and texture leave a lasting impression on the palate."
+      },
+      "foodPairings": [
+        "Dark chocolate torte or flourless chocolate cake",
+        "Blue cheese with dried figs and walnuts",
+        "Chocolate-covered strawberries",
+        "Aged Stilton or Gorgonzola cheese",
+        "Pecan pie or walnut tart"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C) - slightly cool to moderate room temperature",
+        "decanting": "No decanting necessary; serve directly from bottle. Can be stored opened for 2-3 weeks if recorked",
+        "glassware": "Small Port glass or dessert wine glass to concentrate aromatics and control portion"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "Traditional Portuguese Port varieties blend (likely Touriga Nacional, Touriga Franca, Tinta Roriz)",
+        "vintage": "Non-vintage",
+        "style": "Ruby Port - fortified sweet red wine, authentic Douro Valley production",
+        "ageability": "Ready to drink now; can be enjoyed immediately or cellared for 5-10 years for further integration"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Pinot Noir 2022",
+      "description": "The 2022 Hendry Pinot Noir represents the latest expression from one of Napa Valley's most consistent producers of this delicate variety. From estate vines originally planted in 1972 and subsequently replanted with premium Dijon clones and Swan selection, this wine benefits from the vineyard's unique transitional climate position, creating Pinot Noir that bridges Burgundian elegance with California fruit expression.",
+      "tastingNotes": {
+        "aroma": "Medium to full-bodied aromatics open with captivating scents of bright black cherries and fragrant potpourri, layered with subtle floral notes of dried rose petals and violet. There's a delicate earthiness reminiscent of forest floor and damp autumn leaves, alongside hints of black tea and sandalwood. Oak influence appears as vanilla bean, toasted almond, and subtle baking spices, while a distinctive note of ripe persimmon adds an exotic quality. The nose is lifted and pure, showing excellent aromatic complexity.",
+        "palate": "Silky and plushly textured, the wine coats the palate with velvety richness while maintaining elegant structure. Flavors of ripe black cherry dominate, supported by red raspberry, cranberry, and subtle strawberry notes. The wine shows remarkable balance, positioned perfectly between the bright acidity characteristic of Burgundy and the fuller fruit approach of California Pinot Noir. There's vibrant acidity underscored by rich cherry fruit and subtle smoke, while fine-grained tannins provide gentle grip without astringency.",
+        "finish": "The finish lingers with persistence, featuring notes of ripe cherry, persimmon, and subtle spice. A touch of smoke and earth emerges alongside mineral notes that add complexity and depth. The silky tannins remain soft and approachable through the fade, while bright acidity keeps the wine fresh and lifted. The recommended drinking window of 2024-2030 suggests the wine has excellent aging potential while being immediately enjoyable."
+      },
+      "foodPairings": [
+        "Pan-seared duck breast with cherry compote",
+        "Herb-crusted rack of lamb",
+        "Wild mushroom and truffle pasta",
+        "Grilled tuna with Provençal herbs",
+        "Triple cream brie with fig jam"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C) - cool cellar temperature to showcase elegance",
+        "decanting": "Brief decanting of 20-30 minutes beneficial to integrate oak; wine is approachable upon opening",
+        "glassware": "Large bowl Burgundy glass to capture and concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (transitional climate zone)",
+        "grapeVariety": "100% Pinot Noir (Dijon clones and Swan selection blend)",
+        "vintage": "2022",
+        "style": "Medium to full-bodied, silky California Pinot Noir with Burgundian elegance",
+        "ageability": "Drinking window 2024-2030; wine shows structure for medium-term aging while being enjoyable now"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Colle Corviano Pecorino 2022",
+      "description": "Colle Corviano's Pecorino 2022 earned an impressive 90 points from Decanter World Wine Awards, showcasing this family-run, sustainability-focused estate's commitment to producing high-quality, affordable wines from Abruzzo's Colline Pescaresi IGP. This vibrant white wine from the ancient Pecorino grape variety demonstrates why this 15-hectare estate between Loreto Aprutino and Picciano has become recognized as a source of exceptional value in Italian white wines.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with vibrant aromatics of citrus and orchard fruit, led by bright notes of Meyer lemon, pink grapefruit zest, and crisp green apple. There's a beautiful floral quality featuring white flowers, acacia blossoms, and delicate honeysuckle that adds elegance to the aromatic profile. Subtle mineral notes reminiscent of wet stone and chalk emerge, reflecting the wine's terroir, while hints of fresh herbs including lemon verbena and mint provide additional complexity.",
+        "palate": "Medium-bodied with a refreshing, crisp mouthfeel driven by vibrant acidity that energizes the palate. Flavors of citrus dominate, featuring lemon curd, grapefruit, and lime zest, complemented by green apple and white peach notes. There's a pleasant mineral edge that runs through the wine, adding structure and depth to the fruit core. The wine shows excellent balance between fruit expression and acidity, maintaining freshness while delivering satisfying flavor intensity. A subtle salinity emerges on the mid-palate, enhancing the wine's food-friendly character.",
+        "finish": "The finish is clean and persistent, with lingering citrus notes and that distinctive subtle mineral quality that defines quality Pecorino. Refreshing acidity leaves the palate cleansed and invigorated, with hints of white flowers and herbs remaining as the wine fades. The wine's energy and vibrancy shine through to the very end."
+      },
+      "foodPairings": [
+        "Grilled branzino with lemon and herbs",
+        "Seafood pasta with white wine sauce",
+        "Fresh mozzarella and tomato caprese salad",
+        "Fried calamari with aioli",
+        "Pecorino cheese (namesake pairing) with honey"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C) - well-chilled to preserve freshness and acidity",
+        "decanting": "No decanting needed; serve directly from bottle for optimal freshness",
+        "glassware": "Standard white wine glass or Sauvignon Blanc glass to concentrate citrus aromatics"
+      },
+      "wineDetails": {
+        "region": "Colline Pescaresi IGP, Abruzzo, Italy (Loreto Aprutino-Picciano area)",
+        "grapeVariety": "100% Pecorino",
+        "vintage": "2022",
+        "style": "Vibrant, aromatic Italian white wine with citrus focus and mineral complexity",
+        "ageability": "Best enjoyed within 2-3 years to capture peak freshness; drink now through 2025"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    }
+  ]
+}

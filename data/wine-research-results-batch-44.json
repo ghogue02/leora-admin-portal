@@ -1,0 +1,347 @@
+{
+  "batchId": "batch-44",
+  "totalWines": 10,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine de la Denante Saint Veran 2022",
+      "description": "A gold medal-winning white Burgundy from the southern Mâconnais region, this Saint-Véran delivers exceptional value. Crafted from 100% Chardonnay and matured in old barrels for 6-8 months, it showcases the estate's commitment to quality with consistently high scores from Wine Enthusiast.",
+      "tastingNotes": {
+        "aroma": "The nose reveals lovely rich fruit lines enhanced by intense citrus notes and softer shades of firm peach. Subtle aromatics of acacia and honeysuckle drift over fresh almond, hazelnut, and a whisper of cinnamon. A delicate buttery character emerges, occasionally touched with hints of honey and bracken, creating a complex and inviting bouquet that draws you in with its Burgundian elegance.",
+        "palate": "Juicy with remarkable creamy depth, the palate builds from bright citrus into riper peach flavors that expand mid-palate. The wine is dry and well-rounded, displaying characteristic minerality reminiscent of gun-flint alongside vibrant acidity. Harmonious and fresh, it balances fruit richness with a lean, focused structure that speaks to its terroir-driven purity.",
+        "finish": "A lovely broad finish stretches across the palate with lingering peach and mineral notes. The conclusion is clean and refreshing, leaving a lasting impression of crystalline purity and refined elegance typical of quality Mâconnais whites."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs",
+        "Grilled white fish with lemon butter",
+        "Goat cheese salad with walnuts",
+        "Seafood risotto",
+        "Pan-seared scallops"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "No decanting required; serve directly from refrigeration",
+        "glassware": "White Burgundy or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Saint-Véran, Mâconnais, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Dry white wine with mineral character",
+        "ageability": "Drink now through 2026; best enjoyed in its youth to preserve freshness and fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dogwood & Thistle Cavalier Cuvee Pinot Noir (Private Label) 2021",
+      "description": "A California Pinot Noir from Dogwood & Thistle, showcasing the producer's expertise with this delicate variety. While the specific \"Cavalier Cuvee\" designation appears to be a private label selection, Dogwood & Thistle is known for producing elegant, terroir-focused Pinot Noirs from coastal California vineyards.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright red cherry complemented by warm baking spices including nutmeg and hints of cola. Delicate notes of English rose petals add a floral dimension, while a pleasant wild character pushes the fruit toward herbal aromas that skew towards bay leaf. Both red and black cherries mingle, creating a savory, complex aromatic profile.",
+        "palate": "On the palate, concentrated red cherry fruit dominates with accents of wild mountain red berries creating a vibrant, energetic core. Earthier notes of dried mushrooms and crushed stone emerge mid-palate, adding complexity and depth. The texture is creamy yet maintains a dried cranberry crispness that provides structure and definition to the fruit.",
+        "finish": "Long, mouth-quenching, and elegant, the finish demonstrates the wine's poise and refinement. The fruit lingers with subtle spice notes and a mineral thread that extends the conclusion gracefully."
+      },
+      "foodPairings": [
+        "Duck breast with cherry reduction",
+        "Mushroom risotto with truffle oil",
+        "Grilled salmon with herbs",
+        "Roasted pork tenderloin",
+        "Brie and aged cheddar cheese plate"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "Brief 15-20 minute aeration enhances aromatics",
+        "glassware": "Burgundy glass or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Sonoma Coast or Mendocino Ridge based on producer's portfolio)",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2021",
+        "style": "Medium-bodied elegant red with savory character",
+        "ageability": "Drink now through 2028; will develop tertiary complexity over 3-5 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Merlot Bad Label 2020",
+      "description": "A certified sustainable Merlot from Yakima Valley, Washington's premier wine region. Two Mountain Winery achieved sustainable certification beginning with the 2020 vintage, making this \"Bad Label\" bottling both environmentally conscious and representative of Washington's distinctive terroir. The playful name belies a serious, well-crafted wine.",
+      "tastingNotes": {
+        "aroma": "The nose presents beautiful oak integration with a little cocoa dust and a healthy dose of raw fig. A dash of briny, salty intrigue adds complexity and distinctiveness. The aromatics reveal layers of strawberry and raspberry alongside hints of dried herbs, creating a unique profile that's both forward and leafy with unexpected savory elements.",
+        "palate": "The palate performs an elegant ballet between lilac and bay leaf, cherry candy and roasted beets, black pepper and cumin, all dancing on a beautifully soft mid-palate that stretches for miles. Despite notable alcohol, the wine maintains a delicate, refined character that emphasizes fruit and spice balance over power. The texture is plush and inviting, more nuanced than its structure might suggest.",
+        "finish": "A long, supple finish carries the wine's signature combination of fruit sweetness and savory spice. The conclusion is smooth and satisfying, perfect for near-term enjoyment with its approachable, crowd-pleasing style."
+      },
+      "foodPairings": [
+        "Herb-crusted lamb chops",
+        "Grilled portobello mushrooms",
+        "Beef short ribs with red wine reduction",
+        "Roasted root vegetables",
+        "Aged Gouda or manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "30 minutes to an hour allows the wine to open up and soften",
+        "glassware": "Bordeaux or standard large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Columbia Valley, Washington State",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2020",
+        "style": "Medium to full-bodied red with savory complexity",
+        "ageability": "Drink now through 2027; designed for near-term enjoyment while maintaining aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Lo Petit de la Casa 2023",
+      "description": "An organic red wine from Spain's prestigious Priorat region, crafted by Trossos del Priorat from organically grown grapes certified by the Catalan Council of Ecological Agricultural Production. Grown on distinctive slate soils, this wine undergoes extended maceration and aging in French oak, followed by 10 months bottle aging before release.",
+      "tastingNotes": {
+        "aroma": "Notes of blackberry and raspberry bramble dominate the nose, accompanied by freshly turned soil and savory herbs that speak to the wine's organic farming and earthy terroir. Ripe black fruit mingles with sweet black spices, forest herbs, and a whisper of incense. The aromatic complexity reveals the wine's careful vinification and terroir expression from Priorat's famous licorella soils.",
+        "palate": "The entry is fresh and inviting, leading to a good and intense path filled with juicy fruity notes. The wine shows concentrated dark fruit character with mature, elegant, and fine tannins that provide structure without heaviness. Supple tannins frame the ripe fruit, while the slate soil influence adds a distinctive mineral backbone. The palate balances fruit intensity with earthy complexity and spice.",
+        "finish": "Juicy and fresh, the finish leaves a lasting impression with lingering berry fruit and herbal notes. The wine concludes with energy and vibrancy, recommended for enjoyment over the next 2-3 years to capture its youthful exuberance."
+      },
+      "foodPairings": [
+        "Grilled Iberian pork",
+        "Lamb stew with root vegetables",
+        "Aged Manchego and Idiazabal cheese",
+        "Chorizo and bean cassoulet",
+        "Roasted game birds"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "45 minutes to 1 hour recommended to open up the wine's complexity",
+        "glassware": "Large Bordeaux or Rioja-style glass"
+      },
+      "wineDetails": {
+        "region": "Priorat DOCa, Catalonia, Spain",
+        "grapeVariety": "Garnacha (80%) and Cabernet Sauvignon (20%)",
+        "vintage": "2023",
+        "style": "Full-bodied organic red with mineral character",
+        "ageability": "Best enjoyed 2024-2027; drink young to capture fresh fruit and vibrant character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Albina Blanco Reserva 2001 549514",
+      "description": "An exceptionally rare white Rioja Reserva from Bodegas Riojanas, one of the region's most historic producers. Dating from 2001, this aged white wine represents a unique expression of white Rioja with extended aging—a rarity in a region better known for its red wines. This bottle offers a glimpse into Rioja's less-explored white wine heritage.",
+      "tastingNotes": {
+        "aroma": "The nose reveals the hallmarks of aged white Rioja with evolved aromatics of dried apricot, honey, and toasted almonds. Subtle notes of beeswax and lanolin emerge, along with hints of citrus peel preserved in time. The extended aging has developed tertiary aromas of chamomile tea, vanilla, and a distinctive nutty oxidative character that adds complexity without losing elegance.",
+        "palate": "On the palate, the wine shows remarkable preservation with flavors of candied lemon, dried pear, and hazelnut praline. The texture is rich and slightly viscous, with the wine's age lending a creamy, almost unctuous mouthfeel. Bright acidity—remarkable for a wine of this age—keeps the experience fresh and balanced. Notes of butterscotch and toasted oak from extended barrel aging integrate seamlessly with the mature fruit.",
+        "finish": "Long and layered, the finish showcases oxidative complexity balanced by persistent acidity. Nutty, honeyed notes linger alongside a slight bitter almond character that adds sophistication and length to this rare aged white."
+      },
+      "foodPairings": [
+        "Lobster in butter sauce",
+        "Aged Comté or aged Manchego cheese",
+        "Roasted chicken with cream sauce",
+        "Wild mushroom tart",
+        "Foie gras terrine"
+      ],
+      "servingInfo": {
+        "temperature": "52-56°F (11-13°C); slightly warmer than typical whites to appreciate complexity",
+        "decanting": "30 minutes in a decanter can help the wine open, though handle gently due to age",
+        "glassware": "White Burgundy or large white wine glass to capture evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Likely Viura (Macabeo) dominant blend, possibly with Malvasía",
+        "vintage": "2001",
+        "style": "Aged white Reserva with oxidative complexity",
+        "ageability": "At peak maturity; drink now. This wine has been aged extensively and should be enjoyed soon"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ventenac L'intrus 2022",
+      "description": "A pure expression of Cabernet Franc from Languedoc, crafted in a Loire-inspired style. This organic wine from Maison Ventenac is fermented and aged in concrete, then bottled with no added sulfur, showcasing the producer's natural winemaking philosophy and dedication to terroir expression in France's sunny south.",
+      "tastingNotes": {
+        "aroma": "The nose is floral and inviting, evoking peppery rose and sweet spices alongside ripe plum and cassis. A touch of licorice adds intrigue, while Cabernet Franc's distinctive graphite character provides minerality. The aromatics are fresh and vibrant, showing the wine's natural winemaking and concrete aging with pristine fruit purity.",
+        "palate": "Juicy and clean with medium body and impressive grip, the palate immediately seduces with dynamic texture and Mediterranean flavors. Intense fruit and freshness dominate, with the wine showing spicy, joyful character throughout. Hints of smoke and loamy earth add complexity to the core of ripe dark fruit, while Cabernet Franc's signature graphite minerality provides structure. The texture is round and supple, topped with delicate tannins.",
+        "finish": "Fresh and stylish with a halo of fine tannins, the finish is the perfect archetype of a thirst-quenching wine. Black fruits and graphite notes persist, leaving a clean, energetic conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs",
+        "Charcuterie and cheese boards",
+        "BBQ ribs or grilled meats",
+        "Ratatouille",
+        "Mushroom and goat cheese pizza"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C); slight chill enhances freshness",
+        "decanting": "15-30 minutes aeration helpful but not essential; the wine is ready to drink",
+        "glassware": "Medium-sized red wine glass or Cabernet Franc-specific glass"
+      },
+      "wineDetails": {
+        "region": "Languedoc-Roussillon, France",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2022",
+        "style": "Natural, medium-bodied red with Loire-style elegance",
+        "ageability": "Drink now through 2026; designed for immediate enjoyment with fresh fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Du Fossile Rouge 2023",
+      "description": "A fresh, vibrant Loire Valley red from Chinon, made from Cabernet Franc. This wine expresses the terroir of the Loire with its characteristic balance of fruit, earth, and herbaceous complexity. Designed for near-term enjoyment, it captures the essence of young, juicy Loire reds.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with notes of blackberry and raspberry bramble, mingling with the scent of freshly turned soil and savory herbs. Classic Cabernet Franc aromatics emerge with violet and graphite, while subtle green peppercorn and tobacco leaf add complexity. The earthy, herb-driven character speaks to the wine's Loire origins and cool-climate expression.",
+        "palate": "Juicy and vibrant on the palate, the wine showcases bright red fruit supported by supple, silky tannins that provide structure without weight. Red currant and cranberry flavors mingle with earthy undertones of forest floor and dried herbs. The texture is refreshing and energetic, with medium body and fine-grained tannins creating an approachable, food-friendly profile that epitomizes drinkable Loire Cabernet Franc.",
+        "finish": "The finish is clean and refreshing with lingering red fruit and herbal notes. Bright acidity carries the flavors through to a crisp conclusion, leaving the palate ready for another sip or the next bite of food."
+      },
+      "foodPairings": [
+        "Herb-roasted chicken",
+        "Grilled salmon with dill",
+        "Lentil and vegetable stew",
+        "Soft-ripened goat cheese",
+        "Charcuterie platter with pâté"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C); slight chill enhances freshness",
+        "decanting": "15 minutes aeration opens aromatics; otherwise ready to drink immediately",
+        "glassware": "Medium-sized Loire red wine glass or standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Chinon, Loire Valley, France",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2023",
+        "style": "Light to medium-bodied fresh red with herbaceous character",
+        "ageability": "Drink now through 2026; best enjoyed over the next 2-3 years to preserve vibrant fruit"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Luchador Tempranillo 2022",
+      "description": "A Spanish Tempranillo showcasing the noble grape of Rioja and Ribera del Duero. While specific vintage details weren't available, this wine represents classic Spanish red wine character with the structure, fruit intensity, and oak influence typical of quality Tempranillo from Spain's premier regions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with ripe dark cherry and plum, accented by notes of dried tobacco leaf and leather. Vanilla and coconut from oak aging blend seamlessly with the fruit, while hints of dried strawberry and cranberry add brightness. Savory elements of dried herbs, black pepper, and a touch of earthy cedar create complexity typical of well-crafted Spanish Tempranillo.",
+        "palate": "On the palate, the wine shows concentrated dark fruit with firm yet polished tannins. Flavors of black cherry, blackberry, and fig dominate, supported by notes of dark chocolate and espresso. The oak influence provides structure with vanilla and toast flavors integrating into the fruit core. Medium to full-bodied, the wine maintains balance between fruit ripeness and acidity, creating a harmonious profile with depth and dimension.",
+        "finish": "The finish is long and warming with lingering dark fruit, spice, and oak flavors. Firm tannins provide grip and structure, suggesting the wine can age gracefully while remaining approachable now. The conclusion is satisfying and complex, characteristic of quality Spanish Tempranillo."
+      },
+      "foodPairings": [
+        "Grilled lamb kebabs",
+        "Spanish chorizo and tapas",
+        "Paella with chorizo and chicken",
+        "Aged Manchego cheese",
+        "Slow-braised beef in tomato sauce"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45 minutes to 1 hour recommended to soften tannins and open aromatics",
+        "glassware": "Large Rioja or Tempranillo-specific glass"
+      },
+      "wineDetails": {
+        "region": "Spain (likely Rioja or Castilla)",
+        "grapeVariety": "100% Tempranillo",
+        "vintage": "2022",
+        "style": "Medium to full-bodied red with oak influence",
+        "ageability": "Drink now through 2029; can develop complexity over 5-7 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Merlot 2018",
+      "description": "A Napa Valley Merlot from Trespass Vineyard, this wine exemplifies California's ability to produce world-class Merlot with depth, complexity, and elegance. Crafted to showcase varietal character with oak influence, this wine offers both immediate appeal and aging potential typical of quality Napa reds.",
+      "tastingNotes": {
+        "aroma": "The nose offers an inviting aroma of ripe blackberries, plums, and dark cherries, beautifully complemented by subtle hints of vanilla and warm baking spices. The deep ruby color in the glass promises richness, while the aromatic profile reveals layers of cocoa, mocha, and a gentle touch of oak that frames the fruit without overwhelming it. Cedar and dried herbs add complexity to the lush fruit core.",
+        "palate": "The palate displays a smooth and velvety texture with well-integrated tannins that provide structure and balance without being aggressive. Dark fruit flavors continue to shine—blackberry, black cherry, and plum dominate with additional notes of dark chocolate, espresso, and a touch of vanilla oak. The medium to full body contributes to the wine's richness and depth, creating a luxurious mouthfeel that's both powerful and refined.",
+        "finish": "Long and satisfying, the finish leaves a lingering impression of ripe dark fruit and elegant structure. The conclusion showcases the wine's complexity with a touch of cocoa, spice, and fine-grained tannins that persist beautifully. This harmonious combination of fruit, structure, and complexity makes the wine wonderful for both casual enjoyment and special occasions."
+      },
+      "foodPairings": [
+        "Prime rib or roasted beef tenderloin",
+        "Lamb rack with rosemary",
+        "Aged cheddar and aged Gouda",
+        "Wild mushroom Wellington",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1 hour recommended to fully open the wine and soften tannins",
+        "glassware": "Large Bordeaux glass to capture complexity"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2018",
+        "style": "Full-bodied, oak-aged red with elegant structure",
+        "ageability": "Drink now through 2030; in prime drinking window with potential to age further"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lolea Mini White   187 ml",
+      "description": "A sparkling white sangria from Spain crafted from Chardonnay and Macabeo grapes, combined with natural Mediterranean fruit and sparkling water. This refreshing frizzante-style beverage comes in a convenient 187ml mini bottle with a pop-top cap, perfect for individual servings and casual enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose reveals hints of jasmine, apricot, and loquat, creating an immediately inviting and aromatic profile. Essential citrus aromas of lemon and orange dominate with freshness and vibrancy. A subtle hint of vanilla blends seamlessly with the fruit, adding depth without sacrificing the wine's essential brightness and Mediterranean character. The delicate floral notes add elegance to this festive beverage.",
+        "palate": "Slightly fizzy and intensely fruity, the palate explodes with flavors of peach, tangerine, and sweet lemon. The mouth-feel is round and approachable with strong, lasting sweetness balanced by the wine's natural effervescence. Fresh citrus flavors dominate throughout, creating a refreshing, thirst-quenching experience. The balance between acidity and sweetness is carefully calibrated, making the wine more sophisticated and chic than typical sangrias.",
+        "finish": "The finish is clean and refreshing with persistent citrus and peach notes. The slight fizz continues to the end, leaving a lively, festive impression. Sweet but not cloying, the conclusion invites another sip of this elegant, balanced sangria."
+      },
+      "foodPairings": [
+        "Tapas and Spanish appetizers",
+        "Fresh fruit salad",
+        "Grilled shrimp skewers",
+        "Light seafood dishes",
+        "Summer picnic foods"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C); serve well-chilled, ideally over ice",
+        "decanting": "No decanting needed; serve directly from the bottle, optionally over ice with fresh fruit",
+        "glassware": "White wine glass, tumbler, or serve over ice in a rocks glass with fruit garnish"
+      },
+      "wineDetails": {
+        "region": "Spain",
+        "grapeVariety": "Chardonnay and Macabeo blend with natural fruit",
+        "vintage": "Non-vintage",
+        "style": "Sparkling white sangria (frizzante)",
+        "ageability": "Drink immediately; designed for fresh consumption. No aging required or recommended"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

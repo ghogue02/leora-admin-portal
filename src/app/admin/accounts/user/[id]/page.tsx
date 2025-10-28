@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { formatCurrency, formatNumber } from '@/lib/utils/format';
 
 interface Role {
   id: string;
@@ -379,7 +380,7 @@ export default function UserDetailPage() {
                   <label className="block text-sm font-medium text-gray-700">Weekly Quota</label>
                   <p className="mt-1 text-sm">
                     {user.salesRep.weeklyRevenueQuota
-                      ? `$${Number(user.salesRep.weeklyRevenueQuota).toLocaleString()}`
+                      ? formatCurrency(Number(user.salesRep.weeklyRevenueQuota))
                       : '-'}
                   </p>
                 </div>
@@ -387,13 +388,15 @@ export default function UserDetailPage() {
                   <label className="block text-sm font-medium text-gray-700">Monthly Quota</label>
                   <p className="mt-1 text-sm">
                     {user.salesRep.monthlyRevenueQuota
-                      ? `$${Number(user.salesRep.monthlyRevenueQuota).toLocaleString()}`
+                      ? formatCurrency(Number(user.salesRep.monthlyRevenueQuota))
                       : '-'}
                   </p>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Sample Allowance</label>
-                  <p className="mt-1 text-sm">{user.salesRep.sampleAllowancePerMonth}/month</p>
+                  <p className="mt-1 text-sm">
+                    {formatNumber(user.salesRep.sampleAllowancePerMonth)}/month
+                  </p>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700">Status</label>

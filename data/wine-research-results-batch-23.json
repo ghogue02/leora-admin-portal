@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 23,
+  "researchedAt": "2025-10-20T00:00:00Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Dominique Portet Fontaine Cabernet Sauvignon 2021",
+      "description": "Dominique Portet's Fontaine Cabernet Sauvignon represents a masterful expression of Yarra Valley terroir. This elegant wine showcases the cooler-climate Australian style with refined tannins and precise fruit expression that balances power with finesse.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting aromas of blackcurrant and dark cherry, interwoven with subtle notes of cedar and graphite. Delicate hints of violet and dried herbs emerge with aeration, while a refined oak presence contributes nuances of vanilla pod and toasted spice. The aromatic profile suggests careful barrel selection and judicious use of French oak.",
+        "palate": "On the palate, this wine delivers medium to full body with impressive structure and balance. Layers of cassis, black plum, and mulberry flow across the mid-palate, framed by fine-grained tannins that provide texture without heaviness. The cooler 2021 vintage has preserved excellent acidity, lending freshness and tension to the wine's core. Subtle savory elements of tobacco leaf and graphite add complexity to the fruit-forward profile.",
+        "finish": "The finish is long and persistent, with dark fruit echoes gradually yielding to mineral notes and a whisper of cocoa. Integrated oak and polished tannins provide structure through the extended conclusion, suggesting excellent aging potential for those willing to cellar this wine for 5-8 years."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "Braised lamb shanks with rosemary and garlic",
+        "Aged cheddar and charcuterie board",
+        "Wild mushroom risotto with truffle oil",
+        "Beef Wellington with red wine reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and soften the tannins, particularly if enjoying young",
+        "glassware": "Large Bordeaux glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Yarra Valley, Victoria, Australia",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Elegant, cool-climate Cabernet with refined tannins",
+        "ageability": "Drinking well now through 2031; peak drinking 2025-2028"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Monte Real Crianza 2022",
+      "description": "Monte Real Crianza embodies the traditional Rioja style with modern refinement. Crafted by one of Rioja's historic bodegas, this wine undergoes careful aging in American oak, resulting in a harmonious marriage of fruit and barrel influence that defines classic Spanish winemaking.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals classic Rioja characteristics with bright red cherry, strawberry, and cranberry notes taking center stage. A distinctive American oak influence presents itself through aromas of coconut, vanilla, and sweet baking spices. Subtle undertones of dried flowers, leather, and tobacco add depth and traditional character to the aromatic expression.",
+        "palate": "Medium-bodied and supremely balanced, the palate showcases vibrant red fruit flavors of cherry, raspberry, and pomegranate. The wine's natural acidity provides a refreshing backbone, while the oak aging contributes creamy vanilla and gentle spice notes that integrate seamlessly with the fruit. Silky tannins coat the palate with a supple texture that speaks to the wine's careful élevage and the quality of the 2022 vintage.",
+        "finish": "A moderately long finish features persistent red fruit flavors accompanied by hints of cinnamon and clove. The American oak leaves a subtle sweetness on the close, while bright acidity keeps the finish clean and food-friendly."
+      },
+      "foodPairings": [
+        "Jamón ibérico and Manchego cheese tapas",
+        "Grilled chorizo with roasted red peppers",
+        "Paella with chicken and chorizo",
+        "Roasted lamb chops with herb crust",
+        "Patatas bravas with aioli"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F)",
+        "decanting": "Brief 20-30 minute decanting enhances the wine's aromatic expression",
+        "glassware": "Medium-sized red wine glass or traditional Rioja copa"
+      },
+      "wineDetails": {
+        "region": "Rioja Alta, Spain",
+        "grapeVariety": "Tempranillo with Garnacha, Graciano, and Mazuelo",
+        "vintage": "2022",
+        "style": "Traditional Rioja Crianza with American oak aging",
+        "ageability": "Drinking beautifully now through 2028; at its peak currently"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Langhe Nebbiolo 2023",
+      "description": "Mauro Molino's Langhe Nebbiolo offers an accessible entry point to the noble Nebbiolo grape, crafted by a respected Barolo producer. This youthful wine captures Nebbiolo's essential character while maintaining approachability, showcasing the 2023 vintage's fresh, vibrant profile from vineyards surrounding the Barolo zone.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Nebbiolo aromatics with beautiful expression of red rose petals, wild strawberry, and tart red cherry. Earthy undertones of wet stone, forest floor, and dried herbs emerge alongside subtle tar and anise notes. The youthful 2023 vintage shows energetic fruit purity with delicate spice accents of white pepper and crushed fennel seed.",
+        "palate": "Light to medium-bodied, the wine displays Nebbiolo's characteristic elegance and transparency. Flavors of red cherry, cranberry, and wild raspberry dominate, supported by bright acidity that gives the wine lift and energy. Fine-grained tannins provide structure without weight, while mineral and earthy notes add complexity to the red fruit core. The wine shows excellent balance between fruit, acid, and tannin—a hallmark of quality Langhe Nebbiolo.",
+        "finish": "The finish is medium-length with persistent red fruit and floral notes. A mineral edge cuts through the conclusion, while fine tannins leave a pleasant grip on the palate that invites the next sip."
+      },
+      "foodPairings": [
+        "Vitello tonnato (veal with tuna sauce)",
+        "Mushroom and truffle pasta",
+        "Osso buco alla Milanese",
+        "Aged Parmigiano-Reggiano and prosciutto",
+        "Grilled salmon with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F)",
+        "decanting": "30 minutes of aeration helps the floral and fruit notes blossom",
+        "glassware": "Burgundy glass or large-bowled Nebbiolo glass"
+      },
+      "wineDetails": {
+        "region": "Langhe, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2023",
+        "style": "Fresh, elegant Piedmontese Nebbiolo with vibrant acidity",
+        "ageability": "Drink 2024-2028; best enjoyed in its youth to capture fresh fruit character"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Roche de Bellene Meursault VV 2020",
+      "description": "Nicolas Potel's Maison Roche de Bellene crafts this exceptional Meursault from vieilles vignes (old vines), offering remarkable depth and complexity. The 2020 vintage delivered excellent balance in Burgundy, and this wine exemplifies Meursault's rich yet refined character from mature vineyard parcels.",
+      "tastingNotes": {
+        "aroma": "The nose opens with seductive aromas of ripe yellow apple, poached pear, and white peach, layered with hazelnut, toasted brioche, and butterscotch from careful oak treatment. Mineral notes of wet stone and chalk speak to Meursault's limestone terroir, while delicate white flower and acacia honey nuances add elegance. The old vines contribute concentrated aromatic intensity without heaviness.",
+        "palate": "Rich and full-bodied yet impeccably balanced, the palate showcases concentrated flavors of orchard fruits including Golden Delicious apple, Asian pear, and quince. Creamy texture from lees aging mingles with bright citrus acidity that prevents any cloying richness. Notes of roasted almond, vanilla bean, and subtle spice from oak maturation integrate seamlessly with the fruit. The wine's stony minerality provides a backbone that carries the generous fruit expression with precision and focus.",
+        "finish": "The finish is long and luxurious, with flavors of baked apple and honeyed nuts gradually yielding to a clean, mineral-driven conclusion. The wine's impressive length and persistent citrus-mineral tension suggest excellent aging potential."
+      },
+      "foodPairings": [
+        "Lobster thermidor with herb butter",
+        "Roasted chicken with truffle cream sauce",
+        "Grilled halibut with lemon beurre blanc",
+        "Comté cheese aged 24 months",
+        "Wild mushroom and leek tart"
+      ],
+      "servingInfo": {
+        "temperature": "12-14°C (54-57°F)",
+        "decanting": "Open 15-20 minutes before serving to allow the wine to express its full aromatic complexity",
+        "glassware": "White Burgundy glass with generous bowl"
+      },
+      "wineDetails": {
+        "region": "Meursault, Côte de Beaune, Burgundy, France",
+        "grapeVariety": "100% Chardonnay from old vines (vieilles vignes)",
+        "vintage": "2020",
+        "style": "Rich, mineral-driven white Burgundy with excellent aging potential",
+        "ageability": "Drinking well now through 2032; will develop tertiary complexity with age"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fernanda Capello Prosecco Extra Dry NV",
+      "description": "Fernanda Capello Prosecco represents quality-focused production from the Prosecco region, offering the fresh, approachable style that has made this sparkling wine beloved worldwide. The Extra Dry designation indicates a touch of sweetness that enhances the wine's fruit character and makes it particularly versatile.",
+      "tastingNotes": {
+        "aroma": "The bouquet displays inviting aromas of fresh green apple, white peach, and pear, accompanied by delicate floral notes of acacia and honeysuckle. Citrus elements of lemon zest and grapefruit add brightness, while subtle hints of almond blossom and fresh cream contribute elegance to the aromatic profile.",
+        "palate": "Light-bodied and refreshingly effervescent, the palate showcases crisp fruit flavors of green apple, Asian pear, and citrus. The fine, persistent bubbles create a creamy mousse on the tongue, while the Extra Dry style (with approximately 12-17 g/L residual sugar) provides a subtle roundness that balances the wine's natural acidity. Notes of white flowers and stone fruit carry through the mid-palate, maintaining freshness and vibrancy throughout.",
+        "finish": "The finish is clean and moderately long, with lingering notes of apple and pear complemented by a refreshing citrus edge. The bubbles persist pleasantly, leaving the palate cleansed and ready for another sip."
+      },
+      "foodPairings": [
+        "Prosciutto and melon appetizer",
+        "Fried calamari with lemon aioli",
+        "Fresh fruit and soft cheese platter",
+        "Shrimp cocktail with mignonette sauce",
+        "Light salads with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well-chilled",
+        "decanting": "Serve directly from the bottle to preserve carbonation",
+        "glassware": "Flute or tulip-shaped sparkling wine glass"
+      },
+      "wineDetails": {
+        "region": "Prosecco DOC, Veneto, Italy",
+        "grapeVariety": "100% Glera (Prosecco)",
+        "vintage": "Non-Vintage",
+        "style": "Fresh, fruit-forward sparkling wine with Extra Dry sweetness level",
+        "ageability": "Best enjoyed upon release; drink within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lambert Estate First Chapter Shiraz 2021",
+      "description": "Lambert Estate's First Chapter Shiraz captures the essence of Barossa Valley winemaking with bold fruit expression tempered by careful viticulture. The 2021 vintage in Barossa delivered concentrated fruit with fresh acidity, resulting in a wine that balances power with elegance—a modern interpretation of Australian Shiraz.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with exuberant aromas of ripe blackberry, blueberry compote, and dark plum, characteristic of warm-climate Barossa Shiraz. Layers of complexity emerge with notes of black pepper, licorice, and dried violet petals. Oak influence contributes nuances of vanilla, mocha, and sweet cedar, while subtle hints of eucalyptus and mint add an Australian signature to the aromatic profile.",
+        "palate": "Full-bodied and richly textured, the palate delivers concentrated flavors of blackberry jam, boysenberry, and black cherry preserves. The wine's natural generosity is balanced by refreshing acidity that prevents any cloying heaviness. Spice notes of cracked black pepper, clove, and star anise weave through the fruit core, while velvety tannins provide structure and grip. The oak integration is seamless, adding chocolate and coffee notes without overwhelming the fruit expression.",
+        "finish": "The finish is long and warming, with dark fruit flavors lingering alongside spice and subtle oak influences. Firm but ripe tannins frame the conclusion, while a hint of black pepper and dark chocolate carries through to the very end."
+      },
+      "foodPairings": [
+        "Grilled T-bone steak with chimichurri",
+        "Slow-cooked beef short ribs with red wine sauce",
+        "Lamb burger with blue cheese and caramelized onions",
+        "BBQ beef brisket with smoky sauce",
+        "Aged cheddar and salami platter"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 30-45 minutes to soften tannins and enhance aromatic complexity",
+        "glassware": "Large Shiraz or Syrah glass"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "100% Shiraz",
+        "vintage": "2021",
+        "style": "Full-bodied Australian Shiraz with rich fruit and balanced structure",
+        "ageability": "Drinking well now through 2029; peak drinking 2024-2027"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Natural Selection (Red) Syrah-Grenache 2021",
+      "description": "Chateau Maris pioneered biodynamic viticulture in Languedoc, crafting this Natural Selection blend from organically farmed vineyards. The wine expresses the Mediterranean terroir with purity and energy, showcasing the synergy between Syrah's structure and Grenache's generous fruit character in a minimal-intervention style.",
+      "tastingNotes": {
+        "aroma": "The nose presents vibrant aromas of fresh blackberry, red plum, and wild raspberry, with the natural winemaking approach allowing terroir and fruit purity to shine. Garrigue elements of wild herbs, lavender, and dried thyme reflect the Languedoc landscape, while notes of black olive, cracked pepper, and violet add complexity. Minimal sulfur use results in pronounced fruit clarity and floral lift.",
+        "palate": "Medium to full-bodied with impressive energy and freshness, the palate showcases ripe but not overripe fruit flavors of blackberry, cherry, and plum. Syrah contributes structure and savory elements of smoked meat and black pepper, while Grenache adds juicy red fruit and a silky texture. The wine's natural acidity provides lift and prevents heaviness despite generous fruit concentration. Earthy notes of Mediterranean herbs and mineral undertones speak to the limestone-rich terroir.",
+        "finish": "The finish is moderately long with lingering red and black fruit flavors, herbal nuances, and a subtle pepperiness. Natural tannins provide gentle grip without astringency, while the wine's purity and energy carry through to a clean conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbes de Provence",
+        "Ratatouille with goat cheese",
+        "Duck confit with roasted vegetables",
+        "Grilled sausages with lentils",
+        "Mushroom and thyme tart"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "Decant for 20-30 minutes to allow the wine to open and integrate",
+        "glassware": "Medium to large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Minervois La Livinière, Languedoc, France",
+        "grapeVariety": "Syrah and Grenache blend",
+        "vintage": "2021",
+        "style": "Biodynamic, natural wine with Mediterranean character",
+        "ageability": "Drink 2024-2028; best enjoyed relatively young to preserve freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Macauley Pinot Noir Fort Ross-Seaview 2022",
+      "description": "Macauley's Fort Ross-Seaview Pinot Noir hails from one of California's most exciting cool-climate regions, perched high above the Pacific Ocean. The extreme maritime influence and challenging growing conditions yield Pinot Noir of remarkable elegance and complexity, with the 2022 vintage showcasing pristine fruit quality and site-specific character.",
+      "tastingNotes": {
+        "aroma": "The nose reveals captivating aromatics of bright red cherry, wild strawberry, and cranberry, accented by delicate rose petal and violet notes. Subtle earthy elements of forest floor, mushroom, and damp leaves add complexity, while hints of sandalwood, Chinese five-spice, and tea leaves speak to judicious oak use. The wine's coastal origin shows through in ethereal mineral notes and a saline quality that adds intrigue.",
+        "palate": "Medium-bodied with silky texture and refined structure, the palate offers layers of red fruit including Bing cherry, raspberry, and pomegranate. The Fort Ross-Seaview site imparts remarkable acidity and tension, giving the wine energy and lift despite concentrated fruit flavors. Savory elements of dried herbs, graphite, and umami-rich mushroom weave through the fruit core, while fine-grained tannins provide gentle structure. The wine shows impressive depth without weight, balancing power with elegance in classic Pinot Noir fashion.",
+        "finish": "The finish is long and haunting, with red fruit flavors gradually transitioning to mineral and spice notes. A persistent salinity lingers on the palate, while silky tannins and bright acidity leave the mouth refreshed and craving another sip."
+      },
+      "foodPairings": [
+        "Seared duck breast with cherry reduction",
+        "Wild mushroom risotto with truffle oil",
+        "Grilled salmon with herbs and lemon",
+        "Roasted Cornish game hen with root vegetables",
+        "Aged Gruyère and charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "13-15°C (55-59°F)",
+        "decanting": "Decant for 30 minutes or open 1 hour before serving to allow full aromatic expression",
+        "glassware": "Burgundy or Pinot Noir-specific glass"
+      },
+      "wineDetails": {
+        "region": "Fort Ross-Seaview, Sonoma Coast, California",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2022",
+        "style": "Elegant, cool-climate Pinot Noir with coastal influence",
+        "ageability": "Drinking beautifully now through 2032; will develop savory complexity with age"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dominio de la Abadesa Verdejo 2016",
+      "description": "Dominio de la Abadesa produces this Verdejo from the renowned Rueda region, Spain's premier white wine appellation. The 2016 vintage offers a more mature expression of Verdejo, showing how this variety can develop complexity with bottle age while maintaining its characteristic freshness and vibrant aromatics.",
+      "tastingNotes": {
+        "aroma": "The nose presents evolved aromatics with notes of Golden Delicious apple, ripe pear, and quince, alongside fresh citrus elements of grapefruit and lime zest. White flower notes of jasmine and orange blossom remain present despite the wine's age, while subtle hints of fennel, fresh grass, and wet stone add complexity. Some bottle age has introduced delicate notes of honeyed apricot and almond.",
+        "palate": "Medium-bodied with excellent freshness retained from the 2016 vintage, the palate delivers flavors of orchard fruits, citrus, and stone fruit. Verdejo's characteristic herbal notes of fennel and fresh-cut grass provide distinctive personality, while bright acidity keeps the wine lively despite its age. A subtle glycerin richness has developed with time, adding textural interest without compromising the wine's essential crispness. Mineral and saline notes carry through the mid-palate, speaking to Rueda's chalky soils.",
+        "finish": "The finish is clean and moderately long, with lingering citrus and mineral notes. A pleasant bitterness reminiscent of grapefruit pith adds complexity to the conclusion, while the wine's acidity leaves the palate refreshed."
+      },
+      "foodPairings": [
+        "Grilled white fish with lemon and herbs",
+        "Shrimp in garlic sauce (gambas al ajillo)",
+        "Manchego cheese with quince paste",
+        "Caesar salad with anchovies",
+        "Asparagus with hollandaise sauce"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting needed; serve chilled directly from the bottle",
+        "glassware": "Medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Rueda, Castilla y León, Spain",
+        "grapeVariety": "100% Verdejo",
+        "vintage": "2016",
+        "style": "Mature, mineral-driven Spanish white with retained freshness",
+        "ageability": "Drinking at its peak now; best consumed soon to preserve remaining fruit character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cafe de Paris Organic NV",
+      "description": "Cafe de Paris Organic represents a casual, approachable wine crafted from organically farmed grapes. This non-vintage blend offers easy-drinking character perfect for everyday enjoyment, with the organic certification ensuring sustainable farming practices without synthetic pesticides or fertilizers.",
+      "tastingNotes": {
+        "aroma": "The nose opens with friendly aromas of red cherry, strawberry, and raspberry, accompanied by subtle floral notes. Light herbal nuances add freshness, while minimal oak influence allows the fruit to express itself purely. Delicate hints of spice and earth provide gentle complexity without overwhelming the wine's approachable character.",
+        "palate": "Light to medium-bodied with soft tannins and refreshing acidity, the palate showcases bright red fruit flavors of cherry, cranberry, and red plum. The wine's organic farming origins shine through in the purity of fruit expression and balanced structure. Easy-drinking and versatile, the wine offers immediate pleasure without demanding contemplation, making it ideal for casual occasions and food pairing.",
+        "finish": "The finish is clean and moderately short, with lingering red fruit notes and a refreshing quality. Soft tannins and bright acidity keep the palate lively, inviting another glass."
+      },
+      "foodPairings": [
+        "Margherita pizza with fresh basil",
+        "Grilled chicken salad with vinaigrette",
+        "Charcuterie and cheese board",
+        "Pasta with tomato-basil sauce",
+        "Roasted vegetable platter"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), slightly chilled",
+        "decanting": "No decanting needed; ready to drink upon opening",
+        "glassware": "Standard red wine glass or tumbler"
+      },
+      "wineDetails": {
+        "region": "France (specific region not specified)",
+        "grapeVariety": "Red blend from organic vineyards",
+        "vintage": "Non-Vintage",
+        "style": "Easy-drinking, organic red wine for everyday enjoyment",
+        "ageability": "Best enjoyed young and fresh; drink within 1-2 years"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    }
+  ]
+}

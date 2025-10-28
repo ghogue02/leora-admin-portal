@@ -1,0 +1,352 @@
+{
+  "batch": 105,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Sutherland Cabernet Sauvignon 2018",
+      "description": "A cool-climate Cabernet Sauvignon from Thelema Mountain Vineyards' Sutherland project in South Africa's Elgin Valley. Situated just 9km from the Atlantic Ocean at elevations of 140-250m, this wine showcases elegant fruit with Atlantic influence. Aged 18 months in French oak barrels.",
+      "tastingNotes": {
+        "aroma": "Dark fruit aromatics of cassis and black cherry dominate the nose with glossy, ripe character. Plummy notes emerge alongside a subtle hint of menthol eucalyptus. The cool-climate influence provides lifted aromatics with excellent definition and purity.",
+        "palate": "Refreshing sweet fruit and ripe tannins define the palate, with supple black cherry and cassis flavors showing excellent concentration. Smooth, silky tannins are well-integrated from the French oak aging. Cherry-skin tart acidity provides balance and structure, while maintaining elegance and finesse throughout the mid-palate.",
+        "finish": "The finish shows persistence with lingering dark fruit notes and fine-grained tannins. Clean and balanced with good length, rewarding cellaring potential evident in the structure."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herb crust",
+        "Aged Gouda or sharp cheddar",
+        "Roasted duck breast with cherry reduction",
+        "Beef tenderloin with peppercorn sauce",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow tannins to soften and aromatics to open",
+        "glassware": "Bordeaux glass or large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Elgin Valley, Western Cape, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Cool-climate Cabernet aged in French oak",
+        "ageability": "Drink now through 2030. The wine shows excellent aging potential with balanced structure"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frico Bianco IGT Venezie (NOVA only) 2023",
+      "description": "An elegant white blend from Scarpetta showcasing northeastern Italy's traditional varietals. From the Venezie IGT region, this fresh and balanced wine features harmonious aromatics with crisp acidity. The 2023 vintage emphasizes bright fruit character and mineral complexity.",
+      "tastingNotes": {
+        "aroma": "Crisp aromas of green apple, pear, and bright citrus lead the nose. Subtle white floral notes of orange blossom add elegance, while a hint of minerality provides depth. Delicate almond notes emerge with air time, adding complexity to the inviting bouquet.",
+        "palate": "Bright acidity drives the palate with flavors of green apple, lemon zest, and white stone fruits creating a refreshing core. Gentle almond and soft mineral notes add texture and depth without heaviness. The wine maintains excellent balance between its fruit purity and structural elements, showing medium body with a silky mouthfeel.",
+        "finish": "Clean and crisp finish with lingering citrus notes and pleasant minerality. The refreshing conclusion invites another sip while maintaining the wine's elegant, food-friendly character."
+      },
+      "foodPairings": [
+        "Grilled shrimp with lemon and herbs",
+        "Fresh oysters and seafood crudo",
+        "Chicken piccata or saltimbocca",
+        "Soft cheeses like burrata or fresh mozzarella",
+        "Summer salads with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well chilled",
+        "decanting": "No decanting needed; serve directly chilled",
+        "glassware": "Standard white wine glass or tulip-shaped glass"
+      },
+      "wineDetails": {
+        "region": "IGT Venezie, northeastern Italy",
+        "grapeVariety": "Blend of Pinot Grigio, Garganega, and indigenous Italian white varietals",
+        "vintage": "2023",
+        "style": "Fresh, crisp Italian white blend",
+        "ageability": "Drink within 1-2 years for optimal freshness and fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:02:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Optima Zinfandel 2016",
+      "description": "A Zinfandel from Optima Wine Cellars showcasing California's signature Zinfandel character. This wine represents the bold, fruit-forward style that has made California Zinfandel famous worldwide. The 2016 vintage benefits from excellent growing conditions in a classic California vintage.",
+      "tastingNotes": {
+        "aroma": "Ripe blackberry and bramble fruit dominate the nose with layers of dark cherry and plum. Warm baking spices—cinnamon, clove, and white pepper—add complexity. Subtle vanilla and toast from oak aging integrate beautifully, while a hint of dried herbs provides depth.",
+        "palate": "Bold and expressive with concentrated dark fruit flavors of blackberry jam, black cherry, and ripe plum. The full-bodied palate shows excellent ripeness balanced by fresh acidity. Spicy notes of black pepper and cinnamon weave through the fruit, while smooth tannins provide structure without heaviness. The wine maintains vibrancy despite its richness.",
+        "finish": "Long, warming finish with persistent fruit and spice notes. The tannins are well-integrated, leaving a satisfying conclusion with hints of dark chocolate and espresso."
+      },
+      "foodPairings": [
+        "BBQ ribs with smoky sauce",
+        "Grilled burgers with sharp cheddar",
+        "Slow-cooked beef brisket",
+        "Pepperoni or sausage pizza",
+        "Aged hard cheeses like aged Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Brief 20-30 minute decant to integrate flavors",
+        "glassware": "Large red wine glass or Zinfandel-specific glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Dry Creek Valley or Lodi)",
+        "grapeVariety": "100% Zinfandel",
+        "vintage": "2016",
+        "style": "Bold, fruit-forward California Zinfandel",
+        "ageability": "Drinking well now; enjoy through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-21T14:04:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Napa Valley Petite Sirah 2012",
+      "description": "A library selection Petite Sirah from Aratas Wine, sourced from the Oak Knoll District on Napa Valley's valley floor. Harvested October 8th, 2012, this wine features 30% whole cluster barrel fermentation with hand and optical sorting. Aged 27 months in 30% new Hungarian and French oak barrels. Bottled unfiltered and unfined on native yeasts.",
+      "tastingNotes": {
+        "aroma": "Thick, concentrated aromatics of black plum, blackberry, and blueberry compote fill the glass. Savory highlights of leather, licorice, and black pepper add complexity. Subtle notes of dark chocolate and espresso emerge from the oak aging, while a hint of violet provides lift.",
+        "palate": "Full-bodied and richly textured with intense dark fruit concentration. Flavors of black cherry, plum, and cassis dominate, supported by earthy notes of graphite and loam. The savory character from extended aging shows beautifully—leather, tobacco, and dried herbs integrate with ripe fruit. Firm, structured tannins provide backbone while the wine maintains excellent balance and ripeness.",
+        "finish": "Long, persistent finish showcasing the wine's concentration and structure. Black pepper spice and dark fruit linger with excellent length, supported by integrated oak and fine-grained tannins."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised short ribs with red wine reduction",
+        "Venison or game meats",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Wild mushroom and truffle dishes"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow this powerful wine to open fully",
+        "glassware": "Large Bordeaux or Syrah glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Oak Knoll District, Napa Valley, California",
+        "grapeVariety": "100% Petite Sirah",
+        "vintage": "2012",
+        "style": "Estate-grown, barrel-aged, unfiltered, unfined on native yeasts",
+        "ageability": "Drinking beautifully now through 2028. Library selection showing tertiary complexity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T14:06:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frico Lambrusco Cans IGT Emilia (NOVA only) 250 ml",
+      "description": "Scarpetta's Frico Lambrusco in convenient 250ml cans—the quintessential sparkling aperitivo of Emilia Romagna. This vibrant, lightly sparkling red wine balances sweet and tart characteristics, showcasing the region's traditional style. Perfect for casual entertaining and outdoor occasions.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of fresh redcurrant and wild strawberry burst from the glass. Berry-forward notes of raspberry and pomegranate add layers, while subtle floral hints provide elegance. The wine's effervescence carries the aromatics beautifully.",
+        "palate": "Sweet and tart flavors dance on the palate—ripe plum, fresh raspberry, and pomegranate create a vibrant core. Dark ruby color with shimmering small bubbles provides visual appeal. The slight sweetness is balanced by refreshing acidity and light effervescence, creating an easy-drinking, fun profile with medium-light body.",
+        "finish": "Refreshing, tart finish with lingering berry notes and bright acidity. The bubbles cleanse the palate while the fruit character invites another sip. Clean conclusion perfect for food pairing."
+      },
+      "foodPairings": [
+        "Charcuterie and cured meats",
+        "Pizza with pepperoni or sausage",
+        "Fried foods and appetizers",
+        "Aged Parmigiano-Reggiano cheese",
+        "Grilled sausages and BBQ"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), serve well chilled",
+        "decanting": "No decanting needed; pour directly from chilled can",
+        "glassware": "Stemless wine glass or tumbler for casual enjoyment"
+      },
+      "wineDetails": {
+        "region": "IGT Emilia, Emilia-Romagna, Italy",
+        "grapeVariety": "100% Lambrusco",
+        "vintage": "Non-vintage",
+        "style": "Lightly sparkling (frizzante) red wine with touch of sweetness",
+        "ageability": "Drink immediately for optimal freshness and effervescence"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-21T14:08:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lambert Estate First Chapter Shiraz 2019",
+      "description": "An adventurous and energetic Barossa Valley Shiraz from Lambert Estate. The 2019 vintage showcases dark purple hues with vibrant aromatics and rich fruit concentration. Rated by Wine Enthusiast for its sweet oak integration and ripe fruit character. 14.5% alcohol.",
+      "tastingNotes": {
+        "aroma": "Dark purple wine with vibrant aromas of ripe blueberries and raspberry licorice leading the bouquet. Sweet vanillin oak provides structure, complemented by nutmeg and vanilla bean spice. Subtle notes of dark chocolate add richness and depth to the inviting nose.",
+        "palate": "Ripe and rich with concentrated dark fruit flavors—blueberry, blackberry, dark cherry, and hints of cherry cola create a lush core. Bright fruit character is supported by hints of toast and warming baking spices. The full-bodied palate shows a gauzy grip of oaky tannins with syrupy texture creating a heavyset yet balanced mouthfeel. Oak integration is excellent despite the wine's power.",
+        "finish": "Long finish with persistent dark fruit and chocolate notes. The tannins are smooth and well-integrated, while the oak spice lingers pleasantly. Warming alcohol and ripe fruit create a satisfying conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb with rosemary and garlic",
+        "Beef short ribs with BBQ glaze",
+        "Venison medallions with berry reduction",
+        "Aged blue cheese or sharp cheddar",
+        "Beef and mushroom pie"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 30-45 minutes to integrate oak and fruit",
+        "glassware": "Large Shiraz or Syrah glass"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "100% Shiraz",
+        "vintage": "2019",
+        "style": "Full-bodied Australian Shiraz with oak aging",
+        "ageability": "Drink now through 2029. The wine shows excellent concentration for aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T14:10:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Vintage Vinho Vermelho 2015 500 ml",
+      "description": "A port-style wine from Two Mountain Winery's Yakima Valley estate, made from Touriga Nacional—one of Portugal's noble Port varietals. This certified-sustainable wine was aged 30 months in large format American oak barrels. Limited 500ml bottling showcases Washington's ability to produce excellent fortified wines.",
+      "tastingNotes": {
+        "aroma": "Rich aromatics of black cherry, plum, and dark berry compote fill the glass. Sweet notes of dark chocolate, vanilla, and caramel emerge from the extended oak aging. Warming alcohol carries hints of dried fig, raisin, and holiday spices—cinnamon and clove—creating a complex, inviting bouquet.",
+        "palate": "Full-bodied and lush with concentrated dark fruit flavors. Black cherry, blackberry, and plum dominate, enriched by layers of dark chocolate, espresso, and toffee. The Touriga Nacional grape provides excellent structure and tannic backbone, while the fortification adds richness and warmth. Sweet fruit is balanced by subtle acidity, creating a harmonious, dessert wine profile.",
+        "finish": "Long, warming finish with persistent dark fruit and chocolate notes. The tannins are smooth and integrated from the extended barrel aging. Sweet spice and dried fruit linger beautifully."
+      },
+      "foodPairings": [
+        "Dark chocolate desserts and truffles",
+        "Blue cheese or aged Stilton",
+        "Pecan pie or walnut tart",
+        "Espresso and biscotti",
+        "Figs and walnuts"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cooler than room temperature",
+        "decanting": "Brief 15-20 minute decant to integrate flavors",
+        "glassware": "Port glass or small red wine glass"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington State",
+        "grapeVariety": "100% Touriga Nacional",
+        "vintage": "2015",
+        "style": "Port-style fortified wine, aged 30 months in American oak",
+        "ageability": "Drink now through 2035. Fortified wines age exceptionally well"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:12:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeremy Nickel Cellars Cabernet Sauvignon 2018",
+      "description": "An exceptional Oakville Napa Valley Cabernet from one of the finest vintages of the early 21st century. Crafted by renowned winemaker Philippe Melka from blocks 5, 6, and 7 of The Vineyard House, surrounded by Harlan Estate, Futo, BOND, and Promontory. 76% Cabernet Sauvignon, 24% Cabernet Franc aged 30 months in 50% new French oak plus 18 months bottle age. Only 150 cases produced.",
+      "tastingNotes": {
+        "aroma": "A symphony of complex aromas explodes from the glass. Tobacco, vanilla bean, coconut, and cedar provide the aromatic framework. Oregano, coffee, and eucalyptus add herbal and roasted notes. The wine's pedigree shows in the layered, refined aromatics with excellent definition and purity.",
+        "palate": "Plenty of dark fruit leads the palate—black currant, fig, and blackberry create a rich, concentrated core. The 2018 vintage's ideal conditions shine through with opulent fruit supported by controlled, polished tannins. Each variety contributes—Cabernet provides structure and cassis, while Cabernet Franc adds aromatic lift and elegance. The long oak aging is beautifully integrated, adding complexity without dominating.",
+        "finish": "Persistent finish with excellent length befitting this premium wine. Dark fruit, cedar, and subtle spice linger with fine-grained tannins. The conclusion is refined and harmonious, showcasing the wine's balance and aging potential."
+      },
+      "foodPairings": [
+        "Dry-aged prime ribeye or New York strip",
+        "Braised lamb shanks with herbs",
+        "Wild mushroom Wellington",
+        "Aged Comté or Parmigiano-Reggiano",
+        "Duck confit with cherry gastrique"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 90-120 minutes to fully appreciate the complexity",
+        "glassware": "Premium Bordeaux glass to capture the layered aromatics"
+      },
+      "wineDetails": {
+        "region": "Oakville, Napa Valley, California",
+        "grapeVariety": "76% Cabernet Sauvignon, 24% Cabernet Franc",
+        "vintage": "2018",
+        "style": "Premium estate Cabernet, winemaker Philippe Melka, 30 months French oak + 18 months bottle",
+        "ageability": "Drink now through 2038. Excellent cellaring potential with proper storage"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-21T14:14:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Chardonnay Macabeo Blend Mevushal (MD & DC) 2024",
+      "description": "A kosher white blend from Spain combining Chardonnay and Macabeo grapes. This Mevushal wine is certified under OU supervision and Rabbi Padwa. The blend showcases Spanish white wine character with international appeal, offering fresh fruit and Mediterranean influence at an accessible price point.",
+      "tastingNotes": {
+        "aroma": "Fresh and inviting with bright citrus notes of lemon and green apple leading the nose. White flowers and subtle pear add elegance. The Macabeo contributes Mediterranean herbal notes and minerality, while Chardonnay provides weight and tropical fruit hints. Clean and pure aromatics.",
+        "palate": "Crisp and refreshing with citrus-driven flavors—lemon, lime, and green apple create a vibrant core. Medium-light body with balanced acidity keeps the wine lively and food-friendly. The Chardonnay adds subtle richness and body without heaviness, while Macabeo contributes mineral backbone and fresh herb notes. Well-balanced and approachable.",
+        "finish": "Clean, refreshing finish with lingering citrus and mineral notes. The bright acidity ensures a crisp conclusion perfect for kosher dining and versatile food pairing."
+      },
+      "foodPairings": [
+        "Grilled fish with lemon and herbs",
+        "Chicken schnitzel",
+        "Fresh salads with citrus vinaigrette",
+        "Soft cheeses and crackers",
+        "Mediterranean vegetable dishes"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well chilled",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain",
+        "grapeVariety": "Blend of Chardonnay and Macabeo",
+        "vintage": "2024",
+        "style": "Dry kosher white wine, Mevushal under OU and Rabbi Padwa supervision",
+        "ageability": "Drink within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:16:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Rose 2024",
+      "description": "A fresh and vibrant rosé from Two Mountain Winery's certified-sustainable estate vineyards in Yakima Valley. The 2024 vintage blooms with ripe wild strawberry, watermelon, and fragrant violet notes. This wine showcases Washington State's ability to produce excellent rosé with balanced acidity and pure fruit character.",
+      "tastingNotes": {
+        "aroma": "Bright and aromatic with ripe wild strawberry leading the bouquet. Fresh watermelon and hints of fragrant violet add complexity and elegance. Subtle notes of rose petal and citrus zest provide lift. The aromatics are pure and inviting, showcasing the freshness of the 2024 vintage.",
+        "palate": "The palate bursts with rich red fruit character—wild strawberry, raspberry, and watermelon create a vibrant, juicy core. Medium-light body with balanced acidity keeps the wine fresh and lively. The fruit flavors are concentrated yet refreshing, avoiding excessive sweetness. Excellent balance between fruit ripeness and structural acidity makes this highly versatile.",
+        "finish": "Clean, refreshing finish with lingering berry notes and bright acidity. The conclusion is crisp and pure, perfect for warm weather enjoyment and food pairing."
+      },
+      "foodPairings": [
+        "Grilled salmon with herb butter",
+        "Summer salads with berries and goat cheese",
+        "Mediterranean tapas and mezze",
+        "Soft cheeses and fresh chèvre",
+        "Shrimp tacos with citrus slaw"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), serve well chilled",
+        "decanting": "No decanting needed; serve directly chilled",
+        "glassware": "White wine glass or tulip-shaped rosé glass"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington State",
+        "grapeVariety": "Red grape blend (likely Grenache/Syrah base)",
+        "vintage": "2024",
+        "style": "Fresh, fruit-forward rosé from certified-sustainable estate",
+        "ageability": "Drink within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T14:18:00.000Z"
+      }
+    }
+  ],
+  "metadata": {
+    "batchNumber": 105,
+    "totalWines": 10,
+    "researchedAt": "2025-10-21T14:18:00.000Z",
+    "researchMethod": "WebSearch with professional wine publications and winery sources",
+    "averageConfidence": 0.90
+  }
+}

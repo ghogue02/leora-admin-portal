@@ -1,0 +1,78 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "description": "Research each wine and provide accurate, unique tasting notes",
+  "instructions": "\nFor each wine in the wines array below:\n\n1. **WEB SEARCH** for the exact wine using WebFetch tool:\n   - Search: \"{productName} {vintage} wine tasting notes reviews\"\n   - Look for Wine Spectator, Wine Enthusiast, Decanter, Vivino reviews\n   - Extract REAL tasting notes from professional sources\n\n2. **FALLBACK STRATEGY** if exact wine not found:\n   - Level 1: Search for the producer's general style\n   - Level 2: Search for varietal + region characteristics\n   - Level 3: Use professional wine knowledge for varietal\n\n3. **GENERATE UNIQUE CONTENT**:\n   - DO NOT use generic template language\n   - Base notes on research findings\n   - Create distinct descriptions for each wine\n   - Professional wine critic tone\n\n4. **RETURN JSON** for each wine with structure:\n   {\n     \"productId\": \"...\",\n     \"productName\": \"...\",\n     \"description\": \"2-3 sentence wine description\",\n     \"tastingNotes\": {\n       \"aroma\": \"Detailed, unique aroma description (3-4 sentences)\",\n       \"palate\": \"Detailed palate description (3-4 sentences)\",\n       \"finish\": \"Finish description (2-3 sentences)\"\n     },\n     \"foodPairings\": [\"specific pairing 1\", \"pairing 2\", \"pairing 3\", \"pairing 4\", \"pairing 5\"],\n     \"servingInfo\": {\n       \"temperature\": \"Specific temperature for this wine\",\n       \"decanting\": \"Decanting advice for this specific wine\",\n       \"glassware\": \"Recommended glass\"\n     },\n     \"wineDetails\": {\n       \"region\": \"Specific region/appellation\",\n       \"grapeVariety\": \"Exact grape composition\",\n       \"vintage\": \"...\",\n       \"style\": \"Wine style\",\n       \"ageability\": \"Aging potential and drinking window\"\n     },\n     \"metadata\": {\n       \"source\": \"exact-match|producer-match|varietal-match|generic\",\n       \"confidence\": 0.0-1.0,\n       \"researchedAt\": \"ISO timestamp\"\n     }\n   }\n\nCRITICAL: Each wine MUST have UNIQUE tasting notes. NO DUPLICATES!\n",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Crosarola Superiore 2023",
+      "brand": null,
+      "vintage": "2023",
+      "varietal": null
+    },
+    {
+      "productId": "",
+      "productName": "Charlie & Echo Rainfall",
+      "brand": null,
+      "vintage": null,
+      "varietal": null
+    },
+    {
+      "productId": "",
+      "productName": "Croix 1904 Zinfandel",
+      "brand": null,
+      "vintage": "1904",
+      "varietal": "Zinfandel"
+    },
+    {
+      "productId": "",
+      "productName": "Thelema Chardonnay 2019",
+      "brand": null,
+      "vintage": "2019",
+      "varietal": "Chardonnay"
+    },
+    {
+      "productId": "",
+      "productName": "Aresca Fiore d Atunno Moscato dAsti 2023",
+      "brand": null,
+      "vintage": "2023",
+      "varietal": null
+    },
+    {
+      "productId": "",
+      "productName": "Knuttel Family Russian River Valley Chardonnay, Kate's Pas de Deux 2022",
+      "brand": null,
+      "vintage": "2022",
+      "varietal": "Chardonnay"
+    },
+    {
+      "productId": "",
+      "productName": "Farmers Market Italian Red NV",
+      "brand": null,
+      "vintage": null,
+      "varietal": null
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Rose 2024",
+      "brand": null,
+      "vintage": "2024",
+      "varietal": null
+    },
+    {
+      "productId": "",
+      "productName": "Casa Dumetz Clementine Carter Mourvedre Santa Barbara County 2021",
+      "brand": null,
+      "vintage": "2021",
+      "varietal": null
+    },
+    {
+      "productId": "",
+      "productName": "Black Elephant Vintners Cap Classique Brut",
+      "brand": null,
+      "vintage": null,
+      "varietal": null
+    }
+  ],
+  "outputFile": "/Users/greghogue/Leora2/web/data/wine-research-results-batch-154.json"
+}

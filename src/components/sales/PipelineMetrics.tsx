@@ -1,14 +1,15 @@
 'use client';
 
 import { PipelineMetrics, FunnelStage } from '@/lib/models/Lead';
-import { formatCurrency } from '@/lib/utils/format';
+import { formatCurrency, formatNumber, formatPercentage } from '@/lib/utils/format';
 
 interface PipelineMetricsProps {
   metrics: PipelineMetrics;
 }
 
 export default function PipelineMetrics({ metrics }: PipelineMetricsProps) {
-  const formatPercentage = (value: number) => `${value.toFixed(1)}%`;
+  const weightedConfidence =
+    metrics.totalValue > 0 ? (metrics.weightedValue / metrics.totalValue) * 100 : 0;
 
   const stageLabels: Record<FunnelStage, string> = {
     [FunnelStage.LEAD]: 'Lead',
@@ -25,7 +26,9 @@ export default function PipelineMetrics({ metrics }: PipelineMetricsProps) {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="text-sm text-gray-600 mb-2">Total Leads</div>
-          <div className="text-3xl font-bold text-gray-900">{metrics.totalLeads}</div>
+          <div className="text-3xl font-bold text-gray-900">
+            {formatNumber(metrics.totalLeads)}
+          </div>
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-6">
@@ -41,14 +44,14 @@ export default function PipelineMetrics({ metrics }: PipelineMetricsProps) {
             {formatCurrency(metrics.weightedValue)}
           </div>
           <div className="text-xs text-gray-500 mt-1">
-            {((metrics.weightedValue / metrics.totalValue) * 100).toFixed(0)}% confidence
+            {formatPercentage(weightedConfidence)} confidence
           </div>
         </div>
 
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="text-sm text-gray-600 mb-2">Avg. Days to Close</div>
           <div className="text-3xl font-bold text-gray-900">
-            {metrics.averageDaysToClose.toFixed(0)}
+            {formatNumber(metrics.averageDaysToClose)}
           </div>
         </div>
       </div>
@@ -133,7 +136,7 @@ export default function PipelineMetrics({ metrics }: PipelineMetricsProps) {
                 />
               </div>
               <div className="w-20 text-right text-sm font-medium text-gray-900">
-                {days.toFixed(1)} days
+                {formatNumber(days)} days
               </div>
             </div>
           ))}

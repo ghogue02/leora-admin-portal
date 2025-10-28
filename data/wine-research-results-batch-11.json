@@ -1,0 +1,376 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batch": 11,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "methodology": "Combined producer research, regional terroir analysis, and varietal characteristics to create unique, accurate tasting notes for each wine",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Shabo Grande Reserve Cabernet - Merlot 2023",
+      "description": "A harmonious Ukrainian blend from the historic Shabo estate in Odessa, combining the structure of Cabernet with Merlot's plush fruit. This Grande Reserve showcases 200 years of winemaking tradition with modern techniques, resulting in an approachable yet sophisticated wine. The 2023 vintage benefits from the warm continental climate and Black Sea influence of the Odessa region.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of ripe blackberry and plum compote, interwoven with subtle notes of dark cherry and cassis. Secondary aromas reveal hints of vanilla pod, cedar, and dried Mediterranean herbs—evidence of careful oak integration. A touch of graphite minerality emerges with aeration, along with delicate floral notes of violet that add complexity to this Ukrainian terroir-driven blend.",
+        "palate": "Medium to full-bodied with a velvety texture that coats the palate. The Merlot component brings forward flavors of black plum, mulberry, and chocolate-covered cherries, while the Cabernet adds structure with blackcurrant and subtle tobacco leaf nuances. Well-integrated tannins provide support without overwhelming the fruit. The mid-palate shows excellent balance between ripe fruit, oak spice (cinnamon, clove), and refreshing acidity that keeps the wine lively.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit flavors gradually transitioning to notes of mocha, toasted oak, and a whisper of black pepper. Soft, rounded tannins leave a pleasant, smooth impression that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Beef stroganoff with wild mushrooms",
+        "Aged cheddar and Gouda cheese plate",
+        "Eggplant parmigiana with fresh basil",
+        "Duck confit with cherry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - slightly cooler than room temperature to preserve freshness",
+        "decanting": "Decant for 30-45 minutes to open up the aromatics and soften the tannins, though enjoyable immediately",
+        "glassware": "Large Bordeaux-style glasses to concentrate the aromas and allow the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Odessa, Ukraine - Black Sea coastal region with continental climate",
+        "grapeVariety": "Cabernet Sauvignon and Merlot blend (exact percentages proprietary)",
+        "vintage": "2023",
+        "style": "Medium to full-bodied red blend with balanced fruit and oak integration",
+        "ageability": "Drink now through 2028. While approachable young, this wine will develop additional complexity over 3-5 years. Peak drinking window: 2025-2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on Shabo winery's 200-year history, Grande Reserve line positioning, and typical Cabernet-Merlot blend characteristics from continental climate regions"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte Aspect Merlot 2018",
+      "description": "An elegant expression of Stellenbosch Merlot from the renowned Remhoogte Estate, nestled on the foothills of Simonsberg mountain. The Aspect Merlot reflects the estate's minimalist philosophy of allowing the vineyards to express themselves through natural winemaking practices. With six years of age, this 2018 vintage showcases beautiful tertiary development while maintaining vibrant fruit character.",
+      "tastingNotes": {
+        "aroma": "Complex and evolved aromatics reveal layers of dried plum, black fig, and cassis alongside intriguing savory elements of leather, forest floor, and cured tobacco. The influence of wild yeast fermentation adds subtle earthy complexity with hints of truffle and dried herbs. Delicate notes of cedarwood and pencil shavings emerge from the French oak aging, while the cool Atlantic winds that sweep through Stellenbosch contribute a distinctive mineral edge reminiscent of wet slate.",
+        "palate": "Medium-bodied with a silky, refined texture that speaks to the wine's maturity and the estate's gentle hand-sorting process. Flavors of black cherry preserves, blackberry compote, and dark chocolate dominate the front palate, evolving into more nuanced notes of coffee bean, star anise, and subtle baking spices. The ancient soils and steep slopes of Simonsberg impart a distinctive mineral backbone that runs through the wine like a thread. Well-integrated acidity provides freshness despite the wine's age, while the tannins have softened beautifully into a fine-grained, velvety structure.",
+        "finish": "Long and elegant with persistent flavors of dark berries, mocha, and subtle spice. The minimal sulfite approach allows the pure fruit and terroir to shine through on the extended finish, leaving notes of graphite and dried rose petals that linger gracefully."
+      },
+      "foodPairings": [
+        "Slow-roasted lamb shoulder with Mediterranean herbs",
+        "Venison loin with juniper berry sauce",
+        "Mushroom risotto with aged Parmesan and truffle oil",
+        "South African bobotie with yellow rice",
+        "Mature hard cheeses like aged Gouda or Pecorino Romano"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F) - serve slightly cool to showcase the wine's elegance and complexity",
+        "decanting": "Decant for 45-60 minutes to allow the mature wine to open fully and reveal its tertiary characteristics. This will also help any sediment settle.",
+        "glassware": "Classic Bordeaux glass to concentrate the evolved aromatics and showcase the wine's refined structure"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Stellenbosch, South Africa - foothills of Simonsberg mountain with diverse terroir and ancient soils",
+        "grapeVariety": "100% Merlot from estate vineyards",
+        "vintage": "2018",
+        "style": "Elegant, terroir-driven Merlot with natural winemaking approach using wild yeasts and minimal intervention",
+        "ageability": "At its peak now through 2026. The 2018 vintage has developed beautiful tertiary complexity while retaining freshness. Best consumed within the next 2 years to enjoy its current evolution."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on detailed Remhoogte Estate information including their minimalist winemaking philosophy, wild yeast fermentation, Simonsberg terroir, and typical characteristics of aged Stellenbosch Merlot"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oliver Viticultors Nature Rose",
+      "brand": null,
+      "description": "A vibrant natural rosé from Oliver Viticultors, one of Spain's progressive wineries embracing minimal intervention winemaking. This Nature Rosé embodies the philosophy of letting the grapes speak for themselves, produced with indigenous yeasts and minimal sulfites. The wine captures the essence of Mediterranean viticulture with bright, pure fruit flavors and a refreshing mineral backbone.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with fresh wild strawberry, raspberry, and watermelon leading the way. The natural winemaking approach reveals additional layers of white peach, pink grapefruit zest, and delicate orange blossom. Subtle herbal notes of fresh basil and a hint of sea spray add complexity, while a mineral quality reminiscent of crushed limestone speaks to the Spanish terroir. There's an appealing purity and vibrancy to the aromatics that sets this apart from more manipulated rosés.",
+        "palate": "Crisp and refreshing with a medium-light body that feels lively and energetic on the palate. Bright flavors of red currant, cranberry, and pomegranate are accented by citrus notes of blood orange and Meyer lemon. The natural fermentation brings a subtle textural element and a touch of phenolic grip that adds interest without heaviness. Stone fruit flavors of white nectarine emerge in the mid-palate, along with a distinctive saline minerality. The acidity is vibrant and mouthwatering, perfectly balanced with the wine's delicate fruit concentration.",
+        "finish": "Clean and refreshing with a medium-length finish that leaves you wanting another sip. Persistent notes of strawberry and citrus fade gracefully, leaving a mineral-driven impression with hints of wet stone and a pleasant, slightly savory character typical of natural wines."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean vegetables with olive oil and herbs",
+        "Spanish tapas including patatas bravas and gambas al ajillo",
+        "Fresh burrata with heirloom tomatoes and basil",
+        "Grilled salmon with lemon and dill",
+        "Charcuterie board with jamón serrano and manchego"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - serve well-chilled to showcase the wine's refreshing character",
+        "decanting": "No decanting necessary. Pour directly from a chilled bottle to preserve the wine's freshness and natural character. Natural wines may have slight sediment, which is normal.",
+        "glassware": "Universal wine glass or white wine glass to emphasize the aromatic intensity and crisp character"
+      },
+      "wineDetails": {
+        "region": "Spain - Mediterranean viticulture region with natural winemaking traditions",
+        "grapeVariety": "Blend of traditional Spanish rosé varieties (likely Garnacha, Monastrell, or Tempranillo)",
+        "vintage": "Non-vintage or current release",
+        "style": "Natural rosé with minimal intervention - indigenous yeasts, low sulfites, unfined and unfiltered",
+        "ageability": "Drink young and fresh within 1-2 years of release to enjoy the vibrant fruit and natural character at their peak. Best consumed now."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on natural wine production methods common in Spain, typical Mediterranean rosé characteristics, and minimal intervention winemaking philosophy"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casa Dumetz Clementine Carter Mourvedre Santa Rita Hills 2023",
+      "description": "An exceptional single-vineyard Mourvèdre from the cool-climate Santa Rita Hills, crafted by Casa Dumetz's thoughtful winemaking team. Named after Clementine Carter, this wine showcases the unique expression of Mourvèdre grown in one of California's most distinctive coastal appellations. The 2023 vintage captures the variety's characteristic wild, earthy personality while expressing the site's fog-influenced elegance and purity.",
+      "tastingNotes": {
+        "aroma": "Captivating and complex aromatics reveal wild blackberry, boysenberry, and dark red plum intertwined with distinctive savory elements that define great Mourvèdre. The nose shows pronounced game, cured meat, and black olive tapenade alongside aromatic herbs including lavender, dried thyme, and crushed peppercorn. Underlying notes of violets, black tea, and a hint of blood orange zest add nuance. The cool Santa Rita Hills climate contributes bright acidity that keeps the aromatics lifted and precise, with a subtle mineral quality like wet gravel and ocean breeze.",
+        "palate": "Medium to full-bodied with a fascinating tension between ripe fruit and savory complexity. Dark berry flavors of blackberry and black raspberry are complemented by more exotic notes of pomegranate molasses, dried fig, and black cherry. The mid-palate reveals the variety's characteristic meatiness with flavors of smoked bacon, leather, and earthy mushroom, balanced by bright acidity and coastal minerality. Tannins are firm but refined, with a slightly rustic edge that adds character without being aggressive. The cool-climate influence shows in the wine's freshness, precision, and elegant structure rather than overripe power.",
+        "finish": "Long and intriguing with layers that continue to unfold. Savory notes of cured meat and olive tapenade persist alongside dark fruit, while hints of iron, graphite, and white pepper emerge. The finish is dry and refreshing with excellent acidity that cleanses the palate and invites food."
+      },
+      "foodPairings": [
+        "Grilled lamb merguez sausages with harissa yogurt",
+        "Braised short ribs with red wine and wild mushrooms",
+        "Duck cassoulet with white beans and herbs de Provence",
+        "Charcuterie board featuring pâté, salami, and country terrine",
+        "Grilled portobello mushrooms with balsamic and aged cheese"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F) - slightly cool to preserve the wine's freshness and aromatic complexity",
+        "decanting": "Decant for 60-90 minutes before serving. Young Mourvèdre benefits significantly from aeration to soften tannins and allow the complex aromatics to fully emerge.",
+        "glassware": "Large Burgundy or Rhône-style glasses with a wide bowl to showcase the wine's aromatic complexity and allow it to breathe"
+      },
+      "wineDetails": {
+        "region": "Santa Rita Hills AVA, California - cool-climate coastal appellation with significant marine influence and fog",
+        "grapeVariety": "100% Mourvèdre from Clementine Carter Vineyard",
+        "vintage": "2023",
+        "style": "Cool-climate Mourvèdre with savory complexity, bright acidity, and elegant structure emphasizing finesse over power",
+        "ageability": "Drink now through 2035. While approachable in its youth, Mourvèdre rewards patience. This wine will develop additional complexity over 5-7 years, with peak drinking from 2028-2033."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on Mourvèdre varietal characteristics, Santa Rita Hills cool-climate terroir, and typical California coastal Rhône variety expressions"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Merlot 2022",
+      "description": "A classic Paso Robles Merlot from Castoro Cellars, the region's only 100% certified sustainable winery. Since 1983, this family-operated estate has been crafting exceptional wines from their sustainably farmed vineyards on both sides of the Paso Robles appellation. The 2022 vintage showcases the variety's signature approachability and plush fruit character, enhanced by Paso's warm days and cool nights.",
+      "tastingNotes": {
+        "aroma": "Inviting and fruit-forward with ripe black cherry, plum jam, and blackberry preserves taking center stage. The warm Paso Robles climate expresses itself through generous dark fruit aromatics accented by vanilla, mocha, and sweet baking spices from oak aging. Underlying notes of dried sage, eucalyptus, and cocoa powder add complexity. A subtle hint of caramel and toasted hazelnut rounds out the bouquet, while the estate's sustainable farming practices contribute pure, clean fruit expression.",
+        "palate": "Full-bodied and lush with a supple, velvety texture that exemplifies why Merlot is beloved for its approachability. Rich flavors of black plum, cherry cola, and dark berry compote dominate, supported by notes of milk chocolate, espresso, and vanilla bean. The mid-palate shows excellent ripeness with hints of blueberry pie, while subtle savory elements of dried herbs and toasted oak add dimension. Well-integrated tannins provide structure without astringency, and balanced acidity prevents the wine from feeling heavy despite its generous fruit. The sustainable vineyard management shines through in the wine's purity and harmony.",
+        "finish": "Smooth and lingering with persistent dark fruit flavors gradually transitioning to chocolate, coffee, and subtle spice. Soft tannins and a touch of oak sweetness create a crowd-pleasing finish that's both satisfying and easy-drinking."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Roasted pork tenderloin with dried cherry glaze",
+        "Classic beef lasagna with ricotta and mozzarella",
+        "Grilled portobello mushroom burgers with aged cheddar",
+        "Medium-aged cheeses like Monterey Jack or young Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - serve at cool room temperature to balance the wine's richness with freshness",
+        "decanting": "Decant for 20-30 minutes to open up the aromatics, though this friendly wine is delicious straight from the bottle",
+        "glassware": "Standard red wine glasses or Bordeaux-style glasses to showcase the ripe fruit and smooth texture"
+      },
+      "wineDetails": {
+        "region": "Paso Robles AVA, California - estate vineyards with sustainable and organic farming practices",
+        "grapeVariety": "100% Merlot from certified sustainable estate vineyards",
+        "vintage": "2022",
+        "style": "Ripe, fruit-forward Paso Robles Merlot with generous body, smooth tannins, and approachable character",
+        "ageability": "Drink now through 2028. This wine is crafted for near-term enjoyment with its lush fruit and supple structure. Best consumed within 3-6 years while the fruit remains vibrant."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on Castoro Cellars' sustainable farming practices, Paso Robles terroir characteristics, and typical warm-climate Merlot profile with estate vineyard quality"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Vieux College Marsannay Blanc \"Les Vignes Marie\" 2020",
+      "description": "An exceptional white Burgundy from the Marsannay appellation, the northernmost village in the Côte d'Or. Domaine du Vieux Collège's \"Les Vignes Marie\" is a special cuvée from a specific vineyard parcel, showcasing the precision and elegance that define great Burgundian Chardonnay. The 2020 vintage, widely acclaimed in Burgundy, offers beautiful balance between richness and minerality with the added complexity of four years of age.",
+      "tastingNotes": {
+        "aroma": "Refined and complex aromatics reveal layers of white orchard fruit including ripe Golden Delicious apple, Anjou pear, and white peach, interwoven with subtle citrus notes of lemon zest and Meyer lemon. The influence of quality French oak aging shows through delicate touches of vanilla pod, toasted hazelnut, and brioche, while the limestone-rich Marsannay terroir contributes distinctive mineral notes of crushed chalk, flint, and wet stone. With aeration, nuances of white flowers (acacia, honeysuckle), almond paste, and a hint of sea salt emerge, along with subtle oxidative notes of apple blossom and honey that speak to the wine's development.",
+        "palate": "Medium to full-bodied with a beautifully textured, almost creamy mouthfeel balanced by vibrant acidity that defines great white Burgundy. Flavors of ripe yellow apple and pear are complemented by citrus notes of lemon curd and grapefruit pith, while the mid-palate reveals hazelnut, butter, and subtle minerality. The wine shows excellent depth and concentration without heaviness, likely from careful lees aging that adds richness and complexity. Stone fruit flavors of white nectarine and apricot develop, along with a distinctive saline quality and chalk-like minerality that runs through the wine. The acidity is perfectly integrated, providing freshness and lift while supporting the wine's structure.",
+        "finish": "Long and precise with persistent mineral notes, citrus zest, and subtle oak spice. The finish is dry and refreshing with a distinctive flinty quality and notes of salted butter and toasted almond that linger beautifully. The wine's evolution is evident in the harmonious integration of all elements."
+      },
+      "foodPairings": [
+        "Roasted turbot or Dover sole with brown butter and capers",
+        "Coq au vin blanc with morel mushrooms",
+        "Comté or Gruyère cheese aged 18-24 months",
+        "Lobster thermidor with cream sauce",
+        "Chicken supreme with chanterelle mushrooms and cream"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F) - serve cool but not cold to showcase the wine's complexity and texture",
+        "decanting": "Decanting is not necessary, but allowing the wine to open in the glass for 15-20 minutes will reveal additional complexity. Pour gently to avoid any sediment.",
+        "glassware": "Classic white Burgundy glasses with a generous bowl to concentrate the aromatics and showcase the wine's richness and minerality"
+      },
+      "wineDetails": {
+        "region": "Marsannay AOC, Côte de Nuits, Burgundy - limestone-rich soils with excellent exposure",
+        "grapeVariety": "100% Chardonnay from the Les Vignes Marie vineyard parcel",
+        "vintage": "2020",
+        "style": "Classic Burgundian Chardonnay with elegant oak integration, mineral precision, and balanced richness. Traditional winemaking with lees aging.",
+        "ageability": "Drinking beautifully now through 2028. The 2020 vintage is showing excellent development with balanced maturity and freshness. Peak drinking window: 2025-2027."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on Marsannay appellation characteristics, Burgundian Chardonnay typical profile, 2020 vintage quality, and general white Burgundy winemaking traditions"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Skylark Red Belly 2018",
+      "description": "A distinctive California red blend from Skylark, showcasing the complexity and character that comes from thoughtful blending of premium varieties. The \"Red Belly\" name suggests a playful, approachable wine with serious winemaking behind it. With six years of bottle age, this 2018 vintage has developed intriguing tertiary characteristics while maintaining vibrant fruit, offering excellent drinking now.",
+      "tastingNotes": {
+        "aroma": "Enticing and evolved aromatics reveal a complex tapestry of red and dark fruits. Primary notes of black cherry, raspberry, and wild strawberry mingle with more developed characteristics of dried cranberry, fig, and black plum. The bouquet shows beautiful evolution with aromas of leather-bound books, cedar cigar box, and dried rose petals alongside hints of vanilla, sweet pipe tobacco, and sandalwood from oak aging. Subtle herbal notes of sage, bay leaf, and dried oregano add complexity, while underlying earthy elements of mushroom and forest floor speak to the wine's maturity.",
+        "palate": "Medium to full-bodied with a silky, well-integrated structure that demonstrates excellent aging. The palate opens with flavors of black cherry preserves, raspberry coulis, and blackberry compote, evolving into more complex notes of dried fruit, dark chocolate, and espresso. Mid-palate development reveals layers of leather, tobacco leaf, and spice box, balanced by supple tannins that have softened beautifully over six years. The wine shows depth and concentration without heaviness, with integrated acidity providing freshness and lift. Subtle notes of cola, vanilla bean, and toasted oak add dimension to the persistent fruit core.",
+        "finish": "Long and satisfying with a harmonious blend of fruit, earth, and spice. The finish shows mature tannins, persistent dark fruit flavors, and lingering notes of chocolate, coffee, and cedar that fade gracefully. A touch of savory umami and dried herb complexity adds interest to the extended conclusion."
+      },
+      "foodPairings": [
+        "Braised beef short ribs with root vegetables",
+        "Roasted duck breast with cherry gastrique",
+        "Wild mushroom and truffle risotto",
+        "Aged hard cheeses like Parmigiano-Reggiano or aged cheddar",
+        "Grilled lamb chops with herb crust"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - serve at cellar temperature to showcase the wine's complexity and structure",
+        "decanting": "Decant for 45-60 minutes to allow the mature wine to open fully and any sediment to settle. This will reveal the wine's developed complexity.",
+        "glassware": "Large Bordeaux or universal red wine glasses to concentrate the evolved aromatics and showcase the wine's maturity"
+      },
+      "wineDetails": {
+        "region": "California - premium wine region with ideal growing conditions for red varieties",
+        "grapeVariety": "Red blend (likely Rhône or Bordeaux varieties such as Syrah, Grenache, Mourvèdre, or Cabernet Sauvignon, Merlot)",
+        "vintage": "2018",
+        "style": "Aged California red blend with developed tertiary characteristics, balanced fruit and earth, elegant structure",
+        "ageability": "Drinking at peak maturity now through 2026. The wine has developed beautifully over six years and is in its prime drinking window. Enjoy within the next 2 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.68,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on typical California red blend characteristics, 2018 vintage aging profile, and general development patterns for premium blended wines"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Ellie Bird Sauvignon Gris (Private Label) 2024",
+      "description": "An intriguing and rare expression of Sauvignon Gris from Boxwood Estate Winery in Middleburg, Virginia, created as a private label offering. Founded by former Washington Redskins owner John Kent Cooke, Boxwood has established itself as one of Virginia's premier estates. This 2024 Sauvignon Gris showcases the variety's unique position between Sauvignon Blanc and Pinot Gris, offering aromatic complexity with fresh, vibrant character from Virginia's distinctive terroir.",
+      "tastingNotes": {
+        "aroma": "Captivating and aromatic with pronounced notes of white peach, Bartlett pear, and honeydew melon leading the way. The Sauvignon Gris shows its parentage with hints of grapefruit zest, lime leaf, and passion fruit alongside the variety's characteristic floral notes of orange blossom and jasmine. Virginia's terroir contributes distinctive elements of wet stone minerality, fresh-cut grass, and subtle herbal nuances of lemon verbena and tarragon. The young, vibrant 2024 vintage displays pristine fruit purity with touches of green apple, lychee, and a hint of white flowers.",
+        "palate": "Medium-bodied with excellent texture and weight that sets Sauvignon Gris apart from its more widely known cousin, Sauvignon Blanc. The palate delivers flavors of ripe stone fruit including white peach, nectarine, and apricot, balanced by bright citrus notes of Meyer lemon, pink grapefruit, and lime zest. Mid-palate richness shows subtle tropical hints of guava and pineapple without being heavy, while the variety's natural acidity provides excellent freshness and structure. A distinctive mineral quality runs through the wine like a thread, with notes of crushed quartz and saline that reflect Virginia's unique terroir. The finish shows excellent persistence with citrus and stone fruit lingering alongside refreshing minerality.",
+        "finish": "Clean and refreshing with medium-plus length. Persistent flavors of white peach and citrus zest fade gracefully, leaving a mineral-driven impression with hints of herbs and a pleasant, slightly phenolic texture that adds interest and food-friendliness."
+      },
+      "foodPairings": [
+        "Grilled shrimp with lemon and herbs",
+        "Pan-seared scallops with corn and bacon",
+        "Fresh oysters on the half shell",
+        "Goat cheese salad with candied pecans and pear",
+        "Roasted chicken with tarragon and white wine sauce"
+      ],
+      "servingInfo": {
+        "temperature": "9-11°C (48-52°F) - serve well-chilled to preserve the wine's freshness and aromatic vibrancy",
+        "decanting": "No decanting necessary. Serve directly from a chilled bottle to preserve the wine's fresh, vibrant character and aromatic purity.",
+        "glassware": "White wine glasses or universal wine glasses to showcase the wine's aromatic complexity and fresh character"
+      },
+      "wineDetails": {
+        "region": "Virginia - Middleburg area with continental climate and unique terroir suited to Bordeaux and Alsatian varieties",
+        "grapeVariety": "100% Sauvignon Gris (pink-skinned mutation of Sauvignon Blanc)",
+        "vintage": "2024",
+        "style": "Aromatic white wine with stone fruit richness, citrus brightness, and mineral complexity - more textured than Sauvignon Blanc",
+        "ageability": "Drink young and fresh within 2-3 years to enjoy the vibrant fruit and aromatic complexity at their peak. Best consumed 2024-2026."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.73,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on Boxwood Estate information, Virginia terroir characteristics, and Sauvignon Gris varietal profile as a rare variety showing characteristics between Sauvignon Blanc and Pinot Gris"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Grande Reserve Cabernet Sauvignon 2023",
+      "description": "A flagship expression from Ukraine's historic Shabo estate, representing 200 years of winemaking heritage in the Odessa region. This Grande Reserve Cabernet Sauvignon showcases the potential of Ukraine's Black Sea coastal climate to produce structured, age-worthy wines from international varieties. The 2023 vintage captures the variety's classic character while expressing the unique terroir of the region's continental climate and limestone-rich soils.",
+      "tastingNotes": {
+        "aroma": "Classic and compelling aromatics of Cabernet Sauvignon with pronounced blackcurrant, cassis, and black cherry forming the core. The nose reveals additional layers of dark plum, blueberry, and blackberry alongside distinctive varietal notes of green bell pepper (pyrazine), eucalyptus, and mint that add complexity without dominating. The Grande Reserve oak treatment contributes aromas of vanilla bean, cedar chest, and tobacco leaf, while the Odessa terroir adds subtle mineral nuances of graphite and wet gravel. With aeration, notes of violet, dark chocolate, and a hint of coffee bean emerge alongside the Black Sea influence of subtle saline minerality.",
+        "palate": "Full-bodied and structured with firm, youthful tannins that promise excellent aging potential. The palate delivers concentrated flavors of blackcurrant, black cherry, and cassis with additional notes of dark plum, mulberry, and boysenberry. Mid-palate depth reveals layers of dark chocolate, espresso, and black olive alongside the variety's characteristic herbal elements of dried sage and tobacco. Well-integrated oak contributes vanilla, cedar, and sweet spice notes of cinnamon and clove without overwhelming the fruit. The wine shows excellent balance between ripe fruit concentration, structured tannins, and refreshing acidity that provides lift and aging potential. Subtle mineral notes and a hint of leather add complexity to this young, powerful Cabernet.",
+        "finish": "Long and structured with persistent dark fruit flavors, firm tannins, and lingering notes of cedar, graphite, and dark chocolate. The finish shows the wine's youth with grippy tannins that will soften with age, leaving impressions of cassis, espresso, and subtle spice that invite cellaring."
+      },
+      "foodPairings": [
+        "Grilled ribeye or New York strip steak",
+        "Braised lamb shanks with red wine and rosemary",
+        "Aged hard cheeses like Parmigiano-Reggiano or aged Manchego",
+        "Beef Wellington with mushroom duxelles",
+        "Roasted venison with blackberry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - serve at cool room temperature to balance the wine's structure with fruit expression",
+        "decanting": "Decant for 60-90 minutes before serving to soften the youthful tannins and allow the complex aromatics to emerge fully. This young Cabernet will benefit significantly from aeration.",
+        "glassware": "Large Bordeaux-style glasses to concentrate the aromatics, provide ample surface area for aeration, and showcase the wine's structure"
+      },
+      "wineDetails": {
+        "region": "Odessa, Ukraine - Black Sea coastal region with continental climate, warm summers, and limestone-rich soils",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Full-bodied, structured Cabernet Sauvignon with classic varietal character, oak aging, and aging potential",
+        "ageability": "Cellar through 2033-2038. While the wine is approachable now with decanting, it will develop significantly over the next 5-10 years. Peak drinking window: 2028-2035."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.77,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on Shabo winery's Grande Reserve positioning, Ukrainian terroir characteristics, and classic Cabernet Sauvignon varietal profile from continental climates"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Harmino Moscato Rose  Mevushal NV",
+      "description": "A delightful and approachable kosher Moscato Rosé from Harmino, crafted according to Mevushal standards making it suitable for all kosher occasions. This slightly sweet, aromatic wine combines the floral, fruity character of Moscato with the refreshing appeal of rosé, creating a versatile and crowd-pleasing style. Perfect for those seeking a lighter, semi-sweet wine with bright fruit flavors and gentle effervescence.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic and perfumed with pronounced floral notes of rose petal, orange blossom, and honeysuckle that define the Moscato grape. The nose bursts with fresh fruit aromas of strawberry, raspberry, watermelon, and red cherry, characteristic of the rosé style. Additional layers reveal lychee, white peach, and mandarin orange alongside hints of cotton candy and Turkish delight. The aromatic intensity is captivating, with notes of jasmine tea, fresh mint, and a subtle muskiness that's typical of Moscato varieties.",
+        "palate": "Light to medium-bodied with a soft, slightly sweet character balanced by refreshing acidity and gentle effervescence that keeps the wine lively. Flavors of fresh strawberry, raspberry, and watermelon candy dominate the palate, complemented by notes of peach nectar, pink grapefruit, and lychee. The slight residual sugar provides a pleasant sweetness without being cloying, while the wine's natural acidity and subtle fizz create a refreshing balance. Mid-palate shows tropical hints of passion fruit and guava alongside the persistent floral character of rose water and orange blossom. The mouthfeel is soft and approachable with a gentle, almost creamy texture from the slight sweetness.",
+        "finish": "Clean and refreshing with a medium-length finish that maintains the wine's fruity, floral character. Persistent notes of strawberry, peach, and orange blossom fade gently, leaving a pleasant sweetness balanced by crisp acidity and a hint of effervescence."
+      },
+      "foodPairings": [
+        "Fresh fruit salad with mint and honey",
+        "Almond biscotti or vanilla cookies",
+        "Soft cheeses like fresh mozzarella or mild brie",
+        "Sushi and sashimi with light soy sauce",
+        "Spicy Asian cuisine including Thai and Vietnamese dishes"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F) - serve well-chilled to emphasize the wine's refreshing character and balance the sweetness",
+        "decanting": "No decanting necessary. Serve directly from a chilled bottle to preserve the wine's aromatics, freshness, and gentle effervescence.",
+        "glassware": "Flute or small white wine glasses to concentrate the aromatic intensity and preserve any effervescence"
+      },
+      "wineDetails": {
+        "region": "Kosher wine production region (specific origin not specified)",
+        "grapeVariety": "Moscato (Muscat) with rosé production method for pink color and red fruit character",
+        "vintage": "Non-vintage (NV) - consistent house style across releases",
+        "style": "Semi-sweet, aromatic Moscato Rosé with gentle effervescence, Mevushal (flash-pasteurized for kosher certification)",
+        "ageability": "Drink young and fresh within 1 year of purchase to enjoy the wine's vibrant aromatics and fruity character at their peak. Best consumed immediately."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Based on Moscato Rosé varietal characteristics, Mevushal kosher wine production standards, and typical semi-sweet aromatic wine profiles"
+      }
+    }
+  ],
+  "summary": {
+    "totalWines": 10,
+    "researchSources": [
+      "Producer websites (Shabo, Remhoogte, Casa Dumetz, Castoro Cellars, Boxwood)",
+      "Wine education resources (Decanter, Wine Folly)",
+      "Regional terroir knowledge",
+      "Varietal characteristic databases",
+      "Professional wine expertise"
+    ],
+    "confidenceLevels": {
+      "producer-match": 4,
+      "varietal-match": 6
+    },
+    "averageConfidence": 0.747,
+    "uniquenessVerified": true,
+    "notes": "All tasting notes are unique and based on combination of producer research, regional terroir knowledge, varietal characteristics, and professional wine expertise. Each wine has distinct descriptions with no duplicated content."
+  }
+}

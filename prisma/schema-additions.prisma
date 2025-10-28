@@ -1,0 +1,45 @@
+// Add these lines to the Tenant model relations section (after calendarSyncs):
+//   sampleFeedbackTemplates SampleFeedbackTemplate[]
+//   sampleMetrics           SampleMetrics[]
+
+// Add this line to the Sku model relations section (after incentives):
+//   sampleMetrics  SampleMetrics[]
+
+// Add these models at the end of the schema file:
+
+model SampleFeedbackTemplate {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid
+  category  String   // "Positive", "Negative", "Neutral"
+  label     String   // "Loved it", "Too expensive", "Will consider"
+  sortOrder Int      @default(0)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, label])
+  @@index([tenantId, category])
+}
+
+model SampleMetrics {
+  id                      String   @id @default(uuid()) @db.Uuid
+  tenantId                String   @db.Uuid
+  skuId                   String   @db.Uuid
+  periodStart             DateTime
+  periodEnd               DateTime
+  totalSamplesGiven       Int      @default(0)
+  totalCustomersSampled   Int      @default(0)
+  samplesResultingInOrder Int      @default(0)
+  conversionRate          Float    @default(0)
+  totalRevenue            Decimal? @db.Decimal(12, 2)
+  avgRevenuePerSample     Decimal? @db.Decimal(12, 2)
+  calculatedAt            DateTime @default(now())
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sku    Sku    @relation(fields: [skuId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, skuId, periodStart])
+  @@index([tenantId, periodStart])
+  @@index([conversionRate])
+}

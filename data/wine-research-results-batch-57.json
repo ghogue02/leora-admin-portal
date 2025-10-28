@@ -1,0 +1,354 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 57,
+  "completedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Hendry HRW Cabernet Sauvignon 2023",
+      "description": "A refined expression from Napa Valley's renowned Hendry Ranch, this HRW bottling represents exceptional value from estate vineyards. The wine balances concentrated fruit with elegant structure, showcasing the distinctive terroir of the property's benchland sites.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromas of mouthwatering blackberry and black currant, complemented by subtle hints of mint and caramelized sugar. Underlying notes of smoke, grape skins, and earthy loam add complexity, while gentle oak influence brings whispers of vanilla and dark chocolate. The aromatic profile is medium in intensity with a slight violet hue that suggests youthful vibrancy.",
+        "palate": "On the palate, this medium-bodied Cabernet delivers silky texture with tangy blackcurrant and dark berry flavors at its core. Fresh red fruit notes weave through the darker fruit spectrum, creating layers of interest. Black tea, bramble, and spice add savory complexity, while the wine's vibrant acidity keeps the flavors focused and mouthwatering. The tannins are firm yet polished, providing structure without weight.",
+        "finish": "The finish reveals bittersweet cocoa and a touch of soy sauce, with persistent berry fruit and a final note of smoky oak. The tannins slowly build and drift away, leaving a clean, structured conclusion that invites the next sip."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with root vegetables",
+        "Aged cheddar or gruyère cheese",
+        "Mushroom risotto with truffle oil",
+        "Roasted rack of lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the fruit to open and tannins to soften",
+        "glassware": "Large Bordeaux-style glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Dry Red - Medium-bodied Cabernet Sauvignon",
+        "ageability": "Drink now through 2030; the wine's firm structure suggests 5-7 years of aging potential"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Costers del Segre Petit Sios Tinto 2021",
+      "description": "A vibrant young red from Catalonia's Costers del Segre DO, crafted by Bodegas Costers del Sió. This approachable blend combines classic Spanish varietals with French influence, offering fruit-forward charm with subtle oak integration from four months in used French barrels.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents bright red berry aromas with emphasis on fresh strawberry and red cherry. Subtle undertones of Mediterranean herbs, including thyme and rosemary, emerge alongside gentle spice notes from the oak aging. A touch of violet and crushed rose petal adds floral complexity to the fruit-driven profile.",
+        "palate": "The wine enters with lively acidity and medium body, showcasing the blend's harmonious composition of Tempranillo's structure, Cabernet Sauvignon's depth, and Grenache's red fruit exuberance. Flavors of ripe cherry, raspberry, and hints of blackberry dominate, while background notes of vanilla, cinnamon, and toasted oak provide subtle complexity. The texture is smooth and approachable with soft, integrated tannins.",
+        "finish": "A fresh, direct finish with lingering red fruit and a whisper of spice. The wine's youthful energy and balanced acidity create a clean, refreshing conclusion that makes it highly versatile at the table."
+      },
+      "foodPairings": [
+        "Grilled Spanish chorizo and peppers",
+        "Tomato-based pasta dishes",
+        "Wood-fired pizza with cured meats",
+        "Paella valenciana",
+        "Manchego cheese with quince paste"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Brief 15-minute decant to aerate; primarily enjoy its fresh, direct character",
+        "glassware": "Standard red wine glass or universal tasting glass"
+      },
+      "wineDetails": {
+        "region": "Costers del Segre DO, Catalonia, Spain",
+        "grapeVariety": "45% Tempranillo, 40% Cabernet Sauvignon, 15% Grenache",
+        "vintage": "2021",
+        "style": "Dry Red - Young oak-aged blend",
+        "ageability": "Best enjoyed within 3-4 years to preserve its fresh, fruity character (drink by 2025)"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raised By Wolves Cabernet Sauvignon (Damaged Labels) 2017",
+      "description": "A bold South African Cabernet Sauvignon from the Coastal Region, crafted by winemaker Adam Mason under his artisanal Raised by Wolves label. Sourced from 1980s-era vines and produced in limited quantities of just 300 cases, this wine showcases classical Cape winemaking with remarkable concentration and purity.",
+      "tastingNotes": {
+        "aroma": "The nose is rich and expressive, opening with concentrated aromas of ripe mulberry, cassis, and blackberry compote. Layers of complexity emerge with mocha, dark chocolate, and oak spice, while subtle savory notes of cedar and graphite add depth. The aromatic intensity suggests exceptional fruit quality from old vines.",
+        "palate": "Power and concentration define the palate, which delivers classical grip and structure wrapped in lush dark fruit. The wine shows fabulous purity with waves of blackberry, black cherry, and cassis flavors supported by fine-grained tannins. Espresso, dark cocoa, and vanilla from oak aging integrate seamlessly with the fruit core. The texture is simultaneously powerful and elegant, with lovely focus and balance that speaks to careful winemaking.",
+        "finish": "The finish is long and persistent, with berry freshness balancing the wine's concentration. Firm but refined tannins provide backbone, while mocha and dark fruit linger impressively. The structure suggests considerable aging potential ahead."
+      },
+      "foodPairings": [
+        "Braised Cape Malay lamb curry",
+        "Grilled kudu or venison steaks",
+        "Beef Wellington with mushroom duxelles",
+        "Mature hard cheeses like aged Gouda",
+        "Ostrich fillet with peppercorn sauce"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 1-2 hours to allow the concentrated wine to open fully and tannins to soften",
+        "glassware": "Large Bordeaux-style glass to showcase the wine's complexity"
+      },
+      "wineDetails": {
+        "region": "Coastal Region, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2017",
+        "style": "Dry Red - Full-bodied, concentrated Cabernet from old vines",
+        "ageability": "Drinking beautifully now through 2032; the wine's classical structure and concentration suggest 10-15 years total potential from vintage"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Professional rating: 91-93 points Greg Sherwood MW"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Monte Real Gran Reserva 2014",
+      "description": "A distinguished Gran Reserva from one of Rioja's historic bodegas, founded in 1890. This wine represents classic Spanish winemaking at its finest, with extended barrel aging creating layers of complexity while maintaining freshness and elegance. The 2014 vintage earned widespread critical acclaim with scores in the low 90s from multiple publications.",
+      "tastingNotes": {
+        "aroma": "The nose presents a sophisticated tapestry of aromatics, beginning with intense cherry-red fruit aromas of black plum and cranberry, interwoven with roasted tomato and savory bacon notes. Secondary development brings forward earthy truffle, leather, and subtle balsamic touches, while oak influence contributes vanilla, chocolate, and warming spice notes of black pepper and clove. Delicate orange peel adds brightness to the complex bouquet.",
+        "palate": "Medium to full-bodied with impeccable balance, the palate reveals flavors of cherry compote, pomegranate, and dark berries enlivened by subtle tangy orange peel acidity. Mocha, butterscotch, and salted almond add sweetness and depth, while earthy notes of dried dill and leather provide classic Rioja character. The texture is silky and refined, with round, polished tannins that build slowly then drift away, creating an elegant mouthfeel.",
+        "finish": "The finish is long and graceful, with velvety tannins and persistent dark fruit flavors. Classic savory elements of leather and earth linger alongside hints of cocoa and spice, demonstrating the wine's maturity and complexity. The elegant conclusion invites contemplation."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with rosemary and garlic",
+        "Jamón ibérico and aged Manchego cheese",
+        "Wild mushroom risotto with truffle",
+        "Slow-braised beef in red wine sauce",
+        "Duck confit with cherry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-64°F (17-18°C)",
+        "decanting": "Decant 45-60 minutes to allow aromatics to fully develop and integrate",
+        "glassware": "Traditional Rioja or Burgundy-style glass to highlight elegance"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Primarily Tempranillo with traditional Rioja blend components (Graciano, Mazuelo)",
+        "vintage": "2014",
+        "style": "Dry Red - Classic Gran Reserva with extended aging",
+        "ageability": "Drinking beautifully now through 2029; Gran Reserva classification indicates minimum 5 years aging before release"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Professional ratings: 92 points Wine Enthusiast, 93 points James Suckling, 88 points Wine Spectator, 91 points average critics score"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Sparkling Rose Wine Can   250 ml",
+      "description": "An innovative portable sparkling rosé from Paso Robles' first 100% certified sustainable winery. Packaged in eco-friendly 250ml cans that are 400 times lighter than glass and reduce carbon emissions by up to 80%, this wine maintains exceptional freshness and vibrancy while offering the perfect single-serving format for outdoor adventures.",
+      "tastingNotes": {
+        "aroma": "The nose offers delicate and inviting aromatics of fresh strawberry, wild raspberry, and watermelon rind. Subtle floral notes of rose petal and orange blossom add elegance, while hints of citrus zest and white peach provide brightness. The sparkling wine's mousse carries these delicate aromas with precision.",
+        "palate": "Bright and effervescent on the palate, with fine, persistent bubbles creating a creamy texture. Flavors of ripe strawberry, pink grapefruit, and mandarin peel dominate, balanced by crisp acidity that keeps the wine refreshing and lively. A touch of mineral character adds complexity to the fruit-forward profile, while the wine's off-dry balance makes it approachable and food-friendly.",
+        "finish": "The finish is clean and refreshing with lingering berry fruit and citrus notes. The bubbles persist, leaving a vibrant, thirst-quenching conclusion perfect for warm weather enjoyment."
+      },
+      "foodPairings": [
+        "Grilled shrimp skewers with lemon",
+        "Fresh berry salad with mint",
+        "Smoked salmon canapés",
+        "Light cheese and charcuterie board",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), serve well-chilled",
+        "decanting": "Pour directly from can into glass or enjoy from the can; no decanting needed",
+        "glassware": "Champagne flute or white wine glass to showcase bubbles, or enjoy directly from can"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "Estate-grown rosé blend (specific varietals not disclosed)",
+        "vintage": "Non-vintage",
+        "style": "Sparkling Rosé - Fresh, fruit-forward style",
+        "ageability": "Best enjoyed young and fresh; consume within 1 year of purchase for optimal vibrancy"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dolce Vita Spritz NV",
+      "description": "An Italian-inspired aperitivo-style sparkling wine cocktail that captures the essence of la dolce vita. This ready-to-serve spritz combines aromatic herbs, bitter citrus, and effervescent wine in a perfectly balanced blend that evokes the cafe culture of Venice and Milan.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with bright, zesty citrus notes dominated by pink grapefruit, blood orange, and bitter orange peel. Aromatic herbs including gentian, wormwood, and subtle botanical spices add complexity, while floral hints of chamomile and elderflower provide elegance. The aromatic profile is vibrant and inviting, with a pleasant bitter-sweet balance.",
+        "palate": "Lightly carbonated with a refreshing effervescence, the palate delivers crisp citrus flavors of grapefruit, mandarin, and orange zest. The wine base provides body and structure, while the aperitivo blend contributes pleasant bitterness balanced by soft vanilla sweetness. Herbal notes of rhubarb, cinchona bark, and botanical spices weave through the citrus core, creating a sophisticated yet approachable flavor profile with mellow, not aggressive, bitterness.",
+        "finish": "The finish is clean and refreshing with lingering citrus and herbal notes. The bubbles fade gently, leaving a pleasant bitter-sweet conclusion that stimulates the palate and appetite, true to the aperitivo tradition."
+      },
+      "foodPairings": [
+        "Antipasto platter with olives and cured meats",
+        "Bruschetta with tomato and basil",
+        "Light seafood appetizers",
+        "Parmigiano-Reggiano and prosciutto",
+        "Citrus-marinated shrimp"
+      ],
+      "servingInfo": {
+        "temperature": "38-42°F (3-6°C), serve ice-cold over ice",
+        "decanting": "Serve directly over ice with a slice of orange or grapefruit; no decanting needed",
+        "glassware": "Large wine glass or spritz glass over ice"
+      },
+      "wineDetails": {
+        "region": "Italy (specific region varies by producer)",
+        "grapeVariety": "White wine base with bitter orange, herbs, and botanical extracts",
+        "vintage": "Non-vintage",
+        "style": "Sparkling Aperitivo Cocktail - Ready to serve",
+        "ageability": "Best enjoyed immediately; consume within 1 year for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Talpiot White",
+      "description": "A distinctive Israeli white wine from La Foret Blanche, showcasing the unique terroir and modern winemaking of Israel's burgeoning wine industry. This white blend combines mineral precision with tropical fruit richness, offering a Mediterranean character that bridges Old and New World styles.",
+      "tastingNotes": {
+        "aroma": "The nose presents an intriguing combination of mineral notes reminiscent of wet stone and flint, layered with ripe tropical fruit aromas of banana, yellow peach, and pineapple. Warm baking spices including cinnamon and nutmeg add complexity, while delicate floral hints of acacia and orange blossom provide lift. A subtle honeyed sweetness rounds out the aromatic profile without heaviness.",
+        "palate": "Medium-bodied with bright, refreshing acidity that balances the wine's fruit richness. Flavors of yellow peach, pineapple, and ripe pear dominate the palate, complemented by citrus notes of mandarin and grapefruit zest. The mineral backbone provides structure and length, while hints of toasted almond and subtle oak influence add textural complexity. The wine's vibrant acidity keeps the fruit focused and fresh.",
+        "finish": "The finish is clean and mineral-driven with persistent stone fruit flavors. Bright acidity carries through, leaving a refreshing, mouth-watering conclusion with hints of honey and spice."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean sea bass",
+        "Chicken shawarma with tahini",
+        "Israeli couscous salad with herbs",
+        "Fresh mozzarella and heirloom tomatoes",
+        "Herb-roasted chicken with lemon"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting required; serve directly from the bottle well-chilled",
+        "glassware": "White Burgundy or universal wine glass to highlight aromatics"
+      },
+      "wineDetails": {
+        "region": "Israel (specific region not disclosed)",
+        "grapeVariety": "White blend (specific varieties not disclosed, likely includes Mediterranean varieties)",
+        "vintage": "Non-vintage or recent vintage",
+        "style": "Dry White - Medium-bodied with tropical fruit character",
+        "ageability": "Best enjoyed within 2-3 years of release to preserve freshness and fruit vibrancy"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Kosher certified under OU supervision, Rabbi Ungar, Not Mevushal"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fledge & Co. Grenache 2024",
+      "description": "A bold and experimental South African red from the Klein Karoo's innovative Fledge & Co. winery. Crafted by winemakers Leon Coetzee and Margaux Nel, this wine represents their commitment to expressing terroir through old-school techniques and environmentally conscious modern winemaking across the Cape's diverse vineyard sites.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with vibrant red fruit aromatics characteristic of Grenache, featuring ripe strawberry, red cherry, and raspberry liqueur. Floral notes of rose petal and violet add elegance, while hints of white pepper, dried herbs, and a touch of garrigue speak to Mediterranean influence. Subtle spice from whole-cluster fermentation and brief oak contact provides gentle complexity without overwhelming the pure fruit expression.",
+        "palate": "Medium to full-bodied with a silky, generous texture that showcases Grenache's natural charm. The palate delivers waves of red berry fruit—strawberry, cranberry, and pomegranate—alongside darker notes of plum and black cherry. Savory elements of dried thyme, black pepper, and earth add depth and interest. The wine shows beautiful balance between fruit ripeness and fresh acidity, with soft, supple tannins that provide structure without weight.",
+        "finish": "The finish is long and succulent with persistent red fruit and spice notes. Gentle tannins and bright acidity create a refreshing conclusion that invites another glass, while subtle herbal and mineral notes add complexity to the fade."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs de Provence",
+        "Ratatouille or vegetable tian",
+        "Duck breast with cherry gastrique",
+        "Charcuterie board with pâté",
+        "Mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool to highlight freshness",
+        "decanting": "Brief 20-30 minute decant to open aromatics and soften texture",
+        "glassware": "Burgundy-style glass to showcase aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Western Cape, South Africa (likely Klein Karoo or broader Western Cape sourcing)",
+        "grapeVariety": "100% Grenache",
+        "vintage": "2024",
+        "style": "Dry Red - Fresh, fruit-forward Grenache with old-world sensibility",
+        "ageability": "Drinking beautifully young, but capable of 3-5 years aging to develop secondary complexity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Producer known for experimental winemaking with 40+ vineyard sources across 23 varietals"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Luis Blanc Treilles White  (Wine Club Only) 2023",
+      "description": "An exclusive wine club offering that showcases unique white wine character and distinctive winemaking. This small-production white represents careful vineyard selection and artisanal cellar work, crafted specifically for discerning club members seeking something beyond the everyday.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with fresh orchard fruit aromas of green apple, Anjou pear, and white peach, complemented by delicate citrus notes of lemon zest and lime. Floral undertones of white flowers and honeysuckle add elegance, while subtle mineral hints of wet stone provide depth. A gentle oak influence brings whispers of vanilla and toasted almond without overwhelming the wine's fresh fruit character.",
+        "palate": "Medium-bodied with vibrant acidity that drives the wine's freshness and length. The palate reveals layers of citrus and stone fruit—Meyer lemon, white nectarine, and golden apple—balanced by crisp minerality. Textural complexity from careful winemaking creates a rounded mouthfeel with subtle weight, while hints of brioche and hazelnut from possible lees contact add sophistication. The wine maintains excellent balance between fruit richness and refreshing acidity.",
+        "finish": "The finish is clean and persistent with lingering stone fruit and citrus notes. Mineral character carries through to the conclusion, joined by subtle oak-derived spice and a refreshing zesty quality that leaves the palate cleansed and ready for food."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with beurre blanc",
+        "Grilled chicken breast with lemon and herbs",
+        "Creamy lobster risotto",
+        "Fresh goat cheese and herb salad",
+        "Roasted halibut with olive tapenade"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "No decanting required; allow 10-15 minutes in glass to open",
+        "glassware": "White Burgundy or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Region not disclosed (wine club exclusive)",
+        "grapeVariety": "White blend (specific varieties not disclosed, possibly Sauvignon Blanc-based or Rhône white blend)",
+        "vintage": "2023",
+        "style": "Dry White - Structured with mineral character",
+        "ageability": "Best enjoyed within 2-4 years to preserve freshness, though structure suggests some aging potential"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.60,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Limited information available; wine club exclusive product"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Thelema \"Vin de Hel\" Muscat Late Harvest 2022  375 ml",
+      "description": "An exceptional dessert wine from South Africa's acclaimed Thelema Mountain Vineyards, earning 95 points from Tim Atkin and 5 stars from Platter's Wine Guide 2025. This golden nectar represents one of South Africa's top 25 dessert wines, crafted from Muscat de Frontignan grapes harvested at optimal ripeness and fermented with extended skin contact for maximum aromatic intensity.",
+      "tastingNotes": {
+        "aroma": "The nose is gloriously perfumed with classic Muscat aromatics, opening with vibrant tropical fruit notes of pineapple, candied papaya, and ripe mango. Layers of stone fruit including apricot and yellow peach add depth, while bright citrus elements of mandarin and lemon curd provide lift. A delicate touch of orange blossom honey and acacia flowers creates ethereal complexity, complemented by subtle floral notes of rose petal and jasmine. The aromatic intensity is remarkable yet refined.",
+        "palate": "Lush and indulgent on the palate, the wine delivers perfect balance between generous sweetness and fresh, vibrant acidity that prevents any cloying heaviness. Flavors mirror the nose with waves of pineapple, apricot, and candied citrus, enriched by honeyed sweetness and hints of ginger and baking spice. The texture is silky and coating with medium body, while the bright acidity cuts through the 149 g/l residual sugar, creating harmony and drinkability. Each sip reveals new layers of tropical and stone fruit complexity.",
+        "finish": "The finish is long and luxurious with persistent fruit and honey notes. The wine's fresh acidity ensures a clean conclusion despite the sweetness, leaving flavors of apricot, citrus, and floral honey lingering beautifully. The balance achieved is a testament to exceptional winemaking."
+      },
+      "foodPairings": [
+        "Crème brûlée or panna cotta",
+        "Fresh fruit tart with apricot glaze",
+        "Aged Stilton or Roquefort blue cheese",
+        "Foie gras terrine",
+        "Almond biscotti and espresso"
+      ],
+      "servingInfo": {
+        "temperature": "43-46°F (6-8°C), serve well-chilled",
+        "decanting": "No decanting required; serve directly from the half-bottle",
+        "glassware": "Small dessert wine glass or white wine glass in modest pours"
+      },
+      "wineDetails": {
+        "region": "Coastal Region, South Africa (Stellenbosch area)",
+        "grapeVariety": "100% Muscat de Frontignan",
+        "vintage": "2022",
+        "style": "Late Harvest Dessert Wine - Golden, sweet with balanced acidity",
+        "ageability": "Drinking beautifully now through 2035; the wine's acidity and structure provide exceptional aging potential of 10+ years"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Professional ratings: 95 points Tim Atkin South Africa 2024, 5 Stars Platter's Wine Guide 2025, Top 25 South African Dessert Wines. Technical specs: 11% ABV, 149 g/l RS, pH 3.60, harvested 19 April 2022 at 33.6 Brix from 1986 vines on decomposed granite, 24-hour skin contact, fermented in stainless steel with WE14 yeast"
+      }
+    }
+  ]
+}

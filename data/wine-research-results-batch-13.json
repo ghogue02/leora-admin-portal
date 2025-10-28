@@ -1,0 +1,349 @@
+[
+  {
+    "productId": "",
+    "productName": "Remhoogte Sir Thomas Cullinan 2020",
+    "description": "The flagship wine of Remhoogte Estate, named after their renowned great grandfather Sir Thomas Cullinan. This Bordeaux-style blend of Merlot, Cabernet Sauvignon, and Cabernet Franc represents the pinnacle of Stellenbosch winemaking, with grapes hand-harvested from individual vineyard rows and double-sorted in the cellar for exceptional quality.",
+    "tastingNotes": {
+      "aroma": "An enticing and complex bouquet greets the nose with layers of black currant, ripe mulberries, and succulent plums. These primary fruit aromas are elegantly complemented by savory herbal notes of sage and aromatic cedar wood, creating a sophisticated and inviting aromatic profile that speaks to both fruit intensity and terroir expression.",
+      "palate": "Rich and vibrant on entry, the palate opens with generous sweet fruit flavors of black cherries, dark plums, and concentrated fruitcake notes. Savory complexity emerges mid-palate with intriguing nuances of green olives and cracked black pepper that add depth and sophistication. The wine shows beautiful structural integrity with broad, polished tannins and medium-plus acidity that provides excellent balance and framework, leading seamlessly to an extended, satisfying finish.",
+      "finish": "The finish is long and layered, with the sweet fruit notes gradually giving way to the wine's savory elements and subtle oak influence. The polished tannins provide a velvety texture that lingers beautifully, while the balanced acidity ensures freshness through to the very end."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with herb butter",
+      "Roasted rack of lamb with rosemary jus",
+      "Braised short ribs with red wine reduction",
+      "Aged hard cheeses like Parmigiano-Reggiano",
+      "Venison medallions with black pepper sauce"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (60-64°F)",
+      "decanting": "Decant for 45-60 minutes to allow the wine to open and soften the tannins, revealing its full aromatic complexity",
+      "glassware": "Large Bordeaux-style glass to concentrate aromatics and allow proper aeration"
+    },
+    "wineDetails": {
+      "region": "Simonsberg-Stellenbosch, South Africa",
+      "grapeVariety": "Merlot, Cabernet Sauvignon, Cabernet Franc",
+      "vintage": "2020",
+      "style": "Premium Bordeaux-style red blend",
+      "ageability": "Drink now through 2032. This wine has excellent aging potential and will develop further complexity over the next 8-12 years."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-20T12:00:00Z",
+      "awards": "Gold Veritas Wine Awards, 93 Points Wine Mag, 93 Points Tim Atkin, 91 Points Wine Advocate, 5 Stars"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine Borgeot Puligny Montrachet Les Grands Champs 2023",
+    "description": "An elegant expression of Puligny-Montrachet from the esteemed Domaine Borgeot, this wine comes from the Les Grands Champs vineyard located close to Meursault. Aged for 11 months in French oak barrels with 25% new oak, it represents classic white Burgundy craftsmanship with richness balanced by characteristic minerality.",
+    "tastingNotes": {
+      "aroma": "The nose opens with beautiful floral aromas of white acacia and orange blossom, elegantly married with vibrant notes of tropical pineapple and bright tangerine. Subtle hints of toasted hazelnut and buttered brioche emerge from the oak aging, adding complexity without overwhelming the delicate fruit and floral character that defines this premier Burgundian terroir.",
+      "palate": "Rich and rounded on the palate, this Chardonnay displays impressive intensity while maintaining the elegance expected from Puligny-Montrachet. Pretty tropical fruit flavors of ripe pineapple and hints of tangerine dominate the mid-palate, supported by a creamy texture from lees aging. The wine shows excellent balance between richness and freshness, with mouth-watering acidity cutting through the fruit weight and providing energy and lift.",
+      "finish": "The finish is long and mineral-driven, with a distinctive saltiness and flinty character that speaks to the limestone-rich terroir. The acidity remains bright and persistent, ensuring the wine finishes clean and fresh despite its generous fruit weight, with subtle oak spice lingering pleasantly."
+    },
+    "foodPairings": [
+      "Pan-seared scallops with beurre blanc",
+      "Roasted lobster with herb butter",
+      "Creamy chicken in white wine sauce",
+      "Aged Comté or Gruyère cheese",
+      "Dover sole meunière"
+    ],
+    "servingInfo": {
+      "temperature": "11-13°C (52-55°F)",
+      "decanting": "No decanting required, but allow 15-20 minutes of breathing time in the glass to fully express aromatics",
+      "glassware": "White Burgundy glass with a wider bowl to capture the complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Puligny-Montrachet, Côte de Beaune, Burgundy, France",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2023",
+      "style": "Village-level white Burgundy",
+      "ageability": "Drink 2024-2030. Best enjoyed within the next 5-7 years while the fruit remains vibrant, though it will develop more complex tertiary notes with age."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Saddleback Rancher Red 2019",
+    "description": "A bold and flavorful Napa Valley red blend from the esteemed Saddleback Cellars, the Rancher Red captivates the palate with its distinctive character. Including 10% Petit Sirah in the blend, this wine showcases the concentrated flavors and textured tannins that define premium Napa Valley blends, earning accolades from both the San Francisco Chronicle and Texas International Wine Competitions.",
+    "tastingNotes": {
+      "aroma": "The nose is spiced and richly aromatic, offering enticing notes of ripe dark berries—blackberries and blueberries—mingling with dried Mediterranean herbs, black licorice, and mocha. A subtle chocolaty quality adds warmth and depth, while hints of black pepper from the Petit Sirah component provide additional complexity and intrigue.",
+      "palate": "Polished and beautifully textured, the palate presents a medium to full-bodied wine with excellent structure. Dark berry flavors dominate—blackberries, blueberries, and black cherries—complemented by layers of spice, licorice, and dark chocolate. The wine shows remarkable balance between fruit concentration and savory elements, with chalky, firm tannins that are slightly chewy yet refined, providing excellent grip and structure without being overpowering.",
+      "finish": "The finish is long and satisfying, with the dark fruit flavors persisting alongside the spicy, peppery notes from the Petit Sirah. The firm tannins create a pleasantly drying sensation that invites another sip, while the chocolaty mocha notes linger on the palate."
+    },
+    "foodPairings": [
+      "Grilled New York strip steak with peppercorn crust",
+      "Braised lamb shanks with rosemary",
+      "BBQ beef ribs with smoky sauce",
+      "Aged cheddar or manchego cheese",
+      "Wild mushroom risotto with truffle oil"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (60-64°F)",
+      "decanting": "Decant for 30-45 minutes to soften the firm tannins and allow the complex aromatics to fully emerge",
+      "glassware": "Large Bordeaux or Cabernet glass to accommodate the full-bodied structure"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California, USA",
+      "grapeVariety": "Red blend including 10% Petit Sirah (exact blend composition not disclosed)",
+      "vintage": "2019",
+      "style": "Full-bodied Napa Valley red blend",
+      "ageability": "Drink now through 2028. This wine is approachable now but will benefit from 3-5 years of additional cellaring to fully integrate the tannins."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.92,
+      "researchedAt": "2025-10-20T12:00:00Z",
+      "awards": "Gold San Francisco Chronicle Wine Competition, Gold Texas International Wine Competition"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Tagua Tagua Gran Reserva Carmenere 2018",
+    "description": "A distinguished Gran Reserva from Chile's Rapel Valley, this wine showcases the unique characteristics of Carmenere while incorporating Carignan and País in the blend. Hailing from the 2018 vintage—described as very low-yielding and colossally concentrated—this wine earned a Gold medal at the Berlin Wine Trophy, demonstrating the quality and character of premium Chilean red wines.",
+    "tastingNotes": {
+      "aroma": "The nose opens with distinctive aromatics of aniseed and licorice, classic markers of quality Carmenere, which add an exotic, spicy dimension. Layered beneath are ripe plum and black cherry notes that provide fruit sweetness, while subtle hints of roasted coffee and toasted oak emerge, adding warmth and complexity to the aromatic profile.",
+      "palate": "The palate delivers concentrated flavors of dark plum and black cherry, beautifully integrated with the wine's spicy aniseed character. Notes of freshly brewed coffee and toasted oak add depth and richness, creating a multi-layered tasting experience. The wine shows medium body with soft, approachable tannins that provide structure without astringency, while medium acidity keeps the wine balanced and food-friendly.",
+      "finish": "The finish is medium in length with a slightly warm character that speaks to the wine's concentration and moderate alcohol level. The soft tannins and spicy notes linger pleasantly, with the coffee and oak elements providing a satisfying conclusion."
+    },
+    "foodPairings": [
+      "Grilled chorizo sausages with chimichurri",
+      "Beef empanadas with spicy salsa",
+      "Roasted pork shoulder with cumin and herbs",
+      "Black bean and beef chili",
+      "Aged Gouda or smoked cheddar cheese"
+    ],
+    "servingInfo": {
+      "temperature": "15-17°C (59-63°F)",
+      "decanting": "Brief decanting of 20-30 minutes will help integrate the coffee and oak notes with the fruit",
+      "glassware": "Standard red wine glass or medium-bowled Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Rapel Valley, Chile",
+      "grapeVariety": "50% Carmenère, 25% Carignan, 25% País",
+      "vintage": "2018",
+      "style": "Chilean red blend, Gran Reserva",
+      "ageability": "Drink now through 2026. This wine is at its peak drinking window, showing mature fruit and integrated oak."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.93,
+      "researchedAt": "2025-10-20T12:00:00Z",
+      "awards": "Gold Medal Berlin Wine Trophy (2018 & 2019 vintages), 86 Points Wine Enthusiast"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Southern Belle French Belle 2019",
+    "description": "An elegant Bordeaux-style blend from the acclaimed Southern Belle portfolio, the French Belle combines 80% Merlot with 20% Cabernet Franc to create a sophisticated and approachable wine. From the 2019 vintage—considered one of Southern Belle's most impressive—this wine showcases the harmonious marriage of Merlot's supple texture with Cabernet Franc's aromatic complexity.",
+    "tastingNotes": {
+      "aroma": "The nose presents a complex bouquet where Merlot's cassis and ripe plum aromas intertwine beautifully with Cabernet Franc's distinctive notes of tobacco leaf and darker fruits. Initial impressions of blackberry and blueberry give way to pleasing complex elements of vanilla and toffee from oak aging, while subtle hints of green pepper and spice add an herbaceous dimension that provides aromatic intrigue.",
+      "palate": "Soft yet big, this wine offers an elegant mouthfeel that is both rich and approachable. The full body and impressive density are balanced by superb structure and grip, creating a wine of substantial presence without heaviness. Ripe fruit flavors of blackberry, plum, and red currants dominate, enhanced by the Cabernet Franc's spice and tobacco notes. The oak influence is well-integrated, contributing vanilla and toffee nuances that add complexity without overwhelming the fruit.",
+      "finish": "The finish is remarkably long and persistent, carrying intense ripe fruit and complex flavors that evolve on the palate. The wine's excellent balance ensures that neither fruit, oak, nor tannin dominates, while the Cabernet Franc's spicy notes provide an elegant conclusion."
+    },
+    "foodPairings": [
+      "Roasted duck breast with cherry reduction",
+      "Beef Wellington with mushroom duxelles",
+      "Grilled lamb chops with herbs de Provence",
+      "Aged Brie or Camembert cheese",
+      "Mushroom and truffle pasta"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (60-64°F)",
+      "decanting": "Decant for 30-45 minutes to allow the Cabernet Franc's aromatic complexity to fully express itself",
+      "glassware": "Bordeaux glass to highlight the wine's elegant structure and complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Bordeaux, France",
+      "grapeVariety": "80% Merlot, 20% Cabernet Franc",
+      "vintage": "2019",
+      "style": "Bordeaux red blend",
+      "ageability": "Drink now through 2029. The 2019 vintage's concentration suggests this wine will age gracefully over the next 5-10 years."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Valdemar Estates Roussanne 2022",
+    "description": "A distinguished expression of Roussanne from Washington State's Columbia Valley, this wine showcases fruit from the acclaimed Olsen and Gamache Vineyards. Valdemar Estates demonstrates exceptional expertise with this Rhône variety, creating a wine that combines finesse with substance, earning an impressive 92-point rating and recognition as a standout example of Washington Roussanne.",
+    "tastingNotes": {
+      "aroma": "The nose offers lovely melon tones—honeydew and cantaloupe—alongside distinctive nutty accents that suggest hazelnut and almond paste. Subtle stony, minerally notes evoke wet stones and flint, adding complexity and a sense of place that speaks to the Columbia Valley's unique terroir and volcanic soils.",
+      "palate": "Bright and seamless on the palate, this Roussanne displays remarkable balance between richness and vivacity. The wine is driven by vibrant melon and citrus fruit flavors—honeyed melon, Meyer lemon, and white grapefruit—that are beautifully framed by mouth-watering acidity. The combination of finesse and weight is exceptional, with the wine showing substantial texture and presence without any heaviness, creating an elegant yet substantial drinking experience that is already beautifully approachable.",
+      "finish": "The finish is clean and persistent, with the citrus and melon notes lingering alongside the wine's mineral character. The bright acidity ensures a refreshing conclusion that invites the next sip, while subtle nutty tones add a sophisticated final dimension."
+    },
+    "foodPairings": [
+      "Pan-seared halibut with lemon butter sauce",
+      "Roasted chicken with herbs and white wine",
+      "Creamy seafood risotto",
+      "Fresh goat cheese with honey and almonds",
+      "Grilled swordfish with mango salsa"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F)",
+      "decanting": "No decanting needed; serve directly from the bottle or allow 10-15 minutes in the glass",
+      "glassware": "White Burgundy or Viognier glass to showcase the wine's aromatic complexity and textural weight"
+    },
+    "wineDetails": {
+      "region": "Columbia Valley, Washington, USA (Olsen and Gamache Vineyards)",
+      "grapeVariety": "100% Roussanne",
+      "vintage": "2022",
+      "style": "Rhône-style white wine",
+      "ageability": "Drink 2023-2030. This wine is drinking beautifully now but has the structure and acidity to develop additional complexity over the next 5-8 years."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.94,
+      "researchedAt": "2025-10-20T12:00:00Z",
+      "awards": "92 Points"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Sunspell Cabernet Sauvignon 2021",
+    "description": "A modern, fruit-forward expression of South Australian Cabernet Sauvignon, Sunspell represents a natural, minimal-intervention approach to winemaking. Produced without oak chips or added coloring, this wine showcases the pure, vibrant character of Australian Cabernet in a medium-bodied, approachable style that emphasizes bright fruit and natural balance.",
+    "tastingNotes": {
+      "aroma": "The nose is bright and aromatic, featuring a distinctive array of red and black fruits including native Australian quandong (similar to red peach), ripe black plum, and tart red currant. Intriguing herbal and savory notes emerge—mint, green pepper, fresh fern, and native river mint—alongside hints of pencil lead and sweet baking spice that add complexity without the presence of oak influence.",
+      "palate": "Medium-bodied and easygoing, this Cabernet offers plump, juicy flavors of plum, cherry, and raspberry fruit that fill the palate with freshness and vibrancy. The wine shows fullness and roundness despite its lighter body, with the dark fruit character well-balanced by bright acidity. Spicy tannins gently frame the fruit, creating a supple, approachable structure that is softly drying rather than astringent, making this an extremely food-friendly and versatile wine.",
+      "finish": "The finish is clean and fruity, with the spicy tannins providing a gentle grip and the bright acidity ensuring freshness. The herbal and minty notes linger pleasantly, creating a refreshing conclusion that showcases the wine's natural, unoaked character."
+    },
+    "foodPairings": [
+      "Grilled lamb kofta with mint yogurt",
+      "Herb-crusted pork tenderloin",
+      "Vegetable and beef stir-fry",
+      "Aged cheddar or aged Gouda cheese",
+      "Eggplant parmigiana"
+    ],
+    "servingInfo": {
+      "temperature": "14-16°C (57-61°F) - slightly cooler than traditional Cabernet to preserve freshness",
+      "decanting": "No decanting required due to the soft tannins; serve directly and enjoy the wine's immediate fruit expression",
+      "glassware": "Standard red wine glass or medium-bowled Cabernet glass"
+    },
+    "wineDetails": {
+      "region": "South Australia",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2021",
+      "style": "Natural, fruit-forward Cabernet Sauvignon (unoaked)",
+      "ageability": "Drink now through 2025. This wine is designed for immediate enjoyment while the fruit is at its peak vibrancy."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.91,
+      "researchedAt": "2025-10-20T12:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Remhoogte Vantage Pinotage 2022",
+    "description": "A refined and elegant expression of South Africa's signature grape variety, the Vantage Pinotage comes from 2 hectares of bush vines planted high on a granitic ridge in Stellenbosch. Spending 24 months in oak, this wine demonstrates Remhoogte's mastery of Pinotage, balancing power with delicacy and earning impressive accolades including 93 points from Tim Atkin and 4.5 stars from Platter's Wine Guide.",
+    "tastingNotes": {
+      "aroma": "Ruby red in color, the nose is driven by concentrated flavors and aromas of fresh raspberry and ripe red fruits, elegantly complemented by delicate floral notes of violet that add refinement. A natural earthy depth emerges, speaking to the granitic terroir and high-altitude vineyard site, while subtle oak influence contributes additional complexity without dominating the primary fruit and floral character.",
+      "palate": "Full-bodied and bold yet remarkably refined, the palate showcases intensely concentrated flavors of black currant, dark cherry, and ripe raspberry. A distinctive note of cracked black pepper adds spice and complexity, while the wine's natural earthiness provides grounding and depth. The 24-month oak aging has contributed to the wine's powerful yet delicate profile, with the tannins beautifully integrated and the structure providing excellent backbone. Despite its intensity, the wine maintains elegance and balance throughout.",
+      "finish": "The finish is long and lightly savory, with the earthy and peppery notes becoming more prominent as the fruit gradually fades. The finish showcases the wine's complexity and terroir expression, with the granitic minerality adding a distinctive final dimension that lingers pleasantly."
+    },
+    "foodPairings": [
+      "Grilled ostrich steak with berry reduction",
+      "Roasted game birds with juniper",
+      "BBQ lamb ribs with smoky glaze",
+      "Aged Gouda or aged cheddar cheese",
+      "Wild mushroom and beef Wellington"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (60-64°F)",
+      "decanting": "Decant for 45-60 minutes to allow the wine's concentrated flavors to unfold and the oak to fully integrate with the fruit",
+      "glassware": "Large Bordeaux or Burgundy glass to accommodate the wine's aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Simonsberg-Stellenbosch, South Africa (granitic ridge, high-altitude bush vines)",
+      "grapeVariety": "100% Pinotage",
+      "vintage": "2022",
+      "style": "Premium oak-aged Pinotage",
+      "ageability": "Drink now through 2030. The wine is approachable now but will continue to develop complexity over the next 5-8 years."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.94,
+      "researchedAt": "2025-10-20T12:00:00Z",
+      "awards": "4.5 Stars Platter's Wine Guide, 93 Points Tim Atkin South Africa Report, 91 Points Wine Spectator"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Rock Ferry Brut Rose 2016",
+    "description": "An exquisite organic sparkling rosé from New Zealand's Bendigo region, the Rock Ferry Brut Rose 2016 represents the pinnacle of méthode traditionnelle craftsmanship. Estate-grown in the Trig Hill Vineyard and matured for three and a half years on lees before disgorgement, this wine earned exceptional critical acclaim including 95 points from Sam Kim and 4.5 stars from Michael Cooper, establishing it as one of New Zealand's finest sparkling wines.",
+    "tastingNotes": {
+      "aroma": "Exquisitely delicate yet powerful and persistent, the nose offers a complex array of wild berry aromas—particularly strawberry—mingling with apricot, Gala apple, and white acacia flower. Intriguing tertiary notes of smoke, biscuit, five spices, and cinnamon emerge from the extended lees aging, while subtle yeasty notes add depth and complexity, creating an aromatic profile of remarkable sophistication.",
+      "palate": "Lively and beautifully structured, the palate delivers strong strawberry flavors complemented by hints of fresh peaches and exotic spices. The wine shows excellent fruit weight and complexity, with red berry and toast flavors beautifully integrated from the lees contact. The mouthfeel is refined and elegant, with persistent fine bubbles creating a creamy texture. Juicy, mouth-watering acidity provides energy and lift, cutting through the fruit richness and ensuring balance.",
+      "finish": "The finish is impressively long and attractive, notably dry with only 3.5 grams per liter of residual sugar, creating a crisp, refreshing conclusion. The strawberry and peach notes persist alongside the toasty, yeasty complexity from lees aging, while the vibrant acidity ensures the wine finishes clean and inviting."
+    },
+    "foodPairings": [
+      "Fresh oysters with mignonette",
+      "Smoked salmon canapés with crème fraîche",
+      "Strawberry and brie crostini",
+      "Sushi and sashimi",
+      "Almond-crusted chicken breast"
+    ],
+    "servingInfo": {
+      "temperature": "6-8°C (43-46°F)",
+      "decanting": "No decanting required; serve directly from the bottle in a champagne flute or tulip glass",
+      "glassware": "Champagne flute or tulip glass to preserve the delicate bubbles and concentrate the complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Bendigo, Central Otago, New Zealand (Trig Hill Vineyard, estate-grown, certified organic)",
+      "grapeVariety": "Pinot Noir (exact blend not disclosed for rosé)",
+      "vintage": "2016",
+      "style": "Méthode traditionnelle sparkling rosé (3.5 years on lees)",
+      "ageability": "Drink now through 2028. This wine is at its peak, showing beautiful complexity from extended lees aging while maintaining freshness."
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.96,
+      "researchedAt": "2025-10-20T12:00:00Z",
+      "awards": "95 Points Sam Kim Wine Orbit, 4.5 Stars Michael Cooper, 4.5 Stars Yvonne Lorkin, Certified Organic"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Scenic Valley Farms Chardonnay 2024",
+    "description": "A velvety and rich Oregon Chardonnay from Scenic Valley Farms in the Willamette Valley, this wine showcases the estate's commitment to expressing terroir through minimal intervention winemaking. With elegant use of Oregon oak, the wine balances richness with freshness, creating a distinctive Pacific Northwest expression of this classic variety.",
+    "tastingNotes": {
+      "aroma": "The nose is enticing and aromatic, featuring notes of coconut and ripe peach that signal the wine's richness and oak influence. Underlying aromas of fresh pear and green apple add brightness and complexity, while subtle hints of vanilla from the Oregon oak provide warmth without overwhelming the delicate fruit character that defines Willamette Valley Chardonnay.",
+      "palate": "Velvety and rich in texture, the palate offers a soft, seductive mouthfeel that is both fleshy and succulent. Fresh flavors of ripe peaches and juicy pears dominate, their natural sweetness balanced by the wine's creamy texture from lees contact and malolactic fermentation. A hint of vanilla from the oak aging adds complexity and depth, while the wine maintains excellent balance between richness and freshness, never becoming heavy or over-oaked.",
+      "finish": "The finish is clean and satisfying, with the peach and pear flavors lingering alongside subtle vanilla and toasted oak notes. The wine's soft mouthfeel persists, creating a rounded, generous conclusion that exemplifies the approachable, fruit-forward style of Oregon Chardonnay."
+    },
+    "foodPairings": [
+      "Butter-poached lobster tail",
+      "Roasted chicken with lemon and herbs",
+      "Creamy butternut squash risotto",
+      "Brie or triple-cream cheese with apple slices",
+      "Pan-seared halibut with brown butter"
+    ],
+    "servingInfo": {
+      "temperature": "11-13°C (52-55°F)",
+      "decanting": "No decanting required; allow 10-15 minutes in the glass for the wine to warm slightly and express its full aromatic potential",
+      "glassware": "White Burgundy glass to showcase the wine's rich texture and aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Willamette Valley, Oregon, USA (Estate-grown)",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2024",
+      "style": "Rich, lightly oaked Oregon Chardonnay (Oregon oak)",
+      "ageability": "Drink 2025-2029. This wine is designed for near-term enjoyment while the fruit remains vibrant and the oak is well-integrated."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T12:00:00Z",
+      "note": "2024 vintage information based on 2023 vintage tasting notes and producer style; exact 2024 vintage reviews not yet available"
+    }
+  }
+]
