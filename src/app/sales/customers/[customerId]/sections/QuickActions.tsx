@@ -24,8 +24,14 @@ export default function QuickActions({
   };
 
   const handleAddToDo = () => {
-    // Navigate to tasks page with customer filter
-    router.push(`/sales/tasks?customerId=${customerId}`);
+    // Create a task/to-do using prompt for now
+    // TODO: Replace with proper task modal when task management is built
+    const taskTitle = prompt(`Add a to-do for ${customerName || 'this customer'}:`);
+    if (taskTitle?.trim()) {
+      // For now, just show confirmation
+      // In future: POST to /api/sales/tasks with customerId and taskTitle
+      alert(`To-do created: "${taskTitle}"\n\nNote: Task management system pending - this is a placeholder.`);
+    }
   };
 
   const handleMarkClosed = async () => {
