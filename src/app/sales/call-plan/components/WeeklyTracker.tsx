@@ -6,6 +6,10 @@ import ContactOutcomeButtons from "./ContactOutcomeButtons";
 import WeeklyProgress from "./WeeklyProgress";
 import type { AccountWithOutcome, ContactOutcomeData, WeeklyProgressData } from "../types";
 
+const tenantHeaders = {
+  "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
+};
+
 interface WeeklyTrackerProps {
   weekStart: Date;
   callPlanId?: string;
@@ -36,7 +40,8 @@ export default function WeeklyTracker({
     try {
       const weekStartStr = format(weekStart, "yyyy-MM-dd");
       const response = await fetch(
-        `/api/sales/call-plan/tracker?weekStart=${weekStartStr}`
+        `/api/sales/call-plan/tracker?weekStart=${weekStartStr}`,
+        { credentials: "include", headers: tenantHeaders },
       );
 
       if (response.ok) {
@@ -79,12 +84,13 @@ export default function WeeklyTracker({
     try {
       const response = await fetch("/api/sales/call-plan/tracker/outcome", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...tenantHeaders },
         body: JSON.stringify({
           accountId,
           weekStart: format(weekStart, "yyyy-MM-dd"),
           ...data,
         }),
+        credentials: "include",
       });
 
       if (response.ok) {

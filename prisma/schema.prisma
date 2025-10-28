@@ -28,19 +28,29 @@ model Tenant {
   callPlans               CallPlan[]
   callPlanAccounts        CallPlanAccount[]
   callPlanActivities      CallPlanActivity[]
+  callPlanSchedules       CallPlanSchedule[]
   carts                   Cart[]
   cartItems               CartItem[]
+  communicationPrefs      CommunicationPreference[]
   complianceFilings       ComplianceFiling[]
   customers               Customer[]
   customerAddresses       CustomerAddress[]
   customerAssignments     CustomerAssignment[]
+  customerTags            CustomerTag[]
   integritySnapshots      DataIntegritySnapshot[]
   deliveryRoutes          DeliveryRoute[]
   emailCampaigns          EmailCampaign[]
+  emailCampaignLists      EmailCampaignList[]
+  emailLists              EmailList[]
+  emailListMembers        EmailListMember[]
+  emailMessages           EmailMessage[]
+  emailTemplates          EmailTemplate[]
   imageScans              ImageScan[]
   integrationTokens       IntegrationToken[]
   inventories             Inventory[]
+  InventoryReservation    InventoryReservation[]
   invoices                Invoice[]
+  mailchimpConnection     MailchimpConnection?
   mailchimpSyncs          MailchimpSync[]
   orders                  Order[]
   orderLines              OrderLine[]
@@ -54,11 +64,18 @@ model Tenant {
   priceLists              PriceList[]
   priceListItems          PriceListItem[]
   products                Product[]
+  PurchaseOrder           PurchaseOrder[]
+  PurchaseOrderLine       PurchaseOrderLine[]
+  queryHistory            QueryHistory[]
+  recurringCallPlans      RecurringCallPlan[]
   repProductGoals         RepProductGoal[]
   repWeeklyMetrics        RepWeeklyMetric[]
   roles                   Role[]
   routeExports            RouteExport[]
   routeStops              RouteStop[]
+  smsConversations        SMSConversation[]
+  smsMessages             SMSMessage[]
+  smsTemplates            SMSTemplate[]
   salesIncentives         SalesIncentive[]
   salesMetrics            SalesMetric[]
   salesReps               SalesRep[]
@@ -66,34 +83,23 @@ model Tenant {
   sampleFeedbackTemplates SampleFeedbackTemplate[]
   sampleMetrics           SampleMetrics[]
   sampleUsage             SampleUsage[]
+  savedQueries            SavedQuery[]
+  scheduledReports        ScheduledReport[]
   skus                    Sku[]
   stateCompliances        StateCompliance[]
   stateTaxRates           StateTaxRate[]
   suppliers               Supplier[]
+  tagDefinitions          TagDefinition[]
   tasks                   Task[]
   settings                TenantSettings?
   territories             Territory[]
+  territoryBlocks         TerritoryBlock[]
   topProducts             TopProduct[]
   triggeredTasks          TriggeredTask[]
   users                   User[]
   warehouseConfig         WarehouseConfig?
   webhookEvents           WebhookEvent[]
   webhookSubs             WebhookSubscription[]
-  savedQueries            SavedQuery[]
-  queryHistory            QueryHistory[]
-  scheduledReports        ScheduledReport[]
-  emailLists              EmailList[]
-  emailListMembers        EmailListMember[]
-  emailTemplates          EmailTemplate[]
-  emailCampaignLists      EmailCampaignList[]
-  emailMessages           EmailMessage[]
-  smsConversations        SMSConversation[]
-  smsMessages             SMSMessage[]
-  smsTemplates            SMSTemplate[]
-  mailchimpConnection     MailchimpConnection?
-  communicationPrefs      CommunicationPreference[]
-  tagDefinitions          TagDefinition[]
-  customerTags            CustomerTag[]
 }
 
 model TenantSettings {
@@ -142,32 +148,36 @@ model RolePermission {
 }
 
 model User {
-  id               String            @id @default(uuid()) @db.Uuid
-  tenantId         String            @db.Uuid
-  email            String
-  fullName         String
-  hashedPassword   String
-  isActive         Boolean           @default(true)
-  lastLoginAt      DateTime?
-  createdAt        DateTime          @default(now())
-  updatedAt        DateTime          @updatedAt
-  activities       Activity[]
-  auditLogs        AuditLog[]
-  calendarEvents   CalendarEvent[]
-  calendarSyncs    CalendarSync[]
-  callPlans        CallPlan[]
-  emailCampaigns   EmailCampaign[]
-  imageScans       ImageScan[]
-  PickSheet        PickSheet[]
-  RouteExport      RouteExport[]
-  salesRepProfile  SalesRep?
-  salesSessions    SalesSession[]
-  assignedTasks    Task[]            @relation("AssignedTasks")
-  tenant           Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  roles            UserRole[]
-  savedQueries     SavedQuery[]
-  queryHistory     QueryHistory[]
-  scheduledReports ScheduledReport[]
+  id                   String            @id @default(uuid()) @db.Uuid
+  tenantId             String            @db.Uuid
+  email                String
+  fullName             String
+  hashedPassword       String
+  isActive             Boolean           @default(true)
+  lastLoginAt          DateTime?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  calendarProvider     String?
+  calendarAccessToken  String?
+  calendarRefreshToken String?
+  lastCalendarSync     DateTime?
+  activities           Activity[]
+  auditLogs            AuditLog[]
+  calendarEvents       CalendarEvent[]
+  calendarSyncs        CalendarSync[]
+  callPlans            CallPlan[]
+  emailCampaigns       EmailCampaign[]
+  imageScans           ImageScan[]
+  PickSheet            PickSheet[]
+  queryHistory         QueryHistory[]
+  RouteExport          RouteExport[]
+  salesRepProfile      SalesRep?
+  salesSessions        SalesSession[]
+  savedQueries         SavedQuery[]
+  scheduledReports     ScheduledReport[]
+  assignedTasks        Task[]            @relation("AssignedTasks")
+  tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles                UserRole[]
 
   @@unique([tenantId, email])
   @@index([tenantId])
@@ -243,69 +253,77 @@ model SalesSession {
 }
 
 model Supplier {
-  id         String    @id @default(uuid()) @db.Uuid
-  tenantId   String    @db.Uuid
-  name       String
-  externalId String?
-  createdAt  DateTime  @default(now())
-  updatedAt  DateTime  @updatedAt
-  products   Product[]
-  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  id            String          @id @default(uuid()) @db.Uuid
+  tenantId      String          @db.Uuid
+  name          String
+  externalId    String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  products      Product[]
+  PurchaseOrder PurchaseOrder[]
+  tenant        Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, name])
   @@index([tenantId])
 }
 
 model Product {
-  id           String    @id @default(uuid()) @db.Uuid
-  tenantId     String    @db.Uuid
-  supplierId   String?   @db.Uuid
-  name         String
-  brand        String?
-  description  String?
-  category     String?
-  isSampleOnly Boolean   @default(false)
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-  tastingNotes Json?
-  foodPairings Json?
-  servingInfo  Json?
-  wineDetails  Json?
-  enrichedAt   DateTime?
-  enrichedBy   String?   @default("claude-ai")
-  supplier     Supplier? @relation(fields: [supplierId], references: [id])
-  tenant       Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  skus         Sku[]
+  id                 String    @id @default(uuid()) @db.Uuid
+  tenantId           String    @db.Uuid
+  supplierId         String?   @db.Uuid
+  name               String
+  brand              String?
+  description        String?
+  category           String?
+  isSampleOnly       Boolean   @default(false)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  tastingNotes       Json?
+  foodPairings       Json?
+  servingInfo        Json?
+  wineDetails        Json?
+  enrichedAt         DateTime?
+  enrichedBy         String?   @default("claude-ai")
+  isPromotion        Boolean   @default(false)
+  promotionStartDate DateTime? @db.Timestamp(6)
+  promotionEndDate   DateTime? @db.Timestamp(6)
+  promotionDiscount  Decimal?  @db.Decimal(5, 2)
+  isCloseout         Boolean   @default(false)
+  supplier           Supplier? @relation(fields: [supplierId], references: [id])
+  tenant             Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  skus               Sku[]
 
   @@unique([tenantId, name])
   @@index([tenantId])
 }
 
 model Sku {
-  id             String           @id @default(uuid()) @db.Uuid
-  tenantId       String           @db.Uuid
-  productId      String           @db.Uuid
-  code           String
-  size           String?
-  unitOfMeasure  String?
-  abv            Float?
-  casesPerPallet Int?
-  pricePerUnit   Decimal?         @db.Decimal(10, 2)
-  isActive       Boolean          @default(true)
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
-  cartItems      CartItem[]
-  inventories    Inventory[]
-  orderLines     OrderLine[]
-  pickSheetItems PickSheetItem[]
-  priceListItems PriceListItem[]
-  productGoals   RepProductGoal[]
-  incentives     SalesIncentive[]
-  sampleMetrics  SampleMetrics[]
-  sampleUsage    SampleUsage[]
-  product        Product          @relation(fields: [productId], references: [id], onDelete: Cascade)
-  tenant         Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  topProducts    TopProduct[]
+  id                   String                 @id @default(uuid()) @db.Uuid
+  tenantId             String                 @db.Uuid
+  productId            String                 @db.Uuid
+  code                 String
+  size                 String?
+  unitOfMeasure        String?
+  abv                  Float?
+  casesPerPallet       Int?
+  pricePerUnit         Decimal?               @db.Decimal(10, 2)
+  isActive             Boolean                @default(true)
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  cartItems            CartItem[]
+  inventories          Inventory[]
+  InventoryReservation InventoryReservation[]
+  orderLines           OrderLine[]
+  pickSheetItems       PickSheetItem[]
+  priceListItems       PriceListItem[]
+  PurchaseOrderLine    PurchaseOrderLine[]
+  productGoals         RepProductGoal[]
+  incentives           SalesIncentive[]
+  sampleMetrics        SampleMetrics[]
+  sampleUsage          SampleUsage[]
+  product              Product                @relation(fields: [productId], references: [id], onDelete: Cascade)
+  tenant               Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  topProducts          TopProduct[]
 
   @@unique([tenantId, code])
   @@index([tenantId])
@@ -408,19 +426,21 @@ model Customer {
   calendarEvents           CalendarEvent[]
   callPlanAccounts         CallPlanAccount[]
   callPlanActivities       CallPlanActivity[]
+  callPlanSchedules        CallPlanSchedule[]
   salesRep                 SalesRep?               @relation(fields: [salesRepId], references: [id])
   tenant                   Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   addresses                CustomerAddress[]
   assignments              CustomerAssignment[]
+  tags                     CustomerTag[]
   imageScans               ImageScan[]
   invoices                 Invoice[]
   orders                   Order[]
   pickSheetItems           PickSheetItem[]
   portalUsers              PortalUser[]
+  recurringCallPlans       RecurringCallPlan[]
   sampleUsage              SampleUsage[]
   tasks                    Task[]
   triggeredTasks           TriggeredTask[]
-  tags                     CustomerTag[]
 
   @@unique([tenantId, externalId])
   @@index([tenantId])
@@ -429,41 +449,45 @@ model Customer {
   @@index([accountPriority])
   @@index([accountType])
   @@index([territory])
+  @@index([tenantId, lastOrderDate(sort: Desc)], map: "Customer_lastOrderDate_idx")
+  @@index([tenantId, territory, lastOrderDate(sort: Desc)], map: "Customer_territory_lastOrder_idx")
 }
 
 model Order {
-  id              String      @id @default(uuid()) @db.Uuid
-  tenantId        String      @db.Uuid
-  customerId      String      @db.Uuid
-  portalUserId    String?     @db.Uuid
-  status          OrderStatus @default(DRAFT)
-  orderedAt       DateTime?
-  fulfilledAt     DateTime?
-  total           Decimal?    @db.Decimal(12, 2)
-  currency        String      @default("USD")
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
-  deliveredAt     DateTime?
-  deliveryWeek    Int?
-  isFirstOrder    Boolean     @default(false)
-  pickSheetStatus String?     @default("not_picked")
-  pickSheetId     String?     @db.Uuid
-  isEventSale     Boolean     @default(false)
-  eventType       String?
-  eventNotes      String?
-  activities      Activity[]
-  invoices        Invoice[]
-  customer        Customer    @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  portalUser      PortalUser? @relation(fields: [portalUserId], references: [id])
-  tenant          Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  lines           OrderLine[]
-  payments        Payment[]
-  routeStops      RouteStop[]
+  id                   String                 @id @default(uuid()) @db.Uuid
+  tenantId             String                 @db.Uuid
+  customerId           String                 @db.Uuid
+  portalUserId         String?                @db.Uuid
+  status               OrderStatus            @default(DRAFT)
+  orderedAt            DateTime?
+  fulfilledAt          DateTime?
+  total                Decimal?               @db.Decimal(12, 2)
+  currency             String                 @default("USD")
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  deliveredAt          DateTime?
+  deliveryWeek         Int?
+  isFirstOrder         Boolean                @default(false)
+  pickSheetStatus      String?                @default("not_picked")
+  pickSheetId          String?                @db.Uuid
+  isEventSale          Boolean                @default(false)
+  eventType            String?
+  eventNotes           String?
+  activities           Activity[]
+  InventoryReservation InventoryReservation[]
+  invoices             Invoice[]
+  customer             Customer               @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  portalUser           PortalUser?            @relation(fields: [portalUserId], references: [id])
+  tenant               Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lines                OrderLine[]
+  payments             Payment[]
+  routeStops           RouteStop[]
 
   @@index([tenantId])
   @@index([deliveredAt])
   @@index([deliveryWeek])
   @@index([isEventSale])
+  @@index([customerId, orderedAt(sort: Desc)])
 }
 
 model OrderLine {
@@ -636,23 +660,25 @@ model Activity {
 }
 
 model CallPlan {
-  id          String             @id @default(uuid()) @db.Uuid
-  tenantId    String             @db.Uuid
-  userId      String             @db.Uuid
-  name        String
-  description String?
-  effectiveAt DateTime?
-  createdAt   DateTime           @default(now())
-  updatedAt   DateTime           @updatedAt
-  weekNumber  Int?
-  year        Int?
-  status      CallPlanStatus?
-  targetCount Int?
-  tenant      Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade)
-  accounts    CallPlanAccount[]
-  activities  CallPlanActivity[]
-  tasks       Task[]
+  id              String             @id @default(uuid()) @db.Uuid
+  tenantId        String             @db.Uuid
+  userId          String             @db.Uuid
+  name            String
+  description     String?
+  effectiveAt     DateTime?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  weekNumber      Int?
+  year            Int?
+  status          CallPlanStatus?
+  targetCount     Int?
+  tenant          Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user            User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accounts        CallPlanAccount[]
+  activities      CallPlanActivity[]
+  schedules       CallPlanSchedule[]
+  tasks           Task[]
+  territoryBlocks TerritoryBlock[]
 
   @@index([tenantId])
   @@index([status])
@@ -1075,6 +1101,65 @@ model CallPlanActivity {
   @@index([customerId])
 }
 
+model CallPlanSchedule {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String   @db.Uuid
+  callPlanId     String   @db.Uuid
+  customerId     String   @db.Uuid
+  scheduledDate  DateTime
+  scheduledTime  String
+  duration       Int      @default(30)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @default(now()) @updatedAt
+  googleEventId  String?
+  outlookEventId String?
+  callPlan       CallPlan @relation(fields: [callPlanId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanSchedule_callPlan_fkey")
+  customer       Customer @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanSchedule_customer_fkey")
+  tenant         Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CallPlanSchedule_tenant_fkey")
+
+  @@unique([tenantId, callPlanId, customerId, scheduledDate, scheduledTime], map: "CallPlanSchedule_unique_slot")
+  @@index([tenantId], map: "CallPlanSchedule_tenant_idx")
+  @@index([callPlanId, scheduledDate], map: "CallPlanSchedule_callPlanDate_idx")
+  @@index([customerId], map: "CallPlanSchedule_customer_idx")
+}
+
+model TerritoryBlock {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String   @db.Uuid
+  callPlanId String   @db.Uuid
+  territory  String
+  dayOfWeek  Int
+  allDay     Boolean  @default(true)
+  startTime  String?
+  endTime    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+  callPlan   CallPlan @relation(fields: [callPlanId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "TerritoryBlock_callPlan_fkey")
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "TerritoryBlock_tenant_fkey")
+
+  @@unique([tenantId, callPlanId, dayOfWeek, territory], map: "TerritoryBlock_unique_day")
+  @@index([tenantId], map: "TerritoryBlock_tenant_idx")
+  @@index([callPlanId, dayOfWeek], map: "TerritoryBlock_callPlan_day_idx")
+  @@index([territory])
+}
+
+model RecurringCallPlan {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String   @db.Uuid
+  customerId    String   @db.Uuid
+  frequency     String
+  dayOfWeek     Int?
+  preferredTime String?
+  active        Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  customer      Customer @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "RecurringCallPlan_customer_fkey")
+  tenant        Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "RecurringCallPlan_tenant_fkey")
+
+  @@index([tenantId, customerId], map: "RecurringCallPlan_customer_idx")
+  @@index([tenantId, frequency, active], map: "RecurringCallPlan_frequency_idx")
+}
+
 model CalendarSync {
   id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId     String    @db.Uuid
@@ -1454,23 +1539,22 @@ model invoices {
 }
 
 model TagDefinition {
-  id          String   @id @default(uuid()) @db.Uuid
-  tenantId    String   @db.Uuid
-  code        String   // "wine_club", "events", "female_winemakers", etc.
-  displayName String   // "Wine Club", "Events", "Female Winemakers"
-  description String?
-  category    String   @default("SEGMENT") // SEGMENT, PREFERENCE, BEHAVIOR, DEMOGRAPHIC
-  color       String?  // Hex color for UI
-  parentId    String?  @db.Uuid // For hierarchical tags
-  isActive    Boolean  @default(true)
-  sortOrder   Int      @default(0)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  parent       TagDefinition?  @relation("TagHierarchy", fields: [parentId], references: [id])
-  children     TagDefinition[] @relation("TagHierarchy")
+  id           String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String          @db.Uuid
+  code         String
+  displayName  String
+  description  String?
+  category     String          @default("SEGMENT")
+  color        String?
+  parentId     String?         @db.Uuid
+  isActive     Boolean         @default(true)
+  sortOrder    Int             @default(0)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
   customerTags CustomerTag[]
-  tenant       Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  parent       TagDefinition?  @relation("TagHierarchy", fields: [parentId], references: [id], onUpdate: NoAction)
+  children     TagDefinition[] @relation("TagHierarchy")
+  tenant       Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([tenantId, code])
   @@index([tenantId])
@@ -1479,23 +1563,22 @@ model TagDefinition {
 }
 
 model CustomerTag {
-  id              String         @id @default(uuid()) @db.Uuid
+  id              String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId        String         @db.Uuid
   customerId      String         @db.Uuid
   tagDefinitionId String?        @db.Uuid
-  tagType         String         // "wine_club", "events", "female_winemakers"
-  tagValue        String?        // Optional specific value
-  source          String?        @default("MANUAL") // MANUAL, IMPORT, AUTOMATION, EVENT
+  tagType         String
+  tagValue        String?
+  source          String?        @default("MANUAL")
   addedBy         String?        @db.Uuid
   addedAt         DateTime       @default(now())
   removedAt       DateTime?
   totalRevenue    Decimal        @default(0) @db.Decimal(14, 2)
   orderCount      Int            @default(0)
   lastOrderAt     DateTime?
-
-  customer      Customer       @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  tagDefinition TagDefinition? @relation(fields: [tagDefinitionId], references: [id])
-  tenant        Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  customer        Customer       @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tagDefinition   TagDefinition? @relation(fields: [tagDefinitionId], references: [id], onUpdate: NoAction)
+  tenant          Tenant         @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
   @@unique([tenantId, customerId, tagType, removedAt])
   @@index([tenantId])
@@ -1504,6 +1587,307 @@ model CustomerTag {
   @@index([tagType, totalRevenue(sort: Desc)])
   @@index([removedAt])
   @@index([tagDefinitionId])
+}
+
+model SavedQuery {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String    @db.Uuid
+  userId      String    @db.Uuid
+  name        String
+  description String?
+  queryText   String
+  isTemplate  Boolean   @default(false)
+  isShared    Boolean   @default(false)
+  category    String?
+  tags        String[]  @default([])
+  usageCount  Int       @default(0)
+  lastUsedAt  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  tenant      Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+  @@index([tenantId, isTemplate])
+  @@index([lastUsedAt])
+}
+
+model QueryHistory {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String   @db.Uuid
+  userId     String   @db.Uuid
+  queryText  String
+  executedAt DateTime @default(now())
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId, executedAt])
+}
+
+model ScheduledReport {
+  id             String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String              @db.Uuid
+  userId         String              @db.Uuid
+  name           String
+  description    String?
+  reportType     ScheduledReportType
+  frequency      ReportFrequency
+  dayOfWeek      Int?
+  timeOfDay      String              @default("08:00")
+  recipientEmail String
+  isActive       Boolean             @default(true)
+  lastSentAt     DateTime?
+  nextScheduled  DateTime?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  tenant         Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user           User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, userId])
+  @@index([isActive, nextScheduled])
+}
+
+model EmailList {
+  id            String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String              @db.Uuid
+  name          String
+  description   String?
+  ownerId       String?             @db.Uuid
+  isSmartList   Boolean             @default(false)
+  smartCriteria Json?
+  memberCount   Int                 @default(0)
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+  campaigns     EmailCampaignList[]
+  tenant        Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  members       EmailListMember[]
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@index([ownerId])
+}
+
+model EmailListMember {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String    @db.Uuid
+  listId     String    @db.Uuid
+  customerId String    @db.Uuid
+  addedAt    DateTime  @default(now())
+  list       EmailList @relation(fields: [listId], references: [id], onDelete: Cascade)
+  tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([listId, customerId])
+  @@index([tenantId])
+  @@index([listId])
+}
+
+model EmailTemplate {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String   @db.Uuid
+  name        String
+  subject     String
+  body        String
+  isShared    Boolean  @default(false)
+  category    String?
+  createdById String   @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@index([category])
+}
+
+model EmailCampaignList {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String    @db.Uuid
+  campaignId     String    @db.Uuid
+  listId         String    @db.Uuid
+  recipientCount Int       @default(0)
+  openRate       Float?
+  clickRate      Float?
+  sentAt         DateTime?
+  createdAt      DateTime  @default(now())
+  list           EmailList @relation(fields: [listId], references: [id], onDelete: Cascade)
+  tenant         Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([campaignId, listId])
+  @@index([tenantId])
+  @@index([campaignId])
+}
+
+model EmailMessage {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String      @db.Uuid
+  customerId  String?     @db.Uuid
+  fromAddress String
+  toAddress   String
+  subject     String
+  body        String
+  status      EmailStatus @default(PENDING)
+  sentAt      DateTime?
+  openedAt    DateTime?
+  clickedAt   DateTime?
+  activityId  String?     @db.Uuid
+  templateId  String?     @db.Uuid
+  externalId  String?
+  metadata    Json?
+  createdAt   DateTime    @default(now())
+  tenant      Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([customerId])
+  @@index([status])
+  @@index([externalId])
+}
+
+model SMSConversation {
+  id            String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId      String       @db.Uuid
+  customerId    String       @db.Uuid
+  phoneNumber   String
+  lastMessageAt DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  tenant        Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  messages      SMSMessage[]
+
+  @@unique([tenantId, customerId, phoneNumber])
+  @@index([tenantId])
+  @@index([customerId])
+}
+
+model SMSMessage {
+  id             String          @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String          @db.Uuid
+  conversationId String          @db.Uuid
+  fromNumber     String
+  toNumber       String
+  body           String
+  direction      SMSDirection
+  status         SMSStatus       @default(PENDING)
+  deliveredAt    DateTime?
+  activityId     String?         @db.Uuid
+  externalId     String?
+  errorMessage   String?
+  createdAt      DateTime        @default(now())
+  conversation   SMSConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([conversationId])
+  @@index([externalId])
+  @@index([status])
+}
+
+model SMSTemplate {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId    String   @db.Uuid
+  name        String
+  body        String
+  category    String?
+  createdById String   @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, name])
+  @@index([tenantId])
+  @@index([category])
+}
+
+model MailchimpConnection {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId     String    @unique @db.Uuid
+  accessToken  String
+  serverPrefix String
+  lastSyncAt   DateTime?
+  isActive     Boolean   @default(true)
+  audienceId   String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  tenant       Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+}
+
+model CommunicationPreference {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId       String    @db.Uuid
+  customerId     String    @db.Uuid
+  emailOptIn     Boolean   @default(true)
+  smsOptIn       Boolean   @default(false)
+  preferredTime  String?
+  unsubscribedAt DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  tenant         Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, customerId])
+  @@index([tenantId])
+  @@index([customerId])
+}
+
+model InventoryReservation {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId   String    @db.Uuid
+  skuId      String    @db.Uuid
+  orderId    String    @db.Uuid
+  quantity   Int
+  reservedAt DateTime  @default(now()) @db.Timestamp(6)
+  expiresAt  DateTime? @db.Timestamp(6)
+  releasedAt DateTime? @db.Timestamp(6)
+  status     String    @default("ACTIVE")
+  Order      Order     @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  Sku        Sku       @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  Tenant     Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([orderId])
+  @@index([skuId])
+  @@index([status])
+  @@index([tenantId])
+}
+
+model PurchaseOrder {
+  id                String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId          String              @db.Uuid
+  poNumber          String
+  supplierId        String?             @db.Uuid
+  status            String              @default("PENDING")
+  orderedAt         DateTime            @default(now()) @db.Timestamp(6)
+  expectedAt        DateTime?           @db.Timestamp(6)
+  receivedAt        DateTime?           @db.Timestamp(6)
+  notes             String?
+  createdAt         DateTime            @default(now()) @db.Timestamp(6)
+  updatedAt         DateTime            @default(now()) @db.Timestamp(6)
+  Supplier          Supplier?           @relation(fields: [supplierId], references: [id])
+  Tenant            Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  PurchaseOrderLine PurchaseOrderLine[]
+
+  @@unique([tenantId, poNumber])
+  @@index([expectedAt])
+  @@index([status])
+  @@index([tenantId])
+}
+
+model PurchaseOrderLine {
+  id               String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId         String        @db.Uuid
+  purchaseOrderId  String        @db.Uuid
+  skuId            String        @db.Uuid
+  quantity         Int
+  unitCost         Decimal       @db.Decimal(10, 2)
+  receivedQuantity Int           @default(0)
+  createdAt        DateTime      @default(now()) @db.Timestamp(6)
+  updatedAt        DateTime      @default(now()) @db.Timestamp(6)
+  PurchaseOrder    PurchaseOrder @relation(fields: [purchaseOrderId], references: [id], onDelete: Cascade)
+  Sku              Sku           @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  Tenant           Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([purchaseOrderId])
+  @@index([skuId])
+  @@index([tenantId])
 }
 
 enum PortalUserStatus {
@@ -1631,65 +2015,6 @@ enum ReplayRunStatus {
   RUNNING
 }
 
-// LeorAI Enhancements - Saved Queries and Scheduled Reports
-model SavedQuery {
-  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId    String    @db.Uuid
-  userId      String    @db.Uuid
-  name        String
-  description String?
-  queryText   String
-  isTemplate  Boolean   @default(false)
-  isShared    Boolean   @default(false)
-  category    String?
-  tags        String[]  @default([])
-  usageCount  Int       @default(0)
-  lastUsedAt  DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  tenant      Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([tenantId, userId])
-  @@index([tenantId, isTemplate])
-  @@index([lastUsedAt])
-}
-
-model QueryHistory {
-  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId   String   @db.Uuid
-  userId     String   @db.Uuid
-  queryText  String
-  executedAt DateTime @default(now())
-  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([tenantId, userId, executedAt])
-}
-
-model ScheduledReport {
-  id             String              @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId       String              @db.Uuid
-  userId         String              @db.Uuid
-  name           String
-  description    String?
-  reportType     ScheduledReportType
-  frequency      ReportFrequency
-  dayOfWeek      Int? // 0-6 for weekly reports
-  timeOfDay      String              @default("08:00") // HH:mm format
-  recipientEmail String
-  isActive       Boolean             @default(true)
-  lastSentAt     DateTime?
-  nextScheduled  DateTime?
-  createdAt      DateTime            @default(now())
-  updatedAt      DateTime            @updatedAt
-  tenant         Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user           User                @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([tenantId, userId])
-  @@index([isActive, nextScheduled])
-}
-
 enum ScheduledReportType {
   DAILY_BRIEFING
   WEEKLY_PERFORMANCE
@@ -1701,199 +2026,6 @@ enum ReportFrequency {
   DAILY
   WEEKLY
   MONTHLY
-}
-
-// Phase 3: Marketing & Communications System
-model EmailList {
-  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId      String   @db.Uuid
-  name          String
-  description   String?
-  ownerId       String?  @db.Uuid
-  isSmartList   Boolean  @default(false)
-  smartCriteria Json? // For auto-population rules
-  memberCount   Int      @default(0)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  tenant    Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  members   EmailListMember[]
-  campaigns EmailCampaignList[]
-
-  @@unique([tenantId, name])
-  @@index([tenantId])
-  @@index([ownerId])
-}
-
-model EmailListMember {
-  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId   String   @db.Uuid
-  listId     String   @db.Uuid
-  customerId String   @db.Uuid
-  addedAt    DateTime @default(now())
-
-  tenant Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  list   EmailList @relation(fields: [listId], references: [id], onDelete: Cascade)
-
-  @@unique([listId, customerId])
-  @@index([tenantId])
-  @@index([listId])
-}
-
-model EmailTemplate {
-  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId    String   @db.Uuid
-  name        String
-  subject     String
-  body        String   @db.Text
-  isShared    Boolean  @default(false)
-  category    String?
-  createdById String   @db.Uuid
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-
-  @@unique([tenantId, name])
-  @@index([tenantId])
-  @@index([category])
-}
-
-model EmailCampaignList {
-  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId       String    @db.Uuid
-  campaignId     String    @db.Uuid
-  listId         String    @db.Uuid
-  recipientCount Int       @default(0)
-  openRate       Float?
-  clickRate      Float?
-  sentAt         DateTime?
-  createdAt      DateTime  @default(now())
-
-  tenant Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  list   EmailList @relation(fields: [listId], references: [id], onDelete: Cascade)
-
-  @@unique([campaignId, listId])
-  @@index([tenantId])
-  @@index([campaignId])
-}
-
-model EmailMessage {
-  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId    String      @db.Uuid
-  customerId  String?     @db.Uuid
-  fromAddress String
-  toAddress   String
-  subject     String
-  body        String      @db.Text
-  status      EmailStatus @default(PENDING)
-  sentAt      DateTime?
-  openedAt    DateTime?
-  clickedAt   DateTime?
-  activityId  String?     @db.Uuid
-  templateId  String?     @db.Uuid
-  externalId  String?
-  metadata    Json?
-  createdAt   DateTime    @default(now())
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-
-  @@index([tenantId])
-  @@index([customerId])
-  @@index([status])
-  @@index([externalId])
-}
-
-model SMSConversation {
-  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId      String    @db.Uuid
-  customerId    String    @db.Uuid
-  phoneNumber   String
-  lastMessageAt DateTime?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
-  tenant   Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  messages SMSMessage[]
-
-  @@unique([tenantId, customerId, phoneNumber])
-  @@index([tenantId])
-  @@index([customerId])
-}
-
-model SMSMessage {
-  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId       String       @db.Uuid
-  conversationId String       @db.Uuid
-  fromNumber     String
-  toNumber       String
-  body           String       @db.Text
-  direction      SMSDirection
-  status         SMSStatus    @default(PENDING)
-  deliveredAt    DateTime?
-  activityId     String?      @db.Uuid
-  externalId     String?
-  errorMessage   String?
-  createdAt      DateTime     @default(now())
-
-  tenant       Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  conversation SMSConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-
-  @@index([tenantId])
-  @@index([conversationId])
-  @@index([externalId])
-  @@index([status])
-}
-
-model SMSTemplate {
-  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId    String   @db.Uuid
-  name        String
-  body        String   @db.Text
-  category    String?
-  createdById String   @db.Uuid
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-
-  @@unique([tenantId, name])
-  @@index([tenantId])
-  @@index([category])
-}
-
-model MailchimpConnection {
-  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId     String    @unique @db.Uuid
-  accessToken  String
-  serverPrefix String
-  lastSyncAt   DateTime?
-  isActive     Boolean   @default(true)
-  audienceId   String?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-
-  @@index([tenantId])
-}
-
-model CommunicationPreference {
-  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  tenantId       String    @db.Uuid
-  customerId     String    @db.Uuid
-  emailOptIn     Boolean   @default(true)
-  smsOptIn       Boolean   @default(false)
-  preferredTime  String? // e.g., "morning", "afternoon", "evening"
-  unsubscribedAt DateTime?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-
-  @@unique([tenantId, customerId])
-  @@index([tenantId])
-  @@index([customerId])
 }
 
 enum EmailStatus {

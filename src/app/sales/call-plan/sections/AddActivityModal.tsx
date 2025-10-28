@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 
+const tenantHeaders = {
+  "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
+};
+
 type AddActivityModalProps = {
   selectedDate: Date;
   onClose: () => void;
@@ -46,8 +50,14 @@ export default function AddActivityModal({
   const loadData = async () => {
     try {
       const [customersRes, activityTypesRes] = await Promise.all([
-        fetch("/api/sales/customers?limit=1000"),
-        fetch("/api/sales/activity-types"),
+        fetch("/api/sales/customers?limit=1000", {
+          credentials: "include",
+          headers: tenantHeaders,
+        }),
+        fetch("/api/sales/activity-types", {
+          credentials: "include",
+          headers: tenantHeaders,
+        }),
       ]);
 
       if (customersRes.ok) {
@@ -75,6 +85,7 @@ export default function AddActivityModal({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          ...tenantHeaders,
         },
         body: JSON.stringify({
           customerId: formData.customerId,
@@ -87,6 +98,7 @@ export default function AddActivityModal({
             activityTypes.find((at) => at.id === formData.activityTypeId)?.name || "Activity"
           }`,
         }),
+        credentials: "include",
       });
 
       if (response.ok) {

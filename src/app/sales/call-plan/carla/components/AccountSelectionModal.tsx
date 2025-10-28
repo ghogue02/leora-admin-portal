@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
 import { MapPin, Calendar, TrendingUp, Search, X, Filter } from "lucide-react";
 import { format } from "date-fns";
 import type { Account, AccountType, Priority } from "../page";
@@ -45,7 +46,11 @@ export default function AccountSelectionModal({
   const [localSelection, setLocalSelection] = useState<Set<string>>(new Set(selectedAccountIds));
   const [searchQuery, setSearchQuery] = useState("");
   const [territoryFilter, setTerritoryFilter] = useState<string[]>([]);
-  const [accountTypeFilter, setAccountTypeFilter] = useState<AccountType[]>([]);
+  const [selectedAccountTypes, setSelectedAccountTypes] = useState<AccountType[]>([
+    "ACTIVE",
+    "TARGET",
+    "PROSPECT",
+  ]);
   const [priorityFilter, setPriorityFilter] = useState<Priority[]>([]);
   const [healthFilter, setHealthFilter] = useState<HealthFilter>("all");
   const [lastContactFilter, setLastContactFilter] = useState<LastContactFilter>("all");
@@ -55,12 +60,27 @@ export default function AccountSelectionModal({
   useEffect(() => {
     if (isOpen) {
       setLocalSelection(new Set(selectedAccountIds));
+      setSelectedAccountTypes(["ACTIVE", "TARGET", "PROSPECT"]);
     }
   }, [isOpen, selectedAccountIds]);
 
   // Get unique territories
   const territories = useMemo(() => {
     return Array.from(new Set(accounts.map((a) => a.territory).filter(Boolean))) as string[];
+  }, [accounts]);
+
+  const accountTypeCounts = useMemo(() => {
+    return accounts.reduce<Record<AccountType, number>>(
+      (acc, account) => {
+        acc[account.accountType] = (acc[account.accountType] || 0) + 1;
+        return acc;
+      },
+      {
+        ACTIVE: 0,
+        TARGET: 0,
+        PROSPECT: 0,
+      }
+    );
   }, [accounts]);
 
   // Filter accounts based on all criteria
@@ -85,8 +105,12 @@ export default function AccountSelectionModal({
     }
 
     // Account type filter
-    if (accountTypeFilter.length > 0) {
-      filtered = filtered.filter((account) => accountTypeFilter.includes(account.accountType));
+    if (selectedAccountTypes.length === 0) {
+      return [];
+    }
+
+    if (selectedAccountTypes.length < 3) {
+      filtered = filtered.filter((account) => selectedAccountTypes.includes(account.accountType));
     }
 
     // Priority filter
@@ -105,7 +129,7 @@ export default function AccountSelectionModal({
     // }
 
     return filtered;
-  }, [accounts, searchQuery, territoryFilter, accountTypeFilter, priorityFilter]);
+  }, [accounts, searchQuery, territoryFilter, selectedAccountTypes, priorityFilter]);
 
   const handleToggleAccount = (accountId: string) => {
     const newSelection = new Set(localSelection);
@@ -162,12 +186,6 @@ export default function AccountSelectionModal({
     );
   };
 
-  const handleAccountTypeToggle = (type: AccountType) => {
-    setAccountTypeFilter((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
-    );
-  };
-
   const handlePriorityToggle = (priority: Priority) => {
     setPriorityFilter((prev) =>
       prev.includes(priority) ? prev.filter((p) => p !== priority) : [...prev, priority]
@@ -217,11 +235,9 @@ export default function AccountSelectionModal({
             >
               <Filter className="h-4 w-4" />
               Filters
-              {(territoryFilter.length > 0 ||
-                accountTypeFilter.length > 0 ||
-                priorityFilter.length > 0) && (
+              {(territoryFilter.length > 0 || priorityFilter.length > 0) && (
                 <Badge variant="secondary" className="ml-1">
-                  {territoryFilter.length + accountTypeFilter.length + priorityFilter.length}
+                  {territoryFilter.length + priorityFilter.length}
                 </Badge>
               )}
             </Button>
@@ -250,26 +266,6 @@ export default function AccountSelectionModal({
                   </div>
                 </div>
               )}
-
-              {/* Account Type Filters */}
-              <div>
-                <label className="text-xs font-medium text-gray-600 mb-1.5 block">
-                  Account Type
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {(["PROSPECT", "TARGET", "ACTIVE"] as AccountType[]).map((type) => (
-                    <Badge
-                      key={type}
-                      variant={accountTypeFilter.includes(type) ? "default" : "outline"}
-                      className="cursor-pointer"
-                      onClick={() => handleAccountTypeToggle(type)}
-                    >
-                      {accountTypeConfig[type].label}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-
               {/* Priority Filters */}
               <div>
                 <label className="text-xs font-medium text-gray-600 mb-1.5 block">Priority</label>
@@ -288,6 +284,69 @@ export default function AccountSelectionModal({
               </div>
             </div>
           )}
+        </div>
+
+        {/* Account Type Filters */}
+        <div className="px-6 py-4 border-b space-y-2">
+          <Label className="text-sm font-medium">Account Type</Label>
+          <div className="flex flex-wrap gap-4">
+            <div className="flex items-center gap-2">
+              <Checkbox
+                id="filter-active"
+                checked={selectedAccountTypes.includes("ACTIVE")}
+                onCheckedChange={(checked) => {
+                  const isChecked = checked === true;
+                  setSelectedAccountTypes((prev) =>
+                    isChecked ? Array.from(new Set([...prev, "ACTIVE"])) : prev.filter((t) => t !== "ACTIVE")
+                  );
+                }}
+              />
+              <label htmlFor="filter-active" className="text-sm cursor-pointer">
+                Active
+                <Badge variant="default" className="ml-2">
+                  {accountTypeCounts.ACTIVE}
+                </Badge>
+              </label>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Checkbox
+                id="filter-target"
+                checked={selectedAccountTypes.includes("TARGET")}
+                onCheckedChange={(checked) => {
+                  const isChecked = checked === true;
+                  setSelectedAccountTypes((prev) =>
+                    isChecked ? Array.from(new Set([...prev, "TARGET"])) : prev.filter((t) => t !== "TARGET")
+                  );
+                }}
+              />
+              <label htmlFor="filter-target" className="text-sm cursor-pointer">
+                Target
+                <Badge variant="secondary" className="ml-2">
+                  {accountTypeCounts.TARGET}
+                </Badge>
+              </label>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Checkbox
+                id="filter-prospect"
+                checked={selectedAccountTypes.includes("PROSPECT")}
+                onCheckedChange={(checked) => {
+                  const isChecked = checked === true;
+                  setSelectedAccountTypes((prev) =>
+                    isChecked ? Array.from(new Set([...prev, "PROSPECT"])) : prev.filter((t) => t !== "PROSPECT")
+                  );
+                }}
+              />
+              <label htmlFor="filter-prospect" className="text-sm cursor-pointer">
+                Prospect
+                <Badge variant="outline" className="ml-2">
+                  {accountTypeCounts.PROSPECT}
+                </Badge>
+              </label>
+            </div>
+          </div>
         </div>
 
         {/* Action Bar */}
