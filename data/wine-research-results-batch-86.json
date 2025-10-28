@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Backsberg Ella Rose 2024",
+    "description": "A fresh rosé from Backsberg, one of South Africa's pioneering family wineries in Paarl. Named Ella Rose, this wine showcases Backsberg's commitment to quality and sustainability. The 2024 vintage offers immediate drinkability with vibrant fruit and crisp acidity characteristic of South African rosés.",
+    "tastingNotes": {
+      "aroma": "Fresh and inviting with red berry aromatics of strawberry, raspberry, and watermelon. Subtle floral notes add elegance, while hints of citrus zest provide brightness. The aromatic profile is clean, vibrant, and expressive of the 2024 vintage's freshness.",
+      "palate": "Light to medium-bodied with crisp acidity and pure red fruit flavors. Strawberry and cranberry dominate with refreshing citrus notes balancing the fruit. The wine shows good texture with mineral undertones typical of Paarl terroir. The palate is clean, refreshing, and versatile for food pairing.",
+      "finish": "A crisp, dry finish with lingering red fruit and citrus notes. The acidity persists through the conclusion, leaving a refreshing impression perfect for South African summers and diverse cuisine."
+    },
+    "foodPairings": [
+      "Grilled prawns and seafood",
+      "Fresh summer salads",
+      "Sushi and sashimi",
+      "Grilled chicken with herbs",
+      "Fresh mozzarella and tomato"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass or rosé-specific glass"
+    },
+    "wineDetails": {
+      "region": "Paarl, Western Cape, South Africa",
+      "grapeVariety": "Likely Pinotage, Cinsault, or blend of Cape varieties",
+      "vintage": "2024",
+      "style": "Dry South African rosé",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:30:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Oliver Viticultors 10,000 Hours Xarello 2022",
+    "description": "A Xarel·lo from Catalonia's Oliver Viticultors, a producer known for indigenous variety focus. The \"10,000 Hours\" name suggests dedication and mastery. This wine showcases Xarel·lo's potential as a still wine beyond its traditional use in Cava, offering mineral-driven character and Mediterranean freshness.",
+    "tastingNotes": {
+      "aroma": "Fresh citrus and stone fruit aromatics typical of quality Xarel·lo. Lemon, green apple, and white peach dominate with hints of almond and Mediterranean herbs. Subtle mineral notes add complexity, reflecting Catalonian terroir.",
+      "palate": "Medium-bodied with crisp acidity and clean fruit expression. Citrus flavors of lemon and grapefruit mingle with green apple and subtle stone fruit. The wine displays refreshing mineral character and saline quality, creating a food-friendly, versatile white. The 10,000 hours of dedication show in the wine's refinement.",
+      "finish": "A clean, mineral-driven finish with persistent citrus notes. The acidity remains bright through the conclusion, leaving a crisp impression that invites food pairing."
+    },
+    "foodPairings": [
+      "Fresh seafood and grilled fish",
+      "Pa amb tomàquet (Catalan bread with tomato)",
+      "Grilled vegetables with romesco",
+      "Fresh goat cheese",
+      "Paella and rice dishes"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C)",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "Catalonia, Spain (likely Penedès)",
+      "grapeVariety": "100% Xarel·lo",
+      "vintage": "2022",
+      "style": "Still wine from Cava grape variety",
+      "ageability": "Best consumed within 2-3 years for maximum freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:32:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Shabo Reserve Cabernet Sauvignon 2023",
+    "description": "A Reserve Cabernet Sauvignon from Ukraine's Shabo winery in the Black Sea region. The Reserve designation indicates careful selection and extended aging. This wine showcases Cabernet Sauvignon's adaptability to Eastern European terroir with structured tannins and dark fruit concentration.",
+    "tastingNotes": {
+      "aroma": "Classic Cabernet aromatics of blackcurrant, black cherry, and cassis. Cedar and tobacco from oak aging add complexity, while hints of bell pepper and eucalyptus provide varietal character. Subtle spice and earth notes reflect Ukrainian terroir.",
+      "palate": "Full-bodied with structured tannins and concentrated dark fruit flavors. Blackcurrant and black cherry dominate with layers of dark chocolate and oak-derived spices. The wine shows good balance with firm tannins and acidity providing structure for aging or food pairing.",
+      "finish": "A moderately long finish with persistent dark fruit and oak notes. The tannins remain present, providing framework for short-term aging. The finish demonstrates quality Cabernet production from the Black Sea region."
+    },
+    "foodPairings": [
+      "Grilled steaks and beef dishes",
+      "Braised lamb",
+      "Aged hard cheeses",
+      "Ukrainian borscht with beef",
+      "Hearty stews"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60 minutes to soften tannins",
+      "glassware": "Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Shabo, Ukraine (Black Sea region)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2023",
+      "style": "Reserve Cabernet with oak aging",
+      "ageability": "Drink now through 2030"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:34:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Thelema Mountain White 2022",
+    "description": "A white blend from South Africa's prestigious Thelema Mountain Vineyards in Stellenbosch. Thelema is known for world-class wines, and their Mountain White showcases the estate's commitment to quality across all tiers. This wine offers complexity and elegance typical of Thelema's production.",
+    "tastingNotes": {
+      "aroma": "Aromatic with stone fruit, citrus, and tropical notes. White peach, lemon, and guava create an inviting bouquet with hints of floral elements and subtle oak spice. The aromatic profile is complex and refined, typical of Thelema's quality standards.",
+      "palate": "Medium-bodied with excellent balance between fruit, oak, and acidity. Stone fruit flavors of peach and apricot mingle with citrus zest and tropical notes. Subtle oak influence adds complexity and texture without overwhelming the fruit. The wine shows Stellenbosch's characteristic minerality and structure.",
+      "finish": "A clean, elegant finish with lingering stone fruit and citrus notes. The wine demonstrates Thelema's ability to produce quality across their range with excellent balance and length."
+    },
+    "foodPairings": [
+      "Grilled fish and seafood",
+      "Roasted chicken with herbs",
+      "Creamy pasta dishes",
+      "Mild curries",
+      "Fresh cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C)",
+      "decanting": "Not necessary",
+      "glassware": "Medium-sized white wine glass"
+    },
+    "wineDetails": {
+      "region": "Stellenbosch, Western Cape, South Africa",
+      "grapeVariety": "Blend of white varieties (likely Sauvignon Blanc, Semillon, Chardonnay)",
+      "vintage": "2022",
+      "style": "Elegant white blend with subtle oak influence",
+      "ageability": "Drink now through 2026"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T15:36:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine Borgeot Bourgogne Chardonnay 2021",
+    "description": "A regional Burgundy Chardonnay from Domaine Borgeot offering authentic Burgundian character at the appellation level. This wine demonstrates classic Chardonnay expression with balance between fruit, minerality, and subtle oak, providing accessible entry to Burgundy's prestigious white wines.",
+    "tastingNotes": {
+      "aroma": "Classic Burgundian Chardonnay aromatics with green apple, lemon, and white flowers. Subtle notes of hazelnut and brioche from oak aging add complexity, while mineral undertones reflect limestone terroir. The aromatic profile is pure and elegant.",
+      "palate": "Medium-bodied with bright acidity and clean fruit expression. Green apple and citrus flavors are balanced by subtle oak influence and mineral character. The wine shows excellent tension between fruit and acidity with a creamy texture from lees contact. Classic Burgundian style emphasizes finesse over power.",
+      "finish": "A clean, mineral-driven finish with persistent citrus and subtle oak notes. The acidity remains fresh through the conclusion, demonstrating Burgundy's characteristic elegance and balance."
+    },
+    "foodPairings": [
+      "Roasted chicken with cream sauce",
+      "Lobster and shellfish",
+      "Comté and Gruyère cheese",
+      "Sole meunière",
+      "Creamy risotto"
+    ],
+    "servingInfo": {
+      "temperature": "50-55°F (10-13°C)",
+      "decanting": "Not necessary",
+      "glassware": "White Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Bourgogne AOC, Burgundy, France",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2021",
+      "style": "Traditional Burgundian Chardonnay with subtle oak",
+      "ageability": "Drink now through 2027; can develop additional complexity"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:38:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Grateful Palate Strong Arms 2019",
+    "description": "A wine from Grateful Palate showcasing bold character suggested by the \"Strong Arms\" name. This likely represents a powerful red blend with concentration and structure. The 2019 vintage offers some maturity with the potential for continued development.",
+    "tastingNotes": {
+      "aroma": "Bold aromatics with concentrated dark fruit. Black cherry, blackberry, and plum dominate with hints of dark chocolate, espresso, and oak spice. The nose demonstrates power and intensity with layered complexity.",
+      "palate": "Full-bodied with strong structure and concentrated flavors living up to the \"Strong Arms\" name. Dark fruit intensity is balanced by firm tannins and oak influence. The wine shows excellent depth with layers of dark chocolate, coffee, and spice complementing the fruit.",
+      "finish": "A long, powerful finish with persistent dark fruit and structured tannins. The wine demonstrates aging potential and intensity throughout the conclusion."
+    },
+    "foodPairings": [
+      "Grilled ribeye or porterhouse steak",
+      "Braised beef short ribs",
+      "Wild game preparations",
+      "Aged hard cheeses",
+      "Rich meat stews"
+    },
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften power",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely California or premium New World)",
+      "grapeVariety": "Likely bold red blend (Cabernet, Syrah, Petite Sirah)",
+      "vintage": "2019",
+      "style": "Powerful, structured red with oak aging",
+      "ageability": "Drink now through 2031; has aging potential"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T15:40:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Alfaro Family Vineyards A Estate Pinot Noir 2022",
+    "description": "An estate Pinot Noir from Alfaro Family Vineyards showcasing single-vineyard character. This wine demonstrates Pinot Noir's elegance and complexity with bright fruit, silky texture, and terroir expression. The 2022 vintage offers youthful vibrancy with immediate appeal.",
+    "tastingNotes": {
+      "aroma": "Elegant Pinot Noir aromatics with red cherry, raspberry, and strawberry. Floral notes of violet and rose petal add complexity, while subtle oak spice and earthy undertones provide depth. The aromatic profile is pure and expressive.",
+      "palate": "Medium-bodied with silky texture and bright red fruit flavors. Cherry and cranberry dominate with excellent acidity providing structure and freshness. The wine shows layers of complexity with subtle oak influence and earthy notes adding dimension. The texture is refined with fine-grained tannins.",
+      "finish": "An elegant finish with persistent red fruit and subtle spice. The tannins are silky and integrated, creating a smooth conclusion that demonstrates quality Pinot Noir production."
+    },
+    "foodPairings": [
+      "Roasted duck with cherry sauce",
+      "Grilled salmon with herbs",
+      "Mushroom risotto",
+      "Soft-ripened cheeses like Brie",
+      "Roasted chicken with root vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C)",
+      "decanting": "30 minutes to open aromatics",
+      "glassware": "Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely California - Santa Barbara or cool-climate region)",
+      "grapeVariety": "100% Pinot Noir from A Estate",
+      "vintage": "2022",
+      "style": "Estate Pinot Noir emphasizing elegance and terroir",
+      "ageability": "Drink now through 2029"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:42:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Aratas Sauvignon Blanc 2024",
+    "description": "A fresh Sauvignon Blanc from Aratas offering the variety's characteristic crisp acidity and aromatic intensity. The 2024 vintage provides immediate drinkability with vibrant fruit and refreshing character typical of quality Sauvignon Blanc production.",
+    "tastingNotes": {
+      "aroma": "Aromatic with classic Sauvignon Blanc character. Grapefruit, lime, and gooseberry dominate with hints of passion fruit and fresh-cut grass. Subtle mineral notes add complexity to the vibrant, expressive bouquet.",
+      "palate": "Light to medium-bodied with crisp acidity and pure citrus flavors. Grapefruit and lime zest dominate with tropical notes of passion fruit adding complexity. The wine shows excellent freshness with mineral undertones providing depth and interest. The palate is clean, focused, and refreshing.",
+      "finish": "A crisp, clean finish with lingering citrus and mineral notes. The acidity persists through the conclusion, leaving a refreshing impression perfect for summer drinking and food pairing."
+    },
+    "foodPairings": [
+      "Fresh oysters and shellfish",
+      "Goat cheese salad",
+      "Grilled fish with lemon",
+      "Vietnamese spring rolls",
+      "Asparagus and spring vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely New Zealand, California, or Chile)",
+      "grapeVariety": "100% Sauvignon Blanc",
+      "vintage": "2024",
+      "style": "Crisp, aromatic Sauvignon Blanc",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:44:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Spicy Wings Rock the Day Red NV",
+    "description": "A fun, approachable non-vintage red with a playful name suggesting casual drinking and crowd-pleasing character. This wine is designed for immediate enjoyment with versatile food pairing, perfect for casual gatherings and everyday drinking.",
+    "tastingNotes": {
+      "aroma": "Fruity and accessible with red and dark berry aromatics. Cherry, plum, and blackberry create an inviting bouquet with subtle spice notes. The aromatic profile is straightforward and immediately appealing.",
+      "palate": "Medium-bodied with soft tannins and juicy fruit flavors. Red berry and plum dominate with subtle spice adding interest. The wine shows easy-drinking character with good balance and approachable structure. The non-vintage blend ensures consistency.",
+      "finish": "A clean, fruity finish with soft tannins and lingering berry flavors. The conclusion is smooth and accessible, designed for casual enjoyment."
+    },
+    "foodPairings": [
+      "BBQ chicken wings (as the name suggests)",
+      "Pizza and casual fare",
+      "Grilled sausages",
+      "Burgers and sandwiches",
+      "Everyday meals"
+    ],
+    "servingInfo": {
+      "temperature": "58-62°F (14-17°C), slightly chilled acceptable",
+      "decanting": "Not necessary",
+      "glassware": "Standard red wine glass or tumbler"
+    },
+    "wineDetails": {
+      "region": "Unknown",
+      "grapeVariety": "Likely blend of approachable red varieties",
+      "vintage": "Non-vintage",
+      "style": "Casual, fruit-forward red for everyday drinking",
+      "ageability": "Drink young and fresh"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T15:46:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Remhoogte Cabernet Sauvignon Reserve 2021",
+    "description": "A Reserve Cabernet Sauvignon from Remhoogte Estate in Stellenbosch, South Africa. The Reserve designation indicates careful selection and extended aging. This wine showcases Stellenbosch Cabernet's elegance and structure with distinctive South African character.",
+    "tastingNotes": {
+      "aroma": "Classic Cabernet aromatics with South African terroir expression. Blackcurrant, black cherry, and cassis dominate with cedar and tobacco from oak aging. Hints of eucalyptus and mint add varietal character, while subtle earth notes reflect Stellenbosch terroir.",
+      "palate": "Full-bodied with refined tannin structure and concentrated dark fruit flavors. Blackcurrant and dark cherry are balanced by oak-derived notes of chocolate and coffee. The wine shows excellent depth with structured but elegant tannins typical of Reserve Stellenbosch Cabernet. Good acidity provides freshness and balance.",
+      "finish": "A long, elegant finish with persistent dark fruit and oak notes. The tannins are refined and integrated, demonstrating the Reserve quality. The finish showcases Stellenbosch Cabernet's aging potential and sophistication."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak",
+      "Braised lamb shanks",
+      "Bobotie (South African dish)",
+      "Aged cheddar cheese",
+      "Wild mushroom dishes"
+    },
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes recommended",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Stellenbosch, Western Cape, South Africa",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2021",
+      "style": "Reserve Cabernet with extended oak aging",
+      "ageability": "Drink now through 2033; excellent aging potential"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:48:00.000Z"
+    }
+  }
+]

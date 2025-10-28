@@ -20,6 +20,7 @@ import {
   Package,
   Lightbulb,
 } from 'lucide-react';
+import { formatCurrency, formatNumber } from '@/lib/utils/format';
 
 interface CustomerInsights {
   customerId: string;
@@ -120,13 +121,6 @@ export function CustomerInsights({ customerId, className }: CustomerInsightsProp
     };
 
     return icons[trend as keyof typeof icons];
-  };
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(value);
   };
 
   const formatDate = (date: Date | null) => {
@@ -239,7 +233,7 @@ export function CustomerInsights({ customerId, className }: CustomerInsightsProp
               <Package className="w-3 h-3" />
               Order Frequency
             </p>
-            <p className="text-lg font-semibold">{insights.orderFrequency.toFixed(1)}/month</p>
+            <p className="text-lg font-semibold">{formatNumber(insights.orderFrequency)}/month</p>
           </div>
 
           <div className="space-y-1">

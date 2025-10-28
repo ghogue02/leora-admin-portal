@@ -1,0 +1,2540 @@
+{
+  "summary": {
+    "dateRun": "2025-10-21T15:03:48.696Z",
+    "batchRange": "51-100",
+    "batches": 50,
+    "totalWines": 340,
+    "success": 340,
+    "exactMatch": 330,
+    "fuzzyMatch": 10,
+    "notFound": 0,
+    "errors": 16,
+    "durationSeconds": 73.65
+  },
+  "batchDetails": [
+    {
+      "batchNumber": 51,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Getariako Txakolina Basa Lore Igartzeta 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Calyptra Petit Inedito 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Boxwood Gris 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Raywood White Zinfandel 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Quinta do Mourao Tawny 40 Year Port",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Orchard Lane Sauvignon Blanc 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Chateau Josephine Cabernet Sauvignon  Semi Sweet  (MD & DC) Stained Label 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        },
+        {
+          "name": "Priorat Trossos Abracadabra 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        },
+        {
+          "name": "Remhoogte Free to be Riesling 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Domaine de la Denante Saint Veran 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "batchNumber": 52,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Well Crafted Vin de France Organic Red Keg NV  2000 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Pasquiers Plan de Dieu 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Clos d'Audhuy Toujours Plus 1L NV  1000 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Getariako Txakolina Basa Lore Igartzeta 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Darms Lane Cabernet Sauvignon, Bon Passe 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Collina San Ponzio Barbera D Alba 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Phelps Creek Cuvee Alexandrine Pinot Noir 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Conde Villar Alvarinho 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        },
+        {
+          "name": "Lanzarote Vino Rosado 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.83
+        },
+        {
+          "name": "Shabo Reserve Merlot 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "batchNumber": 53,
+      "success": 10,
+      "exactMatch": 8,
+      "fuzzyMatch": 2,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Baleia Vinho Rocas Red Blend 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Coste Caumartin 1er Cru Clos de Boucherottes 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Phelps Creek Pinot Gris 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "LaMontagne Pinot Noir (Wine Club) 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Anko Malbec Flor de Cardon 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Inversa Bergamot Lemon 250 ml",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.6
+        },
+        {
+          "name": "Prima Pave Grand Cuvee NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.65
+        },
+        {
+          "name": "Noughty NA Sparkling Chardonnay NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Paso Robles Pomar Junction Zinfandel (Wine Club Only) 2016",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.85
+        },
+        {
+          "name": "Trespass Intrigue 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "batchNumber": 54,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Frico Sangiovese IGT Toscana (NOVA only) 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Rueda Reina De Castilla Oak Aged Verdejo 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Colle Corviano Sangiovese 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        },
+        {
+          "name": "Rock Ferry 3rd Rock Chardonnay 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.86
+        },
+        {
+          "name": "Crimson Clover RED Cabernet Sauvignon 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.84
+        },
+        {
+          "name": "Gendraud Patrice Petit Chablis Mevushal (MD & DC)",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.89
+        },
+        {
+          "name": "Paris-Simoneau Brut Rose",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.83
+        },
+        {
+          "name": "Central Valley Banner Day Sauvignon Blanc 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Mauro Molino Barbera d'Asti DOCG Leradici 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Priorat Trossos Abracadabra 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "batchNumber": 55,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 56,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Nagelsforst Bergliebe Riesling 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Tigerstone Garnacha 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "TVH The Boss Block 8 Cabernet Sauvignon 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Ontanon Gran Reserva 2011",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Dolce Vita Strawberry Margarita",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.65
+        },
+        {
+          "name": "Ontanon Reserva Magnum 2011  1500 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        },
+        {
+          "name": "Quinta do Mourao White 60 Year Port   500 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.78
+        },
+        {
+          "name": "Backsberg John Martin Red Blend 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.84
+        },
+        {
+          "name": "Cienega Valley Cienega Valley Pinot Noir 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.83
+        },
+        {
+          "name": "Skylark Pinot Blanc 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.81
+        }
+      ]
+    },
+    {
+      "batchNumber": 57,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Hendry HRW Cabernet Sauvignon 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Costers del Segre Petit Sios Tinto 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Raised By Wolves Cabernet Sauvignon (Damaged Labels) 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Bodegas Riojanas Monte Real Gran Reserva 2014",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Castoro Cellars Sparkling Rose Wine Can   250 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Dolce Vita Spritz NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Talpiot White",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Fledge & Co. Grenache 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.72
+        },
+        {
+          "name": "Luis Blanc Treilles White  (Wine Club Only) 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.6
+        },
+        {
+          "name": "Thelema \"Vin de Hel\" Muscat Late Harvest 2022  375 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "batchNumber": 58,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Remhoogte Honeybunch 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Dominio de la Abadesa Verdejo 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Dominio de Taurum DO TORO 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Seppeltsfield Para Tawny (100Y) 1925  100 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 1
+        },
+        {
+          "name": "Skylark Pink Belly 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Bitch Bubbly (750ml) NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Mountain Brook BRX Rose 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Bodegas Veiga Naum Rias Baixas Albarino 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Martellotto Red Blend 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 1
+        },
+        {
+          "name": "Pasquiers Sablet Rouge 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "batchNumber": 59,
+      "success": 10,
+      "exactMatch": 9,
+      "fuzzyMatch": 1,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Bodegas Pinea PINEA 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Shabo Limited Edition Kakhetian Saperavi Merlot 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Alfaro Family Vineyards A Estate Chardonnay 2020",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.75
+        },
+        {
+          "name": "Domaine Benedetti Biologique Vaucluse 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Bonelli Bonarda Amabile (Frizzante, Semi Sweet) 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Domaine de la Fontainnerie Vouvray Sec 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Raywood Moscato 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Wonderment Wines Bacigalupi Petit Sirah 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Clementine Carter Larner Syrah 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Queiron Mi Lugar 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "batchNumber": 60,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Artis NA Brut Rose",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Knuttel Family Wines Tentadora Malbec 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Black Elephant Vintners Back Roads Petite Sirah 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Boplaas Alvarinho 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Domaine d'Avrille Sauvignon Blanc 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Sky Devil Cabernet Franc 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.65
+        },
+        {
+          "name": "Raywood Sauvignon Blanc 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.65
+        },
+        {
+          "name": "Campus Oaks Chardonnay 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.65
+        },
+        {
+          "name": "Jeff Cohn Pure Yum Blend 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "batchNumber": 61,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Adir Marselan Rosel (MD & DC) 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Libertine Gradient Vineyard Chardonnay 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Priorat Trossos Lo Mon 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Vina Albina Verdejo 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Vina Albina Gran Reserva 2014 5001618",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Giustini Avoglia Susumaniello 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Martino Sangiovese 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Chateau Maris Orange NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        },
+        {
+          "name": "Poggio Scudieri Chianti Classico Riserva 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Well Crafted Prosecco Freschissimo Keg NV  20000 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "batchNumber": 62,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Domaine Bizet Sancerre Rouge 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Shabo Reserve Chardonnay 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Collina San Ponzio Barolo 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Chateau Maris Rose Cans NV  250 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Bodegas Riojanas Vina Albina Gran Reserva 2014",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Hendry Block 28 Zinfandel 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Domaine du Joncier iCI 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Domaine Fevre Chablis 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Boron Delle Venezie Pinot Grigio 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Sun Break Idyll Acres Perfection Cider   500 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "batchNumber": 63,
+      "success": 10,
+      "exactMatch": 7,
+      "fuzzyMatch": 3,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Chateau Josephine Merlot Mevushal (MD & DC) 2023",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.75
+        },
+        {
+          "name": "Chateau Josephine Cabernet Sauvignon Semi Sweet (MD & DC) 2023",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.9
+        },
+        {
+          "name": "Aratas Los Carneros Chardonnay 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Echevarria Propuesta 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Paso Robles Pomar Junction Merlot 2013",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Sun Break Liberty Red Cider 500 ml",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.85
+        },
+        {
+          "name": "Hertelendy Legend 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.98
+        },
+        {
+          "name": "Zacuto Ruby Port NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Jump Mountain Sparkling Gruner Veltliner 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Two Mountain Syrah 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "batchNumber": 64,
+      "success": 10,
+      "exactMatch": 9,
+      "fuzzyMatch": 1,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Valdemar Estates Walla Walla Cabernet Sauvignon 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Bodegas Tandem Inmune Garnacha 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Baleia Pinot Noir 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.78
+        },
+        {
+          "name": "Rioja Lar de Paula Reserva 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Tibouren Isle Saint Pierre 2021 Rose",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Aratas Veneration Red Blend 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        },
+        {
+          "name": "Wonderment Wines Pritchett's Peak Rockpile Zinfandel 2017",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.87
+        },
+        {
+          "name": "Zephaniah Rose 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Monte Real Cepas Viejas  (6 pack) 2021 5001599",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Free Spirits N/A Negroni Cans   250 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        }
+      ]
+    },
+    {
+      "batchNumber": 65,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 66,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Hertelendy Signature Mountain Blend (12 pk) 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Rueda Reina de Castilla Sauvignon Blanc 2015  1.5 l",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Monte Real Crianza 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Mate Mania Cabernet Sauvignon IGT Toscana 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Spicy Wings Tango with Me White NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Grateful Palate Bless Your Heart NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.65
+        },
+        {
+          "name": "Thelema Cabernet Sauvignon 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Zephaniah Rose 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Oceano Pinot Noir 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Domaine Chevallier Chablis 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        }
+      ]
+    },
+    {
+      "batchNumber": 67,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Maison Ventenac Reserve de Jeanne 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Les Brebis Eola Hills Pinot Noir 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Barcelona Lolea White Spritz NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Rueda Reina De Castilla Oak Aged Verdejo 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Darms Lane Chardonnay, Oak Knoll District 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Raywood Moscato Keg 2021  20 l",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Aresca Cortese 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Bierzo Pilgrim Mencia 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "ZaHa El Corte 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Silverthorn River Dragon Cap Classique Blanc NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "batchNumber": 68,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Ontanon Tempranillo Blanco (White) 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Domaine du Vieux College Fixin Rouge Les Champs des Charmes 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Optima Gewurztraminer (Dry) 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Conde Valdemar Balcon de Pilatos Maturana 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.98
+        },
+        {
+          "name": "Domaine Benedetti Cotes du Rhone Vielles Vignes 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Giustini Areale Primitivo di Manduria 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        },
+        {
+          "name": "Adir Malbec",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Wonderment Wines Bacigalupi Petit Sirah 2014",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Wooden Gift Box Monte Real Gran Reserva 1998",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.97
+        },
+        {
+          "name": "Pyren Vineyard Little Ra Ra Rouge 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "batchNumber": 69,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Domaine Bizet Sancerre Blanc 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Bitch Bubbly (187ml) NV  187 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Sky Devil Malbec 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.78
+        },
+        {
+          "name": "Zephaniah Cabernet Franc 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Giustini Patu Primitivo 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Scarpetta Pinot Grigio DOC Friuli (NOVA only) 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Boxwood Gris 375 ml 2023  375 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        },
+        {
+          "name": "Colle Corviano Trebbiano d'Abruzzo 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Thelema Cabernet Sauvignon 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Fledge and Co Hoeksteen 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "batchNumber": 70,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Colle Corviano Chardonnay 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Central Valley Banner Day Cabernet Sauvignon 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Remhoogte First Light Chenin Blanc 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Domaine Chevallier Cuvee Prestige 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.84
+        },
+        {
+          "name": "Champagne Bauget-Jouette Blanc de Blancs 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.86
+        },
+        {
+          "name": "Jeremy Nickel Cellars Chardonnay 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.83
+        },
+        {
+          "name": "Castoro Cellars Chardonnay Keg 2024  20 l",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        },
+        {
+          "name": "Cienega Valley Cienega Valley Chardonnay 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Boxwood Sauvignon Blanc 375 ml 2023  375 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.84
+        },
+        {
+          "name": "Ngeringa Estate Pinot Noir 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "batchNumber": 71,
+      "success": 10,
+      "exactMatch": 9,
+      "fuzzyMatch": 1,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Boplaas Gamka Red 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Attwoods Vin de Folie Rouge 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "ZaHa Cabernet Franc 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Bernard Gaucher Champagne NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Boplaas Hanepoot 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.98
+        },
+        {
+          "name": "Sutherland Cabernet Sauvignon 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        },
+        {
+          "name": "Scheid Vineyards Rocklin Ranch Chardonnay 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Adir Plato Cabernet Sauvignon (MD & DC)",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Albina Essencia Tinto Reserva 2011",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        },
+        {
+          "name": "Barrel Oak Farm Taphouse Dubbel 19550 ml",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.88
+        }
+      ]
+    },
+    {
+      "batchNumber": 72,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Quinta do Mourao Tawny 20 Year Port",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Two Mountain Show Pony (WINE CLUB ONLY)",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Mauro Molino Langhe Dolcetto 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Toro Fighting Bulls 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Nikolaou Ktima Nemea 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "La Sala Red Sangria",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Vermouth Giardino Mediterranean Dry NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Korde Pinea El Castillo Red 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        },
+        {
+          "name": "Ontanon Natura 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Black Elephant Vintners Three Men in a Tub with a Rubber Duck Blend 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        }
+      ]
+    },
+    {
+      "batchNumber": 73,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Misty Cliffs NA Sauvignon Blanc NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Maison Ventenac Cuvee Marie 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Priorat Trossos Pam de Nas 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Collina San Ponzio Dolcetto D Alba 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Abadia de Acon Roble 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Orchard Lane Pinot Noir 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Alella Ivori Garnatxa Syrah 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        },
+        {
+          "name": "Sutherland Cabernet Sauvignon 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        },
+        {
+          "name": "DR Colheita Tinto 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.89
+        },
+        {
+          "name": "Gavioli Lambrusco  Emilia Semisweet NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "batchNumber": 74,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Endhardt Vineyards Lower Block Sauvignon Blanc 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Sutherland Cabernet Sauvignon 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Domaine des Perrelles Moulin a Vent 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Alella Mayla 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Rueda Isabelino Blanco 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Ngeringa Summit Estate Pinot Noir 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Ontanon Gran Reserva 2005",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Frico Rose (NOVA only) 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Stel + Mar Rose (DC, MD, and Southern VA Only) NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Armstrong Family Winery Syrah 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.87
+        }
+      ]
+    },
+    {
+      "batchNumber": 75,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Boxwood Ellie Bird Trellis (Private Label) 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Rioja Alta Ermita de San Felices Reserva 2009",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.78
+        },
+        {
+          "name": "Boplaas Gamka Red 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Mallorca Gallinas & Focas Red 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Southern Belle Poor Boy 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Beefsteak The Beast Red Blend 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Sutherland Sauvignon Blanc 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Martellotto M Chardonnay (Wine Club) 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Jeff Cohn Pure Yum Blend 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.97
+        },
+        {
+          "name": "Jean Leon La Scala Cabernet Sauvignon 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        }
+      ]
+    },
+    {
+      "batchNumber": 76,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Heron Hill Riesling Semi Sweet 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Conde Valdemar Tempranillo Blanco (Green Labels) 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Ribeiro Sameiras Blanco 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Mauro Molino Roero Arneis DOCG (Damaged Tops) 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Emek Reb Yose Capricorn Cabernet Sauvignon Mevushal (MD & DC)",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Weinrieder Weissburgunder 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Jeff Cohn Smoke & Mirrors Red Blend 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "O Leao Red Blend (DC-MD Only) 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Paso Robles Pomar Junction Grenache Blanc 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Dominique Portet Sauvignon Blanc 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "batchNumber": 77,
+      "success": 10,
+      "exactMatch": 9,
+      "fuzzyMatch": 1,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Domaine Chevallier Petit Chablis 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Domaine du Vieux College Marsannay Rouge Les Favieres 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Fledge and Co Riesling 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Zephaniah Adeline 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Southern Belle Semi Precious 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Dear Mom Sparkletown 187 ml",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.9
+        },
+        {
+          "name": "Priorat Trossos Lo Mon 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Cantina Fratelli Pardi Montefalco Rosso 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Galea Red Sangria NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Alella Marfil Classic 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        }
+      ]
+    },
+    {
+      "batchNumber": 78,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 79,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 80,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 81,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 82,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 83,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 84,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 85,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 86,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 87,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 88,
+      "success": 10,
+      "exactMatch": 9,
+      "fuzzyMatch": 1,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Maison Ventenac Cuvee Marie 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Tibouren Cotes de Provence 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Macauley Bacigalupi Chardonnay 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Adir Marselan",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Raywood Rose 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Poema Moncao Alvarinho Vinho Verde 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.89
+        },
+        {
+          "name": "Conde Valdemar La Gargantilla Garnacha 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        },
+        {
+          "name": "Seppeltsfield Grand Tawny 10yr NV",
+          "status": "fuzzy",
+          "matchType": "fuzzy",
+          "confidence": 0.94
+        },
+        {
+          "name": "Coste Caumartin 1er Cru Rouge Les Chouacheaux 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Raywood Chardonnay 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "batchNumber": 89,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Domaine du Joncier Regard 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Bodegas Gieco Familia Gieco Malbec 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.86
+        },
+        {
+          "name": "Wooden case for 1 bottle NV 2025086",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 1
+        },
+        {
+          "name": "Skylark Pinot Blanc 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Wine Kitchen WK White (COOKING WINE)",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 1
+        },
+        {
+          "name": "Barcelona Lolea Rose Sangria",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Ribeiro Sameiras Blanco COOKING wine 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 1
+        },
+        {
+          "name": "Oliver Viticultors Cava Brut Nature",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.93
+        },
+        {
+          "name": "Beefsteak Malbec 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Mauro Molino Barbera d'Alba 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.97
+        }
+      ]
+    },
+    {
+      "batchNumber": 90,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Bonelli Bonarda Amabile (Frizzante, Semi Sweet) Damaged Labels 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Well Crafted Prosecco Freschissimo Sample Bottle NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Rippa Dorii Salomon 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        },
+        {
+          "name": "Les Brebis Willamette Pinot Noir 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.89
+        },
+        {
+          "name": "Coelheira Red (WINE CLUB) 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.6
+        },
+        {
+          "name": "Chateau Maris Chardonnay 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Two Mountain Sauvignon Blanc 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Castoro Cellars Cabernet Sauvignon 375ml 2020  375 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.94
+        },
+        {
+          "name": "Zephaniah Adeline 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Lambert Estate A Thousand Words Chardonnay 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.86
+        }
+      ]
+    },
+    {
+      "batchNumber": 91,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 92,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 93,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 94,
+      "success": 0,
+      "exactMatch": 0,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 1,
+      "wines": []
+    },
+    {
+      "batchNumber": 95,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Chateau Jupille Carillon Saint Emilion 2016",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Jeff Cohn Cellars St Peters Church Zinfandel 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Abadia de Acon Roble 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Boplaas Alvarinho 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "High Camp Cabernet Sauvignon 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Chateau Maris Brama 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Free Spirits N/A Kentucky Mule Cans   250 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Gendraud Patrice Chablis Mevushal (MD & DC)",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Giustini Vecchio Sogno Negroamaro 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Chateau Jupille Carillon Saint Emilion 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "batchNumber": 96,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Aratas Napa Valley Petite Sirah 2010",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Oceano Zero Chardonnay 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Bacio Semi Sweet Red",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Getariako Txakolina Basa Lore Rose 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Macauley Cabernet Sauvignon To Kalon 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Heron Hill Riesling Classic Dry 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Shabo Original Cabernet Sauvignon 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Antonio Facchin Prosecco Extra Dry Mini   187 ml",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Shadowbox Sonoma County Outline Red Blend 2015",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Sky Devil Cabernet Sauvignon 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "batchNumber": 97,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Monte Real Gran Reserva 2005 2036046",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Reed Knife Edge Shiraz 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Bodegas Paco Garcia Seis 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.65
+        },
+        {
+          "name": "Mendoza Laderas del Valle Malbec 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Hendry Unoaked Chardonnay 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Calyptra Gran Reserva Pinot Noir 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Central Valley Banner Day Cabernet Sauvignon 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Rueda Heredad de Penalosa Verdejo 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Remhoogte Chronicle Cape Estate Blend  1.5 L 2014  1.5 l",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Boxwood Estate Boxwood Red 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        }
+      ]
+    },
+    {
+      "batchNumber": 98,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Endhardt Vineyards Chardonnay 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Saddleback Zinfandel 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Born Rose Sparkling 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Armstrong Family Winery Ebby James (Syrah) 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Zephaniah Chambourcin 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Hendry Pinot Noir Damaged Labels 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Giustini Avoglia Primitivo 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Alma do Mar Ruby Port Mevushal (MD & DC)",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Hendry Pinot Noir 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Colle Corviano Pecorino 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "batchNumber": 99,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Adir Dry Riesling Mevushal (MD & DC) 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Valdeorite Cava NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Raywood Sauvignon Blanc Keg 2022  20 l",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        },
+        {
+          "name": "Cantina Fratelli Pardi Grechetto 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Skylark Grenache 2014",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.85
+        },
+        {
+          "name": "Costers Del Segre Petit Sios Blanco 2024",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.92
+        },
+        {
+          "name": "Hertelendy Cabernet Franc 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Vins Mosbach Gewurztraminer 2023",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.78
+        },
+        {
+          "name": "Domaine Fevre Grand Cru Les Preuses 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.98
+        },
+        {
+          "name": "Chateau De Jonquieres Languedoc 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "batchNumber": 100,
+      "success": 10,
+      "exactMatch": 10,
+      "fuzzyMatch": 0,
+      "notFound": 0,
+      "errors": 0,
+      "wines": [
+        {
+          "name": "Noble Hill Sauvignon Blanc 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.75
+        },
+        {
+          "name": "Rigo Barbera 2017",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.7
+        },
+        {
+          "name": "Mauro Molino Barolo Gallinotto 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.95
+        },
+        {
+          "name": "Backsberg Sydney Back Chardonnay 2020",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.88
+        },
+        {
+          "name": "Les Brebis Ramato 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.72
+        },
+        {
+          "name": "Armstrong Family Winery Four Birds 2018",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.82
+        },
+        {
+          "name": "Mate Brunello di Montalcino 2019",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.96
+        },
+        {
+          "name": "Fledge and Co Red NV",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.74
+        },
+        {
+          "name": "Castoro Cellars Charbono 2022",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.9
+        },
+        {
+          "name": "Conde Villar Red 2021",
+          "status": "success",
+          "matchType": "exact",
+          "confidence": 0.8
+        }
+      ]
+    }
+  ]
+}

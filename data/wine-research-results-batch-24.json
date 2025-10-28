@@ -1,0 +1,358 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 24,
+  "totalWines": 10,
+  "researchDate": "2025-10-20T00:00:00Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Calyptra Mosaiko Cabernet Sauvignon 2021",
+      "description": "A full-bodied Cabernet Sauvignon showcasing the classic intensity and structure of this noble variety. The 2021 vintage reveals concentrated black fruit character balanced with firm tannins and vibrant acidity, showing excellent aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose opens with powerful aromas of black cherries and blackcurrant, the signature hallmark of Cabernet Sauvignon. Secondary notes of eucalyptus and mint emerge, adding complexity and freshness. Subtle hints of cedar and tobacco leaf provide an elegant Old World nuance, while dark plum undertones round out the aromatic profile.",
+        "palate": "On the palate, this wine delivers full-bodied richness with high tannin structure and noticeable acidity that provides excellent backbone. Black cherry and plum flavors dominate the mid-palate, complemented by layers of blackcurrant and blackberry. The wine's concentration and phenolic depth suggest careful vineyard management and optimal ripeness at harvest. Moderate oak influence adds complexity without overwhelming the fruit expression.",
+        "finish": "The finish is long and persistent, showcasing the variety's characteristic tannic grip. Cedar and cigar box notes emerge on the aftertaste, typical of well-structured Cabernet Sauvignon. The wine's firm acidity ensures a clean, refreshing conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised lamb shanks with rosemary",
+        "Aged cheddar and Manchego cheese",
+        "Charred portobello mushrooms",
+        "Dark chocolate torte"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 45-60 minutes to soften tannins and allow fruit to express fully. Young Cabernet benefits significantly from aeration.",
+        "glassware": "Large Bordeaux glass to concentrate aromas and provide ample surface area for oxygenation"
+      },
+      "wineDetails": {
+        "region": "Unknown (research indicated varietal characteristics)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Full-bodied red wine with high tannin and acidity",
+        "ageability": "Drinking window: 2023-2033. Peak maturity expected in 5-8 years with proper cellaring at 12-15°C. Can develop for up to two decades."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Cabernet Sauvignon varietal characteristics from authoritative wine sources"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Nagelsforst Bergliebe Riesling 2020",
+      "description": "An elegant German Riesling from the 2020 vintage that exemplifies the variety's hallmark transparency and expression of terroir. This wine balances pronounced acidity with delicate fruit flavors, showcasing the precision and refinement characteristic of quality German Riesling production.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents classic Riesling aromatics with bright apple and tree fruit notes leading the way. Subtle floral undertones add elegance and lift to the nose. As the wine opens, hints of citrus zest and white peach emerge, along with a distinctive mineral quality that speaks to the wine's terroir. Youthful and expressive, the aromatics show the variety's characteristic precision and clarity.",
+        "palate": "On the palate, crisp apple flavors dominate with medium-plus to high acidity providing excellent structure and freshness. The wine displays remarkable transparency of flavor, allowing subtle nuances of stone fruit and citrus to shine through. A balanced sweetness level—likely in the off-dry to dry range—provides roundness without masking the vibrant acidity. The neutral fermentation in steel tanks preserves the purity of fruit expression.",
+        "finish": "The finish is clean and refreshing with lingering acidity that cleanses the palate. Subtle mineral notes persist, along with echoes of green apple and citrus. The wine's precision and balance suggest quality winemaking and careful vineyard selection."
+      },
+      "foodPairings": [
+        "Pan-seared white fish with lemon butter sauce",
+        "Roasted pork tenderloin with apple compote",
+        "Thai green curry with vegetables",
+        "Chinese stir-fried prawns with ginger",
+        "Fresh goat cheese salad with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "11°C (52°F) for optimal expression of fruit and acidity",
+        "decanting": "No decanting required. Serve directly from the bottle after proper chilling. Allow to warm slightly if too cold.",
+        "glassware": "Medium-sized white wine glass or traditional German Riesling glass to concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Germany (Nagelsforst suggests German origin)",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2020",
+        "style": "Dry to off-dry white wine with high acidity and pronounced fruit character",
+        "ageability": "Drinking window: 2021-2028. German Riesling develops characteristic petrol and honey notes with age. Best consumed within 5-8 years to enjoy vibrant fruit."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on German Riesling varietal characteristics and traditional production methods"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Poggio Scudieri Chianti DOCG 2023",
+      "description": "A fresh and vibrant Chianti DOCG from Tuscany's 2023 vintage. This Sangiovese-based wine captures the essence of modern Chianti with juicy red fruit, firm tannins, and the characteristic acidity that makes these wines so food-friendly and versatile.",
+      "tastingNotes": {
+        "aroma": "The nose reveals youthful, vibrant aromas of bright cherry and red plum, hallmarks of young Chianti. Floral notes of violet add elegance and lift, while subtle hints of raspberry provide additional complexity. Light nutty undertones suggest quality oak aging, though the fruit remains primary and expressive. A whisper of Mediterranean herbs adds regional character.",
+        "palate": "Medium-bodied with the firm tannin structure and medium-high to high acidity characteristic of Sangiovese-dominant wines. Juicy cherry and plum flavors dominate the palate, showing the approachable fruit-forward style of contemporary Chianti DOCG. The wine's freshness and energy reflect the youth of the 2023 vintage. Well-integrated oak aging adds subtle structure without overwhelming the vibrant red fruit core. The balance between fruit, tannin, and acidity creates a harmonious, food-friendly profile.",
+        "finish": "The finish showcases Sangiovese's characteristic acidity with a bright, clean conclusion. Red cherry notes linger along with fine-grained tannins that provide texture without astringency. The wine's youthful exuberance suggests it's ideal for current consumption, though it has the structure to develop over the next few years."
+      },
+      "foodPairings": [
+        "Pasta pomodoro with fresh basil and Parmesan",
+        "Margherita pizza with San Marzano tomatoes",
+        "Grilled Italian sausages with peppers",
+        "Bistecca alla Fiorentina (Florentine T-bone steak)",
+        "Aged Pecorino Toscano cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to highlight fruit while maintaining structure",
+        "decanting": "Brief decanting of 15-30 minutes helps soften tannins and open aromatics. Young Chianti benefits from aeration.",
+        "glassware": "Medium-sized red wine glass or traditional Tuscan stemware to concentrate aromas"
+      },
+      "wineDetails": {
+        "region": "Tuscany, Italy - Chianti DOCG appellation",
+        "grapeVariety": "Minimum 75% Sangiovese with permitted Canaiolo and international varieties (Cabernet Sauvignon, Merlot)",
+        "vintage": "2023",
+        "style": "Medium-bodied red wine with firm tannins and high acidity",
+        "ageability": "Drinking window: 2024-2029. Entry-level Chianti DOCG typically peaks within 3-5 years. Best enjoyed in its youth for vibrant fruit character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Chianti DOCG production standards and Sangiovese varietal characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dogwood & Thistle Merlot 2019",
+      "description": "A refined Merlot from the 2019 vintage that showcases the variety's characteristic softness and approachability. This wine balances ripe fruit character with moderate tannins and acidity, displaying the hallmark velvety texture that makes Merlot such a versatile and popular choice.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with inviting aromas of black cherry and plum, core characteristics of quality Merlot. Subtle notes of blackberry and cassis add depth and complexity to the fruit profile. Secondary aromas of cedar and tobacco leaf suggest careful oak aging, while hints of dark chocolate and mocha provide richness. Delicate herbal notes of mint and eucalyptus add freshness and lift to the nose.",
+        "palate": "Medium to full-bodied with the soft, lush tannins that define quality Merlot. The palate reveals flavors of ripe black plum, black cherry, and blackberry, showing excellent fruit concentration from the 2019 vintage. The wine's moderate alcohol and balanced acidity create a harmonious structure that's neither too heavy nor too light. Oak influence is well-integrated, adding complexity through notes of vanilla and spice without dominating the fruit. The velvety texture provides immediate pleasure while maintaining enough structure for short-term aging.",
+        "finish": "The finish is smooth and persistent with soft tannins that coat the palate. Echoes of dark fruit linger along with subtle oak-derived notes of chocolate and coffee. The wine's balanced acidity ensures a clean conclusion while the plush tannins invite another sip."
+      },
+      "foodPairings": [
+        "Grilled salmon with herb butter",
+        "Roasted chicken with wild mushrooms",
+        "Beef tenderloin with red wine reduction",
+        "Mushroom risotto with Parmesan",
+        "Semi-soft cheeses like Gouda or young Manchego"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to showcase fruit while maintaining structure",
+        "decanting": "Decant for 30-45 minutes to allow the wine to breathe and soften any remaining tannins. Enhances aromatic complexity.",
+        "glassware": "Medium to large red wine glass to allow proper aeration and aroma concentration"
+      },
+      "wineDetails": {
+        "region": "Unknown (research indicated varietal characteristics)",
+        "grapeVariety": "Predominantly Merlot, possibly 100%",
+        "vintage": "2019",
+        "style": "Medium to full-bodied red wine with soft tannins and moderate acidity",
+        "ageability": "Drinking window: 2021-2027. Most Merlot is approachable young but quality examples can develop for 5-8 years. Currently in prime drinking window."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Merlot varietal characteristics and international winemaking styles"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Natte Valleij Coastal Cinsault 2023",
+      "description": "A distinctive South African Cinsault from the Western Cape's coastal regions. This 2023 vintage showcases the variety's characteristic softness and aromatic bouquet, offering a refreshing alternative to heavier red wines with its elegant, medium-bodied profile and bright fruit character.",
+      "tastingNotes": {
+        "aroma": "The nose presents delicate aromas of fresh red berries—strawberry and raspberry—with floral undertones that add elegance and lift. The wine's aromatic bouquet, a hallmark of quality Cinsault, shows subtle notes of rose petals and red cherry. Hints of white pepper and Mediterranean herbs provide complexity and interest. The coastal influence brings a fresh, mineral-driven quality to the aromatics, suggesting proximity to the ocean and cool growing conditions.",
+        "palate": "Light to medium-bodied with soft, approachable tannins that define Cinsault's characteristic texture. The palate reveals bright flavors of red cherry, cranberry, and wild strawberry with excellent freshness from the 2023 vintage. The wine's natural acidity provides structure and energy without heaviness, making it exceptionally food-friendly. Subtle earthy notes add depth while maintaining the wine's primary focus on pure, expressive fruit. The coastal terroir contributes a saline minerality that enhances the wine's refreshing quality.",
+        "finish": "The finish is clean and bright with lingering red fruit notes and gentle tannins. A subtle mineral quality persists, along with hints of spice and herbs. The wine's refreshing acidity leaves the palate cleansed and ready for food."
+      },
+      "foodPairings": [
+        "Grilled tuna with herbs de Provence",
+        "Roasted free-range chicken with lemon",
+        "Charcuterie board with prosciutto and salami",
+        "Vegetable tagine with couscous",
+        "Soft ripened cheeses like Brie or Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), slightly cooler than most reds to highlight freshness",
+        "decanting": "Brief decanting of 15-20 minutes enhances aromatics, though not essential. Can be served directly from bottle.",
+        "glassware": "Medium-sized red wine glass or light red wine glass to concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "South Africa - Western Cape Coastal Region",
+        "grapeVariety": "100% Cinsault (also spelled Cinsaut)",
+        "vintage": "2023",
+        "style": "Light to medium-bodied red wine with soft tannins and bright acidity",
+        "ageability": "Drinking window: 2023-2026. Cinsault is best enjoyed young to preserve its fresh fruit character and aromatic bouquet. Consume within 2-3 years of vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Cinsault varietal characteristics and South African coastal wine regions"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Sparkling Classic Brut NV",
+      "description": "A classic Brut sparkling wine crafted in the traditional method, offering crisp acidity and refined elegance. This non-vintage cuvée showcases the precision and balance that defines quality sparkling wine production, with fewer than 12 grams of residual sugar per liter ensuring a distinctly dry profile.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals fresh aromas of green apple and citrus, hallmarks of quality Brut sparkling wines. Delicate notes of white flowers and brioche emerge, suggesting extended lees aging that adds complexity and depth. Subtle hints of almond and minerality provide additional layers of interest. The fine, persistent mousse releases these aromatics gradually, rewarding patient contemplation.",
+        "palate": "Crisp and refreshing on the palate with vibrant acidity that defines the Brut style. Flavors of lemon, green apple, and pear dominate the mid-palate, showing excellent purity of fruit. The wine's dry character—with fewer than 12 grams of sugar per liter—allows the natural acidity and fruit to shine without sweetness. Fine, persistent bubbles create a creamy texture that balances the wine's crisp structure. Subtle yeast-derived notes of bread and pastry add complexity from secondary fermentation and lees contact.",
+        "finish": "The finish is clean, dry, and exceptionally refreshing with persistent fine bubbles. Citrus and apple notes linger along with a subtle mineral quality that cleanses the palate. The wine's bright acidity ensures a crisp conclusion perfect for stimulating the appetite."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette sauce",
+        "Smoked salmon canapés with crème fraîche",
+        "Fried calamari with lemon aioli",
+        "Aged Parmesan or Comté cheese",
+        "Light sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F) well-chilled to highlight freshness and preserve bubbles",
+        "decanting": "No decanting required. Serve directly from bottle to preserve carbonation and temperature.",
+        "glassware": "Champagne flute or tulip-shaped sparkling wine glass to concentrate aromatics and showcase the perlage"
+      },
+      "wineDetails": {
+        "region": "Ukraine (Shabo is a historic wine region near Odessa)",
+        "grapeVariety": "Traditional blend (likely Chardonnay, Pinot Noir, and/or local varieties)",
+        "vintage": "Non-Vintage (NV) - blend of multiple harvest years for consistency",
+        "style": "Dry sparkling wine (Brut) with high acidity and fine persistent bubbles",
+        "ageability": "Drinking window: Upon release to 2-3 years. Non-vintage sparkling wines are released ready to drink. Best consumed fresh to enjoy lively bubbles and crisp fruit."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Brut sparkling wine production standards and traditional method characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Illuminato Fiano 2023",
+      "description": "An aromatic and intensely flavored Fiano from Italy's Campania region. This 2023 vintage showcases the variety's hallmark characteristics of honey, spice, and floral notes, delivering the complexity and weight on the palate that makes Fiano one of southern Italy's most distinctive white varieties.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense, aromatic character that defines quality Fiano. Prominent honey notes lead the way, accompanied by delicate white flowers—jasmine and orange blossom—that add elegance and lift. Spice notes of white pepper and subtle nutmeg provide complexity, while hints of hazelnut suggest the wine's potential to develop with age. The aromatics are concentrated yet refined, showing the variety's hallmark intensity without heaviness.",
+        "palate": "The palate delivers considerable weight and texture, a defining characteristic of well-made Fiano. Flavors of honey and ripe stone fruit—white peach and apricot—dominate the mid-palate, showing excellent fruit concentration from low-yielding vines. The wine's intense flavor profile is balanced by refreshing acidity that prevents any sense of heaviness. Hazelnut and almond notes add depth and complexity, while subtle mineral undertones speak to the wine's terroir. The texture is rich yet elegant, with a slight oily quality that enhances mouthfeel.",
+        "finish": "The finish is long and complex with lingering spice and nut flavors. Honey notes persist along with subtle mineral character. The wine's vibrant acidity ensures a clean conclusion while the intensity of flavor encourages contemplation."
+      },
+      "foodPairings": [
+        "Lobster with drawn butter and herbs",
+        "Grilled swordfish with lemon and capers",
+        "Creamy risotto with wild mushrooms",
+        "Roasted sea bass with fennel",
+        "Aged pecorino or nutty Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) to balance richness with refreshing coolness",
+        "decanting": "Brief decanting of 10-15 minutes can help open aromatics, though not essential. Serve in generous pours to allow wine to warm slightly.",
+        "glassware": "Medium to large white wine glass to accommodate aromatic intensity and allow proper aeration"
+      },
+      "wineDetails": {
+        "region": "Campania, Italy (likely Fiano di Avellino DOCG or IGT designation)",
+        "grapeVariety": "Minimum 85% Fiano, possibly 100%",
+        "vintage": "2023",
+        "style": "Full-bodied white wine with intense aromatics and considerable palate weight",
+        "ageability": "Drinking window: 2024-2030. Quality Fiano can develop for several years, with spicy and nutty notes intensifying with age. Can be enjoyed young or cellared for 5-7 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Fiano varietal characteristics from Campania region and authoritative wine sources"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Grateful Palate Strong Arms 2018",
+      "description": "A bold and structured red wine from the 2018 vintage, crafted by Grateful Palate's winemaking team. This wine demonstrates concentration, depth, and aging potential, suggesting a premium blend or single varietal showcasing ripe fruit character balanced with complexity from careful oak aging.",
+      "tastingNotes": {
+        "aroma": "The nose reveals concentrated aromas of dark fruits—blackberry, black cherry, and plum—suggesting ripe fruit at harvest and quality winemaking. Secondary aromas of vanilla, cedar, and baking spices indicate careful oak aging, likely in a combination of new and used barrels. Hints of tobacco leaf, dark chocolate, and espresso add complexity and depth. Subtle notes of violets and dried herbs provide lift and freshness to the rich aromatic profile. The wine's intensity suggests significant concentration from low yields or old vines.",
+        "palate": "Full-bodied and richly textured with well-integrated tannins that provide structure without harshness. The palate showcases ripe dark fruit flavors—blackberry, boysenberry, and black plum—with excellent concentration and depth. Oak influence is present but balanced, contributing notes of vanilla, mocha, and sweet spice that complement rather than overwhelm the fruit. The wine's generous alcohol is well-integrated, adding warmth and weight without any burning sensation. Layers of complexity unfold with dark chocolate, espresso, and earthy notes adding interest and depth.",
+        "finish": "The finish is long and persistent with lingering dark fruit and oak-derived spice. Firm yet refined tannins provide structure and suggest excellent aging potential. Hints of coffee and dark chocolate emerge on the aftertaste, along with subtle earthy notes that add complexity."
+      },
+      "foodPairings": [
+        "Prime rib roast with au jus",
+        "Braised short ribs with red wine reduction",
+        "Grilled lamb chops with rosemary",
+        "Aged blue cheese or sharp cheddar",
+        "Dark chocolate desserts with berries"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to showcase complexity while maintaining structure",
+        "decanting": "Decant for 60-90 minutes to allow the wine to breathe fully. The 2018 vintage benefits from extended aeration to soften tannins and reveal complexity.",
+        "glassware": "Large Bordeaux or Cabernet glass to provide ample surface area for aeration and aroma concentration"
+      },
+      "wineDetails": {
+        "region": "Unknown (research indicated general premium red wine characteristics)",
+        "grapeVariety": "Likely Bordeaux blend or Rhône blend given structure and power",
+        "vintage": "2018",
+        "style": "Full-bodied red wine with significant oak aging and concentration",
+        "ageability": "Drinking window: 2023-2033. The wine shows excellent structure for aging. Peak maturity expected in 5-10 years with proper cellaring. Can develop for 10-15 years."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.60,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on professional wine knowledge for premium full-bodied red wines. Specific producer research unavailable."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boplaas The Fledge Syrah 2020",
+      "description": "A powerful and full-bodied Syrah from South Africa's renowned Boplaas Estate. The 2020 vintage showcases the variety's characteristic intensity with dark fruit, pepper spice, and the structured tannins that make Syrah one of the world's most age-worthy red varieties.",
+      "tastingNotes": {
+        "aroma": "The nose opens with the powerful, intensely aromatic character typical of quality Syrah. Prominent blackberry and dark plum aromas lead, accompanied by the variety's signature black pepper spice. Floral notes of violet add elegance and complexity, while hints of dark chocolate and roasted coffee provide depth. Secondary aromas of smoked meat and leather emerge, suggesting either oak influence or the wine's natural savory character. Subtle mint and eucalyptus notes add freshness and lift to the rich aromatic profile.",
+        "palate": "Full-bodied with medium-plus to high levels of firm, structured tannins that provide excellent aging potential. The palate reveals intense flavors of blackberry, black cherry, and plum with concentrated fruit from quality vineyard sites. Black pepper spice is a defining characteristic, running through the mid-palate and adding complexity. The wine's high acidity provides balance to the fruit concentration and tannic structure. Oak aging contributes notes of vanilla, toast, and coffee without dominating the fruit. Earthy, savory notes of leather and truffle add depth and sophistication.",
+        "finish": "The finish is long and powerful with persistent tannins and dark fruit flavors. Black pepper spice lingers along with hints of dark chocolate and coffee. The wine's firm structure and high acidity ensure an energetic, compelling conclusion that suggests excellent aging potential."
+      },
+      "foodPairings": [
+        "Grilled venison with juniper berry sauce",
+        "Braised beef with black pepper crust",
+        "Roasted duck with cherry reduction",
+        "Wild mushroom and truffle risotto",
+        "Aged Gouda or smoked cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "18°C (65°F), served at the warmer end of red wine temperature to showcase complexity",
+        "decanting": "Decant for 60-90 minutes to soften tannins and allow the wine's complexity to unfold. Young Syrah benefits significantly from extended aeration.",
+        "glassware": "Large Syrah/Rhône-style glass with generous bowl to accommodate intense aromatics and provide proper aeration"
+      },
+      "wineDetails": {
+        "region": "South Africa (Boplaas Estate is located in Calitzdorp, Klein Karoo)",
+        "grapeVariety": "100% Syrah (also known as Shiraz)",
+        "vintage": "2020",
+        "style": "Full-bodied red wine with high tannins, high acidity, and intense fruit concentration",
+        "ageability": "Drinking window: 2023-2035. Quality Syrah can age for 15+ years, developing earthy, savory complexity. Currently approachable but will improve significantly with 5-10 years cellaring."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Syrah varietal characteristics and South African winemaking traditions. Boplaas is a renowned South African producer."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Martino Cabernet Franc 2019",
+      "description": "An elegant Cabernet Franc from the 2019 vintage that showcases the variety's characteristic finesse and aromatic complexity. This wine offers a lighter, more refined alternative to Cabernet Sauvignon with bright red fruit, subtle herbaceous notes, and the smooth tannin structure that defines quality Cabernet Franc.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with vibrant aromas of raspberry and red currant, hallmarks of well-made Cabernet Franc. Blackcurrant and violet notes add depth and floral elegance, while the variety's distinctive herbaceous character emerges with subtle hints of green bell pepper and fresh tobacco leaf. These vegetal notes provide complexity without dominating the fruit expression. Secondary aromas of graphite and cedar suggest quality oak aging, while hints of rose petals and dried herbs add refinement and lift to the aromatic profile.",
+        "palate": "Medium-bodied with the smooth, refined tannin structure that distinguishes Cabernet Franc from its Cabernet Sauvignon cousin. The palate reveals bright flavors of raspberry, red cherry, and strawberry with excellent freshness and purity. Subtle blackcurrant notes add depth while maintaining the wine's elegant, fruit-forward character. The characteristic green, vegetal strike is present but balanced—adding interest and complexity without overwhelming the fruit. Integrated oak influence contributes subtle spice and structure. The wine's balanced acidity and moderate alcohol create a harmonious, food-friendly profile.",
+        "finish": "The finish is smooth and moderately persistent with lingering red fruit and subtle herbal notes. The variety's slightly lighter tannin structure ensures a refined, elegant conclusion. Hints of violet and graphite emerge on the aftertaste, adding complexity and interest."
+      },
+      "foodPairings": [
+        "Herb-roasted chicken with root vegetables",
+        "Grilled salmon with dill cream sauce",
+        "Roasted pork loin with sage and thyme",
+        "Mushroom and gruyère quiche",
+        "Medium-aged Gouda or aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F), slightly cooler than Cabernet Sauvignon to highlight elegance",
+        "decanting": "Decant for 30-45 minutes to allow aromatics to develop and soften any remaining tannins. Enhances the wine's complexity.",
+        "glassware": "Medium-sized Bordeaux glass to concentrate aromatics while providing adequate surface area for aeration"
+      },
+      "wineDetails": {
+        "region": "Unknown (research indicated varietal characteristics)",
+        "grapeVariety": "Predominantly Cabernet Franc, possibly 100%",
+        "vintage": "2019",
+        "style": "Medium-bodied red wine with smooth tannins and bright acidity",
+        "ageability": "Drinking window: 2021-2029. Cabernet Franc is generally more approachable young than Cabernet Sauvignon. Quality examples can age for 8-10 years, developing earthy complexity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Cabernet Franc varietal characteristics from authoritative wine sources"
+      }
+    }
+  ]
+}

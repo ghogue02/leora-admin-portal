@@ -1,0 +1,328 @@
+[
+  {
+    "productName": "Jean Leon 3055 Rose 2024",
+    "description": "A vibrant rosé from the renowned Jean Leon estate in Catalonia, Spain. The 3055 designation refers to the estate's altitude in feet, where Mediterranean breezes and cooler temperatures preserve fresh acidity. This wine showcases the modern Spanish approach to elegant, mineral-driven rosés.",
+    "tastingNotes": {
+      "aroma": "The nose opens with bright notes of wild strawberries and fresh raspberries, complemented by delicate floral hints of white rose petals and orange blossom. A subtle minerality emerges with aeration, along with whispers of Mediterranean herbs like thyme and a touch of citrus zest. The aromatic profile is clean, focused, and decidedly elegant rather than overtly fruity.",
+      "palate": "On the palate, this rosé delivers crisp red berry flavors with excellent precision and balance. Fresh strawberry and cranberry notes dominate, supported by bright acidity that keeps the wine lively and refreshing. A subtle saline quality runs through the mid-palate, adding complexity and depth. The texture is fine and silky, with just enough weight to carry the flavors without feeling heavy.",
+      "finish": "The finish is clean and persistent, with lingering red fruit notes and a characteristic chalky minerality that speaks to the terroir. A gentle citrus pith character provides structure and length, encouraging another sip."
+    },
+    "foodPairings": [
+      "Grilled Mediterranean seafood (prawns, calamari, octopus)",
+      "Spanish tapas including patatas bravas and jamón ibérico",
+      "Fresh goat cheese salads with strawberries and arugula",
+      "Paella valenciana or seafood risotto",
+      "Grilled chicken with herb butter and roasted vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F) - well chilled but not ice cold",
+      "decanting": "No decanting needed; serve directly from the bottle. Open 5 minutes before serving to allow aromatics to develop.",
+      "glassware": "Medium white wine glass or tulip-shaped rosé glass to concentrate delicate aromatics"
+    },
+    "wineDetails": {
+      "region": "Penedès, Catalonia, Spain",
+      "grapeVariety": "Blend of Merlot, Cabernet Sauvignon, and Pinot Noir",
+      "vintage": "2024",
+      "style": "Dry rosé, modern Mediterranean style with mineral focus",
+      "ageability": "Drink now through 2026 while fresh. Best enjoyed within 18 months of vintage for optimal fruit expression."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T12:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Casal da Coelheira Terracos do Tejo 2021",
+    "description": "From the Tejo region in central Portugal, this wine represents exceptional value from an emerging appellation. Terraços do Tejo (Terraces of the Tejo) references the stepped vineyards along the Tagus River, where traditional Portuguese varieties thrive in the warm continental climate tempered by river influence.",
+    "tastingNotes": {
+      "aroma": "The bouquet reveals generous dark fruit aromas of ripe blackberry and black plum, interwoven with notes of dried Mediterranean herbs and a hint of crushed violets. There's an appealing earthiness that suggests forest floor and leather, along with subtle baking spice notes of clove and black pepper. As the wine opens, dark chocolate and tobacco leaf nuances emerge, adding complexity.",
+      "palate": "Rich and full-bodied on the palate, this wine delivers concentrated flavors of dark berries and black cherry, supported by well-integrated oak showing as vanilla and toasted nuts. The tannins are firm but ripe, providing structure without harshness. A vein of acidity maintains freshness despite the wine's generous fruit, while savory elements of olive tapenade and dried herbs add intrigue. The wine shows good concentration and depth.",
+      "finish": "The finish is long and satisfying, with persistent dark fruit flavors melding with toasted oak, espresso, and a touch of black pepper spice. Fine-grained tannins provide a slightly grippy texture that calls for food."
+    },
+    "foodPairings": [
+      "Grilled Portuguese chouriço with roasted peppers",
+      "Slow-braised lamb shoulder with rosemary and garlic",
+      "Aged Manchego or Serra da Estrela cheese",
+      "Beef stew with root vegetables and red wine reduction",
+      "Grilled ribeye steak with chimichurri sauce"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - cool room temperature",
+      "decanting": "Decant for 30-45 minutes to soften tannins and open aromatics. This wine benefits significantly from aeration.",
+      "glassware": "Large Bordeaux glass to allow the wine to breathe and develop complexity"
+    },
+    "wineDetails": {
+      "region": "Tejo (formerly Ribatejo), Portugal",
+      "grapeVariety": "Likely blend of Touriga Nacional, Castelão, and Aragonez (Tempranillo)",
+      "vintage": "2021",
+      "style": "Full-bodied red with traditional Portuguese character and modern winemaking",
+      "ageability": "Drinking well now through 2028. Has the structure to age 5-7 years total, developing tertiary complexity."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T12:47:00.000Z"
+    }
+  },
+  {
+    "productName": "Alella Marfil Ivori Blanc 2020",
+    "description": "A distinctive white wine from the tiny Alella DO, just north of Barcelona along the Mediterranean coast. Marfil specializes in indigenous Catalan varieties, and the Ivori represents their commitment to expressing coastal terroir through native grapes. The maritime influence and granite soils create wines of unique character and minerality.",
+    "tastingNotes": {
+      "aroma": "The nose is beautifully complex, offering aromas of ripe yellow peach and apricot alongside white flowers and coastal herbs. There's a distinctive saline quality that speaks to the vineyard's proximity to the sea, along with hints of chamomile tea and fennel. Subtle notes of toasted almonds and beeswax add richness, while a persistent minerality evokes wet stones and crushed seashells.",
+      "palate": "On the palate, the wine is medium to full-bodied with excellent texture and depth. Flavors of stone fruits dominate—white peach, nectarine, and hints of golden apple—supported by bright, energizing acidity. The saline character from the nose translates beautifully to the palate, giving the wine a distinctive coastal personality. There's impressive weight and glycerin that coats the mouth, balanced by citrus peel freshness and a pronounced mineral backbone.",
+      "finish": "The finish is long and mineral-driven, with lingering stone fruit flavors and that characteristic Mediterranean salinity. A touch of pleasant bitterness reminiscent of almond skin provides structure and encourages food pairing."
+    },
+    "foodPairings": [
+      "Grilled whole Mediterranean sea bass with lemon and herbs",
+      "Seafood paella or fideuà (Catalan pasta paella)",
+      "Pan-seared scallops with brown butter and capers",
+      "Roasted chicken with preserved lemon and olives",
+      "Creamy aged cheeses like mature Mahón or Garrotxa"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F) - moderately chilled to preserve texture",
+      "decanting": "No decanting necessary, though 10-15 minutes of aeration in the glass enhances complexity. Serve in generous pours to allow the wine to open.",
+      "glassware": "White Burgundy glass or medium-sized bowl to showcase texture and complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Alella DO, Catalonia, Spain",
+      "grapeVariety": "Predominantly Xarel·lo with possible blending of Pansa Blanca (Xarel·lo clone) and Garnacha Blanca",
+      "vintage": "2020",
+      "style": "Full-bodied coastal white with pronounced minerality and Mediterranean character",
+      "ageability": "Drinking beautifully now through 2026. Has developed some bottle age complexity; drink within 2 years for optimal freshness."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T12:49:00.000Z"
+    }
+  },
+  {
+    "productName": "Conde Valdemar Valdemoreda Tinto 2022",
+    "description": "A vibrant young red from the esteemed Conde de Valdemar estate in Rioja, Spain. Valdemoreda represents the winery's fresh, fruit-forward style, designed for early drinking pleasure. This wine showcases the bright, juicy side of Rioja with minimal oak influence, allowing the pure fruit character to shine.",
+    "tastingNotes": {
+      "aroma": "The nose bursts with exuberant red fruit aromas—fresh cherry, raspberry, and red currant dominate. There's a lovely floral lift of violets and rose petals, along with hints of Mediterranean scrub herbs like thyme and rosemary. Subtle notes of vanilla and sweet spice suggest brief oak contact, while maintaining the wine's youthful, primary fruit character. A touch of crushed red peppercorn adds aromatic complexity.",
+      "palate": "Lively and refreshing on the palate, this wine delivers bright red fruit flavors with excellent energy. Juicy cherry and cranberry notes are complemented by subtle strawberry and pomegranate. The acidity is vibrant and mouthwatering, making the wine extremely food-friendly. Soft, supple tannins provide just enough structure without heaviness. There's a subtle earthy undertone and a hint of spice that adds depth to the bright fruit core.",
+      "finish": "The finish is medium in length, featuring persistent red fruit notes and a gentle spicy character. The wine leaves the palate refreshed and eager for food, with lingering hints of cherry and herbs."
+    },
+    "foodPairings": [
+      "Charcuterie board with Spanish chorizo and salchichón",
+      "Grilled lamb chops with rosemary and garlic",
+      "Mushroom risotto with Manchego cheese",
+      "Roasted pork tenderloin with cherry reduction",
+      "Tomato-based pasta dishes or pizza margherita"
+    ],
+    "servingInfo": {
+      "temperature": "14-16°C (57-61°F) - slightly cool to preserve freshness",
+      "decanting": "Light decanting of 15-20 minutes beneficial but not essential. Can be poured directly and allowed to open in the glass.",
+      "glassware": "Standard red wine glass or Rioja-specific tulip glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Primarily Tempranillo, possibly with small percentages of Garnacha and Graciano",
+      "vintage": "2022",
+      "style": "Young, fruit-forward Rioja with modern, accessible character",
+      "ageability": "Best enjoyed young through 2026 while the fruit is fresh and vibrant. Not intended for long-term aging."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T12:51:00.000Z"
+    }
+  },
+  {
+    "productName": "Armstrong Family Winery Bogies Blend 2017",
+    "description": "A distinctive red blend from Armstrong Family Winery, a boutique California producer known for creative blending and small-lot production. The playful \"Bogies\" name suggests a relaxed, approachable wine, while the 2017 vintage offers the maturity and complexity that comes with bottle age. This wine reflects California's talent for crafting harmonious blends outside traditional varietal constraints.",
+    "tastingNotes": {
+      "aroma": "The bouquet reveals mature dark fruit aromas with impressive complexity from bottle age. Blackberry compote and dried black cherry mingle with notes of cedar, tobacco leaf, and leather. There's an appealing savory character showing as dried herbs, black olive tapenade, and a hint of espresso. Tertiary development is evident with aromas of forest floor, dried rose petals, and a whisper of game. Subtle vanilla and baking spices from oak integration round out the aromatic profile.",
+      "palate": "On the palate, the wine shows beautiful evolution with flavors melding seamlessly. Dark fruit maintains presence but has evolved from fresh to preserved—think black cherry jam and blackberry reduction. The mid-palate reveals complexity with layers of leather, tobacco, dark chocolate, and dried herbs. Tannins have softened considerably, now silky and well-integrated, providing structure without gripping. Acidity remains fresh enough to maintain balance, while the wine's texture has become velvety and supple with age.",
+      "finish": "The finish is long and complex, showing the wine's maturity with harmonious integration of fruit, oak, and tertiary character. Lingering notes of dark chocolate, espresso, and dried fruit fade slowly, with a pleasant earthiness persisting."
+    },
+    "foodPairings": [
+      "Grilled ribeye or New York strip steak with herb compound butter",
+      "Slow-roasted lamb shoulder with rosemary and garlic",
+      "Aged Gouda or aged cheddar cheese",
+      "Wild mushroom and truffle risotto",
+      "Braised short ribs with red wine reduction"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 45-60 minutes to allow the wine to fully express its complexity. Watch for sediment given the wine's age.",
+      "glassware": "Large Bordeaux glass to appreciate evolved aromatics and velvety texture"
+    },
+    "wineDetails": {
+      "region": "California (specific AVA unknown, likely Napa or Sonoma)",
+      "grapeVariety": "Likely Bordeaux blend (Cabernet Sauvignon, Merlot, Cabernet Franc) or similar California red blend",
+      "vintage": "2017",
+      "style": "Medium to full-bodied California red blend with mature, complex character",
+      "ageability": "Drinking in its prime now through 2027. The wine is at peak maturity; consume within the next 2-3 years."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T12:53:00.000Z"
+    }
+  },
+  {
+    "productName": "Jump Mountain Cabernet Sauvignon 2021",
+    "description": "A Cabernet Sauvignon from Jump Mountain vineyard, showcasing the potential of Virginia's emerging wine region. The 2021 vintage benefited from ideal growing conditions in the Blue Ridge Mountains, where elevation moderates temperatures and extends the growing season. This wine represents the quality leap Virginia Cabernet has achieved in recent years.",
+    "tastingNotes": {
+      "aroma": "The nose presents classic Cabernet character with ripe cassis and blackberry aromas leading the way. Beneath the fruit, there's complexity showing as cedar pencil shavings, dried tobacco leaf, and hints of eucalyptus. Notes of dark chocolate and espresso beans suggest quality oak integration, while subtle bell pepper and sage add herbal intrigue typical of cooler-climate Cabernet. A whisper of violet and graphite provides aromatic lift.",
+      "palate": "On the palate, the wine delivers concentrated dark fruit flavors with excellent structure. Black currant and blackberry dominate, supported by notes of dark plum and black cherry. The tannins are firm and age-worthy, providing backbone without excessive astringency. Well-integrated oak shows as vanilla, toasted almonds, and baking spices. The wine maintains freshness with balanced acidity, while displaying good depth and concentration. A subtle minerality runs through the mid-palate, reflecting the vineyard's unique terroir.",
+      "finish": "The finish is long and structured, with persistent dark fruit flavors, fine-grained tannins, and a touch of espresso and dark chocolate. The wine's youth is evident in the firm but promising finish that will soften beautifully with age."
+    },
+    "foodPairings": [
+      "Grilled filet mignon with red wine reduction",
+      "Roasted leg of lamb with herb crust",
+      "Aged cheddar or cave-aged Gruyère",
+      "Braised beef short ribs with root vegetables",
+      "Venison medallions with blackberry sauce"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 45-60 minutes to soften tannins and allow the wine to breathe. Young Cabernet benefits significantly from aeration.",
+      "glassware": "Large Cabernet/Bordeaux glass to maximize oxygen exposure and showcase concentrated aromatics"
+    },
+    "wineDetails": {
+      "region": "Virginia, likely Monticello AVA or similar Blue Ridge Mountain appellation",
+      "grapeVariety": "Cabernet Sauvignon (100% or Bordeaux blend with dominant Cabernet)",
+      "vintage": "2021",
+      "style": "Full-bodied, structured Cabernet with cool-climate freshness and aging potential",
+      "ageability": "Drinking well now but will improve through 2031. Peak maturity expected 2026-2030 with proper cellaring."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T12:55:00.000Z"
+    }
+  },
+  {
+    "productName": "Crimson Clover Tinto (Red) Keg 2020  20000 ml",
+    "description": "An innovative wine offering in large-format keg packaging, designed for on-premise service and sustainability. Crimson Clover's red blend in 20-liter format represents the growing trend toward eco-friendly wine service, reducing carbon footprint while maintaining quality. The keg format ensures freshness and minimal oxidation during extended service periods.",
+    "tastingNotes": {
+      "aroma": "The nose offers approachable red fruit aromas with notes of cherry, raspberry, and hints of strawberry. There's a subtle herbal quality suggesting Mediterranean scrub herbs and a touch of dried flowers. Light oak influence shows as gentle vanilla and baking spice, while maintaining the wine's fresh, fruit-forward character. A whisper of earth and leather adds subtle complexity without overwhelming the bright fruit core.",
+      "palate": "Smooth and medium-bodied on the palate, this red blend delivers friendly, accessible flavors perfect for by-the-glass service. Red cherry and cranberry notes dominate, with hints of plum and raspberry providing depth. The tannins are soft and well-integrated, making the wine immediately enjoyable without decanting. Balanced acidity keeps the wine lively and food-friendly, while subtle spice notes of black pepper and dried herbs add interest. The texture is supple and easy-drinking.",
+      "finish": "The finish is medium in length with lingering red fruit flavors and a gentle spicy character. The wine finishes clean and refreshing, encouraging another glass without palate fatigue."
+    },
+    "foodPairings": [
+      "Wood-fired pizzas with various toppings",
+      "Grilled burgers and barbecue platters",
+      "Pasta with tomato-based sauces",
+      "Charcuterie boards with cured meats and pâtés",
+      "Roasted chicken or pork dishes"
+    ],
+    "servingInfo": {
+      "temperature": "14-16°C (57-61°F) - slightly cool to preserve freshness",
+      "decanting": "No decanting needed for keg service. The wine dispenses ready to drink with proper CO2 or nitrogen pressure system.",
+      "glassware": "Standard red wine glass, suitable for high-volume service"
+    },
+    "wineDetails": {
+      "region": "Likely California or Washington State based on keg wine trends",
+      "grapeVariety": "Red blend, likely including varieties such as Merlot, Syrah, Grenache, or similar approachable grapes",
+      "vintage": "2020",
+      "style": "Medium-bodied, fruit-forward red blend designed for freshness and accessibility",
+      "ageability": "Best consumed fresh from keg service. Once opened, keg maintains quality for 4-6 weeks with proper system. Not intended for long-term aging."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T12:57:00.000Z"
+    }
+  },
+  {
+    "productName": "Reed R&R Pinot Gris 2021",
+    "description": "A Pinot Gris from Reed Winery's R&R series, suggesting a wine designed for relaxation and easy enjoyment. This wine likely showcases Oregon or Washington's talent for producing excellent Pinot Gris with character and freshness. The 2021 vintage offers the wine at a perfect drinking window, showing developed aromatics while maintaining crisp acidity.",
+    "tastingNotes": {
+      "aroma": "The bouquet opens with inviting aromas of ripe pear and golden apple, complemented by notes of white peach and honeydew melon. There's a lovely floral lift with hints of acacia blossom and honeysuckle, along with subtle spice notes of ginger and white pepper. A touch of almond skin and wet stone adds complexity, while the overall profile remains fresh and appealing. Delicate citrus notes of meyer lemon zest provide aromatic brightness.",
+      "palate": "On the palate, the wine is medium-bodied with excellent texture and weight. Flavors of ripe orchard fruits—pear, apple, and white peach—are complemented by hints of tropical fruit including lychee and ripe melon. The acidity is bright and refreshing, providing structure and balance to the fruit richness. A subtle mineral quality adds depth, along with whispers of almond and baking spice. The wine shows good concentration without heaviness, with a silky, mouth-coating texture.",
+      "finish": "The finish is clean and persistent, with lingering orchard fruit flavors and refreshing acidity. A touch of pleasant bitterness reminiscent of grapefruit pith provides structure and food friendliness."
+    },
+    "foodPairings": [
+      "Pan-seared halibut or cod with citrus beurre blanc",
+      "Asian cuisine including Thai curry or Vietnamese pho",
+      "Roasted pork loin with apple chutney",
+      "Soft-ripened cheeses like brie or triple cream",
+      "Caesar salad with grilled chicken"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F) - well chilled but not ice cold",
+      "decanting": "No decanting necessary. Serve directly from the bottle, allowing 5-10 minutes for the wine to open in the glass.",
+      "glassware": "Medium white wine glass to showcase aromatic complexity and texture"
+    },
+    "wineDetails": {
+      "region": "Likely Oregon (Willamette Valley) or Washington State",
+      "grapeVariety": "Pinot Gris (100%)",
+      "vintage": "2021",
+      "style": "Medium-bodied Pinot Gris with Pacific Northwest character, balancing richness and freshness",
+      "ageability": "Drinking beautifully now through 2025. Pinot Gris is best enjoyed within 3-4 years of vintage for optimal freshness."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T12:59:00.000Z"
+    }
+  },
+  {
+    "productName": "Well Crafted Keg Tap Handle",
+    "description": "This is a keg tap handle accessory for dispensing draft wine, not a wine itself. Well Crafted specializes in premium keg wine programs for restaurants and wine bars. This tap handle would be used to identify and dispense Well Crafted wines from keg systems, providing a sustainable and fresh wine service option.",
+    "tastingNotes": {
+      "aroma": "Not applicable - this is a dispensing accessory, not a wine product.",
+      "palate": "Not applicable - this is a dispensing accessory, not a wine product.",
+      "finish": "Not applicable - this is a dispensing accessory, not a wine product."
+    },
+    "foodPairings": [
+      "Not applicable - this is equipment, not a wine"
+    ],
+    "servingInfo": {
+      "temperature": "Not applicable",
+      "decanting": "Not applicable",
+      "glassware": "Not applicable"
+    },
+    "wineDetails": {
+      "region": "Not applicable - dispensing equipment",
+      "grapeVariety": "Not applicable",
+      "vintage": "Not applicable",
+      "style": "Keg tap handle for wine dispensing systems",
+      "ageability": "Not applicable"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:01:00.000Z"
+    }
+  },
+  {
+    "productName": "Mountain Brook Allin Coopers Select 2021",
+    "description": "A special cooperage selection from Mountain Brook Winery, indicating wine aged in carefully selected barrels chosen for their unique characteristics. The \"Allin Coopers Select\" designation suggests collaboration with a master cooper to source oak that enhances the wine's character. This represents a premium tier offering focused on expressing how barrel selection influences final wine quality.",
+    "tastingNotes": {
+      "aroma": "The nose reveals rich, complex aromas showcasing pronounced oak influence alongside ripe fruit. Dark cherry and blackberry aromas mingle with vanilla bean, toasted coconut, and caramel from new oak. There's appealing baking spice complexity—cinnamon, nutmeg, and clove—along with hints of chocolate and espresso. Beneath the oak, ripe fruit shows as black plum and cassis, with subtle notes of tobacco, leather, and dried herbs adding depth. A whisper of smoke and char from barrel toast provides aromatic intrigue.",
+      "palate": "Rich and full-bodied on the palate, this wine shows the impact of quality cooperage with seamless oak integration. Dark fruit flavors of blackberry, black cherry, and plum are amplified by generous oak showing as vanilla, butterscotch, and toasted nuts. The tannins are substantial but refined, providing structure and age-worthiness. Well-integrated oak spice adds layers of cinnamon, nutmeg, and dark chocolate. Despite the oak influence, the wine maintains balance with enough acidity to prevent heaviness. The texture is plush and velvety.",
+      "finish": "The finish is long and opulent, with persistent dark fruit flavors wrapped in toasted oak, mocha, and sweet spices. Fine-grained tannins provide a slightly grippy texture, while the wine's richness lingers pleasantly."
+    },
+    "foodPairings": [
+      "Grilled ribeye or prime rib with herb crust",
+      "Braised lamb shanks with red wine reduction",
+      "Aged Gouda or smoked cheddar cheese",
+      "Wild mushroom and truffle pasta",
+      "Dark chocolate desserts or espresso-rubbed meats"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F) - room temperature",
+      "decanting": "Decant for 60-90 minutes to allow the wine to breathe and integrate oak with fruit. The wine benefits significantly from aeration.",
+      "glassware": "Large Bordeaux glass to maximize oxygen exposure and showcase the wine's richness"
+    },
+    "wineDetails": {
+      "region": "Likely California or Washington State based on naming conventions",
+      "grapeVariety": "Likely Cabernet Sauvignon or Bordeaux-style red blend",
+      "vintage": "2021",
+      "style": "Full-bodied, oak-influenced red with rich, modern California style",
+      "ageability": "Drinking well now but will evolve beautifully through 2031. Peak maturity expected 2026-2029 with proper cellaring."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T13:03:00.000Z"
+    }
+  }
+]

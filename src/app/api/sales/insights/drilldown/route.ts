@@ -203,7 +203,7 @@ async function getTopProductsDrilldown(db: any, tenantId: string, salesRepFilter
         productName: line.sku.product.name,
         brand: line.sku.product.brand,
         category: line.sku.product.category,
-        size: line.sku.size,
+        size: line.sku.size ? Math.round(Number(line.sku.size)) : null,
         unitsSold: 0,
         orderCount: 0,
         revenue: 0,

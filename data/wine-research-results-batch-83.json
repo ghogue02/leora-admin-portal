@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Boxwood Whole Ox  Rose (Private Label) 2023",
+    "description": "A Virginia rosé from Boxwood Estate Winery in Middleburg, part of their private label collection. Boxwood produces Bordeaux-style wines with distinct Virginia expression. Their rosés typically showcase Cabernet Franc in the salmon pink style, offering fresh, crisp summer drinking with crushed red fruit flavors and mineral notes.",
+    "tastingNotes": {
+      "aroma": "Fresh red berry aromatics of strawberry, raspberry, and cranberry create an inviting bouquet. Subtle floral notes of rose petal add elegance, while hints of citrus zest and wet stone minerality provide complexity. The aromatic profile is clean and vibrant with Virginia's characteristic freshness.",
+      "palate": "Crisp and delicious with crushed red fruit flavors dominating the palate. Strawberry and watermelon are balanced by good acidity and mineral notes that reflect Virginia terroir. The wine shows medium body with refreshing character, designed for summer drinking and versatile food pairing. A long dry finish demonstrates quality fruit selection.",
+      "finish": "The finish is clean and dry with lingering red fruit and mineral notes. Good acidity persists through the conclusion, leaving a refreshing impression that invites another sip. The dry style makes this an excellent food wine."
+    },
+    "foodPairings": [
+      "Grilled shrimp and summer salads",
+      "Charcuterie and soft cheeses",
+      "Grilled salmon with herbs",
+      "Light pasta dishes with tomato",
+      "Fresh Virginia oysters"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass or rosé-specific glass"
+    },
+    "wineDetails": {
+      "region": "Middleburg, Virginia",
+      "grapeVariety": "Likely Cabernet Franc-based (typical for Boxwood rosés)",
+      "vintage": "2023",
+      "style": "Dry rosé in Provence style with Virginia expression",
+      "ageability": "Best consumed within 1-2 years for optimal freshness; drink now through 2025"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T14:20:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Two Mountain Chardonnay 2024",
+    "description": "From a family-owned, small-production winery in Yakima Valley, this estate-grown Chardonnay represents Washington State's ability to produce quality white wines. Two Mountain focuses on sustainable vineyard practices, and their Chardonnay showcases ripe orchard fruit with subtle oak influence, reflecting the warm days and cool nights of Eastern Washington.",
+    "tastingNotes": {
+      "aroma": "Aromas of ripe apple and hay dominate with hints of toast and vanilla from oak treatment. Overripe pears add richness, while subtle notes of candied peach and golden apple provide complexity. A touch of honey adds sweetness to the aromatic profile without being cloying.",
+      "palate": "The palate shows influence of oak with candied peach and golden apple flavors leading. A touch of honey and pear create mid-palate richness, while the wine maintains balance and structure. Inviting flavors of overripe pears are framed by subtle oak structure, creating a harmonious expression of Washington Chardonnay with some tropical fruit notes.",
+      "finish": "A dry and balanced finish with some tropical fruit notes on the long conclusion. The oak influence remains subtle, allowing the fruit to shine through. The finish demonstrates good length and structure for a regional Chardonnay."
+    },
+    "foodPairings": [
+      "Roasted chicken with herbs",
+      "Grilled halibut or salmon",
+      "Creamy pasta dishes",
+      "Pork tenderloin with apple chutney",
+      "Aged Gruyère or Comté cheese"
+    ],
+    "servingInfo": {
+      "temperature": "50-55°F (10-13°C)",
+      "decanting": "Not necessary",
+      "glassware": "Medium-sized white wine glass or Chardonnay glass"
+    },
+    "wineDetails": {
+      "region": "Yakima Valley, Washington",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2024",
+      "style": "Estate-grown Chardonnay with subtle oak influence",
+      "ageability": "Drink now through 2027; best enjoyed while fruit is fresh"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T14:22:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "O Leao Red Blend (DC-MD Only) 2020",
+    "description": "A Portuguese red blend available exclusively in the DC-Maryland market. The wine likely showcases indigenous Portuguese varieties, offering the earthy complexity and food-friendly acidity that characterize modern Portuguese winemaking. The regional exclusivity suggests a smaller production focused on quality and character.",
+    "tastingNotes": {
+      "aroma": "Dark berry fruits with characteristic Portuguese earthiness dominate the nose. Black cherry and plum are complemented by dried Mediterranean herbs, leather, and subtle spice. A touch of minerality adds complexity, reflecting Portugal's diverse terroirs.",
+      "palate": "Medium to full-bodied with vibrant acidity typical of Portuguese varieties. Ripe dark fruit flavors of blackberry and cherry mingle with earthy notes and herb garden character. The wine shows good structure with integrated tannins providing grip without excessive weight. Subtle oak spice adds complexity to the fruit-forward palate.",
+      "finish": "A moderately long finish with lingering dark fruit and earthy notes. The tannins remain present but refined with a savory quality that makes the wine particularly food-friendly. Herbal notes return on the conclusion with good persistence."
+    },
+    "foodPairings": [
+      "Portuguese-style roasted meats",
+      "Grilled chorizo and peppers",
+      "Beef and vegetable stew",
+      "Grilled lamb with rosemary",
+      "Aged Portuguese cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30-45 minutes recommended to soften tannins",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Portugal (specific region unknown)",
+      "grapeVariety": "Likely blend of Portuguese varieties such as Touriga Nacional, Tinta Roriz, and others",
+      "vintage": "2020",
+      "style": "Medium-bodied Portuguese red blend",
+      "ageability": "Drink now through 2026; at good drinking window"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T14:24:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Paso Robles Farm Winery The Big Game 2011",
+    "description": "A mature red blend from Paso Robles with over a decade of bottle age. This wine showcases how Paso Robles' warm climate and limestone soils can produce age-worthy wines. The \"Big Game\" suggests a bold, structured wine that has developed significant tertiary complexity through aging.",
+    "tastingNotes": {
+      "aroma": "At 14 years of age, the wine shows developed tertiary aromatics of leather, tobacco, and dried fruit. Primary black fruit has evolved to show prune, fig, and dried cherry notes. Cedar and cigar box from oak aging add complexity, while hints of earth and forest floor demonstrate mature character.",
+      "palate": "The palate shows the evolution of age with softened tannins and integrated structure. Dried fruit flavors of raisin and fig dominate alongside leather and tobacco notes. The wine maintains balance despite its age, with acidity still providing structure. The warmth of Paso Robles shines through with ripe, concentrated fruit now showing mature complexity.",
+      "finish": "A long finish with persistent dried fruit and savory notes. The tannins are fully integrated and soft, creating a smooth conclusion. Hints of spice and oak linger, demonstrating the wine's age-worthiness and development."
+    },
+    "foodPairings": [
+      "Braised beef short ribs",
+      "Wild game preparations",
+      "Aged hard cheeses like aged Gouda",
+      "Roasted lamb with herbs",
+      "Rich mushroom dishes"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "Decant carefully for 30 minutes to allow sediment to settle",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Paso Robles, California",
+      "grapeVariety": "Likely Cabernet Sauvignon-based blend with Paso Robles varieties",
+      "vintage": "2011",
+      "style": "Bold, age-worthy red blend with significant bottle age",
+      "ageability": "Drinking at peak maturity now; consume within 2-3 years"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T14:26:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Endhardt Vineyards Fervor Red 2021",
+    "description": "A red wine from Endhardt Vineyards showcasing passionate winemaking suggested by the \"Fervor\" name. This likely represents a carefully crafted blend or single varietal expression highlighting the vineyard's unique characteristics and the winemaker's commitment to quality.",
+    "tastingNotes": {
+      "aroma": "The nose opens with ripe dark fruit aromatics of blackberry, black cherry, and plum. Subtle oak spice adds complexity with notes of vanilla and toast. Hints of dried herbs and earth provide depth, while the fruit remains vibrant and expressive.",
+      "palate": "Medium to full-bodied with concentrated dark fruit flavors balanced by structured tannins. The palate shows layers of blackberry, cherry, and dark plum with oak-derived notes of chocolate and coffee. Good acidity provides freshness and balance, while the tannins offer grip and structure for aging or food pairing.",
+      "finish": "A moderately long finish with persistent dark fruit and spice notes. The tannins remain present, providing structure through the conclusion. Oak influence adds length with lingering vanilla and toast notes."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak",
+      "Braised lamb shanks",
+      "Roasted game birds",
+      "Aged cheddar cheese",
+      "Mushroom risotto"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "45-60 minutes to soften tannins and open aromatics",
+      "glassware": "Bordeaux or large red wine glass"
+    },
+    "wineDetails": {
+      "region": "United States (specific region unknown)",
+      "grapeVariety": "Likely Cabernet Sauvignon, Merlot, or blend",
+      "vintage": "2021",
+      "style": "Structured red wine with oak aging",
+      "ageability": "Drink now through 2028; has potential for short-term aging"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T14:28:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Hendry Unoaked Chardonnay 2023",
+    "description": "From the historic Hendry Ranch in Napa Valley, this unoaked Chardonnay highlights the purity and beauty of their estate fruit. Sourced from older, low-yielding blocks (9, 19, and 20) with diverse clones, the wine showcases concentrated, flavorful fruit fermented entirely in stainless steel. This represents classic California Chardonnay with focus on fruit over oak.",
+    "tastingNotes": {
+      "aroma": "A pale straw color introduces a classical combination of round, ripe orchard fruit and angular citrus. Green apple, white peach, and pear dominate with crisp lemon and lime zest adding brightness. The aromatic profile is clean and pure, showcasing the quality of the fruit without oak influence.",
+      "palate": "The palate demonstrates the beauty and purity of Hendry's Chardonnay fruit. Ripe orchard fruits of apple and pear are balanced by gentle citrus undercurrents that provide structure and freshness. The wine shows excellent crispness and acidity with notes of sour lemon and sharp wet stone adding minerality. The texture is clean and focused, allowing the fruit to shine.",
+      "finish": "A crisp, clean finish with persistent citrus and mineral notes. The acidity remains bright through the conclusion, creating a refreshing, moreish quality. The finish demonstrates the wine's purity and balance without oak to mask the terroir."
+    },
+    "foodPairings": [
+      "Fresh oysters and shellfish",
+      "Grilled fish with lemon",
+      "Chicken piccata",
+      "Goat cheese salad",
+      "Sushi and sashimi"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C)",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California (from blocks north of Carneros)",
+      "grapeVariety": "100% Chardonnay from estate blocks 9, 19, and 20",
+      "vintage": "2023",
+      "style": "100% stainless steel fermented, unoaked style emphasizing fruit purity",
+      "ageability": "Best consumed within 2-3 years for maximum freshness; drink now through 2026"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T14:30:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Pyren Vineyard Little Ra Ra Rouge 2021",
+    "description": "A playfully named red wine from Pyren Vineyard, likely from Victoria, Australia's Pyrenees region. The \"Little Ra Ra\" name suggests an approachable, fun wine that doesn't sacrifice quality. This wine would showcase the region's ability to produce elegant reds with character.",
+    "tastingNotes": {
+      "aroma": "Fresh red and dark berry aromatics with Australian vibrancy. Cherry, raspberry, and plum dominate with hints of spice and subtle oak. The nose shows good intensity with clean fruit expression and regional character.",
+      "palate": "Medium-bodied with bright red fruit flavors and good structure. The palate balances fruit purity with subtle complexity from oak or aging. Fresh acidity provides energy and drinkability, while soft tannins add texture without heaviness. The wine shows approachable character while maintaining depth.",
+      "finish": "A clean finish with lingering red fruit and subtle spice. The tannins are soft and integrated, creating an easy-drinking conclusion. The finish invites food pairing with its balanced, versatile character."
+    },
+    "foodPairings": [
+      "Grilled meats and sausages",
+      "Pizza and pasta",
+      "Barbecue chicken",
+      "Medium-aged cheeses",
+      "Casual bistro fare"
+    ],
+    "servingInfo": {
+      "temperature": "58-62°F (14-17°C)",
+      "decanting": "30 minutes helpful but not essential",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Likely Pyrenees, Victoria, Australia",
+      "grapeVariety": "Likely Shiraz, Cabernet Sauvignon, or blend",
+      "vintage": "2021",
+      "style": "Approachable Australian red with balance and character",
+      "ageability": "Drink now through 2026; designed for near-term enjoyment"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T14:32:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Inversa Peach Basil   250 ml",
+    "description": "An innovative flavored wine or wine-based beverage in a convenient 250ml format. The peach and basil combination suggests a modern, creative approach to wine, possibly a vermouth-style product or fruit wine. This unique flavor profile targets consumers seeking aromatic, food-friendly aperitifs with distinctive character.",
+    "tastingNotes": {
+      "aroma": "Vibrant peach aromatics dominate with fresh, ripe stone fruit character. Fresh basil adds herbaceous complexity and Mediterranean flair. The combination creates an intriguing, aromatic profile that balances fruit sweetness with herbal freshness.",
+      "palate": "The palate delivers on the aromatic promise with ripe peach flavors complemented by basil's peppery, herbal notes. The wine base provides structure while allowing the fruit and herb infusion to shine. Sweetness is balanced by acidity and the basil's savory character, creating a complex, refreshing experience.",
+      "finish": "A clean finish with lingering peach and subtle basil notes. The conclusion is refreshing and invites another sip, demonstrating the successful integration of fruit and herb flavors."
+    },
+    "foodPairings": [
+      "Charcuterie and cured meats",
+      "Fresh mozzarella and tomato",
+      "Light summer salads",
+      "Grilled peaches with prosciutto",
+      "Served over ice as an aperitif"
+    ],
+    "servingInfo": {
+      "temperature": "40-45°F (4-7°C), well-chilled or over ice",
+      "decanting": "Not necessary",
+      "glassware": "Small wine glass or tumbler over ice"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely European or New World innovation)",
+      "grapeVariety": "Wine base with peach and basil infusion",
+      "vintage": "Current release",
+      "style": "Flavored wine or wine-based aperitif",
+      "ageability": "Consume fresh; best within 1 year of release"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T14:34:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Swerwer Touriga Nacional 2023",
+    "description": "A Touriga Nacional showcasing Portugal's most noble red grape variety in its pure form. Touriga Nacional is the backbone of Port and increasingly appears as a standalone varietal wine, offering intense aromatics, powerful structure, and complex dark fruit character. This wine demonstrates the variety's potential outside traditional Port production.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with Touriga Nacional's signature violet and floral notes leading. Dark berry fruits of blackberry and black cherry are complemented by hints of rock rose and Mediterranean herbs. Subtle spice and mineral notes add complexity to this expressive bouquet.",
+      "palate": "Full-bodied with concentrated dark fruit flavors and firm tannin structure characteristic of Touriga Nacional. Blackberry, plum, and dark cherry dominate with floral violet notes persisting from the nose. The wine shows excellent depth and concentration with vibrant acidity balancing the power. Subtle oak spice adds complexity without overwhelming the varietal character.",
+      "finish": "A long, powerful finish with persistent dark fruit and floral notes. The tannins are firm but refined, providing structure for aging or rich food pairing. The finish demonstrates Touriga Nacional's noble character and aging potential."
+    },
+    "foodPairings": [
+      "Grilled ribeye or T-bone steak",
+      "Roasted lamb with herbs",
+      "Game meats like venison",
+      "Aged hard cheeses",
+      "Rich bean and meat stews"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften tannins and open aromatics",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Portugal (likely Douro or Dão)",
+      "grapeVariety": "100% Touriga Nacional",
+      "vintage": "2023",
+      "style": "Full-bodied varietal wine showcasing Touriga Nacional",
+      "ageability": "Drink now through 2030; has good aging potential given the variety's structure"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T14:36:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Bodegas Paco Garcia Crianza 2017",
+    "description": "From one of Rioja's most vibrant and exciting newer wineries, this Crianza showcases modern Rioja with respect for tradition. Bodegas Paco Garcia owns 42 hectares of vineyards and focuses on quality-driven production. The 2017 vintage benefits from Crianza aging requirements (minimum 2 years with at least 1 year in oak), creating a balanced, food-friendly Rioja.",
+    "tastingNotes": {
+      "aroma": "Aromas of ripe plums and sweet cherries lead with spice and cedar undertones from oak aging. Hints of vanilla and toast add complexity, while subtle leather and tobacco notes demonstrate the wine's maturity. The aromatic profile is classic Rioja with modern fruit purity.",
+      "palate": "The palate is juicy and full with plum, raspberry, and cocoa flavors dominating. The wine shows medium to full body with small amounts of soft tannins providing structure. Juicy texture is balanced by the toasty oak and crisp red fruits that finish tight. This is a textbook Rioja demonstrating the region's ability to balance fruit, oak, and acidity.",
+      "finish": "The finish is clean and persistent with flavors of toasty oak and crisp red fruits. The tannins are soft and integrated, creating a smooth conclusion. This is a wine to drink now, showing immediate appeal while maintaining Rioja's traditional character."
+    },
+    "foodPairings": [
+      "Grilled chorizo and Spanish tapas",
+      "Roasted lamb with herbs",
+      "Manchego and aged Spanish cheeses",
+      "Paella and rice dishes",
+      "Grilled vegetables with romesco"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30 minutes recommended to integrate oak and fruit",
+      "glassware": "Bordeaux or standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "100% Tempranillo",
+      "vintage": "2017",
+      "style": "Crianza (aged minimum 2 years with at least 1 year in oak)",
+      "ageability": "Drinking well now; can be enjoyed through 2027"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T14:38:00.000Z"
+    }
+  }
+]

@@ -1,0 +1,346 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "totalWinesResearched": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Prima Pave Bianca d'Or (Still White) NV",
+      "description": "This award-winning non-alcoholic white wine from Northern Italy is a sophisticated blend of Gewürztraminer and Pinot Grigio sourced from sustainably farmed vineyards in Friuli. With two gold medals from the San Francisco International Wine Competition, this elegant still white delivers complexity and refinement at 0.0% ABV with only 11 calories per 100ml.",
+      "tastingNotes": {
+        "aroma": "Captivating aromatics showcase vibrant notes of lychee, white peach, and delicate flower blossoms that dance from the glass. Stone fruit nuances mingle with elderflower and green apple, creating an inviting bouquet reminiscent of a spring garden. The Gewürztraminer contributes exotic perfume while Pinot Grigio adds crisp mineral undertones.",
+        "palate": "The palate bursts with mouthwatering acidity and silky texture, featuring layers of honeydew melon, kiwi, and ripe stone fruits. Lively and juicy with elegant minerality, the wine maintains excellent balance between fruit expression and structure. White peach and green apple flavors are complemented by subtle citrus notes that provide refreshing lift.",
+        "finish": "A dry, crisp finish with zippy acidity leaves the palate refreshed and invigorated. The silky texture lingers with gentle fruit echoes and mineral persistence, making this an ideal wine for extended sipping without the alcohol."
+      },
+      "foodPairings": [
+        "Grilled seafood and shellfish",
+        "Fresh summer salads with citrus vinaigrette",
+        "Herb-crusted chicken breast",
+        "Light pasta dishes with pesto or cream sauce",
+        "Asian cuisine including Thai and Vietnamese dishes"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well-chilled",
+        "decanting": "No decanting needed; serve immediately upon opening to preserve freshness and aromatics",
+        "glassware": "White wine glass or Sauvignon Blanc glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Friuli, Northern Italy",
+        "grapeVariety": "Blend of Gewürztraminer and Pinot Grigio",
+        "vintage": "Non-Vintage",
+        "style": "Non-Alcoholic Still White Wine",
+        "ageability": "Best enjoyed fresh; consume within 1 year of purchase for optimal flavor and aromatics"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood West Oaks Farm Market Rose (Private Label) 2023",
+      "description": "A private label rosé from Virginia's esteemed Boxwood Estate Winery, crafted in the Bordeaux tradition with a distinct Virginia terroir expression. This estate-grown wine represents the premium quality that has made Boxwood one of Virginia's most respected producers, offering elegant European-style winemaking in America's oldest wine region.",
+      "tastingNotes": {
+        "aroma": "Enticing salmon-pink hues introduce fresh aromatics of crushed red berries, wild strawberries, and ripe watermelon. Delicate floral notes of rose petals and white flowers intertwine with subtle mineral accents that speak to the vineyard's terroir. A whisper of citrus zest adds brightness to the bouquet.",
+        "palate": "The palate delivers crisp, refreshing crushed red fruit flavors with vibrant acidity that energizes the entire experience. Mineral notes provide structure and complexity, while flavors of strawberry, raspberry, and white peach dance across the tongue. The wine maintains excellent balance between fruit expression and acidity, creating a refined, food-friendly profile ideal for summer enjoyment.",
+        "finish": "A long, dry finish showcases mineral persistence and lingering red fruit character. The crisp acidity keeps the palate refreshed and ready for the next sip, while subtle herbal notes add complexity to the conclusion."
+      },
+      "foodPairings": [
+        "Grilled salmon with herb butter",
+        "Fresh caprese salad with heirloom tomatoes",
+        "Chilled gazpacho or vichyssoise",
+        "Soft cheeses like fresh chèvre or burrata",
+        "Light seafood pasta or crab cakes"
+      ],
+      "servingInfo": {
+        "temperature": "7-9°C (45-48°F), well-chilled for optimal refreshment",
+        "decanting": "No decanting required; pour directly from bottle to preserve freshness",
+        "glassware": "Standard white wine glass or rosé-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia",
+        "grapeVariety": "Likely Cabernet Franc-based rosé (estate-grown Bordeaux varieties)",
+        "vintage": "2023",
+        "style": "Dry Estate Rosé in Bordeaux style",
+        "ageability": "Drink now through 2025; rosé is best enjoyed fresh and young"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vieux Chateau Flouquet St Emilion 2022",
+      "description": "A classic Right Bank Bordeaux from the prestigious Saint-Émilion appellation, this wine showcases the elegant, fruit-forward style that has made the region famous. Crafted from Merlot and Cabernet Franc by Vignobles Garzaro, this approachable Saint-Émilion offers authentic Bordeaux character at exceptional value.",
+      "tastingNotes": {
+        "aroma": "The nose presents intense aromas of blackcurrant and dark cherry, layered with vanilla and sweet oak from barrel aging. Subtle hints of roasted nuts, violet florals, and dried herbs add complexity, while a delicate peppery spice emerges with aeration. Notes of chocolate and graphite provide additional depth.",
+        "palate": "Rich and mouth-filling with juicy characteristics of plum and black cherry fruit that define Saint-Émilion's charm. The wine shows subtle elegance on the palate with delicate tannins that provide structure without overwhelming. Flavors of blackcurrant jam, cocoa, and sweet spice are balanced by fresh acidity, with a slightly peppery mid-palate adding intrigue. The medium to full body carries concentrated fruit with supple texture.",
+        "finish": "The finish reveals slightly peppery notes with lingering dark fruit and gentle tannins. Oak influence provides vanilla and toast on the conclusion, while maintaining the wine's elegant, refined character typical of quality Saint-Émilion."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry reduction",
+        "Grilled ribeye steak with herb butter",
+        "Lamb chops with rosemary and garlic",
+        "Mushroom risotto with truffle oil",
+        "Aged cheeses like Comté or aged Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), slightly below room temperature",
+        "decanting": "Decant for 30-60 minutes to soften tannins and open aromatics; beneficial but not essential",
+        "glassware": "Bordeaux glass or large bowl red wine glass"
+      },
+      "wineDetails": {
+        "region": "Saint-Émilion, Bordeaux, France",
+        "grapeVariety": "Primarily Merlot with Cabernet Franc",
+        "vintage": "2022",
+        "style": "Right Bank Bordeaux, medium to full-bodied red",
+        "ageability": "Drink now through 2028; approachable young but will develop with 3-5 years aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fledge & Co. Skeleton Praeteritus Bosstok Tinta Barocca 2022",
+      "description": "A distinctive expression of Tinta Barocca from South Africa's dynamic Swartland region, crafted from a single heritage vineyard planted in 1971. This wine showcases the complexity and character achievable from old-vine Tinta Barocca, a Portuguese variety traditionally used in Port production but here vinified as a stunning dry table wine.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals intense dark berry fruit with blackberry and wild blueberry leading the charge, complemented by dried violet petals and exotic spice notes. Old vine concentration provides depth with hints of crushed herbs, garrigue, and sun-baked earth. Subtle notes of black pepper, anise, and dark chocolate add complexity to this aromatic wine.",
+        "palate": "Rich and structured on the palate with concentrated dark fruit flavors of blackberry compote, plum, and black cherry. The 50+ year old vines deliver impressive concentration and depth, with layers of spice, leather, and mineral complexity. Fine-grained tannins provide elegant structure while maintaining balance with the wine's vibrant fruit core. Notes of graphite and dark cocoa emerge on the mid-palate, adding gravitas.",
+        "finish": "A long, powerful finish showcases the wine's old-vine pedigree with persistent dark fruit, firm tannins, and complex spice notes. The conclusion reveals earthy minerality and subtle oak influence that speaks to careful winemaking and exceptional terroir."
+      },
+      "foodPairings": [
+        "Braised short ribs with red wine reduction",
+        "Grilled lamb shoulder with herb crust",
+        "Game meats including venison and wild boar",
+        "Beef stew with root vegetables",
+        "Hard aged cheeses like Pecorino or aged Cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), cellar temperature or slightly cooler",
+        "decanting": "Highly recommended; decant for 60-90 minutes to fully unlock the complexity of old-vine fruit and allow tannins to soften",
+        "glassware": "Large Bordeaux glass or Syrah-specific stemware to aerate and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Swartland, Western Cape, South Africa",
+        "grapeVariety": "100% Tinta Barocca from 1971 plantings",
+        "vintage": "2022",
+        "style": "Full-bodied dry red from heritage vineyard",
+        "ageability": "Drink now through 2032; excellent aging potential with old-vine structure and concentration"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Colle Corviano Montepulciano 2020",
+      "description": "An award-winning expression of Montepulciano d'Abruzzo that earned Double Gold and Diamond Trophy at the 2021 Sakura Awards, plus Gold at the Berlin Wine Trophy and 90 points from Decanter World Wine Awards. This wine showcases the bright, lifted style of modern Abruzzo winemaking with six months aging in large French oak.",
+      "tastingNotes": {
+        "aroma": "Vibrant lifted violet florals leap from the glass, followed by intense aromas of ripe blackberries, dark plums, and fresh dark cherry fruit. The nose reveals wonderful complexity with notes of clove spice, nutmeg, and subtle hints of vanilla from oak aging. Dried herbs and a touch of Mediterranean garrigue add regional character.",
+        "palate": "A crunchy fruit style wine that emphasizes freshness and vibrancy over weight. Dark cherry fruit dominates the palate with layers of blackberry and plum supported by vibrant acidity that energizes the entire experience. The mid-palate reveals intriguing complexity with clove and nutmeg spice adding dimension. Medium-bodied with smooth tannins and excellent structure, the wine balances intensity with elegance.",
+        "finish": "Fresh spiced fruit on the finish with lingering notes of dark cherry and subtle oak influence. A slightly earthy conclusion reveals hints of tobacco leaf and dried herbs, providing classic Italian character. The fresh acidity keeps the palate clean and ready for food."
+      },
+      "foodPairings": [
+        "Traditional Italian pasta with meat ragù",
+        "Grilled Italian sausages with peppers",
+        "Eggplant parmigiana",
+        "Porchetta or roasted pork loin",
+        "Pizza with cured meats and mushrooms"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F), slightly cool to emphasize freshness",
+        "decanting": "Brief decanting of 20-30 minutes recommended to open aromatics and soften tannins",
+        "glassware": "Medium-sized Burgundy glass or standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Montepulciano d'Abruzzo DOC, Abruzzo, Italy",
+        "grapeVariety": "100% Montepulciano",
+        "vintage": "2020",
+        "style": "Medium-bodied Italian red with lifted, fresh fruit character",
+        "ageability": "Drink now through 2027; designed for approachable enjoyment with moderate aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction Tempranillo",
+      "description": "An expressive California interpretation of Spain's noble Tempranillo grape, crafted from Pomar Junction's estate vineyard in Paso Robles. The vineyard's soils with high water-holding capacity are ideally suited for Tempranillo, allowing for optimal water stress management that concentrates flavors while maintaining the variety's characteristic elegance.",
+      "tastingNotes": {
+        "aroma": "The nose is expressive and inviting with aromas of red cherry, strawberry, and dried red fruit complemented by distinctive leather and tobacco notes. Hints of nutmeg, vanilla, and subtle clay minerality add complexity. As the wine opens, notes of dried herbs, rose petals, and a touch of cedar emerge, showcasing Tempranillo's classic aromatic profile.",
+        "palate": "The palate reveals bright red fruit flavors with dried black cherries taking the lead, supported by strawberry and red currant. Relatively lean and refined with fine-grained tannins that provide elegant structure without heaviness. The wine shows excellent balance between fruit, acidity, and tannin, with flavors of leather, earth, and subtle spice adding dimension. Notes of freshly brewed espresso and dark cocoa appear on the mid-palate.",
+        "finish": "A medium-length finish emphasizes the variety's characteristic leather and tobacco notes alongside persistent red fruit. The fine-grained tannins provide texture through the conclusion, while subtle oak influence adds vanilla and toast. The elegant, food-friendly style makes this highly versatile at the table."
+      },
+      "foodPairings": [
+        "Paella with chorizo and seafood",
+        "Grilled lamb chops with herbs de Provence",
+        "Manchego cheese with quince paste",
+        "Braised pork shoulder tacos",
+        "Mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F), slightly cool to showcase elegance",
+        "decanting": "Decant for 30 minutes to soften tannins and open aromatics; helps integrate oak and fruit",
+        "glassware": "Standard Bordeaux glass or Tempranillo-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, Central Coast, California",
+        "grapeVariety": "100% Tempranillo",
+        "vintage": "Non-Vintage or multiple vintage blend",
+        "style": "Medium-bodied red with elegant, old-world inspired style",
+        "ageability": "Drink now through 2028; approachable young with moderate aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Finca Buenaventura Aureo Cabernet Sauvignon 2018",
+      "description": "A super-premium Cabernet Sauvignon from Argentina's prestigious Uco Valley, sourced from high-altitude vineyards at 3,680 feet that drink pristine Andes snowmelt and bask under intense mountain sun. The exceptional ripeness and concentration achievable at this elevation create a Cabernet of remarkable intensity and character, aged in a combination of French and American oak.",
+      "tastingNotes": {
+        "aroma": "The nose showcases the wine's outstanding fruit ripeness with intense aromas of ripe raspberries, fresh cherries, and concentrated dark berry fruit. Layers of vanilla and sweet baking spice from oak aging intertwine with the fruit, while subtle notes of black pepper, cocoa, and violet add complexity. High-altitude character reveals itself through bright, pure fruit expression.",
+        "palate": "Rich and opulent on the palate with flavors that emphasize the ripeness of the fruit. Red fruit aromas translate to intense raspberry and cherry flavors on the tongue, complemented by notes of blackberry jam and cassis. The wine is full-bodied with smooth, integrated tannins and excellent concentration from the high-altitude fruit. Vanilla and sweet oak notes provide support without overwhelming the pure fruit core.",
+        "finish": "The flavor ends sweet in the mouth with lingering jam-like fruit character and persistent vanilla notes. The finish is smooth and approachable with well-integrated tannins and good length. Subtle spice and chocolate notes provide complexity through the conclusion, making this an indulgent, crowd-pleasing Cabernet."
+      },
+      "foodPairings": [
+        "Argentine grilled beef (asado) with chimichurri",
+        "Grilled ribeye with Malbec reduction sauce",
+        "Braised short ribs with root vegetables",
+        "Aged Parmesan or sharp aged Cheddar",
+        "Dark chocolate desserts with berry compote"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), room temperature or slightly cooler",
+        "decanting": "Decant for 45-60 minutes to open the concentrated fruit and allow oak to integrate; enhances complexity",
+        "glassware": "Large Cabernet Sauvignon glass or Bordeaux balloon glass"
+      },
+      "wineDetails": {
+        "region": "Uco Valley, Mendoza, Argentina",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Full-bodied, fruit-forward super-premium Cabernet from high-altitude vineyard",
+        "ageability": "Drink now through 2030; the concentration and structure support extended aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2022",
+      "description": "Crafted by William Knuttel, former head winemaker at Saintsbury (1983-1996) and Chalk Hill (until 2011), this exceptional Sonoma Coast Pinot Noir represents decades of expertise in California's most elegant varietal. Bill's Hidden Track is a fruit-forward, medium-bodied wine blended from two exceptional vineyards, both also bottled as vineyard designates, aged eleven months in French oak.",
+      "tastingNotes": {
+        "aroma": "Bright, explosive aromatics showcase wild raspberry, ripe strawberry, and red plum dancing from the glass with captivating intensity. Delicate notes of pomegranate and red cherry add complexity, while hints of violets and rose petals provide floral lift. Subtle earthy undertones and forest floor nuances speak to the wine's Sonoma Coast terroir and careful winemaking.",
+        "palate": "Flavors explode on the palate with vibrant red fruit leading the charge—wild raspberry, strawberry, and cherry dominate with remarkable purity and energy. The wine shows medium body with elegant structure and silky mouthfeel that exemplifies high-quality Pinot Noir. Ripe, focused tannins provide framework without heaviness, while bright acidity energizes the fruit and maintains balance. Subtle oak influence adds vanilla and spice without masking the brilliant fruit core.",
+        "finish": "An elegant finish reveals persistent red fruit character with fine-grained tannins providing texture and length. The wine concludes with refreshing acidity, subtle spice notes, and a whisper of minerality that invites the next sip. The seamless integration and balance demonstrate masterful winemaking."
+      },
+      "foodPairings": [
+        "Grilled salmon with dill cream sauce",
+        "Duck confit with cherry gastrique",
+        "Mushroom and truffle pasta",
+        "Roasted chicken with herbs de Provence",
+        "Soft-ripened cheeses like Camembert or Brie"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), cellar temperature to showcase elegance",
+        "decanting": "Brief 15-20 minute decant recommended to open aromatics and enhance fruit expression",
+        "glassware": "Burgundy glass or Pinot Noir-specific balloon glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Sonoma Coast, California",
+        "grapeVariety": "100% Pinot Noir from two premium vineyards",
+        "vintage": "2022",
+        "style": "Medium-bodied, fruit-forward Pinot Noir with coastal elegance",
+        "ageability": "Drink now through 2030; designed for approachable enjoyment but will develop complexity with age"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lueria Cabernet Sauvignon Mevushal (MD & DC) 2023",
+      "description": "A super-premium kosher Cabernet Sauvignon from Israel's prestigious Upper Galilee region, produced by Lueria Winery using the mevushal process. Located at the foot of Mount Miron at elevations of 840-890 meters, Yosef Saida's vineyards benefit from high altitude, optimal sun exposure, and cool mountain breezes that create exceptional conditions for Cabernet Sauvignon.",
+      "tastingNotes": {
+        "aroma": "The nose presents concentrated dark fruit aromas with blackcurrant, cassis, and ripe black cherry taking center stage. Layers of cedar, vanilla, and sweet oak spice from barrel aging provide complexity, while subtle notes of graphite, violet, and Mediterranean herbs add regional character. The high-altitude fruit delivers remarkable purity and intensity of aroma.",
+        "palate": "Rich and full-bodied with concentrated flavors of blackcurrant, dark plum, and black cherry dominating the palate. The wine shows excellent structure with firm but refined tannins that provide backbone for the concentrated fruit. Oak aging contributes vanilla, toast, and subtle chocolate notes that integrate seamlessly. Bright acidity balances the richness, while the high-altitude character provides elegance and lift to the powerful fruit core.",
+        "finish": "A long, structured finish reveals persistent dark fruit with firm tannins and well-integrated oak influence. Notes of dark chocolate, espresso, and sweet spice linger alongside the fruit, while subtle mineral notes add complexity. The mevushal process preserves the wine's depth and character while meeting strict kosher standards."
+      },
+      "foodPairings": [
+        "Braised brisket with red wine sauce",
+        "Grilled lamb kebabs with Middle Eastern spices",
+        "Roasted beef tenderloin with peppercorn crust",
+        "Aged hard cheeses like aged Gouda or Manchego",
+        "Stuffed cabbage in tomato sauce"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), room temperature",
+        "decanting": "Decant for 60 minutes to soften tannins and open concentrated fruit; highly beneficial for this young, structured wine",
+        "glassware": "Large Cabernet Sauvignon glass or Bordeaux balloon"
+      },
+      "wineDetails": {
+        "region": "Upper Galilee, Israel (Mount Miron foothills, 840-890m elevation)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Full-bodied kosher (mevushal) Cabernet from high-altitude vineyard",
+        "ageability": "Drink now through 2033; structured for extended aging with excellent concentration and tannin structure"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alacer Roble 2020 5001601",
+      "description": "An exceptional Tempranillo from Ribera del Duero's highest elevations, crafted by Bodegas Riojanas from four small high-altitude vineyard parcels located above 900 meters in Santa Cruz de la Salceda and Vadocondes. This wine earned 92 points from James Suckling, showcasing the intense concentration and elegance achievable from extreme-altitude Ribera del Duero fruit, aged six months in French oak.",
+      "tastingNotes": {
+        "aroma": "Attractive, lifted aromatics feature ripe plums and fresh blueberries at the core, complemented by delicate notes of violets, lilac flowers, and white pepper that add complexity and refinement. The nose reveals subtle orange peel and citrus zest alongside hints of sweet oak spice, licorice, and vanilla from barrel aging. The high-altitude fruit delivers remarkable aromatic purity and intensity.",
+        "palate": "Medium to full-bodied with a firm yet fleshy texture that showcases both power and elegance. The wine is rich in nuances of ripe red fruits including cherry, raspberry, and plum, supported by silky tannins with calcareous mineral character from the high-altitude limestone soils. Fresh acidity provides energy and lift, while flavors of spices, licorice, and sweet confections add layers of complexity. The slightly fruity character is balanced by serious structure.",
+        "finish": "Crisp and focused on the finish with persistent fruity character and mineral notes that reflect the terroir. The calcareous tannins provide texture and length without heaviness, while subtle oak spice and fruit notes linger. The fresh acidity keeps the conclusion clean and vibrant, inviting another sip."
+      },
+      "foodPairings": [
+        "Roasted lamb shoulder with rosemary",
+        "Grilled ribeye with chimichurri",
+        "Spanish chorizo and bean stew",
+        "Aged Manchego with membrillo (quince paste)",
+        "Wild mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), room temperature or slightly cooler",
+        "decanting": "Decant for 45-60 minutes to soften the firm tannins and unlock aromatic complexity; highly recommended",
+        "glassware": "Large Bordeaux glass or Rioja-specific stemware to aerate and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Castilla y León, Spain (above 900m elevation)",
+        "grapeVariety": "100% Tempranillo (Tinto Fino)",
+        "vintage": "2020",
+        "style": "Medium to full-bodied high-altitude Ribera del Duero with 6 months French oak aging (Roble level)",
+        "ageability": "Drink now through 2028; approachable young but will develop additional complexity with 3-5 years cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

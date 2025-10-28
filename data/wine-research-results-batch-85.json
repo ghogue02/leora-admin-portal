@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Oleandri La Scala Red Blend 2022",
+    "description": "An Italian red blend from Oleandri showcasing modern winemaking while respecting tradition. La Scala suggests quality and elegance, likely representing carefully selected fruit and thoughtful blending to create a harmonious, food-friendly wine with Italian character.",
+    "tastingNotes": {
+      "aroma": "The nose opens with ripe red and dark berry fruits typical of Italian blends. Cherry, plum, and blackberry are complemented by hints of dried herbs, leather, and subtle oak spice. Mediterranean character shines through with notes of oregano and thyme adding complexity.",
+      "palate": "Medium to full-bodied with bright acidity characteristic of Italian wines. Red and dark fruit flavors persist with good concentration, while the acidity provides structure and food-friendliness. Soft tannins add texture without heaviness, and oak influence remains subtle, allowing fruit and terroir to shine.",
+      "finish": "A clean finish with lingering dark fruit and herbal notes. The acidity persists, creating a refreshing conclusion that invites food pairing. The finish demonstrates Italian elegance and balance."
+    },
+    "foodPairings": [
+      "Pasta with meat sauce",
+      "Osso buco",
+      "Aged Parmigiano-Reggiano",
+      "Grilled sausages and polenta",
+      "Pizza with savory toppings"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30-45 minutes recommended",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Italy (specific region unknown)",
+      "grapeVariety": "Blend of Italian varieties (likely Sangiovese, Montepulciano, or regional grapes)",
+      "vintage": "2022",
+      "style": "Modern Italian red blend",
+      "ageability": "Drink now through 2028"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T15:05:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Casa Dumetz Feminist Party GSM 2022",
+    "description": "A Rhône-style GSM (Grenache-Syrah-Mourvèdre) blend from California's Casa Dumetz with a progressive name reflecting modern values. This wine showcases the quality of Californian Rhône varieties with approachable character and vibrant fruit expression typical of the 2022 vintage.",
+    "tastingNotes": {
+      "aroma": "Expressive aromatics of red and dark berries with Grenache's signature strawberry and raspberry leading. Syrah adds black pepper and dark fruit notes, while Mourvèdre contributes earthy complexity. Hints of garrigue herbs and subtle oak spice add layers to the bouquet.",
+      "palate": "Medium to full-bodied with generous fruit and balanced structure. Red berry flavors from Grenache dominate the entry, while Syrah provides dark fruit depth and peppery spice. Mourvèdre adds earthy tannins and savory character. The blend is harmonious with good acidity and soft, integrated tannins.",
+      "finish": "A medium-length finish with persistent red fruit and subtle spice. The tannins are soft and approachable, while the finish maintains freshness and drinkability. The wine demonstrates successful GSM blending."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with herbs",
+      "BBQ and smoked meats",
+      "Ratatouille and vegetable gratin",
+      "Charcuterie board",
+      "Pizza with wild mushrooms"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30-45 minutes to integrate components",
+      "glassware": "Rhône or standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "California (likely Santa Barbara or Central Coast)",
+      "grapeVariety": "GSM blend: Grenache, Syrah, Mourvèdre",
+      "vintage": "2022",
+      "style": "Californian Rhône-style blend",
+      "ageability": "Drink now through 2029"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:07:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Dvir Petit Verdot",
+    "description": "A varietal Petit Verdot showcasing this Bordeaux variety in standalone form. Typically used as a blending grape, Petit Verdot as a varietal wine offers intense color, powerful tannins, and concentrated dark fruit. This wine demonstrates the variety's potential when given solo billing.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with dark fruit concentration characteristic of Petit Verdot. Blackberry, black cherry, and plum dominate with violet and floral notes adding elegance. Hints of graphite, pencil lead, and dark chocolate from oak aging provide complexity.",
+      "palate": "Full-bodied with powerful tannin structure and concentrated dark fruit flavors. Black fruit intensity is balanced by firm but refined tannins and good acidity. Layers of dark chocolate, coffee, and oak spice add complexity. The wine shows excellent depth and structure typical of Petit Verdot.",
+      "finish": "A long, structured finish with persistent dark fruit and firm tannins. The finish demonstrates the variety's intensity and aging potential with excellent length and complexity."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak",
+      "Braised lamb shanks",
+      "Aged hard cheeses",
+      "Wild game preparations",
+      "Rich beef stews"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften powerful tannins",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (possibly Israel based on producer name, or New World)",
+      "grapeVariety": "100% Petit Verdot",
+      "vintage": "Unknown",
+      "style": "Varietal Petit Verdot with oak aging",
+      "ageability": "Excellent aging potential; 5-10+ years depending on vintage"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:09:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Pomar Junction Cab Forward 2015",
+    "description": "A Cabernet Sauvignon-dominant blend from Paso Robles with significant bottle age. The \"Cab Forward\" name indicates Cabernet Sauvignon leads the blend, showcasing Paso's warm climate influence with concentrated fruit and structure. The 2015 vintage offers mature character with tertiary development.",
+    "tastingNotes": {
+      "aroma": "Mature Cabernet aromatics with evolved dark fruit, cedar, and tobacco. The 2015 vintage shows development with black cherry and cassis giving way to dried fruit, leather, and cigar box notes. Paso Robles warmth shines through with ripe fruit character and oak-derived vanilla and spice.",
+      "palate": "Full-bodied with softened tannins from aging. Dark fruit flavors show maturity with dried cherry, plum, and fig complemented by cedar, tobacco, and chocolate. The wine maintains structure with integrated tannins and good acidity balancing the Paso Robles ripeness.",
+      "finish": "A long finish with persistent dark fruit and savory notes. The tannins are well-integrated, creating a smooth conclusion. The wine demonstrates successful aging and Paso Robles terroir expression."
+    },
+    "foodPairings": [
+      "Grilled steaks and prime rib",
+      "Braised short ribs",
+      "Aged cheddar or Manchego",
+      "Roasted lamb with rosemary",
+      "Wild mushroom dishes"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "45-60 minutes recommended",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Paso Robles, California",
+      "grapeVariety": "Cabernet Sauvignon-dominant blend",
+      "vintage": "2015",
+      "style": "Warm climate Cabernet blend with extended aging",
+      "ageability": "Drinking well now; enjoy through 2028"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:11:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine du Vieux College Fixin Rouge Les Champs des Charmes 2022",
+    "description": "A Pinot Noir from Fixin, a village appellation in Burgundy's Côte de Nuits. Domaine du Vieux College produces traditional Burgundian wines, and this climat-specific bottling showcases Fixin's rustic character with earthy complexity and structured red fruit. The 2022 vintage offers youthful vibrancy.",
+    "tastingNotes": {
+      "aroma": "Classic Côte de Nuits Pinot Noir aromatics with red cherry, raspberry, and strawberry. Earthy notes of sous bois, mushroom, and forest floor add complexity typical of Fixin. Subtle oak spice and floral violet notes provide elegance, while the aromatic profile maintains Burgundian purity.",
+      "palate": "Medium-bodied with firm structure characteristic of Fixin. Red fruit flavors of cherry and cranberry are balanced by earthy minerality and savory notes. The wine shows good concentration with refreshing acidity and fine-grained tannins. Fixin's rustic character is evident with more structure than softer Burgundian appellations.",
+      "finish": "A medium-length finish with persistent red fruit and earthy notes. The tannins provide structure, suggesting aging potential. The finish demonstrates Fixin's terroir character and traditional Burgundian winemaking."
+    },
+    "foodPairings": [
+      "Coq au vin",
+      "Duck breast with cherry sauce",
+      "Mushroom risotto",
+      "Roasted chicken with herbs",
+      "Époisses or other washed-rind cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C)",
+      "decanting": "30-45 minutes to open young Burgundy",
+      "glassware": "Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Fixin, Côte de Nuits, Burgundy, France",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2022",
+      "style": "Traditional Burgundian Pinot Noir from village appellation",
+      "ageability": "Drink now through 2032; will develop additional complexity with aging"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T15:13:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Jeremy Nickel Cellars Cabernet Sauvignon 2021",
+    "description": "A Cabernet Sauvignon from Jeremy Nickel Cellars representing focused, quality-driven winemaking. This wine showcases Cabernet's classic character with structured tannins, dark fruit concentration, and oak influence. The 2021 vintage offers youthful energy with aging potential.",
+    "tastingNotes": {
+      "aroma": "Classic Cabernet aromatics of blackcurrant, black cherry, and cassis. Cedar and tobacco from oak aging add complexity, while hints of eucalyptus and mint provide varietal character. Subtle violet and baking spice notes add elegance to the concentrated dark fruit.",
+      "palate": "Full-bodied with structured tannins and concentrated dark fruit flavors. Blackcurrant and black cherry dominate with layers of dark chocolate, espresso, and oak-derived spices. The wine shows excellent structure with firm but refined tannins and good acidity providing balance and aging potential.",
+      "finish": "A long, structured finish with persistent dark fruit and oak notes. The tannins remain present, providing framework for aging. The finish demonstrates classic Cabernet character with excellent length."
+    },
+    "foodPairings": [
+      "Grilled ribeye or strip steak",
+      "Braised beef short ribs",
+      "Roasted leg of lamb",
+      "Aged cheddar or Gouda",
+      "Wild mushroom dishes"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften tannins",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely Napa Valley or California)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2021",
+      "style": "Structured Cabernet with oak aging",
+      "ageability": "Drink now through 2033; has excellent aging potential"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:15:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Boplaas Fledge and Co. The Clutch Tinta Barocca 2024",
+    "description": "A Tinta Barocca from South Africa's Boplaas, showcasing this Portuguese variety in the Klein Karoo. Part of the Fledge and Co. range, this wine highlights a grape typically used in Port production as a table wine. The 2024 vintage offers fresh, vibrant fruit with immediate drinkability.",
+    "tastingNotes": {
+      "aroma": "Aromatic with red and dark berry fruits characteristic of Tinta Barocca. Cherry, raspberry, and plum dominate with floral violet notes adding elegance. Hints of spice and Mediterranean herbs provide complexity, while the aromatic profile remains fresh and vibrant.",
+      "palate": "Medium-bodied with concentrated fruit flavors and good structure. Red cherry and berry fruits are balanced by firm but approachable tannins. The wine shows excellent freshness with bright acidity and pure fruit expression. Subtle spice notes add complexity to the fruit-forward palate.",
+      "finish": "A clean finish with lingering red fruit and spice notes. The tannins are present but refined, providing structure for food pairing. The finish demonstrates Tinta Barocca's potential as a table wine."
+    },
+    "foodPairings": [
+      "Grilled sausages and BBQ",
+      "Bobotie (South African dish)",
+      "Grilled lamb chops",
+      "Aged hard cheeses",
+      "Spicy curries"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30 minutes recommended",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Klein Karoo, Western Cape, South Africa",
+      "grapeVariety": "100% Tinta Barocca",
+      "vintage": "2024",
+      "style": "Fresh, fruit-forward table wine from Port variety",
+      "ageability": "Best consumed within 3-5 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:17:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Mother Tongue Shiraz Barossa Valley 2019",
+    "description": "A Barossa Valley Shiraz showcasing one of Australia's most celebrated wine regions and varieties. Mother Tongue represents the Barossa's distinctive voice with concentrated fruit, structured tannins, and the region's signature power and elegance. The 2019 vintage offers maturity with development.",
+    "tastingNotes": {
+      "aroma": "Rich Barossa Shiraz aromatics with dark fruit concentration. Blackberry, black cherry, and plum dominate with hints of dark chocolate, espresso, and spice. Eucalyptus and mint add Australian character, while oak-derived vanilla and toast provide complexity.",
+      "palate": "Full-bodied with powerful structure characteristic of Barossa Shiraz. Concentrated dark fruit flavors of blackberry and plum are balanced by oak spice and chocolate notes. The wine shows excellent depth with firm but velvety tannins and good acidity providing balance. The Barossa warmth is evident in the ripe, generous fruit.",
+      "finish": "A long, powerful finish with persistent dark fruit and spice. The tannins are structured but refined, providing framework for aging. The finish demonstrates Barossa Shiraz's intensity and quality."
+    },
+    "foodPairings": [
+      "Grilled ribeye or T-bone steak",
+      "Braised lamb shanks",
+      "Kangaroo or game meats",
+      "Aged cheddar",
+      "BBQ and smoked meats"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60 minutes to soften and open",
+      "glassware": "Large red wine glass"
+    },
+    "wineDetails": {
+      "region": "Barossa Valley, South Australia",
+      "grapeVariety": "100% Shiraz",
+      "vintage": "2019",
+      "style": "Full-bodied Barossa Shiraz with oak aging",
+      "ageability": "Drink now through 2032; has good aging potential"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T15:19:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Chateau Maris Rose Pays D'OC 2023",
+    "description": "A rosé from Château Maris in the Languedoc, known for biodynamic viticulture and natural winemaking. This Pays d'Oc rosé showcases Mediterranean character with fresh fruit and mineral notes. The 2023 vintage offers youthful vibrancy and immediate drinkability.",
+    "tastingNotes": {
+      "aroma": "Fresh red berry aromatics of strawberry, raspberry, and watermelon. Subtle floral notes and citrus zest add brightness, while hints of Mediterranean herbs and minerality provide complexity. The aromatic profile is clean, vibrant, and inviting.",
+      "palate": "Light to medium-bodied with crisp acidity and pure red fruit flavors. Strawberry and cherry dominate with refreshing citrus notes balancing the fruit. The wine shows good texture with mineral undertones from Languedoc's terroir. The biodynamic approach adds purity and energy to the palate.",
+      "finish": "A crisp, dry finish with lingering red fruit and mineral notes. The acidity persists, leaving a refreshing impression ideal for Mediterranean cuisine and summer drinking."
+    },
+    "foodPairings": [
+      "Bouillabaisse and fish stews",
+      "Grilled sea bass with herbs",
+      "Salade Niçoise",
+      "Ratatouille",
+      "Fresh goat cheese"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "Pays d'Oc, Languedoc, France",
+      "grapeVariety": "Likely Grenache, Cinsault, or Languedoc blend",
+      "vintage": "2023",
+      "style": "Biodynamic dry rosé",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:21:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Heron Hill Blaufrankisch 2021",
+    "description": "A Blaufränkisch from Heron Hill in the Finger Lakes, showcasing this Austrian variety's adaptation to New York's cool climate. This wine demonstrates the grape's characteristic spice, dark fruit, and acidity, proving Blaufränkisch can thrive outside Central Europe with distinctive character.",
+    "tastingNotes": {
+      "aroma": "Aromatic with dark berry fruits and characteristic Blaufränkisch spice. Black cherry, raspberry, and plum are complemented by white pepper, cinnamon, and hints of violet. Subtle earthy notes add complexity to the fruit-forward bouquet.",
+      "palate": "Medium-bodied with vibrant acidity typical of both Blaufränkisch and Finger Lakes terroir. Dark cherry and berry flavors dominate with peppery spice and herbal notes adding complexity. The wine shows good structure with fine-grained tannins and refreshing acidity that makes it highly food-friendly.",
+      "finish": "A clean finish with persistent dark fruit and spice. The acidity remains bright through the conclusion, while the tannins provide gentle structure. The finish demonstrates successful cool-climate Blaufränkisch production."
+    },
+    "foodPairings": [
+      "Roasted duck with plum sauce",
+      "Grilled sausages",
+      "Mushroom and wild game dishes",
+      "Aged Gruyère",
+      "Beef goulash"
+    ],
+    "servingInfo": {
+      "temperature": "58-62°F (14-17°C), slightly cooler than typical reds",
+      "decanting": "30-45 minutes recommended",
+      "glassware": "Medium-sized red wine glass"
+    },
+    "wineDetails": {
+      "region": "Finger Lakes, New York",
+      "grapeVariety": "100% Blaufränkisch",
+      "vintage": "2021",
+      "style": "Cool-climate expression of Austrian variety",
+      "ageability": "Drink now through 2028"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:23:00.000Z"
+    }
+  }
+]

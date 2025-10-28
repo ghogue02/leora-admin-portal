@@ -1,0 +1,347 @@
+{
+  "batchNumber": 99,
+  "completedAt": "2025-10-21T14:15:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Adir Dry Riesling Mevushal (MD & DC) 2024",
+      "description": "An aromatic kosher Riesling from the Galilee region of Israel, crafted with precision by Adir Winery. This mevushal certified wine balances rich texture with refreshing character, showcasing the winery's commitment to producing extraordinary wines from their hidden gem vineyard in the heart of Galilee.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromatics of petrol and honeysuckle, characteristic of quality Riesling, layered with white flowers and hints of spice. Subtle notes of citrus blossom and wet stone emerge with aeration, revealing the wine's mineral complexity. There's a beautiful funk typical of well-made Riesling, adding intrigue and depth to the aromatic profile.",
+        "palate": "Rich and layered on the palate, this dry Riesling delivers impressive weight without sacrificing freshness. Flavors of ripe apple, Meyer lemon, and white peach are complemented by a distinctive mineral backbone reminiscent of crushed limestone. The wine shows excellent structure with crisp acidity cutting through the generous fruit, while subtle notes of ginger and white pepper add complexity. The texture is surprisingly plush for a dry style, with a glycerin quality that coats the palate.",
+        "finish": "The finish is long and refreshing, with lingering notes of citrus pith and stony minerality. There's a pleasant tension between the wine's richness and its zippy acidity, leaving the palate cleansed and ready for the next sip."
+      },
+      "foodPairings": [
+        "Grilled branzino with lemon and herbs",
+        "Roasted chicken with thyme and garlic",
+        "Asian cuisine including sushi and Thai noodles",
+        "Soft cheeses like goat cheese or young Pecorino",
+        "Vegetable tempura with soy dipping sauce"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled",
+        "decanting": "No decanting needed; serve directly from the bottle to preserve freshness and aromatics",
+        "glassware": "Medium-sized white wine glass or Riesling-specific glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Galilee, Israel",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2024",
+        "style": "Dry white wine, Mevushal kosher certified",
+        "ageability": "Best enjoyed within 2-4 years, though quality Rieslings can develop complexity with 5+ years of aging. Drinking window: 2024-2029."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Valdeorite Cava NV",
+      "description": "An aromatic and refreshing Cava from the boutique winery in Almendralejo, one of the few places in Spain outside Catalonia accredited to produce Cava. Crafted by López Morenas with traditional methods, this sparkling wine earned 90 points from Wine Enthusiast and a 4.1 rating on Vivino, showcasing excellent quality at its price point.",
+      "tastingNotes": {
+        "aroma": "The nose presents enticing aromas of ripe citrus fruits, particularly lime zest and lemon, intermingled with green apple and delicate floral notes. Subtle hints of verbena and lychee nut add an exotic dimension to the bouquet. As the wine opens, notes of lemongrass and white flowers emerge, creating a complex and inviting aromatic profile.",
+        "palate": "On the palate, this Cava delivers a lively mousse with persistent fine bubbles that dance across the tongue. The wine shows clean, fresh flavors of stone fruit - white peach and nectarine - balanced by bright citrus notes of lemon and grapefruit. A creamy texture develops mid-palate, revealing nuances of hazelnut and toasted bread from time spent on lees. The wine maintains refreshing acidity throughout, with a subtle mineral character that adds depth and complexity.",
+        "finish": "The finish is long, crisp, and refreshing with a minerally edge that leaves the palate cleansed and invigorated. Lingering notes of citrus peel and apple skin persist, inviting another sip."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish",
+        "Fried calamari or tempura vegetables",
+        "Spanish tapas including jamón serrano and manchego",
+        "Sushi and sashimi",
+        "Light pasta dishes with cream sauces"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F) - well chilled",
+        "decanting": "No decanting required; serve directly from the bottle",
+        "glassware": "Flute or tulip-shaped sparkling wine glass to preserve the bubbles"
+      },
+      "wineDetails": {
+        "region": "Almendralejo, Extremadura, Spain (Cava DO)",
+        "grapeVariety": "Macabeo and Parellada blend",
+        "vintage": "Non-vintage",
+        "style": "Traditional method sparkling wine (Cava), Brut",
+        "ageability": "Best enjoyed within 1-2 years of purchase to maintain freshness and lively bubbles. Drinking window: Now-2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Sauvignon Blanc Keg 2022  20 l",
+      "description": "A fresh and vibrant Sauvignon Blanc from Raywood, associated with Castoro Cellars' quality winemaking. This keg format wine delivers bright citrus flavors and crisp mineral notes, perfect for high-volume service while maintaining the characteristic freshness of well-made Sauvignon Blanc.",
+      "tastingNotes": {
+        "aroma": "The nose reveals bright aromatics of wet stone and fresh lemon peel, immediately signaling the wine's mineral character. Subtle herbaceous notes reminiscent of freshly cut grass mingle with green apple and hints of gooseberry. A delicate floral note adds elegance to the bouquet, while the underlying minerality suggests cool-climate fruit.",
+        "palate": "On the palate, the wine shows a soft yet structured texture with layers of citrus flesh - lemon, lime, and grapefruit - balanced by crisp green apple flavors. Grassy, herbaceous notes add complexity without overwhelming the fruit, while the wine's mineral backbone provides definition and length. The texture is refreshing and clean, with vibrant acidity that energizes the palate. Subtle tropical hints of passion fruit emerge on the mid-palate, adding dimension to the citrus-forward profile.",
+        "finish": "The finish is clean and refreshing with lingering notes of lemon zest and wet stone minerality. The wine leaves the palate vibrant and ready for food, with just enough weight to satisfy without heaviness."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic butter",
+        "Fresh goat cheese salads with citrus vinaigrette",
+        "Grilled asparagus and spring vegetables",
+        "Lighter fish preparations like steamed halibut",
+        "Chicken piccata with lemon and capers"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled",
+        "decanting": "No decanting needed; serve directly from keg system",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California, USA",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Crisp, mineral-driven white wine",
+        "ageability": "Best enjoyed young to preserve freshness. Drinking window: 2022-2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cantina Fratelli Pardi Grechetto 2024",
+      "description": "A beautifully fresh and approachable white wine from one of Montefalco's respected family estates. This Grechetto Montefalco DOC showcases the simple yet elegant character of the variety through steel vinification at low temperatures, resulting in a wine that rarely disappoints with its straightforward charm and vibrant acidity.",
+      "tastingNotes": {
+        "aroma": "The nose presents a simple yet pleasant bouquet dominated by white flowers - acacia and elder blossom - intermingled with fresh fruit aromatics. Notes of white peach, green apple, and citrus create an inviting and clean aromatic profile. Subtle herbal nuances reminiscent of fresh basil and a hint of fine olive tapenade add complexity without overwhelming the wine's delicate floral character.",
+        "palate": "On the palate, the wine is refreshingly acidic with a glycerin-rich texture that provides weight without excess alcohol. Classic Grechetto aromatics translate to flavors of ripe pear, white peach, and citrus pith, complemented by herbal undertones. The wine shows medium body with good structure, while maintaining an agile, straightforward character. There's a beautiful freshness that carries through the entire tasting experience, with balanced acidity keeping the wine lively and food-friendly.",
+        "finish": "The finish is clean and crisp, with lingering notes of citrus and white flowers. The wine's pleasant acidity leaves the palate refreshed, making it a perfect companion for multiple courses."
+      },
+      "foodPairings": [
+        "Grilled fish with lemon and olive oil",
+        "Umbrian white bean soup",
+        "Fresh mozzarella and tomato salads",
+        "Roasted chicken with herbs",
+        "Risotto with spring vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - lightly chilled",
+        "decanting": "No decanting needed; the wine's simplicity and freshness are best enjoyed immediately upon opening",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Montefalco DOC, Umbria, Italy",
+        "grapeVariety": "100% Grechetto",
+        "vintage": "2024",
+        "style": "Fresh, approachable white wine",
+        "ageability": "Best enjoyed young to appreciate its freshness and fruit. Drinking window: 2024-2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Skylark Grenache 2014",
+      "description": "A juicy, spicy Grenache from Mendocino County crafted by Boulevard Restaurant wine directors John Lancaster and Robert Perkins. This wine showcases the ripe, fruit-forward character that Skylark has become known for, with forest floor complexity adding depth to bright red fruit aromatics.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with juicy red fruit aromatics, led by red currant and ripe cherry, interwoven with intriguing forest floor notes that add earthy complexity. Subtle hints of dried herbs, particularly thyme and rosemary, mingle with a touch of white pepper spice. As the wine opens, aromas of crushed raspberries and wild strawberries emerge, along with a delicate floral note reminiscent of rose petals.",
+        "palate": "On the palate, red cherry fruit takes center stage, supported by flavors of ripe strawberry, cranberry, and pomegranate. The wine shows good weight at 14.8% ABV, delivering a slightly warm, spicy character that's typical of ripe Grenache. Ripe cherry fruit is flecked with savory white pepper spice, adding complexity and a Mediterranean character. The texture is rich and slightly glycerin, coating the palate with concentrated fruit, while moderate tannins provide structure. Mid-palate flavors evolve to show hints of dried herbs and earthy undertones.",
+        "finish": "The finish is spicy with a slightly hot character from the alcohol, showing persistent red fruit flavors and white pepper spice. The wine benefits from decanting to integrate the warmth and allow the fruit to shine through."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs de Provence",
+        "Duck confit with cherry gastrique",
+        "Mushroom risotto with aged Parmesan",
+        "Beef bourguignon or braised short ribs",
+        "Hard aged cheeses like Comté or aged Manchego"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - slightly cool room temperature",
+        "decanting": "Decanting recommended for 30-60 minutes to integrate the alcohol and soften the warm finish",
+        "glassware": "Large bowl red wine glass to allow aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "Mendocino County, North Coast, California",
+        "grapeVariety": "100% Grenache",
+        "vintage": "2014",
+        "style": "Rich, fruit-forward red wine",
+        "ageability": "Now in its drinking window with some tertiary development. Enjoy now through 2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Costers Del Segre Petit Sios Blanco 2024",
+      "description": "An explosive and aromatic organic white wine from Bodegas Costers del Sió in Catalonia. This fresh young blend of Viognier, Chardonnay, and Muscat showcases the estate's commitment to organic farming, delivering intense aromatics and pleasant texture from vineyards at 310 meters elevation in the Costers del Segre DO.",
+      "tastingNotes": {
+        "aroma": "Explosive on the nose with vibrant aromatics that immediately captivate. Pleasant notes of fresh Muscat grapes lead the way, followed by exotic fruits including lychee, mango, and passion fruit. White flower aromatics - orange blossom and honeysuckle - add an elegant floral dimension, all wrapped in a gentle freshness that keeps the wine lifted and inviting. Subtle hints of stone fruit and citrus add complexity.",
+        "palate": "Intense and flavorful on the palate with a pleasant, almost creamy texture from the Viognier component. The wine is fresh and smooth with balanced acidity that supports rather than dominates. Flavors of ripe white peach, apricot, and tropical fruits are complemented by citrus notes and a subtle minerality. The Chardonnay adds structure and body, while the Muscat provides distinctive grape and floral character. Despite its intensity, the wine remains direct and uncomplicated, making it accessible and enjoyable.",
+        "finish": "The finish is fresh and fruity with lingering exotic fruit flavors and floral notes. A gentle mineral edge adds definition, while the wine's balanced acidity leaves the palate refreshed."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic and herbs",
+        "Thai green curry with chicken",
+        "Soft fresh cheeses like burrata",
+        "Seared scallops with citrus beurre blanc",
+        "Vietnamese spring rolls with nuoc cham"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled",
+        "decanting": "No decanting needed; the wine's fresh character is best enjoyed immediately",
+        "glassware": "Medium white wine glass to concentrate the aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Costers del Segre DO, Catalonia, Spain",
+        "grapeVariety": "Blend of Viognier, Chardonnay, and Muscat",
+        "vintage": "2024",
+        "style": "Aromatic, fresh, organically farmed white wine",
+        "ageability": "Best enjoyed young to preserve fruit and freshness. Drinking window: 2024-2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Cabernet Franc 2020",
+      "description": "A Wine Club Exclusive Cabernet Franc from Hertelendy Vineyards, representing an Old World Hungarian family tradition reborn in Napa Valley. This wine earned a 97 from Robert Parker and was ranked among the Top 40 Napa Valley Cabernet Francs of all time, showcasing exceptional ripeness and character from the 2020 vintage.",
+      "tastingNotes": {
+        "aroma": "The nose shows deep aromatic focus on the sweetness and ripeness of fruit, with boysenberry jam leading the way alongside blackberry preserves and black fig. Dark berry compote mingles with notes of crushed violets and dried herbs - particularly sage and thyme. Subtle oak-derived notes of vanilla, cedar, and sweet tobacco add complexity, while a mineral undertone from the Silverado Bench fruit provides elegance and lift.",
+        "palate": "On the palate, this was Ralph Hertelendy's favorite wine from the 2020 vintage, and it's easy to see why. The wine delivers rich, concentrated flavors of ripe blackberry, boysenberry, and black cherry, supported by excellent structure and velvety tannins. The Silverado Bench fruit contributes a distinctive mineral backbone that provides definition to the lush fruit. Mid-palate shows layers of dark chocolate, espresso, and dried herbs, with integrated oak adding nuance without dominating. The wine has impressive depth and concentration while maintaining balance and elegance.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit flavors, fine-grained tannins, and subtle notes of cocoa and spice. The wine shows exceptional length and complexity, testament to its top-tier quality."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with compound herb butter",
+        "Braised lamb shanks with root vegetables",
+        "Roasted duck breast with blackberry reduction",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Wild mushroom ragù over polenta"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - cool room temperature",
+        "decanting": "Decant for 1-2 hours to allow the wine to open and integrate, revealing its full complexity",
+        "glassware": "Large Bordeaux-style glass to accommodate the wine's aromatics and concentration"
+      },
+      "wineDetails": {
+        "region": "Silverado Bench, Napa Valley, California",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2020",
+        "style": "Premium, concentrated red wine",
+        "ageability": "Excellent aging potential. Drinking window: 2024-2035+. The wine will continue to develop complexity over the next decade."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vins Mosbach Gewurztraminer 2023",
+      "description": "An aromatic Gewurztraminer from Alsace crafted by Vins Mosbach, harmoniously blending the variety's characteristic floral, fruity and spicy notes. This wine showcases the elegant expression of Gewurztraminer from one of Alsace's quality-focused producers, balancing richness with freshness in a dry style.",
+      "tastingNotes": {
+        "aroma": "The nose combines beautifully expressive fruity notes of lychee - the signature Gewurztraminer aroma - with elegant floral notes of roses, violets, and orange blossom. Exotic spice notes including ginger, cinnamon, and white pepper add complexity and intrigue. Subtle hints of stone fruit, particularly ripe peach and apricot, emerge with aeration, along with a delicate honeyed quality that doesn't overwhelm the wine's freshness.",
+        "palate": "Rich and aromatic on the palate, the wine delivers intense flavors while remaining dry in style. The texture is tender and almost oily, coating the palate with concentrated fruit - lychee, rose petal, and white peach dominate, supported by the variety's characteristic spice. Despite the richness, balanced acidity keeps the wine fresh and food-friendly, preventing it from becoming cloying. The wine shows good length and complexity, with layers of fruit, floral, and spice notes unfolding across the palate.",
+        "finish": "The finish is long and harmonious with persistent floral and spice notes. A subtle citrus edge adds definition, while the wine's aromatic character lingers beautifully, inviting another sip."
+      },
+      "foodPairings": [
+        "Alsatian choucroute garnie",
+        "Thai red curry with shrimp",
+        "Foie gras terrine",
+        "Moroccan tagine with apricots and almonds",
+        "Munster or other washed-rind cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - lightly chilled to preserve aromatics",
+        "decanting": "No decanting needed; serve directly to enjoy the wine's aromatic lift",
+        "glassware": "Aromatic white wine glass with a wider bowl to capture the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Alsace, France",
+        "grapeVariety": "100% Gewurztraminer",
+        "vintage": "2023",
+        "style": "Aromatic dry white wine",
+        "ageability": "Best enjoyed within 3-5 years to appreciate the fresh aromatics, though quality Alsace Gewurztraminer can age longer. Drinking window: 2023-2028."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Fevre Grand Cru Les Preuses 2022",
+      "description": "A stunning Chablis Grand Cru from one of the seven prized climats, earning exceptional scores across the board: 96 Decanter, 95 Wine Advocate, 95 James Suckling, and 93 Wine Spectator. This organically grown Chardonnay from Domaine William Fèvre represents the pinnacle of Chablis winemaking, showcasing remarkable elegance, mineral intensity, and aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose wafts from the glass with sophisticated aromas of orange zest, oyster liquor, and brine that immediately signal Grand Cru pedigree. White flowers - acacia and hawthorn - mingle with notes of white peach, lemon rind, and hazelnut. Subtle pie-crust and spiced-apple aromatics from careful oak aging add complexity. A distinctive mineral note reminiscent of wet stones and chalk emerges, while hints of wild peach and faint touches of crustacea add an exotic dimension.",
+        "palate": "Medium to full-bodied with a satiny, textural quality that coats the palate luxuriously. The wine is super succulent and juicy, showing compact, concentrated layers of peach, lemon, and melon fruit. Intensely mineral with a distinctive lime and lemon coating that provides definition and precision. The palate reveals beautiful orchard fruit with hints of apricot and wild peach, supported by fine acidity that drives through the rich fruit. There's a creamy richness balanced by crystalline purity, with subtle nutty notes adding savory complexity. The wine shows remarkable mix of richness, grace, and drive.",
+        "finish": "The finish is ultra-stylish and very mineral with a long, satisfying conclusion. A fine salt and mineral-infused aftertaste persists, underscoring Les Preuses' role as the most ethereal of the grand cru climats. The wine leaves the palate elegant yet substantial, with exceptional length."
+      },
+      "foodPairings": [
+        "Fresh Brittany oysters or other premium shellfish",
+        "Lobster thermidor or grilled lobster with drawn butter",
+        "Dover sole meunière",
+        "Comté or aged Gruyère cheese",
+        "Roasted turbot with beurre blanc"
+      ],
+      "servingInfo": {
+        "temperature": "12-14°C (54-57°F) - serve slightly warmer than regular Chablis to appreciate complexity",
+        "decanting": "Decanting for 30 minutes recommended to allow the wine to open and reveal its full aromatic complexity",
+        "glassware": "High-quality Burgundy glass to showcase the wine's elegance and minerality"
+      },
+      "wineDetails": {
+        "region": "Les Preuses Grand Cru, Chablis, Burgundy, France",
+        "grapeVariety": "100% Chardonnay (organically grown)",
+        "vintage": "2022",
+        "style": "Grand Cru Chablis - elegant, mineral-driven, age-worthy",
+        "ageability": "Exceptional aging potential. Recommended drinking window: 2030-2040, though can be enjoyed now with proper aeration."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau De Jonquieres Languedoc 2020",
+      "description": "A distinguished red wine from one of the oldest family wine estates in Languedoc, continuously passed down since the 12th century. Under the direction of Alsatian-born winemaker Clément Mengus, this organically and biodynamically farmed wine showcases freshness and aromatic complexity from the Terrasses du Larzac appellation.",
+      "tastingNotes": {
+        "aroma": "The nose reveals a complex bouquet of dark red and black fruits - blackberry, black cherry, and plum - intermingled with garrigue herbs typical of the Languedoc. Notes of wild thyme, rosemary, and lavender add a distinctly Mediterranean character, while subtle hints of black olive and earth provide savory depth. A touch of spice - black pepper and clove - emerges with aeration, along with delicate floral notes that speak to the wine's freshness and biodynamic farming.",
+        "palate": "On the palate, this blend of Carignan, Syrah, Mourvèdre, and Grenache shows remarkable balance and refreshing lightness of touch. The wine delivers concentrated dark fruit flavors - cassis, blackberry, and dark plum - supported by fine, integrated tannins that provide structure without heaviness. The wide temperature variations from day to night during the growing season have encouraged slow, progressive growth, resulting in a wine with excellent freshness and aromatic complexity. Mid-palate flavors reveal hints of dried herbs, black olive tapenade, and a subtle mineral edge. The texture is silky and refined, showing the benefits of organic and biodynamic viticulture.",
+        "finish": "The finish is long and harmonious with persistent dark fruit and herbal notes. Fine tannins provide gentle grip, while the wine's refreshing acidity keeps it lively and food-friendly. A subtle mineral edge adds definition to the satisfying conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb with herbs de Provence",
+        "Cassoulet or other rustic French stews",
+        "Beef daube Provençale",
+        "Aged Pecorino or Manchego cheese",
+        "Ratatouille with grilled sausages"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F) - cool room temperature",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and integrate, revealing its complexity",
+        "glassware": "Large bowl red wine glass to allow aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "AOP Languedoc, Terrasses du Larzac, France",
+        "grapeVariety": "Blend of Carignan, Syrah, Mourvèdre, and Grenache",
+        "vintage": "2020",
+        "style": "Organic and biodynamic red wine with fresh, aromatic complexity",
+        "ageability": "Drinking well now with good aging potential. Drinking window: 2024-2032."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:15:00.000Z"
+      }
+    }
+  ]
+}

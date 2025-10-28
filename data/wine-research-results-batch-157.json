@@ -1,0 +1,346 @@
+{
+  "batchId": 157,
+  "processedAt": "2025-10-21T14:25:20.885Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Rock Ferry Corners Sauvignon Blanc 2022",
+      "description": "A distinguished Sauvignon Blanc showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of grapefruit and lime, complemented by notes of passion fruit, grass, gooseberry. As the wine opens, additional layers of complexity emerge with hints of herbs. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is crisp and refreshing, delivering flavors of vibrant acidity, citrus, minerality. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is zesty and clean, with bright flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Fresh oysters",
+        "Grilled fish",
+        "Goat cheese salad",
+        "Sushi",
+        "Light seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Serve well-chilled, no decanting",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Crisp, refreshing white",
+        "ageability": "Drink now through 2025. Best enjoyed fresh and vibrant."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Costers del Sio Cau del Gat 2022",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2022",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Borgeot Bourgogne Pinot Noir 2022",
+      "description": "A distinguished Pinot Noir showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of red cherry and strawberry, complemented by notes of raspberry, earthy, mushroom. As the wine opens, additional layers of complexity emerge with hints of strawberry. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is silky and medium-bodied, delivering flavors of red fruit, fine tannins, elegant. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is smooth and refined, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Roasted chicken",
+        "Pork tenderloin",
+        "Grilled salmon",
+        "Pasta with meat sauce",
+        "Mushroom dishes"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "Brief 30-minute decant to open aromatics",
+        "glassware": "Burgundy glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "2022",
+        "style": "Elegant, medium-bodied red",
+        "ageability": "Best enjoyed now through 2027. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Formiga 2022",
+      "description": "A distinguished Red Blend showcasing Priorat terroir. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of dark fruit. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Priorat",
+        "grapeVariety": "Red Blend",
+        "vintage": "2022",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Champagne Bauget-Jouette Rose NV",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Mediterranean salads",
+        "Grilled prawns",
+        "Charcuterie",
+        "Light pasta dishes",
+        "Soft cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Knuttel Family Wines Tentadora Malbec 2019",
+      "description": "A distinguished Malbec showcasing exceptional quality. This wine offers complexity and character with the 2019 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of dark fruit. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Malbec",
+        "vintage": "2019",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Taste Red",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casa Gaeiras Obidos White 2020",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2020 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Fresh oysters",
+        "Grilled fish",
+        "Goat cheese salad",
+        "Sushi",
+        "Light seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2020",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casa Gaeiras Obidos Red 2019",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2019 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2019",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Tempranillo Reserva Blanco 2020",
+      "description": "A distinguished Tempranillo showcasing exceptional quality. This wine offers complexity and character with the 2020 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Tempranillo",
+        "vintage": "2020",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.885Z"
+      }
+    }
+  ]
+}

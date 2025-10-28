@@ -1,0 +1,351 @@
+[
+  {
+    "productId": "",
+    "productName": "Rigo Arneis 2018",
+    "description": "A refined expression of Arneis from the Langhe region of Piedmont, crafted by the Rigo family's three generations of winemaking expertise. This 2018 vintage showcases the delicate aromatic qualities of the grape, vinified in stainless steel to preserve its characteristic freshness and mineral purity.",
+    "tastingNotes": {
+      "aroma": "The nose opens with fragrant white flowers and delicate chamomile blossoms, followed by ripe orchard fruits of white peach and apricot. Subtle notes of pear skin and almond emerge, complemented by a distinct mineral character reminiscent of crushed stone. The cooler 2018 vintage adds spicy lemon and tangerine zest to the aromatic profile, creating a linear and focused bouquet.",
+      "palate": "Medium-bodied with a slightly waxy, rounded texture characteristic of Arneis, the wine displays fresh flavors of crisp pear, ripe apricot, and white peach. Tangerine citrus notes provide brightness alongside nuances of hazelnut and blanched almond. The palate shows good concentration balanced by refreshing acidity, with mineral undertones adding complexity and a sense of place. The wine's 12.5% alcohol contributes to its approachable elegance.",
+      "finish": "The finish is clean and persistent, with lingering notes of white fruit and almond. A subtle mineral quality and refreshing acidity carry through to a crisp conclusion, encouraging another sip. The wine's natural tendency toward lower acidity is beautifully managed, resulting in a harmonious, well-balanced close."
+    },
+    "foodPairings": [
+      "Grilled white fish with herb butter",
+      "Risotto ai funghi porcini",
+      "Fresh oysters with lemon",
+      "Vitello tonnato (veal with tuna sauce)",
+      "Vegetable tempura with light soy dipping sauce"
+    ],
+    "servingInfo": {
+      "temperature": "Serve chilled at 45-48°F (7-9°C)",
+      "decanting": "No decanting necessary; open 15 minutes before serving to allow aromatics to develop",
+      "glassware": "Medium-sized white wine glass or tulip-shaped glass to concentrate delicate aromatics"
+    },
+    "wineDetails": {
+      "region": "Langhe DOC, Piedmont, Italy",
+      "grapeVariety": "100% Arneis",
+      "vintage": "2018",
+      "style": "Dry white wine, unoaked, aromatic and mineral-driven",
+      "ageability": "Best consumed within 2-3 years of vintage to enjoy primary fruit and floral characteristics; drink now through 2024"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Manchuela Bodegas Ponce Reto 2014",
+    "brand": null,
+    "description": "A striking white wine from Spain's Manchuela region, Reto represents the Ponce brothers' ambitious challenge to revive the indigenous Albillo (Albilla) grape variety. This 2014 vintage embodies their philosophy of traditional, minimal-intervention winemaking, producing a structured white with remarkable aging potential.",
+    "tastingNotes": {
+      "aroma": "The nose reveals enticing complexity with honeyed notes and hints of apple skin, complemented by dried Mediterranean herbs and wild scrubland character. Earthy mineral undertones add depth, while subtle aromas of ripe stone fruit and a touch of oxidative character speak to the wine's maturity. The aromatics show evolution and integration after nine years in bottle.",
+      "palate": "Full-bodied and powerfully structured with excellent tension and grip, this wine delivers intense salinity and vibrant electric acidity that belies its age. Flavors of baked apple, preserved lemon, and dried apricot mingle with spicy notes of ginger and white pepper. The wine's natural phenolic structure provides texture without heaviness, maintaining remarkable freshness. Rich and flavorful yet bone-dry, with mineral-driven intensity throughout.",
+      "finish": "The finish is long, saline, and electric, with persistent mineral notes and a vibrant acidity that cleanses the palate. The wine's structure and tension carry through to an impressive conclusion, demonstrating the ageability and gastronomic nature of well-made Albillo. Subtle honey and herb notes linger, inviting contemplation."
+    },
+    "foodPairings": [
+      "Aged Manchego cheese with quince paste",
+      "Grilled octopus with smoked paprika",
+      "Roasted chicken with preserved lemon and herbs",
+      "Seared scallops with brown butter",
+      "Mushroom and truffle risotto"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 50-54°F (10-12°C) to appreciate its complexity",
+      "decanting": "Decant for 30 minutes to allow the wine to open and express its full aromatic range",
+      "glassware": "Burgundy-style white wine glass to accommodate full body and complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Manchuela DO, Castilla-La Mancha, Spain",
+      "grapeVariety": "100% Albillo (Albilla)",
+      "vintage": "2014",
+      "style": "Full-bodied, structured white wine with natural winemaking approach",
+      "ageability": "Excellent aging wine; has developed beautifully over 9 years and can continue to evolve through 2026-2028 with proper storage"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Born Rose Still Double Magnum 2021  3 l",
+    "brand": null,
+    "description": "An impressive large-format presentation of Spanish rosé from Catalonia, this double magnum offers fresh, fruit-forward character with the added benefit of slower aging in the larger bottle format. The 2021 vintage showcases the vibrant, Mediterranean style of Catalan rosé production.",
+    "tastingNotes": {
+      "aroma": "Bright and inviting aromatics of fresh strawberry and wild raspberry dominate, complemented by delicate rose petal and hibiscus flower notes. Subtle hints of pink grapefruit and watermelon add complexity, while a gentle herbal note of wild thyme and a mineral undertone provide depth. The nose is clean, fresh, and immediately appealing.",
+      "palate": "Light to medium-bodied with crisp, refreshing acidity that carries vibrant red berry flavors. Fresh strawberry, raspberry, and cranberry are balanced by citrus notes of pink grapefruit and a touch of white peach. The wine shows excellent balance with just a hint of residual sweetness that's well-integrated, while maintaining a fundamentally dry profile. Mineral notes add structure and food-friendliness.",
+      "finish": "Clean and refreshing with lingering berry fruit and citrus zest. The finish is crisp and thirst-quenching with a subtle saline quality that encourages another sip. The wine's acidity provides a bright, clean conclusion perfect for warm weather enjoyment."
+    },
+    "foodPairings": [
+      "Grilled Mediterranean vegetables with romesco sauce",
+      "Paella valenciana or seafood paella",
+      "Tuna tartare with avocado",
+      "Fresh mozzarella and tomato salad with basil",
+      "Grilled lamb chops with herbs de Provence"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 42-45°F (6-7°C)",
+      "decanting": "No decanting necessary; serve directly from the double magnum for visual impact",
+      "glassware": "Standard white wine glass or large bowl rosé glass"
+    },
+    "wineDetails": {
+      "region": "Catalonia, Spain (specific appellation unspecified)",
+      "grapeVariety": "Traditional Spanish rosé blend (likely Garnacha and/or Tempranillo-based)",
+      "vintage": "2021",
+      "style": "Dry, fruit-forward Mediterranean rosé in double magnum format (3L)",
+      "ageability": "Best consumed within 1-2 years; drink now for optimal freshness (double magnum format provides slightly extended aging potential)"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Costers Del Segre Petit Sios Blanco 2023",
+    "brand": null,
+    "description": "A crisp and aromatic white wine from Catalonia's Costers del Segre region, representing the modern approach to Mediterranean white wine production. This 2023 vintage offers youthful exuberance and bright fruit character from high-altitude vineyards in northeastern Spain.",
+    "tastingNotes": {
+      "aroma": "Fresh and vibrant aromatics showcase green apple, pear, and white peach, complemented by citrus blossom and lemon zest. Delicate white flower notes add elegance, while a subtle herbal character of fennel and fresh-cut grass provides Mediterranean authenticity. A clean mineral note runs through the aromatic profile, speaking to the region's limestone soils.",
+      "palate": "Light to medium-bodied with bright, zesty acidity that brings energy and freshness. Flavors of crisp green apple, Asian pear, and white nectarine are enhanced by citrus notes of lemon and grapefruit. The wine shows excellent balance with a slight saline minerality that adds complexity and food compatibility. Clean, unoaked fruit expression with a refreshing, uncomplicated style perfect for everyday enjoyment.",
+      "finish": "The finish is crisp and clean with lingering citrus and green fruit notes. Refreshing acidity leaves the palate cleansed and ready for food, while a subtle mineral quality adds length. The conclusion is bright and energetic, reflecting the wine's youthful character."
+    },
+    "foodPairings": [
+      "Grilled white fish with olive oil and lemon",
+      "Fresh oysters and shellfish",
+      "Goat cheese salad with citrus vinaigrette",
+      "Vegetable paella or grilled vegetables",
+      "Pan con tomate and jamón serrano"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 44-47°F (7-8°C)",
+      "decanting": "No decanting necessary; open and pour",
+      "glassware": "Standard white wine glass or aromatic wine glass"
+    },
+    "wineDetails": {
+      "region": "Costers del Segre DO, Catalonia, Spain",
+      "grapeVariety": "Blend of indigenous white varieties (likely Macabeo, Parellada, and/or Xarel-lo)",
+      "vintage": "2023",
+      "style": "Crisp, aromatic dry white wine, unoaked and fruit-forward",
+      "ageability": "Best consumed within 1-2 years; drink now through 2025 for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Oleandri Santa Rita Hills Pinot Noir 2023",
+    "brand": null,
+    "description": "A limited-production Pinot Noir from one of California's most prestigious cool-climate regions, crafted by Oleandri Vineyards. The 2023 vintage from Santa Rita Hills showcases the coastal influence and limestone-rich soils that give this appellation its distinctive character, comparable to fine Burgundy.",
+    "tastingNotes": {
+      "aroma": "Highly aromatic and floral with elegant notes of rose petal, violet, and peony that lift from the glass. Bright red fruit aromas of ripe raspberry, wild strawberry, and red cherry are complemented by subtle hints of black tea, dried fig, and a touch of baking spice. The wine shows the hallmark Santa Rita Hills minerality with nuances of crushed stone and sea breeze salinity. A delicate hint of forest floor and mushroom adds complexity.",
+      "palate": "Light to medium-bodied yet layered and nuanced, the wine presents as highly floral on entry before revealing juicy red fruit flavors. Bright raspberry, strawberry, and red cherry dominate, supported by subtle notes of cranberry and pomegranate. The palate shows excellent balance with fine-grained tannins that provide structure without heaviness. Coastal acidity brings freshness and precision, while undertones of black tea, fig, and earthy mushroom add depth and intrigue.",
+      "finish": "The finish is silky and refined with persistent red fruit and floral notes. Fine tannins provide gentle grip while the wine's natural acidity extends the flavor profile. Subtle mineral and tea notes linger, creating an elegant and contemplative conclusion. The wine's balance and finesse shine through to the very end."
+    },
+    "foodPairings": [
+      "Duck breast with cherry gastrique",
+      "Wild mushroom risotto with truffle oil",
+      "Grilled salmon with herbs and lemon",
+      "Roasted chicken with root vegetables",
+      "Aged comte or gruyere cheese"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 55-60°F (13-15°C)",
+      "decanting": "Light decanting for 20-30 minutes will help the wine open and express its aromatic complexity",
+      "glassware": "Burgundy glass to showcase delicate aromatics and nuanced flavors"
+    },
+    "wineDetails": {
+      "region": "Santa Rita Hills AVA, Santa Barbara County, California",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2023",
+      "style": "Cool-climate, elegant Pinot Noir with Burgundian character",
+      "ageability": "Can be enjoyed now for fresh fruit character or cellared 5-8 years for tertiary development; optimal 2024-2031"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.82,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "TVH Estate Cabernet Sauvignon 2019",
+    "brand": null,
+    "description": "An exceptional Cabernet Sauvignon from The Vineyard House (TVH) estate in Oakville, Napa Valley's heart. Founded by second-generation vintner Jeremy Nickel, this intimate estate focuses exclusively on producing exquisite Cabernet with precision and elegance. The 2019 vintage showcases the property's exceptional terroir.",
+    "tastingNotes": {
+      "aroma": "The nose is very precise and focused, offering layered complexity. Bright notes of dried lavender and crushed rose petals emerge first, followed by rich dark fruit aromas of blackberry and cassis. Cocoa powder and dark chocolate add depth, while crushed rock and graphite minerality speaks to the Oakville terroir. Subtle hints of cedar, tobacco leaf, and vanilla from French oak aging provide additional nuance.",
+      "palate": "Dense and deeply textured with a mouth-filling presence and gorgeous concentration. The wine shows great balance despite its intensity, with flavors of ripe blackberry, dark cherry, and cassis complemented by notes of dark chocolate and espresso. Fine-grained, velvety tannins provide structure without astringency, while the wine maintains excellent focus and precision throughout. Nuances of violet, cocoa, and mineral notes add complexity to the core dark fruit.",
+      "finish": "The finish is long, elegant, and remarkably focused with persistent dark fruit and cocoa notes. Crushed rock minerality and fine tannins extend the conclusion impressively, while the wine's natural balance ensures harmony through the lengthy finish. This is a wine built for the cellar, showing both power and refinement."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with compound butter",
+      "Braised short ribs with red wine reduction",
+      "Roasted rack of lamb with herb crust",
+      "Aged cheddar or aged gouda",
+      "Wild mushroom Wellington"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 1-2 hours to allow the wine to open and soften tannins; benefits significantly from aeration",
+      "glassware": "Large Bordeaux or Cabernet glass to allow the wine to breathe and express its complexity"
+    },
+    "wineDetails": {
+      "region": "Oakville AVA, Napa Valley, California",
+      "grapeVariety": "100% Cabernet Sauvignon (Estate grown)",
+      "vintage": "2019",
+      "style": "Full-bodied, elegant Oakville Cabernet with precision and balance",
+      "ageability": "Excellent aging potential; drink 2024-2039 with proper cellaring (15-20 year window)"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Mauro Molino Barolo Bricco Luciani 2020",
+    "brand": null,
+    "description": "A distinguished Barolo from one of Piedmont's most respected producers, showcasing fruit from the renowned Bricco Luciani vineyard. The 2020 vintage earned exceptional critical acclaim (95 Jeb Dunnuck, 94 Vinous, 93 James Suckling), reflecting both the quality of the vintage and Molino's masterful winemaking.",
+    "tastingNotes": {
+      "aroma": "A perfumed and expressive nose reveals vibrant red fruit with layers of complexity. Aromas of bright cherry, wild raspberry, and red currant are complemented by fragrant notes of heritage rose, violet, and dried rosemary. Spicy elements of red pepper flake, anise, and cedar emerge, while dried pomegranate skin and pastry cream from French oak aging add richness. The wine shows beautiful fruit definition with an elegant, lifted character.",
+      "palate": "Medium-weight and super-expressive with a fine balance of fruit, structure, and elegance. Crushed red berry fruit dominates—think cherry, raspberry, and strawberry—supported by savory notes of dried herbs, earthy mushroom, and new leather. Spice notes of cinnamon, clove, and white pepper add complexity, while a kiss of French oak provides subtle toasted notes and pastry cream richness. The wine is nicely toned and delicate yet maintains beautiful fruit concentration, highlighting its gastronomic, savory aspect.",
+      "finish": "The finish is long and refined with persistent red fruit, spice, and earthy notes. Fine-grained tannins provide structure and grip suitable for aging, while the wine's natural acidity ensures freshness and balance. Cedar, rose, and mineral notes linger, creating a dry, savory conclusion that speaks to traditional Barolo character. The wine's elegance and precision shine through to the end."
+    },
+    "foodPairings": [
+      "Brasato al Barolo (beef braised in Barolo)",
+      "Tajarin pasta with white truffle",
+      "Osso buco with saffron risotto",
+      "Aged Parmigiano-Reggiano or Castelmagno cheese",
+      "Wild boar ragu with pappardelle"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-64°F (16-18°C)",
+      "decanting": "Decant for 2-3 hours or more to allow the wine to fully express itself; young Barolo benefits significantly from extended aeration",
+      "glassware": "Large Burgundy or Barolo glass to showcase complex aromatics"
+    },
+    "wineDetails": {
+      "region": "Barolo DOCG, Langhe, Piedmont, Italy",
+      "grapeVariety": "100% Nebbiolo",
+      "vintage": "2020",
+      "style": "Traditional-style Barolo with French oak influence (6 months barrique + 13-14 months cask)",
+      "ageability": "Excellent aging potential; try after 2027 for development, optimal 2027-2045 with proper cellaring"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Chateau De Lussac Saint Emilion 2018",
+    "brand": null,
+    "description": "A classic Right Bank Bordeaux from the Lussac-Saint-Émilion satellite appellation, produced by Château de Lussac under the ownership of Griet and Hervé Laviale since 2000. The exceptional 2018 vintage is considered one of the finest for Bordeaux, producing intense, powerful wines with excellent aging potential.",
+    "tastingNotes": {
+      "aroma": "The nose is fresh, fruity, and well-built, revealing ripe and juicy dark fruit aromas. Notes of fresh blackberry, ripe cassis, and black cherry dominate, complemented by fresh red berries and wild blueberry. Floral elements of violet and iris add elegance and lift, while fine touches of nutmeg, subtle spice, and earthy undertones provide complexity. The wine shows the depth and concentration characteristic of the 2018 vintage.",
+      "palate": "Fruity, fresh, and mineral-driven with excellent balance and structure. The palate delivers juicy flavors of black cherry, fresh raspberry, and cassis, supported by notes of ripe blueberry and dark plum. The wine is well-built with ripe, integrated tannins that provide structure without harshness. Mineral notes and fresh acidity keep the wine lively and food-friendly, while the concentration and depth speak to the quality of the vintage. The wine shows both power and elegance.",
+      "finish": "The finish is long and structured with persistent dark fruit and subtle spice notes. Ripe tannins and fresh acidity extend the conclusion, while mineral undertones add complexity and length. Notes of violet, cassis, and earthy elements linger, creating a satisfying and age-worthy finish that promises further development in the cellar."
+    },
+    "foodPairings": [
+      "Roasted duck with cherry sauce",
+      "Grilled entrecôte with shallot butter",
+      "Lamb tagine with dried fruits and spices",
+      "Mushroom and truffle risotto",
+      "Aged comté or manchego cheese"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-64°F (16-18°C)",
+      "decanting": "Decant for 1-2 hours to soften tannins and allow the wine to express its aromatic complexity",
+      "glassware": "Bordeaux glass to showcase the wine's structure and fruit concentration"
+    },
+    "wineDetails": {
+      "region": "Lussac-Saint-Émilion AOC, Bordeaux, France",
+      "grapeVariety": "Bordeaux blend (primarily Merlot with Cabernet Franc and/or Cabernet Sauvignon)",
+      "vintage": "2018",
+      "style": "Classic Right Bank Bordeaux with ripe fruit, structure, and aging potential",
+      "ageability": "Excellent aging wine from a top vintage; drink 2024-2035 with proper cellaring"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Dvir Estate Blend",
+    "brand": null,
+    "description": "An Israeli estate wine representing the modern renaissance of winemaking in the region. This proprietary blend showcases the unique terroir and grape varieties being cultivated in Israel's emerging wine regions, combining Old World techniques with New World innovation.",
+    "tastingNotes": {
+      "aroma": "The nose opens with ripe dark fruit aromas of blackberry, plum, and black cherry, complemented by Mediterranean herb notes of thyme, rosemary, and bay leaf. Subtle spice elements of black pepper, clove, and vanilla emerge from oak aging, while earthy notes of dried tobacco and leather add complexity. A hint of dried fig and date provides a characteristic Middle Eastern fruit character.",
+      "palate": "Medium to full-bodied with generous dark fruit flavors and good structure. Ripe blackberry, plum, and cherry are supported by notes of dried fig, raisin, and dark chocolate. The wine shows balanced oak influence with toasted notes and vanilla spice, while Mediterranean herbs and black pepper add savory complexity. Smooth tannins provide structure, and moderate acidity keeps the wine fresh and food-friendly.",
+      "finish": "The finish is moderately long with lingering dark fruit and spice notes. Soft tannins and gentle oak influence extend the conclusion, while herbal and earthy elements add interest. The wine closes with a warm, satisfying character that reflects its sun-drenched origins."
+    },
+    "foodPairings": [
+      "Grilled lamb kebabs with tahini sauce",
+      "Beef brisket with Middle Eastern spices",
+      "Eggplant and chickpea tagine",
+      "Aged hard cheeses like aged gouda",
+      "Grilled vegetables with za'atar and olive oil"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-64°F (16-18°C)",
+      "decanting": "Decant for 30-45 minutes to allow the wine to open and integrate",
+      "glassware": "Standard Bordeaux or red wine glass"
+    },
+    "wineDetails": {
+      "region": "Israel (specific region unspecified)",
+      "grapeVariety": "Proprietary red blend (likely Cabernet Sauvignon, Merlot, Syrah, and/or local varieties)",
+      "vintage": "Non-vintage or vintage not specified",
+      "style": "Modern Israeli red blend with Mediterranean character",
+      "ageability": "Drink now through 2027; best consumed within 3-5 years of purchase"
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.65,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Scenic Valley Farms Pinot Noir 2020",
+    "brand": null,
+    "description": "A Willamette Valley Pinot Noir from Oregon's premier wine region, crafted by Scenic Valley Farms. The 2020 vintage was significantly impacted by wildfires that swept through Oregon in September, creating smoke-influenced wines with unique characteristics that divide critics and consumers.",
+    "tastingNotes": {
+      "aroma": "The nose is dominated by intense mesquite smoke aromas that are characteristic of the 2020 Oregon vintage affected by wildfires. Beyond the smoke, subtle notes of dark cherry, raspberry, and forest floor can be detected, along with hints of dried herbs and earth. The smoke character is prominent and will appeal to those who appreciate this unique vintage signature.",
+      "palate": "Light to medium-bodied with the smoke influence continuing on the palate, imparting flavors reminiscent of campfire, smoked meat, and charred wood. Underneath the smoke, classic Oregon Pinot Noir characteristics emerge: red cherry, cranberry, and wild raspberry supported by earthy mushroom and dried herb notes. The wine maintains good acidity and silky tannins despite the smoke impact.",
+      "finish": "The finish is moderate in length with persistent smoke notes alongside red fruit and earthy elements. The wine's structure remains sound with gentle tannins and refreshing acidity. This is a wine that tells the story of the challenging 2020 vintage and will be of particular interest to those seeking a unique expression of Oregon Pinot Noir."
+    },
+    "foodPairings": [
+      "Smoked salmon with cream cheese",
+      "Grilled mushroom and vegetable skewers",
+      "Duck confit with wild rice",
+      "Barbecued pork tenderloin",
+      "Smoky aged cheddar or gouda"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 55-60°F (13-15°C)",
+      "decanting": "Brief decanting of 15-20 minutes; extended aeration will not significantly reduce smoke character",
+      "glassware": "Standard Burgundy or Pinot Noir glass"
+    },
+    "wineDetails": {
+      "region": "Willamette Valley AVA, Oregon",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2020",
+      "style": "Smoke-influenced Oregon Pinot Noir from wildfire-affected vintage",
+      "ageability": "Best consumed within 2-4 years; drink now through 2024 (smoke character will not diminish with age)"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.92,
+      "researchedAt": "2025-10-21T12:45:00Z"
+    }
+  }
+]

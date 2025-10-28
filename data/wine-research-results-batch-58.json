@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batch": 58,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Remhoogte Honeybunch 2023",
+      "description": "A reserve Chenin Blanc from a registered 36-year-old single vineyard in Stellenbosch's Simonsberg region. The 2023 vintage was harvested before rains arrived, with around 5% of bunches developing beneficial botrytis that adds the wine's signature honeycomb character.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic with yellow fruit notes of ripe peach, quince, and pineapple. Floral notes of orange blossom and jasmine intertwine with the characteristic honeycomb aroma unique to this vineyard. The presence of botrytis adds a subtle waxy, honey-like dimension that elevates the complexity.",
+        "palate": "Bright acidity forms the backbone, beautifully coated with ripe, yellowed fruit flavors. The botrytis portion gives the wine its signature honeycomb and waxy coating on the palate. The 12-hour skin contact provides a slight grip and textural weight, creating impressive depth while maintaining beautiful balance.",
+        "finish": "The finish is both sweet and savory, perfectly balanced by fresh acidity. It lingers with notes of honeyed stone fruit and citrus zest, leaving a refreshing yet complex impression."
+      },
+      "foodPairings": [
+        "Spicy Thai curry",
+        "Creamy mushroom risotto",
+        "Grilled lobster with butter",
+        "Pan-seared scallops",
+        "Roasted pork with apple compote"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F)",
+        "decanting": "Not necessary, though 15 minutes in the glass allows the honeycomb aromas to fully develop",
+        "glassware": "White Burgundy glass to capture the complex aromatic profile"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Stellenbosch, South Africa",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2023",
+        "style": "Reserve White - Full-bodied Chenin Blanc with botrytis influence",
+        "ageability": "Drink now through 2028. The 2022 vintage received 95/100, suggesting excellent aging potential for this producer."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dominio de la Abadesa Verdejo 2018",
+      "description": "An aromatic Verdejo from Spain's Rueda region, barrel-fermented in French oak and aged on its lees for 3 months with weekly bâtonnage. This adds complexity and texture to the typically crisp Verdejo grape, creating a more sophisticated expression.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with a compelling blend of tropical and mineral notes. Clean and very intense, the nose reveals smoky, spicy nuances from the oak influence, with hints of fennel, fresh herbs, and a distinctive touch of anise. Ripe fruits emerge alongside the herbal complexity.",
+        "palate": "Fresh and refreshing yet simultaneously unctuous and sweet, creating an elegant duality. The wine maintains its varietal freshness while the oak and lees contact add weight and complexity. Straw yellow with golden tones and greenish iridescence in the glass.",
+        "finish": "Persistent and complex with an intense aftertaste. The finish is both elegant and lingering, leaving impressions of ripe fruit, fennel, and subtle oak spice."
+      },
+      "foodPairings": [
+        "Grilled sea bass with herbs",
+        "Creamy seafood pasta",
+        "Roasted chicken with garlic",
+        "Fresh goat cheese salad",
+        "Grilled vegetables with aioli"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting needed; serve directly from the bottle",
+        "glassware": "Medium-sized white wine glass to showcase aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Rueda, Castilla y León, Spain",
+        "grapeVariety": "100% Verdejo",
+        "vintage": "2018",
+        "style": "Barrel-fermented White - Rich and aromatic",
+        "ageability": "Drink now. At 7 years old, this wine is at its peak drinking window."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dominio de Taurum DO TORO 2023",
+      "description": "A powerful and expressive red from Spain's Toro region, crafted from Tempranillo (Tinta de Toro). This wine offers rich dark fruit flavors with a perfect balance of intensity and elegance, characteristic of the warm Toro terroir known for producing concentrated, bold red wines.",
+      "tastingNotes": {
+        "aroma": "Sweet and inviting aromas of black cherries, blueberries, and ripe plums dominate the nose. Oak influence is evident with hints of vanilla, cigar box, and warm baking spices. The wine shows concentration and depth typical of Toro's powerful style.",
+        "palate": "Rich and bold, the palate bursts with dark berries, plum, and warm spices. The Tempranillo displays its full character with concentrated dark fruit flavors, complemented by notes of vanilla and toasted oak. At 14.5% ABV, the wine maintains balance despite its power, with a smooth, mouth-coating texture.",
+        "finish": "Smooth and persistent, with soft, ripe tannins providing structure. The finish lingers with dark fruit, spice, and subtle oak notes."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised lamb shanks",
+        "Aged Manchego cheese",
+        "Wild mushroom risotto",
+        "Roasted duck with berry sauce"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 30 minutes to soften tannins and open up the fruit",
+        "glassware": "Large Bordeaux-style glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "DO Toro, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo (Tinta de Toro)",
+        "vintage": "2023",
+        "style": "Rich Full Red - Powerful and concentrated",
+        "ageability": "Drink now through 2028. Enjoy young for fruit-forward character or cellar for 3-5 years for more integration."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Seppeltsfield Para Tawny (100Y) 1925  100 ml",
+      "description": "An extraordinary centenarian tawny, one of the rarest wines in the world. Harvested in 1925 and matured for 100 years in oak barrels at Seppeltsfield in Australia's Barossa Valley. This wine represents a living piece of history and received 100 points from Andrew Caillard MW.",
+      "tastingNotes": {
+        "aroma": "Deep mahogany color with vibrant amber edges. The nose is powerfully defined with bold notes of espresso, ground coffee, and dark chocolate drizzled with wild honey. Complex layers of dried fruits in aqueous solution, candied nuts, mahogany, molasses, and marzipan emerge. Fancy cigar lounge aromas intermingle with espresso liqueur, candied figs, prunes, wood spice, and citrus rind. Walnuts soaked in brandy, star anise, cloves, cassia bark, panforte, and dried mandarin peel add extraordinary complexity.",
+        "palate": "Immediately luscious with incredible volume and mouthfeel. The palate entry is electric and surprisingly sharp for a 100-year-old wine, with technicolor complexity. Generously concentrated and richly flavored with fresh espresso, dark chocolate, and orange rind. Sandalwood, cloves, and fine supple textures create superb mid-palate volume and viscosity. Bittersweet dark chocolate and hazelnuts provide depth.",
+        "finish": "Lingering and persistent with pure aniseed cut. Freshness and exceptional length are driven by blood orange acidity that defies the wine's age. The finish leaves impressions of waxy oilskin, coffee grounds, and citrus peel."
+      },
+      "foodPairings": [
+        "Dark chocolate truffles",
+        "Espresso and biscotti",
+        "Aged Stilton cheese",
+        "Candied walnuts and figs",
+        "Cigar pairing"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F), slightly cool to preserve freshness",
+        "decanting": "Not necessary; pour directly from the bottle into small tasting glasses",
+        "glassware": "Small dessert wine glass or Port glass to concentrate the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "100% Grenache (traditional Barossa variety for fortified wines)",
+        "vintage": "1925",
+        "style": "100 Year Old Para Vintage Tawny - Ultra-rare fortified wine",
+        "ageability": "Drink now. After 100 years of maturation, this wine is ready to enjoy immediately."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Skylark Pink Belly 2017",
+      "description": "A Grenache-based rosé from Mendocino County, California, sourced from Kurt Ashurst's vineyard just outside Hopland. The fruit is farmed specifically for rosé production, picked early to preserve freshness and bright acidity.",
+      "tastingNotes": {
+        "aroma": "Pale salmon color in the glass. The nose is bright, fresh, and invigorating with aromas of just-ripe cherry, green strawberry, and watermelon. Citrus zest adds a lifting quality to the red berry aromatics, creating an inviting summer-fruit character.",
+        "palate": "The palate is sleek and savory, with red fruits of summer given vibrancy by lemony acidity. Green strawberry, watermelon, and cherry flavors maintain freshness despite the wine's age. The texture is light and refreshing with good mineral backbone.",
+        "finish": "Clean and crisp with citrus-driven acidity providing a refreshing close. The finish is medium in length with lingering notes of strawberry and lemon zest."
+      },
+      "foodPairings": [
+        "Grilled salmon",
+        "Summer salads with vinaigrette",
+        "Fresh mozzarella and tomatoes",
+        "Grilled chicken skewers",
+        "Vegetable crudités with aioli"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting needed; serve directly from the bottle",
+        "glassware": "Standard white wine glass or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Mendocino County, North Coast, California",
+        "grapeVariety": "100% Grenache",
+        "vintage": "2017",
+        "style": "Provence-style Rosé - Dry and crisp",
+        "ageability": "Drink now. At 8 years old, this rosé is past its typical drinking window but Grenache-based rosés can develop interesting savory complexity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bitch Bubbly (750ml) NV",
+      "description": "A fun, fruit-forward sparkling wine made from unoaked Chardonnay and Grenache, blended by renowned winemaker Chris Ringland. This approachable sparkler is crafted in a friendly style with emphasis on juicy berry flavors and refreshing bubbles.",
+      "tastingNotes": {
+        "aroma": "The wine features dark cherry and raspberry aromas wrapped around a core of spicy pepper and anise. The nose is inviting and fruit-forward with sweet strawberry and raspberry notes. Subtle toffee nuances add complexity to the red berry character.",
+        "palate": "Fresh berries, sweet candy, and citrus dominate the palate, balanced by crisp, refreshing bubbles. The wine starts with tart raspberry and black cherry, followed by grapefruit with a touch of sweetness. Fruit-forward character is balanced with the effervescent tang of the bubbles, creating a juicy but balanced core.",
+        "finish": "Long and luscious with a creamy texture. The finish is persistent with lingering flavors of strawberry jam, red cherries, and citrus, complemented by fine, refreshing bubbles."
+      },
+      "foodPairings": [
+        "Fresh berries and cream",
+        "Light appetizers and canapés",
+        "Fried chicken",
+        "Soft cheeses like Brie",
+        "Brunch dishes"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F), well chilled",
+        "decanting": "Not necessary; serve directly from the bottle",
+        "glassware": "Champagne flute or tulip glass to preserve bubbles"
+      },
+      "wineDetails": {
+        "region": "Spain (produced by R Wines)",
+        "grapeVariety": "Chardonnay and Grenache blend",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Sparkling Wine - Fruit-forward and approachable",
+        "ageability": "Drink now. Non-vintage sparklers are best enjoyed fresh."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mountain Brook BRX Rose 2024",
+      "description": "A fresh rosé from Mountain Brook Vineyards, a family-owned winery in the Tryon Foothills of North Carolina. This 2024 vintage represents the winery's commitment to producing quality wines from their estate vineyards in the southern Appalachian region.",
+      "tastingNotes": {
+        "aroma": "The nose presents bright red berry fruits with floral undertones characteristic of North Carolina rosés. Fresh strawberry, watermelon, and hints of rose petals create an inviting aromatic profile. Subtle mineral notes reflect the mountain terroir.",
+        "palate": "Clean and refreshing with vibrant acidity that showcases ripe summer berries. The palate features strawberry, raspberry, and citrus flavors with a crisp, mineral-driven texture. Light-bodied and food-friendly, the wine maintains freshness and balance.",
+        "finish": "The finish is clean and crisp with persistent acidity and lingering red berry notes. A subtle mineral quality adds complexity to the refreshing close."
+      },
+      "foodPairings": [
+        "Grilled shrimp tacos",
+        "Summer pasta salad",
+        "Fresh goat cheese",
+        "Grilled vegetable platter",
+        "Chicken Caesar salad"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting needed; serve directly from the bottle",
+        "glassware": "Standard white wine glass or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Tryon Foothills, North Carolina, USA",
+        "grapeVariety": "Estate-grown blend (specific composition varies by vintage)",
+        "vintage": "2024",
+        "style": "Dry Rosé - Crisp and refreshing",
+        "ageability": "Drink now through 2026. Best enjoyed young and fresh."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Veiga Naum Rias Baixas Albarino 2024",
+      "description": "A textbook Albariño from Rías Baixas, Galicia's premier white wine region. Produced by Bodegas Riojanas under the M. Victoria Dovalo label, this wine is aged briefly in tank to maintain the varietal's characteristic tension, clarity, and coastal freshness.",
+      "tastingNotes": {
+        "aroma": "A pale yellow color with green-gold highlights in the glass. The nose sparkles with clear citrus, floral hints, and tropical overtones. The aromatic intensity nicely combines fruit and floral notes with good concentration. Lime, lemon, and tropical fruit aromas are accented by delicate white flowers.",
+        "palate": "Crisp and refreshing, the palate bursts with lime, lemon, greengage, and tropical fruit flavors. The wine maintains excellent tension and clarity, with a light yellow straw color and green-gold nuances. Vibrant acidity drives the flavor profile while maintaining elegance.",
+        "finish": "There's a distinctive saline note on the finish along with mouthwatering acidity that reflects the wine's Atlantic coastal origins. The finish lingers with citrus and mineral impressions."
+      },
+      "foodPairings": [
+        "Fresh oysters",
+        "Grilled octopus",
+        "Seafood paella",
+        "Ceviche",
+        "Grilled white fish with lemon"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F)",
+        "decanting": "No decanting needed; serve directly from the bottle",
+        "glassware": "White wine glass to capture the aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Rías Baixas DO, Galicia, Spain",
+        "grapeVariety": "100% Albariño",
+        "vintage": "2024",
+        "style": "Coastal White - Crisp and mineral-driven",
+        "ageability": "Drink now through 2026. Best enjoyed young to preserve freshness and aromatic intensity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Martellotto Red Blend 2017",
+      "description": "The 'Rosso di Sera' red blend from Happy Canyon of Santa Barbara, a Bordeaux-style blend featuring Malbec, Cabernet Sauvignon, and Cabernet Franc. Aged for 10 months in 20% new oak and 80% neutral barrel, this wine received 90 points from both Jeb Dunnuck and Wine Enthusiast.",
+      "tastingNotes": {
+        "aroma": "Ripe and ready aromas of black cherry, wood spice, and clove are intense on the nose. Additional notes of blueberry, vanilla, marzipan, and terracotta emerge with air. The aromatics show good concentration with a balance of fruit and oak influence.",
+        "palate": "Plump, rounded, and sexy with loads of ripe cherries, blackberries, toasted spices, and earth. The palate is rich with dark fruit flavors including blackberry, blueberry, and plum, complemented by allspice, pipe tobacco, and leather. Medium to full-bodied richness provides ample fruit weight. Mouth-coating soft tannins frame the ripe dark fruit and baking spice flavors.",
+        "finish": "The finish is smooth and persistent with integrated tannins. Dark fruit, spice, and subtle oak notes linger pleasantly."
+      },
+      "foodPairings": [
+        "Grilled lamb chops",
+        "Beef short ribs",
+        "Aged cheddar cheese",
+        "Mushroom and truffle pasta",
+        "Roasted venison"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 30 minutes to allow the wine to open up",
+        "glassware": "Large Bordeaux glass to showcase complexity"
+      },
+      "wineDetails": {
+        "region": "Happy Canyon of Santa Barbara, California",
+        "grapeVariety": "40% Malbec, 35% Cabernet Sauvignon, 25% Cabernet Franc",
+        "vintage": "2017",
+        "style": "Bordeaux-style Red Blend - Rich and approachable",
+        "ageability": "Drink now through 2026. Jeb Dunnuck suggested drinking over 4-5 years from vintage."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Sablet Rouge 2017",
+      "description": "A Côtes du Rhône Villages Sablet from Domaine des Pasquiers, representing one of the named village appellations within the Côtes du Rhône. The 2017 vintage is noted as being among the best for this appellation, alongside 2015 and 2016.",
+      "tastingNotes": {
+        "aroma": "Deep red in color with a subtle and aromatic nose featuring small black fruits. The wine shows grapey, floral qualities with ripe texture and density. Black fruit aromas are complemented by subtle spice notes from the Syrah component and depth from Mourvèdre.",
+        "palate": "Deep, grapey flavors combined with black fruit greet from the beginning, with a ripe, floral touch. The wine has fine yet ripe textured density with a strong tannic structure that gives nice length in the mouth. With air, it takes on a luxurious creamy flavor and savory saltiness that adds complexity.",
+        "finish": "The tannic structure provides good length and persistence. The finish is structured yet approachable with lingering black fruit and subtle spice notes."
+      },
+      "foodPairings": [
+        "Grilled lamb with herbs de Provence",
+        "Beef daube",
+        "Ratatouille",
+        "Hard aged cheeses",
+        "Duck confit"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 30-60 minutes to soften tannins and develop complexity",
+        "glassware": "Large Rhône-style glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône Villages Sablet, Rhône Valley, France",
+        "grapeVariety": "Grenache (majority), Syrah (25%), Mourvèdre (10%)",
+        "vintage": "2017",
+        "style": "Southern Rhône Red - Structured and age-worthy",
+        "ageability": "Drink now through 2027. The strong tannic structure suggests good aging potential."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

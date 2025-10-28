@@ -1,0 +1,347 @@
+{
+  "batchNumber": 97,
+  "researchedAt": "2025-10-21T14:30:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Monte Real Gran Reserva 2005 2036046",
+      "description": "An exceptional Gran Reserva from Rioja's prestigious Monte Real estate, showcasing the elegance and complexity that comes with nearly two decades of aging. The 2005 vintage was outstanding in Rioja, producing wines of remarkable balance and longevity. This wine represents traditional Rioja winemaking at its finest, with extended oak aging and bottle maturation creating layers of tertiary complexity.",
+      "tastingNotes": {
+        "aroma": "Evolving garnet color with brick-red edges indicating full maturity. The nose is complex and tertiary, opening with aromas of dried cherry, fig, and prune alongside savory notes of leather, tobacco, and forest floor. Hints of cedar, vanilla, and baking spices reflect the extended oak aging. The bouquet shows beautiful integration of fruit, oak, and age-derived character.",
+        "palate": "Medium-bodied with silky, fully integrated tannins from aging. The palate delivers flavors of dried red fruit, black tea, and mushroom alongside notes of leather and spice. The wine shows excellent balance between fruit, acidity, and tannin, with a refined texture achieved through extended cellaring. Layers of complexity unfold, revealing the wine's pedigree and maturity.",
+        "finish": "Long and elegant with integrated tannins and lingering notes of spice, dried fruit, and earth. The finish showcases the wine's sophistication and full maturity."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary",
+        "Duck confit with lentils",
+        "Aged Manchego cheese",
+        "Mushroom risotto",
+        "Braised oxtail"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "45 minutes to 1 hour for mature wine to breathe",
+        "glassware": "Bordeaux or Rioja glass"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "Tempranillo-based blend with Graciano and Mazuelo",
+        "vintage": "2005",
+        "style": "Gran Reserva with extended oak and bottle aging",
+        "ageability": "At peak maturity; drink now through 2030"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Reed Knife Edge Shiraz 2021",
+      "description": "A powerful Australian Shiraz showcasing the intensity and spice characteristic of premium Australian viticulture. The 'Knife Edge' designation suggests a wine balancing on the edge between power and elegance, fruit and structure. The 2021 vintage in Australia was generally favorable, producing wines of concentrated fruit and balance.",
+      "tastingNotes": {
+        "aroma": "Deep purple color with vibrant hues. The nose is bold and expressive, opening with concentrated blackberry, blueberry, and dark plum aromas. Notes of black pepper, licorice, and dried herbs add complexity. Hints of vanilla and toast from oak aging integrate with eucalyptus and mint character.",
+        "palate": "Full-bodied and powerful with concentrated dark fruit flavors. Blackberry, blueberry, and plum dominate, supported by black pepper spice and savory herbs. The wine shows excellent structure with firm tannins and balanced acidity. Oak influence adds notes of vanilla, cocoa, and spice. The mouthfeel is rich and coating.",
+        "finish": "Long and spicy with persistent fruit and pepper notes. Firm tannins provide grip and aging potential."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "BBQ lamb ribs",
+        "Kangaroo or game meats",
+        "Aged cheddar",
+        "Beef and mushroom pie"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1 hour recommended to soften tannins",
+        "glassware": "Large Syrah/Shiraz glass"
+      },
+      "wineDetails": {
+        "region": "Australia (likely Barossa Valley or McLaren Vale)",
+        "grapeVariety": "100% Shiraz",
+        "vintage": "2021",
+        "style": "Full-bodied Australian Shiraz",
+        "ageability": "Drink now through 2028-2030"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Paco Garcia Seis 2018",
+      "description": "A Spanish red wine from Bodegas Paco Garcia, likely from the Ribera del Duero or Toro regions. The 'Seis' (Six) designation may refer to six months of aging or a special cuvée. This wine represents modern Spanish winemaking with international appeal while respecting traditional methods.",
+      "tastingNotes": {
+        "aroma": "Deep ruby color with purple reflections. The nose opens with ripe red and black fruit including cherry, blackberry, and plum. Notes of vanilla, cocoa, and sweet spices from oak aging add complexity. Hints of leather and tobacco emerge with air.",
+        "palate": "Medium to full-bodied with concentrated fruit flavors. The palate delivers ripe cherry, plum, and blackberry supported by notes of chocolate and spice. Well-integrated oak adds structure without overwhelming the fruit. The tannins are firm but ripe, providing good aging potential. Balanced acidity keeps the wine fresh.",
+        "finish": "Medium to long finish with lingering fruit and spice notes. The tannins are well-integrated, fading smoothly."
+      },
+      "foodPairings": [
+        "Grilled Spanish chorizo",
+        "Roasted pork loin",
+        "Tapas selection",
+        "Aged sheep's milk cheese",
+        "Paella"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30 minutes recommended",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (likely Ribera del Duero or Toro)",
+        "grapeVariety": "Likely Tempranillo or Tinta de Toro",
+        "vintage": "2018",
+        "style": "Medium to full-bodied Spanish red with oak aging",
+        "ageability": "Drink now through 2026"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mendoza Laderas del Valle Malbec 2018",
+      "description": "An Argentine Malbec from the hillside vineyards ('Laderas del Valle' means 'hillsides of the valley') of Mendoza. The 2018 vintage in Mendoza was excellent, producing concentrated, balanced Malbecs. Hillside vineyards typically yield more intense, structured wines due to better drainage and sun exposure.",
+      "tastingNotes": {
+        "aroma": "Deep purple color with violet reflections. The nose is expressive with aromas of ripe plum, blackberry, and cassis. Notes of violet, black pepper, and cocoa add complexity. Hints of vanilla and spice from oak aging integrate well.",
+        "palate": "Full-bodied with concentrated dark fruit flavors. The palate delivers waves of plum, blackberry, and dark cherry supported by notes of chocolate, coffee, and spice. The wine shows excellent structure with firm but ripe tannins. Balanced acidity provides lift and freshness. The mouthfeel is rich and velvety.",
+        "finish": "Long and fruit-forward with persistent dark fruit and chocolate notes. The tannins are substantial but smooth."
+      },
+      "foodPairings": [
+        "Argentine asado",
+        "Grilled skirt steak",
+        "Empanadas",
+        "Braised short ribs",
+        "Aged Provolone"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45 minutes to 1 hour recommended",
+        "glassware": "Large Malbec or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina (hillside vineyards)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2018",
+        "style": "Full-bodied hillside Malbec",
+        "ageability": "Drink now through 2028"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Unoaked Chardonnay 2021",
+      "description": "A pure expression of Chardonnay from Hendry Vineyards in Napa Valley, crafted without oak influence to showcase fruit and terroir. Unoaked Chardonnay highlights the variety's natural citrus, stone fruit, and mineral character. The 2021 vintage in Napa was challenging but produced wines of elegance and balance.",
+      "tastingNotes": {
+        "aroma": "Pale gold color with brilliant clarity. The nose is fresh and vibrant with aromas of green apple, lemon, and white peach. Notes of pear, citrus blossom, and subtle minerality add complexity. The aromatic profile is clean and fruit-focused.",
+        "palate": "Medium-bodied with crisp acidity and pure fruit flavors. The palate delivers green apple, lemon, and white peach supported by mineral notes. Without oak influence, the wine's natural acidity and fruit character shine. The texture is clean and refreshing, with a slight creaminess from lees contact.",
+        "finish": "Clean and refreshing with lingering citrus and mineral notes. The acidity carries through to an invigorating conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters",
+        "Grilled white fish",
+        "Caesar salad",
+        "Sushi and sashimi",
+        "Goat cheese salad"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2021",
+        "style": "Unoaked Chardonnay with mineral character",
+        "ageability": "Best within 2-3 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Gran Reserva Pinot Noir 2020",
+      "description": "A Gran Reserva Pinot Noir from Chile's Calyptra estate, representing extended aging and selection of the finest vineyard parcels. Chilean Pinot Noir from cool-climate regions shows elegance and terroir expression. The 2020 vintage was generally favorable across Chile's wine regions.",
+      "tastingNotes": {
+        "aroma": "Ruby-garnet color with evolving hues. The nose shows red cherry, raspberry, and cranberry aromas. Notes of dried rose petals, earth, and forest floor add complexity from aging. Subtle hints of vanilla and toast from oak aging integrate seamlessly.",
+        "palate": "Medium-bodied with silky texture and refined tannins. The palate delivers red cherry, raspberry, and strawberry flavors supported by earthy notes and subtle spice. The wine shows excellent balance and integration from extended aging. The acidity is bright and refreshing.",
+        "finish": "Medium-long with lingering red fruit and earthy notes. The tannins are soft and integrated."
+      },
+      "foodPairings": [
+        "Duck breast with cherry sauce",
+        "Grilled salmon",
+        "Mushroom risotto",
+        "Roasted chicken",
+        "Soft-ripened cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "30 minutes recommended",
+        "glassware": "Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Chile (likely Casablanca or Leyda Valley)",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2020",
+        "style": "Gran Reserva Pinot Noir with extended aging",
+        "ageability": "Drink now through 2027"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Central Valley Banner Day Cabernet Sauvignon 2023",
+      "description": "A fresh, approachable Cabernet Sauvignon from California's Central Valley, designed for immediate enjoyment. The 'Banner Day' designation suggests celebration and everyday drinking. Central Valley wines offer excellent value and fruit-forward character.",
+      "tastingNotes": {
+        "aroma": "Deep ruby color with purple hues. The nose is fruit-forward with aromas of black cherry, cassis, and plum. Notes of vanilla and subtle oak spice add complexity. The aromatic profile is clean and approachable.",
+        "palate": "Medium-bodied with soft tannins and bright fruit flavors. The palate delivers black cherry, plum, and cassis supported by notes of vanilla and spice. The wine is balanced and easy-drinking, with smooth tannins and refreshing acidity. The texture is supple and friendly.",
+        "finish": "Clean and moderate length with lingering fruit and soft tannins."
+      },
+      "foodPairings": [
+        "Grilled burgers",
+        "BBQ chicken",
+        "Pizza",
+        "Pasta with meat sauce",
+        "Mild cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief aeration if desired",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Central Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Medium-bodied approachable Cabernet",
+        "ageability": "Best within 2-3 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rueda Heredad de Penalosa Verdejo 2022",
+      "description": "A crisp Spanish white from Rueda, the premier region for Verdejo. Heredad de Peñalosa represents estate vineyards producing aromatic, mineral-driven whites. The 2022 vintage in Rueda was excellent, yielding fresh, balanced wines with good aromatic intensity.",
+      "tastingNotes": {
+        "aroma": "Pale straw color with greenish reflections. The nose is aromatic and fresh with notes of citrus, green apple, and white flowers. Hints of fennel, fresh herbs, and mineral character add complexity. The aromatic profile is clean and vibrant.",
+        "palate": "Medium-bodied with crisp acidity and pure fruit flavors. The palate delivers citrus, green apple, and stone fruit supported by herbal and mineral notes. The wine is refreshing and well-balanced, with a slight creaminess from lees contact. The texture is smooth yet lively.",
+        "finish": "Clean and persistent with lingering citrus and mineral notes. The acidity leaves the palate refreshed."
+      },
+      "foodPairings": [
+        "Seafood paella",
+        "Grilled shrimp",
+        "Fresh goat cheese",
+        "Green salads",
+        "Asparagus dishes"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Rueda, Spain",
+        "grapeVariety": "100% Verdejo",
+        "vintage": "2022",
+        "style": "Crisp aromatic white with mineral character",
+        "ageability": "Best within 2-3 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte Chronicle Cape Estate Blend  1.5 L 2014  1.5 l",
+      "description": "A premium South African red blend from Remhoogte Estate in Stellenbosch, presented in magnum format (1.5L). The 'Chronicle' series represents the estate's flagship wines. The 2014 vintage has benefited from extended aging in the larger bottle format, which ages wine more slowly and gracefully than standard bottles.",
+      "tastingNotes": {
+        "aroma": "Deep garnet color with evolving edges. The nose shows ripe blackcurrant, plum, and dark cherry. Notes of cedar, cigar box, and leather add complexity from aging. Hints of eucalyptus and mint provide South African character.",
+        "palate": "Full-bodied with integrated tannins from aging. The palate delivers blackcurrant, plum, and dark fruit flavors supported by notes of cedar, tobacco, and spice. The wine shows excellent structure and balance, with the magnum format preserving freshness. The texture is smooth and refined.",
+        "finish": "Long and complex with lingering fruit, earth, and spice notes. The tannins are soft and well-integrated."
+      },
+      "foodPairings": [
+        "Roasted game meats",
+        "Braised lamb shoulder",
+        "Aged South African cheese",
+        "Beef Wellington",
+        "Rich stews"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1 hour recommended",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa",
+        "grapeVariety": "Bordeaux-style blend (likely Cabernet Sauvignon-based)",
+        "vintage": "2014",
+        "style": "Full-bodied Cape Bordeaux blend, magnum format",
+        "ageability": "Drinking well now through 2030"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Estate Boxwood Red 2021",
+      "description": "The flagship Bordeaux-style red blend from Virginia's acclaimed Boxwood Estate Winery. This wine represents the best barrels from the estate's vineyards in Middleburg, crafted in the traditional Bordeaux method. The 2021 vintage showcases Boxwood's commitment to world-class winemaking in Virginia.",
+      "tastingNotes": {
+        "aroma": "Deep ruby color with vibrant hues. The nose shows blackcurrant, black cherry, and plum. Notes of cedar, graphite, and dried herbs add complexity. Hints of vanilla and toast from French oak aging integrate well.",
+        "palate": "Medium to full-bodied with structured tannins and elegant balance. The palate delivers blackcurrant, cherry, and dark fruit flavors supported by notes of cedar, tobacco, and spice. The wine shows excellent structure typical of Virginia Bordeaux blends. The acidity is bright and refreshing.",
+        "finish": "Long and structured with lingering fruit and oak notes. The tannins are firm but refined, showing aging potential."
+      },
+      "foodPairings": [
+        "Roasted rack of lamb",
+        "Beef tenderloin",
+        "Duck confit",
+        "Mushroom and truffle dishes",
+        "Aged Virginia ham"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "1 hour recommended",
+        "glassware": "Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia",
+        "grapeVariety": "Bordeaux blend (Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot, Malbec)",
+        "vintage": "2021",
+        "style": "Full-bodied Virginia Bordeaux blend",
+        "ageability": "Drink now through 2031"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T14:30:00.000Z"
+      }
+    }
+  ]
+}

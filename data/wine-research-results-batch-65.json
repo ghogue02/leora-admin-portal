@@ -1,0 +1,357 @@
+{
+  "researchResults": [
+    {
+      "productId": "",
+      "productName": "Le Prieur Entre-Deux-Mers White 2024",
+      "description": "A vibrant Bordeaux white from the renowned Entre-Deux-Mers appellation, this 2024 vintage showcases the classic blend of Sauvignon Blanc, Sémillon, and Muscadelle from the Garzaro family estate. Fresh and aromatic, it embodies the bright, mineral-driven style that has made this region a benchmark for value-oriented white Bordeaux.",
+      "tastingNotes": {
+        "aroma": "The nose opens with an intense bouquet of white flowers and citrus blossom, layered with notes of lime zest and grapefruit. Delicate tropical hints of passion fruit and guava emerge, alongside subtle grassy undertones characteristic of Sauvignon Blanc. A mineral edge reminiscent of wet stones adds complexity and freshness to the aromatic profile.",
+        "palate": "On the palate, this wine delivers crisp, mouthwatering acidity that carries flavors of fresh lemon, green apple, and white peach. The Sémillon component adds weight and texture, creating a well-rounded mid-palate with notes of ripe pear and a touch of honeysuckle. Bright citrus flavors persist throughout, balanced by the wine's natural minerality and a subtle herbal quality that adds dimension without overwhelming the fruit.",
+        "finish": "The finish is clean and refreshing with excellent length, leaving lingering notes of citrus zest and white flowers. A gentle mineral backbone provides structure, while the wine's vibrant acidity ensures a crisp, invigorating conclusion that calls for another sip."
+      },
+      "foodPairings": [
+        "Fresh oysters with lemon",
+        "Grilled sea bass with herbs",
+        "Goat cheese salad with walnuts",
+        "Pan-seared scallops",
+        "Asparagus risotto"
+      ],
+      "servingInfo": {
+        "temperature": "9-11°C (48-52°F)",
+        "decanting": "No decanting needed; this wine is best enjoyed fresh and young to preserve its vibrant aromatics and crisp acidity",
+        "glassware": "Standard white wine glass or Sauvignon Blanc-specific tulip glass"
+      },
+      "wineDetails": {
+        "region": "Entre-Deux-Mers, Bordeaux, France",
+        "grapeVariety": "Sauvignon Blanc, Sémillon, Muscadelle",
+        "vintage": "2024",
+        "style": "Crisp, dry white blend",
+        "ageability": "Best enjoyed within 1-2 years of vintage to preserve freshness; drink now through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T12:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine d'Avrille Anjou Rouge 2022",
+      "brand": null,
+      "description": "From the historic 200-hectare Château d'Avrillé estate in Saint-Jean-des-Mauvrets, this Anjou Rouge showcases the elegant, earthy character of Loire Valley Cabernet Franc. The 2022 vintage delivers the balanced structure and melted tannins that earned the estate's 2019 vintage a 2-star rating in Guide Hachette des Vins, representing a remarkable expression of this classic Loire appellation.",
+      "tastingNotes": {
+        "aroma": "The nose reveals an enticing perfume of fresh violets and dark summer berries, intertwined with black cherry and wild strawberry notes. Classic Loire characteristics emerge with leafy, herbaceous undertones and hints of graphite. Subtle spice notes of white pepper and a touch of tobacco leaf add complexity, while maintaining the wine's inherently fresh and inviting aromatic profile.",
+        "palate": "The palate offers a juicy, crunchy texture with vibrant red fruit flavors of raspberry and tart strawberry at the forefront. Blackberry and dark cherry notes provide depth, while the savory character of Cabernet Franc pushes forward with notes of pencil shavings and cedar. The wine shows generous fruit balanced by well-integrated, silky tannins that provide structure without heaviness. A subtle earthiness reminiscent of forest floor and dried herbs adds dimension to the fruit-forward core.",
+        "finish": "The finish is medium-length with soft, velvety tannins and persistent notes of red fruits and subtle spice. A touch of minerality and fresh acidity keep the wine lively and infinitely drinkable, concluding with gentle violet notes and a hint of Loire's characteristic terroir-driven earthiness."
+      },
+      "foodPairings": [
+        "Herb-roasted chicken with mushrooms",
+        "Grilled salmon with lentils",
+        "Charcuterie board with pâté",
+        "Roasted beet and goat cheese salad",
+        "Coq au vin"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), slightly cooled",
+        "decanting": "A brief 15-20 minute decant will open up the aromatics, though not strictly necessary for this approachable style",
+        "glassware": "Medium-sized Burgundy glass or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Anjou, Loire Valley, France",
+        "grapeVariety": "Cabernet Franc (minimum 70%), may include Cabernet Sauvignon",
+        "vintage": "2022",
+        "style": "Medium-bodied, earthy Loire red",
+        "ageability": "Drink now through 2027; can develop additional complexity with 2-3 years of aging, showing more sous bois and tobacco character"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T12:05:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Block 28 Zinfandel 2018",
+      "description": "A remarkable single-vineyard Zinfandel from Hendry Ranch's historic Block 28, where ancient stream beds 150 feet above sea level provide ideal growing conditions cooled by San Pablo Bay breezes. This 2018 vintage earned 90 points from Jeb Dunnuck and exemplifies winemaker George Hendry's elegant, finesse-driven approach to Napa Zinfandel, aged 15 months in 65% new French oak.",
+      "tastingNotes": {
+        "aroma": "A beautiful, complex perfume opens with red plums and candied violets, enhanced by delicate orange blossom and flowery incense notes. Layers of warm dark fruit emerge, including blackberry and cherry compote, intertwined with exotic spice nuances. High-toned floral notes add lift, while subtle hints of honeycomb, caramelized sugar, and sweet baking spices from the oak aging provide additional aromatic depth and sophistication.",
+        "palate": "The palate is medium-bodied and emphasizes elegance over power, offering attractive, juicy layers of plum, dark red fruit, and black licorice. Rich berry flavors are complemented by mocha and subtle vanilla from the French oak, while maintaining a sense of finesse and balance. The wine shows beautiful integration of fruit, oak, and tannin, creating a harmonious mid-palate with excellent texture. A hint of pepper and dried herbs adds complexity without disrupting the wine's refined character.",
+        "finish": "The finish is long and graceful, with persistent notes of red plum and spice. High-toned floral and peppery elements add lift and brightness to the conclusion, while the well-integrated tannins provide structure and ensure aging potential. The wine's elegant framework carries through to the end, leaving a refined, sophisticated impression."
+      },
+      "foodPairings": [
+        "Grilled ribeye with peppercorn sauce",
+        "Duck breast with cherry reduction",
+        "Braised lamb shanks",
+        "Aged cheddar and charcuterie",
+        "Wild mushroom risotto with truffle"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 30-45 minutes to allow the wine's elegant aromatics to fully express themselves and soften the tannins",
+        "glassware": "Large Bordeaux or Zinfandel-specific glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California, USA (Block 28, ancient stream bed vineyard)",
+        "grapeVariety": "100% Zinfandel (Brandlin selection on St. George rootstock)",
+        "vintage": "2018",
+        "style": "Elegant, finesse-driven Napa Zinfandel",
+        "ageability": "Drinking beautifully now; will evolve gracefully through 2028 and potentially beyond with proper cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T12:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Trellis 375 ml 2020  375 ml",
+      "description": "Crafted by Virginia's premier Bordeaux-style estate, Boxwood Trellis represents the winery's accessible expression of classic Left Bank blending. From proprietor John Kent Cooke's 26.5 acres of ENTAV-certified Bordeaux varietals in the Middleburg AVA, this 2020 vintage offers a harmonious blend that changes yearly relative to vintage conditions, showcasing the potential of Virginia terroir in a Medoc-inspired style.",
+      "tastingNotes": {
+        "aroma": "The nose is dominated by ripe black cherries and dark plums, accompanied by an inviting bouquet of cassis and mulberry. Secondary notes of cedar spice and graphite add complexity, while subtle hints of crushed blackberry and a touch of vanilla from oak aging provide additional depth. The aromatic profile shows excellent integration, with fruit purity balanced by sophisticated oak influence.",
+        "palate": "Mouth-filling fruit flavors lead on the palate, offering concentrated dark plum, black cherry, and mulberry notes. The wine shows beautiful structure with supple, well-integrated tannins that provide texture without aggression. A smooth, velvety mid-palate is enhanced by notes of dark chocolate and subtle licorice, while maintaining excellent balance. The Bordeaux varietals combine seamlessly, creating a wine with good weight and presence while remaining approachable and food-friendly.",
+        "finish": "The finish is medium to long with a crisp, dry conclusion and a subtle hint of licorice. Supple tannins carry through, providing structure and ensuring the wine's ability to pair with food. The conclusion is clean and satisfying, with lingering dark fruit notes and a touch of spice that invites another sip."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb",
+        "Beef tenderloin with red wine reduction",
+        "Grilled portobello mushrooms",
+        "Aged Gruyère and charcuterie",
+        "Braised short ribs"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 20-30 minutes to soften tannins and allow the wine to open; the half-bottle format means it will evolve more quickly in the glass",
+        "glassware": "Bordeaux glass or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg AVA, Virginia, USA",
+        "grapeVariety": "Bordeaux blend: Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot (proportions vary by vintage)",
+        "vintage": "2020",
+        "style": "Left Bank Bordeaux-style blend (Medoc-inspired)",
+        "ageability": "Drinking well now; can develop through 2027-2028 with additional bottle age revealing more complexity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T12:15:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Original Pinot Grigio 2024",
+      "description": "From Ukraine's historic Shabo Winery in the Odessa region, this Pinot Grigio represents one of the country's most celebrated wine producers continuing their craft despite challenging circumstances. The 2024 vintage offers the crisp, fruit-forward style that has made Shabo wines recognized internationally, showcasing the potential of Ukrainian viticulture with bright aromatics and refreshing acidity.",
+      "tastingNotes": {
+        "aroma": "The nose presents a light, delicate aroma featuring white peach and gentle acacia blossom notes. Subtle hints of pear and lemon zest emerge, creating a fresh, inviting aromatic profile. A touch of almond and white flowers adds complexity without overwhelming the wine's inherently pure fruit character. The aromatics are clean and lifted, suggesting excellent winemaking and fresh, healthy fruit.",
+        "palate": "On the palate, the wine is rounded yet fresh, offering bright fruit flavors of white peach, pear, and green apple. Notes of almond and citrus peel provide additional interest, while the wine maintains a light, accessible body. The acidity is vibrant and mouthwatering, keeping the wine crisp and lively throughout. The fruit-driven character shows excellent purity, with clean flavors that speak to careful vineyard management and modern winemaking techniques.",
+        "finish": "The finish is long-lasting and refreshing, with persistent white peach and citrus notes. A subtle mineral quality adds structure to the conclusion, while the wine's bright acidity ensures a clean, invigorating finish. The wine leaves the palate refreshed and ready for food or another glass."
+      },
+      "foodPairings": [
+        "Grilled white fish with lemon",
+        "Vegetable risotto",
+        "Fresh mozzarella and tomato salad",
+        "Chicken piccata",
+        "Light seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well-chilled",
+        "decanting": "No decanting necessary; serve directly from the bottle to preserve freshness and aromatics",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Odessa, Ukraine",
+        "grapeVariety": "100% Pinot Grigio",
+        "vintage": "2024",
+        "style": "Light, fruit-driven white wine",
+        "ageability": "Best enjoyed young and fresh within 1-2 years of vintage to maximize fruit purity; drink now through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T12:20:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction GSM Crossing (Wine Club Only) 2016",
+      "description": "A distinguished Rhône-style blend from Pomar Junction's El Pomar district vineyards in Paso Robles, this Wine Club exclusive showcases the winery's expertise with GSM blends. The 2016 vintage builds on the success of previous vintages that earned 89-90 points from Wine Enthusiast, offering a complex expression of Grenache, Syrah, and Mourvèdre that reflects Paso Robles' ideal conditions for Rhône varietals.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle, intriguing aromas of sun-warmed bricks and hot stones, layered with purple fruit and delicate rose petal notes. Dark berry aromas emerge, including blackberry and boysenberry, complemented by hints of dried herbs and garrigue. A subtle minerality adds complexity, while notes of violet and Mediterranean spices create an aromatic profile reminiscent of the Southern Rhône Valley.",
+        "palate": "The palate is friendly and juicy, with a stronger, more concentrated flavor profile than the nose suggests. Red fruit flavors dominate, including cranberry, raspberry, and red cherry, balanced by darker notes of plum and blackberry. Hints of mocha and licorice add depth and complexity, while the wine maintains excellent balance between fruit, tannin, and acidity. The three varietals combine seamlessly, creating layers of flavor that unfold gradually across the palate.",
+        "finish": "The finish shows good length with persistent notes of red fruit and subtle baking spice. Hints of mocha and licorice carry through from the palate, while well-integrated tannins provide structure without astringency. The wine concludes with a touch of Mediterranean herb character, leaving a savory, satisfying impression that showcases the terroir-driven nature of the blend."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Beef daube Provençal",
+        "Duck confit with lentils",
+        "Ratatouille with grilled sausages",
+        "Aged Manchego and cured meats"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open fully; the 2016 vintage will benefit from aeration to soften tannins and reveal secondary development",
+        "glassware": "Large Rhône or Syrah-style glass"
+      },
+      "wineDetails": {
+        "region": "El Pomar District, Paso Robles, California, USA",
+        "grapeVariety": "Grenache, Syrah, Mourvèdre (GSM blend; exact proportions vary, historically showing 40% Mourvèdre, 30% Syrah, 30% Grenache in some vintages)",
+        "vintage": "2016",
+        "style": "Rhône-style GSM blend",
+        "ageability": "Drinking in its prime window now; can continue to develop through 2026-2028, revealing more tertiary complexity with additional age"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T12:25:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Mourvèdre Rosé 2022",
+      "description": "A distinguished rosé from South Africa's premier Simonsberg estate, this 2022 vintage earned 91 points from Tim Atkin and was named among the Top 10 South African Rosés. Noble Hill has pioneered the Provençal rosé style in South Africa, and this Mourvèdre-based wine showcases the estate's mastery of this delicate varietal, with just one hour of skin contact creating its elegant salmon-pink hue.",
+      "tastingNotes": {
+        "aroma": "The nose presents a captivating bouquet of fresh strawberries and watermelon, enhanced by ripe blackcurrant and delicate rose water notes. Subtle aromas of citrus peel add brightness, while hints of wild herbs and minerals provide complexity. The aromatic profile is both fruity and sophisticated, showing the elegance that Mourvèdre can achieve in rosé form. A gentle floral quality reminiscent of pink roses adds refinement to the fruit-forward character.",
+        "palate": "On the palate, the wine delivers vibrant flavors of fresh strawberry, ripe watermelon, and red currant, complemented by subtle notes of pink grapefruit and wild berries. The mineral flavors characteristic of Mourvèdre come through beautifully, adding depth and structure to the fruit. The wine shows excellent balance between fruitiness and savory elements, with a delicate touch of spice adding interest. The body is light to medium, with a silky texture that enhances the drinking experience.",
+        "finish": "The finish is crisp, dry, and distinctly mineral, showcasing Mourvèdre's natural structure and backbone. The conclusion is refreshing and clean, with lingering notes of red berries and subtle citrus zest. A stony minerality persists, adding length and ensuring the wine maintains interest through the finish. The dry character and mineral edge make this an exceptional food-pairing rosé."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic butter",
+        "Niçoise salad",
+        "Seared tuna with Provençal vegetables",
+        "Soft-shell crab",
+        "Charcuterie and fresh goat cheese"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well-chilled",
+        "decanting": "No decanting needed; serve directly from the bottle to preserve freshness and delicate aromatics",
+        "glassware": "Standard white wine glass or rosé-specific tulip glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg, Stellenbosch, South Africa",
+        "grapeVariety": "100% Mourvèdre",
+        "vintage": "2022",
+        "style": "Dry Provençal-style rosé with minimal skin contact",
+        "ageability": "Best enjoyed within 1-2 years of vintage to preserve freshness and fruit character; drink now through 2025"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T12:30:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Macauley Napa Valley Cabernet Sauvignon 2022",
+      "description": "Crafted by acclaimed winemaker Kirk Venge from prestigious Napa vineyards including To-Kalon, Stagecoach, Star, and Darms Lane, Macauley Cabernet represents small-production excellence that has earned top scores from critics and collectors. While the 2022 vintage is newly released, previous vintages have achieved 94 points from Wine Enthusiast, establishing Macauley as a benchmark for quality appellation-level Napa Cabernet.",
+      "tastingNotes": {
+        "aroma": "The nose opens with concentrated aromas of ripe cherry elixir and dark cassis, layered with freshly roasted coffee beans and newly toasted oak. Earthy notes of crushed rock and sage add complexity and a sense of terroir, while elegant hints of cedar and sandalwood provide aromatic depth. Subtle baking spices including cinnamon and nutmeg emerge with air, creating a sophisticated bouquet that showcases both the quality of the fruit and the careful oak management.",
+        "palate": "The palate is rich and concentrated, offering waves of ripe black cherry, cassis, and dark plum flavors. Notes of licorice and dark chocolate add depth, while sandalwood and cedar provide savory complexity. The wine shows beautiful integration of fruit and oak, with tannins that are both firm and well-integrated, creating excellent structure without harshness. An earthy, mineral quality runs through the mid-palate, adding dimension and reflecting the diverse terroir of the source vineyards. The wine is full-bodied yet maintains elegance and balance.",
+        "finish": "The finish is long and impressive, with integrated tannins carrying persistent flavors of dark fruit and subtle baking spice. Notes of cedar, crushed rock, and sage linger, providing a savory conclusion that balances the wine's fruit richness. The oak influence is well-judged, adding complexity without dominating. The wine concludes with excellent length and a sophisticated, refined character that speaks to its premium pedigree."
+      },
+      "foodPairings": [
+        "Prime ribeye with herb butter",
+        "Braised short ribs with root vegetables",
+        "Grilled lamb rack with rosemary",
+        "Aged blue cheese and walnuts",
+        "Wild mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 1-2 hours to allow the wine to open and the tannins to soften; this young vintage will benefit significantly from aeration",
+        "glassware": "Large Bordeaux or Cabernet Sauvignon-specific glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California, USA (To-Kalon, Stagecoach, Star, Darms Lane vineyards)",
+        "grapeVariety": "Cabernet Sauvignon (predominantly), may include small amounts of traditional Bordeaux blending varietals",
+        "vintage": "2022",
+        "style": "Full-bodied, concentrated Napa Valley Cabernet",
+        "ageability": "Drinking well now with decanting; will develop beautifully through 2035-2040 with proper cellaring, revealing additional complexity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T12:35:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alfaro Family Vineyards Trout Gulch Pinot Noir 2023",
+      "description": "From the historic Trout Gulch Vineyard in the Santa Cruz Mountains, this 2023 Pinot Noir showcases winemaker Ryan Alfaro's meticulous approach to this cool-climate site. Earning 94 points from James Suckling, this wine represents the pinnacle of Alfaro Family's production, offering beautifully finessed Pinot Noir that balances red fruit purity with mineral complexity and the distinctive terroir character of this acclaimed vineyard.",
+      "tastingNotes": {
+        "aroma": "The nose opens with captivating aromas of maraschino cherry and fresh strawberry pie, lifted by subtle hints of cola and exotic spices. Smoky, ashy floral notes add intrigue and complexity, while an earthy pinch of thyme and chaparral spice provide herbal accents. Delicate notes of potpourri and grapefruit zest emerge with air, creating layers of aromatic interest. The overall impression is one of elegance and refinement, with pure fruit balanced by sophisticated tertiary notes.",
+        "palate": "The palate delivers layers of red berry fruit, featuring strawberry, raspberry, and cherry flavors that show excellent purity and vibrancy. The fruit is complemented by intriguing chaparral spice twists and a distinctive concrete-dust minerality that speaks to the vineyard's unique terroir. Notes of grapefruit zest add brightness, while subtle cola and exotic spice nuances provide complexity. The wine shows sufficiently juicy acidity that keeps it lively and fresh, balanced by fine-grained tannins that provide structure without weight. The texture is silky and refined.",
+        "finish": "The finish is long and satisfying, with a kick of sweet exotic spice and persistent red fruit flavors. The mineral character carries through to the conclusion, providing backbone and ensuring the wine maintains interest. Subtle smoky notes and herbal accents linger, creating a complex, multi-dimensional finish. The wine is ready to drink now, offering immediate pleasure while suggesting potential for additional development."
+      },
+      "foodPairings": [
+        "Herb-roasted duck breast",
+        "Grilled wild salmon with mushrooms",
+        "Coq au vin",
+        "Aged Comté cheese",
+        "Truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F), slightly cooled",
+        "decanting": "A brief 15-20 minute decant will help the wine open, though it's drinking beautifully now and can be enjoyed directly from the bottle",
+        "glassware": "Burgundy glass or Pinot Noir-specific balloon glass"
+      },
+      "wineDetails": {
+        "region": "Trout Gulch Vineyard, Santa Cruz Mountains, California, USA",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2023",
+        "style": "Elegant, terroir-driven cool-climate Pinot Noir",
+        "ageability": "Ready to drink now and offering immediate pleasure; can develop additional complexity through 2028-2030 with proper cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T12:40:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Libertine Roam Red 2022",
+      "description": "A distinctive red blend from Libertine Wines in Oregon's Willamette Valley, this 2022 Roam showcases an unconventional mix of varietals including Tempranillo, Lagrein, Dolcetto, and Chardetto. The wine represents Libertine's innovative approach to winemaking, creating a medium-bodied red that is both youthful and vibrant yet holds unexpected depth and complexity, offering a unique alternative to traditional varietal wines.",
+      "tastingNotes": {
+        "aroma": "The nose presents an intriguing bouquet of dried raspberry and fresh azalea blossom, creating an unusual but compelling aromatic profile. Distinctive notes of freshly felled elm tree add an earthy, woody character that provides depth and interest. Subtle hints of dark berries emerge, along with delicate floral notes and a touch of forest floor. The aromatic complexity reflects the diverse grape blend, with each varietal contributing unique elements to create a harmonious whole.",
+        "palate": "On the palate, the wine delivers refreshing dark berry flavors including blackberry, boysenberry, and black cherry, balanced by an earthy, mineral-driven core. The fruit shows excellent purity and vibrancy, while maintaining a sense of depth that suggests maturity beyond its years. Gentle tannins provide structure without aggression, creating a smooth, approachable mouthfeel. Notes of dried herbs and subtle spice add complexity, while the wine's medium body ensures versatility with food. The blend creates a wine that is lively and bright yet offers surprising complexity.",
+        "finish": "The finish features a distinctive chocolate truffle note that adds richness and depth to the conclusion. Dark berry flavors persist, accompanied by subtle earthy tones and gentle tannins. The wine maintains its refreshing character through to the end, with a clean, satisfying finish that balances fruit, earth, and subtle oak influence. The conclusion is medium-length and inviting, leaving a lasting impression of the wine's unique character."
+      },
+      "foodPairings": [
+        "Grilled pork chops with sage",
+        "Mushroom and herb stuffed chicken",
+        "Eggplant parmesan",
+        "Charcuterie with aged cheeses",
+        "Pasta with wild boar ragu"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "A brief 20-30 minute decant will help integrate the diverse components and allow the wine to show its full character",
+        "glassware": "Medium-sized universal red wine glass or Pinot Noir glass"
+      },
+      "wineDetails": {
+        "region": "Willamette Valley, Oregon, USA",
+        "grapeVariety": "Tempranillo, Lagrein, Dolcetto, Chardetto (blend proportions vary by vintage)",
+        "vintage": "2022",
+        "style": "Medium-bodied, unconventional red blend",
+        "ageability": "Drinking well now with its youthful vibrancy; can develop through 2026-2027, revealing additional complexity and integration"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T12:45:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 65,
+    "totalWines": 10,
+    "researchDate": "2025-10-20",
+    "researcher": "Wine Research Specialist",
+    "qualityChecks": {
+      "duplicateDescriptions": false,
+      "uniqueTastingNotes": true,
+      "allWinesResearched": true,
+      "sourcesVerified": true
+    }
+  }
+}

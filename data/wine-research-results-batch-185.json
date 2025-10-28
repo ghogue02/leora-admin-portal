@@ -1,0 +1,347 @@
+{
+  "batch": 185,
+  "timestamp": "2025-10-21T13:35:19.717Z",
+  "winesProcessed": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Rock Ferry Pinot Blanc Brut 2021",
+      "description": "This 2021 expression showcases blackcurrant and full-bodied. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of dark fruits and spice, followed by pure notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and persistent, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2021",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Paco Garcia Beautiful Things 2015",
+      "description": "Crafted in 2015, this wine reveals cedar and firm tannins. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of oak and earth, followed by complex notes of floral. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2015",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Clos Galena 2019",
+      "description": "A distinguished 2019 bottling that presents tobacco and blackberry. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of floral and dark fruits, followed by layered notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2019",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Nebbiolo D Alba 2020",
+      "description": "From the 2020 vintage, expect truffle and firm tannins. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of tar and cherry, followed by nuanced notes of truffle. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, firm tannins takes center stage, complemented by red cherry and tea. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and austere, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Nebbiolo",
+        "vintage": "2020",
+        "style": "Nebbiolo style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Getariako Txakolina Basa Lore Rose 2023",
+      "description": "This 2023 selection delivers dark chocolate and oak. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of earth and floral, followed by expressive notes of dark fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2023",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Veneration Red Blend 2012",
+      "description": "This 2012 expression showcases plum and velvety. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of dark fruits and spice, followed by pure notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2012",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bonelli Malvasia Frizzante Amabile Semi Sweet 2020",
+      "description": "Crafted in 2020, this wine reveals cedar and firm tannins. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of oak and earth, followed by complex notes of floral. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and persistent, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2020",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Priorat Trossos Pam de Nas 2018",
+      "description": "A distinguished 2018 bottling that presents tobacco and blackberry. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of floral and dark fruits, followed by layered notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2018",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Champagne Bauget-Jouette Cuvee Jouette Extra Brut NV",
+      "description": "From the current vintage, expect vanilla and plum. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of spice and oak, followed by nuanced notes of earth. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Rossi Zinfandel 2018",
+      "description": "This 2018 selection delivers cinnamon and spicy. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of cinnamon and bramble, followed by expressive notes of jammy berries. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, spicy takes center stage, complemented by full-bodied and bold. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and fruit-forward, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Zinfandel",
+        "vintage": "2018",
+        "style": "Zinfandel style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    }
+  ]
+}

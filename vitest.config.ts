@@ -11,8 +11,16 @@ export default defineConfig({
     globals: true,
     environment: "node",
     include: ["src/**/*.test.ts"],
+    setupFiles: ["./vitest.setup.ts"],
+    testTimeout: 30000, // 30 seconds for database operations
     coverage: {
       reporter: ["text", "lcov"],
+      exclude: [
+        "node_modules/**",
+        "**/*.test.ts",
+        "**/*.config.ts",
+        "**/types/**",
+      ],
     },
   },
 });

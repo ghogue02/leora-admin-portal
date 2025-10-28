@@ -11,6 +11,7 @@ import {
   Package,
 } from "lucide-react";
 import Link from "next/link";
+import { formatCurrency, formatNumber } from "@/lib/utils/format";
 
 interface DashboardMetrics {
   totalCustomers: number;
@@ -138,31 +139,31 @@ export default function AdminDashboard() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <MetricCard
           title="Total Customers"
-          value={metrics?.totalCustomers || 0}
+          value={formatNumber(metrics?.totalCustomers ?? 0)}
           icon={Users}
           color="blue"
         />
         <MetricCard
           title="Total Orders"
-          value={metrics?.totalOrders || 0}
+          value={formatNumber(metrics?.totalOrders ?? 0)}
           icon={ShoppingCart}
           color="green"
         />
         <MetricCard
           title="MTD Revenue"
-          value={`$${(metrics?.mtdRevenue || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          value={formatCurrency(metrics?.mtdRevenue ?? 0)}
           icon={TrendingUp}
           color="emerald"
         />
         <MetricCard
           title="Active Users"
-          value={metrics?.activeUsers || 0}
+          value={formatNumber(metrics?.activeUsers ?? 0)}
           icon={UserCheck}
           color="purple"
         />
         <MetricCard
           title="Pending Orders"
-          value={metrics?.pendingOrders || 0}
+          value={formatNumber(metrics?.pendingOrders ?? 0)}
           icon={Package}
           color="orange"
         />
@@ -184,7 +185,7 @@ export default function AdminDashboard() {
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-800">
-                    {alert.count}
+                    {formatNumber(alert.count)}
                   </div>
                   <span className="text-sm font-medium text-gray-900">{alert.message}</span>
                 </div>

@@ -1,0 +1,347 @@
+{
+  "batchNumber": 118,
+  "processedAt": "2025-10-21T12:39:00.000Z",
+  "totalWines": 10,
+  "results": [
+    {
+      "productId": "",
+      "productName": "Jean Leon 3055 Chardonnay 2023",
+      "description": "Jean Leon's 3055 Chardonnay from Penedès showcases the estate's commitment to Burgundian-style winemaking in Spain. This elegant expression combines Old World restraint with Mediterranean fruit intensity, offering a sophisticated wine that honors the legacy of founder Jean Leon, who introduced Chardonnay to Catalunya in the 1960s.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing layers of ripe Golden Delicious apple and white peach, complemented by subtle notes of toasted hazelnut and vanilla from careful oak integration. Mineral undertones of wet stone and sea spray add complexity, while hints of acacia flower and Meyer lemon zest provide freshness. A delicate thread of butterscotch emerges with aeration, suggesting partial malolactic fermentation.",
+        "palate": "Medium to full-bodied with excellent texture, the palate delivers concentrated flavors of ripe pear and baked apple alongside subtle tropical notes of pineapple. Well-integrated French oak contributes creamy vanilla and a touch of sweet spice without overwhelming the fruit. The wine's creamy mouthfeel is balanced by vibrant acidity that keeps it fresh and food-friendly. Mineral salinity adds depth and structure to the mid-palate.",
+        "finish": "The finish is long and refined, with lingering notes of citrus zest, toasted almond, and a whisper of honey. Crisp acidity provides a clean, refreshing conclusion while the subtle oak influence adds persistence and elegance."
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon butter sauce",
+        "Creamy lobster risotto",
+        "Roasted chicken with herbs de Provence",
+        "Aged Manchego cheese",
+        "Butternut squash ravioli with sage brown butter"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Not necessary, though 15-20 minutes of breathing in the glass will allow the wine to open up and reveal its full aromatic complexity",
+        "glassware": "Burgundy or large-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Penedès, Catalunya, Spain",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Dry white wine, medium-bodied, oak-aged",
+        "ageability": "Drink now through 2027. Peak drinking 2024-2026. This wine is made for near-term enjoyment while maintaining freshness and complexity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Cabernet Franc 2022",
+      "description": "From the acclaimed Yakima Valley in Washington State, Two Mountain Winery crafts distinctive Cabernet Franc that showcases the variety's elegant, herbaceous character. The 2022 vintage benefits from warm days and cool nights that preserve natural acidity while achieving optimal ripeness.",
+      "tastingNotes": {
+        "aroma": "The bouquet is lifted and fragrant, displaying classic Cabernet Franc aromatics of violet and dried rose petals intermingled with bright red currant and raspberry. Subtle green peppercorn and fresh tobacco leaf add herbal complexity, while hints of graphite and forest floor suggest tertiary development. A whisper of vanilla and cedar from oak aging rounds out the aromatic profile.",
+        "palate": "Medium-bodied with silky tannins, the palate offers concentrated flavors of cranberry, red plum, and wild strawberry accented by savory notes of roasted red bell pepper and dried herbs. The wine's bright acidity provides excellent structure and lift, while integrated oak contributes subtle spice notes of cinnamon and clove. The texture is refined and elegant rather than powerful, showing the finesse that makes Cabernet Franc so appealing.",
+        "finish": "The finish is persistent and refined, with lingering red fruit, subtle earth, and fine-grained tannins that provide gentle grip. Notes of dried herbs and tobacco leaf echo through a clean, refreshing conclusion."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb",
+        "Grilled salmon with chimichurri",
+        "Mushroom and gruyere tart",
+        "Duck breast with cherry reduction",
+        "Aged cheddar or comte cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "30-45 minutes of decanting recommended to soften tannins and allow the wine's aromatic complexity to fully emerge",
+        "glassware": "Bordeaux or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington, USA",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2022",
+        "style": "Dry red wine, medium-bodied, herbaceous and elegant",
+        "ageability": "Drink now through 2030. Peak drinking 2024-2028. Cabernet Franc from Washington can age gracefully for 5-8 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ogier Cotes du Rhone Blanc 2024",
+      "description": "Maison Ogier, with roots dating back to 1859, produces classic Côtes du Rhône whites that express the southern Rhône's warm climate and diverse terroirs. This 2024 vintage showcases a blend dominated by Grenache Blanc with supporting roles from Viognier and Roussanne, offering immediate pleasure with bright fruit and floral aromatics.",
+      "tastingNotes": {
+        "aroma": "Exuberant and inviting, the nose bursts with white peach, honeydew melon, and ripe pear, accented by delicate white flowers—acacia and honeysuckle. Subtle notes of fresh almond and a hint of anise add complexity, while a touch of Mediterranean herbs (thyme and fennel) evoke the garrigue landscape. The aromatic profile is clean, fresh, and expressive of the sun-drenched southern Rhône.",
+        "palate": "Medium-bodied with a rich, rounded texture, the palate delivers generous flavors of stone fruit—apricot and nectarine—alongside hints of tropical fruit and citrus. The wine shows excellent balance between ripe fruit and refreshing acidity, with a subtle mineral backbone that adds structure. A creamy mid-palate suggests partial malolactic fermentation or lees contact, while the finish remains bright and clean.",
+        "finish": "The finish is medium in length with lingering notes of stone fruit, citrus zest, and almond. Refreshing acidity provides a clean conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean vegetables with herbed olive oil",
+        "Pan-seared scallops with saffron cream",
+        "Bouillabaisse or seafood stew",
+        "Goat cheese salad with honey vinaigrette",
+        "Roasted chicken with herbs and garlic"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed. Serve directly from the bottle, allowing 5-10 minutes in the glass to open",
+        "glassware": "Standard white wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône, Southern Rhône Valley, France",
+        "grapeVariety": "Grenache Blanc, Viognier, Roussanne blend",
+        "vintage": "2024",
+        "style": "Dry white wine, medium-bodied, fruit-forward and aromatic",
+        "ageability": "Drink now through 2026. Best enjoyed young to preserve vibrant fruit and freshness. Côtes du Rhône whites are made for near-term consumption."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paris-Simoneau Brut Blanc Clasique",
+      "description": "Paris-Simoneau represents quality French sparkling wine crafted using traditional methods. This Brut Blanc Clasique offers elegant effervescence and classic dry sparkler characteristics, providing an excellent alternative to Champagne at a more accessible price point.",
+      "tastingNotes": {
+        "aroma": "The nose presents delicate aromas of green apple, lemon zest, and white flowers, with subtle hints of freshly baked bread and brioche from time on the lees. Light mineral notes of crushed stone add complexity, while a whisper of almond and yeast provides depth. The aromatic profile is clean, refined, and inviting.",
+        "palate": "Light to medium-bodied with fine, persistent bubbles creating a creamy mousse, the palate offers crisp flavors of Granny Smith apple, citrus, and white peach. Bright acidity provides excellent structure and freshness, while subtle yeasty notes add complexity without overwhelming the delicate fruit. The wine's dry style (brut) is balanced and food-friendly, with a mineral backbone that adds length.",
+        "finish": "The finish is clean and refreshing, with lingering citrus and subtle toasted notes. Fine bubbles continue to dance on the palate, providing a lively, celebratory conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters or shellfish plateau",
+        "Smoked salmon canapés",
+        "Fried calamari with lemon aioli",
+        "Soft cheeses like Brie or Camembert",
+        "Light appetizers and hors d'oeuvres"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well-chilled",
+        "decanting": "Not applicable for sparkling wine. Serve directly from the bottle to preserve effervescence",
+        "glassware": "Champagne flute or tulip-shaped sparkling wine glass"
+      },
+      "wineDetails": {
+        "region": "France (likely Loire Valley or Languedoc)",
+        "grapeVariety": "Traditional sparkling wine varieties (likely Chardonnay, Chenin Blanc, or similar)",
+        "vintage": "Non-vintage (NV)",
+        "style": "Brut sparkling wine, traditional method, dry and crisp",
+        "ageability": "Drink now through 2026. Non-vintage sparklers are released ready to drink and should be consumed within 2-3 years for optimal freshness."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Poggio Scudieri Brunello 2019",
+      "description": "Poggio Scudieri's Brunello di Montalcino 2019 represents the pinnacle of Tuscan winemaking, crafted from 100% Sangiovese Grosso grown in the prestigious Montalcino region. The 2019 vintage is noted for balanced conditions that produced wines of excellent structure and aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose is complex and evolving, opening with intense aromas of wild cherry, red plum, and strawberry preserve, layered with notes of dried violet, rose petals, and sweet tobacco. Secondary aromas of leather, earth, and forest floor add depth, while hints of cedar, sandalwood, and baking spices from oak aging provide structure. A subtle mineral thread of wet stone runs through the aromatic core.",
+        "palate": "Full-bodied with firm but refined tannins, the palate delivers concentrated flavors of dark cherry, blackberry, and cranberry alongside savory notes of dried herbs, black olive, and sun-dried tomato. The wine's substantial structure is balanced by bright acidity that provides lift and freshness. Complex layers of earth, leather, and spice emerge on the mid-palate, while integrated oak contributes vanilla and sweet spice without dominating. The texture is elegant despite the wine's power, showing the finesse that defines great Brunello.",
+        "finish": "The finish is exceptionally long and persistent, with lingering red fruit, earth, and fine-grained tannins that coat the palate. Notes of tobacco, leather, and cedar echo through a conclusion that seems to last for minutes, showcasing the wine's aging potential and complexity."
+      },
+      "foodPairings": [
+        "Bistecca alla Fiorentina (grilled T-bone steak)",
+        "Wild boar ragù with pappardelle",
+        "Aged Pecorino Toscano",
+        "Braised short ribs with rosemary",
+        "Mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decanting for 1-2 hours is highly recommended to soften tannins and allow the wine's complex aromatics to fully develop. Young Brunello benefits significantly from aeration",
+        "glassware": "Large-bowled Burgundy glass or Brunello-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Brunello di Montalcino DOCG, Tuscany, Italy",
+        "grapeVariety": "100% Sangiovese Grosso (Brunello)",
+        "vintage": "2019",
+        "style": "Dry red wine, full-bodied, age-worthy, traditional Tuscan",
+        "ageability": "Drink now through 2044. Peak drinking 2027-2039. Brunello requires minimum 5 years aging by law and can evolve beautifully for 20-25 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Weinrieder Riesling Reid Kugler 2020  1500 ml",
+      "description": "Weinrieder's single-vineyard Riesling from the Reid Kugler site in Austria's Weinviertel region showcases the distinctive character of Austrian Riesling. Presented in a magnum format (1500ml), this 2020 vintage offers concentrated flavors and enhanced aging potential from the larger bottle format.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic, displaying classic Riesling characteristics of lime zest, green apple, and white peach, accented by delicate white flowers and subtle honey notes. Distinctive mineral aromas of wet slate and petrol (a positive hallmark of aged Riesling) add complexity, while hints of apricot and ginger provide depth. The aromatic profile is precise, focused, and expressive of the Reid Kugler terroir.",
+        "palate": "Medium-bodied with racy acidity providing excellent backbone, the palate delivers pure flavors of citrus—lemon, lime, and grapefruit—alongside stone fruit and crisp apple. The wine shows beautiful balance between fruit sweetness and refreshing acidity, likely in an off-dry style that enhances food pairing versatility. Mineral salinity adds structure and length to the mid-palate, while subtle spice notes of white pepper and ginger add complexity. The texture is refined and energetic.",
+        "finish": "The finish is long and vibrant, with persistent citrus, stone fruit, and pronounced minerality. Crisp acidity provides a clean, refreshing conclusion that stimulates the palate and invites food pairing."
+      },
+      "foodPairings": [
+        "Austrian Wiener Schnitzel with lemon",
+        "Grilled trout with herb butter",
+        "Asian cuisine—Thai or Vietnamese with citrus and herbs",
+        "Aged Gouda or alpine cheeses",
+        "Roasted pork tenderloin with apple chutney"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C)",
+        "decanting": "Not necessary for Riesling, but allowing 10-15 minutes in the glass will help the wine open up and reveal its full aromatic complexity",
+        "glassware": "Riesling-specific glass with narrower bowl to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Weinviertel, Lower Austria, Austria",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2020",
+        "style": "Dry to off-dry white wine, medium-bodied, mineral-driven, single-vineyard",
+        "ageability": "Drink now through 2035. Peak drinking 2025-2032. Austrian Riesling, especially in magnum format, can age gracefully for 10-15 years, developing beautiful petrol and honey notes."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Trellis 2022",
+      "description": "Boxwood Estate in Virginia's Middleburg wine region produces Bordeaux-style blends that rival their French counterparts. The Trellis bottling represents the estate's entry-level blend, offering approachable elegance and expressing the distinctive terroir of Virginia's limestone-rich soils.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with inviting aromas of ripe blackberry, cassis, and red cherry, layered with subtle hints of violet, graphite, and cedar from oak aging. Secondary notes of dried herbs—thyme and sage—add complexity, while a touch of tobacco leaf and earth suggest developing maturity. The aromatic profile is refined and balanced, showing both fruit purity and structural complexity.",
+        "palate": "Medium to full-bodied with supple tannins, the palate delivers concentrated dark fruit flavors—blackberry, plum, and black cherry—alongside savory notes of roasted herbs, black olive, and a hint of cocoa. Well-integrated French oak contributes vanilla, toast, and sweet spice without overwhelming the fruit. The wine's structure is balanced by bright acidity that provides freshness and lift, while a mineral backbone adds depth and length to the mid-palate.",
+        "finish": "The finish is smooth and persistent, with lingering dark fruit, subtle oak, and fine-grained tannins that provide gentle grip. Notes of earth, herbs, and cocoa echo through a refined conclusion."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised lamb shanks with rosemary",
+        "Mushroom and truffle risotto",
+        "Aged cheddar or manchego cheese",
+        "Duck confit with cherry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30-60 minutes of decanting recommended to allow the wine to breathe and soften tannins",
+        "glassware": "Bordeaux glass or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia, USA",
+        "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot)",
+        "vintage": "2022",
+        "style": "Dry red wine, medium to full-bodied, Bordeaux-style blend",
+        "ageability": "Drink now through 2030. Peak drinking 2024-2028. Virginia Bordeaux blends can age well for 5-8 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tibouren Cotes de Provence 2022",
+      "description": "This rare varietal bottling showcases Tibouren, an ancient Provençal grape variety seldom seen as a single-varietal wine. Grown in the sun-drenched hills of Côtes de Provence, this 2022 vintage expresses the grape's unique character—aromatic complexity, delicate structure, and Mediterranean charm.",
+      "tastingNotes": {
+        "aroma": "The nose is distinctively aromatic and complex, opening with delicate red fruit aromas of wild strawberry, raspberry, and cranberry, accented by beautiful floral notes of rose petals and orange blossom. Provençal herbs—lavender, thyme, and rosemary—add savory complexity, while subtle spice notes of white pepper and coriander provide depth. A whisper of saline minerality evokes the nearby Mediterranean Sea.",
+        "palate": "Light to medium-bodied with silky tannins and bright acidity, the palate offers pure flavors of red berries, citrus peel, and pomegranate. The wine's elegant structure is enhanced by subtle herbal notes and a pronounced mineral backbone that adds length and complexity. Despite its delicate frame, there's surprising depth and concentration, with layers of spice, herbs, and fruit that unfold on the palate. The texture is refined and refreshing.",
+        "finish": "The finish is clean and persistent, with lingering red fruit, herbs, and mineral salinity. Refreshing acidity provides a crisp conclusion that makes this wine incredibly food-friendly and versatile."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean fish with herbs",
+        "Salade Niçoise",
+        "Ratatouille or grilled vegetables",
+        "Fresh goat cheese with herbs de Provence",
+        "Grilled lamb chops with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "55-58°F (13-14°C), lightly chilled",
+        "decanting": "Not necessary. Serve directly from the bottle, allowing 10-15 minutes in the glass to open",
+        "glassware": "Universal wine glass or light red wine glass"
+      },
+      "wineDetails": {
+        "region": "Côtes de Provence, Provence, France",
+        "grapeVariety": "100% Tibouren",
+        "vintage": "2022",
+        "style": "Light to medium-bodied red wine, elegant and aromatic, rare varietal",
+        "ageability": "Drink now through 2026. Best enjoyed young to preserve delicate aromatics and fresh fruit. Tibouren is made for near-term consumption."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.79,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Nikolaou Moschofilero 2023",
+      "description": "Nikolaou's Moschofilero from Greece's Peloponnese showcases one of the country's most distinctive indigenous white varieties. Known for its aromatic intensity and bright acidity, Moschofilero produces wines that are both refreshing and complex, perfect for Mediterranean cuisine.",
+      "tastingNotes": {
+        "aroma": "The nose is explosively aromatic, bursting with intense floral notes of rose petals, orange blossom, and jasmine, layered with bright citrus aromas of lemon zest, lime, and grapefruit. Stone fruit notes of white peach and apricot add depth, while hints of lychee and exotic spices provide complexity. A subtle herbal thread of fresh basil and mint adds a refreshing quality to the aromatic profile.",
+        "palate": "Light to medium-bodied with vibrant, mouthwatering acidity, the palate delivers crisp flavors of citrus, green apple, and white peach, accented by floral and herbal notes that echo the aromatic nose. The wine's bright acidity provides excellent structure and freshness, while a subtle mineral backbone adds complexity and length. Despite the wine's delicate frame, there's surprising depth and concentration of flavor. The texture is clean, refreshing, and energetic.",
+        "finish": "The finish is clean and persistent, with lingering citrus, floral notes, and refreshing acidity that stimulates the palate. A whisper of spice and herbs adds complexity to a vibrant conclusion."
+      },
+      "foodPairings": [
+        "Grilled octopus with lemon and oregano",
+        "Greek salad with feta and olives",
+        "Fried calamari with tzatziki",
+        "Fresh mozzarella and tomato salad",
+        "Grilled sea bream with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C), well-chilled",
+        "decanting": "Not necessary. Serve directly from the bottle to preserve freshness and aromatics",
+        "glassware": "Standard white wine glass or aromatic white wine glass"
+      },
+      "wineDetails": {
+        "region": "Peloponnese, Greece (likely Mantinia PDO)",
+        "grapeVariety": "100% Moschofilero",
+        "vintage": "2023",
+        "style": "Dry white wine, light to medium-bodied, highly aromatic, indigenous Greek variety",
+        "ageability": "Drink now through 2025. Best enjoyed young to preserve vibrant aromatics and fresh fruit. Moschofilero is made for immediate consumption."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Petit Hameu Bless Your Heart Rose Champagne NV",
+      "description": "Petit Hameu's Rosé Champagne offers playful elegance with its cheeky \"Bless Your Heart\" designation. This non-vintage cuvée blends Pinot Noir and Chardonnay to create a delicate pink sparkler that balances finesse with fruit-forward charm, perfect for celebrations.",
+      "tastingNotes": {
+        "aroma": "The nose presents delicate aromas of wild strawberry, raspberry, and red cherry, accented by subtle notes of brioche, toast, and almond from time on the lees. Delicate floral hints of rose petals and orange blossom add complexity, while a whisper of mineral chalk and yeast provides depth. The aromatic profile is refined, elegant, and inviting, with a beautiful balance between fruit and vinous character.",
+        "palate": "Light to medium-bodied with fine, persistent bubbles creating a creamy mousse, the palate offers fresh flavors of strawberry, cranberry, and citrus zest. Bright acidity provides excellent structure and freshness, while subtle yeasty notes and hints of pastry add complexity without overwhelming the delicate red fruit. The wine's dry style (brut) is balanced and sophisticated, with a mineral backbone that adds length. The texture is refined and elegant, with beautifully integrated effervescence.",
+        "finish": "The finish is clean and refreshing, with lingering red berry fruit, subtle toast, and delicate mineral notes. Fine bubbles continue to dance on the palate, providing a lively, celebratory conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Fresh strawberries with cream",
+        "Smoked salmon blinis",
+        "Seafood plateau with mignonette",
+        "Soft-ripened cheeses like Brie",
+        "Delicate pastries and fruit tarts"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well-chilled",
+        "decanting": "Not applicable for Champagne. Serve directly from the bottle to preserve effervescence",
+        "glassware": "Champagne flute or tulip-shaped glass to showcase the beautiful pink color and fine bubbles"
+      },
+      "wineDetails": {
+        "region": "Champagne, France",
+        "grapeVariety": "Pinot Noir and Chardonnay blend (traditional Champagne varieties)",
+        "vintage": "Non-vintage (NV)",
+        "style": "Brut Rosé Champagne, traditional method, dry and elegant",
+        "ageability": "Drink now through 2027. Non-vintage Rosé Champagne is released ready to drink and should be consumed within 2-4 years for optimal freshness and fruit."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.77,
+        "researchedAt": "2025-10-21T12:39:00.000Z"
+      }
+    }
+  ]
+}

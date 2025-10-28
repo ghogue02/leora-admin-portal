@@ -1,0 +1,346 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Earl Patrick Lambert Chinon L'Ame d'Antan 2019",
+      "description": "A distinguished expression from the Loire Valley's Chinon appellation, this Cabernet Franc showcases the mineral-rich terroir of the region's rocky hillsides. The 2019 vintage delivers the hallmark elegance and complexity that defines premium Chinon wines, with layers of spice and subtle gamey notes developing from careful aging.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant blackcurrant and red berry fruits layered over distinctive minerality from the limestone terroir. Subtle anise notes emerge alongside dried herbs, violet petals, and a touch of graphite. As the wine breathes, earthy undertones of forest floor and wild game add complexity, complemented by hints of black pepper and tobacco leaf.",
+        "palate": "Medium-bodied with fine-grained tannins characteristic of quality Cabernet Franc from rocky hillside vineyards. The palate reveals concentrated dark cherry and cassis flavors intertwined with savory elements of grilled herbs and mineral complexity. Excellent structure balances the fruit-forward character with earthy depth, while bright acidity provides freshness and tension. The wine shows developing tertiary notes of leather and spice that suggest favorable aging potential.",
+        "finish": "The finish is persistent and elegant, with lingering mineral notes and spicy complexity. Fine tannins carry through with grippy texture while maintaining refinement, leaving impressions of dark berries and dried herbs that gradually fade into subtle graphite and earth tones."
+      },
+      "foodPairings": [
+        "Duck confit with wild mushrooms",
+        "Roasted lamb with rosemary and garlic",
+        "Grilled ribeye steak with peppercorn sauce",
+        "Aged comté or gruyère cheese",
+        "Pork tenderloin with herbs de Provence"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and reveal its complex aromatics and soften tannins",
+        "glassware": "Bordeaux or large burgundy glass to concentrate the aromatics"
+      },
+      "wineDetails": {
+        "region": "Chinon, Loire Valley, France",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2019",
+        "style": "Dry red wine, medium-bodied with mineral complexity",
+        "ageability": "Drink now through 2032. This wine has excellent aging potential with quality vintages developing velvety spice characteristics over 10+ years in proper cellaring conditions."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Steamship White 2017",
+      "description": "An innovative California white blend that captures the state's New World winemaking philosophy with ripe fruit character and elegant structure. This wine exemplifies the creative spirit of California winemakers who craft distinctive blends outside traditional varietal conventions, offering complexity and food-friendly versatility.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents layers of ripe stone fruit including apricot and white peach, accented by honeysuckle and citrus blossom. Subtle notes of Meyer lemon zest and green apple add brightness, while hints of vanilla and toasted almond suggest judicious oak influence. A delicate minerality reminiscent of wet stone provides elegant lift to the generous fruit aromatics.",
+        "palate": "Medium to full-bodied with a rounded, creamy texture balanced by crisp acidity. The palate delivers concentrated flavors of golden delicious apple, pear, and tropical notes of pineapple and mango. Oak aging contributes subtle butterscotch and hazelnut nuances without overwhelming the vibrant fruit core. The wine shows excellent integration with a silky mouthfeel and refreshing citrus tension that maintains energy through the mid-palate.",
+        "finish": "The finish is clean and moderately long, featuring lingering stone fruit flavors with a touch of honeyed richness. Bright acidity provides a refreshing lift while subtle oak spice and minerality carry through, creating a harmonious conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled halibut with lemon butter sauce",
+        "Roasted chicken with herb stuffing",
+        "Lobster risotto with saffron",
+        "Creamy pasta carbonara",
+        "Grilled swordfish with tropical fruit salsa"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "No decanting necessary; serve directly from a chilled bottle to preserve freshness and aromatics",
+        "glassware": "Standard white wine glass or Chardonnay glass"
+      },
+      "wineDetails": {
+        "region": "California, USA",
+        "grapeVariety": "White blend (likely includes Chardonnay, Sauvignon Blanc, and other aromatic varieties)",
+        "vintage": "2017",
+        "style": "Dry white blend, medium to full-bodied with fruit-forward New World character",
+        "ageability": "Best enjoyed within 2-3 years of vintage for optimal freshness. The 2017 is drinking beautifully now and should be consumed soon."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Albarino 2020",
+      "description": "A distinctive expression of Spanish Albariño grown in Napa Valley's unique terroir, combining the varietal's characteristic botanical aromatics with California's ripe fruit intensity. Hendry's approach honors the grape's origins while showcasing what premium Napa viticulture can achieve with this Atlantic variety.",
+      "tastingNotes": {
+        "aroma": "Pronounced aromatic intensity featuring distinctive botanical notes of orange blossom, lemon verbena, and white flowers. Ripe apricot and yellow peach aromas dominate, complemented by citrus undertones of lime zest and grapefruit pith. Subtle hints of wet stone minerality and fresh-cut grass add complexity, with a delicate almond note providing textural interest reminiscent of the grape's characteristically thick skins.",
+        "palate": "Light to medium-bodied with vibrant, high acidity that defines the varietal. The palate bursts with citrus flavors of Meyer lemon, pink grapefruit, and tangerine, balanced by stone fruit notes of white peach and nectarine. A subtle textural grip from the grape's natural tannins provides interesting complexity without bitterness. The wine's freshness is exceptional, with crisp mineral notes and a slight saline quality that enhances the pure fruit flavors.",
+        "finish": "Crisp and refreshing with pronounced acidity carrying through the moderately long finish. Citrus and stone fruit linger with bright clarity, while a subtle hint of pleasant bitterness from the skins adds dimension. The mineral quality persists, leaving a clean, mouth-watering impression."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled prawns with garlic and lemon",
+        "Ceviche or aguachile",
+        "Steamed mussels in white wine broth",
+        "Light summer salads with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from refrigerator to preserve the wine's bright acidity and fresh aromatics",
+        "glassware": "Smaller white wine glass or Sauvignon Blanc glass to concentrate the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California, USA",
+        "grapeVariety": "100% Albariño",
+        "vintage": "2020",
+        "style": "Dry white wine, light-bodied with high acidity and aromatic intensity",
+        "ageability": "Best enjoyed young within 2-3 years to capture the varietal's signature freshness. The 2020 vintage is at peak drinking now."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction GSM Crossing 2014",
+      "description": "An exceptional Rhône-style blend from Paso Robles showcasing the region's mastery of Mediterranean varietals. This GSM (Grenache-Syrah-Mourvèdre) blend exemplifies the innovative 'Paso blends' that defy traditional winemaking rules while honoring the character of each component grape, crafted from vineyards on the region's distinctive weathered granite and volcanic soils.",
+      "tastingNotes": {
+        "aroma": "Complex and inviting, the nose offers layered aromas of ripe blackberry, boysenberry, and dark cherry intermingled with dried Mediterranean herbs—thyme, lavender, and rosemary. Notes of cracked black pepper, smoked meat, and garrigue add savory intrigue, while subtle touches of violet, graphite, and baking spices reveal the wine's maturity. A hint of leather and tobacco from bottle age provides additional depth.",
+        "palate": "Full-bodied with generous, supple tannins and balanced structure. The palate delivers concentrated dark fruit flavors of plum, black raspberry, and fig, complemented by savory elements of olive tapenade, cured meat, and earthy minerality. The Grenache contributes lush fruit and warmth, Syrah provides structure and peppery spice, while Mourvèdre adds gamey complexity and firm tannins. The wine shows excellent integration after nearly a decade, with tertiary notes of leather and dried herbs emerging alongside persistent fruit concentration.",
+        "finish": "Long and satisfying, with lingering dark fruit, savory herbs, and fine-grained tannins. The finish reveals subtle mineral notes from the granite soils, along with hints of espresso and dark chocolate. The wine's warmth and spice carry through, leaving a pleasantly dry, complex impression."
+      },
+      "foodPairings": [
+        "Braised lamb shanks with rosemary",
+        "Grilled tri-tip with chimichurri",
+        "Wild boar ragu over pappardelle",
+        "Beef bourguignon with root vegetables",
+        "Aged manchego or pecorino cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow this mature wine to express its full complexity and integrate its components",
+        "glassware": "Large Rhône or Syrah glass to capture the aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Paso Robles AVA, San Luis Obispo County, California",
+        "grapeVariety": "Grenache-Syrah-Mourvèdre blend (specific percentages vary by vintage)",
+        "vintage": "2014",
+        "style": "Dry red Rhône-style blend, full-bodied with concentrated fruit and savory complexity",
+        "ageability": "The 2014 vintage is drinking beautifully now with developed tertiary characteristics. Can hold for another 3-5 years with proper cellaring, though no significant improvement expected."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Las Seis Alhajas Graciano 2021",
+      "description": "A rare single-varietal Graciano from one of Rioja's most respected producers, showcasing this traditional blending grape in its pure form. Las Seis Alhajas ('The Six Jewels') represents Conde Valdemar's commitment to highlighting indigenous Spanish varietals, capturing Graciano's characteristic deep color, aromatic intensity, and exceptional aging potential.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic with profound depth characteristic of quality Graciano. The nose bursts with ripe black cherry, wild blackberry, and red plum, accented by distinctive violet and iris flower notes. Layers of sweet spice including cinnamon, clove, and star anise emerge alongside Mediterranean scrub herbs. Subtle nuances of vanilla, cedar, and dark chocolate from oak aging integrate seamlessly, while hints of graphite and iron add mineral intrigue.",
+        "palate": "Medium to full-bodied with remarkable structure and concentration. The palate delivers intense dark fruit flavors of blackberry, black cherry, and cassis, complemented by savory notes of black olive, dried herbs, and tobacco. Graciano's naturally high acidity provides excellent freshness and tension, balancing the ripe fruit character with vibrant energy. Firm, fine-grained tannins contribute substantial aging potential while remaining elegant and well-integrated. The wine shows impressive depth and persistence across the palate.",
+        "finish": "Long and powerful, showcasing Graciano's signature intensity and persistence. Dark fruit flavors linger with remarkable clarity, accompanied by spice, mineral notes, and firm but refined tannins. The finish reveals the variety's exceptional structure and aging capability, leaving a lasting impression of depth and complexity."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs",
+        "Iberian pork secreto with piquillo peppers",
+        "Beef short ribs braised in red wine",
+        "Chorizo and lentil stew",
+        "Aged Manchego or Zamorano cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow this young, structured wine to open and reveal its full aromatic complexity",
+        "glassware": "Large Bordeaux or Rioja glass to showcase the wine's intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "100% Graciano",
+        "vintage": "2021",
+        "style": "Dry red wine, medium to full-bodied with deep color, strong aroma, and structured tannins",
+        "ageability": "Excellent aging potential of 10-15 years or more. The 2021 vintage will continue to develop complexity and elegance, making it suitable for Gran Reserva-style extended cellaring."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scheid Vineyards Elder Rock Chardonnay 2018",
+      "description": "A premium expression of Monterey County Chardonnay from Scheid's distinguished Elder Rock vineyard, showcasing the intense varietal character that makes this cool-climate region's grapes highly prized throughout California. The maritime influence of Monterey Bay creates ideal conditions for balanced, complex Chardonnay with vibrant acidity and pure fruit expression.",
+      "tastingNotes": {
+        "aroma": "Elegantly expressive with layers of ripe yellow apple, Asian pear, and white peach. Subtle citrus notes of Meyer lemon and orange blossom add brightness, while hints of vanilla bean, toasted hazelnut, and crème brûlée reflect judicious oak influence. A delicate minerality reminiscent of crushed stone and sea breeze adds complexity, characteristic of Monterey's cool maritime terroir. Light notes of butter and brioche from malolactic fermentation provide richness without heaviness.",
+        "palate": "Medium to full-bodied with creamy texture balanced by vibrant natural acidity from the region's cool climate. The palate delivers concentrated flavors of golden delicious apple, ripe pear, and tropical hints of pineapple and mango. Oak aging contributes subtle butterscotch, toasted almond, and baking spice nuances that integrate beautifully with the fruit core. The wine's hallmark intensity reflects true varietal character, while persistent minerality and bright acidity maintain freshness and structure through the mid-palate. The mouthfeel is rich yet refined, showing excellent balance.",
+        "finish": "The finish is long and satisfying, with lingering stone fruit and citrus flavors supported by subtle oak spice. Bright acidity provides a clean, refreshing lift while mineral notes add complexity and length. A touch of creamy richness persists, balanced by the wine's natural tension and energy."
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon and herbs",
+        "Roasted chicken with mushroom cream sauce",
+        "Lobster mac and cheese",
+        "Butternut squash ravioli with sage butter",
+        "Gruyère and aged white cheddar cheese"
+      ],
+      "servingInfo": {
+        "temperature": "52-56°F (11-13°C)",
+        "decanting": "No decanting required; serve slightly chilled to showcase the wine's richness while maintaining freshness",
+        "glassware": "Standard Chardonnay glass with a broad bowl to capture the complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Monterey County, California, USA (likely Salinas Valley AVA)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2018",
+        "style": "Dry white wine, medium to full-bodied with oak aging, showing California's fruit-forward style balanced by Monterey's cool-climate acidity",
+        "ageability": "Drinking beautifully now with developed complexity. Best enjoyed within the next 1-2 years while maintaining its vibrant fruit character and balanced structure."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Chardonnay 2016",
+      "description": "An elegant Hungarian Chardonnay representing the evolution of this international variety in Central Europe's distinctive terroir. Likely sourced from the Eger or Mátra wine regions known for full-bodied white wines, this expression combines Old World refinement with the richness characteristic of quality Hungarian Chardonnay production from volcanic soils.",
+      "tastingNotes": {
+        "aroma": "Refined and complex, opening with aromas of ripe golden apple, quince, and yellow pear. Layers of acacia honey, chamomile, and white flowers add elegance, while subtle notes of toasted brioche, hazelnut, and vanilla suggest careful oak maturation. A distinctive mineral quality reminiscent of volcanic soils adds depth, complemented by hints of lemon curd and butterscotch. The nose shows excellent integration after several years of bottle age.",
+        "palate": "Full-bodied with substantial texture and well-integrated acidity typical of Hungarian white wines. The palate delivers concentrated flavors of baked apple, poached pear, and apricot preserve, balanced by citrus notes of candied lemon. Oak influence contributes layers of caramel, toasted almond, and baking spices that enhance rather than dominate the fruit. A pronounced mineral backbone from volcanic terroir provides structure and complexity, while the wine's richness is tempered by refreshing acidity that maintains balance and drinkability.",
+        "finish": "Long and elegant with lingering fruit and spice complexity. The finish showcases the wine's full-bodied character with persistent flavors of stone fruit, honey, and subtle oak. Mineral notes add length and sophistication, while balanced acidity provides a clean conclusion despite the wine's generous texture."
+      },
+      "foodPairings": [
+        "Roasted pork tenderloin with apple compote",
+        "Chicken paprikash with sour cream",
+        "Grilled trout with almond butter",
+        "Creamy mushroom strudel",
+        "Aged Gouda or Hungarian Trappist cheese"
+      ],
+      "servingInfo": {
+        "temperature": "54-58°F (12-14°C)",
+        "decanting": "Brief decanting of 15-20 minutes can help this mature wine open and reveal additional complexity",
+        "glassware": "Burgundy or large Chardonnay glass to accommodate the wine's full-bodied character and complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Hungary (likely Eger or Mátra wine region)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2016",
+        "style": "Dry white wine, full-bodied with oak aging, showing elegant Old World character with richness and volcanic terroir influence",
+        "ageability": "The 2016 vintage is mature and drinking beautifully now. Best enjoyed within the next 1-2 years while maintaining its complexity and structure."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mendoza Laderas del Valle Cabernet Sauvignon 2017",
+      "description": "A classic Argentine Cabernet Sauvignon from Mendoza, the region responsible for 70% of Argentina's wine production. Crafted from high-altitude vineyards benefiting from continental sunshine and Andean glacier-fed irrigation, this wine captures the intensity and structure that define premium Mendoza reds from this renowned wine region.",
+      "tastingNotes": {
+        "aroma": "Bold and expressive with concentrated aromas of blackcurrant, black cherry, and ripe plum. Layers of dark chocolate, espresso, and cedar emerge alongside notes of eucalyptus and dried herbs characteristic of Argentine Cabernet. Subtle hints of vanilla, tobacco, and leather suggest oak maturation, while a touch of violet and graphite add complexity. The nose reflects Mendoza's sunny, continental climate with ripe fruit concentration.",
+        "palate": "Full-bodied with robust structure and firm tannins typical of Mendoza Cabernet Sauvignon. The palate delivers powerful dark fruit flavors of cassis, blackberry, and black plum, complemented by notes of dark chocolate, roasted coffee, and sweet spice. The wine's concentration reflects optimal ripeness from high-altitude vineyards, while integrated oak contributes layers of vanilla, toast, and cigar box. Balanced acidity provides framework and freshness despite the wine's substantial body and alcohol warmth.",
+        "finish": "Long and structured with persistent dark fruit and oak-derived complexity. Firm tannins provide grip and aging potential while maintaining smoothness, characteristic of well-made Mendoza reds. The finish reveals chocolate, espresso, and subtle herb notes that linger with impressive length."
+      },
+      "foodPairings": [
+        "Argentine asado (grilled beef)",
+        "Grilled ribeye steak with chimichurri",
+        "Braised short ribs with red wine reduction",
+        "Empanadas with beef and olives",
+        "Aged provolone or hard Italian cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (16-19°C)",
+        "decanting": "Decant for 45-60 minutes to soften tannins and allow the wine's concentration and complexity to fully express",
+        "glassware": "Large Bordeaux or Cabernet glass to accommodate the wine's bold aromatics and structure"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2017",
+        "style": "Dry red wine, full-bodied with concentrated fruit, firm tannins, and oak aging characteristic of premium Mendoza production",
+        "ageability": "Drinking well now with integrated tannins and developing complexity. Can age for another 5-8 years with proper cellaring, developing tertiary notes of leather, tobacco, and earth."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Sablet Rouge 2023",
+      "description": "A vibrant Côtes du Rhône red from the village of Sablet, situated at the foot of the Dentelles de Montmirail in Provence. This young vintage showcases the fresh, approachable character of Southern Rhône reds from this traditional wine-producing village, crafted in the region's classic style with emphasis on ripe fruit and Mediterranean herb influences.",
+      "tastingNotes": {
+        "aroma": "Fresh and inviting with bright aromas of red cherry, strawberry, and raspberry. Classic Provençal notes of garrigue—wild thyme, rosemary, and lavender—add aromatic complexity alongside hints of black pepper and dried herbs. Subtle touches of red plum, cranberry, and violets provide additional layers, while a light mineral quality reflects the limestone terroir of the Dentelles de Montmirail foothills.",
+        "palate": "Medium-bodied with vibrant fruit character and accessible tannins typical of young Côtes du Rhône wines. The palate delivers juicy flavors of fresh red berries—cherry, raspberry, and red currant—complemented by savory notes of Mediterranean herbs, earth, and subtle spice. The wine's youthful energy is balanced by soft tannins and refreshing acidity, making it immediately enjoyable. Light touches of white pepper and dried herbs add complexity without heaviness.",
+        "finish": "Clean and moderately persistent with lingering red fruit and herb notes. Soft tannins provide gentle structure while the wine's natural freshness and acidity leave a bright, food-friendly impression. Subtle mineral and spice notes complete the finish."
+      },
+      "foodPairings": [
+        "Ratatouille with fresh herbs",
+        "Grilled lamb merguez sausages",
+        "Herb-roasted chicken with olives",
+        "Beef daube provençale",
+        "Tomato-based pasta with Italian sausage"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-16°C), slightly chilled",
+        "decanting": "Brief decanting of 15-20 minutes to aerate this young wine and enhance aromatics",
+        "glassware": "Standard red wine glass or Côtes du Rhône glass"
+      },
+      "wineDetails": {
+        "region": "Sablet, Côtes du Rhône, Southern Rhône Valley, France",
+        "grapeVariety": "Traditional Côtes du Rhône blend (likely Grenache-based with Syrah and/or Mourvèdre)",
+        "vintage": "2023",
+        "style": "Dry red wine, medium-bodied with fresh fruit character and Mediterranean herb influences",
+        "ageability": "Best enjoyed young within 2-3 years to capture the wine's vibrant fruit and freshness. The 2023 vintage is drinking beautifully now."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lueria Unoaked Chardonnay",
+      "description": "A pure, fruit-focused expression of Chardonnay crafted without oak influence to showcase the grape's natural characteristics. This unoaked style emphasizes crisp acidity, clean fruit flavors, and minerality, offering a refreshing alternative to traditional buttery Chardonnays and highlighting the varietal's versatility.",
+      "tastingNotes": {
+        "aroma": "Bright and pristine with aromas of green apple, fresh pear, and citrus zest. Notes of white flowers, lemon verbena, and honeydew melon add delicate complexity, while hints of wet stone and chalk provide mineral interest. Without oak influence, the aromatics are crisp and focused, showcasing pure varietal character with touches of grapefruit and subtle tropical fruit nuances.",
+        "palate": "Light to medium-bodied with vibrant, refreshing acidity and clean fruit expression. The palate delivers flavors of Granny Smith apple, Asian pear, and white peach, complemented by bright citrus notes of lime and lemon. A pronounced mineral quality adds texture and complexity, while the absence of oak allows the fruit and natural acidity to shine. The wine's crisp, unadulterated character provides excellent drinkability with a fresh, mouth-watering quality throughout.",
+        "finish": "Clean and refreshing with persistent citrus and green apple flavors. Bright acidity carries through the moderately long finish, leaving a crisp, mineral-tinged impression that's wonderfully food-friendly and inviting."
+      },
+      "foodPairings": [
+        "Fresh oysters or shellfish",
+        "Goat cheese salad with citrus vinaigrette",
+        "Grilled fish tacos with lime crema",
+        "Steamed clams or mussels",
+        "Light summer vegetables and herbs"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C), well-chilled",
+        "decanting": "No decanting necessary; serve directly from refrigerator to preserve the wine's crisp, refreshing character",
+        "glassware": "Smaller white wine glass or Sauvignon Blanc glass to enhance the wine's bright aromatics"
+      },
+      "wineDetails": {
+        "region": "Likely California or Australia (specific region not available)",
+        "grapeVariety": "100% Chardonnay (unoaked)",
+        "vintage": "Non-vintage or current release",
+        "style": "Dry white wine, light to medium-bodied, unoaked style emphasizing crisp acidity and pure fruit flavors",
+        "ageability": "Best enjoyed young within 1-2 years to capture the wine's fresh, vibrant character and crisp acidity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

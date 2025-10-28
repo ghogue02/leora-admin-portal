@@ -1,0 +1,347 @@
+{
+  "research_batch": 40,
+  "research_date": "2025-10-20T00:00:00.000Z",
+  "total_wines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "ZaHa Cabernet Sauvignon 2018",
+      "description": "A distinctive Cabernet Sauvignon from the 2018 vintage, ZaHa showcases the modern California approach to this noble varietal. This wine balances power with elegance, offering layered complexity that rewards both immediate enjoyment and careful cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with concentrated blackcurrant and ripe blackberry, interwoven with notes of crushed violets and graphite. As the wine breathes, secondary aromas of toasted cedar, vanilla bean, and dark chocolate emerge from quality oak aging. Subtle hints of dried sage and black olive add Mediterranean complexity to the bouquet.",
+        "palate": "Full-bodied and structured, the palate delivers intense dark fruit flavors of cassis, black plum, and boysenberry. The mid-palate shows excellent density with fine-grained tannins providing framework without heaviness. Integrated oak contributes notes of espresso, cocoa nibs, and sweet baking spices. The wine maintains remarkable balance with its alcohol, fruit concentration, and acidity working in harmony.",
+        "finish": "The finish is persistent and elegant, stretching beyond 45 seconds with lingering notes of dark fruit, mocha, and subtle tobacco leaf. Polished tannins provide structure while allowing the fruit to shine through, suggesting excellent aging potential over the next 8-12 years."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with red wine reduction",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Mushroom risotto with truffle oil",
+        "Roasted rack of lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes before serving to allow the wine to open up and the tannins to soften",
+        "glassware": "Large Bordeaux-style glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Full-bodied dry red",
+        "ageability": "Drinking well now through 2030; optimal maturity 2025-2028"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "TVH Estate Cabernet Sauvignon 2018",
+      "description": "TVH Estate's 2018 Cabernet Sauvignon represents artisanal winemaking with meticulous attention to vineyard expression. This estate-grown wine captures the essence of its terroir while showcasing the exceptional quality of the 2018 vintage.",
+      "tastingNotes": {
+        "aroma": "Aromatic intensity greets the nose with layers of ripe red and black fruits—think cherry compote, blackberry preserves, and crushed blueberries. Elegant floral notes of iris and lavender float above the fruit core. The oak influence is judicious, contributing subtle vanilla, cinnamon stick, and toasted almond without overwhelming the wine's inherent character.",
+        "palate": "The palate reveals a wine of impressive concentration and refinement. Flavors of black cherry, cassis, and dark plum dominate, supported by undertones of graphite, dried herbs, and black tea. The texture is simultaneously plush and structured, with velvety tannins that coat the palate. A mineral streak runs through the mid-palate, adding complexity and lift. The wine shows excellent balance with bright acidity maintaining freshness despite its richness.",
+        "finish": "Long and satisfying, the finish extends with notes of dark chocolate, espresso bean, and sweet tobacco. The tannins remain present but refined, promising graceful evolution with additional bottle age. A whisper of anise and black pepper lingers pleasantly."
+      },
+      "foodPairings": [
+        "Prime beef tenderloin with peppercorn crust",
+        "Osso buco with gremolata",
+        "Wild mushroom and gruyere tart",
+        "Grilled portobello mushrooms with balsamic reduction",
+        "Aged Gouda or Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (16-19°C)",
+        "decanting": "Decant for 60-90 minutes to allow full aromatics to develop and integrate the oak influence",
+        "glassware": "Burgundy-style glass to emphasize the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "California Estate",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Estate-grown full-bodied red",
+        "ageability": "Peak drinking 2024-2032; cellar-worthy for 15+ years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Cabernet Sauvignon Magnum 2019  1.5 l",
+      "description": "Hendry Vineyard's 2019 Cabernet Sauvignon in magnum format represents benchmark Napa Valley winemaking from their estate vineyards. The larger bottle format promotes slower, more graceful aging and is perfect for special occasions and extended cellaring.",
+      "tastingNotes": {
+        "aroma": "The magnum format has preserved remarkable freshness and vibrancy in this 2019 expression. The nose bursts with pure blackberry, cassis, and dark cherry fruit, accented by exotic spices like star anise and cardamom. Underlying notes of pencil shavings, crushed rock, and forest floor add earthy complexity. French oak contributes refined touches of vanilla pod, toasted hazelnut, and a hint of cigar box that integrates beautifully with the fruit.",
+        "palate": "Powerful yet refined, the palate showcases Napa Valley Cabernet at its finest. Concentrated flavors of blackcurrant, black cherry, and mulberry are enriched by layers of dark chocolate, espresso, and sweet pipe tobacco. The wine's structure is formidable but not aggressive—firm, dusty tannins provide excellent backbone while remaining supple. The mid-palate depth is impressive, with waves of fruit, earth, and spice rolling across the tongue. Acidity is well-integrated, providing energy without sharpness.",
+        "finish": "The finish is remarkably long, easily exceeding a minute with persistent notes of black fruit, baking chocolate, and sandalwood. The tannins are fine and chalky, gripping gently without astringency. A beautiful minerality emerges on the fade, along with hints of black tea and dried Mediterranean herbs. This wine will continue to evolve magnificently."
+      },
+      "foodPairings": [
+        "Dry-aged New York strip with truffle butter",
+        "Venison medallions with juniper berry sauce",
+        "Beef Wellington with wild mushroom duxelles",
+        "Grilled lamb chops with herb crust",
+        "Aged cheddar or cave-aged Comté"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "Decant for 90-120 minutes given the wine's youth and the magnum format; can handle extended aeration",
+        "glassware": "Large Bordeaux glass to maximize aromatic expression"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Estate Napa Valley Cabernet - full-bodied",
+        "ageability": "Drinking well now but will improve through 2040; optimal 2028-2038"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mate Brunello di Montalcino 2018",
+      "description": "Mate's 2018 Brunello di Montalcino exemplifies the elegance and power of Sangiovese Grosso from this legendary Tuscan appellation. Crafted from 100% Sangiovese grown in the warm, dry hills of Montalcino, this wine underwent extended aging to meet DOCG requirements and develop its characteristic complexity.",
+      "tastingNotes": {
+        "aroma": "Classic Brunello aromatics unfold with time in the glass, revealing layers of red cherry, wild strawberry, and dried cranberry. Floral notes of violet and rose petal emerge alongside earthy tones of leather saddle, turned earth, and forest undergrowth. The oak influence is subtle and well-integrated, contributing whispers of vanilla, cinnamon, and sweet tobacco. With air, hints of balsamic, dried herbs, and orange peel add additional complexity characteristic of Sangiovese.",
+        "palate": "The palate is both powerful and refined, showcasing Brunello's signature combination of elegance and structure. Bright red fruit flavors of sour cherry, raspberry, and pomegranate are complemented by savory notes of dried mushroom, truffle, and black tea. The wine's acidity is pronounced but beautifully balanced, providing lift and energy to the concentrated fruit. Tannins are firm and grippy—typical of young Brunello—but show fine grain and excellent quality. The mid-palate reveals layers of complexity with each sip, displaying terroir-driven minerality and subtle spice.",
+        "finish": "Long and persistent, the finish showcases red fruit, leather, and a distinctive iron-like minerality. The tannins remain present and structured, indicating this wine needs several more years to reach its full potential. Notes of cherry pit, dried herbs, and a touch of coffee linger, with the wine's natural acidity keeping everything fresh and vibrant through the extended finish."
+      },
+      "foodPairings": [
+        "Bistecca alla Fiorentina (grilled T-bone steak)",
+        "Wild boar ragu with pappardelle",
+        "Roasted game birds with sage and pancetta",
+        "Pecorino Toscano aged cheese",
+        "Mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "64-68°F (18-20°C) - slightly warmer than typical reds to showcase aromatics",
+        "decanting": "Decant for 2-3 hours given the wine's youth and firm tannins; benefits greatly from extended aeration",
+        "glassware": "Large Burgundy glass to concentrate the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Brunello di Montalcino DOCG, Tuscany, Italy",
+        "grapeVariety": "100% Sangiovese Grosso",
+        "vintage": "2018",
+        "style": "Traditional Brunello - full-bodied with firm structure",
+        "ageability": "Needs 5-10 years cellaring; optimal drinking 2028-2045"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Stel + Mar Red Blend (DC, MD, and Southern VA Only) NV",
+      "description": "Stel + Mar Red Blend is a carefully crafted non-vintage wine designed for everyday enjoyment and versatility. Blending complementary grape varieties creates a harmonious wine that over-delivers on quality while remaining approachable and food-friendly.",
+      "tastingNotes": {
+        "aroma": "The nose is inviting and fruit-forward, featuring ripe red berries—strawberry, raspberry, and red plum—alongside darker notes of blackberry and black cherry. A touch of vanilla and sweet oak spice adds dimension without dominating. Subtle hints of dried herbs, particularly thyme and oregano, provide a savory edge. The wine shows good aromatics intensity with a pleasing freshness.",
+        "palate": "Medium to full-bodied with a soft, approachable texture that makes this blend immediately enjoyable. The fruit flavors are ripe and generous—think cherry cola, mixed berry compote, and plum jam—balanced by gentle tannins and moderate acidity. The blend's components work together seamlessly, with no single variety dominating. Oak aging contributes notes of vanilla, caramel, and a whisper of baking spices. The wine maintains good structure while remaining smooth and easy-drinking.",
+        "finish": "The finish is medium in length with lingering red fruit and a touch of cocoa. Soft tannins provide just enough grip without any harsh edges, making this wine very versatile with food. A subtle spiciness and hint of dried fruit carry through to the end."
+      },
+      "foodPairings": [
+        "Grilled burgers with aged cheddar",
+        "BBQ ribs with tangy sauce",
+        "Margherita pizza with fresh basil",
+        "Pasta with tomato-based meat sauce",
+        "Charcuterie board with salami and prosciutto"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-16°C) - slightly cool to maintain freshness",
+        "decanting": "Brief decanting of 15-20 minutes enhances aromatics, but not essential",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Multi-region blend (Mid-Atlantic focus)",
+        "grapeVariety": "Proprietary red blend",
+        "vintage": "Non-Vintage",
+        "style": "Approachable medium-bodied red blend",
+        "ageability": "Drink now through 2027; best enjoyed young and fresh"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lambert Estate Chocolatier NV",
+      "description": "Lambert Estate Chocolatier is a unique dessert-style wine crafted to complement chocolate and sweet treats. This non-vintage expression showcases rich, indulgent flavors that mirror the decadence of fine chocolate while maintaining balance and drinkability.",
+      "tastingNotes": {
+        "aroma": "The aromatics are unmistakably dessert-focused, leading with intense notes of dark chocolate, cocoa powder, and chocolate-covered cherries. Underlying the chocolate core are ripe berry fruits—blackberry and black raspberry—along with hints of vanilla cream, mocha, and toasted hazelnut. A subtle sweetness is evident on the nose, inviting and warming. Touches of caramel and butterscotch add richness.",
+        "palate": "Rich and luscious on the palate, this wine delivers on its chocolate promise with flavors reminiscent of chocolate truffles, espresso, and dark cocoa. The sweetness is present but well-balanced, never cloying, with enough structure to keep the wine interesting. Black cherry and raspberry compote provide fruity counterpoints to the chocolate intensity. The texture is smooth and almost creamy, coating the palate with velvety richness. Oak influence contributes vanilla, toffee, and sweet baking spices.",
+        "finish": "The finish lingers with notes of dark chocolate, coffee liqueur, and dried cherries. Gentle tannins provide structure while the wine's residual sweetness maintains presence. A pleasant warmth and hints of cocoa nibs and vanilla bean carry through to the very end."
+      },
+      "foodPairings": [
+        "Dark chocolate truffles or chocolate ganache tart",
+        "Espresso brownies with vanilla ice cream",
+        "Tiramisu or chocolate mousse",
+        "Blue cheese or aged Stilton",
+        "Chocolate-covered strawberries"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C) - slightly cool to balance sweetness",
+        "decanting": "No decanting necessary; ready to pour and enjoy",
+        "glassware": "Dessert wine glass or small Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Estate production",
+        "grapeVariety": "Proprietary blend (likely includes late-harvest or fortified components)",
+        "vintage": "Non-Vintage",
+        "style": "Dessert wine - chocolate-focused",
+        "ageability": "Best enjoyed fresh; drink within 3-5 years"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.60,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noughty NA Rose Wine NV",
+      "description": "Noughty Non-Alcoholic Rosé offers a sophisticated alcohol-free alternative that doesn't compromise on flavor or enjoyment. Crafted using gentle dealcoholization techniques, this rosé maintains the fresh, fruity characteristics that make rosé wines so appealing, perfect for health-conscious consumers or any occasion calling for a lighter option.",
+      "tastingNotes": {
+        "aroma": "Delicate and refreshing, the nose presents classic rosé aromatics of fresh strawberries, watermelon, and white peach. Floral notes of rose petals and orange blossom add elegance and lift. Subtle hints of citrus zest—lemon and grapefruit—provide brightness. The overall impression is clean, fresh, and inviting, with no off-notes from the dealcoholization process.",
+        "palate": "Light-bodied and crisp, the palate delivers vibrant red berry flavors of raspberry, wild strawberry, and cranberry. A touch of stone fruit—nectarine and peach—adds depth and sweetness without making the wine sugary. The acidity is bright and refreshing, giving the wine excellent balance and making it highly drinkable. The mouthfeel is clean and slightly effervescent, with a whisper of minerality adding complexity. Despite being alcohol-free, the wine maintains good structure and doesn't taste thin or watery.",
+        "finish": "The finish is clean and refreshing with lingering notes of red berries and citrus. A gentle acidity keeps the palate lively while subtle floral notes provide elegance. The wine leaves you wanting another sip—exactly what you want in a rosé."
+      },
+      "foodPairings": [
+        "Fresh summer salads with strawberries and goat cheese",
+        "Grilled shrimp or seafood",
+        "Sushi and sashimi",
+        "Light pasta dishes with lemon and herbs",
+        "Fruit tarts or berry desserts"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C) - well chilled to maximize refreshment",
+        "decanting": "No decanting needed; serve straight from the bottle",
+        "glassware": "White wine glass or rosé-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Dealcoholized wine (likely European origin)",
+        "grapeVariety": "Rosé blend (typically Grenache, Syrah, or similar varieties pre-dealcoholization)",
+        "vintage": "Non-Vintage",
+        "style": "Non-alcoholic rosé - dry and refreshing",
+        "ageability": "Best enjoyed within 1 year of purchase for optimal freshness"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta do Mourao Tawny 30 Year Port",
+      "description": "Quinta do Mourao's 30 Year Tawny Port represents the pinnacle of aged Port production, blending wines that have spent an average of three decades in wooden barrels. This extended barrel aging creates extraordinary complexity through controlled oxidation, resulting in a wine of remarkable depth, elegance, and concentration.",
+      "tastingNotes": {
+        "aroma": "The aromatics are profoundly complex, revealing the hallmarks of extended barrel aging. The nose opens with intense nutty notes—roasted almonds, toasted hazelnuts, and walnut oil—intertwined with toffee, butterscotch, and crème brûlée. Dried fruit aromatics dominate—think fig, date, dried apricot, and raisins—alongside hints of orange marmalade and candied citrus peel. Subtle spices emerge with air: cinnamon, nutmeg, and a touch of clove. The oxidative character contributes notes of caramel, maple syrup, and aged Cognac.",
+        "palate": "Silky and luxurious on the palate, the wine delivers extraordinary richness balanced by surprising freshness. The sweetness is pronounced but never heavy, supported by vibrant acidity that keeps everything in harmony. Flavors mirror the nose with intensity—caramelized nuts, toffee, dried figs, and dates—enhanced by layers of butterscotch, vanilla, and dark honey. The mid-palate shows remarkable depth and complexity, with each sip revealing new nuances. Notes of orange peel, coffee, and dark chocolate add dimension. The texture is smooth and almost creamy, coating the palate with elegant persistence.",
+        "finish": "The finish is exceptionally long, extending well beyond a minute with waves of nutty, caramelized flavors. Toasted almonds, toffee, and dried fruit linger beautifully, accompanied by hints of coffee, dark chocolate, and sweet spices. The wine's acidity maintains freshness through the long fade, preventing any cloying sensation despite the richness. A subtle warmth and notes of aged wood and vanilla bean carry through to the very end."
+      },
+      "foodPairings": [
+        "Aged Stilton or Roquefort blue cheese",
+        "Crème brûlée or caramel flan",
+        "Almond tart or walnut cake",
+        "Dried fruit and nut platter",
+        "Dark chocolate with sea salt"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C) - slightly cool room temperature to balance sweetness",
+        "decanting": "No decanting necessary; the wine is ready to enjoy and already fully integrated from decades in barrel",
+        "glassware": "Small Port glass or tulip-shaped glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "Traditional Port blend (Touriga Nacional, Touriga Franca, Tinta Roriz, Tinta Barroca)",
+        "vintage": "30 Year Tawny (blend of multiple vintages averaging 30 years in barrel)",
+        "style": "Aged Tawny Port - oxidative style",
+        "ageability": "Ready to drink now; stable and will maintain quality for decades if properly stored"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Chardonnay 2023",
+      "description": "Trespass Chardonnay 2023 represents contemporary California Chardonnay at its finest—balancing richness with freshness in a style that appeals to modern palates. This recent vintage showcases the quality and vibrancy of well-crafted Chardonnay from the excellent 2023 growing season.",
+      "tastingNotes": {
+        "aroma": "The nose is expressive and inviting, leading with ripe stone fruit aromatics—white peach, nectarine, and apricot—alongside citrus notes of Meyer lemon and lime zest. A beautiful integration of oak contributes vanilla cream, toasted brioche, and subtle butterscotch without overwhelming the fruit. Floral hints of honeysuckle and jasmine add elegance. With air, subtle notes of roasted almond and hazelnut emerge, along with a whisper of tropical fruit—pineapple and mango.",
+        "palate": "Medium to full-bodied with a creamy, lush texture that coats the palate beautifully. The fruit flavors are ripe and generous—think baked apple, poached pear, and white peach compote—balanced by bright citrus notes that provide lift and energy. The oak influence is judicious, contributing vanilla, caramel, and toasted oak spice while allowing the fruit to shine. Partial malolactic fermentation likely adds buttery richness and smoothness. The wine's acidity is well-balanced, providing freshness without sharpness and keeping the richness in check. A subtle minerality runs through the mid-palate, adding complexity and terroir expression.",
+        "finish": "The finish is long and satisfying with lingering notes of stone fruit, vanilla, and toasted oak. A pleasant creaminess persists alongside bright acidity, creating excellent balance. Hints of lemon curd, almond, and subtle spice carry through to the end, leaving the palate refreshed yet satisfied."
+      },
+      "foodPairings": [
+        "Roasted chicken with herb butter",
+        "Grilled lobster or crab with drawn butter",
+        "Creamy risotto with wild mushrooms",
+        "Pan-seared scallops with lemon beurre blanc",
+        "Aged Gruyère or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C) - cool but not cold to showcase both fruit and oak",
+        "decanting": "No decanting necessary; 10-15 minutes in glass allows aromatics to open",
+        "glassware": "Medium-sized white wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "California (likely Sonoma or Monterey)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Contemporary California Chardonnay - balanced richness and freshness",
+        "ageability": "Drink now through 2028; best enjoyed within 3-5 years to maintain freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Taste Rose Keg NV  20000 ml",
+      "description": "Taste Rosé in keg format offers a practical and sustainable solution for events, restaurants, and gatherings where quality rosé is needed in volume. The keg format maintains freshness through minimized oxygen exposure while providing convenience and reducing packaging waste.",
+      "tastingNotes": {
+        "aroma": "Fresh and fruity, the nose presents bright red berry aromatics—raspberry, strawberry, and redcurrant—alongside subtle floral notes of rose and violet. Citrus elements of pink grapefruit and lemon zest add brightness and lift. A clean, crisp character dominates with no off-notes, showing the benefits of the keg format's oxygen protection. Hints of white peach and melon add subtle complexity.",
+        "palate": "Light to medium-bodied with a refreshing, crisp texture that makes this rosé highly drinkable and versatile. The fruit flavors are fresh and vibrant—wild strawberry, watermelon, and cherry—supported by bright acidity that keeps everything lively. A touch of citrus—grapefruit and lime—adds zing without creating harshness. The wine shows good balance between fruit, acidity, and a whisper of residual sweetness that doesn't make it sweet but adds roundness. The mouthfeel is clean and slightly mineral, with a delicate structure that works well as an aperitif or with food.",
+        "finish": "Clean and refreshing with lingering red berry and citrus notes. The acidity maintains presence through the finish, leaving the palate refreshed and ready for another sip. Subtle mineral and floral notes persist, adding elegance to this crowd-pleasing style."
+      },
+      "foodPairings": [
+        "Fresh salads with vinaigrette",
+        "Grilled fish tacos",
+        "Antipasto platters with cured meats",
+        "Soft cheeses like fresh chèvre or mozzarella",
+        "Mediterranean dishes with olive oil and herbs"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C) - well chilled for maximum refreshment",
+        "decanting": "Not applicable for keg format; serve directly from tap",
+        "glassware": "Standard white wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Multi-region production",
+        "grapeVariety": "Rosé blend (likely Grenache, Syrah, or similar varietals)",
+        "vintage": "Non-Vintage",
+        "style": "Fresh, easy-drinking dry rosé - keg format",
+        "ageability": "Best consumed fresh from keg within recommended serving window"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

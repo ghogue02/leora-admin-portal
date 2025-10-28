@@ -1,0 +1,350 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Cuvee Pierre 2021",
+      "description": "A Languedoc red blend from Maison Ventenac, named after founder Pierre. This wine showcases the warm Mediterranean climate and diverse terroir of southern France with ripe fruit and herbal complexity.",
+      "tastingNotes": {
+        "aroma": "Rich and expressive with aromas of dark cherry, blackberry, and plum, layered with notes of garrigue herbs—rosemary, thyme, and lavender. Hints of black olive, leather, and sweet spice add complexity. The nose shows Mediterranean warmth and character.",
+        "palate": "Full-bodied with supple tannins and balanced acidity. The palate delivers concentrated dark fruit—blackberry, cassis, and plum—with savory elements of olive tapenade, herbs, and earth. Notes of mocha and vanilla from oak aging add depth. The wine is rich yet balanced.",
+        "finish": "Long finish with persistent fruit, soft tannins, and herbal notes. The Mediterranean character shines through."
+      },
+      "foodPairings": [
+        "Grilled lamb with herbs",
+        "Beef daube",
+        "Ratatouille",
+        "Aged sheep's milk cheese",
+        "Duck confit"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30-45 minutes",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Languedoc, France",
+        "grapeVariety": "Syrah, Grenache, Mourvèdre blend",
+        "vintage": "2021",
+        "style": "Full-bodied Mediterranean red",
+        "ageability": "Drink now through 2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Surreptitious Rose 2023",
+      "description": "A playful rosé from Aratas, known for their bold single-vineyard wines. The 'Surreptitious' name suggests a secretive or unexpected pleasure—a serious winery's fun take on rosé.",
+      "tastingNotes": {
+        "aroma": "Bright and fresh with aromas of strawberry, watermelon, and red cherry, complemented by subtle citrus and floral notes. Hints of herbs and minerality add complexity.",
+        "palate": "Medium-bodied with crisp acidity and dry profile. Vibrant red berry flavors with citrus zest and mineral backbone. Refreshing and balanced with subtle phenolic grip.",
+        "finish": "Clean finish with lingering berry fruit and mineral notes."
+      },
+      "foodPairings": [
+        "Grilled salmon",
+        "Mediterranean salads",
+        "Soft cheeses",
+        "Light pasta dishes",
+        "Sushi"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "White wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Sierra Foothills)",
+        "grapeVariety": "Blend (likely Grenache, Mourvèdre)",
+        "vintage": "2023",
+        "style": "Dry rosé",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Black Elephant Vintners Three Men in a Tub with a Rubber Duck Blend 2023",
+      "description": "A whimsically named South African red blend showcasing the playful side of serious winemaking. Black Elephant Vintners is known for creative labels and quality wines that over-deliver for the price.",
+      "tastingNotes": {
+        "aroma": "Fruit-forward with ripe berry aromas, subtle spice, and herbal notes characteristic of South African reds.",
+        "palate": "Medium to full-bodied with soft tannins. Juicy red and dark fruit with hints of spice and earth. Approachable and food-friendly.",
+        "finish": "Smooth finish with lingering fruit."
+      },
+      "foodPairings": [
+        "Grilled meats",
+        "Pizza",
+        "Casual dining",
+        "Charcuterie",
+        "Burgers"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "20-30 minutes",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "South Africa",
+        "grapeVariety": "Red blend (specific varieties not disclosed)",
+        "vintage": "2023",
+        "style": "Approachable red blend",
+        "ageability": "Drink now through 2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.76,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Gieco Malbec Special Selection 2020",
+      "description": "An Argentine Malbec from Bodegas Gieco's Special Selection range, showcasing ripe fruit concentration and oak aging from premium vineyard sites.",
+      "tastingNotes": {
+        "aroma": "Bold with aromas of ripe plum, blackberry, and dark cherry, layered with vanilla, mocha, and sweet spice from oak aging. Hints of violet and chocolate add complexity.",
+        "palate": "Full-bodied with velvety tannins. Concentrated dark fruit flavors with notes of chocolate, coffee, and spice. Rich texture with balanced acidity.",
+        "finish": "Long finish with persistent fruit and soft oak spice."
+      },
+      "foodPairings": [
+        "Grilled steak",
+        "Empanadas",
+        "Aged cheeses",
+        "Braised short ribs",
+        "Dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2020",
+        "style": "Full-bodied Malbec with oak aging",
+        "ageability": "Drink now through 2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Bacigalupi Old Vine Zinfandel 2016",
+      "description": "A premium old-vine Zinfandel from the legendary Bacigalupi Vineyard in Russian River Valley, one of Sonoma's most historic sites. Wonderment's minimal intervention approach showcases the vineyard's unique character.",
+      "tastingNotes": {
+        "aroma": "Complex with ripe blackberry, raspberry, and cherry, layered with notes of bramble, black pepper, and baking spices. Hints of tobacco, leather, and earth from age and old vines.",
+        "palate": "Full-bodied with structured tannins and vibrant acidity. Concentrated dark fruit with savory notes of earth, spice, and herbs. Excellent depth from old vines.",
+        "finish": "Long, complex finish with persistent fruit and spice."
+      },
+      "foodPairings": [
+        "Barbecue ribs",
+        "Grilled lamb",
+        "Sharp cheddar",
+        "Beef brisket",
+        "Spicy Italian sausage"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60 minutes",
+        "glassware": "Large Zinfandel glass"
+      },
+      "wineDetails": {
+        "region": "Bacigalupi Vineyard, Russian River Valley, California",
+        "grapeVariety": "100% Zinfandel (old vines)",
+        "vintage": "2016",
+        "style": "Full-bodied old-vine Zinfandel",
+        "ageability": "Drink now through 2028."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Nymphe De Emue Rose 2024",
+      "description": "A fresh biodynamic rosé from Chateau Maris in Languedoc, part of their playful 'Nymphe' range. Made with minimal intervention and no added sulfites.",
+      "tastingNotes": {
+        "aroma": "Vibrant with fresh strawberry, raspberry, and citrus. Floral notes and herbal complexity from biodynamic farming.",
+        "palate": "Light to medium-bodied with crisp acidity. Pure red berry fruit with mineral backbone and refreshing finish.",
+        "finish": "Clean, energetic finish with bright acidity."
+      },
+      "foodPairings": [
+        "Fresh salads",
+        "Grilled vegetables",
+        "Seafood",
+        "Goat cheese",
+        "Mediterranean cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "White wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Languedoc, France",
+        "grapeVariety": "Blend of Syrah, Grenache, Cinsault",
+        "vintage": "2024",
+        "style": "Natural/biodynamic rosé",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Joncier L'O de Joncier 2019",
+      "description": "A premium wine from Domaine du Joncier in Lirac, Rhône Valley. The 'L'O de Joncier' designation suggests their top cuvée with extended aging and selection.",
+      "tastingNotes": {
+        "aroma": "Complex with dark fruit, garrigue herbs, olive, and spice. Notes of leather and earth from aging.",
+        "palate": "Full-bodied with structured tannins. Concentrated dark fruit with savory Rhône character—herbs, earth, and pepper.",
+        "finish": "Long, complex finish with persistent fruit and spice."
+      },
+      "foodPairings": [
+        "Braised lamb",
+        "Game meats",
+        "Provençal stews",
+        "Aged cheeses",
+        "Grilled meats"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60-90 minutes",
+        "glassware": "Large Rhône glass"
+      },
+      "wineDetails": {
+        "region": "Lirac, Rhône Valley, France",
+        "grapeVariety": "Grenache, Syrah, Mourvèdre blend",
+        "vintage": "2019",
+        "style": "Full-bodied Rhône red",
+        "ageability": "Drink now through 2032."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Abadia de Acon Joven 2022",
+      "description": "A young, fresh Spanish red from Abadia de Acon. 'Joven' means young, indicating minimal aging for fresh fruit character.",
+      "tastingNotes": {
+        "aroma": "Bright with fresh cherry, plum, and berry aromas. Subtle herbal notes.",
+        "palate": "Medium-bodied with soft tannins and vibrant acidity. Juicy red fruit flavors. Approachable and fresh.",
+        "finish": "Clean finish with lingering fruit."
+      },
+      "foodPairings": [
+        "Tapas",
+        "Grilled chicken",
+        "Pizza",
+        "Soft cheeses",
+        "Pasta"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "15-20 minutes",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region not disclosed)",
+        "grapeVariety": "Likely Tempranillo blend",
+        "vintage": "2022",
+        "style": "Young, fresh red wine",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.74,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Phelps Creek Chardonnay 2022",
+      "description": "An Oregon Chardonnay from Phelps Creek Vineyards in the Columbia Gorge, showcasing cool-climate elegance and balanced oak influence.",
+      "tastingNotes": {
+        "aroma": "Elegant with citrus, green apple, and white peach. Notes of hazelnut and subtle oak. Mineral undertones.",
+        "palate": "Medium-bodied with crisp acidity. Citrus and stone fruit flavors with creamy texture and mineral backbone. Well-integrated oak.",
+        "finish": "Long, clean finish with citrus and mineral notes."
+      },
+      "foodPairings": [
+        "Roasted chicken",
+        "Lobster",
+        "Creamy risotto",
+        "Gruyère cheese",
+        "Halibut"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "None needed",
+        "glassware": "White Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Columbia Gorge, Oregon",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Cool-climate Chardonnay with balanced oak",
+        "ageability": "Drink now through 2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Sur Lie Chenin Blanc 2023",
+      "description": "A South African Chenin Blanc aged on lees for added complexity and texture from Noble Hill estate in Stellenbosch.",
+      "tastingNotes": {
+        "aroma": "Aromatic with pear, green apple, and citrus. Floral notes and subtle honey. Lees aging adds brioche character.",
+        "palate": "Medium-bodied with vibrant acidity. Citrus and stone fruit with creamy texture from lees. Mineral backbone.",
+        "finish": "Long, refreshing finish with citrus and mineral notes."
+      },
+      "foodPairings": [
+        "Fresh seafood",
+        "Chicken curry",
+        "Soft cheeses",
+        "Asian cuisine",
+        "Salads"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2023",
+        "style": "Sur lie Chenin Blanc with texture",
+        "ageability": "Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:16:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 114,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:16:00Z",
+    "averageConfidence": 0.83
+  }
+}

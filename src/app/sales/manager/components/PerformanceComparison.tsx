@@ -17,6 +17,7 @@ import {
   Cell,
 } from "recharts";
 import { Badge } from "@/components/ui/badge";
+import { formatCurrency, formatPercentage } from "@/lib/utils/format";
 
 type Rep = {
   id: string;
@@ -177,12 +178,12 @@ export default function PerformanceComparison({ reps }: Props) {
                   <div>
                     <p className="font-semibold">{rep.name}</p>
                     <p className="text-sm text-gray-600">
-                      {percentage.toFixed(1)}% of team total
+                      {formatPercentage(percentage)} of team total
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-xl font-bold">${rep[revenueKey].toLocaleString()}</p>
+                  <p className="text-xl font-bold">{formatCurrency(rep[revenueKey])}</p>
                   {idx < 3 && (
                     <Badge
                       className={
@@ -212,7 +213,7 @@ export default function PerformanceComparison({ reps }: Props) {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip
-              formatter={(value: number) => `$${value.toLocaleString()}`}
+              formatter={(value: number) => formatCurrency(Number(value))}
               labelStyle={{ color: "#000" }}
             />
             <Legend />
@@ -232,7 +233,9 @@ export default function PerformanceComparison({ reps }: Props) {
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ name, percent }) => `${name.split(" ")[0]}: ${(percent * 100).toFixed(0)}%`}
+                label={({ name, percent }) =>
+                  `${name.split(" ")[0]}: ${formatPercentage(percent * 100)}`
+                }
                 outerRadius={100}
                 fill="#8884d8"
                 dataKey="value"
@@ -241,7 +244,7 @@ export default function PerformanceComparison({ reps }: Props) {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+              <Tooltip formatter={(value: number) => formatCurrency(Number(value))} />
             </PieChart>
           </ResponsiveContainer>
         </div>
@@ -254,7 +257,7 @@ export default function PerformanceComparison({ reps }: Props) {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="week" />
               <YAxis />
-              <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+              <Tooltip formatter={(value: number) => formatCurrency(Number(value))} />
               <Legend />
               {reps.slice(0, 5).map((rep, idx) => (
                 <Line

@@ -1,0 +1,348 @@
+{
+  "researchCompleted": true,
+  "batchNumber": 69,
+  "totalWines": 10,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine Bizet Sancerre Blanc 2023",
+      "description": "A classic expression of Loire Valley Sauvignon Blanc from a family domaine managed since 2005 by Thibault Bizet and his mother Maryline. Crafted from vines averaging 25 years old across 7.25 hectares of diverse Sancerre terroirs, this wine embodies the mineral-driven, crystalline purity that defines the region's finest whites.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of grapefruit and gunflint, accompanied by enticing notes of tropical fruits, candied apricot, and ripe melon. Fresh wild herbs mingle with delicate floral nuances and soft minerality, while a distinctive crushed gravel character adds complexity. Subtle hints of coriander, sage, and palo santo bring an herbaceous dimension to this expressive bouquet.",
+        "palate": "On the palate, this medium-bodied wine displays a supple attack with notable body and structure. Waves of citrus, particularly lemon and lime, blend seamlessly with white-fleshed fruits including ripe yellow apple, pear, and melon rind. The wine's high acidity provides a tart, crisp backbone, while crushed gravel and clean salinity emerge mid-palate, reinforcing the terroir's mineral signature. The generous mouthfeel balances freshness with concentration.",
+        "finish": "The finish is lively and intense, characterized by excellent minerality and good persistence. Aromatic notes resurface with a touch of spice, while the clean salinity and bright acidity leave the palate refreshed and invigorated. The balanced conclusion showcases both elegance and depth."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood platters",
+        "Grilled sea bass with lemon and herbs",
+        "Chavignol goat cheese (local specialty)",
+        "Pan-seared scallops with citrus beurre blanc",
+        "Asparagus and spring vegetable risotto"
+      ],
+      "servingInfo": {
+        "temperature": "Serve fresh at 10°C (50°F)",
+        "decanting": "No decanting necessary; serve directly from the bottle to preserve freshness and aromatic intensity",
+        "glassware": "Standard white wine glass or tulip-shaped Sauvignon Blanc glass to concentrate the mineral and citrus aromas"
+      },
+      "wineDetails": {
+        "region": "Sancerre AOC, Upper Loire Valley, France",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2023",
+        "style": "Dry, mineral-driven Loire Valley white wine",
+        "ageability": "Drink now through 2027. This wine is best enjoyed within 2-4 years of vintage to capture its vibrant fruit and crystalline minerality, though quality examples can develop additional complexity with careful cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bitch Bubbly (187ml) NV  187 ml",
+      "description": "A playful sparkling rosé from Spain created by renowned winemaker Chris Ringland, who personally selects unoaked Chardonnay and Grenache from high-altitude, cool-climate vineyard sites. Grown on alluvial red-brown loams and white limestone mixed with rocky slate, this fun, party-ready bubbly delivers sweet fruit character and lively effervescence in a convenient mini-bottle format.",
+      "tastingNotes": {
+        "aroma": "The nose presents an inviting bouquet of sweet red berries and strawberry mousse, accented by vibrant strawberry and citrus notes. Dark cherry and raspberry aromas add depth and complexity, while small, persistent bubbles release waves of fresh fruit character. The overall aromatic profile is bright, fruity, and immediately appealing.",
+        "palate": "Sweet and exuberantly fruity on the palate, this sparkling rosé bursts with flavors of raspberries, sweet strawberries, and strawberry jam. Citrus notes of lemon and tart apple provide refreshing counterpoints to the red fruit core, while undertones of dark cherries and currants add dimension. A juicy yet balanced core reveals subtle spicy pepper and anise nuances that elevate the wine beyond simple sweetness.",
+        "finish": "The finish is light, delicate, and medium in length, with persistent sweet raspberry flavors. Tart raspberry and black cherry notes transition to a unique grapefruit-with-sugar character that balances the wine's inherent sweetness with refreshing acidity. The conclusion is playful and satisfying."
+      },
+      "foodPairings": [
+        "Fresh strawberries and cream desserts",
+        "Fruit-based brunch dishes and pastries",
+        "Light appetizers at casual gatherings",
+        "Chocolate-covered strawberries",
+        "Cheese and charcuterie boards with mild, fruity accompaniments"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 6-8°C (43-46°F)",
+        "decanting": "No decanting required; serve directly from the mini-bottle",
+        "glassware": "Champagne flute or standard sparkling wine glass to showcase the bubbles and concentrate the fruity aromas"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region not disclosed)",
+        "grapeVariety": "Blend of unoaked Chardonnay and Grenache",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Sweet sparkling rosé; fun, approachable, party-friendly",
+        "ageability": "Drink immediately upon purchase. This wine is crafted for immediate enjoyment and does not benefit from aging. Best consumed fresh to capture its vibrant fruit and lively bubbles."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sky Devil Malbec 2019",
+      "description": "A robust Malbec showcasing the variety's characteristic dark fruit intensity and structured tannins. While Sky Devil Wines is primarily known for their California Bordeaux varietals from Knights Valley, Sonoma, and Napa Valley, this expression demonstrates the winery's ability to craft compelling wines with depth and character from Malbec grapes.",
+      "tastingNotes": {
+        "aroma": "The nose reveals concentrated aromas of ripe blackberry, dark plum, and black cherry, complemented by notes of blueberry compote. Subtle hints of violet and lavender add floral elegance, while undertones of cocoa, espresso, and sweet baking spices—vanilla, cinnamon, and clove—emerge from oak influence. A whisper of leather and tobacco leaf adds complexity.",
+        "palate": "Rich and full-bodied on the palate, this Malbec delivers bold flavors of blackberry jam, dark plum, and cassis. The wine's velvety texture is supported by ripe, well-integrated tannins that provide structure without harshness. Mid-palate notes of dark chocolate, mocha, and toasted oak blend seamlessly with the fruit core. A touch of black pepper and dried herbs adds savory complexity, while the wine's generous alcohol provides warmth and weight.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit flavors gradually giving way to notes of espresso, dark chocolate, and subtle smoke. Firm but polished tannins lend grip and structure, suggesting excellent aging potential. The conclusion is both powerful and refined."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri sauce",
+        "Braised short ribs with red wine reduction",
+        "Lamb chops with rosemary and garlic",
+        "Mushroom and truffle risotto",
+        "Aged Manchego or sharp cheddar cheese"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 30-60 minutes to soften tannins and allow the wine to open up, revealing its full aromatic and flavor complexity",
+        "glassware": "Large Bordeaux-style red wine glass to allow proper aeration and capture the wine's intense aromatics"
+      },
+      "wineDetails": {
+        "region": "California (specific AVA not disclosed; Sky Devil sources from Knights Valley, Sonoma, and Napa Valley)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2019",
+        "style": "Full-bodied, oak-aged red wine with intense dark fruit character",
+        "ageability": "Drink now through 2029. This wine is enjoyable upon release but will reward cellaring for 5-10 years, during which the tannins will soften and tertiary flavors of leather, tobacco, and dried fruit will emerge."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Cabernet Franc 2017",
+      "description": "A bold, full-bodied Cabernet Franc from the oldest vines at Zephaniah Farm Vineyard, a third-generation working farm in Loudoun County, Virginia. This wine represents the estate's commitment to crafting wines with skill and passion, earning recognition including silver medals at the 2014 and 2015 Governor's Cup competitions.",
+      "tastingNotes": {
+        "aroma": "The nose is both powerful and elegant, opening with aromas of ripe blackberry and dark cherry, accented by notes of cassis and black plum. Layers of dried herbs—thyme, oregano, and bay leaf—mingle with subtle hints of green bell pepper, a hallmark of the variety. Undertones of cedar, tobacco leaf, and graphite add complexity, while a delicate floral note of violet provides lift.",
+        "palate": "Medium to full-bodied with a supple texture, the palate showcases vibrant flavors of blackberry, black cherry, and soft red fruit. The wine's structure is defined by fine-grained tannins that provide grip without astringency. Mid-palate notes of dried herbs and just a dusting of spice—black pepper and clove—add savory complexity. A refreshing edge of crisp acidity balances the ripe fruit, while subtle oak influence contributes nuances of vanilla and toasted wood.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit flavors gradually transitioning to earthy notes of graphite, dried herbs, and subtle leather. The wine's balanced structure and lively acidity ensure a clean, refreshing conclusion that invites the next sip."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herb crust",
+        "Roasted duck breast with cherry gastrique",
+        "Mushroom and herb-stuffed pork tenderloin",
+        "Aged Gruyère or sharp white cheddar",
+        "Eggplant parmesan with fresh basil"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 45-60 minutes to allow the wine's complex aromatics to fully develop and to soften the tannins",
+        "glassware": "Bordeaux-style red wine glass with a generous bowl to enhance the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Virginia (Bottelary Hills area)",
+        "grapeVariety": "Predominantly Cabernet Franc; some vintages include a small percentage of Petit Manseng for aromatic lift",
+        "vintage": "2017",
+        "style": "Full-bodied, herbaceous Virginia red wine with elegant structure",
+        "ageability": "Drink now through 2027. This wine is approaching its peak drinking window and will continue to develop complexity over the next 5 years, with evolving tertiary notes of leather, tobacco, and earth."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Patu Primitivo 2023",
+      "description": "A rich and enveloping Primitivo from Salento, Puglia, crafted by Tenuta Giustini as a homage to the Papadopoli family's Greek roots. Their ancestors settled in the heart of Salento to devote themselves to peasant life and viticulture. This wine offers exceptional value and has increased in popularity, delivering the warmth and generosity characteristic of Southern Italian reds.",
+      "tastingNotes": {
+        "aroma": "The nose is immediately expressive, revealing ripe fruit aromas of dark cherry, blackberry jam, and plum, complemented by notes of dried fig and raisin. A distinctive fine note of milk chocolate adds richness and depth, while subtle hints of sweet spice—cinnamon and vanilla—emerge from the wine's oak influence. Undertones of dried Mediterranean herbs and a whisper of black pepper add complexity to this generous bouquet.",
+        "palate": "Round, well-balanced, and harmonious on the palate, this Primitivo delivers concentrated flavors of ripe dark fruit—blackberry, black cherry, and plum—alongside notes of dark chocolate and espresso. The wine's medium to full body is supported by soft, velvety tannins that provide structure without heaviness. Mid-palate notes of caramel, vanilla, and toasted oak blend seamlessly with the fruit core, while a touch of dried herbs and balsamic adds savory depth. The wine's natural warmth and generous alcohol lend a comforting, enveloping character.",
+        "finish": "The finish is medium to long, with persistent dark fruit and chocolate flavors gradually transitioning to notes of espresso, dried fig, and sweet spice. The wine's harmonious balance ensures a satisfying conclusion that is both rich and refined."
+      },
+      "foodPairings": [
+        "Grilled beef steaks with peppercorn sauce",
+        "Braised venison with red wine and juniper berries",
+        "Hearty pasta with wild boar ragù",
+        "Aged Pecorino Romano or Parmigiano-Reggiano",
+        "Eggplant and ricotta lasagna"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 20-30 minutes to allow the wine's generous fruit and chocolate notes to fully develop",
+        "glassware": "Large Bordeaux or Burgundy-style glass to capture the wine's rich aromatics and warming character"
+      },
+      "wineDetails": {
+        "region": "Salento IGP, Puglia, Southern Italy",
+        "grapeVariety": "100% Primitivo (Zinfandel)",
+        "vintage": "2023",
+        "style": "Rich, intense, full-bodied Southern Italian red wine",
+        "ageability": "Drink now through 2028. This wine is best enjoyed within 3-5 years of vintage to capture its exuberant fruit character, though it will continue to develop additional complexity with short-term cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scarpetta Pinot Grigio DOC Friuli (NOVA only) 2023",
+      "description": "A distinctive Pinot Grigio from Friuli-Venezia Giulia that transcends the variety's reputation for simplicity. Sourced from two distinct terroirs—the Grave and Colli Orientali zones—this wine showcases Pinot Grigio's ability to deliver both elegance and complexity. The combination of soil types yields a wine with body, bright acidity, and exceptional minerality.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromas of ripe white peach, lychee, and ripe melon, complemented by notes of crisp apple and ripe pear. Citrus accents of lemon and lime zest add brightness, while delicate floral notes—white flowers and acacia—provide lift. A distinctive mineral character of wet stones and crushed gravel emerges, along with subtle hints of guava, coriander, sage, and palo santo that add herbal complexity. A faint salmon-pink hue in the glass hints at the wine's textural depth.",
+        "palate": "Light on its feet yet surprisingly complex, the palate reveals flavors of stone fruits—white peach and apricot—and melon, balanced by crisp apple and citrus notes. The wine's medium body is supported by bright, refreshing acidity that provides structure and vibrancy. Mid-palate minerality—crushed gravel and saline notes—adds textural interest and reinforces the wine's terroir-driven character. The overall impression is one of elegance and precision, with each element in perfect harmony.",
+        "finish": "The finish is clean and persistent, with lingering flavors of citrus, stone fruit, and minerals. The wine's bright acidity ensures a refreshing conclusion that leaves the palate invigorated and ready for the next bite or sip."
+      },
+      "foodPairings": [
+        "Fresh crab cakes with lemon aioli",
+        "Grilled calamari with herbs and olive oil",
+        "Light seafood risotto with saffron",
+        "Prosciutto di San Daniele with melon",
+        "Fresh mozzarella and tomato salad with basil"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 8-10°C (46-50°F)",
+        "decanting": "No decanting necessary; serve directly from the bottle to preserve the wine's delicate aromatics and bright acidity",
+        "glassware": "Standard white wine glass or smaller Pinot Grigio glass to concentrate the mineral and citrus aromas"
+      },
+      "wineDetails": {
+        "region": "DOC Friuli-Venezia Giulia, Italy (blend of Grave and Colli Orientali zones)",
+        "grapeVariety": "100% Pinot Grigio",
+        "vintage": "2023",
+        "style": "Crisp, mineral-driven Northern Italian white wine with elegance and complexity",
+        "ageability": "Drink now through 2026. This wine is best enjoyed within 2-3 years of vintage to capture its vibrant fruit, crisp acidity, and crystalline minerality."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Gris 375 ml 2023  375 ml",
+      "description": "An expressive Sauvignon Gris from Boxwood Estate Winery in Middleburg, Virginia, crafted from 100% estate-grown grapes. This pink-skinned varietal creates a voluptuous, single-varietal wine with powerful floral aromatics and excellent structure. Recent vintages have earned critical acclaim, including 91 points from James Suckling and a silver medal at the 2022 Best of Loudoun wine competition.",
+      "tastingNotes": {
+        "aroma": "The nose is aromatic and distinctive, revealing a characteristic slate or 'wet rock' minerality that defines this wine. Vibrant citrus notes of fresh orange and lemon zest mingle with delicate spring-time flowers and white blossoms. Layers of ripe pear, almond, and a touch of honey add richness, while the wine's powerful floral character—hallmark of the pink-skinned Sauvignon Gris varietal—provides elegance and lift.",
+        "palate": "The palate exhibits good weight and a voluptuous texture, supported by crisp-apple acidity that provides structure and balance. Flavors of ripe pear, citrus, and almond dominate, while the wine's mineral core—wet stones and crushed gravel—adds textural interest and reinforces the terroir's influence. The balanced structure ensures that richness and freshness coexist in perfect harmony, creating a wine that is both generous and refined.",
+        "finish": "The finish is clean and persistent, with lingering flavors of citrus zest, pear, and wet stone minerality. The wine's crisp acidity ensures a refreshing conclusion that leaves the palate invigorated."
+      },
+      "foodPairings": [
+        "Seared scallops with citrus beurre blanc",
+        "Roasted chicken with lemon and herbs",
+        "Creamy risotto with spring vegetables",
+        "Fresh goat cheese and mixed greens salad",
+        "Grilled shrimp skewers with garlic butter"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 8-10°C (46-50°F)",
+        "decanting": "No decanting necessary; serve directly from the half-bottle to preserve freshness and aromatic intensity",
+        "glassware": "Standard white wine glass with a moderate bowl to showcase the wine's floral aromatics and mineral character"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Loudoun County, Virginia",
+        "grapeVariety": "100% Sauvignon Gris (estate-grown)",
+        "vintage": "2023",
+        "style": "Dry, aromatic white wine with voluptuous texture and powerful floral character",
+        "ageability": "Drink now through 2026. This wine is best enjoyed within 2-3 years of vintage to capture its vibrant aromatics, crisp acidity, and distinctive mineral character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Colle Corviano Trebbiano d'Abruzzo 2024",
+      "description": "A fresh, vibrant expression of Trebbiano d'Abruzzo from a young, family-run winery in the mountainous Tavo Valley. Owners Antonella di Tonno and Rodrigo Redmont tend 30 hectares of vineyards with a strong commitment to sustainability, crafting high-quality, affordable wines that showcase the region's unique terroir. This 2024 vintage delivers exceptional value at an approachable price point.",
+      "tastingNotes": {
+        "aroma": "The nose is bright and inviting, revealing intense aromas of ripe apples and peaches, complemented by notes of tangerine and citrus flowers. Delicate floral nuances add elegance, while subtle hints of white pepper and Mediterranean herbs provide complexity. The overall aromatic profile is fresh, racy, and immediately appealing.",
+        "palate": "Light to medium-bodied with a lovely pithy texture of mineral and delicate extract, the palate showcases refreshing flavors of ripe apple and peach, balanced by tangy citrus notes of tangerine and lemon zest. The wine's bright acidity provides structure and vibrancy, while a gentle, tangy tastiness persists through the mid-palate. Subtle mineral notes—wet stones and saline—add textural interest and reinforce the wine's terroir-driven character.",
+        "finish": "The finish is clean and persistent, bolstered by good weight and tangy tastiness that lingers pleasantly. The wine's bright acidity ensures a refreshing conclusion that leaves the palate invigorated and ready for the next sip."
+      },
+      "foodPairings": [
+        "Grilled white fish with lemon and olive oil",
+        "Fresh seafood pasta with garlic and herbs",
+        "Light vegetable risotto with Parmesan",
+        "Bruschetta with tomatoes and basil",
+        "Mild fresh cheeses and mixed olives"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 8-10°C (46-50°F)",
+        "decanting": "No decanting necessary; serve directly from the bottle to preserve the wine's fresh fruit character and bright acidity",
+        "glassware": "Standard white wine glass or smaller Italian white wine glass to concentrate the citrus and floral aromas"
+      },
+      "wineDetails": {
+        "region": "Trebbiano d'Abruzzo DOC, Abruzzo, Italy (Tavo Valley, Loreto Aprutino)",
+        "grapeVariety": "100% Trebbiano d'Abruzzo (local Trebbiano clone)",
+        "vintage": "2024",
+        "style": "Fresh, racy, light-bodied Italian white wine with bright acidity and mineral character",
+        "ageability": "Drink now through 2026. This wine is best enjoyed within 1-2 years of vintage to capture its vibrant fruit, fresh acidity, and lively character. Not intended for long-term cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Thelema Cabernet Sauvignon 2015",
+      "description": "An elegant, complex Cabernet Sauvignon from one of Stellenbosch's leading producers. This wine showcases Thelema Mountain Vineyards' commitment to crafting world-class wines with meticulous attention to detail. The 2015 vintage earned a critics' score average of 91/100, with professional reviewers praising its balance of power and refinement.",
+      "tastingNotes": {
+        "aroma": "The nose is complex and inviting, revealing aromas of crème de cassis, dark blackcurrant, and ripe black plum, complemented by notes of red currant and dark cherry. Distinctive green leaf and bell pepper aromas add classic Cabernet character, while subtle hints of cigar wrapper spice, cedar, and tobacco leaf emerge. Undertones of graphite, dark chocolate, and espresso reflect the wine's 18 months in barrel, 45% of which was new French oak.",
+        "palate": "Plush yet wonderfully elegant on the palate, this wine delivers concentrated flavors of cassis, blackcurrant, and dark plum, balanced by vibrant red currant and cherry notes. The wine's full body is supported by fine, silky tannins that provide structure without harshness, creating a very fresh and elegant style of Cabernet. Mid-palate notes of dark chocolate, mocha, and subtle oak spice add depth, while a touch of green bell pepper and dried herbs adds savory complexity. The wine's excellent balance ensures that power and finesse coexist harmoniously.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit flavors gradually transitioning to notes of espresso, dark chocolate, and cedar. Fine tannins lend grip and structure, suggesting excellent aging potential. The conclusion is both powerful and refined, leaving a lasting impression."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised lamb shanks with red wine reduction",
+        "Roasted venison loin with juniper berry sauce",
+        "Aged Gouda or sharp cheddar cheese",
+        "Mushroom and truffle Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 60-90 minutes to allow the wine's complex aromatics to fully develop and to soften the fine tannins",
+        "glassware": "Large Bordeaux-style red wine glass with a generous bowl to enhance the wine's aromatic complexity and elegant structure"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, Coastal Region, Western Cape, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2015",
+        "style": "Elegant, complex, full-bodied Cabernet Sauvignon with excellent balance and aging potential",
+        "ageability": "Drink now through 2035. This wine is currently in its prime drinking window but will reward cellaring for another 10 years or more. With age, expect the development of tertiary flavors of leather, tobacco, dried fruit, and earthy complexity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fledge and Co Hoeksteen 2016",
+      "description": "A svelte and contemplative Chenin Blanc from old bush vines rooted in decomposed granitic soils of the Bottelary Hills, Stellenbosch. The dry land vines, planted in the early 1980s with epic vistas of Table Mountain, weathered the tempestuous 2016 vintage to produce small clusters of intensely concentrated fruit. Barrel fermented and matured in old French oak, this wine is intentionally Loire-like in style and benefits greatly from bottle maturation.",
+      "tastingNotes": {
+        "aroma": "The nose is delicate and nuanced, opening with a combination of citrus blossom and yellow fruits—golden apple and ripe pear. Green apple and red pear notes add freshness, while subtle hints of toasted almond and gentle ginger provide complexity. Distinctive aromas of honey, rooibos tea, and a tell-tale chalky minerality emerge, adding layers of interest to this contemplative, shy expression of Chenin Blanc.",
+        "palate": "Svelte and medium-bodied with a lovely pithy texture, the palate reveals flavors of green apple, golden apple, and yellow fruits, balanced by bright acidity. Subtle notes of toasted almond, honey, and rooibos tea add richness without heaviness, while a distinctive chalky, mineral texture reinforces the wine's terroir-driven character. The wine's old-vine concentration and barrel fermentation contribute to its complex, layered profile, while restraint and elegance define the overall impression.",
+        "finish": "The finish is long and mineral-driven, characterized by a tell-tale chalky texture and bright acidity. Lingering flavors of citrus blossom, yellow fruits, and toasted almond persist, while the wine's Loire-like structure ensures a clean, refreshing conclusion."
+      },
+      "foodPairings": [
+        "Seared scallops with brown butter and capers",
+        "Roasted chicken with herbs de Provence",
+        "Creamy lobster bisque",
+        "Fresh goat cheese and honey on crostini",
+        "Grilled white fish with lemon and almonds"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly chilled at 10-12°C (50-54°F)",
+        "decanting": "No decanting necessary, but allow the wine to breathe in the glass for 10-15 minutes to reveal its complex aromatics",
+        "glassware": "White Burgundy or Chenin Blanc glass with a generous bowl to showcase the wine's aromatic complexity and textural depth"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, Western Cape, South Africa (Bottelary Hills, decomposed granitic soils)",
+        "grapeVariety": "100% Chenin Blanc (old bush vines from the early 1980s)",
+        "vintage": "2016",
+        "style": "Barrel-fermented, mineral-driven Chenin Blanc with Loire-like elegance and complexity; unintentionally Loire-like in style",
+        "ageability": "Drink now through 2028 and beyond. This wine benefits greatly from bottle maturation and is currently entering its prime drinking window. With careful cellaring, it will continue to develop additional complexity, with evolving notes of honey, beeswax, and dried fruits over the next 5-10 years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

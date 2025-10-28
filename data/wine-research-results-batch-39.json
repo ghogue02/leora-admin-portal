@@ -1,0 +1,364 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 39,
+  "researchedAt": "2025-10-20T00:00:00Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Vina Torcida Reserva 2015",
+      "description": "A classic Rioja Reserva from Bodegas Valdemar showcasing the elegance of Tempranillo from Spain's renowned wine region. This well-structured wine balances traditional oak aging with vibrant fruit character, offering exceptional complexity for its category.",
+      "tastingNotes": {
+        "aroma": "The nose opens with balsamic aromas layered with rich, ripe fruit and aromatic spices. Black pepper and clove intermingle with vanilla notes from oak aging, while subtle hints of dried leaves and olives add complexity. The integration of fruit and spice creates an inviting, harmonious bouquet that speaks to careful vinification.",
+        "palate": "Rounded and tasty on the palate with well-structured tannins that provide excellent backbone without overwhelming the fruit. The punchy character is balanced by screechy acidity that lifts flavors of plum and currant, touched up by oaky vanilla. Cherry notes emerge prominently, less sour than typical Riojas at this price point, with surprising complexity including a touch of chocolate and smoke.",
+        "finish": "Long and persistent aftertaste that showcases the wine's excellent structure. The finish maintains the spicy character with lingering notes of sage, pepper, and vanilla, while the fruit evolves to show more succulent, fleshy characteristics. The well-integrated oak provides a smooth, satisfying conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Aged Manchego cheese",
+        "Roasted duck with cherry sauce",
+        "Wild mushroom risotto",
+        "Chorizo and white bean stew"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant 30-60 minutes before serving to allow the wine to open up and integrate its oak and fruit components",
+        "glassware": "Bordeaux or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, La Rioja Alta, Spain",
+        "grapeVariety": "100% Tempranillo",
+        "vintage": "2015",
+        "style": "Traditional Rioja Reserva with oak aging",
+        "ageability": "Drinking beautifully now through 2028. The 2015 vintage shows excellent balance and will continue to develop complexity over the next few years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "professionalScores": "90/100 Critics Score, 89/100 CellarTracker Community"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Diane Rose 2021",
+      "description": "A delicate and elegant rosé from the Cabardès appellation, named after the winemaker's niece. This wine showcases the perfect marriage of Mediterranean sunshine and Atlantic freshness, creating a sophisticated expression of Southern French rosé with exceptional finesse.",
+      "tastingNotes": {
+        "aroma": "The nose is delicate and perfumed, opening with vibrant notes of red fruits including fresh strawberry and juicy raspberry. These primary fruit aromas are lifted by subtle floral hints and a gentle minerality that speaks to the terroir. The aromatic profile is bright and inviting, with excellent purity of fruit expression.",
+        "palate": "Fresh, voluminous and lively on the palate with beautiful texture and weight. The wine shows impressive structure for a rosé, with the red fruit flavors carrying through seamlessly from the nose. There's a wonderful sense of fullness without heaviness, and the acidity provides excellent balance and energy throughout the tasting experience.",
+        "finish": "The finish is remarkably long with distinctive iodized notes that add complexity and a sense of place. Mineral undertones emerge alongside lingering strawberry and raspberry flavors, creating a refreshing conclusion that invites another sip. The wine maintains its freshness and vivacity right through to the end."
+      },
+      "foodPairings": [
+        "Grilled lamb with herbs de Provence",
+        "Salmon with coconut milk curry",
+        "Red mullet salad with tapenade",
+        "Eggplant tian Provençal",
+        "Goat cheese and tomato tart"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F), well chilled",
+        "decanting": "No decanting necessary. Serve directly from a chilled bottle to preserve freshness and aromatics",
+        "glassware": "White wine glass or tulip-shaped rosé glass"
+      },
+      "wineDetails": {
+        "region": "Cabardès AOC, Languedoc, France",
+        "grapeVariety": "Blend of Mediterranean and Atlantic varietals typical of Cabardès",
+        "vintage": "2021",
+        "style": "Provence-style dry rosé with Languedoc character",
+        "ageability": "Best enjoyed within 2 years of vintage to preserve freshness. Drink now through 2023."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "producerNotes": "130-hectare estate backed against the Montagne Noire"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Cuvee Pierre 2023",
+      "description": "A powerful and structured Cabernet Sauvignon named after Pierre, the winemaker's grandfather, honoring a man of integrity and uprightness. This wine represents the estate's commitment to producing noble, age-worthy reds from the unique Cabardès terroir.",
+      "tastingNotes": {
+        "aroma": "The nose is dominated by blackcurrant buds followed by ripe bell pepper, showing the varietal character of Cabernet Sauvignon. Additional layers reveal themselves with aeration, including subtle vegetal notes that add complexity rather than detract. There's a fresh, vibrant quality to the aromatics that speaks to the wine's youth and purity.",
+        "palate": "Round and ample on the palate with powerful structure and fine tannins that provide excellent framework. The flavor profile features small grilled notes that bring crispness and definition to the rich fruit core. Juicy length carries flavors of dark berries and cassis through the mid-palate, with the wine showing impressive depth and concentration for a young vintage.",
+        "finish": "The finish is fresh and spicy, with the Cabernet's natural acidity providing lift and balance. Peppery notes emerge alongside lingering blackcurrant flavors, while subtle toasted elements from micro-oxygenation add dimension. The tannins are ripe and well-integrated, promising good aging potential despite the wine's current approachability."
+      },
+      "foodPairings": [
+        "Duck breast with fig reduction",
+        "Grilled ribeye steak",
+        "Beef bourguignon",
+        "Aged Comté cheese",
+        "Wild boar terrine"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant 45-60 minutes to soften tannins and allow the wine to express its full range of flavors",
+        "glassware": "Bordeaux glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Cabardès AOC, Languedoc, France",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Modern Languedoc red with micro-oxygenation",
+        "ageability": "Can be enjoyed now but will gain nobility with 3-5 years of bottle age. Cabernet Sauvignon structure suggests drinking window through 2030."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "productionDetails": "3 months aging in stainless steel tanks with micro-oxygenation"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Gigondas 2021",
+      "description": "An elegant Southern Rhône red from the prestigious Gigondas appellation, crafted by Domaine des Pasquiers. This Grenache-Syrah blend showcases the sun-drenched character of the region while maintaining exceptional balance and structure.",
+      "tastingNotes": {
+        "aroma": "The nose reveals bright, sun-kissed plum and cherry flavors complemented by notes of jammy black cherries that dominate the aromatic profile. Delicate notes of wild thyme and mint speak to the garrigue landscape of the Southern Rhône, while white pepper adds a spicy dimension. Hints of wild herbs and Mediterranean scrubland create an evocative sense of place.",
+        "palate": "Beautiful structure and amplitude on the fruit define the palate experience. The wine shows generous, direct flavors with excellent balance between spicy notes and the freshness of the fruit. Well-structured yet delicate tannins provide framework without heaviness, allowing the bright cherry and plum flavors to shine through. There's an attractive fullness that gives the wine presence without overwhelming.",
+        "finish": "Long finish on spices and fruit, with the garrigue notes returning alongside jammy black cherry flavors. The exceptional length showcases harmonious integration of all elements, from the ripe fruit to the peppery spice. The wine concludes with lingering hints of wild herbs that echo the aromatic profile."
+      },
+      "foodPairings": [
+        "Braised lamb shanks with herbs",
+        "Grilled venison with juniper",
+        "Beef daube Provençal",
+        "Aged Gruyère cheese",
+        "Duck confit with lentils"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant 1 hour before serving to allow the wine to breathe and fully express its complex aromatics",
+        "glassware": "Rhône or Burgundy-style glass with a wide bowl"
+      },
+      "wineDetails": {
+        "region": "Gigondas AOC, Southern Rhône, France",
+        "grapeVariety": "50% Grenache, 50% Syrah from organically farmed vines",
+        "vintage": "2021",
+        "style": "Classic Southern Rhône red with Mediterranean character",
+        "ageability": "Drinking well now through 2029. The 2021 vintage shows good structure for medium-term aging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "professionalScores": "83/100 Critics Score for 2021 vintage",
+        "farmingPractices": "Organically farmed vineyards"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Monte Real Reserva 2015",
+      "description": "A traditional Rioja Reserva from one of the region's most respected historic producers, Bodegas Riojanas. This wine embodies classic Rioja characteristics with extended oak aging, showcasing the elegance and complexity that has made Rioja famous worldwide.",
+      "tastingNotes": {
+        "aroma": "A solid nose common to Rioja opens with earthy berry fruits, dried leaves, and olives that speak to traditional aging. The aromatic profile includes cherries and leather with a touch of smoke, creating layers of complexity. Spices emerge including pepper, sage, and vanilla from oak influence. Less sour cherry than many Riojas at this price point, with darker, riper fruit character.",
+        "palate": "The palate is punchy with screechy acidity that offers flavors of plum and currant touched up by oaky vanilla. Smooth texture is complemented by a bit of chocolate that adds richness and depth. Over time, the wine fleshes out dramatically, becoming downright succulent with air exposure. The integration of fruit, oak, and acidity creates exceptional harmony for the price point.",
+        "finish": "Amazingly complex finish that evolves and develops with each sip. Dark cherry and plum flavors persist alongside spicy oak notes and hints of leather. The acidity provides lift and length, while the smooth tannins ensure a polished, refined conclusion. The wine leaves a lasting impression of classic Rioja character."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with garlic",
+        "Grilled Ibérico pork chops",
+        "Mushroom and truffle risotto",
+        "Aged sheep's milk cheese",
+        "Beef tenderloin with red wine reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant 1-2 hours before serving. This wine benefits significantly from aeration and develops beautifully over time",
+        "glassware": "Traditional Rioja glass or large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo with possible small amounts of traditional Rioja blending grapes",
+        "vintage": "2015",
+        "style": "Traditional Rioja Reserva with extended oak aging",
+        "ageability": "Drinking beautifully now through 2030. Benefits from decanting and opens up dramatically with time."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "professionalScores": "90/100 Wine-Searcher Critics Score, 89/100 CellarTracker (9 reviews)",
+        "reviewQuote": "Amazingly complex for an $18 bottle of wine - CellarTracker user"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Sur Lie Chenin Blanc 2020",
+      "description": "An exceptional South African Chenin Blanc from the prestigious Simonsberg-Paarl region. This wine showcases the noble character of Chenin Blanc through sur lie aging in large-format concrete vessels, developing remarkable depth and complexity while maintaining fresh acidity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of fresh lime blossom, honeydew melon, and green apple that showcase the wine's freshness and purity. White grapefruit emerges alongside hints of chamomile, adding a delicate floral dimension. The aromatics are precise and focused, with excellent intensity that promises depth on the palate.",
+        "palate": "The palate balances the fresh fruit aromatics with delicate mineral flavors derived from the rocky slopes of the Simonsberg mountains. Good acidity provides backbone, supporting flavors of orange zest and grapefruit that carry through from nose to palate. The sur lie aging adds fullness and depth without any overt oak character, allowing the wine to develop nuance and complexity through extended lees contact.",
+        "finish": "The finish showcases citrus fruit notes that linger pleasantly, with mineral undertones providing structure and definition. The 9 months of lees aging with regular stirring has created impressive texture and length. The wine concludes with refreshing acidity and subtle complexity that speaks to careful winemaking."
+      },
+      "foodPairings": [
+        "Grilled line fish with lemon butter",
+        "Roasted chicken with herbs",
+        "Sushi and sashimi",
+        "Creamy goat cheese salad",
+        "Thai green curry with seafood"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F)",
+        "decanting": "No decanting necessary, but benefits from 15-20 minutes in the glass to allow aromatics to fully express",
+        "glassware": "White Burgundy or medium-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, Coastal Region, South Africa",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2020",
+        "style": "Sur lie aged Chenin Blanc in concrete vessels",
+        "ageability": "Drinking beautifully now through 2025. The sur lie aging and natural acidity suggest good aging potential."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "professionalScores": "88 points Wine Enthusiast",
+        "productionDetails": "Fermented with wild yeast, 9 months on fine lees with regular stirring in large-format concrete vessels"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ogier Vacqueyras 2023",
+      "description": "A distinguished Southern Rhône red from Maison Ogier, one of the historic houses of Châteauneuf-du-Pape. This Vacqueyras showcases the power and elegance of wines from this elevated appellation, blending traditional Rhône varieties with precision and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose presents a harmonious blend of ripe red and black fruits characteristic of the Southern Rhône. Expect aromas of dark cherries, blackberries, and plums complemented by the classic garrigue notes of the region including wild herbs, lavender, and Mediterranean scrubland. Subtle spicy elements add complexity to the aromatic profile.",
+        "palate": "Generous and direct on the palate with excellent balance between spicy notes and the freshness of the fruit. Well-structured yet delicate tannins provide framework without overwhelming the wine's inherent elegance. The 2023 vintage shows the youthful vigor expected from a recent release, with vibrant fruit flavors of dark berries and cherries supported by integrated oak influence.",
+        "finish": "The finish maintains the wine's balance between power and elegance, with lingering fruit flavors complemented by peppery spice. The tannins are fine-grained and well-integrated, providing structure for aging while remaining approachable in youth. Notes of wild herbs return on the finish, creating a sense of place and terroir."
+      },
+      "foodPairings": [
+        "Braised beef short ribs",
+        "Grilled lamb with rosemary",
+        "Ratatouille with sausages",
+        "Aged Comté or Gruyère cheese",
+        "Duck cassoulet"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant 45-60 minutes to allow the young wine to open up and integrate its components",
+        "glassware": "Rhône-style glass with generous bowl"
+      },
+      "wineDetails": {
+        "region": "Vacqueyras AOC, Southern Rhône, France",
+        "grapeVariety": "Traditional Southern Rhône blend of Grenache, Syrah, and Mourvèdre",
+        "vintage": "2023",
+        "style": "Modern Southern Rhône with elegant tannin structure",
+        "ageability": "Can be enjoyed now but will develop additional complexity with 3-8 years of cellaring. Drink 2025-2033."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "producerNotes": "Maison Ogier established in Châteauneuf-du-Pape, historic Southern Rhône producer"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pinea PSOUL (wooden boxes) 2018  1500 ml",
+      "description": "An ultra-rare, limited edition Ribera del Duero masterpiece presented in magnum format with only 333 bottles produced worldwide. The name 'PSOUL' stands for 'Pinea 500L,' referencing the single 500-liter cask used for production and aging. From the prestigious Cardisanto limestone plateau, this wine represents the pinnacle of Spanish winemaking.",
+      "tastingNotes": {
+        "aroma": "A spectacular blend of fruit, floral and spicy aromas creates an olfactory masterpiece. Dominant notes of blackberries, ripe black cherries, dried figs, strawberries and blackcurrants provide a foundation of concentrated fruit. Perfumed aromas of hibiscus, violets and lavender add an elegant floral dimension, while hints of tobacco leaves, fresh leather and cedar wood contribute complexity and sophistication.",
+        "palate": "Medium-bodied with a powerful yet elegant approach and a rich, velvety texture from beginning to end. Sweet black forest fruits, blackberries and ripe black plums blend seamlessly with aromas of eucalyptus and spices including clove and black pepper. Sculptured tannins are perfectly integrated, showing exceptional balance as they pass through the mouth. Vibrant acidity provides lift and energy, while mild flavors of nuts, coffee and smoke enrich the experience.",
+        "finish": "Long and flavourful with harmonious integration of all elements. The finish showcases the wine's exceptional craftsmanship with lingering notes of dark fruit, coffee, and subtle smoke. The concrete vessel aging has created impressive texture and depth, while the limestone terroir contributes distinctive minerality that adds length and refinement to the conclusion."
+      },
+      "foodPairings": [
+        "Dry-aged ribeye steak",
+        "Roasted lamb shoulder with rosemary",
+        "Wild mushroom and truffle risotto",
+        "Aged Manchego or Idiazábal cheese",
+        "Venison medallions with blackberry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (60-64°F)",
+        "decanting": "Decant 2-3 hours before serving to allow this complex wine to fully express its remarkable depth and nuance",
+        "glassware": "Large Bordeaux glass to concentrate the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Castilla y León, Spain - Cardisanto limestone plateau microparcel",
+        "grapeVariety": "100% Tempranillo (Tinta del País) from 50-year-old vines",
+        "vintage": "2018",
+        "style": "Ultra-premium single-cask Ribera del Duero aged in 500L oak",
+        "ageability": "Excellent aging potential through 2038. The magnum format and exceptional quality ensure long-term development."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.97,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "professionalScores": "93 points Falstaff - Ribera Del Duero Trophy 2024",
+        "productionDetails": "Only 333 magnums produced, single 500L cask, from high-chalk content Cardisanto plateau"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tagua Tagua Cabernet Sauvignon 2022",
+      "description": "A well-crafted Chilean Cabernet Sauvignon from the historic Rapel Valley, produced by Bodegas Tagua Tagua, a fifth-generation family winery with roots dating back to the mid-1800s. This wine showcases the approachable, fruit-forward style that has made Chilean Cabernet internationally renowned.",
+      "tastingNotes": {
+        "aroma": "The nose presents light notes of peppercorn and green bell pepper that provide varietal character typical of Chilean Cabernet. The aromatic profile shows restraint and elegance, with subtle vegetal notes adding complexity rather than dominating. Hints of dark berries and cassis emerge with aeration, while delicate herbal undertones speak to the terroir.",
+        "palate": "Stewed fruit flavors blend harmoniously with bell pepper on the palate, creating a balanced, everyday red wine experience. Light tannins provide structure without astringency, making the wine immediately approachable and food-friendly. Gentle acidity maintains freshness and balance throughout the tasting, while flavors of plum and dark cherry carry through the mid-palate.",
+        "finish": "The finish is clean and straightforward, with lingering notes of red fruit and subtle pepper. The light tannins ensure a smooth conclusion, while the gentle acidity provides lift. This is an unpretentious, well-made wine that delivers varietal character and drinking pleasure without unnecessary complexity."
+      },
+      "foodPairings": [
+        "Grilled beef empanadas",
+        "Roasted chicken with chimichurri",
+        "Pasta with meat sauce",
+        "Mild cheddar or Gouda cheese",
+        "Grilled vegetables with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "Brief decanting of 15-20 minutes will allow the wine to open, though not essential for enjoyment",
+        "glassware": "Standard red wine glass or Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Rapel Valley, Central Valley, Chile",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2022",
+        "style": "Approachable, fruit-forward Chilean Cabernet for everyday drinking",
+        "ageability": "Best enjoyed within 3-5 years to preserve freshness. Drink now through 2027."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "professionalScores": "86/100 Critics Score",
+        "producerHistory": "Fifth-generation family winery, one of Chile's pioneering wine families since mid-1800s"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta do Mourao Tawny 100 Year Port   500 ml",
+      "description": "An extraordinary and exceedingly rare Tawny Port that represents a blend of two historic vintages: 1895 and 1927, resulting in a 106-year average age. This São Leonardo bottling by Quinta do Mourão is a masterpiece of Portuguese winemaking, achieving perfect scores from critics and offering an experience comparable to fine Cognac.",
+      "tastingNotes": {
+        "aroma": "The nose reveals the profound complexity of extreme age with aged and brewed molasses, buckwheat honey, and supple very old leather. Additional layers include varnish, pipe tobacco, cigar box, and steel-cut oatmeal alongside candied citrus. Polished mahogany aromatics emerge with mushroom, a touch of black tea, and dark chocolate. Coffee candy notes add sweetness to the remarkably preserved aromatic profile.",
+        "palate": "Much of the aromatic complexity echoes on the palate, which has the texture of heated honey—rich, viscous, and coating. For all its aromatic maturity and surprising dark brown color, this Port has tremendous vigor on the palate with crisp acidity bringing exceptional balance and life. Flavors include fig, caramel, spice, dark chocolate, and cooked citrus fruit. The wine remains remarkably fresh despite its century-plus age.",
+        "finish": "The finish is extraordinarily long and complex, reminiscent of fine aged Cognac. The acidity fills the palate and provides exceptional balance, while the concentrated flavors of dried fruit, coffee, chocolate, and caramel linger seemingly indefinitely. This is a meditation wine that evolves continuously in the glass, revealing new dimensions with each sip."
+      },
+      "foodPairings": [
+        "Dark chocolate truffles with sea salt",
+        "Stilton or aged blue cheese",
+        "Caramelized nuts and dried fruits",
+        "Crème brûlée",
+        "Simply on its own as a contemplative after-dinner experience"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly chilled, 14-16°C (57-61°F)",
+        "decanting": "No decanting necessary. This wine has been aging for over a century and is ready to drink. Pour carefully to avoid disturbing any sediment",
+        "glassware": "Small Port glass or Cognac snifter to concentrate the complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "Traditional Port varieties from the Douro",
+        "vintage": "Blend of 1895 and 1927 vintages (106-year average)",
+        "style": "Very Old Tawny Port with extended cask aging",
+        "ageability": "At perfect drinking maturity. This wine should be enjoyed now to appreciate its extraordinary evolution."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "professionalScores": "20/20 points - Tim Jackson MW for JancisRobinson.com (Perfect Score)",
+        "productionDetails": "Blend of 1895 and 1927 vintages, 500ml format, resembles fine aged Cognac"
+      }
+    }
+  ]
+}

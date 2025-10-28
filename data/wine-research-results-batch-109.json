@@ -1,0 +1,352 @@
+{
+  "batch": 109,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Zephaniah Cabernet Franc 2016",
+      "description": "A Virginia Cabernet Franc from Zephaniah Farm Vineyard's estate in Loudoun County. The 2016 vintage blends Cabernet Franc with a small amount of Petit Manseng for added aromatics. The 2013 vintage won silver medals at the Virginia Governor's Cup and Loudoun County Wine Awards.",
+      "tastingNotes": {
+        "aroma": "Aromatic and fruity nose with the Petit Manseng addition creating enhanced floral character. Classic Cabernet Franc red fruit aromatics of raspberry and red cherry emerge alongside subtle herbal notes of fresh-cut grass and green bell pepper. Violet and rose petal notes add elegance to the bouquet.",
+        "palate": "The flavor profile is fruity with strong Cabernet Franc character showing red and dark fruits, particularly cherry and cassis. The wine displays complexity and depth with well-integrated tannins from the Virginia terroir. Medium to full body with balanced acidity keeping the fruit fresh and vibrant. The Petit Manseng adds a subtle exotic fruit character that complements the Cab Franc structure.",
+        "finish": "Medium to long finish with persistent fruit and subtle herbal notes. Well-developed tannins provide structure without being aggressive, making this wine ready to drink now while having aging potential."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs de Provence",
+        "Roasted duck breast with cherry reduction",
+        "Mushroom and truffle risotto",
+        "Aged cheeses from Virginia creameries",
+        "Herb-crusted pork tenderloin"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 30 minutes to allow aromatics to develop",
+        "glassware": "Bordeaux glass or large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Virginia",
+        "grapeVariety": "Primarily Cabernet Franc with a dash of Petit Manseng",
+        "vintage": "2016",
+        "style": "Virginia estate-grown red blend",
+        "ageability": "Drinking well now through 2026. The wine is well-developed and perfect for current consumption"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Beefsteak Shiraz 2019",
+      "description": "A powerful Australian Shiraz from the Limestone Coast region, crafted specifically to pair with grilled meats and barbecue. This wine is part of the Beefsteak Club line designed for food-friendly, bold red wines with character.",
+      "tastingNotes": {
+        "aroma": "Dark purple color introduces expressive aromas of ripe plums and juicy black currants. Blackberry and fragrant white pepper add complexity alongside subtle earthy notes typical of the Limestone Coast terroir. The oak aging contributes hints of vanilla and spice.",
+        "palate": "Fresh, complex, elegant and juicy personality on the palate with spicy, warm notes from oak aging perfectly integrated into the powerful body. Full and juicy with notes of blackcurrant and plum that create a rich mid-palate. The wine balances power with elegance, showing both fruit concentration and structural finesse.",
+        "finish": "Smooth finish with soft, long-lasting tannins. The tannin framework is wonderfully fine and accompanies into a long, intense finish with lingering blackcurrant and plum flavors."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak or T-bone",
+        "Barbecued ribs with smoky sauce",
+        "Grilled vegetables and portobello mushrooms",
+        "Lamb shanks braised in red wine",
+        "Aged cheddar and hard cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 30-45 minutes to soften tannins and integrate oak",
+        "glassware": "Large Shiraz or Syrah glass to capture the bold aromatics"
+      },
+      "wineDetails": {
+        "region": "Limestone Coast, South Australia",
+        "grapeVariety": "100% Shiraz",
+        "vintage": "2019",
+        "style": "Bold, full-bodied Australian Shiraz with oak aging",
+        "ageability": "Drink now through 2027. The wine shows good structure for medium-term aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T14:01:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Reed Alexia Grenache 2021",
+      "description": "A bright, crunchy Grenache from 100+ year-old vines at Schlieb's Garden vineyard in Vine Vale, Barossa Valley. Winemaker Sierra Reed crafts this wine in a Beaujolais style - vibrant and effortless to drink, showcasing the purity of old vine Barossa Grenache.",
+      "tastingNotes": {
+        "aroma": "Aromas of rose petal, riberry, and pomegranate lead the bouquet. Sweet spice and pink pepper add complexity alongside strawberry gum notes. Old terracotta and earth provide a grounding element, while the wine maintains bright and juicy characteristics throughout.",
+        "palate": "Fine tannins and an hourglass shape define the wine's elegant mouthfeel. Crushed dried flowers and ripe red fruits dominate the palate with medium body and intense Barossa flavor. The wine is bright, crunchy, and effortless to drink, showing the purity and energy of old vine fruit without excessive extraction.",
+        "finish": "The finish showcases the wine's finesse with lingering red fruit and floral notes. Integrated tannins provide structure without weight, making this truly exceptional Grenache highly drinkable."
+      },
+      "foodPairings": [
+        "Roasted duck with cherry gastrique",
+        "Grilled lamb with herbs and pomegranate",
+        "Mushroom and truffle pizza",
+        "Charcuterie and pâté",
+        "Moroccan tagine with dried fruits"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), serve slightly cool",
+        "decanting": "Brief 15-20 minute decant or none needed",
+        "glassware": "Burgundy glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Vine Vale, Barossa Valley, South Australia",
+        "grapeVariety": "100% Grenache from 100+ year-old vines at Schlieb's Garden",
+        "vintage": "2021",
+        "style": "Bright, Beaujolais-inspired old vine Grenache",
+        "ageability": "Drink now through 2026. Best enjoyed for its vibrant, youthful character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T14:02:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Les Planels Organic 2020",
+      "description": "One of Languedoc-Roussillon's finest biodynamic reds from the Cru La Livinière appellation. This 80% Syrah, 20% Grenache blend earned 94 points from Jeb Dunnuck and 93 points from James Suckling. The 79-acre estate has been certified biodynamic by Demeter since 2008.",
+      "tastingNotes": {
+        "aroma": "The aromatic bouquet features Provençal herbs - thyme, rosemary, and lavender - alongside menthol notes creating a garrigue character. Juicy black cherries and melted chocolate provide richness. Blackcurrant, licorice, pepper, and cold meats add savory complexity to this multi-layered nose.",
+        "palate": "Sautéed black cherries and blackcurrant dominate the palate with notes of licorice and black pepper. The 80% Syrah provides structure and spice while the 20% Grenache adds roundness and red fruit. Eight days of fermentation in concrete and wood followed by 12 months in French oak and 6 months in concrete egg creates excellent integration and complexity.",
+        "finish": "Long, persistent finish with lingering dark fruit, spice, and herbal notes. The biodynamic farming shines through in the wine's purity and energy, while the oak aging provides polish without dominating the fruit."
+      },
+      "foodPairings": [
+        "Grilled beef or venison",
+        "Braised lamb shanks with herbs de Provence",
+        "Wild boar or game stew",
+        "Aged Comté or hard mountain cheeses",
+        "Provençal daube with olives"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 1 hour to fully express the complex aromatics",
+        "glassware": "Large Bordeaux or Rhône glass"
+      },
+      "wineDetails": {
+        "region": "Cru La Livinière, Minervois, Languedoc-Roussillon, France",
+        "grapeVariety": "80% Syrah, 20% Grenache from clay-limestone and clay-sandstone soils",
+        "vintage": "2020",
+        "style": "Biodynamic Cru red, 12 months oak + 6 months concrete egg aging",
+        "ageability": "Drink now through 2032. Excellent structure for mid to long-term aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-21T14:03:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Gran Reserva Cabernet Sauvignon 2019",
+      "description": "A Gran Reserva Cabernet Sauvignon from Chile's Calyptra estate. This wine represents extended aging and careful selection, following traditional Gran Reserva protocols for premium Chilean Cabernet with excellent structure and complexity.",
+      "tastingNotes": {
+        "aroma": "Intense aromas of ripe blackcurrant and black cherry with notes of cedar, tobacco, and dark chocolate from oak aging. Hints of eucalyptus and mint typical of premium Chilean Cabernet add complexity. Subtle leather and cigar box notes emerge from the Gran Reserva aging.",
+        "palate": "Full-bodied with concentrated dark fruit flavors of blackberry, cassis, and plum. The Gran Reserva aging creates excellent integration of oak with flavors of vanilla, mocha, and sweet spice. Firm but refined tannins provide structure while the vibrant acidity keeps the palate fresh despite the wine's richness.",
+        "finish": "Long, elegant finish with persistent dark fruit and oak-derived spice. The tannins are well-integrated providing structure for aging. Notes of dark chocolate and coffee linger alongside the fruit concentration."
+      },
+      "foodPairings": [
+        "Grilled ribeye or Argentine-style asado",
+        "Braised beef short ribs",
+        "Roasted leg of lamb with rosemary",
+        "Aged Manchego or Gruyère",
+        "Wild mushroom Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 1-2 hours to soften tannins and develop complexity",
+        "glassware": "Large Bordeaux or Cabernet Sauvignon glass"
+      },
+      "wineDetails": {
+        "region": "Central Valley, Chile",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Gran Reserva with extended oak aging",
+        "ageability": "Drink now through 2034. Excellent aging potential for Chilean Cabernet"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T14:04:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Champagne Bauget-Jouette Carte Blanche (750ml) NV",
+      "description": "A classic brut Champagne from Maison Bauget-Jouette in Épernay. This non-vintage cuvée showcases the house style of freshness, elegance, and remarkable persistence. The wine displays wonderful presence and fine-grained texture with crisp, bright apple intensity.",
+      "tastingNotes": {
+        "aroma": "Fresh and light nose of apples, pear, and peaches with distinctive white flowers. Apple flesh, hazelnut, and fresh almond create complexity. Aromas of grapefruit, white cherry, and pastry crust add depth to the elegant bouquet.",
+        "palate": "Intricate layers of plums, white flowers, and pink Lady apples underpinned by notes of toasted hazelnut. Flavors of citrus, apple, and nectarine create a fruit-forward palate. Round in the mouth with fine and creamy bubbles supported by a fresh and elegant structure. Wonderful presence on the palate with vinosity and fine-grained texture.",
+        "finish": "Wonderfully long and fresh finish with remarkable persistence. Crisp aftertaste with lingering apple and citrus notes. The fine bubbles continue through the finish creating an elegant, refreshing conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood platters",
+        "Smoked salmon canapés",
+        "Soft-ripened cheeses like Brie or Camembert",
+        "Light appetizers and hors d'oeuvres",
+        "Fruit tarts and pastries"
+      ],
+      "servingInfo": {
+        "temperature": "43-47°F (6-8°C), serve well chilled",
+        "decanting": "No decanting needed; serve directly from ice bucket",
+        "glassware": "Champagne flute or tulip glass"
+      },
+      "wineDetails": {
+        "region": "Champagne, France (Épernay)",
+        "grapeVariety": "Traditional Champagne blend (typically Chardonnay, Pinot Noir, Pinot Meunier)",
+        "vintage": "Non-vintage",
+        "style": "Brut Champagne with fine, creamy bubbles and fresh character",
+        "ageability": "Drink within 2-3 years of purchase for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T14:05:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Remhoogte Aspect Merlot 2020",
+      "description": "A classic Stellenbosch Merlot from vineyards high on the steep shale slopes of Remhoogte's estate. The southerly-facing slope provides the ideal aspect for Merlot in the region. This wine earned 4.5 Stars from Platter's and 94 Points in Wine Mag's Top 10 Prescient Merlot Report.",
+      "tastingNotes": {
+        "aroma": "Juicy aromas of blackberry and integrated oak create an inviting bouquet. Red cherry and dark plum notes add complexity alongside subtle savory elements. Hints of chocolate, spice, and herbs from the Stellenbosch terroir round out the aromatic profile.",
+        "palate": "Classic in style showing juicy dark fruit with excellent concentration. Flavors of cherry and chocolate are accented by subtle savory notes and a hint of spice. Broad chalky tannins provide structure while fresh acidity brings balance and vibrancy. The wine shows both power and elegance typical of premium Stellenbosch Merlot.",
+        "finish": "Lengthy finish with excellent balance and persistence. The broad chalky tannins carry through providing structure, while the fresh acidity ensures a clean, vibrant conclusion with lingering dark fruit and subtle oak."
+      },
+      "foodPairings": [
+        "Grilled lamb chops or rack of lamb",
+        "Roasted duck with berry reduction",
+        "Beef tenderloin with mushroom demi-glace",
+        "Aged Gouda or Gruyère cheese",
+        "South African bobotie or spiced meat dishes"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to integrate oak and soften tannins",
+        "glassware": "Bordeaux or large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Stellenbosch, South Africa",
+        "grapeVariety": "100% Merlot from high-altitude shale slopes",
+        "vintage": "2020",
+        "style": "Premium Stellenbosch Merlot with oak aging",
+        "ageability": "Drink now through 2030. Excellent structure for medium-term aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:06:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Costa del Maresme Rose 2021",
+      "description": "A Catalan rosé from the Costa del Maresme DO, a coastal wine region northeast of Barcelona. This Mediterranean rosé showcases the fresh, fruit-forward character of Spanish coastal winemaking with excellent acidity from sea breezes.",
+      "tastingNotes": {
+        "aroma": "Fresh red berry aromatics of strawberry, raspberry, and wild strawberries dominate. Delicate floral notes of rose petals and white flowers add elegance. Subtle citrus and Mediterranean herbs provide complexity with a hint of saline minerality from the coastal influence.",
+        "palate": "Light to medium-bodied with vibrant acidity and crisp, refreshing fruit. Red berry flavors of strawberry and cranberry are balanced by citrus notes and subtle minerality. The coastal influence provides a fresh, sea-breeze character that keeps the palate lively and food-friendly.",
+        "finish": "Clean, refreshing finish with lingering berry fruit and bright acidity. The mineral character carries through providing a satisfying, thirst-quenching conclusion perfect for Mediterranean cuisine."
+      },
+      "foodPairings": [
+        "Grilled seafood and paella",
+        "Spanish tapas and jamón ibérico",
+        "Fresh salads with vinaigrette",
+        "Grilled vegetables with olive oil",
+        "Soft cheeses and fruit"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), serve well chilled",
+        "decanting": "No decanting needed",
+        "glassware": "White wine glass or rosé tulip glass"
+      },
+      "wineDetails": {
+        "region": "DO Costa del Maresme, Catalonia, Spain",
+        "grapeVariety": "Likely Garnacha and/or local Catalan varietals",
+        "vintage": "2021",
+        "style": "Fresh Mediterranean rosé",
+        "ageability": "Drink within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.79,
+        "researchedAt": "2025-10-21T14:07:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Dutton-Cambell Pinot Noir 2017",
+      "description": "A single-vineyard Pinot Noir from the acclaimed Dutton-Campbell Vineyard in Green Valley of Russian River Valley. Wonderment Wines specializes in handcrafted, small-production Pinot Noirs from premier Sonoma sites. The 2016 vintage earned 94 points from James Suckling.",
+      "tastingNotes": {
+        "aroma": "Classic Russian River Pinot Noir aromatics of red cherry, cranberry, and strawberry with elegant floral notes. Subtle earth, forest floor, and mushroom add complexity. Delicate spice notes from French oak integration enhance without dominating the pure fruit expression.",
+        "palate": "Silky texture with bright red fruit flavors of cherry, raspberry, and pomegranate. Medium body with excellent balance between fruit concentration and vibrant acidity. The Green Valley site provides cool-climate elegance with fine-grained tannins and remarkable precision. Subtle oak spice and earth notes add depth to the refined fruit profile.",
+        "finish": "Long, elegant finish with persistent red fruit and subtle earthiness. The silky tannins provide structure without weight, showcasing the finesse of this premier vineyard site."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry sauce",
+        "Grilled salmon with herbs",
+        "Mushroom risotto or wild mushroom tart",
+        "Roasted chicken with root vegetables",
+        "Soft-ripened cheeses like Époisses"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Decant for 20-30 minutes to open up the aromatics",
+        "glassware": "Burgundy or Pinot Noir glass"
+      },
+      "wineDetails": {
+        "region": "Green Valley of Russian River Valley, Sonoma County, California",
+        "grapeVariety": "100% Pinot Noir from Dutton-Campbell Vineyard",
+        "vintage": "2017",
+        "style": "Single-vineyard, cool-climate Pinot Noir",
+        "ageability": "Drink now through 2027. Showing tertiary complexity with good structure"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:08:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tapwines Sparkling Rose Keg   20000 ml",
+      "description": "A large-format sparkling rosé in keg format designed for high-volume service. This wine is crafted for restaurant and bar service, providing fresh, consistent sparkling rosé on tap with the convenience of keg delivery.",
+      "tastingNotes": {
+        "aroma": "Fresh red berry aromatics of strawberry and raspberry with floral notes. Clean, bright fruit-forward style designed for approachability and consistency. Subtle citrus and light yeast notes add complexity.",
+        "palate": "Light to medium-bodied with lively bubbles and refreshing acidity. Red berry flavors dominate with strawberry, cherry, and cranberry notes. The palate is crisp and food-friendly with balanced fruit sweetness and acidity. The keg format ensures consistent carbonation and freshness.",
+        "finish": "Clean, refreshing finish with bright acidity and lingering berry fruit. The bubbles persist through the finish creating a lively, festive character perfect for by-the-glass service."
+      },
+      "foodPairings": [
+        "Light appetizers and hors d'oeuvres",
+        "Grilled seafood and sushi",
+        "Summer salads and fresh cheeses",
+        "Fruit-based desserts",
+        "Perfect for brunch service"
+      ],
+      "servingInfo": {
+        "temperature": "43-47°F (6-8°C), serve well chilled from keg",
+        "decanting": "Served directly from tap system",
+        "glassware": "White wine glass or sparkling wine flute"
+      },
+      "wineDetails": {
+        "region": "Origin varies (keg wine format)",
+        "grapeVariety": "Rosé blend (specific varieties vary)",
+        "vintage": "Non-vintage",
+        "style": "Sparkling rosé in 20-liter keg format for tap service",
+        "ageability": "Serve fresh; keg wine designed for immediate consumption"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-21T14:09:00.000Z"
+      }
+    }
+  ],
+  "metadata": {
+    "batchNumber": 109,
+    "totalWines": 10,
+    "researchedAt": "2025-10-21T14:09:00.000Z",
+    "researchMethod": "WebSearch with professional wine publications and winery sources",
+    "averageConfidence": 0.88
+  }
+}

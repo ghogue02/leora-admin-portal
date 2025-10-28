@@ -1,0 +1,347 @@
+{
+  "batchNumber": 9,
+  "researchDate": "2025-10-20T00:00:00Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "fernanda-capello-prosecco-brut-nv",
+      "productName": "Fernanda Capello Prosecco Brut NV",
+      "description": "A classic Italian sparkling wine from the Veneto region, crafted from Glera grapes in the traditional Prosecco style. This Brut expression offers crisp refreshment with delicate fruit character and lively effervescence, perfect for celebrations or casual aperitifs.",
+      "tastingNotes": {
+        "aroma": "The nose presents vibrant aromas of green apple and white peach, complemented by subtle floral notes of acacia blossom and honeysuckle. Delicate hints of citrus zest and fresh pear add complexity, while a faint mineral undertone speaks to the wine's terroir. The aromatic profile is clean, bright, and inviting, typical of quality Prosecco production.",
+        "palate": "On the palate, this Brut Prosecco delivers refreshing flavors of crisp green apple, honeydew melon, and citrus, balanced by a gentle sweetness that stays well within the Brut threshold. The wine's fine, persistent bubbles create a creamy mousse that enhances the mouthfeel, while vibrant acidity provides structure and lift. Light notes of almond and bread dough add subtle depth without overwhelming the fresh fruit character.",
+        "finish": "The finish is clean and moderately persistent, with lingering notes of citrus and green apple. A pleasant mineral quality emerges at the end, leaving the palate refreshed and ready for another sip or the next course."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood crudo",
+        "Prosciutto di Parma with melon",
+        "Light pasta dishes with lemon and herbs",
+        "Fried calamari or tempura vegetables",
+        "Soft cheeses like fresh mozzarella or burrata"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C)",
+        "decanting": "No decanting needed; serve immediately upon opening to preserve the bubbles and freshness",
+        "glassware": "Flute or white wine glass to showcase the perlage and aromatics"
+      },
+      "wineDetails": {
+        "region": "Veneto, Italy",
+        "grapeVariety": "100% Glera",
+        "vintage": "Non-Vintage",
+        "style": "Sparkling Wine - Brut Prosecco",
+        "ageability": "Best enjoyed young and fresh; consume within 1-2 years of purchase for optimal freshness and fruit expression"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "zaha-cabernet-sauvignon-2019",
+      "productName": "ZaHa Cabernet Sauvignon 2019",
+      "description": "ZaHa, meaning 'Heart' in the Huarpe language, produces this expressive Cabernet Sauvignon from Argentina's prestigious Uco Valley in Mendoza. The 2019 vintage showcases the high-altitude terroir with concentrated fruit and elegant structure, reflecting meticulous vineyard management and modern winemaking techniques.",
+      "tastingNotes": {
+        "aroma": "The nose opens with captivating aromas of ripe blackberry and cassis, layered with notes of blackcurrant leaf and wild herbs. Subtle undertones of tobacco, green coffee bean, and roasted spices add complexity, while hints of dried mushroom and earthy minerality speak to the wine's terroir. The aromatic profile is both rich and nuanced, promising depth on the palate.",
+        "palate": "Fresh and rich on the palate, this Cabernet delivers juicy black cherry flavors alongside concentrated blackberry and fig. Tarry notes and roasted spices weave through the fruit, adding layers of complexity and interest. The wine's fine-grained tannin structure provides elegant support without overwhelming the fruit, while balanced acidity keeps everything lifted and harmonious. Medium to full-bodied with impressive concentration.",
+        "finish": "The finish is long and satisfying, with persistent dark fruit flavors complemented by hints of fresh herbs and subtle oak. The tannins remain refined and well-integrated, leaving a pleasant grip and inviting another sip."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised short ribs with red wine reduction",
+        "Lamb chops with rosemary and garlic",
+        "Aged Manchego or Mahón cheese",
+        "Mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-60 minutes to allow the wine to open up and soften the tannins",
+        "glassware": "Large Bordeaux-style glass to allow the aromas to develop"
+      },
+      "wineDetails": {
+        "region": "Uco Valley, Mendoza, Argentina",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Full-bodied Red Wine",
+        "ageability": "Drink now through 2029; the wine has good aging potential with proper cellaring at 55-60°F"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "vins-mosbach-riesling-cuvee-2022",
+      "productName": "Vins Mosbach Riesling Cuvée 2022",
+      "description": "From one of Alsace's historic estates, founded in 1577 in Marlenheim, this Riesling Cuvée showcases the region's renowned ability to produce elegant, terroir-driven white wines. The 2022 vintage benefits from Alsace's continental climate and diverse limestone-rich soils, creating a wine of precision and purity.",
+      "tastingNotes": {
+        "aroma": "The nose is brilliantly expressive with vibrant aromas of lime zest, green apple, and white peach. Floral notes of jasmine and orange blossom add aromatic lift, while subtle mineral undertones of wet stone and slate reflect the wine's limestone terroir. A delicate hint of white pepper and citrus blossom provides additional complexity, creating an enticing and multi-layered bouquet.",
+        "palate": "Crisp and energetic on the palate, this Riesling delivers precise flavors of lemon, green apple, and Bartlett pear, underscored by a steely mineral backbone. The wine's characteristic Alsatian structure is evident in its balanced acidity and medium body, while subtle notes of apricot and honeyed citrus add depth without compromising the wine's refreshing nature. The texture is clean and focused, with excellent tension between fruit and minerality.",
+        "finish": "The finish is long and refreshing, with lingering citrus and mineral notes that leave the palate cleansed and invigorated. A subtle hint of white pepper emerges at the very end, adding a final touch of complexity."
+      },
+      "foodPairings": [
+        "Alsatian choucroute garnie",
+        "Pan-seared scallops with citrus beurre blanc",
+        "Grilled trout with lemon and herbs",
+        "Fresh goat cheese salad with walnuts",
+        "Thai green curry or Vietnamese spring rolls"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting required; chill well and serve directly from the bottle",
+        "glassware": "Traditional Alsace flute or white wine glass to concentrate the aromatics"
+      },
+      "wineDetails": {
+        "region": "Marlenheim, Alsace, France",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2022",
+        "style": "Dry White Wine",
+        "ageability": "Enjoy now through 2028; Alsace Riesling develops beautiful petrol and honey notes with age while retaining freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "antonio-facchin-prosecco-brut-2024",
+      "productName": "Antonio Facchin Prosecco Brut 2024",
+      "description": "From the heart of Treviso in the Veneto region, this fresh vintage Prosecco showcases the family estate's commitment to quality sparkling wine production. The 2024 vintage captures the essence of Glera grapes with modern winemaking techniques, resulting in an elegant and approachable sparkler with refined character.",
+      "tastingNotes": {
+        "aroma": "The bouquet is airy and inviting with pronounced notes of green apple, ripe pear, and white peach. Delicate floral accents of white flowers and hints of brioche add elegance, while subtle notes of coriander and bitter almond provide an intriguing herbal complexity. The aromatic profile is fresh and well-defined, showcasing the wine's youth and vitality.",
+        "palate": "Supple and lively on the palate, this Prosecco delivers crisp flavors of green apple and pear, accented by hints of citrus and honeydew melon. The wine's soft, persistent bubbles create a pleasant mousse texture, while balanced acidity maintains freshness throughout. Subtle undertones of brioche and almond add depth, creating a more complex profile than typical entry-level Prosecco. The body is light to medium, with excellent integration of fruit, acidity, and effervescence.",
+        "finish": "The finish is clean and moderately persistent with lingering notes of apple and citrus. A pleasant hint of bitter almond emerges at the end, adding a sophisticated touch and leaving the palate refreshed."
+      },
+      "foodPairings": [
+        "Antipasti platter with cured meats and olives",
+        "Shrimp cocktail or grilled prawns",
+        "Risotto with asparagus and lemon",
+        "Fresh Buffalo mozzarella with tomatoes",
+        "Light seafood pasta or sushi"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C)",
+        "decanting": "Not required; serve chilled directly from the bottle to preserve the delicate bubbles",
+        "glassware": "Prosecco flute or tulip-shaped glass to showcase the perlage"
+      },
+      "wineDetails": {
+        "region": "Treviso, Veneto, Italy",
+        "grapeVariety": "100% Glera",
+        "vintage": "2024",
+        "style": "Sparkling Wine - Brut Prosecco",
+        "ageability": "Best consumed within 12-18 months of vintage for peak freshness and vibrant fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "casa-dumetz-clementine-carter-graciano-2020",
+      "productName": "Casa Dumetz Clementine Carter Graciano 2020",
+      "description": "An exceptional single-varietal Graciano from Santa Barbara's prestigious Two Wolves Vineyard in the Santa Ynez Valley. This rare expression showcases winemaker Sonja Magdevski's talent for crafting distinctive wines from unusual varieties, with 100% whole cluster fermentation highlighting the grape's natural elegance and aromatic complexity.",
+      "tastingNotes": {
+        "aroma": "The nose is strikingly aromatic with high-toned notes of crushed violet petals, rose water, and lavender. Sweet red berry fruit—raspberry, red cherry, and wild strawberry—mingles with exotic spice notes of cardamom and white pepper. The wine's organically-farmed origin is evident in pure, precise aromatics that showcase the variety's floral character. Subtle hints of graphite and dried herbs add additional layers of complexity.",
+        "palate": "Velvety and vibrant on the palate, this Graciano delivers vivid purple fruit flavors of black plum, boysenberry, and cassis, lifted by a distinctive lavender and floral note. The whole cluster fermentation contributes a subtle stem tannin structure that's fine-grained and silky rather than aggressive. Bright acidity keeps the wine dancing on the palate, while notes of sweet spice, rose petal, and dried flowers weave throughout. The texture is medium-bodied with an almost ethereal quality, belying the wine's intensity of flavor.",
+        "finish": "The finish is long and perfumed, with persistent floral and purple fruit notes. The tannins remain refined and well-integrated, providing structure without weight, while a hint of minerality emerges at the very end."
+      },
+      "foodPairings": [
+        "Moroccan lamb tagine with dried fruits",
+        "Duck breast with cherry gastrique",
+        "Grilled vegetables with herbs de Provence",
+        "Aged sheep's milk cheese",
+        "Spanish-style braised beef with paprika"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Decant for 20-30 minutes to allow the floral aromatics to fully express themselves",
+        "glassware": "Burgundy-style glass to capture the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Two Wolves Vineyard, Santa Ynez Valley, Santa Barbara County, California",
+        "grapeVariety": "100% Graciano (organically farmed)",
+        "vintage": "2020",
+        "style": "Medium-bodied Red Wine",
+        "ageability": "Drink now through 2028; the wine's bright acidity and fine tannins suggest good medium-term aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "backsberg-blueberry-row-pinotage-2020",
+      "productName": "Backsberg Blueberry Row Pinotage 2020",
+      "description": "From South Africa's renowned Backsberg Estate, this Fifth Generation Pinotage showcases the country's signature grape variety with distinctive fruit-forward character. Named for the blueberry bushes that line the vineyard rows, this wine captures the essence of Paarl terroir with modern winemaking that emphasizes approachability and fruit purity.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic with pronounced notes of wild blueberries, black cherry, and ripe plum. Layers of mocha, coffee, and cinnamon create a warm spice profile, while hints of dark chocolate and dried herbs add complexity. The wine exudes inviting aromas that are both fruity and subtly savory, with a pleasant earthy undertone characteristic of well-made Pinotage.",
+        "palate": "Juicy and medium-bodied on the palate, this Pinotage delivers ripe cherry, sweet strawberry, and fresh blueberry flavors, complemented by notes of coffee bean and mocha. The wine's supple, sweet tannins create a silky smooth texture that's immediately appealing, while subtle undertones of dried herbs and spice add depth. Balanced acidity maintains freshness throughout, preventing the fruit sweetness from becoming cloying. The mouthfeel is plush and inviting, with excellent integration of fruit, oak, and tannin.",
+        "finish": "The finish is smooth and moderately long, with lingering notes of coffee, cherry, and sweet spice. The tannins remain soft and approachable, making this an excellent everyday drinking wine that doesn't require extensive cellaring."
+      },
+      "foodPairings": [
+        "Barbecued ribs with sweet and spicy sauce",
+        "Grilled lamb chops with rosemary",
+        "Spicy bobotie or Cape Malay curry",
+        "Beef burger with caramelized onions",
+        "Aged Gouda or cheddar cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief decanting of 15-20 minutes can enhance the aromatic profile, though not essential",
+        "glassware": "Medium-sized red wine glass to allow the fruit and spice aromas to develop"
+      },
+      "wineDetails": {
+        "region": "Paarl, Western Cape, South Africa",
+        "grapeVariety": "100% Pinotage",
+        "vintage": "2020",
+        "style": "Medium-bodied Red Wine",
+        "ageability": "Enjoy now through 2026; designed for earlier consumption to preserve the vibrant fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "tibouren-cotes-de-provence-2023",
+      "productName": "Tibouren Côtes de Provence 2023",
+      "description": "A distinctive Provence rosé showcasing the rare Tibouren grape, indigenous to the region and prized for its aromatic complexity and textural depth. This 2023 vintage captures the essence of Mediterranean terroir with its mineral-driven profile and signature citrus character, representing a more sophisticated expression than typical Provence pink wines.",
+      "tastingNotes": {
+        "aroma": "The bouquet is captivating and complex with pronounced notes of blood orange, tangerine, and orange zest. Delicate aromas of barely-ripe strawberry and red cherry mingle with distinctive herbal notes of thyme, garrigue, and fresh Mediterranean herbs. A subtle mineral quality of wet stone and sea salt adds depth, while hints of fresh cream and ginger provide unexpected elegance. The overall impression is one of sophistication and terroir-driven character.",
+        "palate": "Lush and broad on the palate with a distinctive creamy mouthfeel that sets this apart from typical Provence rosés. Flavors of blood orange, raspberry, and red currant dominate, supported by vibrant acidity that provides excellent structure and lift. Earthy and spicy elements of pine, garrigue, and white pepper add complexity, while subtle mineral and saline notes speak to the wine's coastal terroir. The texture is notably rich while maintaining freshness, with beautiful integration of fruit, herbs, and minerality.",
+        "finish": "The finish is long and dry with persistent citrus and herbal notes. A distinctive salty-mineral quality emerges at the end, along with delicate floral undertones that linger pleasantly on the palate."
+      },
+      "foodPairings": [
+        "Grilled sea bass with herbs and lemon",
+        "Bouillabaisse or Mediterranean fish stew",
+        "Roasted chicken with Provençal herbs",
+        "Niçoise salad with fresh tuna",
+        "Goat cheese crostini with honey and thyme"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve well-chilled to highlight the wine's refreshing minerality",
+        "glassware": "White wine glass to concentrate the aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Côtes de Provence, Provence, France",
+        "grapeVariety": "85-90% Tibouren, blended with Grenache",
+        "vintage": "2023",
+        "style": "Dry Rosé Wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage; drink now through 2026 for optimal freshness and aromatic expression"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "hendry-block-28-zinfandel-2019",
+      "productName": "Hendry Block 28 Zinfandel 2019",
+      "description": "This flagship Zinfandel from Hendry Ranch represents the pinnacle of Napa Valley Zinfandel production. Block 28 was planted in 1998 with cuttings from the legendary Brandlin Vineyard on Mount Veeder, and the 2019 vintage showcases the exceptional quality of this outstanding growing season with remarkable concentration and balance.",
+      "tastingNotes": {
+        "aroma": "The nose is powerfully aromatic with vivid, jammy blackberry and black raspberry leading the charge. Floral scents of violet and lavender add elegance, while pronounced black pepper, wild sage, and dried herbs contribute a rustic authenticity. Undertones of wood smoke, vanilla, and baking spice from oak aging add layers of complexity without overwhelming the pure fruit expression. The aromatic profile is both intense and refined.",
+        "palate": "Full-bodied and fruit-forward on the palate, this Zinfandel delivers concentrated flavors of jammy blackberry, black cherry, and ripe plum. The wine's underlying tension and well-structured acidity keep everything lifted and balanced despite the richness, preventing it from becoming heavy or cloying. Notes of black pepper, sage, and smoky oak weave through the fruit, adding rustic complexity and depth. The tannins are firm yet well-integrated, providing excellent structure for aging. Medium to full body with impressive length and persistence.",
+        "finish": "The finish is long and satisfying with persistent dark fruit flavors, black pepper spice, and hints of wood smoke. An underlying acidity ensures freshness throughout, while the tannins provide a pleasant grip that invites food pairing."
+      },
+      "foodPairings": [
+        "Grilled tri-tip with black pepper crust",
+        "Braised lamb shanks with herbs",
+        "BBQ pulled pork or brisket",
+        "Wild mushroom pizza with truffle oil",
+        "Aged sharp cheddar or Parmigiano-Reggiano"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine's complex aromatics to fully develop and integrate",
+        "glassware": "Large Bordeaux-style glass to allow the intense fruit and spice aromas to express themselves"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (Block 28, 4.17-acre benchland parcel)",
+        "grapeVariety": "100% Zinfandel (Brandlin clone)",
+        "vintage": "2019",
+        "style": "Full-bodied Red Wine",
+        "ageability": "Drink now through 2031; excellent aging potential with proper cellaring, though approachable in its youth"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "bloem-syrah-mourvedre-2021",
+      "productName": "Bloem Syrah Mourvèdre 2021",
+      "description": "From the prestigious Simonsberg-Paarl region of South Africa, this Rhône-style blend captures the essence of the Cape Floral Kingdom with distinctive terroir expression. Produced by Noble Hill winery, the 2021 vintage showcases the synergy between Syrah's structure and Mourvèdre's aromatic complexity, with winemaking focused on freshness and purity.",
+      "tastingNotes": {
+        "aroma": "The nose offers refreshing black currant and cherry fruit aromas balanced with exotic spice notes of cardamom, coriander, and white pepper. Earthy undertones of garrigue, dried lavender, and Mediterranean herbs add complexity, while subtle hints of violet and dark chocolate provide additional layers. The aromatic profile is clean and vibrant, showcasing the wine's focus on fresh fruit expression rather than heavy oak influence.",
+        "palate": "Smooth and medium-weight on the palate with supple blackberry, black cherry, and plum flavors. The wine's clean, creamy texture is immediately appealing, enhanced by exotic spice notes that weave throughout. Black pepper, dried herbs, and subtle earthy undertones add depth and complexity without overwhelming the fruit. Balanced acidity maintains freshness and lift, while soft tannins provide gentle structure. The overall impression is one of elegance and restraint, with excellent integration of all elements.",
+        "finish": "The finish is dry and lingering with persistent dark fruit and spice notes. A hint of exotic spice and earthy minerality emerges at the end, leaving the palate refreshed and satisfied."
+      },
+      "foodPairings": [
+        "Barbecued lamb chops or sosaties",
+        "Grilled steak with peppercorn sauce",
+        "Beef and vegetable kebabs",
+        "Spicy lamb curry or bobotie",
+        "Aged hard cheeses or charcuterie board"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 20-30 minutes to allow the wine to open up and reveal its aromatic complexity",
+        "glassware": "Medium to large red wine glass to allow the spice and fruit aromas to develop"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, Western Cape, South Africa",
+        "grapeVariety": "92% Syrah, 8% Mourvèdre",
+        "vintage": "2021",
+        "style": "Medium-bodied Red Wine - Rhône-style blend",
+        "ageability": "Drink now through 2028; the wine has good aging potential while remaining approachable in its youth"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "roots-divino-na-rosso-vermouth-nv",
+      "productName": "Roots Divino NA Rosso Vermouth NV",
+      "description": "A sophisticated non-alcoholic aperitif crafted in Greece by macerating and infusing dealcoholized wine with traditional vermouth botanicals including Greek bitter oranges, gentian, and wormwood. This award-winning zero-proof vermouth captures the complexity and depth of traditional Italian rosso vermouth while offering a mindful drinking alternative.",
+      "tastingNotes": {
+        "aroma": "The bouquet is complex and inviting with pronounced notes of bitter orange peel and sweet vanilla. Aromas of grape must, dried fruits—particularly raisin and fruitcake—mingle with warming baking spices of cinnamon and clove. Subtle herbal undertones of wormwood and gentian add a traditional vermouth character, while hints of dark chocolate and caramel provide additional depth. The overall impression is one of authentic vermouth complexity.",
+        "palate": "Medium-bodied with a delightful bittersweet character that balances orange sweetness against the bitter notes of gentian root and wormwood. Deep plum and cassis flavors emerge alongside the citrus, while fruitcake spices and vanilla provide warmth and richness. The wine base contributes subtle grape and berry flavors, while a touch of acidity prevents the sweetness from becoming cloying. Over ice, a pleasant tartness emerges that subdues some of the sweetness and highlights the herbal complexity. The texture is round and smooth with excellent balance.",
+        "finish": "The finish is moderately long with lingering bitter-orange notes and gentle spice. The characteristic vermouth bitterness provides a clean, refreshing conclusion that stimulates the appetite and invites another sip or the next course."
+      },
+      "foodPairings": [
+        "Charcuterie and aged cheeses",
+        "Marinated olives and roasted nuts",
+        "Bruschetta with tomatoes and basil",
+        "Smoked salmon canapés",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C) or over ice",
+        "decanting": "No decanting needed; serve chilled or over ice, optionally with orange peel garnish",
+        "glassware": "Rocks glass or coupe for cocktails; wine glass for sipping neat"
+      },
+      "wineDetails": {
+        "region": "Greece",
+        "grapeVariety": "Dealcoholized wine base infused with Greek bitter oranges, gentian, wormwood, and Mediterranean botanicals",
+        "vintage": "Non-Vintage",
+        "style": "Non-Alcoholic Sweet Vermouth/Aperitif",
+        "ageability": "Consume within 3-4 weeks of opening when refrigerated; best enjoyed fresh"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    }
+  ]
+}

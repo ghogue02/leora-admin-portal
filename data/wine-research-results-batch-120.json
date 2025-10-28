@@ -1,0 +1,347 @@
+{
+  "batchNumber": 120,
+  "processedAt": "2025-10-21T12:45:00.000Z",
+  "totalWines": 10,
+  "results": [
+    {
+      "productId": "",
+      "productName": "Casa Dumetz Clementine Carter Graciano 2021",
+      "description": "Casa Dumetz's single-vineyard Graciano from Santa Barbara County showcases this rare Spanish variety in California's cool-climate terroir. The Clementine Carter vineyard site produces concentrated, aromatic Graciano with both power and elegance.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic, the nose presents dark berry fruit—blackberry, black raspberry, and boysenberry—layered with violet, lavender, and exotic spices. Notes of smoked meat, black pepper, and graphite add savory complexity, while hints of espresso and dark chocolate from oak aging provide depth. The aromatic profile is bold yet refined.",
+        "palate": "Full-bodied with firm but polished tannins, the palate delivers concentrated flavors of dark fruit, black cherry, and plum, accented by notes of black olive, roasted meat, and wild herbs. Bright acidity provides structure and freshness, balancing the wine's power. Layers of smoke, spice, and earth emerge on the mid-palate, while the texture remains velvety and refined.",
+        "finish": "The finish is long and intense, with persistent dark fruit, smoke, and structured tannins. Notes of espresso, spice, and graphite linger through a powerful conclusion."
+      },
+      "foodPairings": [
+        "Grilled ribeye with chimichurri",
+        "Braised lamb shanks with rosemary",
+        "Smoked brisket",
+        "Aged manchego cheese",
+        "Wild boar ragu"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60-90 minutes of decanting recommended to soften tannins and integrate flavors",
+        "glassware": "Large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Santa Barbara County, California",
+        "grapeVariety": "100% Graciano",
+        "vintage": "2021",
+        "style": "Dry red wine, full-bodied, rare varietal",
+        "ageability": "Drink now through 2031. Peak drinking 2024-2029."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bierzo Pilgrim Godello 2021",
+      "description": "Godello from Spain's Bierzo region showcases one of Galicia's finest indigenous white varieties. The Pilgrim bottling offers bright minerality and stone fruit character, expressing the slate-rich soils and cool Atlantic influences of northwestern Spain.",
+      "tastingNotes": {
+        "aroma": "Fresh and mineral-driven, the nose presents aromas of green apple, white peach, and citrus blossom, with pronounced notes of wet stone and crushed slate. Hints of white flowers, almond, and subtle herbs add complexity, while a whisper of saline minerality evokes the nearby Atlantic coast.",
+        "palate": "Medium-bodied with vibrant acidity and excellent minerality, the palate delivers crisp flavors of lemon, green apple, and white peach, accented by stony mineral notes. The wine's refreshing character is enhanced by bright citrus acidity and a pronounced saline quality that adds depth. Clean and focused, with layers of stone fruit and subtle herbal notes emerging on the mid-palate.",
+        "finish": "The finish is crisp and persistent, with lingering citrus, mineral, and subtle almond notes. Bright acidity provides a refreshing conclusion."
+      },
+      "foodPairings": [
+        "Grilled octopus with paprika",
+        "Fresh oysters or shellfish",
+        "Albariño-style seafood preparations",
+        "Goat cheese with herbs",
+        "Grilled sardines with lemon"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C), well-chilled",
+        "decanting": "Not necessary. Serve directly from the bottle",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Bierzo DO, Castilla y León, Spain",
+        "grapeVariety": "100% Godello",
+        "vintage": "2021",
+        "style": "Dry white wine, medium-bodied, mineral-driven",
+        "ageability": "Drink now through 2026. Best enjoyed within 3-5 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Padre Bendicho Red Red Kosher (MD & DC) 2023",
+      "description": "Padre Bendicho's kosher red blend from Spain offers quality and value while adhering to strict kosher certification standards. The 2023 vintage provides approachable fruit and food-friendly structure for everyday enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose presents ripe aromas of red cherry, plum, and blackberry, with subtle notes of vanilla, herbs, and earth. Light spice notes of black pepper and cinnamon add complexity, while hints of oak contribute structure. The aromatic profile is straightforward and fruit-forward.",
+        "palate": "Medium-bodied with soft tannins, the palate delivers flavors of red and dark fruit, accented by notes of herbs, spice, and subtle oak. Moderate acidity provides balance and freshness, creating an approachable, food-friendly style. The texture is smooth and easy-drinking.",
+        "finish": "The finish is medium in length with lingering fruit and gentle spice. Soft tannins provide a smooth conclusion."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs",
+        "Beef brisket",
+        "Grilled vegetables",
+        "Pasta with tomato sauce",
+        "Hard cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "15-30 minutes helpful but not required",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain",
+        "grapeVariety": "Red blend (likely Tempranillo-based)",
+        "vintage": "2023",
+        "style": "Dry red wine, medium-bodied, kosher",
+        "ageability": "Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barrel Oak Farm Taphouse Kolsch   58670 ml",
+      "description": "Barrel Oak Farm's Kolsch-style beer represents a departure from wine into craft brewing. This German-style ale offers crisp, clean character with subtle malt sweetness and restrained hop bitterness, perfect for warm weather drinking.",
+      "tastingNotes": {
+        "aroma": "The nose is clean and delicate, presenting subtle malt aromas of bread and biscuit, with light floral hop notes. Hints of honey and grass add complexity, while a whisper of noble hop character provides balance. The aromatic profile is restrained and refined, true to Kolsch style.",
+        "palate": "Light to medium-bodied with crisp carbonation and clean malt character, the palate delivers flavors of bread, crackers, and subtle honey, balanced by delicate hop bitterness. The beer's refreshing character is enhanced by bright acidity and a dry, crisp finish. Exceptionally drinkable and sessionable.",
+        "finish": "The finish is clean and dry, with lingering malt and subtle hop notes. Crisp carbonation provides a refreshing conclusion."
+      },
+      "foodPairings": [
+        "Grilled bratwurst or sausages",
+        "Fish and chips",
+        "Soft pretzels with mustard",
+        "Light salads",
+        "Chicken schnitzel"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well-chilled",
+        "decanting": "Not applicable for beer. Serve directly",
+        "glassware": "Kolsch glass or pilsner glass"
+      },
+      "wineDetails": {
+        "region": "Virginia, USA",
+        "grapeVariety": "N/A - Beer (Kolsch-style ale)",
+        "vintage": "Current release",
+        "style": "Kolsch-style ale, light-bodied, crisp and clean",
+        "ageability": "Drink fresh. Beer is best consumed within months of packaging."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "ZaHa Cabernet Franc 2019",
+      "description": "ZaHa's Cabernet Franc from Virginia showcases the variety's elegant expression in the state's emerging wine region. The 2019 vintage offers structured fruit with herbaceous complexity, reflecting Virginia's unique terroir and improving winemaking quality.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents lifted aromatics of red currant, raspberry, and black cherry, with distinctive notes of violet, green peppercorn, and fresh tobacco. Herbal elements of sage and dried herbs add complexity, while subtle oak contributes hints of cedar and vanilla. A delicate mineral thread suggests Virginia's diverse soils.",
+        "palate": "Medium-bodied with fine-grained tannins, the palate delivers flavors of red fruit, cranberry, and dark cherry, accented by savory herb and spice notes. Bright acidity provides excellent structure and freshness, balancing the ripe fruit character. The texture is silky and refined, with integrated oak adding subtle complexity.",
+        "finish": "The finish is medium in length with persistent red fruit, herbs, and gentle tannins. Notes of tobacco and graphite linger through an elegant conclusion."
+      },
+      "foodPairings": [
+        "Herb-roasted chicken",
+        "Grilled salmon with herbs",
+        "Mushroom and gruyere tart",
+        "Virginia ham",
+        "Aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30-45 minutes of decanting recommended",
+        "glassware": "Medium-sized red wine glass"
+      },
+      "wineDetails": {
+        "region": "Virginia, USA",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2019",
+        "style": "Dry red wine, medium-bodied, herbaceous",
+        "ageability": "Drink now through 2027. Peak drinking now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.79,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Anko Malbec 2023",
+      "description": "Anko's Malbec from Argentina's wine regions offers the variety's signature dark fruit and velvety texture. The 2023 vintage provides immediate drinking pleasure with ripe fruit and soft tannins, showcasing Argentina's excellence with this variety.",
+      "tastingNotes": {
+        "aroma": "Rich and inviting, the nose bursts with aromas of ripe plum, blackberry, and dark cherry, layered with notes of violet, mocha, and sweet spices. Hints of vanilla and toast from oak aging add complexity, while subtle earth and herb notes provide balance. The aromatic profile is generous and fruit-forward.",
+        "palate": "Full-bodied with soft, velvety tannins, the palate delivers concentrated flavors of dark fruit—plum, blackberry, and black cherry—alongside notes of chocolate, coffee, and toasted oak. The wine's plush texture is balanced by moderate acidity, creating a smooth, approachable style. Layers of spice and earth emerge on the mid-palate.",
+        "finish": "The finish is long and smooth, with persistent dark fruit, chocolate, and soft tannins. Notes of vanilla and spice linger through a velvety conclusion."
+      },
+      "foodPairings": [
+        "Grilled steak with chimichurri",
+        "Braised short ribs",
+        "Empanadas",
+        "Aged provolone",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30 minutes helpful to open the wine",
+        "glassware": "Large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Argentina (likely Mendoza)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2023",
+        "style": "Dry red wine, full-bodied, fruit-forward",
+        "ageability": "Drink now through 2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Eulila Red Blend Cachapoal Valley Magnum (DC - MD Only) 2019  1.5 l",
+      "description": "Eulila's red blend from Chile's Cachapoal Valley, presented in magnum format, offers concentrated fruit and structure from this warm-climate region. The larger bottle format enhances aging potential and makes for impressive presentation.",
+      "tastingNotes": {
+        "aroma": "The nose presents concentrated aromas of blackberry, cassis, and dark plum, with notes of cedar, tobacco, and sweet spices. Hints of eucalyptus, mint, and dark chocolate add complexity, while subtle oak influence contributes vanilla and toast. The aromatic profile shows Chilean ripeness with structure.",
+        "palate": "Full-bodied with firm tannins, the palate delivers rich flavors of dark fruit, black cherry, and boysenberry, alongside notes of mocha, earth, and oak spices. The wine's substantial structure is balanced by integrated acidity and a plush texture. Layers of chocolate, herbs, and smoke emerge on the mid-palate.",
+        "finish": "The finish is long and powerful, with persistent dark fruit, chocolate, and structured tannins. Notes of cedar and spice linger through a robust conclusion."
+      },
+      "foodPairings": [
+        "Grilled meats—asado style",
+        "Beef empanadas",
+        "Braised lamb",
+        "Aged cheeses",
+        "Rich stews"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes recommended for magnum",
+        "glassware": "Large-bowled Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Cachapoal Valley, Chile",
+        "grapeVariety": "Red blend (likely Cabernet Sauvignon, Carmenere, Merlot)",
+        "vintage": "2019",
+        "style": "Dry red wine, full-bodied, Chilean blend",
+        "ageability": "Drink now through 2029."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.77,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alella Marfil Sec 2018",
+      "description": "Alella Marfil Sec from Catalunya's small Alella DO showcases indigenous Pansa Blanca (local clone of Xarel-lo). This dry white offers Mediterranean character with minerality from coastal vineyard sites near Barcelona.",
+      "tastingNotes": {
+        "aroma": "The nose presents fresh aromas of green apple, lemon, and white flowers, with notes of Mediterranean herbs, almond, and sea spray. Subtle mineral notes of wet stone add complexity, while hints of fennel and citrus blossom provide aromatic lift. The profile is clean and coastal.",
+        "palate": "Medium-bodied with crisp acidity and pronounced minerality, the palate delivers flavors of citrus, green apple, and stone fruit, accented by herbal and saline notes. The wine's refreshing character is enhanced by bright acidity and a stony mineral backbone. Clean and focused with layers of fruit and subtle complexity.",
+        "finish": "The finish is clean and persistent, with lingering citrus, mineral, and subtle herbal notes. Bright acidity and salinity provide a refreshing conclusion."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean fish",
+        "Paella or seafood rice",
+        "Fresh manchego cheese",
+        "Grilled vegetables with olive oil",
+        "Fried calamari"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C)",
+        "decanting": "Not necessary",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Alella DO, Catalunya, Spain",
+        "grapeVariety": "Pansa Blanca (Xarel-lo)",
+        "vintage": "2018",
+        "style": "Dry white wine, medium-bodied, mineral-driven",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oleandri Sonoma Coast Chardonnay 2023",
+      "description": "Oleandri's Sonoma Coast Chardonnay benefits from cool Pacific influences that preserve natural acidity while achieving optimal ripeness. The 2023 vintage offers balanced fruit, minerality, and oak integration in a modern California style.",
+      "tastingNotes": {
+        "aroma": "The nose opens with aromas of ripe apple, pear, and citrus, complemented by notes of toasted hazelnut, vanilla, and butterscotch from oak aging. Subtle hints of white flowers and lemon cream add complexity, while mineral undertones of wet stone provide structure. The aromatic profile balances fruit and oak beautifully.",
+        "palate": "Medium to full-bodied with creamy texture and balanced acidity, the palate delivers flavors of baked apple, ripe pear, and tropical fruit, alongside vanilla, butter, and toast from oak. The wine's rich mouthfeel is balanced by bright citrus acidity and mineral notes. Well-integrated oak contributes complexity without overwhelming the fruit.",
+        "finish": "The finish is long and balanced, with lingering fruit, vanilla, and subtle oak. Bright acidity provides a clean conclusion."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs",
+        "Lobster with drawn butter",
+        "Creamy pasta dishes",
+        "Grilled halibut",
+        "Aged gruyere"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Not necessary, 15 minutes in glass helpful",
+        "glassware": "Large-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Sonoma Coast, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Dry white wine, medium to full-bodied, oak-aged",
+        "ageability": "Drink now through 2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tapwines Sparkling White Keg   20000 ml",
+      "description": "Tapwines' keg-dispensed sparkling white offers fresh, effervescent wine in an innovative format perfect for events and hospitality settings. The large-format keg preserves freshness while providing convenience and sustainability benefits.",
+      "tastingNotes": {
+        "aroma": "Clean and refreshing, the nose presents delicate aromas of green apple, citrus, and white flowers, with light yeast notes from secondary fermentation. The aromatic profile is straightforward and appealing, designed for easy-drinking enjoyment.",
+        "palate": "Light to medium-bodied with fine bubbles and crisp acidity, the palate delivers flavors of apple, lemon, and subtle stone fruit. The wine's refreshing character and dry style make it incredibly versatile for food pairing and casual enjoyment. Clean and approachable.",
+        "finish": "The finish is clean and refreshing, with lingering citrus and persistent bubbles. Crisp acidity provides a lively conclusion."
+      },
+      "foodPairings": [
+        "Appetizers and canapes",
+        "Fresh oysters",
+        "Light salads",
+        "Soft cheeses",
+        "Fried foods"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well-chilled",
+        "decanting": "Not applicable—served from keg tap",
+        "glassware": "Sparkling wine flute or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Various (keg wine)",
+        "grapeVariety": "White blend (likely neutral varieties)",
+        "vintage": "Current release",
+        "style": "Sparkling white wine, light-bodied, keg format",
+        "ageability": "Drink fresh from keg."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T12:45:00.000Z"
+      }
+    }
+  ]
+}

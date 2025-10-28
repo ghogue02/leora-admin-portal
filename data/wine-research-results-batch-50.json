@@ -1,0 +1,346 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Crianza 2019",
+      "description": "A classic Rioja Crianza from Bodegas Valdemar, this wine exemplifies the traditional style of Rioja Alta and Alavesa. Aged 15 months in American oak barrels, it offers a harmonious balance between vibrant fruit and integrated oak influence, showcasing the quality of estate-grown Tempranillo with supporting varietals.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of black fruits, particularly ripe plum and blackberry, intertwined with well-integrated oak notes. Sweet spice characteristics emerge, including vanilla and cinnamon from the American oak aging, accompanied by subtle hints of licorice and dried herbs that add complexity to the aromatic profile.",
+        "palate": "On the palate, this wine is fleshy and full of flavor, delivering excellent balance between fruit concentration and oak integration. The entry is smooth and pleasant with a fresh quality that maintains vibrancy. Flavors of black fruit dominate, supported by spice notes and touches of tobacco, while the tannin structure remains firm yet approachable, providing framework without overwhelming the fruit.",
+        "finish": "The finish is long and persistent, echoing the black fruit characteristics with lingering notes of sweet spices and licorice. The wine maintains its balance through to the end, leaving a pleasant impression of integrated oak and ripe fruit that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Beef short ribs braised in red wine",
+        "Wood-fired pizza with chorizo and peppers",
+        "Manchego and aged sheep's milk cheeses",
+        "Mushroom risotto with truffle oil"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 30 minutes to allow the wine to open and integrate the oak and fruit components more fully",
+        "glassware": "Large Bordeaux glass or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa (Alta and Alavesa subregions), Spain",
+        "grapeVariety": "90% Tempranillo, 10% Mazuelo (Carignan)",
+        "vintage": "2019",
+        "style": "Rioja Crianza (minimum 2 years aging with 1 year in oak)",
+        "ageability": "Drink now through 2027. Can age 5-8 years from vintage, developing tertiary notes of leather and earth while maintaining fruit core."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Cotes du Rhone Rouge 2023",
+      "description": "A vibrant organic Côtes du Rhône from Domaine des Pasquiers, a family estate run by the Lambert brothers since 1935. This wine embodies the warm, Mediterranean character of the Southern Rhône's Vaucluse region, crafted from organically farmed vines across their 87-hectare estate near the village of Sablet.",
+      "tastingNotes": {
+        "aroma": "The bouquet bursts with sun-ripened red berries and dark cherries, characteristic of Grenache noir from warm southern vineyards. Aromatic complexity builds with notes of garrigue herbs—thyme, rosemary, and lavender—that speak to the Mediterranean terroir. Subtle hints of black pepper and crushed stones add an earthy dimension, while a whisper of violet provides floral lift.",
+        "palate": "Medium to full-bodied with supple texture and approachable tannins that reflect the organic farming practices. The palate delivers juicy red fruit flavors—raspberry, strawberry, and red plum—balanced by Syrah's addition of structure and darker fruit notes. Bright acidity keeps the wine fresh and food-friendly, while herbal nuances of dried thyme and black olive add savory complexity. The mouthfeel is smooth and rounded with minimal oak influence, allowing the pure fruit expression to shine.",
+        "finish": "A moderately long finish showcasing the wine's fruit-forward nature with lingering notes of red berries and Mediterranean herbs. The finish is clean and refreshing with soft tannins that fade gently, leaving a pleasant impression of warmth and spice typical of Southern Rhône wines."
+      },
+      "foodPairings": [
+        "Herb-roasted lamb with Provençal vegetables",
+        "Grilled sausages with ratatouille",
+        "Beef daube Provençal",
+        "Aged Comté or Gruyère cheese",
+        "Chicken cacciatore with olives and tomatoes"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cooler to preserve freshness",
+        "decanting": "Brief 15-20 minute decant or open 30 minutes before serving to allow the wine to breathe and express its aromatic complexity",
+        "glassware": "Medium-sized Rhône or Burgundy glass to capture the aromatic herbs and fruit"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône AOC, Vaucluse, Southern Rhône Valley, France",
+        "grapeVariety": "Grenache noir dominant (60-70%), blended with Syrah and Mourvèdre",
+        "vintage": "2023",
+        "style": "Organic Southern Rhône red blend, fruit-forward and approachable",
+        "ageability": "Best enjoyed young within 2-4 years to appreciate fresh fruit and herbal character. Drink now through 2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tenute Orestiadi Pinot Grigio 2024",
+      "description": "A crisp, refreshing Pinot Grigio from the sunny hills of western Sicily, produced by Tenute Orestiadi where art and wine converge. Founded in 2008 in Gibellina Nuova within the Belìce Valley, this wine showcases organically grown Pinot Grigio from volcanic-influenced soils, expressing a distinctive Sicilian character with Mediterranean brightness.",
+      "tastingNotes": {
+        "aroma": "Bright and lifted aromatics featuring white peach, green apple, and citrus blossom. The nose reveals typical Italian Pinot Grigio character with delicate floral notes of acacia and hints of pear skin. Subtle mineral undertones emerge, reflecting the Sicilian terroir, along with whispers of almond and a touch of Mediterranean herbs that add complexity to the otherwise pure fruit expression.",
+        "palate": "Light to medium-bodied with refreshing, crisp acidity that defines the Italian Pinot Grigio style. The palate delivers clean flavors of green apple, white peach, and citrus zest with a distinctive mineral edge that speaks to the volcanic-influenced soils. A slightly spritzy quality enhances the wine's freshness, while the organic farming practices contribute to the wine's purity and vibrancy. The texture is lean and refreshing with just enough body to carry the delicate fruit flavors without heaviness.",
+        "finish": "Clean and refreshing finish with lingering citrus notes and a characteristic hint of pleasant bitterness reminiscent of lemon pith. The wine concludes with excellent minerality and a mouth-watering quality that makes it highly food-friendly and ideal for warm weather drinking."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean sea bass with lemon",
+        "Calamari fritti with aioli",
+        "Caprese salad with fresh mozzarella",
+        "Pasta with clam sauce (linguine alle vongole)",
+        "Prosciutto and melon antipasti"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well-chilled to enhance crispness",
+        "decanting": "No decanting necessary; serve directly from refrigerator",
+        "glassware": "Smaller white wine glass or tulip-shaped glass to concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Sicily (Sicilia), Belìce Valley, Italy",
+        "grapeVariety": "100% Pinot Grigio from organically grown grapes",
+        "vintage": "2024",
+        "style": "Italian Pinot Grigio - light-bodied, crisp, refreshing white wine",
+        "ageability": "Best enjoyed young and fresh within 1-2 years of vintage to preserve crisp acidity and delicate aromatics. Drink now through 2026."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Campus Oaks Old Vine Zinfandel 2016",
+      "description": "A powerful expression of California old vine Zinfandel, this wine celebrates the heritage and intensity that comes from mature vines with their concentrated fruit and complex character. The 2016 vintage captures the bold, fruit-forward style that has made California Zinfandel famous, with the depth and structure that only old vines can provide.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with concentrated aromas of ripe blackberry and black cherry, interwoven with jammy notes of strawberry preserves and peach compote. Baking spices dominate the aromatic profile with prominent cinnamon, clove, and vanilla from oak aging. An underlying peppery note adds intrigue, while hints of sweet tobacco and dark chocolate contribute to the wine's complexity. The high alcohol content (likely 15%+ ABV) is evident in the wine's heady, warming aromatics.",
+        "palate": "Full-bodied and lush with a mouth-filling texture characteristic of old vine Zinfandel. The palate delivers intense flavors of ripe blackberry and dark cherry with generous notes of raspberry jam and dried fig. Rich baking spices—cinnamon, nutmeg, and vanilla—layer over the fruit, while the wine's elevated alcohol creates warmth and viscosity. Firm tannins provide structure despite the small berry size and thin skins typical of Zinfandel, balancing the wine's power with grip. The old vines contribute concentrated fruit flavors and deeper complexity than standard Zinfandel bottlings.",
+        "finish": "Long and warming finish with persistent black fruit flavors, sweet spice, and a characteristic peppery note. The finish shows the wine's power with lingering warmth from the alcohol and a pleasant drying quality from the tannins. Notes of tobacco and dark chocolate emerge at the end, adding sophistication to the bold fruit profile."
+      },
+      "foodPairings": [
+        "Smoked beef brisket with BBQ sauce",
+        "Baby back ribs with spicy dry rub",
+        "Grilled burger with sharp cheddar and caramelized onions",
+        "Pulled pork shoulder with coleslaw",
+        "Venison or game meats with berry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C), slightly warmer to showcase the wine's aromatic complexity",
+        "decanting": "Decant for 45-60 minutes to allow the powerful wine to open and integrate its high alcohol and intense fruit flavors",
+        "glassware": "Large Bordeaux or Cabernet glass to tame the alcohol and concentrate the aromatics"
+      },
+      "wineDetails": {
+        "region": "California, USA (specific appellation not specified)",
+        "grapeVariety": "100% Old Vine Zinfandel",
+        "vintage": "2016",
+        "style": "Bold, full-bodied California Zinfandel with high alcohol (15%+ ABV) and concentrated fruit",
+        "ageability": "Old vine Zinfandels can age 5-10 years. This 2016 vintage is currently in its drinking window and will hold through 2026, though it's typically enjoyed for its exuberant fruit-forward character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lueria Gewurztraminer 2020",
+      "description": "An aromatic white wine showcasing the distinctive personality of the Gewürztraminer grape. This wine captures the variety's hallmark floral intensity and exotic fruit character, offering a sensory experience marked by pronounced aromatics and rich texture that sets Gewürztraminer apart from other white wine varieties.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic with the signature lychee scent that defines quality Gewürztraminer, derived from the aromatic compound linalool. The nose blooms with intense rose petal and orange blossom notes, contributed by terpenes like geraniol. Layers of exotic fruit—lychee, passion fruit, and ripe peach—mingle with ginger spice and honey nuances. The aromatic profile is captivating and complex, with tropical notes of mango and hints of Turkish delight adding to the wine's perfumed character.",
+        "palate": "Medium to full-bodied with a rich, sometimes viscous texture that coats the palate. The wine shows moderate to low acidity but maintains freshness and balance despite the variety's tendency toward lower acid levels. Flavors mirror the nose with pronounced lychee, rose water, and ginger spice, supported by ripe stone fruit and honey notes. The alcohol content ranges from 13.5-15% ABV, contributing to the wine's full body and slightly warming quality. The style leans toward off-dry, with residual sweetness balanced by the wine's aromatic intensity and spice character.",
+        "finish": "The finish is moderately long and aromatic, leaving lingering impressions of rose petals, lychee, and ginger spice. The wine's richness persists through the finish with honey notes and a touch of sweetness that doesn't cloy due to the variety's natural spiciness. A slightly oily texture remains on the palate, typical of quality Gewürztraminer."
+      },
+      "foodPairings": [
+        "Moroccan tagine with apricots and almonds",
+        "Thai green curry with coconut milk",
+        "Munster or other washed-rind cheeses",
+        "Duck confit with fruit chutney",
+        "Spicy Asian cuisine including Szechuan dishes"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled to preserve aromatics and ensure freshness",
+        "decanting": "No decanting necessary; serve directly from refrigerator",
+        "glassware": "Aromatic white wine glass with slightly narrower opening to concentrate and direct intense aromatics toward the nose"
+      },
+      "wineDetails": {
+        "region": "Origin unclear - possibly Upper Galilee, Israel or European origin",
+        "grapeVariety": "100% Gewürztraminer",
+        "vintage": "2020",
+        "style": "Aromatic white wine, medium to full-bodied, off-dry style with pronounced floral and spice characteristics",
+        "ageability": "Most Gewürztraminer is best enjoyed young within 2-3 years to preserve aromatic intensity, though premium examples can age 10+ years. This 2020 vintage is in its optimal drinking window now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Whole Ox Red Wine (Private Label) 2022",
+      "description": "A Bordeaux-style red blend from Boxwood Estate Winery in Middleburg, Virginia, reflecting the vision of proprietor John Kent Cooke. Crafted from sustainably farmed estate vineyards planted with traditional Bordeaux varietals, this wine expresses the distinctive terroir of the Middleburg AVA with Virginia's characteristic elegance and balance.",
+      "tastingNotes": {
+        "aroma": "The nose opens with aromas of ripe red and black fruits—cassis, blackberry, and dark cherry—typical of Bordeaux-varietal blends. Layers of complexity emerge with notes of cedar, tobacco leaf, and hints of Virginia forest floor. Subtle herbal nuances of bay leaf and dried sage reflect the cooler climate character, while oak aging contributes vanilla, toast, and a touch of graphite minerality that adds sophistication to the fruit-forward profile.",
+        "palate": "Medium to full-bodied with a silky texture and well-integrated tannins that showcase Virginia's elegant style rather than California's power. The palate delivers flavors of dark cherry, blackcurrant, and plum, supported by earthy notes of forest floor and dried herbs. The wine shows excellent balance between fruit concentration and structural elements, with moderate acidity maintaining freshness. Oak influence is present but restrained, providing framework without overwhelming the fruit. The blend likely emphasizes Cabernet Franc, which thrives in Virginia's climate, contributing characteristic bell pepper and herbal notes alongside red fruit.",
+        "finish": "Medium to long finish with persistent dark fruit flavors and subtle oak spice. The wine concludes with refined tannins and a touch of minerality characteristic of Virginia terroir. Notes of tobacco and cedar linger, while the finish maintains the wine's overall elegance and balance."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herb crust",
+        "Roasted duck breast with cherry gastrique",
+        "Beef tenderloin with mushroom demi-glace",
+        "Aged cheddar or Gruyère cheese",
+        "Venison medallions with juniper berry sauce"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to open and integrate its components, especially given the wine's youth",
+        "glassware": "Bordeaux glass or large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg AVA, Virginia, USA",
+        "grapeVariety": "Bordeaux blend likely featuring Cabernet Franc, Merlot, Cabernet Sauvignon, Petit Verdot, and/or Malbec",
+        "vintage": "2022",
+        "style": "Virginia Bordeaux-style blend, elegant and balanced with moderate alcohol",
+        "ageability": "Drink now through 2028. Virginia reds typically show best within 3-6 years, developing secondary characteristics of leather and earth while maintaining fruit core."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rock Ferry Pinot Blanc Brut 2020",
+      "description": "An innovative traditional method sparkling wine from New Zealand's Rock Ferry winery, representing a first for the country. Made from certified organic Pinot Blanc grapes from the Orchard Vineyard in the South Island, this wine combines French Champagne tradition with New Zealand's distinctive terroir and fruit-forward character.",
+      "tastingNotes": {
+        "aroma": "Enticing aromas of freshly baked apple tarte tatin dominate the nose, revealing the wine's autolysis complexity from 12 months of lees aging. Poached nashi pear and baked apple notes showcase the generous fruit character, while subtle nutty aromas from yeast contact add savory dimension. Delicate hints of brioche, almond, and citrus blossom contribute to the wine's aromatic elegance. The balance between autolysis complexity and fresh fruit expression creates an inviting and sophisticated aromatic profile.",
+        "palate": "Brightly fruited yet dry, the palate offers excellent balance between freshness and complexity. Flavors of crisp apple, pear, and citrus provide the fruit core, while savory, nutty notes from the traditional method production add depth and interest. The wine maintains refreshing acidity that keeps it lively and food-friendly, with fine, persistent bubbles creating a creamy mousse. The mouthfeel is elegant rather than heavy, showcasing the wine's organic farming purity and careful winemaking. Minimal dosage allows the wine's natural character to shine through.",
+        "finish": "Clean and persistent finish with lingering apple and pear flavors complemented by subtle toasty notes. The wine concludes with refreshing acidity and a touch of minerality, leaving the palate cleansed and ready for food or another sip. The fine bubbles persist through the finish, adding to the wine's overall elegance."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Seared scallops with citrus beurre blanc",
+        "Smoked salmon canapés",
+        "Soft-ripened cheeses like Brie or Camembert",
+        "Chicken or seafood terrine"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well-chilled to showcase freshness and fine bubbles",
+        "decanting": "No decanting necessary; open gently to preserve carbonation",
+        "glassware": "Champagne flute or tulip glass to maintain bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "South Island, New Zealand (Orchard Vineyard)",
+        "grapeVariety": "100% Pinot Blanc",
+        "vintage": "2020",
+        "style": "Traditional method sparkling wine (Blanc de Blancs), dry (Brut), certified organic and vegan friendly",
+        "ageability": "Traditional method sparkling wines can age 3-5 years. This 2020 vintage is drinking beautifully now and will hold through 2025, developing more toasty, nutty complexity with additional aging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Reserve 2021",
+      "description": "The flagship wine from Boxwood Estate Winery in Middleburg, Virginia, representing the pinnacle of the estate's Bordeaux-inspired winemaking. Crafted from the finest parcels of sustainably farmed vineyards planted with ENTAV-certified French clones, this Reserve showcases Virginia's ability to produce world-class Bordeaux-style wines with distinctive regional character.",
+      "tastingNotes": {
+        "aroma": "Elegant and complex aromatics featuring ripe blackcurrant, black cherry, and dark plum supported by sophisticated oak integration. Cedar and cigar box notes emerge, characteristic of Bordeaux-style blends, along with hints of graphite, dried violet, and Virginia's signature forest floor earthiness. Subtle nuances of black tea, leather, and baking spices add layers of complexity. The nose shows more concentration and depth than the estate's Whole Ox bottling, reflecting careful barrel selection and vineyard site selection.",
+        "palate": "Full-bodied yet maintaining Virginia's characteristic elegance and restraint. The palate delivers concentrated flavors of cassis, blackberry, and dark cherry with excellent fruit purity from the organic farming practices. Well-structured tannins provide framework and aging potential while remaining refined and silky. The wine shows impressive balance between power and finesse, with integrated oak contributing vanilla, toast, and spice without overwhelming the fruit. Layers of complexity unfold with flavors of tobacco, dark chocolate, and mineral notes. The Middleburg AVA terroir expresses itself through the wine's freshness and distinctive herbal undertones.",
+        "finish": "Long and persistent finish with excellent structure and complexity. Dark fruit flavors linger alongside cedar, tobacco, and subtle oak spice. The finish shows refined tannins that promise good aging potential, while maintaining balance and elegance. A touch of graphite minerality and forest floor earthiness emerges at the end, signatures of Virginia terroir."
+      },
+      "foodPairings": [
+        "Dry-aged ribeye with red wine reduction",
+        "Rack of lamb with herb crust and rosemary jus",
+        "Braised short ribs with root vegetables",
+        "Wild mushroom risotto with truffle oil",
+        "Aged hard cheeses like Comté or aged Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 60 minutes to allow this structured wine to open fully and reveal its complexity; benefits significantly from aeration given its youth",
+        "glassware": "Large Bordeaux glass to allow the wine to breathe and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Middleburg AVA, Virginia, USA",
+        "grapeVariety": "Bordeaux blend (exact composition varies by vintage; typically Cabernet Sauvignon, Cabernet Franc, Merlot, Petit Verdot, and/or Malbec from 26.5 acres of estate vineyards)",
+        "vintage": "2021",
+        "style": "Premium Virginia Bordeaux-style blend, full-bodied with aging potential, estate-grown from ENTAV-certified vines",
+        "ageability": "Drink now through 2031. Reserve-level Virginia reds can age 5-10 years, developing tertiary notes of leather, tobacco, and earth while maintaining fruit concentration. This 2021 vintage will continue to evolve and integrate over the next several years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Albina Gran Reserva 2005",
+      "description": "An exceptional Gran Reserva from Bodegas Riojanas, one of Rioja's most traditional producers. This wine represents the pinnacle of Rioja's classification system, having undergone extensive aging (20 months in new oak plus minimum 24 months in bottle before release). The 2005 vintage showcases the depth and complexity that only time and careful cellar management can achieve.",
+      "tastingNotes": {
+        "aroma": "Mature and complex aromatics displaying the evolution of nearly two decades. The nose shows concentrated notes of dried cherry, prune, and fig alongside classic Rioja characteristics of leather, tobacco leaf, and cigar box. Rich oak influence presents itself through vanilla, toast, and sweet baking spices—cinnamon and clove. Tertiary aromas of forest floor, dried mushroom, and autumn leaves add earthy complexity. Subtle hints of balsamic, dark chocolate, and coffee emerge, while a core of preserved red fruit remains present beneath the developed layers.",
+        "palate": "Full-bodied with a concentrated and tannic structure that has mellowed and integrated beautifully with age. The palate delivers flavors of dried cherry, dark plum, and fig with characteristic Rioja notes of leather, tobacco, and cedar. The wine shows excellent balance between its fruit concentration, oak influence, and evolved tertiary characteristics. Firm but rounded tannins provide structure without astringency, having softened considerably from the wine's youth. The aging process has created a harmonious integration of all components—fruit, oak, acid, and tannin work together seamlessly. Classic Gran Reserva characteristics of savory complexity dominate while maintaining a core of concentrated fruit.",
+        "finish": "Long and persistent finish showcasing the wine's maturity and concentration. The conclusion echoes the palate with dried fruit, leather, tobacco, and subtle oak spice. Soft, integrated tannins fade gently while leaving impressions of balsamic, dark chocolate, and forest floor. The finish demonstrates the wine's excellent aging potential and current drinking perfection, though it can continue to evolve."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with rosemary and garlic",
+        "Aged Manchego cheese with quince paste",
+        "Wild game terrine or venison stew",
+        "Ibérico ham and cured Spanish meats",
+        "Slow-braised oxtail with rich reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow this mature wine to open and shed any bottle age; handle gently as older wines can be fragile",
+        "glassware": "Large Bordeaux or Rioja glass to appreciate the wine's evolved complexity"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain (likely Rioja Alta, from Bodegas Riojanas in Cenicero)",
+        "grapeVariety": "Primarily Tempranillo with Carignan/Mazuelo and Graciano",
+        "vintage": "2005",
+        "style": "Rioja Gran Reserva (minimum 24 months oak + 36 months bottle aging before release), traditional style with extensive aging",
+        "ageability": "This 2005 Gran Reserva is nearly 20 years old and currently at peak drinking maturity. Can hold through 2030 for those who prefer more tertiary development, though it's showing beautifully now with its balance of fruit and evolved characteristics."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alella Marfil Sec 2017",
+      "description": "A distinctive white wine from the historic Alella DO cooperative near Barcelona, carrying the iconic Marfil (Ivory) brand name that has captivated Catalonia since the 1920s. Founded in 1906, Alella Vinícola produces this wine from Pansa Blanca (the local name for Xarel-lo), showcasing the unique terroir of this small Mediterranean coastal wine region just north of Barcelona.",
+      "tastingNotes": {
+        "aroma": "Delicate and aromatic with notes of white flowers—acacia and orange blossom—characteristic of Pansa Blanca/Xarel-lo. The nose reveals fresh citrus notes of lemon zest and grapefruit, supported by green apple and white peach. Subtle mineral undertones reflect the Mediterranean coastal terroir, while hints of almond and fennel add complexity. The aromatic profile shows freshness despite the wine's age, with a slight oxidative note of blanched almond that adds interest without detracting from the wine's vitality.",
+        "palate": "Medium-bodied with crisp acidity that defines Alella whites, though the 2017 vintage shows more texture and depth than younger examples. The palate delivers flavors of citrus—lemon and grapefruit—alongside white orchard fruits and a distinctive saline quality that speaks to the wine's proximity to the Mediterranean Sea. The wine shows characteristic unctuous texture with floral and white fruit flavors, maintaining freshness through good acidity. A note of pleasant bitterness on the mid-palate, typical of Xarel-lo, adds complexity and food-friendliness. The style is notably dry (Sec) with minimal residual sugar, allowing the variety's natural characteristics to express themselves fully.",
+        "finish": "Medium-length finish with lingering citrus notes and a characteristic salty minerality that calls for seafood. The wine concludes with refreshing acidity and subtle almond notes, leaving a clean, dry impression. The Mediterranean influence persists through the finish with that distinctive saline quality and hint of sea breeze."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean sea bass or dorada",
+        "Seafood paella or fideuà",
+        "Pan con tomate with jamón serrano",
+        "Patatas bravas with aioli",
+        "Grilled calamari with lemon"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), moderately chilled",
+        "decanting": "No decanting necessary, though opening 15 minutes before serving allows the wine to express its aromatic complexity",
+        "glassware": "Medium white wine glass to appreciate the wine's floral aromatics and mineral character"
+      },
+      "wineDetails": {
+        "region": "Alella DO, Catalonia, Spain (Mediterranean coast north of Barcelona)",
+        "grapeVariety": "100% Pansa Blanca (local name for Xarel-lo)",
+        "vintage": "2017",
+        "style": "Dry (Sec) Mediterranean white wine with coastal minerality and citrus character",
+        "ageability": "Alella whites are typically best enjoyed within 3-5 years, though this 2017 vintage has aged gracefully and is drinking well now. Consume soon to appreciate remaining freshness, ideally by 2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

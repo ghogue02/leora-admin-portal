@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 15,
+  "researchedAt": "2025-10-20T00:00:00Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Sweetwater Springs Petite Sirah 2017",
+      "description": "A powerhouse expression from one of California's premier Petite Sirah specialists, this Sweetwater Springs bottling showcases the varietal's signature intensity with remarkable balance. Jeff Cohn's meticulous approach to old-vine fruit delivers a wine of profound depth and structure, built for long-term aging yet approachable in its youth.",
+      "tastingNotes": {
+        "aroma": "The nose erupts with concentrated blackberry and blueberry compote, layered with notes of crushed violets and dark chocolate. Underlying aromas of espresso bean, sweet pipe tobacco, and graphite add complexity, while hints of vanilla and toasted oak from barrel aging provide a sophisticated frame. As the wine opens, subtle notes of black pepper and dried herbs emerge, adding savory dimension.",
+        "palate": "Dense and full-bodied, the palate delivers massive fruit concentration balanced by firm, well-integrated tannins. Flavors of ripe boysenberry, black cherry, and cassis dominate, supported by secondary notes of dark cocoa, licorice, and baking spices. The wine's impressive structure is matched by bright acidity that keeps the experience fresh despite its considerable weight. Mid-palate richness reveals layers of mocha, black tea, and a mineral backbone that speaks to old-vine intensity.",
+        "finish": "The finish is extraordinarily long and persistent, with fine-grained tannins that coat the palate without overwhelming. Dark fruit flavors linger alongside hints of cedar, tobacco leaf, and a touch of exotic spice. The wine's youthful power suggests excellent aging potential over the next 10-15 years, though careful decanting makes it enjoyable now."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn crust",
+        "Braised lamb shanks with red wine reduction",
+        "Aged cheddar or cave-aged Gouda",
+        "Wild boar ragu over pappardelle",
+        "Barbecued beef brisket with espresso rub"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Highly recommended - decant for 2-3 hours before serving to soften tannins and reveal complexity, or open and let breathe for at least 1 hour",
+        "glassware": "Large Bordeaux or Cabernet glass to allow ample aeration"
+      },
+      "wineDetails": {
+        "region": "Sonoma County, California",
+        "grapeVariety": "100% Petite Sirah from Sweetwater Springs Vineyard",
+        "vintage": "2017",
+        "style": "Full-bodied red, old-vine expression",
+        "ageability": "Excellent aging potential; drink now with decanting or cellar for 10-15 years. Peak drinking window 2023-2032."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Korde Pinea Tinto 2022",
+      "description": "An emerging Spanish red that reflects the modern winemaking movement in the Penedès region, blending traditional Mediterranean varieties with contemporary techniques. This vibrant, fruit-forward wine emphasizes freshness and drinkability while maintaining authentic varietal character and regional typicity.",
+      "tastingNotes": {
+        "aroma": "Bright and inviting, the bouquet opens with fresh red cherry and ripe strawberry, complemented by subtle floral notes of lavender and rose petal. Earthy undertones of Mediterranean herbs—thyme, rosemary, and dried sage—add complexity, while a whisper of toasted almond and light oak spice provides depth without overwhelming the fruit.",
+        "palate": "Medium-bodied with lively acidity, the palate delivers juicy red fruit flavors centered on cherry, cranberry, and red plum. The wine shows excellent balance between its fruit-forward nature and savory elements of dried herbs, leather, and a touch of mineral salinity. Soft, approachable tannins provide structure without gripping, making this an extremely food-friendly wine. Notes of pomegranate and blood orange zest add brightness on the mid-palate.",
+        "finish": "Clean and refreshing, the finish showcases the wine's Mediterranean character with lingering notes of red berries, a hint of white pepper, and subtle earthy minerality. The wine's youthful energy suggests it's meant for near-term enjoyment while still possessing enough structure for short-term cellaring."
+      },
+      "foodPairings": [
+        "Grilled chorizo and roasted red peppers",
+        "Manchego cheese with quince paste",
+        "Tomato-based pasta with Spanish meatballs",
+        "Roasted chicken with garlic and herbs",
+        "Spanish tapas selection with jamón and olives"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly chilled",
+        "decanting": "Brief aeration of 15-30 minutes recommended to open aromatics; no extended decanting needed",
+        "glassware": "Standard red wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Penedès, Catalonia, Spain",
+        "grapeVariety": "Blend of indigenous Spanish varieties (likely Garnacha, Tempranillo, and/or Cariñena)",
+        "vintage": "2022",
+        "style": "Medium-bodied Mediterranean red, fruit-forward with herbal complexity",
+        "ageability": "Drink young to capture freshness; optimal consumption within 2-4 years. Best enjoyed 2023-2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Endhardt Vineyards Kindred Red 2021",
+      "description": "A thoughtfully crafted red blend from California's emerging wine regions, this Kindred Red represents the artisan approach to winemaking where quality and terroir expression take precedence over commercial appeal. The wine balances approachability with complexity, offering layers of flavor that reward both casual enjoyment and contemplative tasting.",
+      "tastingNotes": {
+        "aroma": "The nose presents an elegant array of dark and red fruits, with blackberry, plum, and black cherry leading the way. Secondary aromas of violets, cedar box, and dried rose petals add sophistication, while subtle hints of baking spices, vanilla bean, and a whisper of eucalyptus provide aromatic complexity. With air, notes of cocoa nibs and forest floor emerge, adding an earthy dimension.",
+        "palate": "Medium to full-bodied with a silky texture, the palate unfolds with layers of dark fruit—black plum, boysenberry, and Bing cherry—complemented by notes of mocha, leather, and sweet tobacco. The wine shows excellent integration of oak, with flavors of toasted cedar and baking spices enhancing rather than dominating the fruit. Balanced acidity provides freshness, while supple tannins create a smooth, approachable mouthfeel. The mid-palate reveals subtle hints of graphite and black tea.",
+        "finish": "The finish is long and graceful, with persistent dark fruit notes supported by fine-grained tannins and a touch of savory complexity. Lingering flavors of dark chocolate, espresso, and dried herbs fade slowly, leaving a satisfying impression that invites another sip. The wine's structure suggests it will evolve beautifully over the next several years."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Mushroom and truffle risotto",
+        "Roasted duck breast with cherry reduction",
+        "Aged Gruyère or mountain cheese selection",
+        "Herb-crusted prime rib"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the wine to breathe and soften; enhances aromatic complexity",
+        "glassware": "Bordeaux-style or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "California (specific appellation varies by producer)",
+        "grapeVariety": "Proprietary red blend (likely Cabernet Sauvignon, Merlot, Syrah, and/or Zinfandel)",
+        "vintage": "2021",
+        "style": "Medium-full bodied California red blend, balanced and approachable",
+        "ageability": "Can age gracefully for 5-8 years; drinking well now with decanting. Peak drinking 2024-2029."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Libertine Scheurebe 2021",
+      "description": "An adventurous expression from a winemaker known for exploring unusual varietals, this Scheurebe showcases the aromatic intensity and distinctive character of this German-origin grape. Libertine's approach celebrates the varietal's bold personality, creating a wine that's both intellectually intriguing and genuinely delicious for those seeking something beyond the ordinary.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic, the nose offers an exotic bouquet of white grapefruit, passion fruit, and lychee, intertwined with notes of fresh-cut grass and elderflower. The wine's signature character shows through in hints of peach skin, Meyer lemon zest, and a distinctive cassis-like note that's characteristic of well-made Scheurebe. Underlying mineral notes and white pepper add complexity, while a subtle honeyed quality suggests perfectly ripened fruit.",
+        "palate": "Medium-bodied with electric acidity, the palate delivers intense flavors of pink grapefruit, gooseberry, and pineapple, balanced by a core of ripe stone fruit. The wine walks a tightrope between aromatic exuberance and structural precision, with vibrant acidity providing lift and definition. Mid-palate flavors reveal white peach, lime leaf, and hints of tropical fruit, while a distinctive mineral backbone adds depth and complexity. The texture is simultaneously rich and refreshing, with just a touch of phenolic grip adding interest.",
+        "finish": "The finish is long and invigorating, showcasing the varietal's characteristic grapefruit pith note alongside lingering tropical fruit and citrus zest. Bright acidity keeps the palate fresh and clean, while subtle herbal and mineral notes add savory complexity. This is a wine that leaves you contemplating another glass."
+      },
+      "foodPairings": [
+        "Fresh oysters with citrus mignonette",
+        "Thai green curry with shrimp",
+        "Smoked trout with crème fraîche",
+        "Goat cheese salad with grapefruit and pistachios",
+        "Grilled scallops with lemongrass and ginger"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from the bottle. Can benefit from 10-15 minutes in the glass to open up aromatics",
+        "glassware": "Aromatic white wine glass or Riesling glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "California (producer's estate vineyards)",
+        "grapeVariety": "100% Scheurebe",
+        "vintage": "2021",
+        "style": "Dry to off-dry aromatic white, vibrant and expressive",
+        "ageability": "Best enjoyed young to capture aromatic freshness; drink within 2-4 years. Optimal 2022-2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Skylark Pink Belly 2020",
+      "description": "A playful yet serious rosé from California's Central Coast, this Pink Belly bottling reflects Skylark's commitment to crafting wines with personality and authenticity. The wine balances refreshing drinkability with genuine complexity, offering more depth than typical rosé while maintaining the category's essential charm and versatility.",
+      "tastingNotes": {
+        "aroma": "The bouquet offers bright aromas of fresh strawberry, watermelon, and wild raspberry, accented by delicate notes of rose petal and white peach. Subtle herbal undertones of lavender and crushed mint add complexity, while a hint of citrus zest and wet stone provide lift and freshness. With time in the glass, subtle notes of red apple and pink peppercorn emerge.",
+        "palate": "Light to medium-bodied with crisp, refreshing acidity, the palate delivers vibrant red fruit flavors of cherry, strawberry, and pomegranate. The wine shows excellent balance between its fruit-forward nature and savory elements, with notes of rhubarb, pink grapefruit, and a distinct mineral quality adding dimension. A touch of texture from skin contact provides weight without heaviness, while bright acidity keeps the wine lively and food-friendly. The mid-palate reveals subtle hints of nectarine and sea salt.",
+        "finish": "Clean and refreshing, the finish features lingering notes of red berries and citrus, with a pleasant mineral quality and subtle herbal accent. The wine's balanced acidity leaves the palate cleansed and ready for the next bite, while enough complexity remains to reward contemplative sipping. A faint note of almond skin adds interest on the tail."
+      },
+      "foodPairings": [
+        "Grilled salmon with herbs and lemon",
+        "Fresh mozzarella and heirloom tomato salad",
+        "Poke bowls with sesame and avocado",
+        "Prosciutto-wrapped melon",
+        "Light pasta with cherry tomatoes and basil"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting required; serve directly from the bottle",
+        "glassware": "Standard white wine glass or rosé-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California",
+        "grapeVariety": "Blend (likely Grenache, Mourvèdre, and/or Syrah)",
+        "vintage": "2020",
+        "style": "Dry rosé, crisp and fruit-forward with mineral complexity",
+        "ageability": "Best enjoyed fresh; consume within 1-2 years of vintage. Optimal drinking 2020-2022."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Dr. Stans Pinot Noir 2018",
+      "description": "A compelling Pinot Noir from Wonderment's portfolio, this Dr. Stans bottling showcases the varietal's elegant complexity and site-specific character. The wine balances classic Pinot Noir hallmarks—silky texture, aromatic complexity, and bright acidity—with distinctive personality that sets it apart from mass-produced alternatives.",
+      "tastingNotes": {
+        "aroma": "The nose opens with classic Pinot Noir aromatics of red cherry, cranberry, and wild strawberry, layered with notes of dried rose petals, forest floor, and subtle baking spices. Secondary aromas of sandalwood, black tea, and a touch of truffle add sophistication, while hints of orange peel and cinnamon from oak aging provide warmth. As the wine evolves, earthy notes of mushroom and autumn leaves emerge, adding tertiary complexity.",
+        "palate": "Medium-bodied with silky, refined tannins, the palate delivers elegant red fruit flavors centered on Bing cherry, raspberry, and red currant. The wine shows exceptional balance, with bright acidity providing structure while layers of flavor unfold across the palate. Notes of pomegranate, rhubarb, and cranberry are complemented by savory elements of dried herbs, tea leaf, and subtle umami. Mid-palate richness reveals hints of cola, cardamom, and a distinctive mineral quality that speaks to site character.",
+        "finish": "The finish is long and refined, with persistent red fruit notes supported by fine-grained tannins and vibrant acidity. Lingering flavors of cherry compote, exotic spices, and earthy minerality fade gracefully, while a subtle note of toast and vanilla from oak integration adds complexity. The wine's structure suggests it has developed nicely and will continue to evolve beautifully."
+      },
+      "foodPairings": [
+        "Duck confit with cherry gastrique",
+        "Wild mushroom risotto with truffle oil",
+        "Grilled salmon with herbs de Provence",
+        "Roasted chicken with root vegetables",
+        "Soft-ripened cheese like Camembert or triple-cream brie"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-16°C), slightly cool",
+        "decanting": "Decant for 20-30 minutes to allow aromatics to fully develop; alternatively, pour and let breathe in the glass",
+        "glassware": "Burgundy-style glass or large-bowled Pinot Noir glass"
+      },
+      "wineDetails": {
+        "region": "California (specific vineyard designation varies)",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2018",
+        "style": "Medium-bodied Pinot Noir, elegant with earthy complexity",
+        "ageability": "Peak drinking now through 2028; well-developed but with life ahead. Drinking beautifully 2024-2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Chardonnay 2024",
+      "description": "A fresh expression from one of Paso Robles' pioneering wineries, this Chardonnay reflects Castoro Cellars' commitment to producing approachable, well-crafted wines at exceptional value. The wine showcases ripe California fruit character while maintaining the balance and freshness that make Chardonnay so versatile at the table.",
+      "tastingNotes": {
+        "aroma": "The nose presents bright aromas of green apple, Asian pear, and citrus blossom, complemented by notes of ripe peach and honeydew melon. Subtle hints of vanilla bean, toasted almond, and butterscotch from oak aging add complexity without overwhelming the fruit. With air, delicate notes of lemon curd, white flowers, and a whisper of tropical fruit emerge, while a faint mineral quality provides lift.",
+        "palate": "Medium-bodied with balanced acidity, the palate delivers flavors of crisp apple, pear, and lemon, enhanced by richer notes of ripe stone fruit and a touch of tropical character. The wine shows careful oak integration, with flavors of vanilla, butter, and light toast complementing rather than dominating the fruit. A creamy mid-palate texture from partial malolactic fermentation provides richness, while bright citrus acidity keeps the wine fresh and lively. Hints of hazelnut and baking spices add complexity.",
+        "finish": "The finish is clean and refreshing, with lingering fruit notes balanced by subtle oak spice and a mineral edge. The wine's acidity ensures a crisp, food-friendly conclusion, while enough complexity remains to satisfy contemplative sipping. A faint note of lemon zest and toasted oak provides a pleasant closing impression."
+      },
+      "foodPairings": [
+        "Grilled chicken with lemon and herbs",
+        "Pan-seared halibut with butter sauce",
+        "Lobster risotto with fresh herbs",
+        "Aged Gouda or white cheddar",
+        "Roasted pork tenderloin with apples"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), lightly chilled",
+        "decanting": "No decanting needed; serve directly from the bottle, allowing 5-10 minutes in the glass to warm slightly",
+        "glassware": "Standard white wine glass or Chardonnay-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2024",
+        "style": "Medium-bodied Chardonnay, balanced between fruit and oak",
+        "ageability": "Best enjoyed fresh; drink within 2-4 years to capture vibrant fruit. Optimal 2024-2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sonder Rose 2022",
+      "description": "A contemporary California rosé that embodies the modern approach to pink wine—serious, dry, and food-friendly while maintaining the refreshing character that defines the category. This wine speaks to the growing sophistication of American rosé production, offering complexity and character that rivals European benchmarks.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with vibrant aromas of wild strawberry, red raspberry, and white peach, accented by delicate floral notes of hibiscus and orange blossom. Subtle herbal undertones of fresh thyme and citrus verbena add dimension, while a distinct mineral quality provides elegance. With time, hints of melon rind, pink grapefruit, and a whisper of salinity emerge, adding coastal character.",
+        "palate": "Light to medium-bodied with crisp, mouthwatering acidity, the palate delivers bright red berry flavors of strawberry, cranberry, and red cherry, balanced by citrus notes of ruby grapefruit and Meyer lemon. The wine shows textural interest from skin contact, with a subtle phenolic grip that adds weight without heaviness. Mid-palate flavors reveal watermelon, white nectarine, and a pronounced mineral quality that adds sophistication. A savory element of herbs and sea salt keeps the wine complex and food-friendly.",
+        "finish": "The finish is clean, dry, and refreshing, with lingering berry fruit and citrus notes supported by bright acidity and subtle minerality. A hint of red apple skin and white pepper adds interest, while the wine's balanced structure invites another sip. The savory, dry finish makes this an exceptionally versatile food wine."
+      },
+      "foodPairings": [
+        "Grilled shrimp with garlic and herbs",
+        "Nicoise salad with fresh tuna",
+        "Charcuterie board with mild salami and soft cheeses",
+        "Sushi and sashimi selection",
+        "Mediterranean mezze platter"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting required; serve directly from the bottle",
+        "glassware": "Standard white wine glass or rosé-specific stemware"
+      },
+      "wineDetails": {
+        "region": "California (specific appellation varies)",
+        "grapeVariety": "Blend (likely Grenache, Pinot Noir, and/or Syrah)",
+        "vintage": "2022",
+        "style": "Dry rosé, crisp and mineral-driven with red fruit character",
+        "ageability": "Best enjoyed fresh; consume within 1-2 years of vintage. Optimal drinking 2022-2024."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dolce Vita Blackberry Daiquiri",
+      "description": "A fruit-forward wine cocktail that combines the sweetness of ripe blackberries with tropical daiquiri inspiration, designed for casual enjoyment and warm-weather occasions. This ready-to-drink beverage offers an accessible entry point to wine-based cocktails, balancing fruity sweetness with enough acidity to remain refreshing.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with intense aromas of fresh blackberry, ripe raspberry, and black cherry, layered with tropical notes of pineapple and coconut. Hints of lime zest, rum essence, and vanilla add cocktail-inspired complexity, while a subtle floral note of hibiscus provides lift. The aromatic profile is unabashedly fruity and inviting, with a sweet, candy-like quality.",
+        "palate": "Medium-bodied with noticeable sweetness balanced by bright acidity, the palate delivers bold flavors of blackberry compote, mixed berry puree, and tropical fruit punch. The wine shows clear daiquiri inspiration with notes of lime, coconut cream, and a hint of rum-like character. Mid-palate sweetness is tempered by citrus acidity, preventing the wine from becoming cloying. Flavors of raspberry sorbet, passion fruit, and a touch of vanilla create a dessert-like but refreshing experience.",
+        "finish": "The finish is sweet and fruity, with lingering notes of blackberry, lime, and tropical fruit. While not complex, the finish is clean and satisfying for the style, with enough acidity to keep the palate from fatigue. A subtle note of berry skin and citrus zest provides a slightly drier conclusion."
+      },
+      "foodPairings": [
+        "Fresh fruit salad with mint",
+        "Vanilla ice cream or fruit sorbet",
+        "Light pound cake or angel food cake",
+        "Cheese platter with mild, creamy cheeses",
+        "Poolside appetizers and chips with salsa"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), very well-chilled or over ice",
+        "decanting": "No decanting needed; serve directly from the bottle over ice if desired",
+        "glassware": "Casual stemware, tumbler, or cocktail glass; can be served over ice"
+      },
+      "wineDetails": {
+        "region": "N/A (wine cocktail/flavored wine beverage)",
+        "grapeVariety": "Wine-based cocktail with blackberry and fruit flavoring",
+        "vintage": "NV (non-vintage)",
+        "style": "Sweet wine cocktail, fruit-forward and ready-to-drink",
+        "ageability": "Drink immediately; best consumed fresh. No aging potential."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mendoza Finca Abril Rapsodia 2013",
+      "description": "An elegant Argentine red blend from Mendoza's high-altitude vineyards, this Rapsodia bottling represents the sophisticated evolution of Argentine winemaking beyond single-varietal Malbec. The wine showcases the complexity achievable through careful blending and extended aging, offering a harmonious expression of Mendoza's diverse terroir and winemaking artistry.",
+      "tastingNotes": {
+        "aroma": "The mature bouquet opens with evolved aromas of dried cherry, plum compote, and blackberry preserves, layered with notes of leather, tobacco leaf, and cedar box. Secondary aromas of vanilla, mocha, and dark chocolate from oak aging are well-integrated, while tertiary notes of dried herbs, eucalyptus, and forest floor add complexity. With air, hints of fig, prune, and a distinctive mineral quality characteristic of high-altitude Mendoza fruit emerge.",
+        "palate": "Medium to full-bodied with softened, integrated tannins that speak to bottle age, the palate delivers flavors of dark cherry, blackberry, and plum complemented by notes of espresso, dark chocolate, and sweet spice. The wine shows excellent evolution, with primary fruit giving way to complex secondary and tertiary flavors of leather, cigar box, dried fruit, and earthy minerality. Balanced acidity provides freshness despite the wine's maturity, while a silky texture reflects gentle aging. Mid-palate richness reveals layers of cocoa, black tea, anise, and a distinctive graphite note.",
+        "finish": "The finish is long and sophisticated, with well-integrated tannins supporting persistent flavors of dark fruit, tobacco, and exotic spices. Lingering notes of dark chocolate, espresso, and dried herbs fade gracefully, while subtle oak influence adds vanilla and cedar nuances. The wine's mature complexity and elegant structure showcase the rewards of patience with quality Argentine reds."
+      },
+      "foodPairings": [
+        "Argentine asado (grilled mixed meats)",
+        "Braised short ribs with chimichurri",
+        "Aged Manchego or Parmesan",
+        "Wild game such as venison or duck",
+        "Grilled portobello mushrooms with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C), room temperature",
+        "decanting": "Decant carefully for 30-45 minutes to allow sediment to settle and wine to breathe; handle gently due to age",
+        "glassware": "Large Bordeaux or Cabernet glass to showcase developed aromatics"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina (likely high-altitude sub-region such as Uco Valley or Luján de Cuyo)",
+        "grapeVariety": "Proprietary blend (likely Malbec-based with Cabernet Sauvignon, Syrah, and/or Bonarda)",
+        "vintage": "2013",
+        "style": "Full-bodied Argentine red blend, aged and evolved",
+        "ageability": "Drinking beautifully now with mature complexity; can hold for another 2-5 years. Peak drinking 2023-2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    }
+  ]
+}

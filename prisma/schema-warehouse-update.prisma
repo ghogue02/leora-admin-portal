@@ -1,0 +1,171 @@
+// ============================================================================
+// WAREHOUSE & OPERATIONS MODELS - TO BE APPENDED TO schema.prisma
+// ============================================================================
+
+// 1. Add InventoryStatus enum before Inventory model
+enum InventoryStatus {
+  AVAILABLE
+  ALLOCATED
+  PICKED
+  SHIPPED
+}
+
+// 2. Update Inventory model - ADD these fields:
+//   aisle     String?
+//   row       Int?
+//   shelf     String?
+//   bin       String?
+//   status    InventoryStatus @default(AVAILABLE)
+//   pickOrder Int?
+//
+// Add these indexes:
+//   @@index([tenantId, status])
+//   @@index([pickOrder])
+
+// 3. Update Order model - ADD these fields:
+//   pickSheetStatus String?     @default("not_picked")
+//   pickSheetId     String?     @db.Uuid
+//   routeStop       RouteStop?
+//
+// Add this index:
+//   @@index([pickSheetStatus])
+
+// 4. Update OrderLine model - ADD this relation:
+//   pickSheetItems PickSheetItem[]
+
+// 5. Update Sku model - ADD this relation:
+//   pickSheetItems PickSheetItem[]
+
+// 6. Update Customer model - ADD this relation:
+//   pickSheetItems PickSheetItem[]
+
+// 7. Update User model - ADD these relations:
+//   pickSheets   PickSheet[]
+//   routeExports RouteExport[]
+
+// 8. Update Tenant model - ADD these relations:
+//   warehouseConfig WarehouseConfig?
+//   pickSheets      PickSheet[]
+//   pickSheetItems  PickSheetItem[]
+//   deliveryRoutes  DeliveryRoute[]
+//   routeStops      RouteStop[]
+//   routeExports    RouteExport[]
+
+// 9. Add NEW models at the end of schema:
+
+model WarehouseConfig {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @unique @db.Uuid
+  aisleCount   Int      @default(10)
+  rowsPerAisle Int      @default(20)
+  shelfLevels  String[] @default(["Top", "Middle", "Bottom"])
+  pickStrategy String   @default("aisle_then_row")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+}
+
+enum PickSheetStatus {
+  DRAFT
+  READY
+  PICKING
+  PICKED
+  CANCELLED
+}
+
+model PickSheet {
+  id          String          @id @default(uuid()) @db.Uuid
+  tenantId    String          @db.Uuid
+  sheetNumber String
+  status      PickSheetStatus @default(DRAFT)
+  pickerName  String?
+  createdById String          @db.Uuid
+  startedAt   DateTime?
+  completedAt DateTime?
+  notes       String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  tenant    Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdBy User            @relation(fields: [createdById], references: [id])
+  items     PickSheetItem[]
+
+  @@unique([tenantId, sheetNumber])
+  @@index([tenantId, status])
+}
+
+model PickSheetItem {
+  id          String    @id @default(uuid()) @db.Uuid
+  tenantId    String    @db.Uuid
+  pickSheetId String    @db.Uuid
+  orderLineId String    @db.Uuid
+  skuId       String    @db.Uuid
+  customerId  String    @db.Uuid
+  quantity    Int
+  pickOrder   Int
+  isPicked    Boolean   @default(false)
+  pickedAt    DateTime?
+
+  tenant    Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  pickSheet PickSheet @relation(fields: [pickSheetId], references: [id], onDelete: Cascade)
+  orderLine OrderLine @relation(fields: [orderLineId], references: [id], onDelete: Cascade)
+  sku       Sku       @relation(fields: [skuId], references: [id])
+  customer  Customer  @relation(fields: [customerId], references: [id])
+
+  @@index([tenantId, pickSheetId, pickOrder])
+  @@index([pickSheetId])
+}
+
+model DeliveryRoute {
+  id               String    @id @default(uuid()) @db.Uuid
+  tenantId         String    @db.Uuid
+  routeDate        DateTime
+  routeName        String
+  driverName       String
+  truckNumber      String?
+  startTime        DateTime
+  estimatedEndTime DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  tenant Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  stops  RouteStop[]
+
+  @@unique([tenantId, routeDate, routeName])
+  @@index([tenantId, routeDate])
+}
+
+model RouteStop {
+  id               String    @id @default(uuid()) @db.Uuid
+  tenantId         String    @db.Uuid
+  routeId          String    @db.Uuid
+  orderId          String    @unique @db.Uuid
+  stopNumber       Int
+  estimatedArrival DateTime
+  actualArrival    DateTime?
+  status           String    @default("pending")
+  notes            String?
+
+  tenant Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  route  DeliveryRoute @relation(fields: [routeId], references: [id], onDelete: Cascade)
+  order  Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@unique([routeId, stopNumber])
+  @@index([tenantId, routeId])
+  @@index([orderId])
+}
+
+model RouteExport {
+  id         String   @id @default(uuid()) @db.Uuid
+  tenantId   String   @db.Uuid
+  exportDate DateTime @default(now())
+  orderCount Int
+  filename   String
+  exportedBy String   @db.Uuid
+
+  tenant         Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  exportedByUser User   @relation(fields: [exportedBy], references: [id])
+
+  @@index([tenantId, exportDate])
+}

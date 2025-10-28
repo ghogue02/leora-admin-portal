@@ -1,0 +1,357 @@
+{
+  "batchId": 8,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Dogwood & Thistle Sauvignon Blanc 2023",
+      "description": "A vibrant Virginia Sauvignon Blanc showcasing the cooler-climate characteristics of American terroir. This 2023 vintage captures the crisp, herbaceous notes typical of quality New World Sauvignon Blanc while maintaining the elegance associated with mid-Atlantic viticulture.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright citrus notes of grapefruit zest and Meyer lemon, layered with characteristic green aromatics of freshly cut grass and subtle bell pepper. Delicate tropical hints of passion fruit emerge alongside white floral notes reminiscent of elderflower. The aromatic profile shows methoxypyrazine influence typical of cooler-climate expressions, balanced with thiol-driven complexity.",
+        "palate": "On the palate, this wine delivers crisp, energetic acidity that frames flavors of lime, green apple, and white peach. The mid-palate reveals herbaceous notes of nettle and fresh basil, complemented by a subtle minerality suggesting limestone influence from Virginia terroir. The texture remains lean and focused, with tropical fruit undertones adding depth without heaviness. Clean varietal character shines through without oak influence, showcasing pure fruit expression.",
+        "finish": "The finish is refreshingly tart with lingering citrus peel and a hint of wet stone minerality. Bright acidity persists, cleansing the palate with crisp green flavors that invite the next sip. Best enjoyed within 1-2 years of vintage to preserve aromatic vibrancy."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette sauce",
+        "Chèvre cheese with herbed crostini",
+        "Grilled sea bass with citrus beurre blanc",
+        "Sushi and sashimi platter",
+        "Spring vegetable risotto with asparagus"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting required; serve directly from refrigerated bottle to preserve aromatic freshness",
+        "glassware": "Medium-sized white wine glass or Sauvignon Blanc-specific stemware with narrow bowl to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Virginia, United States",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2023",
+        "style": "Crisp, aromatic white wine",
+        "ageability": "Drink young within 1-2 years to preserve vibrant aromatics and fresh fruit character. Not intended for extended cellaring as varietal characteristics peak in youth."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on Virginia terroir research and Sauvignon Blanc varietal characteristics from cooler climates"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dogwood & Thistle Shenandoah Cabernet Franc 2024",
+      "description": "An expressive Virginia Cabernet Franc from the prestigious Shenandoah Valley AVA, America's first established AVA in Virginia. This 2024 vintage captures the elegant, early-ripening characteristics of Cabernet Franc thriving in the limestone-rich soils and protected mountain valley climate ideal for this noble Bordeaux variety.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents classic Cabernet Franc aromatics with bright red fruit notes of raspberry and wild strawberry, intertwined with distinctive violet and iris florals. Subtle herbaceous qualities emerge with hints of fresh tobacco leaf and green peppercorn, while a characteristic vegetal strike adds complexity without overwhelming—ranging from bell pepper to leafy garden herbs. The cooler Shenandoah climate preserves the variety's signature freshness and aromatic intensity.",
+        "palate": "The palate delivers medium-bodied elegance with flavors of bright red currant, crushed raspberry, and blackcurrant complemented by graphite minerality reflecting the limestone terroir. The wine shows refined tannic structure—softer and more approachable than Cabernet Sauvignon—with balanced acidity typical of cooler-climate Virginia viticulture (Region V classification). Mid-palate notes of pencil shavings and dried herbs add savory complexity, while the fruit-forward character remains vibrant and expressive without excessive ripeness.",
+        "finish": "The finish is medium-length with persistent red fruit character and a gentle peppery spice. Fine-grained tannins provide structure without astringency, while the wine's natural brightness leaves the palate refreshed. Subtle herbal notes of dried sage linger alongside raspberry essence, showcasing Cabernet Franc's characteristic finesse and varietal purity."
+      },
+      "foodPairings": [
+        "Herb-roasted chicken with root vegetables",
+        "Grilled salmon with dill and lemon",
+        "Mushroom risotto with Parmigiano-Reggiano",
+        "Charcuterie board featuring prosciutto and salami",
+        "Roasted pork tenderloin with cranberry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C), slightly cool",
+        "decanting": "Brief 15-20 minute decanting recommended to soften tannins and open aromatics; young vintage benefits from aeration",
+        "glassware": "Bordeaux-style glass or medium-sized red wine glass to highlight floral aromatics and fruit complexity"
+      },
+      "wineDetails": {
+        "region": "Shenandoah Valley AVA, Virginia",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2024",
+        "style": "Medium-bodied, elegant red wine with herbaceous character",
+        "ageability": "Drink now through 2029. This young vintage is approachable upon release but will develop additional complexity with 3-5 years of cellaring. Cabernet Franc's early ripening nature creates wines accessible in youth while maintaining moderate aging potential."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on Shenandoah Valley AVA terroir characteristics and Cabernet Franc cooler-climate expression research"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tributo Malbec 2020",
+      "description": "A concentrated Argentine Malbec showcasing the deep color and intense fruity character that has made this varietal Argentina's signature wine. The 2020 vintage delivers the velvety texture and plush fruit expression characteristic of quality Argentine Malbec, likely sourced from the renowned Mendoza region where this varietal achieves its greatest heights.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with ripe dark fruit aromas of blackberry, black plum, and cassis, accompanied by distinctive violet florals that define Argentine Malbec. Layers of dark chocolate and espresso emerge alongside sweet vanilla oak notes, while subtle hints of dried fig and raisin suggest concentrated fruit from warm-climate viticulture. The intense, perfumed aromatics showcase the variety's juicy fruit character enhanced by careful oak integration.",
+        "palate": "On the palate, this wine delivers full-bodied richness with velvety, plush tannins characteristic of Argentine style—softer and more approachable than French Malbec counterparts. Flavors of ripe black cherry, boysenberry, and blackberry compote dominate, supported by notes of mocha, cocoa powder, and toasted oak. The texture is luxurious and mouth-filling without excessive weight, while maintained acidity (crucial in warm-climate Malbec) provides balance and prevents the wine from tasting flabby. Mid-palate complexity includes leather, tobacco, and subtle spice notes.",
+        "finish": "The finish is long and satisfying with persistent dark fruit flavors and gentle tannins that coat the palate. Chocolate and coffee notes linger alongside the wine's signature violet character, while integrated oak adds vanilla sweetness without dominating. The 2020 vintage shows excellent aging potential similar to French Malbecs despite its softer tannic structure."
+      },
+      "foodPairings": [
+        "Grilled Argentine ribeye steak with chimichurri",
+        "Braised short ribs with red wine reduction",
+        "Lamb chops with rosemary and garlic",
+        "Aged Manchego or aged Gouda cheese",
+        "Dark chocolate flourless cake"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (17-20°C), cellar temperature to room temperature",
+        "decanting": "Decant for 30-45 minutes to soften tannins and allow complex aromatics to fully develop; benefits significantly from aeration",
+        "glassware": "Large Bordeaux or Malbec-specific glass with wide bowl to maximize aromatics and allow wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Mendoza, Argentina (likely high-altitude Luján de Cuyo or Uco Valley)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2020",
+        "style": "Full-bodied, fruit-forward red wine with oak influence",
+        "ageability": "Drink now through 2030. The 2020 vintage is approaching optimal drinking window with 4+ years of bottle age. Argentine Malbecs show aging potential of 8-12 years, developing tertiary complexity while maintaining fruit intensity. Peak drinking 2025-2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on Argentine Malbec research emphasizing Mendoza high-altitude characteristics and aging potential"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Endhardt Rose 2021",
+      "description": "An elegant European-style rosé crafted using traditional skin-contact methods to achieve delicate color and refined flavor profile. This 2021 vintage captures the fresh, fruity character essential to quality rosé while offering subtle complexity from careful winemaking techniques.",
+      "tastingNotes": {
+        "aroma": "The nose presents delicate aromas of wild strawberry, white peach, and watermelon rind, complemented by subtle floral notes of rose petal and orange blossom. Bright citrus hints of pink grapefruit emerge alongside thiol-driven aromatics of passion fruit and lychee, derived from carefully controlled skin contact temperatures. The pale, onion-skin hue suggests gentle extraction focusing on aromatic complexity over color intensity.",
+        "palate": "The palate delivers refreshing acidity with crisp flavors of red currant, Rainier cherry, and nectarine. Light-bodied and vibrant, the wine shows minimal phenolic structure from brief skin contact, creating an accessible, easy-drinking style. Mid-palate notes of fresh melon and raspberry add depth, while subtle minerality provides backbone. The wine's low tannin profile and bright fruit character reflect classic rosé production focusing on immediate drinkability and aromatic freshness.",
+        "finish": "The finish is clean and bright with lingering red berry flavors and refreshing acidity that cleanses the palate. Subtle citrus notes of grapefruit zest persist alongside delicate floral hints. Best consumed within 1-2 years of vintage to maximize aromatic freshness before volatile thiol compounds diminish."
+      },
+      "foodPairings": [
+        "Grilled shrimp with lemon and herbs",
+        "Niçoise salad with fresh tuna",
+        "Soft cheeses like Brie or fresh chèvre",
+        "Mediterranean mezze platter",
+        "Strawberry and arugula salad with balsamic"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting required; serve directly chilled to preserve delicate aromatics and fresh fruit character",
+        "glassware": "Medium white wine glass or tulip-shaped rosé glass to concentrate subtle aromatics"
+      },
+      "wineDetails": {
+        "region": "European origin (likely French or Italian based on style)",
+        "grapeVariety": "Traditional rosé blend (likely Grenache, Syrah, or Pinot Noir base)",
+        "vintage": "2021",
+        "style": "Dry, pale rosé with delicate fruit character",
+        "ageability": "Drink now. At 4 years of age, this wine is past its ideal consumption window. Rosés should be consumed within 1-2 years of production to preserve aromatic freshness, as key aroma compounds drop to half their fermentation level within the first year. This bottle may show some oxidative character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on traditional rosé production methods and general rosé characteristics; age may have diminished aromatic vibrancy"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Korde Pinea Rose 2023",
+      "description": "A contemporary rosé showcasing bright fruit character and modern winemaking precision. The 2023 vintage delivers fresh, vibrant aromatics with balanced structure, crafted for immediate enjoyment at optimal freshness.",
+      "tastingNotes": {
+        "aroma": "The bouquet offers enticing aromas of fresh raspberry, cranberry, and pink grapefruit, layered with delicate notes of white flowers and honeysuckle. Subtle tropical hints of guava and lychee suggest thiol development from controlled-temperature skin contact above 20°C (68°F). The vibrant aromatics indicate recent bottling with key volatile compounds still at peak intensity, showcasing the wine's youthful exuberance.",
+        "palate": "The palate presents lively acidity with flavors of pomegranate, blood orange, and ripe strawberry. Medium-light body with subtle textural weight suggests slightly extended skin contact compared to pale rosés, providing enhanced flavor extraction without heaviness. Notes of watermelon, white cherry, and citrus zest create a refreshing, fruit-forward profile. The wine shows minimal phenolic grip, maintaining the soft, approachable character essential to quality rosé while offering enough structure for food pairing versatility.",
+        "finish": "The finish is crisp and clean with persistent red berry notes and refreshing citrus acidity. A subtle saline minerality emerges, adding complexity and length. The wine's bright, juicy character lingers pleasantly, inviting another sip. As a 2023 vintage consumed in 2025, this rosé is at its peak drinking window with full aromatic expression intact."
+      },
+      "foodPairings": [
+        "Grilled salmon with dill cream sauce",
+        "Caprese salad with heirloom tomatoes and burrata",
+        "Prosciutto-wrapped melon appetizers",
+        "Seared tuna tataki with wasabi aioli",
+        "Herb-roasted chicken breast with summer vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from refrigerator to preserve crisp acidity and fresh aromatics",
+        "glassware": "Tulip-shaped rosé glass or medium white wine glass to focus fruit aromatics while maintaining proper temperature"
+      },
+      "wineDetails": {
+        "region": "Unknown origin (contemporary style suggests New World production)",
+        "grapeVariety": "Rosé blend (likely Pinot Noir, Grenache, or Syrah base)",
+        "vintage": "2023",
+        "style": "Dry, fruit-forward rosé with vibrant acidity",
+        "ageability": "Drink now through 2026. This wine is currently in its prime drinking window. Rosé wines should be consumed within 1-2 years of vintage to maximize aromatic freshness. Beyond 2026, expect diminished fruit character and potential oxidative development."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on modern rosé production techniques emphasizing fruit purity and aromatic freshness"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine des Perrelles Moulin a Vent 2021",
+      "description": "A distinguished Moulin-à-Vent from one of Beaujolais's most prestigious Cru appellations, produced from Gamay grown on granitic acidic soils. This 2021 vintage from Domaine des Perrelles showcases the structured, age-worthy character that distinguishes Moulin-à-Vent as the 'King of Beaujolais,' offering complexity beyond typical carbonic maceration styles.",
+      "tastingNotes": {
+        "aroma": "The nose reveals concentrated aromas of sour cherry, black pepper, and dried cranberry characteristic of Gamay from acidic granite soils. Mineral notes of fresh-cut stone and chalk emerge alongside subtle rose petal and violet florals. Unlike lighter Beaujolais styles, this wine shows darker fruit concentration with hints of dried plum, graphite, and forest floor, suggesting traditional fermentation methods emphasizing structure over primary fruit exuberance. The aromatic complexity reflects the appellation's reputation for producing Beaujolais's most serious, Burgundian wines.",
+        "palate": "The palate delivers medium body with firm acidity and structured tannins unusual for Gamay, showcasing Moulin-à-Vent's distinctive tannic grip from granitic terroir. Flavors of tart cherry, raspberry preserve, and blackcurrant combine with savory notes of black pepper, crushed stone, and dried herbs. The wine shows earthy complexity with mushroom and forest floor nuances, while maintained acidity provides freshness and balance. Unlike carbonic maceration styles emphasizing bright strawberry, this wine offers depth and seriousness befitting a Cru Beaujolais.",
+        "finish": "The finish is persistent with firm tannins and mineral-driven complexity. Sour cherry and black pepper notes linger alongside chalky minerality and subtle spice. The wine's structure suggests good aging potential—Moulin-à-Vent's reputation as one of few Gamay-based wines capable of extended cellaring. At 4 years of age, the 2021 is entering its prime drinking window with integrated tannins and developing tertiary complexity."
+      },
+      "foodPairings": [
+        "Coq au vin with pearl onions and mushrooms",
+        "Grilled duck breast with cherry reduction",
+        "Boeuf bourguignon with root vegetables",
+        "Aged Comté or Gruyère cheese",
+        "Roasted game birds with wild mushroom sauce"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), cellar temperature to slightly cool",
+        "decanting": "Decant for 30 minutes to soften tannins and reveal aromatic complexity; benefits from aeration unlike lighter Beaujolais styles",
+        "glassware": "Burgundy glass with wide bowl to maximize aromatics and allow wine to breathe, showcasing structural complexity"
+      },
+      "wineDetails": {
+        "region": "Moulin-à-Vent AOC, Beaujolais, France (border of Rhône and Saône-et-Loire)",
+        "grapeVariety": "100% Gamay grown on granitic acidic soils",
+        "vintage": "2021",
+        "style": "Structured, age-worthy Cru Beaujolais with mineral complexity",
+        "ageability": "Drink now through 2028. Moulin-à-Vent is one of few Gamay-based wines with significant aging potential of 7-10 years. The 2021 vintage is currently in its prime drinking window (4 years of age), showing integrated tannins and developing complexity. Will continue to evolve gracefully through 2026-2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on Moulin-à-Vent AOC terroir research and Gamay characteristics from acidic granitic soils of Cru Beaujolais"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Burton Ranch Zinfandel 2016",
+      "description": "An expressive California Zinfandel from the 2016 vintage, showcasing the concentrated, full-bodied character that defines premium Zinfandel from established vineyard sites. This wine from Burton Ranch demonstrates the jammy, briary qualities and complex spice notes characteristic of older-vine fruit from California's warmer appellations.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of blackberry jam, dark cherry compote, and ripe boysenberry, displaying the concentrated fruit character typical of warmer-climate Zinfandel. Distinctive notes of anise, black pepper, and baking spices emerge alongside sweet vanilla oak and hints of dried fig. The aromatic profile shows cedar, tobacco leaf, and subtle eucalyptus, suggesting complexity from extended oak aging and fruit from mature vineyard sources. Concentrated jammy fruit dominates while maintaining varietal authenticity.",
+        "palate": "The palate delivers full-bodied richness with flavors of blackberry preserves, plum, and black cherry liqueur characteristic of ripe Zinfandel from warm regions. Notes of anise, white pepper, and sweet baking spices add complexity alongside cedar and vanilla from oak influence. The wine shows robust structure with moderate tannins and balanced acidity preventing the wine from tasting flabby despite concentrated fruit. Mid-palate reveals briary bramble notes, leather, and dark chocolate, while maintained freshness preserves drinkability. At 9 years of age, the 2016 shows developing tertiary complexity.",
+        "finish": "The finish is long and warming with persistent dark fruit flavors and gentle spice. Notes of black pepper, anise, and cedar linger alongside sweet berry essence and vanilla oak. The wine's alcohol presence adds warmth without harshness, typical of quality Zinfandel's generous character. Integrated tannins and developed complexity suggest the wine is at optimal maturity, showcasing California Zinfandel's aging potential when properly cellared."
+      },
+      "foodPairings": [
+        "Barbecued brisket with smoky dry rub",
+        "Grilled lamb chops with rosemary and garlic",
+        "Wild boar ragu with pappardelle pasta",
+        "Aged cheddar or smoked Gouda cheese",
+        "Chocolate-covered espresso beans and dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (17-20°C), cellar temperature to room temperature",
+        "decanting": "Decant for 45-60 minutes to allow mature wine to breathe and reveal full complexity; older Zinfandel benefits from extended aeration",
+        "glassware": "Large Bordeaux glass or Zinfandel-specific stemware with wide bowl to maximize aromatics and allow wine to breathe"
+      },
+      "wineDetails": {
+        "region": "California (likely Sonoma County or Amador County based on style)",
+        "grapeVariety": "100% Zinfandel (likely old-vine fruit)",
+        "vintage": "2016",
+        "style": "Full-bodied, jammy red wine with spice complexity and oak influence",
+        "ageability": "Drink now through 2026. At 9 years of age, this wine is at peak maturity for most Zinfandels. Premium old-vine Zinfandels can age 10-15 years under proper cellaring. The 2016 is in its optimal drinking window showing integrated tannins and developed complexity. Consume within 2-3 years to enjoy at its peak."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on California Zinfandel research emphasizing warm-climate characteristics and aging development"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Escapade (Rendezvous) 2011",
+      "description": "An intriguing aged red blend from the 2011 vintage, showcasing the complexity and evolution that comes with 14 years of bottle age. This wine likely represents a Bordeaux-style blend or proprietary California Meritage, demonstrating the tertiary development and integrated structure characteristic of well-cellared premium red wines.",
+      "tastingNotes": {
+        "aroma": "The nose reveals evolved aromas of dried cherry, fig, and prune alongside secondary notes of leather, tobacco, and cedar cigar box. The bouquet shows mature complexity with hints of forest floor, dried herbs, and earthy truffle. Subtle tertiary notes of vanilla, caramel, and baking spices suggest oak integration over time, while faded black currant and plum hint at the wine's fruit origins. The aromatic profile displays the savory, developed character expected from a 14-year-old wine, with primary fruit giving way to nuanced complexity.",
+        "palate": "The palate presents medium body with softened tannins and well-integrated acidity characteristic of mature red wine. Flavors of dried dark fruit, leather, and tobacco dominate, accompanied by notes of mushroom, forest floor, and subtle chocolate. The wine shows evolved complexity with hints of dried fig, dates, and aged balsamic, while maintained structure prevents over-the-hill characteristics. Oak influence has fully integrated, contributing subtle spice and vanilla without dominating. At 14 years of age, the wine displays graceful maturity with tertiary complexity taking precedence over primary fruit.",
+        "finish": "The finish is medium-length with gentle tannins and evolved savory notes. Dried fruit, leather, and cedar linger alongside subtle earthy complexity. The wine's integrated structure and developed character suggest careful cellaring, though consumption within 1-2 years is recommended to preserve remaining vitality. This is a wine in its mature phase, offering the complexity wine collectors seek from aged bottlings."
+      },
+      "foodPairings": [
+        "Braised beef short ribs with red wine reduction",
+        "Wild mushroom and truffle risotto",
+        "Aged beef tenderloin with demi-glace",
+        "Mature hard cheeses like aged Gouda or Parmigiano-Reggiano",
+        "Duck confit with lentils and root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C), cellar temperature",
+        "decanting": "Gentle decanting for 20-30 minutes to separate any sediment and allow wine to breathe; handle carefully as mature wine may be fragile",
+        "glassware": "Large Bordeaux glass to maximize evolved aromatics and showcase tertiary complexity"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely California or Bordeaux-style blend)",
+        "grapeVariety": "Proprietary red blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc, or similar Bordeaux varieties)",
+        "vintage": "2011",
+        "style": "Mature, evolved red blend with tertiary complexity",
+        "ageability": "Drink now. At 14 years of age, this wine is in its mature phase and should be consumed within 1-2 years to preserve remaining complexity. The wine has passed its peak fruit phase and now offers the savory, developed character sought by collectors of aged wines. Further aging may lead to decline."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.60,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on general aged red wine characteristics and Bordeaux-style blend aging patterns; specific producer information unavailable"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Huteau Boulanger Gamay 2023",
+      "description": "A vibrant Loire Valley Gamay from the Tours region, showcasing the fresh-peppery character that distinguishes Loire Gamay from its Beaujolais cousins. This 2023 vintage from Huteau Boulanger captures the bright raspberry notes and signature aromatics characteristic of Gamay grown in the Loire's terroir, often blended with Cabernet Franc influences in this region.",
+      "tastingNotes": {
+        "aroma": "The nose presents bright, exuberant aromas of fresh raspberry, crushed strawberry, and red cherry characteristic of Gamay processed with carbonic maceration techniques. Distinctive fresh-cut pepper notes emerge—a signature aromatic marking Loire Valley Gamay—alongside delicate violet florals. The bouquet shows vibrant youthful fruit with hints of cranberry and pomegranate, while subtle herbaceous notes suggest terroir influence or possible Cabernet Franc co-fermentation. The aromatic profile emphasizes purity and freshness typical of young Gamay.",
+        "palate": "The palate delivers light to medium body with lively acidity and minimal tannin structure characteristic of Gamay's approachable style. Flavors of bright raspberry, sour cherry, and red currant dominate, accompanied by the signature fresh-peppery notes distinctive to Loire expressions. The wine shows more complexity than simple Beaujolais nouveau styles, with subtle earthy undertones and minerality reflecting Loire terroir. Carbonic maceration creates the vibrant, crushed-berry fruit character while maintained acidity provides freshness and drinkability. At 2 years of age, the 2023 is at ideal drinking maturity.",
+        "finish": "The finish is clean and refreshing with persistent red berry fruit and bright acidity. The signature peppery spice lingers alongside raspberry essence and subtle herbal notes. Minimal tannins and vibrant freshness make this wine immediately accessible and food-friendly, showcasing Gamay's charm as an easy-drinking red wine best consumed young."
+      },
+      "foodPairings": [
+        "Charcuterie board with pâté and rillettes",
+        "Roasted chicken with herbs de Provence",
+        "Grilled sausages with Dijon mustard",
+        "Mushroom and goat cheese tart",
+        "Salmon with lentils and fresh herbs"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), slightly chilled",
+        "decanting": "Brief 10-15 minute decanting or no decanting; serve slightly chilled to emphasize fresh fruit character and refreshing acidity",
+        "glassware": "Medium red wine glass or Burgundy glass to highlight fruit aromatics without excessive aeration"
+      },
+      "wineDetails": {
+        "region": "Loire Valley, France (Tours region)",
+        "grapeVariety": "100% Gamay (possibly blended with Cabernet Franc as is traditional in Tours region)",
+        "vintage": "2023",
+        "style": "Light-bodied, fruity red wine with fresh-peppery character",
+        "ageability": "Drink now through 2026. Gamay is best consumed young within 2-3 years of vintage to preserve vibrant fruit character and fresh aromatics. The 2023 vintage is currently at ideal drinking maturity. Not intended for extended cellaring—enjoy for its youthful exuberance."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on Loire Valley Gamay research from Tours region emphasizing fresh-peppery characteristics and potential Cabernet Franc influence"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Optima Knights Valley Cabernet Sauvignon 2015",
+      "description": "A distinguished Knights Valley Cabernet Sauvignon from the warm 2015 vintage, sourced from Sonoma County's warmest appellation. This wine showcases the concentrated, powerful character that Knights Valley Cabernet achieves in this protected valley with its extended growing season, warm afternoons, and cooling evening influences that allow for optimal phenolic ripeness.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of blackcurrant, dark cherry, and blackberry compote characteristic of ripe Knights Valley Cabernet. Notes of cedar, tobacco, and cigar box emerge alongside vanilla oak and baking spices from careful barrel aging. The bouquet reveals complexity with hints of graphite, dried herbs, and eucalyptus, while concentrated dark fruit suggests the warm 2015 growing season (Region III classification with 3,001-3,500 degree-days). Secondary notes of leather and dark chocolate add depth to this powerfully aromatic wine.",
+        "palate": "The palate delivers full-bodied richness with structured tannins and concentrated flavors of blackcurrant, black cherry, and cassis. The warm Knights Valley climate produces ripe, generous fruit without excessive heaviness, balanced by maintained acidity. Notes of dark chocolate, espresso, and toasted oak complement the wine's core fruit, while mid-palate complexity includes cedar, tobacco, and hints of green olive. The wine shows excellent integration after 10 years of aging, with softened tannins and developed tertiary complexity. Knights Valley's signature power is evident while maintaining elegance and balance.",
+        "finish": "The finish is long and persistent with firm but integrated tannins coating the palate. Dark fruit flavors linger alongside cedar, tobacco, and subtle baking spices. Oak influence remains present but integrated, contributing vanilla and chocolate notes without dominating. At 10 years of age, the 2015 vintage is entering its prime drinking window with excellent aging potential remaining for well-stored bottles."
+      },
+      "foodPairings": [
+        "Prime ribeye steak with peppercorn crust",
+        "Braised lamb shanks with red wine reduction",
+        "Grilled portobello mushrooms with aged balsamic",
+        "Aged sharp cheddar or Parmigiano-Reggiano",
+        "Dark chocolate terrine with espresso sauce"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (17-20°C), cellar temperature to room temperature",
+        "decanting": "Decant for 60-90 minutes to soften tannins and reveal full aromatic complexity; this wine benefits significantly from extended aeration",
+        "glassware": "Large Bordeaux or Cabernet-specific glass with wide bowl to maximize aromatics and allow wine to breathe fully"
+      },
+      "wineDetails": {
+        "region": "Knights Valley AVA, Sonoma County, California",
+        "grapeVariety": "Cabernet Sauvignon (likely with traditional Bordeaux blend components: Merlot, Cabernet Franc, Malbec, Petit Verdot)",
+        "vintage": "2015",
+        "style": "Full-bodied, structured Cabernet Sauvignon with oak influence and aging complexity",
+        "ageability": "Drink now through 2035. The 2015 vintage is entering its prime drinking window at 10 years of age. Premium Knights Valley Cabernet can age 15-25 years under proper cellaring. This wine shows excellent integration and developing complexity while maintaining structure for continued evolution. Optimal drinking 2025-2030 with potential to age gracefully through 2035."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Based on Knights Valley AVA research emphasizing warm-climate Cabernet Sauvignon characteristics and aging potential"
+      }
+    }
+  ]
+}

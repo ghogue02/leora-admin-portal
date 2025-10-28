@@ -1,0 +1,346 @@
+{
+  "batchId": 165,
+  "processedAt": "2025-10-21T14:25:20.887Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine Chevallier Petit Chablis 2023",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2023 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak, vanilla. As the wine opens, additional layers of complexity emerge with hints of spice. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2023",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hightower Red Blend",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with impressive craftsmanship demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of dark fruit. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "NV",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Cuvee Marie 2021",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2021 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2021",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Chardonnay 2018",
+      "description": "A distinguished Chardonnay showcasing exceptional quality. This wine offers complexity and character with the 2018 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of green apple and pear, complemented by notes of citrus, butter, vanilla. As the wine opens, additional layers of complexity emerge with hints of pear. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is creamy and medium to full-bodied, delivering flavors of lemon zest, toast, minerality. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is clean and crisp, with lingering flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Lobster with butter",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Soft cheeses",
+        "Risotto"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve chilled",
+        "glassware": "Burgundy or large white wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2018",
+        "style": "Rich, complex white",
+        "ageability": "Best enjoyed now through 2023. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Cabernet Sauvignon 2015",
+      "description": "A distinguished Cabernet Sauvignon showcasing exceptional quality. This wine offers complexity and character with the 2015 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of blackcurrant and dark cherry, complemented by notes of cedar, tobacco. As the wine opens, additional layers of complexity emerge with hints of black pepper. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is bold tannins and full-bodied, delivering flavors of blackberry, dark chocolate, espresso, leather. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is long and structured, with persistent flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow complex aromatics to emerge",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2015",
+        "style": "Full-bodied, structured red",
+        "ageability": "Drinking well now through 2025. Can age for 10-15 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sonder Orange (White Field Blend) 2022",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of vanilla. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Fresh oysters",
+        "Grilled fish",
+        "Goat cheese salad",
+        "Sushi",
+        "Light seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2022",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Borgeot Chassagne Montrachet 1er Cru Clos Saint Jean 2023",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2023 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of herbs. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2023",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Orchard Lane Rose 2020",
+      "description": "A distinguished Red Blend showcasing exceptional quality. This wine offers complexity and character with the 2020 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of oak. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Mediterranean salads",
+        "Grilled prawns",
+        "Charcuterie",
+        "Light pasta dishes",
+        "Soft cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Red Blend",
+        "vintage": "2020",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Kelvin Feku Grenache Noir 2022",
+      "description": "A distinguished Grenache showcasing exceptional quality. This wine offers complexity and character with the 2022 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of mixed berries and dark fruit, complemented by notes of spice, oak. As the wine opens, additional layers of complexity emerge with hints of mixed berries. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is balanced and medium to full-bodied, delivering flavors of layered flavors, integrated tannins. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is harmonious and satisfying, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar",
+        "Lamb rack",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Grenache",
+        "vintage": "2022",
+        "style": "Classic varietal expression",
+        "ageability": "Ready to enjoy now. Drinking window of 3-5 years from vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pomar Junction Pinot Noir Reserve 2016",
+      "description": "A distinguished Pinot Noir showcasing exceptional quality. This wine offers complexity and character with the 2016 vintage demonstrating balance and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose reveals enticing aromas of red cherry and strawberry, complemented by notes of raspberry, earthy. As the wine opens, additional layers of complexity emerge with hints of violets. The aromatic profile is both inviting and sophisticated, showcasing the wine's quality and terroir expression.",
+        "palate": "On the palate, this wine is silky and medium-bodied, delivering flavors of red fruit, fine tannins, elegant. The mid-palate shows excellent concentration with a harmonious balance of fruit and structure. Well-integrated oak and refined tannins provide framework without overwhelming the pure fruit expression. The overall impression is one of elegance and precision.",
+        "finish": "The finish is smooth and refined, with complex flavors that invite another sip. This wine demonstrates excellent craftsmanship and attention to detail throughout."
+      },
+      "foodPairings": [
+        "Roasted chicken",
+        "Pork tenderloin",
+        "Grilled salmon",
+        "Pasta with meat sauce",
+        "Mushroom dishes"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "Brief 30-minute decant to open aromatics",
+        "glassware": "Burgundy glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Various regions",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "2016",
+        "style": "Premium reserve",
+        "ageability": "Best enjoyed now through 2021. Peak drinking window of 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:20.887Z"
+      }
+    }
+  ]
+}

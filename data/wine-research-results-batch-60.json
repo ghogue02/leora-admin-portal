@@ -1,0 +1,358 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 60,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Knuttel Family Sonoma Coast Pinot Noir, Bill's Hidden Track 2019",
+      "description": "A boutique Sonoma Coast Pinot Noir from Knuttel Family Winery's Bill's Hidden Track vineyard, showcasing the coastal influence and cool-climate elegance that defines this exceptional terroir. This wine represents the family's commitment to small-lot, site-specific winemaking with meticulous attention to detail.",
+      "tastingNotes": {
+        "aroma": "Opens with inviting layers of fresh red cherry, wild strawberry, and cranberry, interwoven with delicate floral notes of rose petal and violet. Subtle undertones of forest floor, cedar spice, and a hint of coastal sage add complexity, while a whisper of vanilla and toasted oak from thoughtful barrel aging provides structure without overwhelming the vibrant fruit character.",
+        "palate": "The palate reveals bright acidity and silky tannins that frame flavors of ripe Bing cherry, raspberry compote, and red currant. Mid-palate richness brings notes of pomegranate, tea leaf, and subtle baking spices including cinnamon and clove. The coastal terroir shines through with a mineral-driven backbone and refreshing salinity that adds dimension to the fruit-forward profile.",
+        "finish": "Medium to long finish with persistent red fruit echoes and fine-grained tannins that linger gracefully. A touch of earthy mushroom and dried herbs emerges on the fade, showcasing the wine's complexity and cool-climate origins."
+      },
+      "foodPairings": [
+        "Seared duck breast with cherry gastrique",
+        "Wild mushroom risotto with truffle oil",
+        "Grilled Pacific salmon with herb butter",
+        "Roasted chicken with root vegetables",
+        "Aged Gruyère and charcuterie board"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant 30-45 minutes before serving to allow the wine to open and express its full aromatic complexity",
+        "glassware": "Burgundy-style glass with large bowl to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Sonoma Coast, California",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2019",
+        "style": "Cool-climate Pinot Noir with elegant fruit expression and coastal influence",
+        "ageability": "Drink now through 2026. Shows lovely balance for current enjoyment while having the structure to develop additional complexity over 3-5 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Small family producer. Tasting notes based on Sonoma Coast Pinot Noir characteristics and cool-climate vineyard profile."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Artis NA Brut Rose",
+      "description": "A sophisticated non-alcoholic sparkling rosé that delivers the celebratory experience of traditional brut rosé without the alcohol. Crafted using advanced dealcoholization techniques that preserve the wine's character, Artis NA represents the new generation of premium alcohol-free wines.",
+      "tastingNotes": {
+        "aroma": "Delicate bouquet of fresh strawberries, white peach, and crisp red apple greets the nose with appealing vibrancy. Floral notes of orange blossom and honeysuckle add elegance, while subtle hints of brioche and almond from the base wine create depth. A whisper of citrus zest brightens the aromatic profile.",
+        "palate": "Lively bubbles dance across the palate carrying flavors of wild strawberry, raspberry, and pink grapefruit with remarkable freshness. The mid-palate shows nice texture with notes of stone fruit and a touch of minerality that adds sophistication. Balanced acidity maintains structure and prevents the wine from feeling sweet despite containing residual grape sugars.",
+        "finish": "Clean, refreshing finish with persistent fine bubbles and lingering notes of citrus and red berries. The mouthfeel remains crisp and satisfying without any cloying sweetness or artificial aftertaste."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Smoked salmon canapés",
+        "Strawberry and arugula salad with goat cheese",
+        "Light seafood ceviche",
+        "Brunch dishes and fresh pastries"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well chilled",
+        "decanting": "No decanting needed. Serve directly from refrigerator for optimal freshness and bubble retention",
+        "glassware": "Champagne flute or tulip glass to preserve effervescence"
+      },
+      "wineDetails": {
+        "region": "California (dealcoholized)",
+        "grapeVariety": "Rosé blend of traditional sparkling wine varieties",
+        "vintage": "Non-vintage",
+        "style": "Non-alcoholic sparkling rosé, Brut style with low residual sugar",
+        "ageability": "Best consumed within 6-12 months of purchase to enjoy optimal freshness and bubble retention. Store refrigerated after opening and consume within 3 days."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Premium non-alcoholic sparkling wine. Tasting notes based on NA wine category characteristics and sparkling rosé profile."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Knuttel Family Wines Tentadora Malbec 2018",
+      "description": "Tentadora, meaning 'tempting' in Spanish, is Knuttel Family's expression of New World Malbec showcasing concentrated dark fruit and velvety texture. This wine represents the family's exploration beyond their coastal Pinot Noir roots, crafting a bold, food-friendly red with California sunshine and warmth.",
+      "tastingNotes": {
+        "aroma": "Explosive aromas of ripe blackberry, blueberry compote, and dark plum leap from the glass with impressive intensity. Layers of violet, dark chocolate, and espresso add richness, while hints of vanilla bean, sweet tobacco, and toasted oak from barrel aging provide complexity. A touch of black pepper and leather adds savory intrigue.",
+        "palate": "Full-bodied and lush on entry with concentrated flavors of black cherry, boysenberry, and cassis coating the palate. The mid-palate reveals wonderful depth with notes of mocha, dark cocoa, and a hint of caramel from oak integration. Firm yet ripe tannins provide structure while maintaining approachability, balanced by juicy acidity that prevents heaviness.",
+        "finish": "Long, satisfying finish with persistent dark fruit and subtle spice notes. Velvety tannins grip gently while flavors of blackberry and cocoa linger beautifully with a hint of vanilla on the fade."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised short ribs with red wine reduction",
+        "Lamb chops with rosemary and garlic",
+        "Portobello mushroom burgers",
+        "Aged manchego cheese with dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (17-20°C)",
+        "decanting": "Decant 1 hour before serving to soften tannins and allow the wine to fully express its aromatic complexity and fruit concentration",
+        "glassware": "Large-bowled red wine glass (Bordeaux or Cabernet style)"
+      },
+      "wineDetails": {
+        "region": "California (specific AVA unknown, likely warm climate region)",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2018",
+        "style": "Bold, fruit-forward New World Malbec with oak aging",
+        "ageability": "Drinking beautifully now through 2028. The 2018 vintage has developed secondary complexity while retaining vibrant fruit. Can continue to evolve for 5-7 years from vintage date."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Knuttel Family producer confirmed. Tasting notes based on California Malbec characteristics and warm-climate expression."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Black Elephant Vintners Back Roads Petite Sirah 2019",
+      "description": "A powerhouse Petite Sirah from Black Elephant Vintners' Back Roads series, celebrating off-the-beaten-path vineyard sources and bold California winemaking. This wine embodies the intensity and deep color that defines the Petite Sirah varietal, crafted for lovers of big, structured reds.",
+      "tastingNotes": {
+        "aroma": "Dense, almost opaque aromas of blackberry jam, black plum, and crushed blueberries dominate the bouquet with impressive concentration. Layers of violet, graphite, and black pepper add complexity, while notes of charred oak, espresso, and dark chocolate from barrel aging create a brooding, powerful aromatic profile. Hints of leather and dried herbs emerge with aeration.",
+        "palate": "Massive and full-bodied with grip and intensity characteristic of top Petite Sirah. Flavors of black fruit preserves, blackberry liqueur, and cassis flood the palate with remarkable power. The mid-palate shows excellent depth with notes of mocha, black licorice, and a savory, almost meaty quality. Substantial, chewy tannins provide serious structure while ripe fruit concentration balances the wine's formidable presence.",
+        "finish": "Extraordinarily long finish with gripping tannins and persistent dark fruit that seems to last minutes. Notes of espresso, dark chocolate, and black pepper linger powerfully while the wine's structure slowly softens on the palate."
+      },
+      "foodPairings": [
+        "Slow-braised beef brisket with BBQ sauce",
+        "Smoked pork ribs with spicy dry rub",
+        "Wild game stew with root vegetables",
+        "Blue cheese burger with caramelized onions",
+        "Aged cheddar and dark chocolate pairing"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (17-20°C)",
+        "decanting": "Strongly recommended to decant 2-3 hours before serving to tame the wine's powerful tannins and unlock its full aromatic complexity. Can benefit from aggressive aeration",
+        "glassware": "Large-bowled red wine glass to allow ample aeration"
+      },
+      "wineDetails": {
+        "region": "California (likely Paso Robles, Lodi, or Sierra Foothills)",
+        "grapeVariety": "100% Petite Sirah",
+        "vintage": "2019",
+        "style": "Bold, tannic, full-bodied Petite Sirah with intense concentration",
+        "ageability": "Built for the long haul. Drink now with substantial decanting through 2035. Has the structure and concentration to develop beautifully over 10-15 years, softening tannins while gaining complexity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Small producer, Back Roads series. Tasting notes based on Petite Sirah varietal characteristics and California warm-climate profile."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boplaas Alvarinho 2024",
+      "description": "A fresh expression of Alvarinho (Albariño) from South Africa's renowned Boplaas Estate, a six-generation family winery in Calitzdorp. This wine showcases the estate's expertise with Portuguese varietals and represents South Africa's growing excellence with this aromatic white grape in their unique terroir.",
+      "tastingNotes": {
+        "aroma": "Bright and aromatic nose bursting with white peach, apricot, and honeydew melon alongside zesty citrus notes of lime, lemon zest, and orange blossom. Floral elements of jasmine and acacia add elegance, while subtle mineral and saline notes hint at the wine's depth. A whisper of fresh herbs and white pepper provides additional complexity.",
+        "palate": "Crisp and refreshing on the palate with vibrant acidity that defines the Alvarinho style. Flavors of ripe stone fruit including nectarine and yellow peach mingle with citrus elements of grapefruit and Meyer lemon. The mid-palate shows nice weight and texture with a slight viscosity that adds richness without heaviness. Mineral notes and a subtle salinity create an intriguing savory dimension that balances the fruit.",
+        "finish": "Medium-length finish with persistent citrus zest and stone fruit notes. The wine's bright acidity leaves the palate refreshed while subtle mineral elements linger pleasantly."
+      },
+      "foodPairings": [
+        "Grilled prawns with lemon and garlic",
+        "Fresh oysters and seafood platters",
+        "Ceviche with citrus and cilantro",
+        "Grilled calamari with aioli",
+        "Light summer salads with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well chilled",
+        "decanting": "No decanting needed. Serve directly chilled to preserve the wine's bright fruit and aromatic freshness",
+        "glassware": "White wine glass with medium bowl"
+      },
+      "wineDetails": {
+        "region": "Calitzdorp, Klein Karoo, South Africa",
+        "grapeVariety": "100% Alvarinho (Albariño)",
+        "vintage": "2024",
+        "style": "Fresh, aromatic white wine with vibrant acidity and stone fruit character",
+        "ageability": "Best enjoyed within 1-3 years of vintage to capture the wine's bright fruit and aromatic intensity. Drink now through 2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Boplaas Estate confirmed as six-generation family winery in Calitzdorp specializing in Portuguese varietals. Tasting notes based on Alvarinho characteristics and South African terroir."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine d'Avrille Sauvignon Blanc 2023",
+      "description": "A classic Loire Valley Sauvignon Blanc from Domaine d'Avrillé, expressing the pure, mineral-driven character of this celebrated French wine region. This wine showcases the restrained elegance and terroir expression that distinguishes Loire Sauvignon from its New World counterparts.",
+      "tastingNotes": {
+        "aroma": "Precise and focused aromas of citrus blossom, green apple, and white grapefruit lead the way with characteristic Loire refinement. Notes of wet stone, flint, and crushed limestone create a distinct mineral framework, while subtle herbal elements of cut grass, nettle, and white pepper add complexity. A hint of gooseberry and passion fruit provides gentle tropical intrigue without overwhelming the wine's elegant profile.",
+        "palate": "Bright, razor-sharp acidity drives the palate with energizing freshness and purity. Flavors of lemon, lime, and green apple dominate with focused intensity, supported by pronounced minerality that speaks to the Loire's limestone-rich soils. The mid-palate remains lean and precise with subtle notes of white flowers and a saline quality that adds dimension. This is Sauvignon Blanc in its most classic, terroir-driven expression.",
+        "finish": "Crisp, clean finish with lingering citrus and stony mineral notes. The wine's vibrant acidity leaves the palate wonderfully refreshed with a subtle saline persistence."
+      },
+      "foodPairings": [
+        "Fresh goat cheese (Crottin de Chavignol)",
+        "Grilled sea bass with herbs",
+        "Oysters on the half shell",
+        "Asparagus with hollandaise sauce",
+        "Fresh salads with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well chilled",
+        "decanting": "No decanting needed. Serve well chilled to emphasize the wine's crisp acidity and mineral character",
+        "glassware": "Tulip-shaped white wine glass"
+      },
+      "wineDetails": {
+        "region": "Loire Valley, France",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2023",
+        "style": "Classic Loire Valley Sauvignon Blanc with mineral-driven character and high acidity",
+        "ageability": "Best enjoyed young within 1-3 years of vintage to appreciate the wine's fresh fruit and vibrant character. Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Loire Valley producer. Tasting notes based on classic Loire Sauvignon Blanc profile with emphasis on minerality and terroir expression."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sky Devil Cabernet Franc 2020",
+      "description": "An intriguing varietal Cabernet Franc showcasing this noble grape's ability to stand alone outside its traditional Bordeaux blending role. Sky Devil captures the herbaceous complexity and red fruit elegance that makes Cabernet Franc increasingly sought after by wine enthusiasts.",
+      "tastingNotes": {
+        "aroma": "Captivating aromatics of red raspberry, red currant, and fresh red plum mingle with distinctive herbal notes of bell pepper, tobacco leaf, and dried sage. Floral hints of violet and rose petal add elegance, while subtle earthy elements of graphite, pencil shavings, and forest floor create complexity. A whisper of spice from oak aging adds depth without dominating the wine's characteristic varietal expression.",
+        "palate": "Medium-bodied and beautifully structured with bright acidity and fine-grained tannins that showcase Cabernet Franc's elegant profile. Flavors of cranberry, sour cherry, and red raspberry dominate with vibrant fruit purity. The mid-palate reveals layers of complexity with notes of black tea, roasted red pepper, and subtle baking spices. Earthy undertones and a mineral quality add dimension while maintaining the wine's refreshing, food-friendly character.",
+        "finish": "Medium to long finish with persistent red fruit and herbal notes. The wine's refined tannins and bright acidity linger pleasantly with subtle savory elements emerging on the fade."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb",
+        "Roasted red peppers with goat cheese",
+        "Mushroom and lentil ragù",
+        "Grilled vegetables with balsamic reduction",
+        "Charcuterie featuring duck and pork terrines"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C), slightly cool",
+        "decanting": "Decant 30-45 minutes before serving to allow the wine's herbal complexity and fruit character to fully express themselves",
+        "glassware": "Bordeaux-style glass with medium bowl"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely California, Washington, or New York)",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2020",
+        "style": "Varietal Cabernet Franc emphasizing herbal complexity and red fruit elegance",
+        "ageability": "Drink now through 2030. The 2020 vintage shows lovely balance for current enjoyment while having the structure to develop additional savory complexity over 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Limited producer information. Tasting notes based on varietal Cabernet Franc characteristics with emphasis on herbal and red fruit profile."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Sauvignon Blanc 2024",
+      "description": "A vibrant, contemporary Sauvignon Blanc from Raywood showcasing bright fruit expression and refreshing acidity. This wine represents approachable, food-friendly white wine crafted for immediate enjoyment and versatile pairing options.",
+      "tastingNotes": {
+        "aroma": "Exuberant aromas of tropical fruit including passion fruit, guava, and pineapple leap from the glass with youthful energy. Citrus notes of grapefruit, lime zest, and lemon add brightness, while subtle herbal hints of fresh-cut grass and jalapeño provide varietal character. A touch of elderflower and honeysuckle adds a delicate floral dimension.",
+        "palate": "Crisp and lively on the palate with zingy acidity that energizes the fruit. Flavors of pink grapefruit, Meyer lemon, and green apple dominate with refreshing intensity, joined by tropical notes of kiwi and gooseberry. The mid-palate maintains bright, juicy character with good concentration and a subtle mineral quality that adds depth. The wine's balanced structure makes it wonderfully versatile for food pairing.",
+        "finish": "Clean, refreshing finish with lingering citrus and tropical fruit notes. Crisp acidity leaves the palate invigorated and ready for the next sip or bite."
+      },
+      "foodPairings": [
+        "Fish tacos with mango salsa",
+        "Grilled shrimp skewers",
+        "Fresh summer rolls with peanut sauce",
+        "Arugula salad with lemon vinaigrette",
+        "Feta and herb-stuffed chicken breast"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well chilled",
+        "decanting": "No decanting needed. Serve directly chilled to preserve the wine's vibrant fruit and fresh character",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely California or Australia based on style)",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Fruit-forward New World Sauvignon Blanc with tropical character",
+        "ageability": "Best enjoyed within 1-2 years of vintage to capture peak freshness and vibrant fruit. Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Limited producer information. Tasting notes based on New World Sauvignon Blanc characteristics with tropical fruit emphasis."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Campus Oaks Chardonnay 2016",
+      "description": "A mature California Chardonnay from Campus Oaks that has developed additional complexity and richness with bottle age. This wine represents classic California Chardonnay style with oak influence and full-bodied character, now showing evolved tertiary notes from its aging potential.",
+      "tastingNotes": {
+        "aroma": "Evolved aromatic profile showing layers of baked apple, ripe pear, and honey mingling with buttery notes and toasted oak. The bouquet reveals mature characteristics including hazelnut, butterscotch, and crème brûlée from extended oak aging and bottle development. Subtle hints of vanilla bean, baking spices, and a touch of caramel add richness, while whispers of dried apricot and fig emerge with aeration.",
+        "palate": "Full-bodied and rich on the palate with creamy texture from malolactic fermentation and extended lees contact. Flavors of golden apple, poached pear, and tropical notes of pineapple blend seamlessly with oak-derived elements of vanilla, toasted almond, and butter. The mid-palate shows impressive depth and viscosity with notes of lemon curd, caramel, and a subtle mineral quality. Balanced acidity prevents the wine from feeling heavy despite its richness.",
+        "finish": "Long, luxurious finish with persistent notes of oak, butter, and ripe fruit. The wine's creamy texture lingers pleasantly while subtle spice and nut notes emerge on the fade."
+      },
+      "foodPairings": [
+        "Lobster with drawn butter",
+        "Roasted chicken with herbs and lemon",
+        "Creamy pasta with wild mushrooms",
+        "Brie and triple-cream cheeses",
+        "Pan-seared scallops with beurre blanc"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C), lightly chilled",
+        "decanting": "Brief decanting of 15-20 minutes can help the wine open, though not essential. Allow to warm slightly in glass to appreciate full aromatic complexity",
+        "glassware": "Large-bowled Chardonnay or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "California (specific AVA unknown)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2016",
+        "style": "Full-bodied, oak-aged California Chardonnay with butter and tropical fruit character",
+        "ageability": "Drinking in its mature window now. The 2016 vintage has developed secondary and tertiary complexity. Drink now through 2026 before further evolution."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Limited producer information. Tasting notes based on classic California Chardonnay profile with consideration for vintage age and development."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Pure Yum Blend 2023",
+      "description": "A playfully named yet serious red blend from acclaimed winemaker Jeff Cohn, known for his Rhône-style wines and bold California expressions. Pure Yum represents Cohn's approachable, fruit-forward philosophy while maintaining the quality and complexity that define his portfolio.",
+      "tastingNotes": {
+        "aroma": "Exuberant and inviting nose bursting with fresh blackberry, black cherry, and blueberry preserves showing remarkable fruit purity. Floral notes of violet and lavender add elegance, while subtle hints of cracked black pepper, dried herbs, and a touch of garrigue provide Rhône-like complexity. Gentle oak influence brings notes of vanilla, cedar, and a whisper of mocha without overwhelming the wine's vibrant fruit character.",
+        "palate": "Medium to full-bodied with juicy, approachable character that lives up to the 'Pure Yum' name. Flavors of ripe boysenberry, black raspberry, and plum dominate with exuberant fruit expression. The mid-palate reveals layers of complexity with notes of black tea, cocoa nibs, and subtle baking spices from oak integration. Soft, supple tannins and balanced acidity make this wine immediately enjoyable while maintaining structure and depth.",
+        "finish": "Smooth, satisfying finish with lingering dark fruit and gentle spice notes. The wine's plush tannins and fruit-forward character leave the palate content and wanting another glass."
+      },
+      "foodPairings": [
+        "BBQ pulled pork sandwiches",
+        "Grilled burgers with caramelized onions",
+        "Margherita pizza with fresh basil",
+        "Braised lamb shanks with herbs",
+        "Aged gouda and dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes helps the wine open and express its full fruit character, though accessible immediately upon opening",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "California (likely blend of Rhône varieties)",
+        "grapeVariety": "Red blend (likely Grenache, Syrah, and/or Mourvèdre)",
+        "vintage": "2023",
+        "style": "Fruit-forward, approachable red blend with Rhône variety influence",
+        "ageability": "Designed for near-term enjoyment. Drink now through 2028. While accessible young, the wine has the structure to develop additional complexity over 3-5 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "researchNotes": "Jeff Cohn is known for Rhône-style wines. Tasting notes based on his winemaking style and likely grape composition of Rhône varieties."
+      }
+    }
+  ]
+}

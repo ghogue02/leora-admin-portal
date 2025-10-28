@@ -1,0 +1,347 @@
+{
+  "batchId": 72,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Quinta do Mourao Tawny 20 Year Port",
+      "description": "An exquisite 20-year aged tawny Port from the renowned Quinta do Mourão estate, positioned on the banks of the Douro opposite Régua. This wine showcases the estate's mastery of aged tawny production, receiving 92 points from Wine Advocate for its exceptional complexity and elegance that surpasses many tawnies in its category.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense aromas of dried fruits—figs, apricots, and raisins—layered with butterscotch, bourbon vanilla, and Kraft caramels. Honeyed notes intertwine with orange peel and Christmas spices, creating a seductive aromatic tapestry. The wine displays medium dark amber-brown hues with luminous orange-red highlights, signaling its maturity and refinement.",
+        "palate": "Full-bodied and harmonious, the palate offers a rich, elegant mid-palate with intensity of fruit that distinguishes it from younger tawnies. Flavors of dried apricots hover between fresh and dried fruit character, accented by nuts, toffee, and subtle spices. The wine takes the spice and sugar foundation and adds layers of caramel with a touch of brandy warmth, delivering more complexity and serious character than typical 20-year tawnies. Fine balance between sweetness and structure creates exceptional drinking pleasure.",
+        "finish": "The finish is long and elegant, showcasing the wine's complexity with lingering notes of dried fruits, spice, and subtle oak. It seems remarkably full of life for its age, leaving an impression of maturity balanced with vibrant energy that speaks to the quality of the base wines and careful blending."
+      },
+      "foodPairings": [
+        "Crème brûlée with candied orange peel",
+        "Blue cheese with fig compote and walnuts",
+        "Almond tart with butterscotch sauce",
+        "Dark chocolate truffles with sea salt",
+        "Foie gras terrine with dried apricots"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly chilled, 12-14°C (54-57°F)",
+        "decanting": "No decanting necessary; serve directly from the bottle. Once opened, can last several weeks in the refrigerator.",
+        "glassware": "Small tulip-shaped Port glass or ISO tasting glass"
+      },
+      "wineDetails": {
+        "region": "Douro Valley, Portugal",
+        "grapeVariety": "Touriga Nacional, Touriga Franca, Tinta Roriz, Tinta Barroca, and Tinto Cão",
+        "vintage": "NV (blend of multiple vintages with an average age of 20 years)",
+        "style": "20 Year Old Tawny Port",
+        "ageability": "Ready to drink now. As an aged tawny, it does not require further aging and maintains quality for decades in bottle. Once opened, can be enjoyed over several weeks."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Show Pony (WINE CLUB ONLY)",
+      "description": "A specialty red blend exclusively available through Two Mountain Winery's tasting room and wine club, crafted from estate-grown grapes in Washington's Rattlesnake Hills AVA. Produced by brothers Matthew and Patrick Rawn at Washington's first certified-sustainable vineyards, this wine has become a favorite among friends, family, and equestrian enthusiasts.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with rich aromas of perfectly baked cherry pie, exuding warmth and ripeness. A distinctive dash of coriander adds an intriguing spice note, while dried eucalyptus brings aromatic complexity and herbal lift. The interplay of ripe fruit and savory botanicals creates an inviting, multi-layered aromatic profile that reflects the Yakima Valley's unique terroir.",
+        "palate": "This red blend of Cabernet Sauvignon, Cabernet Franc, and Merlot delivers a harmonious palate showcasing the best of each variety. Ripe red cherry and dark berry flavors form the core, supported by subtle oak influence and well-integrated tannins. The wine displays medium to full body with balanced acidity, offering both structure and approachability. Hints of dried herbs and spice echo the nose, adding savory complexity to the fruit-forward profile.",
+        "finish": "The finish is smooth and moderately long, with lingering notes of cherry, subtle spice, and a whisper of eucalyptus. Soft tannins provide texture without astringency, making this an exceptionally easy-drinking wine that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Roasted lamb chops with rosemary",
+        "Mushroom and gruyère stuffed burgers",
+        "BBQ pulled pork with tangy slaw",
+        "Aged cheddar and charcuterie board"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (60-64°F)",
+        "decanting": "Brief decanting for 30 minutes enhances aromatics and softens tannins, though not essential for enjoyment.",
+        "glassware": "Standard Bordeaux glass or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rattlesnake Hills AVA, Yakima Valley, Washington State",
+        "grapeVariety": "Cabernet Sauvignon, Cabernet Franc, and Merlot blend",
+        "vintage": "Non-Vintage",
+        "style": "Red Blend - Washington style with balanced fruit and structure",
+        "ageability": "Best enjoyed within 3-5 years of release to preserve fresh fruit character. Drink now for optimal enjoyment."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Langhe Dolcetto 2018",
+      "description": "A textbook expression of Dolcetto from one of Piedmont's respected producers, the Mauro Molino Langhe Dolcetto 2018 showcases the approachable, food-friendly character that has made this variety beloved in Italy's northwest. With a Community Score of 90.3 on CellarTracker, this wine exemplifies exceptional value in Piedmontese red wine.",
+      "tastingNotes": {
+        "aroma": "The nose presents a gracious bouquet of violet and red fruit—particularly fresh cherries—accompanied by delicate floral notes and subtle almond hints. The aromatic profile is bright and inviting, characteristic of well-made Dolcetto, with a touch of spice and mineral undertones. The wine's pale to medium ruby color signals its elegant, lifted style rather than heavy extraction.",
+        "palate": "Medium-bodied and refreshing, the palate delivers juicy dark cherries and red berry flavors with wonderful purity of fruit. Soft, elegant tannins provide gentle structure without any harshness, while medium-minus acidity keeps the wine lively and balanced. There's a pleasant simplicity to the taste that doesn't lack for charm—this is Dolcetto showing its food-friendly, everyday drinking appeal. Floral nuances persist through the mid-palate, adding refinement to the straightforward fruit expression.",
+        "finish": "The finish is clean and moderately long, leaving impressions of fresh cherry, subtle almond, and a whisper of violet. The wine's gracious nature shines through to the end, making it a genuine pleasure to drink with its combination of brightness and gentle texture."
+      },
+      "foodPairings": [
+        "Pasta with Bolognese or meat ragù",
+        "Vitello tonnato (veal with tuna sauce)",
+        "Pizza with sausage and mushrooms",
+        "Roasted chicken with herbs and root vegetables",
+        "Antipasto platter with salumi and aged cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly cool at 14-16°C (57-61°F) to enhance freshness",
+        "decanting": "No decanting needed; this wine is meant to be enjoyed young and fresh with minimal fuss.",
+        "glassware": "Medium-sized tulip-shaped red wine glass or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Langhe DOC, Piedmont, Italy",
+        "grapeVariety": "100% Dolcetto",
+        "vintage": "2018",
+        "style": "Dry red table wine - fresh and fruit-forward Piedmont style",
+        "ageability": "Best enjoyed within 2-4 years of vintage. The 2018 is at peak drinking now through 2025. Dolcetto is made for youthful enjoyment rather than long-term aging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Toro Fighting Bulls 2018",
+      "description": "The Abelis Carthago Fighting Bulls 2018 hails from ungrafted Tempranillo vines dating back 120 years in Spain's Toro region. This family-run estate produces wines of unparalleled power and complexity, drawing comparisons to Napa Cabernets at twice the price and setting the bar for outstanding craftsmanship in Toro.",
+      "tastingNotes": {
+        "aroma": "The wine presents with the deep color of blueberry pie, introducing an intense aromatic profile. The bouquet reveals concentrated black currant and cassis, layered with violet florals and warming clove spice. These ancient, ungrafted vines produce Tempranillo with exceptional aromatic intensity and purity, capturing the essence of Toro's powerful terroir and continental climate.",
+        "palate": "Full-bodied and structured, the palate showcases flavors of black plum, cassis, and anisette, accented by rich dark chocolate. The wine delivers substantial tannic grip initially, characteristic of Toro's bold style, but the tannins are well-integrated and steadily soften as the wine opens. The power of 120-year-old vines shines through in the depth and concentration of dark fruit, supported by careful winemaking that preserves complexity while taming the region's naturally robust character.",
+        "finish": "The finish is long and satisfying, dropping into notes of dark chocolate and espresso bean as the tannins gently recede. The espresso and chocolate elements provide a sophisticated conclusion that speaks to quality oak aging and the wine's overall maturity, leaving a lasting impression of power tempered by refinement."
+      },
+      "foodPairings": [
+        "Grilled Ibérico pork secreto with chimichurri",
+        "Braised beef short ribs in red wine sauce",
+        "Manchego cheese aged 12 months with quince paste",
+        "Roasted leg of lamb with garlic and rosemary",
+        "Wild mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F) to showcase structure and aromatics",
+        "decanting": "Decant for 1-2 hours before serving to soften tannins and open aromatics. This powerful wine benefits significantly from aeration.",
+        "glassware": "Large Bordeaux glass or Cabernet-specific stemware to allow the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Toro DO, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo (Tinta de Toro clone from 120-year-old ungrafted vines)",
+        "vintage": "2018",
+        "style": "Full-bodied, age-worthy Toro Reserva with concentration and power",
+        "ageability": "Peak drinking 2024-2035. Can age gracefully for 15-20 years from vintage. The 2018 is entering its drinking window now but will continue to develop complexity through 2040."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Nikolaou Ktima Nemea 2019",
+      "description": "Produced by Domaine Nikolaou, one of Greece's pioneering organic wineries since 1984, this Nemea PDO wine represents the best of the Agiorgitiko variety from the renowned Peloponnese wine region. The estate's commitment to organic viticulture and traditional winemaking creates wines of authenticity and terroir expression.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright and fresh bramble fruits and bilberry, showcasing the pure fruit character that organic viticulture can achieve. Layers of ripe red and dark fruits emerge—red cherries, blackberries, and plums—accented by subtle Mediterranean herbs and a whisper of spice. The aromatic profile is inviting and clean, reflecting the wine's organic pedigree and careful winemaking.",
+        "palate": "The palate starts with a light, fresh attack that gives way to a more substantial mid-palate rich with ripe black cherry and sloe berry. Firm yet well-rounded tannins provide structure without harshness, while balanced acidity keeps the wine lively. There's notable depth of fruit at the back of the palate, with additional sweetness of ripe fruit balanced by savory elements. The thick yet smooth texture shows vanilla and wood spice from 14 months in French oak barrels, integrated beautifully with cinnamon and baking spices.",
+        "finish": "The finish is moderately long with lingering notes of dark fruit, vanilla, and warm spice. The wine's organic character shines through with pure, unadulterated fruit flavors and a mineral backbone that speaks to Nemea's limestone-rich soils."
+      },
+      "foodPairings": [
+        "Moussaka with layers of eggplant and béchamel",
+        "Grilled lamb souvlaki with tzatziki",
+        "Slow-roasted pork shoulder with Greek herbs",
+        "Stuffed grape leaves with rice and pine nuts",
+        "Aged feta and Kalamata olive platter"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-17°C (61-63°F)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and integrate oak and fruit. The 2019 benefits from aeration.",
+        "glassware": "Medium-bodied red wine glass or Burgundy-style stemware"
+      },
+      "wineDetails": {
+        "region": "Nemea PDO, Peloponnese, Greece",
+        "grapeVariety": "100% Agiorgitiko (organic, estate-grown)",
+        "vintage": "2019",
+        "style": "Organic Nemea PDO - medium to full-bodied with balanced oak aging",
+        "ageability": "Peak drinking 2024-2028. Best enjoyed within 8-10 years of vintage to preserve fresh fruit character while allowing oak to integrate. The 2019 is in its prime drinking window now."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "La Sala Red Sangria",
+      "description": "A modern, fresh interpretation of traditional Spanish sangria from Bodega La Salá, crafted with carefully selected PDO red wine and natural Mediterranean aromatics. This ready-to-drink sangria emphasizes quality wine as its foundation rather than masking inferior base with sweetness, creating a sophisticated yet approachable expression of Spain's beloved beverage.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of ripe red fruits—strawberries and raspberries—alongside blackcurrant cassis. Natural aromatics of blood orange and lemon peel provide bright citrus lift, while subtle hints of cinnamon add warming spice. The bouquet is fresh and inviting, suggesting the quality red wine base and thoughtful addition of complementary flavors rather than artificial sweetness.",
+        "palate": "Full-bodied yet refreshing, the palate delivers concentrated red fruit flavors balanced by hints of orange, lime, and cinnamon. The wine maintains controlled acidity that keeps it lively rather than cloying, with very low tannin contributing to its smooth, easy-drinking character. The natural aromatics of lemon, blood orange, and cassis integrate seamlessly with the red wine foundation, creating harmonious complexity without overwhelming sweetness or artificial notes.",
+        "finish": "The finish is long and gentle, leaving a pleasant aftertaste of red fruits, citrus, and subtle spice. Very low tannin and balanced sweetness make this exceptionally refreshing and versatile for warm weather enjoyment or casual entertaining."
+      },
+      "foodPairings": [
+        "Tapas spread with jamón ibérico and manchego",
+        "Grilled chorizo and bell pepper skewers",
+        "Paella with seafood and saffron rice",
+        "Fresh fruit salad with mint",
+        "Patatas bravas with spicy aioli"
+      ],
+      "servingInfo": {
+        "temperature": "Serve very cold at 4-6°C (39-43°F) over plenty of ice",
+        "decanting": "No decanting needed. Pour over ice and garnish with fresh citrus slices, berries, and seasonal fruit for optimal presentation and flavor.",
+        "glassware": "Large wine glass, tumbler, or traditional Spanish sangria pitcher"
+      },
+      "wineDetails": {
+        "region": "Spain (PDO red wine base)",
+        "grapeVariety": "Blend based on PDO Spanish red wine with natural citrus and fruit aromatics",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Ready-to-drink red sangria - modern, fresh style with natural aromatics",
+        "ageability": "Enjoy fresh and young. Best consumed within 1-2 years of purchase for optimal fruit character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vermouth Giardino Mediterranean Dry NV",
+      "description": "Villa Massa's Vermouth Giardino Mediterranean Dry captures the essence of Italy's Amalfi Coast, crafted with the finest ingredients from Sorrento. Developed in collaboration with renowned US mixologists Chris Patino and Stacey Swenson, this vermouth was 'made for bartenders, by bartenders' to deliver bold citrus notes and refined complexity for cocktails.",
+      "tastingNotes": {
+        "aroma": "The nose presents an elegant, refined bouquet led by lemon thyme and Mediterranean botanicals. Bright citrus notes—particularly lemon and bergamot—mingle with aromatic herbs including thyme, rosemary, and subtle sage. The profile is airy and bright, evoking the sun-drenched coastal gardens of Sorrento, yet reveals underlying depth that promises complexity on the palate.",
+        "palate": "The palate offers a smooth, dry texture where the complexity of carefully selected botanicals harmonizes beautifully. Powerful spices emerge—including cardamom, coriander, and bitter orange peel—creating intricate layers against the citrus-forward profile. Notes of flowers and herbs weave through the mid-palate, with a subtle bitterness from wormwood and gentian root providing structure and balance. The vermouth shows tight structure and sophisticated integration of all components.",
+        "finish": "The finish is dry, delicate, and remarkably refined with good length. Lemon peel, thyme, and a whisper of pleasant bitterness linger, leaving the palate refreshed and ready for another sip. The balanced, slightly bitter conclusion makes this ideal for mixing in classic cocktails where it can shine without being overwhelmed."
+      },
+      "foodPairings": [
+        "Oysters on the half shell with mignonette",
+        "Grilled white fish with lemon and capers",
+        "Marinated olives and salted almonds",
+        "Carpaccio with arugula and parmesan",
+        "Best enjoyed as an aperitif or in cocktails (Dry Martini, Negroni variations)"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 4-6°C (39-43°F) or over ice",
+        "decanting": "No decanting needed. Serve directly from the bottle, chilled. Store in refrigerator after opening and consume within 3-4 weeks for best quality.",
+        "glassware": "Coupe glass for cocktails, or small wine glass with ice for aperitif service"
+      },
+      "wineDetails": {
+        "region": "Sorrento, Campania, Italy",
+        "grapeVariety": "Fortified wine base with Mediterranean botanicals including lemon thyme, citrus peels, wormwood, and proprietary herb blend",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Dry Vermouth - Mediterranean style with bold citrus character for cocktails",
+        "ageability": "Ready to drink upon release. Once opened, refrigerate and consume within 1 month. Unopened bottles maintain quality for several years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Korde Pinea El Castillo Red 2023",
+      "description": "KORDE El Castillo emerges from a centennial vineyard planted in 1916, positioned before the medieval castle of Peñaranda de Duero in Burgos. This field blend from one of Ribera del Duero's most awe-inspiring sites has been preserved across five generations, producing wines that are 'light, fresh and full of fruit' while showcasing impeccable craftsmanship and terroir purity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with captivating floral notes—violets and wild roses—layered with fresh herbal nuances that speak to the wine's field blend composition. Luminous red fruit aromas of strawberry and raspberry blend seamlessly with darker black fruit freshness. Tertiary hints emerge of blonde tobacco, wet earth, and licorice, adding complexity to the youthful fruit expression. The intense, deep color contrasts beautifully with the wine's delicate, refined aromatic tone.",
+        "palate": "Astonishingly drinkable even at this young stage, the palate reveals savory, fluid structure with fine-grain tannins offering texture without heaviness. The wine shows exuberant freshness and lovely fluidity with ripe tannins that coat the palate gently. Flavors of ripe red and black fruits are accented by graphite minerality, dried prunes, and subtle oak influence from 18 months in French barrels. A marked chalky character runs through the wine, evidence of the limestone-rich soils, while the agility and depth create a beautiful tension.",
+        "finish": "The finish is remarkably long, showing intensity and persistence alongside continued juiciness. Fine tannins provide length without astringency, while the chalky minerality and pure fruit linger. This wine demonstrates both immediacy of pleasure and potential for development, showcasing the impeccable craftsmanship that Pinea brings to this historic site."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary and garlic",
+        "Aged Manchego cheese with membrillo",
+        "Grilled pork chops with cherry reduction",
+        "Mushroom ragout with polenta",
+        "Charcuterie board with Spanish chorizo and morcilla"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 15°C (59°F) as recommended by the producer to preserve freshness and fruit",
+        "decanting": "Brief decanting for 30-45 minutes will open the wine, though it's remarkably approachable young. Can be enjoyed immediately or with light aeration.",
+        "glassware": "Burgundy glass or large-bowled red wine glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Peñaranda de Duero, Ribera del Duero DO, Burgos, Spain",
+        "grapeVariety": "Field blend: 75% Tinta Fina (Tempranillo) with Bobal, Garnacha, Albillo, and Pirulés from vines planted in 1916",
+        "vintage": "2023",
+        "style": "Fresh, elegant Ribera del Duero with 'fit and defined' character rather than muscle-bound power",
+        "ageability": "Drink now through 2035. While beautifully approachable young, this wine has the structure and balance to age gracefully for 10-15 years, developing tertiary complexity while maintaining freshness."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ontanon Natura 2020",
+      "description": "Bodegas Ontañón's Natura 2020 represents a remarkable achievement in natural winemaking—a Rioja Crianza aged 15 months in American oak with no added sulfites. This wine maintains all the quality and character of traditional Ontañón Rioja while showcasing an extra purity from avoiding sulfite additions, a rarity for oak-aged wines due to oxidative risks.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense aromas of bramble fruits—blackberries and wild raspberries—alongside fig and dark plum. Herbal notes of Mediterranean scrub mingle with spicy undertones of black pepper and cinnamon. Coffee and balsamic nuances add depth, while the wine's purity from no-added-sulfite production creates an extra clarity to the fruit aromatics. The profile is complex yet remarkably fresh for an oak-aged Rioja.",
+        "palate": "The palate shows beautiful complexity with notes of ripe blueberry and blackcurrant balanced by savory, meaty characters that add dimension. Supple tannins from American oak aging provide structure without heaviness, while an appealing mineral character grounds the wine. Bright acidity—unusual in sulfite-free wines—leads the palate, maintaining freshness and vibrancy. The texture is smooth and integrated, with oak influence adding vanilla and spice without overwhelming the pure fruit expression.",
+        "finish": "The finish is remarkably long and fresh, defying expectations for a no-added-sulfite wine. Lingering notes of dark fruit, minerals, and subtle oak spice persist, while the bright acidity provides lift and prevents any oxidative flatness. The purity and vibrancy continue to the very end, showcasing Ontañón's technical mastery."
+      },
+      "foodPairings": [
+        "Grilled chorizo and piquillo peppers",
+        "Roasted chicken with smoked paprika rub",
+        "Beef empanadas with chimichurri",
+        "Mushroom and truffle croquetas",
+        "Aged sheep's milk cheese from Rioja"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-17°C (61-63°F)",
+        "decanting": "Decant for 30 minutes to allow the wine to breathe. Despite no added sulfites, this wine is incredibly fresh and benefits from brief aeration to open aromatics.",
+        "glassware": "Standard Rioja glass or Burgundy-style stemware"
+      },
+      "wineDetails": {
+        "region": "Rioja Oriental (formerly Rioja Baja), DOCa Rioja, Spain",
+        "grapeVariety": "100% Tempranillo from estate vineyards Los Palos de Tanis, La Pasada, and Viña María in Sierra de Yerga (680-800m altitude)",
+        "vintage": "2020",
+        "style": "Rioja Crianza with no added sulfites - natural winemaking with traditional aging",
+        "ageability": "Best enjoyed within 5-7 years to preserve the fresh fruit character and bright acidity. Drink 2024-2030. The lack of added sulfites means this wine is best consumed younger than traditional Crianza."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Black Elephant Vintners Three Men in a Tub with a Rubber Duck Blend 2024",
+      "description": "A playful yet serious red blend from South Africa's self-proclaimed 'Rebels of the Vine,' Black Elephant Vintners. Crafted by winemaker Kevin Swart, viticulturist Raymond Ndlovu, and Jacques Wentzel from coastal region vineyards, this wine pushes boundaries of traditional winemaking while delivering exceptional quality and value.",
+      "tastingNotes": {
+        "aroma": "Rich and peppery on the nose, the wine opens with concentrated aromas of dark cherries and ripe plums. Sweet spice notes of black pepper and liquorice add complexity, while the bouquet shows a fruit-driven intensity that's inviting and generous. Subtle hints from extended oak aging provide depth without dominating the expressive fruit character.",
+        "palate": "The palate is beautifully balanced, delivering sweet cherry and plum fruit accented by distinctive pepper and liquorice flavors. Extended oak aging—19 months in French barrels for the 2020 vintage—adds structure and has softened the tannins to a supple, velvety texture. The wine shows the power expected from Cabernet Sauvignon blended with the roundness of Merlot and the spicy complexity of Shiraz or Mourvèdre (depending on vintage). Fruit-forward yet structured, it offers both immediate pleasure and underlying complexity.",
+        "finish": "The finish is long with a distinctive spicy note, showing lingering flavors of dark fruit, pepper, and liquorice. Well-integrated tannins provide grip and length without astringency, while the oak influence adds subtle vanilla and toast notes to the conclusion."
+      },
+      "foodPairings": [
+        "Wood-fired pizza with Italian sausage and peppers",
+        "Grilled beef kebabs with chimichurri",
+        "Pasta Bolognese with parmigiano-reggiano",
+        "Flame-grilled lamb chops with mint jelly",
+        "Portobello mushroom burgers with caramelized onions"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 45 minutes to 1 hour to allow the wine to open fully and soften any youthful tannins. The wine benefits from aeration.",
+        "glassware": "Large Bordeaux glass or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Coastal Region, South Africa",
+        "grapeVariety": "2024 vintage blend (composition varies by year; 2020 was 61% Cabernet Sauvignon, 25% Merlot, 14% Shiraz; earlier vintages included Mourvèdre)",
+        "vintage": "2024",
+        "style": "Bordeaux-style blend with South African character - fruit-forward with extended oak aging",
+        "ageability": "Drink now through 2032. Best enjoyed within 5-8 years to appreciate fruit freshness balanced with oak maturity. The 2024 will benefit from 1-2 years of bottle age."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "batchId": 67,
+  "completedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Reserve de Jeanne 2020",
+      "description": "A harmonious blend from the Cabardès appellation where Atlantic and Mediterranean influences converge. This approachable yet structured red showcases the estate's commitment to terroir-driven winemaking with high-density plantings yielding concentrated fruit. Tank-aged to preserve vibrant fruit character while developing complexity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with restrained elegance, presenting fresh aromatics that convey a sense of vitality and purity. Initial scents of ripe red berries emerge alongside subtle floral undertones of violet and lavender. As the wine breathes, gentle whispers of aniseed and liquorice add complexity, while a delicate herbal note reminiscent of garrigue brings a Mediterranean character to the aromatic profile.",
+        "palate": "More expressive than the nose suggests, the palate reveals a sunny disposition with flavors of blackberries and plums taking center stage. Pleasant sweetness balances the wine's tannic structure, which remains lively and requires patience to fully integrate. The medium body carries juicy fruit forward with finesse, while subtle spice notes weave through the mid-palate. Fine-grained tannins provide framework without overwhelming the fruit's natural generosity.",
+        "finish": "The finish is clean and moderately persistent, with lingering notes of dark fruit and a gentle tannic grip. A subtle mineral edge emerges at the close, reflecting the terroir, while soft spice echoes fade gracefully. This is a wine that rewards both immediate enjoyment and short-term cellaring."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbes de Provence",
+        "Cassoulet with duck confit and white beans",
+        "Aged Manchego or Comté cheese",
+        "Herb-crusted pork tenderloin",
+        "Ratatouille with Italian sausage"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to allow both fruit and structure to express fully",
+        "decanting": "Benefits from 30 minutes of breathing to soften tannins and reveal aromatic complexity, though not strictly necessary",
+        "glassware": "Medium-sized Bordeaux glass to concentrate aromatics while providing adequate surface area for aeration"
+      },
+      "wineDetails": {
+        "region": "Cabardès AOC, Languedoc-Roussillon, France",
+        "grapeVariety": "60% Cabernet Franc, 40% Syrah",
+        "vintage": "2020",
+        "style": "Medium-bodied red blend with fresh fruit character and structured tannins",
+        "ageability": "Drinking window 2023-2027; best consumed within 5 years of vintage to preserve freshness while allowing tannins to integrate"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalRating": "1 Star (Very Successful) - Guide Hachette des Vins 2023",
+        "priceRange": "€5-8"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Les Brebis Eola Hills Pinot Noir 2018",
+      "description": "A bold expression of Oregon Pinot Noir from the esteemed Eola Hills region, where cool-climate conditions create wines of intensity and character. This wine showcases the Willamette Valley's ability to produce Pinot Noir with both power and elegance, aged in a combination of French and American oak barrels.",
+      "tastingNotes": {
+        "aroma": "The nose presents an assertive and spicy character with prominent coffee bean aromatics intertwining with ripe dark fruit. Unlike subtle Burgundian expressions, this Oregon Pinot announces itself boldly with concentrated blackberry and cherry scents. The oak influence is evident but integrated, contributing vanilla and toasted notes. Underlying hints of forest floor, dried herbs, and a whisper of cola spice add layers of complexity to the aromatic profile.",
+        "palate": "Big-shouldered and expansive on the palate, this is Pinot Noir with presence and structure. A wide seam of roasted coffee runs through the core, anchoring ripe and juicy flavors of blackberry and black cherry. The fruit expression leans toward the dark and concentrated rather than delicate red fruits. American oak contributes sweet vanilla and slight coconut notes, while French oak adds spice and subtle toast. The wine's generous body carries substantial flavor concentration, making this an everyday Pinot with plenty of character to enjoy.",
+        "finish": "The finish is robust and persistent, with coffee and dark fruit flavors lingering alongside gentle oak-derived sweetness. Soft tannins provide structure without astringency, while balanced acidity keeps the wine from feeling heavy. The close echoes with dark chocolate and dried cherry notes, leaving a satisfying and mouth-coating impression."
+      },
+      "foodPairings": [
+        "Grilled salmon with teriyaki glaze",
+        "Roasted duck breast with cherry sauce",
+        "Mushroom risotto with truffle oil",
+        "Bacon-wrapped pork loin",
+        "Oregon cheddar or aged Gouda cheese"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) to balance fruit intensity with structural elements",
+        "decanting": "Not required but benefits from 15-20 minutes of aeration in the glass to soften oak influence and open aromatics",
+        "glassware": "Burgundy-style glass with wide bowl to capture the wine's bold aromatics and allow for proper aeration"
+      },
+      "wineDetails": {
+        "region": "Eola Hills AVA, Willamette Valley, Oregon (95% Willamette Valley fruit)",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2018",
+        "style": "Bold, fruit-forward Oregon Pinot Noir with oak influence",
+        "ageability": "Ready to drink now; best consumed within 2-4 years to enjoy primary fruit character and oak integration"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalRating": "89/100 - Wine Enthusiast",
+        "priceRange": "$19-22",
+        "notes": "Les Brebis designation not confirmed in sources; tasting notes based on Eola Hills 2018 Pinot Noir"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barcelona Lolea White Spritz NV",
+      "description": "A refreshing and artisan white sangria spritz crafted from quality Macabeo and Chardonnay wines blended with natural citrus juices and a hint of vanilla. This light-bodied, slightly sparkling beverage captures the vibrant spirit of Barcelona in a bottle, perfect for warm weather enjoyment and casual gatherings.",
+      "tastingNotes": {
+        "aroma": "The nose is immediately inviting with bright and charming aromatics of citrus and white flowers dominating the bouquet. Fresh lemon zest and orange blossom create a perfumed quality, while peach and pear notes add fruit character. A subtle herbal background provides depth, with hints of chamomile and lemon verbena adding complexity. The delicate vanilla accent contributes a sweet creaminess to the aromatic profile without overwhelming the fresh fruit and floral elements.",
+        "palate": "Effervescent and refreshing on the palate, the wine delivers a sparkling experience with fine, gentle bubbles that dance across the tongue. The entry is crisp with vibrant acidity balanced by natural fruit sweetness from the citrus juices. Flavors of white peach, ripe pear, and juicy orange segments combine with the wine's inherent character. The Macabeo and Chardonnay base provides structure and body, while the vanilla adds a soft, rounded quality. The sweetness level is moderate—present but not cloying—with enough acidity to maintain freshness and drinkability.",
+        "finish": "Light and bubbly, the finish leaves a delicately sweet impression with lingering citrus essence and floral notes. The carbonation lifts the flavors, creating a clean close that invites the next sip. Subtle hints of vanilla and white fruit fade gently, leaving the palate refreshed and ready for more."
+      },
+      "foodPairings": [
+        "Fresh fruit platters with citrus and melon",
+        "Grilled shrimp tapas with garlic and lemon",
+        "Light Caesar salad or mixed greens",
+        "Spanish tortilla or patatas bravas",
+        "Soft cheeses like fresh mozzarella or young manchego"
+      ],
+      "servingInfo": {
+        "temperature": "4-6°C (39-43°F) well chilled, ideally served over ice with fresh citrus slices and berries",
+        "decanting": "Not applicable; serve directly from bottle over ice in a large wine glass",
+        "glassware": "Large wine glass or Spanish copa de balon filled with ice, garnished with orange slices, lemon, and fresh berries"
+      },
+      "wineDetails": {
+        "region": "Barcelona, Spain (Catalonia)",
+        "grapeVariety": "Macabeo and Chardonnay blend with natural orange and lemon juice, vanilla extract",
+        "vintage": "Non-Vintage",
+        "style": "Light-bodied, slightly sparkling white sangria spritz with moderate sweetness",
+        "ageability": "Best consumed fresh; no aging potential. Serve within 1 year of purchase for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "category": "Ready-to-drink sangria spritz",
+        "alcoholContent": "Approximately 7-9% ABV (light)"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rueda Reina De Castilla Oak Aged Verdejo 2019",
+      "description": "A distinctive expression of Verdejo from Spain's premier white wine region, Rueda, showcasing the grape's ability to develop complexity through oak aging. This wine represents the modern approach to Verdejo, balancing the varietal's characteristic freshness with added richness and texture from barrel fermentation and aging.",
+      "tastingNotes": {
+        "aroma": "The nose reveals a sophisticated interplay between fresh fruit and oak-derived complexity. Opening with bright citrus notes of grapefruit and lemon zest, the aromatics evolve to include ripe stone fruit—particularly white peach and apricot. The oak aging contributes subtle vanilla and toasted hazelnut nuances, while a distinct mineral edge reminiscent of wet stone or flint adds terroir character. Delicate herbal undertones of fennel and fresh herbs provide additional complexity, while white flower notes (acacia, orange blossom) lend elegance to the bouquet.",
+        "palate": "On the palate, the wine displays excellent balance between richness and freshness. The entry is clean with vibrant acidity characteristic of high-altitude Rueda vineyards, immediately refreshing the palate. Flavors of green apple, citrus fruits, and ripe pear dominate, enhanced by a creamy, slightly buttery texture from oak aging and possible lees contact. The mid-palate shows honeyed notes and hints of sweet spice, while maintaining the crisp, mineral-driven character that defines quality Verdejo. The oak integration is seamless, adding body and complexity without masking the varietal's natural brightness and herbal qualities.",
+        "finish": "The finish is lengthy and refined, with lingering citrus and mineral notes supported by subtle oak influence. Bright acidity keeps the palate fresh through the close, while gentle vanilla and toasted nut flavors fade slowly. A slight bitter almond note adds sophistication, characteristic of well-made Verdejo."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with brown butter and herbs",
+        "Grilled sea bass with lemon and olive oil",
+        "Creamy risotto with mushrooms and parmesan",
+        "Roasted chicken with garlic and white wine sauce",
+        "Aged Manchego cheese or sheep's milk cheeses from Castilla"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) to showcase both the fresh fruit character and oak complexity",
+        "decanting": "Not necessary, but benefits from serving in a decanter or allowing 10-15 minutes in the glass to open up oak-derived aromas",
+        "glassware": "White Burgundy glass or medium-sized white wine glass to allow aromatics to develop while maintaining freshness"
+      },
+      "wineDetails": {
+        "region": "Rueda DO, Castilla y León, Spain",
+        "grapeVariety": "100% Verdejo (oak-aged)",
+        "vintage": "2019",
+        "style": "Oak-aged white wine with balanced richness and fresh acidity",
+        "ageability": "Best consumed within 2-4 years of vintage; drink 2019 now through 2025 to enjoy oak integration while maintaining freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Specific 2019 oak-aged vintage reviews not found; tasting notes based on producer's style and Rueda barrel-fermented Verdejo characteristics",
+        "producerRatings": "Reina de Castilla Verdejo wines typically rated 86-90 points by Wine Enthusiast"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Darms Lane Chardonnay, Oak Knoll District 2023",
+      "description": "A classically styled Napa Valley Chardonnay from the cool-climate Oak Knoll District, where morning fog and afternoon breezes create ideal conditions for balanced, elegant wines. Sourced primarily from the estate Bon Passe Vineyard, this wine exemplifies California Chardonnay at its most expressive, with generous oak treatment balanced by natural acidity.",
+      "tastingNotes": {
+        "aroma": "The nose is immediately captivating and multifaceted, opening with an exotic array of tropical fruits including fresh pineapple, ripe passion fruit, and honeycomb. These vibrant tropical notes are beautifully complemented by orchard fruits—particularly yellow peaches, apricots, and ripe Bartlett pears. The generous oak regime contributes layers of complexity with toasted hazelnut, butterscotch, and vanilla bean aromas. A streak of lemon meringue adds brightness, while subtle hints of crème brûlée and baking spice round out the opulent aromatic profile.",
+        "palate": "Rich and creamy on entry, the palate delivers the buttery character prized in California Chardonnay while maintaining remarkable balance thanks to the Oak Knoll District's cool climate. Full malolactic fermentation creates a luxurious, velvety texture that coats the palate. Flavors of ripe pear, creamy lemon curd, and fresh pineapple dominate, supported by the wine's medium-plus body. The oak influence is evident but well-integrated, providing structure and vanilla-tinged sweetness without overwhelming the fruit. Bright acidity cuts through the richness, preventing the wine from becoming heavy or cloying, while mineral undertones add complexity and length.",
+        "finish": "The finish is crisp, clean, and surprisingly refreshing despite the wine's opulent style. Citrus notes persist alongside creamy vanilla and toasted oak flavors, while the wine's natural acidity provides lift and balance. The close is long and satisfying, with gentle fruit sweetness and oak spice fading harmoniously. A subtle mineral edge emerges at the very end, a signature of the Oak Knoll terroir."
+      },
+      "foodPairings": [
+        "Lobster with drawn butter and lemon",
+        "Roasted chicken with herb butter under the skin",
+        "Seared halibut with beurre blanc sauce",
+        "Butternut squash ravioli with sage brown butter",
+        "Creamy brie or triple-cream cheese with crackers"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F) to balance the wine's richness with refreshing acidity",
+        "decanting": "Not necessary; serve directly from bottle. Can be poured 10 minutes before serving to allow aromatics to open",
+        "glassware": "White Burgundy glass or large-bowled Chardonnay glass to showcase the wine's complex aromatics and allow for proper aeration"
+      },
+      "wineDetails": {
+        "region": "Oak Knoll District AVA, Napa Valley, California",
+        "grapeVariety": "100% Chardonnay (primarily from Estate Bon Passe Vineyard)",
+        "vintage": "2023",
+        "style": "Rich, creamy, oak-influenced Chardonnay with full malolactic fermentation",
+        "ageability": "Best enjoyed young to appreciate primary fruit and oak integration; drink 2024-2028"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "production": "614 cases produced",
+        "oakAging": "10 months in oak",
+        "pricePoint": "$35"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Moscato Keg 2021  20 l",
+      "description": "A sweet and refreshing Moscato from California's Central Coast, produced by Castoro Cellars under the Raywood label. This approachable wine captures the essence of the Moscato grape with bright fruit flavors, floral aromatics, and a slight effervescence, offered in a convenient 20-liter keg format perfect for gatherings and events.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with intensely aromatic floral notes dominated by honeysuckle and orange blossom, immediately announcing the wine's Moscato character. Ripe strawberry and wild berry aromas mingle with fresh peach and lychee fruit, creating a perfumed and inviting bouquet. Hints of rose petals and jasmine add to the floral complexity, while a subtle muskiness characteristic of Muscat grapes provides depth. The aromatics are fresh, bright, and youthful, with a candy-like sweetness that's immediately appealing.",
+        "palate": "Bright, sweet, and wonderfully light on the palate, this Moscato delivers exactly what lovers of the style seek. The entry is fresh and fruity, with vibrant strawberry and ripe peach flavors taking center stage. Natural grape sweetness is balanced by enough acidity to prevent the wine from becoming cloying or thick—instead, it feels refreshing and lively. A slight effervescence from retained CO2 creates a gentle spritz on the tongue, lifting the fruit flavors and adding to the wine's overall freshness. The mouthfeel is smooth and easy, with low alcohol (12% ABV) contributing to the wine's highly drinkable character. Flavors of honeydew melon, white grape, and tropical fruit round out the palate.",
+        "finish": "The finish is clean, mouth-watering, and slightly sweet, with lingering notes of strawberry and honeysuckle. The gentle carbonation provides a refreshing lift, while the wine's natural acidity keeps the palate fresh and ready for the next sip. The close is light and uncomplicated, perfect for easy drinking."
+      },
+      "foodPairings": [
+        "Fresh fruit salad with citrus segments",
+        "Mild Thai curry or Asian fusion dishes",
+        "Vanilla panna cotta or fruit tarts",
+        "Soft cheeses like mascarpone or fresh ricotta",
+        "Spicy foods where sweetness provides balance"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F) well chilled to maximize refreshing qualities",
+        "decanting": "Not applicable; serve directly from keg system or bottle, ensuring wine is properly chilled",
+        "glassware": "White wine glass or flute to capture aromatics and showcase the wine's gentle effervescence"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California",
+        "grapeVariety": "100% Moscato (Muscat)",
+        "vintage": "2021",
+        "style": "Sweet, slightly sparkling white wine with low alcohol and bright fruit character",
+        "ageability": "Best consumed young and fresh; drink within 1-2 years of vintage to preserve fruit and aromatics"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "producer": "Castoro Cellars (Raywood label)",
+        "format": "20-liter keg",
+        "alcoholContent": "12% ABV",
+        "priceRange": "$9.99 per 750ml equivalent"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aresca Cortese 2021",
+      "description": "A crisp and elegant white wine from Piedmont, Italy, showcasing the Cortese grape's natural affinity for fresh, mineral-driven expressions. While Cortese is most famous for Gavi DOCG, this Piemonte DOC bottling from Aresca offers excellent value while maintaining the varietal's characteristic purity and finesse.",
+      "tastingNotes": {
+        "aroma": "The nose is clean, bright, and inviting, opening with vivid aromas of green apple and fresh grapefruit that showcase Cortese's natural crispness. Citrus notes of lemon zest and lime blossom provide brightness, while subtle hints of white flowers—particularly acacia and elderflower—add delicate complexity. As the wine opens, gentle mineral nuances emerge, reminiscent of wet stone and chalk, reflecting the terroir. Light herbal touches of fresh basil and cut grass contribute to the wine's overall freshness, while a subtle almond note adds a layer of interest without detracting from the wine's pristine fruit character.",
+        "palate": "Zesty and refreshing on the palate, this Cortese delivers bright acidity that immediately enlivens the senses. The entry is clean and precise, with flavors of crisp green apple, pink grapefruit, and ripe citrus fruits dominating the taste profile. The wine's light to medium body carries these flavors with elegance and purity, never feeling thin or insubstantial. Mineral hints provide structure and depth, adding a saline quality that enhances the wine's food-friendliness. Subtle notes of honey and lemon appear in the mid-palate, while the wine maintains its fresh, linear character throughout. The texture is smooth yet vibrant, with the acidity providing backbone and ensuring the wine remains lively and engaging.",
+        "finish": "The finish is clean, crisp, and moderately long, with lingering citrus and mineral notes. A slight bitter almond quality emerges at the close—characteristic of well-made Cortese—adding complexity without harshness. The wine's bright acidity persists through the finish, leaving the palate refreshed and ready for food or another sip."
+      },
+      "foodPairings": [
+        "Fresh oysters and raw seafood platters",
+        "Grilled branzino or whole roasted fish with lemon",
+        "Risotto with asparagus and parmesan",
+        "Fresh mozzarella and tomato salad (Caprese)",
+        "Pesto pasta or trofie al pesto Genovese"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) to preserve freshness and highlight minerality",
+        "decanting": "Not necessary; serve directly from bottle to maintain crispness",
+        "glassware": "Standard white wine glass or smaller tulip-shaped glass to concentrate the wine's delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Piemonte DOC, Piedmont, Italy",
+        "grapeVariety": "100% Cortese",
+        "vintage": "2021",
+        "style": "Crisp, mineral-driven white wine with bright acidity",
+        "ageability": "Best consumed within 2-3 years of vintage; drink 2021-2024 for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Specific Aresca Cortese 2021 not found; tasting notes based on Piemonte Cortese characteristics and similar wines from the region",
+        "comparison": "Similar profile to Gavi DOCG but typically lighter and more affordable"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bierzo Pilgrim Mencia 2021",
+      "description": "A vibrant red wine from Spain's Bierzo region, honoring the ancient pilgrimage route of El Camino de Santiago. Produced by Bodegas Godelia, this 100% Mencía showcases the grape's fresh, aromatic character and the unique terroir of Bierzo, where slate soils and continental climate create wines of elegance and minerality.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic and wonderfully fresh, displaying the floral character that makes Mencía so distinctive. Cherry red in color with violet reflections, the wine opens with beautiful red fruit aromas of strawberry, raspberry, and bright red cherry. Floral notes of violet and rose petal provide elegance, while hints of pomegranate and wild berry add complexity. Subtle herbal nuances of Mediterranean scrubland and dried herbs emerge, along with delicate spice notes of black pepper and licorice. A mineral edge reminiscent of crushed slate or wet stone reflects the region's unique terroir, adding depth to the aromatic profile.",
+        "palate": "Fresh and lively on the palate, this Mencía bursts with vibrant red fruit flavors that mirror the nose. Sour cherry, red currant, and pomegranate dominate, delivered with purity and precision. The wine's medium body provides enough substance to carry the fruit without feeling heavy, while bright acidity keeps everything fresh and energetic. Peppery spice notes weave through the mid-palate, adding interest and complexity. A characteristic bitter cherry pit flavor from the wine's fine-grained tannins provides structure and a slightly savory quality. The subtle minerality—described as crushed gravel or granite-like—adds texture and a sense of place, making this distinctly a wine of Bierzo.",
+        "finish": "The finish is clean and moderately long, with persistent red fruit and floral notes. The tannins are soft yet present, providing gentle grip without astringency. Mineral and spice notes linger, along with a refreshing acidity that invites another sip. The wine leaves a bright, fresh impression on the palate."
+      },
+      "foodPairings": [
+        "Grilled chorizo or Spanish charcuterie board",
+        "Roasted game birds such as quail or partridge",
+        "Veal scallopini with mushroom sauce",
+        "Venison stew or deer tenderloin",
+        "Aged sheep's milk cheese from León"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) to showcase fresh fruit character and floral aromatics",
+        "decanting": "Brief aeration of 15-20 minutes helps open aromatics; not strictly necessary for younger vintages",
+        "glassware": "Medium-sized red wine glass or Pinot Noir glass to capture the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Bierzo DO, Castilla y León, Spain",
+        "grapeVariety": "100% Mencía",
+        "vintage": "2021",
+        "style": "Fresh, aromatic red wine with vibrant fruit and mineral character",
+        "ageability": "Best consumed within 3-5 years to enjoy primary fruit and floral character; 2021 drinking well now through 2026"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "producer": "Bodegas Godelia",
+        "vintageNote": "2021 was noted for elegant, floral wines with fresh character in Bierzo",
+        "culturalConnection": "Named for pilgrims walking El Camino de Santiago, which passes through Bierzo"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "ZaHa El Corte 2019",
+      "description": "An exceptional red blend from the high-altitude Toko Vineyard in Paraje Altamira, Mendoza, crafted by TeHo winery. This wine showcases the elegance and complexity achievable at 1,200 meters elevation, where dramatic temperature variations and calcareous soils create wines of remarkable depth, finesse, and aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose is sophisticated and multifaceted, opening with intense floral aromas of orange peel, rose petal, and violet that provide elegance and lift. Dark fruit notes of blackberry and black cherry emerge, complemented by red fruit nuances of cranberry that add brightness. The wine's complexity reveals itself through scents of tar and char from the oak aging, along with subtle eucalyptus that adds a cooling, herbal dimension. Mineral undertones reflect the unique terroir, while hints of graphite and crushed stone add further depth. Spice notes of black pepper, licorice, and sweet baking spice round out the aromatic profile.",
+        "palate": "Linear in structure yet full in expression, the palate displays remarkable depth and excellent balance that defines this wine's quality. The entry is silky and refined, with a texture that feels luxurious yet never heavy. Flavors of red and dark fruits dominate—black cherries, ripe blackberries, and cranberry—delivered with purity and intensity. Soft, fine-grained tannins provide framework without aggression, integrated seamlessly into the wine's structure. Harmonious acidity balances the fruit richness, ensuring the wine remains fresh and lively despite its concentration. Nuanced flavors of spice, licorice, and dark chocolate emerge in the mid-palate, while creamy notes add richness. The mineral edge persists throughout, adding complexity and a sense of place.",
+        "finish": "The finish is long and elegant, with persistent flavors of dark fruit, spice, and minerality. Subtle hints of mint and eucalyptus emerge at the close, providing a refreshing quality. The tannins remain soft and integrated, while the wine's balanced acidity ensures a clean, refined finish. Notes of dark chocolate and licorice linger, along with the wine's distinctive mineral character."
+      },
+      "foodPairings": [
+        "Grilled Argentine ribeye steak with chimichurri",
+        "Braised short ribs with red wine reduction",
+        "Roasted lamb rack with herb crust",
+        "Wild mushroom and truffle pasta",
+        "Aged Manchego or hard sheep's milk cheese"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to allow the wine's complexity to express fully",
+        "decanting": "Highly recommended; decant 1-2 hours before serving to soften tannins and reveal aromatic complexity",
+        "glassware": "Large Bordeaux glass to allow the wine to breathe and showcase its complex aromatic profile"
+      },
+      "wineDetails": {
+        "region": "Paraje Altamira, Valle de Uco, Mendoza, Argentina (Toko Vineyard at 1,200m elevation)",
+        "grapeVariety": "Malbec and Cabernet Sauvignon blend",
+        "vintage": "2019",
+        "style": "Elegant, high-altitude red blend with silky texture and mineral complexity",
+        "ageability": "Excellent aging potential; drink 2024-2035. The 2019 vintage will continue to develop complexity over the next decade"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "professionalRating": "92 Points - Wine Enthusiast (Jesica Vargas)",
+        "winemaking": "Fermented in small 500kg bins, aged 12 months in French oak (18% new), indigenous yeasts, 15% whole cluster fermentation",
+        "producer": "TeHo (Bodegas Godelia)"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Silverthorn River Dragon Cap Classique Blanc NV",
+      "description": "An exceptional South African Cap Classique crafted from old-vine Colombard, showcasing how traditional méthode champenoise elevates this typically modest variety. Winemaker John Loubser's use of acacia barrel aging brings out the grape's hidden potential, creating a sparkling wine of elegance, complexity, and remarkable drinkability from the Robertson region.",
+      "tastingNotes": {
+        "aroma": "The nose is vibrant and captivating, displaying a lovely green hue that hints at freshness. Aromatic white stone fruit leads the way—particularly white peach and nectarine—complemented by fresh apple blossom and delicate floral notes that the acacia aging has lifted beautifully. Scents of chamomile blossom and subtle thatch add earthy complexity, while tropical fruit hints of pineapple and guava provide exotic interest. A mineral undertone of wet stone or chalk adds finesse, and there's an intriguing earthy quality that grounds the wine's aromatic profile without detracting from its overall freshness.",
+        "palate": "The mousse is the first thing you notice—luxuriously soft yet spirited, delivering a fine bead of gentle bubbles that create an elegant effervescence across the palate. The entry is clean and refined, with flavors of honeyed melon and golden delicious apples taking center stage. Crushed almonds and hazelnut notes from the acacia barrel aging add texture and complexity, creating a creamy quality that enhances the wine's body. Despite Colombard's typically shy character, the palate is surprisingly generous with a perception of fruit sweetness balanced by racy acidity. The wine maintains excellent structure through the mid-palate, with the natural acidity characteristic of the grape providing backbone and ensuring freshness. A subtle salty quality adds to the wine's complexity and food-friendliness.",
+        "finish": "The finish is long and refined, with excellent persistence of flavor. The fine mousse continues to provide lift and texture through the close, while honeyed fruit and almond notes linger. The racy acidity keeps the palate fresh and clean, leading to a slightly salty, mineral-driven conclusion. This is a wine that finishes dry yet with a memory of fruit sweetness, inviting another sip."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette sauce",
+        "Grilled calamari with lemon and herbs",
+        "Smoked salmon canapés or blinis",
+        "Light summer salads with citrus vinaigrette",
+        "Soft cheeses or as an aperitif"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F) well chilled to maximize refreshing qualities and showcase the fine mousse",
+        "decanting": "Not applicable for sparkling wine; serve directly from bottle",
+        "glassware": "Champagne flute or white wine glass to showcase the fine bead of bubbles and allow aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "Robertson, South Africa",
+        "grapeVariety": "100% Colombard from 35-year-old vines",
+        "vintage": "Non-Vintage",
+        "style": "Traditional method Cap Classique (sparkling wine) with acacia barrel aging",
+        "ageability": "Best consumed within 2-3 years of purchase to enjoy freshness and primary fruit; no extended aging needed"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "winemaker": "John Loubser, Silverthorn",
+        "production": "Traditional méthode champenoise, base wine aged in acacia barrels, 12 months on lees after secondary fermentation",
+        "rating": "4 Stars - Platter's Guide",
+        "pricePoint": "R190 cellar door"
+      }
+    }
+  ]
+}

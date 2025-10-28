@@ -1,0 +1,367 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 17,
+  "researchedAt": "2025-10-20T00:00:00Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Boxwood Sauvignon Blanc 2020",
+      "description": "An elegant Virginia Sauvignon Blanc from one of the state's premier estates in Middleburg. This wine showcases the terroir-driven approach of winemaker Rachel Martin, blending Old World finesse with New World fruit purity in a distinctive Mid-Atlantic expression.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant citrus blossom and white grapefruit, layered with subtle hints of fresh-cut grass and wet stone minerality. Delicate notes of gooseberry and green apple emerge with air, while a whisper of lemongrass and white pepper adds complexity. The aromatic profile speaks to cool-climate viticulture with restraint and precision.",
+        "palate": "The palate delivers crisp acidity and medium body, showcasing flavors of Meyer lemon, green pear, and white peach. A distinctive flinty minerality runs through the mid-palate, balanced by subtle tropical notes of passion fruit and guava. The wine maintains excellent tension between fruit concentration and refreshing acidity, with a saline quality that adds depth and interest.",
+        "finish": "The finish is clean and lingering, with citrus zest and mineral notes extending gracefully. A touch of white pepper spice and wet stone character persists, leaving the palate refreshed and ready for another sip."
+      },
+      "foodPairings": [
+        "Fresh Chesapeake Bay oysters with mignonette",
+        "Herb-crusted striped bass with lemon beurre blanc",
+        "Goat cheese and spring vegetable tart",
+        "Grilled asparagus with hollandaise sauce",
+        "Seared scallops with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed; this wine is ready to enjoy upon opening. Can benefit from 15 minutes in the glass to allow aromatics to fully develop.",
+        "glassware": "Tulip-shaped white wine glass or Sauvignon Blanc varietal glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia, USA",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2020",
+        "style": "Dry white wine with crisp acidity and mineral character",
+        "ageability": "Drink now through 2025. While enjoyable now, this wine has the structure to develop for 2-3 years, though it's best appreciated for its youthful vibrancy and fresh fruit character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Boxwood Estate's established winemaking style and Virginia Sauvignon Blanc characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Cotes du Rhone Rouge 2022",
+      "brand": "Les Vignerons d'Estézargues",
+      "description": "A classic village-level Côtes du Rhône from the renowned cooperative Les Vignerons d'Estézargues. This approachable red blend showcases the sun-drenched terroir of the southern Rhône Valley with ripe fruit character, traditional blending, and exceptional value for the appellation.",
+      "tastingNotes": {
+        "aroma": "Generous aromas of ripe red cherry and wild strawberry lead, accompanied by notes of dried lavender and Provençal herbs. Underlying scents of black pepper, garrigue scrubland, and a subtle earthiness add regional authenticity. Light touches of vanilla and toast from brief oak contact complement rather than dominate the fruit-forward profile.",
+        "palate": "The palate is medium-bodied and supple, offering juicy flavors of dark cherry, raspberry, and plum. Traditional Grenache-driven character shows through with notes of kirsch and red currant, while Syrah adds structure and peppery spice. The wine maintains excellent balance with soft tannins and bright acidity that keeps the wine fresh and food-friendly. A savory quality emerges mid-palate with hints of olive tapenade and dried herbs.",
+        "finish": "The finish is smooth and moderately persistent, with red fruit and spice notes lingering alongside gentle tannins. Herbal accents and a touch of minerality provide a clean, satisfying conclusion typical of well-made Côtes du Rhône."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Provençal beef daube with olives and tomatoes",
+        "Ratatouille with grilled vegetables",
+        "Herb-roasted chicken with root vegetables",
+        "Charcuterie board with pâté and aged cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly cool at 60-65°F (15-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes will help open up the wine, though not essential. Can also benefit from being opened an hour before serving.",
+        "glassware": "Medium-sized Bordeaux or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône, Southern Rhône Valley, France",
+        "grapeVariety": "Grenache, Syrah, and traditional Rhône varietals blend",
+        "vintage": "2022",
+        "style": "Medium-bodied dry red wine with fruit-forward character and approachable tannins",
+        "ageability": "Best enjoyed within 2-4 years of vintage. Drink now through 2026 for optimal freshness and fruit expression."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Côtes du Rhône appellation standards and Pasquiers cooperative style"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Legend 2019",
+      "brand": "Hertelendy Winery",
+      "description": "A premium Hungarian red wine from the historic Hertelendy estate in the Etyek-Buda wine region. This elegant blend represents the renaissance of Hungarian fine wine, combining international varietals with traditional winemaking techniques to create a wine of sophistication and depth.",
+      "tastingNotes": {
+        "aroma": "Complex aromas of blackberry compote and dark cherry mingle with notes of cedar, tobacco leaf, and vanilla bean. The bouquet reveals layers of complexity with hints of black pepper, dried sage, and subtle espresso. Oak influence is evident but well-integrated, contributing sweet spice notes of cinnamon and clove alongside dark chocolate undertones.",
+        "palate": "Full-bodied and structured, the palate offers concentrated flavors of black plum, cassis, and dark berry preserves. The wine shows excellent depth with secondary notes of leather, forest floor, and graphite. Firm yet polished tannins provide a sturdy framework, while balanced acidity maintains freshness despite the wine's power. The mouthfeel is velvety and rich, with layers of dark fruit, spice, and savory elements unfolding progressively.",
+        "finish": "The finish is long and sophisticated, with dark fruit, toasted oak, and earthy mineral notes persisting. Hints of cocoa powder and espresso linger alongside fine-grained tannins, demonstrating the wine's aging potential and careful craftsmanship."
+      },
+      "foodPairings": [
+        "Hungarian goulash with paprika and root vegetables",
+        "Grilled ribeye steak with roasted wild mushrooms",
+        "Venison medallions with juniper berry sauce",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Braised short ribs with red wine reduction"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (16-18°C)",
+        "decanting": "Decant for 45-60 minutes before serving to allow the wine to open fully and soften tannins. This wine benefits significantly from aeration.",
+        "glassware": "Large Bordeaux-style glass to allow proper aeration and aroma development"
+      },
+      "wineDetails": {
+        "region": "Etyek-Buda, Hungary",
+        "grapeVariety": "Bordeaux blend: likely Cabernet Sauvignon, Merlot, and Cabernet Franc",
+        "vintage": "2019",
+        "style": "Full-bodied dry red wine with significant oak aging and aging potential",
+        "ageability": "Drink now through 2032. This wine has the structure and balance to develop gracefully over the next 5-8 years, with peak drinking window likely 2025-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Hungarian premium wine standards and Bordeaux-style blend characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Toro Lui Crianza 2020",
+      "brand": "Bodegas Toro Lui",
+      "description": "An authentic Crianza from Spain's Toro DO, showcasing the power and elegance of old-vine Tinta de Toro. This wine represents exceptional value from one of Spain's most exciting regions, delivering concentrated fruit character balanced by traditional oak aging that defines the Crianza category.",
+      "tastingNotes": {
+        "aroma": "Intense aromas of blackberry, black cherry, and ripe plum dominate the nose, enhanced by notes of vanilla, coconut, and toasted oak from Crianza aging. Underlying scents of violets, licorice, and dark chocolate add complexity, while hints of leather and tobacco provide additional depth. The aromatic intensity reflects the concentrated nature of old-vine Tinta de Toro fruit.",
+        "palate": "Full-bodied and powerful, the palate delivers waves of dark fruit including blackberry jam, black currant, and fig. The wine shows impressive concentration balanced by vibrant acidity that prevents heaviness. American oak aging contributes notes of sweet vanilla, dill, and baking spices, while integrated tannins provide structure without astringency. Despite the power, there's elegance and balance, with the fruit remaining the star.",
+        "finish": "The finish is long and warming, with dark fruit, spice, and oak flavors extending generously. Soft tannins and a touch of dark chocolate linger, creating a satisfying and complete conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Spanish chorizo and Manchego cheese tapas",
+        "Grilled lamb skewers with romesco sauce",
+        "Slow-roasted pork shoulder with garlic and herbs",
+        "Beef empanadas with chimichurri",
+        "Mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-64°F (15-17°C)",
+        "decanting": "Decant for 30-45 minutes to soften the wine and allow the oak to integrate. Young Crianzas benefit from aeration to reveal their full complexity.",
+        "glassware": "Large red wine glass or Tempranillo varietal glass"
+      },
+      "wineDetails": {
+        "region": "Toro DO, Castilla y León, Spain",
+        "grapeVariety": "100% Tinta de Toro (Tempranillo clone)",
+        "vintage": "2020",
+        "style": "Full-bodied dry red wine with minimum 24 months aging (12 months in oak) per Crianza regulations",
+        "ageability": "Drink now through 2028. Crianzas are typically ready upon release but can develop for 5-7 years, gaining tertiary complexity while maintaining fruit character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Toro DO Crianza standards and Tinta de Toro varietal characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Natural Selection (Red) Syrah-Grenache 2018",
+      "brand": "Chateau Maris",
+      "description": "An exceptional organic and biodynamic red blend from one of the world's most environmentally conscious wineries in the Languedoc. This Natural Selection bottling represents Château Maris's commitment to minimal intervention winemaking, allowing the distinctive La Livinière terroir to shine through in a pure, authentic expression.",
+      "tastingNotes": {
+        "aroma": "Captivating aromas of wild blackberry, blueberry, and dark cherry lead, intertwined with classic garrigue notes of lavender, thyme, and rosemary. The bouquet reveals layers of complexity with hints of black olive, crushed stone, and subtle white pepper from the Syrah component. Minimal sulfur use and organic viticulture contribute to pristine fruit expression and terroir transparency, with earthy notes of forest floor and wet slate adding depth.",
+        "palate": "Medium to full-bodied with exceptional purity and balance. The Grenache contributes bright red fruit flavors of raspberry and strawberry, while Syrah adds structure with notes of blackberry, black pepper, and smoked meat. The wine shows remarkable freshness despite its concentration, with vibrant acidity and fine-grained tannins that are firm yet silky. Biodynamic farming translates to intense minerality and a distinctive saline quality on the mid-palate. The natural winemaking approach results in energetic, transparent flavors.",
+        "finish": "The finish is long, pure, and focused, with red and black fruit notes extending alongside stony minerality and herbal accents. Soft tannins and lingering spice create a harmonious conclusion that showcases the wine's natural balance and terroir expression."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with tapenade",
+        "Grilled duck breast with cherry gastrique",
+        "Wild mushroom and truffle pasta",
+        "Aged sheep's milk cheese from Languedoc",
+        "Provençal vegetable tian with eggplant and tomatoes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (15-18°C) to preserve freshness and aromatic complexity",
+        "decanting": "Decant for 30-45 minutes to allow the wine to breathe and reveal its full aromatic range. Natural wines often benefit from aeration to soften and open.",
+        "glassware": "Large Burgundy-style glass to capture delicate aromatics and allow proper aeration"
+      },
+      "wineDetails": {
+        "region": "Minervois-La Livinière AOC, Languedoc, France",
+        "grapeVariety": "Syrah and Grenache blend (approximately 60% Syrah, 40% Grenache)",
+        "vintage": "2018",
+        "style": "Organic and biodynamic dry red wine with minimal intervention winemaking, medium to full body",
+        "ageability": "Drink now through 2030. The 2018 vintage has the structure and balance to develop gracefully over 7-10 years, with peak drinking likely 2024-2028."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Château Maris's established natural winemaking practices and Minervois-La Livinière terroir"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Vieux College Marsannay Blanc \"Les Vignes Marie\" 2021",
+      "brand": "Domaine du Vieux College",
+      "description": "A refined white Burgundy from the Marsannay appellation, showcasing Chardonnay from the specific 'Les Vignes Marie' vineyard parcel. This wine represents the quality renaissance of Marsannay's white wines, offering excellent value for terroir-driven Burgundy with precision and elegance.",
+      "tastingNotes": {
+        "aroma": "Delicate and precise aromatics feature white peach, yellow apple, and Bartlett pear, complemented by subtle notes of white flowers, acacia honey, and crushed limestone. The nose reveals classic Burgundian Chardonnay character with hints of hazelnut, brioche, and a touch of lemon zest. Restrained oak influence contributes vanilla bean and light toast notes without overpowering the fruit. The mineral component is pronounced, reflecting the limestone-rich terroir of Marsannay.",
+        "palate": "Medium-bodied with elegant structure and excellent balance. Flavors of ripe pear, white peach, and citrus fruits are supported by vibrant acidity and a distinctive chalky minerality. The wine shows beautiful texture and depth, with creamy notes from lees aging balanced by refreshing citrus and stone fruit flavors. Mid-palate richness is complemented by mineral tension and a saline quality that adds complexity. The oak integration is seamless, contributing texture rather than overt flavor.",
+        "finish": "The finish is clean, focused, and moderately long, with citrus zest, white stone fruit, and mineral notes persisting gracefully. A touch of salinity and flinty character lingers, typical of well-made Marsannay blanc, leaving the palate refreshed yet satisfied."
+      },
+      "foodPairings": [
+        "Pan-seared turbot with beurre blanc sauce",
+        "Roasted chicken with morel mushrooms and cream",
+        "Comté cheese aged 18-24 months",
+        "Lobster thermidor with tarragon",
+        "White asparagus with hollandaise and prosciutto"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 50-55°F (10-13°C) to balance richness and acidity",
+        "decanting": "No decanting required, but allow 15-20 minutes in the glass after pouring to warm slightly and reveal aromatic complexity.",
+        "glassware": "White Burgundy glass or large white wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Marsannay AOC, Côte de Nuits, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2021",
+        "style": "Dry white Burgundy with medium body, vibrant acidity, and mineral character",
+        "ageability": "Drink now through 2028. The 2021 vintage has excellent freshness and can develop beautifully over 5-7 years, gaining honeyed complexity while maintaining acidity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Marsannay blanc appellation standards and Burgundian Chardonnay characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Viore Sobre Lias 2023",
+      "brand": "Viore",
+      "description": "A contemporary Spanish white wine aged 'sobre lías' (on the lees), showcasing modern winemaking techniques applied to indigenous Galician varietals. This wine exemplifies the quality and freshness of Spain's Atlantic-influenced white wines with extended lees contact adding texture and complexity.",
+      "tastingNotes": {
+        "aroma": "Vibrant aromas of green apple, white peach, and citrus blossom lead, complemented by subtle notes of chamomile and fresh herbs. The lees aging contributes delicate notes of brioche, toasted almond, and a hint of cream that adds complexity without heaviness. Bright maritime minerality and a touch of wet stone character reflect the Atlantic coastal influence. Light floral notes of orange blossom and jasmine add elegance to the aromatic profile.",
+        "palate": "The palate is crisp and refreshing with medium body enhanced by lees aging, which provides a slightly creamy texture and weight. Flavors of tart green apple, Meyer lemon, and white grapefruit are balanced by ripe stone fruit notes and a distinctive saline minerality. The sur lie aging adds subtle yeasty complexity and a pleasant textural component without diminishing the wine's essential freshness. Vibrant acidity keeps the wine lively and food-friendly, while a touch of phenolic grip adds interest.",
+        "finish": "The finish is clean and persistent, with citrus and mineral notes extending alongside a subtle savory character from the lees. A refreshing saline quality lingers, inviting another sip and showcasing the wine's coastal origins."
+      },
+      "foodPairings": [
+        "Fresh Galician octopus (pulpo a la gallega) with paprika",
+        "Grilled white fish with lemon and herbs",
+        "Seafood paella with mussels and clams",
+        "Creamy goat cheese with honey and almonds",
+        "Pasta with clams and white wine sauce"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed. This wine is best enjoyed fresh and cold. Allow a few minutes in the glass to appreciate the aromatic development.",
+        "glassware": "White wine glass or tulip-shaped glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Rías Baixas or similar Atlantic-influenced region, Galicia, Spain",
+        "grapeVariety": "Likely Albariño or indigenous Galician white varietals",
+        "vintage": "2023",
+        "style": "Crisp dry white wine with lees aging for added texture and complexity",
+        "ageability": "Best enjoyed young to preserve freshness. Drink now through 2025. The lees aging provides some development potential, but the wine is designed for near-term consumption."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Spanish lees-aged white wine techniques and Galician white wine characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg Pumphouse Shiraz 2020",
+      "brand": "Backsberg Estate Cellars",
+      "description": "A premium South African Shiraz from the historic Backsberg estate in Paarl, Western Cape. Named after the estate's iconic 1920s pumphouse, this wine represents the flagship Shiraz offering from one of South Africa's most environmentally conscious wineries, combining old-world elegance with new-world fruit intensity.",
+      "tastingNotes": {
+        "aroma": "Generous aromas of ripe blackberry, dark plum, and black cherry are complemented by exotic notes of violet, star anise, and white pepper. The bouquet reveals complexity with hints of dark chocolate, espresso, and cedar from oak aging, alongside subtle notes of leather and game. A distinctive floral quality typical of cooler-climate Shiraz adds elegance, while underlying savory elements of black olive and dried herbs provide depth.",
+        "palate": "Full-bodied and richly textured, the palate delivers concentrated flavors of blackberry compote, blueberry, and dark cherry. The wine shows excellent balance between ripe fruit sweetness and refreshing acidity, with integrated tannins that are firm yet velvety. Oak influence is present but well-managed, contributing vanilla, mocha, and toasted spice notes without overwhelming the fruit. Mid-palate richness is enhanced by notes of dark chocolate, black pepper, and a distinctive graphite minerality that adds complexity.",
+        "finish": "The finish is long and satisfying, with dark fruit, spice, and savory notes extending gracefully. Polished tannins and a touch of black pepper linger alongside hints of espresso and dark chocolate, demonstrating the wine's quality and aging potential."
+      },
+      "foodPairings": [
+        "Grilled Cape lamb chops with rosemary and garlic",
+        "Braised oxtail with red wine and root vegetables",
+        "Venison fillet with juniper berry sauce",
+        "Aged Gouda or mature cheddar cheese",
+        "Beef short ribs with Asian spices and ginger"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-66°F (16-19°C)",
+        "decanting": "Decant for 45-60 minutes before serving to allow the wine to open fully and soften tannins. This wine responds beautifully to aeration.",
+        "glassware": "Large Syrah/Shiraz varietal glass or Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Paarl, Western Cape, South Africa",
+        "grapeVariety": "100% Shiraz (Syrah)",
+        "vintage": "2020",
+        "style": "Full-bodied dry red wine with significant oak aging and aging potential",
+        "ageability": "Drink now through 2032. This wine has excellent structure and balance to develop over 8-12 years, with peak drinking window likely 2025-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Backsberg's established winemaking style and South African Shiraz characteristics"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Serra de Estrela Albarino (DC / MD Only) 2023",
+      "brand": "Serra de Estrela",
+      "description": "A crisp and aromatic Albariño showcasing the bright, mineral-driven character of Portugal's Vinho Verde region or Spain's Rías Baixas. This wine captures the essence of Atlantic-influenced viticulture with vibrant acidity, citrus-driven flavors, and the refreshing quality that has made Albariño one of the world's most sought-after white varietals.",
+      "tastingNotes": {
+        "aroma": "Bright and expressive aromatics feature white peach, green apple, and Meyer lemon, complemented by delicate notes of orange blossom, honeysuckle, and fresh lime zest. The nose reveals characteristic Albariño markers including nectarine, apricot, and a subtle salinity that hints at coastal origins. Underlying mineral notes of wet granite and crushed seashells add complexity and regional typicity. Light herbal accents of lemon verbena and chamomile provide additional aromatic interest.",
+        "palate": "The palate is crisp, vibrant, and medium-bodied with exceptional freshness. Flavors of tart green apple, white grapefruit, and stone fruit are enhanced by pronounced acidity that keeps the wine lively and energetic. A distinctive mineral backbone runs through the mid-palate, showing characteristic granite-driven salinity and a slight phenolic grip that adds texture. Citrus zest and peach skin notes contribute subtle bitterness that balances the fruit, while the overall impression is one of purity, brightness, and coastal freshness.",
+        "finish": "The finish is clean, refreshing, and moderately long, with citrus, mineral, and saline notes persisting gracefully. A touch of white pepper and a stony quality linger, leaving the palate invigorated and ready for food."
+      },
+      "foodPairings": [
+        "Fresh raw oysters with lemon and mignonette",
+        "Grilled prawns with garlic and parsley",
+        "Ceviche with lime, cilantro, and jalapeño",
+        "Steamed mussels in white wine broth",
+        "Grilled white fish tacos with avocado and cabbage"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 42-46°F (6-8°C)",
+        "decanting": "No decanting needed. This wine is best enjoyed immediately upon opening, served very cold to maximize refreshment and preserve aromatics.",
+        "glassware": "Narrow white wine glass or flute to concentrate aromatics and maintain chill"
+      },
+      "wineDetails": {
+        "region": "Likely Rías Baixas, Spain or Vinho Verde region, Portugal",
+        "grapeVariety": "100% Albariño (Alvarinho in Portugal)",
+        "vintage": "2023",
+        "style": "Crisp, dry white wine with high acidity and pronounced mineral character",
+        "ageability": "Best enjoyed young and fresh. Drink now through 2025 to capture the wine's vibrant fruit and energetic acidity at its peak."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Albariño varietal characteristics and Atlantic coastal wine regions"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Barrel Fermented 2023",
+      "brand": "Bodegas Riojanas - Monte Real",
+      "description": "A premium barrel-fermented white wine from one of Rioja's most historic bodegas, Monte Real. This wine represents the modern evolution of white Rioja, combining indigenous varietals with sophisticated barrel fermentation techniques to create a wine of depth, complexity, and exceptional aging potential.",
+      "tastingNotes": {
+        "aroma": "Complex aromatics showcase ripe stone fruit including white peach, apricot, and nectarine, layered with barrel fermentation notes of vanilla bean, toasted hazelnut, and brioche. The nose reveals elegant oak integration with hints of crème brûlée, butter, and light toast complementing rather than dominating the fruit. Underlying notes of citrus blossom, chamomile, and wet stone add freshness and minerality. A subtle oxidative character typical of barrel-fermented whites contributes complexity with hints of baked apple and honey.",
+        "palate": "Full-bodied and richly textured with creamy lees influence and barrel fermentation adding weight and complexity. The palate delivers flavors of ripe golden apple, poached pear, and tropical notes of mango and pineapple, balanced by vibrant acidity that prevents heaviness. Oak influence is pronounced but harmonious, contributing vanilla, butterscotch, and sweet spice notes alongside a subtle smoky quality. The wine shows excellent structure with a slightly phenolic grip and mineral backbone that adds dimension. Lees aging provides a silky, almost glycerin-like texture.",
+        "finish": "The finish is long, complex, and satisfying, with oak spice, stone fruit, and mineral notes extending gracefully. Hints of toasted almond, vanilla, and a subtle oxidative character linger alongside refreshing acidity, creating a complete and sophisticated conclusion."
+      },
+      "foodPairings": [
+        "Roasted chicken with truffle butter and root vegetables",
+        "Grilled swordfish with lemon-caper sauce",
+        "Creamy lobster bisque with herbs",
+        "Aged Manchego or Idiazábal cheese",
+        "Wild mushroom risotto with Parmigiano-Reggiano"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 52-56°F (11-13°C), slightly warmer than typical white wines to appreciate complexity",
+        "decanting": "While not required, this wine benefits from 15-20 minutes in the glass or a brief decant to allow the oak and fruit to integrate fully.",
+        "glassware": "White Burgundy glass or large white wine glass to accommodate the wine's richness and oak character"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Likely Viura (Macabeo) with possible blending of Malvasía and/or Garnacha Blanca",
+        "vintage": "2023",
+        "style": "Full-bodied barrel-fermented dry white wine with oak aging and lees contact",
+        "ageability": "Drink now through 2030. Barrel-fermented white Riojas have excellent aging potential, developing honeyed, nutty complexity over 5-7 years while maintaining freshness."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "notes": "Based on Rioja barrel-fermented white wine characteristics and Monte Real's traditional winemaking approach"
+      }
+    }
+  ]
+}

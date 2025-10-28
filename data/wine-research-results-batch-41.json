@@ -1,0 +1,346 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Paloma Vineyards Merlot 2016",
+      "description": "This Napa Valley Merlot showcases the region's signature opulence with velvety texture and concentrated dark fruit. The 2016 vintage benefited from ideal growing conditions, producing a wine of exceptional depth and balance. A sophisticated expression that bridges elegance and power.",
+      "tastingNotes": {
+        "aroma": "The nose opens with lush aromas of ripe black plum and dark cherry, intertwined with notes of cocoa and espresso. Hints of cedar and vanilla emerge from oak aging, while subtle violet florals add complexity. The aromatic profile is rich yet refined, showing the polished character of premium Napa fruit.",
+        "palate": "On the palate, this Merlot delivers luxurious concentration with flavors of blackberry compote, dark chocolate, and mocha. The mid-palate reveals layers of spiced plum, tobacco leaf, and a touch of graphite minerality. Silky tannins provide structure without heaviness, while balanced acidity maintains freshness through the long flavor development.",
+        "finish": "The finish is persistent and elegant, with lingering notes of dark fruit preserves and baking spices. Fine-grained tannins leave a velvety impression, while subtle oak influence adds complexity without overwhelming the fruit. A harmonious conclusion that invites the next sip."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with rosemary jus",
+        "Grilled ribeye steak with red wine reduction",
+        "Mushroom risotto with truffle oil",
+        "Duck confit with cherry gastrique",
+        "Aged Gouda or Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to breathe and soften tannins, revealing full aromatic complexity",
+        "glassware": "Large Bordeaux-style glass with broad bowl"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2016",
+        "style": "Full-bodied red, oak-aged",
+        "ageability": "Drinking beautifully now through 2030. Peak maturity 2024-2028 with proper cellaring at 55°F"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Avoglia Fiano 2024",
+      "description": "An expressive Fiano from Campania showcasing the grape's signature aromatic intensity and textural depth. This recent vintage captures the fresh, vibrant character of modern Fiano production while maintaining the variety's traditional honeyed richness. A captivating white wine with impressive complexity.",
+      "tastingNotes": {
+        "aroma": "The bouquet is intensely aromatic with pronounced notes of white flowers, acacia blossoms, and orange zest. Layers of ripe pear and golden apple emerge, complemented by distinctive honey and toasted hazelnut nuances. Subtle mineral undertones and hints of wild herbs add intriguing complexity to this expressive nose.",
+        "palate": "This Fiano offers substantial weight on the palate with honeyed stone fruit flavors balanced by refreshing acidity. The mid-palate reveals spiced pear, nectarine, and almond paste, while the characteristic hazelnut note provides textural interest. Floral elements persist throughout, supported by a subtle chalky minerality that adds depth and structure.",
+        "finish": "The finish is long and satisfying, with evolving spicy and nutty notes that develop beautifully. Clean acidity maintains freshness, while the wine's natural weight provides a lingering, mouth-coating presence. Hints of honey and baking spices fade gracefully."
+      },
+      "foodPairings": [
+        "Grilled sea bass with lemon and capers",
+        "Roasted chicken with herbs and garlic",
+        "Creamy risotto with wild mushrooms",
+        "Fresh mozzarella with heirloom tomatoes and basil",
+        "Seared scallops with brown butter sauce"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting required; serve chilled directly from the refrigerator after brief rest to allow aromatics to emerge",
+        "glassware": "Medium-sized white wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Campania, Italy (likely Fiano di Avellino DOCG)",
+        "grapeVariety": "100% Fiano",
+        "vintage": "2024",
+        "style": "Full-bodied white, aromatic, unoaked",
+        "ageability": "Best consumed within 2-4 years to enjoy peak freshness; some examples develop interesting spicy complexity with 5-7 years of aging"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mike and Molly Hendry Zinfandel 2019",
+      "description": "A powerhouse Napa Zinfandel from Hendry Vineyard, known for exceptional old-vine fruit and meticulous farming. This bottling exemplifies the plummy intensity and spice-driven complexity that defines premium California Zinfandel. Bold, structured, and thoroughly satisfying.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with exuberant aromas of wild blackberry, boysenberry jam, and crushed red berries. Cedar and vanilla notes from oak aging interweave with black pepper, cinnamon, and dried herbs. Underlying hints of bramble, cocoa powder, and sweet tobacco add layers of complexity to this captivating bouquet.",
+        "palate": "Rich and full-bodied with concentrated flavors of ripe plum, dark cherry, and blackberry preserves. The mid-palate reveals warm baking spices—clove, nutmeg, and allspice—alongside vanilla bean and toasted oak. Firm yet ripe tannins provide excellent structure, while the wine's natural fruit sweetness is balanced by vibrant acidity and a touch of peppery spice.",
+        "finish": "The finish is long and warming with persistent dark fruit and sweet spice. Layers of vanilla, cedar, and black pepper linger beautifully, while integrated tannins provide a satisfying grip. The conclusion is bold yet balanced, showcasing Zinfandel's ability to combine power with finesse."
+      },
+      "foodPairings": [
+        "BBQ baby back ribs with smoky sauce",
+        "Grilled lamb chops with rosemary and garlic",
+        "Wild boar ragu over pappardelle",
+        "Spiced beef brisket with caramelized onions",
+        "Sharp aged cheddar or Dry Jack cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (17-20°C)",
+        "decanting": "Decant for 30-45 minutes to soften the robust tannins and integrate the wine's spicy oak notes with fruit",
+        "glassware": "Large, wide-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (Hendry Vineyard)",
+        "grapeVariety": "100% Zinfandel from old vines",
+        "vintage": "2019",
+        "style": "Full-bodied red, intense, oak-aged",
+        "ageability": "Drinking well now through 2032. The wine's structure and concentration allow for extended cellaring; peak 2025-2029"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Cabernet Sauvignon 2016",
+      "description": "An elegant Napa Valley Cabernet Sauvignon displaying the hallmark concentration and structure of the exceptional 2016 vintage. This wine embodies the power and refinement that makes Napa Cabernet world-renowned. A serious wine with excellent aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose presents deep, inky aromas of cassis, blackcurrant, and black cherry with remarkable intensity. Layers of dark chocolate, espresso, and cigar box emerge, complemented by cedar, graphite, and hints of eucalyptus. Subtle violet and lavender notes add elegance, while integrated French oak contributes vanilla and sweet baking spices.",
+        "palate": "Full-bodied and powerful with exceptional concentration of blackberry, black plum, and dark fruit compote. The palate reveals complexities of mocha, toasted oak, and dark cocoa, supported by firm yet refined tannins. Mid-palate depth shows layers of black olive tapenade, crushed herbs, and mineral notes, while balanced acidity maintains structure and freshness throughout the experience.",
+        "finish": "The finish is remarkably long and structured, with persistent dark fruit and savory elements. Fine-grained tannins provide impressive grip and ageability, while notes of dark chocolate and cedar linger beautifully. The conclusion is powerful yet balanced, showcasing classic Napa Cabernet character with potential for extended cellaring."
+      },
+      "foodPairings": [
+        "Prime beef tenderloin with bordelaise sauce",
+        "Grilled New York strip with compound butter",
+        "Braised short ribs with red wine reduction",
+        "Wild mushroom and truffle risotto",
+        "Aged Parmigiano-Reggiano or cave-aged Gruyère"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 60-90 minutes to fully open the wine's complex aromatics and soften the substantial tannic structure",
+        "glassware": "Large Cabernet/Bordeaux glass with tall bowl"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2016",
+        "style": "Full-bodied red, age-worthy, premium oak-aged",
+        "ageability": "Excellent cellaring potential; drinking well now through 2040. Peak maturity expected 2026-2035 with proper storage"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rueda Heredad de Penalosa Verdejo 2020",
+      "description": "A pristine expression of Verdejo from Spain's Rueda region, showcasing the aromatic intensity and fresh character of modern Spanish white winemaking. This wine captures the essence of Verdejo with its full body, aromatic complexity, and refreshing finish. A delightful discovery from one of Spain's premier white wine regions.",
+      "tastingNotes": {
+        "aroma": "The bouquet is vibrantly aromatic with bright notes of citrus blossom, green apple, and fresh fennel. Pronounced tropical fruit aromas—passion fruit, white peach, and melon—mingle with subtle herbs and a distinctive mineral edge. Hints of wild flowers and fresh-cut grass add complexity, while the cool fermentation preserves pristine fruit purity.",
+        "palate": "Soft yet full-bodied with excellent textural depth and weight on the palate. Flavors of crisp pear, green apple, and grapefruit are complemented by tropical nuances of guava and lychee. The mid-palate reveals subtle anise, white pepper, and a refreshing mineral backbone. Bright acidity balances the wine's natural fullness, creating an engaging interplay of richness and freshness.",
+        "finish": "The finish is clean and persistent with lingering citrus and herb notes. Refreshing acidity leaves the palate cleansed and energized, while the wine's natural weight provides satisfying length. A touch of minerality and subtle fruit character fade gracefully, inviting another sip."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic and olive oil",
+        "Fresh goat cheese salad with citrus vinaigrette",
+        "Pan-seared halibut with herb butter",
+        "Spanish tapas—Manchego cheese, olives, almonds",
+        "Light pasta primavera with vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve well-chilled directly from the refrigerator",
+        "glassware": "Standard white wine glass or tulip-shaped glass"
+      },
+      "wineDetails": {
+        "region": "Rueda DO, Castilla y León, Spain",
+        "grapeVariety": "85-100% Verdejo",
+        "vintage": "2020",
+        "style": "Full-bodied white, aromatic, fresh",
+        "ageability": "Best enjoyed young within 2-3 years of vintage to preserve aromatic freshness and vibrant acidity"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cobden Wini Old Federal Cabernet Sauvignon 2021",
+      "description": "A contemporary Australian Cabernet Sauvignon that showcases the intensity and fruit-forward character of New World winemaking. This wine balances ripe fruit concentration with structural integrity, offering immediate appeal while maintaining aging potential. An approachable yet serious expression of Cabernet.",
+      "tastingNotes": {
+        "aroma": "The nose displays vibrant aromas of ripe blackcurrant, blueberry, and dark cherry with excellent clarity. Notes of eucalyptus and mint add an Australian signature, while cedar, vanilla, and sweet oak spices contribute complexity. Subtle hints of dark chocolate and graphite provide depth, creating an inviting and complex aromatic profile.",
+        "palate": "Medium to full-bodied with concentrated flavors of blackberry, cassis, and plum. The palate reveals layers of dark chocolate, coffee, and toasted oak, supported by firm yet approachable tannins. Mid-palate richness shows hints of black olive, dried herbs, and a touch of peppery spice. Well-integrated oak adds structure and vanilla notes without dominating the pure fruit expression.",
+        "finish": "The finish is clean and moderately long with persistent dark fruit and subtle oak influence. Ripe tannins provide gentle structure, while balanced acidity maintains freshness. Notes of blackcurrant and cedar fade gracefully, leaving a satisfying and harmonious conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb leg with rosemary and garlic",
+        "Beef tenderloin with mushroom demi-glace",
+        "Char-grilled kangaroo with native berry sauce",
+        "Aged cheddar or blue cheese platter",
+        "Venison stew with root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes recommended to integrate oak and fruit, though wine is approachable upon opening",
+        "glassware": "Standard Cabernet/Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Australia (specific region undetermined)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Medium to full-bodied red, fruit-forward, oak-aged",
+        "ageability": "Drinking well now through 2031. Best enjoyed within 5-8 years while fruit remains vibrant"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.76,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ventenac Cuvee Stephanie 2020",
+      "description": "A classic Languedoc red blend showcasing the sun-drenched character and Mediterranean charm of southern France. This cuvée demonstrates the region's mastery of traditional Rhône varietals with balanced fruit, savory complexity, and remarkable value. An authentic expression of Languedoc terroir.",
+      "tastingNotes": {
+        "aroma": "The nose offers enticing aromas of ripe red cherries, wild strawberries, and black raspberries with lovely freshness. Herbes de Provence—thyme, rosemary, lavender—add a distinctive Mediterranean character, while subtle notes of black pepper, cured meat, and garrigue (wild scrubland) contribute savory complexity. Light touches of vanilla and spice hint at oak influence.",
+        "palate": "Medium-bodied with vibrant red fruit flavors of cherry, raspberry, and cranberry dominating the palate. The mid-palate reveals earthy complexity with notes of dried herbs, black olive, and subtle leather. Soft tannins provide gentle structure without heaviness, while bright acidity maintains freshness and balance. The wine's savory character perfectly complements its fruit-driven core.",
+        "finish": "The finish is smooth and moderately long with lingering red fruit and herb notes. Gentle tannins and refreshing acidity create an elegant conclusion, while subtle spice and earthy elements fade pleasantly. An approachable, food-friendly finish that exemplifies the Languedoc style."
+      },
+      "foodPairings": [
+        "Herb-roasted chicken with vegetables",
+        "Grilled lamb chops with tapenade",
+        "Ratatouille with crusty bread",
+        "Charcuterie board with pâté and cornichons",
+        "Soft-ripened cheeses like Camembert or Brie"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool",
+        "decanting": "Brief aeration of 15-20 minutes beneficial but not essential; wine is approachable upon opening",
+        "glassware": "Standard red wine glass or Rhône-style glass"
+      },
+      "wineDetails": {
+        "region": "Languedoc, France (likely Minervois or Corbières)",
+        "grapeVariety": "Blend of Grenache, Syrah, Carignan, and possibly Mourvèdre",
+        "vintage": "2020",
+        "style": "Medium-bodied red, Mediterranean blend",
+        "ageability": "Best enjoyed within 3-5 years of vintage while fruit and herb character remain vibrant"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Crosarola Ripasso 2017",
+      "description": "A distinguished Valpolicella Ripasso showcasing the unique 'repassed' winemaking technique that adds depth and complexity to classic Venetian reds. This wine bridges the gap between traditional Valpolicella and powerful Amarone, offering enhanced structure and rich flavors. An excellent introduction to this prestigious style.",
+      "tastingNotes": {
+        "aroma": "The bouquet is complex and inviting with aromas of dried cherries, black plum, and raisined fruit from the ripasso process. Notes of dark chocolate, espresso, and sweet tobacco emerge alongside hints of leather and dried herbs. Subtle balsamic and spice notes add complexity, while integrated oak contributes vanilla and cedar nuances.",
+        "palate": "Full-bodied with impressive depth and concentration. The palate delivers flavors of sour cherry, blackberry, and fig, enriched by the secondary fermentation on Amarone pomace. Mid-palate richness reveals dark cocoa, dried fruit, and a distinctive tar-like character. Firm yet polished tannins provide excellent structure, while elevated alcohol adds warmth and weight without overwhelming balance.",
+        "finish": "The finish is long and evolving with persistent dark fruit and savory notes. Layers of leather, tobacco, and spice linger beautifully, while the wine's tannic grip and slight bitterness (in the best sense) add complexity. The conclusion is rich yet balanced, showcasing the distinctive character that makes Ripasso special."
+      },
+      "foodPairings": [
+        "Braised beef short ribs with polenta",
+        "Wild mushroom risotto with aged Parmigiano",
+        "Osso buco alla Milanese",
+        "Aged Pecorino Romano or Grana Padano",
+        "Duck breast with cherry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to fully express the wine's complex aromatics and soften tannins",
+        "glassware": "Large Burgundy-style glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Valpolicella Ripasso DOC, Veneto, Italy",
+        "grapeVariety": "Blend of Corvina, Rondinella, and Molinara",
+        "vintage": "2017",
+        "style": "Full-bodied red, 'repassed' style with enhanced complexity",
+        "ageability": "Drinking beautifully now through 2027. The ripasso technique provides structure for medium-term aging; peak 2024-2026"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sky Devil Sauvignon Blanc 2024",
+      "description": "A vibrant New Zealand Sauvignon Blanc bursting with the signature aromatic intensity and crisp freshness that made the style internationally famous. This wine captures the pure, expressive character of Marlborough fruit with its herbaceous notes and tropical fruit layers. A quintessential expression of New World Sauvignon Blanc.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with vivid aromas of passion fruit, gooseberry, and fresh-cut grass—the hallmark characteristics of New Zealand Sauvignon Blanc. Intense notes of grapefruit, lime zest, and green bell pepper showcase the wine's herbaceous profile, while hints of elderflower, boxwood, and jalapeño add distinctive complexity. The aromatic intensity is remarkable and inviting.",
+        "palate": "Crisp, elegant, and refreshingly fresh with bright acidity driving the palate. Flavors of ripe passion fruit, kiwi, and citrus dominate, balanced by herbaceous notes of asparagus and fresh herbs. The mid-palate reveals layers of green apple, white peach, and mineral undertones. Clean, zesty, and focused with excellent textural precision and a lively, mouth-watering quality that defines the style.",
+        "finish": "The finish is clean and persistent with lingering citrus and tropical fruit notes. Vibrant acidity leaves the palate refreshed and energized, while subtle herbaceous and mineral elements fade gracefully. The conclusion is pure and focused, inviting immediate enjoyment."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Grilled asparagus with lemon butter",
+        "Goat cheese and herb salad",
+        "Sushi and sashimi",
+        "Steamed mussels with white wine and herbs"
+      ],
+      "servingInfo": {
+        "temperature": "44-48°F (7-9°C), well-chilled",
+        "decanting": "No decanting necessary; serve ice-cold directly from refrigerator",
+        "glassware": "Standard white wine glass or tulip-shaped Sauvignon Blanc glass"
+      },
+      "wineDetails": {
+        "region": "Marlborough, New Zealand (likely)",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Light to medium-bodied white, crisp, aromatic",
+        "ageability": "Best enjoyed immediately within 1-2 years of vintage to preserve vibrant aromatics and fresh acidity"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tigerstone Garnacha 2020",
+      "description": "An expressive Spanish Garnacha showcasing the grape's characteristic red fruit purity and subtle spice. This wine captures the essence of Spanish viticulture with its balance of juicy fruit, elegant structure, and Mediterranean warmth. A delightful expression of Garnacha's versatile character.",
+      "tastingNotes": {
+        "aroma": "The nose offers bright, appealing aromas of ripe strawberry, fresh raspberry, and red cherry with excellent clarity and purity. Subtle notes of white pepper, dried herbs, and garrigue add complexity, while hints of violets and wild flowers contribute elegance. Light touches of vanilla and sweet spice suggest gentle oak influence, creating a balanced and inviting bouquet.",
+        "palate": "Medium-bodied with juicy, fruit-forward character showcasing red berry flavors—raspberry, strawberry, and cranberry. The mid-palate reveals layers of spice, dried herbs, and a touch of savory earthiness. Soft, approachable tannins provide gentle structure, while moderate acidity maintains balance and freshness. The wine's natural fruitiness is complemented by subtle pepper and herbal notes, creating excellent harmony.",
+        "finish": "The finish is smooth and moderately long with lingering red fruit and spice notes. Gentle tannins and refreshing acidity create an elegant, food-friendly conclusion. Subtle hints of leather and herbs emerge as the wine evolves, while the fruit character remains primary and appealing."
+      },
+      "foodPairings": [
+        "Grilled chorizo and Spanish tapas",
+        "Roasted pork tenderloin with berry glaze",
+        "Paella with chicken and seafood",
+        "Manchego cheese with quince paste",
+        "Grilled vegetables with romesco sauce"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool",
+        "decanting": "Brief aeration of 15-20 minutes enhances aromatics, though wine is approachable immediately",
+        "glassware": "Standard red wine glass or Grenache-specific glass"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region undetermined, possibly Aragón or Campo de Borja)",
+        "grapeVariety": "100% Garnacha (Grenache)",
+        "vintage": "2020",
+        "style": "Medium-bodied red, fruit-forward, approachable",
+        "ageability": "Best enjoyed within 3-6 years of vintage while red fruit character remains vibrant and fresh"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+[
+  {
+    "productName": "Terra Nostra Corse 2021",
+    "description": "A distinctive Corsican red wine showcasing the island's indigenous varieties. Corsica's warm Mediterranean climate with 2,750 annual sunshine hours and diverse soils create wines with concentrated flavors and distinctive regional character. This vintage benefits from the island's dry harvest conditions and emphasis on quality-focused, temperature-controlled winemaking.",
+    "tastingNotes": {
+      "aroma": "The nose opens with pronounced notes of wild Mediterranean herbs and garrigue, characteristic of Corsica's spice wines. Dried red berries intermingle with savory elements of black pepper and juniper, while subtle hints of scrubland vegetation and sun-warmed stones add complexity. The aromatic profile reflects the island's unique terroir with a distinctive spicy character that has earned Nielluccio recognition as the 'spice wine of France.'",
+      "palate": "On the palate, this medium-bodied red delivers bright red cherry and wild strawberry flavors supported by earthy undertones of mushroom and dried herbs. The wine's structure shows good acidity balanced with gentle tannins, typical of wines from Corsica's schist and granite soils. Savory notes of cured meat and Mediterranean scrub provide depth, while the natural fruit concentration from the dry, sunny growing season gives the wine approachable richness without heaviness.",
+      "finish": "The finish is moderately long with lingering spice notes and a touch of minerality that reflects the diverse Corsican terroir. Red fruit echoes persist alongside dried herb and white pepper accents, leaving a clean, refreshing impression typical of the island's youthful red wines."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary and garlic",
+      "Wild boar ragu over pappardelle",
+      "Corsican charcuterie including lonzu and figatellu",
+      "Herb-crusted pork tenderloin",
+      "Aged pecorino or sheep's milk cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "60-64°F (15-18°C)",
+      "decanting": "Brief 30-minute decanting recommended to open aromatics and soften tannins",
+      "glassware": "Medium-sized Burgundy or universal wine glass"
+    },
+    "wineDetails": {
+      "region": "Corsica, France",
+      "grapeVariety": "Likely Nielluccio and/or Sciacarello (Corsican indigenous varieties)",
+      "vintage": "2021",
+      "style": "Dry red wine, Mediterranean style",
+      "ageability": "Best consumed within 1-3 years of vintage; drink by 2024-2025"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Chateau Maris Zulu 2020",
+    "description": "A vibrant organic red wine from the Languedoc region of southern France, produced by the biodynamic pioneer Chateau Maris. This wine reflects the Mediterranean terroir of France's largest wine-producing region, where intense sunshine and minerally soils create powerful, fruit-forward wines. The 2020 vintage captures the warm, dry growing season characteristic of this coastal area.",
+    "tastingNotes": {
+      "aroma": "The bouquet bursts with exuberant dark fruit aromas of crushed blackberries and ripe plums, layered with notes of sun-dried garrigue herbs including thyme and lavender. Spicy undertones of cracked black pepper and smoky minerality emerge, while hints of violet and wild Mediterranean scrubland add aromatic complexity. The organic farming practices contribute to pure, expressive aromatics that showcase the Languedoc terroir.",
+      "palate": "Bold and full-bodied on the palate, this wine delivers concentrated flavors of blackberry compote, black cherry, and cassis, supported by the region's classic Grenache-Syrah character. The warm Languedoc climate contributes to ripe, velvety tannins that coat the mouth, while underlying notes of dark chocolate and roasted coffee beans add depth. A core of bright acidity keeps the wine balanced despite its fruit intensity, with secondary flavors of dried figs and licorice root providing complexity.",
+      "finish": "The finish is long and warming, with persistent dark fruit and spice notes that gradually fade into savory hints of olive tapenade and graphite. Gentle tannins provide structure while the wine's natural fruit sweetness lingers, characteristic of warm-climate Languedoc reds designed for both immediate enjoyment and medium-term cellaring."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with herb butter",
+      "Braised short ribs in red wine sauce",
+      "Cassoulet with duck confit and white beans",
+      "Aged Comté or Manchego cheese",
+      "Eggplant moussaka with lamb"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (16-18°C)",
+      "decanting": "Decant for 45-60 minutes to allow bold flavors to integrate and tannins to soften",
+      "glassware": "Large Bordeaux or Cabernet glass to concentrate aromatics"
+    },
+    "wineDetails": {
+      "region": "Languedoc-Roussillon, France",
+      "grapeVariety": "Likely Grenache, Syrah, and Carignan blend (classic Languedoc varieties)",
+      "vintage": "2020",
+      "style": "Full-bodied red wine, biodynamic/organic",
+      "ageability": "Drink now through 2028; peak 2024-2026"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Zephaniah Three Captains Red 2019",
+    "description": "A distinguished red blend from South Africa's premium wine regions, likely crafted in the Cape Blend tradition that showcases the country's unique terroir. This wine represents the modern South African emphasis on quality red wine production, reflecting the country's shift toward international-style reds while maintaining distinctive regional character. The 2019 vintage benefits from optimal growing conditions in the Western Cape.",
+    "tastingNotes": {
+      "aroma": "The nose reveals elegant layers of ripe dark cherry and blackcurrant, intertwined with notes of cigar box cedar and subtle eucalyptus that hint at South African terroir. Complex aromatics of dried violets and graphite emerge, while well-integrated oak contributes hints of vanilla and toasted spice. Background notes of sun-warmed earth and fynbos scrubland add distinctive regional character that sets this wine apart from European counterparts.",
+      "palate": "Rich and structured on the palate, this wine showcases concentrated flavors of black plum, mulberry, and blackberry preserves, supported by firm but refined tannins typical of quality Cape wines. The mid-palate reveals complexity with notes of dark chocolate, espresso, and hints of tobacco leaf, while the wine's excellent balance between ripe fruit and fresh acidity provides elegance. Subtle savory elements of black olive and herbs add depth, and the oak aging is beautifully integrated, contributing structure without overwhelming the fruit.",
+      "finish": "The finish is impressively long and layered, with dark fruit flavors gradually giving way to notes of leather, dried herbs, and fine-grained tannins. A touch of minerality and lingering spice keep the palate engaged, while the wine's well-structured backbone suggests excellent aging potential ahead."
+    },
+    "foodPairings": [
+      "Grilled venison loin with juniper berry sauce",
+      "Beef Wellington with mushroom duxelles",
+      "Braised lamb shanks with red wine reduction",
+      "Mature Cheddar or aged Gouda",
+      "Roasted game birds with berry compote"
+    ],
+    "servingInfo": {
+      "temperature": "62-66°F (16-19°C)",
+      "decanting": "Decant for 1-2 hours to allow complex flavors to fully express and tannins to soften",
+      "glassware": "Large Bordeaux glass to showcase aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Western Cape, South Africa (likely Stellenbosch or Paarl)",
+      "grapeVariety": "Likely Cabernet Sauvignon, Merlot, and/or Pinotage blend (Cape Blend style)",
+      "vintage": "2019",
+      "style": "Full-bodied red blend, barrel-aged",
+      "ageability": "Drink now through 2032; peak 2025-2029"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.72,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Shipping- Domestic",
+    "description": "This is a shipping service, not a wine product.",
+    "tastingNotes": {
+      "aroma": "Not applicable - shipping service",
+      "palate": "Not applicable - shipping service",
+      "finish": "Not applicable - shipping service"
+    },
+    "foodPairings": [
+      "Not applicable"
+    ],
+    "servingInfo": {
+      "temperature": "Not applicable",
+      "decanting": "Not applicable",
+      "glassware": "Not applicable"
+    },
+    "wineDetails": {
+      "region": "Not applicable",
+      "grapeVariety": "Not applicable",
+      "vintage": "Not applicable",
+      "style": "Shipping service",
+      "ageability": "Not applicable"
+    },
+    "metadata": {
+      "source": "non-wine-product",
+      "confidence": 1.0,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Cafe de Paris Brut Rose",
+    "description": "An elegant French-style sparkling rosé offering vibrant effervescence and delicate fruit character. Crafted using traditional sparkling wine methods, this brut rosé balances refreshing acidity with subtle berry flavors and fine, persistent bubbles. The wine's pale pink hue and crisp profile make it an ideal aperitif and versatile food companion.",
+    "tastingNotes": {
+      "aroma": "Delicate aromas of fresh wild strawberries and red raspberries greet the nose, accompanied by subtle floral notes of white flowers and rose petals. The bouquet shows refined elegance with hints of citrus zest and brioche, while the gentle effervescence carries these aromatics upward. Light mineral undertones and a whisper of almond add complexity to this aromatic, inviting profile.",
+      "palate": "Crisp and refreshing on the palate, this brut rosé delivers bright flavors of strawberry, red currant, and pink grapefruit, lifted by fine, persistent bubbles that create a creamy mousse texture. The wine's brut designation ensures a dry finish with minimal residual sugar, allowing the pure fruit flavors and vibrant acidity to shine. Subtle notes of lemon peel and white peach add dimension, while the light body and energetic character make this wine exceptionally food-friendly and easy to enjoy.",
+      "finish": "The finish is clean and refreshing, with lingering red berry notes and a touch of minerality. The fine bubbles persist pleasantly, leaving the palate cleansed and ready for the next sip, typical of quality sparkling rosés designed for versatility and enjoyment."
+    },
+    "foodPairings": [
+      "Fresh oysters with mignonette",
+      "Prosciutto-wrapped melon",
+      "Strawberry and arugula salad with goat cheese",
+      "Smoked salmon canapés",
+      "Raspberry sorbet or fruit tarts"
+    ],
+    "servingInfo": {
+      "temperature": "42-46°F (6-8°C), well chilled",
+      "decanting": "No decanting needed; serve directly from refrigerator",
+      "glassware": "Flute or tulip-shaped sparkling wine glass"
+    },
+    "wineDetails": {
+      "region": "France (likely Loire Valley or general French production)",
+      "grapeVariety": "Traditional French sparkling varieties (likely Pinot Noir, Pinot Meunier, or regional rosé grapes)",
+      "vintage": "Non-vintage (NV)",
+      "style": "Sparkling rosé, Brut",
+      "ageability": "Best consumed within 1-2 years of purchase for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Cobden Wini Rose Paddys Blend 2024",
+    "description": "A vibrant Australian rosé from Victoria's cool-climate wine regions, showcasing the fresh, fruit-forward style that characterizes modern Australian rosé production. This 2024 vintage captures the essence of a recent harvest, offering immediate drinkability and bright, approachable character. The Paddy's Blend name suggests a unique proprietary blend that reflects the producer's distinctive winemaking vision.",
+    "tastingNotes": {
+      "aroma": "Bright and expressive aromatics jump from the glass with intense notes of fresh watermelon, ripe strawberries, and ruby red grapefruit. The nose shows youthful exuberance with hints of rose hip and cranberry, while subtle undertones of white pepper and fresh-cut grass add complexity. A delicate floral note reminiscent of hibiscus and a touch of minerality round out this inviting aromatic profile that speaks to the wine's cool-climate origins.",
+      "palate": "Crisp and lively on the palate, this rosé bursts with juicy flavors of fresh strawberry, watermelon candy, and blood orange, supported by mouthwatering acidity that provides excellent structure. The wine's light to medium body carries vibrant fruit flavors without heaviness, while notes of pomegranate and tart cherry add depth. A subtle saline quality and hint of crushed herbs provide savory balance to the bright fruit, creating a refreshing, food-friendly profile typical of quality Australian rosés designed for immediate enjoyment.",
+      "finish": "The finish is clean and refreshing with lingering notes of citrus zest and red berries. Bright acidity leaves the palate cleansed and energized, perfect for another sip or pairing with food."
+    },
+    "foodPairings": [
+      "Grilled prawns with lemon and herbs",
+      "Summer vegetable salad with feta",
+      "Fish tacos with mango salsa",
+      "Chicken satay with peanut sauce",
+      "Charcuterie with pickled vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well chilled",
+      "decanting": "No decanting needed; best served fresh and cold",
+      "glassware": "Medium white wine glass or universal wine glass"
+    },
+    "wineDetails": {
+      "region": "Victoria, Australia (Cobden area)",
+      "grapeVariety": "Proprietary blend (likely Grenache, Pinot Noir, or regional varieties)",
+      "vintage": "2024",
+      "style": "Dry rosé, cool-climate Australian style",
+      "ageability": "Best consumed within 12-18 months; drink by 2025-2026 for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.68,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Emek Reb Yose Capricorn Merlot Mevushal (MD & DC) 2020",
+    "description": "A premium kosher Merlot from Israel, crafted according to strict Mevushal standards while maintaining the quality and character expected from modern Israeli winemaking. This wine showcases the smooth texture and ripe tannins that have made Israeli Merlot increasingly popular in recent years. The 2020 vintage benefits from Israel's warm Mediterranean climate combined with careful canopy management and night harvesting techniques.",
+    "tastingNotes": {
+      "aroma": "The nose opens with inviting aromas of ripe black plum and dark cherry, enhanced by notes of cedar and vanilla from oak aging. Subtle hints of dried herbs, particularly sage and oregano, reflect the Mediterranean terroir, while background notes of cocoa powder and coffee add depth. The wine shows good integration between fruit and oak, with a touch of leather and tobacco leaf providing complexity typical of quality Israeli Merlot.",
+      "palate": "Smooth and velvety on the palate, this Merlot delivers plush flavors of blackberry, black plum, and cassis, supported by the soft, ripe tannins that characterize Israeli Merlot production. The wine's medium to full body is balanced by fresh acidity maintained through careful vineyard management including night harvesting. Notes of dark chocolate, mocha, and baking spices emerge on the mid-palate, while the oak aging contributes structure without overwhelming the fruit. A subtle herbaceous quality and hint of bell pepper add classic Merlot character.",
+      "finish": "The finish is moderately long with persistent dark fruit flavors and gentle tannins that coat the palate. Notes of vanilla and spice linger alongside the fruit, while the wine's smooth texture leaves a pleasant, approachable impression suitable for kosher dining."
+    },
+    "foodPairings": [
+      "Braised brisket with root vegetables",
+      "Grilled rib eye steak with chimichurri",
+      "Lamb tagine with dried fruits",
+      "Mushroom and herb stuffed chicken",
+      "Aged hard cheeses (for kosher pairings)"
+    ],
+    "servingInfo": {
+      "temperature": "60-64°F (15-18°C)",
+      "decanting": "Decant for 30-45 minutes to soften tannins and open aromatics",
+      "glassware": "Large Bordeaux or Cabernet glass"
+    },
+    "wineDetails": {
+      "region": "Israel (likely Galilee, Golan Heights, or Judean Hills)",
+      "grapeVariety": "100% Merlot",
+      "vintage": "2020",
+      "style": "Dry red wine, kosher Mevushal",
+      "ageability": "Drink now through 2028; peak 2024-2026"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.78,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Colle Corviano Cerasuolo Rose 2024",
+    "description": "An authentic Cerasuolo d'Abruzzo rosé from Italy's Abruzzo region, crafted entirely from Montepulciano grapes. This wine exemplifies the distinctive cherry-red color and robust character that sets Cerasuolo apart from lighter rosés, earning its own DOC designation in 2010. The 2024 vintage captures the wine's signature combination of depth and freshness that makes this style a favorite among rosé enthusiasts seeking more substantial flavor profiles.",
+    "tastingNotes": {
+      "aroma": "The nose reveals characteristically intense aromatics of ripe strawberry and dried cherry, layered with distinctive notes of orange peel and cinnamon that define quality Cerasuolo. The wine's deeper color from Montepulciano's highly pigmented skins contributes to more concentrated aromatics than typical rosés, with hints of raspberry leaf and crushed red berries. Subtle floral notes of wild rose and a whisper of Mediterranean herbs add complexity to this aromatic, inviting profile.",
+      "palate": "Medium-bodied and notably heartier than most rosés, this Cerasuolo delivers robust flavors of strawberry, dried cherry, and red currant, supported by the structure and tannin presence that comes from the Montepulciano grape's thick skins. Distinctive notes of orange zest, cinnamon spice, and hints of pomegranate create the complex flavor profile praised by experts like Joe Bastianich. The wine maintains excellent acidity to balance its fruit intensity, with savory undertones of dried herbs and a mineral edge that reflects the Abruzzo terroir, particularly from the mountainous L'Aquila province.",
+      "finish": "The finish is substantial and lingering, with persistent notes of dried cherry, orange peel, and spice. Unlike lighter rosés that fade quickly, this Cerasuolo maintains presence on the palate with its structured tannins and bright acidity, leaving a satisfying, food-friendly impression."
+    },
+    "foodPairings": [
+      "Grilled swordfish with tomato and olive relish",
+      "Pasta all'amatriciana with guanciale",
+      "Porchetta with fennel and herbs",
+      "Arrosticini (Abruzzese lamb skewers)",
+      "Aged pecorino cheese with honey"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C), lightly chilled",
+      "decanting": "Brief 15-minute decanting can enhance aromatics and soften tannins",
+      "glassware": "Medium white wine glass or small red wine glass"
+    },
+    "wineDetails": {
+      "region": "Abruzzo DOC, Italy (likely L'Aquila province)",
+      "grapeVariety": "100% Montepulciano",
+      "vintage": "2024",
+      "style": "Dry rosé, Cerasuolo d'Abruzzo DOC",
+      "ageability": "Best consumed within 1-2 years; drink by 2025-2026 for optimal freshness"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Hendry Unoaked Chardonnay 2020",
+    "description": "A pure expression of Napa Valley Chardonnay showcasing the grape's natural character without oak influence. This wine represents the unoaked Chardonnay movement that emphasizes terroir, bright acidity, and pure fruit flavors over buttery, toasted notes. The 2020 vintage from Hendry's estate vineyards captures the balance between Napa's warmth and the refreshing style achieved through careful winemaking that preserves natural acidity.",
+    "tastingNotes": {
+      "aroma": "The nose presents vibrant aromas of green apple, Asian pear, and citrus blossom, with the crisp, mineral-driven profile that defines unoaked Chardonnay. Fresh notes of white peach and lemon zest emerge, while subtle hints of wet stone and crushed almonds add complexity. The absence of oak allows the wine's natural aromatics to shine, revealing delicate floral notes and a touch of honeydew melon that speaks to the fruit's quality and vineyard expression.",
+      "palate": "Bright and refreshing on the palate, this unoaked Chardonnay emphasizes green apple and unripe pear flavors characteristic of wines aged without oak influence, balanced by notes of white peach and grapefruit. The wine maintains excellent natural acidity that provides structure and energy, creating a crisp, mineral-driven profile reminiscent of quality Chablis. Flavors of Meyer lemon, white nectarine, and subtle hints of flint create complexity, while the wine's medium body and clean texture allow the terroir of Napa's well-drained soils to express itself fully.",
+      "finish": "The finish is clean and refreshing with lingering citrus and green apple notes, supported by vibrant acidity and a distinct mineral quality. The wine leaves the palate cleansed and energized, perfect for food pairing or continued enjoyment."
+    },
+    "foodPairings": [
+      "Fresh Dungeness crab with drawn butter",
+      "Grilled halibut with lemon and herbs",
+      "Caesar salad with grilled chicken",
+      "Oysters on the half shell",
+      "Fresh chevre with honey and almonds"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C), well chilled",
+      "decanting": "No decanting needed; serve directly from refrigerator",
+      "glassware": "Medium white wine glass or Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2020",
+      "style": "Dry white wine, unoaked",
+      "ageability": "Best consumed within 2-4 years; drink by 2024-2025 for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.82,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productName": "Knuttel Family Wines Tentadora Malbec 2017",
+    "description": "A distinguished Argentine Malbec showcasing the deep color, intense fruity flavors, and velvety texture that characterize premium wines from this region. The 2017 vintage offers additional complexity from bottle age, with the wine developing secondary characteristics while maintaining the juicy fruit notes and violet aromas typical of quality Malbec. This wine represents the aging potential that has made Argentine Malbec rival its French counterparts in critical acclaim.",
+    "tastingNotes": {
+      "aroma": "The bouquet opens with intense aromas of ripe blackberry, black cherry, and plum, layered with the distinctive violet and floral notes that define quality Argentine Malbec. As the wine has aged, secondary aromas of leather, tobacco leaf, and dark chocolate have emerged, adding complexity to the youthful fruit. Hints of vanilla and sweet spice from oak aging integrate beautifully, while subtle notes of dried herbs and graphite provide depth. The wine's deep, inky color is reflected in the intensity and concentration of its aromatic profile.",
+      "palate": "Rich and plush on the palate, this Malbec delivers concentrated flavors of blackberry compote, dark plum, and black cherry, supported by the soft, velvety tannins that characterize premium Argentine production. The wine's full body is balanced by fresh acidity that maintains structure and prevents heaviness, while the mid-palate reveals complexity with notes of mocha, dark chocolate, and hints of blueberry. Oak aging contributes layers of vanilla, cinnamon, and toasted spice, while the wine's natural fruit concentration creates a juicy, fruit-forward profile with savory undertones of black olive and dried herbs.",
+      "finish": "The finish is impressively long and layered, with persistent dark fruit flavors gradually revealing notes of leather, cocoa, and sweet spice. Soft, integrated tannins provide structure while the wine's velvety texture lingers, demonstrating the aging potential that has earned high-altitude Argentine Malbecs scores above 95 points from major critics."
+    },
+    "foodPairings": [
+      "Grilled Argentine asado with chimichurri",
+      "Braised beef short ribs with red wine reduction",
+      "Rack of lamb with herb crust",
+      "Aged Manchego or Gruyère cheese",
+      "Dark chocolate desserts with berry compote"
+    ],
+    "servingInfo": {
+      "temperature": "62-66°F (16-19°C)",
+      "decanting": "Decant for 45-60 minutes to allow complex flavors to fully express and integrate",
+      "glassware": "Large Bordeaux or Malbec-specific glass"
+    },
+    "wineDetails": {
+      "region": "Mendoza, Argentina (likely high-altitude vineyard)",
+      "grapeVariety": "100% Malbec",
+      "vintage": "2017",
+      "style": "Full-bodied red wine, barrel-aged",
+      "ageability": "Drink now through 2030; currently in excellent drinking window"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  }
+]

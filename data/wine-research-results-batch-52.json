@@ -1,0 +1,347 @@
+{
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "batchId": "batch-52",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Well Crafted Vin de France Organic Red Keg NV  2000 ml",
+      "description": "An approachable organic red from France's flexible Vin de France designation, crafted for casual enjoyment. This eco-friendly keg format delivers fresh, fruit-forward flavors perfect for gatherings and everyday drinking.",
+      "tastingNotes": {
+        "aroma": "The nose presents bright red berry aromas with notes of fresh strawberry and raspberry, complemented by subtle earthy undertones. Light herbal hints of thyme and dried flowers add complexity, while a touch of peppery spice provides lift. The organic farming practices contribute to a clean, pure fruit expression that's immediately inviting.",
+        "palate": "Medium-bodied with juicy acidity that keeps the wine fresh and lively on the palate. Red cherry and cranberry flavors dominate, supported by gentle tannins that provide structure without heaviness. A subtle earthiness reminiscent of forest floor adds depth, while the fruit-forward character remains the star. The keg format preserves the wine's vibrancy beautifully.",
+        "finish": "Clean and refreshing finish with lingering red fruit notes and a hint of dried herbs. The organic character shines through with pure, unadulterated flavors that fade gracefully, leaving the palate ready for another sip."
+      },
+      "foodPairings": [
+        "Grilled chicken with herbs de Provence",
+        "Margherita pizza with fresh basil",
+        "Charcuterie board with pâté and cornichons",
+        "Roasted vegetable tart",
+        "Soft French cheeses like Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly chilled at 55-60°F (13-15°C)",
+        "decanting": "No decanting needed; serve directly from the keg for optimal freshness",
+        "glassware": "Standard red wine glass or casual stemless tumbler"
+      },
+      "wineDetails": {
+        "region": "Vin de France (likely Languedoc or Southern France)",
+        "grapeVariety": "Organic red blend (likely Grenache, Carignan, or Merlot)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Light to medium-bodied organic red, fruit-forward",
+        "ageability": "Drink now while fresh; keg format designed for immediate consumption within 4-6 weeks of tapping"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pasquiers Plan de Dieu 2019",
+      "description": "A powerful organic Côtes du Rhône Villages from the prestigious Plan de Dieu sub-appellation, showcasing Domaine des Pasquiers' commitment to sustainable viticulture. This Wine Advocate 91-point wine delivers exceptional concentration and southern Rhône character.",
+      "tastingNotes": {
+        "aroma": "The nose opens with heady aromas of black cherries and ripe plums, layered with warm notes of candied fruit. A welcome menthol freshness cuts through the richness, while sweet spices of clove and licorice add complexity. The organic farming practices contribute to an intensely pure fruit expression with notable concentration and power.",
+        "palate": "Full-bodied and chunky with raw power and impressive concentration of dark fruit flavors. Black cherry and plum dominate, surrounded by beautiful cedar notes and dark chocolate undertones. The fleshy, round style showcases excellent Grenache character with volume in the mouth. Well-integrated tannins provide structure while licorice and sweet spice notes add layers of complexity throughout.",
+        "finish": "Long and softly dusty finish with persistent dark fruit and spice notes. The chocolatey character lingers beautifully alongside the fine, well-integrated tannins, creating an elegant conclusion to this powerful wine."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with rosemary jus",
+        "Beef daube provençale with olives",
+        "Grilled ribeye steak with peppercorn sauce",
+        "Wild boar ragù over pappardelle",
+        "Aged Comté or mature Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C) to showcase the wine's complexity",
+        "decanting": "30-60 minutes decanting recommended to soften tannins and open aromatics",
+        "glassware": "Large Bordeaux-style glass to concentrate the powerful aromas"
+      },
+      "wineDetails": {
+        "region": "Côtes du Rhône Villages Plan de Dieu, Southern Rhône Valley, France",
+        "grapeVariety": "60% Grenache, 30% Syrah, 5% Cinsault, 5% Mourvèdre",
+        "vintage": "2019",
+        "style": "Full-bodied, concentrated, organic southern Rhône red",
+        "ageability": "Drink now through 2026; the concentration suggests potential for additional 2-3 years of aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Clos d'Audhuy Toujours Plus 1L NV  1000 ml",
+      "description": "A vibrant, youthful Malbec from the organic Cahors estate Clos d'Audhuy, crafted through partial carbonic maceration for maximum fruit expression. This liter-format wine emphasizes approachability and fresh berry character over traditional Cahors power.",
+      "tastingNotes": {
+        "aroma": "Exuberant aromas of bright red berries leap from the glass, with fresh raspberry and wild strawberry leading the charge. Juicy blackberry notes add depth while maintaining the wine's youthful, energetic character. The partial carbonic maceration contributes a distinctive fresh-picked berry quality with subtle floral hints and a touch of crushed herbs.",
+        "palate": "The palate is wonderfully juicy and fresh, showcasing a delightful interplay of raspberry and blackberry flavors. Lively acidity gives the wine tremendous vibrancy and drinkability, making it refreshingly light on its feet despite Malbec's typically robust nature. The fruit-forward style emphasizes youthful charm over structure, with soft tannins that don't interfere with the wine's exuberant berry expression.",
+        "finish": "Clean, refreshing finish with bright berry fruit that lingers pleasantly. The wine's approachable style shines through to the very end, leaving you wanting another sip rather than contemplating complexity."
+      },
+      "foodPairings": [
+        "Charcuterie with duck rillettes and country pâté",
+        "Grilled sausages with lentils du Puy",
+        "Mushroom and truffle pizza",
+        "Cassoulet with duck confit",
+        "Tomme de Savoie or young cheddar cheese"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly chilled at 55-58°F (13-14°C) to enhance freshness",
+        "decanting": "No decanting needed; pour and enjoy immediately to capture the youthful fruit",
+        "glassware": "All-purpose wine glass or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Cahors, Southwest France",
+        "grapeVariety": "100% Malbec",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Light-bodied, fruit-forward Malbec with carbonic maceration",
+        "ageability": "Drink young within 1-2 years to enjoy the fresh, vibrant fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Getariako Txakolina Basa Lore Igartzeta 2023",
+      "description": "A crisp, coastal Basque white from the historic Basa Lore winery, one of the six founding estates of the Getariako Txakolina DO. This entirely women-owned and operated estate has been crafting traditional Txakolina near San Sebastian since 1925.",
+      "tastingNotes": {
+        "aroma": "Vibrant aromas of fresh lemon zest and green apple skin dominate the nose, accompanied by zesty green herbs reminiscent of the nearby forests. Bright citrus notes of lime and grapefruit add complexity, while a distinct maritime minerality hints at the winery's proximity to the Atlantic Ocean. Subtle white flower notes and a touch of salinity complete this inviting aromatic profile.",
+        "palate": "Light-bodied and lemony on the palate with gorgeous salinity that serves as a constant reminder of the sea. The wine is wonderfully crisp and bright, featuring fresh mineral notes and vibrant citrus fruits that dance across the tongue. Lime and green apple flavors are complemented by a pronounced saline character that adds depth and interest. The refreshing acidity is perfectly balanced, making this an incredibly food-friendly wine.",
+        "finish": "Clean, zesty finish with lingering citrus and sea salt notes. The mineral character persists beautifully, leaving the palate refreshed and ready for the next bite or sip."
+      },
+      "foodPairings": [
+        "Grilled anchovies or fresh sardines",
+        "Basque-style seafood pintxos",
+        "Oysters on the half shell with mignonette",
+        "Salt cod in pil pil sauce",
+        "Grilled octopus with paprika and olive oil"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve immediately from an ice bucket",
+        "glassware": "Traditional Txakolina glass or white wine glass; pour from height for slight effervescence"
+      },
+      "wineDetails": {
+        "region": "Getariako Txakolina DO, Basque Country, Spain",
+        "grapeVariety": "Primarily Hondarrabi Zuri with possible Hondarrabi Beltza",
+        "vintage": "2023",
+        "style": "Light-bodied, high-acid coastal white with slight spritz",
+        "ageability": "Drink young within 1-2 years to enjoy the fresh, vibrant coastal character"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Darms Lane Cabernet Sauvignon, Bon Passe 2016",
+      "description": "The signature estate wine from Darms Lane's prestigious Bon Passe Vineyard in Napa Valley's Oak Knoll District. This elegant Cabernet showcases the cooler-climate characteristics of this southwestern benchland appellation with refined structure and classic varietal character.",
+      "tastingNotes": {
+        "aroma": "Classic Napa Cabernet aromas of black cherry and blackberry are immediately evident, surrounded by elegant notes of cedar and cocoa. The nose reveals a cooler-climate influence with refined aromatics rather than overt ripeness. Complex layers of black currant add depth, while hints of vanilla and toasted oak from barrel aging provide additional complexity without overwhelming the fruit.",
+        "palate": "Rich, smooth, and tannic with a deep core of cassis and berry flavors beautifully framed by those distinctive dusty Oak Knoll tannins. The palate is round and lush in texture, showcasing classic black cherry and blackberry fruit complemented by cedar and dark chocolate notes. Despite the wine's power and concentration, there's a cooler-climate crispness and slight astringency that adds elegance and lift, preventing the wine from feeling heavy.",
+        "finish": "Long, structured finish with persistent dark fruit, cedar, and cocoa notes. The dusty tannins provide excellent grip and suggest this wine will continue to evolve beautifully in the bottle for many years."
+      },
+      "foodPairings": [
+        "Grilled filet mignon with bordelaise sauce",
+        "Braised short ribs with root vegetables",
+        "Rack of lamb with herb crust and port reduction",
+        "Wild mushroom risotto with truffle oil",
+        "Aged cheddar or Parmigiano-Reggiano"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C) for optimal expression",
+        "decanting": "60-90 minutes decanting recommended to soften the dusty tannins and reveal complexity",
+        "glassware": "Large Cabernet/Bordeaux glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Oak Knoll District, Napa Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon from Bon Passe Vineyard",
+        "vintage": "2016",
+        "style": "Elegant, balanced Napa Cabernet with cooler-climate refinement",
+        "ageability": "Drink now through 2030; excellent aging potential with proper cellaring conditions"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Barbera D Alba 2022",
+      "description": "A fresh, vibrant Barbera d'Alba from the esteemed Piedmont estate Collina San Ponzio. This wine showcases Barbera's hallmark bright acidity and juicy fruit character, crafted from the historic Langhe region where the estate has been producing wine since 1878.",
+      "tastingNotes": {
+        "aroma": "Fresh and fruity aromas burst from the glass, led by ripe black cherry and blackberry notes. The nose offers additional complexity through white pepper spice and aromatic clove, creating an inviting and energetic aromatic profile. Subtle hints of violet and red plum add elegance, while the wine's youthful character ensures the fruit remains the focal point.",
+        "palate": "Simple yet utterly charming on the palate, this easy-drinking red showcases Barbera's signature racy acidity that brightens the juicy fruit flavors. Black cherry and blackberry dominate, enhanced by white pepper and sweet spice notes that provide interest without heaviness. The wine maintains Barbera's characteristic low tannin structure, making it incredibly approachable and food-friendly. A touch of earthiness adds depth to the vibrant fruit core.",
+        "finish": "Clean, refreshing finish where the racy acidity leaves the palate invigorated. Lingering notes of red and black fruit are accompanied by subtle spice, creating a satisfying conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Tagliatelle al ragù Bolognese",
+        "Grilled Italian sausages with peppers",
+        "Margherita pizza with San Marzano tomatoes",
+        "Risotto ai funghi porcini",
+        "Aged Parmigiano-Reggiano or Pecorino Toscano"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C) to balance fruit and acidity",
+        "decanting": "Brief 15-20 minute decanting helps open the aromatics, though not essential",
+        "glassware": "Medium-sized red wine glass or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Barbera d'Alba DOC, Piedmont, Italy",
+        "grapeVariety": "100% Barbera",
+        "vintage": "2022",
+        "style": "Fresh, fruit-forward Barbera with bright acidity",
+        "ageability": "Drink now through 2026; best enjoyed while young and vibrant"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Phelps Creek Cuvee Alexandrine Pinot Noir 2021",
+      "description": "The flagship reserve Pinot Noir from Phelps Creek Vineyards, named after consulting winemaker Alexandrine Roy. This 93-point Wine Enthusiast selection represents a blend of all the estate's Pinot Noir clones from Columbia Gorge, showcasing the unique terroir of this dramatic Oregon AVA.",
+      "tastingNotes": {
+        "aroma": "Complex and sophisticated, the nose opens with layers of savory notes including forest floor and dried herbs. A distinctive twist of bright citrus adds lift, while tart red cherry and cranberry provide the fruit core. Wild yeast fermentation contributes additional aromatic complexity with subtle bread dough and mushroom notes. The Columbia Gorge's unique climate imparts a distinctive minerality that adds intrigue.",
+        "palate": "Loaded with savory character, this wine reveals tart red fruits of cherry and raspberry alongside earthy undertones of forest floor and dried leaves. The palate shows remarkable complexity from the blend of estate clones, each contributing different facets to the overall profile. A citrus twist keeps the wine fresh and vibrant, while careful aging in one-quarter new French oak adds subtle vanilla and spice without overwhelming the fruit. The texture is silky yet structured, with fine-grained tannins providing excellent backbone.",
+        "finish": "Long, savory finish with persistent red fruit, earth, and subtle oak spice. The wine's complexity continues to unfold, revealing new nuances with each sip and demonstrating why it earned such high critical acclaim."
+      },
+      "foodPairings": [
+        "Seared wild Pacific salmon with chanterelles",
+        "Duck breast with cherry gastrique",
+        "Mushroom-stuffed quail with herbs",
+        "Beef bourguignon with pearl onions",
+        "Aged Gruyère or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C) to showcase complexity",
+        "decanting": "45-60 minutes decanting recommended to fully express the wine's savory character and integrate oak",
+        "glassware": "Large Burgundy-style glass to concentrate delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Columbia Gorge AVA, Oregon",
+        "grapeVariety": "Pinot Noir (blend of all estate clones)",
+        "vintage": "2021",
+        "style": "Complex, savory-leaning Pinot Noir with excellent structure",
+        "ageability": "Drink now through 2031; this reserve-level wine has excellent aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Villar Alvarinho 2024",
+      "description": "A fresh, elegant Alvarinho from Portugal's Vinho Verde region, produced by Quinta das Arcas. This wine represents the finest expression of the Alvarinho grape, delivering the crisp acidity and complex aromatics that have made this varietal famous along Portugal's northern coast.",
+      "tastingNotes": {
+        "aroma": "Abundantly fruity with complex notes of citrus that leap from the glass. Ripe grapefruit dominates the aromatic profile, joined by tangerine and fresh peach notes that add richness. Tropical hints of passion fruit and guava provide exotic appeal, while delicate mineral nuances speak to the wine's terroir. The acidity is beautifully integrated into the aromatic profile, promising freshness on the palate.",
+        "palate": "Bulky and well-structured in the mouth, this wine delivers excellent crisp acidity that completes the package beautifully. The palate mirrors the nose with ripe citrus fruits, particularly grapefruit and tangerine, alongside stone fruit notes of peach and nectarine. Tropical nuances add complexity without overwhelming, while pronounced minerality provides depth and interest. The wine is elegant, well-balanced, and demonstrates why Alvarinho is considered the premier white grape of Portugal.",
+        "finish": "Refreshing finish with lingering citrus and mineral notes. The crisp acidity leaves the palate cleansed and invigorated, while subtle tropical fruit hints persist, creating a complex and satisfying conclusion."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic and lemon",
+        "Portuguese bacalhau à brás (salt cod)",
+        "Fresh oysters with white wine mignonette",
+        "Grilled sea bass with herbs",
+        "Manchego cheese or fresh chèvre"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve immediately to preserve freshness",
+        "glassware": "White wine glass or aromatic varietal glass"
+      },
+      "wineDetails": {
+        "region": "Vinho Verde, Minho, Portugal",
+        "grapeVariety": "100% Alvarinho (Albariño)",
+        "vintage": "2024",
+        "style": "Crisp, mineral-driven white with tropical and citrus character",
+        "ageability": "Drink young within 2-3 years to enjoy optimal freshness and vibrant fruit"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lanzarote Vino Rosado 2021",
+      "description": "An earthy, mineral-driven rosé from the volcanic island of Lanzarote in the Canary Islands. Crafted from Listán Negro grapes grown in unique volcanic hoyo pits surrounded by protective stone walls, this wine captures the dramatic terroir of one of the world's most extreme vineyard landscapes.",
+      "tastingNotes": {
+        "aroma": "The nose immediately reveals the wine's volcanic origins with distinctive smoky minerality and earthy notes reminiscent of wet stones. Tangy red fruit aromas of raspberry and strawberry emerge alongside the mineral character, while subtle herbal hints add complexity. The unique growing conditions impart a saline quality that's evident even on the nose, creating an intriguing aromatic profile unlike any other rosé.",
+        "palate": "Dry with high acidity that makes this rosé extremely refreshing and thirst-quenching. The volcanic soil's influence is unmistakable, providing an expression of smoke and tangy red fruit that defines the wine's character. Black volcanic earth contributes earthy depth to the bright berry flavors, while pronounced minerality and salinity add layers of complexity. The wine is deliciously earthy with Listán Negro providing elegant structure and a unique flavor profile.",
+        "finish": "Clean, mineral-driven finish with lingering smoky notes and bright acidity. The volcanic terroir continues to express itself through the finish, leaving an impression of place that's both memorable and distinctive."
+      },
+      "foodPairings": [
+        "Grilled Canarian wreckfish (cherne) with mojo sauce",
+        "Papas arrugadas with mojo picón",
+        "Grilled octopus with smoked paprika",
+        "Seafood paella with saffron",
+        "Fresh goat cheese from the Canary Islands"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled at 48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve cold to emphasize refreshing minerality",
+        "glassware": "Standard rosé or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Lanzarote DO, Canary Islands, Spain",
+        "grapeVariety": "Listán Negro (direct press rosado method)",
+        "vintage": "2021",
+        "style": "Dry, mineral-driven rosé with volcanic terroir expression",
+        "ageability": "Drink now through 2025; best enjoyed young to appreciate distinctive volcanic character"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Reserve Merlot 2022",
+      "description": "A fruit-forward Merlot from Ukraine's historic Shabo winery in the Odessa region. This approachable Reserve showcases ripe berry character enhanced by over six months of oak aging, representing Ukrainian winemaking resilience and quality.",
+      "tastingNotes": {
+        "aroma": "Full of ripe berry aromas that burst from the glass, including blackberries, blueberries, raspberries, and cherries. The nose reveals a medium ruby color's worth of expressive aromatics, with violets and lilacs adding floral elegance. Fresh black plum and subtle vanilla notes from oak aging provide additional complexity, while hints of French oak contribute refined spice without dominating the fruit expression.",
+        "palate": "Medium-bodied and bursting with dark and red berry flavors that define this easy-drinking Merlot. The palate unfolds with layers of orange blossom, black cherry, and red plum, creating a complex yet approachable flavor profile. Oak aging provides stability through soft, rounded tannins that frame the fruit beautifully without adding heaviness. The wine is balanced and smooth throughout, making it very food-friendly while maintaining enough structure to stand up to richer dishes.",
+        "finish": "Rounded, smooth finish with persistent berry fruit and subtle oak spice. The soft tannins provide gentle grip while the wine's approachable nature shines through to the end."
+      },
+      "foodPairings": [
+        "Beef stroganoff with wild mushrooms",
+        "Ukrainian borscht with sour cream",
+        "Grilled lamb kebabs with herbs",
+        "Mushroom and barley risotto",
+        "Semi-hard cow's milk cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C) for optimal fruit expression",
+        "decanting": "15-30 minutes decanting helps integrate oak and open fruit, though not essential",
+        "glassware": "Medium-sized red wine glass or standard Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Odessa, Ukraine",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2022",
+        "style": "Medium-bodied, fruit-forward Merlot with oak aging",
+        "ageability": "Drink now through 2027; approachable now but will develop additional complexity with 2-3 years aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

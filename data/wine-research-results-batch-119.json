@@ -1,0 +1,347 @@
+{
+  "batchNumber": 119,
+  "processedAt": "2025-10-21T12:43:00.000Z",
+  "totalWines": 10,
+  "results": [
+    {
+      "productId": "",
+      "productName": "Angoris Villa Locatelli Cabernet Franc 2022",
+      "description": "From the historic Angoris estate in Friuli, Villa Locatelli Cabernet Franc showcases the grape's elegant expression in northeastern Italy's cool climate. The 2022 vintage offers bright aromatics and structured fruit, reflecting the estate's meticulous viticulture and modern winemaking approach.",
+      "tastingNotes": {
+        "aroma": "The nose presents lifted aromatics of blackcurrant, raspberry, and crushed violets, with underlying notes of green peppercorn and fresh tobacco. Herbaceous elements of sage and mint add complexity, while subtle oak influences contribute hints of cedar and graphite. A delicate mineral thread runs through the bouquet, suggesting the gravelly soils of the Isonzo region.",
+        "palate": "Medium-bodied with fine-grained tannins, the palate delivers pure flavors of red currant, cranberry, and dark cherry, accented by savory herb notes. Bright acidity provides structure and freshness, balancing the ripe fruit character. The texture is silky and refined, with well-integrated oak adding subtle spice without dominating. Notes of roasted red pepper and earthy minerality emerge on the mid-palate.",
+        "finish": "The finish is medium in length with persistent red fruit, herbs, and gentle tannins. A touch of graphite and tobacco lingers, providing complexity and elegance."
+      },
+      "foodPairings": [
+        "Herb-roasted leg of lamb",
+        "Grilled tuna with olive tapenade",
+        "Mushroom risotto with truffle",
+        "Prosciutto di San Daniele with melon",
+        "Aged Asiago cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30 minutes of decanting recommended to allow aromatics to open and tannins to soften",
+        "glassware": "Bordeaux glass or medium-sized red wine glass"
+      },
+      "wineDetails": {
+        "region": "Friuli-Venezia Giulia, Italy (likely Isonzo DOC)",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2022",
+        "style": "Dry red wine, medium-bodied, herbaceous and elegant",
+        "ageability": "Drink now through 2029. Peak drinking 2024-2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Stagecoach Viognier 2021",
+      "description": "Jeff Cohn sources Viognier from the legendary Stagecoach Vineyard in Napa Valley's Atlas Peak appellation, where high elevation and volcanic soils produce concentrated, aromatic whites. This 2021 bottling showcases Viognier's exotic personality with power and finesse.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic, the nose bursts with white peach, apricot, and honeysuckle, layered with exotic notes of lychee, mango, and orange blossom. Subtle hints of honeyed almond and ginger add complexity, while a touch of minerality from volcanic soils provides structure. The aromatic intensity is captivating, displaying Viognier's signature perfume.",
+        "palate": "Full-bodied with rich texture and moderate acidity, the palate delivers lush flavors of ripe stone fruit—peach, nectarine, and apricot—alongside tropical notes of pineapple and passion fruit. The wine's generous mouthfeel is balanced by subtle minerality and bright citrus acidity that prevents cloying. Hints of vanilla and toast from oak aging add depth without overwhelming the fruit's exuberant character.",
+        "finish": "The finish is long and aromatic, with persistent stone fruit, flowers, and subtle spice. Despite the wine's richness, the conclusion remains fresh and inviting."
+      },
+      "foodPairings": [
+        "Seared scallops with mango salsa",
+        "Thai green curry with chicken",
+        "Roasted pork tenderloin with apricot glaze",
+        "Lobster with drawn butter",
+        "Triple cream brie with honey"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Not necessary, though 15-20 minutes in the glass allows the wine to open fully",
+        "glassware": "Large-bowled white wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Stagecoach Vineyard, Atlas Peak, Napa Valley, California",
+        "grapeVariety": "100% Viognier",
+        "vintage": "2021",
+        "style": "Dry white wine, full-bodied, aromatic and rich",
+        "ageability": "Drink now through 2026. Best enjoyed within 3-5 years to preserve aromatic intensity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Armstrong Family Winery Fronk 2018",
+      "description": "Armstrong Family Winery's Fronk represents a unique proprietary blend from California's Central Coast, showcasing the winery's creative approach to blending. The playful name belies a serious wine with structure and aging potential from the 2018 vintage.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with concentrated aromas of blackberry, plum, and cassis, complemented by notes of violet, chocolate, and espresso. Undertones of vanilla, cedar, and sweet baking spices from oak aging add complexity, while hints of earth and dried herbs provide savory balance. The aromatic profile suggests a Bordeaux-inspired blend with New World ripeness.",
+        "palate": "Full-bodied with structured tannins, the palate delivers rich dark fruit flavors—blackberry, black cherry, and boysenberry—alongside notes of mocha, dark chocolate, and toasted oak. The wine's substantial structure is balanced by integrated acidity and a plush, velvety texture. Complex layers of spice, earth, and smoke emerge on the mid-palate, showcasing the blend's depth and sophistication.",
+        "finish": "The finish is long and powerful, with persistent dark fruit, chocolate, and firm but refined tannins. Notes of espresso, vanilla, and sweet oak linger through a robust conclusion."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised beef short ribs",
+        "Wild mushroom and truffle pasta",
+        "Aged manchego or gouda",
+        "Dark chocolate with sea salt"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "60-90 minutes of decanting recommended to soften tannins and integrate flavors",
+        "glassware": "Large-bowled Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "California Central Coast",
+        "grapeVariety": "Proprietary red blend (likely Cabernet Sauvignon-based)",
+        "vintage": "2018",
+        "style": "Dry red wine, full-bodied, age-worthy",
+        "ageability": "Drink now through 2033. Peak drinking 2025-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Fernanda Capello Pinot Grigio 2024",
+      "description": "Fernanda Capello's Pinot Grigio from northeastern Italy showcases the fresh, crisp style that has made this variety internationally popular. The 2024 vintage offers immediate pleasure with bright fruit and refreshing acidity, perfect for everyday enjoyment.",
+      "tastingNotes": {
+        "aroma": "Clean and inviting, the nose presents delicate aromas of green apple, pear, and citrus blossom, with subtle hints of white peach and almond. Light mineral notes add complexity, while a whisper of honeysuckle provides floral charm. The aromatic profile is straightforward and refreshing.",
+        "palate": "Light to medium-bodied with crisp acidity, the palate offers bright flavors of lemon, green apple, and pear, accented by subtle stone fruit notes. The wine's refreshing character is enhanced by a clean mineral backbone and zippy acidity that makes it incredibly food-friendly. No oak influence allows the pure fruit to shine, creating an uncomplicated but satisfying drinking experience.",
+        "finish": "The finish is clean and refreshing, with lingering citrus and mineral notes. Bright acidity provides a crisp conclusion that cleanses the palate."
+      },
+      "foodPairings": [
+        "Grilled calamari with lemon",
+        "Caprese salad with fresh mozzarella",
+        "Light pasta with herbs and olive oil",
+        "Fresh oysters or clams",
+        "Mild soft cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "44-48°F (7-9°C), well-chilled",
+        "decanting": "Not necessary. Serve directly from the bottle",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Northeastern Italy (likely Friuli-Venezia Giulia or Veneto)",
+        "grapeVariety": "100% Pinot Grigio",
+        "vintage": "2024",
+        "style": "Dry white wine, light to medium-bodied, crisp and refreshing",
+        "ageability": "Drink now through 2025. Best enjoyed young for optimal freshness."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oceano Chardonnay (Damaged Label) 2019",
+      "description": "Oceano's Chardonnay from California's Central Coast benefits from cool maritime influences that preserve acidity while achieving full ripeness. The 2019 vintage showcases balanced oak integration and ripe fruit, offering excellent value despite cosmetic label damage.",
+      "tastingNotes": {
+        "aroma": "The nose opens with ripe apple, pear, and tropical fruit aromas of pineapple and mango, complemented by notes of vanilla, butterscotch, and toasted oak. Subtle hints of lemon cream and hazelnut add complexity, while a touch of minerality provides structure. The aromatic profile shows generous California fruit with restrained oak influence.",
+        "palate": "Medium to full-bodied with creamy texture from malolactic fermentation and lees stirring, the palate delivers flavors of baked apple, ripe pear, and tropical fruit, balanced by vanilla, butter, and sweet oak spices. Moderate acidity provides structure without being aggressive, creating a smooth, approachable style. The mouthfeel is rich and coating, with integrated oak contributing to the wine's overall complexity.",
+        "finish": "The finish is medium in length with lingering fruit, vanilla, and toast. A touch of citrus acidity provides a clean conclusion to the rich mid-palate."
+      },
+      "foodPairings": [
+        "Grilled chicken with lemon herb sauce",
+        "Lobster mac and cheese",
+        "Cedar plank salmon",
+        "Creamy pasta carbonara",
+        "Aged gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Not necessary, though 15 minutes in the glass helps open the wine",
+        "glassware": "Large-bowled white wine glass"
+      },
+      "wineDetails": {
+        "region": "Central Coast, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2019",
+        "style": "Dry white wine, medium to full-bodied, oak-aged",
+        "ageability": "Drink now through 2026. Best enjoyed within 5-7 years of vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Pinea PINEA 2018",
+      "description": "Bodegas Pinea's flagship wine from Spain's Ribera del Duero showcases the power and elegance of Tempranillo (known locally as Tinto Fino) grown at high altitude. The 2018 vintage offers structured fruit with aging potential, representing modern Spanish winemaking at its finest.",
+      "tastingNotes": {
+        "aroma": "Intense and complex, the nose presents concentrated aromas of blackberry, black cherry, and plum, layered with notes of violet, leather, and cedar. Undertones of vanilla, chocolate, and sweet tobacco from oak aging add depth, while hints of dried herbs and earth provide savory complexity. The aromatic profile is bold yet refined, showing excellent balance between fruit and structure.",
+        "palate": "Full-bodied with firm but polished tannins, the palate delivers rich flavors of dark berry fruit, black plum, and cassis, accented by notes of espresso, dark chocolate, and toasted oak. The wine's substantial structure is supported by bright acidity that provides freshness and lift. Complex layers of spice, earth, and smoke emerge on the mid-palate, while the texture remains velvety and refined despite the wine's power.",
+        "finish": "The finish is exceptionally long and persistent, with lingering dark fruit, chocolate, and structured tannins. Notes of cedar, tobacco, and sweet spice echo through a conclusion that showcases the wine's aging potential."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary and garlic",
+        "Beef tenderloin with red wine reduction",
+        "Aged Manchego cheese",
+        "Wild mushroom risotto",
+        "Grilled portobello mushrooms"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60-90 minutes of decanting recommended to soften tannins and open aromatics",
+        "glassware": "Large-bowled Burgundy or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo (Tinto Fino)",
+        "vintage": "2018",
+        "style": "Dry red wine, full-bodied, age-worthy",
+        "ageability": "Drink now through 2033. Peak drinking 2025-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Estate Reserve Red 2020",
+      "description": "Noble Hill Estate in South Africa's Simonsberg-Paarl region produces Bordeaux-style blends that showcase the Cape's potential for world-class wines. The 2020 Estate Reserve Red represents the winery's top selection, offering complexity and elegance with excellent aging potential.",
+      "tastingNotes": {
+        "aroma": "The bouquet is elegant and complex, opening with aromas of blackcurrant, plum, and dark cherry, complemented by notes of violet, graphite, and cedar. Subtle hints of tobacco, earth, and dried herbs add savory complexity, while well-integrated oak contributes vanilla, chocolate, and sweet spice. A mineral thread of wet stone runs through the aromatic core.",
+        "palate": "Full-bodied with fine-grained tannins and excellent structure, the palate delivers concentrated flavors of cassis, blackberry, and black plum, layered with notes of dark chocolate, espresso, and toasted oak. Bright acidity provides balance and freshness, while the wine's silky texture and integrated tannins showcase masterful winemaking. Complex layers of spice, earth, and minerality emerge on the mid-palate.",
+        "finish": "The finish is long and refined, with persistent dark fruit, chocolate, and polished tannins. Notes of cedar, tobacco, and subtle oak linger through an elegant conclusion."
+      },
+      "foodPairings": [
+        "Grilled kudu or venison (South African game)",
+        "Braised beef short ribs",
+        "Lamb bobotie (Cape Malay cuisine)",
+        "Aged cheddar or hard cheeses",
+        "Mushroom and herb crusted filet mignon"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes of decanting recommended to allow the wine to open fully",
+        "glassware": "Large-bowled Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, South Africa",
+        "grapeVariety": "Bordeaux blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc)",
+        "vintage": "2020",
+        "style": "Dry red wine, full-bodied, age-worthy reserve",
+        "ageability": "Drink now through 2035. Peak drinking 2025-2032."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Somontano La Moristel 2015",
+      "description": "This rare single-varietal bottling showcases Moristel, an indigenous Spanish grape nearly extinct but preserved in Somontano. The 2015 vintage offers a glimpse into Spain's viticultural heritage, presenting unique character and historical significance alongside drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The nose presents intriguing aromatics of red cherry, cranberry, and pomegranate, layered with distinctive notes of dried flowers, potpourri, and exotic spices—cardamom and star anise. Subtle earthy elements of dried herbs and forest floor add complexity, while hints of leather and tobacco suggest developing maturity. The aromatic profile is unique and captivating, unlike typical Spanish varieties.",
+        "palate": "Medium-bodied with moderate tannins and bright acidity, the palate delivers flavors of tart red fruit—cherry, cranberry, and raspberry—accented by savory notes of herbs, earth, and spice. The wine's structure is elegant rather than powerful, with silky tannins and refreshing acidity providing balance. Layers of dried flowers, tea, and subtle oak spice add complexity to the fruit-forward core.",
+        "finish": "The finish is medium in length with lingering red fruit, spice, and subtle earth. Refreshing acidity and fine tannins provide a clean, elegant conclusion."
+      },
+      "foodPairings": [
+        "Roasted game birds with herbs",
+        "Grilled lamb chops with rosemary",
+        "Mushroom and truffle tart",
+        "Aged sheep's milk cheeses",
+        "Charcuterie with dried fruits"
+      ],
+      "servingInfo": {
+        "temperature": "60-63°F (16-17°C)",
+        "decanting": "30-45 minutes of decanting helps open the wine's unique aromatics",
+        "glassware": "Medium-sized red wine glass"
+      },
+      "wineDetails": {
+        "region": "Somontano DO, Aragón, Spain",
+        "grapeVariety": "100% Moristel",
+        "vintage": "2015",
+        "style": "Dry red wine, medium-bodied, rare indigenous variety",
+        "ageability": "Drink now through 2027. At peak drinking now."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.76,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Terra Dives Xara Catarratto 2023",
+      "description": "Terra Dives showcases Catarratto, Sicily's most widely planted white grape, in a modern, quality-focused style. The Xara bottling from the 2023 vintage expresses the variety's crisp minerality and citrus character, offering excellent value and food pairing versatility.",
+      "tastingNotes": {
+        "aroma": "Fresh and inviting, the nose presents bright aromas of lemon, green apple, and white flowers, with subtle hints of Mediterranean herbs—oregano and thyme. Notes of sea spray and crushed stone add minerality, while a touch of almond and fennel provides complexity. The aromatic profile is clean and vibrant, expressing Sicily's sun-drenched terroir.",
+        "palate": "Medium-bodied with crisp acidity and excellent minerality, the palate delivers flavors of citrus—lemon, lime, and grapefruit—alongside green apple and subtle tropical notes. The wine's refreshing character is enhanced by pronounced salinity and a stony mineral backbone that adds depth and structure. Clean and focused, with no oak influence, allowing the pure expression of the Catarratto grape.",
+        "finish": "The finish is clean and persistent, with lingering citrus, mineral, and subtle herbal notes. Bright acidity and salinity provide a refreshing conclusion."
+      },
+      "foodPairings": [
+        "Grilled swordfish with lemon and capers",
+        "Pasta with clams and white wine",
+        "Arancini (Sicilian rice balls)",
+        "Fresh ricotta with herbs",
+        "Fried calamari with aioli"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C), well-chilled",
+        "decanting": "Not necessary. Serve directly from the bottle",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Sicily, Italy (likely western Sicily)",
+        "grapeVariety": "100% Catarratto",
+        "vintage": "2023",
+        "style": "Dry white wine, medium-bodied, mineral-driven",
+        "ageability": "Drink now through 2025. Best enjoyed young for maximum freshness."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Gran Reserva 1964",
+      "description": "This historic bottle from Monte Real represents a rare opportunity to experience Rioja's legendary aging potential. The 1964 vintage, now over 60 years old, offers a window into classical Rioja winemaking and the remarkable longevity of well-stored Tempranillo. A collector's item and living piece of wine history.",
+      "tastingNotes": {
+        "aroma": "The nose shows evolved complexity with aromas of dried cherry, prune, and fig, layered with notes of aged leather, cigar box, and forest floor. Tertiary characteristics dominate—dried roses, mushroom, truffle, and old wood—while subtle hints of balsamic, soy, and oxidative sherry-like notes add intrigue. The aromatic profile is delicate yet profound, showcasing decades of bottle evolution.",
+        "palate": "Medium-bodied with soft, fully resolved tannins, the palate delivers flavors of dried fruit, tobacco, leather, and earth, accented by notes of aged balsamic, dried herbs, and subtle oxidative characters. The wine's structure has mellowed beautifully, with gentle acidity providing lift to the evolved fruit. Layers of mushroom, truffle, and savory umami emerge on the mid-palate, creating profound complexity. The texture is silky and ethereal, showing the grace that comes only with extended aging.",
+        "finish": "The finish is long and contemplative, with lingering dried fruit, leather, and earthy notes. Subtle oxidative characters and delicate tannins provide a refined, elegant conclusion to this venerable wine."
+      },
+      "foodPairings": [
+        "Aged Manchego or Idiazábal cheese",
+        "Ibérico ham",
+        "Roasted game with truffle",
+        "Mushroom consommé",
+        "Simply enjoyed on its own as a meditation wine"
+      ],
+      "servingInfo": {
+        "temperature": "60-62°F (16-17°C), slightly cool",
+        "decanting": "Decant carefully to separate sediment, but serve shortly after decanting as the wine is delicate. 15-20 minutes maximum",
+        "glassware": "Large-bowled Burgundy glass to appreciate evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "100% Tempranillo (likely with traditional Rioja companions)",
+        "vintage": "1964",
+        "style": "Dry red wine, medium-bodied, Gran Reserva, historic vintage",
+        "ageability": "Drink now. At 60+ years, this wine is at its maximum evolution and should be consumed soon."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T12:43:00.000Z"
+      }
+    }
+  ]
+}

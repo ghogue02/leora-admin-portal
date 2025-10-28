@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Famille Henry Isle Saint Pierre Rose 2022",
+    "description": "A delicate Loire Valley rosé from the Isle Saint Pierre region, crafted in the elegant Anjou style. This refreshing expression showcases the region's characteristic crisp acidity and bright fruit character.",
+    "tastingNotes": {
+      "aroma": "Enticing aromas of fresh strawberry and wild raspberry greet the nose, intertwined with delicate floral hints of rose petals and white flowers. Subtle notes of citrus zest and a whisper of crushed herbs add complexity to the bouquet. The aromatic profile reflects the Loire's cool-climate finesse, offering an inviting introduction to this crisp rosé.",
+      "palate": "On the palate, vibrant red berry flavors dance across the tongue—ripe strawberry, cranberry, and hints of watermelon create a juicy, refreshing core. The wine's characteristic Loire acidity provides excellent structure and lift, while maintaining a light, elegant body. A subtle minerality emerges mid-palate, adding depth and sophistication to the fresh fruit character.",
+      "finish": "The finish is clean and crisp with lingering notes of red berries and citrus. A refreshing acidity persists, leaving the palate cleansed and eager for the next sip, making this an ideal wine for warm weather enjoyment."
+    },
+    "foodPairings": [
+      "Fresh goat cheese salads with mixed greens",
+      "Grilled salmon with lemon and herbs",
+      "Light seafood dishes like shrimp cocktail",
+      "Charcuterie boards with prosciutto and melon",
+      "Summer vegetable tarts and quiches"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+      "decanting": "No decanting required; ready to enjoy immediately upon opening",
+      "glassware": "Serve in a standard white wine glass or tulip-shaped rosé glass"
+    },
+    "wineDetails": {
+      "region": "Isle Saint Pierre, Loire Valley, France",
+      "grapeVariety": "Blend of Grolleau and Cabernet Franc (traditional Anjou rosé grapes)",
+      "vintage": "2022",
+      "style": "Dry Rosé",
+      "ageability": "Drink young and fresh within 1-2 years of vintage to enjoy its vibrant fruit character"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Natte Valleij Axle Chenin Blanc 2024",
+    "description": "A vibrant South African Chenin Blanc from Natte Valleij estate, representing the country's signature white grape variety. This wine exemplifies the fresh, versatile style that has made South African Chenin Blanc globally renowned.",
+    "tastingNotes": {
+      "aroma": "The nose opens with expressive aromas of ripe pear and quince, accented by tropical notes of guava and passion fruit. Hints of chamomile and white blossoms add a delicate floral dimension, while subtle ginger spice provides aromatic complexity. A touch of honeycomb sweetness rounds out the inviting bouquet, characteristic of quality South African Chenin.",
+      "palate": "Medium-bodied with a lively texture, the palate reveals layers of tart green apple, Asian pear, and fresh citrus. The wine's natural high acidity provides excellent structure and vibrancy, balanced by ripe stone fruit flavors and a hint of jasmine. A subtle creamy texture from lees contact adds depth while maintaining the wine's fresh, crisp character.",
+      "finish": "The finish is bright and persistent with lingering citrus and stone fruit notes. The high acidity leaves a refreshing, clean impression that makes this wine exceptionally food-friendly and versatile."
+    },
+    "foodPairings": [
+      "Southeast Asian cuisine with sweet and sour elements",
+      "Thanksgiving turkey with cranberry sauce",
+      "Pork tenderloin with apple chutney",
+      "Thai green curry with chicken",
+      "Grilled fish tacos with mango salsa"
+    ],
+    "servingInfo": {
+      "temperature": "Serve chilled at 48-52°F (9-11°C)",
+      "decanting": "No decanting needed; can benefit from 5-10 minutes in the glass to open up aromatics",
+      "glassware": "Standard white wine glass or Burgundy-style glass to showcase aromatics"
+    },
+    "wineDetails": {
+      "region": "Western Cape, South Africa",
+      "grapeVariety": "100% Chenin Blanc (known locally as Steen)",
+      "vintage": "2024",
+      "style": "Dry white wine with off-dry tendencies",
+      "ageability": "Best enjoyed within 2-3 years to appreciate its fresh, vibrant fruit character"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Anko Torrontes 2023",
+    "description": "An aromatic Argentine white wine showcasing the Torrontés Riojano grape, Argentina's signature white variety. This wine captures the distinctive floral and fruity character that has made Torrontés a favorite among lovers of aromatic wines.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with captivating perfumes of white flowers, jasmine, and rose petals dominating the nose. Fresh peach and ripe apricot provide lush fruit character, while subtle notes of lychee and orange blossom add exotic complexity. Reminiscent of Gewürztraminer and Muscat, the bouquet is instantly appealing and distinctively Argentine.",
+      "palate": "Medium-bodied with a smooth, silky texture that belies its aromatic intensity. Flavors of white peach, apricot, and tropical fruits fill the palate, supported by moderate acidity that provides balance. Delicate spice notes—reminiscent of white pepper and ginger—weave through the fruit, while the wine maintains freshness despite its aromatic richness.",
+      "finish": "The finish is medium in length with persistent floral and stone fruit notes. A touch of spice lingers pleasantly, while the moderate acidity keeps the wine fresh and approachable."
+    },
+    "foodPairings": [
+      "Spicy Asian cuisine including Thai and Vietnamese dishes",
+      "Ceviche and fresh seafood preparations",
+      "Soft cheeses like Brie and mild chèvre",
+      "Grilled white fish with citrus and herbs",
+      "Light summer salads with fruit components"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 44-48°F (7-9°C)",
+      "decanting": "No decanting required; drink young and fresh",
+      "glassware": "Aromatic white wine glass or Riesling glass to concentrate floral aromas"
+    },
+    "wineDetails": {
+      "region": "Salta, Argentina (likely from high-altitude Calchaquíes Valleys)",
+      "grapeVariety": "100% Torrontés Riojano",
+      "vintage": "2023",
+      "style": "Aromatic dry white wine",
+      "ageability": "Drink within 1-2 years of vintage; not intended for long aging"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.92,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Monte Real Gran Reserva 2010",
+    "description": "A prestigious Rioja Gran Reserva with extended aging, representing the pinnacle of traditional Spanish winemaking. This wine has undergone minimum 24 months in oak and 36 months in bottle, resulting in a complex, mature expression of Tempranillo.",
+    "tastingNotes": {
+      "aroma": "The nose reveals the complexity of extended aging with layers of dried cherry, blackberry compote, and plum interwoven with pronounced vanilla and cedar from oak maturation. Secondary aromas of leather, tobacco leaf, and dried herbs emerge, along with subtle notes of balsamic, cocoa, and earthy forest floor. The bouquet is elegant and sophisticated, showing beautiful evolution from the 2010 vintage.",
+      "palate": "Full-bodied yet refined, the palate shows mature red fruit flavors—cherry, plum, and cassis—seamlessly integrated with oak-derived notes of vanilla, coconut, and sweet spice. The wine's characteristic Rioja Alta brightness shines through with lifted acidity that provides structure and length. Silky tannins have softened beautifully with age, creating a velvety texture that carries flavors effortlessly across the palate.",
+      "finish": "The finish is long and elegant with persistent notes of dried fruit, vanilla, and subtle tobacco. Well-integrated tannins and balanced acidity provide structure without weight, leaving a sophisticated, memorable impression that speaks to the wine's quality aging."
+    },
+    "foodPairings": [
+      "Aged Manchego cheese and Spanish charcuterie",
+      "Roasted lamb with rosemary and garlic",
+      "Grilled ribeye steak with chimichurri",
+      "Wild mushroom risotto or paella",
+      "Braised short ribs with root vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 60-65°F (16-18°C)",
+      "decanting": "Decant for 30-45 minutes to allow the wine to breathe and fully express its complexity",
+      "glassware": "Large Bordeaux or Burgundy-style red wine glass"
+    },
+    "wineDetails": {
+      "region": "Rioja Alta, Spain",
+      "grapeVariety": "Predominantly Tempranillo (87%+) with possible small amounts of Garnacha and Graciano",
+      "vintage": "2010",
+      "style": "Gran Reserva - Traditional oak-aged Rioja",
+      "ageability": "Drinking beautifully now; can continue to develop through 2030 with proper cellaring"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Harmino Moscato Mevushal NV",
+    "description": "A kosher Mevushal Moscato offering the grape's characteristic sweet, aromatic profile in a format suitable for religious observance. This non-vintage expression delivers the fresh, grapey flavors that have made Moscato a popular choice for casual enjoyment.",
+    "tastingNotes": {
+      "aroma": "Exuberant aromas of fresh white grape, orange blossom, and honeysuckle dominate the nose with immediate appeal. Notes of ripe peach, nectarine, and mandarin orange add fruity complexity, while hints of lychee and rose petals provide exotic florality. The aromatic profile is sweet, perfumed, and instantly inviting.",
+      "palate": "Sweet and luscious on the palate with flavors of white grape, peach nectar, and honey flowing across the tongue. The wine maintains a light body despite its sweetness, with gentle effervescence (if slightly sparkling) adding lift and freshness. Candied citrus and tropical fruit notes provide brightness, while the low alcohol content (typically 5-7% ABV) keeps the wine approachable and easy-drinking.",
+      "finish": "The finish is sweet and fruity with lingering notes of white grape and orange blossom. A gentle sweetness persists pleasantly without being cloying, making this wine ideal for casual sipping or dessert pairing."
+    },
+    "foodPairings": [
+      "Fresh fruit salads and berry desserts",
+      "Spicy Asian cuisine to cool the heat",
+      "Light pastries and biscotti",
+      "Soft cheeses like mascarpone or cream cheese",
+      "Brunch dishes including French toast or crepes"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 40-45°F (4-7°C)",
+      "decanting": "No decanting needed; serve immediately from refrigerator",
+      "glassware": "Small white wine glass or dessert wine glass"
+    },
+    "wineDetails": {
+      "region": "Produced under kosher supervision (Mevushal certification)",
+      "grapeVariety": "100% Moscato (Muscat family)",
+      "vintage": "Non-Vintage (NV)",
+      "style": "Sweet, low-alcohol white wine (possibly lightly sparkling)",
+      "ageability": "Drink fresh and young; not intended for aging"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Rioja Lar de Paula Madurado 2018",
+    "description": "A modern-style Rioja from Lar de Paula estate, labeled 'Madurado' to indicate extended maturation. This wine represents a contemporary approach to Rioja winemaking while respecting traditional aging practices.",
+    "tastingNotes": {
+      "aroma": "The nose presents vibrant dark fruit aromas of blackberry, black cherry, and plum, complemented by subtle oak influence showing vanilla, coconut, and a hint of sweet spice. Fresh herb notes—rosemary and thyme—add Mediterranean complexity, while a touch of violet and graphite provides aromatic depth. The wine shows more fruit-forward character than traditional Gran Reservas, reflecting modern winemaking sensibilities.",
+      "palate": "Medium to full-bodied with bright, concentrated fruit flavors taking center stage. Black cherry, raspberry, and cassis provide a juicy core, while integrated oak adds structure and complexity without overwhelming the fruit. The wine displays characteristic Rioja acidity that provides freshness and lift, balanced by smooth tannins that suggest careful extraction and aging. A touch of chocolate and coffee from oak complements rather than dominates.",
+      "finish": "The finish is moderately long with persistent dark fruit and subtle oak spice. Balanced acidity and well-integrated tannins create a harmonious conclusion that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled chorizo and Spanish tapas",
+      "Roasted pork loin with caramelized onions",
+      "Beef empanadas or meat pies",
+      "Mushroom and truffle dishes",
+      "Aged sheep's milk cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-64°F (15-18°C)",
+      "decanting": "Decant for 20-30 minutes to integrate flavors and soften tannins",
+      "glassware": "Standard red wine glass or Rioja-specific stemware"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Predominantly Tempranillo with possible Garnacha or Graciano blending",
+      "vintage": "2018",
+      "style": "Madurado (matured) - Modern Rioja with oak aging",
+      "ageability": "Drink now through 2028; designed for near-term enjoyment while retaining some aging potential"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.87,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Galea Mimosa Sangria NV",
+    "description": "A ready-to-drink Spanish sangria with a mimosa twist, combining traditional wine punch elements with sparkling wine and citrus. This festive beverage offers a convenient, celebratory option perfect for gatherings and warm weather enjoyment.",
+    "tastingNotes": {
+      "aroma": "Bright, festive aromas of fresh orange juice and sparkling wine immediately evoke celebrations and sunshine. Notes of mixed berries—strawberry, raspberry, and blackberry—mingle with citrus zest, while hints of peach, pineapple, and apple add complexity. A subtle sweetness from the fruit and a whisper of brandy create an inviting, party-ready bouquet.",
+      "palate": "Light to medium-bodied with lively bubbles that dance across the palate, providing refreshing effervescence. The wine base shows red fruit character—cherry and berry—enhanced by fresh orange juice and mixed fruit flavors. A pleasant sweetness is balanced by natural citrus acidity, while carbonation adds lift and vivacity. The overall impression is festive, fruity, and immediately enjoyable.",
+      "finish": "The finish is refreshing and fruity with lingering notes of citrus and mixed berries. The effervescence carries through to the end, leaving a clean, lively impression that encourages another sip."
+    },
+    "foodPairings": [
+      "Spanish tapas including patatas bravas and gambas al ajillo",
+      "Grilled seafood paella",
+      "Fresh fruit platters and cheese boards",
+      "Light appetizers and finger foods",
+      "Poolside snacks and summer BBQ fare"
+    ],
+    "servingInfo": {
+      "temperature": "Serve very cold at 38-42°F (3-6°C) over ice",
+      "decanting": "Serve directly from bottle over ice-filled pitcher or glasses; add fresh fruit slices for garnish",
+      "glassware": "Large wine glasses, tumblers, or traditional clay pitchers"
+    },
+    "wineDetails": {
+      "region": "Spain (EU Protected Designation)",
+      "grapeVariety": "Blend of red wine base with sparkling wine, orange juice, and mixed fruits",
+      "vintage": "Non-Vintage (NV)",
+      "style": "Sparkling Sangria with mimosa character",
+      "ageability": "Drink fresh and young; best consumed within 6-12 months of purchase"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.93,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Frico Bianco IGT Venezie (NOVA only) 2024",
+    "description": "A fresh, accessible white wine from the Venezie IGT designation in northeastern Italy. This light, crisp expression showcases the Veneto region's talent for producing delicate, aromatic white wines perfect for everyday enjoyment.",
+    "tastingNotes": {
+      "aroma": "The nose opens with delicate aromas of white flowers, green apple, and citrus blossom. Hints of lemon zest and fresh pear add brightness, while subtle almond notes provide depth characteristic of Veneto white wines. A mineral edge suggests Alpine influence, creating a clean, refined aromatic profile.",
+      "palate": "Light-bodied and refreshing with flavors of crisp green apple, lemon, and white peach dancing across the palate. The wine's natural acidity provides excellent structure and vibrancy, while maintaining an approachable, easy-drinking character. A fine, almost delicate texture carries the flavors gracefully, with subtle almond and mineral notes emerging mid-palate to add complexity.",
+      "finish": "The finish is clean and crisp with lingering citrus and almond notes. Refreshing acidity leaves the palate cleansed and ready for food, making this an ideal wine for casual dining."
+    },
+    "foodPairings": [
+      "Grilled white fish with lemon and olive oil",
+      "Seafood risotto or pasta with clams",
+      "Fresh mozzarella and tomato caprese salad",
+      "Light antipasti platters",
+      "Grilled vegetables with herbs"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+      "decanting": "No decanting needed; ready to enjoy immediately",
+      "glassware": "Standard white wine glass or Italian white wine stemware"
+    },
+    "wineDetails": {
+      "region": "IGT Venezie, Veneto/Tre Venezie, Italy",
+      "grapeVariety": "Likely blend of local white grapes such as Garganega, Pinot Grigio, or Glera",
+      "vintage": "2024",
+      "style": "Dry white wine - light and crisp",
+      "ageability": "Drink young within 1-2 years to enjoy fresh fruit and vibrant acidity"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.86,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Cantina Fratelli Pardi Spoleto Trebbiano Spoletino",
+    "description": "An authentic expression of Trebbiano Spoletino from the historic Spoleto region in Umbria, Italy. This wine showcases a distinctive local clone of the Trebbiano family, offering more character and complexity than generic Trebbiano expressions.",
+    "tastingNotes": {
+      "aroma": "The nose reveals fresh, clean aromas of green apple, citrus, and white flowers with characteristic high-toned acidity. Hints of Mediterranean herbs—basil and fennel—add aromatic interest, while a subtle mineral quality suggests the wine's Umbrian origins. Unlike generic Trebbiano, this Spoletino clone shows more aromatic definition and complexity.",
+      "palate": "Medium-light bodied with pronounced acidity that defines the wine's structure and character. Flavors of crisp green apple, lemon, and grapefruit dominate, supported by the grape's naturally high acid backbone. The wine is fresh and fruity with a clean, mineral-driven mid-palate that adds depth and interest. A subtle herbal quality and hint of white pepper provide savory complexity.",
+      "finish": "The finish is bright and lively with persistent acidity and citrus notes. A mineral edge lingers, along with subtle herbal nuances that make this wine particularly food-friendly and versatile."
+    },
+    "foodPairings": [
+      "Fresh seafood and crudo preparations",
+      "Pasta with olive oil, garlic, and herbs",
+      "Fried calamari and seafood fritto misto",
+      "White fish carpaccio with lemon",
+      "Light vegetable soups and risottos"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 46-50°F (8-10°C)",
+      "decanting": "No decanting required; can benefit from a few minutes in the glass",
+      "glassware": "Standard white wine glass or Italian white wine stemware"
+    },
+    "wineDetails": {
+      "region": "Spoleto, Umbria, Italy",
+      "grapeVariety": "100% Trebbiano Spoletino (local Umbrian clone)",
+      "vintage": "Current release (likely recent vintage)",
+      "style": "Dry white wine - crisp and mineral-driven",
+      "ageability": "Drink within 2-3 years; not intended for extended aging but more age-worthy than generic Trebbiano"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.89,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Napa Valley Burly Cabernet Sauvignon (Simpkins) 2021",
+    "description": "A bold, fruit-forward Napa Valley Cabernet Sauvignon from the Simpkins family, living up to its 'Burly' designation with powerful flavors and structure. This wine showcases the ripe, concentrated style that has made Napa Cabernet world-famous since the 1976 Judgment of Paris.",
+    "tastingNotes": {
+      "aroma": "Powerful aromas of ripe blackberry, black cherry, and cassis leap from the glass, characteristic of Napa's warm climate ripeness. Notes of dark chocolate, espresso, and vanilla from oak aging add depth, while hints of tobacco, cedar, and graphite provide complexity. A subtle eucalyptus note and touch of black olive speak to Napa's terroir, creating a bold, inviting bouquet.",
+      "palate": "Full-bodied and richly textured with intense flavors of black fruit—blackberry, black cherry, and plum—dominating the palate. The wine shows the characteristic 'Burly' power with concentrated fruit supported by firm, structured tannins and well-integrated oak. Flavors of mocha, dark chocolate, and sweet baking spices emerge mid-palate, while higher alcohol (likely 14%+) adds warmth and weight. Despite its power, the wine maintains balance with sufficient acidity to carry the concentrated flavors.",
+      "finish": "The finish is long and powerful with persistent black fruit, oak spice, and firm tannins. The wine's structure suggests excellent aging potential, while its fruit concentration and warmth leave a bold, memorable impression."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak or prime rib",
+      "Braised beef short ribs with red wine reduction",
+      "Aged cheddar or blue cheese",
+      "Grilled lamb chops with rosemary",
+      "Rich meat-based pasta dishes like Bolognese"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 45-60 minutes to soften tannins and allow the wine to breathe; young Napa Cabs benefit significantly from aeration",
+      "glassware": "Large Bordeaux-style red wine glass to showcase aromatics and allow wine to breathe"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California, USA",
+      "grapeVariety": "100% Cabernet Sauvignon or predominantly Cabernet with minor Bordeaux varieties",
+      "vintage": "2021",
+      "style": "Full-bodied, oak-aged California Cabernet Sauvignon",
+      "ageability": "Drink now through 2035+; has the structure and concentration for extended cellaring"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.91,
+      "researchedAt": "2025-10-20T00:00:00.000Z"
+    }
+  }
+]

@@ -1,0 +1,348 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Monte Real Reserva de Familia 2020",
+      "description": "The pinnacle wine from Bodegas Riojanas, representing the family's most select parcels and extended aging. This Reserva de Familia is a step above standard Reserva, showcasing exceptional fruit quality and traditional Rioja winemaking. The 2020 vintage was excellent in Rioja, producing wines with balance, structure, and aging potential.",
+      "tastingNotes": {
+        "aroma": "Complex and elegant with aromas of ripe red cherry, plum, and blackberry, interwoven with notes of vanilla, coconut, and sweet cedar from American oak aging. Subtle hints of tobacco, leather, and dried herbs add sophistication, while floral notes of violet and rose petal provide lift. As it breathes, nuances of cinnamon, clove, and balsamic emerge. The nose shows excellent depth and refinement.",
+        "palate": "Full-bodied with structured yet silky tannins and vibrant acidity that provides freshness and balance. The palate delivers concentrated fruit flavors—red cherry, raspberry, and blackberry—complemented by savory notes of leather, earth, and spice box. The oak influence is prominent but harmonious, adding layers of vanilla, toast, and sweet spice. Mid-palate richness is balanced by minerality and freshness, showing terroir character.",
+        "finish": "Long, elegant finish with persistent fruit, fine-grained tannins, and lingering oak spice. The wine's structure and balance suggest excellent aging potential for years to come."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with rosemary",
+        "Aged Manchego or Idiazábal cheese",
+        "Braised beef cheeks in red wine",
+        "Wild mushroom and truffle dishes",
+        "Ibérico pork loin with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "60-90 minutes recommended to allow the wine to open fully",
+        "glassware": "Large Rioja or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Predominantly Tempranillo with Graciano and Mazuelo",
+        "vintage": "2020",
+        "style": "Reserva de Familia: extended oak and bottle aging beyond standard Reserva",
+        "ageability": "Drink now through 2038. Will continue developing for 10-15 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Farmers Market Italian White NV",
+      "description": "An approachable, everyday white wine blend from Italy, designed for casual drinking and value. The non-vintage designation indicates consistency across bottlings, making it a reliable house wine option. This wine represents the modern trend of food-friendly, unpretentious Italian whites.",
+      "tastingNotes": {
+        "aroma": "Fresh and inviting with aromas of green apple, pear, and citrus, complemented by subtle floral notes of white flowers and herbs. Hints of lemon zest and minerality add brightness, while a touch of almond provides depth. The nose is clean and straightforward with pleasant varietal character.",
+        "palate": "Light to medium-bodied with crisp acidity and refreshing character. The palate delivers flavors of citrus—lemon and grapefruit—along with green apple, pear, and subtle tropical notes. A gentle mineral quality runs through the mid-palate, providing structure. The wine is dry with good balance, making it very versatile for food pairing.",
+        "finish": "Clean, refreshing finish with lingering citrus and subtle fruit. The bright acidity leaves the palate cleansed."
+      },
+      "foodPairings": [
+        "Fresh salads with vinaigrette",
+        "Grilled white fish or shrimp",
+        "Light pasta with olive oil and herbs",
+        "Soft cheeses and antipasti",
+        "Chicken piccata"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Italy (specific region not disclosed)",
+        "grapeVariety": "Blend of Italian white varieties (likely Pinot Grigio, Trebbiano, Garganega)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Light, crisp everyday white wine",
+        "ageability": "Drink young and fresh, within 1 year of purchase."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Champagne Bauget-Jouette Cuvee Jouette Extra Brut Milliseme 2015",
+      "description": "A premium grower Champagne from a family estate in the Aube region, showcasing meticulous winemaking and terroir expression. The Extra Brut style indicates minimal dosage (less than 6g/L sugar), allowing the purity of the fruit and terroir to shine. The 2015 vintage was excellent in Champagne, producing wines with ripeness, structure, and elegance.",
+      "tastingNotes": {
+        "aroma": "Complex and refined with aromas of brioche, toasted almond, and hazelnut from extended lees aging, layered with ripe citrus notes of lemon and grapefruit. Subtle hints of white peach, green apple, and honeycomb add depth, while chalky minerality and wet stone reflect the Champagne terroir. Notes of butter, cream, and pastry emerge with aeration. The nose is sophisticated and inviting.",
+        "palate": "Medium to full-bodied with persistent fine bubbles and vibrant acidity that defines great Champagne. The palate delivers intense flavors of citrus—lemon zest, lime, and grapefruit—balanced by ripe stone fruit notes and subtle red apple. The Extra Brut dosage allows purity to shine, with pronounced minerality showing chalk, flint, and saline qualities. Flavors of brioche, almond, and subtle honey from lees aging add richness without sweetness.",
+        "finish": "Very long, mineral-driven finish with persistent bubbles and refreshing acidity. The wine concludes with notes of citrus, chalk, and a subtle toasty quality, leaving the palate completely invigorated."
+      },
+      "foodPairings": [
+        "Fresh oysters or caviar",
+        "Seared scallops with beurre blanc",
+        "Lobster or crab",
+        "Aged Comté or Gruyère cheese",
+        "Delicate fish preparations"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve directly from bottle",
+        "glassware": "Champagne flute or white wine glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Aube, Champagne, France",
+        "grapeVariety": "Blend of Chardonnay and Pinot Noir",
+        "vintage": "2015",
+        "style": "Extra Brut vintage Champagne (less than 6g/L dosage)",
+        "ageability": "Drink now through 2030. Can age 5-10 more years developing additional complexity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.89,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Hyde Vineyard Sauvignon Blanc 2022",
+      "description": "An exceptional single-vineyard Sauvignon Blanc from the legendary Hyde Vineyard in Carneros, one of California's most prestigious vineyard sites. Wonderment Wines is known for sourcing from top vineyards and minimal intervention winemaking. The cool Carneros climate produces Sauvignon Blanc with elegance, complexity, and aging potential.",
+      "tastingNotes": {
+        "aroma": "Elegantly aromatic with vibrant citrus notes of Meyer lemon, lime, and white grapefruit, complemented by subtle tropical hints of passion fruit and guava. Notes of white flowers, lemongrass, and fresh herbs add complexity, while a distinctive flinty minerality and wet stone quality reflect the terroir. Subtle oak influence brings hints of vanilla and toast without masking the fruit.",
+        "palate": "Medium to full-bodied with crisp, refreshing acidity and excellent texture. The palate delivers intense citrus flavors—lemon zest, lime, and grapefruit—balanced by stone fruit notes of white peach and nectarine. A pronounced mineral backbone runs through the wine, showing crushed rock and saline characteristics. The wine has excellent concentration and depth, with subtle oak integration adding complexity and a creamy mid-palate texture.",
+        "finish": "Long, mineral-driven finish with persistent citrus and subtle oak spice. The vibrant acidity and mineral notes leave the palate refreshed yet satisfied."
+      },
+      "foodPairings": [
+        "Seared sea bass with herb butter",
+        "Lobster risotto",
+        "Fresh goat cheese with herbs",
+        "Oysters Rockefeller",
+        "Roasted chicken with lemon and thyme"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "No decanting needed; allow 15 minutes in glass to open",
+        "glassware": "White Burgundy or premium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Hyde Vineyard, Carneros, California",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Premium single-vineyard Sauvignon Blanc with subtle oak influence",
+        "ageability": "Drink now through 2027. Can age 3-5 years developing additional complexity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Grateful Palate Good Lord NV",
+      "description": "A unique offering from Grateful Palate, Dan Philips' innovative wine importing company known for sourcing interesting wines from around the world. The playful 'Good Lord' name reflects the brand's irreverent approach while delivering quality and value. This non-vintage blend offers consistent character and approachability.",
+      "tastingNotes": {
+        "aroma": "Generous and fruit-forward with aromas of ripe red and dark berries—plum, blackberry, and cherry—complemented by subtle spice notes of black pepper and dried herbs. Hints of vanilla and toast from oak aging add complexity, while maintaining fresh, vibrant fruit character. The nose is inviting and approachable.",
+        "palate": "Medium to full-bodied with soft, approachable tannins and balanced acidity. The palate delivers juicy fruit flavors—raspberry, plum, and blackberry—with subtle savory notes and gentle oak influence. The wine shows good concentration with a smooth, polished texture that makes it very food-friendly. There's an easy-drinking quality while maintaining structure and interest.",
+        "finish": "Medium-length finish with lingering fruit and subtle spice. Soft tannins and balanced acidity create a satisfying, approachable conclusion."
+      },
+      "foodPairings": [
+        "Grilled burgers or sausages",
+        "Pizza with various toppings",
+        "Roasted chicken or pork",
+        "Casual cheese and charcuterie",
+        "Pasta with tomato-based sauces"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief 20-30 minute decanting recommended",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Not specified (likely Spain or Mediterranean)",
+        "grapeVariety": "Red blend (specific varieties not disclosed)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Medium-bodied, fruit-forward red blend",
+        "ageability": "Drink now through 2026. Best enjoyed young and fresh."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pomar Junction Pomar Junction Cabernet Sauvignon 2023",
+      "description": "A California Cabernet Sauvignon from Paso Robles, where warm days and cool nights produce wines with ripe fruit and balanced acidity. The Pomar Junction name references the historic railroad junction in Paso Robles. This young 2023 vintage showcases fresh fruit character with modern California winemaking.",
+      "tastingNotes": {
+        "aroma": "Bold and fruit-driven with aromas of ripe blackberry, cassis, and dark cherry, layered with notes of vanilla, mocha, and sweet oak. Hints of eucalyptus, mint, and dark chocolate add complexity, while subtle bell pepper and dried herb notes provide classic Cabernet character. The nose is intense and welcoming.",
+        "palate": "Full-bodied with firm yet approachable tannins and balanced acidity. The palate delivers concentrated dark fruit flavors—blackberry, black currant, and plum—complemented by notes of espresso, dark chocolate, and cedar. The oak influence is evident with flavors of vanilla, toast, and sweet spice. The wine shows good structure and depth with a modern, fruit-forward style.",
+        "finish": "Long finish with persistent dark fruit and oak spice. Firm tannins and balanced acidity provide structure for aging."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Aged cheddar or Gouda",
+        "Beef tenderloin with peppercorn sauce",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes to soften tannins",
+        "glassware": "Large Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Full-bodied Cabernet with oak aging",
+        "ageability": "Drink now through 2031. Best over next 5-8 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Crimson Clover Tinto (Red) Keg 2022 20000 ml",
+      "description": "A large-format keg wine designed for restaurants and events, offering sustainable packaging and fresh wine on tap. Crimson Clover represents the growing keg wine movement, providing quality wine with reduced packaging waste. The 20-liter keg format (equivalent to about 26 bottles) ensures freshness through vacuum-sealed dispensing.",
+      "tastingNotes": {
+        "aroma": "Fresh and fruit-forward with aromas of ripe cherry, plum, and blackberry, complemented by subtle notes of spice and herbs. The nose is clean and vibrant, showing the freshness benefits of keg packaging which prevents oxidation. Hints of vanilla and soft oak add gentle complexity.",
+        "palate": "Medium-bodied with soft tannins and balanced acidity. The palate delivers juicy red fruit flavors—cherry, raspberry, and plum—with subtle earthy and herbal notes. The wine is approachable and food-friendly, designed for easy drinking. The texture is smooth with gentle structure, making it versatile for various food pairings.",
+        "finish": "Medium-length finish with lingering fruit and soft tannins. The wine's freshness and balance make it very drinkable."
+      },
+      "foodPairings": [
+        "Tapas and small plates",
+        "Grilled meats and vegetables",
+        "Pizza and pasta dishes",
+        "Casual cheese boards",
+        "Barbecue and picnic fare"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "No decanting needed; served fresh from keg",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Not specified (likely California or Spain)",
+        "grapeVariety": "Red blend (specific varieties not disclosed)",
+        "vintage": "2022",
+        "style": "Medium-bodied, approachable red blend in keg format",
+        "ageability": "Drink fresh from keg; meant for immediate consumption."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barrel Oak Farm Taphouse Dubbel 58670 ml",
+      "description": "This appears to be a Belgian-style Dubbel beer rather than wine, indicated by the style name and very large keg format. Barrel Oak Farm is known for both wine and beer production. This is a malt beverage, not wine, and appears to be mistakenly included in the wine inventory.",
+      "tastingNotes": {
+        "aroma": "Not applicable - this is a beer product (Belgian Dubbel ale), not wine. Typical Dubbel characteristics would include malty sweetness, dark fruit, and Belgian yeast esters.",
+        "palate": "Not applicable - this is a beer product, not wine.",
+        "finish": "Not applicable - this is a beer product, not wine."
+      },
+      "foodPairings": [
+        "Not applicable - beer product, not wine"
+      ],
+      "servingInfo": {
+        "temperature": "Not applicable for wine tasting notes",
+        "decanting": "Not applicable",
+        "glassware": "Belgian beer glass (not wine)"
+      },
+      "wineDetails": {
+        "region": "Barrel Oak Farm, Virginia",
+        "grapeVariety": "Not applicable - this is beer (Belgian Dubbel style ale)",
+        "vintage": "N/A",
+        "style": "Belgian-style Dubbel beer in keg format",
+        "ageability": "Not applicable"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-21T14:12:00Z",
+        "note": "This is BEER, not wine - should be removed from wine inventory"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Mosaiko Cabernet Sauvignon 2023",
+      "description": "A young, fresh Cabernet Sauvignon from Calyptra's Mosaiko range, showcasing Chilean terroir and modern winemaking. The recent 2023 vintage delivers vibrant fruit character with balanced structure. Chile's Central Valley provides ideal conditions for Cabernet Sauvignon with warm days, cool nights, and Andes mountain influence.",
+      "tastingNotes": {
+        "aroma": "Vibrant and fruit-forward with aromas of ripe blackberry, cassis, and dark cherry, complemented by notes of eucalyptus, mint, and bell pepper that provide classic Cabernet character. Hints of vanilla, mocha, and cedar from oak aging add complexity. Subtle herbal notes of dried sage and tobacco emerge with aeration.",
+        "palate": "Full-bodied with firm, youthful tannins and bright acidity. The palate delivers concentrated dark fruit flavors—blackcurrant, blackberry, and plum—balanced by savory notes of olive, herbs, and earth. The oak influence adds vanilla, toast, and sweet spice without overwhelming the fruit. The wine shows good structure and concentration with a fresh, energetic character.",
+        "finish": "Long finish with persistent dark fruit and structured tannins. Notes of herbs and spice linger, showing the wine's potential for short-term aging."
+      },
+      "foodPairings": [
+        "Grilled steak with chimichurri",
+        "Empanadas and Latin cuisine",
+        "Aged hard cheeses",
+        "Roasted lamb with herbs",
+        "Beef stew or braise"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes to soften tannins",
+        "glassware": "Large Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Central Valley, Chile",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Full-bodied Cabernet with oak aging",
+        "ageability": "Drink now through 2030. Best over next 5-7 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Langhe Dolcetto 2021",
+      "description": "A classic Dolcetto from the renowned Mauro Molino estate in Piedmont's Langhe region. Dolcetto is the everyday red wine of Piedmont, offering approachable fruit character with soft tannins. This wine showcases the grape's characteristic bright cherry fruit and almond notes, perfect for casual dining.",
+      "tastingNotes": {
+        "aroma": "Fresh and inviting with aromas of bright red cherry, raspberry, and plum, complemented by subtle notes of violet, licorice, and almond. Hints of earth, dried herbs, and a touch of spice add complexity. The nose is pure and fruity with characteristic Dolcetto charm.",
+        "palate": "Medium-bodied with soft, supple tannins and refreshing acidity. The palate delivers vibrant red fruit flavors—cherry, raspberry, and cranberry—with subtle earthy undertones and a distinctive bitter almond note on the finish that's typical of Dolcetto. The wine is juicy and approachable with good fruit concentration and a smooth texture.",
+        "finish": "Medium-length finish with lingering cherry fruit and the characteristic bitter almond note. The soft tannins and bright acidity make it very food-friendly."
+      },
+      "foodPairings": [
+        "Pizza and pasta with tomato sauce",
+        "Grilled sausages and charcuterie",
+        "Mushroom risotto",
+        "Soft cheeses like fresh mozzarella",
+        "Roasted chicken with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly chilled",
+        "decanting": "20-30 minutes or serve slightly chilled",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Langhe DOC, Piedmont, Italy",
+        "grapeVariety": "100% Dolcetto",
+        "vintage": "2021",
+        "style": "Medium-bodied, fruity red wine with soft tannins",
+        "ageability": "Drink now through 2025. Dolcetto is best enjoyed young and fresh."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:12:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 112,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:12:00Z",
+    "averageConfidence": 0.84,
+    "note": "Wine #8 (Barrel Oak Farm Taphouse Dubbel) is BEER, not wine - flagged for removal"
+  }
+}

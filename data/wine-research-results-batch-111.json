@@ -1,0 +1,348 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Moorilla Praxis Sparkling Riesling 2023",
+      "description": "An innovative sparkling wine from Tasmania's Moorilla Estate, part of the MONA (Museum of Old and New Art) wine collection. This Praxis range represents experimental winemaking pushing boundaries while respecting traditional methods. Tasmania's cool climate is ideal for producing crisp, elegant sparkling wines with vibrant acidity and aromatic intensity.",
+      "tastingNotes": {
+        "aroma": "Vibrant and complex with intense aromas of lime zest, green apple, and white peach, characteristic of quality Riesling. Notes of white flowers, particularly jasmine and honeysuckle, add elegance, while subtle hints of struck flint and wet slate reflect Tasmanian minerality. The mousse releases delicate yeasty notes and a touch of brioche from time on lees, adding sophistication to the bright fruit profile.",
+        "palate": "Medium-bodied with persistent fine bubbles and razor-sharp acidity that defines Tasmanian sparkling wine. The palate delivers intense citrus flavors—Meyer lemon, lime, and grapefruit—balanced by ripe stone fruit notes of nectarine and apricot. A distinctive mineral backbone runs through the wine, showing crushed rock and saline qualities. The wine is bone dry with a slight phenolic grip from the Riesling skins, adding texture and complexity.",
+        "finish": "Long, electrifying finish with persistent citrus, mineral notes, and refreshing acidity. The fine bubbles and crisp structure leave the palate completely refreshed and invigorated."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Sashimi or sushi with wasabi",
+        "Goat cheese and herb tart",
+        "Smoked salmon blini",
+        "Asian cuisine with citrus and ginger"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from bottle",
+        "glassware": "Champagne flute or white wine glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Tasmania, Australia",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2023",
+        "style": "Sparkling wine, traditional method with extended lees aging",
+        "ageability": "Drink now through 2028. Can age 3-5 years to develop additional complexity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Mosaiko Sauvignon Blanc 2024",
+      "description": "A fresh, contemporary Sauvignon Blanc from Calyptra's Mosaiko range, showcasing bright fruit and aromatic intensity. The Mosaiko line represents a modern approach to Chilean winemaking, emphasizing varietal purity and terroir expression. This recent 2024 vintage captures the essence of cool-climate Sauvignon Blanc with vibrant acidity and herbaceous complexity.",
+      "tastingNotes": {
+        "aroma": "Explosively aromatic with classic Sauvignon Blanc character: grapefruit, lime, and passion fruit dominate, followed by notes of gooseberry, cut grass, and fresh herbs. Subtle tropical hints of guava and lychee emerge, along with distinctive green bell pepper and jalapeño that speak to the varietal character. A flinty, mineral note adds complexity and sophistication.",
+        "palate": "Medium-bodied with crisp, mouthwatering acidity that energizes the palate. Bright citrus flavors—white grapefruit, lime zest, and lemon—are complemented by tropical notes of passion fruit, kiwi, and green melon. The herbaceous character continues with flavors of fresh-cut grass, basil, and green pepper. A mineral streak runs through the mid-palate, adding structure and length. The wine is dry and refreshing with excellent varietal typicity.",
+        "finish": "Clean, zesty finish with lingering citrus and herbal notes. The vibrant acidity leaves the palate refreshed with a subtle mineral echo."
+      },
+      "foodPairings": [
+        "Fresh goat cheese salad with herbs",
+        "Grilled fish with chimichurri",
+        "Ceviche or seafood cocktail",
+        "Spring vegetables and asparagus",
+        "Chicken with lemon and capers"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; best served fresh and cold",
+        "glassware": "Standard white wine glass or Sauvignon Blanc-specific glass"
+      },
+      "wineDetails": {
+        "region": "Central Valley, Chile",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Crisp, aromatic white wine with herbaceous character",
+        "ageability": "Best enjoyed young and fresh, within 1-2 years to preserve vibrant fruit and acidity."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Keg Handles",
+      "description": "Commercial wine dispensing equipment from Raywood, designed for keg wine service in restaurants and tasting rooms. These are not wine products but rather the tap handles used to dispense wine from kegs. Note: This appears to be a non-wine product mistakenly included in the wine inventory.",
+      "tastingNotes": {
+        "aroma": "Not applicable - this is wine dispensing equipment, not a wine product.",
+        "palate": "Not applicable - this is wine dispensing equipment, not a wine product.",
+        "finish": "Not applicable - this is wine dispensing equipment, not a wine product."
+      },
+      "foodPairings": [
+        "Not applicable - equipment item"
+      ],
+      "servingInfo": {
+        "temperature": "Not applicable",
+        "decanting": "Not applicable",
+        "glassware": "Not applicable"
+      },
+      "wineDetails": {
+        "region": "Not applicable",
+        "grapeVariety": "Not applicable - equipment item",
+        "vintage": "N/A",
+        "style": "Wine dispensing equipment",
+        "ageability": "Not applicable"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 1.0,
+        "researchedAt": "2025-10-21T14:10:00Z",
+        "note": "This is equipment, not wine - should be removed from wine inventory"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Quinta Picouto de Cima Rose 2023",
+      "description": "A refreshing Portuguese rosé from the Douro region, where the estate is better known for Port production but also crafts elegant still wines. This rosé showcases indigenous Portuguese varieties with bright fruit character and mineral freshness. The 2023 vintage benefits from excellent weather, producing wines with balance and vibrancy.",
+      "tastingNotes": {
+        "aroma": "Delicate and fresh with aromas of wild strawberry, raspberry, and cranberry, complemented by subtle floral notes of rose petal and orange blossom. Hints of white pepper, fresh herbs, and a stony minerality add complexity. The nose is clean and inviting with a Mediterranean character showing sun-ripened fruit and herbal nuances.",
+        "palate": "Light to medium-bodied with crisp acidity and a dry, refreshing profile. The palate delivers vibrant red berry flavors—strawberry, red currant, and pomegranate—with subtle citrus zest adding brightness. A savory quality emerges mid-palate with notes of herbs de Provence and pink peppercorn. The wine shows excellent mineral tension from schist soils, giving structure and length. The texture is smooth with a slight phenolic grip.",
+        "finish": "Clean, refreshing finish with lingering berry fruit and mineral notes. The crisp acidity and subtle herbal quality leave the palate energized."
+      },
+      "foodPairings": [
+        "Grilled sardines or octopus",
+        "Mediterranean salads with feta",
+        "Light pasta with tomato and basil",
+        "Fresh seafood paella",
+        "Soft goat cheese and olives"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Douro, Portugal",
+        "grapeVariety": "Blend of indigenous Portuguese varieties (likely Touriga Nacional, Tinta Roriz, Touriga Franca)",
+        "vintage": "2023",
+        "style": "Dry rosé with crisp acidity and red berry character",
+        "ageability": "Best enjoyed young and fresh, within 1-2 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Padre Bendicho Rose Kosher (MD & DC) 2024",
+      "description": "A kosher-certified rosé from Spain, crafted to meet religious dietary requirements while maintaining quality and flavor. The Padre Bendicho brand represents traditional Spanish winemaking adapted for kosher production. This fresh 2024 vintage offers bright fruit character and Mediterranean sunshine in the glass.",
+      "tastingNotes": {
+        "aroma": "Bright and fruit-forward with aromas of fresh strawberry, watermelon, and red cherry, complemented by subtle citrus notes of pink grapefruit and orange zest. Delicate floral hints of hibiscus and rose add elegance, while a touch of Mediterranean herbs—thyme and lavender—provides complexity. The nose is clean, fresh, and inviting.",
+        "palate": "Light to medium-bodied with refreshing acidity and a crisp, dry profile. The palate echoes the aromatics with flavors of ripe strawberry, raspberry, and watermelon, balanced by bright citrus notes. A subtle mineral quality runs through the mid-palate, adding structure and preventing the wine from being too fruit-forward. The texture is smooth and approachable with a slight phenolic edge that adds interest.",
+        "finish": "Clean, refreshing finish with lingering berry fruit and a hint of citrus zest. The crisp acidity leaves the palate cleansed and ready for food."
+      },
+      "foodPairings": [
+        "Grilled chicken with herbs",
+        "Mediterranean vegetable dishes",
+        "Kosher fish dishes with lemon",
+        "Light pasta salads",
+        "Fresh fruit and cheese platters"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region not disclosed)",
+        "grapeVariety": "Likely Garnacha (Grenache) or Tempranillo",
+        "vintage": "2024",
+        "style": "Dry rosé with kosher certification",
+        "ageability": "Best enjoyed young and fresh, within 1 year to preserve vibrant fruit."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Cellars Les Inseparables 2022",
+      "description": "A distinctive Rhône-style blend from master winemaker Jeff Cohn, known for his expertise with Syrah and Rhône varieties. The name 'Les Inseparables' suggests a harmonious blend of complementary varieties that work together seamlessly. Cohn's wines are characterized by bold fruit, spice, and excellent structure from quality California vineyards.",
+      "tastingNotes": {
+        "aroma": "Bold and expressive with aromas of blackberry, blueberry, and dark plum, layered with notes of violet, black olive, and cured meat. Signature Rhône-style spice emerges with black pepper, clove, and dried herbs—lavender and rosemary. Subtle smokiness and char from oak aging add complexity, along with hints of graphite and game. The nose is intense and captivating.",
+        "palate": "Full-bodied with supple yet structured tannins and well-integrated acidity. The palate delivers concentrated dark fruit flavors—cassis, boysenberry, and black cherry—complemented by savory elements of olive tapenade, bacon fat, and charred meat. Mid-palate richness is balanced by fresh acidity and mineral notes. Spice box flavors of white pepper, coriander, and anise add complexity. The texture is rich and velvety.",
+        "finish": "Long, complex finish with persistent dark fruit, spice, and savory notes. Firm but refined tannins provide structure, while the wine's concentration ensures a lingering impression."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbes de Provence",
+        "Beef daube or braised short ribs",
+        "Duck confit with olives",
+        "Aged hard cheeses like Pecorino",
+        "Wild boar or venison stew"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "60-90 minutes recommended to open aromatics and soften tannins",
+        "glassware": "Large Syrah/Rhône-style glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Paso Robles or Sonoma)",
+        "grapeVariety": "Rhône blend (likely Syrah, Grenache, Mourvèdre)",
+        "vintage": "2022",
+        "style": "Full-bodied Rhône-style red blend with bold fruit and spice",
+        "ageability": "Drink now through 2030. Will develop additional complexity over 5-8 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Borgeot Bouzeron Les Tournelles 2021",
+      "description": "A rare white wine from the Bouzeron appellation in Burgundy, the only village dedicated exclusively to Aligoté. Domaine Borgeot is a respected family estate producing wines that showcase the unique character of this lesser-known Burgundian variety. The 'Les Tournelles' vineyard site brings additional complexity and minerality.",
+      "tastingNotes": {
+        "aroma": "Bright and mineral-driven with aromas of lemon, green apple, and white peach, characteristic of quality Aligoté. Notes of white flowers, particularly acacia and chamomile, add elegance, while a distinctive chalky minerality and wet stone quality reflect the Burgundian terroir. Subtle hints of almond and hazelnut from brief lees contact add depth without masking the vibrant fruit.",
+        "palate": "Medium-bodied with vibrant, mouthwatering acidity that defines Aligoté. The palate delivers intense citrus flavors—lemon zest, lime, and grapefruit—balanced by crisp green apple and subtle stone fruit notes. A pronounced mineral backbone runs through the wine, showing crushed limestone and sea salt characteristics. The wine is bone dry with excellent tension and energy, more sophisticated than typical Aligoté.",
+        "finish": "Long, mineral-driven finish with persistent citrus and a refreshing saline quality. The high acidity and mineral notes leave the palate completely cleansed."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish",
+        "Classic kir cocktail (Aligoté with crème de cassis)",
+        "Escargots in garlic butter",
+        "Jambon persillé",
+        "Fresh goat cheese and sourdough"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; allow to warm slightly in glass",
+        "glassware": "White Burgundy glass to showcase aromatics"
+      },
+      "wineDetails": {
+        "region": "Bouzeron, Côte Chalonnaise, Burgundy, France",
+        "grapeVariety": "100% Aligoté",
+        "vintage": "2021",
+        "style": "Crisp, mineral-driven white wine with high acidity",
+        "ageability": "Drink now through 2026. Best enjoyed over 2-5 years while maintaining fresh character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dominio de la Abadesa Roble 2018",
+      "description": "An approachable red wine from Ribera del Duero, Spain's prestigious red wine region. 'Roble' indicates brief oak aging (typically 3-6 months), creating a wine that balances fresh fruit character with subtle oak influence. Dominio de la Abadesa represents quality winemaking from this renowned Tempranillo-focused region.",
+      "tastingNotes": {
+        "aroma": "Vibrant and fruit-forward with aromas of ripe cherry, plum, and blackberry, complemented by subtle notes of vanilla and sweet spice from oak aging. Hints of leather, tobacco, and dried herbs add complexity, while maintaining a fresh, youthful character. The nose shows classic Ribera del Duero profile with good intensity and balance.",
+        "palate": "Medium to full-bodied with moderate tannins and refreshing acidity. The palate delivers concentrated red and dark fruit flavors—cherry, raspberry, and blackberry—balanced by savory notes of tobacco, earth, and a touch of cocoa. The oak influence is subtle, adding vanilla and toast without overwhelming the fruit. The wine shows good structure and depth for a Roble-level wine.",
+        "finish": "Medium to long finish with persistent fruit, gentle tannins, and lingering oak spice. The fresh acidity keeps the wine balanced and food-friendly."
+      },
+      "foodPairings": [
+        "Grilled chorizo and Spanish tapas",
+        "Roasted lamb with rosemary",
+        "Aged Manchego cheese",
+        "Mushroom and herb dishes",
+        "Beef empanadas"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30 minutes recommended to open the wine",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero, Spain",
+        "grapeVariety": "100% Tempranillo (Tinto Fino)",
+        "vintage": "2018",
+        "style": "Medium-bodied red with brief oak aging (Roble classification)",
+        "ageability": "Drink now through 2026. Roble wines are meant for earlier consumption."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Kettlebell Cabernet Sauvignon 2023",
+      "description": "A bold, fruit-forward Cabernet Sauvignon from California, crafted with a focus on approachability and value. The Kettlebell brand represents modern California winemaking with ripe fruit expression and smooth tannins. This recent 2023 vintage showcases the sunny California style with concentration and richness.",
+      "tastingNotes": {
+        "aroma": "Bold and fruit-driven with aromas of ripe blackberry, cassis, and black cherry, layered with notes of vanilla, toast, and sweet oak from barrel aging. Hints of dark chocolate, coffee, and eucalyptus add complexity, while subtle bell pepper and dried herb notes provide varietal character. The nose is intense and welcoming.",
+        "palate": "Full-bodied with soft, approachable tannins and moderate acidity. The palate delivers concentrated dark fruit flavors—blackberry, black currant, and plum—complemented by notes of mocha, vanilla, and sweet spice. The oak influence is evident with flavors of toast, caramel, and cedar, balanced by ripe fruit sweetness. The wine is smooth and polished with a modern, accessible style.",
+        "finish": "Medium to long finish with persistent dark fruit and sweet oak spice. Soft tannins and a touch of warmth from alcohol create a satisfying conclusion."
+      },
+      "foodPairings": [
+        "Grilled steak or burgers",
+        "Barbecue ribs with smoky sauce",
+        "Aged cheddar or sharp cheeses",
+        "Beef tacos or fajitas",
+        "Mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "30-45 minutes to soften and open",
+        "glassware": "Large Cabernet or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Central Coast or Lodi)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Full-bodied, fruit-forward Cabernet with oak aging",
+        "ageability": "Drink now through 2028. Best enjoyed over the next 3-5 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Gran Reserva 1978",
+      "description": "An exceptionally rare and aged Gran Reserva from Bodegas Riojanas, over 45 years old. This historic vintage represents traditional Rioja winemaking at its finest, having spent years in barrel and decades in bottle developing profound complexity. The 1978 vintage in Rioja was excellent, and this wine is now a museum piece showcasing how traditional Rioja can age gracefully.",
+      "tastingNotes": {
+        "aroma": "Profoundly complex and evolved with aromas of dried cherry, fig, and prune, interwoven with extensive tertiary development. Notes of tobacco, leather, cedar, and forest floor dominate, along with oxidative characteristics of walnut, caramel, and rancio. Hints of balsamic, dried herbs, mushroom, and antique wood add layers of complexity. The aromatics are ethereal and meditative, showing remarkable preservation.",
+        "palate": "Medium-bodied with soft, fully integrated tannins and remarkable freshness for the age. The palate delivers flavors of dried fruit, tobacco leaf, and leather, complemented by complex notes of aged balsamic, soy, and umami richness. The fruit has evolved into dried cherry and fig concentrate, while maintaining structure through gentle acidity. Flavors of walnut, coffee, and sweet spice from extended oak aging create a tapestry of complexity.",
+        "finish": "Extremely long, complex finish with persistent dried fruit, spice, and oxidative notes. The wine lingers with elegance and grace, a testament to traditional Rioja winemaking and cellaring."
+      },
+      "foodPairings": [
+        "Aged Spanish cheeses like Idiazábal or aged Manchego",
+        "Slow-braised lamb or oxtail",
+        "Wild mushroom dishes",
+        "Jamón Ibérico de bellota",
+        "Best enjoyed on its own as a meditation wine"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Stand upright for 48 hours before opening; very careful decanting to remove sediment",
+        "glassware": "Traditional Rioja glass or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Predominantly Tempranillo with traditional Rioja varieties",
+        "vintage": "1978",
+        "style": "Fully mature Gran Reserva with extensive aging and tertiary development",
+        "ageability": "Fully mature; drink now. Should be consumed soon as wine has reached peak maturity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:10:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 111,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:10:00Z",
+    "averageConfidence": 0.84,
+    "note": "Wine #3 (Raywood Keg Handles) is equipment, not wine - flagged for removal"
+  }
+}

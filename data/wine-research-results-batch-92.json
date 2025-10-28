@@ -1,0 +1,332 @@
+[
+  {
+    "productName": "Wine Kitchen Sparkling NV",
+    "description": "A house-label sparkling wine crafted for The Wine Kitchen restaurant group, designed to offer approachable effervescence and food-friendly versatility. This wine brings celebratory character to casual dining with bright fruit and refreshing bubbles.",
+    "tastingNotes": {
+      "aroma": "Delicate aromas of green apple and citrus zest open the bouquet, followed by hints of white peach and fresh brioche. The nose shows a clean, fruit-forward character with subtle yeasty notes that add complexity without overwhelming the primary fruit expression. Light floral undertones of white blossoms provide aromatic lift, while a whisper of minerality suggests careful vinification.",
+      "palate": "Crisp and refreshing on the palate, with lively bubbles that create a creamy mousse texture. Flavors of tart green apple, lemon, and white pear dominate the mid-palate, supported by bright acidity that keeps the wine vibrant and food-friendly. The effervescence is persistent and fine-beaded, adding textural interest. A subtle breadiness from brief lees contact adds depth without heaviness, while the overall impression remains light and approachable.",
+      "finish": "Clean and refreshing finish with lingering citrus notes and gentle minerality. The bubbles persist pleasantly, leaving the palate cleansed and ready for the next bite."
+    },
+    "foodPairings": [
+      "Fresh oysters with mignonette sauce",
+      "Fried calamari with lemon aioli",
+      "Goat cheese and herb appetizers",
+      "Smoked salmon canapés",
+      "Light seafood pastas"
+    ],
+    "servingInfo": {
+      "temperature": "6-8°C (43-46°F)",
+      "decanting": "Not required; serve well-chilled",
+      "glassware": "Flute or white wine glass"
+    },
+    "wineDetails": {
+      "region": "California, USA",
+      "grapeVariety": "Sparkling wine blend (likely Chardonnay-based)",
+      "vintage": "NV",
+      "style": "Light, crisp sparkling wine with bright fruit character",
+      "ageability": "Drink upon purchase; best enjoyed fresh"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Valdemar Estates \"Entre Nosotros\" Cabernet Sauvignon 2020",
+    "description": "A bold Washington State Cabernet Sauvignon from Valdemar Estates, crafted from select Columbia Valley fruit. This wine showcases the characteristic power and structure of Red Mountain terroir with elegant fruit integration.",
+    "tastingNotes": {
+      "aroma": "Bold aromas of blackberries and plums lead the nose, intertwined with roasted dark chocolate and espresso bean complexity. The bouquet reveals layers of cassis and black cherry, enhanced by savory notes of roasted coffee beans and cedar from careful oak aging. Subtle hints of vanilla, tobacco leaf, and crushed herbs add aromatic intrigue, while the deep garnet color hints at the wine's concentration and power.",
+      "palate": "Powerful black fruit dominates the palate with concentrated flavors of blackberry, black plum, and dark cherry. The mid-palate reveals a savory twist of roasted coffee beans and dark chocolate, complemented by well-integrated oak that contributes structure without overwhelming the fruit. The blend's 18% Merlot and 7% Syrah add suppleness and spice to the Cabernet backbone. Firm but refined tannins provide excellent structure, while balanced acidity ensures the wine remains fresh despite its power. The texture is rich and full-bodied with impressive depth.",
+      "finish": "Long and complex finish with persistent dark fruit, coffee, and chocolate notes. The tannins are firm but approachable, suggesting excellent aging potential while remaining enjoyable now."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with peppercorn sauce",
+      "Braised short ribs with root vegetables",
+      "Roasted lamb rack with rosemary",
+      "Aged cheddar and dark chocolate pairing",
+      "Mushroom and truffle risotto"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Recommended 1 hour before serving",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Columbia Valley, Washington State, USA",
+      "grapeVariety": "75% Cabernet Sauvignon, 18% Merlot, 7% Syrah",
+      "vintage": "2020",
+      "style": "Full-bodied, bold with dark fruit and oak complexity",
+      "ageability": "Drink 2024-2032; peak 2025-2028"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Scheid Vineyards Elder Rock Chardonnay 2019",
+    "description": "A refined Monterey County Chardonnay from Scheid's premium Elder Rock vineyard, showcasing cool-climate elegance with careful oak integration. This wine represents the quality potential of California's Central Coast.",
+    "tastingNotes": {
+      "aroma": "The nose opens with vibrant citrus notes of lemon zest and grapefruit, complemented by tropical hints of fresh pineapple and ripe yellow apple. Subtle notes of vanilla and toasted oak add complexity, while a delicate creaminess suggests thoughtful lees contact. White floral undertones and a whisper of minerality from the coastal influence add aromatic depth. The bouquet balances fruit purity with elegant oak integration.",
+      "palate": "Bright and refreshing on the palate with a ton of lemon and fresh pineapple character leading the way. The wine shows surprising fullness despite its crisp acidity, with layers of yellow apple, white peach, and citrus creating a complex fruit profile. A hint of creaminess adds texture and richness to the mid-palate, while well-integrated oak contributes vanilla and subtle toast notes without heaviness. The coastal cool-climate character ensures vibrant acidity and mineral backbone that keeps the wine balanced and food-friendly.",
+      "finish": "Medium to long finish with persistent citrus and stone fruit notes. The creamy texture lingers alongside bright acidity, creating a balanced and satisfying conclusion."
+    },
+    "foodPairings": [
+      "Grilled halibut with lemon butter",
+      "Lobster mac and cheese",
+      "Roasted chicken with herbs",
+      "Creamy risotto with mushrooms",
+      "Brie and aged Gruyère cheese"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F)",
+      "decanting": "Not required; benefits from time in glass",
+      "glassware": "Burgundy or Chardonnay-specific glass"
+    },
+    "wineDetails": {
+      "region": "Monterey County, Central Coast, California, USA",
+      "grapeVariety": "100% Chardonnay from Elder Rock vineyard",
+      "vintage": "2019",
+      "style": "Cool-climate, elegant with bright fruit and subtle oak",
+      "ageability": "Drink now through 2026; approaching peak"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Vieux Chateau Flouquet Grand Cru 2021",
+    "description": "A charming Saint-Émilion Grand Cru from Vignobles Garzaro, crafted from predominantly Merlot with Cabernet Franc on clay-limestone soils. This wine embodies the approachable elegance and gourmand character of right bank Bordeaux.",
+    "tastingNotes": {
+      "aroma": "The nose reveals classic Saint-Émilion aromatics with ripe blackcurrant and dark cherry leading, complemented by elegant vanilla notes from French oak aging. Red plum and wild berry notes add complexity, while subtle hints of violet, tobacco leaf, and cedar provide savory intrigue. The clay-limestone terroir contributes mineral undertones and herbal freshness that balance the ripe fruit expression. A touch of graphite and earthy nuances ground the wine in its Right Bank origins.",
+      "palate": "Smooth and charming on the palate with generous dark fruit flavors of blackcurrant, black cherry, and plum. The wine shows the characteristic gourmandise and onctuosité (smoothness) of quality Saint-Émilion, with velvety tannins that coat the palate without astringency. Integrated vanilla and toast from oak aging add structure and depth to the mid-palate. The 90% Merlot base provides suppleness and approachability, while Cabernet Franc adds aromatic lift and elegant structure. Medium to full-bodied with balanced acidity that maintains freshness.",
+      "finish": "Medium to long finish with soft, integrated tannins and persistent dark fruit. Subtle oak spice and mineral notes linger gracefully, showcasing the wine's balance and aging potential."
+    },
+    "foodPairings": [
+      "Roasted duck breast with cherry reduction",
+      "Beef bourguignon with pearl onions",
+      "Grilled entrecôte with herb butter",
+      "Mushroom and truffle tart",
+      "Aged Comté or mature Cantal cheese"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Recommended 30-45 minutes",
+      "glassware": "Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Saint-Émilion Grand Cru, Bordeaux, France",
+      "grapeVariety": "90% Merlot, 10% Cabernet Franc",
+      "vintage": "2021",
+      "style": "Elegant, smooth Right Bank Bordeaux with gourmand character",
+      "ageability": "Drink 2024-2037; peak 2026-2032"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Sky Devil Dash Two 2022",
+    "description": "A veteran-owned winery's tribute to Marine Corps aviation heritage, crafted with precision and passion. This wine honors the 'Dash Two' wingman position, representing teamwork and excellence in winemaking.",
+    "tastingNotes": {
+      "aroma": "The nose opens with vibrant red and dark fruit aromas, showcasing bright cherry, blackberry, and red plum. Subtle spice notes of black pepper and clove add complexity, while hints of vanilla and cedar from oak aging provide elegant framing. Fresh herb notes of sage and thyme contribute aromatic interest, while a touch of minerality grounds the bouquet. The aromatic profile balances fruit purity with thoughtful winemaking.",
+      "palate": "Medium to full-bodied with concentrated red and black fruit flavors. Juicy cherry and blackberry dominate the mid-palate, supported by layers of plum and dark berry notes. Well-integrated oak contributes structure and spice without overwhelming the fruit expression. The tannins are firm but refined, providing grip and aging potential while maintaining approachability. Balanced acidity keeps the wine fresh and food-friendly, while the texture shows excellent depth and complexity befitting the Sky Devil quality standard.",
+      "finish": "Long and satisfying finish with persistent fruit and subtle oak spice. The tannins are well-managed, leaving a structured yet smooth impression that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled flank steak with chimichurri",
+      "BBQ pork ribs with smoky sauce",
+      "Bacon-wrapped filet mignon",
+      "Mushroom and blue cheese burger",
+      "Aged manchego and charcuterie"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Optional 20-30 minutes",
+      "glassware": "Standard Bordeaux or Cabernet glass"
+    },
+    "wineDetails": {
+      "region": "California, USA",
+      "grapeVariety": "Red blend (likely Cabernet-based)",
+      "vintage": "2022",
+      "style": "Medium to full-bodied, fruit-forward with balanced oak",
+      "ageability": "Drink now through 2028; peak 2024-2026"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Bodegas Riojanas Vina Albina Reserva 2020",
+    "description": "A classic Rioja Reserva from the centenarian Bodegas Riojanas, founded in 1890 in Cenicero, heart of Rioja Alta. This wine showcases traditional extended aging in American oak, representing over a century of winemaking expertise.",
+    "tastingNotes": {
+      "aroma": "Deep ruby colored wine with an inviting nose of raspberry, caramel, and cocoa powder. The bouquet reveals layers of red and black fruit, including black cherry and wild strawberry, enhanced by sweet vanilla and toast from American oak aging. Subtle notes of leather, dried thyme, and clove add savory complexity, while hints of tobacco and cedar provide elegant framing. The 24-30 month barrel aging contributes rich, integrated oak character that complements rather than dominates the fruit.",
+      "palate": "Rich and well-structured palate with flavors of black cherry, Mission fig, dark chocolate, and clove. The Tempranillo base (80%) provides core red fruit and structure, while Mazuelo (15%) adds acidity and aging potential, and Graciano (5%) contributes aromatic complexity. The wine shows excellent balance between fruit ripeness and oak influence, with dried thyme and herbal notes adding savory depth. Downy tannins coat the tongue and gums, providing structure without astringency. The extended bottle aging (12 months) has softened and integrated all elements beautifully.",
+      "finish": "Long and satisfying finish with lingering dark fruit, chocolate, and spice notes. The tannins persist gently, showcasing the classic Rioja Reserva style."
+    },
+    "foodPairings": [
+      "Roasted lamb shoulder with garlic and rosemary",
+      "Aged manchego cheese with quince paste",
+      "Grilled chorizo and patatas bravas",
+      "Braised oxtail in red wine sauce",
+      "Ibérico ham with crusty bread"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Recommended 30-45 minutes",
+      "glassware": "Rioja or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Rioja Alta DOCa, Spain",
+      "grapeVariety": "80% Tempranillo, 15% Mazuelo, 5% Graciano",
+      "vintage": "2020",
+      "style": "Classic Reserva with American oak aging, structured and complex",
+      "ageability": "Drink now through 2035; peak 2024-2028"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Famille Henry Isle Saint Pierre Rose 2024",
+    "description": "A fresh and vibrant rosé from the Loire Valley's Famille Henry estate, crafted with attention to aromatic purity and refreshing character. This wine captures the essence of Loire rosé with delicate fruit and mineral complexity.",
+    "tastingNotes": {
+      "aroma": "Pale salmon-pink in color with an expressive nose of fresh strawberry, wild raspberry, and white peach. Delicate floral notes of rose petal and orange blossom add aromatic complexity, while hints of citrus zest and white pepper provide spice and lift. The bouquet shows excellent purity and freshness, with subtle mineral undertones that speak to the Loire terroir. A whisper of herbs and crushed stone adds depth without heaviness.",
+      "palate": "Crisp and refreshing on the palate with bright acidity that drives the wine forward. Flavors of red berry, particularly strawberry and raspberry, dominate the mid-palate, complemented by notes of white peach and pink grapefruit. The wine shows excellent tension between fruit sweetness and mineral backbone, with a stony character that adds complexity. Light-bodied and elegant, with a subtle saline quality that enhances food pairing versatility. The texture is clean and precise, showing careful winemaking.",
+      "finish": "Clean and mineral-driven finish with persistent red berry notes and refreshing acidity. The stony character lingers alongside subtle fruit, leaving the palate refreshed."
+    },
+    "foodPairings": [
+      "Grilled shrimp with herb butter",
+      "Salade Niçoise with fresh tuna",
+      "Goat cheese crostini with honey",
+      "Cold poached salmon with dill",
+      "Fresh oysters with shallot vinaigrette"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F)",
+      "decanting": "Not required; serve well-chilled",
+      "glassware": "White wine or rosé glass"
+    },
+    "wineDetails": {
+      "region": "Loire Valley, France",
+      "grapeVariety": "Loire varieties (likely Cabernet Franc or Gamay-based)",
+      "vintage": "2024",
+      "style": "Fresh, mineral-driven rosé with bright acidity",
+      "ageability": "Drink now through 2025; best enjoyed young"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Phelps Creek Gewurztraminer 2023",
+    "description": "An aromatic Gewurztraminer from Oregon's Columbia Gorge AVA, where cool climate and volcanic soils create ideal conditions for this expressive variety. Phelps Creek's commitment to terroir-driven winemaking shines in this elegant expression.",
+    "tastingNotes": {
+      "aroma": "Explosively aromatic nose with classic Gewurztraminer character of lychee, rose petal, and tropical fruit. The bouquet reveals layers of ripe peach, apricot, and pineapple, enhanced by exotic spices including ginger, cinnamon, and white pepper. Floral notes of jasmine and honeysuckle add perfume and complexity, while hints of orange zest and honey provide additional aromatic intrigue. The cool-climate character ensures the aromatics remain fresh and lifted rather than cloying.",
+      "palate": "Medium-bodied with bright acidity that balances the variety's natural richness. Flavors of lychee, white peach, and tropical fruit dominate the palate, complemented by subtle honey sweetness and exotic spice. The wine shows excellent balance between fruit ripeness and refreshing acidity, maintaining elegance despite its aromatic intensity. A touch of minerality from volcanic soils adds complexity and structure to the mid-palate. The texture is slightly oily yet refreshing, characteristic of quality Gewurztraminer.",
+      "finish": "Long and aromatic finish with lingering lychee, spice, and floral notes. The acidity persists, keeping the wine fresh and food-friendly."
+    },
+    "foodPairings": [
+      "Thai green curry with chicken",
+      "Seared scallops with ginger",
+      "Alsatian choucroute garnie",
+      "Spicy Indian tikka masala",
+      "Washed-rind alpine cheese"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F)",
+      "decanting": "Not required",
+      "glassware": "Aromatic white wine glass"
+    },
+    "wineDetails": {
+      "region": "Columbia Gorge AVA, Oregon, USA",
+      "grapeVariety": "100% Gewurztraminer",
+      "vintage": "2023",
+      "style": "Aromatic, off-dry with bright acidity and exotic spice",
+      "ageability": "Drink now through 2027; best enjoyed young to moderate age"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Darms Lane Cabernet Sauvignon, Bon Passe 2021",
+    "description": "A premium Napa Valley Cabernet Sauvignon from Darms Lane, showcasing the elegance and power of Bon Passe vineyard fruit. This wine represents meticulous vineyard management and careful winemaking in one of California's most celebrated regions.",
+    "tastingNotes": {
+      "aroma": "Concentrated aromas of cassis, blackberry, and dark cherry dominate the nose, enhanced by notes of vanilla bean, cedar, and cigar box from French oak aging. The bouquet reveals layers of complexity with hints of violets, graphite, and crushed herbs adding aromatic intrigue. Subtle notes of espresso, dark chocolate, and baking spices provide additional depth. The intensity speaks to the wine's Napa pedigree and concentrated fruit character.",
+      "palate": "Full-bodied and structured with powerful dark fruit flavors of blackcurrant, black cherry, and boysenberry. The palate shows excellent concentration and depth, with layers of mocha, tobacco, and dried herbs adding savory complexity. Well-integrated French oak contributes vanilla, toast, and spice notes without overwhelming the fruit. Firm tannins provide excellent structure and aging potential, while balanced acidity maintains freshness despite the wine's power. The texture is rich and voluptuous, coating the palate with dense fruit and fine-grained tannins.",
+      "finish": "Long and powerful finish with persistent dark fruit, oak spice, and firm tannins. The wine lingers gracefully, showcasing its complexity and cellar-worthiness."
+    },
+    "foodPairings": [
+      "Grilled prime ribeye with compound butter",
+      "Braised lamb shanks with rosemary",
+      "Aged New York strip with bordelaise sauce",
+      "Wild mushroom Wellington",
+      "Aged Parmigiano-Reggiano and dark chocolate"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Strongly recommended 1-2 hours",
+      "glassware": "Large Bordeaux or Cabernet glass"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California, USA",
+      "grapeVariety": "Cabernet Sauvignon from Bon Passe vineyard",
+      "vintage": "2021",
+      "style": "Full-bodied, concentrated with structured tannins and oak complexity",
+      "ageability": "Drink 2025-2041; peak 2028-2036"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  },
+  {
+    "productName": "Talpiot Red",
+    "description": "A kosher red wine blend showcasing Mediterranean character and food-friendly structure. This wine represents the growing quality of Israeli winemaking with balanced fruit and elegant complexity.",
+    "tastingNotes": {
+      "aroma": "The nose opens with ripe red and dark fruit aromas of cherry, plum, and blackberry. Mediterranean herb notes of thyme, rosemary, and oregano add aromatic complexity, while hints of leather and earth provide savory depth. Subtle oak influence contributes vanilla and spice notes without dominating. The bouquet shows balance between fruit purity and complexity, with a warm climate character that remains elegant.",
+      "palate": "Medium to full-bodied with generous fruit flavors of red cherry, dark plum, and blackberry. The palate reveals layers of complexity with notes of dried herbs, tobacco, and subtle spice from oak aging. Moderate tannins provide structure without astringency, while balanced acidity maintains freshness and food-pairing versatility. The Mediterranean terroir contributes earthy mineral notes and herbal character that add interest. The texture is smooth and approachable, making this wine versatile at the table.",
+      "finish": "Medium-length finish with soft tannins and lingering fruit. Subtle herbal and earthy notes persist alongside red fruit, creating a balanced conclusion."
+    },
+    "foodPairings": [
+      "Grilled lamb kebabs with za'atar",
+      "Beef shawarma with tahini",
+      "Roasted eggplant with tahini",
+      "Mediterranean mezze platter",
+      "Hard aged cheeses with olives"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Optional 15-20 minutes",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Israel (likely Judean Hills or Galilee)",
+      "grapeVariety": "Red blend (Mediterranean varieties)",
+      "vintage": "NV or recent vintage",
+      "style": "Medium-bodied, food-friendly with Mediterranean character",
+      "ageability": "Drink now through 2027; best enjoyed within 3-5 years"
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T13:40:00.000Z"
+    }
+  }
+]

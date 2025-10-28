@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Dominio de Taurum DO TORO 2020",
+    "description": "This Tempranillo from Toro showcases the power and elegance of 20-year-old vines grown along the Douro River banks. A Bronze Medal winner at the Decanter World Wine Awards, this wine delivers exceptional value with its opaque purple color and deeply layered fruit profile. The subtle oak integration and ripe tannins make this a benchmark expression of modern Toro winemaking.",
+    "tastingNotes": {
+      "aroma": "An opaque purple color introduces an attractive perfume of violets and spice box, layered with concentrated blackcurrant and blackberry aromas. Wild blackberry notes dominate, while hints of oak develop as the wine opens, revealing additional complexity. The bouquet is both powerful and inviting, suggesting the wine's youthful vigor and aging potential.",
+      "palate": "Full-bodied and deep on entry, this is a powerful wine showcasing black fruits, licorice, and sweet spices against a backdrop of delicate oak influence. The ripeness is beautifully balanced with gentle, well-integrated tannins that provide structure without overwhelming the fruit. Dry and firm tannins give the wine excellent backbone while maintaining elegance and freshness throughout the mid-palate.",
+      "finish": "Long and persistent, the finish reveals the wine's youth with lingering black fruit, spice, and subtle oak notes. The well-structured conclusion demonstrates excellent aging potential, with firm but refined tannins that will soften beautifully over the coming years."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary and garlic",
+      "Braised beef short ribs with red wine reduction",
+      "Roasted game meats such as venison or wild boar",
+      "Aged Manchego cheese with quince paste",
+      "Hearty bean and chorizo stew (Fabada Asturiana)"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Decant for 45-60 minutes to allow the young wine to open and integrate, or cellar for 3-5 years for optimal drinking",
+      "glassware": "Large bowl Bordeaux or Tempranillo-style glass"
+    },
+    "wineDetails": {
+      "region": "DO Toro, Castilla y León, Spain",
+      "grapeVariety": "100% Tempranillo (Tinta de Toro)",
+      "vintage": "2020",
+      "style": "Full-bodied red wine with subtle oak aging",
+      "ageability": "Drink now through 2028, or cellar for 5-8 years for further development and integration"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Thelema Rabelais 2021",
+    "description": "Thelema's flagship red blend represents the pinnacle of South African Bordeaux-style winemaking. With 95 points from Tim Atkin and 5 Stars from Platter's, this is 'the very best Rabelais produced to date' according to Greg Sherwood MW. Crafted from the estate's finest Cabernet Sauvignon and Petit Verdot, this wine spent 20 months in 80% new French oak, resulting in a beautifully complex, age-worthy masterpiece.",
+    "tastingNotes": {
+      "aroma": "Dark berries, cedar, wafers, and sweet spice create an immediately captivating bouquet. Bright red cherry and blackcurrant fruit jump from the glass with amazing focus, complemented by notes of mint and chalk. Subtle hints of rosemary and thyme add an herbal complexity, while the quality oak integration brings vanilla and toast without any heaviness.",
+      "palate": "Medium-bodied with powdery, finely-grained tannins that provide structure without weight. Juicy and alive, the wine shows concentrated ripe berry character with excellent acidity that brings vibrancy and length. The palate is impressively complex, rich, and beautifully balanced, with a dusty texture that adds sophistication. There's no fatness here—just pure, focused fruit and mineral precision.",
+      "finish": "Very fine and potentially long-lived, the finish lingers with ripe berries, cedar, and subtle spice. The tannins are perfectly integrated, leaving a clean, mineral-driven conclusion that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled beef fillet with mushroom duxelles",
+      "Rack of lamb with herb crust and red wine jus",
+      "Duck breast with cherry reduction",
+      "Aged blue cheese or mature Gouda",
+      "Wild mushroom risotto with truffle oil"
+    ],
+    "servingInfo": {
+      "temperature": "60-64°F (16-18°C)",
+      "decanting": "Decant for 30-45 minutes before serving to enhance the aromatics, or cellar for optimal development",
+      "glassware": "Large bowl Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Stellenbosch, Western Cape, South Africa",
+      "grapeVariety": "Cabernet Sauvignon and Petit Verdot",
+      "vintage": "2021",
+      "style": "Full-bodied Bordeaux-style blend, 20 months in 80% new French oak",
+      "ageability": "Drink now or cellar for 20+ years for further complexity and integration"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.98,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Rueda Isabelino Blanco 2020",
+    "description": "This 100% Verdejo from 35-year-old vines showcases the minerally, citrus-driven character that has made Rueda Spain's premier white wine region. Awarded 90 points and a Silver Medal, Bodega Reina de Castilla's Isabelino captures textbook Verdejo character with its bright acidity, stone fruit flavors, and distinctive mineral backbone. A touch of neutral oak adds weight without compromising the wine's fresh, vibrant nature.",
+    "tastingNotes": {
+      "aroma": "Beautiful golden color introduces aromas of white nectarine, lemon peel, and lemon pith, complemented by raw almond and white flowers. Textbook pear, citrus, and lemongrass notes mingle with herbaceous undertones. Green apple, peach, and Bosc pear create a fruit-forward bouquet with a hint of fennel adding complexity.",
+      "palate": "Dry and crisp with mouthwatering acidity that rises straight to the top, the wine features a mineral-driven taste profile with wet steel and alpine river rock character. Fresh, juicy, and exceptionally well-made, the palate delivers ripe peach and white nectarine flavors while maintaining firm acidity. A touch of neutral oak provides subtle weight and structure, allowing the bright fruit and minerality to shine through.",
+      "finish": "Clean and refreshing with medium length, the finish leaves impressions of citrus, stone fruit, and pronounced minerality. The smooth acidity ensures a crisp conclusion that cleanses the palate beautifully."
+    },
+    "foodPairings": [
+      "Fresh oysters with mignonette sauce",
+      "Grilled sea bass with lemon and herbs",
+      "Goat cheese salad with citrus vinaigrette",
+      "Asparagus risotto with Parmesan",
+      "Steamed mussels in white wine sauce"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C)",
+      "decanting": "No decanting needed; serve well-chilled directly from the bottle",
+      "glassware": "Medium-sized white wine glass or Sauvignon Blanc glass"
+    },
+    "wineDetails": {
+      "region": "DO Rueda, Castilla y León, Spain",
+      "grapeVariety": "100% Verdejo from 35-year-old vines",
+      "vintage": "2020",
+      "style": "Fresh, mineral-driven white wine with subtle oak influence",
+      "ageability": "Best enjoyed within 2-3 years of vintage to preserve freshness and vibrancy"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.92,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Skylark Alondra Chardonnay 2018",
+    "description": "From Mendocino County's distinguished Middleridge Ranch Vineyard, Skylark's Alondra Chardonnay represents a thoughtful balance between California ripeness and Old World restraint. This wine showcases the cooler-climate character of Mendocino, where bright acidity meets ripe tropical fruit. The Skylark project focuses on small-production, vineyard-specific wines that express terroir with precision and elegance.",
+    "tastingNotes": {
+      "aroma": "Granny Smith apple, lemon curd, and ripe tropical fruits dominate the aromatic profile, creating an inviting and complex bouquet. Strong citrus notes blend with pear and a touch of melon, while subtle oak influence adds vanilla and toast without overwhelming the fruit. The nose strikes a beautiful balance between freshness and richness.",
+      "palate": "A fascinating conversation between freshness and fleshiness unfolds on the palate, where ripeness and brightness find perfect commonality. Citrus zest, stone fruit, and tropical notes provide the fruit core, while well-integrated oak adds texture and depth. The acidity remains lively throughout, providing structure and ensuring the wine never feels heavy despite its generous fruit character.",
+      "finish": "The finish is clean and refreshing with lingering citrus and stone fruit notes. Subtle oak spice and a touch of minerality add complexity to the conclusion, while bright acidity leaves the palate cleansed and ready for another sip."
+    },
+    "foodPairings": [
+      "Roasted chicken with lemon and thyme",
+      "Lobster with drawn butter",
+      "Grilled swordfish with mango salsa",
+      "Creamy mushroom pasta",
+      "Brie and aged Gruyère cheese plate"
+    ],
+    "servingInfo": {
+      "temperature": "50-55°F (10-13°C)",
+      "decanting": "No decanting needed, though 10-15 minutes of aeration can help the wine open",
+      "glassware": "Standard Chardonnay glass or white Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Mendocino County, North Coast, California",
+      "grapeVariety": "100% Chardonnay from Middleridge Ranch Vineyard",
+      "vintage": "2018",
+      "style": "Balanced California Chardonnay with integrated oak and bright acidity",
+      "ageability": "Drink now through 2026 for optimal freshness and integration"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Collina San Ponzio Dolcetto D Alba STAINED LABELS 2018",
+    "description": "From a family-run vineyard with over a century of Barolo tradition, this Dolcetto d'Alba showcases the fresh, fruity character that makes the variety so beloved in Piedmont. Collina San Ponzio crafts this wine for immediate pleasure, emphasizing bright red fruits, soft tannins, and the variety's characteristic almond finish. While the labels may be stained, the wine inside represents classic Piedmontese quality.",
+    "tastingNotes": {
+      "aroma": "Vibrant red berry and spice aromas leap from the glass, featuring red cherry, raspberry, blackberry, and blueberry. Subtle rose petal notes add floral elegance, while hints of orange zest and clove provide complexity. The nose is immediately inviting and fruit-forward, characteristic of quality Dolcetto.",
+      "palate": "Deep, concentrated fruity flavors dominate the palate, with raspberry jam, red cherry, and dark berry notes taking center stage. Orange zest and clove spice add dimension, while the balanced tannic texture provides structure without heaviness. The wine maintains freshness throughout, with enough acidity to keep the ripe fruit vibrant and clean.",
+      "finish": "The finish reveals Dolcetto's signature almond notes, complemented by lingering red fruit and subtle spice. Soft tannins and bright acidity create a clean, refreshing conclusion that makes this wine exceptionally food-friendly."
+    },
+    "foodPairings": [
+      "Fresh pasta with tomato-based sauces",
+      "Pizza with prosciutto and arugula",
+      "Grilled Italian sausages with peppers",
+      "Antipasti platter with salumi and cheeses",
+      "Eggplant Parmigiana"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), slightly chilled",
+      "decanting": "Brief decanting of 15-20 minutes can help the wine open, though not essential",
+      "glassware": "Medium-sized red wine glass or standard Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Dolcetto d'Alba DOCG, Piedmont, Italy",
+      "grapeVariety": "100% Dolcetto",
+      "vintage": "2018",
+      "style": "Fresh, fruit-forward Piedmontese red for early drinking",
+      "ageability": "Best enjoyed young; drink now through 2025 for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.87,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Trespass Cabernet Franc 2021",
+    "description": "From a boutique 5-acre vineyard at the base of Spring Mountain in Saint Helena, Trespass Cabernet Franc represents ultra-limited production Napa Valley winemaking. With only 75 cases produced, this wine showcases the collaboration between Dana and Don Gallagher, focusing on elegant, terroir-driven expressions of Cabernet Franc. The 2021 vintage captures the variety's herbaceous complexity while maintaining the rich fruit character Napa is known for.",
+    "tastingNotes": {
+      "aroma": "A dense purple hue introduces captivating aromas of black currant, black cherry, and dark stone fruit. A touch of anise adds aromatic complexity, while notes of wood and black pepper provide additional layers. Subtle herbal notes characteristic of Cabernet Franc weave through the bouquet, adding sophistication to the ripe fruit core.",
+      "palate": "Full-bodied yet elegant, the wine showcases gorgeous black stone fruit alongside powerful yet refined tannins. The fruit is strong with concentrated black cherry flavors supported by underlying earthiness that adds complexity. Medium to full body provides substance without heaviness, while the wine's elegant structure suggests careful vineyard management and winemaking restraint.",
+      "finish": "Long and satisfying, the finish lingers with dark fruit, spice, and subtle herbal notes. The tannins are firm but finely grained, providing excellent structure that will integrate beautifully with time."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with herb butter",
+      "Roasted duck breast with blackberry reduction",
+      "Braised lamb shanks with root vegetables",
+      "Aged cheddar or cave-aged Gruyère",
+      "Wild mushroom and beef Wellington"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Decant for 30-45 minutes to allow the wine to open and reveal its full complexity",
+      "glassware": "Large bowl Cabernet or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Spring Mountain, Saint Helena, Napa Valley, California",
+      "grapeVariety": "100% Cabernet Franc",
+      "vintage": "2021",
+      "style": "Elegant, structured Napa Cabernet Franc from a boutique producer",
+      "ageability": "Drink now through 2033; will develop additional complexity with 5-10 years of cellaring"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.83,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Castoro Cellars Cabernet Sauvignon 375 ml 2021  375 ml",
+    "description": "From organically farmed, SIP-certified estate vineyards throughout Paso Robles, Castoro Cellars' 2021 Cabernet Sauvignon delivers impressive quality at an accessible price. This 375ml half-bottle format is perfect for intimate dinners or single servings. The wine earned 88 points from Wine Enthusiast for its roasted plum character, cocoa richness, and firm tannic structure.",
+    "tastingNotes": {
+      "aroma": "Roasted plum, woodspice, and toasted nut aromas create an inviting, complex bouquet. Black currant and blackberry notes provide the fruit core, while cedar and subtle tobacco add savory complexity. The organic farming practices shine through in the wine's pure, clean aromatic expression.",
+      "palate": "Cocoa on the palate elevates the concentrated berry fruit, adding depth and richness to the wine's core of black currant and blackberry flavors. Cedar and tobacco notes contribute complexity, while ample tannins keep the wine firm and structured. The 13.5% alcohol is well-integrated, providing substance without heat.",
+      "finish": "Firm tannins dominate the finish, providing excellent structure and suggesting the wine will develop beautifully with short-term cellaring. Roasted plum, cocoa, and cedar linger, leaving a satisfying, mouth-coating conclusion."
+    },
+    "foodPairings": [
+      "Grilled burgers with aged cheddar",
+      "BBQ ribs with smoky sauce",
+      "Mushroom and truffle pizza",
+      "Beef tacos with chipotle salsa",
+      "Sharp aged Gouda or Manchego"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Brief decanting of 20-30 minutes will help soften the tannins and integrate the flavors",
+      "glassware": "Standard Cabernet or red Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Paso Robles, Central Coast, California",
+      "grapeVariety": "Cabernet Sauvignon from estate organic vineyards",
+      "vintage": "2021",
+      "style": "Structured Paso Robles Cabernet from certified organic, SIP-certified vineyards",
+      "ageability": "Drink now through 2027; ample tannins suggest 3-5 years of aging potential"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.93,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Endhardt Vineyards Blanc de Cab Franc 2022",
+    "description": "A serendipitous creation from Loudoun County's award-winning Endhardt Vineyards, this Blanc de Cab Franc started as a planned rosé but lost its pink hue during fermentation, creating an elegant white wine from red grapes. The 11-acre estate focuses on quality over quantity, and this wine showcases the winery's innovative spirit. Endhardt recently won the Chairman's Grand Award for their 2023 Sauvignon Blanc, demonstrating their white winemaking expertise.",
+    "tastingNotes": {
+      "aroma": "A beautiful bouquet reveals orchard fruits including white peach, pear, and green apple, complemented by fresh berry notes that hint at the grape's red wine origins. Herbaceous and peppery aromatics characteristic of Cabernet Franc add complexity and intrigue, while subtle floral notes provide elegance.",
+      "palate": "The palate delivers a fascinating interplay between orchard fruit flavors and the variety's signature herbaceous character. White peach, crisp apple, and subtle berry notes create the fruit core, while the wine maintains vibrant acidity throughout. The unexpected combination of delicate fruit and peppery spice creates a unique and highly food-friendly profile.",
+      "finish": "The herbaceous-peppery finish is distinctive and memorable, with lingering orchard fruit notes and bright acidity. This unique conclusion showcases the wine's dual nature—white wine elegance with hints of red grape complexity."
+    },
+    "foodPairings": [
+      "Grilled chicken with herbs de Provence",
+      "Seared scallops with brown butter",
+      "Fresh goat cheese and herb salad",
+      "Pan-seared trout with lemon and capers",
+      "Asparagus and spring vegetable frittata"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C)",
+      "decanting": "No decanting needed; serve well-chilled directly from the bottle",
+      "glassware": "Standard white wine glass or Sauvignon Blanc glass"
+    },
+    "wineDetails": {
+      "region": "Loudoun County, Virginia",
+      "grapeVariety": "100% Cabernet Franc (white wine from red grapes)",
+      "vintage": "2022",
+      "style": "Unique white wine from Cabernet Franc grapes with herbaceous complexity",
+      "ageability": "Best enjoyed within 1-2 years to preserve freshness and aromatics"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.81,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Oliver Viticultors 10,000 Hours Floral Blanc 2024",
+    "description": "From the Penedès region's 55 hectares of organically farmed vineyards, Oliver Viticultors' 10,000 Hours Floral Blanc showcases the aromatic potential of Mediterranean grape varieties. This ecological white wine blends Muscat de Frontignan, Sauvignon Blanc, and Malvasia de Sitges, creating a perfumed, food-friendly expression that reflects the diversity and vitality of Catalan viticulture. The family winery's commitment to organic practices shines through in every sip.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with pronounced floral notes of orange blossom, jasmine, and white flowers. Muscat lends exotic fruit character with lychee, white peach, and honeydew melon, while Sauvignon Blanc contributes citrus zest and fresh-cut grass. Malvasia adds honeyed richness and additional floral complexity, creating a captivating bouquet.",
+      "palate": "Fresh and vibrant with layers of tropical and stone fruit flavors supported by zesty acidity. The Muscat brings exotic fruit character and floral notes, the Sauvignon Blanc provides structure and citrus backbone, and the Malvasia adds honeyed depth. The wine maintains excellent balance between aromatic intensity and refreshing crispness.",
+      "finish": "The finish is clean and refreshing with lingering floral notes and citrus zest. Bright acidity ensures a crisp conclusion, while subtle honeyed notes from the Malvasia add just a touch of richness."
+    },
+    "foodPairings": [
+      "Fresh shellfish and seafood platters",
+      "Grilled salmon with citrus glaze",
+      "Asian cuisine with aromatic spices",
+      "Vegetarian spring rolls with sweet chili sauce",
+      "Fresh fruit and mild cheese"
+    ],
+    "servingInfo": {
+      "temperature": "45-48°F (7-9°C), well-chilled",
+      "decanting": "No decanting needed; the aromatic intensity is best enjoyed immediately upon opening",
+      "glassware": "Aromatic white wine glass or Riesling glass to concentrate the perfume"
+    },
+    "wineDetails": {
+      "region": "DO Penedès, Catalonia, Spain",
+      "grapeVariety": "Muscat de Frontignan, Sauvignon Blanc, and Malvasia de Sitges",
+      "vintage": "2024",
+      "style": "Aromatic, organic white wine from Mediterranean varieties",
+      "ageability": "Best enjoyed young within 1-2 years to preserve aromatic intensity and freshness"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.89,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Thelema Chardonnay 2023",
+    "description": "One of Stellenbosch's top Chardonnay expressions, Thelema's 2023 vintage earned 91 points and 5 Stars in Platter's Wine Guide. Made from vines planted between 1989 and 2009 on decomposed granitic soils using clones CY3 and CY5, this wine spent 10 months in French oak (35% new). According to Greg Sherwood MW, this is 'a seriously grown-up Burgundian-styled expression' that combines purity with pronounced saline minerality and mouth-watering persistence.",
+    "tastingNotes": {
+      "aroma": "A deliciously complex bouquet reveals lemon blossom, lime peel, tangerine, and pithy white citrus complemented by green apple and rock candy. Pronounced minerality adds layers of complexity, while subtle oak integration brings vanilla and toast without overwhelming the pure fruit expression. The nose is both intense and refined.",
+      "palate": "Seriously grown-up and Burgundian in style, the palate shows pinpoint purity combined with pronounced saline character and mouth-watering persistence. Citrus, stone fruit, and green apple flavors are perfectly balanced by vibrant acidity and mineral complexity. The oak is beautifully integrated, adding texture and depth while allowing the fruit and terroir to shine.",
+      "finish": "Long and mineral-driven with exceptional persistence. The saline quality lingers beautifully, complemented by citrus zest and subtle oak spice. The finish is clean, refreshing, and utterly compelling—the hallmark of world-class Chardonnay."
+    },
+    "foodPairings": [
+      "Lobster thermidor or grilled lobster with butter",
+      "Pan-seared halibut with lemon beurre blanc",
+      "Roasted chicken with tarragon cream sauce",
+      "Rich seafood risotto with saffron",
+      "Aged Comté or mature white cheddar"
+    ],
+    "servingInfo": {
+      "temperature": "52-56°F (11-13°C)",
+      "decanting": "Brief aeration of 15-20 minutes can help the wine open, though not essential",
+      "glassware": "Burgundy glass or premium Chardonnay glass"
+    },
+    "wineDetails": {
+      "region": "Stellenbosch, Western Cape, South Africa",
+      "grapeVariety": "100% Chardonnay (clones CY3 and CY5) from vines planted 1989-2009",
+      "vintage": "2023",
+      "style": "Burgundian-styled Chardonnay, 10 months in French oak (35% new)",
+      "ageability": "Drink on release and over the next 5-8+ years for optimal enjoyment"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.96,
+      "researchedAt": "2025-10-21T14:10:00.000Z"
+    }
+  }
+]

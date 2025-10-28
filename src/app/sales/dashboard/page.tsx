@@ -242,11 +242,6 @@ export default function SalesDashboardPage() {
         />
       )}
 
-      {/* Customer Balances Widget */}
-      {isSectionEnabled('customer-balances') && (
-        <CustomerBalances onDrilldown={setActiveDrilldown} />
-      )}
-
       {/* Top Products Section */}
       {isSectionEnabled('top-products') && <TopProducts />}
 
@@ -295,6 +290,11 @@ export default function SalesDashboardPage() {
           )}
           {isSectionEnabled('tasks') && <TasksList tasks={tasks} />}
         </div>
+      )}
+
+      {/* Customer Balances Widget - surfaced near the end */}
+      {isSectionEnabled('customer-balances') && (
+        <CustomerBalances onDrilldown={setActiveDrilldown} />
       )}
 
       {/* Drilldown Modal */}

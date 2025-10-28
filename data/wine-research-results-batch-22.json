@@ -1,0 +1,350 @@
+{
+  "researchMetadata": {
+    "batchNumber": 22,
+    "totalWines": 10,
+    "researchDate": "2025-10-20T00:00:00.000Z",
+    "methodology": "Web search using multiple sources including Wine Enthusiast, CellarTracker, Vivino, winery websites, and professional reviews"
+  },
+  "wines": [
+    {
+      "productId": "free-spirits-bourbon-na",
+      "productName": "Free Spirits N/A Bourbon",
+      "description": "An award-winning non-alcoholic bourbon alternative crafted with natural ingredients and B-vitamins. Free Spirits delivers the complex character of traditional bourbon without the alcohol, making it ideal for sophisticated mocktails and mindful drinking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with authentic whiskey-like aromatics, featuring prominent vanilla and butterscotch notes reminiscent of aged bourbon. Oak and caramel undertones emerge with subtle hints of toffee, creating an inviting and surprisingly genuine bourbon bouquet. The aroma profile successfully captures the essence of traditional whiskey without relying on alcohol.",
+        "palate": "Initial hints of oak and malt greet the palate, followed by soft notes of sweet apple and vanilla that develop mid-palate. A slight caramel or brown sugar character appears without excessive sweetness, balanced by gentle bitter notes upfront. The texture is smooth with some chocolate notes emerging alongside a distinctive peppery quality that adds complexity and warmth to the drinking experience.",
+        "finish": "The finish delivers a unique capsaicin-forward burn similar to eating a mild hot pepper, creating warmth in the mouth and gentle heat in the back of the throat. This distinctive peppery sensation lingers pleasantly, mimicking the burn of alcoholic bourbon while the gentle malty and caramel notes fade gradually."
+      },
+      "foodPairings": [
+        "Classic Old Fashioned cocktails",
+        "Manhattan-style drinks",
+        "Grilled meats and BBQ",
+        "Sharp aged cheeses",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "Room temperature or slightly chilled (60-65°F)",
+        "decanting": "Not required; ready to use in cocktails immediately",
+        "glassware": "Rocks glass or whiskey tumbler for neat sipping; mixing glass for cocktails"
+      },
+      "wineDetails": {
+        "region": "United States",
+        "grapeVariety": "Non-alcoholic spirit (not wine-based)",
+        "vintage": "N/A",
+        "style": "Non-alcoholic bourbon alternative",
+        "ageability": "Best consumed fresh; not intended for aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "trespass-cab-sauv-2019-magnum",
+      "productName": "Trespass Cabernet Sauvignon Magnum 2019",
+      "description": "A Napa Valley estate-grown Cabernet Sauvignon from Trespass Vineyard in St. Helena, presented in impressive 1500ml magnum format. This limited production wine showcases the distinctive terroir of one of Napa's premier growing regions with meticulous attention to detail.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals dark purple and red fruit aromatics with layers of black cherry and cassis. Subtle vanilla notes emerge from judicious oak aging, accompanied by hints of cedar and tobacco leaf. The magnum format has allowed for slower, more graceful evolution, enhancing the aromatic complexity with additional notes of dried herbs and graphite.",
+        "palate": "On the palate, concentrated dark fruit flavors of blackberry and plum dominate, supported by well-integrated tannins that provide structure without harshness. A mineral streak runs throughout, characteristic of the St. Helena terroir, while signature chocolate notes add richness and depth. The wine shows excellent balance between fruit concentration and elegance, with layers of espresso, dark cocoa, and a touch of baking spice.",
+        "finish": "The finish is long and persistent with chocolate and dark fruit lingering beautifully. Fine-grained tannins provide texture while the mineral component adds freshness and lift. The magnum aging has contributed to a seamless, integrated conclusion that speaks to the wine's quality and aging potential."
+      },
+      "foodPairings": [
+        "Prime dry-aged ribeye steak",
+        "Grilled lamb chops with rosemary",
+        "Braised short ribs",
+        "Aged Gouda or Manchego cheese",
+        "Wild mushroom risotto"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 1-2 hours before serving to allow the wine to open and soften tannins; magnum format benefits from extended aeration",
+        "glassware": "Large Bordeaux-style glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, St. Helena, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Full-bodied red, estate-grown",
+        "ageability": "Excellent aging potential; drinking well now through 2035+. Magnum format will age even more gracefully."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "calyptra-vivendo-assemblage-2021",
+      "productName": "Calyptra Vivendo Assemblage Blend 2021",
+      "description": "An organic Chilean red blend from Cachapoal Valley, the Vivendo Assemblage represents Calyptra's premium selection combining Shiraz, Cabernet Sauvignon, and Merlot. Hand-harvested from organic vineyards and aged 26 months in French oak from Allier and Tronçais forests.",
+      "tastingNotes": {
+        "aroma": "The nose presents an intriguing combination of earthy complexity and ripe fruit character. Dark plum, black cherry, and mulberry aromas intertwine with notes of prune and dried fruit. Underlying earthy tones suggest forest floor and turned soil, while subtle hints of sweet spice from the extended oak aging add layers of vanilla and toast.",
+        "palate": "Rich and full-bodied on entry, the palate delivers concentrated dark fruit flavors with excellent depth. Syrah provides a spicy backbone with black pepper and dark berry notes, while Cabernet Sauvignon contributes structure and cassis flavors. The Merlot component adds plushness and dark chocolate undertones. The 26 months in French oak have integrated beautifully, providing subtle vanilla and cedar without overwhelming the fruit.",
+        "finish": "The finish is long and satisfying with persistent dark fruit and earthy mineral notes. Well-integrated tannins provide structure and grip, while a touch of espresso and dark chocolate linger. The organic viticulture shines through with pure, clean fruit expression and remarkable balance."
+      },
+      "foodPairings": [
+        "Chilean asado or grilled beef",
+        "Roasted lamb with herbs",
+        "Hearty bean and meat stews",
+        "Aged Manchego or Pecorino cheese",
+        "Grilled portobello mushrooms"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (16-18°C)",
+        "decanting": "Decant 45-60 minutes before serving to allow the wine to breathe and tannins to soften",
+        "glassware": "Large Bordeaux or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Cachapoal Valley, Chile",
+        "grapeVariety": "Shiraz/Syrah, Cabernet Sauvignon, Merlot blend",
+        "vintage": "2021",
+        "style": "Full-bodied red blend, organic",
+        "ageability": "Drink now through 2028; the extended oak aging provides good medium-term cellaring potential"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "weinrieder-beerenauslese-chard-2015",
+      "productName": "Weinrieder Beerenauslese Chardonnay 2015",
+      "description": "A remarkable Austrian dessert wine from the Weinviertel region, this Beerenauslese represents the height of Austrian sweet wine production. Made from Chardonnay grapes affected by noble rot, this 375ml half-bottle showcases the unique terroir of Lower Austria's loess and clay soils.",
+      "tastingNotes": {
+        "aroma": "The nose is brilliantly expressive with layers of citrus and stone fruit. Lime zest and grapefruit aromatics combine with notes of golden raisins and dried apricot. Delicate floral elements of acacia blossom and honeysuckle emerge, while lemongrass adds an exotic herbal dimension. The botrytis influence contributes honeyed complexity and subtle nutty nuances.",
+        "palate": "Wonderfully sweet yet remarkably balanced, the palate showcases the wine's fruity and velvety character. Despite the concentrated sweetness, a lively fruit acidity keeps the wine fresh and prevents cloying heaviness. The texture is light-footed and crisp, almost ethereal, with flavors of candied citrus peel, honey-poached pear, and tropical fruit dancing across the tongue. Mineral notes from the loess and clay soils add fascinating complexity and terroir expression.",
+        "finish": "The finale thrills with considerable length and persistence, the sweetness gradually fading to reveal mineral and citrus notes. The fresh acidity provides lift and ensures a clean conclusion, inviting another sip. Subtle hints of almond and marzipan appear at the very end, characteristic of quality Beerenauslese."
+      },
+      "foodPairings": [
+        "Foie gras or pâté",
+        "Blue cheese like Roquefort or Stilton",
+        "Fresh fruit tarts and pastries",
+        "Crème brûlée or panna cotta",
+        "Spicy Asian cuisine (Thai or Indian)"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled at 45-50°F (7-10°C)",
+        "decanting": "Not necessary; serve directly from the bottle",
+        "glassware": "Small white wine or dessert wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Weinviertel, Lower Austria",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2015",
+        "style": "Beerenauslese (dessert wine from noble rot-affected grapes)",
+        "ageability": "Excellent aging potential; drinking beautifully now through 2035+. Austrian sweet wines are known for longevity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "shabo-reserve-pinot-grigio-2022",
+      "productName": "Shabo Reserve Pinot Grigio 2022",
+      "description": "A Ukrainian white wine from the historic Shabo winery in the Odessa region, representing wines of resilience from one of Ukraine's premier producers. This Reserve bottling showcases the potential of Eastern European viticulture with careful fruit selection and modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose is delicate yet inviting with prominent notes of ripe white peach and Anjou pear. Bright citrus elements of lemon zest add freshness, while gentle acacia flower tones contribute subtle floral character. A hint of almond and white pepper spice adds complexity, creating a fruit-forward yet nuanced aromatic profile that speaks to the wine's quality Reserve designation.",
+        "palate": "Light straw in color, the wine presents a rounded and fresh palate that balances fruit purity with textural interest. Flavors of white peach, pear, and crisp green apple dominate, supported by vibrant acidity that keeps the wine bright and lively. Subtle almond notes add depth without weight, while a touch of minerality reflects the Odessa terroir. The mouthfeel is clean and refreshing with good persistence of fruit flavors.",
+        "finish": "The finish is long-lasting and clean, featuring continued citrus and orchard fruit notes. A gentle mineral quality provides structure and interest, while the fresh acidity ensures a crisp, food-friendly conclusion. Subtle hints of white flowers and almond linger delicately."
+      },
+      "foodPairings": [
+        "Grilled white fish or seafood",
+        "Light pasta with cream sauce",
+        "Fresh salads with citrus vinaigrette",
+        "Soft goat cheese or feta",
+        "Asian stir-fry dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled at 45-50°F (7-10°C)",
+        "decanting": "Not necessary; serve directly from the bottle",
+        "glassware": "Standard white wine glass or light-bodied white wine glass"
+      },
+      "wineDetails": {
+        "region": "Odessa, Ukraine",
+        "grapeVariety": "100% Pinot Grigio",
+        "vintage": "2022",
+        "style": "Dry white wine, fruit-driven and fresh",
+        "ageability": "Best enjoyed young for optimal freshness; drink now through 2025"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "monte-real-gran-reserva-1975",
+      "productName": "Monte Real Gran Reserva 1975",
+      "description": "A legendary vintage from Bodegas Riojanas, this 50-year-old Gran Reserva represents old-school Rioja at its finest. Remarkably well-preserved and singing with vitality, this wine showcases the extraordinary aging potential of traditional Rioja and the exceptional quality of the 1975 vintage.",
+      "tastingNotes": {
+        "aroma": "The mature nose reveals the wine's impressive age with grace and elegance. Aromas of mature red fruit—cranberry, dried cherry, and aged strawberry—combine with forest floor, dried autumn leaves, and turned earth. An orange peel hint adds brightness, while subtle notes of cedar, tobacco leaf, and wood box emerge with air. The aromatic complexity is stunning, showing classic old-school Rioja character without any mustiness or over-oxidation.",
+        "palate": "Despite its age, the wine remains remarkably alive and vibrant on the palate. Fresh flavors of tart red fruits and ripe cranberry dance with integrated, spot-on acidity that provides lift and energy. The tannins have resolved completely into silky smoothness, while earthy mineral notes add dimension and terroir character. Flavors of dried cherry, leather, tobacco, and a touch of vanilla from long oak aging create a tapestry of evolved complexity. The wine shows elegant restraint and perfect balance.",
+        "finish": "The finish is lengthy and contemplative, revealing layer after layer of earthy, mineral, and roasted earth aromas. A firm yet refined tannic structure provides backbone, while the integrated acidity ensures freshness. Subtle notes of dried fruit, leather, and mineral linger beautifully, inviting quiet reflection on this masterpiece of traditional winemaking. At 50 years, this wine is on a gentle plateau of maturity with drinking window extending well into the future."
+      },
+      "foodPairings": [
+        "Roasted game birds like quail or duck",
+        "Aged Manchego or Idiazábal cheese",
+        "Slow-braised lamb shoulder",
+        "Wild mushroom dishes",
+        "Simply enjoyed on its own for contemplation"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature at 60-62°F (15-17°C)",
+        "decanting": "Handle gently; decant carefully 30-45 minutes before serving to separate from sediment. This aged wine is delicate.",
+        "glassware": "Large Burgundy or Rioja-specific glass to capture the evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo-based blend with Garnacha and possibly Graciano",
+        "vintage": "1975",
+        "style": "Gran Reserva, traditional Rioja, fully mature",
+        "ageability": "Drinking beautifully now on a plateau of maturity; consume within next 5-10 years while it maintains vitality"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "collina-san-ponzio-dolcetto-2021",
+      "productName": "Collina San Ponzio Dolcetto D'Alba 2021",
+      "description": "A classic Piedmontese Dolcetto from the prestigious Alba region, crafted by the Icardi family at their Collina San Ponzio estate. This wine represents over a century of winemaking tradition combined with the talents of young winemaker Federico Balocco, creating clean, classic expressions of Piedmont's beloved Dolcetto grape.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with vibrant red fruits—fresh raspberry, strawberry, and red cherry—intertwined with darker notes of blackberry and blueberry. Floral elements of rose petals add elegance and lift, while subtle hints of violet and dried herbs provide complexity. A touch of sweet spice and almond blossom rounds out the aromatic profile, creating an inviting and quintessentially Piedmontese bouquet.",
+        "palate": "On the palate, the wine delivers deep fruity flavors with excellent purity and intensity. Red berry notes of raspberry and cherry dominate, accented by hints of blueberry jam and wild strawberry. Balanced tannic texture provides structure without astringency, characteristic of well-made Dolcetto. Flavors of orange zest and clove add complexity, while the underlying almond note—a hallmark of the variety—appears mid-palate. The acidity is fresh and lively, making this an incredibly food-friendly wine.",
+        "finish": "The finish features flexible tannins that grip gently, allowing the fruit to shine through. Notes of red berry, subtle spice, and that characteristic almond quality linger pleasantly. The wine concludes with freshness and purity, inviting another glass and showcasing why Dolcetto is beloved as an everyday drinking wine in Piedmont."
+      },
+      "foodPairings": [
+        "Pasta with meat ragù or Bolognese",
+        "Pizza Margherita or mushroom pizza",
+        "Grilled Italian sausages",
+        "Taleggio or young Toma Piemontese cheese",
+        "Roasted chicken with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly chilled at 58-62°F (14-16°C) to highlight freshness",
+        "decanting": "Brief decanting of 15-20 minutes opens the wine; not essential but beneficial",
+        "glassware": "Medium-sized red wine glass or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Dolcetto d'Alba DOC, Piedmont, Italy",
+        "grapeVariety": "100% Dolcetto",
+        "vintage": "2021",
+        "style": "Medium-bodied dry red, fresh and fruity",
+        "ageability": "Best enjoyed young for optimal fruit freshness; drink now through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "tagua-tagua-cab-sauv-2023",
+      "productName": "Tagua Tagua Cabernet Sauvignon 2023",
+      "description": "An accessible Chilean Cabernet Sauvignon from the Central Valley, representing excellent value and easy-drinking appeal. Bodegas Tagua Tagua focuses on expressing the pure fruit character of Chilean terroir with minimal intervention, creating wines that showcase the natural generosity of the region.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents an inviting mix of red and dark berries with subtle leafy herbaceous notes. Aromas of red plum, fresh strawberry, and raspberry combine with hints of cassis and wild berries. Delicate notes of wild flowers add a floral dimension, while subtle hints of flint and earth provide grounding complexity. A touch of mint and dried herbs reflects the wine's Chilean character.",
+        "palate": "Approachable and fruit-forward on the palate, the wine delivers flavors of tart red plum, cranberry, and red currant with good freshness. The texture is soft and easy-drinking, making it immediately accessible. Flavors of raspberry and strawberry dominate, with hints of soft plum appearing mid-palate. A high-acid backbone keeps the wine lively and food-friendly, while gentle tannins provide just enough structure. Notes of fresh herbs and a touch of green pepper add varietal character without overwhelming the fruit.",
+        "finish": "The finish is clean and refreshing with a distinctly green, minty quality and lingering berry fruit notes. The acid-driven structure ensures a crisp conclusion, while soft tannins fade gently. This is an uncomplicated, honest expression of Chilean Cabernet designed for immediate enjoyment and everyday drinking."
+      },
+      "foodPairings": [
+        "Grilled burgers or casual BBQ",
+        "Chilean empanadas",
+        "Tomato-based pasta dishes",
+        "Cheddar or Monterey Jack cheese",
+        "Vegetable fajitas or grilled peppers"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly cool at 60-63°F (15-17°C)",
+        "decanting": "Not necessary; this wine is ready to enjoy upon opening",
+        "glassware": "Standard red wine glass or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Central Valley, Chile",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Medium-bodied red, easy-drinking and fruit-forward",
+        "ageability": "Best enjoyed young for fresh fruit character; drink now through 2026"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "backsberg-family-reserve-white-2017",
+      "productName": "Backsberg Family Reserve White 2017",
+      "description": "A premium white blend from South Africa's renowned Backsberg Estate in Paarl, representing over a century of winemaking excellence. The Family Reserve White showcases the estate's commitment to quality with careful grape selection and sophisticated oak aging, creating a rich and complex wine.",
+      "tastingNotes": {
+        "aroma": "The nose opens with tropical and stone fruit aromatics, featuring prominent notes of ripe peach and coconut that suggest oak influence. Aniseed adds an intriguing herbal-spice dimension, while subtle hints of vanilla and toasted almond speak to the wine's time in barrel. Additional layers of citrus blossom, honeydew melon, and a touch of butterscotch create aromatic complexity and richness.",
+        "palate": "Full-bodied and textured on the palate, the wine delivers concentrated flavors of peach, tropical fruit, and citrus. The oak aging has contributed vanilla undertones and a creamy, almost buttery texture that coats the palate luxuriously. Flavors of ripe stone fruit blend with hints of toasted coconut, spiced pear, and a subtle nuttiness. Despite the richness, the wine maintains balance with underlying acidity that provides freshness and prevents the wine from feeling heavy. The integration of fruit, oak, and texture is seamless.",
+        "finish": "The finish is long-lasting and creamy with persistent vanilla and peach notes. The oak-derived character continues to shine with hints of baking spice and toasted nuts, while the wine's natural acidity ensures a clean, refreshing conclusion. This is a wine of substance and complexity that rewards contemplation."
+      },
+      "foodPairings": [
+        "Rich cheeses like aged Gouda or Gruyère",
+        "Lobster or crab with butter sauce",
+        "Creamy chicken dishes or chicken à la king",
+        "Roasted pork loin with fruit compote",
+        "Full-flavoured creamy pasta"
+      ],
+      "servingInfo": {
+        "temperature": "Moderately chilled at 50-55°F (10-13°C) to balance richness with freshness",
+        "decanting": "Not necessary, but allowing the wine to warm slightly in the glass enhances aromatics",
+        "glassware": "Large white Burgundy glass to capture the wine's complexity"
+      },
+      "wineDetails": {
+        "region": "Paarl, Western Cape, South Africa",
+        "grapeVariety": "White blend (likely Chardonnay-based with complementary varieties)",
+        "vintage": "2017",
+        "style": "Full-bodied white, oak-aged and complex",
+        "ageability": "Drinking beautifully now with development; enjoy through 2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "thelema-mountain-red-2021",
+      "productName": "Thelema Mountain Red 2021",
+      "description": "A distinguished South African blend from Thelema Mountain Vineyards in Stellenbosch, one of the country's most acclaimed wine estates. This Syrah-led blend showcases multiple varietals in harmony, spending 18 months in seasoned oak to achieve elegance and integration. Multiple awards including 94 points from Tim Atkin.",
+      "tastingNotes": {
+        "aroma": "The nose is inviting and expressive with aromas of juicy black fruit taking center stage. Ripe mulberries and dark plums dominate, accompanied by layers of blackberry, black cherry, and cassis. Hints of warm spice—black pepper, cinnamon, and clove—add complexity and speak to the Syrah component. Subtle notes of dried herbs, violet, and a touch of leather from the barrel aging create aromatic depth without overwhelming the vibrant fruit character.",
+        "palate": "Soft and juicy on entry, the palate delivers generous dark fruit flavors with excellent purity and concentration. The Syrah provides a spicy backbone with black pepper and dark berry notes, while Grenache adds red fruit brightness and aromatic lift. Petit Verdot contributes structure and floral notes, with both Cabernets and Merlot rounding out the blend with classic dark fruit and subtle herbal complexity. The 18 months in second, third, and fourth fill barrels have integrated beautifully, adding texture and subtle spice without oak dominance. The tannins are well-rounded and supple, providing structure while maintaining approachability.",
+        "finish": "The finish is long, delicious, and satisfying with persistent dark fruit and spice notes. Well-rounded tannins provide gentle grip while the wine's natural freshness keeps everything lively and balanced. Subtle hints of dark chocolate, espresso, and Mediterranean herbs linger, inviting another sip. This is a wine that over-delivers on quality and drinking pleasure."
+      },
+      "foodPairings": [
+        "South African bobotie or lamb curry",
+        "Grilled steaks or game meats",
+        "Venison with berry reduction",
+        "Aged cheddar or Gruyère cheese",
+        "Slow-roasted lamb shoulder with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant 30-45 minutes before serving to open aromatics and soften tannins",
+        "glassware": "Large Bordeaux or Rhône-style glass"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, Western Cape, South Africa",
+        "grapeVariety": "Syrah-led blend with Grenache, Petit Verdot, Merlot, Cabernet Sauvignon, and Cabernet Franc",
+        "vintage": "2021",
+        "style": "Full-bodied red blend, balanced and approachable",
+        "ageability": "Drinking beautifully now through 2028; the blend and quality suggest medium-term aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

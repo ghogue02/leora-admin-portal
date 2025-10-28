@@ -1,0 +1,346 @@
+{
+  "researchCompleted": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Boxwood Ellie Bird Trellis (Private Label) 2022",
+      "description": "A special collaboration between Virginia's Boxwood Winery and Ellie Bird restaurant, this proprietary red blend showcases the elegance of Virginia winemaking. Based on Boxwood's acclaimed Trellis style, it combines Merlot and Cabernet Sauvignon to create a refined, food-friendly wine with supple tannins and vibrant acidity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate floral notes of lilac and violet, leading to layers of red plum and dark cherry. Subtle hints of fresh strawberry mingle with a whisper of cedar and dried herbs, creating an inviting and complex aromatic profile that reflects the wine's Virginia terroir.",
+        "palate": "On the palate, juicy dark cherry and plum flavors dominate, supported by a supple, medium-bodied mouthfeel. The wine shows excellent integration between fruit and structure, with silky tannins that provide gentle grip without overwhelming the bright red fruit character. Fresh acidity keeps the wine lively and balanced throughout.",
+        "finish": "The finish is clean and persistent, with lingering notes of fresh strawberries and a subtle minerality. The wine's bright acidity and refined tannins leave the palate refreshed and ready for the next bite, making it an ideal companion to diverse cuisines."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herb crust",
+        "Duck confit with cherry reduction",
+        "Mushroom risotto with truffle oil",
+        "Aged cheddar and charcuterie board",
+        "Roasted pork tenderloin with plum glaze"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief 15-20 minute decanting recommended to open aromatics and soften tannins",
+        "glassware": "Bordeaux or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia",
+        "grapeVariety": "Merlot and Cabernet Sauvignon blend",
+        "vintage": "2022",
+        "style": "Medium-bodied Virginia red blend",
+        "ageability": "Drink now through 2027. Best enjoyed within 3-5 years of vintage for optimal freshness and fruit expression."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rioja Alta Ermita de San Felices Reserva 2009",
+      "description": "From Bodegas Santalba in Rioja Alta, this traditional Reserva showcases the elegance and aging potential of Spain's premier wine region. The 2009 vintage benefits from extended aging in American oak barrels followed by bottle maturation, resulting in a wine that balances ripe fruit with complex tertiary notes.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense bright cherry-red characteristics with evolving tawny hints that signal maturity. Ripe red fruit aromas are beautifully layered with vanilla, toasted oak, and warm baking spices. Subtle notes of dried tobacco leaf and leather add complexity, while hints of toasted bread and sweet spice round out the aromatic profile.",
+        "palate": "Medium to full-bodied with excellent balance between fruit and oak influence. The palate showcases concentrated ripe fruit flavors supported by well-integrated tannins and refreshing acidity. Savory elements emerge mid-palate, adding depth and complexity. The 18 months in American oak barrels have contributed structure without overwhelming the wine's core fruit character.",
+        "finish": "The finish is long and pleasurable, with a powerful backtaste that lingers. Notes of sweet vanilla, cedar, and dried fruit persist, accompanied by fine-grained tannins that provide structure without astringency. The wine's balanced acidity keeps the finish clean and inviting."
+      },
+      "foodPairings": [
+        "Slow-roasted lamb shoulder with rosemary",
+        "Ibérico ham and Manchego cheese",
+        "Beef tenderloin with wild mushroom sauce",
+        "Chorizo and bean stew",
+        "Grilled ribeye with piquillo peppers"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant 30-45 minutes to allow tertiary aromas to develop and integrate",
+        "glassware": "Burgundy or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja Alta DOCa, Spain",
+        "grapeVariety": "Traditional Rioja blend (Tempranillo-dominant)",
+        "vintage": "2009",
+        "style": "Traditional Rioja Reserva",
+        "ageability": "At peak maturity now. The 2009 vintage can continue to develop through 2028 with proper cellaring, though tertiary characteristics are already beautifully expressed."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boplaas Gamka Red 2021",
+      "description": "This Double Gold award-winning red blend from South Africa's Klein Karoo region represents Boplaas Family Vineyards' Portuguese-led flagship. Crafted from low-yield, old vines and aged in French oak, the Gamka Red combines power with elegance. The 2021 vintage earned Double Gold at the 2023 National Wine Challenge, cementing its status as one of South Africa's premier Portuguese-variety blends.",
+      "tastingNotes": {
+        "aroma": "The nose is expressive and layered, revealing concentrated aromas of black hedgerow fruits, wild blackberry, and dark plum. Tart cranberry notes add brightness, while exotic spice elements—cinnamon, clove, and white pepper—contribute complexity. Subtle undertones of violet, dark chocolate, and toasted oak complete the aromatic bouquet.",
+        "palate": "Full-bodied and structured, with intense dark fruit flavors anchored by fine oak tannins. The blend of Touriga Nacional, Tinta Barocca, and Shiraz creates a savory, complex palate with layers of blackberry, plum, and black cherry. Traditional vinification methods and 16 months in new French oak have produced integrated tannins that provide grip without harshness. The wine shows excellent concentration from old vines while maintaining balance and elegance.",
+        "finish": "The finish is long and savoury, with persistent notes of dark fruit, exotic spices, and fine-grained tannins. Oak influence is present but well-integrated, adding structure and complexity. The wine's intensity and depth suggest excellent aging potential while remaining approachable now."
+      },
+      "foodPairings": [
+        "Braised short ribs with red wine reduction",
+        "Grilled Portuguese-style peri-peri chicken",
+        "Venison loin with blackberry sauce",
+        "Aged Gouda and dark chocolate pairing",
+        "Lamb bobotie (South African spiced lamb casserole)"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant for 45-60 minutes to soften tannins and allow the wine's complexity to emerge",
+        "glassware": "Large Bordeaux glass to accommodate the wine's intensity"
+      },
+      "wineDetails": {
+        "region": "Klein Karoo, Western Cape, South Africa",
+        "grapeVariety": "Touriga Nacional, Tinta Barocca, Shiraz",
+        "vintage": "2021",
+        "style": "Full-bodied Portuguese-variety blend",
+        "ageability": "Drink now through 2033. The wine will continue to develop complexity over the next 8-12 years, with tannins softening and tertiary notes emerging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mallorca Gallinas & Focas Red 2015",
+      "description": "A collaboration between 4 Kilos winery and charity association Amadip Esment, this organic Mallorca wine represents a turning point in style for the producer. Crafted from 40-year-old Manto Negro vines grown on distinctive red soils in Santa María and Binissalem, the 2015 vintage emphasizes freshness and elegance over power. Rated 91/100 by critics, it showcases the unique character of Mallorca's indigenous grape varieties.",
+      "tastingNotes": {
+        "aroma": "Delicate and fresh, the nose reveals no oak influence, allowing pure fruit and terroir expression to shine. Red berry notes dominate—bright cherry, wild strawberry, and raspberry—complemented by subtle earthy and mineral nuances. Hints of Mediterranean herbs, dried flowers, and a touch of spice add complexity without overwhelming the wine's elegant profile.",
+        "palate": "The palate is beautifully balanced with very good freshness. Medium-bodied and silky in texture, the wine shows flavors of red cherry, cranberry, and subtle red plum. Despite 70% fermentation in 4,000-liter oak foudre and 30% in 500-liter barrels, the oak remains imperceptible, allowing the wine's natural elegance to take center stage. Indigenous yeast fermentation adds subtle complexity and terroir expression. The wine is delicious, subtle, and sophisticated.",
+        "finish": "Clean and refreshing, with lingering red fruit notes and a mineral edge that reflects Mallorca's distinctive red soil terroir. The finish is medium in length but persistent in its elegance, with fine-grained tannins and bright acidity providing structure."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean fish with olive tapenade",
+        "Roasted chicken with lemon and herbs",
+        "Mushroom and goat cheese tart",
+        "Charcuterie with Manchego cheese",
+        "Paella with chorizo and seafood"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cooler to preserve freshness",
+        "decanting": "Brief 15-minute decanting or simple swirling in glass; wine is designed to be approachable and fresh",
+        "glassware": "Pinot Noir or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Santa María and Binissalem, Mallorca, Balearic Islands, Spain",
+        "grapeVariety": "Manto Negro (100%)",
+        "vintage": "2015",
+        "style": "Organic, fresh-styled Mediterranean red",
+        "ageability": "Near peak maturity. Best enjoyed now through 2026. This wine was crafted for freshness and elegance rather than extended aging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Southern Belle Poor Boy 2020",
+      "description": "Part of The Grateful Palate's Southern Gothic Collection, this Spanish red from Calatayud offers exceptional value and bold expression. The Poor Boy 2020 showcases the concentrated fruit and distinctive character of Spain's high-altitude vineyards, delivered in an approachable, fruit-forward style that over-delivers for its price point.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic with layers of red and black fruits taking center stage. Ripe blackberry, dark cherry, and plum aromas are complemented by creamy notes that suggest oak influence. Exotic spices—star anise, vanilla, and baking spices—add intrigue, while subtle hints of cocoa and toasted wood round out the complex aromatic profile.",
+        "palate": "The mouthfeel is soft, big, and elegant, with a medium-deep intensity of red and black fruit flavors. The wine shows excellent ripeness without heaviness, balancing concentrated fruit with structural elements. Creamy texture coats the palate, while integrated tannins provide gentle grip. The wine's approachable nature belies its complexity and depth.",
+        "finish": "The finish is smooth and lingering, with persistent fruit flavors and subtle spice notes. The wine's elegance and balance make it highly versatile for food pairing while remaining enjoyable on its own."
+      },
+      "foodPairings": [
+        "BBQ pulled pork with smoky sauce",
+        "Grilled burgers with aged cheddar",
+        "Spanish-style meatballs in tomato sauce",
+        "Pizza with Italian sausage and peppers",
+        "Beef tacos with caramelized onions"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Optional 20-30 minute decanting to open aromatics",
+        "glassware": "Standard red wine glass or universal stemware"
+      },
+      "wineDetails": {
+        "region": "Calatayud DO, Aragón, Spain",
+        "grapeVariety": "Spanish red blend (likely Garnacha-based)",
+        "vintage": "2020",
+        "style": "Fruit-forward, approachable Spanish red",
+        "ageability": "Drink now through 2026. Crafted for immediate enjoyment with fresh fruit character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Beefsteak The Beast Red Blend 2019",
+      "description": "The Beefsteak Club's flagship wine, The Beast is a powerful Douro DOC red from Portugal's legendary port-producing region. Crafted from traditional Portuguese grapes and aged in Port barrels for extra richness, this wine delivers concentrated dark fruit and a velvety smooth texture. The Beast represents exceptional value from one of the world's most dramatic wine regions.",
+      "tastingNotes": {
+        "aroma": "The nose is rich and inviting, dominated by ripe forest fruits—blackberry, black cherry, and wild blueberry. Layers of dark chocolate, vanilla, and sweet spice emerge from the Port barrel aging, adding complexity. Subtle hints of violet, tobacco leaf, and toasted oak contribute depth without overwhelming the concentrated fruit core.",
+        "palate": "Full-bodied and powerful, the palate delivers intense flavors of ripe forest fruits layered over integrated oak influence. The blend of Touriga Nacional, Touriga Franca, and Tinta Roriz creates a wine with both power and elegance. Port barrel aging has contributed extra richness and a distinctive sweetness to the fruit without adding residual sugar. The wine shows excellent concentration balanced by fresh acidity.",
+        "finish": "Long and velvet smooth, with persistent notes of dark fruit, chocolate, and subtle oak spice. The finish showcases the wine's power while maintaining elegance, with supple tannins that coat the palate. The texture is remarkably smooth for such an intense wine."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "Braised lamb shanks with red wine reduction",
+        "Portuguese cozido (meat and vegetable stew)",
+        "Aged Manchego and dark chocolate",
+        "Game meats such as venison or wild boar"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant 30-45 minutes to soften tannins and integrate oak influence",
+        "glassware": "Large Bordeaux glass to accommodate intensity"
+      },
+      "wineDetails": {
+        "region": "Douro DOC, Portugal",
+        "grapeVariety": "Touriga Nacional, Touriga Franca, Tinta Roriz",
+        "vintage": "2019",
+        "style": "Full-bodied Douro red aged in Port barrels",
+        "ageability": "Drink now through 2029. The wine's structure and concentration suggest aging potential of 8-10 years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Sauvignon Blanc 2024",
+      "description": "From Thelema Mountain Vineyards' cool-climate site in Elgin Valley, this Sauvignon Blanc showcases the purity and elegance achievable in South Africa's premier white wine region. Located just 9km from the Atlantic Ocean at elevations of 140-250m, Sutherland Vineyards produces wines with exceptional balance, depth, and complexity. The 2024 vintage represents the latest expression of this acclaimed terroir.",
+      "tastingNotes": {
+        "aroma": "The nose displays beautiful purity with pronounced notes of fresh lime zest and ripe gooseberry. Tropical nuances—passion fruit, guava—emerge alongside delicate floral elements of white blossoms and elderflower. Subtle herbal notes of fresh-cut grass and lemongrass add complexity, while a distinct mineral quality reflects the cool maritime climate and unique terroir.",
+        "palate": "Vibrant and mineral-driven on the palate, the wine shows exceptional balance between fruit intensity and structure. Bright citrus flavors of lime and grapefruit are complemented by tropical fruit notes and a characteristic gooseberry tartness. The wine is elegantly balanced, with a delicate profile that belies its intensity and concentration. Cool-climate acidity provides backbone and freshness throughout.",
+        "finish": "Long, layered, and complex, the finish showcases the wine's cool-climate pedigree. Mineral notes persist alongside citrus and tropical fruit flavors, with bright acidity keeping the palate refreshed. The wine's depth and complexity continue to unfold in the glass."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Grilled line fish with lemon butter",
+        "Goat cheese and herb salad",
+        "Sushi and sashimi",
+        "Thai green curry with seafood"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C), well-chilled to preserve freshness",
+        "decanting": "No decanting needed; serve directly from refrigerator",
+        "glassware": "White wine glass or Sauvignon Blanc-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Elgin Valley, Western Cape, South Africa",
+        "grapeVariety": "Sauvignon Blanc (100%)",
+        "vintage": "2024",
+        "style": "Cool-climate, mineral-driven Sauvignon Blanc",
+        "ageability": "Best enjoyed young within 2-3 years to preserve vibrant fruit and mineral character. Drink 2024-2027."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Martellotto M Chardonnay (Wine Club) 2021",
+      "description": "From Santa Barbara County, the M by Martellotto Chardonnay represents winemaker Greg Martellotto's approach to elegant, terroir-driven white wine. Organically farmed and naturally produced, this wine appeals to lovers of Chablis-style Chardonnay—dry, nuanced, and mineral-focused. The wine is beautifully balanced and particularly food-friendly, especially with dishes featuring butter.",
+      "tastingNotes": {
+        "aroma": "Light and delicate on the nose, with subtle aromas of green apple, white peach, and citrus blossom. The wine shows restraint and elegance, with minimal oak influence allowing fruit and terroir to shine. Hints of wet stone, lemon zest, and fresh almonds add complexity, while a characteristic minerality reflects the cool Santa Barbara County climate.",
+        "palate": "The palate is crisp, focused, and mineral-driven, showcasing the producer's emphasis on freshness over richness. Green apple and citrus flavors dominate, supported by bright acidity and a distinctive chalky minerality. The wine is light to medium-bodied with excellent texture and balance. Natural production methods and organic farming contribute to the wine's purity and sense of place. The style is refreshing and eminently drinkable.",
+        "finish": "Clean and persistent, with lingering citrus and mineral notes. The finish showcases the wine's dry, nuanced character with bright acidity providing lift. The wine's elegance and restraint make it exceptionally versatile with food."
+      },
+      "foodPairings": [
+        "Grilled chicken with herb butter",
+        "Corn on the cob with butter and sea salt",
+        "Halibut with beurre blanc sauce",
+        "Lobster roll with drawn butter",
+        "Creamy risotto with spring vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), cool but not overly chilled to preserve delicate aromatics",
+        "decanting": "No decanting needed",
+        "glassware": "White Burgundy or Chablis glass"
+      },
+      "wineDetails": {
+        "region": "Santa Barbara County, California",
+        "grapeVariety": "Chardonnay (100%)",
+        "vintage": "2021",
+        "style": "Organic, mineral-driven Chablis-style Chardonnay",
+        "ageability": "Drink now through 2026. The wine's fresh, mineral character is best enjoyed while young."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeff Cohn Pure Yum Blend 2018",
+      "description": "Jeff Cohn Cellars' Pure Yum represents Sonoma's approach to Rhône-style blends with a California accent. The 2018 vintage combines 67% Syrah and 33% Grenache from Rockpile and El Diablo vineyards, employing 30% whole cluster fermentation and neutral French oak aging. With only 218 cases produced and a stellar 94+ rating from The Wine Advocate, this wine balances power with elegance.",
+      "tastingNotes": {
+        "aroma": "Medium ruby in color, the nose is seductive and complex. Black and red cherries dominate, interwoven with aromatic notes of tobacco leaves, rose petal, and red flowers. Graphite and mineral nuances add sophistication, while hints of hot cinnamon stick, Herbes de Provence, and dark chocolate nibs contribute layers of complexity. The 30% whole cluster addition provides subtle stem tannin and floral lift.",
+        "palate": "The palate is thick yet refined, with a voluptuous mouthfeel that oozes red and blue fruit flavors—blackberry, blueberry, cherry, and plum. The wine shows remarkable duality: grippy, caramelized richness like bacon meets bustling freshness and silky texture. Medium-bodied but concentrated, the wine is mineral-driven with savory graphite-laced character balancing the lush fruit. Whole cluster fermentation and neutral oak aging allow pure fruit and terroir expression.",
+        "finish": "Long and complex, with persistent notes of red fruit, minerality, and subtle spice. The finish showcases excellent balance between power and elegance, with fine-grained tannins and bright acidity. Savory elements linger alongside fruit, creating a sophisticated conclusion."
+      },
+      "foodPairings": [
+        "Duck breast with cherry gastrique",
+        "Grilled lamb loin with tapenade",
+        "Wild mushroom and truffle pasta",
+        "Beef bourguignon with pearl onions",
+        "Aged Gruyère and charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant 30-45 minutes to integrate whole cluster tannins and allow aromatics to develop",
+        "glassware": "Burgundy or large-bowled Rhône glass"
+      },
+      "wineDetails": {
+        "region": "Rockpile and El Diablo Vineyards, Sonoma County, California",
+        "grapeVariety": "67% Syrah, 33% Grenache",
+        "vintage": "2018",
+        "style": "California Rhône-style blend with whole cluster fermentation",
+        "ageability": "Drink now through 2030. The wine's structure and balance suggest aging potential of 10+ years, with complexity continuing to develop."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.97,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jean Leon La Scala Cabernet Sauvignon 2016",
+      "description": "Jean Leon's flagship Vinya La Scala represents the pinnacle of Cabernet Sauvignon from Penedès. This Vi de Finca Gran Reserva spends 24 months in new French oak followed by 3 additional years of bottle aging before release. The 2016 vintage earned 93-97 points from critics and won a Berlin Wine Trophy Gold award, showcasing the extraordinary potential of Spanish Cabernet when given meticulous vineyard management and extended aging.",
+      "tastingNotes": {
+        "aroma": "The nose is intensely aromatic, revealing layers of cherry and plum jam accompanied by pronounced spicy notes and balsamic nuances. Dark fruit aromas—blackcurrant, black cherry—mingle with cedar, tobacco, and sweet vanilla from French oak aging. Subtle hints of leather, graphite, and dried herbs add complexity, while a distinctive minerality reflects the wine's Vi de Finca (estate vineyard) origin.",
+        "palate": "Firm and concentrated, the palate showcases the utmost expression of Cabernet Sauvignon aged to perfection. Dark fruit flavors dominate—blackberry, cassis, dark plum—supported by a good tannic structure that provides grip without harshness. The wine is broad and enveloping, with some warmth and subtle leather notes adding savory complexity. Despite its power, the wine remains refined and elegant, with 24 months in new French oak beautifully integrated.",
+        "finish": "Long and persistent, the finish showcases the wine's exceptional structure and aging potential. Dark fruit, oak spice, and fine-grained tannins linger, accompanied by damp earth and mineral notes. The wine's intensity and concentration are balanced by refinement and elegance, suggesting continued evolution in the cellar."
+      },
+      "foodPairings": [
+        "Dry-aged prime ribeye steak",
+        "Braised beef short ribs with red wine sauce",
+        "Rack of lamb with rosemary and garlic",
+        "Aged Manchego and Ibérico ham",
+        "Wild mushroom Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (17-19°C)",
+        "decanting": "Decant 60-90 minutes to soften tannins and allow complex aromatics to emerge fully",
+        "glassware": "Large Bordeaux or Cabernet Sauvignon glass"
+      },
+      "wineDetails": {
+        "region": "Penedès DO, Catalonia, Spain",
+        "grapeVariety": "Cabernet Sauvignon (100%)",
+        "vintage": "2016",
+        "style": "Vi de Finca Gran Reserva with extended oak and bottle aging",
+        "ageability": "Drink now through 2036. The wine is near peak but will continue to develop tertiary complexity over the next 10-15 years with proper cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

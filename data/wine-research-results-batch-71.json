@@ -1,0 +1,355 @@
+{
+  "batchId": 71,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Boplaas Gamka Red 2020",
+      "description": "A captivating Portuguese blend from South Africa's Klein Karoo region, this wine showcases Touriga Nacional, Tinta Barocca, Touriga Franca, and Souzão aged 12 months in French oak. Named for the Gamka River that roars through the region, this wine earned 90 points from Tim Atkin MW for its remarkable expression of Portuguese varieties in an African terroir.",
+      "tastingNotes": {
+        "aroma": "The nose leaps forward with an abundance of black hedgerow fruits—blackberry and wild bramble—mingling with tart cranberry and ripe plum. Indigenous fynbos aromatics add a distinctly South African character, while subtle spice notes from oak integration weave through the fruit spectrum. Hints of dried herbs and Mediterranean scrubland create an intriguing complexity that invites deeper exploration.",
+        "palate": "Rolling onto the palate with generous fruit concentration, the wine delivers layers of dark berry compote, sun-ripened plums, and tart red cherry. The Portuguese varieties express their inherent structure through firm yet polished tannins, while 12 months in French oak contributes subtle vanilla and mocha undertones. Mid-palate weight is supported by bright acidity that keeps the rich fruit in balance, showcasing the Klein Karoo's ability to produce intensity without heaviness.",
+        "finish": "The long finish reveals the wine's true character, with persistent dark fruit flavors gradually giving way to savory notes of cigar box, black pepper, and a whisper of fynbos earthiness. The tannins remain present but refined, promising excellent evolution over the next 5-7 years."
+      },
+      "foodPairings": [
+        "Peppered venison loin with wild berry reduction",
+        "Bobotie (South African spiced mince with fruit)",
+        "Aged Manchego and fig compote",
+        "Slow-braised lamb shoulder with herbs",
+        "Grilled ostrich steaks with chimichurri"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant for 45-60 minutes to soften tannins and allow Portuguese varieties to fully express their aromatic complexity",
+        "glassware": "Large Bordeaux-style glass to concentrate the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Calitzdorp, Klein Karoo, Western Cape, South Africa",
+        "grapeVariety": "Touriga Nacional, Tinta Barocca, Touriga Franca, Souzão",
+        "vintage": "2020",
+        "style": "Portuguese red blend, medium to full-bodied",
+        "ageability": "Drink now through 2027; peak 2024-2026"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Attwoods Vin de Folie Rouge 2024",
+      "description": "A distinctive Australian red blend from cool-climate Victoria, combining 50% Cabernet Franc with 50% Aglianico in a minimal intervention style. This boutique producer operates across Ballarat, Macedon Ranges, and Geelong, crafting wines that express the elegant tension of cool-climate viticulture with Mediterranean varietals.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with bright red berry aromatics—raspberry, wild strawberry, and red currant—layered with subtle green peppercorn and fresh-cut herbs characteristic of Cabernet Franc. The Aglianico contribution adds darker notes of black plum and violet, while 10 months in old French barriques contribute gentle baking spice and cedar undertones without overwhelming the vibrant fruit character.",
+        "palate": "Medium-bodied with an engaging textural smoothness, the wine showcases crunchy berry flavors—think fresh cranberry and pomegranate—balanced by the Aglianico's darker fruit presence. The cool-climate origins shine through in the wine's natural acidity and lifted red fruit profile, while subtle herbal notes of oregano and dried thyme add savory complexity. The minimal intervention approach preserves freshness and terroir expression, creating a wine that feels alive and energetic on the palate.",
+        "finish": "Clean and refreshing with persistent berry flavors and a hint of white pepper spice. The tannins are fine-grained and gentle, making this approachable now while suggesting 3-5 years of graceful evolution ahead."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with mint jus",
+        "Wild mushroom risotto with truffle oil",
+        "Charcuterie board with Italian salumi",
+        "Grilled eggplant with tomato and mozzarella",
+        "Duck confit with berry gastrique"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) - serve slightly cool to enhance freshness",
+        "decanting": "Brief 20-30 minute decant to open aromatics; this wine is approachable without extended aeration",
+        "glassware": "Medium-sized Burgundy glass to emphasize aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Central Victoria, Australia (Ballarat/Macedon Ranges/Geelong)",
+        "grapeVariety": "50% Cabernet Franc, 50% Aglianico",
+        "vintage": "2024",
+        "style": "Cool-climate red blend, medium-bodied, minimal intervention",
+        "ageability": "Drink now through 2029; accessible young but will develop complexity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "ZaHa Cabernet Franc 2021",
+      "description": "An exceptional expression of Cabernet Franc from Argentina's acclaimed Toko Vineyard in Paraje Altamira, Uco Valley. Grown at 4,000 feet elevation on limestone-rich soils, this wine earned 93/100 from critics for its pure, direct fruit expression and distinctive high-altitude character, fermented with 35% whole clusters and aged in cement eggs.",
+      "tastingNotes": {
+        "aroma": "Classic varietal aromatics lead with green bell pepper and fresh plum, complemented by delicate violet and wildflower notes that speak to the high-altitude terroir. Black peppercorn adds a spicy lift, while subtle herbal nuances of dried sage and tobacco leaf emerge with air. The limestone soils contribute a mineral thread that runs through the aromatic profile, adding complexity beyond simple fruit expression.",
+        "palate": "The palate displays Cabernet Franc's very direct and fruity expression, showcasing ripe red fruits—cherry, raspberry, and cranberry—with impressive clarity and precision. Notes of fresh herbs and earthy tobacco weave through the fruit core, while the whole-cluster fermentation adds textural interest and subtle grip. Firm tannins provide structure without heaviness, supported by juicy acidity that reflects the cool nights at altitude. The cement egg aging preserves purity while adding subtle textural roundness.",
+        "finish": "Long and mineral-driven, with red fruit flavors persisting alongside herbal and tobacco notes. The limestone terroir signature becomes most apparent here, leaving a chalky, refreshing impression that invites another sip."
+      },
+      "foodPairings": [
+        "Herb-roasted leg of lamb with rosemary",
+        "Grilled ribeye with chimichurri sauce",
+        "Roasted red pepper and eggplant terrine",
+        "Argentine empanadas with beef picadillo",
+        "Aged Gruyère and walnut bread"
+      ],
+      "servingInfo": {
+        "temperature": "15-17°C (59-63°F)",
+        "decanting": "Decant 45 minutes to 1 hour to soften tannins and reveal the wine's herbal complexity",
+        "glassware": "Large Bordeaux glass to showcase aromatic nuances"
+      },
+      "wineDetails": {
+        "region": "Paraje Altamira, Uco Valley, Mendoza, Argentina",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2021",
+        "style": "High-altitude single-vineyard Cabernet Franc, medium to full-bodied",
+        "ageability": "Drink 2024-2031; peak drinking 2025-2028"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bernard Gaucher Champagne NV",
+      "description": "A distinguished grower Champagne showcasing 90% Pinot Noir with 10% Chardonnay, earning gold medals at the prestigious Concours Mondial de Bruxelles in both 2014 and 2015. This Brut Réserve expression demonstrates the power and richness possible from Pinot Noir-dominant Champagne, offering exceptional value from an underrated producer.",
+      "tastingNotes": {
+        "aroma": "The nose is bold and immediately engaging, opening with strong mineral accents and honeysuckle aromatics that signal quality. Brioche and toasted hazelnut notes from extended lees aging intertwine with fresh citrus—particularly lemon and lime—while a subtle sweet earthiness adds depth. Ripe fruit aromas of baked apple and ripe pear emerge with air, complemented by delicate floral notes and a distinctive stony, petrol-like minerality that speaks to terroir.",
+        "palate": "Fruit-driven and mouth-filling, the palate showcases the Pinot Noir dominance through rich, round flavors balanced by wonderful acidity. Layers of crisp apple and bright grapefruit provide freshness, while lychee and pear add exotic fruit complexity. The texture is elegant yet substantial, with fine persistent bubbles creating a creamy mouthfeel. Yeasty autolytic character adds savory depth, while the mineral backbone keeps everything lifted and vibrant. The balance between richness and refreshing acidity creates a Champagne of impressive versatility.",
+        "finish": "Great persistence through the long finish, with citrus and mineral notes gradually giving way to subtle brioche and almond. A slight pleasant bitterness on the tail adds sophistication and cleansing freshness."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette sauce",
+        "Butter-poached lobster",
+        "Creamy Brie and triple-cream cheeses",
+        "Smoked salmon canapés",
+        "Roasted chicken with lemon and herbs"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well-chilled to emphasize freshness",
+        "decanting": "No decanting needed; serve directly from bottle in proper Champagne flutes",
+        "glassware": "Champagne flute or tulip glass to preserve bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Champagne, France",
+        "grapeVariety": "90% Pinot Noir, 10% Chardonnay",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Brut Réserve Champagne, Pinot Noir-dominant",
+        "ageability": "Drink now through 2027; purchase for current enjoyment"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boplaas Hanepoot 2023",
+      "description": "South Africa's championship Hanepoot (Muscat of Alexandria) from the Klein Karoo, winning the prestigious SA Young Wine Show 2024 for its category. This fortified dessert wine from 30-year-old vines showcases the intense aromatics and luscious sweetness that Muscat achieves in this warm, dry region, balanced by zippy acidity.",
+      "tastingNotes": {
+        "aroma": "The bouquet virtually leaps from the glass with explosive intensity—ripe Hanepoot grapes dominate with their characteristic grapey sweetness, joined by tropical pineapple, bright lemon rind, and exotic litchi. Winter melon and fresh Sultana raisins add complexity, while intoxicating floral notes of jasmine and honeysuckle perfume the nose. Subtle honey undertones and faint warming spice create additional layers in this remarkably aromatic wine.",
+        "palate": "Lusciously sweet yet brilliantly balanced, the mouth-watering palate presents a cornucopia of flavors—fresh Sultana grapes, golden honey, juicy litchi, and ripe melon cascade across the tongue. Fig leaf and candied lemon and lime marmalade add citrus brightness that prevents cloying sweetness, while the wine's signature zippy acidity provides crucial lift and freshness. Subtle minerality emerges mid-palate, adding sophistication to the generous fruit, with hints of citrus rind providing gentle bitter contrast to the luscious sweetness.",
+        "finish": "Bright lemon yellow color with lime-tinged rim; the finish lingers with citrus rind, honey, and lingering minerality that leaves the palate refreshed despite the wine's sweetness."
+      },
+      "foodPairings": [
+        "Crème brûlée with citrus zest",
+        "Blue cheese and honeycomb",
+        "Spicy Thai green curry (sweet-spicy pairing)",
+        "Aged Gouda or Comté cheese",
+        "Apricot tart with almond cream"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - well-chilled to balance sweetness",
+        "decanting": "No decanting required; the wine is expressive immediately upon pouring",
+        "glassware": "Small dessert wine glass or Port glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Calitzdorp, Klein Karoo, Western Cape, South Africa",
+        "grapeVariety": "100% Hanepoot (Muscat of Alexandria)",
+        "vintage": "2023",
+        "style": "Fortified dessert wine, sweet",
+        "ageability": "Drink now through 2035; fortification ensures excellent aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Cabernet Sauvignon 2019",
+      "description": "A cool-climate Cabernet from Thelema's Sutherland Vineyards in Elgin Valley, positioned just 9km from the Atlantic Ocean at 140-250m elevation. This maritime-influenced expression showcases Gyles Webb's vision for elegant, balanced Cabernet that emphasizes finesse over power, offering exceptional value at around $14.",
+      "tastingNotes": {
+        "aroma": "The nose presents ripe, concentrated aromatics with plummy dark fruit and glossy black cherry leading the way. Undertones of cassis and blackcurrant reflect the Cabernet varietal character, while spice notes—cinnamon, clove, and black pepper—add complexity from oak integration. Distinctive cigar box and cedar aromas emerge with air, creating a classic Cabernet profile with admirable restraint and elegance rather than overripe intensity.",
+        "palate": "Ripe, sweet, and succulent black fruit fills the palate with generous fruit expression—think blackberry compote, dark cherry preserves, and cassis liqueur. The cool-climate origins reveal themselves in the wine's supple texture and bright underlying acidity that keeps the concentrated fruit in balance. Oak influence is present but integrated, contributing vanilla, mocha, and subtle toast without dominating. Mid-palate juiciness gives way to structured tannins that provide grip without astringency, showcasing the wine's impressive concentration within an elegant framework.",
+        "finish": "The finish emphasizes spice and oak character, with cigar box notes becoming more prominent alongside dark chocolate and espresso. Tannins remain present but polished, suggesting 5-7 years of positive evolution ahead."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "Braised short ribs with red wine reduction",
+        "Roasted portobello mushrooms with blue cheese",
+        "Aged cheddar and dried cherries",
+        "Rack of lamb with rosemary and garlic"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant 1 hour to soften tannins and integrate oak notes with fruit",
+        "glassware": "Large Cabernet/Bordeaux glass to showcase aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Elgin Valley, Cape South Coast, Western Cape, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2019",
+        "style": "Cool-climate Cabernet Sauvignon, medium to full-bodied",
+        "ageability": "Drink 2024-2029; peak drinking 2025-2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scheid Vineyards Rocklin Ranch Chardonnay 2023",
+      "description": "A Monterey County Chardonnay from Scheid Family Wines' Rocklin Ranch, balancing cool-climate elegance with judicious oak influence. The wine receives partial barrel fermentation and malolactic fermentation, creating a style that bridges Old World restraint with New World fruit expression.",
+      "tastingNotes": {
+        "aroma": "The nose opens with bright yellow apple and crisp pear aromas, complemented by citrus notes of lemon zest and subtle grapefruit. Partial barrel fermentation contributes gentle hints of vanilla and salted butter, while subtle caramel undertones add richness without heaviness. The oak influence is measured and integrated, allowing the fresh fruit character to remain front and center. Subtle floral notes and a hint of toasted almond add aromatic complexity.",
+        "palate": "Medium-bodied with a vibrant acid structure that provides lift and energy, the palate showcases ripe orchard fruits—think baked apple, Asian pear, and white peach—balanced by bright citrus flavors. The malolactic fermentation adds creamy texture and subtle buttery notes without creating excessive richness, while smooth oak integration contributes vanilla, light toast, and gentle spice. The cool-temperature fermentation preserves freshness and natural acidity, creating a wine that feels balanced between fruit purity and subtle complexity. Minerality emerges mid-palate, adding dimension.",
+        "finish": "Long and complex with persistent citrus and stone fruit flavors, finishing with vanilla notes and refreshing acidity that cleanses the palate."
+      },
+      "foodPairings": [
+        "Grilled halibut with lemon butter sauce",
+        "Roasted chicken with herbs de Provence",
+        "Lobster risotto with saffron",
+        "Creamy pasta carbonara",
+        "Aged Comté or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "11-13°C (52-55°F) - moderately chilled",
+        "decanting": "No decanting needed; 15-20 minutes in glass allows aromatics to develop",
+        "glassware": "Medium-sized white Burgundy glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Monterey County, California, USA",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Cool-climate Chardonnay, medium-bodied, partial barrel fermentation",
+        "ageability": "Drink now through 2027; best enjoyed within 3-4 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Adir Plato Cabernet Sauvignon (MD & DC)",
+      "description": "A distinguished kosher Cabernet Sauvignon from Israel's Upper Galilee, specifically from the acclaimed Kerem Ben Zimra Vineyards. This wine showcases the potential of Israeli viticulture at high elevation, combining Old World structure with New World fruit intensity in a wine of fascinating personality and elegant complexity.",
+      "tastingNotes": {
+        "aroma": "The wine displays red-purple to dark blue visual shades, introducing a rich and complex bouquet. Red and black fruits dominate—think ripe raspberry, black plum, and dark cherry—with intriguing slightly sour notes that add freshness and tension. Mineral undertones speak to the terroir, while new oak contributes mocha, roasted coffee bean, and sweet baking spice. The aromatic profile suggests both power and refinement, with multiple layers that unfold gradually in the glass.",
+        "palate": "Medium to full-bodied at 14.5% alcohol, the palate delivers concentrated fruit expression balanced by firm tannins from both grape and oak. The combination of red raspberry brightness and black plum depth creates complexity, while the sharp, structured tannins provide ageworthy backbone. Coffee and mocha notes from oak aging add savory depth without overwhelming the fruit core. The wine shows outstanding and distinguished personality, with more harmony and elegance than earlier vintages, suggesting the producer's evolving mastery of this site.",
+        "finish": "The concentration of fruit combined with sharp tannins and alcohol creates a powerful, long finish that promises rewards for patient collectors. Mineral and coffee notes persist, with the tannins gradually softening to reveal the wine's inherent elegance."
+      },
+      "foodPairings": [
+        "Peppered grilled ribeye steak",
+        "Roast goose with berry sauce",
+        "Roasted rack of lamb with herbs",
+        "Beef brisket with red wine reduction",
+        "Aged hard cheeses like Pecorino or aged Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant 1-2 hours to soften firm tannins and integrate oak notes",
+        "glassware": "Large Bordeaux glass to allow the wine to breathe and develop"
+      },
+      "wineDetails": {
+        "region": "Kerem Ben Zimra, Upper Galilee, Israel",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "NV (current release)",
+        "style": "Full-bodied kosher Cabernet Sauvignon, oak-aged",
+        "ageability": "Drink now through 2030; will benefit from 3-5 years cellaring"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Albina Essencia Tinto Reserva 2011",
+      "description": "A critically acclaimed Rioja Reserva from Bodegas Riojanas, earning 93 points from both Guía Peñín and Wine Advocate, placing it among the top 3% of wines worldwide on Vivino. This traditional Rioja blend of Tempranillo and Graciano showcases extended aging and classic regional character.",
+      "tastingNotes": {
+        "aroma": "The wine displays intense cherry red color with terracotta hues that signal maturity and extended aging. A powerful bouquet emerges with red berries—raspberry, strawberry, and red cherry—harmonized with dried prune-type fruit that adds concentrated sweetness. Barrel aromas stand out prominently, showcasing vanilla, dark chocolate, licorice root, and complex spice notes including cinnamon, clove, and black pepper. The oak integration is masterful, adding layers of complexity while preserving the wine's fruit character.",
+        "palate": "Great structure announces itself from the powerful entry, with concentrated fruit balanced by good natural acidity that provides lift and longevity. The palate is elegant and remarkably well-balanced, showcasing red berry fruit interwoven with chocolate, vanilla, and savory spice from extended barrel aging. The Tempranillo provides the wine's backbone and red fruit character, while Graciano adds freshness, aromatic complexity, and age-worthiness. The texture is smooth and evolved, with tannins fully integrated after years of aging, creating a wine of sophistication and harmony.",
+        "finish": "Long and complex, with red fruit flavors gradually giving way to chocolate, licorice, and savory spice notes. The wine's excellent structure ensures a persistent finish that evolves in the glass."
+      },
+      "foodPairings": [
+        "Slow-roasted lamb shoulder with rosemary",
+        "Manchego cheese aged 12+ months",
+        "Beef tenderloin with wild mushroom sauce",
+        "Spanish chorizo and bean stew",
+        "Duck confit with cherry gastrique"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F)",
+        "decanting": "Decant 30-45 minutes to awaken mature aromatics and ensure wine is fully expressive",
+        "glassware": "Large Rioja/Tempranillo glass to showcase evolved complexity"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo and Graciano",
+        "vintage": "2011",
+        "style": "Rioja Reserva, full-bodied, extended oak aging",
+        "ageability": "Drink now through 2028; at peak maturity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barrel Oak Farm Taphouse Dubbel 19550 ml",
+      "description": "NOTE: This is a BEER, not wine - a Belgian Dubbel-style ale from Barrel Oak Farm Taphouse in Delaplane, Virginia. This 100% vegan-friendly Belgian ale showcases the classic Dubbel style with 6.3% ABV, earning 3.5/5 stars from 541 reviews on Untappd as a house favorite.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Belgian Dubbel aromatics with dark fruit esters—ripe plum, dark cherry, and fig—complemented by caramel malt sweetness and subtle banana notes from Belgian yeast. Hints of dark bread crust, toffee, and gentle spice (clove and subtle pepper) add complexity, while a whisper of chocolate and toasted nuts emerges in the background. The yeast character is present but restrained, allowing malt complexity to shine.",
+        "palate": "Balanced and subtle, the palate delivers malt-forward sweetness with ripe dark fruit flavors—think dried plum, raisin, and black cherry—harmoniously integrated with caramel and toffee notes. The Belgian yeast contributes gentle fruity esters without overwhelming phenolic spice, creating a smooth, approachable drinking experience. Medium body with moderate carbonation provides pleasant texture, while subtle hop bitterness balances the malt sweetness. The beer drinks clean and smooth, making it very enjoyable and a house favorite for good reason.",
+        "finish": "Gentle fruit and malt flavors persist on the moderately dry finish, with subtle spice notes and a hint of warming alcohol that never becomes hot or harsh. The 6.3% ABV is perfectly integrated."
+      },
+      "foodPairings": [
+        "Belgian beef carbonnade (beef stewed in beer)",
+        "Gruyère and aged Gouda cheese",
+        "Roasted duck with cherry sauce",
+        "Chocolate mousse or dark chocolate desserts",
+        "Braised pork shoulder with apples"
+      ],
+      "servingInfo": {
+        "temperature": "10-13°C (50-55°F) - cellar temperature",
+        "decanting": "Pour into a tulip glass, leaving sediment in bottle if present",
+        "glassware": "Belgian Dubbel/Tulip glass to concentrate aromatics and showcase color"
+      },
+      "wineDetails": {
+        "region": "Delaplane, Virginia, USA",
+        "grapeVariety": "N/A - Belgian-style ale (malted barley, Belgian yeast, hops)",
+        "vintage": "N/A - current production",
+        "style": "Belgian Dubbel ale, 6.3% ABV, 100% vegan",
+        "ageability": "Best enjoyed fresh; drink within 12 months of production"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ],
+  "qualityMetrics": {
+    "exactMatches": 6,
+    "producerMatches": 3,
+    "varietalMatches": 1,
+    "averageConfidence": 0.906,
+    "uniqueDescriptions": 10,
+    "professionalSourcesCited": true
+  }
+}

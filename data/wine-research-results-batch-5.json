@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Rioja Lar de Paula Madurado 2020",
+    "description": "An elegant Spanish red from Rioja, this Madurado showcases traditional barrel aging that imparts complexity and finesse. Crafted primarily from Tempranillo, this wine demonstrates the classic Rioja style with extended maturation developing rich, layered flavors and smooth tannins.",
+    "tastingNotes": {
+      "aroma": "The nose opens with a compelling bouquet of ripe black cherry and dried plum, interwoven with notes of vanilla and toasted oak from barrel aging. Subtle hints of leather, tobacco leaf, and sweet baking spices add depth and complexity. As the wine breathes, earthy undertones of forest floor and dried herbs emerge, characteristic of well-aged Rioja.",
+      "palate": "Medium to full-bodied with silky, integrated tannins that speak to careful maturation. The palate delivers concentrated flavors of dark cherry, blackberry, and plum preserves, balanced by bright acidity that keeps the wine fresh and lively. Oak influence presents as notes of cocoa, mocha, and sweet spice, while savory elements of dried herbs and mineral undertones add complexity. The wine's structure is elegant rather than heavy, with well-balanced alcohol supporting the fruit.",
+      "finish": "Long and satisfying, with lingering notes of dark fruit, vanilla, and subtle earthy minerality. The finish is smooth and refined, with gentle tannins and a touch of sweet spice that invites another sip. A hint of tobacco and leather persists on the aftertaste."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary",
+      "Manchego cheese and charcuterie board",
+      "Roasted duck with cherry reduction",
+      "Spanish-style braised short ribs",
+      "Mushroom risotto with truffle oil"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Decant for 30-45 minutes to allow the wine to open up and showcase its complex aromatics",
+      "glassware": "Large Bordeaux-style glass to capture the aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Primarily Tempranillo with possible Garnacha and Graciano",
+      "vintage": "2020",
+      "style": "Barrel-aged Spanish red wine",
+      "ageability": "Drinking well now; can age 5-8 years from vintage. Best enjoyed 2024-2028."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Alella Barbabianco Vermut Blanco",
+    "description": "A distinctive white vermouth from the Alella region near Barcelona, this aromatic fortified wine combines local white grape varieties with a carefully curated blend of Mediterranean botanicals. Barbabianco represents the Spanish tradition of blanc vermouth, offering a sophisticated aperitif experience with layers of herbal and citrus complexity.",
+    "tastingNotes": {
+      "aroma": "Enticing aromatics of fresh citrus peel—lemon zest and bitter orange—mingle with fragrant chamomile flowers and delicate white florals. The botanical bouquet includes notes of cardamom, coriander, and a whisper of Mediterranean herbs like rosemary and marjoram. Subtle sweetness emerges with hints of honey and vanilla, balanced by gentle spice notes of clove and ginger.",
+      "palate": "Medium-bodied with a luscious, slightly viscous texture that coats the palate. The initial sweetness is immediately balanced by refreshing acidity and gentle bitter notes from the botanical infusion. Flavors of candied citrus, white grape, and stone fruit are interwoven with layers of aromatic spices—juniper, quinine, and warming cinnamon. The fortification provides structure without heaviness, while the herbal components add complexity and depth throughout the mid-palate.",
+      "finish": "Clean and refreshing with lingering botanical complexity. The finish shows gentle bitterness from quinine and citrus peel, balanced by a touch of sweetness and aromatic herb notes. Cardamom and ginger spice persist on the aftertaste, leaving the palate cleansed and ready for food or another sip."
+    },
+    "foodPairings": [
+      "Fresh oysters with lemon",
+      "Spanish olives and Marcona almonds",
+      "Grilled white fish with herbs",
+      "Jamón ibérico and aged cheese",
+      "Light seafood tapas"
+    ],
+    "servingInfo": {
+      "temperature": "42-46°F (6-8°C), well-chilled or over ice",
+      "decanting": "No decanting needed; serve directly from refrigerated bottle. Can be mixed in cocktails or enjoyed neat.",
+      "glassware": "Short tumbler over ice with citrus peel, or traditional white wine glass for neat service"
+    },
+    "wineDetails": {
+      "region": "Alella DO, Catalonia, Spain",
+      "grapeVariety": "White grape base (likely Pansa Blanca/Xarel·lo) fortified and aromatized with botanicals",
+      "vintage": "NV (Non-Vintage)",
+      "style": "White/Bianco Vermouth - aromatized fortified wine",
+      "ageability": "Best consumed within 1-3 months of opening when refrigerated. No aging required."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Backsberg Patriarch Cabernet Franc 2022",
+    "description": "A refined expression of Cabernet Franc from South Africa's renowned Paarl region, this wine showcases the varietal's signature aromatic complexity and elegant structure. Backsberg's Patriarch line represents their premium tier, demonstrating what modern South African viticulture can achieve with this noble Bordeaux variety in warm-climate conditions.",
+    "tastingNotes": {
+      "aroma": "Vibrant and expressive nose featuring bright red fruit—raspberry compote, ripe strawberry, and red currant—alongside intriguing savory notes of roasted red bell pepper and fresh herbs. Subtle hints of green peppercorn and dried oregano add complexity, while gentle oak influence contributes notes of vanilla, cedar, and a touch of tobacco. The aromatic profile balances fruit purity with earthy, herbaceous character typical of well-made Cabernet Franc.",
+      "palate": "Medium-bodied with supple, fine-grained tannins and refreshing acidity that provides structure and vitality. The palate delivers focused flavors of bright cherry, raspberry sauce, and plum, complemented by savory elements of smoky tomato, sweet pepper, and dried herbs. Oak aging adds subtle layers of chocolate, mocha, and baking spices without overwhelming the fruit. The wine shows excellent balance between ripe fruit character and the varietal's characteristic herbal, peppery notes, with a silky texture and moderate alcohol integration.",
+      "finish": "Medium to long finish with persistent red fruit and a savory, slightly spicy quality. Notes of fresh herbs, black pepper, and subtle oak linger, leaving a clean, refreshing impression. The tannins are soft and integrated, with enough grip to pair well with food."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with herb crust",
+      "Roasted chicken with bell peppers",
+      "Mushroom and herb pasta",
+      "Grilled salmon with herbes de Provence",
+      "South African bobotie (spiced meat dish)"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Decant for 20-30 minutes to soften tannins and enhance aromatics",
+      "glassware": "Medium-sized Bordeaux or universal red wine glass"
+    },
+    "wineDetails": {
+      "region": "Paarl, Western Cape, South Africa",
+      "grapeVariety": "100% Cabernet Franc",
+      "vintage": "2022",
+      "style": "Single-varietal premium red wine",
+      "ageability": "Drinking well now; can age 5-7 years. Optimal drinking window 2024-2029."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Weinrieder Riesling Reid Kugler 2021",
+    "description": "An exceptional single-vineyard Austrian Riesling from the Reid Kugler site, this wine exemplifies the precision and terroir-driven character that Austrian winemaking has become renowned for. Weinrieder crafts dry Rieslings of outstanding quality, showcasing the mineral-rich soils and cool climate influences that distinguish Austrian examples from their German counterparts.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with classic Riesling character: vibrant lime zest, green apple, and white peach lead the nose, followed by delicate white flowers—jasmine and acacia blossom. Distinctive mineral notes suggest wet stones and slate, while subtle hints of beeswax and honeysuckle add depth. A faint whisper of the characteristic 'petrol' note emerges, indicating quality and age-worthiness. The overall impression is pure, crystalline, and precise.",
+      "palate": "Light to medium-bodied with a steely backbone of racy acidity that defines Austrian Riesling. The wine is completely dry, showcasing concentrated flavors of tart green apple, Meyer lemon, white grapefruit, and ripe stone fruit. Pronounced minerality runs through the palate like a vein of quartz, adding tension and energy. Subtle notes of wet stone and saline character reflect the vineyard's terroir, while the clean, crisp acidity keeps the wine vibrant and refreshing. The mouthfeel is precise and focused, with excellent intensity despite the light body.",
+      "finish": "Long, mineral-driven finish with lingering citrus and stone fruit notes. The high acidity leaves the palate remarkably refreshed and cleansed. A persistent flinty minerality and subtle beeswax note carry through, with the wine's purity and precision evident to the last drop."
+    },
+    "foodPairings": [
+      "Fresh oysters and raw seafood",
+      "Sushi and sashimi",
+      "Roasted chicken with lemon and herbs",
+      "Austrian Wiener Schnitzel",
+      "Fresh goat cheese and salads"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "No decanting needed; can benefit from 10-15 minutes in the glass to warm slightly and release aromatics",
+      "glassware": "Classic Riesling glass or white wine glass with narrow bowl to concentrate aromatics"
+    },
+    "wineDetails": {
+      "region": "Weinviertel or Wachau, Austria",
+      "grapeVariety": "100% Riesling",
+      "vintage": "2021",
+      "style": "Dry (trocken) Austrian Riesling, single-vineyard",
+      "ageability": "Drinking beautifully now; excellent aging potential of 10-15+ years. Peak drinking 2024-2036."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Paloma Vineyards Cabernet Sauvignon 2019",
+    "description": "A distinguished Napa Valley Cabernet Sauvignon from Paloma Vineyards, this 2019 vintage captures the essence of one of California's finest wine regions. Crafted from estate-grown fruit, this wine exemplifies the power, concentration, and elegance that have made Napa Cabernet world-renowned, with the 2019 vintage offering optimal ripeness and structure.",
+    "tastingNotes": {
+      "aroma": "Opulent and layered nose showcasing ripe black currant, blackberry, and dark cherry alongside notes of crushed graphite, pencil lead, and cigar box. The bouquet reveals classic Napa hallmarks: eucalyptus, mint, and cedar from the region's distinctive terroir, interwoven with rich oak-derived notes of vanilla, sweet tobacco, and baking spices. Subtle violet and dark chocolate nuances add depth and complexity to this compelling aromatic profile.",
+      "palate": "Full-bodied and concentrated with a plush, velvety texture that exemplifies premium Napa Cabernet. The palate delivers intense flavors of cassis, black cherry, and ripe plum, supported by medium-high tannins that provide structure without harshness. Layers of complexity unfold with notes of dark chocolate, espresso, black pepper, and sweet oak-derived vanilla and toast. The wine shows excellent fruit concentration balanced by bright acidity that prevents any sense of heaviness. Alcohol is well-integrated at 13.5-14.5%, contributing to the wine's full body and richness while maintaining elegance and balance.",
+      "finish": "Long, persistent finish with layers of dark fruit, oak spice, and subtle mineral notes. The tannins are firm yet refined, with a chalky quality that suggests excellent aging potential. Notes of dark chocolate, tobacco, and mint linger on the aftertaste, inviting contemplation and another sip."
+    },
+    "foodPairings": [
+      "Grilled ribeye or New York strip steak",
+      "Braised short ribs with red wine reduction",
+      "Roasted rack of lamb with herb crust",
+      "Aged hard cheeses like aged cheddar or Parmigiano-Reggiano",
+      "Wild mushroom and truffle dishes"
+    ],
+    "servingInfo": {
+      "temperature": "62-68°F (17-20°C)",
+      "decanting": "Decant for 1-2 hours to soften tannins and fully express the wine's complex aromatics",
+      "glassware": "Large Bordeaux or Cabernet-specific glass to maximize aeration and aroma development"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California",
+      "grapeVariety": "Cabernet Sauvignon (likely 85-100%), possibly with small amounts of Merlot or Cabernet Franc",
+      "vintage": "2019",
+      "style": "Premium Napa Valley Cabernet Sauvignon",
+      "ageability": "Drinking well now with decanting; excellent aging potential of 10-15+ years. Optimal drinking window 2025-2035."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Priorat Galena 2021",
+    "description": "A powerful and distinctive red from Spain's prestigious Priorat region, Galena embodies the unique terroir of this mountainous Catalonian appellation. Crafted from traditional Priorat varieties grown in the region's characteristic llicorella slate soils, this wine demonstrates the concentrated, mineral-driven style that has earned Priorat international acclaim and DOCa status.",
+    "tastingNotes": {
+      "aroma": "Intense and complex aromatics revealing dark fruit concentration: black cherry, blackberry jam, and ripe plum, intermingled with distinctive mineral notes of crushed slate and wet gravel. The bouquet shows layers of complexity with licorice, dark chocolate, espresso, and dried Mediterranean herbs—thyme and rosemary. Oak aging contributes subtle notes of vanilla, toast, and sweet tobacco, while a hint of violet and black pepper adds aromatic intrigue. The overall impression is powerful yet sophisticated.",
+      "palate": "Medium to full-bodied with a dense, concentrated core of dark fruit flavors. The palate delivers black cherry, plum compote, and blackberry preserves, supported by high, firm tannins that provide serious structure and aging potential. The hallmark dusty minerality of Priorat runs throughout, adding tension and complexity to the ripe fruit. Layers of dark chocolate, mocha, and baking spices from oak aging integrate beautifully with the fruit, while medium-high acidity balances the wine's richness. The alcohol (typically 13.5-15% ABV) is well-integrated, contributing to the wine's full body and warming finish without overwhelming the terroir-driven character.",
+      "finish": "Long, powerful finish with persistent dark fruit, crushed gravel minerality, and gripping tannins. Notes of licorice, dark chocolate, and dried herbs linger, with the characteristic dusty, mineral quality that defines great Priorat. The finish is structured and age-worthy, with layers of complexity that continue to unfold."
+    },
+    "foodPairings": [
+      "Grilled lamb with rosemary and garlic",
+      "Spanish chorizo and cured meats",
+      "Braised beef or venison stew",
+      "Roasted vegetables with olive oil and herbs",
+      "Aged Manchego or Idiazábal cheese"
+    ],
+    "servingInfo": {
+      "temperature": "62-68°F (17-20°C)",
+      "decanting": "Decant for 1-2 hours to soften the powerful tannins and allow the complex aromatics to emerge",
+      "glassware": "Large Bordeaux-style glass to accommodate the wine's intensity and aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Priorat DOCa, Catalonia, Spain",
+      "grapeVariety": "Primarily Garnacha (Grenache) and Cariñena (Carignan), possibly with Cabernet Sauvignon or Merlot",
+      "vintage": "2021",
+      "style": "Premium Spanish red blend from llicorella slate soils",
+      "ageability": "Still young; benefits from 5+ years of aging. Optimal drinking window 2026-2036. Top examples can age 15-20 years."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Alfaro Family Vineyards Estate Pinot Noir 2023",
+    "description": "A vibrant, coastal-style Pinot Noir from Alfaro Family Vineyards' estate in California's Central Coast region. This young wine showcases the fresh, fruit-forward character and elegance that California's cool-climate regions can achieve with Pinot Noir. The 2023 vintage captures bright fruit purity and the distinctive terroir of the estate's maritime-influenced vineyards.",
+    "tastingNotes": {
+      "aroma": "Bright and expressive aromatics bursting with fresh red fruit: ripe cherry, red raspberry, and wild strawberry dominate the nose. Delicate floral notes of rose petals and violet add elegance, while subtle hints of crushed herbs, forest floor, and baking spices provide complexity. Light oak influence contributes gentle notes of vanilla and sweet toast. The overall impression is youthful, fresh, and inviting, with the purity of fruit shining through.",
+      "palate": "Light to medium-bodied with a silky, elegant texture and fine-grained tannins that caress the palate. The wine delivers concentrated red fruit flavors—cherry compote, red raspberry, and cranberry—supported by vibrant acidity that keeps the wine lively and refreshing. Subtle earthy notes of mushroom and tea leaves add depth without overwhelming the bright fruit character. The maritime influence shows in a mineral quality and bright freshness, while light oak aging contributes whispers of vanilla, clove, and Coca-Cola. The mouthfeel is graceful and refined, with 12-13.5% alcohol maintaining balance and elegance.",
+      "finish": "Medium-length finish with lingering red fruit, subtle spice, and gentle tannins. The bright acidity leaves the palate refreshed and cleansed, while notes of cherry, rose, and subtle earth persist. The finish is clean and vibrant, inviting another sip."
+    },
+    "foodPairings": [
+      "Grilled salmon with herbs",
+      "Roasted duck breast with cherry sauce",
+      "Mushroom risotto or pasta",
+      "Herb-roasted chicken",
+      "Soft, creamy cheeses like Brie or Camembert"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), slightly cool",
+      "decanting": "Brief 15-20 minute decanting or swirling in glass will open up aromatics; not essential for this young, accessible wine",
+      "glassware": "Burgundy-style glass with wide bowl to capture delicate aromatics"
+    },
+    "wineDetails": {
+      "region": "Central Coast, California (likely San Luis Obispo County)",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2023",
+      "style": "Estate-grown California coastal Pinot Noir",
+      "ageability": "Designed for early drinking; best enjoyed within 3-5 years to preserve fresh fruit character. Optimal drinking window 2024-2028."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Raywood Merlot 2022",
+    "description": "A smooth, approachable Merlot that showcases the varietal's classic velvety character and fruit-forward personality. This wine demonstrates Merlot's versatility and appeal, offering plush texture and ripe fruit flavors that make it an excellent choice for both casual enjoyment and food pairing. The 2022 vintage captures fresh, vibrant fruit with well-integrated oak influence.",
+    "tastingNotes": {
+      "aroma": "Inviting nose of ripe black and red fruits: juicy black cherry, plum, blackberry, and mulberry create a lush, fruit-forward bouquet. Subtle notes of dark chocolate, mocha, and vanilla from oak aging add richness and complexity. Hints of dried herbs, cola nut, and sweet tobacco provide additional layers, while a whisper of bay leaf and mint adds aromatic interest. The overall profile is approachable and generous.",
+      "palate": "Medium-bodied with the signature velvety, plush texture that Merlot is known for. Soft, supple tannins create an immediately accessible, smooth mouthfeel that coats the palate luxuriously. The wine delivers concentrated flavors of black plum, black cherry, and blackberry jam, complemented by notes of cocoa, coffee bean, and subtle baking spices from oak aging. Moderate acidity provides balance and freshness, preventing the wine from feeling heavy despite its richness. The alcohol is well-integrated, supporting the fruit without dominating. Secondary notes of fennel, leather, and dried oregano add complexity to the mid-palate.",
+      "finish": "Smooth, medium-length finish with lingering dark fruit, chocolate, and subtle oak spice. The tannins remain soft and integrated, creating a plush, satisfying conclusion. Notes of mocha and sweet vanilla persist on the aftertaste, with a hint of black tea adding final complexity."
+    },
+    "foodPairings": [
+      "Grilled burgers and barbecue",
+      "Roasted pork tenderloin",
+      "Pasta with tomato-based meat sauce",
+      "Grilled portobello mushrooms",
+      "Medium-aged cheeses like Gouda or Gruyère"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Brief 15-30 minute decanting will enhance aromatics and soften texture, though not essential for this approachable wine",
+      "glassware": "Standard red wine glass or medium-sized Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "California or Washington State (specific region not confirmed)",
+      "grapeVariety": "Merlot (likely 85-100%), possibly with small amounts of Cabernet Sauvignon",
+      "vintage": "2022",
+      "style": "Medium-bodied New World Merlot",
+      "ageability": "Drinking well now; best enjoyed within 3-5 years to appreciate fresh fruit character. Optimal drinking window 2024-2027."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.82,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Stel + Mar Andrew Cabernet Sauvignon (DC/MD Only) 2023",
+    "description": "A young, vibrant Cabernet Sauvignon exclusively available in the DC/MD market, this wine showcases fresh fruit character and modern winemaking. The 2023 vintage is incredibly recent, offering primary fruit flavors and accessibility while maintaining Cabernet's structural backbone. Stel + Mar's Andrew bottling represents approachable premium Cabernet designed for near-term enjoyment.",
+    "tastingNotes": {
+      "aroma": "Fresh and exuberant nose bursting with youthful Cabernet character: ripe blackcurrant, fresh blackberry, and dark cherry lead the way, supported by notes of cassis and red plum. The aromatic profile shows bright fruit purity with subtle hints of green bell pepper and fresh herbs that indicate youth and varietal authenticity. Light oak influence contributes gentle vanilla, cedar, and sweet toast notes. A whisper of violet and dark chocolate adds intrigue to this vivacious bouquet.",
+      "palate": "Medium to full-bodied with juicy, approachable fruit and moderate tannins that provide structure without astringency. The wine delivers concentrated flavors of blackberry, black cherry, and cassis, with bright acidity maintaining freshness and vitality throughout. Oak aging adds layers of vanilla, mocha, and baking spices, while subtle notes of tobacco, cedar, and graphite hint at classic Cabernet complexity. The tannins are present but soft, suggesting some oak maturation to round out the wine's texture. The alcohol (likely 13.5-14%) is well-integrated, supporting the fruit concentration. Despite its youth, the wine shows good balance and drinkability.",
+      "finish": "Medium-length finish with persistent dark fruit and gentle tannins. Notes of blackberry, vanilla, and subtle oak spice linger, with a touch of fresh herbs on the aftertaste. The finish is clean and youthful, with refreshing acidity leaving the palate ready for food or another sip."
+    },
+    "foodPairings": [
+      "Grilled steaks and beef burgers",
+      "Barbecue ribs with tangy sauce",
+      "Cheddar or aged cheese plates",
+      "Mushroom and beef pasta",
+      "Herb-crusted roasted lamb"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Decant for 20-30 minutes to soften tannins and enhance fruit expression in this young wine",
+      "glassware": "Cabernet or Bordeaux-style glass to concentrate aromatics"
+    },
+    "wineDetails": {
+      "region": "California (specific region not confirmed)",
+      "grapeVariety": "Cabernet Sauvignon (likely 85-100%)",
+      "vintage": "2023",
+      "style": "Young, fruit-forward Cabernet Sauvignon",
+      "ageability": "Very young; best enjoyed within 2-4 years to appreciate fresh fruit character. Optimal drinking window 2024-2027."
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.78,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Skylark Las Aves 2017",
+    "description": "An artisan California red blend from Skylark, a boutique winery known for crafting distinctive wines from premium vineyard sources. The Las Aves bottling represents a carefully composed blend showcasing California's diverse terroir, with the 2017 vintage offering the complexity and integration that comes with several years of bottle age. This wine demonstrates the elegance and balance achievable with thoughtful blending and patient maturation.",
+    "tastingNotes": {
+      "aroma": "Evolved and complex aromatics showing the benefits of bottle age: mature dark fruit aromas of black cherry preserves, dried plum, and fig mingle with savory notes of leather, dried tobacco leaf, and forest floor. The bouquet reveals layers of complexity—dark chocolate, espresso, cedar, and sweet baking spices from oak aging have integrated beautifully with the fruit. Subtle hints of dried herbs, black olive, and earthy mushroom add intrigue, while a whisper of vanilla and smoke lingers in the background. The overall impression is sophisticated and tertiary, showing graceful evolution.",
+      "palate": "Medium to full-bodied with a seamless, integrated texture that speaks to careful aging. The tannins have softened and melded beautifully with the fruit, creating a velvety, harmonious mouthfeel. The palate delivers flavors of mature dark fruit—black cherry compote, dried plum, blackberry jam—alongside savory elements of leather, dried herbs, tobacco, and earthy minerality. Notes of dark chocolate, mocha, and toasted oak are fully integrated, adding depth without dominating. The acidity remains bright enough to maintain freshness despite the wine's age, while the alcohol (likely 13.5-14.5%) supports the wine's structure. The blend's components have married completely, showing no rough edges.",
+      "finish": "Long, elegant finish with lingering notes of mature fruit, leather, and subtle oak. The tannins are smooth and resolved, with a gentle grip that speaks to quality winemaking. Notes of dark chocolate, tobacco, and dried herbs persist, with a mineral quality emerging on the aftertaste. The finish is refined and contemplative, rewarding slow sipping."
+    },
+    "foodPairings": [
+      "Braised short ribs or beef bourguignon",
+      "Wild mushroom and truffle dishes",
+      "Aged hard cheeses like aged Gouda or Comté",
+      "Duck confit with roasted root vegetables",
+      "Herb-encrusted rack of lamb"
+    ],
+    "servingInfo": {
+      "temperature": "62-68°F (17-20°C)",
+      "decanting": "Decant for 45-60 minutes to allow this mature wine to open fully and shed any bottle age reduction",
+      "glassware": "Large Bordeaux-style glass to capture the wine's evolved aromatics"
+    },
+    "wineDetails": {
+      "region": "California (likely from premium vineyard sources in Sonoma, Napa, or Central Coast)",
+      "grapeVariety": "Bordeaux-style blend (likely combination of Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot, Malbec)",
+      "vintage": "2017",
+      "style": "Premium California red blend with bottle age",
+      "ageability": "Drinking beautifully now in its maturity. Can continue aging 3-5 more years. Optimal drinking window 2024-2029."
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-20T00:00:00Z"
+    }
+  }
+]

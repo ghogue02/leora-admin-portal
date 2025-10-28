@@ -1,0 +1,357 @@
+{
+  "batchNumber": 25,
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Nebbiolo D Alba 2018",
+      "description": "A classical expression of Nebbiolo from Alba, crafted by a producer renowned for their exceptional Barolo wines. This wine showcases the elegance and complexity that makes Nebbiolo one of Italy's most treasured varieties, offering layers of red fruit, floral notes, and earthy undertones.",
+      "tastingNotes": {
+        "aroma": "The nose opens with captivating aromas of rose petal and violet, characteristic hallmarks of Nebbiolo, interwoven with notes of chopped herbs and freshly tilled soil. As the wine breathes, subtle hints of wild mixed berries emerge alongside delicate shiitake mushroom notes, creating an earthy yet floral bouquet that speaks to the terroir of Alba.",
+        "palate": "On the palate, this wine delivers crushed raspberry and ripe black cherry flavors, accented by star anise and tobacco leaf. The texture is elegantly structured with youthfully austere but polished tannins that provide backbone without overwhelming the fruit. Fresh acidity brings energy and liveliness to the mid-palate, while savory elements of licorice and black pepper add complexity and depth.",
+        "finish": "The finish is long and layered, marked by taut tannins and a savory quality that lingers. Subtle notes of tar and dried herbs emerge on the retronasal, a classic signature of well-crafted Nebbiolo that promises excellent aging potential through 2030."
+      },
+      "foodPairings": [
+        "Braised short ribs with porcini mushrooms",
+        "Truffle risotto",
+        "Aged Parmigiano-Reggiano cheese",
+        "Osso buco alla Milanese",
+        "Wild boar ragu with pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and soften the tannins, revealing its full aromatic complexity",
+        "glassware": "Large Burgundy or Barolo glass to concentrate the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Nebbiolo d'Alba DOC, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2018",
+        "style": "Dry Red Wine - Medium to Full-Bodied",
+        "ageability": "Drink now through 2030. While approachable in its youth, this wine will continue to develop tertiary characteristics over the next 5-7 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on Collina San Ponzio's 2018 Barolo and 2020 Nebbiolo d'Alba, as specific 2018 Nebbiolo d'Alba notes were unavailable"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars White Wine Can   250 ml",
+      "description": "A refreshing canned white wine from Paso Robles' pioneering Castoro Cellars, crafted from organically grown grapes. This portable format preserves the wine's freshness and vibrancy, making it perfect for outdoor adventures, picnics, or casual enjoyment where convenience meets quality.",
+      "tastingNotes": {
+        "aroma": "Bright and inviting aromas of key lime and tangerine leap from the glass, accompanied by white peach and hints of freshly cut grass. The bouquet carries notes of kiwi and rainy concrete minerality, giving the wine a crisp, refreshing quality that awakens the senses.",
+        "palate": "The palate is dry yet fruit-forward, bursting with zesty citrus flavors centered around lime peel and juicy stone fruit. A stony mineral grip provides structure and definition, while lively acidity powers through the mid-palate, creating a mouthwatering sensation. The wine shows excellent balance between fruit expression and crisp freshness.",
+        "finish": "Clean and energetic finish with lingering citrus notes and a refreshing mineral quality. The finish is brisk and leaves the palate feeling invigorated, making you reach for the next sip."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled fish tacos with lime crema",
+        "Goat cheese and herb salad",
+        "Ceviche with fresh cilantro",
+        "Light summer pasta with lemon and olive oil"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), serve well chilled directly from the can or poured over ice",
+        "decanting": "No decanting needed - the 250ml can format is designed for immediate enjoyment and portability",
+        "glassware": "Drink from the can or pour into a white wine glass or tumbler"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "White blend, likely including Sauvignon Blanc, Viognier, and other aromatic white varieties",
+        "vintage": "Current Release",
+        "style": "Crisp, Dry White Wine - Light-Bodied",
+        "ageability": "Enjoy immediately for optimal freshness. Best consumed within 12 months of production to preserve vibrant fruit character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on Castoro Cellars' white wine style, particularly their Sauvignon Blanc, as specific canned white wine tasting notes were limited"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Monte Real Cepas Viejas 2021",
+      "description": "Crafted from old vines planted in the late 1970s in the prestigious parcels of Los Paletones and El Plantizo in Cenicero, this exceptional Tempranillo represents the pinnacle of varietal expression. The vines, growing at 470 meters altitude, produce concentrated fruit that yields a wine of remarkable depth and complexity.",
+      "tastingNotes": {
+        "aroma": "Intensely aromatic and dynamic on the nose, opening with powerful aromas of cherries, raspberries, blackberries, and black plum. Floral notes of violet interweave with cacao, smoke, and sandalwood, while clove, graphite, leaf litter, and balsamic notes add layers of complexity. The short time in barrel contributes subtle toffee and spice nuances that integrate beautifully with the fruit.",
+        "palate": "Fresh and fleshy on the palate with excellent volume and an enveloping fruity character. An explosion of cherries, strawberries, blackcurrant, and raspberries dominates the mid-palate, showing the wine's meaty, flavorful structure. The texture is complex and layered, with maximum varietal expression of Tempranillo shining through. Subtle spiced nuances of nutmeg, black pepper, and licorice emerge on the finish.",
+        "finish": "Very long spiced and chocolatey retronasal finish with impressive structure and length. The finish lingers with notes of dark chocolate, dried tobacco, and sweet spices, leaving a sophisticated and memorable impression."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Roasted lamb shoulder with rosemary",
+        "Aged Manchego cheese",
+        "Chorizo and bean stew",
+        "Slow-cooked beef short ribs"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 30 minutes to allow the wine's aromatic complexity to fully express itself and integrate the spice notes",
+        "glassware": "Bordeaux or large red wine glass to showcase the intense aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Cenicero, Spain",
+        "grapeVariety": "100% Tempranillo from vines planted in the late 1970s",
+        "vintage": "2021",
+        "style": "Dry Red Wine - Medium to Full-Bodied with Old Vine Concentration",
+        "ageability": "Drink now through 2029. The old vine fruit and structure will allow the wine to develop additional complexity over the next several years when stored properly."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Detailed tasting notes found from wine reviews and producer information for the 2021 vintage"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dolce Vita Mojito",
+      "description": "An innovative alcohol-free sparkling beverage that captures the essence of a classic Mojito cocktail. Part of the Dolce Vita Equivocado line, this drink is named 'Equivocado' (Spanish for 'mistaken') because they 'forgot' the alcohol, yet it delivers the rich, refreshing taste of a real cocktail crafted according to recipes by an Italian barman.",
+      "tastingNotes": {
+        "aroma": "The nose is dominated by fresh, vibrant aromatics of lime zest and fresh mint leaves, reminiscent of a perfectly muddled Mojito. Subtle rum-like aromas add depth and authenticity, while underlying grape fruitiness provides a foundation that distinguishes this from a standard cocktail. The bouquet is invigorating and immediately transports you to a sun-drenched terrace.",
+        "palate": "Harmonious and refreshing on the palate, the wine displays a balanced interplay between bright lime acidity and cooling mint freshness. The grape base adds body and texture, creating a more complex mouthfeel than traditional cocktails. The flavor profile is crisp and clean, with the lime and mint components complementing rather than overwhelming the subtle fruit character beneath.",
+        "finish": "The finish is refreshing and clean, leaving pleasant mint and citrus notes that linger gently. Unlike alcoholic cocktails, there's no burn or heat, just a satisfying, thirst-quenching conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Fresh ceviche with citrus marinade",
+        "Grilled shrimp skewers",
+        "Vietnamese spring rolls with herbs",
+        "Mediterranean mezze platter",
+        "Light fruit salads with mint"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), serve well chilled or over ice",
+        "decanting": "No decanting needed - ready to drink straight from the bottle, chilled or on the rocks",
+        "glassware": "Highball glass or wine glass, garnish with fresh mint and lime wedge for authentic presentation"
+      },
+      "wineDetails": {
+        "region": "Italy",
+        "grapeVariety": "Grape-based non-alcoholic beverage with natural lime and mint flavoring",
+        "vintage": "Current Release",
+        "style": "Non-Alcoholic Sparkling Beverage - Cocktail-Inspired",
+        "ageability": "Best consumed immediately upon purchase for optimal freshness and effervescence. Not intended for aging."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Product information and tasting characteristics found for Dolce Vita Mojito Equivocado non-alcoholic beverage"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "TeHo Malbec 2020",
+      "description": "TeHo, meaning 'blood from earth' in the ancient Huarpe language, represents concentrated expression from the historic Tomal vineyard planted 75 years ago in La Consulta, Valle de Uco. This high-altitude Malbec showcases the intense character and opulent fruit that has made Argentine Malbec world-renowned.",
+      "tastingNotes": {
+        "aroma": "Luscious and intensely aromatic, packed full of dark fruits with succulent blueberries taking center stage alongside kirsch and picked blackberries. Delicate violet notes add floral elegance, while dried herbs, sweet spices, and subtle earthiness contribute complexity. The nose is wonderfully ripe and inviting, reminiscent of sticky hedgerows in autumn.",
+        "palate": "Opulent and juicy on the palate with concentrated black sticky fruits and layers of complexity. The wine is lean yet focused, showing the elegant side of high-altitude Malbec without over-extraction. Ripe fruit flavors of blackberry, blueberry, and cherry meld with earthy undertones and subtle oak integration. The mouthfeel is rich but balanced, with fine-grained tannins providing structure.",
+        "finish": "Long and satisfying finish marked by persistent dark fruit, subtle spice, and a touch of minerality. The opulent juiciness carries through to the end, leaving impressions of ripe fruit and gentle earthiness."
+      },
+      "foodPairings": [
+        "Argentine-style grilled beef asado",
+        "Braised lamb shanks with herbs",
+        "Blue cheese and dark chocolate pairing",
+        "Grilled portobello mushrooms with chimichurri",
+        "Hearty beef empanadas"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the concentrated fruit to express itself fully and integrate with the earthy notes",
+        "glassware": "Large Bordeaux glass to capture the intense aromatics and allow the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Valle de Uco, La Consulta, Mendoza, Argentina",
+        "grapeVariety": "100% Malbec from 75-year-old vines in Tomal vineyard",
+        "vintage": "2020",
+        "style": "Dry Red Wine - Full-Bodied, High-Altitude Expression",
+        "ageability": "Drink now through 2030. The old vine concentration and critics score of 92/100 suggest excellent aging potential over the next decade."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes compiled from various TeHo Malbec vintages (2014, 2017) and general producer style, as specific 2020 notes were limited. Critics score of 92/100 for 2020 vintage confirmed."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Rawn Rose   250 ml",
+      "description": "A vibrant rosé from the Rawn brothers' family winery in Washington's Yakima Valley Rattlesnake Hills, drawing on four generations of farming experience. This elegant rosé earned praise from the brothers with a playful nod: 'Provence called and said, Not bad, Americans!' - a testament to its quality and finesse.",
+      "tastingNotes": {
+        "aroma": "The wine blooms with ripe wild strawberry leading the aromatic profile, accented by a touch of watermelon and hints of fragrant violet. The nose is fresh and inviting, capturing the essence of summer berries with floral elegance that rivals traditional Provence rosés.",
+        "palate": "The palate bursts with rich red fruit expression, showing concentrated strawberry and raspberry flavors balanced by vibrant, well-integrated acidity. The fruit is ripe but never cloying, with excellent tension between richness and freshness. The wine demonstrates versatility and sophistication, with a texture that's both refreshing and satisfying.",
+        "finish": "Clean and fruit-driven finish with lingering berry notes and balanced acid that keeps the palate refreshed. The finish shows excellent length for a rosé, inviting another sip."
+      },
+      "foodPairings": [
+        "Grilled salmon with lemon herb butter",
+        "Nicoise salad with fresh tuna",
+        "Soft ripened cheeses like Brie or Camembert",
+        "Herb-roasted chicken",
+        "Mediterranean vegetable gratin"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well chilled",
+        "decanting": "No decanting needed - the 250ml can format is ready to enjoy immediately",
+        "glassware": "White wine glass or Provence-style rosé glass; can also be enjoyed directly from the can"
+      },
+      "wineDetails": {
+        "region": "Rattlesnake Hills, Yakima Valley, Washington",
+        "grapeVariety": "Blend of red grape varieties (specific composition varies by vintage)",
+        "vintage": "Current Release",
+        "style": "Dry Rosé - Medium-Bodied with Rich Fruit Character",
+        "ageability": "Best enjoyed within 1-2 years of release to preserve the fresh fruit character and vibrant acidity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes found from Two Mountain Winery's Rawn Rosé description and reviews"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Lambert Estate A Thousand Words Chardonnay 2023",
+      "description": "A premium Chardonnay from Australia's Barossa Valley, showcasing the region's capacity for world-class white wine production. This wine combines vibrant fruit expression with sophisticated oak treatment, spending 9 months on lees in 30% new French oak to develop richness and complexity.",
+      "tastingNotes": {
+        "aroma": "Lively and inviting, the wine displays vibrant gold color with aromas of lychee, pineapple, and rock melon (cantaloupe) leading the tropical fruit spectrum. Subtle hints of toasted cashews, butterscotch, and baking spice emerge from the oak aging, creating layers of complexity. Additional notes of lemon zest and nectarine add brightness to the aromatic profile.",
+        "palate": "Rich and opulent on the palate, featuring complex flavors of lychee, nectarine, and mandarin zest balanced by a creamy, hazelnut-cream texture from lees aging. The butterscotch and melted butter oak notes integrate beautifully beneath the stone fruit surface. Despite the richness, a vibrant acid backbone provides structure and prevents the wine from becoming heavy, creating excellent balance.",
+        "finish": "Generous and lengthy finish with lingering tropical fruit, creamy texture, and subtle toasted oak. The hazelnut and butterscotch notes carry through, leaving a sophisticated, satisfying impression."
+      },
+      "foodPairings": [
+        "Lobster with drawn butter",
+        "Roasted chicken with tarragon cream sauce",
+        "Seared scallops with cauliflower purée",
+        "Aged Gruyère or Comté cheese",
+        "Creamy risotto with wild mushrooms"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C), slightly warmer than typical Chardonnay to appreciate the texture and complexity",
+        "decanting": "No decanting needed, though allowing the wine 10-15 minutes in the glass helps it open up",
+        "glassware": "Burgundy glass or full-bodied white wine glass to capture the rich aromatics"
+      },
+      "wineDetails": {
+        "region": "Barossa Valley, South Australia",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Dry White Wine - Full-Bodied, Oak-Aged Chardonnay",
+        "ageability": "Drink now through 2028. The wine has the structure and acidity to develop additional complexity over the next 3-5 years, though it's also delicious in its youth. 13.5% alcohol."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Detailed tasting notes from Wine Enthusiast (88 points) and Lambert Estate official description for the 2023 vintage"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Merlot 2021",
+      "description": "A well-crafted Merlot from the excellent 2021 vintage, a year that produced powerful performers across California wine regions. This wine represents the modern renaissance of Merlot, showcasing the variety's ability to deliver both approachability and complexity when thoughtfully vinified.",
+      "tastingNotes": {
+        "aroma": "The nose opens with lush aromas of ripe black cherry and plum, complemented by notes of dark chocolate and mocha. Subtle hints of cedar and dried herbs add complexity, while a touch of vanilla from oak aging integrates seamlessly. The aromatics are inviting and generous, showing the variety's naturally expressive character.",
+        "palate": "Smooth and velvety on the palate with supple tannins that provide structure without astringency. Flavors of blackberry, cherry, and plum dominate the mid-palate, supported by notes of cocoa, espresso, and baking spices. The wine shows excellent balance between fruit richness and savory elements, with integrated oak adding depth rather than overwhelming the fruit. The texture is round and mouth-coating, characteristic of well-made Merlot.",
+        "finish": "Medium to long finish with soft tannins and lingering dark fruit flavors. Subtle notes of chocolate and toasted oak carry through to the end, leaving a pleasant, satisfying impression."
+      },
+      "foodPairings": [
+        "Herb-crusted roasted pork tenderloin",
+        "Mushroom and truffle risotto",
+        "Grilled lamb chops with mint",
+        "Aged cheddar or Gouda cheese",
+        "Duck confit with cherry sauce"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes will help the wine open up and soften the tannins, though not strictly necessary",
+        "glassware": "Standard Bordeaux or medium-sized red wine glass"
+      },
+      "wineDetails": {
+        "region": "California (specific appellation not specified)",
+        "grapeVariety": "Merlot (likely 85-100%)",
+        "vintage": "2021",
+        "style": "Dry Red Wine - Medium to Full-Bodied",
+        "ageability": "Drink now through 2027. The 2021 vintage shows excellent structure for near-term enjoyment with potential to develop additional complexity over the next few years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Specific producer information not found. Tasting notes based on 2021 California Merlot vintage characteristics and general Merlot profile"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Cabernet Franc 2018",
+      "description": "An elegant expression of Cabernet Franc from Washington's Yakima Valley, crafted by the Rawn family's estate-grown, small-production winery. This wine showcases the distinctive character of Cabernet Franc with restraint and balance, avoiding over-extraction and heavy oak in favor of varietal purity and finesse.",
+      "tastingNotes": {
+        "aroma": "Beautifully aromatic with a nose of rose petal and violet, the classic floral signatures of Cabernet Franc. Integrated oak contributes subtle vanilla notes, while the slightest hint of green pepper makes this definitively Cabernet Franc without crossing into herbaceous territory. The aromatics are elegant and lifted, showing the variety's naturally perfumed character.",
+        "palate": "Not over-extracted or over-oaked, the palate emphasizes purity and varietal expression. Flavors of rose and lavender echo the aromatic profile, complemented by ripe red fruit and subtle oak integration. The wine shows excellent balance and focus, with a lean, elegant structure that allows the fruit and floral notes to shine. The texture is refined with fine-grained tannins providing gentle structure.",
+        "finish": "Long and graceful finish marked by persistent floral notes, integrated oak, and lingering ripe fruit. The finish maintains the wine's elegant character through to the end, leaving impressions of rose petals and subtle spice."
+      },
+      "foodPairings": [
+        "Roasted duck breast with berry reduction",
+        "Grilled vegetables with herbs de Provence",
+        "Soft-ripened cow's milk cheeses",
+        "Cedar plank salmon",
+        "Lentil and vegetable stew"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C), slightly cooler than Cabernet Sauvignon to preserve the delicate aromatics",
+        "decanting": "Decant for 30 minutes to allow the floral and herbal notes to fully express themselves",
+        "glassware": "Bordeaux or Cabernet Franc-specific glass to concentrate the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington (likely from Copeland Vineyard)",
+        "grapeVariety": "95% Cabernet Franc, 5% Merlot (based on typical blend for their Reserve bottling)",
+        "vintage": "2018",
+        "style": "Dry Red Wine - Medium-Bodied, Elegant Style",
+        "ageability": "Drink now through 2026. The wine is showing beautifully now with integrated oak and mature fruit character, though it has the structure for a few more years of development."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on Two Mountain Winery Cabernet Franc Reserve general profile, as specific 2018 vintage notes were not available"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Philippe Guerin Muscadet Sevre et Maine sur Lie 2023",
+      "description": "A classic Muscadet Sèvre et Maine from the Loire Valley's premier Muscadet appellation, crafted by Philippe Guerin. The 'sur lie' designation indicates the wine aged on its lees, contributing texture and complexity to this mineral-driven white wine that exemplifies the freshness and purity of Loire Valley winemaking.",
+      "tastingNotes": {
+        "aroma": "Fresh and vibrant aromatics showcasing white pears, white currants, and crisp apple. Bright citrus notes of lemon zest emerge alongside fresh herbs, while a pronounced stony, mineral quality evokes wet stones and sea breeze. The nose is clean and invigorating, with the complexity derived from lees aging adding subtle depth beneath the bright fruit.",
+        "palate": "Deliciously creamy mouthfeel, a hallmark of sur lie aging, full of citrus and apple flavors with stony, mineral notes taking center stage. The wine shows excellent freshness and minerality throughout, with a salty tang that speaks to its coastal terroir. Despite the creamy texture, the wine maintains vibrant acidity that keeps it lively and refreshing. The flavor profile is pristine and focused, emphasizing mineral expression over overt fruit.",
+        "finish": "Clean and mineral-driven finish with lingering citrus notes and pronounced stoniness. The saline quality persists through the end, leaving the palate refreshed and ready for food. The finish is crisp and energizing, characteristic of well-made Muscadet."
+      },
+      "foodPairings": [
+        "Fresh oysters, especially Brittany oysters",
+        "Steamed mussels with white wine and garlic",
+        "Grilled sole or other delicate white fish",
+        "Fresh goat cheese with herbs",
+        "Seafood plateau with shellfish"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well chilled to emphasize freshness and minerality",
+        "decanting": "No decanting needed - serve directly from the bottle to preserve the wine's vibrant character",
+        "glassware": "Smaller white wine glass or Loire white wine glass to concentrate the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Muscadet Sèvre et Maine AOC, Loire Valley, France",
+        "grapeVariety": "100% Melon de Bourgogne (Muscadet)",
+        "vintage": "2023",
+        "style": "Dry White Wine - Light to Medium-Bodied, Mineral-Driven",
+        "ageability": "Best enjoyed within 2-3 years of vintage to preserve the fresh fruit character and vibrant acidity, though sur lie examples can age gracefully for up to 5 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on Philippe Guerin's general Muscadet style and typical Muscadet Sèvre et Maine sur lie characteristics, as specific 2023 vintage notes were not yet available"
+      }
+    }
+  ]
+}

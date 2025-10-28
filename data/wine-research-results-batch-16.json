@@ -1,0 +1,356 @@
+{
+  "batchNumber": 16,
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Remhoogte Free to be Red Carbonic Syrah 2022",
+      "description": "A vibrant carbonic maceration Syrah from Stellenbosch's Remhoogte Estate, where vineyards cascade down the Simonsberg mountain foothills. This whole-cluster fermented red showcases the playful, fruit-forward style that carbonic maceration brings to Syrah while maintaining the variety's characteristic spice and structure.",
+      "tastingNotes": {
+        "aroma": "Exuberant aromas of fresh crushed raspberries and wild strawberries leap from the glass, characteristic of the carbonic maceration technique. Beneath the bright red fruit lies a complex layer of violet petals, cracked black pepper, and a hint of graphite minerality from the estate's ancient granite soils. Subtle notes of cured meat and garrigue herbs add savory intrigue.",
+        "palate": "The palate is wonderfully juicy and vibrant, with the carbonic process lending a distinctive bubblegum quality alongside ripe cherry and pomegranate flavors. Medium-bodied with silky tannins that provide structure without heaviness, the wine maintains excellent freshness thanks to Stellenbosch's Atlantic Ocean influence. Mid-palate notes of black olive tapenade and dried thyme emerge, balanced by bright acidity that keeps the wine energetic and food-friendly.",
+        "finish": "The finish is pure and refreshing, with lingering red fruit character and a peppery spice kick that's quintessentially Syrah. The carbonic technique ensures the tannins remain soft and approachable, making this wine immediately enjoyable while the underlying structure suggests it can evolve for 3-5 years."
+      },
+      "foodPairings": [
+        "Charcuterie board with cured meats and pâté",
+        "Grilled lamb chops with herbes de Provence",
+        "Duck breast with cherry reduction",
+        "Mushroom and truffle risotto",
+        "BBQ pulled pork sandwiches"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) - slightly chilled to emphasize the fresh fruit character",
+        "decanting": "Brief 15-20 minute decanting recommended to open up the aromatics, though the wine is approachable immediately thanks to the carbonic maceration",
+        "glassware": "Medium-sized Burgundy or universal wine glass to capture the aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa - Simonsberg foothills",
+        "grapeVariety": "100% Syrah (whole-cluster carbonic maceration)",
+        "vintage": "2022",
+        "style": "Carbonic maceration red - fruit-forward, low-tannin, vibrant",
+        "ageability": "Drink now through 2027. The carbonic method makes this wine accessible young, but Remhoogte's terroir provides structure for short-term aging."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Research confirmed Remhoogte Estate in Stellenbosch with minimalist winemaking philosophy. Tasting notes based on carbonic maceration Syrah characteristics combined with Stellenbosch terroir."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bonelli Bonarda Secco 2020",
+      "description": "An authentic expression of Bonarda from Italy's Oltrepò Pavese region in Lombardy, where this variety reaches its finest expression. Bonarda Secco represents the dry style of this indigenous grape, offering rustic charm and food-friendly versatility that has made it a staple of northern Italian tables for generations.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting aromas of sun-ripened plums and black cherries, layered with dried violet petals and a subtle earthy undertone. Notes of crushed herbs, particularly oregano and bay leaf, mingle with hints of leather and tobacco from the variety's characteristic savory profile. A whisper of balsamic reduction adds complexity without overwhelming the fruit.",
+        "palate": "Medium-bodied with a rustic, authentic character that speaks to Bonarda's traditional winemaking. The palate delivers juicy dark cherry and blackberry flavors supported by moderate tannins that provide grip without astringency. The wine's natural acidity cuts through with refreshing precision, while subtle notes of black tea, dried herbs, and a mineral edge add layers of interest. There's an appealing earthiness reminiscent of forest floor and wild mushrooms.",
+        "finish": "The finish is satisfying and persistent, with dark fruit flavors gradually giving way to savory herbal notes and a pleasantly dry, mouth-cleansing quality. The tannins are well-integrated, leaving a velvety texture and inviting you back for another sip."
+      },
+      "foodPairings": [
+        "Risotto alla Milanese with osso buco",
+        "Aged Parmigiano-Reggiano and salumi platter",
+        "Wild mushroom pasta with truffle oil",
+        "Grilled sausages with polenta",
+        "Braised beef short ribs with root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - cellar temperature to showcase both fruit and structure",
+        "decanting": "30-45 minutes of decanting recommended to soften tannins and reveal the wine's full aromatic complexity",
+        "glassware": "Standard Bordeaux glass or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Oltrepò Pavese, Lombardy, Italy",
+        "grapeVariety": "100% Bonarda (also known as Croatina)",
+        "vintage": "2020",
+        "style": "Dry red - rustic, food-friendly, traditional Italian",
+        "ageability": "Drink now through 2026. Bonarda Secco is best enjoyed within 5-6 years to preserve its fresh fruit character and natural vibrancy."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on traditional Bonarda/Croatina characteristics from Oltrepò Pavese region, the variety's heartland."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Terra Dives Evia Grillo 2023",
+      "description": "A fresh and vibrant expression of Grillo from Sicily, showcasing the indigenous white grape's transformation from bulk wine variety to quality-focused table wine. Terra Dives captures the Mediterranean essence of this ancient island, where intense sunshine and maritime breezes create wines of remarkable character and brightness.",
+      "tastingNotes": {
+        "aroma": "The bouquet bursts with aromas of ripe white peach and honeydew melon, intertwined with bright citrus notes of Meyer lemon and grapefruit zest. Distinctive white flower notes of jasmine and orange blossom add elegance, while subtle hints of dried herbs—particularly fennel and thyme—reference Sicily's aromatic landscape. A saline mineral quality evokes the nearby Mediterranean sea.",
+        "palate": "Medium to full-bodied with excellent texture and weight, characteristic of well-made Grillo. The palate delivers concentrated flavors of golden apple, pear, and apricot, balanced by vibrant acidity that keeps the wine fresh and lively. A distinctive almond and hazelnut note emerges mid-palate, adding complexity, while the wine's natural phenolic structure provides a pleasant grip. The maritime influence manifests as a subtle salinity that enhances the wine's food-pairing versatility.",
+        "finish": "The finish is long and satisfying, with citrus peel and stone fruit flavors persisting alongside that characteristic almond note. A crisp, mineral-driven conclusion leaves the palate refreshed and eager for food, demonstrating Grillo's excellent balance between richness and acidity."
+      },
+      "foodPairings": [
+        "Grilled swordfish with caponata",
+        "Linguine alle vongole (clams)",
+        "Fresh burrata with heirloom tomatoes",
+        "Fried calamari with lemon aioli",
+        "Chicken piccata with capers"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) - well chilled to emphasize freshness and acidity",
+        "decanting": "No decanting necessary; serve directly from the bottle to preserve the wine's vibrant aromatics",
+        "glassware": "White wine glass or Sauvignon Blanc glass to concentrate the aromatic profile"
+      },
+      "wineDetails": {
+        "region": "Sicily, Italy - likely western Sicily where Grillo thrives",
+        "grapeVariety": "100% Grillo",
+        "vintage": "2023",
+        "style": "Dry white - fresh, aromatic, medium-bodied Mediterranean",
+        "ageability": "Drink now through 2025. Grillo is best enjoyed young to capture its fresh fruit character and vibrant acidity, though quality examples can develop for 2-3 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on typical Grillo characteristics from Sicily, emphasizing the variety's distinctive profile and Mediterranean terroir."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Merite Merlot 2015",
+      "description": "A mature Merlot showing the development and complexity that comes with proper aging. This 2015 vintage has evolved beyond primary fruit into tertiary characteristics while maintaining the supple texture and approachable nature that makes Merlot beloved worldwide. The wine demonstrates how quality Merlot rewards patience.",
+      "tastingNotes": {
+        "aroma": "The developed bouquet showcases evolved aromas of dried cherry, fig, and plum preserves, layered with complex tertiary notes of cedar, tobacco leaf, and leather. A subtle earthiness reminiscent of forest floor and dried mushrooms adds depth, while hints of vanilla and baking spices speak to oak aging. Delicate floral notes of dried rose petals provide an elegant counterpoint to the savory elements.",
+        "palate": "Medium to full-bodied with a velvety, seamless texture that exemplifies aged Merlot at its finest. The palate reveals flavors of mature black cherry, blackberry compote, and dark plum, integrated with notes of milk chocolate, espresso, and sweet pipe tobacco. The tannins have softened beautifully with age, providing structure without grip. Layers of savory umami characters—soy, dried herbs, and black olive—add complexity, while balanced acidity maintains freshness despite the wine's maturity.",
+        "finish": "The finish is long and harmonious, with dark fruit flavors gradually fading into earthy, spicy notes. Hints of mocha and toasted nuts linger pleasantly, while the silky tannins leave a refined, elegant impression that invites contemplation."
+      },
+      "foodPairings": [
+        "Braised beef bourguignon",
+        "Roasted duck with wild mushroom sauce",
+        "Aged cheddar and Gouda cheese selection",
+        "Herb-crusted rack of lamb",
+        "Wild mushroom and truffle ravioli"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - cellar temperature to showcase the wine's evolved complexity",
+        "decanting": "45-60 minutes of decanting recommended to fully integrate the mature elements and allow tertiary characteristics to express themselves",
+        "glassware": "Large Bordeaux glass to allow the developed aromatics to open fully"
+      },
+      "wineDetails": {
+        "region": "Origin uncertain - likely European or New World premium region",
+        "grapeVariety": "100% Merlot (or Merlot-dominant blend)",
+        "vintage": "2015",
+        "style": "Mature red - developed, complex, velvety",
+        "ageability": "Drink now through 2027. At 9-10 years of age, this wine is in its maturity window and should be enjoyed over the next few years while the fruit remains vibrant."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.68,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on well-aged Merlot characteristics, emphasizing tertiary development typical of 9-10 year old wines."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scheid Vineyards Craftwork Cabernet Sauvignon (Stained Labels) 2022",
+      "description": "Part of Scheid Vineyards' artisanal Craftwork series, this Cabernet Sauvignon represents the winery's commitment to quality winemaking since 1972. Sourced from Scheid's estate vineyards in California's premier growing regions, this wine balances classic Cabernet structure with approachability, offered at exceptional value through the 'Stained Labels' program.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Cabernet Sauvignon aromatics with ripe blackcurrant, cassis, and dark cherry taking center stage. Layers of complexity emerge with notes of cedar, graphite, and dried herbs—particularly sage and eucalyptus. Subtle oak influence brings vanilla, cocoa, and a whisper of cinnamon spice, while underlying mineral notes hint at quality vineyard sources. Fresh violets add an elegant floral lift.",
+        "palate": "Medium to full-bodied with the structured backbone characteristic of quality Cabernet Sauvignon. The palate delivers concentrated flavors of blackberry, plum, and dark cherry, supported by firm but refined tannins that provide excellent grip. Mid-palate richness reveals notes of dark chocolate, espresso, and toasted oak, balanced by California's natural acidity. Hints of black pepper, dried herbs, and tobacco leaf add savory complexity, while the wine maintains freshness and energy throughout.",
+        "finish": "The finish is persistent and well-structured, with dark fruit flavors extending alongside fine-grained tannins. Notes of mocha and baking spices linger, while the wine's natural acidity keeps the conclusion fresh and clean. The finish demonstrates excellent balance between fruit concentration and structural elements."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "Braised short ribs with rosemary and red wine",
+        "Aged blue cheese and walnut salad",
+        "Lamb shanks with garlic and herbs",
+        "Mushroom and beef wellington"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - standard cellar temperature for Cabernet Sauvignon",
+        "decanting": "45-60 minutes of decanting recommended to soften the young tannins and allow the wine to fully express its aromatic complexity",
+        "glassware": "Cabernet Sauvignon or large Bordeaux glass to showcase the wine's structure and aromatics"
+      },
+      "wineDetails": {
+        "region": "California - Scheid Estate Vineyards (Monterey County and surrounding appellations)",
+        "grapeVariety": "Cabernet Sauvignon (likely 85-100%)",
+        "vintage": "2022",
+        "style": "California Cabernet - structured, fruit-forward, balanced",
+        "ageability": "Drink now through 2030. Young and approachable now, with tannin structure suggesting development potential over 5-8 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.73,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Research confirmed Scheid Vineyards as established California producer since 1972. Tasting notes based on California Cabernet characteristics combined with Scheid's winemaking style."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jeremy Nickel Cellars Chardonnay 2018",
+      "description": "A boutique California Chardonnay from Jeremy Nickel Cellars, representing small-production winemaking at its finest. The 2018 vintage has had time to develop tertiary characteristics while maintaining the varietal's hallmark richness and texture. This wine showcases the evolution that quality Chardonnay achieves with proper aging.",
+      "tastingNotes": {
+        "aroma": "The developed bouquet reveals evolved aromas of baked apple, poached pear, and golden apricot, layered with rich notes of toasted hazelnut, butterscotch, and crème brûlée. Subtle oxidative characters of dried honey and beeswax add complexity, while hints of brioche and vanilla speak to quality oak integration. A delicate mineral quality and whisper of white flowers maintain elegance despite the wine's richness.",
+        "palate": "Full-bodied with luxurious, creamy texture enhanced by partial malolactic fermentation and lees aging. The palate delivers ripe stone fruit flavors—peach, nectarine, and apricot—integrated with butterscotch, toasted almond, and vanilla custard. The wine shows beautiful development with notes of lanolin, baked bread, and subtle spice. While rich and textured, balanced acidity prevents heaviness and provides structure. Mid-palate weight demonstrates quality fruit sources, while integrated oak adds layers without dominating.",
+        "finish": "The finish is long and satisfying, with stone fruit and nutty flavors persisting alongside a pleasant toasted oak character. The wine's creamy texture lingers, while refreshing acidity provides a clean conclusion. Hints of honey and baking spice fade slowly, demonstrating the wine's maturity and complexity."
+      },
+      "foodPairings": [
+        "Lobster risotto with saffron cream",
+        "Roasted chicken with truffle butter",
+        "Pan-seared scallops with cauliflower purée",
+        "Aged Gruyère and triple-cream cheese",
+        "Butternut squash ravioli with sage brown butter"
+      ],
+      "servingInfo": {
+        "temperature": "10-12°C (50-54°F) - moderately chilled to balance richness with refreshment",
+        "decanting": "20-30 minutes of decanting recommended to allow the developed characters to integrate and any minor reduction to blow off",
+        "glassware": "Burgundy or large white wine glass to capture the complex aromatics"
+      },
+      "wineDetails": {
+        "region": "California - likely Napa Valley or Sonoma County",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2018",
+        "style": "Rich, oaked California Chardonnay with bottle age",
+        "ageability": "Drink now through 2026. At 6-7 years of age, this wine is showing beautiful development and should be enjoyed soon while the fruit remains vibrant."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on aged California Chardonnay characteristics, emphasizing development typical of 6-7 year old wines from quality producers."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Estate Reserve White 2022",
+      "description": "An elegant white blend from Noble Hill Estate, one of Stellenbosch's pioneering organic vineyards on the slopes of the Simonsberg mountains. This Reserve White showcases the estate's commitment to regenerative organic farming and minimal intervention winemaking, producing wines with distinctive mineral character derived from their ancient granite soils.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pristine aromas of white peach, pear, and green apple, lifted by vibrant citrus notes of lime zest and lemon verbena. Delicate white flowers—jasmine and elderflower—add elegance, while subtle hints of wet stone and flinty minerality speak to the granite terroir. Oak influence is restrained, contributing gentle notes of vanilla bean and toasted almond without overwhelming the pure fruit expression.",
+        "palate": "Medium-bodied with excellent textural depth and a distinctive mineral backbone that defines Noble Hill's wines. The palate delivers flavors of ripe stone fruit—apricot and nectarine—balanced by crisp green apple and Meyer lemon. The wine's natural phenolic structure provides subtle grip and weight, while vibrant acidity maintains freshness and energy. Mid-palate reveals layers of white flowers, crushed herbs, and that characteristic granite-derived minerality. A touch of leesy complexity adds breadth without heaviness.",
+        "finish": "The finish is long and mineral-driven, with citrus and stone fruit flavors persisting alongside the wine's stony core. The acidity remains bright and refreshing, leaving the palate cleansed and eager for food. Subtle oak spice and a saline quality linger, demonstrating the wine's complexity and balance."
+      },
+      "foodPairings": [
+        "Line-caught kingklip with lemon butter",
+        "Grilled prawns with garlic and herbs",
+        "Roasted chicken with preserved lemon",
+        "Fresh oysters with mignonette",
+        "Goat cheese and herb tart"
+      ],
+      "servingInfo": {
+        "temperature": "9-11°C (48-52°F) - chilled to emphasize freshness while allowing complexity to shine",
+        "decanting": "No decanting necessary, though 15 minutes in the glass allows the wine to open and reveal its full aromatic complexity",
+        "glassware": "White Burgundy or universal white wine glass to showcase the wine's texture and aromatics"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, South Africa - Simonsberg mountain slopes",
+        "grapeVariety": "White blend (likely Chenin Blanc and/or Viognier based on estate portfolio)",
+        "vintage": "2022",
+        "style": "Organic white blend - mineral-driven, elegant, terroir-focused",
+        "ageability": "Drink now through 2027. Quality white blends from Stellenbosch can develop beautifully for 4-6 years, gaining complexity while maintaining freshness."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.76,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Research confirmed Noble Hill as organic estate on Simonsberg with mineral-focused winemaking. Tasting notes based on estate style and Stellenbosch white blend characteristics."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vieux Chateau Flouquet Grand Cru 2014",
+      "description": "A mature Bordeaux Grand Cru from the 2014 vintage, now showing the classical development that makes aged Bordeaux so compelling. The 2014 vintage in Bordeaux produced elegant, balanced wines with good acidity and moderate alcohol, wines that have aged gracefully into their second decade. This Saint-Émilion Grand Cru demonstrates the refinement and complexity that proper aging brings.",
+      "tastingNotes": {
+        "aroma": "The evolved bouquet reveals classic mature Bordeaux characteristics with aromas of dried black cherry, cassis, and plum compote taking center stage. Secondary and tertiary development brings layers of cedar, cigar box, and worn leather, intertwined with notes of dried herbs, particularly thyme and bay leaf. Earthy undertones of truffle, forest floor, and graphite add complexity, while subtle hints of vanilla and tobacco from oak aging are now fully integrated. Delicate floral notes of dried roses provide elegance.",
+        "palate": "Medium-bodied with the silky, seamless texture that defines well-aged Bordeaux. The tannins have softened beautifully, providing structure without astringency. The palate delivers flavors of mature dark fruit—blackcurrant, black cherry, and plum—layered with savory notes of mushroom, soy, and black olive. Mid-palate reveals tobacco leaf, dark chocolate, and espresso, while the wine's classical acidity maintains freshness and lift. The integration of fruit, tannin, oak, and acidity is harmonious, demonstrating the wine's maturity.",
+        "finish": "The finish is long and refined, with dark fruit flavors gradually fading into earthy, cedary notes. The tannins are resolved and velvety, leaving an elegant impression. Hints of graphite minerality and dried herbs linger, while the wine's structure suggests it remains in excellent drinking condition."
+      },
+      "foodPairings": [
+        "Châteaubriand with béarnaise sauce",
+        "Duck confit with lentils",
+        "Roasted leg of lamb with garlic and rosemary",
+        "Aged Comté and farmhouse cheeses",
+        "Wild mushroom and truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "17-18°C (63-64°F) - slightly warmer to showcase the wine's developed complexity",
+        "decanting": "60-90 minutes of decanting essential for mature Bordeaux to integrate tertiary characteristics and allow any sediment to settle",
+        "glassware": "Large Bordeaux glass to capture the evolved aromatics and allow the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Saint-Émilion Grand Cru, Bordeaux, France (Right Bank)",
+        "grapeVariety": "Bordeaux blend - likely Merlot-dominant with Cabernet Franc and Cabernet Sauvignon",
+        "vintage": "2014",
+        "style": "Mature Bordeaux Grand Cru - elegant, developed, classical",
+        "ageability": "Drink now through 2029. At 10-11 years of age, this wine is in its maturity window. While it can continue to develop, it should be enjoyed over the next 5 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.71,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on typical Saint-Émilion Grand Cru characteristics from the 2014 vintage, emphasizing maturity and classical Bordeaux development."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "ZaHa El Corte 2015",
+      "description": "An artisanal Spanish red from the 2015 vintage, now showing the complexity and integration that comes with nearly a decade of aging. Spanish reds from 2015 benefited from excellent growing conditions, producing wines with concentration, balance, and aging potential. This wine represents the character and terroir of Spain's diverse wine regions.",
+      "tastingNotes": {
+        "aroma": "The mature bouquet reveals evolved aromas of dark cherry, blackberry, and dried fig, layered with complex notes of leather saddle, tobacco leaf, and cedar. Distinctive Spanish characters emerge with hints of dried Mediterranean herbs—rosemary, thyme, and sage—alongside earthy notes of forest floor and aged balsamic. Subtle spice notes of clove, cinnamon, and black pepper add warmth, while integrated oak contributes vanilla and cocoa without dominating. A mineral edge provides backbone.",
+        "palate": "Full-bodied with the concentrated, muscular structure typical of premium Spanish reds, now softened and integrated through aging. The palate delivers rich flavors of mature dark fruit—blackberry compote, plum, and black cherry—balanced by savory elements of cured meat, black olive, and umami. The tannins have mellowed beautifully, providing grip and texture without roughness. Mid-palate reveals layers of dark chocolate, espresso, and sweet spice, while the wine maintains surprising freshness thanks to Spain's natural acidity. Notes of licorice and graphite add complexity.",
+        "finish": "The finish is long and sophisticated, with dark fruit and savory flavors persisting alongside well-integrated tannins. The wine's structure remains firm but refined, demonstrating excellent aging potential still ahead. Hints of spice, earth, and dark chocolate linger, leaving a memorable impression that speaks to the wine's quality and maturity."
+      },
+      "foodPairings": [
+        "Slow-roasted lamb shoulder with garlic and herbs",
+        "Iberian pork secreto with piquillo peppers",
+        "Aged Manchego and Mahón cheese",
+        "Grilled chorizo with white beans",
+        "Wild boar ragu with pappardelle"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) - cellar temperature to showcase the wine's evolved characteristics",
+        "decanting": "60 minutes of decanting recommended to allow the mature elements to integrate and the wine's full complexity to emerge",
+        "glassware": "Large Rioja or Tempranillo glass to capture the wine's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Spain - likely Ribera del Duero, Rioja, or Priorat",
+        "grapeVariety": "Likely Tempranillo-based blend or possibly Garnacha/Cariñena from Priorat",
+        "vintage": "2015",
+        "style": "Aged Spanish red - concentrated, complex, structured",
+        "ageability": "Drink now through 2030. At 9-10 years of age, this wine is in its prime drinking window with excellent development still ahead over the next 5 years."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.66,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on premium aged Spanish red wine characteristics from the 2015 vintage, emphasizing structure and maturity."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Crosarola Amarone 2021",
+      "description": "A contemporary Amarone della Valpolicella from the Veneto region, crafted using the traditional appassimento method where grapes are dried for several months before fermentation. The 2021 vintage is relatively young for Amarone, offering concentrated fruit and power while hinting at the complexity that will develop with further aging. This wine showcases the intensity and richness that makes Amarone one of Italy's most prestigious wine styles.",
+      "tastingNotes": {
+        "aroma": "The powerful bouquet displays intense aromas of black cherry, ripe plum, and fig marmalade, amplified by the appassimento drying process. Rich notes of dark chocolate, espresso, and raisin add depth, while distinctive balsamic and dried herb characters—particularly sage and oregano—provide complexity. Layers of vanilla, cinnamon, and sweet tobacco speak to oak aging, while subtle hints of dried flowers and leather emerge. The wine's concentration is immediately apparent, with waves of aroma continuing to unfold.",
+        "palate": "Full to very full-bodied with impressive concentration and weight characteristic of Amarone. The palate delivers explosive flavors of blackberry, black cherry, and prune, intensified by the grape-drying process. Rich secondary notes of dark chocolate, mocha, and caramelized sugar add decadence, while the wine maintains balance through moderate acidity and firm, drying tannins. Mid-palate reveals layers of balsamic reduction, dried figs, sweet spice, and a distinctive bitter almond note typical of the style. Despite the wine's power, there's elegance and precision in how the elements integrate.",
+        "finish": "The finish is extraordinarily long and powerful, with concentrated dark fruit flavors extending for 30+ seconds. The tannins are present and grippy—this is young Amarone—but they're balanced by the wine's natural sweetness and alcohol warmth. Notes of chocolate, coffee, and spice linger alongside a pleasantly bitter almond character that cleanses the palate and invites another sip."
+      },
+      "foodPairings": [
+        "Brasato al Barolo (braised beef in wine)",
+        "Aged Parmigiano-Reggiano (36+ months)",
+        "Wild boar stew with polenta",
+        "Roasted game birds with juniper",
+        "Rich dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "17-18°C (63-64°F) - slightly warmer to tame the alcohol and showcase complexity",
+        "decanting": "2-3 hours of decanting essential for young Amarone to soften tannins and allow the wine's full aromatic spectrum to emerge",
+        "glassware": "Extra-large Amarone or Barolo glass to allow the wine's power and aromatics to fully express"
+      },
+      "wineDetails": {
+        "region": "Valpolicella, Veneto, Italy",
+        "grapeVariety": "Traditional Amarone blend: Corvina, Rondinella, and Corvinone (possibly with Molinara)",
+        "vintage": "2021",
+        "style": "Amarone della Valpolicella - appassimento style, concentrated, powerful",
+        "ageability": "Drink 2026-2041. This wine is very young and will benefit significantly from 5+ years of cellaring. Peak drinking window likely 2030-2035."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.74,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Tasting notes based on traditional Amarone della Valpolicella characteristics, emphasizing the appassimento method and the wine's young, powerful nature."
+      }
+    }
+  ]
+}

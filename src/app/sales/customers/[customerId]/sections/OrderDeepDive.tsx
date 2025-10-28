@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Download } from "lucide-react";
+import { formatCurrency, formatNumber } from "@/lib/utils/format";
 
 type ProductBreakdown = {
   productId: string;
@@ -195,17 +196,17 @@ export default function OrderDeepDive({ customerId }: OrderDeepDiveProps) {
                   <td className="px-6 py-4 text-sm text-gray-600">
                     {new Date(product.lastOrderDate).toLocaleDateString()}
                   </td>
-                  <td className="px-6 py-4 text-right text-sm text-gray-900">
-                    {product.totalOrders}
+              <td className="px-6 py-4 text-right text-sm text-gray-900">
+                    {formatNumber(product.totalOrders)}
                   </td>
                   <td className="px-6 py-4 text-right text-sm font-semibold text-gray-900">
-                    ${product.totalRevenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    {formatCurrency(product.totalRevenue)}
                   </td>
                   <td className="px-6 py-4 text-right text-sm text-gray-600">
-                    {product.averageFrequencyDays.toFixed(0)} days
+                    {formatNumber(product.averageFrequencyDays)} days
                   </td>
                   <td className="px-6 py-4 text-right text-sm text-gray-600">
-                    {product.ordersPerMonth.toFixed(1)}
+                    {formatNumber(product.ordersPerMonth)}
                   </td>
                 </tr>
               ))

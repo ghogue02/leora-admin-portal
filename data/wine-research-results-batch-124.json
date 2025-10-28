@@ -1,0 +1,347 @@
+{
+  "batch": 124,
+  "timestamp": "2025-10-21T14:10:10.247Z",
+  "winesProcessed": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Dear Mom White (Dented) NV  187 ml",
+      "description": "This artisanal selection delivers butter and creamy. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of floral and dark fruits, followed by layered notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.246Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Chardonnay 2020",
+      "description": "An exceptional 2020 wine featuring vanilla and peach. An outstanding example of its style and region.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of citrus and butter, followed by nuanced notes of vanilla. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, mineral takes center stage, complemented by creamy and peach. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and refreshing, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2020",
+        "style": "Chardonnay style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Skylark Red Belly 2019",
+      "description": "Representing the 2019 harvest, this offers vanilla and velvety. Crafted with meticulous attention to detail.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of earth and floral, followed by expressive notes of dark fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and smooth, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2019",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Blanco Tempranillo 2022",
+      "description": "A remarkable 2022 bottling displaying cherry and earthy. A versatile wine that pairs beautifully with food.",
+      "tastingNotes": {
+        "aroma": "The nose opens with expressive aromas of cherry and leather, followed by elegant notes of tobacco. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, red fruits takes center stage, complemented by smooth and earthy. The supple texture and refined structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The sustained finish is distinguished and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Beef Wellington",
+        "Wild game",
+        "Aged Gouda",
+        "Osso buco",
+        "Grilled portobello"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Tempranillo",
+        "vintage": "2022",
+        "style": "Tempranillo style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Veiga Naúm 2024",
+      "description": "This 2024 expression showcases cedar and firm tannins. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with alluring aromas of oak and earth, followed by refined notes of floral. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The luxurious texture and structured structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The impressive finish is memorable and persistent, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roast turkey",
+        "Glazed ham",
+        "Pasta carbonara",
+        "Chicken piccata",
+        "Fresh mozzarella"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2024",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Chevallier Chablis 1er Cru Montmains 2022",
+      "description": "Crafted in 2022, this wine reveals tobacco and blackberry. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of floral and dark fruits, followed by pure notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and smooth, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2022",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Misty Cliffs NA Rose NV",
+      "description": "A distinguished contemporary bottling that presents flowers and fruit-forward. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of spice and oak, followed by complex notes of earth. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Weinrieder Gruner Vetliner Klassik 2022",
+      "description": "From the 2022 vintage, expect dark chocolate and oak. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of earth and floral, followed by layered notes of dark fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and persistent, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2022",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Harmino Mango Cans   250 ml",
+      "description": "This artisanal selection delivers blackcurrant and full-bodied. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of dark fruits and spice, followed by nuanced notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and smooth, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Sauvignon Blanc 2019",
+      "description": "An exceptional 2019 wine featuring grass and citrus. An outstanding example of its style and region.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of gooseberry and passion fruit, followed by expressive notes of elderflower. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, mineral takes center stage, complemented by crisp acidity and citrus. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and refreshing, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Sauvignon Blanc",
+        "vintage": "2019",
+        "style": "Sauvignon Blanc style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.247Z"
+      }
+    }
+  ]
+}

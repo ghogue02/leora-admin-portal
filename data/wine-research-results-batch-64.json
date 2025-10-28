@@ -1,0 +1,346 @@
+{
+  "research_batch": 64,
+  "researched_at": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Valdemar Estates Walla Walla Cabernet Sauvignon 2020",
+      "description": "This powerful Walla Walla Cabernet showcases the intensity of Washington's premier wine region with 19 months of French oak aging. A blend of 76% Cabernet Sauvignon, 12% Merlot, and 12% Malbec creates a wine of remarkable concentration and structure. The wine displays both muscular depth and elegant refinement, with International Wine Report suggesting cellaring until 2025 for optimal enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose reveals a complex interplay of dark fruit and earthy aromatics, opening with rich aromas of brambly red fruits, roasted beets, and dried figs. Fig and black cherry dominate, accompanied by subtle notes of black tea, fresh earth, and sage. Floral violet notes emerge alongside savoury stone and mineral undertones, while sweet tobacco leaf and cedary herbs add further complexity to the lifted, elegant bouquet.",
+        "palate": "Chewy, dense, and massive on entry, the palate shows remarkable concentration with flavors of braised black plum and baked boysenberry pie. Sweet tobacco, cinnamon stick, and attractive baking spice notes weave through the concentrated fruit core. The wine is powerful yet polished, with sweet but very grippy tannins providing substantial structure mid-palate. Elevated acidity balances the wine's impressive density and full tannin profile, creating a harmonious whole.",
+        "finish": "The finish lingers with attractive hints of baking spice, cedary herbs, and concentrated dark fruit. The grippy tannins persist, suggesting excellent aging potential and rewarding those who cellar this wine for several years."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with root vegetables",
+        "Aged cheddar or aged Gouda cheese",
+        "Wild mushroom risotto with truffle oil",
+        "Venison medallions with blackberry reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (16-18°C)",
+        "decanting": "Decant for 1-2 hours before serving to soften the grippy tannins and allow the complex aromatics to fully develop. The wine will continue to evolve in the glass.",
+        "glassware": "Large Bordeaux-style glass to showcase the wine's concentration and allow aromas to develop"
+      },
+      "wineDetails": {
+        "region": "Walla Walla Valley, Washington",
+        "grapeVariety": "76% Cabernet Sauvignon, 12% Merlot, 12% Malbec",
+        "vintage": "2020",
+        "style": "Full-bodied red wine with French oak aging",
+        "ageability": "Drinking window 2025-2035. Better with 3-5 years of cellaring from vintage date. The grippy tannins and elevated acidity provide excellent aging potential for 10-15 years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Tandem Inmune Garnacha 2023",
+      "description": "A pure expression of mountain Garnacha from the cool-climate Yerri Valley in Navarra, made by leading winemakers José Maria Fraile and Alicia Eyaralar. This 100% Garnacha is crafted without oak influence, allowing the fresh, powerful character of high-altitude fruit to shine. Fermented with native yeasts and rested 10-12 months in cement tanks, the wine showcases the modern northern Spanish approach to Garnacha.",
+      "tastingNotes": {
+        "aroma": "The nose displays powerful intensity with concentrated black fruit at its core, enhanced by distinctive Mediterranean scrubland aromatics. Subtle hints of thyme and rosemary weave through the ripe fruit, creating a compelling expression of terroir. The cool climate origins are evident in the wine's freshness and aromatic precision, with the mountain fruit showing remarkable purity and definition without any oak influence masking the varietal character.",
+        "palate": "Fresh and clean on entry, the palate reveals soft, subtle fruit with super silky texture that glides across the tongue. The gentle tannic structure provides just enough grip without overwhelming the wine's approachable nature. Broad and savoury flavors unfold with appealing texture and good volume, showcasing the powerfulness of cool-climate Garnacha balanced by refreshing acidity. The wine exemplifies cooler climate northern Spanish Garnacha at its finest—fruity yet structured, powerful yet elegant.",
+        "finish": "The finish is long and clean with lingering notes of black fruit, Mediterranean herbs, and a final touch of minerality. The super silky texture persists, making this a very good example of fresh, enjoyable Garnacha ideal for any occasion."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Spanish chorizo and manchego tapas",
+        "Roasted vegetable medley with herbs de Provence",
+        "Iberico ham and aged sheep's milk cheese",
+        "Grilled portobello mushrooms with garlic"
+      ],
+      "servingInfo": {
+        "temperature": "60-62°F (15-17°C), slightly cool to preserve the wine's freshness",
+        "decanting": "No decanting necessary. The wine is ready to drink and benefits from its approachable, fresh style. A brief 15-minute breathing period in the glass is sufficient.",
+        "glassware": "Medium-sized red wine glass to concentrate the aromatic herbs and fruit"
+      },
+      "wineDetails": {
+        "region": "Yerri Valley, Navarra, Spain",
+        "grapeVariety": "100% Garnacha from mountain vineyards",
+        "vintage": "2023",
+        "style": "Unoaked red wine, fresh and modern style",
+        "ageability": "Drink now through 2027. This wine is designed for immediate enjoyment showcasing fresh fruit and is best consumed within 3-4 years to appreciate its vibrant, youthful character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Baleia Pinot Noir 2023",
+      "description": "Baleia, Portuguese for whale, reflects the fierce coastal elements that shape these South African Pinot Noir vines near St Sebastian Bay. Grown in pure limestone soil with extremely high mineral content, the wine displays singular character and depth of flavour born from challenging maritime conditions. The unique terroir creates a lively wine layered with fine structure and distinctive mineral complexity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant red cherry aromas layered with subtle notes of Italian herbs and earthy complexity. Based on previous vintages' profiles, expect a bouquet showcasing the wine's limestone terroir, with ripe strawberry notes intermingling with cedar leaf and Cyprus aromatics. The maritime influence adds a distinctive mineral edge to the red fruit core, while light spice notes provide additional aromatic interest typical of this cool-climate expression.",
+        "palate": "The palate reveals bright sour cherry and red berry flavors with an earthy, mineral-driven character reflecting the pure limestone soils. Turkish delight sweetness balances the wine's natural acidity, creating a harmonious interplay between fruit and structure. The high mineral content of the vineyard shines through, providing a lively, energetic mouthfeel with fine-grained tannins. The wine showcases remarkable layering, with red fruit, herbal notes, and stony minerality building complexity with each sip.",
+        "finish": "The finish emphasizes the wine's minerality with lingering notes of red cherry, subtle spice, and a distinctive limestone-driven earthiness. The fine structure persists, leaving a clean, refreshing impression that invites the next sip."
+      },
+      "foodPairings": [
+        "Seared duck breast with cherry reduction",
+        "Mushroom and truffle risotto",
+        "Grilled salmon with herb butter",
+        "Roasted chicken with root vegetables",
+        "Aged Gruyère or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-60°F (14-16°C) to preserve the wine's freshness and highlight its mineral character",
+        "decanting": "Brief 20-30 minute decanting recommended to open up the aromatics and integrate the earthy, mineral elements with the red fruit core.",
+        "glassware": "Burgundy-style glass with a wide bowl to capture the delicate aromatics and showcase the wine's layered complexity"
+      },
+      "wineDetails": {
+        "region": "St Sebastian Bay area, South Africa",
+        "grapeVariety": "100% Pinot Noir from limestone soils",
+        "vintage": "2023",
+        "style": "Cool-climate, mineral-driven Pinot Noir",
+        "ageability": "Drink now through 2028. This wine showcases youthful freshness but the structure suggests 3-5 years of aging potential. The limestone terroir provides natural preservation and will allow the wine to develop additional complexity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rioja Lar de Paula Reserva 2016",
+      "description": "This award-winning Reserva from Lar de Paula represents classic Rioja craftsmanship with extended aging that develops remarkable complexity. Scoring 89/100 from critics and 92 points from Penin Guide, the wine has earned multiple accolades including Concours Mondial de Bruxelles Gold Medal and Decanter World Wine Awards Silver. The 2016 vintage showcases the winery's commitment to traditional Reserva production with modern precision.",
+      "tastingNotes": {
+        "aroma": "The nose reveals bright, powerful aromatics with creamy oak seamlessly integrated with ripe red fruit. Spicy notes emerge alongside toasty characteristics and complex dry nut aromas, indicative of extended barrel aging. The oak influence is present but refined, complementing rather than dominating the fruit core. Classic Rioja aromas of tobacco, leather, and vanilla develop alongside red cherry and plum, creating a sophisticated, multi-layered bouquet that speaks to the wine's maturity.",
+        "palate": "Rich flavor dominates the palate with good structure providing a solid framework for the evolved fruit character. The wine shows remarkable integration of oak and fruit, with ripe red berries, spice, and toasty notes working in harmony. Good concentration and body create satisfying weight on the mid-palate, while balanced acidity keeps the wine fresh despite its age. Fine bitter notes add complexity and prevent the wine from becoming overly sweet or heavy, characteristic of well-made Reserva.",
+        "finish": "The long finish showcases the wine's excellent structure with persistent fine bitter notes, toasted oak, and lingering ripe fruit. The extended aging provides a smooth, refined conclusion that demonstrates the wine's quality and careful craftsmanship."
+      },
+      "foodPairings": [
+        "Roasted lamb shoulder with garlic and herbs",
+        "Aged Manchego cheese with quince paste",
+        "Slow-cooked beef stew with Rioja peppers",
+        "Grilled pork tenderloin with mushroom sauce",
+        "Traditional Spanish chorizo and bean stew (fabada)"
+      ],
+      "servingInfo": {
+        "temperature": "62-64°F (17-18°C) to showcase the wine's complexity and integration",
+        "decanting": "Decant for 30-45 minutes to allow the mature wine to breathe and the oak elements to integrate further. The wine is ready to drink but benefits from aeration.",
+        "glassware": "Traditional Rioja glass or large Bordeaux-style glass to concentrate the evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Primarily Tempranillo with traditional Rioja blending grapes",
+        "vintage": "2016",
+        "style": "Reserva with extended oak aging following traditional Rioja methods",
+        "ageability": "Drink now through 2030. The 2016 vintage is in its prime drinking window, showing excellent integration of oak and fruit. Will hold well for another 5 years but is fully developed and ready to enjoy."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tibouren Isle Saint Pierre 2021 Rose",
+      "description": "This Provence-style rosé from Domaine Isle Saint Pierre showcases the cooling influence of the Rhône River, where the winery's island location provides unique terroir. Founded in 1927 and now run by fourth-generation vigneron Julien Henry, the estate benefits from proximity to water that allows exceptional freshness even in the far south of France. Note: Despite the name reference, this wine is a blend of Merlot, Cabernet Sauvignon, Cabernet Franc with Vermentino, not Tibouren grape variety.",
+      "tastingNotes": {
+        "aroma": "Bright aromatics leap from the glass with lively red fruits at the forefront—fresh strawberry, raspberry, and red currant create an inviting, vibrant nose. Chalk and mineral notes provide a distinctive terroir signature, reflecting the island's unique soils and proximity to the Rhône River. Subtle floral hints add elegance while maintaining the wine's crisp, refreshing character. The cooling river influence is evident in the wine's precision and aromatic clarity.",
+        "palate": "True-to-type and crisp on entry, the palate delivers bright red fruit flavors with excellent freshness and balance. The cooling influence of the river location shines through, providing remarkable acidity that keeps the wine lively and refreshing despite the southern French origins. Red berry fruits are complemented by subtle chalky minerality and a clean, structured mouthfeel. The wine avoids the weight sometimes found in southern rosés, instead offering an elegant, food-friendly profile.",
+        "finish": "The finish is clean and mineral-driven with lingering notes of red fruits and chalk, leaving the palate refreshed. The crisp acidity ensures a bright conclusion that encourages another sip, perfect for warm weather enjoyment."
+      },
+      "foodPairings": [
+        "Grilled shrimp with lemon and herbs",
+        "Salade Niçoise with fresh tuna",
+        "Goat cheese and tomato tart",
+        "Mediterranean vegetable antipasti",
+        "Provençal fish soup (bouillabaisse)"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well-chilled to emphasize freshness",
+        "decanting": "No decanting necessary. Serve straight from the bottle, well-chilled. The wine is designed for immediate enjoyment and shows best when cold.",
+        "glassware": "Standard white wine glass or tulip-shaped rosé glass to maintain the wine's cool temperature and focus the bright fruit aromatics"
+      },
+      "wineDetails": {
+        "region": "IGP Méditerranée, Rhône River island location, France",
+        "grapeVariety": "Blend of Merlot, Cabernet Sauvignon, Cabernet Franc, and Vermentino",
+        "vintage": "2021",
+        "style": "Provence-style rosé with river-influenced freshness",
+        "ageability": "Drink now through 2025. This wine is designed for immediate consumption to showcase its fresh, vibrant character. Best enjoyed within 2-3 years of vintage to appreciate the bright fruit and crisp acidity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aratas Veneration Red Blend 2019",
+      "description": "Aratas Veneration is an award-winning proprietary red blend earning 98 points and 'Best in Class' Double Gold Medal from the 2022 North Coast Wine Challenge. Crafted as a fruit-forward ensemble showcasing Napa Valley's expression of Petite Sirah and Syrah, the wine reflects a softer, more approachable style than typical Petite Sirah-based blends. Barrel aged for 18 months in Hungarian and French oak, then bottled unfiltered and unfined, this is a homage to American Heritage Petite Sirah.",
+      "tastingNotes": {
+        "aroma": "The nose presents a generous display of dark fruit aromatics with Petite Sirah's characteristic black plum and blueberry notes complemented by Syrah's exotic spice and violet nuances. Soft vanilla and toasted oak undertones from the 18-month barrel aging integrate seamlessly without overwhelming the fruit-forward character. Hints of black pepper, graphite, and dark chocolate add complexity while maintaining an approachable, inviting profile. The wine's unfiltered nature contributes to aromatic depth and textural richness.",
+        "palate": "Fruit-forward and purposefully softer in style, the palate showcases ripe blackberry, black plum, and dark cherry flavors with velvety texture. The blend's design emphasizes accessibility and drinkability while retaining Petite Sirah's natural concentration and depth. Syrah adds mid-palate complexity with peppery spice and meaty notes that enhance the wine's savory character. The Hungarian and French oak provide subtle structure and vanilla notes without dominating, while the unfined bottling creates a rich, textured mouthfeel. Despite the softer approach, the wine maintains excellent balance and prevents heaviness.",
+        "finish": "The finish is long and fruit-driven with persistent dark berry flavors, gentle spice, and smooth tannins. The wine's approachable style ensures a satisfying conclusion without aggressive tannins, making it enjoyable now while retaining aging potential."
+      },
+      "foodPairings": [
+        "Grilled New York strip steak with chimichurri",
+        "Braised lamb shanks with rosemary and garlic",
+        "BBQ beef short ribs with smoky sauce",
+        "Wild boar ragu over pappardelle",
+        "Aged Gouda or sharp cheddar cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C) to showcase the fruit-forward character and smooth tannins",
+        "decanting": "Decant for 30-60 minutes to integrate the flavors and soften any grip from the Petite Sirah. As an unfiltered wine, careful decanting will also separate any natural sediment.",
+        "glassware": "Large Bordeaux glass to allow the generous fruit aromatics to develop and the wine to breathe"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "Petite Sirah and Syrah blend",
+        "vintage": "2019",
+        "style": "Fruit-forward red blend, aged 18 months in Hungarian and French oak, unfiltered and unfined",
+        "ageability": "Drink now through 2032. While designed for approachable enjoyment now, the wine's structure and concentration suggest 8-12 years aging potential. The fruit-forward style is accessible young but will develop additional complexity with time."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Pritchett's Peak Rockpile Zinfandel 2017",
+      "description": "From Sonoma's elevated Rockpile AVA, this Zinfandel showcases winemaker Stephanie Cook's commitment to terroir-specific wines that express each vineyard's distinctive character. Founded in 2011, Wonderment focuses on Heritage Zinfandel from premier sites, with Pritchett Peaks Vineyard producing wines since at least 2012. The 2017 vintage displays an elegant, Claret-style approach to Zinfandel rather than the high-alcohol powerhouses sometimes associated with Rockpile.",
+      "tastingNotes": {
+        "aroma": "The nose presents a pretty, refined expression of Zinfandel with red fruit aromatics taking center stage—bright cherry, raspberry, and cranberry create an inviting, elegant bouquet. Peach notes add an intriguing stone fruit dimension rarely found in Zinfandel, along with classic baking spices including cinnamon, nutmeg, and clove. The wine's purple hue suggests vibrancy and concentration, while the aromatics lean toward finesse rather than power, showcasing Rockpile's high-elevation terroir.",
+        "palate": "Medium-bodied with exquisite acidity, the palate delivers an elegant and charming Claret-style interpretation of Zinfandel at 14.8% ABV. Red fruits dominate with bright cherry, red plum, and raspberry flavors complemented by subtle baking spice notes. The wine's exceptional acidity provides lift and freshness, preventing the weight and heat sometimes found in Rockpile Zinfandels. The structure is refined rather than massive, with fine-grained tannins and excellent balance creating a wine of elegance and charm. This approach emphasizes drinkability and food compatibility over sheer power.",
+        "finish": "The finish is clean and refreshing with lingering red fruit, subtle spice, and bright acidity. The elegant tannins and balanced alcohol create a harmonious conclusion that showcases the wine's Claret-inspired style."
+      },
+      "foodPairings": [
+        "Roasted duck with cherry glaze",
+        "Grilled pork chops with stone fruit compote",
+        "Mushroom and herb-crusted lamb rack",
+        "Turkey meatballs in tomato sauce",
+        "Medium-aged cheddar or Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-63°F (16-17°C), slightly cooler to emphasize the wine's elegance and acidity",
+        "decanting": "Brief 30-minute decanting recommended to open the aromatics and integrate the red fruit with baking spice notes. The wine's elegant style doesn't require extended aeration.",
+        "glassware": "Burgundy-style glass to showcase the refined aromatics and medium-bodied character"
+      },
+      "wineDetails": {
+        "region": "Rockpile AVA, Sonoma County, California",
+        "grapeVariety": "100% Zinfandel from Pritchett Peaks Vineyard",
+        "vintage": "2017",
+        "style": "Elegant, Claret-style Zinfandel emphasizing finesse over power",
+        "ageability": "Drink now through 2029. The 2017 vintage is approaching maturity and showing well now. The wine's elegant structure and excellent acidity suggest it will hold for another 5-7 years, developing additional complexity while retaining its charming character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Rose 2023",
+      "description": "Crafted by Zephaniah Farm Vineyard in Virginia's Loudoun County, this serious rosé showcases the quality emerging from the Northern Virginia wine region. The winery has earned recognition as one of Virginia's Top 100 wineries and among the Top 50 Northern Virginia producers, with gold medals at both the 2024 and 2023 Virginia Governor's Cup competitions. Made from Cabernet Franc and Chambourcin, this rosé reflects Virginia's distinctive terroir and climate.",
+      "tastingNotes": {
+        "aroma": "The nose opens with expressive red fruit aromatics characteristic of Virginia rosé—bright raspberry, strawberry, and red cherry create an inviting, fresh bouquet. Oak influence provides subtle structure and complexity not typically found in casual rosés, giving this wine a more serious character. Red fruit notes dominate with hints of rose petal and subtle spice adding aromatic interest. The wine's Virginia origins bring a distinctive character that sets it apart from typical Provence or West Coast rosés.",
+        "palate": "The palate reveals concentrated red fruit flavors with the Cabernet Franc contributing herbaceous notes and structure, while Chambourcin adds bright acidity and red berry character. The wine presents as a serious rosé with more body and complexity than typical summer sippers. Oak influence provides texture and weight on the mid-palate, creating a rosé suitable for both warm weather drinking and food pairing. The Virginia terroir shines through with vibrant acidity and a unique flavor profile that speaks to the region's emerging wine quality.",
+        "finish": "The finish shows the wine's serious nature with lingering red fruit, subtle oak notes, and refreshing acidity. The Cabernet Franc adds a hint of herbaceousness to the conclusion, while the structure suggests this rosé can handle richer foods than typical pink wines."
+      },
+      "foodPairings": [
+        "Grilled salmon with dill cream sauce",
+        "Virginia ham with honey glaze",
+        "Tomato and burrata salad with basil",
+        "Crab cakes with remoulade sauce",
+        "Herb-roasted chicken with summer vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "48-50°F (9-10°C), well-chilled but not ice-cold to appreciate the wine's complexity",
+        "decanting": "No decanting necessary, but the wine benefits from 10-15 minutes in the glass to open up the aromatics and allow the oak influence to integrate with the fruit.",
+        "glassware": "White wine glass or rosé-specific glass to maintain cool temperature while allowing the aromatics to develop"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Northern Virginia, USA",
+        "grapeVariety": "Cabernet Franc and Chambourcin blend",
+        "vintage": "2023",
+        "style": "Serious rosé with oak influence, fuller-bodied than typical rosé",
+        "ageability": "Drink now through 2026. While designed for current consumption, the wine's structure and oak influence suggest it can develop over 2-3 years. Best enjoyed within this window to preserve the fresh fruit character while allowing some complexity to develop."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Cepas Viejas  (6 pack) 2021 5001599",
+      "description": "This limited edition expression from Bodegas Riojanas showcases old-vine Tempranillo from two small vineyards in Cenicero—Los Paletones and El Plantizo—planted in the late 1970s at 470 meters elevation. Part of the Monte Real Vanguardia range, this wine undergoes 12 months of oak aging to develop complexity while allowing the concentrated character of nearly 50-year-old vines to shine. Bodegas Riojanas has crafted wine since 1890, bringing over a century of experience to this modern interpretation of Rioja.",
+      "tastingNotes": {
+        "aroma": "The nose reveals a beautiful cherry red color with a violet rim, followed by aromas of ripe red and black fruit that showcase the concentration of old-vine Tempranillo. Vanilla notes emerge from the 12-month oak aging, intermingling with sweet spices and toffee characteristics. The calcareous clay soils of the vineyards contribute subtle mineral undertones, while the elevation and maturity of the vines provide aromatic complexity and depth. The wine presents a harmonious integration of fruit, oak, and terroir-driven elements.",
+        "palate": "Good acidity greets the entry, providing freshness and lift to the ripe fruit core. Sweet tannins coat the palate with a pleasant, approachable texture that makes the wine immediately enjoyable despite its structure. The wine is well-structured with good volume and body, showcasing the concentration that old vines naturally provide. Ripe red and black fruit flavors dominate, complemented by vanilla, spices, and subtle toffee notes from oak aging. The calcareous clay terroir adds complexity and prevents the wine from becoming overly sweet or heavy.",
+        "finish": "A sweet aftertaste lingers with persistent notes of ripe fruit, vanilla, and spice. The good structure ensures a long, satisfying finish that balances sweetness with refreshing acidity and fine tannins."
+      },
+      "foodPairings": [
+        "Roasted leg of lamb with rosemary and garlic",
+        "Grilled chorizo with Piquillo peppers",
+        "Manchego cheese aged 12-18 months",
+        "Slow-cooked pork shoulder with Spanish spices",
+        "Wild mushroom and Iberico ham croquettes"
+      ],
+      "servingInfo": {
+        "temperature": "61-64°F (16-18°C) to showcase the wine's fruit and structure",
+        "decanting": "Decant for 30-45 minutes to integrate the oak influence with the concentrated old-vine fruit and allow the sweet tannins to soften further. The wine benefits from aeration.",
+        "glassware": "Traditional Rioja glass or medium Bordeaux-style glass to concentrate the vanilla and spice aromatics"
+      },
+      "wineDetails": {
+        "region": "Cenicero, Rioja DOCa, Spain",
+        "grapeVariety": "100% Tempranillo from vines planted in late 1970s (old-vine)",
+        "vintage": "2021",
+        "style": "Vino Tinto Roble (oak-aged red), 12 months in oak barrels",
+        "ageability": "Drink now through 2029. The wine is designed to be approachable upon release while the oak aging and old-vine concentration provide structure for medium-term cellaring of 5-8 years. Will develop additional complexity with time."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Free Spirits N/A Negroni Cans   250 ml",
+      "description": "This ready-to-drink non-alcoholic Negroni from Free Spirits (less than 0.5% ABV) delivers the classic bitter-sweet complexity of Italy's iconic cocktail without the alcohol. Crafted with award-winning non-alcoholic alternatives that replicate bitter red aperitif, herbal gin botanicals, and sweet vermouth, the drink includes B-Vitamins (B3, B6, B12) and capsaicin to simulate the warming effect of alcohol. This represents a serious approach to alcohol-free cocktails for mindful drinking occasions.",
+      "tastingNotes": {
+        "aroma": "The nose presents the distinctive aromatics of a classic Negroni with bitter herbal notes, botanical complexity, and subtle citrus undertones. Orange zest provides bright, uplifting aromatics while herbal elements reminiscent of gin botanicals add depth and interest. The bitter red aperitif character comes through clearly, creating an authentic Negroni nose that doesn't compromise on complexity despite the absence of alcohol. Subtle sweet vermouth notes round out the bouquet with hints of spice and vanilla.",
+        "palate": "A harmonious blend of bitter and sweet notes greets the palate, delivering the perfectly balanced flavor profile that defines a well-made Negroni. Hints of botanicals including juniper, coriander, and angelica root provide the herbal complexity typically contributed by gin. Orange zest adds bright citrus notes that lift the palate, while subtle herbal undertones from the aperitif component create layers of flavor. The capsaicin provides a gentle warming sensation on the palate that mimics the heat of alcohol without any harshness. The drink maintains impressive complexity and depth for a non-alcoholic offering.",
+        "finish": "The finish is smooth and lingering with a pleasantly bittersweet aftertaste characteristic of a traditional Negroni. Botanical notes persist alongside orange zest, creating a satisfying conclusion that invites another sip. The warming effect from capsaicin continues gently through the finish."
+      },
+      "foodPairings": [
+        "Italian antipasti with cured meats and olives",
+        "Prosciutto-wrapped melon or figs",
+        "Marinated artichoke hearts and sun-dried tomatoes",
+        "Aged Parmigiano-Reggiano cheese",
+        "Smoked salmon crostini with capers"
+      ],
+      "servingInfo": {
+        "temperature": "38-42°F (3-6°C), served cold straight from the can or over ice",
+        "decanting": "No preparation needed. Pour cold directly from the can over ice with an orange twist garnish for the classic Negroni presentation. Can also be enjoyed straight from the can.",
+        "glassware": "Rocks glass over large ice cube with orange twist garnish for traditional Negroni serve, or enjoy directly from the 250ml can"
+      },
+      "wineDetails": {
+        "region": "N/A - Ready-to-drink non-alcoholic cocktail",
+        "grapeVariety": "N/A - Non-alcoholic spirits blend (bitter aperitif, botanical gin alternative, sweet vermouth alternative)",
+        "vintage": "N/A",
+        "style": "Non-alcoholic ready-to-drink cocktail with bitter-sweet profile, <0.5% ABV",
+        "ageability": "Ready to drink. Best consumed fresh. Check production date on can and consume within shelf life for optimal flavor."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

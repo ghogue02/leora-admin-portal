@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Rigo Nebbiolo 2017",
+    "description": "A Nebbiolo showcasing the noble grape's characteristic structure and complexity. While specific producer details are limited, this wine represents the grape variety beyond the famous Barolo and Barbaresco zones, offering approachable Nebbiolo character with the variety's signature aromatics and tannin structure at a more accessible price point.",
+    "tastingNotes": {
+      "aroma": "Classic Nebbiolo aromatics open with rose petal and violet florals alongside red cherry and cranberry. Tar and leather nuances add complexity, with hints of white truffle, dried herbs, and forest floor creating earthy depth. The bouquet shows the variety's signature perfume with moderate intensity.",
+      "palate": "Medium to full-bodied with firm tannins characteristic of Nebbiolo. Red fruit flavors of cherry, raspberry, and pomegranate are complemented by savory notes of licorice, tobacco, and spice. The wine displays good acidity that balances the tannin structure, creating a classic Piemontese profile with elegance over power.",
+      "finish": "The finish is moderately long with persistent tannins and red fruit character. Earthy notes of tar and tea leaves emerge on the conclusion, while the acidity keeps everything fresh and food-friendly. The tannic grip suggests the wine will benefit from food pairing or further aging."
+    },
+    "foodPairings": [
+      "Braised short ribs with porcini mushrooms",
+      "Truffle risotto",
+      "Osso buco alla Milanese",
+      "Aged Parmigiano-Reggiano or Grana Padano",
+      "Wild game such as venison or duck"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "Decant for 1-2 hours to soften tannins and open aromatics",
+      "glassware": "Large Burgundy or Barolo glass to capture the delicate aromatics"
+    },
+    "wineDetails": {
+      "region": "Piemonte, Italy (likely Langhe or regional Nebbiolo DOC)",
+      "grapeVariety": "100% Nebbiolo",
+      "vintage": "2017",
+      "style": "Classic Nebbiolo with characteristic tannin and aromatics",
+      "ageability": "Drink now through 2027; has developed some complexity but retains structure for short-term aging"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:55:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Scarpetta Prosecco Brut DOC (NOVA only) 2024",
+    "description": "From Italy's newest Prosecco DOC region in Grave del Friuli, Scarpetta produces one of the most popular Prosecco wines in the market. This wine showcases the Charmat method (Metodo Italiano) at its finest, blending Glera and Chardonnay for a refined expression that elevates Prosecco beyond simple sparkler status.",
+    "tastingNotes": {
+      "aroma": "The nose opens with juicy melon and white flowers leading to aromatic notes of hazelnut that add complexity beyond typical Prosecco. Green apple and fresh-cut flowers create a lifted, inviting bouquet. The Chardonnay component adds subtle depth and elegance to the aromatic profile.",
+      "palate": "Pliant lemon and green apple flavors are lifted by zingy acidity that provides energy and freshness. Honeydew melon adds a touch of sweetness balanced by the wine's brut character. The palate shows more depth than average Prosecco, extending nicely with persistent bubbles and clean fruit expression. The wine finishes drier than expected, adding sophistication.",
+      "finish": "A crisp, refreshing finish with lingering citrus notes and persistent effervescence. The drier than expected conclusion elevates this Prosecco above simple aperitif wines, showing good length and clean acidity that invites another sip."
+    },
+    "foodPairings": [
+      "Light appetizers and antipasti",
+      "Prosciutto and melon",
+      "Fresh oysters or seafood",
+      "Potato chips or salty snacks",
+      "Simply enjoyed on its own as an aperitif"
+    ],
+    "servingInfo": {
+      "temperature": "40-45°F (4-7°C), well-chilled",
+      "decanting": "Not necessary; serve directly from the bottle",
+      "glassware": "Flute or white wine glass to preserve bubbles"
+    },
+    "wineDetails": {
+      "region": "Grave del Friuli Prosecco DOC, Friuli-Venezia Giulia, Italy",
+      "grapeVariety": "Glera (primary) and Chardonnay blend",
+      "vintage": "2024",
+      "style": "Brut Prosecco using Charmat method (Metodo Italiano)",
+      "ageability": "Drink immediately for maximum freshness and vivacity; best within 1 year of release"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:57:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Boplaas Hanepoot 2024",
+    "description": "The 2024 vintage earned the trophy as South Africa's best Hanepoot (Muscat d'Alexandrie) wine at the South African Young Wine Show. From Boplaas Family Vineyards in Calitzdorp, Klein Karoo, this fortified wine represents the pinnacle of South African Hanepoot production, showcasing the intense aromatics and versatility this style offers.",
+    "tastingNotes": {
+      "aroma": "The bouquet leaps from the glass with intense ripe Hanepoot grapes, creating an exuberant aromatic display. Pineapple, lemon rind, litchi, and winter melon provide tropical and exotic fruit complexity. Floral notes of jasmine and honeysuckle add elegance, while faint spicy notes contribute depth to this aromatic powerhouse.",
+      "palate": "The wine shows bright lemon-yellow color with lime-tinged rim. On the palate, the intense fruit character from the nose translates to a rich, sweet expression balanced by refreshing acidity. The fortification adds weight and warmth without overwhelming the delicate Muscat flavors. The wine demonstrates excellent balance between sweetness, alcohol, and acidity.",
+      "finish": "A long, persistent finish with lingering tropical fruit and floral notes. The sweetness is balanced by acidity, preventing cloying while allowing the Hanepoot character to shine through. The finish demonstrates the wine's food versatility and complexity."
+    },
+    "foodPairings": [
+      "Cantonese cuisine with sweet-savory glazes",
+      "Spicy Indian or Thai curry dishes",
+      "Roast duck or pork with fruit accompaniments",
+      "Traditional Malva pudding",
+      "Mild soft cheeses or served over crushed ice as a digestif"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled, or over crushed ice",
+      "decanting": "Not necessary",
+      "glassware": "Small dessert wine glass or served in a tumbler over ice"
+    },
+    "wineDetails": {
+      "region": "Calitzdorp, Klein Karoo, Western Cape, South Africa",
+      "grapeVariety": "100% Hanepoot (Muscat d'Alexandrie)",
+      "vintage": "2024",
+      "style": "Fortified sweet wine; hand-harvested grapes with careful vinification",
+      "ageability": "Can be enjoyed immediately or aged for 3-5 years; the fortification allows for extended aging"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:59:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Henskens Rankin Vintage Brut 2014",
+    "description": "An exceptional Tasmanian sparkling wine that spent eight years on lees before disgorgement in August 2022. This limited production of 1,560 individually numbered bottles earned Gold at the 2022 Australian Sparkling Wine Show and ranked #3 among 2014 Tasmanian sparkling whites, showcasing the island's ability to produce world-class traditional method wines.",
+    "tastingNotes": {
+      "aroma": "Complex aromatics reveal layers of green and red apple, lemon, and peach alongside autolytic characters from extended lees aging. Scents of shortbread biscuits, freshly baked brioche, lemon curd, and tarte Tatin add pastry richness. Soft spice, Le Dauphin cheese notes, vanilla, and sweet almond meal contribute additional complexity from the eight-year maturation.",
+      "palate": "This stunning aged sparkling is multifaceted, balancing fresh and zippy character with layered complexity. Citrus zest and vibrant acidity create a moreish quality, while the Coal River Valley and Tasman Peninsula fruit provides depth and concentration. The wine shows superb texture from extended lees contact, creating a creamy yet energetic palate that defies its age with remarkable freshness.",
+      "finish": "The finish is long and complex with persistent fine bubbles and lingering citrus notes. The acidity remains bright and focused through the conclusion, while the autolytic characters add savory depth. The wine demonstrates exceptional balance between age-derived complexity and vibrant freshness."
+    },
+    "foodPairings": [
+      "Fresh Tasmanian oysters",
+      "Smoked salmon canapés",
+      "Soft-ripened cheeses like Brie or Camembert",
+      "Roasted chicken with herbs",
+      "Delicate seafood dishes or enjoyed as an aperitif"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C)",
+      "decanting": "Not necessary",
+      "glassware": "Champagne flute or tulip glass to preserve bubbles and capture complexity"
+    },
+    "wineDetails": {
+      "region": "Coal River Valley and Tasman Peninsula, Tasmania, Australia",
+      "grapeVariety": "70% Chardonnay, 30% Pinot Noir",
+      "vintage": "2014",
+      "style": "Traditional method sparkling wine; 8 years on lees, disgorged August 2022, dosage 2g/L",
+      "ageability": "Drinking beautifully now; can be enjoyed through 2028. The extended lees aging means it's at peak complexity"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T14:01:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Emporda Vi Novell 2015",
+    "description": "A Vi Novell from Catalonia's Empordà region, this wine represents the traditional early-release wine celebrating the harvest. Vi Novell wines are bottled in November before fermentation fully completes, creating fresh, fruity expressions meant for immediate consumption. This wine from Empordà would have been released in late 2015 for festive autumn drinking.",
+    "tastingNotes": {
+      "aroma": "Fresh and exuberant with primary fruit aromatics of red berries, plum, and cherry. Carbonic maceration notes may include hints of banana and bubble gum alongside floral violet notes typical of young Garnacha. The aromatic profile is immediately appealing and fruit-forward, capturing the essence of just-harvested grapes.",
+      "palate": "Light to medium-bodied with vibrant, juicy fruit flavors and low tannins from the brief maceration. Fresh red fruit dominates with strawberry, raspberry, and cherry alongside a slight spritz from residual fermentation. The wine shows bright acidity and minimal structure, designed for immediate enjoyment and food pairing versatility.",
+      "finish": "A short to medium finish with persistent red fruit and subtle effervescence. The wine concludes with refreshing acidity and minimal tannins, leaving a clean, fruity impression that invites food pairing and casual drinking."
+    },
+    "foodPairings": [
+      "Catalan sausages (butifarra)",
+      "Roasted chestnuts (traditional pairing in November)",
+      "Grilled vegetables with romesco sauce",
+      "Pizza and casual fare",
+      "Tapas and light appetizers"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), slightly chilled",
+      "decanting": "Not necessary",
+      "glassware": "Standard red wine glass or tumbler"
+    },
+    "wineDetails": {
+      "region": "Empordà DO, Catalonia, Spain",
+      "grapeVariety": "Likely Garnacha (Grenache) and/or local varieties",
+      "vintage": "2015",
+      "style": "Vi Novell (new wine) - early-release wine bottled before fermentation completes",
+      "ageability": "These wines are meant for immediate consumption in the months following release; past drinking window by 2025"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T14:03:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Mauro Molino Barbera d'Alba 2022",
+    "description": "Earning 91 points from Wine Enthusiast and 90 points from both Wine Spectator and James Suckling, this Barbera represents exceptional value from Piedmont's Alba region. Mauro Molino could produce the single best expression of Barbera for the price, showcasing the variety's vibrant acidity and fruit purity with remarkable elegance and focus.",
+    "tastingNotes": {
+      "aroma": "The nose exudes ripe red fruits including bright cherries and fresh raspberries, interwoven with subtle floral undertones of violets. Aromas of baked cherries and dried strawberries add concentration, while cocoa and red spices from oak aging provide complexity. A touch of spice and hints of vanilla complement the fruit without overwhelming Barbera's natural vibrancy.",
+      "palate": "So vibrant that it practically shimmers across the palate, this Barbera is tightly wound and very focused. The wine is fruit-driven and mellow with medium body and velvety texture that belies its energetic acidity. The 2022 vintage's full ripeness of both fruit and tannins makes it attractive for immediate enjoyment, while maintaining the variety's signature freshness. Red cherry and raspberry flavors persist with excellent clarity and purity.",
+      "finish": "The finish is clean and persistent with vibrant acidity that lifts the fruit character through the conclusion. Subtle oak spice and cocoa notes add length, while the velvety tannins provide gentle structure. The wine demonstrates exceptional balance and refinement that elevates it above typical Barbera."
+    },
+    "foodPairings": [
+      "Pasta with tomato-based sauces",
+      "Mushroom risotto",
+      "Grilled sausages and polenta",
+      "Pizza with savory toppings",
+      "Medium-aged cheeses like Fontina or Taleggio"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C), slightly cooler than typical reds",
+      "decanting": "Brief 30-minute aeration helpful but not essential",
+      "glassware": "Medium-sized red wine glass"
+    },
+    "wineDetails": {
+      "region": "Barbera d'Alba DOC, Piedmont, Italy",
+      "grapeVariety": "100% Barbera",
+      "vintage": "2022",
+      "style": "Low production, carefully vinified Barbera with subtle oak influence",
+      "ageability": "Drink now through 2028; enjoyable young but can develop additional complexity over 3-5 years"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T14:05:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Alella Mayla 2024",
+    "description": "A white wine from Catalonia's small but prestigious Alella DO, located just north of Barcelona. Alella's proximity to the Mediterranean and unique sauló (sandy) soils create distinctive wines. While specific details about Mayla are limited, wines from Alella typically showcase indigenous varieties like Pansa Blanca (Xarel·lo) with fresh, mineral-driven character.",
+    "tastingNotes": {
+      "aroma": "Fresh citrus and Mediterranean herb aromatics typical of Alella whites, with notes of lemon zest, white flowers, and green apple. Subtle mineral undertones reflect the region's distinctive sauló soils. The aromatic profile shows bright, coastal freshness with herbal complexity.",
+      "palate": "Light to medium-bodied with crisp acidity and clean fruit expression. Citrus flavors of lemon and grapefruit mingle with green apple and subtle stone fruit notes. The wine displays refreshing mineral character and saline quality from the coastal influence, creating a food-friendly, versatile white wine.",
+      "finish": "A clean, refreshing finish with persistent citrus notes and mineral character. The acidity remains bright through the conclusion, leaving a crisp impression that invites food pairing."
+    },
+    "foodPairings": [
+      "Fresh seafood and grilled fish",
+      "Mediterranean salads with olive oil",
+      "Catalan tapas and small plates",
+      "Grilled vegetables with romesco",
+      "Fresh goat cheese"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C)",
+      "decanting": "Not necessary",
+      "glassware": "Standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "Alella DO, Catalonia, Spain",
+      "grapeVariety": "Likely Pansa Blanca (Xarel·lo) or blend of local white varieties",
+      "vintage": "2024",
+      "style": "Fresh, unoaked Mediterranean white wine",
+      "ageability": "Best consumed young for maximum freshness; drink within 1-2 years"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T14:07:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Charlie  and Echo Two Tons 2021",
+    "description": "A natural red wine from Charlie & Echo, one of San Diego's original natural wineries. This dry red blend of Petite Sirah, Syrah, Nebbiolo, and Zinfandel at 13.8% alcohol showcases the winery's mission to produce wines reflecting San Diego's terroir and lifestyle. Made with spontaneous fermentation and minimal intervention, the wine was harvested between September 15 and October 5, 2021.",
+    "tastingNotes": {
+      "aroma": "The nose opens with notes of Bing cherry and blackberry jam, creating immediate fruit appeal. White pepper adds spice complexity, while unexpected rose aromatics provide floral lift. The blend of varieties creates a unique aromatic profile that balances dark fruit, spice, and floral elements with natural wine character.",
+      "palate": "A medium-bodied dry red with vibrant fruit flavors and natural wine energy. Dark cherry and berry flavors persist with peppery spice from the Syrah component. The wine shows good texture despite the minimal intervention approach, with Nebbiolo adding structure and Zinfandel contributing jammy fruit. Best served slightly chilled to enhance the freshness and drinkability.",
+      "finish": "The finish is moderately long with persistent dark fruit and spice notes. The wine concludes with refreshing acidity and subtle tannins, reflecting the natural winemaking approach. The slightly chilled serving suggestion enhances the wine's food-friendly, versatile character."
+    },
+    "foodPairings": [
+      "Grilled sausages and burgers",
+      "BBQ and smoked meats",
+      "Pizza with savory toppings",
+      "Mexican and Latin American cuisine",
+      "Casual fare reflecting San Diego's food culture"
+    ],
+    "servingInfo": {
+      "temperature": "55-60°F (13-16°C), slightly chilled as recommended by winemaker",
+      "decanting": "30 minutes aeration helpful to integrate the blend",
+      "glassware": "Standard red wine glass or tumbler for casual drinking"
+    },
+    "wineDetails": {
+      "region": "San Diego County, California",
+      "grapeVariety": "Blend of Petite Sirah, Syrah, Nebbiolo, and Zinfandel",
+      "vintage": "2021",
+      "style": "Natural wine with spontaneous fermentation, aged in neutral vessels, minimal intervention",
+      "ageability": "Best consumed within 3-4 years for optimal freshness; drink now through 2025"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T14:09:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Abadia de Acon Joven 2023",
+    "description": "An unoaked, fruity Tempranillo from Ribera del Duero's Abadía de Acón, a family project in Castrillo de la Vega, Burgos. This monovarietal showcases pure Tempranillo fruit expression without oak influence, delivering the variety's fresh berry character and elegant tannins. The wine demonstrates that Ribera del Duero can produce approachable, fruit-forward wines alongside its age-worthy reservas.",
+    "tastingNotes": {
+      "aroma": "Deep red-cherry color with violet rims introduces a nose of fresh plum and dark berries with flowery hints. The aromatic profile is fruity, intense, and complex, showcasing pure Tempranillo character. Fresh blackberries, blueberries, and plums create an immediately appealing bouquet with violet and floral lift.",
+      "palate": "Full-bodied, rich, and unctuous despite the absence of oak aging. The wine is delicious and fleshy with a smooth mouthfeel and frank fruit expression. At 14.5% ABV, the alcohol is in great balance with the complex fruit profile. The palate shows round, smooth character with elegant tannins that provide structure without astringency. Flavors of fresh dark berries persist with good intensity.",
+      "finish": "A long, persistent finish that demonstrates the quality of the fruit and terroir. The smooth tannins continue through the conclusion with lingering berry fruit flavors. The finish is clean and refreshing, showcasing the wine's balance and drinkability."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary",
+      "Roasted pork loin",
+      "Manchego and other Spanish cheeses",
+      "Paella and rice dishes with chorizo",
+      "Grilled vegetables with olive oil"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "30 minutes aeration recommended to open the fruit aromatics",
+      "glassware": "Standard red wine or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Ribera del Duero DO, Castilla y León, Spain",
+      "grapeVariety": "100% Tempranillo (monovarietal)",
+      "vintage": "2023",
+      "style": "Joven (young wine) - unoaked, emphasizing fresh fruit expression",
+      "ageability": "Best consumed within 2-3 years to enjoy the vibrant fruit; drink now through 2026"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T14:11:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Giaconda Chardonnay 2022",
+    "description": "One of Australia's most legendary and sought-after Chardonnays, the 2022 vintage earned 99 points from Jeni Port (Halliday Wine Companion) and 98 points from Gary Walsh (The Wine Front). This cult wine sold out to subscribers in under five minutes. The cool 2022 vintage brought one of the latest harvests ever, with the extended hang time creating special magic in the bottle.",
+    "tastingNotes": {
+      "aroma": "Wonderfully expressive scents of white peaches, fresh pears, and juicy grapefruit lead the aromatic charge. Hints of struck match provide classic reductive character, while fresh ginger, lime blossoms, jasmine, and citrus blossom add complexity. Nectarine, peach custard, cashew, and buttered toast from careful oak use create layers of sophistication. The aromatic intensity is immediate and captivating.",
+      "palate": "An utterly beguiling wine of deep complexity and stunning freshness. The medium-bodied palate is satiny-sleek and refreshing with superb cut of limey acidity bringing crystal clarity. Flavors of white peach, nectarine, and grapefruit flesh persist with remarkable concentration. Filigree fine acidity provides structure and energy, while the texture remains creamy and generous. The wine is bold and commanding, unlike most Australian Chardonnay, showing European-style restraint with New World fruit.",
+      "finish": "A long, complex finish with persistent acidity and lingering stone fruit notes. The struck match character returns on the conclusion, adding savory complexity. The wine demonstrates exceptional length and balance, with the acidity keeping everything fresh and focused through a remarkably persistent finish that showcases the wine's world-class quality."
+    },
+    "foodPairings": [
+      "Lobster with drawn butter",
+      "Roasted chicken with truffle cream sauce",
+      "Pan-seared scallops",
+      "Rich fish preparations like turbot or halibut",
+      "Aged Comté or similar complex cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "50-55°F (10-13°C), cooler than typical Chardonnay to preserve freshness",
+      "decanting": "30-45 minutes aeration recommended to allow the wine to open fully",
+      "glassware": "Large Burgundy glass to capture the aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Beechworth, Victoria, Australia",
+      "grapeVariety": "100% Chardonnay from Estate Vineyard",
+      "vintage": "2022",
+      "style": "Cool-climate, Burgundian-style Chardonnay with careful oak use and reductive winemaking",
+      "ageability": "Excellent aging potential; can be enjoyed now with aeration or cellared for 10-15 years. Drink 2024-2037"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T14:13:00.000Z"
+    }
+  }
+]

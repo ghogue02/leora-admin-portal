@@ -1,0 +1,352 @@
+{
+  "batch": 108,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Libertine Barncat Dry Riesling 2020",
+      "description": "An oxidative-style dry Riesling from the Barncat Vineyard in Willamette Valley, aged in barrel for 18 months. This unique wine showcases fino sherry and almond characteristics, representing a deliberate exercise in oxidation. Limited production of only 44 cases.",
+      "tastingNotes": {
+        "aroma": "Fino sherry and raw almond aromas dance in the glass, creating an intriguing first impression. The oxidative style brings complexity with nutty, evolved characteristics reminiscent of well-aged white wines. Subtle dried apricot notes emerge alongside the dominant almond profile.",
+        "palate": "A cornucopia of nuts greets the palate—walnut, hazelnut, and almond are enveloped by dried apricot flavors. The texture is rich yet dry, with integrated oxidative notes that add depth and complexity. The wine displays a wondrous character reminiscent of a well-worn goat leather jacket, earthy and textured with excellent concentration.",
+        "finish": "The finish lingers with persistent nutty notes and dried fruit complexity. Clean and dry despite the rich mid-palate, showing excellent balance for this unconventional style."
+      },
+      "foodPairings": [
+        "Aged hard cheeses like Manchego or aged Gouda",
+        "Roasted chicken with herbs de Provence",
+        "Pork chops with apple compote",
+        "Smoked trout or mackerel",
+        "Mushroom risotto with hazelnuts"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C), slightly warmer than typical Riesling",
+        "decanting": "No decanting needed; the wine has already undergone extensive barrel aging and oxidation",
+        "glassware": "White Burgundy glass or universal wine glass to appreciate the complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Willamette Valley, Oregon",
+        "grapeVariety": "100% Riesling from Barncat Vineyard (planted 1990)",
+        "vintage": "2020",
+        "style": "Dry oxidative Riesling, unfiltered and unfined",
+        "ageability": "Drink now through 2028. The oxidative style means it's already evolved and stable"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T13:33:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Brothers Cabernet Franc 2020",
+      "description": "A Brothers Reserve Cabernet Franc from the Copeland Vineyard in Yakima Valley's Rattlesnake Hills. This certified-sustainable wine showcases classic Cabernet Franc aromatics with Washington's signature fruit intensity. Rated 4.1/5 on Vivino with 448 reviews.",
+      "tastingNotes": {
+        "aroma": "A nose of rose petal dominates with integrated oak and vanilla providing structure. The slightest hint of green pepper makes this definably Cabernet Franc, adding varietal character without overwhelming the floral notes. Subtle lavender and red fruit aromatics emerge with air time.",
+        "palate": "Flavors of rose and lavender continue from the nose, complemented by well-integrated oak and ripe fruit. The blend of 95% Cabernet Franc and 5% Merlot creates excellent balance with medium body and silky tannins. Dark cherry and plum notes interweave with the floral character, showing both elegance and concentration.",
+        "finish": "A long finish showcases the wine's complexity, with lingering floral notes and subtle spice. The oak is well-integrated, providing structure without dominating the varietal character."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Duck confit with cherry reduction",
+        "Roasted pork tenderloin with herbs",
+        "Mushroom and truffle risotto",
+        "Aged soft-ripened cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 30-45 minutes to allow the floral aromatics to fully develop",
+        "glassware": "Bordeaux or large red wine glass to capture the delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Rattlesnake Hills, Yakima Valley, Washington",
+        "grapeVariety": "95% Cabernet Franc, 5% Merlot from Copeland Vineyard",
+        "vintage": "2020",
+        "style": "Reserve-level estate-grown red, certified sustainable",
+        "ageability": "Drink now through 2030. The wine shows excellent structure for aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T13:35:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Valencia Aranleon Bles Roble 2018",
+      "description": "An organic red blend from Valencia's DOP region, crafted from 80% Bobal, 10% Tempranillo, and 10% Cabernet Sauvignon. The wine undergoes malolactic fermentation in Hungarian oak barrels and 3 months of barrel aging. Named after the Chrysanthemum Bles plant that grows between the organic vineyard rows.",
+      "tastingNotes": {
+        "aroma": "Notes of red fruit dominate, particularly wild strawberries and red cherries. Aromatic plants and herbs add complexity, creating a Mediterranean character. Subtle oak spice and vanilla integrate beautifully with the fruit-forward profile.",
+        "palate": "Dark cherry color with medium intensity leads to a soft, approachable palate with medium body and structure. Jammy dark red fruit, particularly blueberry and currant, provide the core flavors. The Hungarian oak aging contributes subtle spice without overwhelming the fruit, while the organic farming practices shine through in the wine's pure, vibrant flavors.",
+        "finish": "The finish emphasizes the jammy fruit character with lingering notes of blueberry and currant. Medium length with balanced acidity and soft tannins make this an easy-drinking yet interesting wine."
+      },
+      "foodPairings": [
+        "Heavy cheeses like aged Manchego or Mahón",
+        "Grilled vegetables with olive oil and herbs",
+        "Grilled meats including steak and chorizo",
+        "Spanish tapas and charcuterie",
+        "Paella or rice dishes with meat"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief 15-20 minute decant to integrate the oak and fruit",
+        "glassware": "Standard red wine glass or Tempranillo glass"
+      },
+      "wineDetails": {
+        "region": "DOP Valencia, Spain",
+        "grapeVariety": "80% Bobal, 10% Tempranillo, 10% Cabernet Sauvignon",
+        "vintage": "2018",
+        "style": "Organic red blend with Hungarian oak aging",
+        "ageability": "Drink now through 2025. Ready to enjoy with soft, approachable tannins"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T13:36:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Conde Valdemar Rose 2024",
+      "description": "A fresh and elegant Rioja rosé displaying a delicate pale salmon color. Made from estate-grown grapes from Bodegas Valdemar's 300 hectares of family vineyards, ensuring quality control at every level. The wine undergoes low-temperature skin contact for 8 hours followed by cool fermentation to preserve freshness.",
+      "tastingNotes": {
+        "aroma": "Delicate pale pink color with bright reflections introduces aromas of cherry blossom and roses. Forest berries, particularly wild strawberries and raspberries, emerge alongside pink pepper spice. The elegant herbal finish of Garnacha adds complexity with subtle dried herb notes.",
+        "palate": "Light-bodied and balanced with exceptional freshness and liveliness due to the wine's natural fruit acidity. Delicate raspberry fruit dominates with floral overlays from the Mazuelo grape. The palate shows complexity despite its light nature, with layers of red berry fruit, rose petals, and subtle mineral notes.",
+        "finish": "Crisp and refreshing finish emphasizing the wine's vibrant acidity and fruit character. Clean and bright with lingering berry notes and a hint of white pepper spice."
+      },
+      "foodPairings": [
+        "Grilled shrimp or seafood tapas",
+        "Summer salads with vinaigrette",
+        "Soft cheeses and fresh chèvre",
+        "Light pasta dishes with tomato and basil",
+        "Spanish ham and melon"
+      ],
+      "servingInfo": {
+        "temperature": "41-45°F (5-7°C), serve well chilled",
+        "decanting": "No decanting needed; serve directly from the refrigerator",
+        "glassware": "White wine glass or tulip-shaped rosé glass"
+      },
+      "wineDetails": {
+        "region": "DOCa Rioja, Spain",
+        "grapeVariety": "Garnacha and Mazuelo blend from estate vineyards",
+        "vintage": "2024",
+        "style": "Light, fresh rosé with early bottling to preserve fruit character",
+        "ageability": "Drink within 1-2 years, best enjoyed young and fresh"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-21T13:37:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood West Oaks Farm Market Sauvignon Gris (Private Label) 2023",
+      "description": "A private label expression of Boxwood's acclaimed Sauvignon Gris from their Middleburg, Virginia estate vineyard. Grown in the D-Block at the highest elevation of the vineyard, this pink-skinned variety creates a voluptuous single varietal wine with powerful floral aromatics and excellent structure.",
+      "tastingNotes": {
+        "aroma": "The distinctive 'wet rock' aroma defines this wine, accompanied by hints of fresh orange and lemon zest. Spring-time flowers, particularly white blossoms, add elegance. Pear and almond notes round out the aromatic profile, creating a complex and inviting nose.",
+        "palate": "Good palate weight balances crisp-apple acidity and structured minerality. The voluptuous nature of this pink-skinned grape shines through with rich fruit flavors of pear, apple, and subtle stone fruit. Excellent balance between the wine's natural richness and its refreshing acidity keeps the palate lively and engaging.",
+        "finish": "Clean, mineral-driven finish with lingering citrus zest and almond notes. The acidity ensures a refreshing conclusion while the mid-palate richness provides satisfying length."
+      },
+      "foodPairings": [
+        "Fresh oysters and raw bar selections",
+        "Grilled white fish with lemon and herbs",
+        "Roasted chicken with root vegetables",
+        "Goat cheese and herb tarts",
+        "Vietnamese spring rolls with nuoc cham"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; the wine shows best fresh and cold",
+        "glassware": "White wine glass with a slightly larger bowl to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia (D-Block, highest elevation)",
+        "grapeVariety": "100% Sauvignon Gris",
+        "vintage": "2023",
+        "style": "Estate-grown single varietal white wine",
+        "ageability": "Drink now through 2026. Best enjoyed while fresh to preserve the vibrant aromatics"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T13:38:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Gris 2022",
+      "description": "Boxwood's flagship Sauvignon Gris from their Virginia estate vineyard in Middleburg. The 2020 vintage earned silver medals at both the Virginia Governor's Cup and Best of Loudoun wine competitions. This pink-skinned variety creates powerful floral aromatics with excellent structure.",
+      "tastingNotes": {
+        "aroma": "The signature 'wet rock' minerality leads, followed by fresh citrus notes of orange and lemon zest. Spring flowers and white blossoms provide elegance while pear and almond add depth. The complex aromatic profile reflects the grape's unique pink-skinned character.",
+        "palate": "Substantial palate weight balances bright, crisp-apple acidity. The voluptuous fruit showcases pear, green apple, and subtle stone fruit flavors. Mineral undertones from the Virginia terroir add complexity. The natural richness of Sauvignon Gris is kept in check by refreshing acidity, creating excellent balance.",
+        "finish": "The finish is clean and mineral-driven with lasting citrus and almond notes. Medium to long length with refreshing acidity that invites the next sip."
+      },
+      "foodPairings": [
+        "Chesapeake Bay blue crabs and seafood",
+        "Seared scallops with brown butter",
+        "Grilled chicken with lemon and thyme",
+        "Fresh chevre and herb salad",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting required; serve well-chilled",
+        "glassware": "Medium-sized white wine glass to capture floral aromatics"
+      },
+      "wineDetails": {
+        "region": "Middleburg, Virginia (D-Block vineyard)",
+        "grapeVariety": "100% Sauvignon Gris",
+        "vintage": "2022",
+        "style": "Estate-grown single varietal with powerful aromatics",
+        "ageability": "Drink now through 2025. Best enjoyed young to showcase vibrant fruit"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T13:39:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Carinena Legitimo White",
+      "description": "A white wine from the Cariñena DO in Aragon, Spain. This region is known for traditional winemaking and indigenous varietals. The wine likely features local white grapes adapted to the continental climate and limestone-rich soils of the region.",
+      "tastingNotes": {
+        "aroma": "Fresh white flowers and citrus blossom lead the aromatics. Green apple and pear notes provide fruit character, while subtle mineral and chalky notes reflect the limestone terroir. Light herbal undertones add Mediterranean character.",
+        "palate": "Crisp and refreshing with bright acidity characteristic of high-altitude Spanish whites. The palate shows clean citrus fruit, particularly lemon and lime, with green apple and hints of white peach. Medium-light body with good mineral structure and a touch of saline minerality from the terroir.",
+        "finish": "Clean and refreshing finish with lingering citrus and mineral notes. The bright acidity ensures a crisp conclusion perfect for food pairing."
+      },
+      "foodPairings": [
+        "Grilled white fish and seafood",
+        "Spanish tapas and gambas al ajillo",
+        "Fresh salads with citrus vinaigrette",
+        "Soft cheeses and olives",
+        "Paella or rice dishes"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "DO Cariñena, Aragon, Spain",
+        "grapeVariety": "Likely Macabeo and/or Garnacha Blanca (traditional Cariñena varieties)",
+        "vintage": "Non-vintage",
+        "style": "Fresh, crisp Spanish white wine",
+        "ageability": "Drink within 1-2 years for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:40:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vizar Prestigo Tempranillo Blend 2015",
+      "description": "A prestigious blend from Bodegas Vizar in Valladolid, combining Syrah, Merlot, Tempranillo, and Cabernet Sauvignon. This wine earned 91 points from James Suckling and Gold medals at both the Bacchus International Wine Competition and Concours Mondial de Bruxelles. Aged 12 months in French oak barrels and fudres.",
+      "tastingNotes": {
+        "aroma": "Complex aromas of red fruits mingle with chocolate, tobacco, and vanilla from oak aging. A touch of spice adds intrigue, while subtle herbal notes from the Tempranillo provide varietal character. The multi-varietal blend creates layers of complexity in the bouquet.",
+        "palate": "Smooth and velvety texture coats the palate with integrated tannins from the extended barrel aging. Red and dark fruit flavors dominate, complemented by chocolate and tobacco notes. Light vanilla and spice from the French oak are well-integrated. The blend's complexity shines through with each variety contributing distinct elements—Tempranillo's structure, Syrah's spice, Merlot's softness, and Cabernet's backbone.",
+        "finish": "Long and persistent finish with lingering notes of vanilla, dark fruit, and subtle oak spice. The velvety texture carries through to the end, making this a very polished and complete wine."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak or lamb chops",
+        "Braised short ribs with red wine reduction",
+        "Aged Manchego or hard Spanish cheeses",
+        "Wild mushroom and truffle dishes",
+        "Roasted game meats like venison"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the complex aromas to fully develop",
+        "glassware": "Large Bordeaux glass to appreciate the layered aromatics"
+      },
+      "wineDetails": {
+        "region": "Vino de Pago Dehesa Peñalba, Valladolid, Castilla y León, Spain",
+        "grapeVariety": "Syrah, Merlot, Tempranillo, and Cabernet Sauvignon blend",
+        "vintage": "2015",
+        "style": "Premium oak-aged red blend, 12 months in French oak and fudres",
+        "ageability": "Drink now through 2028. The wine is mature and showing beautifully"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-21T13:41:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Farm Winery LPF 2011",
+      "description": "The Farm Winery's flagship Cabernet Sauvignon-based blend from the Adelaida District of Paso Robles. The LPF has earned consistent critical acclaim, with the 2011 vintage scoring in the low-90s. This wine famously performed well in 'The Judgment of Paso' blind tasting against Bordeaux and Napa wines.",
+      "tastingNotes": {
+        "aroma": "Dense aromas of woody blackberry dominate, with hints of bay leaf and thyme adding herbal complexity. A dusting of crushed graphite provides minerality, while subtle oak-derived vanilla and toast round out the bouquet. The Paso Robles terroir shines through with concentrated dark fruit and garrigue notes.",
+        "palate": "Firmly structured with excellent backbone from ripe Cabernet tannins. Dark cherry and huckleberry flavors are picked up by black currant and earth. The palate shows both power and elegance, with dark red fruit persistence and integrated oak. The blend creates complexity and depth, with each variety contributing to the wine's polished character.",
+        "finish": "Excellent persistence of dark red fruit on the finish. Firm tannins provide structure for aging while the fruit concentration ensures immediate enjoyment. Long finish with lingering notes of blackberry, earth, and subtle spice."
+      },
+      "foodPairings": [
+        "Prime ribeye or New York strip steak",
+        "Braised lamb shanks with herbs",
+        "Aged hard cheeses like Parmigiano-Reggiano",
+        "Wild mushroom Wellington",
+        "Grilled portobello mushrooms with thyme"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 1-2 hours to soften tannins and open up the complex aromatics",
+        "glassware": "Large Bordeaux or Cabernet Sauvignon glass"
+      },
+      "wineDetails": {
+        "region": "Adelaida District, Paso Robles, California",
+        "grapeVariety": "Primarily Cabernet Sauvignon with Petit Verdot (exact blend varies by vintage)",
+        "vintage": "2011",
+        "style": "Premium Bordeaux-style blend aged in French oak",
+        "ageability": "Drinking well now through 2026. The 2011 is mature and showing tertiary complexity"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-21T13:42:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction SBC Chardonnay 2016",
+      "description": "A Chardonnay from Pomar Junction Vineyard & Winery, a family-run estate in the El Pomar District of Paso Robles. The winery is known for their fresh, fruit-forward style and sustainable farming practices on their oak-studded estate vineyards.",
+      "tastingNotes": {
+        "aroma": "Fresh and floral aromatics lead with bright lemon, pear, and green apple notes. White flowers and subtle citrus blossom add elegance. The wine shows a fresh, unoaked or lightly-oaked style that emphasizes fruit purity and varietal character typical of Pomar Junction's 'naked' Chardonnay approach.",
+        "palate": "Delightfully aromatic on the palate with bright citrus flavors—lemon, pear, and crisp apple dominate. Natural underlying richness from the Chardonnay grape provides body without heaviness. Crisp acidity keeps the wine fresh and lively, while subtle mineral notes from the Paso Robles terroir add complexity. The fruit-forward style showcases the quality of the estate fruit.",
+        "finish": "Clean, refreshing finish with lingering citrus and apple notes. The bright acidity ensures a crisp conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled chicken with lemon and herbs",
+        "Fresh Pacific oysters or clams",
+        "Lobster or crab with butter",
+        "Soft cheeses and mild chèvre",
+        "Summer salads with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting needed; serve well-chilled",
+        "glassware": "Standard white wine glass or Chardonnay glass"
+      },
+      "wineDetails": {
+        "region": "El Pomar District, Paso Robles, California",
+        "grapeVariety": "100% Chardonnay from estate vineyards",
+        "vintage": "2016",
+        "style": "Fresh, fruit-forward Chardonnay with minimal oak influence",
+        "ageability": "Likely at peak now; best enjoyed for its fresh fruit character"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-21T13:43:00.000Z"
+      }
+    }
+  ],
+  "metadata": {
+    "batchNumber": 108,
+    "totalWines": 10,
+    "researchedAt": "2025-10-21T13:43:00.000Z",
+    "researchMethod": "WebSearch with professional wine publications and winery sources",
+    "averageConfidence": 0.89
+  }
+}

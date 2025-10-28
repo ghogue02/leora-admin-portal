@@ -1,0 +1,358 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batch": 7,
+  "researchedAt": "2025-10-20T00:00:00Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Calyptra Inedito 2020",
+      "description": "A sophisticated Chilean red blend from the Cachapoal Valley, crafted from 64% Cabernet Sauvignon, 18% Merlot, and 18% Syrah. Each variety was meticulously aged in French oak barrels for 28 months, followed by 12 months of bottle aging, resulting in a wine of exceptional character and 15-year aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose opens with an exceptional bouquet full of fresh red fruit aromas, particularly ripe cherries and plums, interwoven with forest fruits and blackberries. Delicate floral notes of violets emerge alongside mineral aspects, creating a complex aromatic tapestry. Subtle hints of graphite add depth and sophistication to the overall aromatic profile.",
+        "palate": "On the palate, the wine reveals notable structure with soft, enveloping tannins that provide a luxurious mouthfeel. Well-balanced acidity supports the fruit core while allowing the wine's inherent elegance to shine through. The mid-palate shows concentrated dark fruit flavors accented by delicate notes of tobacco and warm baking spices, all harmoniously integrated from the extended oak maturation.",
+        "finish": "The finish is impressively long and refined, with persistent notes of tobacco leaf and exotic spices lingering on the palate. The soft tannins continue to provide structure while maintaining elegance, leaving a lasting impression of both power and finesse that signals excellent aging potential."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with chimichurri",
+        "Braised lamb shanks with rosemary",
+        "Aged Manchego cheese",
+        "Wild mushroom risotto",
+        "Dark chocolate desserts with berries"
+      ],
+      "servingInfo": {
+        "temperature": "64-66°F (18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the complex aromatics to fully express and the tannins to soften further",
+        "glassware": "Large Bordeaux-style glass"
+      },
+      "wineDetails": {
+        "region": "Cachapoal Valley, Chile",
+        "grapeVariety": "64% Cabernet Sauvignon, 18% Merlot, 18% Syrah",
+        "vintage": "2020",
+        "style": "Full-bodied Chilean red blend",
+        "ageability": "Excellent aging potential of 15 years from vintage; drink now through 2035"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Adegas de Vinhos", "Calyptra official website", "BigHammerWines"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oceano Chardonnay 2021",
+      "description": "A vibrant coastal Chardonnay from Spanish Springs Vineyard in the San Luis Obispo Coast AVA, located just 1.5 miles from the Pacific Ocean. Made from clones 809, 17, and 96, this wine was fermented and aged for 9 months in 228L French oak barrels, producing only 537 cases and earning a 92+ rating from Jancisrobinson.com.",
+      "tastingNotes": {
+        "aroma": "The nose presents enticing aromas of lemon curd and sea air with a hint of grapefruit and jasmine, creating a distinctly maritime character. Additional layers reveal bright gardenias, white peach, lime zest, and quince, complemented by subtle notes of green mango and wildflower honey. The aromatic profile perfectly captures the wine's cool-climate coastal origins.",
+        "palate": "Bright and stony flavors of lemon pith and lemon oil dominate the palate, enhanced by yellow herbs and a fresh nectarine attack. The mid-palate unfolds with juicy notes of apricot, grapefruit, kiwi, and tangerine, all supported by superb acidity that provides structure and refreshment. The rocky limestone terroir expresses itself through pronounced minerality and chalky texture.",
+        "finish": "The finish features delightful dryness with persistent lemon pith-and-peel notes and a slightly silky texture from the barrel aging. The maritime salinity and mineral edge linger pleasantly, providing a crisp, clean conclusion that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled Pacific halibut with citrus beurre blanc",
+        "Dungeness crab salad with avocado",
+        "Seared scallops with brown butter",
+        "Chicken piccata with capers",
+        "Fresh oysters on the half shell"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting necessary; serve directly from the bottle after proper chilling",
+        "glassware": "White Burgundy or large white wine glass"
+      },
+      "wineDetails": {
+        "region": "San Luis Obispo Coast AVA, California",
+        "grapeVariety": "100% Chardonnay (clones 809, 17, 96)",
+        "vintage": "2021",
+        "style": "Coastal cool-climate Chardonnay with moderate oak influence",
+        "ageability": "Best enjoyed within 3-5 years; drink 2021-2026 to preserve vibrant acidity and fresh fruit"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.98,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Oceano Wines official", "Le Sommelier Wine Agency", "Jancisrobinson.com"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Private Label Installment",
+      "description": "A flexible wine subscription or payment plan offering that provides access to curated selections of quality wines. This installment-based program allows wine enthusiasts to build their collection gradually while enjoying professionally selected bottles suited to their preferences.",
+      "tastingNotes": {
+        "aroma": "The specific aromatic profile varies depending on the wine selection provided in each installment. Subscribers can expect professionally chosen wines that showcase classic varietal characteristics appropriate to the season and occasion.",
+        "palate": "Each installment features wines selected for their quality and food-friendliness, offering balanced flavor profiles that appeal to a range of palates. The program typically includes wines with good structure and approachable tannins or refreshing acidity.",
+        "finish": "Wines in this program are chosen to provide satisfying finishes that encourage food pairing and social enjoyment, making them ideal for regular consumption and entertaining."
+      },
+      "foodPairings": [
+        "Varies by specific wine selection",
+        "Generally food-friendly options for everyday dining",
+        "Versatile pairings from casual to special occasions",
+        "Seasonal menu adaptability",
+        "Both meat and vegetarian dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Varies by wine type (whites 45-55°F, reds 60-65°F)",
+        "decanting": "Follow specific recommendations for each wine received",
+        "glassware": "Standard wine glasses appropriate to wine type"
+      },
+      "wineDetails": {
+        "region": "Variable depending on selection",
+        "grapeVariety": "Mixed selections based on program curation",
+        "vintage": "Current releases at time of shipment",
+        "style": "Curated selection of various wine styles",
+        "ageability": "Generally ready-to-drink upon receipt; some selections may age 2-5 years"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.3,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["General wine subscription research", "Private label wine services"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Les Brebis Willamette Pinot Noir 2023",
+      "description": "A vibrant expression of Oregon's Willamette Valley Pinot Noir from the small, family-run Les Brebis winery (\"breu-BEE\"), whose name references the Shaffer family's German heritage meaning \"shepherd.\" Produced from sustainably farmed vineyards in the Eola-Amity Hills AVA and South Salem Hills, this wine is fermented in small lots with native yeast, aged in French oak barrels without chips, and bottled unfiltered without fining agents.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant ripe red berry aromas, particularly dark cherry and cranberry, characteristic of premium Willamette Valley Pinot Noir. Subtle earthy undertones emerge, along with a touch of forest floor and delicate spice notes that speak to the organic and biodynamic farming practices. Light floral hints add elegance to the aromatic profile.",
+        "palate": "On the palate, everything you want from Willamette Pinot is present: juicy dark cherry flavors mingle with bright cranberry and hints of raspberry. A little spice from the oak aging adds complexity without overwhelming the pure fruit expression. The earthiness detected on the nose carries through, providing depth and terroir expression, while maintaining the characteristic silky texture of quality Oregon Pinot Noir.",
+        "finish": "The finish is clean and persistent, with the red fruit flavors continuing alongside subtle earthy notes. The unfiltered, unfined bottling provides natural texture and authenticity, allowing the wine's true character to shine through the final moments."
+      },
+      "foodPairings": [
+        "Wild salmon with herb butter",
+        "Roasted duck breast with cherry reduction",
+        "Mushroom and gruyère tart",
+        "Herb-roasted chicken with root vegetables",
+        "Truffle mac and cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool cellar temperature",
+        "decanting": "Optional brief decanting of 15-20 minutes to aerate; native yeast fermentation benefits from air exposure",
+        "glassware": "Burgundy-style glass with wide bowl"
+      },
+      "wineDetails": {
+        "region": "Willamette Valley (Eola-Amity Hills AVA and South Salem Hills), Oregon",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2023",
+        "style": "Organic/Biodynamic Oregon Pinot Noir, native yeast fermentation",
+        "ageability": "Drink now through 2028; best enjoyed within 5 years to preserve fresh fruit character"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Sunfish Cellars", "MCF Rare Wine", "Les Brebis official website"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Pomar Junction Sidetrack Red 2023",
+      "description": "A proprietary red blend from Pomar Junction Vineyard & Winery, crafted to highlight the unique El Pomar District of Paso Robles. This family-owned estate practices sustainable farming (SIP Certified) in vineyards blessed with distinctive limestone soils and cooling Templeton Gap breezes. The blend typically features 43% Merlot, 31% Cabernet Sauvignon, and 26% Syrah, though proportions may vary by vintage.",
+      "tastingNotes": {
+        "aroma": "The wine displays a brilliant, deep, rich color and opens with wonderful aromas of ripe plums and blueberries. Dark red roses add a floral complexity, while rich caramel notes suggest careful oak integration. The aromatic profile is immediately inviting and speaks to the wine's generous, approachable style.",
+        "palate": "Luscious berry flavors dominate the palate, showcasing the ripe fruit character of Paso Robles. Dark chocolate notes emerge mid-palate, adding depth and richness to the berry core. Warm baking spices from oak aging provide complexity without overwhelming the fruit, while the perfect amount of oak integration ensures balance and structure throughout.",
+        "finish": "The finish is food-friendly and approachable, with the luscious berry and chocolate notes persisting alongside subtle spice. The limestone terroir contributes a mineral backbone that keeps the wine from being overly heavy, despite its generous fruit profile."
+      },
+      "foodPairings": [
+        "BBQ beef brisket with smoky sauce",
+        "Wood-fired pizza with sausage and peppers",
+        "Grilled lamb chops with rosemary",
+        "Aged cheddar and charcuterie board",
+        "Beef short ribs with red wine reduction"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 30 minutes to allow the fruit and oak to fully integrate and express themselves",
+        "glassware": "Large Bordeaux or Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "El Pomar District, Paso Robles, California",
+        "grapeVariety": "Approximately 43% Merlot, 31% Cabernet Sauvignon, 26% Syrah (blend varies by vintage)",
+        "vintage": "2023",
+        "style": "Paso Robles red blend, ripe and approachable style",
+        "ageability": "Drink now through 2028; designed for near-term enjoyment"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Pomar Junction official website", "Casemates", "Winedexer"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Cabernet Sauvignon Mevushal (MD & DC) 2023",
+      "description": "A kosher Cabernet Sauvignon from Yecla, Spain, where excellent weather and ideal soil characteristics allow grapes to achieve optimal ripening. This Mevushal wine has undergone flash-pasteurization to maintain kosher status even when handled by non-Jewish individuals, certified by OU, Rabbi Padwa, and Rabbi Ungar.",
+      "tastingNotes": {
+        "aroma": "The nose presents classic Cabernet Sauvignon characteristics with ripe blackcurrant and dark cherry aromas. Spanish terroir influences appear through subtle Mediterranean herb notes and a touch of warm earth. The careful vinification preserves bright fruit aromatics despite the Mevushal process.",
+        "palate": "On the palate, the wine offers approachable dark fruit flavors with blackberry and plum taking center stage. The Yecla region's warm climate contributes to the wine's generous fruit ripeness, while maintaining enough structure for food pairing. Moderate tannins provide framework without excessive grip, making this an accessible everyday Cabernet.",
+        "finish": "The finish is clean and moderately persistent, with dark fruit flavors lingering alongside subtle earthy notes. The Mevushal process has been carefully executed to preserve the wine's natural character and drinkability."
+      },
+      "foodPairings": [
+        "Roasted chicken with Mediterranean herbs",
+        "Beef brisket with onions",
+        "Grilled lamb kebabs",
+        "Eggplant parmesan",
+        "Hard cheeses and dried fruits"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Brief 15-20 minute decanting recommended to aerate",
+        "glassware": "Standard Cabernet or large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Yecla, Spain",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Kosher Mevushal Cabernet Sauvignon",
+        "ageability": "Best enjoyed within 2-3 years; drink 2023-2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Kosher Wine Direct", "Kosher Wine World", "Red Garden Imports"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alella Vinicola Super Marfil",
+      "description": "A premium white wine from the historic Alella Vinícola cooperative, established in 1906 as one of Spain's first winemaking cooperatives. The iconic Marfil brand has captivated Barcelona and beyond since the 1920s, produced in a stunning modernist winery designed by Jeroni Martorell in 1906. This wine showcases the DO Alella region's signature grape, Pansa Blanca (known as Xarel·lo elsewhere).",
+      "tastingNotes": {
+        "aroma": "The nose reveals the classic aromatic profile of Pansa Blanca with bright citrus notes, white flowers, and subtle Mediterranean herbs. Stone fruit aromas of white peach and apricot emerge, complemented by a distinctive coastal minerality that speaks to the wine's proximity to the Mediterranean just north of Barcelona. Delicate hints of almond blossom add elegance.",
+        "palate": "On the palate, the wine displays vibrant acidity characteristic of DO Alella whites, with flavors of green apple, lemon zest, and white peach. The rocky limestone and granite soils of the region impart a pronounced mineral quality and saline edge. The mid-palate shows good weight and texture while maintaining freshness, a hallmark of quality Pansa Blanca.",
+        "finish": "The finish is crisp and refreshing with persistent citrus and mineral notes. A subtle saline quality lingers, reminiscent of the nearby Mediterranean, while the wine's natural acidity provides a clean, mouth-watering conclusion that pairs beautifully with food."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean sea bass",
+        "Seafood paella with saffron",
+        "Manchego cheese with quince paste",
+        "Pan con tomate and jamón serrano",
+        "Grilled vegetables with romesco sauce"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting necessary; serve chilled directly from the bottle",
+        "glassware": "Standard white wine glass or Spanish copa"
+      },
+      "wineDetails": {
+        "region": "DO Alella, Catalonia, Spain",
+        "grapeVariety": "Primarily Pansa Blanca (Xarel·lo), potentially blended with other authorized DO Alella varieties",
+        "vintage": "Non-vintage or current release",
+        "style": "Mediterranean coastal white wine",
+        "ageability": "Best enjoyed within 2-3 years of release for optimal freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Cosecha Imports", "Alella Vinícola history", "DO Alella information"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Vina Memorias Del Rambam Blanc (MD & DC)",
+      "description": "A kosher Mevushal white blend from Viña Memorias, a family winery located in the Protected Designation of Origin Utiel-Requena with privileged high-altitude terroir 70 km inland from Valencia. Named after Rabbi Moshe ben Maimon (the Rambam), this wine blends 80% Macabeo with 20% Sauvignon Blanc and is certified kosher by OU and Rabbi Padwa.",
+      "tastingNotes": {
+        "aroma": "The wine presents a straw yellow hue with light green golden reflections. The nose is rich with floral notes dominated by white blossoms and acacia. Bright citrus aromas of lemon and grapefruit emerge alongside tropical fruit notes of pineapple and passion fruit, the latter contributed by the Sauvignon Blanc component. The high-altitude terroir adds freshness and aromatic intensity.",
+        "palate": "Dry and crispy in the mouth, the wine showcases balanced acidity that highlights its pronounced minerality and vibrant fruity notes. The Macabeo provides body and stone fruit flavors of white peach, while the Sauvignon Blanc adds citrus zest and tropical brightness. The high-altitude vineyard location contributes to the wine's refreshing character and aromatic purity.",
+        "finish": "The finish is clean and mineral-driven with persistent citrus and tropical fruit notes. The balanced acidity keeps the palate refreshed, while subtle floral echoes provide elegance. The wine's dry nature makes for a versatile food pairing companion."
+      },
+      "foodPairings": [
+        "Grilled white fish with lemon and herbs",
+        "Chicken schnitzel with lemon wedges",
+        "Mediterranean vegetable couscous",
+        "Fresh mozzarella and tomato salad",
+        "Seafood ceviche"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C)",
+        "decanting": "No decanting required; serve well-chilled",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "DO Utiel-Requena, Valencia, Spain",
+        "grapeVariety": "80% Macabeo, 20% Sauvignon Blanc",
+        "vintage": "Current release (typically recent vintage)",
+        "style": "Kosher Mevushal white blend, high-altitude expression",
+        "ageability": "Best enjoyed within 2 years of release for optimal freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["KosherWine.com", "The Grapevine UK", "Viña Memorias website"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Vina Albina Gran Reserva 2017",
+      "description": "A prestigious Gran Reserva from Bodegas Riojanas, one of the historic houses that has written the history of Rioja with capital letters. Founded in 1890 in Cenicero by the Artacho family along with Rafael Carreras, this wine represents the culmination of traditional Rioja winemaking with 30 months in American oak barrels and a minimum of two years bottle aging before release. The 2017 vintage earned a Silver Medal at Rioja Masters and a 92/100 critics score.",
+      "tastingNotes": {
+        "aroma": "Elegant on the nose with well-blended aromas that showcase the harmony between extended oak aging and varietal character. Ruby-red fruit notes of cherry and raspberry mingle with hints of vanilla, coconut, and sweet tobacco from the American oak. Subtle leather, dried fig, and earthy undertones add complexity, while a touch of balsamic and forest floor speaks to the wine's maturity.",
+        "palate": "Very fine and well-structured in the mouth, the wine reveals the benefits of late harvest and slight over-ripening of the grapes. Good acidity provides backbone and freshness despite the wine's richness, while polished tannins offer structure without harshness. The blend of 80% Tempranillo, 15% Mazuela, and 5% Graciano creates layers of red fruit, spice, leather, and vanilla that are beautifully integrated and balanced.",
+        "finish": "The finish is long and refined, with the polished tannins continuing to provide elegance. Notes of tobacco, vanilla, and dried red fruit persist, while the excellent balance between fruit, oak, and acidity ensures a harmonious conclusion. This is classic Rioja Gran Reserva at its finest."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary and garlic",
+        "Aged Manchego and Idiazábal cheeses",
+        "Wild mushroom risotto with truffle oil",
+        "Braised beef cheeks in red wine sauce",
+        "Serrano ham and cured Spanish meats"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow this mature wine to fully express its complex aromatics",
+        "glassware": "Large Rioja or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "DOCa Rioja, Spain",
+        "grapeVariety": "80% Tempranillo, 15% Mazuela (Carignan), 5% Graciano",
+        "vintage": "2017",
+        "style": "Traditional Rioja Gran Reserva with extended American oak aging",
+        "ageability": "Excellent aging potential; drink now through 2032 or beyond"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Decántalo", "Vinoselección", "Bodegas Riojanas official", "Rioja Masters"]
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Baleia Sauvignon Blanc 2024",
+      "description": "A distinctive Sauvignon Blanc from Baleia Wines, established in 2009 by the Joubert family in South Africa's Southern Cape. Despite the Portuguese name meaning 'whale,' this wine hails from the Cape South Coast's rocky limestone soils in a remote and unspoilt corner. The labels are inspired by St. Sebastien Bay, known as the 'Whale Nursery of South Africa,' and the winemaking style draws inspiration from the region's Mediterranean climate.",
+      "tastingNotes": {
+        "aroma": "The wine displays a pale, greenish-gold color in the glass. Classic Sauvignon Blanc aromas dominate with elderberry flower and green fig leading the way. The rocky limestone soil imparts distinctive mineral notes, while the proximity to the Indian Ocean contributes subtle maritime nuances. Fresh-cut grass and hints of white pepper add aromatic complexity.",
+        "palate": "On the palate, crisp green litchi flavors are the hallmark, accompanied by gooseberry, passion fruit, and lime zest. The pure, solid limestone soil with very high mineral content creates a particular mouthfeel reminiscent of chalky minerality. Maritime salinity from the coastal location adds a unique dimension, providing both freshness and texture that distinguishes this wine from typical Sauvignon Blanc.",
+        "finish": "The finish is vibrant and mineral-driven with the chalky limestone character persisting alongside green fruit and citrus notes. The saline edge from the ocean proximity lingers pleasantly, providing a refreshing conclusion that makes you immediately want another sip. The wine's purity and focus are impressive."
+      },
+      "foodPairings": [
+        "Fresh oysters with mignonette",
+        "Grilled linefish with lemon butter",
+        "Goat cheese salad with herbs",
+        "Asparagus risotto",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well-chilled",
+        "decanting": "No decanting necessary; serve directly from the bottle",
+        "glassware": "Sauvignon Blanc or standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Cape South Coast, South Africa",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Coastal limestone-driven Sauvignon Blanc with maritime influence",
+        "ageability": "Best enjoyed within 2-3 years to preserve vibrant acidity and fresh aromatics; drink 2024-2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00Z",
+        "researchSources": ["Bancroft Wines", "Vino Fandango", "Wine Republic UK", "South African Wines"]
+      }
+    }
+  ]
+}

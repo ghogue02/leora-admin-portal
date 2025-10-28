@@ -1,0 +1,347 @@
+{
+  "batchNumber": 62,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine Bizet Sancerre Rouge 2022",
+      "description": "A delicate red Sancerre crafted from Pinot Noir by this family-run Loire Valley estate. This wine showcases the elegant, fruit-forward character that makes red Sancerre so distinctive, with traditional winemaking methods preserving the purity of the terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of red fruits, particularly ripe cherry and morello cherry, layered with subtle floral notes. Delicate hints of forest floor and fresh herbs add complexity, while maintaining the bright, lifted character typical of Loire Valley Pinot Noir. The aromatic profile is clean and precise, inviting further exploration.",
+        "palate": "The attack is supple and welcoming, with red fruit notes taking center stage—think fresh cherries and wild strawberries. The tannins are well-integrated and harmonious, providing structure without overwhelming the delicate fruit. Medium-bodied with refreshing acidity that brings energy and balance to the wine. The texture is silky and refined, showcasing the elegance of Loire Valley Pinot Noir.",
+        "finish": "The finish is bright and lifted, with lingering notes of red cherry and a subtle mineral edge. Light and fresh, the wine concludes with fine-grained tannins and a touch of earthiness that adds depth without weight."
+      },
+      "foodPairings": [
+        "Roasted chicken with herbs",
+        "Grilled salmon with beurre blanc",
+        "Soft cheeses like Crottin de Chavignol",
+        "Mushroom risotto",
+        "Charcuterie board with pâté"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly chilled at 14°C (57°F) to preserve freshness",
+        "decanting": "No decanting needed; this wine is ready to enjoy upon opening",
+        "glassware": "Burgundy glass or medium-sized red wine glass"
+      },
+      "wineDetails": {
+        "region": "Sancerre, Loire Valley, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2022",
+        "style": "Light-bodied, elegant red wine",
+        "ageability": "Best enjoyed within 3-5 years; drink now through 2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Reserve Chardonnay 2022",
+      "description": "A refined Ukrainian Chardonnay from the historic Shabo winery in Odesa, showcasing the quality potential of Black Sea viticulture. Aged six months in French barrique, this wine balances Old World elegance with expressive fruit character, representing Ukraine's emerging wine renaissance.",
+      "tastingNotes": {
+        "aroma": "Pale lemon in color, the wine opens with layered aromas of magnolia blossom and white flowers, complemented by ripe stone fruits—particularly nectarine, peach, and apricot. Bright citrus notes of lemon and orange zest add lift, while honeysuckle and sea buckthorn bring exotic complexity. Subtle French oak influence provides delicate vanilla and warm spice accents without overwhelming the fruit. Hints of white cherry and grey smoke add intrigue to this aromatic profile.",
+        "palate": "Richly expressive on the palate, showing flavors of yellow stone fruits—ripe D'Anjou pears and crunchy golden apples—alongside citrus flowers and tangible sea buckthorn notes. The texture is creamy and mouth-coating, balanced by firm acidity that keeps the wine fresh and vibrant. Moderate alcohol at 12.4% ABV ensures elegance and drinkability. The six months in French oak adds subtle complexity and roundness without masking the pure fruit expression. Flavors of baked apple and citrus zest build toward the mid-palate.",
+        "finish": "The finish is long and elegant, with lingering notes of citrus, white flowers, and subtle oak-derived vanilla. Clean and refreshing, with balanced acidity providing energy through to the conclusion."
+      },
+      "foodPairings": [
+        "Grilled lobster with lemon butter",
+        "Roasted chicken with herbs and root vegetables",
+        "Creamy pasta with seafood",
+        "Soft-shell crab with citrus aioli",
+        "Mild cheeses like Brie or Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well chilled at 10-12°C (50-54°F)",
+        "decanting": "No decanting required; can benefit from 15 minutes of breathing in the glass",
+        "glassware": "Burgundy or medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Odesa, Ukraine",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Medium-bodied white wine with oak aging",
+        "ageability": "Drink now through 2026; peak drinking window is 2024-2025"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Barolo 2018",
+      "description": "A classic Barolo from Piedmont's legendary Nebbiolo vineyards, crafted by Collina San Ponzio's Linea 1878 collection. The 2018 vintage earned 91 points from Wine Enthusiast, showcasing the power and elegance that defines great Barolo with excellent aging potential through 2033.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with captivating aromas of rose petal and violet, classic hallmarks of Nebbiolo. Black-skinned berries—particularly black cherry and crushed raspberry—mingle with savory notes of chopped herbs, tilled earth, and freshly turned soil. Layers of culinary spice, particularly star anise, add aromatic complexity, while subtle hints of leather and tobacco provide maturity and depth. The nose is elegant yet intense, promising the structured palate to follow.",
+        "palate": "The palate is elegantly structured and full-bodied, offering ripe black cherry and crushed raspberry flavors at its core. Savory elements emerge with licorice, black pepper, and tobacco leaf, adding complexity and Old World character. The tannins are youthfully austere but polished and refined, with a taut structure that promises excellent aging. Bright acidity provides backbone and freshness, cutting through the wine's richness and ensuring balance. While approachable now, the wine rewards patience with its sophisticated interplay of fruit, earth, and spice.",
+        "finish": "The finish is long and persistent, with fine-grained tannins providing grip and structure. Flavors of dark fruit, spice, and earth linger, with subtle notes of rose petal and tobacco carrying through. The wine concludes with vibrant acidity and an elegant, refined character that invites another sip."
+      },
+      "foodPairings": [
+        "Braised beef short ribs with porcini mushrooms",
+        "Osso buco Milanese",
+        "Aged Parmigiano-Reggiano and Pecorino cheeses",
+        "Wild boar ragu over pappardelle",
+        "Truffle risotto"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 1-2 hours before serving to soften tannins and open aromatics",
+        "glassware": "Large Burgundy or Barolo glass to capture complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Barolo DOCG, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2018",
+        "style": "Full-bodied, age-worthy red wine",
+        "ageability": "Drink 2024-2033; currently in early drinking window with excellent aging potential"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Maris Rose Cans NV  250 ml",
+      "description": "An innovative organic rosé from Languedoc's pioneering Chateau Maris, presented in convenient 250ml cans perfect for outdoor enjoyment. This wine earned 90-91 points from Wine Enthusiast, showcasing elegant fruit expression and the estate's commitment to biodynamic viticulture and sustainable packaging.",
+      "tastingNotes": {
+        "aroma": "The nose is delicate yet expressive, opening with subtle aromas of fresh peonies and pressed carnations that provide an elegant floral lift. Ripe summer berries dominate—particularly strawberry, wild strawberry, and watermelon—alongside hints of fresh raspberry. Delicate garrigue notes add a touch of Mediterranean herb character, with whispers of thyme and lavender. The aromatics are fresh, inviting, and beautifully balanced between fruit and floral elements.",
+        "palate": "Light and refreshing on the palate, the wine features juicy peach and wild strawberry flavors that meet vibrant, zesty acidity. The texture shows both roundness and freshness, creating an appealing balance that makes the wine highly drinkable. Orange zest and raspberry notes add brightness and complexity, while subtle mineral undertones provide depth. Nice minerality balances the fruit-forward character, keeping the wine lively and food-friendly. The wine is powerful yet refined, with concentrated fruit that never becomes heavy.",
+        "finish": "The finish is clean and crisp, with lingering notes of summer berries and citrus. A subtle hint of acidity provides energy and freshness, making this rosé ideal for warm weather enjoyment. The wine concludes with delicate herbal notes that add complexity."
+      },
+      "foodPairings": [
+        "Summer salads with goat cheese and strawberries",
+        "Grilled shrimp skewers",
+        "Picnic charcuterie with prosciutto",
+        "Barbecued chicken with herbs",
+        "Fresh mozzarella and tomato caprese"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well chilled at 8-10°C (46-50°F)",
+        "decanting": "No decanting needed; serve directly from can",
+        "glassware": "Can be enjoyed from can or poured into stemless wine glass"
+      },
+      "wineDetails": {
+        "region": "IGP Pays d'Oc, Languedoc, France",
+        "grapeVariety": "Grenache Gris, Pinot Noir, Grenache",
+        "vintage": "Non-Vintage",
+        "style": "Light-bodied, fresh rosé",
+        "ageability": "Drink fresh; best enjoyed within 1-2 years of purchase"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Vina Albina Gran Reserva 2014",
+      "description": "A distinguished Gran Reserva from one of Rioja's most historic bodegas, established in 1890. The 2014 vintage received 91 points from critics, showcasing the exceptional quality and traditional character of extended oak aging combined with modern winemaking finesse at an exceptional value.",
+      "tastingNotes": {
+        "aroma": "The bouquet is complex and inviting, opening with rich aromas of black cherry and black currant, layered with cocoa powder and dark chocolate. Cedar chest and violet add elegance and floral lift, while hints of anise provide spice complexity. Subtle notes of cassis emerge, adding depth to the dark fruit profile. The extended oak aging contributes beautifully integrated wood notes without overwhelming the fruit expression.",
+        "palate": "The palate is polished, round, and notably softer and more approachable than traditional gran reservas, showing modern winemaking influence. Rich flavors of Chambord liqueur and black currant dominate, complemented by roasted red pepper and milk chocolate. Violet and anise provide aromatic complexity that carries onto the palate. The texture is defined by plush, velvety tannins that fill the mouth with luxurious weight. The wine shows wonderful balance between fruit, oak, and acidity, with a smooth, approachable character that makes it accessible now while retaining aging potential.",
+        "finish": "The finish is drawn-out and silky, with lingering notes of dark fruit and chocolate. The plush tannins provide a soft, velvety texture that persists, making this a hedonistic and satisfying gran reserva. Subtle spice and oak notes carry through to the conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary",
+        "Beef tenderloin with red wine reduction",
+        "Aged Manchego and Idiazábal cheese",
+        "Slow-roasted pork shoulder",
+        "Duck confit with crispy potatoes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 30-60 minutes to enhance aromatics and soften tannins",
+        "glassware": "Bordeaux or large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo-based blend with Graciano and Mazuelo",
+        "vintage": "2014",
+        "style": "Full-bodied, traditionally aged Gran Reserva",
+        "ageability": "Drink now through 2030; currently in excellent drinking window"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Block 28 Zinfandel 2021",
+      "description": "An exceptional single-vineyard Zinfandel from Hendry Ranch's historic Block 28 in Napa Valley, planted on St. George rootstock at 60 meters elevation. Rated 92 points by Wine Enthusiast, this wine showcases refined power and structure with 15 months aging in 65% new oak, built for graceful aging.",
+      "tastingNotes": {
+        "aroma": "The nose is handsomely structured and aromatic, opening with rich aromas of blueberry tart and dark berry compote. Poached rhubarb adds a distinctive fruit character, while cigar box and sweet baking spices—particularly cinnamon and clove—contribute complexity. Mocha espresso notes from the oak aging provide depth and richness without overwhelming the fruit. The aromatics are intense yet refined, promising the full-bodied palate to follow.",
+        "palate": "Full-bodied yet refined in approach, the palate features concentrated blackberry and black cherry flavors at its core. These dark fruit notes are beautifully laced with mocha espresso and cinnamon spices that build richness and complexity. Burnt orange zest adds a citrus brightness that lifts the wine, while firm yet integrated tannins provide structure. Bright acidity keeps the wine fresh and balanced despite its power and concentration. The wine is powerful and tightly bound, showing excellent balance between fruit intensity, oak influence, and structural elements.",
+        "finish": "The finish is long and polished, with fine-grained tannins providing grip and aging potential. Flavors of dark berries, espresso, and sweet spices linger, supported by vibrant acidity. This is a wine built to age gracefully, concluding with power and refinement."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn sauce",
+        "BBQ beef brisket with espresso rub",
+        "Wild mushroom and truffle pizza",
+        "Venison loin with berry reduction",
+        "Aged cheddar and Gouda cheese"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 1 hour to soften tannins and enhance complexity",
+        "glassware": "Large Bordeaux or Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Zinfandel from Block 28",
+        "vintage": "2021",
+        "style": "Full-bodied, structured Zinfandel",
+        "ageability": "Drink 2024-2035; currently approachable but will age gracefully"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Joncier iCI 2017",
+      "description": "An exceptional organic and biodynamic Lirac from Marine Roussel's family estate in the Rhône Valley. Rated 91 points by Wine Enthusiast, this Grenache-dominant blend showcases the distinctive terroir of a single parcel covered with large rounded pebbles, creating a fresh, elegant wine with outstanding balance.",
+      "tastingNotes": {
+        "aroma": "The nose is dark and compelling, revealing concentrated black fruit aromas of ripe cherry, blackberry, and plum. Aromatic spices dominate—particularly black pepper, cinnamon, and cedar—adding complexity and Rhône character. Fresh herb notes and subtle camphor provide additional layers, while the organic farming practices contribute to the wine's purity and precision of aromatics. The bouquet is both powerful and refined.",
+        "palate": "The attack is fruity and soft, immediately welcoming on the palate before becoming warmer and more structured as it develops. Bright flavors of tart red cherry and plum are beautifully spiced by shavings of cinnamon, cedar, and camphor, creating an aromatic complexity that elevates the wine. The wine is full-bodied yet crisply balanced, with firm acidity providing freshness and energy. Taut, fine-grained tannins frame the wine elegantly, while silky texture adds polish and refinement. The single-parcel terroir expresses itself through distinctive minerality and a sense of place.",
+        "finish": "The finish is elegant and long, with persistent notes of dark fruit and pepper spice. The silky tannins carry through, supported by bright acidity that keeps the wine fresh. The conclusion is warm and satisfying, with excellent length and complexity that lingers."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb",
+        "Beef daube Provençal",
+        "Grilled duck breast with cherry sauce",
+        "Wild boar terrine",
+        "Aged Comté and Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 16-18°C (61-64°F)",
+        "decanting": "Decant for 45 minutes to 1 hour to enhance aromatics",
+        "glassware": "Large Rhône or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Lirac AOC, Rhône Valley, France",
+        "grapeVariety": "Grenache-dominant blend with Syrah, Carignan, and Cinsault",
+        "vintage": "2017",
+        "style": "Full-bodied, elegant Rhône red",
+        "ageability": "Drink now through 2027; currently in excellent drinking window"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Fevre Chablis 2023",
+      "description": "A classic expression of Chablis from the renowned Domaine William Fèvre, one of Burgundy's most respected producers. The 2023 vintage showcases the appellation's signature minerality and crisp acidity, with the sunny vintage adding ripeness and depth to the traditional Chardonnay profile.",
+      "tastingNotes": {
+        "aroma": "The nose opens with fresh aromas of lemon, green apple, and freshly sliced pear, capturing the essence of Chablis purity. White flowers—particularly apple blossom and acacia—add delicate floral lift. Classic Chablis minerality emerges with notes of wet stones, chalk, and crushed oyster shell. Green almond and fennel provide subtle complexity, while the aromatics remain clean, precise, and inviting. The 2023 vintage shows more ripeness than typical, with hints of green melon adding depth.",
+      "palate": "Light to medium-bodied and well-balanced, the palate features bright citrus flavors of lemon and lime zest, complemented by crisp green apple and ripe pear. The texture is supple yet creamy, with a milky quality that adds richness without weight. Notable minerality is the hallmark—wet stone and flinty notes run through the wine, providing classic Chablis character and terroir expression. A tang of fresh, crunchy acidity keeps the wine vibrant and food-friendly, with green melon ripeness from the sunny 2023 vintage adding depth. The finish is malic and refreshing, maintaining energy throughout.",
+        "finish": "The finish is crisp and mineral-driven, with lingering notes of citrus, green apple, and chalk. Clean and refreshing, the wine concludes with bright acidity and a distinctive flinty character that defines great Chablis."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled Dover sole with lemon butter",
+        "Goat cheese salad with walnuts",
+        "Poached turbot with beurre blanc",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well chilled at 10-12°C (50-54°F)",
+        "decanting": "No decanting needed; can benefit from a few minutes in the glass",
+        "glassware": "White Burgundy or medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Chablis AOC, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Light to medium-bodied, mineral-driven white",
+        "ageability": "Drink now through 2028; best enjoyed young for freshness"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boron Delle Venezie Pinot Grigio 2023",
+      "description": "A fresh, food-friendly Pinot Grigio from the Delle Venezie DOC in northeastern Italy, where this variety reaches its finest expression. The 2023 vintage showcases the crisp, aromatic character that has made this region's Pinot Grigio famous worldwide, with bright fruit and excellent acidity.",
+      "tastingNotes": {
+        "aroma": "The nose is bright and inviting, opening with fresh notes of ripe pear—particularly Bosc and Anjou varieties—alongside crisp green apple and honeydew melon. Delicate floral aromas of violet and honeysuckle add elegance and lift. Zesty citrus notes of lemon and lime zest provide brightness, while subtle hints of white peach and pineapple add tropical complexity. Touches of rich vanilla bean from brief lees contact add depth without heaviness. The aromatics are clean, precise, and beautifully aromatic.",
+        "palate": "The palate is crisp and clean, featuring lively acidity that brings energy and freshness. Juicy flavors of Bosc pear and green apple dominate, complemented by bright citrus—particularly lemon zest and lime. The texture is round yet vibrant, with a creamy quality balanced by zesty acidity. Notes of melon, white peach, and subtle tropical fruit add complexity and ripeness from the 2023 vintage. Delicate hints of bread crust and minerality provide depth and food-friendliness. The wine maintains excellent balance between fruit richness and refreshing acidity.",
+        "finish": "The finish is bright and clean, with lingering notes of citrus, pear, and subtle pineapple. Crisp acidity carries through to the conclusion, leaving the palate refreshed and ready for another sip or the next bite of food."
+      },
+      "foodPairings": [
+        "Grilled calamari with lemon aioli",
+        "Seafood risotto",
+        "Prosciutto and melon appetizer",
+        "Light pasta with olive oil and herbs",
+        "Fresh mozzarella with basil"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well chilled at 8-10°C (46-50°F)",
+        "decanting": "No decanting required; ready to enjoy upon opening",
+        "glassware": "Standard white wine glass or stemless glass"
+      },
+      "wineDetails": {
+        "region": "Delle Venezie DOC, Veneto/Friuli-Venezia Giulia, Italy",
+        "grapeVariety": "100% Pinot Grigio",
+        "vintage": "2023",
+        "style": "Light to medium-bodied, crisp white wine",
+        "ageability": "Drink now through 2025; best enjoyed fresh and young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sun Break Idyll Acres Perfection Cider   500 ml",
+      "description": "An exceptionally dry, wine-like cider crafted by Sun Break from 100% heritage cider apple varietals sourced from Idyll Acres Orchard in Oregon's Willamette Valley. Bottle-conditioned using méthode champenoise with extended lees contact, this small-batch, unfiltered cider showcases the sophistication of artisan American cidermaking.",
+      "tastingNotes": {
+        "aroma": "Beautifully aromatic and wine-like in character, the nose opens with complex aromas of caramelized apple and baked apple tart. White tea and dried herbs add elegance and sophistication, moving this cider beyond simple fruit character. Subtle notes of bread dough and lees from the bottle conditioning provide depth and complexity. The aromatics are refined, layered, and inviting, showcasing the heritage cider apple varieties used in production.",
+        "palate": "Remarkably dry on the palate—this cider truly \"doesn't even understand the concept of sugar.\" The attack features concentrated caramel apple flavors that develop into more nuanced characteristics. White tea and herbal notes provide a sophisticated, wine-like quality that distinguishes this from commercial ciders. The natural carbonation from bottle conditioning creates a fine, persistent mousse that adds texture and elegance. The unfiltered nature contributes to a fuller mouthfeel and more complex flavor profile. Small-batch production ensures attention to detail and quality throughout.",
+        "finish": "The finish is bone dry and refreshing, with lingering notes of white tea and subtle apple character. Clean and crisp, the wine concludes with sophisticated herbal notes and persistent natural carbonation that cleanses the palate."
+      },
+      "foodPairings": [
+        "Pork chops with apple chutney",
+        "Sharp cheddar and aged Gouda cheese",
+        "Roasted chicken with herbs",
+        "Autumn salads with walnuts and blue cheese",
+        "Apple galette with crème fraîche"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well chilled at 6-8°C (43-46°F)",
+        "decanting": "No decanting needed; pour carefully to avoid sediment",
+        "glassware": "Champagne flute or white wine glass"
+      },
+      "wineDetails": {
+        "region": "Willamette Valley, Oregon",
+        "grapeVariety": "100% heritage cider apple varietals from Idyll Acres",
+        "vintage": "Non-Vintage",
+        "style": "Dry, bottle-conditioned cider",
+        "ageability": "Drink now through 2026; bottle conditioning allows for some aging"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

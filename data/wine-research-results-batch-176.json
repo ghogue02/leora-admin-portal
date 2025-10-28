@@ -1,0 +1,347 @@
+{
+  "batchNumber": 176,
+  "processedAt": "2025-10-21T12:53:09.906Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Hendry HRW Pinot Noir 2023",
+      "description": "A 2023 wine from California, showcasing bold fruit character and structured tannins. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals concentrated aromas of plum and cassis, complemented by notes of clove and graphite. Additional layers of cedar and oak-derived truffle add complexity. The nose is intense yet refined, showing excellent concentration.",
+        "palate": "On the palate, flavors of blackcurrant and blueberry dominate, supported by well-integrated tannins. The mid-palate reveals vanilla, forest floor, and subtle oak. Balanced acidity provides freshness while the texture is smooth and velvety. The wine shows impressive depth and complexity.",
+        "finish": "The finish is long and persistent, with black raspberry flavors lingering alongside nutmeg. Refined tannins suggest good aging potential. The aftertaste is memorable and complex."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs in wine reduction",
+        "Aged hard cheeses",
+        "Wild mushroom risotto",
+        "Roasted lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 30-60 minutes to open aromatics",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "2023",
+        "style": "Full-bodied red wine",
+        "ageability": "Drink now through 2030; can age 5-10 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Haut Maco Jean Bernard 2018",
+      "description": "A 2018 wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2018",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casa Dumetz Clementine Carter Santa Rita Hills Grenache 2023",
+      "description": "A 2023 wine from California, showcasing bold fruit character and structured tannins. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals concentrated aromas of blackcurrant and blueberry, complemented by notes of cedar and forest floor. Additional layers of star anise and oak-derived cocoa add complexity. The nose is intense yet refined, showing excellent concentration.",
+        "palate": "On the palate, flavors of black raspberry and blackberry dominate, supported by well-integrated tannins. The mid-palate reveals nutmeg, espresso, and subtle oak. Balanced acidity provides freshness while the texture is smooth and velvety. The wine shows impressive depth and complexity.",
+        "finish": "The finish is long and persistent, with dark cherry flavors lingering alongside black pepper. Refined tannins suggest good aging potential. The aftertaste is memorable and complex."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs in wine reduction",
+        "Aged hard cheeses",
+        "Wild mushroom risotto",
+        "Roasted lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 30-60 minutes to open aromatics",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Grenache",
+        "vintage": "2023",
+        "style": "Full-bodied red wine",
+        "ageability": "Drink now through 2030; can age 5-10 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sun Break Colette Pinot Noir 2021",
+      "description": "A 2021 wine from California, showcasing bold fruit character and structured tannins. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals concentrated aromas of blueberry and black raspberry, complemented by notes of nutmeg and cocoa. Additional layers of black pepper and oak-derived espresso add complexity. The nose is intense yet refined, showing excellent concentration.",
+        "palate": "On the palate, flavors of blackberry and dark cherry dominate, supported by well-integrated tannins. The mid-palate reveals star anise, leather, and subtle oak. Balanced acidity provides freshness while the texture is smooth and velvety. The wine shows impressive depth and complexity.",
+        "finish": "The finish is long and persistent, with plum flavors lingering alongside cinnamon. Refined tannins suggest good aging potential. The aftertaste is memorable and complex."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs in wine reduction",
+        "Aged hard cheeses",
+        "Wild mushroom risotto",
+        "Roasted lamb with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 30-60 minutes to open aromatics",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "2021",
+        "style": "Full-bodied red wine",
+        "ageability": "Drink now through 2030; can age 5-10 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Barolo 2017",
+      "description": "A 2017 wine from Italy, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Italy",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2017",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Unoaked Chardonnay 2018",
+      "description": "A 2018 wine from California, showcasing crisp acidity and vibrant aromatics. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of citrus and green apple lead the nose, accented by white flowers. Underlying wet stone adds terroir complexity. The profile is fresh, vibrant, and inviting.",
+        "palate": "Crisp acidity provides excellent structure, supporting flavors of pear, white peach, and melon. The mid-palate shows honeysuckle and subtle flint. Medium-bodied with good concentration and balance.",
+        "finish": "Clean and persistent finish with citrus and mineral notes. Bright acidity leaves the palate refreshed. Excellent length and purity."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell",
+        "Grilled sea bass with lemon",
+        "Goat cheese salad",
+        "Chicken piccata",
+        "Seafood pasta"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2018",
+        "style": "Crisp white wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine du Vieux College Bourgogne Aligote Traditionnel 2022",
+      "description": "A 2022 wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2022",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Borgeot Chassagne Montrachet Vieilles Vignes 2023",
+      "description": "A 2023 wine from Burgundy, France, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "Burgundy, France",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2023",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Barcelona Lolea Red Can NV  250 ml",
+      "description": "A NV wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "NV",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Calyptra Inedito 2016",
+      "description": "A 2016 wine from California, showcasing refreshing fruit and elegant balance. This wine represents quality winemaking and terroir expression, offering exceptional drinking pleasure.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of strawberry and raspberry open the bouquet, with subtle floral notes. Fresh and inviting aromatic profile.",
+        "palate": "Bright red berry flavors balanced by crisp acidity. Refreshing and food-friendly with elegant texture.",
+        "finish": "Clean, crisp finish with lingering red berry notes. Perfect for warm weather."
+      },
+      "foodPairings": [
+        "Grilled shrimp with herbs",
+        "Watermelon and feta salad",
+        "Light summer pasta",
+        "Charcuterie board",
+        "Salmon with dill"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "No decanting needed",
+        "glassware": "Standard white wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "Proprietary blend",
+        "vintage": "2016",
+        "style": "Table wine",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T12:53:09.906Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+{
+  "batch": 130,
+  "processedAt": "2025-10-21T13:55:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Rigo Rosato NV",
+      "description": "A refreshing Italian rosé that captures the essence of Mediterranean summer. This non-vintage wine showcases the traditional Italian approach to rosato production, offering bright fruit flavors with a crisp, clean finish.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of fresh strawberries and wild raspberries, complemented by delicate notes of white peach and citrus zest. A subtle herbal undertone of Mediterranean herbs adds complexity, while faint mineral notes suggest careful vineyard selection. The bouquet is fresh and inviting, characteristic of quality Italian rosato.",
+        "palate": "On the palate, the wine delivers a crisp, refreshing attack with bright red berry flavors taking center stage. Juicy strawberry and raspberry notes are joined by hints of watermelon and pink grapefruit. The mouthfeel is light and lively, with zippy acidity that keeps the wine energetic and food-friendly. A subtle salinity adds interest to the mid-palate.",
+        "finish": "The finish is clean and refreshing, with lingering notes of red berries and a pleasant mineral streak. The bright acidity leaves the palate cleansed and ready for the next sip, making this an excellent aperitif wine."
+      },
+      "foodPairings": [
+        "Prosciutto and melon antipasti",
+        "Grilled Mediterranean seafood",
+        "Caprese salad with heirloom tomatoes",
+        "Light pasta with fresh herbs",
+        "Soft cheeses and fresh fruit"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled, 45-48°F (7-9°C)",
+        "decanting": "No decanting needed; serve immediately after opening to preserve freshness",
+        "glassware": "White wine or all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "Italy",
+        "grapeVariety": "Likely Sangiovese or Montepulciano blend",
+        "vintage": "NV",
+        "style": "Dry Rosé",
+        "ageability": "Drink now; best enjoyed within 1-2 years of release"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rioja Alta Ermita de San Felices Reserva 2008",
+      "description": "A distinguished Reserva from Bodegas Santalba in the Alta subregion of Rioja, this 2008 vintage showcases the aging potential of traditional Rioja. With over a decade of maturation, it offers classic Rioja characteristics with evolved complexity and elegant tertiary notes.",
+      "tastingNotes": {
+        "aroma": "The nose reveals an intense concentration of aromas, starting with ripe red fruit notes of cranberry and cherry that have evolved into more complex dried fruit characters. Layers of vanilla and sweet spices emerge from oak aging, complemented by subtle hints of toasted bread and tobacco. A distinctive touch of bacon rind adds savory complexity, while herbal undertones of dried thyme provide an attractive Mediterranean dimension.",
+        "palate": "The palate opens with concentrated cranberries and spicy bramble notes, showing more fruit-forward character than the nose suggests. Blackberry and vanilla spice dominate the mid-palate, supported by well-integrated oak that contributes structure without overwhelming the fruit. The wine displays medium body with fresh acidity that keeps it lively despite its age. A refreshing herbal quality runs through the palate, adding complexity and interest.",
+        "finish": "The finish is medium in length with fresh acidity balancing a slightly sweet quality from the fruit. Spicy notes linger alongside red fruit echoes, while the herbal character persists pleasantly. The finish is attractive and inviting, encouraging another sip."
+      },
+      "foodPairings": [
+        "Roasted lamb with rosemary",
+        "Aged Manchego cheese",
+        "Wild mushroom risotto",
+        "Grilled chorizo and peppers",
+        "Traditional Spanish stews and braises"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly cool, 60-65°F (15-18°C)",
+        "decanting": "Decant for 30-60 minutes to allow the wine to open and reveal its full complexity",
+        "glassware": "Bordeaux or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja Alta, Spain",
+        "grapeVariety": "Primarily Tempranillo with possible Garnacha blend",
+        "vintage": "2008",
+        "style": "Traditional Rioja Reserva",
+        "ageability": "Drinking beautifully now; can hold for another 3-5 years with proper storage"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Colle Corviano Montepulciano 2022",
+      "description": "A vibrant expression of Montepulciano from the Abruzzo region of Italy, this 2022 vintage captures the grape's characteristic bold fruit and approachable style. Colle Corviano crafts honest, terroir-driven wines that showcase the rustic charm of central Italian viticulture.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with ripe dark fruit aromas, predominantly black cherry and plum, with hints of blackberry compote. Subtle notes of violet and dried herbs add complexity, while a whisper of black pepper and earth provides depth. The youthful exuberance of the wine is immediately apparent, with fresh, vibrant aromatics that promise drinking pleasure.",
+        "palate": "On the palate, the wine delivers generous dark fruit flavors with excellent intensity. Juicy black cherry and plum are complemented by hints of dark chocolate and espresso. The tannins are firm yet approachable, providing structure without astringency. Medium to full body gives the wine presence, while bright acidity keeps it balanced and food-friendly. A rustic, earthy quality adds authentic Italian character.",
+        "finish": "The finish shows good length with persistent dark fruit notes and a pleasant tannic grip. The earthy, slightly savory quality becomes more pronounced, along with dried herb notes that enhance food pairing versatility. The wine finishes clean with moderate acidity."
+      },
+      "foodPairings": [
+        "Pasta with meat ragu",
+        "Grilled Italian sausages",
+        "Aged Pecorino cheese",
+        "Pizza with cured meats",
+        "Braised short ribs"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature, 60-64°F (16-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes will soften tannins and enhance aromatics",
+        "glassware": "Standard red wine glass or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Abruzzo, Italy",
+        "grapeVariety": "100% Montepulciano d'Abruzzo",
+        "vintage": "2022",
+        "style": "Dry red, medium to full-bodied",
+        "ageability": "Drink now through 2027; best enjoyed while fruit is fresh"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Grande Reserve Merlot 2022",
+      "description": "An ambitious Merlot from Ukraine's Shabo winery, part of their Grande Reserve collection. This wine demonstrates the growing quality of Eastern European winemaking, offering a modern interpretation of Merlot with international appeal while maintaining regional character.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with ripe plum and black cherry aromas, accompanied by hints of cassis and dark berries. Oak influence is evident through notes of vanilla, cedar, and subtle coffee bean. A touch of dried herbs and graphite adds complexity, while the overall impression is one of polished, modern winemaking with careful fruit selection.",
+        "palate": "On the palate, the wine shows medium to full body with smooth, velvety tannins characteristic of well-made Merlot. Dark plum and blackberry flavors dominate, supported by nuances of dark chocolate, mocha, and toasted oak. The texture is plush and mouth-coating, with integrated acidity providing balance. A subtle mineral quality emerges mid-palate, adding dimension to the fruit-forward profile.",
+        "finish": "The finish is moderately long with lingering dark fruit and oak-derived spice notes. Soft tannins provide structure without grip, while the chocolate and coffee notes persist pleasantly. The wine concludes with a smooth, polished quality that invites another glass."
+      },
+      "foodPairings": [
+        "Grilled beef tenderloin",
+        "Mushroom and truffle pasta",
+        "Roasted duck breast",
+        "Beef stroganoff",
+        "Semi-hard cheeses like Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature, 62-65°F (17-18°C)",
+        "decanting": "Decant for 30 minutes to integrate oak and soften tannins",
+        "glassware": "Bordeaux or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Odesa region, Ukraine",
+        "grapeVariety": "100% Merlot",
+        "vintage": "2022",
+        "style": "Full-bodied red, oak-aged",
+        "ageability": "Drink now through 2028; approachable young with aging potential"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Three Captains Red 2017",
+      "description": "A distinctive red blend from Zephaniah, a Virginia winery known for crafting complex, age-worthy wines. The Three Captains bottling represents their premium red blend program, showcasing the potential of Virginia's emerging wine region through careful vineyard management and traditional winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose presents a complex array of aromas, beginning with dark cherry and blackberry complemented by notes of dried fig and prune. Oak aging has contributed layers of vanilla, cigar box, and subtle baking spices. Earthy undertones of forest floor and mushroom add Old World character, while hints of graphite and leather speak to the wine's maturity and sophistication.",
+        "palate": "On the palate, the wine displays medium to full body with well-integrated tannins that have softened beautifully with age. Dark fruit flavors mingle with savory notes of olive tapenade and dried herbs. The oak influence is tasteful, adding structure and complexity without dominating. Balanced acidity keeps the wine fresh despite its age, while a distinctive Virginia terroir character of red clay minerality provides a unique signature.",
+        "finish": "The finish is long and elegant, with persistent dark fruit and earthy notes. Subtle tannins provide gentle structure, while the mineral quality becomes more pronounced. The wine concludes with a sophisticated interplay of fruit, earth, and oak that speaks to thoughtful winemaking and terroir expression."
+      },
+      "foodPairings": [
+        "Venison with juniper berry reduction",
+        "Grilled portobello mushrooms",
+        "Aged Virginia ham",
+        "Beef Wellington",
+        "Truffle-infused dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature, 60-64°F (16-18°C)",
+        "decanting": "Decant for 45-60 minutes to fully appreciate the wine's complexity",
+        "glassware": "Bordeaux or large-bowled red wine glass"
+      },
+      "wineDetails": {
+        "region": "Virginia, USA",
+        "grapeVariety": "Bordeaux-style blend (likely Cabernet Sauvignon, Merlot, Cabernet Franc)",
+        "vintage": "2017",
+        "style": "Full-bodied red blend, estate-grown",
+        "ageability": "Drinking well now; can continue to evolve through 2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.8,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "17 by Pinea 2020",
+      "description": "A modern Spanish red from the innovative Pinea project in Rioja, the \"17\" designation likely refers to a specific vineyard plot or winemaking approach. This wine represents a contemporary take on Spanish viticulture, balancing tradition with modern techniques to create an approachable yet distinctive expression.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with vibrant red fruit aromas of cherry and raspberry, layered with notes of wild strawberry and cranberry. Subtle oak influence provides hints of vanilla and cinnamon, while Mediterranean herbal notes of rosemary and thyme add complexity. A touch of crushed rock minerality suggests careful site selection and terroir expression.",
+        "palate": "The palate delivers bright, juicy red fruit flavors with excellent freshness. Cherry and pomegranate are complemented by hints of red plum and wild berries. The wine shows medium body with silky tannins that provide structure without weight. Vibrant acidity keeps the wine lively and food-friendly, while subtle oak adds dimension without dominating the fruit. A distinctive mineral quality runs through the palate, adding refinement.",
+        "finish": "The finish is medium in length with persistent red fruit notes and refreshing acidity. The herbal character becomes more pronounced, along with subtle spice from oak aging. The wine concludes cleanly with an inviting, moreish quality that makes it highly versatile at the table."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with herbs",
+        "Spanish tapas selection",
+        "Roasted red peppers and chorizo",
+        "Manchego cheese and quince paste",
+        "Paella with rabbit and chicken"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly cool, 58-62°F (14-17°C)",
+        "decanting": "Brief decanting of 15-20 minutes will enhance aromatics",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "Likely Tempranillo-based blend",
+        "vintage": "2020",
+        "style": "Medium-bodied red, modern style",
+        "ageability": "Drink now through 2026; best enjoyed while fruit is vibrant"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sonder Field Blend 2022",
+      "description": "An intriguing field blend showcasing the diverse plantings of Sonder's vineyard, where multiple grape varieties grow and are harvested together. This traditional approach creates complexity and balance that single varietals cannot achieve, reflecting an old-world philosophy applied with new-world fruit expression.",
+      "tastingNotes": {
+        "aroma": "The nose presents an eclectic bouquet reflecting the diversity of the blend, with red and black fruits intermingling freely. Notes of cherry, raspberry, and plum are joined by hints of blueberry and blackberry. Floral accents of violet and rose petal add elegance, while subtle herbal and spice notes contribute complexity. The overall impression is one of harmony and integration despite the variety of components.",
+        "palate": "On the palate, the wine shows excellent balance between the various grape varieties, creating a seamless whole greater than the sum of its parts. Red fruit brightness is tempered by darker berry richness, while the tannin structure benefits from the interplay of different varieties. Medium body and vibrant acidity make the wine highly food-friendly. Subtle earthy and mineral notes add depth and interest throughout.",
+        "finish": "The finish displays good length with evolving fruit notes that shift from red to dark as the wine lingers. The diverse tannin profiles from different grapes create a complex textural finish. Hints of herbs and spice persist, along with a pleasing mineral quality that adds refinement to the conclusion."
+      },
+      "foodPairings": [
+        "Roasted game birds",
+        "Grilled vegetables with balsamic",
+        "Charcuterie and aged cheeses",
+        "Herb-crusted pork tenderloin",
+        "Wild mushroom tart"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature, 60-63°F (15-17°C)",
+        "decanting": "Decant for 20-30 minutes to allow the various components to harmonize",
+        "glassware": "All-purpose wine glass or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Variable (producer location needed)",
+        "grapeVariety": "Field blend of multiple varieties",
+        "vintage": "2022",
+        "style": "Medium-bodied red blend, traditional field blend approach",
+        "ageability": "Drink now through 2027; designed for near-term enjoyment"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.7,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Silverthorn The Green Man Cap Classique Brut Blanc 2022",
+      "description": "An elegant South African sparkling wine crafted in the traditional method (Method Cap Classique). Made from 100% Chardonnay, this Blanc de Blancs showcases Silverthorn's expertise in sparkling wine production, offering a sophisticated alternative to Champagne with distinctive South African character and exceptional value.",
+      "tastingNotes": {
+        "aroma": "The nose opens with fresh aromas of green apple and crisp Granny Smith apple, complemented by delicate notes of acacia blossom and white flowers. Subtle hints of minerality emerge, along with whiffs of freshly baked brioche and toasted almonds from lees aging. The bouquet is refined and inviting, showing the hallmarks of quality traditional method sparkling wine with a distinctively fresh, vibrant character.",
+        "palate": "The palate delivers a well-balanced structure with an elegant mousse that creates a gentle explosion of fine bubbles. Fresh green apple and citrus flavors are complemented by hints of baked apple and subtle stone fruit. The texture is creamy yet lively, with persistent bubbles providing energy and lift. Subtle mineral notes add complexity and depth, while the yeasty character from lees aging contributes savory intrigue. The overall impression is one of finesse and refinement.",
+        "finish": "The finish is long and sophisticated, with lingering notes of citrus and green apple. The fine mousse persists beautifully, while subtle mineral and yeasty notes add complexity to the conclusion. The wine ends clean and fresh, with balanced acidity that leaves the palate refreshed and ready for food or another sip."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood platters",
+        "Smoked salmon and cr��me fraîche",
+        "Light appetizers and canapés",
+        "Soft cheeses like Brie or Camembert",
+        "Asian cuisine with delicate flavors"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled, 45-48°F (7-9°C)",
+        "decanting": "No decanting needed; serve directly from the bottle to preserve bubbles",
+        "glassware": "Flute or tulip-shaped sparkling wine glass"
+      },
+      "wineDetails": {
+        "region": "Robertson, Western Cape, South Africa",
+        "grapeVariety": "100% Chardonnay (Blanc de Blancs)",
+        "vintage": "2022",
+        "style": "Method Cap Classique, Brut",
+        "ageability": "Drink now through 2027; enjoying beautiful freshness currently"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bitch Grenache (Damaged Lid) 2020",
+      "description": "A bold expression of old-vine Grenache from Spain's Calatayud region, part of the provocatively named Bitch wine collection by Grateful Palate. Despite the damaged lid, the wine inside represents exceptional value, showcasing 45-year-old vines planted in sandy loams and slate soils that produce concentrated, characterful fruit.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with fresh picked red fruits, dominated by dark cherry and raspberry with prominent blueberry notes. The aromatics display purity and intensity, with underlying spicy, peppery notes characteristic of quality Grenache. Hints of anise and dried Mediterranean herbs add complexity, while subtle floral notes of violet emerge with air. The overall impression is one of vibrant, pure fruit expression with distinctive varietal character.",
+        "palate": "On the palate, the wine delivers explosive flavors with impeccable structure, showing the duality of finesse and power that defines great Grenache. Juicy, bright fruit flavors of cherry, raspberry, and blueberry are supported by a peppery spice that runs throughout. The texture is silky yet substantial, with fine-grained tannins providing structure without astringency. Extraordinary natural acid balance keeps the wine fresh and lively despite its richness. The terroir influence of sandy loams and slate contributes a subtle mineral quality.",
+        "finish": "The finish is juicy and long, with persistent red fruit flavors and a pleasing peppery kick. The wine concludes with excellent balance between fruit, acidity, and tannin. Subtle herbal notes linger alongside the fruit, while the mineral quality becomes more pronounced. The overall length and complexity speak to the quality of old-vine fruit and thoughtful winemaking."
+      },
+      "foodPairings": [
+        "Grilled lamb with herbs de Provence",
+        "Spanish-style braised octopus",
+        "Roasted red peppers with anchovies",
+        "Aged Spanish cheeses",
+        "Spicy Mediterranean stews"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly cool, 58-62°F (14-17°C)",
+        "decanting": "Brief decanting of 20-30 minutes will enhance the wine's expressive aromatics",
+        "glassware": "Large-bowled red wine glass to appreciate the aromatic intensity"
+      },
+      "wineDetails": {
+        "region": "Calatayud, Aragon, Spain",
+        "grapeVariety": "100% Grenache (Garnacha) from 45-year-old vines",
+        "vintage": "2020",
+        "style": "Full-bodied red, old-vine Grenache",
+        "ageability": "Drink now through 2028; showing beautifully with current bottle age"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noughty NA Sparkling Rose NV",
+      "description": "A premium non-alcoholic sparkling rosé from Thomson & Scott's Noughty range, crafted for those seeking the sophistication of sparkling wine without the alcohol. Through careful dealcoholization, this wine retains rich flavor while offering just 18 calories per glass, making it an excellent choice for health-conscious consumers who refuse to compromise on taste.",
+      "tastingNotes": {
+        "aroma": "The nose showcases delicate aromas of freshly picked berries, predominantly strawberry and raspberry, with subtle floral notes reminiscent of rose petals. A light, yeasty character typical of quality sparkling wines emerges, adding complexity and authenticity. The aromatic profile is surprisingly similar to traditional rosé Champagne, with fresh, inviting scents that belie the wine's non-alcoholic status.",
+        "palate": "On the palate, the wine delivers a beautiful balance between light sweetness and refreshing acidity, creating perfect harmony. The berry flavors from the nose translate seamlessly, with strawberry and raspberry joined by hints of watermelon and citrus zest. The mousse is light and effervescent, with fine bubbles that dance across the palate. With just 4g of sugar per 100ml (almost half that of typical NA sparkling wines), the wine avoids cloying sweetness while maintaining appealing fruit character.",
+        "finish": "The finish is clean and refreshing, with lingering berry notes and bright acidity. The light bubbles persist pleasantly, while the balanced sweetness leaves no heavy aftertaste. The wine concludes with a crisp, cleansing quality that makes it highly drinkable and versatile for various occasions."
+      },
+      "foodPairings": [
+        "Light brunch dishes and fruit",
+        "Fresh berry desserts",
+        "Mild soft cheeses",
+        "Smoked salmon appetizers",
+        "Garden salads with vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled, 42-45°F (6-7°C)",
+        "decanting": "Serve immediately from the bottle to preserve carbonation",
+        "glassware": "Flute or coupe glass for optimal bubble appreciation"
+      },
+      "wineDetails": {
+        "region": "Dealcoholized wine, likely European base",
+        "grapeVariety": "Rosé blend (specific varieties not disclosed)",
+        "vintage": "NV",
+        "style": "Non-alcoholic sparkling rosé, <0.5% ABV",
+        "ageability": "Consume within 1 year for best freshness"
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.9,
+        "researchedAt": "2025-10-21T13:55:00.000Z"
+      }
+    }
+  ]
+}

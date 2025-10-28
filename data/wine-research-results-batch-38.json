@@ -1,0 +1,358 @@
+{
+  "researched": true,
+  "batchNumber": 38,
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Wooden Gift Box Abadia de Acon 6 Bottle",
+      "description": "A premium Spanish wine gift box featuring six bottles from the prestigious Abadía de Acón estate in Ribera del Duero. This collection showcases the winery's commitment to traditional winemaking techniques combined with modern viticulture, offering a comprehensive tasting journey through their range of Tempranillo-based wines aged to various specifications.",
+      "tastingNotes": {
+        "aroma": "This gift collection represents wines with enchanting aromatic profiles dominated by bright raspberry and blackcurrant notes, intertwined with herbal undertones of mint and Mediterranean herbs. Rich chocolate and vanilla aromatics emerge from barrel aging, complemented by subtle cedar wood nuances. Each bottle in the collection displays the characteristic intensity of ripe red and black berries that define Ribera del Duero Tempranillo, with appealing notes of cocoa and liquorice adding depth and complexity.",
+        "palate": "The wines in this collection deliver deep, rich palates with velvety tannin structures that provide both power and elegance. Expect concentrated ripe fruit flavors of blackcurrant and cherry, enveloped in milk chocolate and vanilla from oak maturation. The palate is harmonious and well-balanced, with a delicate vein of acidity that keeps the wines fresh and food-friendly. The soft, plump texture belies the serious winemaking behind these bottles, offering juicy fruit character that speaks to the quality of the terroir.",
+        "finish": "An elegant, lengthy finish characterizes these wines, with the tannins integrating seamlessly into the fruit structure. The finish carries notes of concentrated berries, chocolate, and subtle spice, demonstrating the wines' aging potential. These bottles show remarkable staying power on the palate, with flavors evolving and deepening even on the second day after opening—a hallmark of well-crafted Ribera del Duero wines designed for cellaring."
+      },
+      "foodPairings": [
+        "Roasted Ibérico pork with herb crust",
+        "Aged Manchego and sheep's milk cheeses",
+        "Grilled ribeye steak with chimichurri",
+        "Wild mushroom risotto with truffle oil",
+        "Slow-braised lamb shanks with rosemary"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) for optimal expression of fruit and tannin structure",
+        "decanting": "Decant 1-2 hours before serving, particularly for Crianza and Reserva expressions, to allow the wines to open and soften tannins",
+        "glassware": "Large Bordeaux-style glasses to allow proper aeration and concentration of aromatic compounds"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo (locally known as Tinto Fino)",
+        "vintage": "Collection includes various aging classifications",
+        "style": "Classic Ribera del Duero red wines ranging from young Roble to aged Crianza and Reserva",
+        "ageability": "Roble expressions drink well immediately; Crianza improves for 5-8 years; Reserva and Gran Reserva can age 10-15+ years. Extended aging in Bordeaux barrels (14 months) and bottle maturation (2+ years) before release ensures wines are ready to drink but will continue to evolve."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Research based on Abadía de Acón winery profile and multiple vintage reviews from professional critics including Falstaff (94 points for 2016 Crianza) and Jancis Robinson. Gift box represents the estate's portfolio."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rhulmann Cremant D'Alsace Brut NV",
+      "description": "An elegant traditional method sparkling wine from Alsace, France, crafted from classic Alsatian white grape varieties. This Crémant showcases the refined character of Alsatian winemaking, delivering a sophisticated alternative to Champagne with the distinctive terroir influence of the region's sunny, dry climate producing riper grapes and more generous, rounded flavors than its northern counterpart.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle restraint, revealing delicate hints of ripe apple and white peach that suggest freshness and ease. Fine floral notes intermingle with fruity undertones of white peach and apricot, creating an inviting aromatic bouquet. Slight yeasty character emerges on further inspection, adding complexity to the otherwise pristine fruit-forward profile. The aromatics are elegant rather than assertive, with very fine persistent bubbles carrying hazelnut nuances that speak to the wine's time on lees.",
+        "palate": "Creamy and mellow on entry, the palate delivers hints of lemon and baked apple with something nutty around the edges of this elegant, light-bodied wine. Ripe juiciness emerges on the light, dry body, made lively by the frothing mousse and fine persistent bubbles. The fresh attack presents excellent balance and persistence, with peach and hazelnut notes adding depth without sacrificing the wine's fundamental freshness. The texture is simultaneously fruity and balanced, offering roundness full of character while maintaining a pleasant, clean profile.",
+        "finish": "The finish is dry and refreshing, with slight yeastiness rounding out the citrus and stone fruit notes. The wine shows remarkable persistence, leaving a clean, mineral-tinged impression that invites the next sip. Fine bubbles continue to dance on the palate through the finish, maintaining the wine's lively character to the very end."
+      },
+      "foodPairings": [
+        "Fresh oysters and shellfish platters",
+        "Alsatian tarte flambée with crème fraîche",
+        "Smoked salmon canapés with dill",
+        "Aged Comté or Gruyère cheese",
+        "Chicken in cream sauce with wild mushrooms"
+      ],
+      "servingInfo": {
+        "temperature": "6-8°C (43-46°F) well chilled to preserve freshness and acidity",
+        "decanting": "No decanting required; serve directly from the bottle to preserve carbonation and delicate bubbles",
+        "glassware": "Champagne flute or tulip-shaped sparkling wine glass to showcase fine bubbles and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Alsace AOC, France",
+        "grapeVariety": "Blend of Pinot Blanc, Auxerrois, and Pinot Gris",
+        "vintage": "Non-Vintage (NV)",
+        "style": "Crémant d'Alsace - Traditional method sparkling wine, Brut (dry style)",
+        "ageability": "Best enjoyed within 2-3 years of release to capture optimal freshness and fruit character. The wine is made for immediate enjoyment rather than cellaring, showcasing the vibrant, approachable style of Alsatian sparklings."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Professional tasting notes from Wine Enthusiast and Anne Krebiehl MW. Made using traditional method (méthode traditionnelle) with minimum 9 months lees aging. Excellent value alternative to Champagne."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ribera del Duero Abadia de Acon Joven 2019",
+      "description": "A vibrant young red wine from the esteemed Abadía de Acón estate in Spain's Ribera del Duero region. This Joven (young) expression showcases pure Tempranillo fruit with minimal oak influence, emphasizing the fresh berry character and natural vibrancy of the 2019 vintage. The wine represents excellent value, offering approachable drinking while maintaining the quality and character expected from this renowned appellation.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with youthful exuberance, displaying intense aromas of ripe red and black berries, particularly raspberry and blackcurrant. Fresh fruit dominates the aromatic profile, with appealing notes of concentrated ripe fruit accompanied by subtle chocolate and liquorice undertones. Delicate hints of mint and Mediterranean herbs add complexity without overwhelming the primary fruit character. The aromatic intensity is well-balanced, inviting you to explore the wine's layers while maintaining a sense of freshness and accessibility.",
+        "palate": "Soft and plump on the palate, this Joven delivers plenty of juicy fruit character with harmonious integration. The structure is approachable yet serious, with attractive notes of ripe red and black berries forming the core of the flavor profile. Chocolate and cocoa notes provide depth without dominating, while the delicate vein of acidity keeps the wine lively and balanced. The texture is velvety despite the wine's youth, demonstrating quality winemaking and excellent fruit selection. This is intense and very well-balanced, offering immediate drinking pleasure while hinting at the potential complexity of the estate's aged expressions.",
+        "finish": "The finish is elegant and medium in length, with the fruit flavors gradually giving way to subtle spice and mineral notes. The tannins are refined and integrated, providing structure without astringency. A slight echo of chocolate and berry fruit lingers pleasantly, encouraging food pairing and making this an excellent choice for casual dining or as an introduction to the Ribera del Duero style."
+      },
+      "foodPairings": [
+        "Grilled chorizo and Spanish tapas selections",
+        "Roasted chicken with garlic and paprika",
+        "Pizza with prosciutto and arugula",
+        "Pasta with meat ragù and tomato sauce",
+        "Semi-aged sheep's milk cheese with quince paste"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) slightly cooler to emphasize fresh fruit character",
+        "decanting": "Brief 15-30 minute decanting recommended to open up aromatics; this young wine doesn't require extended aeration",
+        "glassware": "Medium-bodied red wine glass to allow fruit aromatics to express while maintaining approachability"
+      },
+      "wineDetails": {
+        "region": "Ribera del Duero DO, Castilla y León, Spain",
+        "grapeVariety": "100% Tempranillo (Tinto Fino)",
+        "vintage": "2019",
+        "style": "Joven (young wine) - minimal oak aging to preserve fresh fruit character",
+        "ageability": "Best consumed within 2-4 years of vintage to enjoy primary fruit character. This style is designed for immediate enjoyment rather than long-term cellaring, offering accessible introduction to the estate's winemaking philosophy."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Research based on Abadía de Acón producer information and tasting notes from various vintages. Joven style emphasizes fruit-forward character with limited oak influence, contrasting with the estate's aged Crianza and Reserva offerings."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Cabernet Sauvignon Magnum 2018  1500 ml",
+      "description": "A distinguished single-vineyard Cabernet Sauvignon from St. Helena in Napa Valley's renowned Rutherford AVA, presented in an impressive magnum format. This limited-production wine (only 380 cases) showcases the elegant character of the 2018 vintage, which benefited from higher yields and extended hang time, resulting in exceptional aromatics and a substantial mid-palate. The wine represents the pinnacle of precision viticulture and winemaking artistry.",
+      "tastingNotes": {
+        "aroma": "The nose is captivating with bright, racy red fruit and hard candies that immediately engage the senses. Fresh aromas of dark cherries mingle with bright clove and cassis, creating a complex aromatic tapestry. The wine displays remarkable purity, with the oak providing just the right amount of vanillin incense and structure without overwhelming the pristine fruit character. Subtle hints of graphite and dusty mineral notes speak to the Rutherford terroir, while the aromatic profile suggests elegance over power, finesse over extraction.",
+        "palate": "The palate begins with freshly sliced sweet black cherries and bright clove, immediately revealing the wine's impeccable balance. Cassis flavors interweave with red cherry fruit, supported by a small addition of Cabernet Franc (2%) and Malbec (3%) that adds aromatic lift and mid-palate complexity. The architecture is one of purity of fruit, finesse, character, and overall poise—more elegant than pushy, more refined than bold. The substantial mid-palate carries seamlessly toward a dense finish, with the wine's texture remaining plush and integrated throughout. This is modern Napa Cabernet at its most sophisticated, balancing power with precision.",
+        "finish": "The finish is long and dense, with smooth mineral undertones and pungent dark fruit flavors extending well beyond the swallow. Hints of chocolate emerge in the lengthy conclusion, accompanied by dusty Rutherford tannins that provide structure without astringency. The wine's remarkable balance ensures the finish remains compelling and complete, with flavors continuing to evolve and deepen even after the glass is empty. This is a wine that rewards contemplation and benefits from the additional aging potential that magnum format provides."
+      },
+      "foodPairings": [
+        "Dry-aged prime ribeye with bone marrow butter",
+        "Braised short ribs with red wine reduction",
+        "Grilled lamb chops with rosemary and garlic",
+        "Wild mushroom and truffle risotto",
+        "Aged blue cheese with honeycomb and walnuts"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to allow full expression of fruit, tannins, and aromatics",
+        "decanting": "Decant 2-3 hours before serving to allow this young wine to open fully; magnum format may require extended aeration time",
+        "glassware": "Large Bordeaux or Cabernet-specific glass with generous bowl to concentrate aromatics and allow proper oxidation"
+      },
+      "wineDetails": {
+        "region": "St. Helena, Rutherford AVA, Napa Valley, California",
+        "grapeVariety": "95% Cabernet Sauvignon, 2% Cabernet Franc, 3% Malbec",
+        "vintage": "2018",
+        "style": "Estate-grown single vineyard Napa Valley Cabernet Sauvignon, elegant style emphasizing finesse and terroir expression",
+        "ageability": "Drink 2024-2038. The 2018 vintage's natural balance and aromatics, combined with magnum format (which ages more slowly), suggest 15-20 year drinking window. Barrel sample received 96 points, indicating exceptional aging potential. Wine will continue to develop complexity and integrate tannins over the next decade."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.96,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Detailed tasting notes from CellarTracker barrel sample (96 points) and professional reviews. Limited production of 380 cases. Magnum format (1500ml) enhances aging potential and special occasion appeal."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Thelema \"Gargantua\" Muscadel NV  500 ml",
+      "description": "An extraordinary fortified Muscadel of exceptional age and complexity from South Africa's acclaimed Thelema Mountain Vineyards in Stellenbosch. This rare bottling spent an remarkable 18-21 years aging in French oak barrels before being released in limited quantities (4,866 bottles of 500ml). A wine of tremendous concentration and character, it represents one of South Africa's finest examples of traditional fortified wine production.",
+      "tastingNotes": {
+        "aroma": "Alluring and captivating, the nose reveals a symphony of oxidative and developed aromas that speak to the wine's extraordinary age. Toffee, molasses, and honeycomb dominate, interwoven with rich raisin notes and caramelized nuts that suggest decades in barrel. The aromatic complexity is remarkable, with each swirl revealing new layers—dried fruit compote, burnt sugar, toasted almonds, and sweet spice. There's a luxurious quality to the aromatics, simultaneously rich and refined, decadent yet balanced. The intensity is matched by elegance, demonstrating that age has brought integration rather than fatigue.",
+        "palate": "The palate is profoundly rich and luscious, delivering concentrated flavors that fill the mouth with velvety texture and complex sweetness. Toffee and molasses continue from the nose, joined by layers of dried fig, date, and raisin that have been intensified by barrel evolution. Caramelized nuts—particularly hazelnuts and almonds—provide textural interest and savory counterpoint to the wine's natural sweetness. The fortification is seamlessly integrated, providing warmth and structure without any harsh alcohol presence. Despite the wine's richness, there's remarkable balance, with the oak influence adding spice and tannic grip that prevents cloying.",
+        "finish": "The finish is extraordinarily long and lingering, extending for minutes after the last sip with waves of toffee, nuts, and oxidative complexity. The sweetness gradually fades to reveal subtle bitter chocolate and espresso notes, while the warmth of fortification provides a satisfying glow. This is a contemplative wine that demands attention and rewards patience, with the finish alone justifying the wine's critical acclaim and limited production."
+      },
+      "foodPairings": [
+        "Aged Stilton or Roquefort blue cheese",
+        "Sticky toffee pudding with butterscotch sauce",
+        "Crème brûlée with caramelized sugar crust",
+        "Chocolate truffles and pralines",
+        "Can be enjoyed alone as a meditation wine after dinner"
+      ],
+      "servingInfo": {
+        "temperature": "12-14°C (54-57°F) slightly chilled to balance sweetness and reveal complexity",
+        "decanting": "No decanting required; can be enjoyed directly from bottle. Wine is fully mature and won't benefit from aeration. Serve in small portions given intensity.",
+        "glassware": "Small dessert wine glass or port glass to concentrate aromatics while managing portions due to richness and alcohol level"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, Western Cape, South Africa",
+        "grapeVariety": "100% Muscadel (Muscat variant)",
+        "vintage": "Non-Vintage (NV) - blended from extended barrel aging program",
+        "style": "Fortified dessert wine, aged 18-21 years in French oak barrels",
+        "ageability": "This wine is fully mature and ready to drink. However, given the extended barrel aging already completed, it will hold well in bottle for 10+ years if properly stored. The fortification provides stability and longevity. Once opened, the wine will keep for several months due to oxidative aging and fortification."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.97,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Professional tasting notes from producer and critical acclaim including 95 points from Tim Atkin South Africa Special Report 2024 and 5 Stars from Platter's Wine Guide 2025. Extremely limited production of 4,866 bottles (500ml format)."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "La Domitienne Picpoul 2023",
+      "description": "A vibrant, mineral-driven white wine from the Picpoul de Pinet appellation in Languedoc, southern France. Produced by the Vignerons de Montagnac cooperative under the La Domitienne label, this wine showcases the distinctive saline character of the Picpoul grape grown near the Mediterranean's Étang de Thau lagoon. The 2023 vintage captures the grape's signature lip-stinging acidity and refreshing qualities.",
+      "tastingNotes": {
+        "aroma": "The nose is expressive and inviting, revealing soft delicate florals of acacia and hawthorn blossom that speak to the wine's Mediterranean origins. Floral notes intermingle with pronounced mineral undertones—wet stones and sea spray that evoke the nearby coastline. Fresh citrus emerges with hints of lemon zest and mixed citrus fruits, while subtle notes of clotted cream and lanolin add unexpected complexity. There's a distinct marine quality to the aromatics, with the iodine-tinged salinity becoming more apparent as the wine opens. Green apple and stone fruit nuances round out the aromatic profile, suggesting the wine's texture will deliver more than simple citrus refreshment.",
+        "palate": "The palate surprises with its viscous, rich texture—fuller-bodied than the delicate nose might suggest. Stone fruit flavors dominate, with white peach and ripe pear providing a lush core that's balanced by the grape's naturally mouth-watering acidity. Green apple and yellow citrus notes add brightness and precision, while the distinctive saline minerality runs through the wine like a thread, providing structure and a sense of place. The texture is simultaneously rich and refreshing, loaded with flavor yet finishing clean. This is bone dry with medium body, showing the characteristic 'lip-stinger' acidity that gives Picpoul its name, though the 2023 vintage offers more generosity than austerity.",
+        "finish": "The finish is defined by cleansing minerality and crisp acidity that leave the palate refreshed and ready for the next sip—or the next bite of food. Citrus and stone fruit flavors gradually fade to reveal the wine's saline, iodine-tinged core, with wet stone notes lingering pleasantly. The finish is clean and precise, medium in length, with just a hint of herbal complexity emerging at the end. This is quintessential Picpoul—refreshing, food-friendly, and utterly Mediterranean in character."
+      },
+      "foodPairings": [
+        "Fresh oysters from Étang de Thau",
+        "Steamed mussels with garlic and white wine",
+        "Grilled whole fish with lemon and herbs",
+        "Seafood plateau with shellfish varieties",
+        "Goat cheese salad with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "8-10°C (46-50°F) well chilled to emphasize freshness and acidity",
+        "decanting": "No decanting required; serve directly from bottle to preserve the wine's crisp, refreshing character",
+        "glassware": "Medium-sized white wine glass to concentrate aromatics while maintaining the wine's approachable, refreshing nature"
+      },
+      "wineDetails": {
+        "region": "Picpoul de Pinet AOC, Languedoc, France",
+        "grapeVariety": "100% Picpoul Blanc (also known as Piquepoul)",
+        "vintage": "2023",
+        "style": "Dry white wine - light to medium bodied with high acidity and distinctive saline minerality",
+        "ageability": "Best consumed within 1-3 years of vintage to capture optimal freshness and fruit character. Picpoul tastes best in the prime of its youth when showing full citrus and mineral flavors. The wine is made for immediate enjoyment rather than cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Professional tasting notes from multiple sources. Picpoul de Pinet is France's second-favorite white wine after Muscadet for seafood pairing. The name 'Piquepoul' means 'lip stinger' due to high acidity. Grown near Mediterranean lagoons which impart distinctive saline character."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mountain Brook Cabernet Sauvignon 2021",
+      "description": "A distinctive Cabernet Sauvignon from the Tryon foothills of Western North Carolina, where Mountain Brook Vineyards has been cultivating premium vinifera grapes since 2002. This family-owned estate represents the ambitious spirit of North Carolina winemaking, producing Bordeaux-style wines in the Blue Ridge Mountain foothills. The 2021 vintage showcases how careful viticulture in this emerging region can produce serious, food-friendly red wines with regional character.",
+      "tastingNotes": {
+        "aroma": "The nose opens with classic Cabernet characteristics adapted to North Carolina terroir—dark cherry and blackcurrant aromas form the core, complemented by notes of cedar and subtle herbs. There's an appealing freshness to the aromatics, with bright red fruit notes of raspberry and red cherry adding lift to the darker fruit core. Hints of tobacco leaf and dried herbs suggest the wine has seen some oak influence, while maintaining a sense of place that speaks to the cooler mountain climate. The aromatic profile is medium in intensity, inviting rather than assertive, with earthy undertones that add complexity without overwhelming the fruit.",
+        "palate": "The palate delivers medium-bodied structure with ripe dark fruit flavors balanced by the natural acidity characteristic of higher-elevation viticulture. Black cherry and cassis provide the flavor core, while subtle oak influence adds notes of vanilla and baking spice without dominating. The texture shows refinement, with tannins that are present but not aggressive—polished and integrated enough for current enjoyment while providing structure for near-term aging. There's a regional character here that differs from California Cabernet: less power and concentration, but more elegance and food compatibility. The wine shows genuine varietal character while expressing its unique provenance in the Tryon foothills.",
+        "finish": "The finish is clean and moderately persistent, with dark fruit flavors gradually transitioning to subtle earthy and herbal notes. Tannins provide grip without astringency, while the wine's natural acidity keeps the finish fresh and balanced. There's a pleasant minerality that emerges in the conclusion, speaking to the mountain terroir, along with hints of cedar and dried tobacco leaf. This is a finish that invites food pairing, with structure and freshness that would complement rich meats and aged cheeses."
+      },
+      "foodPairings": [
+        "Grilled ribeye with herb butter",
+        "Roasted pork tenderloin with blackberry reduction",
+        "Mushroom and beef Wellington",
+        "Aged cheddar or Gruyère cheese",
+        "Duck breast with cherry compote"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to allow full expression while maintaining freshness",
+        "decanting": "Decant 30-60 minutes before serving to open aromatics and soften tannins; this medium-bodied wine doesn't require extended aeration",
+        "glassware": "Standard Bordeaux or Cabernet glass to concentrate aromatics and allow moderate aeration"
+      },
+      "wineDetails": {
+        "region": "Tryon, North Carolina (Blue Ridge Mountain foothills)",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Medium-bodied red wine in Bordeaux style, showcasing North Carolina terroir with balance between fruit and structure",
+        "ageability": "Drink 2024-2029. This wine is designed for near-term consumption, showing best within 5-8 years of vintage. The cooler climate and elevation produce wines with natural acidity that maintain freshness, though they lack the concentration for extended cellaring typical of warmer regions."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.72,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Limited specific vintage information available. Tasting notes based on Mountain Brook Vineyards profile (established 2002, family-owned), regional characteristics of North Carolina wine country, and general Cabernet Sauvignon varietal characteristics. Winery ranked #1 in North Carolina by Sonoma Wine Garden publication."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Clos d'Audhuy Les Polissons 2023",
+      "description": "A vibrant, approachable Malbec from Cahors in Southwest France, the birthplace of this noble grape. 'Les Polissons' (meaning 'the rascals') represents Clos d'Audhuy's youthful, fruit-forward expression of 30-year-old Malbec vines. This wine captures the essence of modern Cahors—maintaining the region's characteristic depth and structure while emphasizing juicy drinkability and fresh fruit over the austere tannins of traditional 'black wine' styles.",
+      "tastingNotes": {
+        "aroma": "The nose is immediately expressive with marked black fruit notes, particularly blueberry and blackcurrant that announce the wine's youthful energy. A fascinating array of herbaceous aromatics emerges—pine, thyme, rosemary, and mint that speak to the garrigue landscape of Southwest France. Spiced notes add complexity: white pepper provides lift, while hints of blond tobacco and turmeric suggest depth beyond simple fruit. There's an appealing smokiness woven throughout, adding intrigue without heaviness. The clean, black robe in the glass hints at the concentrated fruit within, while the aromatic profile balances between fruit purity and savory complexity.",
+        "palate": "The palate is simultaneously soft and powerful—a remarkable achievement that defines this modern Cahors style. Juicy black fruit flavors of blackcurrant and blueberry dominate, delivered with gourmand appeal and immediate pleasure. The structure shows firm, affirmed tannins that provide backbone without astringency, maintaining drinkability despite the wine's evident concentration. The texture is velvety and approachable, with fine concentrated sweetness (from ripe fruit, not residual sugar) that makes this instantly appealing. Herbaceous notes from the nose carry through, adding complexity and preventing the fruit from becoming monotonous. This is elaborated to be fruity and accessible, ready to drink young while hinting at the variety's traditional power.",
+        "finish": "The finish balances soft texture with structural power, as the velvety tannins maintain their presence without turning aggressive. Black fruit flavors persist with good length, gradually revealing the wine's tannic frame and subtle smoky, herbal undertones. The conclusion is both satisfying and moreish, with enough freshness to cleanse the palate while leaving an impression of concentrated fruit and spice. This is approachable Cahors that doesn't sacrifice character for drinkability—a wine that works equally well for casual enjoyment or thoughtful food pairing."
+      },
+      "foodPairings": [
+        "Duck confit with roasted potatoes",
+        "Grilled lamb merguez sausages",
+        "Cassoulet with white beans and pork",
+        "Mushroom and truffle pizza",
+        "Aged Comté or Cantal cheese from Southwest France"
+      ],
+      "servingInfo": {
+        "temperature": "14-16°C (57-61°F) slightly cooler to emphasize fresh fruit and maintain juiciness",
+        "decanting": "Brief 20-30 minute decanting recommended to open aromatics; designed for immediate enjoyment without extended aeration",
+        "glassware": "Medium to large red wine glass to allow fruit aromatics to express while capturing the wine's herbaceous complexity"
+      },
+      "wineDetails": {
+        "region": "Cahors AOC, Southwest France (not Loire as sometimes mistaken)",
+        "grapeVariety": "100% Malbec (locally called Côt) from 30-year-old vines",
+        "vintage": "2023",
+        "style": "Modern Cahors - fruit-forward, early-drinking style emphasizing juicy accessibility over traditional 'black wine' austerity",
+        "ageability": "Best consumed within 2-5 years of vintage to enjoy primary fruit character and fresh aromatics. This 'rascal' style is designed for immediate pleasure rather than extended cellaring, though the firm tannic structure suggests it will hold well for several years."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.91,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Detailed tasting notes from French wine sources and professional reviews. Cahors is the birthplace of Malbec (locally called Côt). 'Les Polissons' represents accessible, modern style contrasting with traditional austere Cahors 'black wines.' Made from 30-year-old vines for concentration with approachability."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oleandri Napa Cabernet Franc 2020",
+      "description": "A sophisticated single-vineyard Cabernet Franc from the prestigious Stagecoach Vineyard in Napa Valley. This wine exemplifies the aromatic elegance and structural finesse that Cabernet Franc achieves in Napa's ideal climate and soils. The 2020 vintage benefited from warm days, cool nights, and early season rain, producing wines with bright acidity, forward tannins, and deep, rich color—conditions that allowed this varietal to express its full potential.",
+      "tastingNotes": {
+        "aroma": "The nose is aromatic and broad, immediately announcing the wine's quality with lush notes of ripe plum and dark fruits. Fresh herbal character provides varietal typicity—sage, thyme, and subtle green herbs that distinguish Cabernet Franc from its Bordeaux cousins. Spice notes of cocoa and baking spices add complexity and depth, while black cherry aromatics provide classic red fruit appeal. The aromatic profile shows remarkable purity and intensity, with the warm 2020 vintage delivering ripe fruit character balanced by the cool nights that preserved freshness. There's an elegant floral note of violet weaving through the fruit and herb layers, adding to the wine's sophisticated aromatic tapestry.",
+        "palate": "The palate is plush and velvet-textured, delivering lush fruit character with remarkable structural integration. Black cherry and plum flavors dominate, supported by notes of dark raspberry and boysenberry that add layers of complexity. The spice character from the nose continues—cocoa, mocha, and sandalwood provide depth without overwhelming the wine's fundamental fruit purity. Bright acidity from the vintage keeps the wine lively and balanced despite its richness, while the tannins are forward yet refined, providing structure without astringency. The wine shows the mouth-quenching acidity and mineral undertones typical of Rutherford terroir, with hints of graphite and dusty earth adding savory complexity. This is powerfully structured yet precisely balanced, demonstrating why Napa Valley has emerged as an ideal region for Cabernet Franc.",
+        "finish": "The finish is long and mineral-tinged, with ripe black fruit flavors extending well beyond the swallow. The forward tannins provide grip and structure, framing the fruit without overwhelming it. Notes of cocoa, herbs, and subtle oak spice emerge in the conclusion, while the bright acidity maintains freshness through the lengthy finish. There's a dusty, mineral quality that speaks to the Stagecoach Vineyard's mountain terroir, adding complexity and depth. The wine's exuberant character continues through the finish, wearing its heart on its sleeve while maintaining sophistication and balance."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb with rosemary",
+        "Grilled portobello mushrooms with garlic and thyme",
+        "Duck breast with cherry and sage sauce",
+        "Beef tenderloin with peppercorn crust",
+        "Aged Gruyère or cave-aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to allow full aromatic expression while maintaining structure",
+        "decanting": "Decant 1-2 hours before serving to allow the wine to open and soften forward tannins; this will enhance the herb and spice complexity",
+        "glassware": "Large Bordeaux glass to concentrate aromatics and allow proper aeration of the wine's complex aromatic profile"
+      },
+      "wineDetails": {
+        "region": "Stagecoach Vineyard, Napa Valley, California",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2020",
+        "style": "Single-vineyard Napa Valley Cabernet Franc emphasizing aromatic complexity, herbal character, and plush texture with bright acidity",
+        "ageability": "Drink 2024-2035. Wine Enthusiast awarded 93 points, indicating excellent aging potential. The 2020 vintage's bright acidity and forward tannins suggest the wine will integrate and develop complexity over the next decade, though it's accessible now. Expect the wine to soften and reveal more tertiary complexity (tobacco, leather, earth) with 5-10 years of cellaring."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.94,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Professional tasting notes and 93-point rating from Wine Enthusiast. Vintage characteristics documented. Cabernet Franc represents rare varietal in Napa (only 1,211 acres vs 24,354 acres of Cabernet Sauvignon). Priced at $125, reflecting single-vineyard quality."
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Terra Dives Riah Nero d'Avola 2020",
+      "description": "A distinguished expression of Sicily's signature red grape variety from the Mazara del Vallo area of western Sicily. Terra Dives crafts this Nero d'Avola from hand-harvested grapes grown in clayey soils at 150 meters elevation, capturing the variety's characteristic depth and spice while maintaining Mediterranean freshness. This wine represents the modern, fruit-forward style of Sicilian winemaking that emphasizes varietal character and terroir expression.",
+      "tastingNotes": {
+        "aroma": "The nose opens with an intense bouquet of ripe black fruits—blackberry, black cherry, and dark plum dominate with generous intensity. Aromatic complexity builds with notes of wild strawberries and pomegranate adding brightness to the darker fruit core. Spice elements emerge prominently: sweet tobacco, liquorice, and peppery notes that give Nero d'Avola its distinctive 'spice of Sicily' character. Subtle hints of leather and Mediterranean herbs add savory complexity, while the warm vintage delivers notes of cocoa and wild fruit that suggest richness on the palate. There's an appealing combination of ripe fruit purity and savory depth that makes this immediately engaging.",
+        "palate": "The palate is medium to full-bodied with robust structure and smooth, sweet tannins characteristic of well-ripened Nero d'Avola. Ripe black cherries and plum flavors form the core, delivering concentrated fruit character without excess weight. The variety's signature spiciness carries through—peppery notes, liquorice, and sweet tobacco add layers of complexity and prevent the fruit from becoming monotonous. Cocoa and chocolate flavors suggest oak influence that's integrated rather than overt, providing structure and depth. The texture is plush yet maintains freshness, with moderate acidity balancing the ripe fruit and higher alcohol (14%+) typical of the variety. Wild fruit character and flawless spiciness create a compelling flavor profile that's simultaneously powerful and refined.",
+        "finish": "The finish is moderately long with the wine's spice character becoming more prominent as fruit flavors fade. Dried fruit notes emerge, along with hints of fennel, tobacco, and subtle tar that suggest the wine's aging potential. The tannins are smooth and sweet, providing structure without astringency, while the finish maintains the wine's fundamental balance between fruit richness and savory complexity. This conclusion is satisfying and complete, inviting food pairing while demonstrating the wine's standalone appeal."
+      },
+      "foodPairings": [
+        "Sicilian pasta alla Norma with eggplant",
+        "Grilled lamb chops with rosemary and garlic",
+        "Aged Pecorino Romano or Parmigiano-Reggiano",
+        "Beef braised in tomato and red wine",
+        "Pizza with spicy sausage and roasted peppers"
+      ],
+      "servingInfo": {
+        "temperature": "16-18°C (61-64°F) to balance fruit richness with structure and maintain refreshment",
+        "decanting": "Decant 30-60 minutes before serving to open aromatics and allow the wine's spice and fruit complexity to emerge fully",
+        "glassware": "Large red wine glass to concentrate intense aromatics and allow the wine to breathe, enhancing its complex spice and fruit profile"
+      },
+      "wineDetails": {
+        "region": "Sicilia DOC, Mazara del Vallo area, Western Sicily",
+        "grapeVariety": "100% Nero d'Avola",
+        "vintage": "2020",
+        "style": "Modern Sicilian red - fruit-forward with smooth tannins, emphasizing varietal spice character and Mediterranean terroir",
+        "ageability": "Drink 2024-2030. Wine Enthusiast awarded the 2021 vintage 90 points, suggesting quality and near-term aging potential. This fruit-forward style is designed for enjoyment within 6-10 years of vintage. With age, expect dried fruit, fennel, tobacco, and tar notes to emerge more prominently, though primary fruit character is best enjoyed in the wine's youth."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-20T00:00:00.000Z",
+        "notes": "Production details confirmed (Mazara del Vallo, clayey soil, 150m elevation, hand-harvested in September). Wine Enthusiast 90-point rating for 2021 vintage suggests consistent quality. Tasting notes based on Nero d'Avola varietal characteristics and producer style, emphasizing the grape's signature spice and ripe fruit character."
+      }
+    }
+  ]
+}

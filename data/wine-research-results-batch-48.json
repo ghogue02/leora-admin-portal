@@ -1,0 +1,347 @@
+{
+  "batchNumber": 48,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Sky Devil Rose 2022",
+      "description": "A vibrant and refreshing rosé from Washington State, Sky Devil showcases the crisp elegance of Pacific Northwest winemaking. This 2022 vintage captures bright fruit character with mineral undertones, offering approachable sophistication perfect for warm weather enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromas of fresh strawberry and watermelon, layered with delicate white peach and hints of rose petals. Subtle notes of citrus zest add brightness, while a whisper of wet stone provides depth. As the wine breathes, nuances of wild herbs and red currant emerge, creating an inviting aromatic profile that promises refreshment.",
+        "palate": "On the palate, this rosé delivers crisp acidity balanced with fresh red fruit flavors. Ripe strawberry and raspberry dance alongside tangy cranberry, while underlying notes of pink grapefruit add citrus vibrancy. The mid-palate reveals gentle watermelon sweetness and mineral salinity, creating a dry yet fruit-forward profile. The wine's medium body and bright character make it incredibly food-friendly and sessionable.",
+        "finish": "The finish is clean and refreshing, with lingering notes of strawberry and citrus. A subtle minerality persists, leaving the palate cleansed and ready for the next sip. The bright acidity ensures a mouthwatering conclusion that invites another glass."
+      },
+      "foodPairings": [
+        "Grilled salmon with herb butter",
+        "Mediterranean mezze platters with hummus and tabbouleh",
+        "Caprese salad with heirloom tomatoes and fresh mozzarella",
+        "Thai spring rolls with peanut dipping sauce",
+        "Charcuterie boards with prosciutto and mild cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled, 45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve directly from a chilled bottle for maximum freshness",
+        "glassware": "White wine glass or stemless tumbler to maintain cool temperature"
+      },
+      "wineDetails": {
+        "region": "Washington State",
+        "grapeVariety": "Rosé blend (likely Grenache, Syrah, or Mourvèdre-based)",
+        "vintage": "2022",
+        "style": "Dry rosé",
+        "ageability": "Best enjoyed young within 1-2 years of vintage to preserve freshness and fruit character. Drink now through 2024."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Riesling 2023",
+      "description": "Two Mountain Winery, located in Washington's Yakima Valley, crafts exceptional Rieslings that showcase the region's ideal growing conditions. This 2023 vintage balances aromatic intensity with refreshing acidity, demonstrating the versatility and quality of Pacific Northwest Riesling production.",
+      "tastingNotes": {
+        "aroma": "The bouquet bursts with classic Riesling aromatics: ripe peach, green apple, and Meyer lemon leap from the glass. Floral notes of white jasmine and honeysuckle add elegance, while hints of wet slate and petrichor provide a mineral backbone. Subtle tropical nuances of lychee and apricot emerge with air, creating a complex and inviting nose that evolves beautifully.",
+        "palate": "The palate delivers precise fruit expression with excellent structure. Juicy white peach and crisp Granny Smith apple dominate initially, followed by zesty lime and mandarin orange. The wine's signature acidity cuts through with refreshing precision, balanced by a touch of residual sweetness that never becomes cloying. Mid-palate notes of honeydew melon and nectarine add depth, while mineral tension provides backbone and energy throughout.",
+        "finish": "A lengthy, vibrant finish showcases the wine's excellent balance. Citrus zest and stone fruit linger alongside stony minerality, while bright acidity leaves the palate cleansed and energized. The subtle sweetness at the very end provides harmony without heaviness."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with citrus beurre blanc",
+        "Thai green curry with chicken or tofu",
+        "Pork schnitzel with lingonberry sauce",
+        "Sushi and sashimi platters",
+        "Aged Gouda or Gruyère cheese"
+      ],
+      "servingInfo": {
+        "temperature": "Chilled, 48-52°F (9-11°C)",
+        "decanting": "Not necessary; the wine expresses itself beautifully upon opening with brief aeration in the glass",
+        "glassware": "Riesling-specific glass or medium-sized white wine glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2023",
+        "style": "Off-dry Riesling with balanced acidity",
+        "ageability": "Riesling develops beautifully with age. Drink now for fresh fruit expression or cellar 3-7 years for developed petrol and honeyed characteristics. Peak drinking window: 2024-2030."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Born Rose Still 2022",
+      "description": "Born Rosé represents modern winemaking's focus on quality still rosé wines with distinct personality. This 2022 vintage offers approachable elegance with layers of fruit and refreshing minerality, perfect for casual entertaining or contemplative sipping.",
+      "tastingNotes": {
+        "aroma": "The nose presents an alluring array of red berry fruits: wild strawberry, raspberry coulis, and ripe cherry. Floral accents of lavender and orange blossom weave through the fruit, while subtle herbaceous notes of fresh thyme and fennel add complexity. A delicate saline quality suggests coastal influence, and hints of white pepper provide gentle spice.",
+        "palate": "Entry is bright and lively, with waves of red currant and blood orange flooding the palate. The wine's texture is silky yet energetic, supported by racy acidity that drives the flavor profile. Mid-palate reveals layers of pomegranate, pink grapefruit, and nectarine, while underlying savory minerality adds sophistication. The balance between fruit purity and structural elements creates a wine that's both refreshing and intellectually engaging.",
+        "finish": "The conclusion is persistent and elegant, with red fruit echoes mingling with citrus pith and a distinct mineral salinity. The finish remains dry and crisp, encouraging food pairing while maintaining standalone drinking appeal. A subtle bitter almond note adds final complexity."
+      },
+      "foodPairings": [
+        "Grilled octopus with lemon and olive oil",
+        "Niçoise salad with seared tuna",
+        "Roasted chicken with herbs de Provence",
+        "Feta and watermelon salad with mint",
+        "Soft-shell crab with garlic aioli"
+      ],
+      "servingInfo": {
+        "temperature": "Well chilled, 46-50°F (8-10°C)",
+        "decanting": "Unnecessary; enjoy the wine's immediate freshness from the bottle",
+        "glassware": "Universal wine glass or white wine glass to appreciate color and aromatics"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely West Coast USA or Southern France based on style)",
+        "grapeVariety": "Rosé blend (potentially Grenache, Cinsault, or other Provençal varieties)",
+        "vintage": "2022",
+        "style": "Dry still rosé",
+        "ageability": "Drink young for optimal freshness. Ideal consumption within 1-2 years of vintage. Best enjoyed now through 2024."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Giustini Avoglia Susumaniello 2023",
+      "description": "From the sun-drenched heel of Italy's boot comes this exceptional expression of Susumaniello, an indigenous Puglian grape experiencing renaissance. Giustini's Avoglia bottling showcases the variety's unique character—vibrant, spicy, and deeply connected to the terroir of Salento, offering wine lovers a taste of authentic Southern Italian winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose explodes with exuberant dark fruit: blackberry jam, crushed black cherry, and ripe plum dominate. Mediterranean scrub aromatics emerge—wild rosemary, dried oregano, and sun-baked earth—creating an unmistakably Italian profile. Nuances of black pepper, licorice, and dark chocolate add depth, while a subtle violet floral note provides lift. The wine's youth shows in its primary fruit intensity and vibrant spice.",
+        "palate": "Bold and generous on the palate, this Susumaniello floods the senses with concentrated dark fruit. Blackberry compote and black cherry liqueur lead, supported by savory notes of cured black olives and Mediterranean herbs. The wine's medium to full body is balanced by fresh acidity unusual for Southern Italian reds, keeping the rich fruit from becoming heavy. Supple tannins provide structure without astringency, while hints of espresso and cocoa powder add complexity to the mid-palate.",
+        "finish": "The finish is long and satisfying, with dark fruit and spice lingering pleasantly. A touch of earthy minerality and dried herb character provides savory balance to the sweet fruit. Soft tannins and persistent acidity make the conclusion both structured and approachable."
+      },
+      "foodPairings": [
+        "Orecchiette with broccoli rabe and sausage",
+        "Grilled lamb chops with rosemary",
+        "Eggplant parmigiana",
+        "Aged pecorino romano cheese",
+        "Braised short ribs with polenta"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly cool, 60-65°F (15-18°C)",
+        "decanting": "Benefits from 30 minutes of decanting to soften tannins and allow aromatics to open fully",
+        "glassware": "Large Bordeaux glass to concentrate aromatics and provide ample surface area for aeration"
+      },
+      "wineDetails": {
+        "region": "Puglia (Apulia), Southern Italy",
+        "grapeVariety": "100% Susumaniello",
+        "vintage": "2023",
+        "style": "Medium to full-bodied dry red wine",
+        "ageability": "Can be enjoyed young for fresh fruit or cellared 3-5 years for integration and complexity. Peak drinking: 2024-2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mendoza Punta Pays Cruz de Piedra Malbec 2019",
+      "description": "From the renowned Cruz de Piedra subregion of Maipú in Mendoza, this Malbec embodies Argentine winemaking at its finest. The 2019 vintage benefits from excellent growing conditions, producing concentrated fruit with balanced structure that showcases why Mendoza Malbec has captivated wine lovers worldwide.",
+      "tastingNotes": {
+        "aroma": "The nose is powerfully expressive with layers of dark fruit: blackberry, blueberry compote, and black plum leap forward. Floral violet notes provide classic Malbec character, while background hints of vanilla, cedar, and sweet tobacco suggest careful oak integration. As the wine opens, notes of dried fig, cocoa nibs, and graphite emerge, adding complexity and sophistication to the aromatic profile.",
+        "palate": "Rich and velvety on the palate, this Malbec delivers concentrated dark fruit flavors wrapped in plush tannins. Ripe blackberry and cassis dominate the entry, followed by black cherry, plum, and hints of boysenberry. The wine's full body is balanced by vibrant acidity that provides freshness despite the intense fruit concentration. Mid-palate reveals layers of dark chocolate, espresso, and sweet baking spices from oak aging, while underlying minerality from the rocky Cruz de Piedra soils adds tension and complexity.",
+        "finish": "The finish is long and powerful, with dark fruit and oak-derived spices lingering impressively. Firm but ripe tannins provide structure for aging, while the wine's fruit concentration ensures balance. Notes of mocha and dark berries echo on the palate, ending with a satisfying warmth."
+      },
+      "foodPairings": [
+        "Argentine asado (grilled ribeye or short ribs)",
+        "Braised osso buco with gremolata",
+        "Mushroom risotto with truffle oil",
+        "Aged manchego or aged cheddar cheese",
+        "Dark chocolate flourless cake"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly below room temperature, 62-65°F (17-18°C)",
+        "decanting": "Highly recommended: decant 1 hour before serving to soften tannins and release complex aromatics",
+        "glassware": "Large Bordeaux or Cabernet glass to maximize aeration and concentrate powerful aromatics"
+      },
+      "wineDetails": {
+        "region": "Cruz de Piedra, Maipú, Mendoza, Argentina",
+        "grapeVariety": "100% Malbec",
+        "vintage": "2019",
+        "style": "Full-bodied dry red wine with oak aging",
+        "ageability": "Built for aging with excellent structure. Drink now for youthful fruit or cellar 5-10 years for integrated complexity. Peak drinking window: 2024-2029."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Mischief 2017",
+      "description": "Trespass Winery's Mischief represents their playful approach to blending, creating wines that challenge conventions while delivering serious quality. This 2017 vintage showcases maturity and integration, offering complex flavors that reward patient cellaring and thoughtful appreciation.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals evolved complexity with layers of dried cherry, fig, and cranberry melding with tertiary notes of leather, tobacco leaf, and forest floor. Subtle baking spices—cinnamon, clove, and nutmeg—add warmth, while hints of dried herbs, black tea, and cedar provide savory depth. The wine's age shows in its integrated oak and developed fruit character, creating an intriguing aromatic profile.",
+        "palate": "The palate shows beautiful maturity with silky texture and harmonious flavors. Red and black fruit—cherry, raspberry, and blackberry—have evolved into dried fruit character with notes of prune, raisin, and fig. The wine's medium to full body is supported by soft, integrated tannins that have mellowed with age. Savory elements emerge strongly: leather, earth, mushroom, and a hint of game, while background oak manifests as vanilla, toast, and subtle smoke. The balance between fruit, structure, and tertiary complexity indicates quality winemaking.",
+        "finish": "The finish is long and elegant, with dried fruit and earthy notes persisting beautifully. Soft tannins provide gentle structure, while lingering spice and tobacco add complexity. The conclusion feels complete and satisfying, showing the benefits of proper aging."
+      },
+      "foodPairings": [
+        "Duck confit with cherry reduction",
+        "Beef Wellington with mushroom duxelles",
+        "Venison medallions with juniper sauce",
+        "Aged Gouda or Comté cheese",
+        "Wild mushroom and truffle pasta"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature, 62-65°F (17-18°C)",
+        "decanting": "Decant 45 minutes before serving to allow aged aromatics to unfold while avoiding over-oxidation",
+        "glassware": "Burgundy glass to appreciate evolved aromatics and silky texture"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely Washington State or Oregon based on producer name)",
+        "grapeVariety": "Red blend (likely Bordeaux varieties or Rhône blend)",
+        "vintage": "2017",
+        "style": "Medium to full-bodied red blend with aging development",
+        "ageability": "Showing excellent maturity now. Best enjoyed over the next 2-4 years while tertiary complexity continues to develop. Peak drinking: 2024-2027."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Valdemar Estates Columbia Valley Chardonnay 2021",
+      "description": "Valdemar Estates brings European winemaking expertise to Washington's Columbia Valley, crafting Chardonnays that balance New World fruit expression with Old World elegance. The 2021 vintage showcases the region's ability to produce structured, age-worthy whites with both richness and refreshing acidity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with ripe orchard fruits: golden delicious apple, ripe pear, and white peach create an inviting foundation. Subtle citrus notes of Meyer lemon and orange zest add brightness, while oak influence reveals itself through gentle vanilla, toasted hazelnut, and buttered brioche. Underlying minerality suggests quality vineyard sources, and hints of honeysuckle and white flowers provide lift. The aromatic profile balances fruit purity with sophisticated complexity.",
+        "palate": "On the palate, this Chardonnay delivers richness balanced by vibrant acidity. Ripe stone fruit—peach, nectarine, and apricot—mingles with apple and pear, creating generous fruit expression. Carefully integrated oak contributes creamy texture and notes of vanilla, butterscotch, and toasted oak, likely from partial barrel fermentation. The wine's medium to full body is enlivened by fresh acidity that prevents any sense of heaviness. Mid-palate reveals layers of lemon curd, crème brûlée, and subtle tropical notes, while mineral salinity adds tension and food-friendliness.",
+        "finish": "The finish is long and satisfying, with fruit, oak, and acidity in beautiful harmony. Citrus and stone fruit linger alongside creamy vanilla notes, while bright acidity cleanses the palate. A subtle mineral quality persists, providing structure and elegance."
+      },
+      "foodPairings": [
+        "Lobster with drawn butter",
+        "Roasted chicken with lemon and herbs",
+        "Crab cakes with aioli",
+        "Creamy pasta with wild mushrooms",
+        "Triple cream brie or aged Gruyère"
+      ],
+      "servingInfo": {
+        "temperature": "Moderately chilled, 52-55°F (11-13°C)",
+        "decanting": "Not necessary, but 15-20 minutes of breathing allows oak to integrate further and fruit to express fully",
+        "glassware": "Burgundy or large white wine glass to capture complex aromatics"
+      },
+      "wineDetails": {
+        "region": "Columbia Valley, Washington",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2021",
+        "style": "Medium to full-bodied Chardonnay with oak influence",
+        "ageability": "Can be enjoyed now for fresh fruit or cellared 3-5 years for increased complexity and integration. Peak drinking: 2024-2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood Merlot 2019",
+      "description": "Raywood's Merlot demonstrates the variety's ability to produce wines of depth and elegance when treated with care. This 2019 vintage showcases ripe fruit character balanced with structure, offering an accessible yet sophisticated expression that appeals to both casual drinkers and serious wine enthusiasts.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents classic Merlot aromatics: ripe plum, black cherry, and blackberry form the core, while hints of raspberry add brighter red fruit notes. Oak aging contributes layers of vanilla bean, cedar, and sweet tobacco, while background notes of cocoa, coffee, and dried herbs add complexity. Subtle floral hints of violet and rose petal provide elegance, and a whisper of graphite suggests quality vineyard sourcing.",
+        "palate": "The palate is plush and inviting, with velvety tannins and generous fruit expression. Black cherry, plum, and boysenberry dominate, supported by hints of raspberry and cranberry that add brightness. The wine's medium to full body is balanced by fresh acidity that prevents heaviness, while integrated oak contributes vanilla, mocha, and toasted oak flavors. Mid-palate reveals layers of dark chocolate, espresso, and sweet baking spices, while subtle earthy notes add savory complexity. The texture is silky and mouth-coating.",
+        "finish": "The finish is smooth and satisfying, with dark fruit and oak-derived spices lingering pleasantly. Soft, ripe tannins provide gentle structure without astringency, while the wine's fruit concentration ensures balance. Notes of chocolate and coffee echo subtly."
+      },
+      "foodPairings": [
+        "Herb-crusted lamb rack",
+        "Mushroom and Swiss burger",
+        "Coq au vin",
+        "Aged cheddar or aged Gouda",
+        "Chocolate-covered cherries or tiramisu"
+      ],
+      "servingInfo": {
+        "temperature": "Slightly cool, 60-65°F (15-18°C)",
+        "decanting": "30-45 minutes of decanting recommended to soften tannins and open aromatics",
+        "glassware": "Bordeaux or large red wine glass for optimal aeration"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely California or Washington based on style)",
+        "grapeVariety": "100% Merlot or Merlot-dominant blend",
+        "vintage": "2019",
+        "style": "Medium to full-bodied dry red wine with oak aging",
+        "ageability": "Drinking well now with soft tannins and integrated oak. Can cellar 3-5 years for further development. Peak drinking: 2024-2027."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Paso Robles Pomar Junction Zinfandel 2015",
+      "description": "From Paso Robles' renowned Zinfandel territory comes this bold expression from Pomar Junction. The 2015 vintage showcases the region's ability to produce concentrated, powerful Zinfandels with layers of ripe fruit and spice, now showing the benefits of bottle maturity and integration.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with classic Paso Zinfandel character: jammy blackberry, raspberry preserves, and black cherry dominate with exuberant intensity. Layers of exotic spice emerge—black pepper, cinnamon, clove, and star anise—creating a warm, inviting profile. Oak aging contributes vanilla, caramel, and toasted oak, while background notes of dried herbs, tobacco, and chocolate add complexity. The wine's maturity shows in subtle dried fruit character and integrated alcohol.",
+        "palate": "Bold and full-bodied on the palate, this Zinfandel delivers concentrated fruit wrapped in velvety tannins. Ripe blackberry jam, boysenberry, and black cherry flood the senses with sweet fruit intensity. The wine's generous alcohol (likely 14.5-15.5%) manifests as warmth rather than heat, balanced by surprising acidity that provides freshness. Mid-palate reveals layers of milk chocolate, espresso, sweet vanilla, and baking spices from oak, while hints of dried fig, raisin, and prune add evolved complexity. The texture is rich and mouth-filling.",
+        "finish": "The finish is long and powerful, with dark fruit and spice persisting impressively. Soft tannins provide gentle structure, while the wine's fruit concentration and oak integration create satisfying complexity. A touch of warmth lingers pleasantly alongside chocolate and coffee notes."
+      },
+      "foodPairings": [
+        "BBQ baby back ribs with bourbon sauce",
+        "Pulled pork sandwiches",
+        "Bacon-wrapped meatloaf",
+        "Aged cheddar or smoked Gouda",
+        "Dark chocolate brownies with espresso"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature, 62-65°F (17-18°C)",
+        "decanting": "Decant 45-60 minutes before serving to allow the wine's power to integrate and aromatics to fully express",
+        "glassware": "Large Cabernet or Syrah glass to manage alcohol and concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Paso Robles, California",
+        "grapeVariety": "Zinfandel (likely 85-100%)",
+        "vintage": "2015",
+        "style": "Full-bodied, powerful dry red wine with oak aging",
+        "ageability": "Showing excellent maturity now with integrated tannins and developed complexity. Best enjoyed over the next 2-3 years. Peak drinking: 2024-2026."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Gran Reserva 2009",
+      "description": "Monte Real's Gran Reserva represents the pinnacle of traditional Rioja winemaking, with extended aging creating wines of extraordinary complexity and elegance. This 2009 vintage has benefited from years of barrel and bottle maturation, transforming into a sophisticated wine that showcases Rioja's ability to produce world-class age-worthy reds.",
+      "tastingNotes": {
+        "aroma": "The bouquet is a masterclass in aged Rioja character: tertiary aromas dominate with leather, tobacco leaf, dried mushroom, and forest floor creating an earthy, savory foundation. Evolved fruit shows as dried cherry, fig, and prune, while background notes of vanilla, cedar, and cigar box reveal extensive oak aging. Subtle hints of balsamic, truffle, and autumn leaves add depth, and delicate floral notes of dried rose petal provide unexpected lift. The aromatics are complex, integrated, and distinctly Old World in style.",
+        "palate": "The palate delivers silky elegance with perfectly integrated components. Red fruit has evolved into dried cherry, cranberry, and red currant character, accented by notes of orange peel and pomegranate. The wine's medium body feels weightless yet substantial, supported by fine-grained tannins that have mellowed to velvet softness. Savory elements dominate the flavor profile: leather, tobacco, earth, and umami-rich mushroom notes create complexity, while extended oak aging manifests as vanilla, coconut, and subtle smoke. The balance between fruit, acidity, and tertiary development is exquisite.",
+        "finish": "The finish is remarkably long and refined, with dried fruit, spice, and earthy notes persisting elegantly. Soft tannins provide gentle structure, while bright acidity keeps the wine fresh despite its age. Lingering notes of tobacco, leather, and dried cherry fade slowly, leaving a satisfying, contemplative conclusion."
+      },
+      "foodPairings": [
+        "Roasted lamb shoulder with rosemary",
+        "Ibérico ham and aged Manchego cheese",
+        "Wild mushroom risotto with truffle",
+        "Duck breast with cherry gastrique",
+        "Aged sheep's milk cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Cool room temperature, 62-64°F (17-18°C)",
+        "decanting": "Decant carefully for 30-45 minutes to allow sediment to settle and aged aromatics to open, but avoid over-oxidation",
+        "glassware": "Burgundy or traditional Rioja glass to appreciate delicate aromatics and silky texture"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "Tempranillo-dominant blend (likely with Graciano, Mazuelo, and/or Garnacha)",
+        "vintage": "2009",
+        "style": "Traditional Rioja Gran Reserva with extended aging (minimum 5 years total, 2 in oak)",
+        "ageability": "At peak maturity now, showing beautiful tertiary development. Will hold 5-8 more years but best enjoyed soon to appreciate current complexity. Peak drinking: 2024-2029."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

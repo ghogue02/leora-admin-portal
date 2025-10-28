@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Getariako Txakolina Basa Lore Igartzeta 2021",
+    "description": "A Txakolina (Txakoli) from the Getariako Txakolina DO in Spain's Basque Country. These wines are known for their high acidity, slight effervescence, and coastal freshness. This wine showcases the unique character of Basque white wines with vibrant citrus and saline minerality.",
+    "tastingNotes": {
+      "aroma": "Vibrant citrus and green apple aromatics with maritime influence. Lemon zest, lime, and grapefruit dominate with hints of white flowers and fresh herbs. Subtle mineral and saline notes reflect the coastal Atlantic terroir of the Basque Country.",
+      "palate": "Light-bodied with high, refreshing acidity and a characteristic slight spritz. Citrus flavors of lemon and green apple are balanced by pronounced minerality and saline quality from the ocean influence. The wine shows excellent freshness with a crisp, clean palate ideal for seafood.",
+      "finish": "A crisp, mineral-driven finish with lingering citrus and saline notes. The slight effervescence persists, adding to the refreshing character. The finish is clean and appetizing, perfect for Basque cuisine."
+    },
+    "foodPairings": [
+      "Fresh anchovies and pintxos",
+      "Grilled fish and seafood",
+      "Basque-style cod",
+      "Fresh oysters",
+      "Grilled vegetables with olive oil"
+    ],
+    "servingInfo": {
+      "temperature": "40-45°F (4-7°C), very well-chilled",
+      "decanting": "Not necessary; serve directly to preserve spritz",
+      "glassware": "White wine glass, traditionally poured from height"
+    },
+    "wineDetails": {
+      "region": "Getariako Txakolina DO, Basque Country, Spain",
+      "grapeVariety": "Hondarrabi Zuri and/or Hondarrabi Beltza (indigenous Basque varieties)",
+      "vintage": "2021",
+      "style": "Traditional Txakoli with slight effervescence",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T15:50:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Raywood Sauvignon Blanc 2022",
+    "description": "A Sauvignon Blanc from Raywood showcasing the variety's characteristic bright acidity and aromatic intensity. This wine offers crisp citrus flavors and refreshing character typical of quality Sauvignon Blanc production with food-friendly versatility.",
+    "tastingNotes": {
+      "aroma": "Aromatic with classic Sauvignon Blanc character. Grapefruit, lime, and passion fruit dominate with hints of fresh-cut grass and gooseberry. Subtle mineral notes add complexity to the vibrant bouquet.",
+      "palate": "Light to medium-bodied with crisp acidity and pure citrus flavors. Grapefruit and lime zest are balanced by tropical notes of passion fruit and guava. The wine shows excellent freshness with mineral character providing depth. The palate is clean, focused, and refreshing.",
+      "finish": "A crisp, clean finish with lingering citrus and mineral notes. The acidity persists through the conclusion, leaving a refreshing impression ideal for seafood and summer drinking."
+    },
+    "foodPairings": [
+      "Fresh oysters and shellfish",
+      "Goat cheese and salads",
+      "Grilled fish with herbs",
+      "Asian cuisine and sushi",
+      "Fresh spring vegetables"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely Marlborough NZ, California, or Chile)",
+      "grapeVariety": "100% Sauvignon Blanc",
+      "vintage": "2022",
+      "style": "Crisp, aromatic Sauvignon Blanc",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:52:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Optima Gewurztraminer (Dry) 2018",
+    "description": "A dry Gewürztraminer from Optima showcasing the variety's signature aromatics in a drier style. Gewürztraminer can be challenging to vinify dry while maintaining varietal character, making this wine an interesting expression that balances aromatic intensity with refreshing dryness.",
+    "tastingNotes": {
+      "aroma": "Intensely aromatic with classic Gewürztraminer character. Lychee, rose petal, and white flowers dominate with hints of ginger, spice, and tropical fruit. The aromatic profile is powerful and distinctive despite the dry style.",
+      "palate": "Medium-bodied with rich texture despite the dry designation. Lychee and tropical fruit flavors are balanced by spicy ginger and floral notes. The wine shows good acidity for Gewürztraminer, keeping the rich aromatics in check. The dry finish adds versatility for food pairing.",
+      "finish": "A dry finish with lingering floral and spice notes. The wine maintains aromatic intensity through the conclusion while the dryness provides refreshment and food-friendliness."
+    },
+    "foodPairings": [
+      "Spicy Asian cuisine",
+      "Thai and Vietnamese dishes",
+      "Smoked salmon",
+      "Pork with fruit glazes",
+      "Aromatic Indian dishes"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C)",
+      "decanting": "Not necessary",
+      "glassware": "Medium-sized white wine glass to capture aromatics"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely Alsace, Alto Adige, or Pacific Northwest)",
+      "grapeVariety": "100% Gewürztraminer",
+      "vintage": "2018",
+      "style": "Dry Gewürztraminer with aromatic intensity",
+      "ageability": "Drinking well now with some development; enjoy through 2026"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:54:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Darms Lane Fortune 1621 Cabernet Sauvignon 2022",
+    "description": "A Cabernet Sauvignon from Darms Lane with an intriguing name referencing 1621. This wine showcases Cabernet's classic character with structured tannins and dark fruit concentration. The 2022 vintage offers youthful vibrancy with aging potential.",
+    "tastingNotes": {
+      "aroma": "Classic Cabernet aromatics of blackcurrant, black cherry, and cassis. Cedar and tobacco from oak aging add complexity, while hints of eucalyptus and mint provide varietal character. Subtle violet and spice notes add elegance.",
+      "palate": "Full-bodied with structured tannins and concentrated dark fruit flavors. Blackcurrant and black cherry dominate with layers of dark chocolate, coffee, and oak-derived spices. The wine shows excellent structure with firm tannins and good acidity providing balance and aging potential.",
+      "finish": "A long, structured finish with persistent dark fruit and oak notes. The tannins remain present, providing framework for aging. The finish demonstrates classic Cabernet character."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak",
+      "Braised beef short ribs",
+      "Roasted lamb with herbs",
+      "Aged hard cheeses",
+      "Wild mushroom dishes"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "60-90 minutes to soften tannins",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely Australia, California, or premium region)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2022",
+      "style": "Structured Cabernet with oak aging",
+      "ageability": "Drink now through 2034; excellent aging potential"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T15:56:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Bodegas Riojanas Monte Real Gran Reserva 2004",
+    "description": "A mature Gran Reserva from one of Rioja's historic bodegas. With over 20 years of age, this wine showcases traditional Rioja at its finest with extended aging developing tertiary complexity. Monte Real represents classical Rioja winemaking with elegant, evolved character.",
+    "tastingNotes": {
+      "aroma": "Evolved Gran Reserva aromatics with tertiary complexity. Primary fruit has developed into dried cherry, fig, and prune. Leather, tobacco, cedar, and spice dominate the bouquet with hints of forest floor and truffle. The oak is fully integrated after two decades of aging.",
+      "palate": "Medium-bodied with silky, fully integrated tannins. The fruit shows maturity with flavors of dried cherry, plum, and fig complemented by savory notes of leather, tobacco, and earth. The wine demonstrates elegance over power with refined structure and perfect balance from extensive aging.",
+      "finish": "A long, elegant finish with persistent tertiary notes of tobacco, leather, and dried fruit. The tannins are completely softened, creating a refined conclusion that demonstrates successful Gran Reserva aging."
+    },
+    "foodPairings": [
+      "Roasted lamb with herbs",
+      "Aged Manchego cheese",
+      "Wild mushroom dishes",
+      "Braised game meats",
+      "Traditional Spanish stews"
+    ],
+    "servingInfo": {
+      "temperature": "60-65°F (16-18°C)",
+      "decanting": "Handle carefully; 30 minutes if needed to awaken aromas",
+      "glassware": "Large Bordeaux or Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Tempranillo-based with traditional Rioja varieties",
+      "vintage": "2004",
+      "style": "Gran Reserva with minimum 5 years aging (2 in oak, 3 in bottle)",
+      "ageability": "At peak maturity; drink now through 2029"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T15:58:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Trespass Cabernet Sauvignon 2018",
+    "description": "A Cabernet Sauvignon from Trespass with a bold name suggesting adventurous winemaking. The 2018 vintage offers maturity with bottle age development, showcasing concentrated dark fruit and structured tannins typical of quality Cabernet production.",
+    "tastingNotes": {
+      "aroma": "Mature Cabernet aromatics with dark fruit and oak complexity. Blackcurrant and black cherry show development with hints of dried fruit, cedar, and tobacco. Oak aging contributes vanilla and spice notes, while the fruit maintains concentration despite the age.",
+      "palate": "Full-bodied with softening tannins from aging. Dark fruit flavors show evolution with blackcurrant, plum, and hints of fig. Oak-derived notes of chocolate and coffee add complexity. The wine maintains structure with integrated tannins and good acidity balancing the maturity.",
+      "finish": "A long finish with persistent dark fruit and oak notes. The tannins are refined and integrated, demonstrating successful aging. The wine shows Cabernet's ability to develop complexity over time."
+    },
+    "foodPairings": [
+      "Grilled steaks and beef",
+      "Braised lamb shanks",
+      "Aged cheddar cheese",
+      "Wild mushroom risotto",
+      "Rich meat stews"
+    ],
+    "servingInfo": {
+      "temperature": "62-65°F (17-18°C)",
+      "decanting": "45-60 minutes recommended",
+      "glassware": "Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Unknown (likely Napa Valley, Paso Robles, or premium California)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2018",
+      "style": "Mature Cabernet with oak aging",
+      "ageability": "Drinking well now; enjoy through 2030"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T16:00:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Noble Hill Mourvèdre Rosé 2023",
+    "description": "A rosé from Noble Hill in Paarl, South Africa, showcasing Mourvèdre in pink form. Mourvèdre rosés offer more structure and complexity than typical rosés, with distinctive herbal and earthy notes alongside red fruit. This wine demonstrates Noble Hill's commitment to quality across all styles.",
+    "tastingNotes": {
+      "aroma": "Distinctive aromatics with red berry fruits and Mourvèdre's characteristic herbal notes. Strawberry and raspberry are complemented by hints of dried herbs, white pepper, and subtle earth. The aromatic profile is more complex than typical rosés.",
+      "palate": "Medium-bodied with more structure than average rosé from Mourvèdre's tannic nature. Red cherry and strawberry flavors are balanced by herbal notes and mineral character. The wine shows good texture and complexity with refreshing acidity and a dry finish that makes it highly food-friendly.",
+      "finish": "A dry, savory finish with lingering red fruit and herbal notes. The wine demonstrates more persistence than typical rosés, showcasing Mourvèdre's ability to add complexity to pink wines."
+    },
+    "foodPairings": [
+      "Grilled lamb with herbs",
+      "Provençal cuisine",
+      "Grilled vegetables and ratatouille",
+      "Bouillabaisse",
+      "Charcuterie and pâté"
+    ],
+    "servingInfo": {
+      "temperature": "48-52°F (9-11°C)",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass or rosé-specific glass"
+    },
+    "wineDetails": {
+      "region": "Paarl, Western Cape, South Africa",
+      "grapeVariety": "100% Mourvèdre",
+      "vintage": "2023",
+      "style": "Dry rosé with distinctive Mourvèdre character",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T16:02:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Maison Ventenac L'intrus 2023",
+    "description": "A wine from Maison Ventenac with the intriguing name \"L'intrus\" (The Intruder). This suggests an unconventional approach or grape variety not typically associated with the region. The 2023 vintage offers fresh, immediate drinkability.",
+    "tastingNotes": {
+      "aroma": "Fresh and inviting with vibrant fruit aromatics. The nose shows clean fruit expression with hints of the unconventional approach suggested by the name. Bright berry fruits dominate with subtle complexity.",
+      "palate": "Medium-bodied with fresh acidity and pure fruit flavors. The palate delivers on the promise of something different while maintaining balance and drinkability. Good texture and structure make this wine versatile for food pairing.",
+      "finish": "A clean, refreshing finish with lingering fruit notes. The wine demonstrates quality winemaking with balance and character."
+    },
+    "foodPairings": [
+      "Grilled meats and vegetables",
+      "Mediterranean cuisine",
+      "Charcuterie",
+      "Pasta dishes",
+      "Casual bistro fare"
+    ],
+    "servingInfo": {
+      "temperature": "58-62°F (14-17°C)",
+      "decanting": "30 minutes helpful",
+      "glassware": "Standard wine glass"
+    },
+    "wineDetails": {
+      "region": "France (likely Languedoc based on Ventenac)",
+      "grapeVariety": "Unknown (possibly unconventional variety or blend)",
+      "vintage": "2023",
+      "style": "Fresh, unconventional wine",
+      "ageability": "Best consumed within 2-3 years"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T16:04:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Chateau de Cor Bugeaud Rose",
+    "description": "A rosé from Château de Cor Bugeaud offering French elegance and traditional winemaking. This wine showcases classic French rosé character with fresh fruit, crisp acidity, and food-friendly versatility typical of quality production.",
+    "tastingNotes": {
+      "aroma": "Fresh red berry aromatics of strawberry, raspberry, and red currant. Subtle floral notes add elegance, while hints of citrus provide brightness. The aromatic profile is clean, refined, and classically French.",
+      "palate": "Light to medium-bodied with crisp acidity and pure red fruit flavors. Strawberry and cherry dominate with refreshing citrus notes balancing the fruit. The wine shows elegant texture with mineral undertones and a dry finish characteristic of quality French rosé.",
+      "finish": "A crisp, dry finish with lingering red fruit and subtle mineral notes. The acidity persists, leaving a refreshing impression ideal for Provençal cuisine and summer drinking."
+    },
+    "foodPairings": [
+      "Bouillabaisse and fish stews",
+      "Grilled fish with herbs",
+      "Salade Niçoise",
+      "Grilled vegetables",
+      "Fresh chevre"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "France (likely Bordeaux or Southwest based on château name)",
+      "grapeVariety": "Likely blend of French varieties (Merlot, Cabernet, etc.)",
+      "vintage": "Current release",
+      "style": "Dry French rosé",
+      "ageability": "Best consumed within 1-2 years for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T16:06:00.000Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Geteriako Txakolina Basa Lore 2019",
+    "description": "An older vintage Txakolina from the Basque Country, offering the opportunity to see how these typically young-drinking wines develop with bottle age. While Txakoli is usually consumed fresh, this 2019 vintage demonstrates the wine's evolution with tertiary characteristics.",
+    "tastingNotes": {
+      "aroma": "Evolved Txakoli aromatics with developed citrus and orchard fruit notes. The freshness typical of young Txakoli has evolved into more complex lemon, apple, and almond character. The maritime influence persists with mineral and saline notes, while some oxidative characteristics may add interest.",
+      "palate": "Light to medium-bodied with acidity still present though softened from youth. Citrus flavors show maturity with lemon and apple developing into more complex fruit expressions. The slight effervescence typical of young Txakoli has likely dissipated. Mineral and saline character remains prominent.",
+      "finish": "A clean finish with evolved citrus and mineral notes. The wine demonstrates how Txakoli can develop beyond its typical young-drinking window, though it may lack the vibrant freshness of newer vintages."
+    },
+    "foodPairings": [
+      "Grilled fish and seafood",
+      "Basque pintxos",
+      "Aged cheeses",
+      "Grilled vegetables",
+      "Anchovies and preserved fish"
+    ],
+    "servingInfo": {
+      "temperature": "45-50°F (7-10°C), well-chilled",
+      "decanting": "Not necessary",
+      "glassware": "White wine glass"
+    },
+    "wineDetails": {
+      "region": "Getariako Txakolina DO, Basque Country, Spain",
+      "grapeVariety": "Hondarrabi Zuri and/or indigenous Basque varieties",
+      "vintage": "2019",
+      "style": "Aged Txakoli showing development",
+      "ageability": "Past typical drinking window; consume soon"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T16:08:00.000Z"
+    }
+  }
+]

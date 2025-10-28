@@ -1,0 +1,347 @@
+{
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "batchNumber": 55,
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Domaine Laurent Borgeot Bourgogne Blanc Monopole Clos de la Carbonade 2023",
+      "description": "A monopole Burgundy white from the esteemed Laurent Borgeot family, sourced from their exclusively-owned Clos de la Carbonade vineyard. This 2023 vintage showcases the precision and minerality characteristic of well-sited Burgundian Chardonnay, offering exceptional value for authentic terroir expression.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate white flowers, particularly acacia and hawthorn blossoms, intermingled with crisp green apple and subtle hints of wet limestone. As the wine breathes, nuances of lemon zest and crushed almonds emerge, accompanied by a faint whisper of toasted brioche from careful aging. The aromatic profile maintains a restrained elegance typical of cooler-climate Burgundy, avoiding overt tropical notes in favor of focused minerality.",
+        "palate": "On the palate, this Bourgogne Blanc delivers remarkable purity and precision. The entry is bright with meyer lemon and white peach flavors, supported by a steely mineral backbone that speaks to the limestone-rich terroir. Mid-palate weight is medium-bodied with excellent tension, balancing ripe orchard fruit against vibrant acidity. The texture shows refinement with a creamy yet energetic mouthfeel, enhanced by subtle lees contact that adds depth without heaviness.",
+        "finish": "The finish is clean and persistent, extending with chalky minerality and citrus pith. Notes of saline and wet stone linger alongside a refreshing acidity that invites the next sip. The aftertaste reveals layers of complexity with hints of hazelnut and a distinctive flinty character."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with beurre blanc",
+        "Gruyère and aged Comté cheese",
+        "Roasted chicken with tarragon cream sauce",
+        "Fresh oysters on the half shell",
+        "Lobster risotto with lemon and herbs"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "No decanting needed; allow 10-15 minutes in glass to open",
+        "glassware": "White Burgundy glass or medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Bourgogne AOC, Burgundy, France",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2023",
+        "style": "Dry white wine, mineral-driven",
+        "ageability": "Drink now through 2028; optimal 2024-2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Trespass Cabernet Franc Magnum 2019  1500 ml",
+      "description": "A bold expression of Cabernet Franc in large format from California's acclaimed Trespass estate. The 2019 vintage in magnum offers enhanced aging potential and evolution, showcasing the variety's characteristic herbaceous elegance married with ripe California fruit intensity.",
+      "tastingNotes": {
+        "aroma": "Enticing aromas of crushed violet petals and fresh blackcurrant leaves dominate the bouquet, complemented by darker notes of black plum and boysenberry. The varietal's signature green bell pepper character is present but refined, adding complexity rather than dominance. Underlying layers reveal graphite, crushed river stone, and a hint of tobacco leaf, with subtle oak influence showing as vanilla bean and cedar."
+      "palate": "The palate is structured and sophisticated, opening with concentrated flavors of dark cherry, cassis, and wild blackberry. The Cabernet Franc's natural brightness provides excellent framework, with firm but polished tannins coating the mouth. Mid-palate depth comes from layered notes of espresso, dark chocolate, and dried Mediterranean herbs like rosemary and thyme. The wine maintains beautiful balance between fruit concentration and structural elegance, never veering into heaviness.",
+        "finish": "The finish extends with remarkable persistence, showcasing fine-grained tannins and lingering notes of black tea and graphite. A refreshing lift of acidity carries flavors of blackberry compote and subtle baking spices into the long aftertaste. The magnum format contributes to a seamless, integrated conclusion."
+      },
+      "foodPairings": [
+        "Herb-crusted lamb rack with rosemary jus",
+        "Grilled portobello mushroom steaks",
+        "Duck confit with black cherry reduction",
+        "Aged cheddar and blue cheese board",
+        "Beef tenderloin with peppercorn sauce"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow full expression",
+        "glassware": "Large Bordeaux glass or Cabernet-specific stemware"
+      },
+      "wineDetails": {
+        "region": "California (specific appellation varies)",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2019",
+        "style": "Full-bodied red wine, age-worthy",
+        "ageability": "Drink now through 2032; peak 2025-2029"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bierzo Pilgrim Godello 2023",
+      "description": "An expressive Godello from Spain's Bierzo region, where ancient vines and slate soils produce some of the variety's most compelling expressions. The Pilgrim bottling captures Godello's natural affinity for mineral-driven white wines with aromatic intensity and distinctive texture.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with vibrant aromatics of ripe pear, quince, and honeydew melon, layered with white flowers like orange blossom and chamomile. Distinctive mineral notes emerge reminiscent of wet slate and crushed seashells, characteristic of Bierzo's unique terroir. Fresh herbs including fennel and lemon verbena add complexity, while a subtle anise note provides an exotic edge.",
+        "palate": "On the palate, this Godello delivers impressive texture and depth. The attack is fresh with flavors of Asian pear, white nectarine, and citrus zest, supported by bright acidity that energizes the wine. The mid-palate reveals a slightly waxy, glycerin-rich texture that is signature to well-made Godello, providing weight without heaviness. Mineral elements persist throughout, with notes of wet stone and saline that enhance the fruit complexity.",
+        "finish": "The finish is clean and invigorating, marked by persistent minerality and a touch of bitter almond. Citrus peel and white pepper notes linger alongside the wine's characteristic stony quality. The length is impressive for the variety, with refreshing acidity maintaining interest through the extended aftertaste."
+      },
+      "foodPairings": [
+        "Grilled octopus with paprika and olive oil",
+        "Manchego cheese with quince paste",
+        "Pan-fried sole with lemon butter",
+        "Spanish tortilla with roasted peppers",
+        "Clams in white wine sauce"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "No decanting required; serve directly from bottle",
+        "glassware": "Medium white wine glass or aromatic white varietal glass"
+      },
+      "wineDetails": {
+        "region": "Bierzo DO, Castilla y León, Spain",
+        "grapeVariety": "100% Godello",
+        "vintage": "2023",
+        "style": "Dry white wine, mineral and aromatic",
+        "ageability": "Best enjoyed 2024-2026; drink young for freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dvir Yaar Levanon",
+      "description": "An innovative Israeli wine from the Dvir winery, part of the exciting new wave of Mediterranean winemaking. Yaar Levanon represents a modern approach to indigenous and international varieties in Israel's diverse wine regions, emphasizing fruit purity and terroir expression.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents Mediterranean character with aromas of sun-ripened red fruits including strawberry, pomegranate, and red cherry. Herbal notes of wild thyme, sage, and dried oregano reflect the Levantine landscape. Subtle spice elements emerge with hints of white pepper, coriander, and a whisper of cinnamon, while underlying mineral notes suggest limestone-influenced terroir.",
+        "palate": "The palate offers medium body with bright, juicy fruit flavors of cranberry, red currant, and fresh raspberry. The wine maintains excellent freshness with vibrant acidity that carries the fruit forward. Mid-palate interest comes from earthy complexity with notes of dried Mediterranean herbs, red clay, and a subtle savory umami quality. The texture is smooth with gentle tannins that provide structure without astringency.",
+        "finish": "The finish is clean and moderately persistent, with lingering red fruit and herbal notes. A touch of minerality and refreshing acidity maintain balance into the aftertaste. Subtle spice notes of cardamom and dried herbs provide an exotic Mediterranean conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb kofta with tahini",
+        "Mediterranean mezze platter",
+        "Roasted eggplant with tomatoes and feta",
+        "Za'atar-spiced chicken",
+        "Israeli couscous with vegetables and herbs"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C)",
+        "decanting": "Brief 15-20 minute decant to integrate aromatics",
+        "glassware": "Medium red wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Israel (specific appellation to be confirmed)",
+        "grapeVariety": "Blend of Mediterranean varieties",
+        "vintage": "NV or recent release",
+        "style": "Medium-bodied red with Mediterranean character",
+        "ageability": "Drink now through 2027; best enjoyed young"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boxwood Reserve 2020",
+      "description": "Boxwood Estate's flagship Reserve bottling from Virginia's acclaimed Middleburg AVA represents the finest expression of Bordeaux varieties in the Mid-Atlantic. The 2020 vintage showcases the estate's mature vines and meticulous winemaking, producing a wine of elegance and complexity that rivals many Old World benchmarks.",
+      "tastingNotes": {
+        "aroma": "The nose opens with refined aromas of blackcurrant, dark plum, and black cherry, interwoven with notes of cedar cigar box and graphite pencil shavings. Subtle floral hints of violet and iris add elegance, while earthy undertones of forest floor and truffle provide depth. Well-integrated oak contributes vanilla, toasted hazelnut, and a whisper of espresso without dominating the fruit.",
+        "palate": "On the palate, this Reserve shows impressive structure and balance. Concentrated flavors of cassis, blackberry, and dark chocolate are framed by fine-grained, silky tannins that coat the mouth. The mid-palate reveals layers of complexity with notes of tobacco leaf, leather, and dried herbs including sage and bay leaf. Excellent acidity provides framework and freshness, preventing any sense of heaviness despite the wine's considerable depth.",
+        "finish": "The finish is long and sophisticated, extending with persistent flavors of dark berries, espresso, and subtle baking spices. Tannins remain refined and integrated, contributing to a seamless conclusion. Notes of dark chocolate and cedar linger into the extended aftertaste, with excellent balance between fruit, structure, and oak influence."
+      },
+      "foodPairings": [
+        "Dry-aged ribeye with compound butter",
+        "Braised short ribs with red wine reduction",
+        "Roasted duck breast with cherry gastrique",
+        "Wild mushroom and truffle risotto",
+        "Aged Gouda and cave-aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (16-18°C)",
+        "decanting": "Decant for 1 hour to allow full aromatic development",
+        "glassware": "Large Bordeaux glass for optimal aeration"
+      },
+      "wineDetails": {
+        "region": "Middleburg AVA, Virginia, USA",
+        "grapeVariety": "Bordeaux blend (typically Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot)",
+        "vintage": "2020",
+        "style": "Full-bodied red, Bordeaux-style blend",
+        "ageability": "Drink 2024-2035; optimal 2026-2030"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frico Sangiovese IGT Toscana (NOVA only) 2023",
+      "description": "A contemporary expression of Tuscany's noble Sangiovese grape, crafted in the approachable IGT Toscana style. The 2023 vintage emphasizes the variety's natural brightness and cherry fruit character, offering immediate drinking pleasure while maintaining authentic Tuscan character.",
+      "tastingNotes": {
+        "aroma": "Bright aromas of sour cherry, red currant, and wild strawberry leap from the glass, accompanied by classic Sangiovese notes of dried violet petals and orange peel. Earthy undertones of terracotta, dried herbs, and a hint of leather add complexity. Subtle oak influence provides background notes of vanilla and sweet spice without overwhelming the vibrant fruit.",
+        "palate": "The palate delivers pure Sangiovese character with focused flavors of tart red cherry, cranberry, and pomegranate. Natural acidity—the variety's hallmark—provides excellent structure and food-friendliness, cutting through richness while maintaining balance. Mid-palate shows earthy complexity with notes of sun-dried tomato, dried Italian herbs, and a savory umami quality. Tannins are present but approachable, with a slightly chalky texture that is characteristic of the grape.",
+        "finish": "The finish is clean and refreshing, marked by persistent acidity and lingering red fruit. Notes of cherry pit, dried herbs, and a touch of tobacco leaf extend into the aftertaste. The wine's natural brightness ensures a mouth-watering conclusion that calls for another sip or a flavorful dish."
+      },
+      "foodPairings": [
+        "Classic margherita pizza with San Marzano tomatoes",
+        "Pasta all'amatriciana with guanciale",
+        "Bistecca Fiorentina with rosemary",
+        "Aged Parmigiano-Reggiano and pecorino",
+        "Grilled vegetables with balsamic and olive oil"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "Brief 20-30 minute decant to soften and integrate",
+        "glassware": "Medium Chianti or Nebbiolo glass"
+      },
+      "wineDetails": {
+        "region": "IGT Toscana, Tuscany, Italy",
+        "grapeVariety": "100% Sangiovese",
+        "vintage": "2023",
+        "style": "Medium-bodied red, bright and food-friendly",
+        "ageability": "Drink now through 2028; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Paco Garcia Junior 2018",
+      "description": "A mature Spanish red from the Bodegas Paco Garcia portfolio, showcasing the evolution and complexity that comes with proper cellaring. The 2018 vintage has had time to integrate and develop tertiary characteristics while maintaining the vibrant fruit and structure of quality Spanish winemaking.",
+      "tastingNotes": {
+        "aroma": "The bouquet shows beautiful development with aromas of dried cherry, fig, and prune, layered with tertiary notes of leather, tobacco, and cedar. Earthy complexity emerges with scents of mushroom, forest floor, and dried Mediterranean herbs including thyme and rosemary. Subtle balsamic notes and a hint of vanilla from oak aging add depth, while dried flower petals suggest graceful evolution.",
+        "palate": "On the palate, this wine displays the integration that comes with age. Flavors of stewed red fruits, dried cranberry, and black cherry mingle with savory notes of cured meat, olive tapenade, and sun-dried tomato. The mid-palate reveals earthy complexity with hints of truffle, leather, and sweet spice. Tannins have softened considerably, providing a silky texture while maintaining structure. Acidity remains fresh, balancing the wine's evolved character.",
+        "finish": "The finish is smooth and harmonious, with well-integrated tannins and lingering notes of dried fruit and spice. Earthy undertones of leather and tobacco persist alongside subtle oak influence. The conclusion is satisfying and complete, showing the rewards of proper aging."
+      },
+      "foodPairings": [
+        "Slow-braised oxtail with red wine sauce",
+        "Jamón ibérico and aged Manchego",
+        "Lamb shanks with rosemary and garlic",
+        "Mushroom and truffle risotto",
+        "Chorizo and lentil stew"
+      ],
+      "servingInfo": {
+        "temperature": "62-66°F (16-19°C)",
+        "decanting": "Decant for 30-45 minutes to allow sediment to settle and aromatics to develop",
+        "glassware": "Large red wine glass for aged wines"
+      },
+      "wineDetails": {
+        "region": "Spain (specific DO to be confirmed)",
+        "grapeVariety": "Traditional Spanish red varieties",
+        "vintage": "2018",
+        "style": "Medium to full-bodied red, showing age development",
+        "ageability": "Drink now through 2030; at optimal maturity"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Gondola Chianti  Mevushal (MD & DC)",
+      "description": "A kosher Chianti certified as Mevushal, making it suitable for religious observance while maintaining the classic character of Tuscany's most famous wine region. This accessible expression of Sangiovese-based Chianti offers traditional flavors and food-friendly structure for everyday enjoyment.",
+      "tastingNotes": {
+        "aroma": "Classic Chianti aromatics lead with sour cherry, red plum, and dried strawberry, complemented by notes of violet and iris. Traditional Tuscan character shows through with scents of terracotta, dried herbs, and a hint of balsamic. Subtle oak influence contributes vanilla and a touch of sweet spice, while maintaining the wine's fruit-forward approachability.",
+        "palate": "The palate presents authentic Chianti character with bright red cherry, cranberry, and pomegranate flavors. Sangiovese's signature acidity provides excellent structure and food compatibility, cutting through rich dishes while maintaining balance. Mid-palate depth comes from earthy notes of sun-dried tomato, dried oregano, and a savory quality. Tannins are moderate and slightly chalky, providing grip without harshness.",
+        "finish": "The finish is clean and refreshing, marked by persistent acidity and lingering red fruit character. Notes of cherry pit, dried herbs, and a subtle earthy quality extend into the aftertaste. The wine's bright finish makes it highly versatile at the table."
+      },
+      "foodPairings": [
+        "Traditional Margherita or pepperoni pizza",
+        "Pasta with marinara or Bolognese sauce",
+        "Grilled chicken with herbs and lemon",
+        "Mozzarella and tomato caprese salad",
+        "Veal Milanese with arugula"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "Brief 15-20 minute decant to integrate; not essential",
+        "glassware": "Medium red wine glass or Chianti glass"
+      },
+      "wineDetails": {
+        "region": "Chianti DOCG, Tuscany, Italy",
+        "grapeVariety": "Primarily Sangiovese with traditional Chianti additions",
+        "vintage": "NV or recent release",
+        "style": "Medium-bodied red, bright and food-friendly, Mevushal certified",
+        "ageability": "Drink now through 2026; best enjoyed young"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg Rose 2022",
+      "description": "A vibrant rosé from South Africa's historic Backsberg Estate in Paarl, one of the Cape's pioneering wineries. The 2022 vintage captures the fresh fruit and crisp acidity that makes South African rosé such a compelling warm-weather wine, balanced with the estate's commitment to quality and sustainability.",
+      "tastingNotes": {
+        "aroma": "Delicate aromas of fresh strawberry, watermelon, and raspberry greet the nose, accompanied by floral notes of rose petal and hibiscus. Citrus accents of pink grapefruit and blood orange add brightness, while subtle herbal hints of fresh mint and crushed basil provide complexity. A whisper of white peach and nectarine adds stone fruit dimension to the red berry core.",
+        "palate": "The palate is crisp and refreshing, opening with flavors of wild strawberry, cranberry, and pomegranate. Bright acidity enlivens the wine, providing structure and ensuring food-friendliness. Mid-palate shows depth with notes of white cherry, pink grapefruit zest, and a subtle saline minerality. The texture is light to medium-bodied with a clean, almost chalky mouthfeel that enhances drinkability.",
+        "finish": "The finish is clean and invigorating, extending with citrus peel and red berry notes. Refreshing acidity carries through to a crisp conclusion, with subtle mineral undertones and a hint of strawberry lingering in the aftertaste. The wine's bright, dry finish makes it exceptionally versatile."
+      },
+      "foodPairings": [
+        "Grilled prawns with lemon and herbs",
+        "Fresh summer salads with strawberry vinaigrette",
+        "Sushi and sashimi",
+        "Charcuterie with pâté and cornichons",
+        "Mediterranean mezze with hummus and tabbouleh"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "No decanting needed; serve well-chilled",
+        "glassware": "White wine glass or rosé-specific stemware"
+      },
+      "wineDetails": {
+        "region": "Paarl, Western Cape, South Africa",
+        "grapeVariety": "Blend of red varieties (typically Pinotage, Shiraz, or Cabernet Sauvignon)",
+        "vintage": "2022",
+        "style": "Dry rosé, crisp and fruit-forward",
+        "ageability": "Drink now through 2025; best enjoyed young and fresh"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.86,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Swerwer Chenin Blanc 2023",
+      "description": "An exceptional Chenin Blanc from South Africa's Swartland region, where old vines and diverse terroirs produce some of the world's finest expressions of this versatile variety. The Swerwer bottling showcases Chenin's ability to balance richness with freshness, offering complexity and aging potential.",
+      "tastingNotes": {
+        "aroma": "The nose is captivating with layers of ripe pear, quince, and yellow apple, complemented by honeyed notes and white flowers including acacia and jasmine. Distinctive mineral elements emerge with scents of wet granite, flint, and crushed oyster shell, characteristic of Swartland's schist and granite soils. Subtle oxidative notes of bruised apple and lanolin add complexity without heaviness, while hints of beeswax and chamomile provide depth.",
+        "palate": "On the palate, this Chenin Blanc delivers impressive depth and texture. The entry is rich with flavors of ripe pear, golden delicious apple, and apricot, balanced by vibrant acidity that keeps the wine fresh and focused. Mid-palate shows Chenin's signature waxy texture alongside notes of honey, almond, and preserved lemon. Mineral elements persist throughout with a distinct flinty, saline quality that adds dimension. The wine achieves remarkable balance between fruit richness and structural elements.",
+        "finish": "The finish is long and complex, extending with flavors of honeyed fruit, toasted almonds, and persistent minerality. The wine's natural acidity maintains freshness through the conclusion, while subtle oxidative notes and a touch of lanolin add intrigue. Stone fruit and mineral notes linger impressively in the aftertaste."
+      },
+      "foodPairings": [
+        "Roasted pork loin with apple chutney",
+        "Pan-seared halibut with brown butter",
+        "Rich seafood chowder or bouillabaisse",
+        "Aged Gruyère and smoked Gouda",
+        "Thai green curry with chicken or tofu"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C)",
+        "decanting": "Allow 15-20 minutes in glass to fully express; no decanting needed",
+        "glassware": "Medium to large white wine glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Swartland, Western Cape, South Africa",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2023",
+        "style": "Dry white wine, textured and mineral-driven",
+        "ageability": "Drink now through 2030; will develop beautifully with age"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

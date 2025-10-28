@@ -1,0 +1,347 @@
+{
+  "batchId": 102,
+  "processedAt": "2025-10-21T14:24:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Alella Marfil Ivori Blanc 2023",
+      "description": "This distinctive white wine from the Alella DO showcases indigenous Catalan varieties from one of Spain's smallest and most historic wine regions. The coastal Mediterranean influence creates wines with bright acidity and mineral character. A refreshing expression of terroir-driven Spanish white wine with aromatic complexity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of white flowers, citrus blossom, and green apple, characteristic of Mediterranean white varieties. Notes of lemon zest, fresh herbs, and a distinct saline minerality emerge, reflecting the proximity to the sea. Subtle hints of white peach, fennel, and wet stone add layers of complexity. The bouquet is fresh, bright, and inviting.",
+        "palate": "Light to medium-bodied with crisp, electric acidity that energizes the palate. Flavors of green apple, lemon, and grapefruit dominate, complemented by notes of fresh herbs, almond skin, and a pronounced mineral quality. The wine displays excellent tension between fruit and acidity, with a slightly saline character that evokes its coastal origins. Mid-palate depth includes subtle flavors of white flowers and citrus pith.",
+        "finish": "The finish is clean, refreshing, and moderately long with persistent citrus and mineral notes. A distinctive saline quality lingers alongside crisp acidity, leaving the palate cleansed and invigorated."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean fish with lemon",
+        "Seafood paella or fideuà",
+        "Fresh oysters with mignonette",
+        "Manchego cheese with quince paste",
+        "Grilled vegetables with romesco sauce"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly from refrigerator",
+        "glassware": "Smaller white wine glass to concentrate aromatics"
+      },
+      "wineDetails": {
+        "region": "Alella DO, Catalonia, Spain",
+        "grapeVariety": "Likely Pansa Blanca (local name for Xarel-lo) with possible Chardonnay",
+        "vintage": "2023",
+        "style": "Crisp, mineral-driven Mediterranean white wine",
+        "ageability": "Best enjoyed young; drink within 2-3 years, ideally by 2025-2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cantina Fratelli Pardi Sagrantino di Montefalco 2020",
+      "description": "This powerful Sagrantino from Cantina Fratelli Pardi represents one of Italy's most distinctive and age-worthy red wines. Sagrantino di Montefalco is known for intense tannins, concentrated dark fruit, and remarkable longevity. A muscular, complex wine from Umbria that demands rich food and benefits from extended cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense aromas of blackberry, black cherry, and plum, layered with notes of dark chocolate, espresso, and sweet tobacco. Complex secondary aromas emerge including leather, dried violets, black pepper, and earthy truffle. Hints of licorice, vanilla, and toasted oak from barrel aging add depth. The aromatic intensity is impressive and concentrated.",
+        "palate": "Full-bodied with massive structure and powerful, gripping tannins that are the hallmark of Sagrantino. Flavors of concentrated black fruit—blackberry, black cherry, and plum—are complemented by notes of dark chocolate, espresso, and dried herbs. Despite the wine's power, there is underlying elegance with vibrant acidity providing lift and balance. Mid-palate complexity includes flavors of black tea, graphite, and baking spices. The texture is dense and mouth-filling.",
+        "finish": "The finish is very long and persistent with firm, structured tannins and lingering notes of dark fruit, chocolate, and spice. The wine grips the palate assertively, demonstrating its youth and aging potential. A warming sensation and mineral edge complete the finish."
+      },
+      "foodPairings": [
+        "Grilled Florentine steak (Bistecca alla Fiorentina)",
+        "Wild boar stew with polenta",
+        "Braised lamb shanks with red wine reduction",
+        "Aged pecorino cheese with truffle honey",
+        "Porcini mushroom risotto with shaved Parmigiano"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-66°F (17-19°C)",
+        "decanting": "Essential: decant for 2-3 hours to soften tannins and reveal complexity",
+        "glassware": "Large Bordeaux or Barolo-style glass"
+      },
+      "wineDetails": {
+        "region": "Sagrantino di Montefalco DOCG, Umbria, Italy",
+        "grapeVariety": "100% Sagrantino",
+        "vintage": "2020",
+        "style": "Full-bodied, tannic Umbrian red with extensive oak aging",
+        "ageability": "Exceptional aging potential; drink 2026-2045, optimal 2030-2040"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Dolcetto D Alba 2024",
+      "description": "This youthful Dolcetto from Collina San Ponzio showcases Piedmont's everyday drinking red wine with fresh fruit and soft tannins. The 2024 vintage is remarkably young, highlighting the wine's immediate drinkability and vibrant character. A charming, approachable expression of Alba's terroir meant for near-term enjoyment.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with fresh aromas of ripe black cherry, blackberry, and plum, characteristic of young Dolcetto. Notes of violet, almond, and licorice add complexity, while subtle hints of white pepper and herbs provide interest. The aromatic profile is fruit-forward and exuberant without oak influence, showcasing the grape's pure character.",
+        "palate": "Medium-bodied with soft, supple tannins and moderate acidity that makes the wine immediately approachable. Flavors of juicy black cherry, blackberry, and plum dominate, complemented by notes of bitter almond, dark chocolate, and a hint of licorice. The wine displays Dolcetto's characteristic slight bitterness on the finish, balanced by ripe fruit sweetness. Mid-palate texture is smooth and rounded with gentle structure.",
+        "finish": "The finish is moderately short with lingering notes of dark fruit and a pleasant bitter almond character typical of Dolcetto. Soft tannins and a hint of cocoa complete the approachable, easy-drinking profile."
+      },
+      "foodPairings": [
+        "Pizza with cured meats and mushrooms",
+        "Pasta with meat ragù",
+        "Grilled sausages with peppers",
+        "Vitello tonnato (cold veal with tuna sauce)",
+        "Young cheeses like Fontina or Taleggio"
+      ],
+      "servingInfo": {
+        "temperature": "Serve slightly cool at 58-62°F (14-17°C)",
+        "decanting": "Not required; can serve immediately or with brief aeration",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Dolcetto d'Alba DOC, Piedmont, Italy",
+        "grapeVariety": "100% Dolcetto",
+        "vintage": "2024",
+        "style": "Fresh, fruity Piedmontese red for immediate consumption",
+        "ageability": "Best enjoyed young; drink within 2-3 years, ideally by 2026-2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Roche de Bellene Gevrey Chambertin VV 2020",
+      "description": "This Vieilles Vignes (old vines) Gevrey-Chambertin from Maison Roche de Bellene represents one of Burgundy's most prestigious villages with concentrated fruit from mature vineyards. The 2020 vintage in Burgundy produced wines of exceptional quality with balance and aging potential. A serious expression of Côte de Nuits Pinot Noir worthy of contemplation.",
+      "tastingNotes": {
+        "aroma": "The nose reveals complex layers of red and black fruits including cherry, raspberry, blackberry, and cassis, typical of Gevrey-Chambertin's more structured style. Secondary aromas of rose petal, violet, earth, and forest floor emerge, along with hints of leather, tobacco, and subtle oak spice. Notes of crushed rock minerality and sous-bois add Burgundian complexity. The old vines contribute concentration and depth.",
+        "palate": "Medium to full-bodied with firm structure and fine-grained tannins that provide excellent aging potential. Flavors of dark cherry, blackberry, and plum are complemented by savory notes of earth, mushroom, and truffle. The wine displays classic Gevrey power with elegance, showing both fruit intensity and mineral precision. High acidity provides lift and freshness, while subtle oak influences add vanilla and spice notes. Mid-palate depth reveals layers of tea, orange peel, and dried herbs.",
+        "finish": "The finish is long and persistent with structured tannins and evolving flavors of dark fruit, earth, and spice. A mineral, stony quality lingers alongside fine-grained tannins, creating a mouthwatering conclusion that showcases the wine's complexity and aging potential."
+      },
+      "foodPairings": [
+        "Côte de boeuf with bone marrow",
+        "Roasted duck with cherry gastrique",
+        "Coq au vin de Bourgogne",
+        "Wild mushroom and truffle dishes",
+        "Époisses or other powerful washed-rind cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-64°F (16-18°C)",
+        "decanting": "Decant for 1-2 hours to reveal complexity and soften structure",
+        "glassware": "Large Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Gevrey-Chambertin AOC, Côte de Nuits, Burgundy, France",
+        "grapeVariety": "100% Pinot Noir from vieilles vignes (old vines)",
+        "vintage": "2020",
+        "style": "Village-level Burgundy with old vine concentration",
+        "ageability": "Excellent aging potential; drink 2025-2038, optimal 2028-2035"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Boplaas Fledge & Co. Fume Blanc 2023",
+      "description": "This Fumé Blanc from Boplaas showcases South African Sauvignon Blanc with a touch of oak influence, creating added complexity and texture. The Calitzdorp estate is known for quality wine production combining traditional methods with modern techniques. A refined expression of South African white wine with balance and character.",
+      "tastingNotes": {
+        "aroma": "The nose presents vibrant aromas of grapefruit, lime, and passion fruit, characteristic of South African Sauvignon Blanc, with subtle oak-derived notes of vanilla and toast. Fresh herbs including lemongrass and basil add complexity, while mineral undertones provide structure. Light tropical notes of guava and a hint of flinty smoke from oak aging round out the aromatic profile.",
+        "palate": "Medium-bodied with a creamy texture from oak contact balanced by crisp, zesty acidity. Flavors of citrus—grapefruit, lemon, and lime—dominate, complemented by tropical notes of passion fruit and guava. The oak treatment adds subtle vanilla, toast, and a hint of cashew, providing texture without overwhelming the fruit. Mid-palate weight is enhanced by balanced acidity and a mineral quality that adds complexity.",
+        "finish": "The finish is clean and moderately long with lingering citrus and subtle oak notes. A pleasant creaminess coats the palate while refreshing acidity keeps the wine lively and food-friendly."
+      },
+      "foodPairings": [
+        "Grilled prawns with garlic butter",
+        "Roasted chicken with lemon and herbs",
+        "Creamy seafood pasta",
+        "Goat cheese salad with citrus vinaigrette",
+        "Pan-seared scallops with beurre blanc"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 48-52°F (9-11°C)",
+        "decanting": "Not required; brief aeration in glass will integrate oak and fruit",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Calitzdorp, Klein Karoo, South Africa",
+        "grapeVariety": "100% Sauvignon Blanc (Fumé Blanc style with oak)",
+        "vintage": "2023",
+        "style": "Oak-influenced Sauvignon Blanc with added texture and complexity",
+        "ageability": "Best enjoyed within 2-4 years; drink now through 2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mauro Molino Barolo Conca 2020",
+      "description": "This single-vineyard Barolo from the Conca vineyard showcases Mauro Molino's commitment to terroir expression in La Morra. The 2020 vintage produced wines of exceptional quality with aromatic complexity and structural balance. A distinguished Barolo from one of the commune's finest producers, displaying both power and elegance.",
+      "tastingNotes": {
+        "aroma": "The nose reveals profound complexity with aromas of red cherry, strawberry, and rose petal, layered with tar, truffle, and dried violets—classic Barolo signatures. Secondary notes of leather, tobacco, licorice, and Chinese five-spice emerge with air. Subtle mineral notes of crushed rock and iron add depth, while refined oak influences contribute vanilla and cinnamon. The aromatic profile is intense yet elegant, showcasing La Morra's hallmark finesse.",
+        "palate": "Full-bodied with commanding structure softened by La Morra's characteristic elegance. Flavors of sour cherry, cranberry, and blood orange are complemented by savory notes of earth, mushroom, white truffle, and tobacco. The tannins are firm and structured but finely textured, providing architectural support for extended aging. Vibrant acidity cuts through the wine's concentration, creating freshness and lift. Mid-palate complexity includes anise, dried rose, and tea notes.",
+        "finish": "The finish is very long and persistent with structured tannins that grip firmly yet elegantly. Evolving flavors of cherry, earth, spice, and minerality continue to unfold. A chalky, mineral texture and mouthwatering acidity invite contemplation and rich food pairing."
+      },
+      "foodPairings": [
+        "Braised beef with Barolo reduction",
+        "Tajarin pasta with white truffle",
+        "Brasato al Barolo (beef braised in Barolo)",
+        "Aged Castelmagno or Parmigiano-Reggiano",
+        "Roasted game birds with porcini"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-66°F (17-19°C)",
+        "decanting": "Decant for 2-3 hours to soften tannins and reveal full complexity",
+        "glassware": "Large Burgundy or Barolo-specific glass"
+      },
+      "wineDetails": {
+        "region": "Barolo DOCG, La Morra (Conca vineyard), Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2020",
+        "style": "Single-vineyard Barolo with extended aging (38+ months, 18 in oak)",
+        "ageability": "Exceptional aging potential; drink 2027-2045, optimal 2030-2040"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dominique Portet Sauvignon Blanc 2020",
+      "description": "This Sauvignon Blanc from Dominique Portet showcases the Yarra Valley's cooler climate style with balance and restraint. The French-trained winemaker brings Burgundian sensibility to Australian viticulture, creating wines of elegance and precision. A refined expression that bridges Old and New World styles.",
+      "tastingNotes": {
+        "aroma": "The nose presents elegant aromas of citrus blossom, grapefruit, and green apple with subtle tropical hints of passionfruit. Notes of fresh herbs, lemongrass, and flint add complexity, while a distinct mineral quality provides structure. The aromatic profile shows restraint and balance, avoiding overt tropical exuberance in favor of European-style elegance.",
+        "palate": "Medium-bodied with focused acidity and a precise, mineral-driven character. Flavors of citrus—lemon, lime, and grapefruit—dominate, with supporting notes of green apple, white peach, and subtle passionfruit. The wine displays excellent tension between fruit and acidity with a flinty, stony minerality adding complexity. Mid-palate depth is enhanced by herbal notes and a clean, crisp texture.",
+        "finish": "The finish is clean, refreshing, and moderately long with persistent citrus and mineral notes. Crisp acidity leaves the palate cleansed and invigorated."
+      },
+      "foodPairings": [
+        "Freshly shucked oysters",
+        "Grilled prawns with herb butter",
+        "Goat cheese and herb salad",
+        "Steamed mussels with white wine",
+        "Sushi and sashimi"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly from refrigerator",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Yarra Valley, Victoria, Australia",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2020",
+        "style": "Cool-climate, mineral-driven Australian Sauvignon Blanc",
+        "ageability": "Best enjoyed relatively young; drink now through 2026"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Collina San Ponzio Nebbiolo D Alba 2023",
+      "description": "This young Nebbiolo d'Alba from Collina San Ponzio offers an approachable introduction to Piedmont's noble grape variety. While less intense than Barolo or Barbaresco, Nebbiolo d'Alba captures the variety's essential character with bright fruit and structured tannins. An excellent entry point to understanding Nebbiolo at a compelling price.",
+      "tastingNotes": {
+        "aroma": "The nose reveals classic Nebbiolo aromatics of red cherry, strawberry, and rose petal, with emerging notes of tar, violet, and dried herbs. Subtle hints of leather, tea, and crushed rock minerality add complexity despite the wine's youth. The aromatic profile is fresh and floral with moderate intensity, showcasing Nebbiolo's characteristic elegance.",
+        "palate": "Medium-bodied with firm, grippy tannins and high acidity that are hallmarks of Nebbiolo. Flavors of sour cherry, cranberry, and pomegranate dominate, complemented by savory notes of earth, dried flowers, and a hint of orange peel. The tannins are structured but more approachable than those of Barolo, while vibrant acidity provides lift and freshness. Mid-palate shows good depth with notes of tea, anise, and subtle spice.",
+        "finish": "The finish is moderately long with persistent cherry and floral notes. Firm tannins and refreshing acidity create a mouthwatering conclusion that pairs excellently with food."
+      },
+      "foodPairings": [
+        "Mushroom risotto with Parmigiano",
+        "Roasted chicken with herbs",
+        "Pasta with tomato-based meat sauce",
+        "Vitello tonnato",
+        "Semi-aged cheeses like Fontina or young Toma"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-64°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to soften tannins",
+        "glassware": "Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Nebbiolo d'Alba DOC, Piedmont, Italy",
+        "grapeVariety": "100% Nebbiolo",
+        "vintage": "2023",
+        "style": "Approachable Nebbiolo with moderate aging",
+        "ageability": "Drink now through 2030; best within 5-7 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Two Mountain Hidden Horse Red No. 21",
+      "description": "This proprietary red blend from Two Mountain Winery in Washington's Yakima Valley represents the winery's creative approach to blending. The 'Hidden Horse' designation suggests a reserve-level wine crafted from select vineyard blocks. A distinctive Washington red showcasing the state's growing reputation for Bordeaux and Rhône-style blends.",
+      "tastingNotes": {
+        "aroma": "The nose presents rich aromas of dark cherry, blackberry, and plum, with notes of vanilla, mocha, and sweet oak spice. Secondary aromas of dried herbs, tobacco, and a hint of chocolate add complexity. Subtle hints of violet and black pepper suggest Syrah in the blend, while cassis and cedar point to Bordeaux varieties. The aromatic profile is concentrated and inviting.",
+        "palate": "Full-bodied with plush tannins and balanced acidity. Flavors of ripe dark fruit—blackberry, black cherry, and plum—dominate, complemented by notes of dark chocolate, espresso, and vanilla from oak aging. The wine displays good concentration with layers of spice, earth, and dried fruit. Mid-palate richness is balanced by sufficient structure and a hint of Washington's characteristic bright fruit character.",
+        "finish": "The finish is long and satisfying with lingering notes of dark fruit, chocolate, and oak spice. Smooth tannins and a pleasant warmth create a generous, mouth-filling conclusion."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Braised short ribs",
+        "Roasted lamb with rosemary",
+        "Aged cheddar or Gouda",
+        "Wild mushroom and beef Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-66°F (17-19°C)",
+        "decanting": "Decant for 45-60 minutes to integrate flavors",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Yakima Valley, Washington State",
+        "grapeVariety": "Red blend (likely Syrah, Cabernet Sauvignon, Merlot, or similar)",
+        "vintage": "Non-vintage blend (No. 21 indicates batch/blend number)",
+        "style": "Full-bodied Washington red blend",
+        "ageability": "Drink now through 2030; best within 5-8 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Chateau Josephine Mourvedre Mevushal (MD & DC) 2023",
+      "description": "This kosher Mevushal Mourvèdre from Chateau Josephine offers a distinctive expression of this Rhône variety with certification for observant consumers. The 'Mevushal' process indicates flash-pasteurization while maintaining wine quality. A rare varietal bottling of Mourvèdre showcasing the grape's earthy, structured character.",
+      "tastingNotes": {
+        "aroma": "The nose reveals aromas of dark berry fruits including blackberry, black raspberry, and blueberry, characteristic of Mourvèdre. Notes of garrigue (dried Mediterranean herbs), black pepper, and game add complexity. Subtle hints of leather, earth, and violet emerge, along with a touch of oak-derived vanilla and spice. The aromatic profile shows Mourvèdre's signature wild, rustic character.",
+        "palate": "Medium to full-bodied with firm tannins and moderate acidity. Flavors of dark berries dominate, complemented by savory notes of earth, dried herbs, black olive, and cured meat. The wine displays Mourvèdre's characteristic gamey, rustic quality balanced by ripe fruit. Mid-palate shows good depth with layers of spice, chocolate, and a hint of tobacco.",
+        "finish": "The finish is moderately long with persistent dark fruit and earthy notes. Firm tannins and a pleasant rusticity create a satisfying, food-friendly conclusion."
+      },
+      "foodPairings": [
+        "Grilled lamb kebabs with herbs",
+        "Braised beef with Provençal herbs",
+        "Duck cassoulet",
+        "Hard sheep's milk cheeses",
+        "Grilled vegetables with olive tapenade"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-65°F (17-18°C)",
+        "decanting": "Decant for 30-45 minutes to soften and integrate",
+        "glassware": "Medium to large red wine glass"
+      },
+      "wineDetails": {
+        "region": "Certified kosher production (likely California or international)",
+        "grapeVariety": "100% Mourvèdre (Monastrell)",
+        "vintage": "2023",
+        "style": "Mevushal kosher Mourvèdre with earthy, structured character",
+        "ageability": "Drink now through 2030; best within 5-7 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:24:00.000Z"
+      }
+    }
+  ]
+}

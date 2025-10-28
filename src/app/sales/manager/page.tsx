@@ -9,6 +9,7 @@ import TerritoryDrilldownModal from "./components/TerritoryDrilldownModal";
 import PerformanceComparison from "./components/PerformanceComparison";
 import RevenueForecast from "./components/RevenueForecast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { formatCurrency, formatNumber } from "@/lib/utils/format";
 
 export default function ManagerDashboardPage() {
   const [managerData, setManagerData] = useState<any>(null);
@@ -73,27 +74,27 @@ export default function ManagerDashboardPage() {
                 <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   <p className="text-sm font-medium text-gray-600">Total Revenue (All-Time)</p>
                   <p className="mt-2 text-3xl font-bold text-gray-900">
-                    ${managerData.teamStats?.allTimeRevenue?.toLocaleString() || 0}
+                    {formatCurrency(Number(managerData.teamStats?.allTimeRevenue ?? 0))}
                   </p>
                   <p className="mt-1 text-sm text-gray-500">
-                    This week: ${managerData.teamStats?.totalRevenue?.toLocaleString() || 0}
+                    This week: {formatCurrency(Number(managerData.teamStats?.totalRevenue ?? 0))}
                   </p>
                 </div>
 
                 <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   <p className="text-sm font-medium text-gray-600">Total Customers</p>
                   <p className="mt-2 text-3xl font-bold text-gray-900">
-                    {managerData.teamStats?.totalCustomers || 0}
+                    {formatNumber(Number(managerData.teamStats?.totalCustomers ?? 0))}
                   </p>
                   <p className="mt-1 text-sm text-gray-500">
-                    {managerData.teamStats?.activeCustomers || 0} active this week
+                    {formatNumber(Number(managerData.teamStats?.activeCustomers ?? 0))} active this week
                   </p>
                 </div>
 
                 <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   <p className="text-sm font-medium text-gray-600">At-Risk Customers</p>
                   <p className="mt-2 text-3xl font-bold text-orange-600">
-                    {managerData.teamStats?.atRiskCustomers || 0}
+                    {formatNumber(Number(managerData.teamStats?.atRiskCustomers ?? 0))}
                   </p>
                   <p className="mt-1 text-sm text-gray-500">Require attention</p>
                 </div>
@@ -101,7 +102,7 @@ export default function ManagerDashboardPage() {
                 <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
                   <p className="text-sm font-medium text-gray-600">Team Activities</p>
                   <p className="mt-2 text-3xl font-bold text-blue-600">
-                    {managerData.teamStats?.totalActivities || 0}
+                    {formatNumber(Number(managerData.teamStats?.totalActivities ?? 0))}
                   </p>
                   <p className="mt-1 text-sm text-gray-500">This week</p>
                 </div>

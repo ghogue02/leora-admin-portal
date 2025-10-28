@@ -1,0 +1,350 @@
+{
+  "enrichedWines": [
+    {
+      "productId": "",
+      "productName": "Hendry HRW Cabernet Sauvignon 2022",
+      "description": "A Napa Valley Cabernet from Hendry Winery, known for estate-grown fruit and traditional winemaking. The HRW designation represents their core Cabernet offering with excellent value for Napa quality.",
+      "tastingNotes": {
+        "aroma": "Rich with blackcurrant, dark cherry, and cassis. Notes of cedar, vanilla, and mocha from oak aging. Subtle eucalyptus and herbal complexity.",
+        "palate": "Full-bodied with structured tannins and balanced acidity. Concentrated dark fruit with layers of chocolate, tobacco, and spice. Elegant Napa character.",
+        "finish": "Long finish with persistent fruit and fine-grained tannins."
+      },
+      "foodPairings": [
+        "Grilled ribeye",
+        "Roasted lamb",
+        "Aged cheddar",
+        "Beef short ribs",
+        "Dark chocolate"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "45-60 minutes recommended",
+        "glassware": "Large Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2022",
+        "style": "Full-bodied Napa Cabernet",
+        "ageability": "Drink now through 2035."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oliver Viticultors Sadurni Cuvee Barrica 2018",
+      "description": "A barrel-aged red wine from Oliver Viticultors in Catalonia's Penedès region. The 'Barrica' designation indicates oak aging, adding complexity to indigenous Spanish varieties.",
+      "tastingNotes": {
+        "aroma": "Ripe with dark fruit, vanilla, and toast from barrel aging. Notes of Mediterranean herbs, earth, and subtle spice.",
+        "palate": "Full-bodied with soft tannins from age. Dark fruit flavors with oak influence showing vanilla, coconut, and toast. Balanced with savory complexity.",
+        "finish": "Medium to long finish with integrated oak and fruit."
+      },
+      "foodPairings": [
+        "Grilled meats",
+        "Manchego cheese",
+        "Roasted vegetables",
+        "Beef stew",
+        "Spanish tapas"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "30 minutes recommended",
+        "glassware": "Red wine glass"
+      },
+      "wineDetails": {
+        "region": "Penedès, Catalonia, Spain",
+        "grapeVariety": "Blend of Catalan varieties (likely Tempranillo, Garnacha, Cabernet)",
+        "vintage": "2018",
+        "style": "Oak-aged red blend",
+        "ageability": "Drink now through 2026."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine de la Villaudiere Sancerre Rouge 2019",
+      "description": "A rare red Sancerre from the Loire Valley, made from Pinot Noir. While Sancerre is famous for Sauvignon Blanc, red Sancerre showcases elegant, mineral-driven Pinot with Loire terroir.",
+      "tastingNotes": {
+        "aroma": "Elegant with red cherry, raspberry, and cranberry. Floral notes and earthy undertones. Subtle mineral character from limestone soils.",
+        "palate": "Medium-bodied with silky tannins and bright acidity. Pure red fruit with pronounced minerality and earthy complexity. Refined and delicate Loire character.",
+        "finish": "Long, mineral-driven finish with persistent fruit and fine tannins."
+      },
+      "foodPairings": [
+        "Grilled salmon",
+        "Roasted chicken",
+        "Goat cheese",
+        "Mushroom dishes",
+        "Light game"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool",
+        "decanting": "30 minutes recommended",
+        "glassware": "Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Sancerre, Loire Valley, France",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2019",
+        "style": "Elegant, mineral-driven red Pinot Noir",
+        "ageability": "Drink now through 2027."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rangel Ranch Cabernet Sauvignon 2020",
+      "description": "A California Cabernet Sauvignon from Rangel Ranch, showcasing ripe fruit character and approachable style with quality oak integration.",
+      "tastingNotes": {
+        "aroma": "Bold with blackberry, cassis, and dark cherry. Vanilla, mocha, and cedar from oak aging. Subtle herbal notes.",
+        "palate": "Full-bodied with moderate tannins. Concentrated dark fruit with chocolate, coffee, and spice. Smooth and approachable.",
+        "finish": "Medium to long finish with lingering fruit and oak spice."
+      },
+      "foodPairings": [
+        "Grilled steak",
+        "Burgers",
+        "Aged cheeses",
+        "Beef tacos",
+        "BBQ ribs"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "30-45 minutes",
+        "glassware": "Cabernet glass"
+      },
+      "wineDetails": {
+        "region": "California (specific region not disclosed)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2020",
+        "style": "Full-bodied Cabernet",
+        "ageability": "Drink now through 2028."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alella Mayla NV",
+      "description": "A non-vintage wine from the historic Alella DO near Barcelona, offering consistent quality and Mediterranean character year after year.",
+      "tastingNotes": {
+        "aroma": "Fresh with citrus, white flowers, and subtle herbal notes. Clean Mediterranean character.",
+        "palate": "Medium-bodied with crisp acidity. Citrus and orchard fruit with mineral backbone. Refreshing and balanced.",
+        "finish": "Clean finish with lingering citrus."
+      },
+      "foodPairings": [
+        "Seafood",
+        "Paella",
+        "Soft cheeses",
+        "Light pasta",
+        "Mediterranean cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Alella DO, Catalonia, Spain",
+        "grapeVariety": "Blend of indigenous Catalan varieties",
+        "vintage": "NV",
+        "style": "Crisp Mediterranean white",
+        "ageability": "Drink young and fresh."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Carinena Castillo Ducay Rosado 2018",
+      "description": "A rosé from the Cariñena DO in Aragón, Spain. This wine has some age, developing additional complexity beyond typical young rosé character.",
+      "tastingNotes": {
+        "aroma": "Mature with dried strawberry, orange peel, and subtle earthy notes from age. Gentle floral character.",
+        "palate": "Medium-bodied with softened acidity. Evolved red berry fruit with savory complexity. Shows development from aging.",
+        "finish": "Medium finish with lingering fruit and earthy notes."
+      },
+      "foodPairings": [
+        "Grilled meats",
+        "Spanish tapas",
+        "Aged cheeses",
+        "Paella",
+        "Mediterranean salads"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Cariñena DO, Aragón, Spain",
+        "grapeVariety": "Likely Garnacha (Grenache)",
+        "vintage": "2018",
+        "style": "Aged rosé with developed character",
+        "ageability": "Drink now. Fully mature."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.76,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Charlie and Echo Woah Jake 2021",
+      "description": "A playfully named wine from Charlie and Echo, likely showcasing creative winemaking and approachable character. The whimsical name suggests a fun, accessible wine.",
+      "tastingNotes": {
+        "aroma": "Fruit-forward and inviting with ripe berry aromas. Approachable and clean.",
+        "palate": "Medium-bodied with soft tannins. Juicy fruit flavors with balanced acidity. Easy-drinking and food-friendly.",
+        "finish": "Smooth finish with lingering fruit."
+      },
+      "foodPairings": [
+        "Pizza",
+        "Burgers",
+        "Casual dining",
+        "Cheese boards",
+        "Grilled meats"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "20 minutes",
+        "glassware": "Standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Not specified",
+        "grapeVariety": "Red blend (specific varieties not disclosed)",
+        "vintage": "2021",
+        "style": "Approachable red blend",
+        "ageability": "Drink now through 2026."
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.68,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ontanon Blanco Viura 2020",
+      "description": "A white Rioja from Ontañón made from Viura (Macabeo), Rioja's traditional white grape. This wine showcases the crisp, fresh character of quality white Rioja.",
+      "tastingNotes": {
+        "aroma": "Fresh with citrus, green apple, and white flowers. Subtle herbal notes and minerality.",
+        "palate": "Medium-bodied with crisp acidity. Citrus and orchard fruit with mineral backbone. Clean and refreshing.",
+        "finish": "Clean finish with lingering citrus and subtle almond notes."
+      },
+      "foodPairings": [
+        "Grilled fish",
+        "Seafood paella",
+        "Soft cheeses",
+        "Salads",
+        "Light tapas"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "None needed",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja, Spain",
+        "grapeVariety": "100% Viura (Macabeo)",
+        "vintage": "2020",
+        "style": "Crisp white Rioja",
+        "ageability": "Drink now through 2025."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Central Valley Mapuche Sauvignon Blanc 2019",
+      "description": "A Chilean Sauvignon Blanc from the Central Valley, showcasing bright fruit character and refreshing acidity at an accessible price point.",
+      "tastingNotes": {
+        "aroma": "Aromatic with grapefruit, lime, and passion fruit. Herbaceous notes of cut grass and green pepper.",
+        "palate": "Medium-bodied with crisp acidity. Citrus and tropical fruit with herbaceous character. Refreshing and balanced.",
+        "finish": "Clean, zesty finish with lingering citrus."
+      },
+      "foodPairings": [
+        "Ceviche",
+        "Grilled fish",
+        "Goat cheese salad",
+        "Sushi",
+        "Chicken with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "None needed",
+        "glassware": "Sauvignon Blanc glass"
+      },
+      "wineDetails": {
+        "region": "Central Valley, Chile",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2019",
+        "style": "Crisp, aromatic Sauvignon Blanc",
+        "ageability": "Drink now through 2024."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Castoro Cellars Red Wine Can 250 ml",
+      "description": "A canned red wine from Castoro Cellars, offering portability and convenience for outdoor activities and casual drinking. The 250ml can format is perfect for picnics, beaches, and events.",
+      "tastingNotes": {
+        "aroma": "Fruit-forward with ripe berry aromas. Approachable and clean.",
+        "palate": "Medium-bodied with soft tannins. Juicy red fruit flavors. Easy-drinking and refreshing.",
+        "finish": "Smooth finish with lingering fruit."
+      },
+      "foodPairings": [
+        "Picnic fare",
+        "Barbecue",
+        "Burgers",
+        "Pizza",
+        "Casual outdoor dining"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly chilled",
+        "decanting": "None needed; serve from can",
+        "glassware": "Can or casual wine glass"
+      },
+      "wineDetails": {
+        "region": "California (likely Paso Robles)",
+        "grapeVariety": "Red blend (specific varieties not disclosed)",
+        "vintage": "Not specified",
+        "style": "Canned red wine for casual consumption",
+        "ageability": "Drink fresh; meant for immediate consumption."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.79,
+        "researchedAt": "2025-10-21T14:22:00Z"
+      }
+    }
+  ],
+  "batchInfo": {
+    "batchNumber": 117,
+    "totalWines": 10,
+    "completedAt": "2025-10-21T14:22:00Z",
+    "averageConfidence": 0.80
+  }
+}

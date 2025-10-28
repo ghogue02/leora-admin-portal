@@ -1,0 +1,347 @@
+{
+  "batchId": 103,
+  "processedAt": "2025-10-21T14:25:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Tagua Tagua Chardonnay 2022",
+      "description": "This Chilean Chardonnay from the Tagua Tagua Valley offers vibrant fruit flavors with balanced acidity in an approachable style. The valley's Mediterranean climate produces ripe, expressive wines with good freshness. A well-crafted expression of Chilean white wine at an excellent value.",
+      "tastingNotes": {
+        "aroma": "The nose presents bright aromas of golden apple, ripe pear, and citrus blossom, with hints of tropical fruit including pineapple and mango. Subtle notes of vanilla and butter from oak contact add complexity, while mineral undertones provide freshness. Light floral notes and a touch of honey round out the aromatic profile.",
+        "palate": "Medium-bodied with a creamy texture balanced by crisp acidity. Flavors of apple, pear, and stone fruit dominate, with supporting notes of citrus, vanilla, and a hint of toasted hazelnut. The oak treatment is moderate, adding texture without overwhelming the fruit. Mid-palate richness is balanced by refreshing acidity and subtle minerality.",
+        "finish": "The finish is clean and moderately long with lingering notes of apple and citrus. A pleasant creaminess coats the palate while bright acidity keeps the wine fresh."
+      },
+      "foodPairings": [
+        "Grilled chicken with lemon butter",
+        "Pan-seared sea bass",
+        "Creamy risotto with mushrooms",
+        "Mild cheeses like Brie or young Gouda",
+        "Shrimp scampi with garlic"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 48-52°F (9-11°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Tagua Tagua Valley, Colchagua, Chile",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Medium-bodied Chilean Chardonnay with moderate oak",
+        "ageability": "Best within 2-4 years; drink now through 2026"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg Chenin Blanc (White and Blue Label) 2024",
+      "description": "This South African Chenin Blanc from Backsberg Estate showcases one of the country's signature varieties with fresh, vibrant fruit character. Backsberg's commitment to sustainable farming produces expressive wines that capture the essence of Paarl's terroir. A classic expression of South African white wine at exceptional value.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with aromas of green apple, quince, and pear, characteristic of quality Chenin Blanc. Notes of honeysuckle, chamomile, and citrus blossom add floral complexity. Subtle hints of wet stone minerality and fresh herbs provide depth, while a touch of honeyed richness suggests ripe fruit.",
+        "palate": "Medium-bodied with bright, zesty acidity that energizes the palate. Flavors of crisp apple, pear, and citrus dominate, complemented by notes of white peach, melon, and a hint of tropical fruit. The wine displays excellent balance between fruit ripeness and refreshing acidity, with a subtle mineral quality adding complexity. Mid-palate shows surprising depth with flavors of almond and light honey.",
+        "finish": "The finish is clean, refreshing, and moderately long with persistent fruit and mineral notes. Crisp acidity leaves the palate cleansed and invigorated."
+      },
+      "foodPairings": [
+        "Grilled prawns with lemon",
+        "Chicken korma or mild curry",
+        "Fresh salads with citrus vinaigrette",
+        "Goat cheese and crackers",
+        "Fish tacos with mango salsa"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly from refrigerator",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Paarl, Western Cape, South Africa",
+        "grapeVariety": "100% Chenin Blanc",
+        "vintage": "2024",
+        "style": "Fresh, vibrant South African Chenin Blanc",
+        "ageability": "Best enjoyed young; drink within 2-3 years, ideally by 2026-2027"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Raywood White Zinfandel 2019",
+      "description": "This White Zinfandel from Raywood offers a refreshing, off-dry style popularized in California with bright fruit flavors and approachable character. The rosé-style wine showcases Zinfandel's fruit-forward nature in a lighter format. A versatile, easy-drinking wine perfect for casual occasions.",
+      "tastingNotes": {
+        "aroma": "The nose presents fresh aromas of strawberry, watermelon, and raspberry, with hints of citrus and floral notes. Light candy-like sweetness emerges alongside subtle melon and peach aromatics. The profile is straightforward and fruit-driven.",
+        "palate": "Light-bodied with refreshing acidity balanced by gentle sweetness. Flavors of strawberry, watermelon, and red berries dominate, with supporting notes of citrus and a hint of peach. The wine maintains a crisp, clean character despite the off-dry style. Mid-palate shows simple fruit flavors without complexity.",
+        "finish": "The finish is short and clean with lingering berry flavors and a touch of sweetness. Refreshing acidity provides balance."
+      },
+      "foodPairings": [
+        "Fresh fruit salad",
+        "Light cheese and crackers",
+        "Chicken Caesar salad",
+        "Grilled fish tacos",
+        "Spicy Asian cuisine"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 40-45°F (4-7°C)",
+        "decanting": "Not required; serve ice-cold",
+        "glassware": "Standard white wine or casual stemware"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "100% Zinfandel (made in rosé style)",
+        "vintage": "2019",
+        "style": "Off-dry, light-bodied White Zinfandel",
+        "ageability": "Best enjoyed young; drink within 1-2 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Wonderment Wines Pritchett's Peak Rockpile Zinfandel 2018",
+      "description": "This single-vineyard Zinfandel from the elevated Rockpile AVA represents one of California's most distinctive terroirs for the variety. The mountain vineyard's rocky soils and extreme conditions produce concentrated, complex wines with remarkable structure. A premium expression of Zinfandel showcasing terroir-driven intensity.",
+      "tastingNotes": {
+        "aroma": "The nose reveals intense aromas of blackberry, black raspberry, and boysenberry, with complex layers of black pepper, dried herbs, and garrigue. Notes of vanilla, mocha, and cedar from oak aging add depth, while hints of graphite minerality reflect the rocky terroir. Subtle aromatics of violet, star anise, and sun-dried tomato emerge with air.",
+        "palate": "Full-bodied with concentrated fruit and firm, structured tannins uncommon in Zinfandel. Flavors of ripe dark berries dominate, complemented by notes of black pepper, dark chocolate, espresso, and dried Mediterranean herbs. The mountain fruit provides excellent acidity and a distinct mineral edge that balances the wine's power. Mid-palate complexity includes flavors of licorice, tobacco, and savory spice.",
+        "finish": "The finish is long and persistent with structured tannins and lingering notes of dark fruit, spice, and minerality. A distinctive rocky character and firm backbone showcase the wine's mountain pedigree."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with peppercorn crust",
+        "Braised lamb shanks with rosemary",
+        "Wild boar or venison stew",
+        "Aged cheddar or Gouda",
+        "BBQ beef brisket"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 63-67°F (17-19°C)",
+        "decanting": "Decant for 1-2 hours to soften and integrate",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Rockpile AVA, Sonoma County, California",
+        "grapeVariety": "100% Zinfandel from Pritchett's Peak Vineyard",
+        "vintage": "2018",
+        "style": "Mountain-grown, structured Zinfandel with aging potential",
+        "ageability": "Drink now through 2032; optimal 2025-2030"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sonder Field Blend 2021",
+      "description": "This field blend from Sonder represents the traditional practice of co-fermenting multiple varieties grown together in the same vineyard. The approach creates wines of complexity and balance that reflect a holistic expression of terroir. An intriguing, artisanal wine showcasing old-world winemaking philosophy.",
+      "tastingNotes": {
+        "aroma": "The nose presents a complex aromatic profile of red and dark fruits including cherry, plum, and blackberry, layered with notes of dried herbs, violet, and earth. Subtle spice notes of black pepper and clove emerge, along with hints of leather and tobacco. The blend creates aromatic intrigue that is difficult to pin to a single variety.",
+        "palate": "Medium to full-bodied with integrated tannins and balanced acidity. Flavors of mixed red and dark berries are complemented by savory notes of earth, dried herbs, and subtle oak spice. The co-fermentation creates textural complexity and seamless integration of flavors. Mid-palate shows layers of fruit, spice, and earthy notes that evolve with each sip.",
+        "finish": "The finish is moderately long with persistent fruit and earthy notes. Soft tannins and balanced structure create a harmonious, food-friendly conclusion."
+      },
+      "foodPairings": [
+        "Roasted mixed meats",
+        "Wild mushroom risotto",
+        "Grilled lamb with herbs",
+        "Charcuterie board with variety",
+        "Aged cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 60-65°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to integrate flavors",
+        "glassware": "Universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (artisanal production)",
+        "grapeVariety": "Field blend of multiple co-fermented varieties",
+        "vintage": "2021",
+        "style": "Medium to full-bodied artisanal field blend",
+        "ageability": "Drink now through 2028; best within 5-7 years"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry Blocks 7 & 22 Zinfandel 2019 (375 ml)",
+      "description": "This half-bottle Zinfandel from Hendry's specific vineyard blocks showcases precision winemaking with fruit from distinguished sites. The block designation indicates exceptional quality from select parcels in Napa Valley. A premium, single-vineyard Zinfandel in a convenient format for intimate occasions.",
+      "tastingNotes": {
+        "aroma": "The nose reveals rich aromas of blackberry jam, dark cherry, and blueberry, with notes of black pepper, baking spices, and vanilla. Complex secondary aromas of mocha, dark chocolate, and cedar emerge from oak aging. Hints of dried herbs, violet, and a touch of graphite add layers of intrigue.",
+        "palate": "Full-bodied with lush, ripe fruit and well-integrated tannins. Flavors of concentrated dark berries dominate, complemented by notes of dark chocolate, espresso, cinnamon, and sweet oak. The wine displays classic Napa Zinfandel richness with excellent balance and structure. Mid-palate complexity includes flavors of fig, licorice, and tobacco.",
+        "finish": "The finish is long and satisfying with persistent dark fruit, chocolate, and spice notes. Smooth tannins and a pleasant warmth create a generous conclusion."
+      },
+      "foodPairings": [
+        "BBQ ribs with smoky sauce",
+        "Grilled lamb chops",
+        "Beef short ribs",
+        "Strong cheeses like aged cheddar",
+        "Dark chocolate desserts"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 63-67°F (17-19°C)",
+        "decanting": "Decant for 45-60 minutes to integrate",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California (Blocks 7 & 22)",
+        "grapeVariety": "100% Zinfandel from specific vineyard blocks",
+        "vintage": "2019",
+        "style": "Full-bodied, premium Napa Zinfandel",
+        "ageability": "Drink now through 2029; optimal drinking window"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hertelendy Cabernet Sauvignon 2021",
+      "description": "This Cabernet Sauvignon from Hertelendy showcases the variety's classic character with ripe fruit and structured tannins. The wine represents careful viticulture and winemaking focused on varietal expression. A well-crafted Cabernet offering excellent quality and character.",
+      "tastingNotes": {
+        "aroma": "The nose presents aromas of blackcurrant, black cherry, and plum, with notes of cedar, tobacco, and graphite. Oak influences add vanilla, toast, and a hint of mocha. Subtle herbal notes of eucalyptus and dried herbs provide complexity, while a touch of violet adds elegance.",
+        "palate": "Full-bodied with firm, structured tannins and balanced acidity. Flavors of blackberry, cassis, and dark cherry dominate, complemented by notes of dark chocolate, espresso, and sweet oak spice. The wine displays classic Cabernet structure with layers of fruit and savory elements. Mid-palate depth includes flavors of tobacco, leather, and cedar.",
+        "finish": "The finish is long with persistent dark fruit and oak notes. Firm tannins and balanced structure create a satisfying, age-worthy conclusion."
+      },
+      "foodPairings": [
+        "Grilled ribeye or New York strip",
+        "Roasted lamb with rosemary",
+        "Beef Wellington",
+        "Aged hard cheeses",
+        "Wild mushroom and truffle dishes"
+      ],
+      "servingInfo": {
+        "temperature": "Serve at 62-66°F (17-19°C)",
+        "decanting": "Decant for 1 hour to soften tannins",
+        "glassware": "Large Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely California or international)",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2021",
+        "style": "Full-bodied, structured Cabernet Sauvignon",
+        "ageability": "Drink now through 2031; optimal 2025-2029"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Roots Divino NA Blanco Vermouth NV",
+      "description": "This non-alcoholic white vermouth from Roots Divino offers the complex, herbal character of traditional vermouth without alcohol. The wine-based aperitif features botanical aromatics and balanced sweetness. An innovative option for those seeking sophisticated flavors without alcohol content.",
+      "tastingNotes": {
+        "aroma": "The nose presents aromatic complexity with notes of botanicals including wormwood, chamomile, and citrus peel. Herbal notes of thyme, sage, and mint emerge, along with floral hints and a touch of honey. The aromatic profile is reminiscent of traditional white vermouth.",
+        "palate": "Light to medium-bodied with balanced sweetness and herbal bitterness. Flavors of citrus, honey, and various botanicals create a complex taste profile. The wine displays vermouth's characteristic bitter-sweet balance with notes of herbs, spices, and dried flowers. Mid-palate shows good depth despite the absence of alcohol.",
+        "finish": "The finish is moderately long with lingering herbal and citrus notes. A pleasant bitterness and aromatic complexity create an aperitif-worthy conclusion."
+      },
+      "foodPairings": [
+        "Enjoyed as an aperitif with olives",
+        "Light appetizers and canapés",
+        "Citrus-based salads",
+        "Soft cheeses",
+        "Seafood cocktails"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 40-45°F (4-7°C) or over ice",
+        "decanting": "Not required; serve directly with ice and citrus",
+        "glassware": "Rocks glass or coupe"
+      },
+      "wineDetails": {
+        "region": "Non-alcoholic production",
+        "grapeVariety": "Wine-based with botanical infusions",
+        "vintage": "Non-vintage (NV)",
+        "style": "Non-alcoholic white vermouth with botanical character",
+        "ageability": "Best enjoyed fresh; use within 1 year of opening"
+      },
+      "metadata": {
+        "source": "generic",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Costers Del Segre Petit Sios Blanco 2022",
+      "description": "This white wine from Costers del Segre DO showcases Catalonia's inland wine region with fresh, aromatic character. The region's continental climate with Mediterranean influences produces wines with bright acidity and distinctive character. An expressive Spanish white with regional typicity.",
+      "tastingNotes": {
+        "aroma": "The nose presents aromas of green apple, citrus, and white flowers, with notes of fresh herbs and a touch of minerality. Hints of stone fruit including peach and apricot add complexity, while a subtle almond character suggests native varieties. The aromatic profile is fresh and vibrant.",
+        "palate": "Medium-bodied with crisp acidity and clean fruit flavors. Notes of apple, citrus, and stone fruit dominate, complemented by herbal undertones and mineral notes. The wine displays good balance between fruit ripeness and refreshing acidity. Mid-palate shows depth with subtle nut and herb flavors.",
+        "finish": "The finish is clean and moderately long with persistent citrus and mineral notes. Crisp acidity leaves the palate refreshed."
+      },
+      "foodPairings": [
+        "Grilled white fish",
+        "Paella or seafood rice",
+        "Fresh salads with vinaigrette",
+        "Manchego cheese",
+        "Tapas and light appetizers"
+      ],
+      "servingInfo": {
+        "temperature": "Serve chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Costers del Segre DO, Catalonia, Spain",
+        "grapeVariety": "Likely Macabeo, Chardonnay, or regional blend",
+        "vintage": "2022",
+        "style": "Fresh, crisp Catalan white wine",
+        "ageability": "Best enjoyed young; drink within 2-3 years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Orchard Lane Riesling 2023",
+      "description": "This Riesling from Orchard Lane showcases the variety's characteristic aromatics with balance between fruit sweetness and refreshing acidity. The wine offers an approachable expression of Riesling's versatile character. A food-friendly white wine with bright fruit and clean finish.",
+      "tastingNotes": {
+        "aroma": "The nose reveals classic Riesling aromatics of lime, green apple, and white flowers, with notes of honeysuckle and citrus blossom. Subtle hints of petroleum and wet stone add complexity, while a touch of honey suggests ripe fruit. The aromatic profile is fresh and inviting.",
+        "palate": "Light to medium-bodied with electric acidity and bright fruit flavors. Notes of lime, green apple, and stone fruit dominate, with supporting flavors of honey and citrus. The wine displays Riesling's characteristic tension between sweetness and acidity, creating excellent balance. Mid-palate shows good depth with mineral notes.",
+        "finish": "The finish is clean and refreshing with persistent citrus and mineral notes. Crisp acidity and a hint of sweetness create a harmonious conclusion."
+      },
+      "foodPairings": [
+        "Spicy Asian cuisine",
+        "Grilled chicken with fruit salsa",
+        "Fresh seafood and sushi",
+        "Soft cheeses like Brie",
+        "Apple-based desserts"
+      ],
+      "servingInfo": {
+        "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+        "decanting": "Not required; serve directly",
+        "glassware": "Medium white wine glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely Washington, New York, or California)",
+        "grapeVariety": "100% Riesling",
+        "vintage": "2023",
+        "style": "Off-dry to semi-sweet Riesling",
+        "ageability": "Best within 3-5 years; drink now through 2028"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-21T14:25:00.000Z"
+      }
+    }
+  ]
+}

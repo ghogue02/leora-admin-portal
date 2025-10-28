@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 74,
+  "completedAt": "2025-10-20T00:00:00Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Endhardt Vineyards Lower Block Sauvignon Blanc 2022",
+      "description": "From Virginia's acclaimed Endhardt Vineyards, this Lower Block Sauvignon Blanc showcases the unique terroir of its cooler, shaded vineyard site at lower elevation. Produced entirely in stainless steel, the wine expresses the vibrancy and minerality that comes from grapes facing colder temperatures and less sun exposure compared to its Upper Block counterpart.",
+      "tastingNotes": {
+        "aroma": "The nose presents brilliant expressions of fresh citrus with pronounced lemongrass and lime zest. Bright green herbal notes emerge, reminiscent of freshly cut grass and green bell pepper, complemented by delicate white flower aromatics. The cooler growing conditions impart a distinctive mineral quality, with hints of wet stone and chalky undertones that add complexity to the crisp aromatic profile.",
+        "palate": "On the palate, this wine delivers exceptional brightness and precision, showcasing the elevated acidity characteristic of the Lower Block's cooler terroir. Vibrant lemon and grapefruit flavors dominate, layered with subtle notes of green apple and gooseberry. The mouthfeel is refreshing and clean, with a steely minerality that runs through the mid-palate. The stainless steel fermentation preserves the wine's natural vivacity, creating a pure, unadorned expression of Virginia Sauvignon Blanc.",
+        "finish": "The finish is crisp and elongated, with lingering notes of citrus peel and fresh herbs. A persistent mineral quality carries through to the end, leaving the palate refreshed and ready for the next sip. The wine's natural high acidity provides excellent structure and ensures a clean, mouth-watering conclusion."
+      },
+      "foodPairings": [
+        "Fresh oysters on the half shell with mignonette",
+        "Grilled rockfish with lemon and herbs",
+        "Goat cheese salad with arugula and citrus vinaigrette",
+        "Steamed mussels in white wine and garlic",
+        "Fresh spring vegetable risotto"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well chilled",
+        "decanting": "No decanting necessary; serve directly from the bottle to preserve freshness and effervescence",
+        "glassware": "Standard white wine glass or Sauvignon Blanc-specific tulip glass"
+      },
+      "wineDetails": {
+        "region": "Loudoun County, Virginia",
+        "grapeVariety": "100% Sauvignon Blanc",
+        "vintage": "2022",
+        "style": "Crisp, mineral-driven white wine",
+        "ageability": "Best enjoyed within 2-3 years of vintage to preserve its fresh, vibrant character. Drink now through 2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Cabernet Sauvignon 2015",
+      "description": "Crafted by renowned winemaker Gyles Webb of Thelema Mountain Vineyards, Sutherland represents a cool-climate expression of Cabernet Sauvignon from South Africa's Elgin Valley. This small-scale project demonstrates how cooler temperatures can create elegant, aromatic Cabernet with exceptional freshness alongside classic varietal character.",
+      "tastingNotes": {
+        "aroma": "The wine opens with super-aromatic intensity, displaying a compelling bouquet of dark mulled fruits and pure cassis. Pronounced black currant aromas merge with crushed red currants, creating a vibrant berry spectrum. Subtle notes of cedar and cigar box emerge from the French oak aging, while delicate floral perfume adds an unexpected layer of complexity. The nose suggests both power and refinement, with dark fruit concentration balanced by cool-climate elegance.",
+        "palate": "Medium-bodied with awesome freshness, this Cabernet delivers super-bright, crystal-clear fruit flavors that showcase the Elgin terroir. The palate opens with refreshing sweet fruit and ripe tannins, offering flavors of dark cherry, blackcurrant, and cassis. Layers of vanilla from oak aging interweave with herbal notes and a subtle tomato leaf character. The wine's moderate alcohol (13.5%) and natural acidity create remarkable balance, while the tannin structure remains refined and integrated despite the wine's youth.",
+        "finish": "The finish is wiry and high-toned with moderate tartness that keeps the palate engaged. Dark fruit flavors persist alongside notes of tobacco and cedar, extending the wine's length considerably. The resolved tannins provide structure without heaviness, culminating in an elegant, lifted conclusion that speaks to the wine's cool-climate origins."
+      },
+      "foodPairings": [
+        "Grilled venison with juniper berry reduction",
+        "Roasted leg of lamb with rosemary and garlic",
+        "Aged Gouda or mature cheddar cheese",
+        "Pan-seared duck breast with cherry compote",
+        "Mushroom and beef Wellington"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C), slightly below room temperature",
+        "decanting": "Decant for 1-2 hours before serving to allow the wine to open and tannins to soften",
+        "glassware": "Large Bordeaux-style glass to allow aromas to develop"
+      },
+      "wineDetails": {
+        "region": "Elgin Valley, Western Cape, South Africa",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2015",
+        "style": "Cool-climate, elegant red wine",
+        "ageability": "Drink now through 2028. Currently at peak maturity but will continue to develop complexity over the next 3 years. Cellaring potential of 10+ years from vintage."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine des Perrelles Moulin a Vent 2020",
+      "description": "From the prestigious Moulin-à-Vent cru in Beaujolais, Domaine des Perrelles crafts this exceptional Gamay from 60+ year-old vines. Produced by the Perrachon family, this wine represents the power and structure that Moulin-à-Vent is famous for, earning its nickname as the 'King of Beaujolais' for wines that can age gracefully like fine Burgundy.",
+      "tastingNotes": {
+        "aroma": "The wine presents a deep ruby color with captivating aromatics of red fruit compote, featuring ripe cherry and wild strawberry. Classic Beaujolais floral notes of iris and faded rose emerge delicately, adding elegance to the fruit-forward profile. Subtle earthy undertones provide depth, while hints of violet and fresh peach create an intoxicating, complex bouquet. The 12 months of oak foudre aging contributes gentle spice notes without overwhelming the wine's natural aromatics.",
+        "palate": "Round and well-structured on the palate, this wine showcases the power that defines Moulin-à-Vent. Concentrated flavors of succulent stone fruits and ripe cherries form the core, framed by vibrant acidity and earthy minerality. The texture is wonderfully structured with soft, delectable tannins that wrap around the fruit. Licorice and floral notes add complexity, while the old vines contribute depth and concentration. At 13% alcohol, the wine maintains balance and drinkability despite its intensity.",
+        "finish": "The finish reveals discreet, pleasant tannins that provide structure without astringency. Quite complex, the wine lingers with flavors of red fruit, earth, and delicate spice. The refined tannin structure and persistent minerality create a sophisticated, age-worthy conclusion that distinguishes this from lighter Beaujolais styles."
+      },
+      "foodPairings": [
+        "Coq au vin with pearl onions and mushrooms",
+        "Roasted chicken with herbs de Provence",
+        "Grilled salmon with tarragon butter",
+        "Mushroom and truffle risotto",
+        "Soft-ripened cheeses like Camembert or Brie"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), lightly chilled",
+        "decanting": "Decant for 30-45 minutes to allow the wine to breathe and tannins to soften",
+        "glassware": "Burgundy glass or standard red wine glass"
+      },
+      "wineDetails": {
+        "region": "Moulin-à-Vent, Beaujolais, France",
+        "grapeVariety": "100% Gamay from 60+ year-old vines",
+        "vintage": "2020",
+        "style": "Structured, age-worthy Beaujolais cru",
+        "ageability": "Drink now through 2030. This wine has the structure to age gracefully for 5-10 years, developing tertiary complexity while maintaining its fruit character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alella Mayla 2022",
+      "description": "Alella Vinícola's Mayla is a distinctive sparkling rosé crafted using the ancestral method (méthode ancestrale) from Syrah grapes grown in the small, coastal D.O. Alella region near Barcelona. This organic wine represents a modern interpretation of traditional winemaking, where fermentation continues naturally in the bottle without added yeasts or sugars, creating gentle effervescence and authentic fruit expression.",
+      "tastingNotes": {
+        "aroma": "The wine displays a vibrant pink hue with fine, persistent bubbles. The nose opens with fresh red berry aromatics, featuring wild strawberry and raspberry. Delicate floral notes of rose petals emerge, characteristic of Syrah's aromatic profile. Subtle herbal hints and a touch of minerality from the coastal terroir add complexity. The ancestral method preserves the wine's natural fruit purity, creating an honest, unmanipulated aromatic expression.",
+        "palate": "Fresh and very tasty with a natural sparkling point that creates gentle effervescence rather than aggressive bubbles. The palate showcases bright red fruit flavors of strawberry, cherry, and cranberry with excellent natural acidity that keeps the wine lively and refreshing. A subtle yeasty character from aging on fine lees adds texture and depth without heaviness. The organic viticulture shines through in the wine's pure, clean fruit expression. Light-bodied and energetic, the wine maintains balance between fruit sweetness and crisp acidity.",
+        "finish": "The finish is clean and refreshing with lingering red fruit notes and a hint of pleasant bitterness that adds complexity. The gentle bubbles persist through the finish, leaving the palate invigorated. A subtle mineral quality emerges at the end, reflecting the gravelly soils and coastal influence of the Alella region."
+      },
+      "foodPairings": [
+        "Spanish tapas including patatas bravas and croquetas",
+        "Grilled prawns with garlic and lemon",
+        "Fresh strawberry and arugula salad",
+        "Light seafood paella",
+        "Charcuterie with Serrano ham and Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well chilled",
+        "decanting": "No decanting required; serve directly from the bottle to preserve bubbles",
+        "glassware": "Champagne flute or tulip-shaped sparkling wine glass"
+      },
+      "wineDetails": {
+        "region": "D.O. Alella, Catalonia, Spain",
+        "grapeVariety": "87% Syrah, 13% Pansa Blanca (from organic vineyards)",
+        "vintage": "2022",
+        "style": "Ancestral method sparkling rosé (Pét-Nat)",
+        "ageability": "Best enjoyed within 1-2 years of release to preserve freshness and lively bubbles. Drink now through 2024."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rueda Isabelino Blanco 2022",
+      "description": "Produced by Bodega Reina de Castilla in Spain's renowned Rueda region, Isabelino Blanco showcases the versatility and aromatic intensity of Verdejo, Spain's signature white grape. This wine represents modern Rueda winemaking, emphasizing fresh fruit expression and vibrant acidity while honoring the region's centuries-old tradition of producing distinctive white wines.",
+      "tastingNotes": {
+        "aroma": "Medium straw in color with brilliant clarity and greenish reflections suggesting youth and vivacity. The wine delivers an absolute bouquet of tropical and stone fruit aromatics including apricot, nectarine, and ripe pear. Vibrant notes of cantaloupe and guava add exotic character, while delicate white flower nuances provide elegance. Subtle hints of fennel and lemongrass contribute herbaceous complexity, and a distinctive minerality reminiscent of wet shale emerges, reflecting Rueda's unique terroir.",
+        "palate": "The palate opens smooth and balanced with refreshing acidity that makes the wine incredibly pleasant and easy to drink. Lively flavors mirror the aromatic profile, featuring peach, honeydew melon, and stone fruit supported by zesty citrus notes. A mild honeyed character lends subtle sweetness without being cloying, while the wine's bright acidity provides structure and lift. The texture is round yet fit, with medium body and excellent balance. Herbaceous notes of fennel and fresh grass add dimension to the fruit-forward profile.",
+        "finish": "The finish is round and smooth with persistent fruit flavors and a hint of pleasant bitterness around the edges that adds complexity and interest. The wine's natural acidity leaves the palate refreshed and clean, while subtle mineral notes linger. The conclusion is medium-length and satisfying, inviting another sip with its balanced structure and vibrant character."
+      },
+      "foodPairings": [
+        "Grilled white fish with herb butter",
+        "Spanish tortilla with aioli",
+        "Shrimp ceviche with avocado and cilantro",
+        "Roasted chicken with lemon and thyme",
+        "Fresh goat cheese with honey and almonds"
+      ],
+      "servingInfo": {
+        "temperature": "46-50°F (8-10°C), well chilled",
+        "decanting": "No decanting necessary; serve directly from the bottle",
+        "glassware": "Standard white wine glass or aromatic white wine glass"
+      },
+      "wineDetails": {
+        "region": "D.O. Rueda, Castilla y León, Spain",
+        "grapeVariety": "Verdejo with Viura (blend percentage varies by vintage)",
+        "vintage": "2022",
+        "style": "Fresh, aromatic Spanish white wine",
+        "ageability": "Best enjoyed young to preserve aromatic intensity and fresh fruit character. Drink now through 2025."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ngeringa Summit Estate Pinot Noir 2021",
+      "description": "From the cool-climate Adelaide Hills region of South Australia, Ngeringa's Summit Estate Pinot Noir represents a unique expression of terroir-driven winemaking. Produced with biodynamic farming principles and minimal intervention, this wine includes 10% whole bunch fermentation and gentle hand-plunging to create a Pinot Noir with distinctive earthy complexity and authentic character.",
+      "tastingNotes": {
+        "aroma": "The wine presents a murky, blood-red color that speaks to its unfiltered, natural production. The nose offers an intoxicating mix of bright raspberry and glacé red fruits, layered with a mulchy dark earth note that adds depth and intrigue. Subtle floral hints emerge alongside a slight volatile lift that adds energy and complexity. The aromatic profile suggests both fruit purity and earthy authenticity, creating a distinctly Australian Pinot expression.",
+        "palate": "This is a wonderfully expressive Pinot with a sense of realness that sets it apart. The palate layers blood and bone elements with tomato juice acidity, rhubarb tartness, and pure raspberry fruit. Sweet-sour fruit flavors create dynamic tension, while keen floral overtones add elegance. Garden herb notes and earthy, beetroot-like characters contribute savory complexity. Though light to medium-bodied, the wine has impressive length and spread, with flavors expanding across the palate. The texture shows excellent refinement despite the wine's natural, unfiltered character.",
+        "finish": "A chewy edge provides momentum through the finish, carrying the wine's complex flavors forward. The conclusion is surprisingly lengthy for such a delicate wine, with earthy minerality and red fruit notes persisting. The wine's natural acidity keeps the finish fresh and lifted, while subtle tannins provide gentle structure. This is a finish that rewards contemplation, revealing new nuances with each sip."
+      },
+      "foodPairings": [
+        "Duck breast with cherry gastrique",
+        "Mushroom and truffle pasta",
+        "Roasted beets with goat cheese and walnuts",
+        "Grilled salmon with dill and capers",
+        "Soft, washed-rind cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), lightly chilled",
+        "decanting": "Decant for 30-60 minutes to allow earthy notes to integrate and fruit to blossom",
+        "glassware": "Burgundy glass or large-bowled Pinot Noir glass"
+      },
+      "wineDetails": {
+        "region": "Adelaide Hills, South Australia",
+        "grapeVariety": "100% Pinot Noir (90% destemmed, 10% whole bunch)",
+        "vintage": "2021",
+        "style": "Natural, earthy, cool-climate Pinot Noir",
+        "ageability": "Drink now through 2026. Best enjoyed over the next 5 years while maintaining its vibrant fruit character and earthy complexity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.95,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Ontanon Gran Reserva 2005",
+      "description": "Bodegas Ontañón's Gran Reserva represents the pinnacle of traditional Rioja winemaking, with the 2005 vintage showcasing nearly two decades of aging and development. This wine exemplifies the classic Rioja style, balancing fruit concentration with extended oak aging and bottle maturation to create a wine of remarkable complexity and elegance.",
+      "tastingNotes": {
+        "aroma": "Dark red in color with no signs of bricking despite its age, suggesting excellent cellaring conditions. The nose opens with leathery cherry and dark plum aromas, complemented by classic aged Rioja notes of old leather and cigar box. Hints of tobacco leaf emerge alongside a burnt, roasted quality from extended oak aging. Subtle spice notes and vanilla add sweetness to the complex aromatic profile, while a savory, meaty character speaks to the wine's maturity.",
+        "palate": "The wine feels healthy and lively despite its age, with snappy acidity providing excellent structure. Flavors of dried herbs, vanilla, and tobacco interweave with sun-dried tomato, red currant, and leather. The palate shows remarkable balance, with fruit concentration matching the savory, tertiary development. Dark fruit notes of cherry and plum persist beneath layers of oak-derived complexity. The wine's moderate alcohol and vibrant acidity create a surprisingly fresh drinking experience for a wine of this age.",
+        "finish": "The finish is wiry and high-toned with moderate tartness that adds lift and energy. Tobacco and oak spice notes carry through, along with persistent red fruit and leather. The length is impressive, extending well beyond the swallow with layers of complexity. Tannins are still present though fading, providing gentle structure without astringency. This is an elegant, refined conclusion that showcases the grace of well-aged Rioja."
+      },
+      "foodPairings": [
+        "Slow-roasted lamb shoulder with rosemary",
+        "Aged Manchego or Mahon cheese",
+        "Wild mushroom and truffle risotto",
+        "Beef tenderloin with red wine reduction",
+        "Duck confit with roasted root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C), just below room temperature",
+        "decanting": "Decant carefully for 1 hour to separate any sediment and allow the wine to breathe",
+        "glassware": "Large Bordeaux or Rioja-specific glass"
+      },
+      "wineDetails": {
+        "region": "DOCa Rioja, Spain",
+        "grapeVariety": "Tempranillo with Graciano (traditional Rioja blend)",
+        "vintage": "2005",
+        "style": "Traditional Gran Reserva Rioja with extended aging",
+        "ageability": "At peak maturity now. Drink now through 2027. The wine has been aging for nearly 20 years and should be enjoyed in the near term while it retains its vibrancy."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.93,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Frico Rose (NOVA only) 2023",
+      "description": "Scarpetta's Frico Rosato is a light-bodied Italian rosé crafted from indigenous Tuscan grape varieties including Sangiovese, Canaiolo, and Ciliegiolo. This approachable wine showcases the natural high acidity and bright fruit character of these traditional varieties, creating a versatile rosé perfect for casual occasions and warm-weather drinking.",
+      "tastingNotes": {
+        "aroma": "The wine presents a delicate salmon-pink color with brilliant clarity. The nose opens with vibrant aromas of fresh cherry and wild strawberry, complemented by subtle red currant notes. Herbaceous undertones add complexity, featuring hints of fresh basil, Mediterranean herbs, and a touch of white pepper. The wine's natural aromatic purity reflects minimal intervention winemaking, with no oak influence to obscure the varietals' inherent characteristics.",
+        "palate": "Crisp and refreshing on the palate, the wine delivers bright tart cherry flavors at its core, supported by strawberry and cranberry notes. The herbaceous character from the nose carries through, adding savory complexity to the fruit-forward profile. Natural high acidity creates excellent structure and makes this an incredibly food-friendly wine. Light-bodied and clean, the wine shows no residual sweetness, instead offering a bone-dry profile that emphasizes freshness and drinkability. The texture is smooth and uncomplicated, perfect for casual enjoyment.",
+        "finish": "The finish is clean and refreshing with lingering tart cherry and herbal notes. The wine's crisp acidity leaves the palate cleansed and ready for food, while subtle mineral notes add interest. Medium-length with no heaviness or sweetness, the conclusion invites another sip with its pure, straightforward character."
+      },
+      "foodPairings": [
+        "Margherita pizza with fresh basil",
+        "Prosciutto and melon",
+        "Grilled vegetable platter with balsamic",
+        "Caprese salad with heirloom tomatoes",
+        "Light pasta with cherry tomatoes and olive oil"
+      ],
+      "servingInfo": {
+        "temperature": "45-48°F (7-9°C), well chilled",
+        "decanting": "No decanting necessary; serve directly from the bottle",
+        "glassware": "Standard white wine glass or all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "Tuscany, Italy",
+        "grapeVariety": "Sangiovese, Canaiolo, and Ciliegiolo blend",
+        "vintage": "2023",
+        "style": "Light-bodied, crisp Italian rosé",
+        "ageability": "Best enjoyed young and fresh. Drink now through 2025 to capture the wine's vibrant fruit and crisp acidity."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Stel + Mar Rose (DC, MD, and Southern VA Only) NV",
+      "description": "Stel+Mar Premium Rosé is a sustainably produced California rosé that has earned critical acclaim despite its accessible price point. Rated 91 points by Wine Writers' Circle of Canada and named a 'Best Buy' by Wine Enthusiast, this wine demonstrates that quality rosé doesn't require luxury pricing. Sourced from sustainable vineyards across California's Central and North Coasts, it offers exceptional value and drinkability.",
+      "tastingNotes": {
+        "aroma": "The wine displays an attractive pale pink hue with copper highlights. The nose opens with beautiful stone fruit aromatics, particularly peach and apricot, creating an inviting, fruit-forward impression. Delicate strawberry notes emerge alongside the stone fruit, adding red berry complexity. Subtle herbal undertones provide depth, with hints of fresh herbs and wildflowers contributing to the wine's aromatic elegance. The aromatic profile suggests both richness and refinement.",
+        "palate": "Beautifully dry on the palate, this wine balances stone fruit richness with refreshing acidity. Flavors of ripe peach and apricot form the core, complemented by bright strawberry and subtle cranberry notes. The wine's herbal undertones add savory complexity, preventing the fruit from becoming one-dimensional. The acidity is perfectly judged—refreshing without being sharp—creating excellent balance and drinkability. Medium-bodied for a rosé, the wine shows more substance than typical summer rosés while maintaining elegance and food-friendliness.",
+        "finish": "The finish is crisp and satisfying with lingering stone fruit and strawberry notes. Refreshing acidity carries through to the end, cleansing the palate and maintaining energy. Subtle herbal notes persist, adding complexity to the conclusion. The wine finishes completely dry with medium length, leaving the palate refreshed and eager for food or another sip."
+      },
+      "foodPairings": [
+        "Grilled shrimp skewers with herb marinade",
+        "Summer salad with peaches and burrata",
+        "Grilled salmon with citrus glaze",
+        "Mediterranean mezze platter",
+        "Roasted chicken with stone fruit salsa"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well chilled",
+        "decanting": "No decanting required; serve directly from the bottle",
+        "glassware": "Standard white wine glass or all-purpose wine glass"
+      },
+      "wineDetails": {
+        "region": "California Central and North Coasts",
+        "grapeVariety": "California rosé blend (specific varieties not disclosed)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Dry, fruit-forward California rosé",
+        "ageability": "Designed for immediate enjoyment. Drink upon purchase to capture freshness and vibrant fruit character."
+      },
+      "metadata": {
+        "source": "exact-match",
+        "confidence": 0.92,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Armstrong Family Winery Syrah 2019",
+      "description": "Armstrong Family Winery, based in Walla Walla, Washington, crafts exceptional Syrah that showcases the distinctive terroir of Washington State's premier wine regions. Drawing on fruit from select vineyards, their Syrah demonstrates the variety's ability to produce wines of elegance and complexity in Washington's continental climate, balancing power with finesse.",
+      "tastingNotes": {
+        "aroma": "The wine opens with enticing aromatics of dark berry fruits, featuring prominent boysenberry, blueberry, and ripe raspberry. Warm baking spices emerge, including cinnamon, clove, and black pepper, adding complexity and intrigue. A distinctive hint of Mediterranean olive provides savory depth, while subtle notes of cured meat and smoked bacon from oak aging create additional layers. Floral hints of violet appear delicately in the background, characteristic of quality Syrah.",
+        "palate": "On the palate, the wine delivers rich, concentrated dark fruit flavors with boysenberry and blackberry at the core. Black cherry and black currant add depth, while the baking spice character from the nose carries through beautifully. Notes of cedar and tobacco emerge mid-palate, evidence of careful oak integration. The wine shows excellent balance between fruit concentration and savory elements, with the olive and herb notes adding complexity. Medium to full-bodied, the texture is smooth and refined with well-integrated tannins that provide structure without harshness.",
+        "finish": "The finish reveals subtle, rich cherry notes that pick up warm baking spice and a hint of menthol, creating a refreshing lift. Cedar and tobacco flavors persist, adding sophistication to the conclusion. The tannins are present but refined, suggesting good aging potential while remaining approachable now. The wine's length is impressive, with flavors evolving and extending well beyond the swallow."
+      },
+      "foodPairings": [
+        "Grilled lamb chops with rosemary and garlic",
+        "Braised short ribs with red wine reduction",
+        "Wild boar ragu with pappardelle",
+        "Smoked brisket with barbecue sauce",
+        "Aged blue cheese or sharp cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C), slightly below room temperature",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and integrate",
+        "glassware": "Large Syrah or Rhône-style glass"
+      },
+      "wineDetails": {
+        "region": "Washington State (likely Walla Walla Valley or Horse Heaven Hills)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2019",
+        "style": "Full-bodied, elegant Washington State Syrah",
+        "ageability": "Drink now through 2029. The wine is currently approachable but has the structure to age gracefully for 5-10 years, developing tertiary complexity."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00Z"
+      }
+    }
+  ]
+}

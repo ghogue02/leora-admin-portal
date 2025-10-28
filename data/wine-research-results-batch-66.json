@@ -1,0 +1,347 @@
+{
+  "batchId": "batch-66",
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Hertelendy Signature Mountain Blend (12 pk) 2017",
+      "description": "Hertelendy's Signature Mountain Blend represents a carefully crafted expression from high-elevation vineyards, showcasing the intense concentration and structural complexity that mountain-grown grapes provide. This 2017 vintage displays remarkable depth and integration, with the seven years of development bringing forward tertiary aromatics and silky tannin refinement.",
+      "tastingNotes": {
+        "aroma": "The nose opens with profound layers of dark berry compote, blackcurrant, and wild blueberry, interwoven with sophisticated notes of cedar box, tobacco leaf, and graphite minerality. As the wine breathes, nuanced hints of dried lavender, black tea, and sweet pipe smoke emerge, creating an aromatic tapestry that speaks to both mountain terroir and careful cellar aging. A subtle whisper of vanilla and baking spice from oak integration adds further complexity without overwhelming the fruit.",
+        "palate": "On the palate, this wine delivers concentrated flavors of ripe black plum, cassis, and dark cherry preserve, supported by a firm yet refined tannic backbone that provides excellent structure. The mid-palate reveals layers of cocoa powder, espresso, and forest floor earthiness, while bright mountain acidity keeps the wine vibrant and focused. The wine's full body is balanced by elegant restraint, showing the precision of mountain viticulture where cool nights preserve freshness even in ripe fruit.",
+        "finish": "The finish extends impressively, with persistent dark fruit flavors gradually giving way to savory notes of dried herbs, black pepper, and crushed stone minerality. Fine-grained tannins provide texture through the long conclusion, while a refreshing lift of acidity ensures the wine finishes clean and inviting for another sip."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb compound butter",
+        "Braised short ribs with root vegetables and red wine reduction",
+        "Aged cheddar or aged Gouda cheese",
+        "Wild mushroom risotto with truffle oil",
+        "Roasted lamb rack with rosemary and garlic"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open and integrate; the 2017 vintage has developed well but benefits from aeration to soften tannins and reveal aromatic complexity",
+        "glassware": "Large Bordeaux or Cabernet-style glass to concentrate aromatics and provide ample surface area for aeration"
+      },
+      "wineDetails": {
+        "region": "Mountain AVA (specific appellation varies by vineyard source)",
+        "grapeVariety": "Red blend (likely Cabernet Sauvignon-based with Merlot, Syrah, or Petite Sirah)",
+        "vintage": "2017",
+        "style": "Full-bodied mountain red blend",
+        "ageability": "Drinking beautifully now through 2030; the 2017 vintage is in its prime drinking window with potential for further development over the next 5 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Rueda Reina de Castilla Sauvignon Blanc 2015  1.5 l",
+      "description": "This magnum format Sauvignon Blanc from the esteemed Rueda region showcases the unique terroir of Spain's premier white wine appellation. The 2015 vintage, now approaching a decade of age, offers a fascinating perspective on how well-made Rueda Sauvignon Blanc can develop complexity and richness while maintaining its characteristic freshness.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents an intriguing evolution from typical young Sauvignon Blanc, showing honeyed white peach, dried apricot, and candied citrus peel alongside more developed notes of lanolin and wet stone. Fresh herbal elements of lemon verbena and white pepper mingle with subtle nutty oxidative notes that add depth without diminishing vitality. The continental climate influence is evident in the wine's aromatic intensity and mineral precision.",
+        "palate": "The palate delivers surprising weight and texture for Sauvignon Blanc, with flavors of ripe Anjou pear, yellow apple, and Meyer lemon curd balanced by Rueda's signature chalky minerality and refreshing acidity. The wine shows excellent phenolic maturity with a slightly waxy, lanolin-like texture that speaks to the 2015 vintage's warmth and the extended aging in magnum format. Subtle notes of toasted almond and dried flowers add complexity to the citrus-driven core.",
+        "finish": "The finish is clean and persistent, with vibrant citrus acidity cutting through the wine's riper fruit character and leaving a refreshing impression of lime zest and crushed chalk. The magnum aging has allowed for slow, graceful development, resulting in a wine that balances maturity with surprising freshness."
+      },
+      "foodPairings": [
+        "Grilled sea bass with salsa verde and roasted vegetables",
+        "Chicken saltimbocca with sage and prosciutto",
+        "Aged Manchego cheese with quince paste",
+        "Seafood paella with saffron and shellfish",
+        "Asparagus and goat cheese tart"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), slightly warmer than typical Sauvignon Blanc to appreciate the wine's developed complexity",
+        "decanting": "Brief decanting of 15-20 minutes can help integrate the mature elements and freshen the wine; handle gently as older whites can be fragile",
+        "glassware": "Medium-sized white Burgundy or Chardonnay glass to capture aromatic complexity while maintaining freshness"
+      },
+      "wineDetails": {
+        "region": "Rueda DO, Castilla y León, Spain",
+        "grapeVariety": "100% Sauvignon Blanc from the Rueda region's high-altitude, limestone-rich vineyards",
+        "vintage": "2015",
+        "style": "Dry white wine with moderate aging development; atypical aged Sauvignon Blanc",
+        "ageability": "At peak maturity now; the 2015 vintage should be consumed within the next 1-2 years to enjoy its evolved complexity before further oxidative development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Monte Real Crianza 2022",
+      "description": "Monte Real represents one of Rioja's most established and respected producers, and this 2022 Crianza showcases the house style of balance, elegance, and food-friendly structure. While unusually young for Crianza release (typically requiring minimum aging until the third year after harvest), this wine demonstrates the fresh, vibrant character of modern Rioja with classic oak aging.",
+      "tastingNotes": {
+        "aroma": "The nose reveals quintessential Rioja characteristics with bright red cherry, wild strawberry, and cranberry fruit layered with classic American oak signatures of vanilla pod, coconut, and sweet tobacco. Floral notes of violet and dried rose petals add elegance, while earthy undertones of leather, tea leaf, and subtle balsamic hints speak to the region's traditional winemaking. A whisper of white pepper and Mediterranean herbs adds complexity to the youthful fruit expression.",
+        "palate": "On the palate, this Crianza displays medium body with lively acidity that makes it immediately accessible and food-versatile. Flavors of tart red cherry, pomegranate, and red plum dominate, supported by fine-grained tannins that show the polish of oak aging without excessive extraction. The oak influence brings notes of cinnamon stick, vanilla cream, and a hint of dill, beautifully integrated with the fruit. A savory thread of dried tomato and mineral salinity runs through the mid-palate, adding dimension.",
+        "finish": "The finish is clean and refreshing with persistent red fruit character and a gentle grip of tannins that invite another sip. Subtle spice notes and a touch of bright acidity linger, while the oak influence provides structure without weight, exemplifying the elegant style Monte Real is known for throughout Rioja."
+      },
+      "foodPairings": [
+        "Jamón ibérico and aged Spanish cheeses",
+        "Roasted lamb chops with rosemary and garlic",
+        "Grilled chorizo with piquillo peppers",
+        "Patatas bravas and Spanish tapas selection",
+        "Mushroom and Manchego empanadas"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Light decanting of 20-30 minutes will help soften the youthful tannins and allow the oak and fruit to integrate; this young Crianza will benefit from brief aeration",
+        "glassware": "Medium-sized red wine glass or traditional Rioja copa to highlight the wine's aromatic complexity and balance"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "Tempranillo-dominant blend, likely with Garnacha and/or Graciano",
+        "vintage": "2022",
+        "style": "Crianza (aged minimum 12 months in oak, with at least 6 months in American oak barrels typical for Monte Real)",
+        "ageability": "Drinking well now through 2028; Crianza-level Rioja is designed for near-term enjoyment while developing savory complexity over the next few years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Mate Mania Cabernet Sauvignon IGT Toscana 2022",
+      "description": "Mate Mania's Cabernet Sauvignon represents a modern expression of this international variety in Tuscany's diverse terroir, where the variety thrives in warmer microclimates. This 2022 IGT Toscana offers approachable fruit-forward character with Tuscan personality, showcasing the region's ability to produce vibrant, contemporary wines alongside its traditional Sangiovese-based offerings.",
+      "tastingNotes": {
+        "aroma": "The nose bursts with exuberant aromas of ripe blackberry, cassis, and black cherry, accented by characteristic Cabernet notes of green bell pepper and fresh mint that speak to the variety's herbaceous character. Underlying Tuscan influences emerge with scents of dried Mediterranean herbs, sun-warmed earth, and a hint of wild fennel. Subtle oak integration brings whispers of vanilla and mocha, while the youthful 2022 vintage shows vibrant floral notes of violet alongside the concentrated fruit.",
+        "palate": "The palate is full and generous, showcasing the warmth of the 2022 Tuscan vintage with concentrated flavors of blackcurrant, ripe plum, and dark cherry compote. The wine's youth is evident in its fresh acidity and bright fruit character, while medium-plus tannins provide structure with a slightly grippy, textured mouthfeel. Tuscan terroir contributes earthy notes of dried sage, leather, and dusty minerality that complement the primary fruit, while judicious oak aging adds layers of sweet spice, cocoa, and a creamy mid-palate texture.",
+        "finish": "The finish shows good length with persistent dark fruit and a drying tannic grip that calls for food pairing. A pleasant herbal note of dried oregano and bay leaf lingers alongside the fruit, while bright acidity keeps the wine fresh and vibrant despite its full body."
+      },
+      "foodPairings": [
+        "Bistecca alla Fiorentina (Florentine T-bone steak)",
+        "Wild boar ragu with pappardelle pasta",
+        "Grilled portobello mushrooms with aged Pecorino",
+        "Herb-crusted rack of lamb with roasted vegetables",
+        "Aged Tuscan pecorino and salumi platter"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 30-45 minutes to soften the youthful tannins and allow the wine's layers to unfold; the 2022 vintage is quite young and will benefit significantly from aeration",
+        "glassware": "Large Cabernet Sauvignon or Bordeaux-style glass to concentrate the aromatic intensity and provide surface area for breathing"
+      },
+      "wineDetails": {
+        "region": "IGT Toscana (Tuscany), Italy - likely from warmer coastal areas or southern Tuscan zones where Cabernet Sauvignon excels",
+        "grapeVariety": "100% Cabernet Sauvignon (or Cabernet Sauvignon-dominant blend)",
+        "vintage": "2022",
+        "style": "Full-bodied modern Tuscan red with international varietal character",
+        "ageability": "Best consumed 2025-2030; the youthful 2022 vintage will develop additional complexity over the next few years as tannins soften and tertiary notes emerge"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Spicy Wings Tango with Me White NV",
+      "description": "Spicy Wings Tango with Me White is a playful, food-focused non-vintage white blend designed specifically to complement spicy cuisine and casual dining. The whimsical branding suggests an approachable, fun wine that doesn't take itself too seriously while delivering refreshing acidity and aromatic character to pair with bold, spicy flavors.",
+      "tastingNotes": {
+        "aroma": "The nose is immediately engaging with bright aromatics of fresh lime zest, green apple, and white grapefruit, creating an invigorating citrus-forward impression. Tropical hints of pineapple and lychee add exotic appeal, while subtle floral notes of jasmine and orange blossom contribute perfumed elegance. A whisper of fresh-cut grass and wet stone minerality provides an earthy counterpoint to the exuberant fruit, suggesting possible Sauvignon Blanc or Riesling influence in the blend.",
+        "palate": "The palate delivers crisp, refreshing flavors with mouthwatering acidity that's perfectly calibrated to cut through spicy foods and refresh the palate. Primary flavors include tart green apple, Meyer lemon, and white peach, with a subtle tropical undertone of passion fruit and guava adding depth. The wine shows light body with a slightly off-dry character (likely 5-10 g/L residual sugar) that provides just enough sweetness to tame heat while maintaining refreshing balance. A mineral salinity runs through the mid-palate, adding texture and interest.",
+        "finish": "The finish is clean and zippy with lingering citrus notes and bright acidity that leaves the palate refreshed and ready for another bite of spicy food. A subtle hint of sweetness persists alongside the citrus, while the wine's light body ensures it doesn't overwhelm lighter dishes."
+      },
+      "foodPairings": [
+        "Buffalo wings with blue cheese dressing (as the name suggests)",
+        "Thai green curry with chicken or shrimp",
+        "Korean fried chicken with gochujang sauce",
+        "Spicy tuna or salmon poke bowls",
+        "Jalapeño poppers and spicy appetizers"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C), well-chilled to emphasize refreshing character",
+        "decanting": "No decanting needed; serve directly from a well-chilled bottle to maintain freshness and effervescence if present",
+        "glassware": "Small to medium-sized white wine glass or casual tasting glass; this is a fun, informal wine"
+      },
+      "wineDetails": {
+        "region": "Likely California or international blend sourced for aromatic character and food versatility",
+        "grapeVariety": "White blend (likely Riesling, Sauvignon Blanc, Pinot Grigio, or similar aromatic varieties blended for balance)",
+        "vintage": "NV (Non-Vintage) - blended for consistency",
+        "style": "Off-dry aromatic white blend designed for spicy food pairing",
+        "ageability": "Drink now; non-vintage blends are crafted for immediate enjoyment and are best consumed within 1-2 years of purchase for optimal freshness"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Grateful Palate Bless Your Heart NV",
+      "description": "The Grateful Palate's Bless Your Heart represents a southern-spirited wine with charm and character, designed to bring joy and approachability to everyday drinking. The playful name suggests a wine that doesn't take itself too seriously while delivering quality and personality, likely showcasing fruit-forward character and smooth drinkability.",
+      "tastingNotes": {
+        "aroma": "The bouquet opens with welcoming aromas of ripe strawberry, fresh raspberry, and red cherry, creating an immediately approachable and friendly nose. Floral notes of rose petals and honeysuckle add southern charm, while subtle hints of watermelon candy and cotton candy suggest a slightly sweet profile. Underlying nuances of vanilla wafer and a whisper of white pepper add gentle complexity without diminishing the wine's easy-going nature.",
+        "palate": "On the palate, the wine delivers soft, fruit-forward flavors with gentle structure designed for broad appeal. Primary flavors include juicy red berries, sweet cherry, and hints of strawberry jam, balanced by modest acidity that keeps the wine from becoming cloying. A subtle sweetness (likely semi-sweet profile with noticeable residual sugar) makes this highly approachable for those new to wine or preferring softer styles. The texture is smooth and rounded with minimal tannins, creating a silky, easy-drinking mouthfeel.",
+        "finish": "The finish is gentle and fruit-driven with lingering berry flavors and a touch of sweetness that makes the wine comfortable and crowd-pleasing. Soft acidity provides enough lift to keep the wine refreshing, while the absence of harsh tannins or sharp edges ensures a smooth, pleasant conclusion."
+      },
+      "foodPairings": [
+        "Southern BBQ pulled pork sandwiches",
+        "Fried chicken with honey drizzle",
+        "Glazed ham with brown sugar and cloves",
+        "Berry cobbler or peach pie",
+        "Spicy buffalo wings or mild buffalo chicken dip"
+      ],
+      "servingInfo": {
+        "temperature": "50-55°F (10-13°C), slightly chilled to enhance refreshment",
+        "decanting": "No decanting necessary; serve directly from the bottle for casual enjoyment",
+        "glassware": "Standard wine glass or casual tumbler; this is an unpretentious, fun wine"
+      },
+      "wineDetails": {
+        "region": "Likely California or multi-regional American blend",
+        "grapeVariety": "Red blend (possibly including Zinfandel, Merlot, or other fruit-forward varieties blended for accessibility)",
+        "vintage": "NV (Non-Vintage)",
+        "style": "Semi-sweet, fruit-forward red blend designed for easy drinking and broad appeal",
+        "ageability": "Drink now; this style is crafted for immediate enjoyment and is best consumed within 1-2 years while the fruit remains vibrant"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.65,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Thelema Cabernet Sauvignon 2020",
+      "description": "Thelema Mountain Vineyards is one of Stellenbosch's most acclaimed estates, and their Cabernet Sauvignon represents a benchmark for South African expressions of this noble variety. The 2020 vintage benefits from ideal growing conditions in Stellenbosch, producing a wine of concentration, elegance, and distinctive Cape terroir character that rivals fine Bordeaux.",
+      "tastingNotes": {
+        "aroma": "The nose presents a sophisticated tapestry of classic Cabernet aromatics with distinctive Cape character: concentrated cassis, blackcurrant leaf, and ripe black plum mingle with eucalyptus, mint, and a distinctive fynbos herbal quality unique to South African terroir. Cedar, cigar box, and graphite minerality add gravitas, while underlying notes of black olive tapenade, espresso, and dark chocolate speak to the wine's complexity and careful oak aging. A lifted violet floral note adds elegance to the powerful fruit core.",
+        "palate": "The palate is structured and intense, showcasing the concentration the 2020 vintage afforded while maintaining Thelema's signature elegance and balance. Dense flavors of blackcurrant, cassis, and dark cherry are complemented by savory notes of black olive, roasted coffee bean, and dark cocoa powder. Firm yet refined tannins provide excellent architecture, while Stellenbosch's characteristic fresh acidity keeps the wine vibrant despite its power. The mountain origin is evident in the wine's mineral spine and restrained alcohol, with flavors of crushed stone and iron adding complexity to the fruit.",
+        "finish": "The finish is long and authoritative, with persistent dark fruit flavors gradually revealing layers of cedar, tobacco, and sweet spice. Fine-grained tannins provide textural interest through the extended conclusion, while bright acidity and minerality ensure the wine finishes fresh and balanced. This is a wine built for the cellar with all the components for graceful aging."
+      },
+      "foodPairings": [
+        "Grilled South African boerewors or lamb sosaties",
+        "Prime ribeye or New York strip steak with peppercorn sauce",
+        "Venison loin with juniper berry reduction",
+        "Aged hard cheeses like aged Gouda or Parmesan",
+        "Braised oxtail with red wine and root vegetables"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (16-18°C)",
+        "decanting": "Decant for at least 60-90 minutes before serving; the 2020 vintage is still quite youthful and will benefit significantly from extended aeration to soften tannins and reveal the wine's aromatic complexity",
+        "glassware": "Large Bordeaux or Cabernet Sauvignon glass to capture the wine's intense aromatics and provide ample surface area for breathing"
+      },
+      "wineDetails": {
+        "region": "Stellenbosch, Western Cape, South Africa (specifically from Thelema's mountain vineyards on the Simonsberg)",
+        "grapeVariety": "100% Cabernet Sauvignon from estate vineyards",
+        "vintage": "2020",
+        "style": "Full-bodied, age-worthy Cabernet Sauvignon in the classic Bordeaux style with distinctive Cape terroir",
+        "ageability": "Excellent cellaring potential; drink 2025-2040. The 2020 vintage is just beginning to enter its drinking window and will develop beautifully over the next 15-20 years"
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Rose 2024",
+      "description": "Zephaniah Rose 2024 represents a fresh, vibrant expression of rosé winemaking with the exuberance and energy of a just-released vintage. This wine embodies the modern approach to rosé—crisp, aromatic, and designed for immediate pleasure, perfect for warm weather enjoyment and versatile food pairing.",
+      "tastingNotes": {
+        "aroma": "The nose sparkles with vivacious aromas of fresh wild strawberries, watermelon, and white peach, creating an instantly appealing and summery bouquet. Delicate floral notes of rose petal, orange blossom, and white flowers add elegance, while subtle hints of fresh herbs like basil and tarragon provide a savory counterpoint. A whisper of pink grapefruit zest and crushed raspberries adds brightness, while underlying minerality suggests careful vineyard selection and gentle pressing techniques.",
+        "palate": "On the palate, this rosé delivers refreshing, mouthwatering character with vibrant acidity that makes it exceptionally food-friendly and thirst-quenching. Primary flavors include crisp strawberry, raspberry, and cranberry with undertones of nectarine and citrus peel. The wine shows light to medium body with a dry to off-dry profile, likely with minimal residual sugar to maintain elegance. A mineral salinity runs through the mid-palate, adding complexity and structure, while the wine's fresh, youthful character speaks to the just-released 2024 vintage.",
+        "finish": "The finish is clean and refreshing with persistent red berry notes and zingy acidity that leaves the palate invigorated. A subtle herbal quality and mineral edge linger alongside the fruit, while the wine's brightness invites another sip, making it dangerously easy to drink."
+      },
+      "foodPairings": [
+        "Grilled salmon with lemon and dill",
+        "Mediterranean mezze platter with hummus, falafel, and tabbouleh",
+        "Niçoise salad with seared tuna",
+        "Goat cheese and prosciutto flatbread",
+        "Summer berry salad with mint and feta"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled to emphasize refreshing character",
+        "decanting": "No decanting needed; rosé should be served fresh and cold directly from the bottle",
+        "glassware": "Medium-sized white wine glass or tulip-shaped rosé glass to capture delicate aromatics while maintaining cool temperature"
+      },
+      "wineDetails": {
+        "region": "Region varies by producer (could be California, Provence-style, or other quality rosé region)",
+        "grapeVariety": "Rosé blend (likely Grenache, Syrah, Mourvèdre, Pinot Noir, or similar varieties suitable for rosé production)",
+        "vintage": "2024",
+        "style": "Dry to off-dry rosé in the modern, refreshing style",
+        "ageability": "Drink now through 2026; rosé is best enjoyed young and fresh, ideally within 1-2 years of vintage to capture its vibrant fruit and lively acidity"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.70,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Oceano Pinot Noir 2021",
+      "description": "Oceano Pinot Noir captures the essence of coastal viticulture where ocean influences moderate temperatures and create ideal conditions for this finicky variety. The 2021 vintage showcases the elegant, aromatic character Pinot Noir achieves in maritime climates, with bright acidity, silky texture, and layers of red fruit complexity.",
+      "tastingNotes": {
+        "aroma": "The nose is quintessentially Pinot Noir with alluring aromatics of ripe red cherry, wild strawberry, and cranberry compote, accented by floral notes of rose petal and hibiscus tea. Coastal influences bring subtle maritime minerality and a whisper of sea salt, while earthy undertones of forest floor, mushroom, and damp soil add complexity. Subtle oak integration contributes hints of sandalwood, clove, and vanilla without overwhelming the delicate fruit, while a distinctive note of dried herbs and tea leaf speaks to the variety's savory side.",
+        "palate": "The palate is elegant and medium-bodied with the silky texture that defines well-made Pinot Noir. Bright flavors of red cherry, raspberry, and pomegranate dominate, supported by vibrant acidity that provides lift and freshness throughout. The wine shows excellent balance between fruit intensity and earthy complexity, with flavors of beetroot, black tea, and subtle truffle emerging in the mid-palate. Coastal influence is evident in the wine's bright, focused character and distinctive saline minerality that adds dimension to the red fruit core.",
+        "finish": "The finish is persistent and refined with lingering red fruit flavors and a gentle grip of fine-grained tannins. A savory quality of dried herbs and umami richness appears in the conclusion, while the wine's natural acidity keeps everything fresh and balanced. The coastal terroir signature of mineral salinity extends through the finish, leaving a clean, elegant impression."
+      },
+      "foodPairings": [
+        "Pan-seared duck breast with cherry gastrique",
+        "Grilled salmon with mushroom cream sauce",
+        "Roasted chicken with root vegetables and herbs",
+        "Mushroom and truffle risotto",
+        "Soft-ripened cheeses like Brie or Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "55-60°F (13-15°C), slightly cooler than bigger reds to preserve elegance",
+        "decanting": "Light decanting of 20-30 minutes can help open the wine's aromatics; Pinot Noir is delicate, so avoid excessive aeration",
+        "glassware": "Burgundy or Pinot Noir-specific glass with a wide bowl to capture the variety's aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Coastal region (likely California Central Coast, Sonoma Coast, or similar maritime-influenced appellation)",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2021",
+        "style": "Medium-bodied, elegant coastal Pinot Noir emphasizing finesse over power",
+        "ageability": "Drinking well now through 2028; the 2021 vintage is approaching its prime and will develop additional savory complexity over the next few years"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Chevallier Chablis 2022",
+      "description": "Domaine Chevallier's Chablis exemplifies the pure, mineral-driven expression of Chardonnay that has made this northern Burgundy appellation world-renowned. The 2022 vintage captures Chablis' signature steely character, with the region's ancient Kimmeridgian limestone soils imparting distinctive chalky minerality and razor-sharp precision to unoaked or lightly oaked Chardonnay.",
+      "tastingNotes": {
+        "aroma": "The nose is characteristically restrained yet complex, opening with aromas of green apple, fresh lemon, and white peach alongside pronounced mineral notes of wet stones, crushed oyster shell, and chalk dust that define classic Chablis. Delicate floral hints of white flowers and acacia blossom add elegance, while subtle notes of fresh herbs, lemon verbena, and a whisper of honeycomb speak to the wine's complexity. The maritime influence of Chablis' northerly location is evident in the wine's saline quality and bracing freshness.",
+        "palate": "The palate is taut, focused, and intensely mineral-driven with flavors of Granny Smith apple, Meyer lemon, and unripe pear balanced by Chablis' signature flinty minerality. Razor-sharp acidity provides structure and energy, cutting through with precision while showcasing the 2022 vintage's freshness and tension. The wine shows medium body with excellent phenolic texture—a slightly chalky, almost saline mouthfeel that adds dimension beyond simple fruit. Subtle notes of wet stone, iodine, and sea spray reinforce the terroir-driven character.",
+        "finish": "The finish is long, clean, and mineral-focused with persistent citrus notes and a pronounced saline quality that leaves the mouth watering. The wine's high acidity ensures a refreshing conclusion, while the distinctive chalk and limestone minerality lingers impressively, inviting contemplation and food pairing."
+      },
+      "foodPairings": [
+        "Freshly shucked oysters with mignonette",
+        "Poached sole or turbot with beurre blanc",
+        "Goat cheese crottin with honey and walnuts",
+        "Grilled prawns with garlic and parsley",
+        "Chicken in cream sauce with mushrooms (poulet à la crème)"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C), cool but not ice-cold to appreciate minerality and texture",
+        "decanting": "Brief decanting of 10-15 minutes can help open the wine's aromatics, though Chablis is typically enjoyed directly from the bottle; some aeration helps the 2022's youthful character",
+        "glassware": "Medium-sized white Burgundy glass to concentrate the delicate aromatics while allowing the wine to warm slightly in the glass"
+      },
+      "wineDetails": {
+        "region": "Chablis AOC, Burgundy, France (grown on ancient Kimmeridgian limestone soils)",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2022",
+        "style": "Classic unoaked or minimally oaked Chablis emphasizing terroir and minerality over fruit or oak",
+        "ageability": "Drinking well now through 2030; the 2022 vintage is youthful and vibrant, and will develop honeyed complexity and deeper mineral notes with 3-5 years of cellaring"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

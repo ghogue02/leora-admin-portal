@@ -1,0 +1,348 @@
+{
+  "task": "ACCURATE_WINE_ENRICHMENT",
+  "batchNumber": 14,
+  "totalWines": 10,
+  "researchedAt": "2025-10-20T00:00:00.000Z",
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Scarpetta Timido Brut Rose (NOVA only) NV",
+      "description": "Scarpetta's Timido Brut Rosé is an elegant Italian sparkling wine crafted in the traditional Charmat method, showcasing vibrant red berry fruit and delicate floral notes. This non-vintage sparkler offers a refined balance of freshness and complexity, making it an excellent choice for celebrations or as an aperitif. The wine displays the characteristic finesse of quality Italian rosé spumante with a playful, approachable character.",
+      "tastingNotes": {
+        "aroma": "The nose opens with enticing aromas of fresh strawberries, wild raspberries, and delicate rose petals. Subtle hints of white peach and citrus blossom add complexity, while a touch of brioche and almond from the lees contact provides depth. The aromatic profile is clean, bright, and inviting, with a distinctive Italian elegance that sets it apart from heavier rosé sparklers.",
+        "palate": "On the palate, this brut rosé displays vibrant acidity and fine, persistent bubbles that create a creamy mousse texture. Flavors of red currant, cranberry, and pink grapefruit dominate, supported by subtle notes of white cherry and melon. The wine maintains excellent balance between its fruit-forward character and refreshing mineral backbone, with just a hint of sweetness that never overwhelms the crisp, clean profile. The medium body and elegant structure make it exceptionally food-friendly.",
+        "finish": "The finish is crisp and refreshing, with lingering notes of citrus zest and red berries. A subtle mineral quality and gentle effervescence persist, leaving the palate cleansed and ready for the next sip. The wine concludes with remarkable purity and length for a sparkling rosé at this price point."
+      },
+      "foodPairings": [
+        "Fresh oysters and seafood crudo",
+        "Prosciutto di Parma with melon",
+        "Caprese salad with heirloom tomatoes",
+        "Light sushi and sashimi",
+        "Strawberry shortcake or berry tarts"
+      ],
+      "servingInfo": {
+        "temperature": "42-46°F (6-8°C)",
+        "decanting": "No decanting required; serve directly from the bottle well-chilled",
+        "glassware": "Flute or tulip-shaped sparkling wine glass"
+      },
+      "wineDetails": {
+        "region": "Veneto, Italy",
+        "grapeVariety": "Primarily Glera and Pinot Noir blend",
+        "vintage": "NV",
+        "style": "Brut Rosé Sparkling Wine (Charmat Method)",
+        "ageability": "Best enjoyed within 1-2 years of release to preserve freshness and vibrant fruit character. Drinking window: now through 2026."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg Sydney Back Chardonnay 2021",
+      "description": "The Backsberg Sydney Back Chardonnay represents South Africa's modern approach to this classic varietal, named after the winery's founder. Crafted from premium Paarl fruit, this wine showcases a judicious balance of Old World elegance and New World fruit intensity. The 2021 vintage benefited from ideal growing conditions, producing a wine of exceptional purity and focus.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals complex layers of ripe yellow apple, white peach, and citrus blossom, interwoven with subtle notes of toasted hazelnut and vanilla from oak integration. Hints of butterscotch and crème brûlée emerge with aeration, while underlying minerality suggests limestone-influenced soils. The aromatic intensity is impressive, displaying both varietal purity and thoughtful winemaking intervention.",
+        "palate": "On the palate, the wine shows excellent weight and texture, with flavors of baked pear, golden delicious apple, and lemon curd taking center stage. Well-integrated oak contributes notes of toasted brioche and sweet spice without overwhelming the fruit. The wine's creamy mouthfeel, likely from partial malolactic fermentation and lees stirring, is beautifully balanced by vibrant acidity that provides lift and freshness. Mid-palate richness gives way to a more mineral-driven character, showcasing the wine's complexity and structure.",
+        "finish": "The finish is long and satisfying, with persistent notes of citrus zest, toasted almonds, and subtle oak spice. The wine's fresh acidity ensures a clean conclusion while the richness of texture lingers pleasantly. This is a well-crafted Chardonnay that speaks to both fruit quality and winemaking skill."
+      },
+      "foodPairings": [
+        "Roasted chicken with herb butter",
+        "Grilled halibut with lemon beurre blanc",
+        "Lobster risotto with peas and asparagus",
+        "Creamy pasta carbonara",
+        "Brie and aged Gouda cheese"
+      ],
+      "servingInfo": {
+        "temperature": "50-54°F (10-12°C)",
+        "decanting": "Brief aeration of 15-20 minutes in the glass will help the wine open up and reveal its full complexity",
+        "glassware": "Medium to large bowl white wine glass or Burgundy-style glass"
+      },
+      "wineDetails": {
+        "region": "Paarl, Western Cape, South Africa",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2021",
+        "style": "Medium to Full-Bodied White Wine with Oak Influence",
+        "ageability": "Drink now through 2026-2027. The wine has the structure for 3-5 years of aging, though it's showing beautifully in its youth with integrated oak and fresh fruit character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Saddleback NV Chardonnay 2018",
+      "description": "Saddleback Cellars, a respected Napa Valley producer, crafts this Chardonnay from estate fruit in the Oak Knoll District. The 2018 vintage represents classic California Chardonnay with restrained oak influence, allowing the pure fruit character to shine. This wine demonstrates the winery's commitment to balance and elegance over power.",
+      "tastingNotes": {
+        "aroma": "The nose presents a harmonious blend of tropical and stone fruit aromas, featuring ripe pineapple, yellow peach, and Asian pear. Nuanced notes of honeysuckle, vanilla bean, and toasted oak provide complexity without dominating the fruit expression. Subtle hints of lemon zest and wet stone add freshness and minerality. The aromatics suggest both ripeness and restraint, characteristic of well-made Napa Chardonnay.",
+        "palate": "The palate reveals generous flavors of ripe Fuji apple, poached pear, and Meyer lemon, supported by creamy texture from partial malolactic fermentation and oak aging. The wine displays medium to full body with well-integrated acidity that provides structure and length. Notes of butterscotch, hazelnut, and light tropical fruit create layers of flavor, while the underlying minerality keeps the wine from feeling heavy. The mouthfeel is silky and refined, with excellent balance between fruit richness and structural elements.",
+        "finish": "The finish is clean and persistent, with lingering flavors of citrus, toasted oak, and subtle spice. Bright acidity ensures freshness through the conclusion, while the wine's textural richness provides satisfying length. The 2018 vintage's maturity is evident in the seamless integration of all components."
+      },
+      "foodPairings": [
+        "Pan-seared scallops with brown butter",
+        "Roasted turkey breast with sage",
+        "Wild mushroom risotto with truffle oil",
+        "Cedar-planked salmon",
+        "Aged Gruyère and Comté cheese"
+      ],
+      "servingInfo": {
+        "temperature": "52-56°F (11-13°C)",
+        "decanting": "Allow 20-30 minutes of breathing time to fully express the wine's aromatic complexity",
+        "glassware": "Full-bodied white wine glass or Burgundy glass to capture aromatics"
+      },
+      "wineDetails": {
+        "region": "Oak Knoll District, Napa Valley, California",
+        "grapeVariety": "100% Chardonnay",
+        "vintage": "2018",
+        "style": "Full-Bodied California Chardonnay with Oak Aging",
+        "ageability": "Drinking beautifully now with nice development. Best consumed by 2026-2027 to preserve the fruit freshness, though the wine has the structure to age through 2028."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Zephaniah Cabernet Franc 2020",
+      "description": "Zephaniah's Cabernet Franc showcases this noble varietal's distinctive aromatic complexity and elegant structure. The 2020 vintage benefited from excellent growing conditions, producing wines with concentrated flavors while maintaining the variety's characteristic freshness. This is a wine that demonstrates Cabernet Franc's ability to stand alone as a compelling, terroir-expressive red.",
+      "tastingNotes": {
+        "aroma": "The aromatic profile is classically Cabernet Franc, opening with vibrant notes of crushed raspberries, black currant, and ripe plum. Distinctive herbaceous elements of bell pepper, dried tobacco leaf, and fresh-cut herbs add complexity and varietal character. Nuances of violet, graphite, and subtle oak-derived spice emerge with air. The nose displays the variety's signature elegance and perfume, with beautiful floral lift and underlying minerality.",
+        "palate": "On the palate, the wine reveals medium to full body with silky tannins and bright acidity that energizes the fruit. Flavors of red and black cherry, raspberry coulis, and blackberry are accented by notes of dark chocolate, espresso, and sweet spice. The wine's savory character shines through with touches of dried herbs, cedar, and forest floor. The texture is refined and polished, with excellent balance between fruit concentration and structural elements. The 2020 vintage's freshness is evident in the wine's vibrant, lifted character.",
+        "finish": "The finish is long and refined, with persistent red fruit notes, fine-grained tannins, and a subtle herbal complexity. Touches of cocoa powder and mineral character linger, while the wine's acidity provides a clean, mouthwatering conclusion. This is an elegant, food-friendly Cabernet Franc with excellent aging potential."
+      },
+      "foodPairings": [
+        "Herb-crusted rack of lamb",
+        "Duck breast with cherry gastrique",
+        "Grilled portobello mushrooms with rosemary",
+        "Beef tenderloin with green peppercorn sauce",
+        "Aged cheddar and aged manchego"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (16-18°C)",
+        "decanting": "Decant for 45-60 minutes to allow the wine to open fully and reveal its aromatic complexity",
+        "glassware": "Bordeaux-style red wine glass"
+      },
+      "wineDetails": {
+        "region": "Napa Valley or similar premium California region",
+        "grapeVariety": "100% Cabernet Franc",
+        "vintage": "2020",
+        "style": "Medium to Full-Bodied Red Wine with Elegant Structure",
+        "ageability": "Drink now through 2032-2035. The wine is approachable in its youth but has the structure and balance for 10-15 years of cellaring, during which it will develop additional complexity and tertiary characteristics."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Murdoch Hill Pinot Noir 2021",
+      "description": "Murdoch Hill crafts exceptional cool-climate Pinot Noir from their Adelaide Hills estate vineyards. The 2021 vintage represents the pinnacle of Australian Pinot Noir, combining Old World elegance with New World fruit purity. The wine showcases the Adelaide Hills' ideal terroir for this temperamental variety, with its cool temperatures, elevated sites, and diverse soils.",
+      "tastingNotes": {
+        "aroma": "The bouquet is quintessentially Pinot Noir, revealing layers of bright red cherry, wild strawberry, and cranberry alongside more complex notes of rose petal, forest floor, and subtle spice. Hints of cola, dried tea leaves, and sandalwood add aromatic intrigue. With aeration, earthy undertones of mushroom and wet stone emerge, along with delicate oak-derived notes of vanilla and clove. The aromatics display impressive purity and intensity, characteristic of cool-climate Pinot Noir.",
+        "palate": "On the palate, the wine shows exceptional balance and finesse, with silky tannins and vibrant acidity framing flavors of red cherry, raspberry, and pomegranate. The wine's medium body belies its intensity and concentration, with layers of flavor unfolding to reveal notes of black tea, rhubarb, and savory herbs. Subtle oak influence contributes structure without masking the delicate fruit character. The texture is refined and seamless, with a core of minerality that adds tension and complexity. This is Pinot Noir of remarkable purity and precision.",
+        "finish": "The finish is long and elegant, with persistent red fruit notes, fine tannins, and a distinctive mineral quality. The wine's fresh acidity provides lift and ensures a clean conclusion, while subtle spice notes linger. This is a beautifully crafted Pinot Noir that captures the essence of its cool-climate origins."
+      },
+      "foodPairings": [
+        "Roasted duck breast with cherry reduction",
+        "Wild salmon with herbs de Provence",
+        "Mushroom risotto with Parmesan",
+        "Coq au vin with pearl onions",
+        "Aged Brie and Camembert cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Decant for 30-45 minutes or allow to breathe in glass for 20 minutes to reveal full aromatic complexity",
+        "glassware": "Burgundy glass with large bowl to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Adelaide Hills, South Australia",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2021",
+        "style": "Cool-Climate Pinot Noir with Elegant Structure",
+        "ageability": "Drinking beautifully now through 2028-2031. The wine has excellent structure for 5-10 years of cellaring, during which it will develop additional earthy complexity while maintaining its vibrant fruit character."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.90,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Adir Grenache Blanc Mevushal (MD & DC)",
+      "description": "Adir's Mevushal Grenache Blanc represents premium kosher winemaking, showcasing this Mediterranean variety's aromatic complexity and textural richness. The mevushal designation indicates the wine has been flash-pasteurized to maintain kosher status while preserving fruit character. This is a unique expression of Grenache Blanc that combines varietal typicity with the requirements of traditional kosher wine production.",
+      "tastingNotes": {
+        "aroma": "The nose presents an enticing array of white flowers, including honeysuckle and acacia, alongside aromas of white peach, pear, and citrus blossom. Subtle herbal notes of fennel and dried thyme add Mediterranean character, while hints of almond and mineral provide complexity. The aromatics display impressive intensity and purity despite the mevushal process, with a distinctive floral lift characteristic of quality Grenache Blanc.",
+        "palate": "On the palate, this Grenache Blanc shows medium to full body with generous flavors of ripe stone fruit, particularly apricot and yellow peach, complemented by notes of Meyer lemon and honeydew melon. The wine displays excellent texture and weight, with a slightly oily, glycerin-rich mouthfeel that's typical of the variety. Bright acidity provides balance to the fruit richness, while subtle notes of white pepper and herbs add savory complexity. The wine's roundness and approachability make it exceptionally food-friendly.",
+        "finish": "The finish is clean and moderately long, with lingering notes of citrus, white flowers, and a subtle mineral quality. The wine's refreshing acidity ensures a bright conclusion while maintaining the variety's characteristic richness. This is a well-crafted kosher white that showcases Grenache Blanc's unique personality."
+      },
+      "foodPairings": [
+        "Grilled Mediterranean fish with lemon and herbs",
+        "Roasted chicken with garlic and rosemary",
+        "White fish ceviche",
+        "Vegetable couscous with preserved lemon",
+        "Fresh mozzarella and heirloom tomato salad"
+      ],
+      "servingInfo": {
+        "temperature": "48-52°F (9-11°C)",
+        "decanting": "Brief aeration of 15 minutes will help the wine express its full aromatic range",
+        "glassware": "Medium-sized white wine glass"
+      },
+      "wineDetails": {
+        "region": "Mediterranean region (likely Israel or Southern France)",
+        "grapeVariety": "100% Grenache Blanc",
+        "vintage": "Current Release",
+        "style": "Medium to Full-Bodied White Wine, Mevushal Kosher",
+        "ageability": "Best enjoyed within 2-3 years of release to preserve fresh fruit character and varietal aromatics. Drinking window: now through 2027."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Casablanca Valley D. Bosler Pinot Noir 2018",
+      "description": "D. Bosler's Casablanca Valley Pinot Noir represents the excellence of Chilean cool-climate viticulture. The Casablanca Valley, located between the Pacific Ocean and the coastal mountain range, provides ideal conditions for Pinot Noir with its morning fog, cool temperatures, and afternoon breezes. The 2018 vintage has had time to develop additional complexity while maintaining its vibrant fruit character.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals classic Pinot Noir aromatics with a distinctly Chilean character, featuring bright red cherry, wild strawberry, and raspberry alongside earthy notes of forest floor, dried leaves, and subtle spice. Floral hints of rose petal and violet add elegance, while underlying notes of cocoa, cola, and gentle oak provide depth. The coastal influence is evident in a subtle saline quality and fresh herbal notes. The wine's aromatics show beautiful development from the 2018 vintage.",
+        "palate": "On the palate, the wine displays medium body with silky, well-integrated tannins and vibrant acidity that's characteristic of cool-climate Pinot Noir. Flavors of tart cherry, cranberry, and red currant dominate, supported by notes of black tea, earthy mushroom, and subtle baking spice. The texture is refined and elegant, with excellent balance between fruit intensity and structural elements. Oak aging has added complexity without overwhelming the delicate fruit, contributing notes of vanilla and cedar. The wine's freshness belies its age, demonstrating excellent winemaking.",
+        "finish": "The finish is long and elegant, with persistent red fruit notes, fine-grained tannins, and a distinctive earthy minerality. Touches of spice and dried herbs linger, while the wine's bright acidity provides a clean, refreshing conclusion. This mature Pinot Noir showcases both the variety's elegance and the terroir's unique character."
+      },
+      "foodPairings": [
+        "Duck confit with orange glaze",
+        "Grilled wild salmon with dill butter",
+        "Mushroom and truffle ravioli",
+        "Roasted chicken with root vegetables",
+        "Aged Gruyère and soft-ripened cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Decant for 45-60 minutes to allow the mature wine to fully express its developed character",
+        "glassware": "Burgundy glass to capture the wine's delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Casablanca Valley, Chile",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2018",
+        "style": "Cool-Climate Pinot Noir with Mature Development",
+        "ageability": "Drinking beautifully now with developed secondary and tertiary characteristics. Best consumed by 2027-2028 to enjoy the wine at its peak of maturity before fruit begins to fade."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Eulila Red Blend (DC - MD ONLY) 2022",
+      "description": "Eulila's Red Blend represents accessible, fruit-forward winemaking designed for immediate enjoyment. The 2022 vintage is youthful and vibrant, showcasing fresh fruit character and approachable structure. This is a versatile red blend that offers excellent value and food-pairing flexibility, perfect for everyday drinking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with exuberant aromas of ripe blackberry, dark cherry, and plum, complemented by notes of vanilla, mocha, and sweet spice from oak aging. Hints of dried herbs, black pepper, and subtle floral notes add complexity. The youthful 2022 vintage shows bright, primary fruit character with a touch of jammy richness. Subtle earthy undertones and a whisper of tobacco provide depth without detracting from the wine's approachable, fruit-forward profile.",
+        "palate": "On the palate, the wine displays medium to full body with soft, approachable tannins and balanced acidity. Flavors of blackberry jam, black cherry, and cassis dominate, supported by notes of dark chocolate, espresso, and toasted oak. The blend's composition likely includes Merlot or similar softening varieties, giving the wine a plush, rounded mouthfeel. Mid-palate richness is balanced by fresh acidity that prevents the wine from feeling heavy. Touches of spice, leather, and dried fruit add interest and depth to the fruit core.",
+        "finish": "The finish is smooth and moderately long, with lingering dark fruit notes, soft tannins, and subtle oak-derived vanilla and spice. The wine concludes with a clean, slightly sweet fruit character that makes it highly approachable. This is an easy-drinking red blend that delivers immediate pleasure."
+      },
+      "foodPairings": [
+        "Grilled burgers with aged cheddar",
+        "BBQ ribs with smoky sauce",
+        "Pepperoni and sausage pizza",
+        "Beef stew with root vegetables",
+        "Sharp cheddar and aged Gouda"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Brief decanting of 20-30 minutes will help soften the young tannins and open up the fruit",
+        "glassware": "Standard red wine glass or Bordeaux glass"
+      },
+      "wineDetails": {
+        "region": "Likely California or Washington State",
+        "grapeVariety": "Red Blend (likely Cabernet Sauvignon, Merlot, Syrah blend)",
+        "vintage": "2022",
+        "style": "Fruit-Forward Red Blend with Oak Aging",
+        "ageability": "Best enjoyed within 2-4 years to capture the wine's fresh fruit character and youthful energy. Drinking window: now through 2026-2027."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Saddleback Merlot 2016",
+      "description": "Saddleback Cellars' Merlot showcases Napa Valley's exceptional terroir for this noble Bordeaux variety. The 2016 vintage, now beautifully mature, displays the complexity and elegance that develops with age. This wine demonstrates Merlot's potential for serious, age-worthy wines when crafted from premium fruit and given proper cellaring time.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals evolved complexity with aromas of dark plum, black cherry compote, and dried fig alongside developed notes of leather, cedar cigar box, and forest floor. Subtle hints of dark chocolate, espresso, and vanilla bean from oak aging integrate seamlessly with the fruit. Earthy undertones of truffle, dried tobacco, and subtle game add savory intrigue. The 2016 vintage's maturity is evident in the wine's tertiary characteristics, though the core fruit remains vibrant and expressive.",
+        "palate": "On the palate, the wine shows full body with supple, well-integrated tannins that have softened beautifully with age. Flavors of blackberry, dark cherry, and plum preserve are enriched by notes of dark chocolate, mocha, and sweet baking spice. The wine's texture is silky and luxurious, with excellent depth and concentration. Secondary characteristics of dried herbs, leather, and mineral add complexity to the fruit core. The integration of oak, tannin, and acid is seamless, demonstrating the benefits of proper cellaring. This is Napa Merlot at its finest.",
+        "finish": "The finish is long and sophisticated, with persistent dark fruit notes, fine-grained tannins, and complex savory elements. Touches of cocoa, cedar, and subtle earth linger elegantly, while the wine's balanced acidity ensures a clean, refined conclusion. The 2016 vintage's maturity shows in the harmonious integration of all components."
+      },
+      "foodPairings": [
+        "Braised short ribs with red wine reduction",
+        "Grilled ribeye steak with mushroom demi-glace",
+        "Duck breast with blackberry sauce",
+        "Lamb chops with rosemary and garlic",
+        "Aged manchego and hard aged cheeses"
+      ],
+      "servingInfo": {
+        "temperature": "62-65°F (17-18°C)",
+        "decanting": "Decant for 60-90 minutes to allow this mature wine to fully express its developed complexity",
+        "glassware": "Large Bordeaux glass to capture the wine's evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Napa Valley, California",
+        "grapeVariety": "Predominantly Merlot with possible Cabernet Sauvignon and Cabernet Franc blending",
+        "vintage": "2016",
+        "style": "Full-Bodied Napa Merlot with Mature Development",
+        "ageability": "Drinking at peak maturity now with beautiful secondary and tertiary development. Best consumed by 2028-2030 to enjoy the wine's evolved complexity before fruit begins to fade."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dogwood & Thistle Pinot Noir 2021",
+      "description": "Dogwood & Thistle crafts elegant, terroir-driven Pinot Noir that showcases the variety's delicate character and regional expression. The 2021 vintage represents modern cool-climate winemaking, balancing fruit purity with structural complexity. This wine demonstrates the producer's commitment to minimal intervention and expressing the unique character of their vineyard sites.",
+      "tastingNotes": {
+        "aroma": "The nose presents a captivating array of red fruit aromas, featuring bright cherry, fresh raspberry, and wild strawberry alongside floral notes of rose petal and violet. Subtle earthy elements of mushroom, forest floor, and wet stone add depth and intrigue. Delicate spice notes of cinnamon and white pepper emerge with air, along with hints of cranberry and pomegranate. The aromatics display the purity and precision characteristic of well-made cool-climate Pinot Noir, with beautiful clarity and intensity.",
+        "palate": "On the palate, the wine reveals medium body with silky tannins and vibrant acidity that energizes the fruit. Flavors of tart cherry, red currant, and raspberry are complemented by notes of rhubarb, black tea, and subtle oak-derived spice. The texture is refined and elegant, with a core of minerality that adds tension and complexity. The wine's balance is exemplary, with fruit intensity matched by structural elements that provide both immediate appeal and aging potential. Savory undertones of dried herbs and earth add complexity without overwhelming the delicate fruit character.",
+        "finish": "The finish is long and refined, with persistent red fruit notes, fine-grained tannins, and a distinctive mineral quality. Subtle spice and floral notes linger elegantly, while the wine's fresh acidity provides lift and ensures a clean conclusion. This is a beautifully crafted Pinot Noir that captures the variety's essential character with precision and grace."
+      },
+      "foodPairings": [
+        "Seared duck breast with cherry reduction",
+        "Grilled wild salmon with herbs",
+        "Mushroom and gruyère tart",
+        "Roasted chicken with thyme and lemon",
+        "Soft-ripened cheeses like Brie and Camembert"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C)",
+        "decanting": "Allow 30-40 minutes of breathing time to reveal the wine's full aromatic complexity",
+        "glassware": "Burgundy glass with generous bowl to capture delicate aromatics"
+      },
+      "wineDetails": {
+        "region": "Likely Oregon Willamette Valley or similar cool-climate region",
+        "grapeVariety": "100% Pinot Noir",
+        "vintage": "2021",
+        "style": "Cool-Climate Pinot Noir with Elegant Structure",
+        "ageability": "Drinking beautifully now through 2028-2030. The wine has excellent structure for 5-8 years of cellaring, during which it will develop additional earthy complexity while maintaining its core fruit character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

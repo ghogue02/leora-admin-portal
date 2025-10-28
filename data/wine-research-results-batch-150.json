@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Colle Corviano Montepulciano (Damaged labels) 2021",
+    "description": "An authentic Italian red wine from the Montepulciano d'Abruzzo region, showcasing the robust character of 100% Montepulciano grapes grown in the sun-drenched hillsides of central Italy. This 2021 vintage offers excellent value with damaged labels providing accessibility to quality Italian winemaking tradition.",
+    "tastingNotes": {
+      "aroma": "The nose opens with vibrant aromas of ripe dark cherries, blackberries, and plums intermingled with hints of violet and dried Mediterranean herbs. Subtle notes of black pepper, leather, and a touch of earthy minerality add depth and complexity, characteristic of the Abruzzo terroir.",
+      "palate": "Medium to full-bodied with concentrated flavors of black cherry, blackberry jam, and dark plum dominating the palate. The wine shows rustic charm with notes of tobacco, licorice, and dried herbs complementing the fruit core. Firm yet approachable tannins provide structure, while bright acidity maintains freshness and balance throughout.",
+      "finish": "The finish is persistent and savory with lingering notes of dark fruit, earth, and subtle spice. Fine-grained tannins and balanced acidity ensure a clean, food-friendly conclusion."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary and garlic",
+      "Classic Italian pasta amatriciana with guanciale",
+      "Aged Pecorino Romano and salumi platter",
+      "Beef braciole in tomato sauce",
+      "Mushroom and sausage risotto"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 30 minutes to soften tannins and open aromatics",
+      "glassware": "Medium-bowl red wine glass or Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Montepulciano d'Abruzzo, Abruzzo, Italy",
+      "grapeVariety": "100% Montepulciano",
+      "vintage": "2021",
+      "style": "Medium-bodied Italian red with rustic charm and food-friendly character",
+      "ageability": "Drink now through 2027; best enjoyed 2024-2026 for optimal fruit expression"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:15:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Drimia Malbec",
+    "description": "A bold expression of Malbec showcasing the varietal's characteristic deep color and concentrated fruit profile. This wine represents excellent value in accessible Argentine-style Malbec, offering ripe fruit flavors and approachable tannins perfect for everyday enjoyment.",
+    "tastingNotes": {
+      "aroma": "Intense aromas of ripe blackberries, plums, and dark cherries leap from the glass, accompanied by notes of violet, dark chocolate, and subtle vanilla from oak influence. Hints of leather, tobacco, and sweet baking spices add aromatic complexity characteristic of well-made Malbec.",
+      "palate": "Full-bodied with lush, concentrated flavors of blackberry compote, plum, and black cherry filling the palate. Mid-palate richness reveals layers of cocoa, mocha, espresso, and sweet oak alongside the ripe fruit core. The texture is smooth and velvety with supple tannins and balanced acidity providing structure without heaviness.",
+      "finish": "Long, plush finish features persistent dark fruit character, chocolate notes, and gentle oak spice. Soft tannins and balanced structure make this an immensely drinkable wine with satisfying length."
+    },
+    "foodPairings": [
+      "Grilled Argentine-style ribeye steak with chimichurri",
+      "Slow-braised short ribs with red wine reduction",
+      "Empanadas with spicy beef filling",
+      "Grilled portobello mushrooms with blue cheese",
+      "BBQ pulled pork sandwiches"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-66°F (17-19°C)",
+      "decanting": "Brief 20-30 minute decanting enhances aromatics and softens the palate",
+      "glassware": "Large-bowl red wine glass or Malbec-specific glass"
+    },
+    "wineDetails": {
+      "region": "Argentina (region unspecified, likely Mendoza)",
+      "grapeVariety": "100% Malbec",
+      "vintage": "Non-vintage",
+      "style": "Full-bodied, fruit-forward Malbec with soft tannins and approachable character",
+      "ageability": "Drink now through 2026; crafted for near-term enjoyment"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.82,
+      "researchedAt": "2025-10-21T13:17:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine des Perrelles Moulin a Vent 2023",
+    "description": "An elegant expression of one of Beaujolais' most prestigious crus, Moulin-à-Vent, known as the 'King of Beaujolais' for its age-worthy structure and depth. This young 2023 vintage from Domaine des Perrelles showcases pure Gamay fruit with the mineral complexity and firm tannins that distinguish Moulin-à-Vent from lighter Beaujolais styles.",
+    "tastingNotes": {
+      "aroma": "Vibrant aromas of fresh red cherries, wild strawberries, and cranberries dominate the nose, complemented by violet florals and hints of white pepper. Underlying notes of wet granite, forest floor, and subtle earthy minerality reflect the granite-rich soils of Moulin-à-Vent.",
+      "palate": "Medium-bodied with bright, pure red fruit flavors of cherry, raspberry, and red currant. The wine displays more structure and depth than typical Beaujolais, with fine-grained tannins and vibrant acidity providing backbone. Notes of rose petal, crushed stone, and delicate spice add complexity to the elegant fruit core.",
+      "finish": "The finish is long and mineral-driven with persistent red fruit character, subtle earthiness, and refreshing acidity. Fine tannins suggest good aging potential for this young wine."
+    },
+    "foodPairings": [
+      "Coq au vin with pearl onions and mushrooms",
+      "Roasted duck breast with cherry gastrique",
+      "Grilled salmon with herb butter",
+      "Brie and soft-ripened cheese selection",
+      "Charcuterie board with pâté and cornichons"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 58-62°F (14-17°C)",
+      "decanting": "Brief 15-20 minute decanting recommended to open the young wine; can also benefit from extended aeration",
+      "glassware": "Burgundy or large-bowl Pinot Noir glass"
+    },
+    "wineDetails": {
+      "region": "Moulin-à-Vent, Beaujolais, Burgundy, France",
+      "grapeVariety": "100% Gamay from granite soils",
+      "vintage": "2023",
+      "style": "Structured, age-worthy Beaujolais cru with mineral depth and fine tannins",
+      "ageability": "Drink 2024-2030; unlike typical Beaujolais, Moulin-à-Vent develops beautifully with 5-7 years of cellaring"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-21T13:19:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Ontanon Tempranillo Blanco (White) 2022",
+    "description": "A rare and exciting white wine crafted from Tempranillo Blanco, a natural white mutation of the iconic red Tempranillo grape. Bodegas Ontañón, one of Rioja's pioneering producers, cultivates 15 hectares of this scarce variety, making this wine a distinctive expression produced by only a handful of Rioja growers.",
+    "tastingNotes": {
+      "aroma": "Very elegant nose bursting with intense tropical fruit aromas of ripe pineapple, banana, and mango complemented by white blossom and citrus zest. Hints of white peach, green apple, and subtle mineral undertones reflect the Rioja terroir and add aromatic complexity.",
+      "palate": "The palate offers impressive texture and balance with ripe stone fruit characters of peach and apricot alongside persistent tropical fruit flavors. Orange blossom and delicate floral notes provide elegance, while crisp, vibrant acidity maintains freshness throughout. Excellent minerality adds structure and depth to this medium-bodied, food-friendly white.",
+      "finish": "A lengthy, refreshing finish showcases the wine's balance with lingering tropical fruit, citrus zest, and stony mineral notes. The bright acidity ensures a clean, mouth-watering conclusion that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled shrimp skewers with mango salsa",
+      "Pan-seared scallops with tropical fruit coulis",
+      "Thai green curry with chicken",
+      "Fresh oysters with citrus mignonette",
+      "Goat cheese and fruit crostini"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+      "decanting": "No decanting needed; pour directly from bottle to preserve freshness and aromatic intensity",
+      "glassware": "Aromatic white wine glass or standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "100% Tempranillo Blanco (natural white mutation of Tempranillo)",
+      "vintage": "2022",
+      "style": "Aromatic, textured white wine with tropical fruit intensity and crisp acidity",
+      "ageability": "Best enjoyed 2024-2026 to appreciate its fresh, vibrant tropical fruit character"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:21:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Rangel Ranch Sauvignon Blanc 2019",
+    "description": "A distinctive California Sauvignon Blanc from Rangel Ranch showcasing the varietal's characteristic bright acidity and aromatic intensity. This 2019 vintage offers a mature expression with developed complexity while maintaining the refreshing character that makes Sauvignon Blanc so versatile and food-friendly.",
+    "tastingNotes": {
+      "aroma": "Aromatic nose featuring citrus notes of grapefruit, lime zest, and Meyer lemon alongside tropical hints of passion fruit and guava. Subtle herbaceous notes of fresh-cut grass, jalapeño, and green bell pepper add classic varietal character, while hints of white flowers and wet stones provide additional complexity.",
+      "palate": "Medium-bodied with vibrant citrus flavors of grapefruit, lemon, and lime dominating the palate. Tropical fruit notes of passion fruit and pineapple add richness, while the wine's signature bright acidity provides structure and freshness. Subtle mineral undertones and a touch of herbaceous green notes create complexity and balance.",
+      "finish": "Clean, refreshing finish with persistent citrus character, mineral notes, and mouth-watering acidity. The wine concludes with a crisp, food-friendly profile that showcases excellent varietal typicity."
+    },
+    "foodPairings": [
+      "Grilled white fish with lemon herb butter",
+      "Fresh oysters on the half shell",
+      "Goat cheese and herb salad",
+      "Ceviche with citrus and avocado",
+      "Asparagus and spring vegetable risotto"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+      "decanting": "No decanting required; pour directly to preserve crisp acidity and aromatics",
+      "glassware": "Standard white wine glass or Sauvignon Blanc-specific glass"
+    },
+    "wineDetails": {
+      "region": "California (specific AVA unspecified)",
+      "grapeVariety": "100% Sauvignon Blanc",
+      "vintage": "2019",
+      "style": "Crisp, aromatic Sauvignon Blanc with citrus focus and refreshing acidity",
+      "ageability": "Drink now through 2025; at six years of age, best enjoyed soon to appreciate remaining freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.83,
+      "researchedAt": "2025-10-21T13:23:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Alella Marfil Molt Dolc (Solera Dessert) 2003  500 ml",
+    "description": "An exceptional solera-aged sweet wine from the historic Alella DO near Barcelona, crafted using the traditional solera system typically reserved for sherry and fortified wines. This rare 'Molt Dolç' (very sweet) wine from 2003 represents over 20 years of complex oxidative aging, creating a unique dessert wine with remarkable depth and character.",
+    "tastingNotes": {
+      "aroma": "Complex, evolved aromas showcase caramelized sugar, toffee, and burnt orange marmalade alongside dried apricot, fig, and golden raisin. Nutty notes of toasted almonds and hazelnuts mingle with hints of honey, beeswax, and subtle oxidative sherry-like character. Touches of vanilla, cinnamon, and dried flowers add aromatic layers.",
+      "palate": "Rich, viscous palate delivers intense sweetness balanced by oxidative complexity and bright acidity. Flavors of caramel, toffee, dried stone fruits, and candied orange peel dominate, supported by nutty almond and hazelnut notes. The solera aging imparts sherry-like qualities with hints of butterscotch, honey, and subtle spice creating a multi-layered tasting experience.",
+      "finish": "Long, luscious finish features persistent sweetness, oxidative complexity, and refreshing acidity in beautiful balance. Caramel, nut, and dried fruit notes linger with remarkable length and elegance."
+    },
+    "foodPairings": [
+      "Crème brûlée or caramel flan",
+      "Blue cheese and walnut cake",
+      "Almond tart with apricot glaze",
+      "Foie gras terrine",
+      "Dried fruit and nut platter"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly chilled at 50-55°F (10-13°C)",
+      "decanting": "No decanting necessary; pour directly into small dessert wine glasses",
+      "glassware": "Small dessert wine glass or port glass (2-3 oz servings)"
+    },
+    "wineDetails": {
+      "region": "Alella DO, Catalonia, Spain",
+      "grapeVariety": "Traditional Alella varieties (likely Garnacha Blanca and/or Pansa Blanca)",
+      "vintage": "2003 (solera system, blend of multiple vintages with 2003 base)",
+      "style": "Solera-aged sweet dessert wine with oxidative complexity and intense richness",
+      "ageability": "Drink now; solera wines are released when ready and maintain quality for many years when properly stored"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.86,
+      "researchedAt": "2025-10-21T13:25:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Lambert Estate Black Sheep Red Blend 2020",
+    "description": "A bold, fruit-forward red blend from Lambert Estate showcasing the winery's commitment to crafting approachable yet complex wines. The 'Black Sheep' designation suggests a unique blending philosophy that steps outside traditional boundaries, creating a distinctive wine with broad appeal and excellent food versatility.",
+    "tastingNotes": {
+      "aroma": "Inviting aromas of ripe blackberries, dark cherries, and plum jam dominate the nose, complemented by hints of blueberry and cassis. Subtle notes of vanilla, dark chocolate, and baking spices from oak aging add depth, while touches of violet, black pepper, and earthy undertones provide complexity.",
+      "palate": "Medium to full-bodied with concentrated dark fruit flavors of blackberry, black cherry, and plum filling the palate. The multi-varietal blend creates layers of complexity with nuances of mocha, cocoa, vanilla, and sweet oak interwoven with the ripe fruit core. Smooth, approachable tannins and balanced acidity provide structure while maintaining accessibility.",
+      "finish": "The finish is medium to long with persistent dark fruit character, chocolate notes, and gentle oak spice. Soft, integrated tannins and balanced structure make this an immensely drinkable wine with satisfying length."
+    },
+    "foodPairings": [
+      "Grilled burgers with aged cheddar",
+      "BBQ ribs with smoky sauce",
+      "Roasted lamb shoulder with herbs",
+      "Mushroom and beef Wellington",
+      "Pasta with rich bolognese sauce"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Brief 20-30 minute decanting recommended to open aromatics and integrate flavors",
+      "glassware": "Medium to large-bowl red wine glass"
+    },
+    "wineDetails": {
+      "region": "Australia (specific region unspecified, likely Barossa Valley or McLaren Vale)",
+      "grapeVariety": "Red blend (likely Shiraz, Cabernet Sauvignon, and supporting varieties)",
+      "vintage": "2020",
+      "style": "Full-bodied, fruit-forward red blend with smooth tannins and approachable character",
+      "ageability": "Drink now through 2028; best enjoyed 2024-2027 for optimal fruit expression"
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.78,
+      "researchedAt": "2025-10-21T13:27:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Chateau Les Grands Sillons Pomerol 2018",
+    "description": "An elegant Pomerol from the prestigious Right Bank of Bordeaux, where Merlot reigns supreme on clay and gravel soils. Château Les Grands Sillons crafts wines that embody Pomerol's signature velvety texture and complex fruit profile. The excellent 2018 vintage produced wines with beautiful balance and aging potential.",
+    "tastingNotes": {
+      "aroma": "Sophisticated nose displaying ripe plum, black cherry, and blackberry fruit alongside notes of violet, rose petal, and subtle truffle earthiness. Nuances of cedar, tobacco, dark chocolate, and sweet oak spice from barrel aging add complexity. Hints of graphite minerality and forest floor provide depth characteristic of fine Pomerol.",
+      "palate": "Medium to full-bodied with silky, luxurious texture that is Pomerol's hallmark. Concentrated flavors of plum, black cherry, and cassis dominate the mid-palate, complemented by notes of dark chocolate, espresso, cedar, and sweet baking spices. The Merlot-based blend delivers smooth, refined tannins and fresh acidity creating elegant balance and structure.",
+      "finish": "Long, refined finish showcases the wine's complexity with lingering dark fruit, earth, chocolate, and subtle oak notes. Fine-grained tannins and balanced acidity suggest excellent aging potential."
+    },
+    "foodPairings": [
+      "Roasted duck breast with cherry reduction",
+      "Beef tenderloin with truffle butter",
+      "Braised lamb shanks with root vegetables",
+      "Aged Comté and dark chocolate pairing",
+      "Wild mushroom risotto with Parmesan"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 60-90 minutes to allow the wine to open fully and reveal its complexity",
+      "glassware": "Large Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Pomerol, Right Bank, Bordeaux, France",
+      "grapeVariety": "Merlot-dominant blend with Cabernet Franc (typical Pomerol composition)",
+      "vintage": "2018",
+      "style": "Elegant, structured Pomerol with silky texture and complex fruit profile",
+      "ageability": "Drink 2024-2035; the 2018 vintage shows excellent aging potential with 10+ years ahead"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.89,
+      "researchedAt": "2025-10-21T13:29:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Conde Villar Branco 2021",
+    "description": "A fresh, aromatic Portuguese white wine from the Vinho Verde or Douro region showcasing indigenous Portuguese grape varieties. Conde Villar represents accessible Portuguese winemaking tradition, offering crisp acidity and bright fruit character that pairs beautifully with seafood and light cuisine.",
+    "tastingNotes": {
+      "aroma": "Bright, fresh aromas of citrus blossom, green apple, and lemon zest leap from the glass, complemented by hints of white peach and pear. Subtle mineral undertones and delicate floral notes of acacia add complexity and elegance to the aromatic profile.",
+      "palate": "Light to medium-bodied with vibrant citrus flavors of lemon, lime, and grapefruit dominating the palate. Green apple and white peach notes add fruit complexity, while the wine's signature bright acidity provides structure and refreshing character. Mineral undertones and a slight saline quality create depth and food-friendliness.",
+      "finish": "Clean, refreshing finish with persistent citrus character, mineral notes, and crisp acidity. The wine concludes with excellent balance and a mouth-watering quality that invites another sip."
+    },
+    "foodPairings": [
+      "Grilled sardines with lemon and herbs",
+      "Fresh oysters and shellfish platter",
+      "Bacalhau (salt cod) fritters",
+      "Grilled sea bass with olive oil and garlic",
+      "Goat cheese salad with citrus vinaigrette"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+      "decanting": "No decanting required; pour directly to preserve freshness and effervescence (if present)",
+      "glassware": "Standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "Portugal (likely Vinho Verde or Douro DOC)",
+      "grapeVariety": "Blend of indigenous Portuguese white varieties (likely Loureiro, Alvarinho, and/or Arinto)",
+      "vintage": "2021",
+      "style": "Fresh, crisp Portuguese white with bright acidity and citrus focus",
+      "ageability": "Drink now through 2025; best enjoyed young to appreciate freshness and vibrant fruit"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.81,
+      "researchedAt": "2025-10-21T13:31:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Chateau de Cor Bugeaud White Mevushal (MD & DC)",
+    "description": "A kosher white wine from Château de Cor Bugeaud in Bordeaux, produced under mevushal (flash-pasteurization) supervision making it suitable for all kosher occasions. This wine represents quality kosher wine production in Bordeaux's prestigious wine region, offering accessibility to traditional French winemaking for observant consumers.",
+    "tastingNotes": {
+      "aroma": "Clean, fresh aromas of citrus fruit, green apple, and white flowers characteristic of Bordeaux Blanc. Hints of lemon zest, pear, and subtle mineral notes add aromatic complexity, while the mevushal process maintains the wine's essential fruit character.",
+      "palate": "Light to medium-bodied with bright citrus flavors of lemon, grapefruit, and green apple. The palate shows refreshing acidity and clean fruit expression with subtle mineral undertones typical of white Bordeaux. Notes of white peach and delicate herbal nuances provide additional depth.",
+      "finish": "Crisp, clean finish with persistent citrus character and balanced acidity. The wine concludes with refreshing minerality and food-friendly structure."
+    },
+    "foodPairings": [
+      "Grilled white fish with herbs",
+      "Roasted chicken with lemon",
+      "Fresh salads with vinaigrette",
+      "Vegetable quiche",
+      "Mild cheeses and crackers"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-50°F (7-10°C)",
+      "decanting": "No decanting required; serve directly from bottle",
+      "glassware": "Standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "Bordeaux, France",
+      "grapeVariety": "Bordeaux white blend (likely Sauvignon Blanc and Sémillon)",
+      "vintage": "Non-vintage",
+      "style": "Kosher mevushal white wine with crisp acidity and citrus character",
+      "ageability": "Drink now through 2026; best enjoyed young for optimal freshness"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.79,
+      "researchedAt": "2025-10-21T13:33:00Z"
+    }
+  }
+]

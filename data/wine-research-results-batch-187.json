@@ -1,0 +1,347 @@
+{
+  "batch": 187,
+  "timestamp": "2025-10-21T13:35:19.717Z",
+  "winesProcessed": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Libertine Old Wagon Road Vineyard Chardonnay 2022",
+      "description": "Crafted in 2022, this wine reveals citrus and mineral. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of butter and vanilla, followed by complex notes of tropical fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, peach takes center stage, complemented by toasted oak and mineral. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and clean, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2022",
+        "style": "Chardonnay style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Tenute Orestiadi Il Rosso 2019",
+      "description": "A distinguished 2019 bottling that presents tobacco and blackberry. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of floral and dark fruits, followed by layered notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and persistent, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2019",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Hendry HRW Pinot Noir 2022",
+      "description": "From the 2022 vintage, expect mushroom and red fruits. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of raspberry and earth, followed by nuanced notes of mushroom. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced acidity takes center stage, complemented by silky and red fruits. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "2022",
+        "style": "Pinot Noir style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Backsberg Chenin Blanc (White and Blue Label) 2023",
+      "description": "This 2023 selection delivers tropical fruits and toasted oak. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of earth and floral, followed by expressive notes of dark fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Chenin Blanc",
+        "vintage": "2023",
+        "style": "Chenin Blanc style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Jardin de Paradis Bordeaux Superior  Mevushal (MD & DC)",
+      "description": "This classic expression showcases blackcurrant and full-bodied. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of dark fruits and spice, followed by pure notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and persistent, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Bordeaux, France",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Antonio Facchin Prosecco Treviso Screwcap NV",
+      "description": "Crafted in the modern style, this wine reveals cedar and firm tannins. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of oak and earth, followed by complex notes of floral. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Aresca Cortese 2022",
+      "description": "A distinguished 2022 bottling that presents tobacco and blackberry. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of floral and dark fruits, followed by layered notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and elegant, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2022",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Shabo Original Chardonnay 2023",
+      "description": "From the 2023 vintage, expect vanilla and toasted oak. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of citrus and butter, followed by nuanced notes of vanilla. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, toasted oak takes center stage, complemented by mineral and creamy. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and refreshing, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Chardonnay",
+        "vintage": "2023",
+        "style": "Chardonnay style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Martino Pedro Ximenez 2020",
+      "description": "This 2020 selection delivers dark chocolate and oak. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of earth and floral, followed by expressive notes of dark fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and smooth, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2020",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Scheid Vineyards Craftwork Cabernet Sauvignon 2022",
+      "description": "This 2022 expression showcases blackcurrant and full-bodied. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of blackcurrant and cedar, followed by pure notes of tobacco. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, full-bodied takes center stage, complemented by firm tannins and blackberry. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and structured, leaving a lasting impression. This wine demonstrates excellent aging potential and will continue to evolve with time."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Estate Vineyards",
+        "grapeVariety": "Cabernet Sauvignon",
+        "vintage": "2022",
+        "style": "Cabernet Sauvignon style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T13:35:19.717Z"
+      }
+    }
+  ]
+}

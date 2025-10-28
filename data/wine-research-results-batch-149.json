@@ -1,0 +1,342 @@
+[
+  {
+    "productId": "",
+    "productName": "Quinta Picouto de Cima Rose 2022",
+    "description": "A vibrant Vinho Verde rosé from Portugal's Minho region, crafted from the native Espadeiro grape variety. Quinta Picouto de Cima, acquired in 1997 and located in Guimarães, specializes in the production of fresh, aromatic Vinho Verde wines that capture the Atlantic-influenced character of northern Portugal.",
+    "tastingNotes": {
+      "aroma": "The nose bursts with bright, expressive aromas of crushed wild strawberry, raspberry, and red currant. Delicate red flower petals—rose and hibiscus—add floral elegance, while citrus zest and pink grapefruit provide a refreshing lift. Subtle mineral notes reminiscent of wet stone speak to the region's granitic soils, creating an inviting and complex aromatic profile.",
+      "palate": "Light-bodied and refreshingly crisp with the characteristic slight spritz of Vinho Verde that enlivens the palate. Vibrant flavors of fresh strawberry, raspberry, and watermelon dominate, complemented by citrus notes of lemon zest and grapefruit. The wine shows excellent balance with bright acidity that keeps it fresh and food-friendly, while a subtle saline minerality adds depth and coastal character. Clean fruit expression with minimal residual sugar maintains a dry, thirst-quenching style.",
+      "finish": "The finish is clean, crisp, and mineral-driven with lingering red berry fruit and citrus zest. Fresh minerality and bright acidity create a long, refreshing conclusion that leaves the palate cleansed and ready for food. The wine's vibrant character carries through to an energetic, satisfying close."
+    },
+    "foodPairings": [
+      "Grilled sardines with lemon and olive oil",
+      "Fresh seafood salad with citrus vinaigrette",
+      "Goat cheese and arugula salad",
+      "Light summer pasta with tomatoes and basil",
+      "Portuguese bacalhau (salt cod) fritters"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 42-45°F (6-7°C)",
+      "decanting": "No decanting necessary; serve directly to preserve freshness and spritz",
+      "glassware": "Standard white wine glass or flute to maintain effervescence"
+    },
+    "wineDetails": {
+      "region": "Vinho Verde DOC, Minho, Portugal",
+      "grapeVariety": "100% Espadeiro",
+      "vintage": "2022",
+      "style": "Light, fresh Vinho Verde rosé with slight natural effervescence",
+      "ageability": "Best consumed within 1-2 years; drink now for optimal freshness and vibrant fruit character"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Wonderment Wines Bacigalupi Old Vine Zinfandel 2017",
+    "description": "An exceptional old vine Zinfandel from the legendary Bacigalupi Vineyard on Westside Road in Russian River Valley. Sourced from a sustainably farmed 1.5-acre block of approximately 60-year-old head-trained vines, this limited production wine (only 187 cases) showcases the intensity and richness that have made Bacigalupi one of Sonoma's most revered vineyards.",
+    "tastingNotes": {
+      "aroma": "The nose is unabashedly ripe and expressive, revealing layers of jammy dark fruit. Concentrated aromas of blackberry preserves, ripe boysenberry, and black cherry are complemented by sweet baking spices of cinnamon, clove, and vanilla. Notes of dark chocolate, espresso, and toasted oak add complexity, while subtle hints of dried fig, raisin, and black pepper provide nuance. The wine's aromatic intensity speaks to old vine concentration and optimal ripeness.",
+      "palate": "Full-bodied and richly textured with a marvelous expression of juicy richness inherent in California Zinfandel. Flavors of ripe blackberry, black raspberry, and dark cherry dominate, supported by notes of plum compote, dark chocolate, and mocha. Sweet oak influence brings vanilla, butterscotch, and toasted spice notes that integrate beautifully with the fruit. Despite 16.3% alcohol, the wine maintains balance with supple tannins and enough acidity to keep it from feeling heavy. The old vine intensity and whole cluster fermentation add depth and complexity.",
+      "finish": "The finish is long and satisfying with persistent dark fruit, chocolate, and spice notes. Velvety tannins and generous alcohol provide warmth and body, while the wine's natural fruit sweetness (the wine is dry) extends the conclusion. Sweet oak and dark fruit linger, creating an indulgent yet harmonious close. This is a wine built for near-term enjoyment of its exuberant fruit character."
+    },
+    "foodPairings": [
+      "Grilled ribeye steak with peppercorn sauce",
+      "Braised short ribs with red wine reduction",
+      "Barbecued baby back ribs with bourbon glaze",
+      "Aged cheddar or smoked gouda",
+      "Dark chocolate desserts with berries"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 60-64°F (16-18°C)",
+      "decanting": "Decant for 30-45 minutes to allow the wine to open and integrate oak and fruit",
+      "glassware": "Large Bordeaux glass to accommodate alcohol and allow aromatics to develop"
+    },
+    "wineDetails": {
+      "region": "Russian River Valley AVA, Sonoma County, California",
+      "grapeVariety": "100% Zinfandel (from ~60-year-old head-trained vines)",
+      "vintage": "2017",
+      "style": "Full-bodied, richly concentrated old vine Zinfandel with whole cluster inclusion",
+      "ageability": "Drink now through 2027; best consumed within 4-5 years to enjoy primary fruit intensity (91 points Wine Spectator, 91 points Connoisseurs' Guide)"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Hendry Albarino 2024",
+    "description": "A standout Albariño from Napa Valley's Hendry Ranch, earning 93 points from James Suckling and finishing a very close second in comparative tastings. First planted at Hendry in 2003 in block 9B west of the town of Napa, the vines benefit from morning fog and afternoon breezes from San Pablo Bay that moderate the climate and preserve the variety's signature acidity and aromatics.",
+    "tastingNotes": {
+      "aroma": "Gorgeous and intensely aromatic with classic Albariño character. The nose reveals bright floral notes of white blossom, honeysuckle, and orange flower, complemented by vibrant citrus aromas of lime zest, lemon verbena, and tangerine. Stone fruit notes of white peach and apricot add richness, while melon and fresh pear provide rounded fruit character. Subtle mineral undertones and a hint of sea spray add complexity and coastal influence.",
+      "palate": "Medium-bodied with a silky, refined texture and excellent concentration. The wine displays slightly drier character than many Albariños, with gorgeous fruit definition. Flavors of lime, Meyer lemon, and grapefruit are balanced by melon, white peach, and Asian pear. The wine's floral notes carry through to the palate, while pronounced minerality adds structure and food compatibility. Bright, vibrant acidity provides energy and freshness without being aggressive, creating perfect balance.",
+      "finish": "The finish is crisp, refreshing, and notably long for the variety. Persistent citrus and mineral notes extend the conclusion, while the wine's natural acidity tightens up and delivers a clean, thirst-quenching close. Subtle floral and stone fruit notes linger, inviting another sip. This is a beautifully balanced wine that showcases both varietal typicity and Napa terroir."
+    },
+    "foodPairings": [
+      "Fresh oysters on the half shell",
+      "Grilled prawns with garlic and lemon",
+      "Ceviche with citrus and cilantro",
+      "Pan-seared sea bass with herbs",
+      "Goat cheese and asparagus risotto"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 44-47°F (7-8°C)",
+      "decanting": "No decanting necessary; open 10 minutes before serving to allow aromatics to develop",
+      "glassware": "Aromatic white wine glass or tulip-shaped glass to concentrate floral and citrus notes"
+    },
+    "wineDetails": {
+      "region": "Napa Valley AVA, California (estate vineyard west of Napa town)",
+      "grapeVariety": "100% Albariño",
+      "vintage": "2024",
+      "style": "Crisp, aromatic white wine with pronounced minerality and bright acidity",
+      "ageability": "Best consumed within 2-3 years; drink 2024-2027 for optimal freshness (93 points James Suckling)"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.95,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Monte Real Blanco Tempranillo 2023",
+    "description": "An innovative white wine crafted from Tempranillo Blanco, a rare white mutation of red Tempranillo discovered by chance in Rioja in 1988. Produced by Bodegas Riojanas' Monte Real label, this wine showcases grapes from two complementary vineyards in Rioja Alta—Los Campillos in Cenicero and Camino Arenzana in Tricio—creating a white wine of complexity and elegance.",
+    "tastingNotes": {
+      "aroma": "Fresh, complex, and expressive with vibrant tropical fruit character. The nose reveals pineapple, mango, and passion fruit alongside citrus notes of grapefruit, lemon zest, and tangerine. Delicate white flower aromas add elegance, while subtle floral touches emerge on a slightly spicy background contributed by barrel aging. A clean mineral note and hint of vanilla from oak provide additional complexity.",
+      "palate": "Medium-bodied with excellent fruit character and a fresh, unctuous texture. Tropical fruit flavors of pineapple and ripe mango dominate, balanced by bright citrus notes of grapefruit and lemon. The wine shows great fruit intensity with underlying minerality that adds structure and food compatibility. Subtle oak influence from barrel fermentation provides creamy texture and gentle spice without overwhelming the vibrant fruit. Fresh acidity keeps the wine lively and balanced.",
+      "finish": "The finish is fresh and persistent with lingering tropical fruit and citrus notes. Bright acidity extends the conclusion, while subtle oak and mineral notes add complexity. The wine closes with excellent balance and a clean, refreshing character that encourages food pairing."
+    },
+    "foodPairings": [
+      "Grilled lobster with herb butter",
+      "Creamy seafood risotto",
+      "Pan-seared scallops with tropical fruit salsa",
+      "Roasted chicken with citrus and herbs",
+      "Aged manchego cheese with quince paste"
+    ],
+    "servingInfo": {
+      "temperature": "Serve chilled at 46-50°F (8-10°C)",
+      "decanting": "No decanting necessary; open 15 minutes before serving to allow oak to integrate",
+      "glassware": "Medium white wine glass or Burgundy glass to showcase aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain (Rioja Alta subregion)",
+      "grapeVariety": "100% Tempranillo Blanco",
+      "vintage": "2023",
+      "style": "Full-flavored white wine with barrel fermentation and aging for complexity",
+      "ageability": "Best consumed within 2-4 years; drink 2024-2027 for optimal fruit and freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.88,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Casa Dumetz Feminist Party GSM 2021",
+    "description": "A distinctive Rhône-style blend from Santa Barbara County, crafted by winemaker Sonja Magdevski at Casa Dumetz in Los Alamos. The 2021 Feminist Party GSM is composed of 50% Mourvèdre, 30% Grenache, and 20% Syrah, sourced from various vineyards across Santa Barbara wine country to create a wine representing the region's diversity and quality.",
+    "tastingNotes": {
+      "aroma": "Lifted and aromatic with energized fruit character from whole cluster inclusion. The nose reveals bright red fruit aromas of raspberry, strawberry, and red cherry, complemented by darker notes of blackberry and plum. Floral elements of violet and lavender add elegance, while savory notes of dried herbs, black pepper, and garrigue provide Rhône-style complexity. Subtle hints of cured meat, leather, and earth emerge, speaking to Mourvèdre's dominant influence.",
+      "palate": "Medium to full-bodied with density of flavor and excellent structural integration. The wine shows uplifted red and dark fruit flavors—think raspberry, cherry, and blackberry—supported by notes of dried herb, black olive, and Mediterranean spice. Whole cluster fermentation adds aromatic lift and textural complexity with subtle stem tannins that provide grip without astringency. The wine balances ripe fruit with savory, earthy elements, creating a food-friendly profile. Silky tannins and fresh acidity ensure harmony and drinkability.",
+      "finish": "The finish is long and satisfying with persistent fruit, spice, and earthy notes. Fine-grained tannins provide structure, while the wine's natural acidity extends the conclusion with freshness. Savory elements of herb, olive, and pepper linger alongside ripe fruit, creating a complex and contemplative close that showcases the blend's balance."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with herbs de Provence",
+      "Duck cassoulet with white beans",
+      "Ratatouille with grilled vegetables",
+      "Braised short ribs with red wine reduction",
+      "Aged sheep's milk cheese like Pecorino"
+    ],
+    "servingInfo": {
+      "temperature": "Serve slightly cool at 58-62°F (14-17°C)",
+      "decanting": "Decant for 30-45 minutes to allow the wine to open and integrate whole cluster character",
+      "glassware": "Large Burgundy glass to showcase aromatic complexity"
+    },
+    "wineDetails": {
+      "region": "Santa Barbara County, Central Coast, California",
+      "grapeVariety": "50% Mourvèdre, 30% Grenache, 20% Syrah (GSM blend with whole cluster inclusion)",
+      "vintage": "2021",
+      "style": "Rhône-style blend with lifted aromatics and savory complexity",
+      "ageability": "Drink now through 2029; can be enjoyed young for fruit or cellared 5-8 years for tertiary development"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Ontanon Clarete Rose 2023",
+    "description": "A traditional-style clarete from Rioja, representing an ancient winemaking method where red and white grapes are co-fermented to create a unique rosé-style wine. Produced by Bodegas Ontañón, this wine showcases the region's commitment to preserving historical winemaking techniques while delivering fresh, contemporary character.",
+    "tastingNotes": {
+      "aroma": "Bright and inviting with delicate red fruit and floral aromatics. The nose reveals fresh strawberry, wild raspberry, and red cherry, complemented by white flower notes of jasmine and orange blossom. Subtle citrus hints of pink grapefruit and lemon zest add lift, while a gentle herbal note of wild thyme and mineral undertone provide complexity. The wine's aromatic profile speaks to both red and white grape influence.",
+      "palate": "Light to medium-bodied with crisp, refreshing acidity and excellent balance. Flavors of fresh strawberry, raspberry, and cranberry are complemented by citrus notes of grapefruit and a hint of white peach from white grape inclusion. The wine shows clean fruit expression with subtle saline minerality that adds structure and food compatibility. A gentle tannic grip from red grape skins provides texture while maintaining the wine's fundamentally fresh character.",
+      "finish": "The finish is clean and refreshing with lingering red fruit and citrus notes. Bright acidity leaves the palate cleansed, while subtle mineral and herbal notes add interest. The wine closes with a crisp, thirst-quenching character perfect for warm weather and food pairing."
+    },
+    "foodPairings": [
+      "Paella mixta with seafood and chicken",
+      "Jamón serrano and manchego cheese",
+      "Grilled vegetable tapas with romesco sauce",
+      "Salt cod fritters (buñuelos de bacalao)",
+      "Tomato and mozzarella salad with basil"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 43-46°F (6-8°C)",
+      "decanting": "No decanting necessary; serve directly for freshness",
+      "glassware": "Standard white wine glass or rosé glass"
+    },
+    "wineDetails": {
+      "region": "Rioja DOCa, Spain",
+      "grapeVariety": "Traditional clarete blend (red and white grapes co-fermented, likely Tempranillo and Viura)",
+      "vintage": "2023",
+      "style": "Traditional Rioja clarete (co-fermented red/white blend) with fresh, light character",
+      "ageability": "Best consumed within 1-2 years; drink now through 2025 for optimal freshness"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.82,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine Borgeot Puligny Montrachet Les Grands Champs 2022",
+    "description": "An elegant white Burgundy from the esteemed Côte de Beaune village of Puligny-Montrachet. Crafted by fourth-generation brothers Laurent and Pascal Borgeot, who manage 23 hectares of sustainably farmed vineyards. This wine from the Les Grands Champs vineyard near Meursault is aged 11 months in French oak (25% new), showcasing the exceptional quality of the generous 2022 vintage.",
+    "tastingNotes": {
+      "aroma": "Elegant and refined with pretty floral aromatics characteristic of Puligny-Montrachet. The nose reveals white flower blossoms, acacia, and jasmine, complemented by tropical fruit notes of pineapple, ripe mango, and hints of tangerine. Stone fruit aromas of white peach and apricot add richness, while subtle notes of toasted hazelnut, butter, and vanilla from oak aging provide complexity. A clean mineral note reminiscent of chalk and flint speaks to Burgundian terroir.",
+      "palate": "Medium to full-bodied with rich intensity and mouthwatering acidity. The wine delivers concentrated flavors of ripe pear, golden apple, and citrus, balanced by tropical notes of pineapple and passion fruit. Creamy texture from lees aging and oak integration provides roundness, while vibrant acidity keeps the wine fresh and structured. Lovely minerality runs through the palate, adding precision and length. The wine shows excellent balance between fruit richness, oak influence, and natural acidity.",
+      "finish": "The finish is long and mineral-driven with persistent fruit and subtle oak notes. Mouthwatering acidity extends the conclusion impressively, while the wine's minerality adds complexity and elegance. Notes of citrus zest, white flowers, and toasted nuts linger, creating a refined and contemplative close that speaks to quality Burgundian winemaking."
+    },
+    "foodPairings": [
+      "Lobster thermidor with butter and cream",
+      "Roasted turbot with lemon beurre blanc",
+      "Chicken in cream sauce with morels",
+      "Gruyère and comté cheese selection",
+      "Seared scallops with cauliflower purée"
+    ],
+    "servingInfo": {
+      "temperature": "Serve cool at 50-54°F (10-12°C)",
+      "decanting": "No decanting necessary; open 15-20 minutes before serving to allow oak to integrate",
+      "glassware": "Burgundy glass to showcase aromatic complexity and texture"
+    },
+    "wineDetails": {
+      "region": "Puligny-Montrachet, Côte de Beaune, Burgundy, France",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2022",
+      "style": "Classic white Burgundy with oak aging (11 months, 25% new French oak)",
+      "ageability": "Excellent aging potential; drink 2024-2032 with proper cellaring (2022 was an abundant, high-quality vintage)"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.92,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Hertelendy Cabernet Sauvignon 2015",
+    "description": "A Napa Valley Cabernet Sauvignon from Hertelendy Vineyards, showcasing the excellent 2015 vintage—widely considered one of California's best in recent memory. This wine represents classic Napa Cabernet with the benefit of bottle age, demonstrating how the variety develops complexity and integration over time.",
+    "tastingNotes": {
+      "aroma": "Mature and complex with evolved dark fruit aromatics. The nose reveals blackcurrant, black cherry, and plum that have developed secondary notes of dried fig, prune, and black tea. Cedar, tobacco leaf, and cigar box from oak aging are now beautifully integrated, while hints of leather, earth, and forest floor add tertiary complexity. Subtle notes of dark chocolate, espresso, and vanilla provide richness without dominating the fruit.",
+      "palate": "Full-bodied with excellent structure and velvety texture from eight years of bottle age. The wine shows mature dark fruit flavors of blackberry, cassis, and black cherry supported by notes of dried plum, fig, and dark chocolate. Oak influence is now seamlessly integrated, contributing cedar, vanilla, and baking spice without overwhelming. Fine-grained, silky tannins provide structure that has softened beautifully with age, while the wine maintains good acidity for balance and food compatibility.",
+      "finish": "The finish is long and elegant with persistent dark fruit, cedar, and earthy notes. Soft tannins and integrated oak extend the conclusion gracefully, while tertiary notes of tobacco, leather, and tea add complexity. The wine closes with harmony and refinement, demonstrating the benefits of proper aging."
+    },
+    "foodPairings": [
+      "Grilled New York strip steak with compound butter",
+      "Braised lamb shanks with red wine reduction",
+      "Mushroom and truffle risotto",
+      "Aged cheddar or aged gouda",
+      "Beef Wellington with duxelles"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 62-65°F (17-18°C)",
+      "decanting": "Decant for 45-60 minutes to allow the wine to open and reveal its complexity",
+      "glassware": "Large Bordeaux or Cabernet glass"
+    },
+    "wineDetails": {
+      "region": "Napa Valley, California (specific AVA unspecified)",
+      "grapeVariety": "100% Cabernet Sauvignon",
+      "vintage": "2015",
+      "style": "Full-bodied Napa Cabernet with oak aging, now showing bottle maturity",
+      "ageability": "Drinking beautifully now with 8 years age; can continue to develop through 2030-2032 with proper storage"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.78,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Wonderment Wines Hyde Vineyard Sauvignon Blanc 2020",
+    "description": "An exceptional Sauvignon Blanc from the legendary 160+ acre Hyde Vineyard in Carneros, Napa Valley's southernmost sub-appellation. The property's shallow loamy soils and ancient stream beds, combined with fog and cool breezes from San Francisco Bay, create ideal conditions for producing structured, sophisticated Sauvignon Blanc with terroir expression.",
+    "tastingNotes": {
+      "aroma": "Bright and aromatic with vibrant citrus and tropical fruit character. The nose reveals fresh lime zest, lemon verbena, and grapefruit, complemented by tropical notes of passion fruit, guava, and white peach. Subtle floral hints of white blossom and honeysuckle add elegance, while a distinct mineral note of wet stone and a hint of sea breeze salinity speak to the Carneros terroir. Clean and focused with excellent aromatic intensity.",
+      "palate": "Medium-bodied with tremendous structure and sophistication that sets this wine apart. Flavors mix fruity apple, pear, and melon with bright citrus notes of lime and grapefruit. Tropical fruit undertones of passion fruit and pineapple add richness without heaviness. The wine's defining characteristic is its pronounced minerality and salty finish that speaks to the coastal influence and unique terroir. Vibrant acidity provides energy and freshness, creating excellent balance and food compatibility.",
+      "finish": "The finish is notably long and mineral-driven with a distinctive salty character that lingers beautifully. Bright citrus and stone fruit notes extend the conclusion, while refreshing acidity leaves the palate cleansed and energized. The wine's minerality and coastal influence shine through to the very end, creating a sophisticated and contemplative close."
+    },
+    "foodPairings": [
+      "Fresh oysters with mignonette sauce",
+      "Grilled halibut with herb butter and lemon",
+      "Crab cakes with aioli",
+      "Goat cheese and herb salad with citrus vinaigrette",
+      "Sushi and sashimi"
+    ],
+    "servingInfo": {
+      "temperature": "Serve well-chilled at 45-48°F (7-9°C)",
+      "decanting": "No decanting necessary; open 10 minutes before serving",
+      "glassware": "Aromatic white wine glass or Sauvignon Blanc glass"
+    },
+    "wineDetails": {
+      "region": "Carneros AVA, Napa Valley, California (Hyde Vineyard)",
+      "grapeVariety": "100% Sauvignon Blanc",
+      "vintage": "2020",
+      "style": "Structured, mineral-driven Sauvignon Blanc with coastal influence",
+      "ageability": "Best consumed within 2-4 years; drink now through 2026 for optimal freshness (Wine Enthusiast praised for structure and sophistication)"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.94,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  },
+  {
+    "productId": "",
+    "productName": "Domaine du Joncier Les Muses 2017",
+    "description": "A rare and remarkable 100% Mourvèdre wine from the Lirac appellation in the Rhône Valley. Produced from biodynamically farmed vines (Demeter certified since 2010) on a terroir of large rolled pebbles, this wine represents the premium cuvée of Domaine du Joncier. With extremely low yields of 18 hl/ha, Les Muses showcases remarkable concentration and the full expression of Mourvèdre's potential.",
+    "tastingNotes": {
+      "aroma": "Deep and complex with brooding dark fruit and earthy character. The nose reveals blackberry, black plum, and dark cherry, complemented by notes of blueberry and black fig. Savory elements dominate—think black olive, cured meat, garrigue herbs, and wild thyme. Earthy notes of leather, forest floor, and truffle add complexity, while subtle hints of black pepper, clove, and graphite provide spice and mineral character. The wine shows the characteristic game and animal notes of Mourvèdre with integration from bottle age.",
+      "palate": "Full-bodied with remarkable concentration and dense structure from ultra-low yields. The wine delivers intense dark fruit flavors of blackberry, plum, and cassis, supported by savory notes of black olive, dried herbs, and cured meat. Earthy elements of mushroom, truffle, and wet stone add depth and complexity. Firm, structured tannins provide grip and aging potential, while the wine maintains good acidity for balance despite its power. The biodynamic farming and terroir of rolled pebbles contribute to the wine's mineral depth and remarkable concentration.",
+      "finish": "The finish is long, structured, and complex with persistent dark fruit, earth, and savory notes. Firm tannins and natural acidity extend the conclusion impressively, while mineral and herbal elements add layers of interest. This is a wine of remarkable depth and concentration that showcases Mourvèdre's ability to age and develop complexity."
+    },
+    "foodPairings": [
+      "Braised wild boar with juniper and red wine",
+      "Grilled lamb chops with herbs de Provence",
+      "Duck confit with lentils",
+      "Beef daube Provençal with black olives",
+      "Aged hard cheeses like aged Pecorino or aged Manchego"
+    ],
+    "servingInfo": {
+      "temperature": "Serve at 60-64°F (16-18°C)",
+      "decanting": "Decant for 2-3 hours to allow this powerful wine to open and soften tannins",
+      "glassware": "Large Bordeaux glass to accommodate structure and allow aromatics to develop"
+    },
+    "wineDetails": {
+      "region": "Lirac AOC, Southern Rhône Valley, France",
+      "grapeVariety": "100% Mourvèdre (from biodynamically farmed vines, 18 hl/ha yields)",
+      "vintage": "2017",
+      "style": "Full-bodied, concentrated Mourvèdre from ultra-low yields and biodynamic farming",
+      "ageability": "Excellent aging potential; drink 2024-2035 with proper cellaring (described as huge bargain, comparing favorably to expensive Châteauneuf-du-Pape)"
+    },
+    "metadata": {
+      "source": "exact-match",
+      "confidence": 0.93,
+      "researchedAt": "2025-10-21T13:00:00Z"
+    }
+  }
+]

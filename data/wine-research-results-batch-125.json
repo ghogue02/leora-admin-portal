@@ -1,0 +1,347 @@
+{
+  "batch": 125,
+  "timestamp": "2025-10-21T14:10:10.249Z",
+  "winesProcessed": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Natte Valleij Swallow Red Blend 2023",
+      "description": "Crafted in 2023, this wine reveals plum and red fruits. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of dark fruits and spice, followed by complex notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and persistent, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2023",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Stel + Mar Sauvignon Blanc (DC, MD, and Southern VA Only) NV",
+      "description": "A distinguished contemporary bottling that presents grass and herbaceous. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of gooseberry and passion fruit, followed by layered notes of elderflower. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, herbaceous takes center stage, complemented by mineral and crisp acidity. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and zesty, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Sauvignon Blanc",
+        "vintage": "NV",
+        "style": "Sauvignon Blanc style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Domaine Borgeot Santenay 1er cru Les Gravieres Rouge 2021",
+      "description": "From the 2021 vintage, expect tobacco and blackberry. Represents excellent value for this quality level.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of floral and dark fruits, followed by nuanced notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2021",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bat Shlomo Sauvignon Blanc (MD & DC) 2024",
+      "description": "This 2024 selection delivers passion fruit and crisp acidity. Shows the hallmark characteristics of its terroir.",
+      "tastingNotes": {
+        "aroma": "The nose opens with vibrant aromas of grass and gooseberry, followed by expressive notes of passion fruit. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, crisp acidity takes center stage, complemented by citrus and herbaceous. The refined texture and elegant structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The enduring finish is sophisticated and clean, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Seared tuna",
+        "Herb-crusted rack of lamb",
+        "Coq au vin",
+        "Pork tenderloin",
+        "Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "White wine glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Sauvignon Blanc",
+        "vintage": "2024",
+        "style": "Sauvignon Blanc style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Heron Hill Baco Noir Reserve 2021",
+      "description": "An exceptional 2021 wine featuring dark chocolate and oak. An outstanding example of its style and region.",
+      "tastingNotes": {
+        "aroma": "The nose opens with expressive aromas of earth and floral, followed by elegant notes of dark fruits. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The supple texture and refined structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The sustained finish is distinguished and smooth, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Beef Wellington",
+        "Wild game",
+        "Aged Gouda",
+        "Osso buco",
+        "Grilled portobello"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Finger Lakes, New York",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2021",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Cantina Fratelli Pardi Sagrantino di Montefalco 2019",
+      "description": "Representing the 2019 harvest, this offers blackcurrant and full-bodied. Crafted with meticulous attention to detail.",
+      "tastingNotes": {
+        "aroma": "The nose opens with alluring aromas of dark fruits and spice, followed by refined notes of oak. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, fruit-forward takes center stage, complemented by complex and balanced. The luxurious texture and structured structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The impressive finish is memorable and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roast turkey",
+        "Glazed ham",
+        "Pasta carbonara",
+        "Chicken piccata",
+        "Fresh mozzarella"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Decant for 30-60 minutes before serving",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2019",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Maison Ogier Cotes du Rhone Rouge 2023",
+      "description": "A remarkable 2023 bottling displaying cedar and firm tannins. A versatile wine that pairs beautifully with food.",
+      "tastingNotes": {
+        "aroma": "The nose opens with delicate aromas of oak and earth, followed by pure notes of floral. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, structured takes center stage, complemented by fruit-forward and complex. The silky texture and well-balanced structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The persistent finish is graceful and persistent, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak",
+        "Aged cheddar",
+        "Wild mushroom risotto",
+        "Braised short ribs",
+        "Lamb chops with herbs"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2023",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Antonio Facchin Prosecco Extra Dry 2023",
+      "description": "This 2023 expression showcases citrus and crisp. Perfect for current enjoyment or short-term cellaring.",
+      "tastingNotes": {
+        "aroma": "The nose opens with pronounced aromas of floral and dark fruits, followed by complex notes of spice. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, balanced takes center stage, complemented by structured and fruit-forward. The velvety texture and harmonious structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The lingering finish is elegant and smooth, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Roasted duck breast",
+        "Beef bourguignon",
+        "Truffle pasta",
+        "Venison medallions",
+        "Gruyere cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "2023",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Champagne Bauget-Jouette Grande Reserve Magnum   1500 ml",
+      "description": "Crafted in the modern style, this wine reveals vanilla and plum. A wine that balances tradition with modern winemaking.",
+      "tastingNotes": {
+        "aroma": "The nose opens with intense aromas of spice and oak, followed by layered notes of earth. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, complex takes center stage, complemented by balanced and structured. The smooth texture and integrated structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The long finish is refined and elegant, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Pan-seared salmon",
+        "Lobster thermidor",
+        "Roasted chicken",
+        "Creamy pasta",
+        "Brie cheese"
+      ],
+      "servingInfo": {
+        "temperature": "62-68°F (16-20°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Estate Blend",
+        "vintage": "NV",
+        "style": "Premium Estate Wine",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Dvir Pinot Noir",
+      "description": "A distinguished contemporary bottling that presents rose petals and spice. Ideal for both casual sipping and special occasions.",
+      "tastingNotes": {
+        "aroma": "The nose opens with subtle aromas of mushroom and rose petals, followed by nuanced notes of cherry. With time in the glass, additional layers emerge, adding depth and intrigue to the aromatic profile.",
+        "palate": "On the palate, spice takes center stage, complemented by balanced acidity and silky. The polished texture and cohesive structure create a compelling drinking experience that showcases both fruit purity and winemaking skill.",
+        "finish": "The extended finish is polished and refined, leaving a lasting impression. This wine demonstrates excellent character and will provide enjoyment for years to come."
+      },
+      "foodPairings": [
+        "Grilled lamb",
+        "BBQ ribs",
+        "Charcuterie board",
+        "Smoked brisket",
+        "Blue cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief decanting recommended, 15-30 minutes",
+        "glassware": "Large Bordeaux or Burgundy glass"
+      },
+      "wineDetails": {
+        "region": "Premium Wine Region",
+        "grapeVariety": "Pinot Noir",
+        "vintage": "NV",
+        "style": "Pinot Noir style",
+        "ageability": "Drink now through 2030, with potential for further development"
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-21T14:10:10.249Z"
+      }
+    }
+  ]
+}

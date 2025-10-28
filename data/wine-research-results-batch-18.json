@@ -1,0 +1,347 @@
+{
+  "researchDate": "2025-10-20T00:00:00.000Z",
+  "batchNumber": 18,
+  "totalWines": 10,
+  "wines": [
+    {
+      "productId": "",
+      "productName": "Raywood Cabernet Sauvignon 2023",
+      "description": "A vibrant California Cabernet Sauvignon showcasing the youthful exuberance of the 2023 vintage. This wine delivers approachable fruit-forward character with well-integrated tannins, making it an excellent choice for everyday enjoyment while maintaining varietal integrity.",
+      "tastingNotes": {
+        "aroma": "The nose opens with inviting aromas of ripe blackcurrant and dark cherry, complemented by subtle hints of cedar and vanilla from oak aging. Secondary notes of fresh bay leaf and a whisper of dark chocolate add complexity, while underlying violet florals provide an elegant aromatic lift. The overall impression is one of generous fruit expression balanced by restrained herbal nuances.",
+        "palate": "On the palate, this Cabernet shows excellent mid-weight structure with flavors of black plum and cassis taking center stage. The wine's fruit core is supported by fine-grained tannins that provide grip without astringency, while integrated acidity keeps the palate fresh and lively. Subtle notes of toasted oak, espresso, and dried sage weave through the fruit, adding depth and dimension to the experience.",
+        "finish": "The finish is medium in length with lingering dark fruit and a pleasant savory quality. Subtle spice notes emerge on the close, with soft tannins leaving a satisfying, slightly chalky texture that invites another sip."
+      },
+      "foodPairings": [
+        "Grilled ribeye steak with herb butter",
+        "Braised short ribs with root vegetables",
+        "Aged cheddar and charcuterie board",
+        "Mushroom and beef Wellington",
+        "Eggplant parmesan with rich tomato sauce"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "Brief 30-minute decanting will help open aromatics and soften tannins, though not strictly necessary for this approachable young wine",
+        "glassware": "Standard Bordeaux or large bowl red wine glass"
+      },
+      "wineDetails": {
+        "region": "California",
+        "grapeVariety": "100% Cabernet Sauvignon",
+        "vintage": "2023",
+        "style": "Medium-bodied red wine with fruit-forward character",
+        "ageability": "Drink now through 2028. This wine is crafted for near-term enjoyment, showing best within 3-5 years of vintage."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.85,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Sutherland Syrah 2015",
+      "description": "A mature expression of cool-climate Syrah that has evolved beautifully over nearly a decade. This wine demonstrates the remarkable aging potential of quality Syrah, displaying tertiary complexity while retaining core fruit character and structural integrity.",
+      "tastingNotes": {
+        "aroma": "The bouquet reveals the wine's maturity with evolved aromas of dried blackberry, cured meat, and leather intermingling with savory olive tapenade and cracked black pepper. Beneath these developed characteristics lie subtle notes of smoked bacon, wild herbs, and a distinctive earthy minerality reminiscent of wet stone. Hints of aged tobacco and sandalwood add an exotic dimension to the complex aromatic profile.",
+        "palate": "The palate showcases a beautiful evolution, with primary fruit giving way to secondary and tertiary flavors of dark cherry compote, fig paste, and blackberry reduction. The wine maintains impressive structure with resolved tannins that feel silky and integrated, while bright acidity provides freshness despite the wine's age. Layers of game, graphite, roasted coffee bean, and Mediterranean herbs create a sophisticated flavor tapestry, with subtle umami notes adding intrigue.",
+        "finish": "The finish is long and contemplative, with savory elements dominating over fruit. Notes of black olive, charred meat, and fine leather persist, while a mineral edge keeps the palate refreshed and engaged well after the wine is swallowed."
+      },
+      "foodPairings": [
+        "Roasted lamb shoulder with rosemary and garlic",
+        "Wild mushroom risotto with truffle oil",
+        "Duck confit with black cherry gastrique",
+        "Venison stew with juniper berries",
+        "Aged Manchego cheese with fig preserves"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cooler than room temperature",
+        "decanting": "Recommended 60-90 minute decanting to allow settled wine to breathe and reveal full complexity; decant carefully to avoid disturbing sediment",
+        "glassware": "Large Burgundy or Syrah-specific glass to capture evolved aromatics"
+      },
+      "wineDetails": {
+        "region": "Unknown (likely cool-climate region based on producer style)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2015",
+        "style": "Mature, medium to full-bodied red wine with tertiary complexity",
+        "ageability": "At peak maturity now. Drink through 2027. The wine is in its optimal drinking window showing beautiful evolution."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.80,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Soco Vinicola Soco Blanco Lanzarote 2023",
+      "description": "An exotic white wine from the volcanic island of Lanzarote in Spain's Canary Islands, where vines are grown in distinctive black volcanic pits called 'hoyos' to protect them from fierce winds. This wine captures the unique terroir of volcanic soils and Atlantic influence, offering a distinctive expression unlike any mainland Spanish white.",
+      "tastingNotes": {
+        "aroma": "The nose immediately announces its volcanic origins with striking mineral notes of flint, crushed oyster shell, and wet volcanic rock. These are beautifully interwoven with aromas of green apple, white peach, and citrus blossom, while saline and iodine hints evoke the nearby Atlantic Ocean. Subtle tropical notes of pineapple and passion fruit add exotic intrigue, alongside fresh fennel and white pepper that speak to the wine's aromatic complexity.",
+        "palate": "On the palate, the wine delivers electric acidity and intense minerality that frame flavors of Meyer lemon, Granny Smith apple, and white grapefruit. The volcanic terroir imparts a distinctive chalky texture and a saline quality that gives the wine incredible freshness and energy. Mid-palate weight is moderate, with flavors of green melon, nectarine, and a whisper of almond adding dimension, while the wine's briny character keeps everything lifted and precise.",
+        "finish": "The finish is remarkably long and mineral-driven, with sea salt, lemon zest, and stony minerality lingering on the palate. A subtle bitter almond note appears at the close, adding complexity and making this a wonderfully food-friendly wine."
+      },
+      "foodPairings": [
+        "Fresh oysters with lemon and mignonette",
+        "Grilled octopus with paprika and olive oil",
+        "Ceviche with citrus and cilantro",
+        "Sushi and sashimi",
+        "Goat cheese salad with citrus vinaigrette"
+      ],
+      "servingInfo": {
+        "temperature": "45-50°F (7-10°C), well-chilled",
+        "decanting": "No decanting needed; serve directly from the bottle to preserve freshness and bubbling minerality",
+        "glassware": "White wine glass or aromatic white varietal glass"
+      },
+      "wineDetails": {
+        "region": "Lanzarote, Canary Islands, Spain (DO Lanzarote)",
+        "grapeVariety": "Likely Malvasía Volcánica and/or Listán Blanco (indigenous Canary Island varieties)",
+        "vintage": "2023",
+        "style": "Dry, mineral-driven white wine with volcanic terroir expression",
+        "ageability": "Drink now through 2026. Best enjoyed young to appreciate vibrant fruit and electric minerality, though quality examples can develop for 2-3 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.82,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Adir Colombard Mevushal (MD & DC)",
+      "description": "A kosher Mevushal wine made from Colombard grapes, produced under strict rabbinical supervision. The Mevushal designation indicates the wine has been flash-pasteurized to maintain kosher status regardless of who handles it, making it suitable for all kosher occasions while preserving the Colombard grape's characteristic bright, aromatic profile.",
+      "tastingNotes": {
+        "aroma": "The bouquet presents bright, lifted aromatics typical of Colombard with pronounced notes of fresh pear, green apple, and white flowers. Citrus elements of lemon zest and lime blossom add vibrancy, while subtle hints of honeydew melon and fresh-cut grass provide additional aromatic layers. A delicate floral note, reminiscent of acacia blossoms, adds elegance to the overall aromatic impression.",
+        "palate": "On the palate, this wine shows refreshing simplicity with crisp green apple and citrus flavors taking the lead. The wine's natural high acidity, characteristic of Colombard, provides excellent structure and makes the wine feel clean and invigorating. Light-bodied and straightforward, it offers flavors of lemon-lime, white grapefruit, and a subtle peachy note, with the flash-pasteurization process preserving freshness while maintaining the grape's inherent bright fruit character.",
+        "finish": "The finish is clean and refreshing with lingering citrus notes and a crisp, acidic snap. The wine leaves the palate cleansed and ready for another sip, with subtle hints of green apple skin appearing at the close."
+      },
+      "foodPairings": [
+        "Traditional gefilte fish with horseradish",
+        "Grilled chicken with lemon and herbs",
+        "Fresh green salads with citrus vinaigrette",
+        "Light fish dishes like tilapia or sole",
+        "Vegetable crudités with hummus"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), well-chilled",
+        "decanting": "No decanting required; serve cold directly from the bottle",
+        "glassware": "Standard white wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (Colombard is widely grown in various regions)",
+        "grapeVariety": "100% Colombard",
+        "vintage": "Non-vintage or current release",
+        "style": "Dry, crisp white wine; Kosher Mevushal certified",
+        "ageability": "Drink upon release. Best enjoyed within 1-2 years for optimal freshness and vibrant fruit character."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.78,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Riojanas Monte Real Garnacha 2020",
+      "description": "A premium expression of old-vine Garnacha from one of Rioja's most historic bodegas, founded in 1890. Monte Real represents the estate's commitment to showcasing single-varietal wines that express the unique character of Garnacha grown in select Rioja vineyards, offering a modern interpretation of this traditional Spanish grape.",
+      "tastingNotes": {
+        "aroma": "The nose delivers the hallmark generosity of Garnacha with exuberant red fruit aromas of ripe strawberry, raspberry, and red cherry dominating the bouquet. These primary fruit notes are complemented by intriguing layers of crushed flowers, particularly violet and rose petal, alongside subtle hints of white pepper, dried herbs, and a touch of sweet baking spice from oak influence. Underlying earthy notes of red clay and garrigue add complexity and sense of place.",
+        "palate": "The palate is medium to full-bodied with a silky, supple texture that is quintessentially Garnacha. Flavors mirror the aromatics with bright red fruit—particularly strawberry and cherry—taking center stage, supported by notes of pomegranate, cranberry, and a hint of blood orange. The wine shows beautiful balance with soft, ripe tannins providing structure without heaviness, while fresh acidity keeps everything vibrant. Oak integration is seamless, contributing subtle vanilla, cinnamon, and a whisper of cocoa without overwhelming the fruit.",
+        "finish": "The finish is long and elegant with persistent red fruit and spice notes. A subtle mineral edge emerges, along with hints of dried rose petals and fine-grained tannins that leave a refined, velvety impression."
+      },
+      "foodPairings": [
+        "Roasted pork loin with Spanish paprika",
+        "Lamb chops with rosemary and garlic",
+        "Patatas bravas and Spanish tapas",
+        "Grilled vegetables with romesco sauce",
+        "Semi-aged sheep's milk cheese like Manchego"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "30-45 minute decanting recommended to allow the wine to open and soften, revealing full aromatic complexity",
+        "glassware": "Medium-sized Burgundy glass or universal red wine glass"
+      },
+      "wineDetails": {
+        "region": "Rioja DOCa, Spain",
+        "grapeVariety": "100% Garnacha (Grenache)",
+        "vintage": "2020",
+        "style": "Medium to full-bodied red wine with elegant fruit expression",
+        "ageability": "Drink now through 2030. The 2020 vintage shows excellent balance for mid-term cellaring, with the wine evolving gracefully over the next 5-10 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.88,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Prima Pave Rose Mini Dry   200 ml",
+      "description": "A kosher dry rosé wine offered in a convenient 200ml single-serving format, perfect for individual enjoyment or paired meals. Prima produces approachable kosher wines that maintain quality standards while serving the observant Jewish community's needs for certified wines suitable for all occasions.",
+      "tastingNotes": {
+        "aroma": "The nose offers delicate aromas of fresh strawberry, watermelon, and white peach, typical of dry rosé styling. Light floral notes of rose hip and orange blossom add aromatic lift, while subtle hints of pink grapefruit and raspberry provide citrus-berry complexity. A whisper of fresh herbs, perhaps basil or tarragon, adds an interesting savory dimension.",
+        "palate": "On the palate, this dry rosé presents crisp, refreshing fruit flavors centered on red berries—particularly wild strawberry and cranberry—with supporting notes of pink grapefruit and white cherry. The wine is light-bodied with vibrant acidity that creates a mouthwatering effect, while the dry finish ensures the wine remains food-friendly and not cloying. A subtle minerality runs through the mid-palate, adding texture and interest.",
+        "finish": "The finish is clean and refreshing with lingering red berry notes and a crisp, dry close. Subtle citrus zest flavors appear at the end, leaving the palate refreshed and ready for food."
+      },
+      "foodPairings": [
+        "Fresh summer salads with vinaigrette",
+        "Grilled salmon or white fish",
+        "Light pasta dishes with tomato and basil",
+        "Fresh mozzarella and tomato caprese",
+        "Hummus and Middle Eastern mezze"
+      ],
+      "servingInfo": {
+        "temperature": "40-45°F (4-7°C), well-chilled",
+        "decanting": "No decanting needed; serve cold directly from the bottle",
+        "glassware": "Standard white wine or rosé glass"
+      },
+      "wineDetails": {
+        "region": "Unknown (kosher wine production region)",
+        "grapeVariety": "Unknown blend (likely includes Grenache, Syrah, or other rosé-friendly varieties)",
+        "vintage": "Current release / Non-vintage",
+        "style": "Dry rosé wine; Kosher certified; 200ml single-serving format",
+        "ageability": "Drink immediately upon purchase. Rosé is best enjoyed young and fresh, ideally within 1 year of release."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.75,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Alfaro Family Vineyards A Estate Syrah 2023",
+      "description": "An estate-grown Syrah from Alfaro Family Vineyards, representing the family's commitment to sustainable farming and handcrafted winemaking. The 2023 vintage showcases youthful Syrah character with vibrant fruit and spice, reflecting the terroir of their estate vineyards and the fresh, exuberant nature of this recent harvest.",
+      "tastingNotes": {
+        "aroma": "The bouquet bursts with youthful Syrah character, displaying intense aromas of fresh blackberry, blueberry, and dark plum. Classic Syrah hallmarks emerge with pronounced black pepper, cured meat, and violet florals adding complexity and intrigue. Secondary notes of graphite, espresso bean, and a hint of smoked bacon provide savory depth, while subtle olive tapenade and dried herbs contribute a Mediterranean dimension to the aromatic profile.",
+        "palate": "The palate is medium to full-bodied with a core of concentrated dark fruit—think blackberry compote, boysenberry, and black cherry—supported by excellent structural elements. Firm yet fine-grained tannins provide grip and ageability, while fresh acidity keeps the wine balanced and lively despite its youth. Flavors of cracked black pepper, dark cocoa, roasted coffee, and smoky bacon weave through the fruit, creating a complex flavor profile that is both hedonistic and intellectual. A subtle gamey note adds interest without overwhelming.",
+        "finish": "The finish is long and structured with lingering dark fruit and pronounced spice. Black pepper and smoked meat notes persist, while firm tannins provide a satisfying grip that will soften with age or pair beautifully with rich foods."
+      },
+      "foodPairings": [
+        "Grilled lamb kebabs with Middle Eastern spices",
+        "Smoked brisket with black pepper rub",
+        "Wild boar ragu over pappardelle",
+        "Grilled ribeye with herb compound butter",
+        "Hard aged cheeses like aged Gouda or aged cheddar"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "60-90 minute decanting strongly recommended for this young, structured Syrah to soften tannins and open aromatics",
+        "glassware": "Large Syrah or Rhône-style glass to capture full aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Unknown (estate vineyards)",
+        "grapeVariety": "100% Syrah",
+        "vintage": "2023",
+        "style": "Medium to full-bodied red wine with youthful structure and dark fruit character",
+        "ageability": "Drink now through 2033. This wine has the structure to age gracefully for 8-10 years, developing tertiary complexity while maintaining core fruit."
+      },
+      "metadata": {
+        "source": "varietal-match",
+        "confidence": 0.83,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Bodegas Tandem Inmune Garnacha 2021",
+      "description": "A modern Spanish Garnacha from Bodegas Tandem, a project focused on showcasing the versatility and quality potential of Spanish indigenous varieties. The 'Inmune' designation suggests wines made with minimal intervention, allowing the pure expression of Garnacha and terroir to shine through with authenticity and vibrancy.",
+      "tastingNotes": {
+        "aroma": "The nose presents an inviting bouquet of fresh red and dark fruit with ripe cherry, raspberry, and blackberry leading the aromatic charge. Floral notes of lavender and rose add elegance, while Mediterranean herbs—think thyme, rosemary, and wild sage—contribute a garrigue-like character that speaks to the wine's Spanish origins. Subtle spice elements of cinnamon, clove, and a hint of licorice add complexity, with underlying earthy notes of sun-baked clay and scrubland.",
+        "palate": "On the palate, this Garnacha shows beautiful purity of fruit with flavors of ripe strawberry, cherry, and pomegranate taking center stage. The wine displays medium body with a juicy, approachable texture that is immediately pleasurable, while maintaining enough structure and complexity to remain interesting. Fresh acidity provides lift and balance, while soft, rounded tannins ensure smooth drinking. Minimal intervention winemaking allows the fruit to speak clearly, with subtle hints of dried herbs, red tea, and sweet spice adding nuance without oak heaviness.",
+        "finish": "The finish is medium in length with persistent red fruit and herbal notes. A subtle mineral edge and fine tannins provide structure, while the wine's natural freshness keeps the close clean and vibrant."
+      },
+      "foodPairings": [
+        "Spanish chorizo and cured meats",
+        "Paella with chicken and rabbit",
+        "Grilled vegetable skewers with romesco",
+        "Pork tenderloin with cherry reduction",
+        "Aged Mahón or Manchego cheese"
+      ],
+      "servingInfo": {
+        "temperature": "58-62°F (14-17°C), slightly cool",
+        "decanting": "Brief 20-30 minute decanting will open aromatics, though not essential for this approachable wine",
+        "glassware": "Medium-sized red wine glass or universal wine glass"
+      },
+      "wineDetails": {
+        "region": "Spain (specific region unknown, likely Aragón, Navarra, or similar Garnacha-producing area)",
+        "grapeVariety": "100% Garnacha (Grenache)",
+        "vintage": "2021",
+        "style": "Medium-bodied red wine with natural/minimal intervention winemaking philosophy",
+        "ageability": "Drink now through 2027. Best enjoyed in its youth to appreciate vibrant fruit and fresh character, though quality will be maintained for 4-6 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.81,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Angoris Schioppettino 2020",
+      "description": "An outstanding expression of Schioppettino, one of Friuli-Venezia Giulia's most distinctive indigenous red grape varieties. Angoris, a historic estate in the Collio region, showcases this rare varietal's unique spicy, peppery character and remarkable ability to express the region's terroir with precision and authenticity.",
+      "tastingNotes": {
+        "aroma": "The nose immediately announces Schioppettino's distinctive character with pronounced aromas of black pepper, crushed violets, and dark berries. Blackberry, wild blueberry, and sour cherry mingle with striking spice notes of white pepper, cracked black peppercorn, and exotic spices reminiscent of Szechuan pepper. Herbal elements of dried oregano, bay leaf, and wild fennel add complexity, while subtle hints of graphite, iron, and forest floor contribute an earthy, mineral dimension unique to this variety.",
+        "palate": "The palate reveals a wine of medium to full body with vibrant acidity and firm, fine-grained tannins that provide excellent structure. Dark fruit flavors of blackberry, black cherry, and cassis are interwoven with the grape's signature peppery spice, creating a fascinating interplay between fruit and savory elements. The wine shows remarkable freshness and energy with bright acidity cutting through the concentrated fruit, while flavors of black tea, tobacco leaf, licorice, and dark chocolate add layers of complexity. A distinctive mineral quality runs through the mid-palate, reflecting the limestone-rich soils of Friuli.",
+        "finish": "The finish is long and compelling with persistent spice, dark fruit, and mineral notes. Schioppettino's characteristic peppery edge lingers prominently, while fine tannins and bright acidity leave the palate refreshed and engaged, demanding food or contemplation."
+      },
+      "foodPairings": [
+        "Grilled sausages with peppers and onions",
+        "Braised beef with black pepper sauce",
+        "Wild mushroom and truffle dishes",
+        "Aged Montasio cheese from Friuli",
+        "Spicy Italian salami and charcuterie"
+      ],
+      "servingInfo": {
+        "temperature": "60-64°F (15-18°C)",
+        "decanting": "45-60 minute decanting recommended to soften tannins and allow the wine's complex aromatics to fully express themselves",
+        "glassware": "Medium to large Burgundy glass or Italian red varietal glass"
+      },
+      "wineDetails": {
+        "region": "Friuli-Venezia Giulia, Italy (likely DOC Collio or DOC Friuli Colli Orientali)",
+        "grapeVariety": "100% Schioppettino (also known as Ribolla Nera)",
+        "vintage": "2020",
+        "style": "Medium to full-bodied red wine with distinctive peppery character and high acidity",
+        "ageability": "Drink now through 2032. Schioppettino ages remarkably well, developing tertiary complexity while maintaining its characteristic spice and acidity over 10-15 years."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.87,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    },
+    {
+      "productId": "",
+      "productName": "Noble Hill Field Atlas 2021",
+      "description": "An intriguing field blend from South Africa's Noble Hill estate in the Simonsberg-Paarl region, where multiple grape varieties are co-planted and harvested together in the traditional 'field blend' style. This approach, reminiscent of old-world winemaking, creates wines of unique complexity and balance that cannot be replicated through blending separately vinified lots.",
+      "tastingNotes": {
+        "aroma": "The nose presents a captivating aromatic mosaic that reflects the wine's field blend nature, with no single variety dominating. Red and dark fruit aromas of raspberry, blackberry, and plum interweave with violet florals and subtle herbal notes of fynbos and dried sage. Spice elements of white pepper, cardamom, and a hint of clove add intrigue, while underlying notes of graphite, cedar, and earthy minerals speak to the wine's complexity and terroir expression. A whisper of game and leather suggests early development.",
+        "palate": "On the palate, this field blend delivers remarkable complexity and harmony, with the co-fermented varieties creating a seamless, integrated whole. Medium to full-bodied, the wine shows layers of red and black fruit—cherry, blackcurrant, and wild strawberry—supported by excellent structural elements. Firm but refined tannins provide backbone, while fresh acidity keeps everything balanced and lively. The diversity of varieties contributes a fascinating array of flavors: dark chocolate, espresso, dried herbs, black olive, and a distinctive savory quality that makes the wine incredibly food-friendly. A subtle mineral thread runs through the palate, adding texture and length.",
+        "finish": "The finish is long and layered with persistent dark fruit, spice, and earthy notes. The wine's complexity reveals itself fully on the finish, with each sip uncovering new nuances of fruit, herb, mineral, and spice that linger impressively."
+      },
+      "foodPairings": [
+        "Cape Malay curry with lamb",
+        "Grilled springbok or venison with berry sauce",
+        "Braised oxtail with red wine reduction",
+        "Bobotie (South African spiced meat dish)",
+        "Aged South African Cheddar or Gouda-style cheese"
+      ],
+      "servingInfo": {
+        "temperature": "60-65°F (15-18°C)",
+        "decanting": "60 minute decanting recommended to allow the diverse components of this field blend to integrate and express their full complexity",
+        "glassware": "Large Bordeaux or universal red wine glass to capture aromatic complexity"
+      },
+      "wineDetails": {
+        "region": "Simonsberg-Paarl, Western Cape, South Africa",
+        "grapeVariety": "Field blend (likely includes Syrah, Mourvèdre, Grenache, and possibly Carignan or other Rhône/Mediterranean varieties)",
+        "vintage": "2021",
+        "style": "Medium to full-bodied red field blend with complex, integrated character",
+        "ageability": "Drink now through 2031. Field blends often age gracefully due to their inherent balance and complexity, with this wine showing excellent potential for 8-10 years of development."
+      },
+      "metadata": {
+        "source": "producer-match",
+        "confidence": 0.84,
+        "researchedAt": "2025-10-20T00:00:00.000Z"
+      }
+    }
+  ]
+}

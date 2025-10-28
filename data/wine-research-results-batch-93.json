@@ -1,0 +1,332 @@
+[
+  {
+    "productName": "Jeremy Nickel Cellars Sauvignon Blanc 2024",
+    "description": "A fresh and vibrant Sauvignon Blanc from Jeremy Nickel Cellars, showcasing classic California coastal character. This wine balances bright acidity with generous fruit, offering both refreshment and complexity.",
+    "tastingNotes": {
+      "aroma": "The nose bursts with intense aromatics of grapefruit, lime zest, and passion fruit. Tropical notes of guava and pineapple add exotic character, while fresh-cut grass and jalape\u00f1o pepper contribute herbaceous complexity typical of quality Sauvignon Blanc. Subtle hints of white peach and gooseberry round out the bouquet, with a flinty mineral edge adding sophistication.",
+      "palate": "Crisp and zesty on the palate with vibrant citrus flavors of lemon, lime, and pink grapefruit. The bright acidity drives forward flavors of passion fruit and green melon, while subtle tropical notes add depth. A refreshing minerality runs through the mid-palate, contributing to the wine's clean, focused character. Light-bodied with excellent balance, the wine shows purity of fruit with enough complexity to maintain interest.",
+      "finish": "Bright and clean finish with lingering citrus and mineral notes. The crisp acidity leaves the palate refreshed and ready for another sip."
+    },
+    "foodPairings": [
+      "Fresh goat cheese salad with citrus vinaigrette",
+      "Grilled prawns with garlic and herbs",
+      "Sushi and sashimi",
+      "Thai green papaya salad",
+      "Oysters with mignonette"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F)",
+      "decanting": "Not required",
+      "glassware": "Sauvignon Blanc or standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "California, USA (likely coastal regions)",
+      "grapeVariety": "100% Sauvignon Blanc",
+      "vintage": "2024",
+      "style": "Crisp, fruit-forward with bright acidity",
+      "ageability": "Drink now through 2026; best enjoyed young"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Artis NA Brut Blanc",
+    "description": "A non-alcoholic sparkling wine crafted with precision to deliver celebratory character without alcohol. This wine demonstrates the evolution of zero-alcohol beverages with sophisticated production techniques.",
+    "tastingNotes": {
+      "aroma": "Delicate aromas of green apple, white pear, and citrus blossom open the nose. Subtle yeasty notes suggest traditional method inspiration, while hints of brioche and almond add complexity. The bouquet maintains freshness and elegance despite the absence of alcohol, with clean fruit character taking center stage.",
+      "palate": "Light and refreshing with fine, persistent bubbles creating a creamy mousse. Flavors of crisp apple, lemon, and white peach dominate, supported by gentle acidity that provides structure. The wine avoids sweetness, maintaining a dry character that mimics traditional sparkling wine. The mouthfeel is surprisingly complete, with the effervescence adding textural interest.",
+      "finish": "Clean and crisp finish with subtle fruit notes and refreshing bubbles. The absence of alcohol is well-masked by careful balance and persistent effervescence."
+    },
+    "foodPairings": [
+      "Light appetizers and canapés",
+      "Fresh fruit and cheese plate",
+      "Smoked salmon blinis",
+      "Vegetable crudités",
+      "Mild white fish dishes"
+    ],
+    "servingInfo": {
+      "temperature": "6-8°C (43-46°F)",
+      "decanting": "Not required",
+      "glassware": "Flute or champagne coupe"
+    },
+    "wineDetails": {
+      "region": "Dealcoholized wine (production region varies)",
+      "grapeVariety": "Dealcoholized wine blend",
+      "vintage": "NV",
+      "style": "Non-alcoholic sparkling, dry and crisp",
+      "ageability": "Drink upon purchase"
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.75,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Chateau Lapinesse Sauternes 2022 375 ml",
+    "description": "A luscious dessert wine from Sauternes, crafted from botrytized grapes that concentrate sugars and flavors. This half-bottle format is perfect for intimate dessert pairings or special occasions.",
+    "tastingNotes": {
+      "aroma": "Opulent aromas of honey, apricot, and candied orange peel dominate the nose. Layers of tropical fruit including mango, pineapple, and papaya add exotic complexity, while notes of crème brûlée, vanilla, and toasted almond suggest oak influence. Subtle floral hints of acacia and orange blossom provide aromatic lift, with a whisper of botrytis adding mushroom and truffle complexity.",
+      "palate": "Rich and viscous on the palate with concentrated flavors of honey, dried apricot, and marmalade. The wine balances its natural sweetness with vibrant acidity that prevents cloying, creating a harmonious interplay of sugar and freshness. Flavors of caramelized pear, peach preserve, and candied citrus zest fill the mid-palate, while subtle spice notes add interest. The texture is luscious yet refined, with the acidity providing lift and length.",
+      "finish": "Long and honeyed finish with persistent stone fruit and citrus notes. The acidity lingers alongside the sweetness, creating perfect balance and encouraging another sip."
+    },
+    "foodPairings": [
+      "Roquefort cheese with walnuts",
+      "Foie gras terrine",
+      "Crème brûlée or panna cotta",
+      "Apple tarte tatin",
+      "Blue cheese and honey"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F)",
+      "decanting": "Not required",
+      "glassware": "Small dessert wine glass"
+    },
+    "wineDetails": {
+      "region": "Sauternes, Bordeaux, France",
+      "grapeVariety": "Sémillon, Sauvignon Blanc, Muscadelle blend (botrytized)",
+      "vintage": "2022",
+      "style": "Sweet dessert wine with botrytis complexity",
+      "ageability": "Drink now through 2042; will develop beautifully"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Paso Robles Pomar Junction Picnic Chardonnay 2022",
+    "description": "An approachable, picnic-ready Chardonnay from Paso Robles, designed for casual enjoyment and outdoor occasions. This wine balances refreshment with enough character to satisfy Chardonnay lovers.",
+    "tastingNotes": {
+      "aroma": "Bright aromas of yellow apple, white peach, and citrus blossom greet the nose. Subtle tropical hints of pineapple and mango add interest, while light vanilla and butter notes suggest gentle oak or lees influence. The bouquet remains fresh and fruity, avoiding heavy oak character in favor of approachable fruit expression.",
+      "palate": "Medium-bodied with ripe fruit flavors of apple, pear, and stone fruit. The wine shows good balance between fruit sweetness and acidity, maintaining refreshment while delivering satisfying Chardonnay character. A touch of creaminess adds texture without heaviness, while subtle citrus notes keep the wine bright. The Paso Robles warmth is evident in the ripe fruit, but the wine avoids being overblown.",
+      "finish": "Medium finish with clean fruit and gentle acidity. The wine remains refreshing and food-friendly throughout."
+    },
+    "foodPairings": [
+      "Grilled chicken salad",
+      "Fish tacos with citrus slaw",
+      "Creamy pasta primavera",
+      "Mild cheeses and crackers",
+      "Roasted turkey sandwich"
+    ],
+    "servingInfo": {
+      "temperature": "10-12°C (50-54°F)",
+      "decanting": "Not required",
+      "glassware": "Standard white wine glass"
+    },
+    "wineDetails": {
+      "region": "Paso Robles, Central Coast, California, USA",
+      "grapeVariety": "100% Chardonnay",
+      "vintage": "2022",
+      "style": "Approachable, fruit-forward with gentle oak",
+      "ageability": "Drink now through 2025; best enjoyed young"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Prima Pave Sparkling Rose SWEET",
+    "description": "A sweet sparkling rosé offering approachable effervescence and fruit-forward character. This wine delivers celebration in an easy-drinking format perfect for casual occasions.",
+    "tastingNotes": {
+      "aroma": "Aromatic nose of fresh strawberry, raspberry, and watermelon. Floral notes of rose petal and cherry blossom add aromatic complexity, while hints of cotton candy and vanilla suggest sweetness. The bouquet is inviting and fruit-forward, with gentle effervescence releasing the aromatics.",
+      "palate": "Sweet and fruity with generous flavors of strawberry, red cherry, and watermelon candy. The wine's sweetness is balanced by lively bubbles that add textural interest and prevent cloying. Light-bodied and refreshing despite the sugar, with the effervescence providing lift. Flavors of berry jam and fruit punch dominate, making this an approachable, crowd-pleasing sparkler.",
+      "finish": "Sweet finish with lingering berry notes and persistent bubbles. The wine remains light and refreshing despite its sweetness."
+    },
+    "foodPairings": [
+      "Fresh berry tart",
+      "Fruit salad with mint",
+      "Light desserts and pastries",
+      "Cream-based desserts",
+      "Brunch dishes"
+    ],
+    "servingInfo": {
+      "temperature": "6-8°C (43-46°F)",
+      "decanting": "Not required",
+      "glassware": "Flute or white wine glass"
+    },
+    "wineDetails": {
+      "region": "Production region varies",
+      "grapeVariety": "Sparkling wine blend",
+      "vintage": "NV",
+      "style": "Sweet sparkling rosé, fruit-forward",
+      "ageability": "Drink upon purchase"
+    },
+    "metadata": {
+      "source": "generic",
+      "confidence": 0.70,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Alella Costa del Maresme Tinto Wine Club Only) 2020",
+    "description": "A unique red wine from the coastal Alella DO near Barcelona, showcasing the marriage of Mediterranean warmth and Atlantic influence. This wine club exclusive represents the distinctive character of Catalan coastal viticulture.",
+    "tastingNotes": {
+      "aroma": "The nose reveals bright red fruit aromas of cherry, raspberry, and strawberry, enhanced by Mediterranean herbs including thyme, rosemary, and fennel. Subtle coastal minerality adds freshness, while hints of leather and earth provide depth. The aromatic profile balances fruit purity with savory complexity, reflecting the unique maritime terroir.",
+      "palate": "Medium-bodied with vibrant red fruit flavors and refreshing acidity. The palate shows layers of red cherry, pomegranate, and cranberry, complemented by herbal notes and subtle spice. The coastal influence contributes mineral backbone and saline character that adds interest and food-pairing versatility. Moderate tannins provide structure without heaviness, while the acidity maintains freshness throughout.",
+      "finish": "Medium finish with persistent red fruit and herbal notes. The mineral character lingers alongside soft tannins, creating an elegant conclusion."
+    },
+    "foodPairings": [
+      "Grilled Mediterranean vegetables",
+      "Paella with seafood and chorizo",
+      "Roasted lamb with herbs",
+      "Manchego cheese with almonds",
+      "Catalan butifarra sausage"
+    ],
+    "servingInfo": {
+      "temperature": "14-16°C (57-61°F)",
+      "decanting": "Optional 15-20 minutes",
+      "glassware": "Standard red wine glass"
+    },
+    "wineDetails": {
+      "region": "Alella DO, Catalunya, Spain",
+      "grapeVariety": "Catalan red varieties (likely Garnacha/Merlot blend)",
+      "vintage": "2020",
+      "style": "Medium-bodied, coastal Mediterranean red with mineral character",
+      "ageability": "Drink now through 2028; approaching peak"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Somontano La Moristel 2016",
+    "description": "A distinctive wine from Somontano featuring the rare Moristel grape, an indigenous variety to this Aragonese region. This wine showcases the uniqueness of Spanish regional varieties with elegant structure and aging potential.",
+    "tastingNotes": {
+      "aroma": "Complex nose of dark cherry, blackberry, and plum, enhanced by notes of violet, leather, and tobacco. The extended aging has developed tertiary aromas of dried herbs, cedar, and earth, while subtle vanilla and spice from oak add depth. The bouquet shows excellent evolution and complexity, revealing layers with time in glass.",
+      "palate": "Medium to full-bodied with mature fruit flavors and integrated tannins. Dark cherry and plum dominate, complemented by savory notes of leather, tobacco, and dried herbs. The aging has softened the tannins beautifully, creating a silky texture with enough structure for continued aging. Balanced acidity maintains freshness, while the oak influence is well-integrated, contributing subtle spice and vanilla notes.",
+      "finish": "Long and elegant finish with soft tannins and lingering dark fruit. Earthy and herbal notes persist alongside subtle oak, showcasing the wine's maturity and complexity."
+    },
+    "foodPairings": [
+      "Roasted lamb shoulder with garlic",
+      "Aged Manchego cheese",
+      "Wild game stew",
+      "Grilled ribeye steak",
+      "Braised short ribs"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Recommended 30-45 minutes",
+      "glassware": "Bordeaux or large red wine glass"
+    },
+    "wineDetails": {
+      "region": "Somontano DO, Aragón, Spain",
+      "grapeVariety": "Moristel (indigenous Aragonese variety)",
+      "vintage": "2016",
+      "style": "Medium to full-bodied, mature with complex tertiary character",
+      "ageability": "Drink now through 2030; at or approaching peak"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.80,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "De Bortoli Yarra Valley Pinot Noir 2021",
+    "description": "An elegant cool-climate Pinot Noir from Australia's prestigious Yarra Valley, crafted by the renowned De Bortoli family. This wine showcases the region's ability to produce Pinot Noir with Burgundian character and Australian generosity.",
+    "tastingNotes": {
+      "aroma": "Expressive nose of red cherry, raspberry, and strawberry, enhanced by floral notes of rose petal and violet. Subtle earthy undertones of forest floor and mushroom add complexity, while hints of spice including clove and cinnamon provide aromatic interest. The cool-climate character ensures brightness and lift, with gentle oak integration adding vanilla and toast notes.",
+      "palate": "Medium-bodied with silky tannins and bright acidity. Flavors of red cherry, cranberry, and pomegranate dominate the palate, complemented by earthy notes and subtle spice. The wine shows excellent balance between fruit purity and complexity, with the Yarra Valley's cool climate contributing freshness and elegance. Oak influence is judicious, adding structure without overwhelming the delicate fruit.",
+      "finish": "Medium to long finish with persistent red fruit and earthy notes. The silky tannins and bright acidity create an elegant, refreshing conclusion."
+    },
+    "foodPairings": [
+      "Roasted duck breast with cherry sauce",
+      "Wild mushroom risotto",
+      "Grilled salmon with herbs",
+      "Roasted chicken with root vegetables",
+      "Soft-ripened cheeses"
+    ],
+    "servingInfo": {
+      "temperature": "14-16°C (57-61°F)",
+      "decanting": "Optional 20-30 minutes",
+      "glassware": "Burgundy glass"
+    },
+    "wineDetails": {
+      "region": "Yarra Valley, Victoria, Australia",
+      "grapeVariety": "100% Pinot Noir",
+      "vintage": "2021",
+      "style": "Cool-climate, elegant with silky tannins",
+      "ageability": "Drink now through 2029; peak 2024-2027"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.90,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Fledge & Co. The Clutch Tinta Barocca 2019",
+    "description": "An innovative expression of Tinta Barocca from South Africa's Boplaas estate under the Fledge & Co. label. This wine showcases a Port variety in dry table wine format, revealing the grape's potential beyond fortification.",
+    "tastingNotes": {
+      "aroma": "Aromatic nose of dark plum, blackberry, and black cherry, enhanced by floral notes of violet and dried rose. Subtle spice notes of black pepper, clove, and cinnamon add complexity, while hints of cocoa and vanilla from oak aging provide depth. The bouquet is expressive and layered, revealing the variety's aromatic potential.",
+      "palate": "Medium to full-bodied with concentrated dark fruit flavors and smooth tannins. Plum, blackberry, and dark cherry dominate, complemented by notes of chocolate, coffee, and sweet spice. The wine shows excellent structure with balanced acidity and moderate alcohol, avoiding the heaviness often associated with port varieties. The tannins are well-integrated, providing grip without astringency.",
+      "finish": "Long finish with persistent dark fruit and spice notes. Smooth tannins and balanced acidity create a satisfying conclusion."
+    },
+    "foodPairings": [
+      "Grilled lamb chops with rosemary",
+      "Beef stew with root vegetables",
+      "Aged Gouda or Manchego cheese",
+      "Venison with berry reduction",
+      "Dark chocolate desserts"
+    ],
+    "servingInfo": {
+      "temperature": "16-18°C (61-64°F)",
+      "decanting": "Recommended 30 minutes",
+      "glassware": "Bordeaux glass"
+    },
+    "wineDetails": {
+      "region": "Klein Karoo, South Africa",
+      "grapeVariety": "100% Tinta Barocca",
+      "vintage": "2019",
+      "style": "Medium to full-bodied dry table wine, concentrated with smooth tannins",
+      "ageability": "Drink now through 2029; peak 2024-2027"
+    },
+    "metadata": {
+      "source": "producer-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  },
+  {
+    "productName": "Orchard Lane Riesling 2021",
+    "description": "A refreshing Riesling showcasing the variety's classic character with bright acidity and aromatic intensity. This wine balances fruit sweetness with mineral backbone for excellent food versatility.",
+    "tastingNotes": {
+      "aroma": "Vibrant aromas of lime, green apple, and white peach dominate the nose. Floral notes of jasmine and honeysuckle add aromatic complexity, while hints of petrol and slate contribute classic Riesling character. Subtle tropical notes of pineapple and passion fruit provide additional layers, with the cool-climate character ensuring freshness and lift.",
+      "palate": "Light to medium-bodied with electric acidity driving the wine forward. Flavors of lime, green apple, and white peach are balanced by a touch of residual sugar that enhances the fruit without making the wine sweet. Mineral notes of wet stone and slate add complexity and structure to the mid-palate. The wine shows excellent tension between fruit sweetness and acidity, creating a dynamic, engaging palate.",
+      "finish": "Long and refreshing finish with persistent citrus and mineral notes. The acidity lingers beautifully, leaving the palate cleansed and refreshed."
+    },
+    "foodPairings": [
+      "Spicy Thai or Vietnamese cuisine",
+      "Grilled white fish with herbs",
+      "Pork schnitzel with lemon",
+      "Fresh fruit and soft cheeses",
+      "Sushi and sashimi"
+    ],
+    "servingInfo": {
+      "temperature": "8-10°C (46-50°F)",
+      "decanting": "Not required",
+      "glassware": "Riesling or aromatic white wine glass"
+    },
+    "wineDetails": {
+      "region": "Production region varies (likely cool-climate)",
+      "grapeVariety": "100% Riesling",
+      "vintage": "2021",
+      "style": "Off-dry with bright acidity and mineral character",
+      "ageability": "Drink now through 2029; Riesling ages beautifully"
+    },
+    "metadata": {
+      "source": "varietal-match",
+      "confidence": 0.85,
+      "researchedAt": "2025-10-21T13:45:00.000Z"
+    }
+  }
+]
