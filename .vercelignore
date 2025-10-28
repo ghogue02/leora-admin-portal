@@ -1,0 +1,21 @@
+# Exclude large data files from Vercel deployments
+data/wine-research-*.json
+data/wine-research-results-*.json
+data/checkpoints/
+data/logs/
+data/scripts/
+data/crm.db
+data/.claude-flow/
+
+# Exclude development files
+.claude-flow/
+.swarm/
+test-results/
+scripts/
+migrations/
+
+# Exclude documentation
+docs/
+*.md
+!README.md
+!CARLA_DEPLOYMENT_GUIDE.md
