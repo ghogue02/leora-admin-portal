@@ -12,7 +12,7 @@ import UpcomingCalendar from "./sections/UpcomingCalendar";
 import AssignedTasks from "./sections/AssignedTasks";
 import Incentives from "./sections/Incentives";
 import TopProducts from "./sections/TopProducts";
-// import CustomerBalances from "./sections/CustomerBalances";
+import CustomerBalances from "./sections/CustomerBalances";
 // import NewCustomersMetric from "./sections/NewCustomersMetric";
 import ProductGoalsEnhanced from "./sections/ProductGoalsEnhanced";
 import DashboardCustomizer from "./sections/DashboardCustomizer";
