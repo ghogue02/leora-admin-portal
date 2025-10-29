@@ -48,23 +48,38 @@ export function ProductEditForm({
   const handleSave = async () => {
     setIsSaving(true);
     try {
+      console.log("[ProductEditForm] Saving changes:", formData);
+
       const response = await fetch(`/api/sales/catalog/${skuId}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-tenant-slug": "well-crafted",
+        },
         credentials: "include",
         body: JSON.stringify(formData),
       });
 
+      console.log("[ProductEditForm] Response status:", response.status);
+
       if (!response.ok) {
         const error = await response.json();
+        console.error("[ProductEditForm] Error response:", error);
         throw new Error(error.error || "Failed to update product");
       }
 
-      toast.success("Product updated successfully");
+      const result = await response.json();
+      console.log("[ProductEditForm] Save successful:", result);
+
+      toast.success("✅ Product updated successfully!", {
+        duration: 3000,
+      });
       onSave();
     } catch (error: any) {
-      console.error("Error saving product:", error);
-      toast.error(error.message || "Failed to save changes");
+      console.error("[ProductEditForm] Error saving product:", error);
+      toast.error(`❌ ${error.message || "Failed to save changes"}`, {
+        duration: 5000,
+      });
     } finally {
       setIsSaving(false);
     }
@@ -291,13 +306,22 @@ export function ProductEditForm({
         </div>
       </div>
 
-      {/* Actions */}
-      <div className="flex justify-end gap-3 border-t pt-4">
-        <Button variant="outline" onClick={onCancel} disabled={isSaving}>
+      {/* Actions - Make more visible */}
+      <div className="sticky bottom-0 flex justify-end gap-3 border-t bg-white p-4 shadow-lg">
+        <Button
+          variant="outline"
+          onClick={onCancel}
+          disabled={isSaving}
+          className="min-w-[100px]"
+        >
           Cancel
         </Button>
-        <Button onClick={handleSave} disabled={isSaving}>
-          {isSaving ? "Saving..." : "Save Changes"}
+        <Button
+          onClick={handleSave}
+          disabled={isSaving}
+          className="min-w-[140px] bg-green-600 hover:bg-green-700 text-white text-base font-semibold"
+        >
+          {isSaving ? "💾 Saving..." : "💾 Save Changes"}
         </Button>
       </div>
     </div>
