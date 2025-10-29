@@ -289,6 +289,14 @@ model Product {
   promotionEndDate   DateTime? @db.Timestamp(6)
   promotionDiscount  Decimal?  @db.Decimal(5, 2)
   isCloseout         Boolean   @default(false)
+  vintage            Int?
+  colour             String?
+  varieties          String?
+  style              String?
+  unitCogs           Decimal?  @db.Decimal(10, 4)
+  manufacturer       String?
+  abcCode            String?
+  mocoNumber         String?
   supplier           Supplier? @relation(fields: [supplierId], references: [id])
   tenant             Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   skus               Sku[]
@@ -310,6 +318,14 @@ model Sku {
   isActive             Boolean                @default(true)
   createdAt            DateTime               @default(now())
   updatedAt            DateTime               @updatedAt
+  itemsPerCase         Int?
+  liters               Decimal?               @db.Decimal(10, 2)
+  bottleBarcode        String?
+  caseBarcode          String?
+  batchNumber          String?
+  barrelOrTank         String?
+  pendingOrders        Int?                   @default(0)
+  pendingReceiving     Int?                   @default(0)
   cartItems            CartItem[]
   inventories          Inventory[]
   InventoryReservation InventoryReservation[]
@@ -330,13 +346,14 @@ model Sku {
 }
 
 model Inventory {
-  id        String           @id @default(uuid()) @db.Uuid
-  tenantId  String           @db.Uuid
-  skuId     String           @db.Uuid
-  location  String
-  onHand    Int              @default(0)
-  allocated Int              @default(0)
-  updatedAt DateTime         @updatedAt
+  id          String           @id @default(uuid()) @db.Uuid
+  tenantId    String           @db.Uuid
+  skuId       String           @db.Uuid
+  location    String
+  onHand      Int              @default(0)
+  allocated   Int              @default(0)
+  updatedAt   DateTime         @updatedAt
+  binLocation String?
   createdAt DateTime         @default(now())
   aisle     String?
   row       Int?
@@ -949,6 +966,9 @@ model RepProductGoal {
   productCategory String?
   targetRevenue   Decimal? @db.Decimal(12, 2)
   targetCases     Int?
+  targetPod       Int?
+  metricType      String   @default("revenue")
+  periodType      String   @default("month")
   periodStart     DateTime
   periodEnd       DateTime
   createdAt       DateTime @default(now())
