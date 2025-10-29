@@ -139,16 +139,24 @@ export async function GET(request: NextRequest) {
           customerId: item.customer.id,
           customerName: item.customer.name,
           accountNumber: item.customer.accountNumber,
-          location: {
-            city: item.customer.city,
-            state: item.customer.state,
-          },
+          location: [item.customer.city, item.customer.state].filter(Boolean).join(", ") || "N/A",
           revenue: item.revenue,
           orderCount: item.orderCount,
           averageOrderValue: item.orderCount > 0 ? item.revenue / item.orderCount : 0,
           firstOrderDate: item.firstOrderDate?.toISOString() || null,
           lastOrderDate: item.lastOrderDate?.toISOString() || null,
-          orders: item.orders,
+          recentOrders: item.orders
+            .sort(
+              (a: { deliveredAt: string | null }, b: { deliveredAt: string | null }) =>
+                (b.deliveredAt ? new Date(b.deliveredAt).getTime() : 0) -
+                (a.deliveredAt ? new Date(a.deliveredAt).getTime() : 0)
+            )
+            .slice(0, 3)
+            .map((order: { id: string; total: number; deliveredAt: string | null }) => ({
+              id: order.id,
+              deliveredAt: order.deliveredAt,
+              total: order.total,
+            })),
         }));
 
       // Calculate revenue by category/brand (lifetime)

@@ -11,6 +11,14 @@ type PerformanceMetricsProps = {
     weeklyQuota: number;
   };
   metrics: {
+    currentWeek: {
+      revenue: number;
+      uniqueCustomers: number;
+      quotaProgress: number;
+    };
+    lastWeek: {
+      revenue: number;
+    };
     currentMonth: {
       revenue: number;
       uniqueCustomers: number;
@@ -57,16 +65,22 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
     }).format(value);
 
   const quotaProgressColor =
-    metrics.currentMonth.quotaProgress >= 100
+    metrics.currentWeek.quotaProgress >= 100
       ? "text-green-700 bg-green-50 border-green-200"
-      : metrics.currentMonth.quotaProgress >= 75
+      : metrics.currentWeek.quotaProgress >= 75
       ? "text-amber-700 bg-amber-50 border-amber-200"
       : "text-rose-700 bg-rose-50 border-rose-200";
 
-  const revenueChangeColor =
-    metrics.comparison.revenueChange >= 0
-      ? "text-green-700"
-      : "text-rose-700";
+  const revenueChangeColor = metrics.comparison.revenueChange >= 0 ? "text-green-700" : "text-rose-700";
+
+  const tileBaseClasses = "flex h-full flex-col gap-4 rounded-lg border p-6 shadow-sm";
+  const territoryName = salesRep.territory?.trim();
+  const territoryLabel =
+    territoryName && territoryName.toLowerCase().includes("territory")
+      ? territoryName
+      : territoryName
+      ? `${territoryName} territory`
+      : null;
 
   return (
     <section className="grid gap-6">
@@ -75,49 +89,56 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           Welcome back, {salesRep.name.split(" ")[0]}
         </h2>
         <p className="text-sm text-gray-600">
-          {salesRep.territory} territory - Week of {new Date().toLocaleDateString()}
+          {territoryLabel ? `${territoryLabel} - ` : ""}
+          Week of {new Date().toLocaleDateString()}
         </p>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+      <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(170px,1fr))]">
         <DashboardTile
           drilldownType="weekly-quota"
           title="Weekly Quota Progress"
           onClick={() => onDrilldown?.('weekly-quota')}
+          className="group h-full"
         >
-          <div className={`rounded-lg border p-6 shadow-sm ${quotaProgressColor}`}>
-            <div className="flex items-center">
+          <div className={`${tileBaseClasses} ${quotaProgressColor}`}>
+            <div className="flex items-start justify-between gap-2">
               <p className="text-xs font-medium uppercase tracking-widest">Weekly Quota Progress</p>
               <MetricTooltip metricKey="weekly-quota" />
             </div>
-            <p className="mt-2 text-3xl font-semibold">
-              {metrics.currentMonth.quotaProgress.toFixed(0)}%
-            </p>
-            <p className="mt-2 text-xs">
-              {formatCurrency(metrics.currentMonth.revenue)} of {formatCurrency(salesRep.weeklyQuota)}
-            </p>
+            <div className="flex flex-1 flex-col justify-end gap-2">
+              <p className="text-3xl font-semibold">
+                {metrics.currentWeek.quotaProgress.toFixed(0)}%
+              </p>
+              <p className="text-xs">
+                {formatCurrency(metrics.currentWeek.revenue)} of {formatCurrency(salesRep.weeklyQuota)}
+              </p>
+            </div>
           </div>
         </DashboardTile>
 
         <DashboardTile
           drilldownType="this-week-revenue"
-          title="This Month Revenue"
+          title="This Week Revenue"
           onClick={() => onDrilldown?.('this-week-revenue')}
+          className="group h-full"
         >
-          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-center">
+          <div className={`${tileBaseClasses} border-slate-200 bg-white`}>
+            <div className="flex items-start justify-between gap-2">
               <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-                This Month Revenue
+                This Week Revenue
               </p>
               <MetricTooltip metricKey="this-week-revenue" />
             </div>
-            <p className="mt-2 text-3xl font-semibold text-gray-900">
-              {formatCurrency(metrics.currentMonth.revenue)}
-            </p>
-            <p className={`mt-2 text-xs font-semibold ${revenueChangeColor}`}>
-              {metrics.comparison.revenueChange >= 0 ? "+" : ""}
-              {metrics.comparison.revenueChangePercent}% vs last week
-            </p>
+            <div className="flex flex-1 flex-col justify-end gap-2">
+              <p className="text-3xl font-semibold text-gray-900">
+                {formatCurrency(metrics.currentWeek.revenue)}
+              </p>
+              <p className={`text-xs font-semibold ${revenueChangeColor}`}>
+                {metrics.comparison.revenueChange >= 0 ? "+" : ""}
+                {metrics.comparison.revenueChangePercent}% vs last week
+              </p>
+            </div>
           </div>
         </DashboardTile>
 
@@ -126,20 +147,23 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           drilldownType="mtd-revenue"
           title="MTD Revenue"
           onClick={() => onDrilldown?.('mtd-revenue')}
+          className="group h-full"
         >
-          <div className="rounded-lg border border-orange-200 bg-orange-50 p-6 shadow-sm">
-            <div className="flex items-center">
+          <div className={`${tileBaseClasses} border-orange-200 bg-orange-50`}>
+            <div className="flex items-start justify-between gap-2">
               <p className="text-xs font-medium uppercase tracking-widest text-orange-700">
                 MTD Revenue (Oct 2025)
               </p>
               <MetricTooltip metricKey="mtd-revenue" />
             </div>
-            <p className="mt-2 text-3xl font-semibold text-orange-900">
-              {formatCurrency(metrics.mtd?.revenue || 0)}
-            </p>
-            <p className="mt-2 text-xs text-orange-600">
-              {metrics.mtd?.uniqueCustomers || 0} customers
-            </p>
+            <div className="flex flex-1 flex-col justify-end gap-2">
+              <p className="text-3xl font-semibold text-orange-900">
+                {formatCurrency(metrics.mtd?.revenue || 0)}
+              </p>
+              <p className="text-xs text-orange-600">
+                {metrics.mtd?.uniqueCustomers || 0} customers
+              </p>
+            </div>
           </div>
         </DashboardTile>
 
@@ -148,39 +172,45 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           drilldownType="ytd-revenue"
           title="YTD Revenue"
           onClick={() => onDrilldown?.('ytd-revenue')}
+          className="group h-full"
         >
-          <div className="rounded-lg border border-blue-200 bg-blue-50 p-6 shadow-sm">
-            <div className="flex items-center">
+          <div className={`${tileBaseClasses} border-blue-200 bg-blue-50`}>
+            <div className="flex items-start justify-between gap-2">
               <p className="text-xs font-medium uppercase tracking-widest text-blue-700">
                 YTD Revenue (2025)
               </p>
               <MetricTooltip metricKey="ytd-revenue" />
             </div>
-            <p className="mt-2 text-3xl font-semibold text-blue-900">
-              {formatCurrency(metrics.ytd?.revenue || 0)}
-            </p>
-            <p className="mt-2 text-xs text-blue-600">
-              {metrics.ytd?.uniqueCustomers || 0} customers
-            </p>
+            <div className="flex flex-1 flex-col justify-end gap-2">
+              <p className="text-3xl font-semibold text-blue-900">
+                {formatCurrency(metrics.ytd?.revenue || 0)}
+              </p>
+              <p className="text-xs text-blue-600">
+                {metrics.ytd?.uniqueCustomers || 0} customers
+              </p>
+            </div>
           </div>
         </DashboardTile>
 
         <DashboardTile
           drilldownType="unique-customers"
-          title="Unique Customers This Month"
+          title="Unique Customers This Week"
           onClick={() => onDrilldown?.('unique-customers')}
+          className="group h-full"
         >
-          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex items-center">
+          <div className={`${tileBaseClasses} border-slate-200 bg-white`}>
+            <div className="flex items-start justify-between gap-2">
               <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
                 Unique Customers
               </p>
               <MetricTooltip metricKey="unique-customers" />
             </div>
-            <p className="mt-2 text-3xl font-semibold text-gray-900">
-              {metrics.currentMonth.uniqueCustomers}
-            </p>
-            <p className="mt-2 text-xs text-gray-500">Orders this week</p>
+            <div className="flex flex-1 flex-col justify-end gap-2">
+              <p className="text-3xl font-semibold text-gray-900">
+                {metrics.currentWeek.uniqueCustomers}
+              </p>
+              <p className="text-xs text-gray-500">Orders this week</p>
+            </div>
           </div>
         </DashboardTile>
 
@@ -188,15 +218,22 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           drilldownType="all-time-revenue"
           title="Total Revenue"
           onClick={() => onDrilldown?.('all-time-revenue')}
+          className="group h-full"
         >
-          <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              Total Revenue
-            </p>
-            <p className="mt-2 text-3xl font-semibold text-gray-900">
-              {formatCurrency(metrics.allTime.revenue)}
-            </p>
-            <p className="mt-2 text-xs text-gray-500">All-time across {metrics.allTime.uniqueCustomers} customers</p>
+          <div className={`${tileBaseClasses} border-slate-200 bg-white`}>
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
+                Total Revenue
+              </p>
+            </div>
+            <div className="flex flex-1 flex-col justify-end gap-2">
+              <p className="text-3xl font-semibold text-gray-900">
+                {formatCurrency(metrics.allTime.revenue)}
+              </p>
+              <p className="text-xs text-gray-500">
+                All-time across {metrics.allTime.uniqueCustomers} customers
+              </p>
+            </div>
           </div>
         </DashboardTile>
       </div>

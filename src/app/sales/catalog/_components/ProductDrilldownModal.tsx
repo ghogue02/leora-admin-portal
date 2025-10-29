@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { TastingNotesCard } from './TastingNotesCard';
 import { TechnicalDetailsPanel } from './TechnicalDetailsPanel';
+import { ProductEditForm } from './ProductEditForm';
 
 type ProductDetails = {
   product: {
@@ -87,7 +88,8 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<ProductDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details' | 'technical' | 'tasting'>('inventory');
+  const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details' | 'technical' | 'tasting' | 'edit'>('inventory');
+  const [isEditMode, setIsEditMode] = useState(false);
 
   useEffect(() => {
     fetchProductDetails();
@@ -133,15 +135,25 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                 </>
               )}
             </div>
-            <button
-              onClick={onClose}
-              className="rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 active:scale-90"
-              aria-label="Close"
-            >
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+            <div className="flex gap-2">
+              {!loading && !isEditMode && (
+                <button
+                  onClick={() => setIsEditMode(true)}
+                  className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
+                >
+                  ✏️ Edit Product
+                </button>
+              )}
+              <button
+                onClick={onClose}
+                className="rounded-md p-2 text-gray-400 transition hover:bg-gray-100 hover:text-gray-600 active:scale-90"
+                aria-label="Close"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Tabs */}
@@ -184,7 +196,37 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
             </div>
           )}
 
-          {!loading && !error && data && (
+          {!loading && !error && data && isEditMode && (
+            <ProductEditForm
+              skuId={skuId}
+              productData={{
+                name: data.product.productName,
+                brand: data.product.brand,
+                category: data.product.category,
+                description: data.enrichedData?.description || null,
+                vintage: (data.enrichedData?.wineDetails as any)?.vintage || null,
+                colour: null, // Will be populated from API
+                varieties: null,
+                style: (data.enrichedData?.wineDetails as any)?.style || null,
+                manufacturer: null,
+              }}
+              skuData={{
+                size: data.product.size,
+                unitOfMeasure: data.product.unitOfMeasure,
+                abv: data.product.abv,
+                itemsPerCase: null,
+                bottleBarcode: null,
+                caseBarcode: null,
+              }}
+              onSave={() => {
+                setIsEditMode(false);
+                fetchProductDetails(); // Reload data
+              }}
+              onCancel={() => setIsEditMode(false)}
+            />
+          )}
+
+          {!loading && !error && data && !isEditMode && (
             <>
               {/* Product Info Summary */}
               <div className="mb-6 grid gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 md:grid-cols-4">

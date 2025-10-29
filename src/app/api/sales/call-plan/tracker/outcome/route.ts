@@ -5,7 +5,7 @@ import { composeTaskDescription, parseTaskMetadata } from "@/lib/call-plan/task-
 
 /**
  * POST /api/sales/call-plan/tracker/outcome
- * Update contact outcome (X/Y/Blank) for an account
+ * Update contact outcome (contact method) for an account
  */
 export async function POST(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
       where: { id: task.id },
       data: {
         description: newDescription,
-        // If marking as complete (either contacted or visited), mark task as completed
+        // Any recorded contact method marks the task complete
         status: outcomeValue ? "COMPLETED" : "PENDING",
       },
     });

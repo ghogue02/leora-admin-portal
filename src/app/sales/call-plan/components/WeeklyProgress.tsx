@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, Phone, Users, Circle } from "lucide-react";
+import { CheckCircle, Phone, Users, Circle, Mail, MessageCircle } from "lucide-react";
 import type { WeeklyProgressData, RepProgress } from "../types";
 
 interface WeeklyProgressProps {
@@ -15,15 +15,21 @@ export default function WeeklyProgress({
   isManagementView = false,
 }: WeeklyProgressProps) {
   const totalAccounts = progress.totalAccounts ?? 0;
-  const totalReached = progress.contactedCount + progress.visitedCount;
+  const totalReached =
+    (progress.inPersonCount ?? 0) +
+    (progress.phoneCount ?? 0) +
+    (progress.emailCount ?? 0) +
+    (progress.textCount ?? 0);
   const safePercentage = (count: number) =>
     totalAccounts > 0 ? Math.round((count / totalAccounts) * 100) : 0;
   const rawProgress = Number.isFinite(progress.percentComplete)
     ? Math.round(progress.percentComplete)
     : safePercentage(totalReached);
   const progressPercentage = Math.min(100, Math.max(0, rawProgress));
-  const contactedPercentage = safePercentage(progress.contactedCount);
-  const visitedPercentage = safePercentage(progress.visitedCount);
+  const inPersonPercentage = safePercentage(progress.inPersonCount);
+  const phonePercentage = safePercentage(progress.phoneCount);
+  const emailPercentage = safePercentage(progress.emailCount);
+  const textPercentage = safePercentage(progress.textCount);
   const notReachedPercentage = safePercentage(progress.notReachedCount);
 
   return (
@@ -57,42 +63,76 @@ export default function WeeklyProgress({
       </div>
 
       {/* Breakdown */}
-      <div className="grid grid-cols-3 gap-4">
-        {/* Contacted (X) */}
-        <div className="rounded-lg bg-blue-50 p-4">
-          <div className="mb-2 flex items-center gap-2">
-            <Phone className="h-5 w-5 text-blue-600" />
-            <span className="text-xs font-medium uppercase tracking-wide text-blue-700">
-              Contacted
-            </span>
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-blue-900">
-              {progress.contactedCount}
-            </span>
-            <span className="text-sm text-blue-600">X</span>
-          </div>
-          <p className="mt-1 text-xs text-blue-700">
-            {contactedPercentage}% of total
-          </p>
-        </div>
-
-        {/* Visited (Y) */}
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        {/* In-Person */}
         <div className="rounded-lg bg-green-50 p-4">
           <div className="mb-2 flex items-center gap-2">
             <Users className="h-5 w-5 text-green-600" />
             <span className="text-xs font-medium uppercase tracking-wide text-green-700">
-              Visited
+              In-Person
             </span>
           </div>
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-bold text-green-900">
-              {progress.visitedCount}
+              {progress.inPersonCount}
             </span>
-            <span className="text-sm text-green-600">Y</span>
           </div>
           <p className="mt-1 text-xs text-green-700">
-            {visitedPercentage}% of total
+            {inPersonPercentage}% of total
+          </p>
+        </div>
+
+        {/* Phone */}
+        <div className="rounded-lg bg-blue-50 p-4">
+          <div className="mb-2 flex items-center gap-2">
+            <Phone className="h-5 w-5 text-blue-600" />
+            <span className="text-xs font-medium uppercase tracking-wide text-blue-700">
+              Phone
+            </span>
+          </div>
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-bold text-blue-900">
+              {progress.phoneCount}
+            </span>
+          </div>
+          <p className="mt-1 text-xs text-blue-700">
+            {phonePercentage}% of total
+          </p>
+        </div>
+
+        {/* Email */}
+        <div className="rounded-lg bg-indigo-50 p-4">
+          <div className="mb-2 flex items-center gap-2">
+            <Mail className="h-5 w-5 text-indigo-600" />
+            <span className="text-xs font-medium uppercase tracking-wide text-indigo-700">
+              Email
+            </span>
+          </div>
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-bold text-indigo-900">
+              {progress.emailCount}
+            </span>
+          </div>
+          <p className="mt-1 text-xs text-indigo-700">
+            {emailPercentage}% of total
+          </p>
+        </div>
+
+        {/* Text */}
+        <div className="rounded-lg bg-purple-50 p-4">
+          <div className="mb-2 flex items-center gap-2">
+            <MessageCircle className="h-5 w-5 text-purple-600" />
+            <span className="text-xs font-medium uppercase tracking-wide text-purple-700">
+              Text
+            </span>
+          </div>
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-bold text-purple-900">
+              {progress.textCount}
+            </span>
+          </div>
+          <p className="mt-1 text-xs text-purple-700">
+            {textPercentage}% of total
           </p>
         </div>
 
@@ -131,12 +171,20 @@ export default function WeeklyProgress({
                   <p className="font-medium text-gray-900">{rep.repName}</p>
                   <div className="mt-1 flex items-center gap-4 text-xs text-gray-600">
                     <span className="flex items-center gap-1">
-                      <Phone className="h-3 w-3" />
-                      {rep.progress.contactedCount}
+                      <Users className="h-3 w-3 text-green-600" />
+                      {rep.progress.inPersonCount}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Users className="h-3 w-3" />
-                      {rep.progress.visitedCount}
+                      <Phone className="h-3 w-3 text-blue-600" />
+                      {rep.progress.phoneCount}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Mail className="h-3 w-3 text-indigo-600" />
+                      {rep.progress.emailCount}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MessageCircle className="h-3 w-3 text-purple-600" />
+                      {rep.progress.textCount}
                     </span>
                     <span className="text-gray-500">
                       / {rep.progress.totalAccounts} accounts

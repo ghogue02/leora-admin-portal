@@ -16,11 +16,11 @@ describe("call-plan task metadata helpers", () => {
 
   it("extracts outcome metadata and strips tags", () => {
     const description =
-      "[activityType:xyz][outcome:contacted:2024-10-20T18:00:00.000Z] Left voicemail";
+      "[activityType:xyz][outcome:phone:2024-10-20T18:00:00.000Z] Left voicemail";
     const result = parseTaskMetadata(description);
 
     expect(result.activityTypeId).toBe("xyz");
-    expect(result.outcomeType).toBe("contacted");
+    expect(result.outcomeType).toBe("phone");
     expect(result.outcomeTimestamp).toBe("2024-10-20T18:00:00.000Z");
     expect(result.notes).toBe("Left voicemail");
   });
@@ -28,13 +28,13 @@ describe("call-plan task metadata helpers", () => {
   it("rebuilds description while preserving existing metadata", () => {
     const rebuilt = composeTaskDescription({
       activityTypeId: "type-1",
-      outcomeType: "visited",
+      outcomeType: "in_person",
       outcomeTimestamp: "2024-10-21T15:30:00.000Z",
       notes: "Met with the wine director",
     });
 
     expect(rebuilt).toBe(
-      "[activityType:type-1] [outcome:visited:2024-10-21T15:30:00.000Z] Met with the wine director"
+      "[activityType:type-1] [outcome:in_person:2024-10-21T15:30:00.000Z] Met with the wine director"
     );
   });
 

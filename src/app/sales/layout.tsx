@@ -20,7 +20,7 @@ export default function SalesLayout({ children }: { children: ReactNode }) {
             {!isLoginPage && <SalesNav />}
             <div className={isLoginPage ? "" : "px-4 pb-12 pt-24 md:px-8"}>
               {!isLoginPage && (
-                <div className="mb-4">
+                <div className="mx-auto mb-4 w-full max-w-7xl px-2 sm:px-4 md:px-6">
                   <Breadcrumbs homeHref="/sales" homeLabel="Sales Dashboard" />
                 </div>
               )}

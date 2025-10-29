@@ -3,13 +3,11 @@
 type WeeklyRevenueChartProps = {
   currentMonthRevenue: number;
   lastMonthRevenue: number;
-  revenueChangePercent: string;
 };
 
 export default function WeeklyRevenueChart({
   currentMonthRevenue,
   lastMonthRevenue,
-  revenueChangePercent,
 }: WeeklyRevenueChartProps) {
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat("en-US", {
@@ -18,11 +16,17 @@ export default function WeeklyRevenueChart({
       maximumFractionDigits: 0,
     }).format(value);
 
+  const revenueChangeRaw =
+    lastMonthRevenue > 0
+      ? ((currentMonthRevenue - lastMonthRevenue) / lastMonthRevenue) * 100
+      : 0;
+  const revenueChangePercent = revenueChangeRaw.toFixed(1);
+
   const maxValue = Math.max(currentMonthRevenue, lastMonthRevenue);
   const currentBarHeight = maxValue > 0 ? (currentMonthRevenue / maxValue) * 100 : 0;
   const lastBarHeight = maxValue > 0 ? (lastMonthRevenue / maxValue) * 100 : 0;
 
-  const isPositiveChange = parseFloat(revenueChangePercent) >= 0;
+  const isPositiveChange = revenueChangeRaw >= 0;
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
