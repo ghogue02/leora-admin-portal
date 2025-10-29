@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { LogOut, Menu, X } from "lucide-react";
+import { ArrowLeft, LogOut, Menu } from "lucide-react";
 
 interface AdminHeaderProps {
   user?: {
@@ -15,6 +15,9 @@ interface AdminHeaderProps {
 export default function AdminHeader({ user, onToggleSidebar }: AdminHeaderProps) {
   const router = useRouter();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const handleBackToSales = () => {
+    router.push("/sales/dashboard");
+  };
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -44,12 +47,22 @@ export default function AdminHeader({ user, onToggleSidebar }: AdminHeaderProps)
 
   return (
     <header className="flex h-16 items-center justify-between border-b border-slate-200 bg-white px-6">
-      <button
-        onClick={onToggleSidebar}
-        className="rounded-lg p-2 text-gray-600 hover:bg-slate-100 lg:hidden"
-      >
-        <Menu className="h-5 w-5" />
-      </button>
+      <div className="flex items-center gap-3">
+        <button
+          onClick={onToggleSidebar}
+          className="rounded-lg p-2 text-gray-600 hover:bg-slate-100 lg:hidden"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+
+        <button
+          onClick={handleBackToSales}
+          className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          <span className="hidden sm:inline">Back to Sales</span>
+        </button>
+      </div>
 
       <div className="flex items-center gap-4">
         {user && (

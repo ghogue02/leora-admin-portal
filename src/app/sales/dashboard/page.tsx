@@ -37,6 +37,14 @@ type DashboardData = {
     annualQuota: number;
   };
   metrics: {
+    currentWeek: {
+      revenue: number;
+      uniqueCustomers: number;
+      quotaProgress: number;
+    };
+    lastWeek: {
+      revenue: number;
+    };
     currentMonth: {
       revenue: number;
       uniqueCustomers: number;
@@ -44,6 +52,10 @@ type DashboardData = {
     };
     lastMonth: {
       revenue: number;
+    };
+    mtd?: {
+      revenue: number;
+      uniqueCustomers: number;
     };
     ytd: {
       revenue: number;
@@ -242,27 +254,12 @@ export default function SalesDashboardPage() {
         />
       )}
 
-      {/* Top Products Section */}
-      {isSectionEnabled('top-products') && <TopProducts />}
-
-      {/* Customers Due to Order - Moved below Top Products */}
-      {isSectionEnabled('customers-due') && (
-        <CustomersDueList
-          customers={customersDue}
-          onDrilldown={setActiveDrilldown}
-        />
-      )}
-
-      {/* Active Incentives & Competitions - TEMPORARILY DISABLED */}
-      {/* <Incentives /> */}
-
       {isSectionEnabled('revenue-chart') && isSectionEnabled('customer-health') && (
         <div className="grid gap-6 lg:grid-cols-2">
           {isSectionEnabled('revenue-chart') && (
             <WeeklyRevenueChart
               currentMonthRevenue={metrics.currentMonth.revenue}
               lastMonthRevenue={metrics.lastMonth.revenue}
-              revenueChangePercent={metrics.comparison.revenueChangePercent}
             />
           )}
           {isSectionEnabled('customer-health') && (
@@ -274,23 +271,27 @@ export default function SalesDashboardPage() {
         </div>
       )}
 
+      {isSectionEnabled('tasks') && (
+        <TasksList tasks={tasks} />
+      )}
+
+      {isSectionEnabled('customers-due') && (
+        <CustomersDueList
+          customers={customersDue}
+          onDrilldown={setActiveDrilldown}
+        />
+      )}
+
+      {/* Top Products Section */}
+      {isSectionEnabled('top-products') && <TopProducts />}
+
       {/* Product Performance Goals - Enhanced */}
       {isSectionEnabled('product-goals') && <ProductGoalsEnhanced />}
 
       {/* 7-10 Day Upcoming Calendar - TEMPORARILY DISABLED */}
       {/* <UpcomingCalendar /> */}
 
-      {/* Tasks Assigned by Manager - TEMPORARILY DISABLED */}
-      {/* <AssignedTasks /> */}
-
-      {(isSectionEnabled('upcoming-events') || isSectionEnabled('tasks')) && (
-        <div className="grid gap-6 lg:grid-cols-2">
-          {isSectionEnabled('upcoming-events') && (
-            <UpcomingEvents events={upcomingEvents} />
-          )}
-          {isSectionEnabled('tasks') && <TasksList tasks={tasks} />}
-        </div>
-      )}
+      {isSectionEnabled('upcoming-events') && <UpcomingEvents events={upcomingEvents} />}
 
       {/* Customer Balances Widget - surfaced near the end */}
       {isSectionEnabled('customer-balances') && (

@@ -22,7 +22,7 @@ const METRIC_DEFINITIONS: Record<string, MetricDefinition> = {
     example: 'If your quota is $10,000 and you\'ve sold $8,500, you\'re at 85% progress',
   },
   'this-week-revenue': {
-    title: 'This Month Revenue',
+    title: 'This Week Revenue',
     description: 'Total revenue from orders delivered this week',
     details: [
       'Only includes delivered orders (not pending or draft)',

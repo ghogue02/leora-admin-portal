@@ -1,8 +1,8 @@
 /**
- * Call Plan Types for X/Y/Blank Marking System
+ * Call Plan Types for tracking contact methods
  */
 
-export type ContactOutcome = "contacted" | "visited" | null;
+export type ContactOutcome = "in_person" | "phone" | "email" | "text" | null;
 
 export interface ContactOutcomeData {
   outcome: ContactOutcome;
@@ -23,6 +23,10 @@ export interface AccountWithOutcome {
 
 export interface WeeklyProgressData {
   totalAccounts: number;
+  inPersonCount: number;
+  phoneCount: number;
+  emailCount: number;
+  textCount: number;
   contactedCount: number;
   visitedCount: number;
   notReachedCount: number;

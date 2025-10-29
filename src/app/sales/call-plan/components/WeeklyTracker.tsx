@@ -4,7 +4,12 @@ import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import ContactOutcomeButtons from "./ContactOutcomeButtons";
 import WeeklyProgress from "./WeeklyProgress";
-import type { AccountWithOutcome, ContactOutcomeData, WeeklyProgressData } from "../types";
+import type {
+  AccountWithOutcome,
+  ContactOutcome,
+  ContactOutcomeData,
+  WeeklyProgressData,
+} from "../types";
 
 const tenantHeaders = {
   "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
@@ -25,6 +30,10 @@ export default function WeeklyTracker({
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState<WeeklyProgressData>({
     totalAccounts: 0,
+    inPersonCount: 0,
+    phoneCount: 0,
+    emailCount: 0,
+    textCount: 0,
     contactedCount: 0,
     visitedCount: 0,
     notReachedCount: 0,
@@ -49,6 +58,7 @@ export default function WeeklyTracker({
         const normalizedAccounts: AccountWithOutcome[] = (data.accounts || []).map(
           (account: AccountWithOutcome & { markedAt?: string | Date | null }) => ({
             ...account,
+            outcome: normalizeOutcome(account.outcome),
             markedAt: account.markedAt ? new Date(account.markedAt) : undefined,
           })
         );
@@ -62,16 +72,52 @@ export default function WeeklyTracker({
     }
   };
 
+  const normalizeOutcome = (
+    outcome: AccountWithOutcome["outcome"] | string | null | undefined
+  ): ContactOutcome => {
+    if (!outcome) return null;
+    const value = outcome.toLowerCase();
+    if (value === "visited" || value === "in_person" || value === "in-person" || value === "inperson") {
+      return "in_person";
+    }
+    if (value === "contacted" || value === "phone" || value === "call" || value === "called") {
+      return "phone";
+    }
+    if (value === "email" || value === "email_sent" || value === "emailed") {
+      return "email";
+    }
+    if (value === "text" || value === "sms" || value === "message") {
+      return "text";
+    }
+    return null;
+  };
+
   const calculateProgress = (accountsList: AccountWithOutcome[]) => {
     const total = accountsList.length;
-    const contacted = accountsList.filter((a) => a.outcome === "contacted").length;
-    const visited = accountsList.filter((a) => a.outcome === "visited").length;
-    const reached = contacted + visited;
+    let inPerson = 0;
+    let phone = 0;
+    let email = 0;
+    let text = 0;
+
+    accountsList.forEach((account) => {
+      const normalized = normalizeOutcome(account.outcome);
+      if (normalized === "in_person") inPerson += 1;
+      else if (normalized === "phone") phone += 1;
+      else if (normalized === "email") email += 1;
+      else if (normalized === "text") text += 1;
+    });
+
+    const reached = inPerson + phone + email + text;
+    const contacted = phone + email + text;
 
     setProgress({
       totalAccounts: total,
+      inPersonCount: inPerson,
+      phoneCount: phone,
+      emailCount: email,
+      textCount: text,
       contactedCount: contacted,
-      visitedCount: visited,
+      visitedCount: inPerson,
       notReachedCount: total - reached,
       percentComplete: total > 0 ? (reached / total) * 100 : 0,
     });
@@ -99,7 +145,7 @@ export default function WeeklyTracker({
             acc.id === accountId
               ? {
                   ...acc,
-                  outcome: data.outcome,
+                  outcome: normalizeOutcome(data.outcome),
                   markedAt: data.markedAt ? new Date(data.markedAt) : data.markedAt,
                   notes: data.notes ?? acc.notes,
                 }
@@ -140,7 +186,7 @@ export default function WeeklyTracker({
             Weekly Execution Tracker
           </h3>
           <p className="text-sm text-gray-600">
-            Mark accounts as Contacted (X) or Visited (Y) throughout the week
+            Track how each customer was contacted this week
           </p>
         </div>
 
@@ -174,7 +220,6 @@ export default function WeeklyTracker({
                 <ContactOutcomeButtons
                   accountId={account.id}
                   accountName={account.name}
-                  taskId={account.taskId}
                   currentOutcome={account.outcome}
                   markedAt={account.markedAt}
                   notes={account.notes}
@@ -189,22 +234,30 @@ export default function WeeklyTracker({
       {/* Legend */}
       <div className="rounded-lg border border-gray-200 bg-gradient-to-r from-blue-50 to-green-50 p-4">
         <h4 className="mb-3 text-sm font-semibold text-gray-900">Marking Guide</h4>
-        <div className="grid grid-cols-3 gap-4 text-sm">
+        <div className="grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
           <div className="rounded-md bg-white p-3 shadow-sm">
             <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg font-bold text-blue-600">X</span>
-              <span className="font-medium text-gray-900">Contacted</span>
+              <span className="text-lg font-bold text-green-700">In-Person</span>
             </div>
-            <p className="text-xs text-gray-600">
-              Email, phone call, or text message
-            </p>
+            <p className="text-xs text-gray-600">Face-to-face visit or meeting</p>
           </div>
           <div className="rounded-md bg-white p-3 shadow-sm">
             <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg font-bold text-green-600">Y</span>
-              <span className="font-medium text-gray-900">Visited</span>
+              <span className="text-lg font-bold text-blue-600">Phone</span>
             </div>
-            <p className="text-xs text-gray-600">In-person visit or meeting</p>
+            <p className="text-xs text-gray-600">Phone call or voicemail</p>
+          </div>
+          <div className="rounded-md bg-white p-3 shadow-sm">
+            <div className="mb-1 flex items-center gap-2">
+              <span className="text-lg font-bold text-indigo-600">Email</span>
+            </div>
+            <p className="text-xs text-gray-600">Follow-up email sent</p>
+          </div>
+          <div className="rounded-md bg-white p-3 shadow-sm">
+            <div className="mb-1 flex items-center gap-2">
+              <span className="text-lg font-bold text-purple-600">Text</span>
+            </div>
+            <p className="text-xs text-gray-600">SMS or messaging app touch</p>
           </div>
           <div className="rounded-md bg-white p-3 shadow-sm">
             <div className="mb-1 flex items-center gap-2">

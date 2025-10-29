@@ -28,7 +28,7 @@ export interface EnrichedCallPlanTask extends CallPlanTaskWithCustomer {
   activityTypeCategory: ActivityCategory;
   outcomeType: string | null;
   outcomeTimestamp: string | null;
-  contactOutcome: "contacted" | "visited" | null;
+  contactOutcome: "in_person" | "phone" | "email" | "text" | null;
   markedAt?: string | null;
 }
 
@@ -97,8 +97,27 @@ export const enrichCallPlanTasks = async (
 
     const notes = metadata.notes || "";
     const outcome = metadata.outcomeType?.toLowerCase() || null;
-    const contactOutcome =
-      outcome === "visited" ? "visited" : outcome === "contacted" ? "contacted" : null;
+
+    const normalizeOutcome = (
+      value: string | null
+    ): "in_person" | "phone" | "email" | "text" | null => {
+      if (!value) return null;
+      if (["visited", "in_person", "in-person", "inperson"].includes(value)) {
+        return "in_person";
+      }
+      if (["phone", "call", "contacted", "called"].includes(value)) {
+        return "phone";
+      }
+      if (["email", "email_sent", "emailed"].includes(value)) {
+        return "email";
+      }
+      if (["text", "sms", "message"].includes(value)) {
+        return "text";
+      }
+      return null;
+    };
+
+    const contactOutcome = normalizeOutcome(outcome);
 
     return {
       ...task,
@@ -111,11 +130,10 @@ export const enrichCallPlanTasks = async (
       activityTypeLabel: activityRecord?.name || activityMeta.label,
       activityTypeName: activityRecord?.name || activityMeta.label,
       activityTypeCategory: activityMeta.category,
-      outcomeType: outcome,
+      outcomeType: contactOutcome,
       outcomeTimestamp: metadata.outcomeTimestamp,
       contactOutcome,
       markedAt: metadata.outcomeTimestamp,
     };
   });
 };
-

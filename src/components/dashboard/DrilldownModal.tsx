@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { format as formatDate, isValid, parseISO } from 'date-fns';
 import type {
   DrilldownType,
   DrilldownData,
@@ -152,6 +153,69 @@ export function DrilldownModal({
   };
 
   if (!type) return null;
+
+  const formatDateString = (value: string): string => {
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}/.test(value)) {
+      return value;
+    }
+    const parsed = parseISO(value);
+    if (!isValid(parsed)) {
+      return value;
+    }
+    return formatDate(parsed, 'dd/MM/yy');
+  };
+
+  const renderArrayValue = (items: any[]): JSX.Element => {
+    if (!items.length) {
+      return <span className="text-gray-400">—</span>;
+    }
+
+    return (
+      <div className="flex flex-col gap-1">
+        {items.map((entry, index) => {
+          if (entry && typeof entry === 'object') {
+            const orderId = entry.id ?? entry.orderId ?? index;
+            const formattedDate =
+              typeof entry.deliveredAt === 'string'
+                ? formatDateString(entry.deliveredAt)
+                : entry.deliveredAt ?? '';
+            const amount =
+              typeof entry.total === 'number' && entry.total > 0
+                ? formatCurrency(entry.total)
+                : undefined;
+            const explicitLabel =
+              typeof entry.label === 'string' ? entry.label : undefined;
+            const truncatedId =
+              entry.id
+                ? `#${String(entry.id).slice(0, 6)}`
+                : undefined;
+            const parts = [formattedDate, amount, explicitLabel, truncatedId].filter(Boolean);
+            const displayText = parts.join(' • ') || `Order ${orderId}`;
+            const href = entry.href ?? (entry.id ? `/sales/orders/${entry.id}` : undefined);
+            const key = `${orderId}-${index}`;
+
+            return href ? (
+              <a
+                key={key}
+                href={href}
+                className="text-indigo-600 hover:underline"
+              >
+                {displayText}
+              </a>
+            ) : (
+              <span key={key}>{displayText}</span>
+            );
+          }
+
+          return (
+            <span key={index}>
+              {typeof entry === 'string' ? formatDateString(entry) : String(entry)}
+            </span>
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
@@ -378,9 +442,11 @@ export function DrilldownModal({
                                       return formatNumber(numericValue);
                                     };
 
-                                    return (
+                                  return (
                                       <td key={cellKey} className="px-6 py-4 text-sm text-gray-900">
-                                        {typeof cellValue === 'number' ? (
+                                        {Array.isArray(cellValue) ? (
+                                          renderArrayValue(cellValue)
+                                        ) : typeof cellValue === 'number' ? (
                                           formatCellNumber(cellValue)
                                         ) : typeof cellValue === 'object' && cellValue !== null ? (
                                           <div className="space-y-1">
@@ -389,12 +455,18 @@ export function DrilldownModal({
                                                 <span className="font-semibold">
                                                   {formatInsightKey(k)}:
                                                 </span>{' '}
-                                                {typeof v === 'number' ? formatCellNumber(v) : String(v)}
+                                                {typeof v === 'number'
+                                                  ? formatCellNumber(v)
+                                                  : typeof v === 'string'
+                                                  ? formatDateString(v)
+                                                  : String(v)}
                                               </div>
                                             ))}
                                           </div>
                                         ) : (
-                                          String(cellValue ?? '')
+                                          typeof cellValue === 'string'
+                                            ? formatDateString(cellValue)
+                                            : String(cellValue ?? '')
                                         )}
                                       </td>
                                     );
