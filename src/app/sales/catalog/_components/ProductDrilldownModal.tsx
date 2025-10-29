@@ -15,6 +15,14 @@ type ProductDetails = {
     size: string | null;
     unitOfMeasure: string | null;
     abv: number | null;
+    vintage: number | null;
+    colour: string | null;
+    varieties: string | null;
+    style: string | null;
+    manufacturer: string | null;
+    itemsPerCase: number | null;
+    bottleBarcode: string | null;
+    caseBarcode: string | null;
   };
   inventory: {
     totalOnHand: number;
@@ -204,19 +212,19 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                 brand: data.product.brand,
                 category: data.product.category,
                 description: data.enrichedData?.description || null,
-                vintage: (data.enrichedData?.wineDetails as any)?.vintage || null,
-                colour: null, // Will be populated from API
-                varieties: null,
-                style: (data.enrichedData?.wineDetails as any)?.style || null,
-                manufacturer: null,
+                vintage: data.product.vintage,
+                colour: data.product.colour,
+                varieties: data.product.varieties,
+                style: data.product.style,
+                manufacturer: data.product.manufacturer,
               }}
               skuData={{
                 size: data.product.size,
                 unitOfMeasure: data.product.unitOfMeasure,
                 abv: data.product.abv,
-                itemsPerCase: null,
-                bottleBarcode: null,
-                caseBarcode: null,
+                itemsPerCase: data.product.itemsPerCase,
+                bottleBarcode: data.product.bottleBarcode,
+                caseBarcode: data.product.caseBarcode,
               }}
               onSave={() => {
                 setIsEditMode(false);
