@@ -48,8 +48,6 @@ export default function CatalogGrid() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [priceListFilter, setPriceListFilter] = useState<string>("all");
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>("priority");
@@ -103,22 +101,6 @@ export default function CatalogGrid() {
     };
   }, []);
 
-  const categoryOptions = useMemo(() => {
-    const set = new Set<string>();
-    items.forEach((item) => {
-      if (item.category) set.add(item.category);
-    });
-    return Array.from(set.values()).sort((a, b) => a.localeCompare(b));
-  }, [items]);
-
-  const brandOptions = useMemo(() => {
-    const set = new Set<string>();
-    items.forEach((item) => {
-      if (item.brand) set.add(item.brand);
-    });
-    return Array.from(set.values()).sort((a, b) => a.localeCompare(b));
-  }, [items]);
-
   const priceListOptions = useMemo(() => {
     const map = new Map<string, string>();
     items.forEach((item) => {
@@ -142,12 +124,6 @@ export default function CatalogGrid() {
         .includes(normalizedSearch);
     };
 
-    const matchesCategory = (item: CatalogItem) =>
-      selectedCategories.length === 0 || (item.category && selectedCategories.includes(item.category));
-
-    const matchesBrand = (item: CatalogItem) =>
-      selectedBrands.length === 0 || (item.brand && selectedBrands.includes(item.brand));
-
     const matchesPriceList = (item: CatalogItem) =>
       priceListFilter === "all" || item.priceLists.some((price) => price.priceListId === priceListFilter);
 
@@ -156,12 +132,10 @@ export default function CatalogGrid() {
     return items.filter(
       (item) =>
         matchesSearch(item) &&
-        matchesCategory(item) &&
-        matchesBrand(item) &&
         matchesPriceList(item) &&
         matchesStock(item),
     );
-  }, [items, search, selectedCategories, selectedBrands, priceListFilter, onlyInStock]);
+  }, [items, search, priceListFilter, onlyInStock]);
 
   const sortedItems = useMemo(() => {
     const sorted = [...filteredItems];
@@ -194,8 +168,6 @@ export default function CatalogGrid() {
   }, []);
 
   const handleClearFilters = useCallback(() => {
-    setSelectedCategories([]);
-    setSelectedBrands([]);
     setPriceListFilter("all");
     setOnlyInStock(false);
     setSortOption("priority");
@@ -258,66 +230,6 @@ export default function CatalogGrid() {
         </div>
 
         <form className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm" aria-label="Catalog filters">
-          <fieldset className="flex flex-wrap items-center gap-3">
-            <legend className="text-xs font-semibold uppercase tracking-wide text-gray-500">Categories</legend>
-            {categoryOptions.length === 0 ? (
-              <span className="text-xs text-gray-400">No categories yet</span>
-            ) : (
-              categoryOptions.map((category) => {
-                const active = selectedCategories.includes(category);
-                return (
-                  <button
-                    key={category}
-                    type="button"
-                    onClick={() =>
-                      setSelectedCategories((prev) =>
-                        active ? prev.filter((item) => item !== category) : [...prev, category],
-                      )
-                    }
-                    className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
-                      active
-                        ? "border-gray-900 bg-gray-900 text-white"
-                        : "border-slate-300 bg-white text-gray-700 hover:border-gray-900/40"
-                    }`}
-                    aria-pressed={active}
-                  >
-                    {category}
-                  </button>
-                );
-              })
-            )}
-          </fieldset>
-
-          <fieldset className="flex flex-wrap items-center gap-3">
-            <legend className="text-xs font-semibold uppercase tracking-wide text-gray-500">Brands</legend>
-            {brandOptions.length === 0 ? (
-              <span className="text-xs text-gray-400">No brands yet</span>
-            ) : (
-              brandOptions.map((brand) => {
-                const active = selectedBrands.includes(brand);
-                return (
-                  <button
-                    key={brand}
-                    type="button"
-                    onClick={() =>
-                      setSelectedBrands((prev) =>
-                        active ? prev.filter((item) => item !== brand) : [...prev, brand],
-                      )
-                    }
-                    className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
-                      active
-                        ? "border-gray-900 bg-gray-900 text-white"
-                        : "border-slate-300 bg-white text-gray-700 hover:border-gray-900/40"
-                    }`}
-                    aria-pressed={active}
-                  >
-                    {brand}
-                  </button>
-                );
-              })
-            )}
-          </fieldset>
-
           <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-gray-600">
             <label className="flex items-center gap-2">
               <span className="uppercase tracking-wide text-gray-500">Price list</span>

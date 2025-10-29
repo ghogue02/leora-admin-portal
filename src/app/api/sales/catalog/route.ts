@@ -10,6 +10,19 @@ export async function GET(request: NextRequest) {
         where: {
           tenantId,
           isActive: true,
+          product: {
+            // Filter out invalid products with pattern "0 X.XXX 0.00 0.00"
+            name: {
+              not: {
+                startsWith: "0 ",
+              },
+            },
+            // Also exclude products with null or empty names
+            NOT: [
+              { name: null },
+              { name: "" },
+            ],
+          },
         },
         include: {
           product: {
