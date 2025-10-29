@@ -19,6 +19,12 @@ export async function GET(request: NextRequest) {
               brand: true,
               category: true,
               description: true,
+              tastingNotes: true,
+              foodPairings: true,
+              servingInfo: true,
+              wineDetails: true,
+              enrichedAt: true,
+              enrichedBy: true,
             },
           },
           inventories: {
@@ -142,6 +148,12 @@ export async function GET(request: NextRequest) {
           },
           product: {
             description: sku.product.description,
+            tastingNotes: sku.product.tastingNotes,
+            foodPairings: sku.product.foodPairings,
+            servingInfo: sku.product.servingInfo,
+            wineDetails: sku.product.wineDetails,
+            enrichedAt: sku.product.enrichedAt,
+            enrichedBy: sku.product.enrichedBy,
           },
         };
       });
