@@ -259,13 +259,6 @@ export async function GET(
           size: sku.size,
           unitOfMeasure: sku.unitOfMeasure,
           abv: sku.abv,
-          description: sku.product.description ?? null,
-          tastingNotes: sku.product.tastingNotes ?? null,
-          foodPairings: sku.product.foodPairings ?? null,
-          servingInfo: sku.product.servingInfo ?? null,
-          wineDetails: sku.product.wineDetails ?? null,
-          enrichedAt: sku.product.enrichedAt?.toISOString() ?? null,
-          enrichedBy: sku.product.enrichedBy ?? null,
         },
         inventory: {
           totalOnHand,
@@ -296,6 +289,16 @@ export async function GET(
           topCustomers,
           monthlyTrend,
         },
+        // Add enrichedData object if tasting notes exist
+        ...(sku.product.tastingNotes ? {
+          enrichedData: {
+            description: sku.product.description || "",
+            tastingNotes: sku.product.tastingNotes,
+            foodPairings: sku.product.foodPairings || [],
+            servingInfo: sku.product.servingInfo || {},
+            wineDetails: sku.product.wineDetails || {},
+          }
+        } : {}),
         insights,
       };
 
