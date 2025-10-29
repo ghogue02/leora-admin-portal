@@ -10,19 +10,6 @@ export async function GET(request: NextRequest) {
         where: {
           tenantId,
           isActive: true,
-          product: {
-            // Filter out invalid products with pattern "0 X.XXX 0.00 0.00"
-            name: {
-              not: {
-                startsWith: "0 ",
-              },
-            },
-            // Also exclude products with null or empty names
-            NOT: [
-              { name: null },
-              { name: "" },
-            ],
-          },
         },
         include: {
           product: {
@@ -78,9 +65,15 @@ export async function GET(request: NextRequest) {
         ],
       });
 
+      // Filter out invalid products (starting with "0 " or empty names)
+      const validSkus = skus.filter(sku => {
+        const productName = sku.product?.name || "";
+        return productName.length > 0 && !productName.startsWith("0 ");
+      });
+
       // Get inventory status with reservations for each SKU
       const items = await Promise.all(
-        skus.map(async (sku) => {
+        validSkus.map(async (sku) => {
           const inventoryStatus = await getInventoryStatus(db, tenantId, sku.id);
 
           const totals = {
