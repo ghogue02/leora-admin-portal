@@ -340,17 +340,6 @@ export default function CatalogGrid() {
                     </div>
                   </header>
 
-                  {item.product?.tastingNotes && (
-                    <TastingNotesCard
-                      tastingNotes={{
-                        aroma: item.product.tastingNotes.aroma,
-                        palate: item.product.tastingNotes.palate,
-                        finish: item.product.tastingNotes.finish,
-                      }}
-                      compact
-                    />
-                  )}
-
                 <dl className="mt-4 grid grid-cols-2 gap-2 text-xs text-gray-600">
                   <div className="flex justify-between">
                     <dt>Size</dt>
