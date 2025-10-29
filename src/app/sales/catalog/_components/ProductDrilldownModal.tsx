@@ -87,7 +87,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<ProductDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details' | 'technical'>('inventory');
+  const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details' | 'technical' | 'tasting'>('inventory');
 
   useEffect(() => {
     fetchProductDetails();
@@ -152,7 +152,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                 { key: 'pricing', label: '💰 Pricing', icon: '💰' },
                 { key: 'sales', label: '📈 Sales History', icon: '📈' },
                 { key: 'technical', label: '📋 Technical Details', icon: '📋' },
-                ...(data?.enrichedData ? [{ key: 'details', label: '🍷 Tasting Notes', icon: '🍷' }] : []),
+                ...(data?.enrichedData ? [{ key: 'tasting', label: '🍷 Tasting Notes', icon: '🍷' }] : []),
               ].map((tab) => (
                 <button
                   key={tab.key}
@@ -309,7 +309,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
               )}
 
               {/* Tasting Notes Tab */}
-              {activeTab === 'details' && data.enrichedData && (
+              {activeTab === 'tasting' && data.enrichedData && (
                 <div className="space-y-6">
                   {/* Description */}
                   {data.enrichedData.description && (
