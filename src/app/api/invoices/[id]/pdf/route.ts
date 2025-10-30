@@ -8,6 +8,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { renderToStream } from '@react-pdf/renderer';
+import { createElement } from 'react';
 import { PrismaClient } from '@prisma/client';
 import { buildInvoiceData } from '@/lib/invoices/invoice-data-builder';
 import {
@@ -53,27 +54,28 @@ export async function GET(
     });
 
     // Select appropriate template based on format type
-    let PDFDocument;
+    let PDFComponent;
     let filename = `invoice-${invoice.invoiceNumber}.pdf`;
 
     switch (invoiceData.invoiceFormatType) {
       case 'VA_ABC_INSTATE':
-        PDFDocument = <VAAbcInstateInvoice data={invoiceData} />;
+        PDFComponent = VAAbcInstateInvoice;
         filename = `invoice-va-instate-${invoice.invoiceNumber}.pdf`;
         break;
 
       case 'VA_ABC_TAX_EXEMPT':
-        PDFDocument = <VAAbcTaxExemptInvoice data={invoiceData} />;
+        PDFComponent = VAAbcTaxExemptInvoice;
         filename = `invoice-va-taxexempt-${invoice.invoiceNumber}.pdf`;
         break;
 
       case 'STANDARD':
       default:
-        PDFDocument = <StandardInvoice data={invoiceData} />;
+        PDFComponent = StandardInvoice;
         break;
     }
 
-    // Generate PDF stream
+    // Generate PDF stream using createElement
+    const PDFDocument = createElement(PDFComponent, { data: invoiceData });
     const stream = await renderToStream(PDFDocument);
 
     // Return PDF as download

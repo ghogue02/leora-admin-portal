@@ -820,16 +820,16 @@ export default function OrderDetailPage() {
                       </div>
                     </div>
                   )}
-                </div>
 
-                {/* Invoice PDF Download */}
-                <div className="mt-6 pt-6 border-t">
-                  <InvoiceDownloadButton
-                    invoiceId={order.invoice.id}
-                    invoiceNumber={order.invoice.invoiceNumber || 'DRAFT'}
-                    formatType={order.invoice.invoiceFormatType || 'STANDARD'}
-                    showPreview={true}
-                  />
+                  {/* Invoice PDF Download */}
+                  <div className="mt-6 pt-6 border-t">
+                    <InvoiceDownloadButton
+                      invoiceId={order.invoice.id}
+                      invoiceNumber={order.invoice.invoiceNumber || 'DRAFT'}
+                      formatType={order.invoice.invoiceFormatType || 'STANDARD'}
+                      showPreview={true}
+                    />
+                  </div>
                 </div>
               ) : (
                 <div>
