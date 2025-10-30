@@ -40,7 +40,8 @@ async function main() {
       console.log('  ⚠️  Jared Lorenz already exists, using existing account');
     } else {
       // Create Jared's user account
-      const hashedPassword = await bcrypt.hash('***REMOVED***', 10);
+      const temporaryPassword = process.env.JARED_TEMP_PASSWORD || 'ChangeMe123!';
+      const hashedPassword = await bcrypt.hash(temporaryPassword, 10);
 
       jaredUser = await prisma.user.create({
         data: {
@@ -307,7 +308,7 @@ async function main() {
 
     console.log(`\n🔑 Jared's Login Credentials:`);
     console.log(`   Email: jared.lorenz@wellcrafted.com`);
-    console.log(`   Password: ***REMOVED***`);
+    console.log(`   Password: [REDACTED - Check secure password manager]`);
     console.log(`   (Must change on first login)`);
 
   } catch (error) {

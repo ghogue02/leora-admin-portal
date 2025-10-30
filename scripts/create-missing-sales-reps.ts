@@ -69,7 +69,7 @@ async function main() {
   console.log(`Creating ${REPS_TO_CREATE.length} sales rep users...\n`);
 
   // Default password (should be reset on first login)
-  const defaultPassword = '***REMOVED***';
+  const defaultPassword = process.env.DEFAULT_SALES_REP_PASSWORD || 'TemporaryPassword123!';
   const hashedPassword = await bcrypt.hash(defaultPassword, 10);
 
   let created = 0;

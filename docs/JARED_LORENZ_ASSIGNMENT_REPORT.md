@@ -26,7 +26,7 @@ Successfully created Jared Lorenz as the 7th active field sales rep and consolid
 
 **Account Details**:
 - Email: `jared.lorenz@wellcrafted.com`
-- Password: `***REMOVED***` (temporary - must change on first login)
+- Password: `[REDACTED]` (temporary - must be reset by admin)
 - Territory: Northern Virginia
 - SalesRep ID: `8ee24e1c-3765-4592-b64b-6f7af8daa88f`
 
@@ -173,7 +173,7 @@ Successfully created Jared Lorenz as the 7th active field sales rep and consolid
 
    Your account has been created in the Leora sales portal:
    - Email: jared.lorenz@wellcrafted.com
-   - Temporary Password: ***REMOVED***
+   - Temporary Password: [Contact admin for credentials]
 
    You have been assigned 127 customers in the Northern Virginia territory
    (Ashburn, Aldie, Warrenton, Winchester, Great Falls, Leesburg, Frederick, etc.).
