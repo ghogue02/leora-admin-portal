@@ -469,8 +469,14 @@ vercel inspect --logs --wait <deployment-url> --scope gregs-projects-61e51c01
 
 ### Deployment URLs
 
-**Pattern**: `https://web-{hash}-gregs-projects-61e51c01.vercel.app`
-**Current Production**: Check latest deployment with `● Ready` status in `vercel ls` output
+**Main Production URL**: `https://web-omega-five-81.vercel.app/`
+- Use this URL for testing and summaries
+- This is the stable production domain
+
+**Preview Deployments Pattern**: `https://web-{hash}-gregs-projects-61e51c01.vercel.app`
+- Generated for each commit to main branch
+- Check latest deployment with `● Ready` status in `vercel ls` output
+- Vercel automatically routes production traffic to latest successful deployment
 
 ### Common Git Operations
 
