@@ -111,14 +111,49 @@ export default function CartPage() {
   }
 
   if (error) {
+    const isCustomerError = error.includes("Customer not found") || error.includes("not assigned");
+
     return (
       <main className="mx-auto flex max-w-4xl flex-col gap-8">
         <header className="flex flex-col gap-2">
           <p className="text-xs font-medium uppercase tracking-widest text-gray-500">Cart</p>
           <h1 className="text-3xl font-semibold text-gray-900">Review your order.</h1>
         </header>
-        <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-sm text-red-700">
-          {error}
+        <div className="rounded-lg border border-red-200 bg-red-50 p-6">
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0">
+              <svg className="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-sm font-medium text-red-800 mb-2">
+                {isCustomerError ? "Customer Selection Required" : "Cart Error"}
+              </h3>
+              <p className="text-sm text-red-700 mb-4">{error}</p>
+              {isCustomerError && (
+                <div className="space-y-2">
+                  <p className="text-sm text-red-600">
+                    To use the cart, you need to select a customer first. You can:
+                  </p>
+                  <div className="flex gap-2">
+                    <Link
+                      href="/sales/customers"
+                      className="inline-flex items-center px-4 py-2 border border-red-300 text-sm font-medium rounded-md text-red-700 bg-white hover:bg-red-50"
+                    >
+                      Select a Customer
+                    </Link>
+                    <Link
+                      href="/admin/orders/new"
+                      className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                    >
+                      Create Order Directly
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </main>
     );

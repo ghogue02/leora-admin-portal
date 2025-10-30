@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { CreateInvoiceDialog } from "@/components/invoices/CreateInvoiceDialog";
+import { InvoiceDownloadButton } from "@/components/invoices/InvoiceDownloadButton";
 
 type OrderDetail = {
   id: string;
@@ -20,6 +22,7 @@ type OrderDetail = {
   customer: {
     id: string;
     name: string;
+    state?: string | null;
   };
   salesRep: {
     id: string;
@@ -64,6 +67,7 @@ type InvoiceInfo = {
   total: number;
   dueDate: string | null;
   issuedAt: string | null;
+  invoiceFormatType?: string;
   payments: Payment[];
   paidAmount: number;
   outstandingAmount: number;
@@ -107,6 +111,7 @@ export default function OrderDetailPage() {
     unitPrice: 0,
     isSample: false,
   });
+  const [showInvoiceDialog, setShowInvoiceDialog] = useState(false);
 
   useEffect(() => {
     fetchOrder();
@@ -265,28 +270,9 @@ export default function OrderDetailPage() {
     }
   };
 
-  const handleCreateInvoice = async () => {
-    if (!confirm("Create an invoice for this order?")) {
-      return;
-    }
-
-    try {
-      const response = await fetch(`/api/admin/orders/${params.id}/create-invoice`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
-      });
-
-      if (response.ok) {
-        fetchOrder();
-      } else {
-        const data = await response.json();
-        alert(data.error || "Failed to create invoice");
-      }
-    } catch (error) {
-      console.error("Failed to create invoice:", error);
-      alert("Failed to create invoice");
-    }
+  const handleInvoiceCreated = () => {
+    // Refresh order to show new invoice
+    fetchOrder();
   };
 
   const formatCurrency = (amount: number, currency: string = "USD") => {
@@ -835,11 +821,21 @@ export default function OrderDetailPage() {
                     </div>
                   )}
                 </div>
+
+                {/* Invoice PDF Download */}
+                <div className="mt-6 pt-6 border-t">
+                  <InvoiceDownloadButton
+                    invoiceId={order.invoice.id}
+                    invoiceNumber={order.invoice.invoiceNumber || 'DRAFT'}
+                    formatType={order.invoice.invoiceFormatType || 'STANDARD'}
+                    showPreview={true}
+                  />
+                </div>
               ) : (
                 <div>
                   <p className="text-gray-500 mb-4">No invoice created yet</p>
                   <button
-                    onClick={handleCreateInvoice}
+                    onClick={() => setShowInvoiceDialog(true)}
                     className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
                   >
                     Create Invoice
@@ -893,6 +889,19 @@ export default function OrderDetailPage() {
           </div>
         </div>
       </div>
+
+      {/* CreateInvoiceDialog */}
+      {order && !order.invoice && (
+        <CreateInvoiceDialog
+          orderId={order.id}
+          customerId={order.customerId}
+          customerName={order.customer.name}
+          customerState={order.customer.state}
+          open={showInvoiceDialog}
+          onOpenChange={setShowInvoiceDialog}
+          onSuccess={handleInvoiceCreated}
+        />
+      )}
     </div>
   );
 }
