@@ -76,6 +76,14 @@ export default function SalesLoginPage() {
 
     try {
       console.log('[DEBUG] Calling /api/sales/auth/login...');
+
+      // Add timeout to login request
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => {
+        console.log('[DEBUG] Login request timed out after 10 seconds');
+        controller.abort();
+      }, 10000);
+
       const response = await fetch("/api/sales/auth/login", {
         method: "POST",
         credentials: "include", // Important: send and receive cookies
@@ -87,8 +95,14 @@ export default function SalesLoginPage() {
           email: email.trim(),
           password: password.trim(),
         }),
+        signal: controller.signal,
+      }).catch((fetchError) => {
+        console.error('[DEBUG] Fetch error (possibly browser extension):', fetchError);
+        // Re-throw to be caught by outer try-catch
+        throw new Error(`Network error: ${fetchError.message}. Try disabling browser extensions or use incognito mode.`);
       });
 
+      clearTimeout(timeoutId);
       console.log('[DEBUG] Login response:', response.status, response.statusText);
 
       if (!response.ok) {
