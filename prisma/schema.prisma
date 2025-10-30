@@ -50,6 +50,8 @@ model Tenant {
   inventories             Inventory[]
   InventoryReservation    InventoryReservation[]
   invoices                Invoice[]
+  invoiceTemplates        InvoiceTemplate[]
+  taxRules                TaxRule[]
   mailchimpConnection     MailchimpConnection?
   mailchimpSyncs          MailchimpSync[]
   orders                  Order[]
@@ -326,6 +328,9 @@ model Sku {
   barrelOrTank         String?
   pendingOrders        Int?                   @default(0)
   pendingReceiving     Int?                   @default(0)
+
+  // VA ABC Invoice Fields
+  abcCodeNumber        String?                // e.g., "81394 - 14-A" or "12198 - 06-E"
   cartItems            CartItem[]
   inventories          Inventory[]
   InventoryReservation InventoryReservation[]
@@ -438,6 +443,16 @@ model Customer {
   latitude                 Float?
   longitude                Float?
   geocodedAt               DateTime?               @db.Timestamp(6)
+  quarterlyRevenueTarget   Decimal?                @db.Decimal(12, 2)
+  buyerFirstName           String?
+  buyerLastName            String?
+  csvImportedAt            DateTime?
+  csvLastSyncedAt          DateTime?
+
+  // VA ABC Invoice Fields
+  licenseNumber            String?                 // ABC license number for retailer
+  licenseType              String?                 // Type of license (for determining invoice format)
+
   accountSnapshots         AccountHealthSnapshot[]
   activities               Activity[]
   calendarEvents           CalendarEvent[]
@@ -518,6 +533,11 @@ model OrderLine {
   isSample            Boolean         @default(false)
   createdAt           DateTime        @default(now())
   updatedAt           DateTime        @updatedAt
+
+  // VA Invoice Fields
+  casesQuantity       Decimal?        @db.Decimal(10, 2) // Allow fractional cases like 8.83
+  totalLiters         Decimal?        @db.Decimal(10, 2)
+
   order               Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
   sku                 Sku             @relation(fields: [skuId], references: [id], onDelete: Cascade)
   tenant              Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -536,15 +556,30 @@ model Invoice {
   subtotal      Decimal?      @db.Decimal(12, 2)
   total         Decimal?      @db.Decimal(12, 2)
   dueDate       DateTime?
-  issuedAt      DateTime?
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  issuedAt            DateTime?
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+
+  // VA Invoice Format Fields
+  invoiceFormatType   InvoiceFormatType? @default(STANDARD)
+  salesperson         String?
+  paymentTermsText    String?            // e.g., "30 days", "C.O.D."
+  shippingMethod      String?            // e.g., "Hand deliver"
+  shipDate            DateTime?
+  specialInstructions String?            @db.Text
+  poNumber            String?            // Customer PO number
+  totalLiters         Decimal?           @db.Decimal(10, 2)
+  interestRate        Decimal?           @db.Decimal(5, 2) // e.g., 3.00 for 3%
+  collectionTerms     String?            @db.Text
+  complianceNotice    String?            @db.Text
+
   customer      Customer?     @relation(fields: [customerId], references: [id])
   order         Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
   tenant        Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   payments      Payment[]
 
   @@index([tenantId])
+  @@index([invoiceFormatType])
 }
 
 model Payment {
@@ -1910,6 +1945,48 @@ model PurchaseOrderLine {
   @@index([tenantId])
 }
 
+model InvoiceTemplate {
+  id                   String            @id @default(uuid()) @db.Uuid
+  tenantId             String            @db.Uuid
+  name                 String            // e.g., "Virginia ABC In-State"
+  formatType           InvoiceFormatType
+  isDefault            Boolean           @default(false)
+  config               Json              // Layout configuration, field visibility, etc.
+  applicableStates     String[]          @default([])
+  applicableLicenseTypes String[]        @default([])
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+
+  tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, name])
+  @@index([tenantId, formatType])
+}
+
+model TaxRule {
+  id        String   @id @default(uuid()) @db.Uuid
+  tenantId  String   @db.Uuid
+  state     String   // e.g., "VA", "MD", "DC"
+  taxType   String   // e.g., "EXCISE", "SALES"
+  rate      Decimal  @db.Decimal(10, 4) // e.g., 0.4000 for $0.40/liter
+  perUnit   String?  // e.g., "LITER", "BOTTLE", "CASE", "DOLLAR"
+  effective DateTime
+  expires   DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, state, taxType])
+  @@index([effective, expires])
+}
+
+enum InvoiceFormatType {
+  STANDARD
+  VA_ABC_INSTATE
+  VA_ABC_TAX_EXEMPT
+}
+
 enum PortalUserStatus {
   ACTIVE
   INVITED
@@ -1985,6 +2062,7 @@ enum AccountType {
   ACTIVE
   TARGET
   PROSPECT
+  HOLD
 }
 
 enum AccountPriority {
