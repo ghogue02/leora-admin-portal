@@ -86,12 +86,14 @@ export function CreateInvoiceDialog({
           poNumber: poNumber || undefined,
           specialInstructions: specialInstructions || undefined,
           shippingMethod,
+          formatType: invoiceFormat,
         }),
       });
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.error || 'Failed to create invoice');
+        console.error('Invoice creation failed:', response.status, error);
+        throw new Error(error.error || `Failed to create invoice (${response.status})`);
       }
 
       const data = await response.json();

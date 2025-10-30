@@ -103,6 +103,7 @@ export async function GET(request: NextRequest, props: RouteParams) {
         lines: order.lines.map((line) => ({
           ...line,
           unitPrice: Number(line.unitPrice),
+          total: Number(line.unitPrice) * line.quantity,
           casesQuantity: line.casesQuantity ? Number(line.casesQuantity) : null,
           totalLiters: line.totalLiters ? Number(line.totalLiters) : null,
         })),
