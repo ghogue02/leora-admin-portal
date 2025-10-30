@@ -438,6 +438,11 @@ model Customer {
   latitude                 Float?
   longitude                Float?
   geocodedAt               DateTime?               @db.Timestamp(6)
+  quarterlyRevenueTarget   Decimal?                @db.Decimal(12, 2)
+  buyerFirstName           String?
+  buyerLastName            String?
+  csvImportedAt            DateTime?
+  csvLastSyncedAt          DateTime?
   accountSnapshots         AccountHealthSnapshot[]
   activities               Activity[]
   calendarEvents           CalendarEvent[]
@@ -1985,6 +1990,7 @@ enum AccountType {
   ACTIVE
   TARGET
   PROSPECT
+  HOLD
 }
 
 enum AccountPriority {
