@@ -117,6 +117,15 @@ export default function SalesLoginPage() {
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-gray-900"></div>
           <p className="mt-4 text-sm text-gray-600">Checking authentication...</p>
           <p className="mt-2 text-xs text-gray-400">Check console for debug info (F12)</p>
+          <button
+            onClick={() => {
+              console.log('[DEBUG] User clicked skip auth check');
+              setStatus("idle");
+            }}
+            className="mt-6 px-4 py-2 text-sm text-gray-600 hover:text-gray-900 underline"
+          >
+            Skip and show login form
+          </button>
         </div>
       </main>
     );
