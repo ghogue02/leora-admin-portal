@@ -29,7 +29,7 @@ export default function SalesOrderDetailPage() {
   const fetchOrder = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/admin/orders/${params.orderId}`);
+      const response = await fetch(`/api/sales/orders/${params.orderId}`);
       const data = await response.json();
       setOrder(data.order);
     } catch (error) {
