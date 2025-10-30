@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
 import { createAuditLog } from "@/lib/audit-log";
+import { createVAInvoice } from "@/lib/invoices/invoice-data-builder";
+import { determineInvoiceFormat } from "@/lib/invoices/format-selector";
 
 type RouteParams = {
   params: Promise<{
@@ -13,7 +15,7 @@ export async function POST(request: NextRequest, props: RouteParams) {
   const params = await props.params;
   return withAdminSession(request, async ({ db, tenantId, session }) => {
     const body = await request.json();
-    const { dueDate, notes } = body;
+    const { dueDate, notes, poNumber, specialInstructions, shippingMethod } = body;
 
     // Get order
     const order = await db.order.findUnique({
@@ -73,21 +75,19 @@ export async function POST(request: NextRequest, props: RouteParams) {
     const defaultDueDate = new Date();
     defaultDueDate.setDate(defaultDueDate.getDate() + 30);
 
-    // Create invoice in transaction
-    const invoice = await db.$transaction(async (tx) => {
-      const newInvoice = await tx.invoice.create({
-        data: {
-          tenantId,
-          orderId: params.id,
-          customerId: order.customerId,
-          invoiceNumber,
-          status: "DRAFT",
-          subtotal: order.total,
-          total: order.total,
-          dueDate: dueDate ? new Date(dueDate) : defaultDueDate,
-          issuedAt: new Date(),
-        },
-      });
+    // Use VA invoice creation service for complete field population
+    const invoice = await createVAInvoice({
+      orderId: params.id,
+      tenantId,
+      customerId: order.customerId!,
+      poNumber,
+      specialInstructions,
+      shippingMethod,
+    });
+
+    // Create transaction for audit logging
+    await db.$transaction(async (tx) => {
+      const newInvoice = invoice;
 
       // Log invoice creation
       await createAuditLog(tx, {
@@ -98,8 +98,10 @@ export async function POST(request: NextRequest, props: RouteParams) {
         action: "CREATE",
         metadata: {
           orderId: params.id,
-          invoiceNumber,
-          total: Number(order.total),
+          invoiceNumber: newInvoice.invoiceNumber,
+          formatType: newInvoice.invoiceFormatType,
+          total: Number(newInvoice.total),
+          totalLiters: newInvoice.totalLiters ? Number(newInvoice.totalLiters) : 0,
           customerName: order.customer.name,
           notes,
         },
@@ -116,12 +118,11 @@ export async function POST(request: NextRequest, props: RouteParams) {
           invoice: {
             action: "CREATE",
             invoiceId: newInvoice.id,
-            invoiceNumber,
+            invoiceNumber: newInvoice.invoiceNumber,
+            formatType: newInvoice.invoiceFormatType,
           },
         },
       });
-
-      return newInvoice;
     });
 
     return NextResponse.json({

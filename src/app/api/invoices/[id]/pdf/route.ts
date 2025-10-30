@@ -1,0 +1,116 @@
+/**
+ * Invoice PDF Generation API
+ *
+ * GET /api/invoices/[id]/pdf
+ *
+ * Generates PDF invoice in the appropriate format based on invoice type
+ */
+
+import { NextRequest, NextResponse } from 'next/server';
+import { renderToStream } from '@react-pdf/renderer';
+import { PrismaClient } from '@prisma/client';
+import { buildInvoiceData } from '@/lib/invoices/invoice-data-builder';
+import {
+  VAAbcInstateInvoice,
+  VAAbcTaxExemptInvoice,
+  StandardInvoice,
+} from '@/lib/invoices/templates';
+
+const prisma = new PrismaClient();
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const invoiceId = params.id;
+
+    // Fetch invoice
+    const invoice = await prisma.invoice.findUnique({
+      where: { id: invoiceId },
+      include: {
+        customer: true,
+        order: true,
+      },
+    });
+
+    if (!invoice) {
+      return NextResponse.json(
+        { error: 'Invoice not found' },
+        { status: 404 }
+      );
+    }
+
+    // Build complete invoice data with all calculations
+    const invoiceData = await buildInvoiceData({
+      orderId: invoice.orderId,
+      tenantId: invoice.tenantId,
+      customerId: invoice.customerId!,
+      formatOverride: invoice.invoiceFormatType || undefined,
+      specialInstructions: invoice.specialInstructions || undefined,
+      poNumber: invoice.poNumber || undefined,
+      shippingMethod: invoice.shippingMethod || undefined,
+    });
+
+    // Select appropriate template based on format type
+    let PDFDocument;
+    let filename = `invoice-${invoice.invoiceNumber}.pdf`;
+
+    switch (invoiceData.invoiceFormatType) {
+      case 'VA_ABC_INSTATE':
+        PDFDocument = <VAAbcInstateInvoice data={invoiceData} />;
+        filename = `invoice-va-instate-${invoice.invoiceNumber}.pdf`;
+        break;
+
+      case 'VA_ABC_TAX_EXEMPT':
+        PDFDocument = <VAAbcTaxExemptInvoice data={invoiceData} />;
+        filename = `invoice-va-taxexempt-${invoice.invoiceNumber}.pdf`;
+        break;
+
+      case 'STANDARD':
+      default:
+        PDFDocument = <StandardInvoice data={invoiceData} />;
+        break;
+    }
+
+    // Generate PDF stream
+    const stream = await renderToStream(PDFDocument);
+
+    // Return PDF as download
+    return new Response(stream as any, {
+      headers: {
+        'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment; filename="${filename}"`,
+        'Cache-Control': 'no-cache',
+      },
+    });
+
+  } catch (error) {
+    console.error('Error generating invoice PDF:', error);
+    return NextResponse.json(
+      {
+        error: 'Failed to generate PDF',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
+      { status: 500 }
+    );
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+/**
+ * POST /api/invoices/[id]/pdf
+ *
+ * Generate and save PDF (for future email/storage features)
+ */
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  // TODO: Implement PDF storage to S3/Vercel Blob
+  return NextResponse.json(
+    { message: 'PDF storage not yet implemented' },
+    { status: 501 }
+  );
+}
