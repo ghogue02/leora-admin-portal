@@ -353,6 +353,8 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                       producer: data.enrichedData?.wineDetails.region,
                       grapeVariety: data.enrichedData?.wineDetails.grape,
                       style: data.enrichedData?.wineDetails.style,
+                      bottleBarcode: data.product.bottleBarcode ?? undefined,
+                      caseBarcode: data.product.caseBarcode ?? undefined,
                     }}
                   />
                 </div>

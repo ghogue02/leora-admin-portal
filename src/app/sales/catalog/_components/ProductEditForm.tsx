@@ -467,7 +467,7 @@ export function ProductEditForm({
       </div>
 
       {/* Info Footer */}
-      <div className="rounded-lg border border-blue-100 bg-blue-50 p-3 text-sm text-blue-800">
+      <div className="mb-8 rounded-lg border border-blue-100 bg-blue-50 p-3 text-sm text-blue-800">
         <div className="flex items-start gap-2">
           <svg className="mt-0.5 h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

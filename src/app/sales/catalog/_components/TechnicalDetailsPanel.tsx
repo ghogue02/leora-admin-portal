@@ -14,6 +14,8 @@ type TechnicalDetails = {
   grapeVariety?: string;
   style?: string;
   ageability?: string;
+  bottleBarcode?: string;
+  caseBarcode?: string;
 };
 
 type TechnicalDetailsPanelProps = {
@@ -61,6 +63,8 @@ export function TechnicalDetailsPanel({ details, compact = false }: TechnicalDet
           <DetailItem label="Closure" value={details.closureType} icon="🔒" />
           <DetailItem label="Case Size" value={details.caseSize} icon="📦" />
           <DetailItem label="Bottle Size" value={details.bottleSize} icon="🍾" />
+          <DetailItem label="Bottle Barcode" value={details.bottleBarcode} icon="🏷️" />
+          <DetailItem label="Case Barcode" value={details.caseBarcode} icon="🏷️" />
         </dl>
 
         {details.awards && details.awards.length > 0 && (
@@ -99,6 +103,8 @@ export function TechnicalDetailsPanel({ details, compact = false }: TechnicalDet
         <DetailItem label="Case Size" value={details.caseSize} icon="📦" />
         <DetailItem label="Bottle Size" value={details.bottleSize} icon="🍾" />
         <DetailItem label="Ageability" value={details.ageability} icon="⏳" />
+        <DetailItem label="Bottle Barcode (UPC)" value={details.bottleBarcode} icon="🏷️" />
+        <DetailItem label="Case Barcode (UPC)" value={details.caseBarcode} icon="🏷️" />
       </div>
 
       {details.awards && details.awards.length > 0 && (
