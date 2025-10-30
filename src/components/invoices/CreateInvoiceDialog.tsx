@@ -25,6 +25,7 @@ interface CreateInvoiceDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSuccess?: (invoiceId: string) => void;
+  apiRoute?: 'admin' | 'sales'; // Which API route to use
 }
 
 export function CreateInvoiceDialog({
@@ -35,6 +36,7 @@ export function CreateInvoiceDialog({
   open,
   onOpenChange,
   onSuccess,
+  apiRoute = 'admin', // Default to admin for backward compatibility
 }: CreateInvoiceDialogProps) {
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1); // 1 = Format, 2 = Details
@@ -72,7 +74,11 @@ export function CreateInvoiceDialog({
     setLoading(true);
 
     try {
-      const response = await fetch(`/api/sales/admin/orders/${orderId}/create-invoice`, {
+      const endpoint = apiRoute === 'sales'
+        ? `/api/sales/orders/${orderId}/create-invoice`
+        : `/api/sales/admin/orders/${orderId}/create-invoice`;
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
