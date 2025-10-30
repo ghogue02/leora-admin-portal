@@ -3,9 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { applySalesSessionCookies } from "@/lib/auth/sales-cookies";
 import { createSalesSession } from "@/lib/auth/sales-session";
-import { withTenantFromRequest } from "@/lib/tenant";
+import { prisma } from "@/lib/prisma";
 
 const SESSION_TTL_MS = Number(process.env.SALES_SESSION_TTL_MS ?? 1000 * 60 * 60 * 24);
+const TENANT_ID = '58b8126a-2d2f-4f55-bc98-5b6784800bed'; // Well Crafted tenant ID
 
 type LoginBody = {
   email?: string;
@@ -13,6 +14,8 @@ type LoginBody = {
 };
 
 export async function POST(request: NextRequest) {
+  console.log('[Login API] Request received');
+
   let body: LoginBody;
   try {
     body = await request.json();
@@ -30,77 +33,88 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Password is required." }, { status: 400 });
   }
 
+  console.log('[Login API] Attempting login for:', email);
+
   try {
-    const { result: loginData } = await withTenantFromRequest(request, async (tenantId, db) => {
-      // Find user with sales rep profile
-      const user = await db.user.findFirst({
-        where: {
-          tenantId,
-          email,
-          isActive: true,
-        },
-        include: {
-          salesRepProfile: {
-            select: {
-              id: true,
-              territoryName: true,
-              isActive: true,
-            },
+    // Direct database query - no RLS wrapper needed for login
+    console.log('[Login API] Querying database...');
+    const user = await prisma.user.findFirst({
+      where: {
+        tenantId: TENANT_ID,
+        email,
+        isActive: true,
+      },
+      include: {
+        salesRepProfile: {
+          select: {
+            id: true,
+            territoryName: true,
+            isActive: true,
           },
         },
-      });
-
-      if (!user) {
-        throw new Error("INVALID_CREDENTIALS");
-      }
-
-      // Check if user has sales rep profile
-      if (!user.salesRepProfile) {
-        throw new Error("NO_SALES_REP_PROFILE");
-      }
-
-      if (!user.salesRepProfile.isActive) {
-        throw new Error("SALES_REP_INACTIVE");
-      }
-
-      // Verify password hash
-      const isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
-      if (!isPasswordValid) {
-        throw new Error("INVALID_CREDENTIALS");
-      }
-
-      const sessionId = randomUUID();
-      const refreshToken = randomUUID();
-      const expiresAt = new Date(Date.now() + SESSION_TTL_MS);
-
-      const session = await createSalesSession(
-        db,
-        tenantId,
-        user.id,
-        sessionId,
-        refreshToken,
-        expiresAt,
-      );
-
-      // Return data only, not a response object
-      return {
-        user: {
-          id: user.id,
-          email: user.email,
-          fullName: user.fullName,
-          salesRep: {
-            id: user.salesRepProfile.id,
-            territoryName: user.salesRepProfile.territoryName,
-          },
-        },
-        session: {
-          id: sessionId,
-          expiresAt: expiresAt.toISOString(),
-        },
-        sessionId,
-        refreshToken,
-      };
+      },
     });
+
+    console.log('[Login API] User found:', !!user);
+
+    if (!user) {
+      console.log('[Login API] User not found or inactive');
+      throw new Error("INVALID_CREDENTIALS");
+    }
+
+    // Check if user has sales rep profile
+    if (!user.salesRepProfile) {
+      console.log('[Login API] No sales rep profile');
+      throw new Error("NO_SALES_REP_PROFILE");
+    }
+
+    if (!user.salesRepProfile.isActive) {
+      console.log('[Login API] Sales rep inactive');
+      throw new Error("SALES_REP_INACTIVE");
+    }
+
+    // Verify password hash
+    console.log('[Login API] Verifying password...');
+    const isPasswordValid = await bcrypt.compare(password, user.hashedPassword);
+    if (!isPasswordValid) {
+      console.log('[Login API] Invalid password');
+      throw new Error("INVALID_CREDENTIALS");
+    }
+
+    console.log('[Login API] Password valid, creating session...');
+
+    const sessionId = randomUUID();
+    const refreshToken = randomUUID();
+    const expiresAt = new Date(Date.now() + SESSION_TTL_MS);
+
+    const session = await createSalesSession(
+      prisma,
+      TENANT_ID,
+      user.id,
+      sessionId,
+      refreshToken,
+      expiresAt,
+    );
+
+    console.log('[Login API] Session created:', sessionId);
+
+    const loginData = {
+      user: {
+        id: user.id,
+        email: user.email,
+        fullName: user.fullName,
+        salesRep: {
+          id: user.salesRepProfile.id,
+          territoryName: user.salesRepProfile.territoryName,
+        },
+      },
+      session: {
+        id: sessionId,
+        expiresAt: expiresAt.toISOString(),
+      },
+      sessionId,
+      refreshToken,
+    };
 
     // Create response OUTSIDE the wrapper to ensure cookies are set correctly
     const response = NextResponse.json({
