@@ -14,10 +14,17 @@ export default function SalesLoginPage() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
+        // Add timeout to prevent infinite loading
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
         const response = await fetch("/api/sales/auth/me", {
           method: "GET",
           credentials: "include",
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
 
         if (response.ok) {
           // Already logged in, redirect to dashboard
@@ -25,8 +32,8 @@ export default function SalesLoginPage() {
           return;
         }
       } catch (error) {
-        // Not logged in, continue to login form
-        console.log("Not authenticated, showing login form");
+        // Not logged in or timeout, continue to login form
+        console.log("Not authenticated or timeout, showing login form");
       }
       setStatus("idle");
     };
