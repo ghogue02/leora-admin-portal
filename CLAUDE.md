@@ -400,6 +400,233 @@ npx claude-flow@alpha analysis token-usage
 
 ---
 
+## 📋 GitHub Workflow & Deployment Rules
+
+### Repository Structure
+**Main Repository**: `https://github.com/ghogue02/leora-admin-portal.git`
+**Working Directory**: `/Users/greghogue/Leora2/web` (the `web` subdirectory is the actual git repository)
+**Branch**: `main` (default branch for PRs and deployments)
+
+### Git Workflow Rules
+
+**CRITICAL**: Always work from the `/web` directory for git operations!
+
+```bash
+# ✅ CORRECT: Work from web directory
+cd /Users/greghogue/Leora2/web
+git status
+git add .
+git commit -m "message"
+git push origin main
+
+# ❌ WRONG: Don't work from parent directory
+cd /Users/greghogue/Leora2
+git status  # This creates a separate repo!
+```
+
+### Commit Message Format
+
+Use descriptive commit messages with the following format:
+
+```
+[Brief summary line - present tense]
+
+[Optional detailed description]
+
+Features/Changes:
+- Feature 1
+- Feature 2
+
+Technical Details:
+- Detail 1
+- Detail 2
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+```
+
+### Deployment Workflow
+
+**Vercel Deployment**: Automatic on push to main branch
+
+```bash
+# Step 1: Commit and push changes
+cd web
+git add <files>
+git commit -m "Descriptive message"
+git push origin main
+
+# Step 2: Monitor deployment
+vercel ls --scope gregs-projects-61e51c01
+
+# Step 3: Check deployment logs (wait for build)
+vercel inspect --logs --wait <deployment-url> --scope gregs-projects-61e51c01
+
+# Step 4: Verify deployment is live
+# Look for status: "● Ready" in vercel ls output
+```
+
+### Deployment URLs
+
+**Pattern**: `https://web-{hash}-gregs-projects-61e51c01.vercel.app`
+**Current Production**: Check latest deployment with `● Ready` status in `vercel ls` output
+
+### Common Git Operations
+
+```bash
+# Check current status
+git status
+
+# View recent commits
+git log --oneline -5
+
+# View uncommitted changes
+git diff
+
+# Stage specific files
+git add path/to/file1 path/to/file2
+
+# Stage all changes
+git add .
+
+# Commit with message
+git commit -m "message"
+
+# Push to GitHub
+git push origin main
+
+# View remote info
+git remote -v
+```
+
+### GitHub Safety Rules
+
+1. ❌ NEVER run `git push --force` to main
+2. ❌ NEVER skip commit hooks with `--no-verify`
+3. ❌ NEVER amend commits that have been pushed
+4. ✅ ALWAYS check `git status` before committing
+5. ✅ ALWAYS review `git diff` before committing
+6. ✅ ALWAYS write descriptive commit messages
+
+---
+
+## 🗄️ Database Connection Methods
+
+### Database Information
+**Provider**: Supabase PostgreSQL
+**Schema Location**: `prisma/schema.prisma`
+**Environment Variable**: `DATABASE_URL` (configured in `.env`)
+
+### ✅ Verified Working Methods
+
+#### Method 1: Prisma Client (RECOMMENDED - Full Read/Write Access)
+
+**Best for**: All database operations - queries, inserts, updates, deletes
+
+```typescript
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+// Connect
+await prisma.$connect();
+
+// Read operations
+const customers = await prisma.customer.findMany();
+const customerCount = await prisma.customer.count();
+
+// Write operations
+await prisma.customer.create({ data: { ... } });
+await prisma.customer.update({ where: { id }, data: { ... } });
+await prisma.customer.delete({ where: { id } });
+
+// Disconnect when done
+await prisma.$disconnect();
+```
+
+**Test Connection**:
+```bash
+npx tsx -e "import { PrismaClient } from '@prisma/client'; const prisma = new PrismaClient(); prisma.\$connect().then(() => console.log('✅ Connected')).catch(e => console.error('❌ Failed:', e.message)).finally(() => prisma.\$disconnect());"
+```
+
+**Status**: ✅ Tested and working (5,064 customers confirmed)
+
+#### Method 2: Supabase MCP Tools (Read-Only Access)
+
+**Best for**: Quick database queries without writing TypeScript
+
+Available MCP Tools:
+- `mcp__wellcrafted-supabase__supabase_list_tables` - List all tables
+- `mcp__wellcrafted-supabase__supabase_describe_table` - Show table schema
+- `mcp__wellcrafted-supabase__supabase_query_table` - Query with filters
+- `mcp__wellcrafted-supabase__supabase_count_records` - Count records
+- `mcp__wellcrafted-supabase__supabase_search_records` - Full-text search
+- `mcp__wellcrafted-supabase__supabase_insert_record` - Insert records
+- `mcp__wellcrafted-supabase__supabase_update_records` - Update records
+- `mcp__wellcrafted-supabase__supabase_delete_records` - Delete records
+
+**Status**: ✅ Available via MCP
+
+#### Method 3: Prisma CLI Commands
+
+**Best for**: Schema management, migrations, and database maintenance
+
+```bash
+# View database schema
+npx prisma db pull
+
+# Push schema changes to database
+npx prisma db push
+
+# Generate Prisma Client after schema changes
+npx prisma generate
+
+# Create migration
+npx prisma migrate dev --name migration_name
+
+# View migration status
+npx prisma migrate status
+
+# Reset database (DESTRUCTIVE!)
+npx prisma migrate reset
+```
+
+**Status**: ✅ Working
+
+### ❌ Methods That Don't Work
+
+#### Direct psql Connection
+```bash
+# ❌ This fails without proper authentication
+psql $DATABASE_URL
+```
+
+#### Prisma Execute without Schema
+```bash
+# ❌ This fails - requires --schema flag
+npx prisma db execute --stdin <<< "SELECT 1"
+```
+
+### Database Connection Best Practices
+
+1. **Always use Prisma Client for application code** - It's type-safe and handles connections automatically
+2. **Use MCP tools for quick queries** - Great for exploration and debugging
+3. **Always disconnect Prisma Client** - Call `prisma.$disconnect()` when done
+4. **Use migrations for schema changes** - Never modify the database directly
+5. **Test connections before deployment** - Verify DATABASE_URL is set correctly
+
+### Connection String Format
+
+```
+DATABASE_URL="postgresql://user:password@host:5432/database?schema=public"
+```
+
+**Location**: `.env` file (never commit this!)
+**Production**: Configured in Vercel environment variables
+
+---
+
 ## Support
 
 - Documentation: https://github.com/ruvnet/claude-flow
