@@ -269,6 +269,7 @@ export async function GET(
           varieties: sku.product.varieties,
           style: sku.product.style,
           manufacturer: sku.product.manufacturer,
+          description: sku.product.description,
           abcCode: sku.product.abcCode,
           mocoNumber: sku.product.mocoNumber,
           itemsPerCase: sku.itemsPerCase,

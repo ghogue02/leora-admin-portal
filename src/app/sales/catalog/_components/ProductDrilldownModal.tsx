@@ -211,7 +211,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                 name: data.product.productName,
                 brand: data.product.brand,
                 category: data.product.category,
-                description: data.enrichedData?.description || null,
+                description: data.product.description || null,
                 vintage: data.product.vintage,
                 colour: data.product.colour,
                 varieties: data.product.varieties,
