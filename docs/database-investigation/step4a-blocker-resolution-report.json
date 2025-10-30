@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-10-23T17:14:49.172Z",
+  "orderlines_identified": 171,
+  "orderlines_deleted": 0,
+  "revenue_impact": 0,
+  "orphaned_skus_affected": 472,
+  "why_not_caught_earlier": "171 orderlines belong to valid orders but reference SKUs with deleted products. Steps 1-2 focused on orderlines from deleted orders, not product orphans. These orderlines reference the 472 SKUs that became orphaned when their products were deleted. Step 3 cleaned SKUs orphaned by variants, but these SKUs are orphaned by products themselves.",
+  "verification": {
+    "remaining_blocker_orderlines": 0,
+    "step4_unblocked": true
+  }
+}

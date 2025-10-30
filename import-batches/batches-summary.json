@@ -1,0 +1,138 @@
+{
+  "totalInvoices": 2484,
+  "numBatches": 13,
+  "batchSize": 200,
+  "batches": [
+    {
+      "number": 1,
+      "startRef": 174483,
+      "endRef": 174747,
+      "count": 200,
+      "files": {
+        "json": "batch-01_ref-174483-174747.json",
+        "csv": "batch-01_ref-174483-174747.csv"
+      }
+    },
+    {
+      "number": 2,
+      "startRef": 174748,
+      "endRef": 175016,
+      "count": 200,
+      "files": {
+        "json": "batch-02_ref-174748-175016.json",
+        "csv": "batch-02_ref-174748-175016.csv"
+      }
+    },
+    {
+      "number": 3,
+      "startRef": 175017,
+      "endRef": 175279,
+      "count": 200,
+      "files": {
+        "json": "batch-03_ref-175017-175279.json",
+        "csv": "batch-03_ref-175017-175279.csv"
+      }
+    },
+    {
+      "number": 4,
+      "startRef": 175280,
+      "endRef": 175527,
+      "count": 200,
+      "files": {
+        "json": "batch-04_ref-175280-175527.json",
+        "csv": "batch-04_ref-175280-175527.csv"
+      }
+    },
+    {
+      "number": 5,
+      "startRef": 175528,
+      "endRef": 175807,
+      "count": 200,
+      "files": {
+        "json": "batch-05_ref-175528-175807.json",
+        "csv": "batch-05_ref-175528-175807.csv"
+      }
+    },
+    {
+      "number": 6,
+      "startRef": 175808,
+      "endRef": 176071,
+      "count": 200,
+      "files": {
+        "json": "batch-06_ref-175808-176071.json",
+        "csv": "batch-06_ref-175808-176071.csv"
+      }
+    },
+    {
+      "number": 7,
+      "startRef": 176072,
+      "endRef": 176309,
+      "count": 200,
+      "files": {
+        "json": "batch-07_ref-176072-176309.json",
+        "csv": "batch-07_ref-176072-176309.csv"
+      }
+    },
+    {
+      "number": 8,
+      "startRef": 176310,
+      "endRef": 176577,
+      "count": 200,
+      "files": {
+        "json": "batch-08_ref-176310-176577.json",
+        "csv": "batch-08_ref-176310-176577.csv"
+      }
+    },
+    {
+      "number": 9,
+      "startRef": 176578,
+      "endRef": 176820,
+      "count": 200,
+      "files": {
+        "json": "batch-09_ref-176578-176820.json",
+        "csv": "batch-09_ref-176578-176820.csv"
+      }
+    },
+    {
+      "number": 10,
+      "startRef": 176821,
+      "endRef": 177087,
+      "count": 200,
+      "files": {
+        "json": "batch-10_ref-176821-177087.json",
+        "csv": "batch-10_ref-176821-177087.csv"
+      }
+    },
+    {
+      "number": 11,
+      "startRef": 177090,
+      "endRef": 177343,
+      "count": 200,
+      "files": {
+        "json": "batch-11_ref-177090-177343.json",
+        "csv": "batch-11_ref-177090-177343.csv"
+      }
+    },
+    {
+      "number": 12,
+      "startRef": 177344,
+      "endRef": 177589,
+      "count": 200,
+      "files": {
+        "json": "batch-12_ref-177344-177589.json",
+        "csv": "batch-12_ref-177344-177589.csv"
+      }
+    },
+    {
+      "number": 13,
+      "startRef": 177590,
+      "endRef": 177697,
+      "count": 84,
+      "files": {
+        "json": "batch-13_ref-177590-177697.json",
+        "csv": "batch-13_ref-177590-177697.csv"
+      }
+    }
+  ],
+  "totalValue": 9416665.420000024
+}

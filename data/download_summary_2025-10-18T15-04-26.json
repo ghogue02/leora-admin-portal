@@ -1,0 +1,22 @@
+{
+  "statistics": {
+    "successful": 3073,
+    "notFound": 142,
+    "errors": 0,
+    "totalChecked": 3215,
+    "startTime": 1760799866871
+  },
+  "config": {
+    "baseUrl": "https://www.halapp.com",
+    "loginUrl": "https://www.halapp.com/hal/user/sign-in/",
+    "invoiceUrlTemplate": "https://www.halapp.com/a/wcb/document/?for_type=customer_invoice&for_id={ref_num}",
+    "startRef": 174483,
+    "endRef": 177697,
+    "downloadDir": "./invoices",
+    "dataDir": "./data",
+    "headless": false,
+    "delayMs": 500
+  },
+  "timestamp": "2025-10-18T15:53:11.523Z",
+  "elapsed_seconds": 2924.651
+}

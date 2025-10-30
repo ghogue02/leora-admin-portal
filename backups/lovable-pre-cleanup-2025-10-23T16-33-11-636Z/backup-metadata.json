@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-10-23T16:33:11.637Z",
+  "tables": [
+    {
+      "name": "customer",
+      "recordCount": 4947,
+      "expectedCount": 4947,
+      "fileSize": 5077839,
+      "checksum": "4a4c2da26970c0aa6973e2db134558e34f1f012cd21c5bcefba63a1e6f2c12d8",
+      "status": "success"
+    },
+    {
+      "name": "order",
+      "recordCount": 2843,
+      "expectedCount": 2843,
+      "fileSize": 2215091,
+      "checksum": "098bc3425115b98cc00e777545dcba677815d07a481071f87f6c6196366fead7",
+      "status": "success"
+    },
+    {
+      "name": "orderline",
+      "recordCount": 2817,
+      "expectedCount": 2817,
+      "fileSize": 1002072,
+      "checksum": "1541c8cc7be44149a466aca619c28749d4e81ca421d942f38b804b7e78ccb893",
+      "status": "success"
+    },
+    {
+      "name": "skus",
+      "recordCount": 1285,
+      "expectedCount": 1285,
+      "fileSize": 593897,
+      "checksum": "46d8a49b387be6ca8cb0079950ca22c41838191b6188f24f9a3acf59e711f757",
+      "status": "success"
+    },
+    {
+      "name": "product",
+      "recordCount": 1888,
+      "expectedCount": 1888,
+      "fileSize": 3590022,
+      "checksum": "a4293f3128ee300f783dbd50be603fe68e1cc1b58d7038d4353f407c3ca0b8ce",
+      "status": "success"
+    },
+    {
+      "name": "invoice",
+      "recordCount": 2112,
+      "expectedCount": 2112,
+      "fileSize": 1064767,
+      "checksum": "a78dce0a639b3de8299e6303a9513bec0e20a58e41db033134ca14de016d4535",
+      "status": "success"
+    }
+  ],
+  "totalRecords": 15892,
+  "totalSize": 13543688,
+  "backupPath": "/Users/greghogue/Leora2/backups/lovable-pre-cleanup-2025-10-23T16-33-11-636Z"
+}

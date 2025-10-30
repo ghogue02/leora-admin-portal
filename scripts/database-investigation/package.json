@@ -1,0 +1,26 @@
+{
+  "name": "database-investigation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "verify": "tsx 01-connect-and-verify.ts",
+    "health": "tsx 02-lovable-health-check.ts",
+    "compare": "tsx 03-compare-databases.ts",
+    "document-orphans": "tsx document-orphans-simple.ts",
+    "fix-prices": "tsx fix-negative-prices.ts",
+    "verify-fix": "tsx verify-fix.ts",
+    "export-wellcrafted": "tsx export-wellcrafted-complete.ts",
+    "migrate:products": "tsx migrate-products.ts",
+    "all": "npm run verify && npm run health && npm run compare"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.76.1",
+    "@types/uuid": "^10.0.0",
+    "csv-parse": "^6.1.0",
+    "typescript": "^5.9.3",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.0"
+  }
+}

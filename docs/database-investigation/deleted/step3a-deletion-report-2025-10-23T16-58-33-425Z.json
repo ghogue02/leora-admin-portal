@@ -1,0 +1,8 @@
+{
+  "totalDeleted": 431,
+  "totalRevenueLost": 118173.92000000001,
+  "beforeOrderLineCount": 2176,
+  "afterOrderLineCount": 1745,
+  "timestamp": "2025-10-23T16:58:35.673Z",
+  "orphanedOrderLinesExported": "/Users/greghogue/Leora2/docs/database-investigation/deleted/step3a-orderlines-2025-10-23T16-58-33-425Z.json"
+}

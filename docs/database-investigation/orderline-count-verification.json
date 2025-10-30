@@ -1,0 +1,207 @@
+{
+  "timestamp": "2025-10-23T20:51:18.499Z",
+  "verification_methods": {
+    "unique_orderids_in_table": 159,
+    "count_from_grouping": 159,
+    "null_orderids": 0
+  },
+  "migration_report_claim": 373,
+  "actual_database_count": 159,
+  "discrepancy": 214,
+  "total_orderlines": 1000,
+  "duplicate_orderids": 841,
+  "top_20_orders": [
+    {
+      "orderId": "0324f659-d99d-47a2-93b0-02ca3fb0a61b",
+      "count": 44
+    },
+    {
+      "orderId": "0d2b6a22-3d60-436a-8628-e0b5b943e9e7",
+      "count": 35
+    },
+    {
+      "orderId": "06538ef4-a5b9-42a3-9ebc-d8d028673cd9",
+      "count": 34
+    },
+    {
+      "orderId": "1295b062-26c2-4847-a97f-5fcbe9024de8",
+      "count": 34
+    },
+    {
+      "orderId": "06e8073f-2df4-42b7-bdb1-29f68fdcbf82",
+      "count": 30
+    },
+    {
+      "orderId": "0d081886-759b-4862-8690-0da5c3b1765b",
+      "count": 20
+    },
+    {
+      "orderId": "0f9cc1a1-7422-4093-bd2e-7e43f630d700",
+      "count": 20
+    },
+    {
+      "orderId": "0142fcd9-6094-43bd-a458-9a3c091da5cc",
+      "count": 18
+    },
+    {
+      "orderId": "06aba654-01a2-4fd9-9da1-ff00f9a0362c",
+      "count": 18
+    },
+    {
+      "orderId": "0757361e-052e-4a6c-81ee-282e72a47760",
+      "count": 15
+    },
+    {
+      "orderId": "0f1636c1-38ff-4973-843f-3968c4828ed3",
+      "count": 15
+    },
+    {
+      "orderId": "08da5b61-a978-4a9a-bd36-baaa93762c5f",
+      "count": 14
+    },
+    {
+      "orderId": "0f3c7bc5-3a6f-403e-8374-7353318eeb11",
+      "count": 13
+    },
+    {
+      "orderId": "03adcf5c-c2ee-4975-993d-f46f47aa830b",
+      "count": 12
+    },
+    {
+      "orderId": "03d45dab-e6b8-4409-aa4c-ba2b5582ebb6",
+      "count": 12
+    },
+    {
+      "orderId": "059a12de-9b7f-41a1-b4af-89361a149be8",
+      "count": 12
+    },
+    {
+      "orderId": "07a16c9b-568b-424c-9633-af431b57cf98",
+      "count": 12
+    },
+    {
+      "orderId": "141befb5-082a-43e4-b9db-e0db66f8ac43",
+      "count": 12
+    },
+    {
+      "orderId": "05092090-7e4f-47f0-8b5e-7bb384e75077",
+      "count": 11
+    },
+    {
+      "orderId": "0e8a762d-054f-4175-b3ed-0bb185358658",
+      "count": 11
+    }
+  ],
+  "sample_orderlines": [
+    {
+      "id": "e4e9f6c2-bc03-4155-a59b-d13932f07fdb",
+      "orderid": "3c0cbaa0-35d8-46a8-a34d-0b9829f0ef01",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 5,
+      "unitprice": 9.66,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "04b361d5-3402-466e-9186-291d8fca642f",
+      "orderid": "fe78eaa9-60fa-49c4-813d-ba68c14701e5",
+      "skuid": "8b1cc800-3aff-43bd-9156-f2cad9a03596",
+      "quantity": 3,
+      "unitprice": 225,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "d1c30496-1aa9-4762-98c4-8865182b3aec",
+      "orderid": "a8a9a119-af30-41cc-a251-13f9603ebcea",
+      "skuid": "7cd4cbaf-8b81-4713-8162-1b02e6f0f0a0",
+      "quantity": 3,
+      "unitprice": 45,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "da566401-2d1e-4247-9c2d-c6ea78a24031",
+      "orderid": "a8a9a119-af30-41cc-a251-13f9603ebcea",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 6,
+      "unitprice": 9.66,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "05de91b0-3a5f-4ad4-80fc-52b64a0e2443",
+      "orderid": "b8886053-b88b-4498-8652-8c13d4eab36d",
+      "skuid": "d0ef3727-d5fb-4b41-8092-6b595b0dd3d2",
+      "quantity": 6,
+      "unitprice": 26.67,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "212126f2-a6e2-4e8a-85d8-91e6e7bec2dc",
+      "orderid": "b8886053-b88b-4498-8652-8c13d4eab36d",
+      "skuid": "908bcf26-076f-4efb-8003-ca4a9c486cb6",
+      "quantity": 3,
+      "unitprice": 16.67,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "15e140cb-0841-4485-9c73-7add3be345c9",
+      "orderid": "0d89c0b7-abc0-499c-9467-8cf2c0e0c4a6",
+      "skuid": "bcaf17c6-df39-459f-8d14-7367c32d3f8c",
+      "quantity": 1,
+      "unitprice": 69.99,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "eef4dc79-adea-4273-9169-c4883fa1340f",
+      "orderid": "e4071a72-65d3-44cb-a0b6-9b6731729409",
+      "skuid": "ae3a1392-2562-4d5e-9946-e2dcf6c3d569",
+      "quantity": 12,
+      "unitprice": 13.5,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "5cef4249-e5e7-4d70-8e4a-37c9bbc5ee46",
+      "orderid": "4a6d797f-9c60-4d0e-bb38-7db79bada9eb",
+      "skuid": "3975918a-6b88-4331-93d3-415af1551aba",
+      "quantity": 1,
+      "unitprice": 0,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    },
+    {
+      "id": "1dd395e6-18f8-45d2-9d29-323e99fbf895",
+      "orderid": "04b6455e-7a93-4067-b2cd-0a717fbdee50",
+      "skuid": "d7492884-8f19-4bed-ac14-044cb04441b1",
+      "quantity": 12,
+      "unitprice": 11.49,
+      "discount": 0,
+      "issample": false,
+      "createdat": "2025-10-23T20:01:28.151154+00:00",
+      "appliedpricingrules": null
+    }
+  ]
+}

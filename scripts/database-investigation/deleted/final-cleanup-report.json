@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-10-23T21:03:23.827Z",
+  "lovableDatabase": {
+    "customers": 4947,
+    "products": 3479,
+    "skus": 2243,
+    "orders": 2635,
+    "orderlines": 9042,
+    "ordersWithOrderlines": 1452
+  },
+  "coverage": {
+    "current": 55.1,
+    "target": 70,
+    "ordersWithOrderlines": 1452,
+    "targetOrdersWithLines": 1845,
+    "gap": 393,
+    "achieved": false
+  },
+  "migrationStats": {
+    "productsAdded": 3479,
+    "skusAdded": 2243,
+    "ordersAdded": 2635,
+    "orderlinesAdded": 9042,
+    "orphansDeleted": 567
+  },
+  "integrity": {
+    "orphanedOrders": 454,
+    "orphanedOrderlines": 0,
+    "orphanedSkus": 723,
+    "foreignKeyViolations": 0,
+    "dataQualityIssues": 0
+  },
+  "targetsMet": {
+    "seventyPercentCoverage": false,
+    "zeroOrphans": false,
+    "perfectIntegrity": false
+  },
+  "recommendations": [
+    "Import orderlines for 393 more orders to reach 70% coverage",
+    "Analyze the 757 skipped orderlines from original migration",
+    "Verify if their parent orders exist in Lovable database",
+    "If orders exist, import the missing orderlines",
+    "If orders missing, migrate more orders from legacy database"
+  ]
+}

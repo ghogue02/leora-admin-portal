@@ -1,0 +1,68 @@
+// Job Queue Model Schema
+// Add this to your main schema.prisma file
+
+/**
+ * Job Queue for Async Processing
+ *
+ * Stores background jobs for:
+ * - Image extraction (business cards, licenses)
+ * - Customer/product enrichment
+ * - Report generation
+ * - Bulk imports
+ *
+ * Processing: Call /api/jobs/process via cron job
+ * Monitoring: Query by status field
+ * Cleanup: Delete old completed/failed jobs periodically
+ */
+model Job {
+  id          String   @id @default(uuid()) @db.Uuid
+
+  // Job type (determines which handler to use)
+  type        String   // "image_extraction", "customer_enrichment", "report_generation", "bulk_import"
+
+  // Job payload (JSON data specific to job type)
+  payload     Json
+
+  // Job status tracking
+  status      String   @default("pending") // "pending", "processing", "completed", "failed"
+  attempts    Int      @default(0)         // Retry counter (max 3)
+  error       String?                      // Error message if failed
+
+  // Timestamps
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+
+  // Index for fast job queue queries (FIFO, pending first)
+  @@index([status, createdAt])
+}
+
+// Example Job Payloads:
+
+// 1. Image Extraction
+// {
+//   "scanId": "uuid",
+//   "imageUrl": "https://storage.supabase.co/...",
+//   "scanType": "business_card" | "liquor_license"
+// }
+
+// 2. Customer Enrichment
+// {
+//   "customerId": "uuid",
+//   "productId": "uuid" (optional)
+// }
+
+// 3. Report Generation
+// {
+//   "reportType": "sales_summary",
+//   "startDate": "2024-01-01",
+//   "endDate": "2024-12-31",
+//   "tenantId": "uuid"
+// }
+
+// 4. Bulk Import
+// {
+//   "fileUrl": "https://...",
+//   "importType": "customers" | "products" | "orders",
+//   "tenantId": "uuid",
+//   "userId": "uuid"
+// }

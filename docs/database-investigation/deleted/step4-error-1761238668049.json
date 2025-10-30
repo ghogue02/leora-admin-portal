@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-10-23T16:57:48.049Z",
+  "error": "Failed to fetch SKUs: column skus.color does not exist",
+  "report": {
+    "timestamp": "2025-10-23T16:57:47.851Z",
+    "step": "step4-skus-missing-products",
+    "expectedOrphans": 472,
+    "foundOrphans": 0,
+    "orphanedSkus": [],
+    "skuPatterns": {},
+    "productCategories": {},
+    "cascadeCheck": {
+      "orderlinesReferencing": 0,
+      "canProceed": false
+    },
+    "deletion": {
+      "batches": 0,
+      "batchSize": 100,
+      "totalDeleted": 0,
+      "errors": []
+    },
+    "verification": {
+      "remainingOrphans": 0,
+      "finalSkuCount": 0,
+      "expectedSkuCount": 813,
+      "integrityCheck": false
+    },
+    "summary": {
+      "totalOrphansAcrossAllSteps": 0,
+      "databaseIntegrityPercent": 0,
+      "financialImpact": ""
+    }
+  }
+}

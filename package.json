@@ -1,0 +1,22 @@
+{
+  "name": "halapp-invoice-downloader",
+  "version": "1.0.0",
+  "description": "Automated invoice downloader for halapp.com",
+  "main": "download-invoices.js",
+  "scripts": {
+    "download": "node download-invoices.js",
+    "install-browsers": "npx playwright install chromium"
+  },
+  "keywords": [
+    "invoice",
+    "automation",
+    "playwright"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.75.1",
+    "dotenv": "^17.2.3",
+    "playwright": "^1.40.0"
+  }
+}

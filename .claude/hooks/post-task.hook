@@ -1,0 +1,63 @@
+#!/bin/bash
+# Post-Task Hook: Captures learning trajectories after task completion
+# Called automatically by Claude Code after each completed task
+
+# Note: Not using set -e to prevent hook failures from breaking the session
+
+# Get task context from environment variables
+TASK_ID="${CLAUDE_TASK_ID:-$(date +%s)}"
+TASK_DESC="${CLAUDE_TASK_DESCRIPTION:-unknown_task}"
+TASK_STATUS="${CLAUDE_TASK_STATUS:-completed}"
+QUALITY_SCORE="${CLAUDE_QUALITY_SCORE:-0.95}"
+
+# Project root
+PROJECT_ROOT="/Users/greghogue/Leora2"
+MEMORY_DIR="$PROJECT_ROOT/memory"
+
+# Colors
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+BOLD='\033[1m'
+
+# Create trajectory file
+TRAJECTORY_FILE="$MEMORY_DIR/reasoningbank/trajectories/${TASK_ID}_$(echo $TASK_DESC | tr ' ' '_' | head -c 50).json"
+
+mkdir -p "$MEMORY_DIR/reasoningbank/trajectories"
+
+# Store trajectory
+cat > "$TRAJECTORY_FILE" <<EOF
+{
+  "task_id": "$TASK_ID",
+  "description": "$TASK_DESC",
+  "status": "$TASK_STATUS",
+  "quality_score": $QUALITY_SCORE,
+  "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "session_id": "${CLAUDE_SESSION_ID:-unknown}",
+  "tools_used": [],
+  "outcome": "$TASK_STATUS",
+  "learned_patterns": []
+}
+EOF
+
+# Count patterns
+PATTERN_COUNT=$(find "$MEMORY_DIR/reasoningbank/patterns" -type f 2>/dev/null | wc -l | tr -d ' ')
+TRAJECTORY_COUNT=$(find "$MEMORY_DIR/reasoningbank/trajectories" -type f 2>/dev/null | wc -l | tr -d ' ')
+
+# Display progress update
+echo ""
+echo "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo "${BOLD}${GREEN}✅ Learning Captured${NC}"
+echo "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo "${BOLD}📝 Task:${NC} $TASK_DESC"
+echo "${BOLD}🎯 Quality Score:${NC} ${GREEN}$QUALITY_SCORE${NC}"
+echo "${BOLD}📊 Total Trajectories:${NC} ${BLUE}$TRAJECTORY_COUNT${NC} ${YELLOW}(↑ new)${NC}"
+echo "${BOLD}🧠 Patterns Learned:${NC} ${GREEN}$PATTERN_COUNT${NC}"
+echo "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+
+# Pattern extraction will be added later when ReasoningBank is fully configured
+# For now, trajectory storage is sufficient
+
+exit 0

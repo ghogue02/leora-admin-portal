@@ -1,0 +1,22 @@
+
+INVOICE AUDIT SUMMARY
+=====================
+
+Generated: 2025-10-18T16:36:39.789Z
+
+OVERVIEW:
+- Total PDF Invoices: 3073
+- Database Invoices: 0
+- Missing from DB: ~3073
+
+CONFLICTS:
+- Conflicting Invoices: 0
+
+SAMPLE DATA QUALITY:
+- Invoice Numbers Extracted: 8/10
+- Customer Names Extracted: 0/10
+- Dates Extracted: 0/10
+- Totals Extracted: 10/10
+
+RECOMMENDATION:
+CRITICAL: Bulk import needed

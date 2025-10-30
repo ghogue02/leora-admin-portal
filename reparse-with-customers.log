@@ -1,0 +1,107 @@
+[dotenv@17.2.3] injecting env (25) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+🚀 COMPLETE INVOICE IMPORT SYSTEM
+======================================================================
+
+🔍 Finding tenant...
+❌ Error getting tenant: {
+  code: '42501',
+  details: null,
+  hint: null,
+  message: 'permission denied for schema public'
+}
+✅ Tenant ID: null
+
+📋 Loading customers from database...
+❌ Error loading customers: {
+  code: '42501',
+  details: null,
+  hint: null,
+  message: 'permission denied for schema public'
+}
+📁 Scanning PDF files...
+✅ Found 3073 PDFs
+   Range: 174483 → 177697
+
+⚙️  Processing in batches of 100...
+
+📦 Batch 1/31 (174483 - 174584)
+   Progress: 100/3073 (3.3%) | Parsed: 100 | Blank: 0 | Errors: 0
+📦 Batch 2/31 (174585 - 174692)
+   Progress: 200/3073 (6.5%) | Parsed: 200 | Blank: 0 | Errors: 0
+📦 Batch 3/31 (174693 - 174804)
+   Progress: 300/3073 (9.8%) | Parsed: 300 | Blank: 0 | Errors: 0
+📦 Batch 4/31 (174805 - 174907)
+   Progress: 400/3073 (13.0%) | Parsed: 400 | Blank: 0 | Errors: 0
+📦 Batch 5/31 (174908 - 175011)
+   Progress: 500/3073 (16.3%) | Parsed: 500 | Blank: 0 | Errors: 0
+📦 Batch 6/31 (175012 - 175121)
+   Progress: 600/3073 (19.5%) | Parsed: 600 | Blank: 0 | Errors: 0
+📦 Batch 7/31 (175123 - 175228)
+   Progress: 700/3073 (22.8%) | Parsed: 700 | Blank: 0 | Errors: 0
+📦 Batch 8/31 (175229 - 175331)
+   Progress: 800/3073 (26.0%) | Parsed: 800 | Blank: 0 | Errors: 0
+📦 Batch 9/31 (175332 - 175433)
+   Progress: 900/3073 (29.3%) | Parsed: 900 | Blank: 0 | Errors: 0
+📦 Batch 10/31 (175434 - 175536)
+   Progress: 1000/3073 (32.5%) | Parsed: 1000 | Blank: 0 | Errors: 0
+📦 Batch 11/31 (175538 - 175644)
+   Progress: 1100/3073 (35.8%) | Parsed: 1100 | Blank: 0 | Errors: 0
+📦 Batch 12/31 (175645 - 175756)
+   Progress: 1200/3073 (39.0%) | Parsed: 1200 | Blank: 0 | Errors: 0
+📦 Batch 13/31 (175757 - 175860)
+   Progress: 1300/3073 (42.3%) | Parsed: 1300 | Blank: 0 | Errors: 0
+📦 Batch 14/31 (175861 - 175963)
+   Progress: 1400/3073 (45.6%) | Parsed: 1400 | Blank: 0 | Errors: 0
+📦 Batch 15/31 (175964 - 176067)
+   Progress: 1500/3073 (48.8%) | Parsed: 1500 | Blank: 0 | Errors: 0
+📦 Batch 16/31 (176068 - 176170)
+   Progress: 1600/3073 (52.1%) | Parsed: 1600 | Blank: 0 | Errors: 0
+📦 Batch 17/31 (176171 - 176272)
+   Progress: 1700/3073 (55.3%) | Parsed: 1700 | Blank: 0 | Errors: 0
+📦 Batch 18/31 (176273 - 176376)
+   Progress: 1800/3073 (58.6%) | Parsed: 1800 | Blank: 0 | Errors: 0
+📦 Batch 19/31 (176377 - 176486)
+   Progress: 1900/3073 (61.8%) | Parsed: 1900 | Blank: 0 | Errors: 0
+📦 Batch 20/31 (176487 - 176591)
+   Progress: 2000/3073 (65.1%) | Parsed: 2000 | Blank: 0 | Errors: 0
+📦 Batch 21/31 (176592 - 176694)
+   Progress: 2100/3073 (68.3%) | Parsed: 2100 | Blank: 0 | Errors: 0
+📦 Batch 22/31 (176695 - 176795)
+   Progress: 2200/3073 (71.6%) | Parsed: 2200 | Blank: 0 | Errors: 0
+📦 Batch 23/31 (176796 - 176900)
+   Progress: 2300/3073 (74.8%) | Parsed: 2300 | Blank: 0 | Errors: 0
+📦 Batch 24/31 (176901 - 177001)
+   Progress: 2400/3073 (78.1%) | Parsed: 2400 | Blank: 0 | Errors: 0
+📦 Batch 25/31 (177002 - 177107)
+   Progress: 2500/3073 (81.4%) | Parsed: 2500 | Blank: 0 | Errors: 0
+📦 Batch 26/31 (177108 - 177215)
+   Progress: 2600/3073 (84.6%) | Parsed: 2600 | Blank: 0 | Errors: 0
+📦 Batch 27/31 (177216 - 177316)
+   Progress: 2700/3073 (87.9%) | Parsed: 2700 | Blank: 0 | Errors: 0
+📦 Batch 28/31 (177317 - 177418)
+   Progress: 2800/3073 (91.1%) | Parsed: 2800 | Blank: 0 | Errors: 0
+📦 Batch 29/31 (177419 - 177520)
+   Progress: 2900/3073 (94.4%) | Parsed: 2900 | Blank: 0 | Errors: 0
+📦 Batch 30/31 (177521 - 177621)
+   Progress: 3000/3073 (97.6%) | Parsed: 3000 | Blank: 0 | Errors: 0
+📦 Batch 31/31 (177622 - 177697)
+   Progress: 3073/3073 (100.0%) | Parsed: 3073 | Blank: 0 | Errors: 0
+
+======================================================================
+📊 PROCESSING COMPLETE
+======================================================================
+Total PDFs:           3073
+✅ Successfully parsed: 3073 (100.0%)
+⚪ Blank/Invalid PDFs:  0 (0.0%)
+❌ Errors:             0
+
+👥 Customer Matching:
+   ✅ Matched:   0 (0.0%)
+   ⚠️  Unmatched: 3073 (100.0%)
+
+💾 Saving results...
+   ✅ Parsed invoices: import-results/parsed-invoices-1760811384175.json
+   ⚠️  Unmatched: import-results/unmatched-customers-1760811384175.json
+ReferenceError: unmatchedPath is not defined
+    at processInvoices (/Users/greghogue/Leora2/complete-invoice-importer.js:411:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

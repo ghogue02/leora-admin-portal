@@ -1,0 +1,236 @@
+🚀 SKU Gap Resolution - Starting Migration
+
+📋 Phase 1: Loading Missing SKU IDs...
+   Found 1117 missing SKU IDs
+
+📋 Phase 2: Extracting SKU Details from CSV...
+   Total SKUs in CSV: 2607
+   Missing SKUs found in CSV: 1117
+
+📋 Phase 3: Checking Product Dependencies...
+   Unique product IDs needed: 1102
+   Products found in CSV: 1102
+   Current product mappings: 1102
+   Products in Lovable: 1000
+   Products imported: 0
+   Products skipped (already existed): 1102
+
+📋 Phase 4: Importing Missing SKUs...
+   Current SKU mappings: 0
+   ... imported 50 SKUs
+   ... imported 100 SKUs
+   ... imported 150 SKUs
+   ⚠️  Failed to import SKU ITA1034: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1026: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1027: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1024: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1072: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1265: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1026: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1024: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1035: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1034: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1030: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NCA1002: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NCA1003: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NCA1001: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NCA1005: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1028: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1048: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1094: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1059: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1023: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1043: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU GRE1004: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1005: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1006: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1080: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1004: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1010: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1351: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1367: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1364: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1366: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ... imported 200 SKUs
+   ⚠️  Failed to import SKU SPA1283: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1284: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1285: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1196: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1218: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1114: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NWZ1005: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1041: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1030: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1002: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1000: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1078: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1152: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1056: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1055: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1054: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1052: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1131: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1132: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1151: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1152: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1119: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1017: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1003: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1059: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1053: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1052: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1051: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1054: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1245: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU POR1008: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1235: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1272: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1014: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1239: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1342: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1038: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1238: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1233: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1039: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1029: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1015: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1021: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1019: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1070: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1105: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1104: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1106: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1291: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1292: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1002: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NWZ1009: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NWZ1023: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU NON1030: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1045: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1118: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1175: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1104: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1109: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1026: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1188: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1183: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1022: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ... imported 250 SKUs
+   ⚠️  Failed to import SKU UKR1008: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1007: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1009: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1010: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1002: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1013: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1012: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1005: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1004: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU UKR1006: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1124: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1123: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1343: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1378: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1052: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1303: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU WAS1034: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU WAS1014: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1273: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1334: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1046: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1038: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ORO1037: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1012: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1071: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1040: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1041: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1110: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1114: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1113: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CHL1025: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CHL1027: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1364: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1361: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1134: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ITA1084: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1077: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1076: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1317: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1043: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1031: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SAF1079: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1104: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ARG1068: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1128: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1101: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1096: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1172: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1349: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1255: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1098: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1178: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1169: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1316: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1390: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU WAS1001: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ... imported 300 SKUs
+   ⚠️  Failed to import SKU WAS1004: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU WAS1006: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU WAS1038: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU WAS1019: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1342: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU WAS1043: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1300: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1214: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1004: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1295: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1011: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1012: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1014: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1013: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUT1002: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUT1004: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU KEG1011: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU KEG1012: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU FRA1168: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU AUS1013: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU SPA1208: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1029: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU CAL1025: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU BOX1002: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU ARG1069: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU VIR1030: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU VIR1033: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ⚠️  Failed to import SKU VIR1027: duplicate key value violates unique constraint "skus_tenantid_code_key"
+   ... imported 350 SKUs
+   ... imported 400 SKUs
+   ... imported 450 SKUs
+   ... imported 500 SKUs
+   ... imported 550 SKUs
+   ... imported 600 SKUs
+   ... imported 650 SKUs
+   ... imported 700 SKUs
+   ... imported 750 SKUs
+   ... imported 800 SKUs
+   ... imported 850 SKUs
+   ... imported 900 SKUs
+   SKUs imported: 939
+   SKUs skipped: 178
+   Skip reasons:
+     - Insert failed: 178
+   Total SKU mappings now: 939
+
+📋 Phase 5: Verifying Coverage...
+   SKUs in Lovable: 2243
+   SKU mappings: 939
+   Products in Lovable: 3479
+   Product mappings: 1102
+
+✅ SKU Gap Resolution Complete!
+
+Summary:
+  Products imported: 0
+  SKUs imported: 939
+  Total SKUs in Lovable: 2243
+  Total Products in Lovable: 3479
+
+🎯 Next Step: Re-run OrderLine migration to unblock 2,206+ orderlines

@@ -1,0 +1,27 @@
+{
+  "step": "Step 2: Delete orderlines missing SKUs",
+  "timestamp": "2025-10-23T17:00:20.558Z",
+  "preCheck": {
+    "totalOrderlines": 0,
+    "orphanedOrderlines": 0,
+    "expectedOrphans": 0,
+    "verified": true
+  },
+  "financialImpact": {
+    "totalRevenue": 0,
+    "affectedOrderlines": 0,
+    "averageValue": 0
+  },
+  "deletion": {
+    "recordsDeleted": 0,
+    "batchesProcessed": 0,
+    "errors": []
+  },
+  "postCheck": {
+    "totalOrderlines": 0,
+    "remainingOrphans": 0,
+    "step1OrphansStillZero": false,
+    "verified": false
+  },
+  "exportedTo": ""
+}

@@ -1,0 +1,58 @@
+#!/bin/bash
+# Session-Start Hook: Initializes session tracking
+# Called at the beginning of each Claude Code session
+
+# Note: Not using set -e to prevent hook failures from breaking the session
+
+PROJECT_ROOT="/Users/greghogue/Leora2"
+MEMORY_DIR="$PROJECT_ROOT/memory"
+SESSION_ID="$(date +%s)"
+SESSION_FILE="$MEMORY_DIR/sessions/session_${SESSION_ID}.json"
+
+# Colors
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+# Create session directory
+mkdir -p "$MEMORY_DIR/sessions"
+
+# Initialize session file
+cat > "$SESSION_FILE" <<EOF
+{
+  "session_id": "$SESSION_ID",
+  "start_time": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "tasks_completed": 0,
+  "tools_used": [],
+  "patterns_learned": [],
+  "quality_scores": [],
+  "status": "active"
+}
+EOF
+
+# Create symlink to current session
+ln -sf "$SESSION_FILE" "$MEMORY_DIR/sessions/current_session.json"
+
+# Count historical data
+TOTAL_SESSIONS=$(find "$MEMORY_DIR/sessions" -name "session_*.json" -type f 2>/dev/null | wc -l | tr -d ' ')
+TOTAL_PATTERNS=$(find "$MEMORY_DIR/reasoningbank/patterns" -type f 2>/dev/null | wc -l | tr -d ' ')
+TOTAL_TRAJECTORIES=$(find "$MEMORY_DIR/reasoningbank/trajectories" -type f 2>/dev/null | wc -l | tr -d ' ')
+
+# Display session start banner
+echo ""
+echo "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo "${BOLD}${GREEN}🚀 Learning Session Started${NC}"
+echo "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo "${BOLD}Session ID:${NC} $SESSION_ID"
+echo "${BOLD}Historical Data:${NC}"
+echo "  • Previous Sessions: ${GREEN}$TOTAL_SESSIONS${NC}"
+echo "  • Patterns Learned: ${GREEN}$TOTAL_PATTERNS${NC}"
+echo "  • Trajectories Stored: ${BLUE}$TOTAL_TRAJECTORIES${NC}"
+echo "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
+
+# Export session ID for other hooks
+export CLAUDE_SESSION_ID="$SESSION_ID"
+
+exit 0

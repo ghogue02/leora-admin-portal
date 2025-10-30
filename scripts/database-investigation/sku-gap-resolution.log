@@ -1,0 +1,1191 @@
+🚀 SKU Gap Resolution - Starting Migration
+
+📋 Phase 1: Loading Missing SKU IDs...
+   Found 1117 missing SKU IDs
+
+📋 Phase 2: Extracting SKU Details from CSV...
+   Total SKUs in CSV: 2607
+   Missing SKUs found in CSV: 1117
+
+📋 Phase 3: Checking Product Dependencies...
+   Unique product IDs needed: 1102
+   Products found in CSV: 1102
+   Current product mappings: 111
+   Products in Lovable: 1000
+   ... imported 10 products
+   ... imported 20 products
+   ... imported 30 products
+   ... imported 40 products
+   ... imported 50 products
+   ... imported 60 products
+   ... imported 70 products
+   ... imported 80 products
+   ... imported 90 products
+   ... imported 100 products
+   ... imported 110 products
+   ... imported 120 products
+   ... imported 130 products
+   ... imported 140 products
+   ... imported 150 products
+   ... imported 160 products
+   ... imported 170 products
+   ... imported 180 products
+   ... imported 190 products
+   ... imported 200 products
+   ... imported 210 products
+   ... imported 220 products
+   ... imported 230 products
+   ... imported 240 products
+   ... imported 250 products
+   ... imported 260 products
+   ... imported 270 products
+   ... imported 280 products
+   ... imported 290 products
+   ... imported 300 products
+   ... imported 310 products
+   ... imported 320 products
+   ... imported 330 products
+   ... imported 340 products
+   ... imported 350 products
+   ... imported 360 products
+   ... imported 370 products
+   ... imported 380 products
+   ... imported 390 products
+   ... imported 400 products
+   ... imported 410 products
+   ... imported 420 products
+   ... imported 430 products
+   ... imported 440 products
+   ... imported 450 products
+   ... imported 460 products
+   ... imported 470 products
+   ... imported 480 products
+   ... imported 490 products
+   ... imported 500 products
+   ... imported 510 products
+   ... imported 520 products
+   ... imported 530 products
+   ... imported 540 products
+   ... imported 550 products
+   ... imported 560 products
+   ... imported 570 products
+   ... imported 580 products
+   ... imported 590 products
+   ... imported 600 products
+   ... imported 610 products
+   ... imported 620 products
+   ... imported 630 products
+   ... imported 640 products
+   ... imported 650 products
+   ... imported 660 products
+   ... imported 670 products
+   ... imported 680 products
+   ... imported 690 products
+   ... imported 700 products
+   ... imported 710 products
+   ... imported 720 products
+   ... imported 730 products
+   ... imported 740 products
+   ... imported 750 products
+   ... imported 760 products
+   ... imported 770 products
+   ... imported 780 products
+   ... imported 790 products
+   ... imported 800 products
+   ... imported 810 products
+   ... imported 820 products
+   ... imported 830 products
+   ... imported 840 products
+   ... imported 850 products
+   ... imported 860 products
+   ... imported 870 products
+   ... imported 880 products
+   ... imported 890 products
+   ... imported 900 products
+   ... imported 910 products
+   ... imported 920 products
+   ... imported 930 products
+   ... imported 940 products
+   ... imported 950 products
+   ... imported 960 products
+   ... imported 970 products
+   ... imported 980 products
+   ... imported 990 products
+   Products imported: 991
+   Products skipped (already existed): 111
+
+📋 Phase 4: Importing Missing SKUs...
+   Current SKU mappings: 0
+   ⚠️  Failed to import SKU SPA1174: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1074: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1138: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1003: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1065: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1003: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1067: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1062: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1063: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1031: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1015: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1016: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1049: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1046: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1101: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1058: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1095: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1116: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1007: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1036: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1061: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1251: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1083: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1082: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1341: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1039: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1022: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1032: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1031: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1091: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1212: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1096: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1298: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1296: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1040: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1010: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1036: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1100: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1089: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1060: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1079: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1041: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1040: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1080: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1064: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1057: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1058: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1328: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1047: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1022: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1010: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1016: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1018: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1142: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1145: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1148: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1116: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1278: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1241: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1387: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1049: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1023: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1020: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1009: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1180: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1183: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1032: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1029: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1385: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1382: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1138: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1278: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1082: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1049: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1032: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1038: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1231: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1274: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1013: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1343: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1281: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1277: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1022: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1021: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1023: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1273: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1183: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1182: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1084: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1036: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1065: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1156: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1154: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1048: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1145: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1134: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1095: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1090: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1094: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1085: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1064: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1140: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1142: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1139: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1120: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1055: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1102: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1129: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1088: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1052: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1176: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1116: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1114: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1009: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1146: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1076: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1116: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1115: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1018: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1109: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1158: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1021: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1039: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1033: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1034: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1108: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1240: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1239: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1119: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1124: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1099: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NYS1007: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1087: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1130: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1128: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1032: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1206: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1204: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1208: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NYS1011: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1198: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NYS1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NYS1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1165: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1306: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1345: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1290: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1075: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1070: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1073: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1120: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1348: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1150: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1030: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1079: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1057: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1151: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1110: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1049: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1048: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1044: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1358: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1194: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1193: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1196: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1066: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1068: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1333: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1334: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1102: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1100: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1025: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1034: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1030: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1031: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1027: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1072: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1015: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1265: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1025: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1355: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1034: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1036: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1030: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NCA1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NCA1003: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NCA1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NCA1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1028: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1048: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1049: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1047: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1094: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1059: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1023: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1069: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1119: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1043: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU GRE1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1011: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1010: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1061: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1006: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1080: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1010: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1011: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1301: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1351: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1363: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1367: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1364: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1366: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1362: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1361: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1312: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1313: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1283: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1284: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1103: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1286: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1285: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1190: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1189: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1196: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1217: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1218: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1114: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1023: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1015: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1041: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1030: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1017: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1000: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1078: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1194: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1151: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1152: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1056: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1055: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1054: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1052: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1131: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1132: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1151: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1152: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1309: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1119: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1358: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1021: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1017: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1003: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1315: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1058: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1059: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1053: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1052: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1051: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1054: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1245: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1332: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1007: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1008: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1013: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1003: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU POR1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1017: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1235: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1272: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1240: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1234: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1239: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1342: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1060: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1038: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1238: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1233: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1039: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1018: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1029: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1015: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1021: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1019: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1070: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1082: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1192: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1105: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1104: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1106: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1290: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1291: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1289: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1292: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1288: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1010: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1009: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1011: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1008: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1023: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NWZ1012: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ENG1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1029: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU NON1030: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1045: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1116: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1118: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1175: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1104: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1109: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1188: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1028: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1184: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1183: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1185: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1029: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1022: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1021: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1019: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1020: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1008: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1007: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1009: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1010: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1013: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1012: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1006: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1003: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1011: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU UKR1026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1124: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1123: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1122: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1225: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1343: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1224: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1296: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1325: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1378: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1054: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1052: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1051: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1303: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1016: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1034: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1254: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1252: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1273: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1333: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1332: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1334: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1344: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1341: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1046: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1038: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ORO1037: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1012: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1071: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1028: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1088: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1040: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1041: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1110: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1111: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1114: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1112: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1113: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1025: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CHL1027: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU KEG1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1363: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1362: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1364: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1361: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1135: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1137: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1134: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1084: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1085: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ITA1150: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1044: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1077: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1076: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1317: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1043: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1007: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1042: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1031: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1070: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1075: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SAF1079: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1104: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1068: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1131: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1128: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1130: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1101: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1099: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1096: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1172: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1349: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1255: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1098: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1170: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1178: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1169: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1106: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1103: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1316: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1315: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1314: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1390: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1037: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1029: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1027: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1006: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1003: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1038: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1019: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1008: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1342: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU WAS1043: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1300: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1214: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1295: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1011: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1012: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1013: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUT1005: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUT1001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUT1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUT1004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU KEG1011: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU KEG1012: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1168: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1169: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1188: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU AUS1013: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1191: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1190: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU FRA1189: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1208: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU SPA1213: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1029: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1028: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1025: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU CAL1027: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU BOX1002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1069: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU ARG1066: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24339: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1030: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1033: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1031: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1028: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VIR1027: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24941: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24338: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 4542: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28072: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29926: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27205: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26993: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26723: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26676: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27080: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29086: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20667: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26931: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24100: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29329: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18143: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25677: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29395: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24401: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25480: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25645: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25440: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19088: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28263: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23829: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27015: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27565: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25088: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20756: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26315: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25708: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28646: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28644: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28647: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28633: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27416: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19585: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15000: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15001: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26622: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26488: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26489: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29935: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28265: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28637: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28645: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29031: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28908: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28744: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28930: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24148: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27332: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26918: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28853: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26232: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29992: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28659: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27200: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28957: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28954: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29799: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14820: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25456: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21456: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26408: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25681: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21788: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28687: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29449: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29430: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28487: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25921: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24529: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26938: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28692: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26940: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29122: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28007: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24193: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26958: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27131: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27132: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27133: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27136: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27135: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28668: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28676: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29932: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27271: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24177: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25458: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29176: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29178: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29180: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29217: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29458: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29352: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26573: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29859: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30108: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30101: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28827: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29833: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29873: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 22603: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27102: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26150: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26140: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27845: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29807: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29806: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21510: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28346: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27366: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25529: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24216: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18076: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29985: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28428: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28800: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28812: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27452: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25352: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24864: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26127: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27446: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27367: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27450: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29192: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29198: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU BDSCB21: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20730: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25732: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25731: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28792: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26129: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 22145: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28944: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU DEPCN22: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29886: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30258: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30257: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27142: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28626: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23942: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28859: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28857: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27267: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 17616: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25593: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28779: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28471: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29218: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29219: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29225: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29237: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29459: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29351: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20641: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14286: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27707: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28828: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23710: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30556: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26877: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30205: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 13951: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28679: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25552: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29800: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25236: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25222: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28808: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29884: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21509: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24214: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27325: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24805: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21786: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21219: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28949: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29837: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24985: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29986: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15469: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 17458: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 17459: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19911: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24114: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24738: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29071: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28264: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28026: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28766: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28771: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28810: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26191: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29297: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25525: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26227: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29107: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29111: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27858: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26167: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 22139: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VERSA20: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29801: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30254: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30253: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24746: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25621: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15686: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29179: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29241: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29347: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29348: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29350: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29349: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20542: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28232: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28231: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26858: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29913: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28477: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 17248: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23572: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27109: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25577: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25213: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28069: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14837: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27209: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28470: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 16593: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27498: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27264: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28947: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18027: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26407: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29066: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29065: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24170: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28788: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28789: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28768: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28802: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28804: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26117: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24729: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 22685: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28357: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27444: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27438: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27374: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28994: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29256: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29199: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29250: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU LFV17: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23839: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 10961: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23378: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU BSCAL19: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU BBSCB00: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VERFL21: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29491: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU DERCH23: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29811: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29893: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23969: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15144: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27251: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23529: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU DHPN23: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26365: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27753: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21806: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26287: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VERBS20: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26849: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26780: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23729: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29872: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21970: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26584: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26846: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24074: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26778: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25432: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25434: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21241: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18585: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25716: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18942: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28158: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30344: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30301: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26750: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26934: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21597: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23210: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26187: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28753: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28752: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28754: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28765: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27850: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27854: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU HODIV17: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21321: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25859: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27401: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23545: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15002: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21220: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23261: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28287: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29313: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23997: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21505: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20450: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15023: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 17916: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15171: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21399: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28188: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20762: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25366: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29504: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19428: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19094: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14084: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25649: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27885: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26612: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27411: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28956: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25512: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 11510: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23266: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15004: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29990: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23437: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27773: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21633: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20573: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23090: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25533: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26250: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28701: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28700: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26821: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24911: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25468: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26987: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26762: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27017: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27706: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24916: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24918: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30298: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21223: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28222: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24254: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 16471: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30300: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29862: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26465: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26962: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27197: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27331: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27846: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25428: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25579: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29436: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25203: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24195: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25901: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29039: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 22829: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29899: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26957: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23548: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27218: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27400: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29427: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29167: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29166: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23977: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26844: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27137: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28709: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28516: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27678: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30443: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28446: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28449: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26773: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26857: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27155: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27503: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 10619: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14882: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24321: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24320: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25455: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25445: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23275: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19431: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24947: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24253: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 11600: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24123: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30299: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25594: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26306: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU LFPRE22: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24630: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25255: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25252: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29036: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29440: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25204: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25226: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24857: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 22515: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25863: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24491: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28495: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21013: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28563: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26580: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26516: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27764: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28629: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23289: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28657: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28706: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28661: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28704: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27059: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30343: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30342: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24218: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24215: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24742: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20647: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 22123: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 17873: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25953: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25419: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25426: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29047: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29048: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29046: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25254: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24855: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 20371: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21173: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26247: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28630: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26246: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27203: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27149: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27871: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25870: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18586: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 16831: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19439: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28557: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28186: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27886: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25590: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23797: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24739: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23130: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29426: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24768: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21382: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 17653: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24953: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28463: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28464: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23291: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23430: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23435: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24450: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU VILA20C: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26257: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26258: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23317: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27868: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29469: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 16788: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25706: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29425: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25511: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19226: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23414: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27505: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18483: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25048: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27258: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27265: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26730: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26638: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25606: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14818: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25676: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15161: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27487: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19705: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26121: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27370: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27371: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26135: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23458: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25682: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 21795: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14865: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15014: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14881: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14817: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28212: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28472: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29223: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30386: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30563: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30564: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 18270: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26542: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27228: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28074: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26326: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26724: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26607: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 14959: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 24152: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30461: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 25903: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23490: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28672: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28671: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23056: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27272: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26179: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 19905: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 15982: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27024: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26575: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26915: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29843: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28597: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27410: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27192: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30102: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 23523: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27847: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28759: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28787: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29117: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 30035: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28608: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 26875: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28229: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 27227: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28032: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 28610: null value in column "tenantid" of relation "skus" violates not-null constraint
+   ⚠️  Failed to import SKU 29466: null value in column "tenantid" of relation "skus" violates not-null constraint

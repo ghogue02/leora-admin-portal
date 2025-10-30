@@ -1,0 +1,186 @@
+// ============================================================================
+// CARLA SYSTEM - PHASE 2.1 SCHEMA EXTENSIONS
+// ============================================================================
+// This file contains all Prisma schema additions for the CARLA (Call Planning
+// and Account Management) System. These additions extend the existing schema
+// with new enums, models, and relations for weekly call planning functionality.
+//
+// Key Features:
+// - Weekly call plan creation and tracking
+// - Account categorization (Prospect/Target/Active)
+// - Priority assignment (High/Medium/Low)
+// - Contact outcome tracking (X/Y/Blank system)
+// - Call plan activities and execution tracking
+// ============================================================================
+
+// ============================================================================
+// NEW ENUMS
+// ============================================================================
+
+// Account Priority for call planning and territory management
+enum AccountPriority {
+  LOW       // Lower priority accounts
+  MEDIUM    // Standard priority accounts
+  HIGH      // High priority accounts requiring immediate attention
+}
+
+// Call Plan Status tracking through lifecycle
+enum CallPlanStatus {
+  DRAFT      // Call plan being created
+  ACTIVE     // Currently active call plan
+  COMPLETED  // Week completed, archived for reporting
+  ARCHIVED   // Historical record
+}
+
+// Contact Outcome tracking for weekly execution
+// Maps to X/Y/Blank checkbox system in UI
+enum ContactOutcome {
+  NOT_ATTEMPTED  // Not yet attempted (default state)
+  NO_CONTACT     // Blank - Attempted but couldn't reach
+  CONTACTED      // X - Reached via email, phone, or text
+  VISITED        // Y - In-person visit completed
+}
+
+// ============================================================================
+// EXTENDED MODELS
+// ============================================================================
+
+// Extend existing Customer model with CARLA fields
+// Add these fields to the existing Customer model in schema.prisma:
+//
+// model Customer {
+//   // ... existing fields ...
+//
+//   // CARLA System fields
+//   accountPriority      AccountPriority     @default(MEDIUM)
+//   territory            String?             // For territory-based filtering
+//
+//   // ... existing relations ...
+//
+//   // CARLA System relations
+//   callPlanAccounts     CallPlanAccount[]
+//   callPlanActivities   CallPlanActivity[]
+// }
+
+// Extend existing CallPlan model with CARLA fields
+// Add these fields to the existing CallPlan model in schema.prisma:
+//
+// model CallPlan {
+//   // ... existing fields ...
+//
+//   // CARLA System fields
+//   weekNumber           Int?                // Week number of year (1-52)
+//   year                 Int?                // Year for the call plan
+//   status               CallPlanStatus      @default(DRAFT)
+//   targetCount          Int?                // Target number of accounts to contact
+//
+//   // ... existing relations ...
+//
+//   // CARLA System relations
+//   accounts             CallPlanAccount[]
+//   activities           CallPlanActivity[]
+// }
+
+// ============================================================================
+// NEW MODELS
+// ============================================================================
+
+// CallPlanAccount - Join table linking accounts to call plans
+// Tracks which accounts are included in each weekly call plan and their
+// contact status using the X/Y/Blank checkbox system
+model CallPlanAccount {
+  id              String          @id @default(uuid()) @db.Uuid
+  tenantId        String          @db.Uuid
+  callPlanId      String          @db.Uuid
+  customerId      String          @db.Uuid
+
+  // Call planning fields
+  objective       String?         // 3-5 word objective for this account this week
+  addedAt         DateTime        @default(now())
+
+  // Contact tracking (X/Y/Blank system)
+  contactOutcome  ContactOutcome  @default(NOT_ATTEMPTED)
+  contactedAt     DateTime?       // When contact/visit occurred
+  notes           String?         // Notes from contact attempt
+
+  // Relations
+  tenant   Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  callPlan CallPlan @relation(fields: [callPlanId], references: [id], onDelete: Cascade)
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  // Constraints
+  @@unique([callPlanId, customerId])  // One entry per account per call plan
+  @@index([tenantId])
+  @@index([callPlanId])
+  @@index([customerId])
+}
+
+// CallPlanActivity - Track execution of call plan activities
+// Links activities to specific call plans for reporting and tracking
+model CallPlanActivity {
+  id             String   @id @default(uuid()) @db.Uuid
+  tenantId       String   @db.Uuid
+  callPlanId     String   @db.Uuid
+  customerId     String   @db.Uuid
+  activityTypeId String   @db.Uuid
+  occurredAt     DateTime
+  notes          String?
+  createdAt      DateTime @default(now())
+
+  // Relations
+  tenant       Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  callPlan     CallPlan     @relation(fields: [callPlanId], references: [id], onDelete: Cascade)
+  customer     Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  activityType ActivityType @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
+
+  // Indexes for efficient querying
+  @@index([tenantId])
+  @@index([callPlanId])
+  @@index([customerId])
+  @@index([occurredAt])
+}
+
+// ============================================================================
+// TENANT RELATION UPDATES
+// ============================================================================
+
+// Add these relations to the existing Tenant model:
+//
+// model Tenant {
+//   // ... existing fields and relations ...
+//
+//   callPlanAccounts   CallPlanAccount[]
+//   callPlanActivities CallPlanActivity[]
+// }
+
+// ============================================================================
+// ACTIVITYTYPE RELATION UPDATES
+// ============================================================================
+
+// Add this relation to the existing ActivityType model:
+//
+// model ActivityType {
+//   // ... existing fields and relations ...
+//
+//   callPlanActivities CallPlanActivity[]
+// }
+
+// ============================================================================
+// MIGRATION NOTES
+// ============================================================================
+//
+// 1. This schema extends the existing Prisma schema with CARLA functionality
+// 2. Existing models (Customer, CallPlan, Tenant, ActivityType) need to be updated
+// 3. Two new models (CallPlanAccount, CallPlanActivity) need to be created
+// 4. Three new enums (AccountPriority, CallPlanStatus, ContactOutcome) need to be created
+// 5. AccountType enum already exists and will be reused
+//
+// IMPORTANT: Since direct database migration is not available, the migration
+// SQL in phase2-migration.sql must be executed manually in Supabase Dashboard.
+//
+// VERIFICATION:
+// After running migration, verify:
+// - All enums are created: SELECT * FROM pg_type WHERE typname LIKE '%account%' OR typname LIKE '%call%';
+// - All tables exist: SELECT tablename FROM pg_tables WHERE schemaname = 'public';
+// - All foreign keys are valid: SELECT * FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY';
+// ============================================================================

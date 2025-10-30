@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-10-23T17:01:13.877Z",
+  "iterations": 4,
+  "totals": {
+    "ordersDeleted": 809,
+    "orderLinesDeleted": 496,
+    "orderLinesRevenue": 103667.38999999997,
+    "ordersRevenue": 1483762.8400000003,
+    "totalRevenue": 1587430.2300000002
+  },
+  "final": {
+    "orders": 619,
+    "orderlines": 446,
+    "customers": 4947,
+    "remainingOrphans": 0
+  }
+}

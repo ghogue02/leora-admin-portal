@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-10-23T17:00:16.294Z",
+  "initial": {
+    "orders": 2042,
+    "orderlines": 1407,
+    "customers": 4947
+  },
+  "final": {
+    "orders": 1428,
+    "orderlines": 942
+  },
+  "deleted": {
+    "orders": 614,
+    "orderlines": 465
+  },
+  "revenue": {
+    "orderlines": 85387.03000000006,
+    "orders": 532613.5099999999,
+    "total": 618000.5399999999
+  },
+  "exports": {
+    "orderlines": "/Users/greghogue/Leora2/docs/database-investigation/deleted/step3c-orderlines-2025-10-23T17-00-11-083Z.json",
+    "orders": "/Users/greghogue/Leora2/docs/database-investigation/deleted/step3c-orders-2025-10-23T17-00-11-083Z.json"
+  },
+  "remainingOrphans": 381
+}

@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "totalCustomers": 0,
+    "totalOrders": 0,
+    "totalOrderLines": 0,
+    "totalSkus": 0,
+    "totalProducts": 0
+  },
+  "relationships": {
+    "ordersPerCustomer": {},
+    "orderLinesPerOrder": {},
+    "skusPerProduct": {}
+  },
+  "validation": {
+    "orphanedOrders": 0,
+    "orphanedOrderLines": 0,
+    "orphanedSkus": 0
+  }
+}

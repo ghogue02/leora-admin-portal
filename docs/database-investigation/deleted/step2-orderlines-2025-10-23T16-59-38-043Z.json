@@ -1,0 +1,2718 @@
+{
+  "metadata": {
+    "exportedAt": "2025-10-23T16:59:38.043Z",
+    "step": "Step 2: Delete orderlines with missing SKUs",
+    "totalRecords": 338,
+    "financialImpact": {
+      "totalRevenue": 110572.26000000015,
+      "affectedOrderlines": 338,
+      "averageValue": 327.1368639053259
+    }
+  },
+  "orderlines": [
+    {
+      "id": "2ae3e538-98dc-42d9-aeec-d69f6cca6465",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 5,
+      "unitprice": 9.66,
+      "orderid": "4a9d9857-8c03-42c0-a3a3-e9e33a9213ce",
+      "revenueImpact": 48.3
+    },
+    {
+      "id": "f9416315-577d-423c-8e05-7c94710c088e",
+      "skuid": "d6769fba-c368-4215-80fc-072eff176f8b",
+      "quantity": 6,
+      "unitprice": 26.67,
+      "orderid": "4a9d9857-8c03-42c0-a3a3-e9e33a9213ce",
+      "revenueImpact": 160.02
+    },
+    {
+      "id": "de9c2584-12a6-4cd9-a172-dff6a54dbcc3",
+      "skuid": "d91d7c1a-f738-4059-8bad-abf7a3bdf7e9",
+      "quantity": 4,
+      "unitprice": 12.66,
+      "orderid": "1bbcc987-bc55-41fa-a9ca-fb527816cec3",
+      "revenueImpact": 50.64
+    },
+    {
+      "id": "9c81052e-649e-4f86-a84e-62a3ab6e5f81",
+      "skuid": "dab91dfd-776b-4c89-8052-764114fe3a38",
+      "quantity": 6,
+      "unitprice": 21.33,
+      "orderid": "1bbcc987-bc55-41fa-a9ca-fb527816cec3",
+      "revenueImpact": 127.97999999999999
+    },
+    {
+      "id": "c5e246ff-5a1e-4f39-a6a6-fadc3d0b782b",
+      "skuid": "f191cd57-6fb8-416a-a592-df21c300d5b6",
+      "quantity": 4,
+      "unitprice": 13.99,
+      "orderid": "1bbcc987-bc55-41fa-a9ca-fb527816cec3",
+      "revenueImpact": 55.96
+    },
+    {
+      "id": "fb26eaf7-d5f2-47a7-9842-0c5558752fb7",
+      "skuid": "d0ef3727-d5fb-4b41-8092-6b595b0dd3d2",
+      "quantity": 6,
+      "unitprice": 26.67,
+      "orderid": "24e30551-fd5a-4b26-aa9c-809007800beb",
+      "revenueImpact": 160.02
+    },
+    {
+      "id": "b9864ac0-68b4-4284-a769-a8d4bb7c9ded",
+      "skuid": "ef4e8bbb-7c38-4ff0-93f4-1399a4ccdae5",
+      "quantity": 12,
+      "unitprice": 7.33,
+      "orderid": "0c1347ed-e446-45c2-a2f6-2b4dcee8d9ac",
+      "revenueImpact": 87.96000000000001
+    },
+    {
+      "id": "0c3ddbe0-0dcc-4fc2-bdd0-daf35893f470",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 24,
+      "unitprice": 8.33,
+      "orderid": "379706cc-205a-48d5-a3c0-2f1494685c92",
+      "revenueImpact": 199.92000000000002
+    },
+    {
+      "id": "1b15b571-7e4f-4eb1-972c-474c4117bb55",
+      "skuid": "cf711e5e-7637-4a51-b2e6-18b779c59787",
+      "quantity": 2,
+      "unitprice": 11.99,
+      "orderid": "2ce35dfe-ff4d-4874-a90c-b928092fbc57",
+      "revenueImpact": 23.98
+    },
+    {
+      "id": "2b12600f-8dfc-413f-ab38-36b0f820ec6a",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 36,
+      "unitprice": 9.33,
+      "orderid": "1d71efcf-e67d-415c-a3fe-65319726b75a",
+      "revenueImpact": 335.88
+    },
+    {
+      "id": "3de79207-4d53-469c-a584-55c4846b4c42",
+      "skuid": "d35f9426-d1e1-4017-a66e-335252a102f1",
+      "quantity": 30,
+      "unitprice": 10.33,
+      "orderid": "0f33cc83-458f-4734-9beb-beda2a3a119e",
+      "revenueImpact": 309.9
+    },
+    {
+      "id": "c1061987-d6ab-49bc-b9f6-e809ef58c833",
+      "skuid": "fdce6b4c-ac40-4334-bd63-9beeed321871",
+      "quantity": 7,
+      "unitprice": 10.67,
+      "orderid": "3ee1a391-35db-497d-a1e6-256b36d568af",
+      "revenueImpact": 74.69
+    },
+    {
+      "id": "7ef6dacd-3338-4d18-a50a-23552964d46e",
+      "skuid": "cbdc8d48-e64a-4e0f-8623-fa29f49d3e45",
+      "quantity": 24,
+      "unitprice": 9.66,
+      "orderid": "3d1034d2-3797-4396-b9f9-33e46816cfc2",
+      "revenueImpact": 231.84
+    },
+    {
+      "id": "f496cc74-b379-4201-9b24-9c9702703ece",
+      "skuid": "ef235a9d-f5c9-417d-839a-120a1ff17a6c",
+      "quantity": 60,
+      "unitprice": 16,
+      "orderid": "19326a56-ba34-4cb5-b132-3de1a612e8da",
+      "revenueImpact": 960
+    },
+    {
+      "id": "959994f9-5a24-4723-a1d1-5d079b6d6fd4",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 48,
+      "unitprice": 9,
+      "orderid": "442f5e35-65c0-446d-8b89-c3d196ef616b",
+      "revenueImpact": 432
+    },
+    {
+      "id": "82ff05b6-904c-48fe-ba4f-72004a3b0bca",
+      "skuid": "e2159b78-9cb0-4265-ae18-37c536c2a32d",
+      "quantity": 30,
+      "unitprice": 16.33,
+      "orderid": "0f33cc83-458f-4734-9beb-beda2a3a119e",
+      "revenueImpact": 489.9
+    },
+    {
+      "id": "d55b31f8-77cf-468b-a211-367c29fd1228",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "3ee1a391-35db-497d-a1e6-256b36d568af",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "0bee6d41-f142-4387-9da0-9e2d9100fb04",
+      "skuid": "f5a4c7a9-854f-452c-ad5d-ddf23eb1d9f8",
+      "quantity": 6,
+      "unitprice": 16.67,
+      "orderid": "165665c3-285c-481f-b17f-372bbbee1c2f",
+      "revenueImpact": 100.02000000000001
+    },
+    {
+      "id": "2c3479eb-f4c0-47ae-b8af-bd64dce6eccb",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "165665c3-285c-481f-b17f-372bbbee1c2f",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "b24f8566-caee-4c1d-b758-83663085dcf1",
+      "skuid": "f76e454b-651a-4b92-a335-8b22460a7f74",
+      "quantity": 8,
+      "unitprice": 73.33,
+      "orderid": "191f4e27-54ec-4c02-8de4-a88271d99266",
+      "revenueImpact": 586.64
+    },
+    {
+      "id": "85f02f78-9bc6-4ca6-84de-1f40b13bce3d",
+      "skuid": "d4d068dc-f1a6-4281-b595-6c629e631163",
+      "quantity": 3,
+      "unitprice": 28,
+      "orderid": "48401e0e-d072-4728-9c14-6842470ac75b",
+      "revenueImpact": 84
+    },
+    {
+      "id": "53cd3510-1e9c-44e9-8153-7a6025209399",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "3d67250a-92d5-4959-9ac0-2217b89e011c",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "d0d74f82-79bf-47aa-b313-ec24235a7325",
+      "skuid": "ee7cd886-1df0-4d97-bca4-0f6f45153421",
+      "quantity": 6,
+      "unitprice": 18,
+      "orderid": "165665c3-285c-481f-b17f-372bbbee1c2f",
+      "revenueImpact": 108
+    },
+    {
+      "id": "92fcdd62-f171-4b98-969c-ebe3b00c8ede",
+      "skuid": "dc9d9c9f-1809-4022-825b-6f33c155c1aa",
+      "quantity": 96,
+      "unitprice": 8.33,
+      "orderid": "2b2a1c6c-5bf7-43f1-a85f-fc0d1c93c0f6",
+      "revenueImpact": 799.6800000000001
+    },
+    {
+      "id": "2f0bd28b-2c5b-42cd-9e49-ddb4901779b1",
+      "skuid": "dc9d9c9f-1809-4022-825b-6f33c155c1aa",
+      "quantity": 271,
+      "unitprice": 8.89,
+      "orderid": "570ea9fa-85dd-40e7-b8bd-ddde3e4bbe66",
+      "revenueImpact": 2409.19
+    },
+    {
+      "id": "f957baff-6968-4526-9b60-557e9130626b",
+      "skuid": "f960f9b8-f7d3-466a-a135-128adc682035",
+      "quantity": 12,
+      "unitprice": 11.66,
+      "orderid": "4a2e2069-d5f9-4614-962a-c38b520165d2",
+      "revenueImpact": 139.92000000000002
+    },
+    {
+      "id": "0c80aa6c-6ac1-4de3-8111-85253b765f6e",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 15,
+      "unitprice": 69.99,
+      "orderid": "112fe102-63e5-4741-8402-dd6856476a8e",
+      "revenueImpact": 1049.85
+    },
+    {
+      "id": "7cfd6ddd-5121-4c6d-91cf-e1d6bf868e29",
+      "skuid": "e9eef314-7b2f-4419-83bc-32c377f46edc",
+      "quantity": 2,
+      "unitprice": 63.33,
+      "orderid": "112fe102-63e5-4741-8402-dd6856476a8e",
+      "revenueImpact": 126.66
+    },
+    {
+      "id": "9c80551a-e372-480d-b1b0-43708a4f4136",
+      "skuid": "ee7cd886-1df0-4d97-bca4-0f6f45153421",
+      "quantity": 6,
+      "unitprice": 18,
+      "orderid": "156ae82b-9f12-4659-95a8-2c2aa4160d56",
+      "revenueImpact": 108
+    },
+    {
+      "id": "888a8f65-b453-4c8e-ae72-cfb23354cf8f",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 12,
+      "unitprice": 11.33,
+      "orderid": "35a72a5e-d144-4958-b14b-3de4b8669962",
+      "revenueImpact": 135.96
+    },
+    {
+      "id": "e4a1dd19-b737-4240-94f9-f49890a2650e",
+      "skuid": "f05607df-f511-442c-86cf-9973527e5ed2",
+      "quantity": 6,
+      "unitprice": 13.99,
+      "orderid": "165665c3-285c-481f-b17f-372bbbee1c2f",
+      "revenueImpact": 83.94
+    },
+    {
+      "id": "4f0c12a4-63e2-4c65-942b-7f6c66e4cd90",
+      "skuid": "e9040847-6ab5-4c97-a6f7-1406d7d45f55",
+      "quantity": 6,
+      "unitprice": 13.33,
+      "orderid": "165665c3-285c-481f-b17f-372bbbee1c2f",
+      "revenueImpact": 79.98
+    },
+    {
+      "id": "83f3b006-9ed2-46e6-a46e-3ea09152f3f4",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "2b703011-38a9-43bd-8ec3-8a87c5efb3b5",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "dbfd6586-c3ca-47c5-bf84-ccc21e7fd37e",
+      "skuid": "e9040847-6ab5-4c97-a6f7-1406d7d45f55",
+      "quantity": 12,
+      "unitprice": 13.33,
+      "orderid": "2b703011-38a9-43bd-8ec3-8a87c5efb3b5",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "11a4936f-22dc-44ae-803a-173093b0b997",
+      "skuid": "d9733bc8-c313-4918-934e-73a5e87cf005",
+      "quantity": 4,
+      "unitprice": 39.99,
+      "orderid": "35a72a5e-d144-4958-b14b-3de4b8669962",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "b219d210-2a8b-460c-99ba-d0000bc51157",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 6,
+      "unitprice": 69.99,
+      "orderid": "47b68918-1653-4f90-9dba-f96c1a6f9d35",
+      "revenueImpact": 419.93999999999994
+    },
+    {
+      "id": "7fea022f-ebd8-4fcc-9a67-c46a641b9a2b",
+      "skuid": "ef8f63e5-a013-4843-8673-bfe0e1fbfd1b",
+      "quantity": 6,
+      "unitprice": 36.67,
+      "orderid": "4759e8e4-9c91-45e0-af63-c8ce9057f5a9",
+      "revenueImpact": 220.02
+    },
+    {
+      "id": "d7a5e9fd-10b9-43a5-a38b-8d1d834430ab",
+      "skuid": "eabc9f39-8c14-4d7f-a11c-edb21abe0dff",
+      "quantity": 6,
+      "unitprice": 18.5,
+      "orderid": "1fd22cdf-5ebd-4f8d-a62b-9a0282798b12",
+      "revenueImpact": 111
+    },
+    {
+      "id": "e3fcf035-bb69-43d0-b808-db39ac9109b3",
+      "skuid": "fdb19c20-ca8d-40a3-b510-4f16569ebd06",
+      "quantity": 15,
+      "unitprice": 32,
+      "orderid": "50bb8feb-d02f-4434-ac96-9d1041649e62",
+      "revenueImpact": 480
+    },
+    {
+      "id": "35f57848-2979-4619-af0a-954d23ca66ae",
+      "skuid": "ec0d809e-346a-4983-9858-6b07c39f9dc4",
+      "quantity": 12,
+      "unitprice": 31.33,
+      "orderid": "50bb8feb-d02f-4434-ac96-9d1041649e62",
+      "revenueImpact": 375.96
+    },
+    {
+      "id": "2d6ca29e-93ca-4dfe-9830-90e81b3b7511",
+      "skuid": "ebd06e70-b80f-4b7c-81b6-c65dacd7f797",
+      "quantity": 12,
+      "unitprice": 22.66,
+      "orderid": "50bb8feb-d02f-4434-ac96-9d1041649e62",
+      "revenueImpact": 271.92
+    },
+    {
+      "id": "60510f11-06c0-4664-a733-6cb6faf54813",
+      "skuid": "f289dcf4-9c0f-4a93-a2f2-811c2b1d8d71",
+      "quantity": 4,
+      "unitprice": 13.33,
+      "orderid": "39b3ed00-6e42-41c9-b38e-74b652f52941",
+      "revenueImpact": 53.32
+    },
+    {
+      "id": "13af5f28-d919-4e25-8a59-a0b93f833f81",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "213e5573-2a1a-432a-99bb-a81e3695045b",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "111690a2-f3ef-4e23-baec-2628d72fd696",
+      "skuid": "d18c9135-4923-48fe-b732-401754ab9c52",
+      "quantity": 24,
+      "unitprice": 14.33,
+      "orderid": "362c7d66-65a9-4302-9c57-0d8392fae6d8",
+      "revenueImpact": 343.92
+    },
+    {
+      "id": "50a88e51-1678-4bc7-b72c-5c448c4dceb7",
+      "skuid": "f3562da6-43ba-4ad7-9ef1-44e394131863",
+      "quantity": 6,
+      "unitprice": 15,
+      "orderid": "007a207e-390c-4a87-8e94-a2de8bcd3f31",
+      "revenueImpact": 90
+    },
+    {
+      "id": "cdcca43f-61c3-4833-aa3b-2dd95fdbdb7a",
+      "skuid": "d77c4f21-2d36-4937-b4d2-39e31e9e7455",
+      "quantity": 1,
+      "unitprice": 6,
+      "orderid": "39b3ed00-6e42-41c9-b38e-74b652f52941",
+      "revenueImpact": 6
+    },
+    {
+      "id": "ca8397bd-0ae3-4e54-8a54-39fccd7abba1",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 6,
+      "unitprice": 11.19,
+      "orderid": "13d44f8b-9712-4717-b98b-478c8a40451d",
+      "revenueImpact": 67.14
+    },
+    {
+      "id": "75463907-6eff-4a8e-920c-92b8b6426cab",
+      "skuid": "d91d7c1a-f738-4059-8bad-abf7a3bdf7e9",
+      "quantity": 3,
+      "unitprice": 12.66,
+      "orderid": "475a23e5-a56e-4a07-90b4-bc3bff5ebeb5",
+      "revenueImpact": 37.980000000000004
+    },
+    {
+      "id": "31a34650-7403-4cbb-b7a7-8285029e4b60",
+      "skuid": "dc9d9c9f-1809-4022-825b-6f33c155c1aa",
+      "quantity": 12,
+      "unitprice": 8.89,
+      "orderid": "475a23e5-a56e-4a07-90b4-bc3bff5ebeb5",
+      "revenueImpact": 106.68
+    },
+    {
+      "id": "cb48e32a-1a5a-453e-877b-993bfb0ccd08",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 6,
+      "unitprice": 14,
+      "orderid": "3b7a4297-6987-46cc-96c0-a280780dc285",
+      "revenueImpact": 84
+    },
+    {
+      "id": "06452d73-321c-4683-83be-fcedce44e63e",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 24,
+      "unitprice": 9.99,
+      "orderid": "3b1d59bf-82ce-44fb-9801-dc73fbe28f94",
+      "revenueImpact": 239.76
+    },
+    {
+      "id": "f49486a0-9a18-4563-b89b-6a12a0eab63f",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 12,
+      "unitprice": 22.67,
+      "orderid": "16ca6f0f-cbf4-4ce6-8ed7-d26b6a1cf8a1",
+      "revenueImpact": 272.04
+    },
+    {
+      "id": "a73b973d-96c6-4b81-b8a0-ebd9db8ae3c2",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "16ca6f0f-cbf4-4ce6-8ed7-d26b6a1cf8a1",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "756166c2-a6f7-4fa6-995c-d4a5541e9f56",
+      "skuid": "d91d7c1a-f738-4059-8bad-abf7a3bdf7e9",
+      "quantity": 1,
+      "unitprice": 13.33,
+      "orderid": "1766683d-72ea-4fd3-b1d9-94c1e2e07dec",
+      "revenueImpact": 13.33
+    },
+    {
+      "id": "74ea30a3-1720-4e4c-9066-9dc3bb73bc4b",
+      "skuid": "cc92e4cb-f4d9-423b-b4a4-695c7bcfd3d6",
+      "quantity": 12,
+      "unitprice": 14.33,
+      "orderid": "3544b0fe-9d72-4910-b982-e893eb8e20e4",
+      "revenueImpact": 171.96
+    },
+    {
+      "id": "43d62bba-0384-4843-8f3f-96dd9625e9f6",
+      "skuid": "dda75de1-0d29-41b3-9664-1576fd585aed",
+      "quantity": 6,
+      "unitprice": 9.33,
+      "orderid": "3544b0fe-9d72-4910-b982-e893eb8e20e4",
+      "revenueImpact": 55.980000000000004
+    },
+    {
+      "id": "ab8ec5ca-a9d6-4131-9223-34d7de4345dd",
+      "skuid": "e6a34b00-bc5d-4ccd-b121-97eba82f96ff",
+      "quantity": 12,
+      "unitprice": 14.67,
+      "orderid": "3544b0fe-9d72-4910-b982-e893eb8e20e4",
+      "revenueImpact": 176.04
+    },
+    {
+      "id": "f83d4cb8-4125-49c9-a501-d3ae47212e71",
+      "skuid": "e70a4b7b-2f52-42f3-ac41-0b6ec3711d93",
+      "quantity": 24,
+      "unitprice": 2.25,
+      "orderid": "481ccef3-1bcf-473c-9388-7a35e0d6e7e8",
+      "revenueImpact": 54
+    },
+    {
+      "id": "4bdae960-66c5-4359-9774-410e079beb8b",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "7cf4118b-37d4-4e7f-9fd4-3a5e5184cd2f",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "325f5982-586f-4ac2-a91b-3f96f8d28620",
+      "skuid": "f05607df-f511-442c-86cf-9973527e5ed2",
+      "quantity": 12,
+      "unitprice": 13.99,
+      "orderid": "f4133ea7-123d-463c-86f3-17594544ccb8",
+      "revenueImpact": 167.88
+    },
+    {
+      "id": "15b2f997-5591-4432-8ebe-aad155243a2a",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 3,
+      "unitprice": 16.67,
+      "orderid": "007a207e-390c-4a87-8e94-a2de8bcd3f31",
+      "revenueImpact": 50.010000000000005
+    },
+    {
+      "id": "9b9fd782-b6bb-457e-9c99-aaf5a3263ec8",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "71e4a75e-20c6-4c08-af58-42b36991c5ff",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "2d469095-6d72-4eb2-b2a4-2c08cc1bf15d",
+      "skuid": "fb02a6a0-e530-461b-b4a9-2fab98a3e622",
+      "quantity": 24,
+      "unitprice": 5.99,
+      "orderid": "213e5573-2a1a-432a-99bb-a81e3695045b",
+      "revenueImpact": 143.76
+    },
+    {
+      "id": "5980abad-2109-4686-9269-88340faed73d",
+      "skuid": "e70a4b7b-2f52-42f3-ac41-0b6ec3711d93",
+      "quantity": 24,
+      "unitprice": 2.25,
+      "orderid": "fbfe1405-5707-403b-91bc-674943d26586",
+      "revenueImpact": 54
+    },
+    {
+      "id": "fc154503-eaca-4431-b1c4-9a216f79f0c3",
+      "skuid": "ef613e80-8e65-4dd2-9f0c-5883ac906cfa",
+      "quantity": 2,
+      "unitprice": 24,
+      "orderid": "8e8b6eb6-7f4c-4c86-9f11-c57c87e25bf5",
+      "revenueImpact": 48
+    },
+    {
+      "id": "b30c81d2-2380-4b4b-8fca-0225d93bf5a8",
+      "skuid": "fbd8ef26-a681-47c6-8f27-5a1be36f11d3",
+      "quantity": 48,
+      "unitprice": 9.66,
+      "orderid": "4db90eb7-94d3-4cda-adeb-f590c11a8aa9",
+      "revenueImpact": 463.68
+    },
+    {
+      "id": "bc087957-4ddc-4e47-85ee-62a67d43783e",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "8bdc77d8-99dd-4efd-bd96-11911ad67c1c",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "ce2655d6-ea15-4848-810b-2212fc821b5e",
+      "skuid": "f0f189c4-5d0e-4dc1-9a69-8ff85fcafcf8",
+      "quantity": 6,
+      "unitprice": 11.33,
+      "orderid": "7cf4118b-37d4-4e7f-9fd4-3a5e5184cd2f",
+      "revenueImpact": 67.98
+    },
+    {
+      "id": "d9e03884-5f0d-480a-b872-f55236d7729b",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 12,
+      "unitprice": 15.99,
+      "orderid": "1c9d9430-4f75-46da-ab6f-95340277cc4a",
+      "revenueImpact": 191.88
+    },
+    {
+      "id": "9e4523bf-e970-4c31-8ee1-a0e53b24ca00",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 3,
+      "unitprice": 16.67,
+      "orderid": "4d1ba6c6-bdef-482b-8d34-a793e3448c67",
+      "revenueImpact": 50.010000000000005
+    },
+    {
+      "id": "ae825eda-8bde-47e3-b8b4-6fa1423656ee",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 6,
+      "unitprice": 9.66,
+      "orderid": "6f8a7674-7184-4c88-8f79-0e668ed9f7d0",
+      "revenueImpact": 57.96
+    },
+    {
+      "id": "a04cd731-576f-4e6c-9d77-d507b58ff10d",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 24,
+      "unitprice": 22.67,
+      "orderid": "4db90eb7-94d3-4cda-adeb-f590c11a8aa9",
+      "revenueImpact": 544.08
+    },
+    {
+      "id": "143c2f60-297a-4302-b29d-22c7235dff26",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "8dc8cdb1-71aa-4356-bc49-b0a959d8b725",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "07305f4e-6d2b-40e6-8215-ee9f1d2236b2",
+      "skuid": "cf711e5e-7637-4a51-b2e6-18b779c59787",
+      "quantity": 4,
+      "unitprice": 11.33,
+      "orderid": "7cf4118b-37d4-4e7f-9fd4-3a5e5184cd2f",
+      "revenueImpact": 45.32
+    },
+    {
+      "id": "460508b4-9eed-4a80-80ea-214cb4096c61",
+      "skuid": "cbdc8d48-e64a-4e0f-8623-fa29f49d3e45",
+      "quantity": 24,
+      "unitprice": 9.66,
+      "orderid": "3d1034d2-3797-4396-b9f9-33e46816cfc2",
+      "revenueImpact": 231.84
+    },
+    {
+      "id": "953e6592-9069-4687-841b-685771ed7dba",
+      "skuid": "d33c82da-6e4d-420c-995c-1607c4c45e44",
+      "quantity": 12,
+      "unitprice": 7.99,
+      "orderid": "a1cf7a2f-0c64-4471-a63a-571336ba3b8e",
+      "revenueImpact": 95.88
+    },
+    {
+      "id": "dd03f4e1-c136-46cf-abf0-24969ed0ead0",
+      "skuid": "ef235a9d-f5c9-417d-839a-120a1ff17a6c",
+      "quantity": 30,
+      "unitprice": 16,
+      "orderid": "9da52df2-a78a-4824-8ab2-a2d55eae9f4e",
+      "revenueImpact": 480
+    },
+    {
+      "id": "b90ba547-4f5a-4229-aee2-ce39e0394257",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "15d9f35f-4ce6-4a1b-b04c-cb91f002c0ef",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "517d4108-f72e-492e-bdea-431204023ab2",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 12,
+      "unitprice": 15.99,
+      "orderid": "13cc6093-b89d-4939-b4c5-55af5a840e66",
+      "revenueImpact": 191.88
+    },
+    {
+      "id": "97f768f7-bceb-4493-9c9a-0aad83503a69",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 12,
+      "unitprice": 9.66,
+      "orderid": "13cc6093-b89d-4939-b4c5-55af5a840e66",
+      "revenueImpact": 115.92
+    },
+    {
+      "id": "d97594a9-0346-434c-8c77-2ffdfa86b94a",
+      "skuid": "fbfbfab5-866c-4494-a65c-c7a341673706",
+      "quantity": 12,
+      "unitprice": 15,
+      "orderid": "021679cf-6067-469c-bd15-2071fca29971",
+      "revenueImpact": 180
+    },
+    {
+      "id": "9608889f-fcb8-48fe-9444-d8e4b58fe5d6",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 24,
+      "unitprice": 15,
+      "orderid": "5f843e4c-320f-42cc-b255-f0ead999d3ae",
+      "revenueImpact": 360
+    },
+    {
+      "id": "cd497894-ac8b-47c8-b767-3cbad5a566dd",
+      "skuid": "f64428c1-5ef0-4cf1-86e0-242424c3de2c",
+      "quantity": 12,
+      "unitprice": 11.33,
+      "orderid": "5f843e4c-320f-42cc-b255-f0ead999d3ae",
+      "revenueImpact": 135.96
+    },
+    {
+      "id": "c962c6f4-9cea-4b43-a451-73f38aac80ca",
+      "skuid": "d9248d31-61aa-47f3-a31f-d9c61790f48d",
+      "quantity": 12,
+      "unitprice": 12.66,
+      "orderid": "6895d1ce-7c3a-4476-8291-9d1353259ea5",
+      "revenueImpact": 151.92000000000002
+    },
+    {
+      "id": "410d6e22-9954-4eee-8be4-c908429a6729",
+      "skuid": "d4d068dc-f1a6-4281-b595-6c629e631163",
+      "quantity": 6,
+      "unitprice": 28,
+      "orderid": "6895d1ce-7c3a-4476-8291-9d1353259ea5",
+      "revenueImpact": 168
+    },
+    {
+      "id": "ceef8c58-5c81-4aaf-80cf-dc3c63ba483d",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "5954c468-dbd8-4fd8-9945-d47815663db8",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "92184bf6-50af-4412-ac86-6eaebe9d43ef",
+      "skuid": "ee028cc0-3852-4708-82b9-0eca581026af",
+      "quantity": 20,
+      "unitprice": 21.33,
+      "orderid": "5dda88bf-0530-4d13-bbf9-f7215743f636",
+      "revenueImpact": 426.59999999999997
+    },
+    {
+      "id": "f0a675a5-d329-4b0d-9207-3cb5cb7f8639",
+      "skuid": "f3b3dbb4-baeb-43bd-9895-88c8c9e4e16d",
+      "quantity": 12,
+      "unitprice": 12.99,
+      "orderid": "20eeb48f-2ab1-4a1c-ad1a-d03cab30a383",
+      "revenueImpact": 155.88
+    },
+    {
+      "id": "2e3c0ea0-37f6-4980-b02f-7a42659e9625",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 3,
+      "unitprice": 15.99,
+      "orderid": "84020b07-5824-41a7-af11-a74f5f48d2d7",
+      "revenueImpact": 47.97
+    },
+    {
+      "id": "3dd61410-712b-4b2f-ba17-9571683dacf0",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "6195401b-daa4-4baf-ad82-5da59e5a2fdf",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "3760c8bf-1a6f-4765-9afd-757f197955b2",
+      "skuid": "dab91dfd-776b-4c89-8052-764114fe3a38",
+      "quantity": 5,
+      "unitprice": 21.33,
+      "orderid": "6f8a7674-7184-4c88-8f79-0e668ed9f7d0",
+      "revenueImpact": 106.64999999999999
+    },
+    {
+      "id": "2fec8217-c87d-4b0a-9622-bcc0e735f881",
+      "skuid": "f64428c1-5ef0-4cf1-86e0-242424c3de2c",
+      "quantity": 3,
+      "unitprice": 11.33,
+      "orderid": "e30a1560-a637-4a1f-99da-573d028f4d41",
+      "revenueImpact": 33.99
+    },
+    {
+      "id": "13323bef-9c6e-4bfb-80ef-aa9da2757d67",
+      "skuid": "fdce6b4c-ac40-4334-bd63-9beeed321871",
+      "quantity": 24,
+      "unitprice": 10.67,
+      "orderid": "080d4d9f-cce3-4737-84de-e1b29d3b1136",
+      "revenueImpact": 256.08
+    },
+    {
+      "id": "c834354c-cb23-405c-aa08-49e4307d6624",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 6,
+      "unitprice": 15.99,
+      "orderid": "94cc5d9c-7256-4b5b-82cd-73a122b2954f",
+      "revenueImpact": 95.94
+    },
+    {
+      "id": "37f836d6-0f8c-4b8f-aa15-5660a5b265ca",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "a2671181-b9d2-458d-9ff7-69b98cafb7c7",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "66b008f4-fd3b-471e-8645-1411361320c5",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 40,
+      "unitprice": 10.67,
+      "orderid": "5dda88bf-0530-4d13-bbf9-f7215743f636",
+      "revenueImpact": 426.8
+    },
+    {
+      "id": "39a30007-151d-46ef-adc5-bc0355d19abc",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 12,
+      "unitprice": 15,
+      "orderid": "c14387a1-971c-47b7-8b48-a07511ad3363",
+      "revenueImpact": 180
+    },
+    {
+      "id": "04648fac-9418-4dd8-9ce1-394cec9a3685",
+      "skuid": "dd366279-ce18-4f10-ab5f-6d39d94ceb5c",
+      "quantity": 12,
+      "unitprice": 13.33,
+      "orderid": "0a9cdd52-6dc7-47fb-be71-d04408ea8eb2",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "e59ac801-e2c3-4c07-93ed-3e361f185ee8",
+      "skuid": "ea26ee58-eae3-4e82-8635-60e955a83f04",
+      "quantity": 12,
+      "unitprice": 29.99,
+      "orderid": "23606da2-ff20-472f-98e3-3a161d697323",
+      "revenueImpact": 359.88
+    },
+    {
+      "id": "fe3c3ef9-7d40-4277-8f0c-86b0b0ef83f0",
+      "skuid": "e2985736-20b4-49f8-9979-e4721c403204",
+      "quantity": 1,
+      "unitprice": 53.33,
+      "orderid": "60d56ff8-3721-4402-a9e2-4cfde3f67392",
+      "revenueImpact": 53.33
+    },
+    {
+      "id": "e9338dd7-5d8c-4338-9b1a-95b93c67ff3a",
+      "skuid": "fd9041d1-d424-4a64-b73a-1dc037a47e9c",
+      "quantity": 3,
+      "unitprice": 11.99,
+      "orderid": "61a975f1-3a25-418e-8de2-eee8cc2f683a",
+      "revenueImpact": 35.97
+    },
+    {
+      "id": "e70cf430-0768-47c3-bd39-edcdda81f193",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "cef7c811-d2cf-4943-a9e0-d7a4615cd727",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "c28a4cef-6077-4be1-8486-50fc6effaec1",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 12,
+      "unitprice": 15,
+      "orderid": "7cc30423-8ec9-4e9a-b584-46f4aba4c6f3",
+      "revenueImpact": 180
+    },
+    {
+      "id": "61861d62-43e9-4664-825e-b09e32f34df6",
+      "skuid": "eaca83a8-caf6-46b8-a704-0a7db3e77fd9",
+      "quantity": 3,
+      "unitprice": 15.99,
+      "orderid": "94cc5d9c-7256-4b5b-82cd-73a122b2954f",
+      "revenueImpact": 47.97
+    },
+    {
+      "id": "8803a2dc-4db6-45e9-bbf2-b7bd58149870",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 147,
+      "unitprice": 67,
+      "orderid": "94cc5d9c-7256-4b5b-82cd-73a122b2954f",
+      "revenueImpact": 9849
+    },
+    {
+      "id": "b1d16d15-2339-452e-9e12-7f76dea75e25",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "344aa91c-dc50-4d05-8296-e18c8d685852",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "e217c776-3912-4a3f-8127-35803c477a34",
+      "skuid": "d65c7528-fd6a-4286-a375-9f6effcfdd70",
+      "quantity": 24,
+      "unitprice": 11,
+      "orderid": "5954c468-dbd8-4fd8-9945-d47815663db8",
+      "revenueImpact": 264
+    },
+    {
+      "id": "190b45ec-f104-4809-8baf-1577d4e0128a",
+      "skuid": "f05607df-f511-442c-86cf-9973527e5ed2",
+      "quantity": 18,
+      "unitprice": 14.66,
+      "orderid": "5dda88bf-0530-4d13-bbf9-f7215743f636",
+      "revenueImpact": 263.88
+    },
+    {
+      "id": "4df40275-3fa3-4ec3-9068-33c6aad3b378",
+      "skuid": "f7f544b2-963c-46f1-b679-e0e93a3d8fe2",
+      "quantity": 6,
+      "unitprice": 9.99,
+      "orderid": "857adb7e-40d2-4d8d-8e26-9d35f07cea93",
+      "revenueImpact": 59.94
+    },
+    {
+      "id": "0819ddc1-dbda-4165-8506-25458befb2c3",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 3,
+      "unitprice": 9.33,
+      "orderid": "857adb7e-40d2-4d8d-8e26-9d35f07cea93",
+      "revenueImpact": 27.990000000000002
+    },
+    {
+      "id": "c573240d-6618-4018-8a2b-3c4b46d02c45",
+      "skuid": "d8590788-ce3b-4782-a6e3-6b7686eb28f4",
+      "quantity": 1,
+      "unitprice": 16.67,
+      "orderid": "0a9cdd52-6dc7-47fb-be71-d04408ea8eb2",
+      "revenueImpact": 16.67
+    },
+    {
+      "id": "d7555f0e-28a9-4aae-9ed0-cb99f0ca5b30",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 12,
+      "unitprice": 11.19,
+      "orderid": "eede8c07-c7e0-4cf5-b7db-e916d2d63953",
+      "revenueImpact": 134.28
+    },
+    {
+      "id": "65a1bfac-bc9a-45f9-817c-8bf5528e01ff",
+      "skuid": "d1986b13-e2e6-4ee7-87b5-9bf5b00c1c34",
+      "quantity": 6,
+      "unitprice": 12.75,
+      "orderid": "eede8c07-c7e0-4cf5-b7db-e916d2d63953",
+      "revenueImpact": 76.5
+    },
+    {
+      "id": "f0162877-6052-4973-be08-f7bb1b5c5ccd",
+      "skuid": "e9837bf2-7ba1-4ac6-9910-3b478c8ca960",
+      "quantity": 6,
+      "unitprice": 40,
+      "orderid": "0f203255-3e8f-43c1-9e7d-fcb5dc2c4a31",
+      "revenueImpact": 240
+    },
+    {
+      "id": "f4d81317-0bc6-4820-bba8-009edfabf4a9",
+      "skuid": "e182e71f-5ff1-4d79-ab6c-8e5c09aac9f8",
+      "quantity": 6,
+      "unitprice": 16.67,
+      "orderid": "c7ff5771-1b68-4863-91ef-d72ce7e07638",
+      "revenueImpact": 100.02000000000001
+    },
+    {
+      "id": "50fdb6eb-4728-4d85-9d02-1b319c2ac37a",
+      "skuid": "eaca83a8-caf6-46b8-a704-0a7db3e77fd9",
+      "quantity": 6,
+      "unitprice": 15.99,
+      "orderid": "f6a8453c-6ac2-4a6f-bb7b-7cc6aba570df",
+      "revenueImpact": 95.94
+    },
+    {
+      "id": "5a41e405-ba71-44d8-a191-64ac7483c73c",
+      "skuid": "ebeb858d-7e43-4f80-a52d-f549f45c1faf",
+      "quantity": 67,
+      "unitprice": 59.94,
+      "orderid": "f6a8453c-6ac2-4a6f-bb7b-7cc6aba570df",
+      "revenueImpact": 4015.98
+    },
+    {
+      "id": "bd7b4d18-96ca-44ac-8294-4dd5a77bf47f",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 67,
+      "unitprice": 95.94,
+      "orderid": "f6a8453c-6ac2-4a6f-bb7b-7cc6aba570df",
+      "revenueImpact": 6427.98
+    },
+    {
+      "id": "d97e7e61-779e-44a0-a82d-4347b525f79e",
+      "skuid": "cbdc8d48-e64a-4e0f-8623-fa29f49d3e45",
+      "quantity": 67,
+      "unitprice": 57.96,
+      "orderid": "f6a8453c-6ac2-4a6f-bb7b-7cc6aba570df",
+      "revenueImpact": 3883.32
+    },
+    {
+      "id": "b739bbf5-a79f-47a5-9b25-773edfe6ae6c",
+      "skuid": "dd366279-ce18-4f10-ab5f-6d39d94ceb5c",
+      "quantity": 67,
+      "unitprice": 79.98,
+      "orderid": "f6a8453c-6ac2-4a6f-bb7b-7cc6aba570df",
+      "revenueImpact": 5358.66
+    },
+    {
+      "id": "9e561bd9-2075-494e-9734-a39178837a4d",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 4,
+      "unitprice": 99,
+      "orderid": "238fbc8b-9d94-4f86-9671-12ba0c20a409",
+      "revenueImpact": 396
+    },
+    {
+      "id": "8e708dbb-f005-4ca1-8ab2-93747638a86e",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 4,
+      "unitprice": 10.67,
+      "orderid": "19617dd1-d6b3-4ee4-bf18-2f127fe2ef9b",
+      "revenueImpact": 42.68
+    },
+    {
+      "id": "6a0b3b85-993c-4a75-b9d0-f82fe21e4877",
+      "skuid": "faf38181-f7ad-433c-af19-086322afd3a4",
+      "quantity": 3,
+      "unitprice": 13.99,
+      "orderid": "2b1b9adf-9025-418a-bb20-8bca6235ea85",
+      "revenueImpact": 41.97
+    },
+    {
+      "id": "2c869817-4697-4f58-8ad8-d90fbce46258",
+      "skuid": "d5e732d4-211c-41c8-a7de-4cfe86b679bd",
+      "quantity": 3,
+      "unitprice": 11.33,
+      "orderid": "2b1b9adf-9025-418a-bb20-8bca6235ea85",
+      "revenueImpact": 33.99
+    },
+    {
+      "id": "a7eb69ec-64a0-4152-aa70-8016f611f3bc",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 6,
+      "unitprice": 9.66,
+      "orderid": "3142c7a8-c8e5-48cf-95dc-b5076671b559",
+      "revenueImpact": 57.96
+    },
+    {
+      "id": "1b7e9bb6-c8a6-486e-b3d2-228411cce042",
+      "skuid": "d35f9426-d1e1-4017-a66e-335252a102f1",
+      "quantity": 48,
+      "unitprice": 12,
+      "orderid": "4036a5b8-939c-46e4-8246-6ab36e9ca221",
+      "revenueImpact": 576
+    },
+    {
+      "id": "b88ab46c-d3fd-465f-b871-a53b4d9c9a4f",
+      "skuid": "ebd8bdc7-189f-4937-83b6-b1e32433e2dd",
+      "quantity": 6,
+      "unitprice": 15.33,
+      "orderid": "857f37a8-471d-48f5-a779-dab9c794b933",
+      "revenueImpact": 91.98
+    },
+    {
+      "id": "fccfbb4d-41fa-483e-9d38-4adf0ac691a6",
+      "skuid": "e688e5f4-01a7-40ce-b13e-b8fa22ec5e4d",
+      "quantity": 12,
+      "unitprice": 5,
+      "orderid": "16b5a790-af52-427c-b41c-e80ab5ecd131",
+      "revenueImpact": 60
+    },
+    {
+      "id": "aff3cf41-7644-4faa-ba9c-e3701c46431e",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 72,
+      "unitprice": 8.33,
+      "orderid": "de8d15fe-eac1-499a-ad51-88a2cd53f1ea",
+      "revenueImpact": 599.76
+    },
+    {
+      "id": "c7516ac3-a457-4d77-8653-625a24b5876f",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 4,
+      "unitprice": 10.67,
+      "orderid": "8e041d12-8e20-425b-aefc-944bcf544659",
+      "revenueImpact": 42.68
+    },
+    {
+      "id": "92043423-2b8a-4e58-9a6d-76d7c1269948",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "d35fbfd0-d69c-413b-843b-5d1bd1f3845d",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "77fd9e32-8fcb-4f72-8a3c-a76ae58de50f",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 6,
+      "unitprice": 15.99,
+      "orderid": "238fbc8b-9d94-4f86-9671-12ba0c20a409",
+      "revenueImpact": 95.94
+    },
+    {
+      "id": "2e945ba6-cf8e-450f-a9f6-b6cda9fa36ab",
+      "skuid": "d78e7c72-c371-423b-9870-4582092f6f0f",
+      "quantity": 12,
+      "unitprice": 9.49,
+      "orderid": "19617dd1-d6b3-4ee4-bf18-2f127fe2ef9b",
+      "revenueImpact": 113.88
+    },
+    {
+      "id": "c11eae64-7008-4900-b57b-6e8a4fd0dfd1",
+      "skuid": "ebdf4b91-c045-44aa-bc4c-9fd6f9529037",
+      "quantity": 2,
+      "unitprice": 18.99,
+      "orderid": "2b1b9adf-9025-418a-bb20-8bca6235ea85",
+      "revenueImpact": 37.98
+    },
+    {
+      "id": "6c8b1c3b-8dfa-4dd6-a122-e89110c78f6f",
+      "skuid": "f5bdfb95-3ffa-4901-b9dc-0c2e4c085ac4",
+      "quantity": 37,
+      "unitprice": 99,
+      "orderid": "2b1b9adf-9025-418a-bb20-8bca6235ea85",
+      "revenueImpact": 3663
+    },
+    {
+      "id": "f326f859-9f3d-4b57-b904-f55db06c1ec2",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 12,
+      "unitprice": 8.33,
+      "orderid": "a7a676a3-bddc-421b-9f96-d471c2b64298",
+      "revenueImpact": 99.96000000000001
+    },
+    {
+      "id": "48fa09cd-ca44-42a9-bbc6-1ea451cb1520",
+      "skuid": "eabc9f39-8c14-4d7f-a11c-edb21abe0dff",
+      "quantity": 3,
+      "unitprice": 23.33,
+      "orderid": "c4000f18-3596-4190-a674-3b55259b5e43",
+      "revenueImpact": 69.99
+    },
+    {
+      "id": "371bd3bb-653a-4f19-b928-69dc8b4fb3b5",
+      "skuid": "fbe27a13-8c86-4d9a-ac98-f137e3000a9f",
+      "quantity": 1,
+      "unitprice": -666,
+      "orderid": "a36f03b5-1b6d-4dd2-83d3-944872609a7e",
+      "revenueImpact": -666
+    },
+    {
+      "id": "52b9f4a8-b860-4a92-9fb3-9b99bc86dd25",
+      "skuid": "f3bc991e-300c-4f20-83ac-14baa4501a47",
+      "quantity": 43,
+      "unitprice": 21.33,
+      "orderid": "3838f078-a945-4d7f-ba40-f1acb8b2c861",
+      "revenueImpact": 917.1899999999999
+    },
+    {
+      "id": "d21220d0-abd3-44ba-b6fe-c61539c29afc",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 9,
+      "unitprice": 15,
+      "orderid": "5a36465a-8f4b-4312-83a0-3fe84cce541a",
+      "revenueImpact": 135
+    },
+    {
+      "id": "72e8a847-c60a-427b-8f41-7f9480af8c45",
+      "skuid": "ebd8bdc7-189f-4937-83b6-b1e32433e2dd",
+      "quantity": 12,
+      "unitprice": 15.33,
+      "orderid": "3142c7a8-c8e5-48cf-95dc-b5076671b559",
+      "revenueImpact": 183.96
+    },
+    {
+      "id": "dba3d2ca-dc87-47df-b4f0-9eb5a13486c2",
+      "skuid": "e9837bf2-7ba1-4ac6-9910-3b478c8ca960",
+      "quantity": 12,
+      "unitprice": 40,
+      "orderid": "4036a5b8-939c-46e4-8246-6ab36e9ca221",
+      "revenueImpact": 480
+    },
+    {
+      "id": "6fdabf0d-789b-4a49-8d02-418f50ffdd15",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "857f37a8-471d-48f5-a779-dab9c794b933",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "bc105907-31b7-412d-9701-2d7947f9d53d",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "857f37a8-471d-48f5-a779-dab9c794b933",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "d2062e13-93d3-4ef3-86e0-070f36bc10ef",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 72,
+      "unitprice": 8.33,
+      "orderid": "de8d15fe-eac1-499a-ad51-88a2cd53f1ea",
+      "revenueImpact": 599.76
+    },
+    {
+      "id": "1cc8ae20-cc71-4fa8-a162-0c752d7bf697",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 48,
+      "unitprice": 15,
+      "orderid": "6c733288-c815-4bfd-9256-71e4e6f4d6df",
+      "revenueImpact": 720
+    },
+    {
+      "id": "0b9a33f5-c5cc-4bf2-8037-bad4145ec628",
+      "skuid": "fbfbfab5-866c-4494-a65c-c7a341673706",
+      "quantity": 12,
+      "unitprice": 15,
+      "orderid": "d59c1a24-5ebc-4d7d-ad71-f31fa1e7d14f",
+      "revenueImpact": 180
+    },
+    {
+      "id": "2d7add61-2de2-4a28-876d-380b64cfe111",
+      "skuid": "f9cec31e-07ba-4db5-b280-b2eb1d01e2a9",
+      "quantity": 6,
+      "unitprice": 7.99,
+      "orderid": "19617dd1-d6b3-4ee4-bf18-2f127fe2ef9b",
+      "revenueImpact": 47.94
+    },
+    {
+      "id": "cc6ae794-35e5-45a0-9611-6ed4d07c8e65",
+      "skuid": "fd0df1ec-5701-4af3-88f2-b2aee3ee64d7",
+      "quantity": 37,
+      "unitprice": 67,
+      "orderid": "2b1b9adf-9025-418a-bb20-8bca6235ea85",
+      "revenueImpact": 2479
+    },
+    {
+      "id": "72a1fc0d-2504-4d06-bb55-16cb77622796",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 2,
+      "unitprice": 69.99,
+      "orderid": "0e21873c-cc6f-462f-aeee-00163bf369f3",
+      "revenueImpact": 139.98
+    },
+    {
+      "id": "671d4705-5a97-4520-8845-a1b3a73b3604",
+      "skuid": "f1439779-7e70-40e6-bc20-e4b4389f77bc",
+      "quantity": 2,
+      "unitprice": 175,
+      "orderid": "5a36465a-8f4b-4312-83a0-3fe84cce541a",
+      "revenueImpact": 350
+    },
+    {
+      "id": "5a55c8ea-0cef-4db9-b968-aa6cda820a51",
+      "skuid": "e2985736-20b4-49f8-9979-e4721c403204",
+      "quantity": 4,
+      "unitprice": 53.33,
+      "orderid": "89380540-91df-4742-a8e9-285faf652e3e",
+      "revenueImpact": 213.32
+    },
+    {
+      "id": "6ca9de53-b284-4453-bcb6-09303bf65718",
+      "skuid": "ef4e8bbb-7c38-4ff0-93f4-1399a4ccdae5",
+      "quantity": 12,
+      "unitprice": 7.99,
+      "orderid": "90bbbba2-ae92-45e1-949b-cbe931cb230d",
+      "revenueImpact": 95.88
+    },
+    {
+      "id": "8f652680-9930-40f5-a2a9-25e8316b4c83",
+      "skuid": "d65c7528-fd6a-4286-a375-9f6effcfdd70",
+      "quantity": 24,
+      "unitprice": 11,
+      "orderid": "456c4778-a4b9-4bc3-86e4-f730c986ab99",
+      "revenueImpact": 264
+    },
+    {
+      "id": "0369b4ee-8b37-4ba0-9d40-ff4dbe788731",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 6,
+      "unitprice": 9.66,
+      "orderid": "857f37a8-471d-48f5-a779-dab9c794b933",
+      "revenueImpact": 57.96
+    },
+    {
+      "id": "6ff6cac2-2ade-4512-a985-4bba7937348f",
+      "skuid": "ebeb858d-7e43-4f80-a52d-f549f45c1faf",
+      "quantity": 24,
+      "unitprice": 9.49,
+      "orderid": "f86a15da-2d3f-44b5-bfb5-db7f27fe126d",
+      "revenueImpact": 227.76
+    },
+    {
+      "id": "847aa62f-082b-4be8-92cd-ba8515deb61c",
+      "skuid": "d18c9135-4923-48fe-b732-401754ab9c52",
+      "quantity": 24,
+      "unitprice": 14.33,
+      "orderid": "310a6b4c-ca63-420b-8a9e-3090d662e006",
+      "revenueImpact": 343.92
+    },
+    {
+      "id": "2ee29b0f-6f79-4c89-9ce5-a5e0da430f99",
+      "skuid": "dd366279-ce18-4f10-ab5f-6d39d94ceb5c",
+      "quantity": 6,
+      "unitprice": 14.33,
+      "orderid": "08863749-1c1e-45b6-bcb0-5f994133b17a",
+      "revenueImpact": 85.98
+    },
+    {
+      "id": "3467879d-90d9-4ebb-9aae-bad906047b2f",
+      "skuid": "f78e4299-4229-4b9d-9f11-2736eee92fc5",
+      "quantity": 2,
+      "unitprice": 19.99,
+      "orderid": "052e813c-bdea-4d04-bb12-92a3f072928a",
+      "revenueImpact": 39.98
+    },
+    {
+      "id": "e1a04ef2-5634-45d1-afa6-22e919d4f89c",
+      "skuid": "f20d2baf-fab4-465d-88fc-9dc7025b4ee8",
+      "quantity": 2,
+      "unitprice": 17.33,
+      "orderid": "052e813c-bdea-4d04-bb12-92a3f072928a",
+      "revenueImpact": 34.66
+    },
+    {
+      "id": "c258b98b-9406-4b79-8faa-dd181bddeb55",
+      "skuid": "d45fd63c-76ef-4155-9bc5-3833d3e651af",
+      "quantity": 12,
+      "unitprice": 36.67,
+      "orderid": "e27c2bbe-0dd3-4777-9716-c9aa1e3690a0",
+      "revenueImpact": 440.04
+    },
+    {
+      "id": "86a51396-efe5-4028-937c-1439827e9e21",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 12,
+      "unitprice": 15.99,
+      "orderid": "62597844-d6df-4daf-a240-3d9d7fa57de4",
+      "revenueImpact": 191.88
+    },
+    {
+      "id": "b8f9c169-871d-42af-a255-48999d076c2e",
+      "skuid": "d562652c-a0bf-4e05-b840-309d21eeb441",
+      "quantity": 1,
+      "unitprice": 29.99,
+      "orderid": "f17fa513-9912-480e-88f3-aeb8765997b1",
+      "revenueImpact": 29.99
+    },
+    {
+      "id": "e19ccb54-be09-4669-9a7f-2f2095b38a67",
+      "skuid": "e688e5f4-01a7-40ce-b13e-b8fa22ec5e4d",
+      "quantity": 6,
+      "unitprice": 8.66,
+      "orderid": "f17fa513-9912-480e-88f3-aeb8765997b1",
+      "revenueImpact": 51.96
+    },
+    {
+      "id": "f9aa61b7-c79c-4593-b46a-1224cc4a6c15",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 12,
+      "unitprice": 22.67,
+      "orderid": "f17fa513-9912-480e-88f3-aeb8765997b1",
+      "revenueImpact": 272.04
+    },
+    {
+      "id": "7ee920fa-82fb-44f7-8d50-dd01e3bd60b8",
+      "skuid": "d7492884-8f19-4bed-ac14-044cb04441b1",
+      "quantity": 12,
+      "unitprice": 11.49,
+      "orderid": "366d5ab1-8022-4b96-a184-c5ab384b3271",
+      "revenueImpact": 137.88
+    },
+    {
+      "id": "66745f8e-2f78-4d87-923b-add694e45cb9",
+      "skuid": "f89464e9-605d-42c1-bf77-b6786e4a6fe6",
+      "quantity": 12,
+      "unitprice": 9.99,
+      "orderid": "16b5a790-af52-427c-b41c-e80ab5ecd131",
+      "revenueImpact": 119.88
+    },
+    {
+      "id": "b8348e06-d08e-4f5d-b897-ce748591fbb1",
+      "skuid": "fbe27a13-8c86-4d9a-ac98-f137e3000a9f",
+      "quantity": 1,
+      "unitprice": -45,
+      "orderid": "02c543f8-56f3-4a7a-8abf-3740fbbba686",
+      "revenueImpact": -45
+    },
+    {
+      "id": "57dff7f0-9db6-4fc7-860a-3c6c34e759b9",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "3dc77261-44e9-4248-bb00-669067513f3c",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "9a0bceb7-5701-4f82-a22d-2397cd99230a",
+      "skuid": "dc9d9c9f-1809-4022-825b-6f33c155c1aa",
+      "quantity": 60,
+      "unitprice": 8.33,
+      "orderid": "dffa6e47-d9d8-478d-960d-da9be9c34cbc",
+      "revenueImpact": 499.8
+    },
+    {
+      "id": "d971e444-c1a5-42a7-8e7b-9643a0cdd3e2",
+      "skuid": "fc866804-1aa2-4295-997e-5bc87616c3ce",
+      "quantity": 1,
+      "unitprice": 79.99,
+      "orderid": "f17fa513-9912-480e-88f3-aeb8765997b1",
+      "revenueImpact": 79.99
+    },
+    {
+      "id": "5a3ce17f-5f85-4fc0-a1c2-ca2fece52171",
+      "skuid": "fbe27a13-8c86-4d9a-ac98-f137e3000a9f",
+      "quantity": 1,
+      "unitprice": -9.99,
+      "orderid": "807f45be-e3bc-41f5-a3a3-836ec0f4512a",
+      "revenueImpact": -9.99
+    },
+    {
+      "id": "2ddb96de-b9b3-480c-9497-802c8ed2dc91",
+      "skuid": "f289dcf4-9c0f-4a93-a2f2-811c2b1d8d71",
+      "quantity": 6,
+      "unitprice": 14.99,
+      "orderid": "5214ef3e-3245-4433-815b-51d8d1fce389",
+      "revenueImpact": 89.94
+    },
+    {
+      "id": "f7acfba5-07ac-4213-af72-11270e727a3b",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 24,
+      "unitprice": 9.33,
+      "orderid": "76dbb346-03fa-47b0-9786-b70b3af26cf2",
+      "revenueImpact": 223.92000000000002
+    },
+    {
+      "id": "791b7aac-6978-4c16-a5a3-46ecd7928d54",
+      "skuid": "e6a34b00-bc5d-4ccd-b121-97eba82f96ff",
+      "quantity": 12,
+      "unitprice": 14.67,
+      "orderid": "5f620c6f-a8ef-442e-b1f6-638598eb9e44",
+      "revenueImpact": 176.04
+    },
+    {
+      "id": "94758f8a-e390-4401-94fe-692ac0f9f3b5",
+      "skuid": "cbdc8d48-e64a-4e0f-8623-fa29f49d3e45",
+      "quantity": 6,
+      "unitprice": 9.66,
+      "orderid": "3dc77261-44e9-4248-bb00-669067513f3c",
+      "revenueImpact": 57.96
+    },
+    {
+      "id": "9faffa35-21c9-472f-8685-90c29e4d9d7e",
+      "skuid": "cc5d2c2a-50ea-4577-893c-65b7249895c4",
+      "quantity": 12,
+      "unitprice": 8.33,
+      "orderid": "3dc77261-44e9-4248-bb00-669067513f3c",
+      "revenueImpact": 99.96000000000001
+    },
+    {
+      "id": "f1eaa3f0-58bb-4905-a4e7-b78bc584a855",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 24,
+      "unitprice": 10.67,
+      "orderid": "8da07c6c-b036-406c-9084-0813ac7ba703",
+      "revenueImpact": 256.08
+    },
+    {
+      "id": "568497ac-ffda-46d7-88ad-5fda005d57c1",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 24,
+      "unitprice": 15,
+      "orderid": "57d9e514-0990-49df-8671-7b51b89dd70d",
+      "revenueImpact": 360
+    },
+    {
+      "id": "cc78d385-56d7-46d5-b07f-d4a9c8b0290a",
+      "skuid": "d4253df3-c81c-407b-95b6-4270aee86bd5",
+      "quantity": 5,
+      "unitprice": 236.67,
+      "orderid": "e2ade9af-f376-4352-89bc-ab1bd9e892db",
+      "revenueImpact": 1183.35
+    },
+    {
+      "id": "a37dbfdf-3933-4d0f-9f7d-63a1ecefcb0b",
+      "skuid": "f76e454b-651a-4b92-a335-8b22460a7f74",
+      "quantity": 4,
+      "unitprice": 73.33,
+      "orderid": "f17fa513-9912-480e-88f3-aeb8765997b1",
+      "revenueImpact": 293.32
+    },
+    {
+      "id": "7489ce5f-3629-4f40-abf6-8951457f10ba",
+      "skuid": "d9733bc8-c313-4918-934e-73a5e87cf005",
+      "quantity": 1,
+      "unitprice": 39.99,
+      "orderid": "f17fa513-9912-480e-88f3-aeb8765997b1",
+      "revenueImpact": 39.99
+    },
+    {
+      "id": "6c1c1691-fca6-416a-a4ce-8f49fde729b8",
+      "skuid": "f48713da-3e7d-4904-812f-f58c707e94f3",
+      "quantity": 6,
+      "unitprice": 13.99,
+      "orderid": "807f45be-e3bc-41f5-a3a3-836ec0f4512a",
+      "revenueImpact": 83.94
+    },
+    {
+      "id": "f4cbe59d-8581-43c8-8f3a-1b96a1c9fff5",
+      "skuid": "f4a30bf1-510f-4264-9c33-79c5e23a26f5",
+      "quantity": 4,
+      "unitprice": 99.99,
+      "orderid": "7ecfbaf4-5544-4fce-8aef-04755e363141",
+      "revenueImpact": 399.96
+    },
+    {
+      "id": "614d57c1-83b7-40db-ae6a-bcb90377634a",
+      "skuid": "d6032398-5306-4f08-b7a1-8922a86da693",
+      "quantity": 2,
+      "unitprice": 18.67,
+      "orderid": "fce853f4-9f6a-4a5e-b378-55360c9c7db8",
+      "revenueImpact": 37.34
+    },
+    {
+      "id": "bb4dbb71-2aa5-4df6-9426-fa9adcc9bf70",
+      "skuid": "fb02a6a0-e530-461b-b4a9-2fab98a3e622",
+      "quantity": 3,
+      "unitprice": 6.67,
+      "orderid": "073d66f5-8ee1-42b8-8dd8-f8ac434c495c",
+      "revenueImpact": 20.009999999999998
+    },
+    {
+      "id": "6bccb185-36ce-4f04-8022-a72d802a1796",
+      "skuid": "e95b9035-741c-428e-832e-23e59c7ebe06",
+      "quantity": 6,
+      "unitprice": 11.33,
+      "orderid": "ae0d3ec3-8491-4ada-9e4a-ed78c06cf717",
+      "revenueImpact": 67.98
+    },
+    {
+      "id": "945bc253-2931-4100-8da2-6c200ee869e6",
+      "skuid": "d72b9e46-1110-4b76-98f8-c60eb65305cc",
+      "quantity": 3,
+      "unitprice": 23.33,
+      "orderid": "7ba23594-d7a4-4f5b-8d87-7611a3c7a66a",
+      "revenueImpact": 69.99
+    },
+    {
+      "id": "aaac016a-a692-4bfc-bd8b-7b8205a0551e",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 6,
+      "unitprice": 16.67,
+      "orderid": "f3c10aa1-aa1f-45ca-b1d3-14a68af39914",
+      "revenueImpact": 100.02000000000001
+    },
+    {
+      "id": "9fafc437-6b59-478c-8862-ca62d6e95066",
+      "skuid": "faf38181-f7ad-433c-af19-086322afd3a4",
+      "quantity": 127,
+      "unitprice": 99,
+      "orderid": "5860a407-198e-4785-b725-0bfec88ab041",
+      "revenueImpact": 12573
+    },
+    {
+      "id": "4c119135-772d-4ab1-804f-2e207e344136",
+      "skuid": "e70a4b7b-2f52-42f3-ac41-0b6ec3711d93",
+      "quantity": 4,
+      "unitprice": 2.25,
+      "orderid": "467b292c-3c98-4a6f-bfa4-17e757ac7abf",
+      "revenueImpact": 9
+    },
+    {
+      "id": "ea272a2c-e3b3-4511-8ad7-b91e4b58ad40",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 12,
+      "unitprice": 11.33,
+      "orderid": "b5b12902-9af8-4b78-bd28-30e12b692f70",
+      "revenueImpact": 135.96
+    },
+    {
+      "id": "9d81d222-02c7-4c22-bc37-459e824a1185",
+      "skuid": "e37a6b97-d5d5-4921-a18e-42ebbee50d7c",
+      "quantity": 12,
+      "unitprice": 14.66,
+      "orderid": "90bbbba2-ae92-45e1-949b-cbe931cb230d",
+      "revenueImpact": 175.92000000000002
+    },
+    {
+      "id": "8ff51cb5-ad82-489f-8087-fb9670f0c17d",
+      "skuid": "fe02ec31-0798-4814-81ef-1b5edc308276",
+      "quantity": 12,
+      "unitprice": 18.66,
+      "orderid": "29f9b819-49c9-4663-89d9-ee4a0f8ada10",
+      "revenueImpact": 223.92000000000002
+    },
+    {
+      "id": "968f2c4e-0ebb-4b49-8b69-9f8ca796c22e",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 24,
+      "unitprice": 10.67,
+      "orderid": "3f27ac07-0155-4bc5-b75d-61a8b4067806",
+      "revenueImpact": 256.08
+    },
+    {
+      "id": "ce5a20c0-414f-4aa8-83b1-671e3d1d1cfe",
+      "skuid": "ef613e80-8e65-4dd2-9f0c-5883ac906cfa",
+      "quantity": 12,
+      "unitprice": 23.33,
+      "orderid": "65611a65-616f-4e7b-a1bd-cbebd080eb20",
+      "revenueImpact": 279.96
+    },
+    {
+      "id": "bc2b42a6-a95d-46f4-aa72-3167887b8493",
+      "skuid": "f20d2baf-fab4-465d-88fc-9dc7025b4ee8",
+      "quantity": 2,
+      "unitprice": 17.33,
+      "orderid": "fce853f4-9f6a-4a5e-b378-55360c9c7db8",
+      "revenueImpact": 34.66
+    },
+    {
+      "id": "0d0e4c1a-6101-4523-83fe-2614cb1ddbad",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 24,
+      "unitprice": 45,
+      "orderid": "9c87e6c6-b3ce-48ba-b330-de1bb905a66b",
+      "revenueImpact": 1080
+    },
+    {
+      "id": "cd4ea37c-ac66-4beb-a4f3-c396a1031b91",
+      "skuid": "e688e5f4-01a7-40ce-b13e-b8fa22ec5e4d",
+      "quantity": 12,
+      "unitprice": 8.66,
+      "orderid": "9f32bf39-aa0a-4fe8-9d1a-1bb09072c6a4",
+      "revenueImpact": 103.92
+    },
+    {
+      "id": "ec08879c-b1b2-40cf-9395-39f560d4e6ba",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 27,
+      "unitprice": 67,
+      "orderid": "ae0d3ec3-8491-4ada-9e4a-ed78c06cf717",
+      "revenueImpact": 1809
+    },
+    {
+      "id": "b8b2f8c3-0068-422a-a5b9-9a0ff5230006",
+      "skuid": "faf38181-f7ad-433c-af19-086322afd3a4",
+      "quantity": 2,
+      "unitprice": 13.99,
+      "orderid": "ae0d3ec3-8491-4ada-9e4a-ed78c06cf717",
+      "revenueImpact": 27.98
+    },
+    {
+      "id": "802d5045-6709-4dca-8248-df7498fbb621",
+      "skuid": "de9151ec-e530-4eea-8b29-c2e72f319f25",
+      "quantity": 24,
+      "unitprice": 9.66,
+      "orderid": "7ba23594-d7a4-4f5b-8d87-7611a3c7a66a",
+      "revenueImpact": 231.84
+    },
+    {
+      "id": "44d4a509-5bcf-4b14-a858-9a4cbaaf099a",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 6,
+      "unitprice": 11.19,
+      "orderid": "94b00bfb-c4e0-4693-acf4-fddeda915b1a",
+      "revenueImpact": 67.14
+    },
+    {
+      "id": "9891d4dc-a718-49d6-a907-f63ca10611d7",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 24,
+      "unitprice": 15,
+      "orderid": "d95774f4-94bd-42a9-a1ab-e74d9ca825c3",
+      "revenueImpact": 360
+    },
+    {
+      "id": "6762dc08-845a-4f65-8236-c5df63978197",
+      "skuid": "fe02ec31-0798-4814-81ef-1b5edc308276",
+      "quantity": 12,
+      "unitprice": 18.33,
+      "orderid": "fdd31a3f-2206-4535-b662-3d2672acfa68",
+      "revenueImpact": 219.95999999999998
+    },
+    {
+      "id": "9ce9064b-15ec-47d8-8e4c-a2d500393441",
+      "skuid": "ef4e8bbb-7c38-4ff0-93f4-1399a4ccdae5",
+      "quantity": 24,
+      "unitprice": 7.33,
+      "orderid": "467b292c-3c98-4a6f-bfa4-17e757ac7abf",
+      "revenueImpact": 175.92000000000002
+    },
+    {
+      "id": "d318e217-59d3-4a27-8f18-fdcf0e87d3db",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 8,
+      "unitprice": 16.67,
+      "orderid": "4a712ca8-7f9e-4415-83ce-ff119f003784",
+      "revenueImpact": 133.36
+    },
+    {
+      "id": "ce7ddc4e-fc08-43e4-bca4-5e8cb94f1c89",
+      "skuid": "d65c7528-fd6a-4286-a375-9f6effcfdd70",
+      "quantity": 12,
+      "unitprice": 11.99,
+      "orderid": "fce853f4-9f6a-4a5e-b378-55360c9c7db8",
+      "revenueImpact": 143.88
+    },
+    {
+      "id": "c51260dd-0632-44ba-9e33-86dc782739cb",
+      "skuid": "fbe27a13-8c86-4d9a-ac98-f137e3000a9f",
+      "quantity": 1,
+      "unitprice": -840,
+      "orderid": "38e1695b-28d7-4b43-bf85-86fc20f90af4",
+      "revenueImpact": -840
+    },
+    {
+      "id": "e9c84dd7-7272-49e3-826d-9398d775f97f",
+      "skuid": "fdce6b4c-ac40-4334-bd63-9beeed321871",
+      "quantity": 3,
+      "unitprice": 10.67,
+      "orderid": "ae0d3ec3-8491-4ada-9e4a-ed78c06cf717",
+      "revenueImpact": 32.01
+    },
+    {
+      "id": "9d5c1413-87ef-4e95-9392-4ca7fd90037b",
+      "skuid": "fdce6b4c-ac40-4334-bd63-9beeed321871",
+      "quantity": 2,
+      "unitprice": 11.19,
+      "orderid": "94b00bfb-c4e0-4693-acf4-fddeda915b1a",
+      "revenueImpact": 22.38
+    },
+    {
+      "id": "b89c1c63-ed86-456a-9805-c2e1b2b9996f",
+      "skuid": "d78e7c72-c371-423b-9870-4582092f6f0f",
+      "quantity": 12,
+      "unitprice": 9.49,
+      "orderid": "3b9fefbb-bada-4e17-a2b7-5f1b98accf2c",
+      "revenueImpact": 113.88
+    },
+    {
+      "id": "6ee440d2-cb1e-4baf-ab3c-0f46491d0a43",
+      "skuid": "de9151ec-e530-4eea-8b29-c2e72f319f25",
+      "quantity": 3,
+      "unitprice": 9.66,
+      "orderid": "3b9fefbb-bada-4e17-a2b7-5f1b98accf2c",
+      "revenueImpact": 28.98
+    },
+    {
+      "id": "333ed6b2-c8e7-4f14-a54e-cbe335be4aa4",
+      "skuid": "d209ed78-f336-46d2-b798-a1d547ab21d2",
+      "quantity": 6,
+      "unitprice": 37.33,
+      "orderid": "7d559870-7da2-408d-9060-b08ca5cd1387",
+      "revenueImpact": 223.98
+    },
+    {
+      "id": "882c6f7f-ab28-4442-9b04-459fc5cd5be7",
+      "skuid": "f86cae00-6e8c-4f3c-a0d3-3e2aeafa4345",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "6fea1e51-30e3-49ef-a259-1d0b09c7136e",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "a4dd012c-bed7-4796-8e7b-0997a570dd7a",
+      "skuid": "ebdf4b91-c045-44aa-bc4c-9fd6f9529037",
+      "quantity": 6,
+      "unitprice": 18.99,
+      "orderid": "27e6f1f5-3f91-420a-a89c-92821e037cf8",
+      "revenueImpact": 113.94
+    },
+    {
+      "id": "1e75a0d5-5ff7-4b8e-ae01-7bfa35fd3ece",
+      "skuid": "ebc76879-aa59-49f1-a0e8-c5781ee1a609",
+      "quantity": 12,
+      "unitprice": 13.99,
+      "orderid": "27e6f1f5-3f91-420a-a89c-92821e037cf8",
+      "revenueImpact": 167.88
+    },
+    {
+      "id": "9615cbbe-c743-435d-bcde-d570ebfa3f15",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 6,
+      "unitprice": 15.99,
+      "orderid": "27e6f1f5-3f91-420a-a89c-92821e037cf8",
+      "revenueImpact": 95.94
+    },
+    {
+      "id": "1cf9df23-e5b1-4a1d-abb9-8725d0101c0e",
+      "skuid": "e37a6b97-d5d5-4921-a18e-42ebbee50d7c",
+      "quantity": 2,
+      "unitprice": 14.66,
+      "orderid": "577ec1bf-79e5-4e94-a00d-e0886e5754d4",
+      "revenueImpact": 29.32
+    },
+    {
+      "id": "4ff43e76-aac7-49fd-905b-1bef367aabec",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 1,
+      "unitprice": 15.99,
+      "orderid": "4e928406-4607-41c5-8fb9-56908ff923ea",
+      "revenueImpact": 15.99
+    },
+    {
+      "id": "63e748bf-2c6f-45f7-8945-d90d767f5fff",
+      "skuid": "d35f9426-d1e1-4017-a66e-335252a102f1",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "953bbfb3-1ba5-4017-94db-0d15fec0dc9e",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "c9e68920-c384-42cd-a3c4-0de1823e49ca",
+      "skuid": "e13bef3d-80dd-4878-ab49-54c66b0fe905",
+      "quantity": 2,
+      "unitprice": 30,
+      "orderid": "a7a12d75-d8f3-43a0-a8e4-8d13cc4e6e1b",
+      "revenueImpact": 60
+    },
+    {
+      "id": "1883fadb-11d6-4199-a740-99c76fcac36c",
+      "skuid": "e852fa48-7fa4-4758-9c8e-8d2b3ec0c24b",
+      "quantity": 3,
+      "unitprice": 39.99,
+      "orderid": "68619fcb-c114-4327-8c30-1f30eb433103",
+      "revenueImpact": 119.97
+    },
+    {
+      "id": "40eb5f4a-6108-4824-97be-193e19e1ed41",
+      "skuid": "ebc76879-aa59-49f1-a0e8-c5781ee1a609",
+      "quantity": 24,
+      "unitprice": 12,
+      "orderid": "a3962116-d612-43ac-a0ea-f21531b3f06c",
+      "revenueImpact": 288
+    },
+    {
+      "id": "cf0763d3-5c65-4cc0-ab0b-82f5e87a2737",
+      "skuid": "dd366279-ce18-4f10-ab5f-6d39d94ceb5c",
+      "quantity": 1,
+      "unitprice": 13.33,
+      "orderid": "5b0863d9-ea3f-4ff7-9fa2-5fd61c282d47",
+      "revenueImpact": 13.33
+    },
+    {
+      "id": "67bb8dc1-7397-4a9b-86e2-fff382fcd556",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 12,
+      "unitprice": 45,
+      "orderid": "87ce43f5-2950-42be-a2b3-0ad83e2bf315",
+      "revenueImpact": 540
+    },
+    {
+      "id": "18900415-1b13-4a57-9762-5547bdc82a60",
+      "skuid": "e6a34b00-bc5d-4ccd-b121-97eba82f96ff",
+      "quantity": 2,
+      "unitprice": 14.67,
+      "orderid": "11872508-4667-4710-8b43-5e1bf60ea361",
+      "revenueImpact": 29.34
+    },
+    {
+      "id": "046760fd-c7c9-4879-9c87-8cb02a5d041d",
+      "skuid": "fbd8ef26-a681-47c6-8f27-5a1be36f11d3",
+      "quantity": 24,
+      "unitprice": 9.66,
+      "orderid": "9651c9d8-5456-4066-93e5-396a34dc4541",
+      "revenueImpact": 231.84
+    },
+    {
+      "id": "fddc1516-e2e5-461f-883a-719d151dcca9",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "05299786-a67b-4d27-a6a2-9bbeef210003",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "63c5bc1d-8878-42e5-b787-022d532a15e6",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 3,
+      "unitprice": 22.67,
+      "orderid": "87f1bfb4-4cb1-4b0f-98bd-a4a304ebbd28",
+      "revenueImpact": 68.01
+    },
+    {
+      "id": "17405515-37e5-4e03-85e2-e6f4a443027e",
+      "skuid": "e6a34b00-bc5d-4ccd-b121-97eba82f96ff",
+      "quantity": 3,
+      "unitprice": 15.33,
+      "orderid": "e3aacb5d-21d9-48b1-99cb-10ee88a3ca83",
+      "revenueImpact": 45.99
+    },
+    {
+      "id": "72c6af44-a3d6-47f2-addf-e3f09772c8d1",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 12,
+      "unitprice": 11.19,
+      "orderid": "f0d1d889-a4ff-47de-8b36-c0dfdc92204a",
+      "revenueImpact": 134.28
+    },
+    {
+      "id": "0db3eb9f-6125-4a61-b581-496fe08fe485",
+      "skuid": "dda75de1-0d29-41b3-9664-1576fd585aed",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "da2b9453-dd61-4716-9e34-5c3c9392b9cf",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "d2f7abf0-62f4-4262-a3d3-9b2013c2afb1",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 1,
+      "unitprice": 16.67,
+      "orderid": "7730b5aa-b7dd-4918-a148-56e04cd5477c",
+      "revenueImpact": 16.67
+    },
+    {
+      "id": "2d83bb6c-54e0-46ed-af52-15f95a16dab4",
+      "skuid": "cc92e4cb-f4d9-423b-b4a4-695c7bcfd3d6",
+      "quantity": 12,
+      "unitprice": 14.33,
+      "orderid": "5b0863d9-ea3f-4ff7-9fa2-5fd61c282d47",
+      "revenueImpact": 171.96
+    },
+    {
+      "id": "bd57d2e6-81d1-4bb2-8241-e4d92ab2f673",
+      "skuid": "d78e7c72-c371-423b-9870-4582092f6f0f",
+      "quantity": 1275,
+      "unitprice": 0.49,
+      "orderid": "05299786-a67b-4d27-a6a2-9bbeef210003",
+      "revenueImpact": 624.75
+    },
+    {
+      "id": "774cfda5-735a-49b1-a919-9b6be8070a6b",
+      "skuid": "f48713da-3e7d-4904-812f-f58c707e94f3",
+      "quantity": 6,
+      "unitprice": 13.99,
+      "orderid": "87f1bfb4-4cb1-4b0f-98bd-a4a304ebbd28",
+      "revenueImpact": 83.94
+    },
+    {
+      "id": "eac840dc-f8f6-4f48-933b-1c81872bb29d",
+      "skuid": "e88674c0-30ea-4903-9e7d-f4762f2badc8",
+      "quantity": 2,
+      "unitprice": 19.99,
+      "orderid": "87f1bfb4-4cb1-4b0f-98bd-a4a304ebbd28",
+      "revenueImpact": 39.98
+    },
+    {
+      "id": "d8365576-0a72-4745-ab4d-4d4ee0d81cd6",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 36,
+      "unitprice": 15.99,
+      "orderid": "f94a3b39-8927-4f2b-8d60-a05a693d7781",
+      "revenueImpact": 575.64
+    },
+    {
+      "id": "9d62fc7c-e87e-4ba6-b291-3833fc4d133c",
+      "skuid": "fd0df1ec-5701-4af3-88f2-b2aee3ee64d7",
+      "quantity": 3,
+      "unitprice": 17.33,
+      "orderid": "e3aacb5d-21d9-48b1-99cb-10ee88a3ca83",
+      "revenueImpact": 51.989999999999995
+    },
+    {
+      "id": "4774ae18-5141-479b-b7fb-f7a3e64c19ed",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 24,
+      "unitprice": 15,
+      "orderid": "45221c69-1e2f-44f1-a81f-bf9b51ce6051",
+      "revenueImpact": 360
+    },
+    {
+      "id": "00d73f18-ca5a-40d0-96d6-d5da0a6fc23a",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 24,
+      "unitprice": 9.33,
+      "orderid": "a849a6b6-c00e-4bd6-bb84-4650b6967ca2",
+      "revenueImpact": 223.92000000000002
+    },
+    {
+      "id": "1431560c-38fe-4965-8078-12ca0b626d2c",
+      "skuid": "fc11de80-e001-44ba-b70c-7f9e70eefc1d",
+      "quantity": 6,
+      "unitprice": 79.99,
+      "orderid": "68619fcb-c114-4327-8c30-1f30eb433103",
+      "revenueImpact": 479.93999999999994
+    },
+    {
+      "id": "04aa9380-e0dc-4601-bd89-bef2f7923ae1",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 12,
+      "unitprice": 8.67,
+      "orderid": "37cdfe29-ad33-4dc5-ba66-698875c38e7a",
+      "revenueImpact": 104.03999999999999
+    },
+    {
+      "id": "055298c7-024c-4fba-adf9-09d970e725d0",
+      "skuid": "ea26ee58-eae3-4e82-8635-60e955a83f04",
+      "quantity": 3,
+      "unitprice": 32,
+      "orderid": "37cdfe29-ad33-4dc5-ba66-698875c38e7a",
+      "revenueImpact": 96
+    },
+    {
+      "id": "4301391c-b1c7-455a-893f-72aab78e10d5",
+      "skuid": "d3a71e58-5f77-4c30-9368-1db2de19fead",
+      "quantity": 6,
+      "unitprice": 11.99,
+      "orderid": "7730b5aa-b7dd-4918-a148-56e04cd5477c",
+      "revenueImpact": 71.94
+    },
+    {
+      "id": "5d2f962e-7515-417e-afc3-26539e0d7c2d",
+      "skuid": "dd366279-ce18-4f10-ab5f-6d39d94ceb5c",
+      "quantity": 24,
+      "unitprice": 13.33,
+      "orderid": "7fc01760-3e77-4427-a505-45d6a71d54c2",
+      "revenueImpact": 319.92
+    },
+    {
+      "id": "c9476256-1fed-4bd1-9db6-b943eef3e2af",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "11872508-4667-4710-8b43-5e1bf60ea361",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "a174b0ff-d6ff-47d6-8d4e-07ad76d48e92",
+      "skuid": "dc36a15b-109f-4db4-b1fb-d56300391541",
+      "quantity": 3,
+      "unitprice": 56.66,
+      "orderid": "a13c7033-3ca5-4bab-9729-6132a944aea7",
+      "revenueImpact": 169.98
+    },
+    {
+      "id": "405bf602-f7a3-4ec3-8054-123db02db59e",
+      "skuid": "ff299823-85a0-4c65-a88a-fb06b6dca669",
+      "quantity": 12,
+      "unitprice": 13.99,
+      "orderid": "9651c9d8-5456-4066-93e5-396a34dc4541",
+      "revenueImpact": 167.88
+    },
+    {
+      "id": "50abefcb-ece4-47f4-9a14-28560d1563f6",
+      "skuid": "f0f189c4-5d0e-4dc1-9a69-8ff85fcafcf8",
+      "quantity": 4,
+      "unitprice": 11.33,
+      "orderid": "05299786-a67b-4d27-a6a2-9bbeef210003",
+      "revenueImpact": 45.32
+    },
+    {
+      "id": "f791b16e-1ae3-4d62-96d7-21181972726b",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "05299786-a67b-4d27-a6a2-9bbeef210003",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "e6a7cf8a-3cf4-4053-9d4f-0732479aecda",
+      "skuid": "cf711e5e-7637-4a51-b2e6-18b779c59787",
+      "quantity": 6,
+      "unitprice": 11.33,
+      "orderid": "87f1bfb4-4cb1-4b0f-98bd-a4a304ebbd28",
+      "revenueImpact": 67.98
+    },
+    {
+      "id": "91aa28d7-6031-4efd-98e5-ae976c77eefc",
+      "skuid": "e2985736-20b4-49f8-9979-e4721c403204",
+      "quantity": 6,
+      "unitprice": 53.33,
+      "orderid": "2bd1f744-c5d5-45a9-a0cf-68ed04b8bc88",
+      "revenueImpact": 319.98
+    },
+    {
+      "id": "245e296c-c2be-4b31-84c0-aa5b1a1281a8",
+      "skuid": "e100395f-c9e8-42b3-b896-33c2c57d906d",
+      "quantity": 36,
+      "unitprice": 14,
+      "orderid": "f94a3b39-8927-4f2b-8d60-a05a693d7781",
+      "revenueImpact": 504
+    },
+    {
+      "id": "ab1dcb4c-bf36-424a-a1ba-26de5567d63a",
+      "skuid": "fbe27a13-8c86-4d9a-ac98-f137e3000a9f",
+      "quantity": 1,
+      "unitprice": -1044,
+      "orderid": "f94a3b39-8927-4f2b-8d60-a05a693d7781",
+      "revenueImpact": -1044
+    },
+    {
+      "id": "89066d1f-643d-4372-a5ed-e6db9af99feb",
+      "skuid": "dc12b7d8-fc42-4d6d-80fd-e0a72ff66e9d",
+      "quantity": 12,
+      "unitprice": 20,
+      "orderid": "1f1f07df-4bf5-47b1-842d-de0fea99e0ee",
+      "revenueImpact": 240
+    },
+    {
+      "id": "2f607d23-3191-41c4-aee9-87da3d634441",
+      "skuid": "e2985736-20b4-49f8-9979-e4721c403204",
+      "quantity": 3,
+      "unitprice": 53.33,
+      "orderid": "cf7b6bf1-2738-49d4-9675-8761449271c0",
+      "revenueImpact": 159.99
+    },
+    {
+      "id": "fad71096-e207-4a44-9ea6-8ef28959875e",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 84,
+      "unitprice": 8.33,
+      "orderid": "38f2f386-f0f5-43f4-a609-54fd64c46502",
+      "revenueImpact": 699.72
+    },
+    {
+      "id": "412c7df0-1c02-4ace-91c2-b831d766c5af",
+      "skuid": "c948ce17-ae8e-4705-8c48-b9cefddc5c5f",
+      "quantity": 1,
+      "unitprice": 69.99,
+      "orderid": "894fe39f-95c9-46be-aa5e-fd53f44607d5",
+      "revenueImpact": 69.99
+    },
+    {
+      "id": "1f795b87-3177-44ed-818f-5d9df392b859",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 12,
+      "unitprice": 23.33,
+      "orderid": "4e5ee3ce-7d3c-4f4b-9a07-36e7587238f3",
+      "revenueImpact": 279.96
+    },
+    {
+      "id": "31b47fbd-0a4f-4895-afc8-7bcbea3e63bb",
+      "skuid": "d9733bc8-c313-4918-934e-73a5e87cf005",
+      "quantity": 1,
+      "unitprice": 39.99,
+      "orderid": "b5b12902-9af8-4b78-bd28-30e12b692f70",
+      "revenueImpact": 39.99
+    },
+    {
+      "id": "fed47d2a-36e9-4cad-86e9-ffbd9fab9081",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 4,
+      "unitprice": 9.99,
+      "orderid": "6f62df53-6793-4612-8811-8d1be0648537",
+      "revenueImpact": 39.96
+    },
+    {
+      "id": "7c3f7196-8e66-40d4-b407-df28212e4db1",
+      "skuid": "e734f4fc-1ac5-4519-b553-9d28672f1795",
+      "quantity": 12,
+      "unitprice": 9.66,
+      "orderid": "49d49e01-605b-4294-8ad2-97d2441b64ec",
+      "revenueImpact": 115.92
+    },
+    {
+      "id": "1051b2b1-7842-450b-a97d-788ed98d7fe6",
+      "skuid": "d9248d31-61aa-47f3-a31f-d9c61790f48d",
+      "quantity": 12,
+      "unitprice": 12.66,
+      "orderid": "4693a331-dfd6-40b8-a979-5eff381a2b84",
+      "revenueImpact": 151.92000000000002
+    },
+    {
+      "id": "1f12cc9d-c37d-41e3-ac48-18a0092ed78a",
+      "skuid": "e6a34b00-bc5d-4ccd-b121-97eba82f96ff",
+      "quantity": 3,
+      "unitprice": 14.67,
+      "orderid": "1ec04a33-6502-40a3-8c9b-7a913de74dc7",
+      "revenueImpact": 44.01
+    },
+    {
+      "id": "2334bb9e-bcc1-4dd2-9c2c-46034d20c683",
+      "skuid": "cab7aed5-2a23-43f1-8022-d65481d8765d",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "f194eabd-9749-415d-b9c2-b8b4c90fe03e",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "dabfbbbb-d317-46ab-af52-0ff6c781ee94",
+      "skuid": "d72b9e46-1110-4b76-98f8-c60eb65305cc",
+      "quantity": 2,
+      "unitprice": 21.49,
+      "orderid": "f194eabd-9749-415d-b9c2-b8b4c90fe03e",
+      "revenueImpact": 42.98
+    },
+    {
+      "id": "42ef73d6-4a97-4d8a-bc01-3c285f3f7e9b",
+      "skuid": "f289dcf4-9c0f-4a93-a2f2-811c2b1d8d71",
+      "quantity": 12,
+      "unitprice": 13.33,
+      "orderid": "1ec04a33-6502-40a3-8c9b-7a913de74dc7",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "6b947046-4d8d-4a22-b1bb-074fc4498174",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 84,
+      "unitprice": 8.33,
+      "orderid": "adbde5bc-adec-46c1-b56f-fd67dd05b443",
+      "revenueImpact": 699.72
+    },
+    {
+      "id": "0b387b6f-931f-4b7c-bd7e-cd90ca5a7eb7",
+      "skuid": "f4a30bf1-510f-4264-9c33-79c5e23a26f5",
+      "quantity": 2,
+      "unitprice": 99.99,
+      "orderid": "55f3ddd0-d554-4a0b-8e17-9135d5fc3b3e",
+      "revenueImpact": 199.98
+    },
+    {
+      "id": "9e30b42f-00d9-4df7-b857-9aedb0909fdd",
+      "skuid": "fbfbfab5-866c-4494-a65c-c7a341673706",
+      "quantity": 12,
+      "unitprice": 15.99,
+      "orderid": "e8434c68-b4e9-4c22-8e6a-6ff7e8f03800",
+      "revenueImpact": 191.88
+    },
+    {
+      "id": "b3c22e48-86a8-4ad5-8df8-460162b1dcdf",
+      "skuid": "d35f9426-d1e1-4017-a66e-335252a102f1",
+      "quantity": 12,
+      "unitprice": 10.33,
+      "orderid": "b7114afb-203b-416c-9a43-f223421cad01",
+      "revenueImpact": 123.96000000000001
+    },
+    {
+      "id": "dfd67e86-ce6f-4007-86ca-1a90a6ed1479",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 12,
+      "unitprice": 22.67,
+      "orderid": "e5c79924-c616-4cfb-b00b-1604d867e6f9",
+      "revenueImpact": 272.04
+    },
+    {
+      "id": "473b32e5-adc0-4ec5-8681-c0d55adf07fa",
+      "skuid": "fbd8ef26-a681-47c6-8f27-5a1be36f11d3",
+      "quantity": 18,
+      "unitprice": 9.66,
+      "orderid": "e5c79924-c616-4cfb-b00b-1604d867e6f9",
+      "revenueImpact": 173.88
+    },
+    {
+      "id": "8b1c5fd5-908e-4795-abb6-ee3a37214362",
+      "skuid": "f5a4c7a9-854f-452c-ad5d-ddf23eb1d9f8",
+      "quantity": 24,
+      "unitprice": 16.67,
+      "orderid": "85a8cc6c-861f-4c79-8aad-d828f1245f55",
+      "revenueImpact": 400.08000000000004
+    },
+    {
+      "id": "6b2a9f73-4263-40a6-98a9-89626dc8b268",
+      "skuid": "fc11de80-e001-44ba-b70c-7f9e70eefc1d",
+      "quantity": 6,
+      "unitprice": 79.99,
+      "orderid": "85a8cc6c-861f-4c79-8aad-d828f1245f55",
+      "revenueImpact": 479.93999999999994
+    },
+    {
+      "id": "72dcc2c3-ab5b-4352-9381-bec92cd59e1d",
+      "skuid": "e9040847-6ab5-4c97-a6f7-1406d7d45f55",
+      "quantity": 12,
+      "unitprice": 13.33,
+      "orderid": "85a8cc6c-861f-4c79-8aad-d828f1245f55",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "10872123-b459-4279-b0a1-537ba8203361",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 12,
+      "unitprice": 22.67,
+      "orderid": "5b2123ee-7275-4aec-8841-769b68610d2e",
+      "revenueImpact": 272.04
+    },
+    {
+      "id": "7ef74634-5610-4ae4-8d01-bf4bb95d722c",
+      "skuid": "e563a79d-2450-4069-b682-689d91658a51",
+      "quantity": 4,
+      "unitprice": 11.66,
+      "orderid": "414aefd5-8866-4c26-9674-f7efb3807574",
+      "revenueImpact": 46.64
+    },
+    {
+      "id": "466fb7c8-38e4-4c41-a5f0-4e18da79a555",
+      "skuid": "f289dcf4-9c0f-4a93-a2f2-811c2b1d8d71",
+      "quantity": 12,
+      "unitprice": 13.33,
+      "orderid": "e33acddd-fbd4-47ab-aa30-15ce0de92856",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "0fc17463-61bd-42aa-acee-8ea6f857f760",
+      "skuid": "eea58661-594c-41e7-be1a-44b7b9412a24",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "600cd7ab-c400-47ae-95fd-e00debc0eb18",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "e35def56-3448-48c2-8f5e-889bcc2e9d03",
+      "skuid": "cf711e5e-7637-4a51-b2e6-18b779c59787",
+      "quantity": 1,
+      "unitprice": 11.99,
+      "orderid": "f42ec2ba-7429-4b8c-919c-b27c96f62938",
+      "revenueImpact": 11.99
+    },
+    {
+      "id": "f47580af-094e-490f-bb61-4dd847106ed4",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 12,
+      "unitprice": 15,
+      "orderid": "5c21c1e7-334e-4c46-a397-cf0639695ac9",
+      "revenueImpact": 180
+    },
+    {
+      "id": "7c74ff22-9dba-443b-bd40-eedb2b8269f1",
+      "skuid": "f7f544b2-963c-46f1-b679-e0e93a3d8fe2",
+      "quantity": 4,
+      "unitprice": 9.99,
+      "orderid": "147465f1-4157-4b60-87fa-8e23572f8138",
+      "revenueImpact": 39.96
+    },
+    {
+      "id": "4128b753-1276-45b1-bae0-175b85924b81",
+      "skuid": "fb02a6a0-e530-461b-b4a9-2fab98a3e622",
+      "quantity": 8,
+      "unitprice": 5.99,
+      "orderid": "147465f1-4157-4b60-87fa-8e23572f8138",
+      "revenueImpact": 47.92
+    },
+    {
+      "id": "7d6f3829-16f6-46fe-999f-d6e39cd76ae4",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 15,
+      "unitprice": 10.67,
+      "orderid": "0ff73695-0ffc-4036-8a88-8670c4cfd186",
+      "revenueImpact": 160.05
+    },
+    {
+      "id": "5ce8cdcf-5911-4af0-8c98-0c58e4120673",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 18,
+      "unitprice": 26.67,
+      "orderid": "0ff73695-0ffc-4036-8a88-8670c4cfd186",
+      "revenueImpact": 480.06000000000006
+    },
+    {
+      "id": "44a0ed6d-9ead-48bf-b1a9-40f50404641c",
+      "skuid": "de9151ec-e530-4eea-8b29-c2e72f319f25",
+      "quantity": 12,
+      "unitprice": 9.66,
+      "orderid": "56fb53f4-0f2c-4305-9696-f2465f49abcf",
+      "revenueImpact": 115.92
+    },
+    {
+      "id": "a383cad4-d7bd-4ed3-a009-eb9dfa0a333d",
+      "skuid": "d18c9135-4923-48fe-b732-401754ab9c52",
+      "quantity": 12,
+      "unitprice": 14.33,
+      "orderid": "57812fbb-c31c-4901-8f7f-7732433aa8f1",
+      "revenueImpact": 171.96
+    },
+    {
+      "id": "1d2dad56-a842-474d-8585-e0172f2ba613",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 6,
+      "unitprice": 23.33,
+      "orderid": "1c55a847-6b84-4bfd-946e-60c16255ec9b",
+      "revenueImpact": 139.98
+    },
+    {
+      "id": "ea752c77-69d0-4292-a968-6112f0a682d2",
+      "skuid": "c9b6ab45-264a-4a36-a5ea-c3948cc6507f",
+      "quantity": 3,
+      "unitprice": 11.99,
+      "orderid": "ca7a08a4-e0de-49be-ab7d-7479f05a3680",
+      "revenueImpact": 35.97
+    },
+    {
+      "id": "4af6a43d-d840-4562-97e9-f093a747fc1f",
+      "skuid": "ce118e41-d2ed-49ac-b56f-40eb7a9d788c",
+      "quantity": 12,
+      "unitprice": 10.33,
+      "orderid": "ca7a08a4-e0de-49be-ab7d-7479f05a3680",
+      "revenueImpact": 123.96000000000001
+    },
+    {
+      "id": "37846ffb-b76d-473b-ba4f-63a0644bbe2e",
+      "skuid": "fd2dc444-cb6b-4b23-bc67-5938f65fc198",
+      "quantity": 12,
+      "unitprice": 11.99,
+      "orderid": "a3b3725d-e3a0-4356-a91c-253556965390",
+      "revenueImpact": 143.88
+    },
+    {
+      "id": "ed158830-e397-4a54-bd7a-6416b0b455e1",
+      "skuid": "f8c04212-387f-47b9-bc21-ab6d8bc6d12e",
+      "quantity": 12,
+      "unitprice": 26.67,
+      "orderid": "05f5dc87-1697-4eb5-9825-9c987a942839",
+      "revenueImpact": 320.04
+    },
+    {
+      "id": "fea114cd-5225-43e5-867e-00678db19be4",
+      "skuid": "fbe27a13-8c86-4d9a-ac98-f137e3000a9f",
+      "quantity": 6,
+      "unitprice": -9.99,
+      "orderid": "aa56da7d-f95f-4e5e-95f6-1fe3cd467153",
+      "revenueImpact": -59.94
+    },
+    {
+      "id": "ddfa21ff-bab1-4d83-a6a3-1ff11f31188d",
+      "skuid": "f7f544b2-963c-46f1-b679-e0e93a3d8fe2",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "c7e8b36e-dafa-446d-be4f-f665180e65ad",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "d94b2498-1396-4c95-8a52-5bff6d15a42b",
+      "skuid": "ebeb858d-7e43-4f80-a52d-f549f45c1faf",
+      "quantity": 30,
+      "unitprice": 9.49,
+      "orderid": "537cea9b-8d32-472c-a5fd-f1841ce74f8c",
+      "revenueImpact": 284.7
+    },
+    {
+      "id": "177ae864-382b-480b-bf83-66bba38b26c8",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 6,
+      "unitprice": 69.99,
+      "orderid": "bdec8014-9b92-4878-b12b-67f69b844718",
+      "revenueImpact": 419.93999999999994
+    },
+    {
+      "id": "1ab72fbe-0d26-470b-975d-0a713c6186eb",
+      "skuid": "cac48a04-3d80-46aa-a1b2-333b8c6f54e1",
+      "quantity": 6,
+      "unitprice": 23.33,
+      "orderid": "451921f3-a68a-4822-b798-f4aa44799fdf",
+      "revenueImpact": 139.98
+    },
+    {
+      "id": "81cd9853-3f5b-4322-bcf3-90221f601c31",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 1,
+      "unitprice": 9.99,
+      "orderid": "451921f3-a68a-4822-b798-f4aa44799fdf",
+      "revenueImpact": 9.99
+    },
+    {
+      "id": "cdfc331d-96df-4e73-abe2-04b63452cc22",
+      "skuid": "ff7d0ae6-20d6-4b50-ba50-588330eefbb3",
+      "quantity": 3,
+      "unitprice": 14.66,
+      "orderid": "ca7a08a4-e0de-49be-ab7d-7479f05a3680",
+      "revenueImpact": 43.980000000000004
+    },
+    {
+      "id": "96c4cbc4-15d1-485c-9a0e-6c3abf63e3cb",
+      "skuid": "dc9d9c9f-1809-4022-825b-6f33c155c1aa",
+      "quantity": 6,
+      "unitprice": 8.89,
+      "orderid": "ca7a08a4-e0de-49be-ab7d-7479f05a3680",
+      "revenueImpact": 53.34
+    },
+    {
+      "id": "14702c84-59d2-4f1b-ad6f-6a8dfc9333ad",
+      "skuid": "de9151ec-e530-4eea-8b29-c2e72f319f25",
+      "quantity": 24,
+      "unitprice": 9.66,
+      "orderid": "e1fb7c5b-efe3-4105-bb7e-45e13694ab5e",
+      "revenueImpact": 231.84
+    },
+    {
+      "id": "49d06185-8c01-4e2f-b9b9-6fb3cb015432",
+      "skuid": "d18c9135-4923-48fe-b732-401754ab9c52",
+      "quantity": 36,
+      "unitprice": 14.33,
+      "orderid": "40488d94-5d1f-4e3b-baab-f1f981e9337d",
+      "revenueImpact": 515.88
+    },
+    {
+      "id": "5fede124-fb10-4c27-806d-d807f379327b",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "f7035302-b49e-4a6d-8f2d-6f0b884285d3",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "a64f9901-7d60-4139-a8bc-a418dd326a35",
+      "skuid": "d91d7c1a-f738-4059-8bad-abf7a3bdf7e9",
+      "quantity": 6,
+      "unitprice": 12.66,
+      "orderid": "e33acddd-fbd4-47ab-aa30-15ce0de92856",
+      "revenueImpact": 75.96000000000001
+    },
+    {
+      "id": "c73bfc6c-cfb1-4812-a6c6-9534f6003d08",
+      "skuid": "d91d7c1a-f738-4059-8bad-abf7a3bdf7e9",
+      "quantity": 12,
+      "unitprice": 13.33,
+      "orderid": "4679f961-1601-496e-8463-39ff2f8460cc",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "88ff0f70-2fab-4f55-9933-0f2be5b27ffb",
+      "skuid": "d9248d31-61aa-47f3-a31f-d9c61790f48d",
+      "quantity": 12,
+      "unitprice": 12.66,
+      "orderid": "600cd7ab-c400-47ae-95fd-e00debc0eb18",
+      "revenueImpact": 151.92000000000002
+    },
+    {
+      "id": "4a53a9e5-e95d-4124-8edc-f2c98cd05ab6",
+      "skuid": "fd9041d1-d424-4a64-b73a-1dc037a47e9c",
+      "quantity": 2,
+      "unitprice": 11.99,
+      "orderid": "f42ec2ba-7429-4b8c-919c-b27c96f62938",
+      "revenueImpact": 23.98
+    },
+    {
+      "id": "26d2d22b-fc83-4c55-8b70-01b556c23c9f",
+      "skuid": "f89464e9-605d-42c1-bf77-b6786e4a6fe6",
+      "quantity": 12,
+      "unitprice": 9.99,
+      "orderid": "56fb53f4-0f2c-4305-9696-f2465f49abcf",
+      "revenueImpact": 119.88
+    },
+    {
+      "id": "226ddb78-7bef-4e87-958c-c47e14510d3c",
+      "skuid": "fbd8ef26-a681-47c6-8f27-5a1be36f11d3",
+      "quantity": 12,
+      "unitprice": 9.99,
+      "orderid": "a8b7785c-4acc-4dc5-9116-b74b18cd5198",
+      "revenueImpact": 119.88
+    },
+    {
+      "id": "d43ce144-09b4-4eb6-8cd6-c7a2956bb103",
+      "skuid": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "quantity": 12,
+      "unitprice": 9.99,
+      "orderid": "b86506d2-aef7-4c08-8f31-d3131ee5c378",
+      "revenueImpact": 119.88
+    },
+    {
+      "id": "59aaa476-5c93-4beb-9f35-1b35d74230cb",
+      "skuid": "cb9887fa-70cc-4e4d-b9ab-6d482e7df335",
+      "quantity": 24,
+      "unitprice": 69.99,
+      "orderid": "cdae5ed6-8de2-47de-b4c7-e03db59302ec",
+      "revenueImpact": 1679.7599999999998
+    },
+    {
+      "id": "b8982859-ff04-4ce4-8428-16208e683540",
+      "skuid": "d7492884-8f19-4bed-ac14-044cb04441b1",
+      "quantity": 12,
+      "unitprice": 11.49,
+      "orderid": "2d0648a2-512b-4ab3-a3c7-08c9940bbd4c",
+      "revenueImpact": 137.88
+    },
+    {
+      "id": "eb9c4cef-1842-4100-af44-985edc61095d",
+      "skuid": "ea26ee58-eae3-4e82-8635-60e955a83f04",
+      "quantity": 6,
+      "unitprice": 32,
+      "orderid": "05f5dc87-1697-4eb5-9825-9c987a942839",
+      "revenueImpact": 192
+    },
+    {
+      "id": "5792e332-a1b8-4823-97a4-a088468297b9",
+      "skuid": "f3b3dbb4-baeb-43bd-9895-88c8c9e4e16d",
+      "quantity": 6,
+      "unitprice": 12.99,
+      "orderid": "aa56da7d-f95f-4e5e-95f6-1fe3cd467153",
+      "revenueImpact": 77.94
+    },
+    {
+      "id": "bb4f5f25-29a7-488c-8153-84e33d2e4111",
+      "skuid": "fbfbfab5-866c-4494-a65c-c7a341673706",
+      "quantity": 24,
+      "unitprice": 15,
+      "orderid": "d95774f4-94bd-42a9-a1ab-e74d9ca825c3",
+      "revenueImpact": 360
+    },
+    {
+      "id": "016df170-c8b6-4d3c-a791-eef8095110a4",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 12,
+      "unitprice": 10.67,
+      "orderid": "816cf909-b6b9-4990-a4d8-68ea93c37b3f",
+      "revenueImpact": 128.04
+    },
+    {
+      "id": "34dc94a4-90de-478d-9b98-329dc1e81a72",
+      "skuid": "f64428c1-5ef0-4cf1-86e0-242424c3de2c",
+      "quantity": 4,
+      "unitprice": 11.33,
+      "orderid": "c7e8b36e-dafa-446d-be4f-f665180e65ad",
+      "revenueImpact": 45.32
+    },
+    {
+      "id": "0445d4d6-3b4b-43de-9570-f7d5ed6d2b3b",
+      "skuid": "d35f9426-d1e1-4017-a66e-335252a102f1",
+      "quantity": 12,
+      "unitprice": 12,
+      "orderid": "33040f51-0c49-4199-8614-48b2ede2fb7b",
+      "revenueImpact": 144
+    },
+    {
+      "id": "787e5ba3-c246-4ae5-8980-663931d86d57",
+      "skuid": "cf711e5e-7637-4a51-b2e6-18b779c59787",
+      "quantity": 36,
+      "unitprice": 8,
+      "orderid": "550472c5-4686-454e-b5e0-a1911665bd56",
+      "revenueImpact": 288
+    },
+    {
+      "id": "3a17bc8f-f5b7-4472-b865-ab311bcc188c",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 12,
+      "unitprice": 16.67,
+      "orderid": "50ee5aed-158b-440f-a31a-ac92cf66e111",
+      "revenueImpact": 200.04000000000002
+    },
+    {
+      "id": "ad1f245e-d51e-4b0a-9037-4513aea583ea",
+      "skuid": "d8a0ed6b-b601-4b78-a18e-2ee88c50574c",
+      "quantity": 12,
+      "unitprice": 13.33,
+      "orderid": "3b997648-feed-4a08-a70e-96aa05c46c99",
+      "revenueImpact": 159.96
+    },
+    {
+      "id": "8e4e7c6a-23c1-4663-8e09-4f819eda7f2f",
+      "skuid": "ddffb617-ee25-4c7b-a2b8-9bb5bc5eeb18",
+      "quantity": 8,
+      "unitprice": 9.33,
+      "orderid": "17952a20-2147-450d-8305-479ac933b1fa",
+      "revenueImpact": 74.64
+    },
+    {
+      "id": "5d93e470-43db-4612-a8f3-19cebe37e131",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 2,
+      "unitprice": 15.99,
+      "orderid": "17952a20-2147-450d-8305-479ac933b1fa",
+      "revenueImpact": 31.98
+    },
+    {
+      "id": "c5872d3c-7577-45bd-8f66-98ac567c9e37",
+      "skuid": "e7ad59dc-6b69-4696-a08b-7659278d451d",
+      "quantity": 12,
+      "unitprice": 9.33,
+      "orderid": "f7035302-b49e-4a6d-8f2d-6f0b884285d3",
+      "revenueImpact": 111.96000000000001
+    },
+    {
+      "id": "823efc42-5640-4393-88a7-565661cbb8b4",
+      "skuid": "c9dda79a-17c6-4fed-8661-12cae59d4866",
+      "quantity": 27,
+      "unitprice": 6,
+      "orderid": "550472c5-4686-454e-b5e0-a1911665bd56",
+      "revenueImpact": 162
+    },
+    {
+      "id": "59be03a1-cd2f-4092-8ae3-0a920a58d4ef",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 12,
+      "unitprice": 15,
+      "orderid": "d3094835-0f5e-41b2-af6f-36d2b95fb7a1",
+      "revenueImpact": 180
+    },
+    {
+      "id": "5a58f0eb-2c85-4817-ac71-14cf43f5ad8f",
+      "skuid": "e0d8daa7-939f-4cfd-9efd-a691f43c615f",
+      "quantity": 6,
+      "unitprice": 10.67,
+      "orderid": "5860a407-198e-4785-b725-0bfec88ab041",
+      "revenueImpact": 64.02
+    },
+    {
+      "id": "9da56efa-969b-4699-9b8a-afc38425b395",
+      "skuid": "d35f9426-d1e1-4017-a66e-335252a102f1",
+      "quantity": 12,
+      "unitprice": 12,
+      "orderid": "379e5c62-ffda-4b03-afce-eda7a2be3af1",
+      "revenueImpact": 144
+    },
+    {
+      "id": "353d3c02-a0aa-4728-b40e-72fd3d75cc70",
+      "skuid": "d91d7c1a-f738-4059-8bad-abf7a3bdf7e9",
+      "quantity": 12,
+      "unitprice": 12.66,
+      "orderid": "8e336c04-d393-4ca8-8d4a-6711dc573bc8",
+      "revenueImpact": 151.92000000000002
+    },
+    {
+      "id": "316e49a5-8ce3-48fa-9f35-6d6181d92eb3",
+      "skuid": "fbd8ef26-a681-47c6-8f27-5a1be36f11d3",
+      "quantity": 24,
+      "unitprice": 9.66,
+      "orderid": "da666a5b-8ae9-4ecb-9819-158d3a5db480",
+      "revenueImpact": 231.84
+    },
+    {
+      "id": "e986d7e7-e2a8-4c19-a5ff-7b61e26cf5f7",
+      "skuid": "ccc323be-4e1b-4b86-98be-d872347e967e",
+      "quantity": 12,
+      "unitprice": 15,
+      "orderid": "d3094835-0f5e-41b2-af6f-36d2b95fb7a1",
+      "revenueImpact": 180
+    },
+    {
+      "id": "09af94bb-2504-409a-9506-eca773d6cf30",
+      "skuid": "f2cf89d8-913d-4123-bd97-b6a2b4c467fb",
+      "quantity": 12,
+      "unitprice": 15.99,
+      "orderid": "a239e619-4550-442e-803d-a2d3002521a3",
+      "revenueImpact": 191.88
+    },
+    {
+      "id": "7971b918-8f12-44a6-94ce-2f6657bb635c",
+      "skuid": "f8c04212-387f-47b9-bc21-ab6d8bc6d12e",
+      "quantity": 12,
+      "unitprice": 26.67,
+      "orderid": "50ee5aed-158b-440f-a31a-ac92cf66e111",
+      "revenueImpact": 320.04
+    },
+    {
+      "id": "3c288def-571d-4d2b-9295-6cb987ebd9af",
+      "skuid": "ef235a9d-f5c9-417d-839a-120a1ff17a6c",
+      "quantity": 12,
+      "unitprice": 20,
+      "orderid": "3b997648-feed-4a08-a70e-96aa05c46c99",
+      "revenueImpact": 240
+    },
+    {
+      "id": "06926abb-884d-4827-850f-6babf52d9bbb",
+      "skuid": "f7c3fa05-b22b-4ec1-ab3f-4114ab498e57",
+      "quantity": 6,
+      "unitprice": 15.99,
+      "orderid": "5860a407-198e-4785-b725-0bfec88ab041",
+      "revenueImpact": 95.94
+    }
+  ]
+}

@@ -1,0 +1,190 @@
+{
+  "timestamp": "2025-10-23T16:35:52.140Z",
+  "analyses": [
+    {
+      "category": "Orders Missing Customers",
+      "totalOrphans": 0,
+      "recoverable": 0,
+      "unrecoverable": 0
+    },
+    {
+      "category": "OrderLines Missing Orders",
+      "totalOrphans": 641,
+      "recoverable": 0,
+      "unrecoverable": 641,
+      "financialImpact": 190691.7500000002,
+      "patterns": [
+        "202 unique missing order IDs"
+      ],
+      "samples": [
+        {
+          "id": "b05869fd-19fe-40e4-98c8-e802f18c2456",
+          "orderid": "6cfd4d6c-6c00-478a-a67f-730d760f9184",
+          "skuid": "6d6cbb76-eb2e-4a0e-ba95-ac24c6f5c17d",
+          "quantity": 12,
+          "unitprice": 11.19,
+          "discount": 0,
+          "issample": false,
+          "createdat": "2025-10-23T14:48:24.124+00:00",
+          "appliedpricingrules": null,
+          "recoverable": false
+        },
+        {
+          "id": "af488e09-1212-489b-9b24-6b8c7b1cd5d7",
+          "orderid": "6cfd4d6c-6c00-478a-a67f-730d760f9184",
+          "skuid": "67b30f13-c95f-43a2-9349-1f5652571874",
+          "quantity": 12,
+          "unitprice": 9.99,
+          "discount": 0,
+          "issample": false,
+          "createdat": "2025-10-23T14:48:24.487+00:00",
+          "appliedpricingrules": null,
+          "recoverable": false
+        },
+        {
+          "id": "51e8eb54-8adb-4842-b22a-8c7c482db7a4",
+          "orderid": "6cfd4d6c-6c00-478a-a67f-730d760f9184",
+          "skuid": "b73ab385-7046-4c30-b910-5566d9c8c6c6",
+          "quantity": 12,
+          "unitprice": 4,
+          "discount": 0,
+          "issample": false,
+          "createdat": "2025-10-23T14:48:24.77+00:00",
+          "appliedpricingrules": null,
+          "recoverable": false
+        },
+        {
+          "id": "ef70fbfb-0aa1-4c8a-8f05-4fa7a11bf413",
+          "orderid": "6f8a7674-7184-4c88-8f79-0e668ed9f7d0",
+          "skuid": "7cd4cbaf-8b81-4713-8162-1b02e6f0f0a0",
+          "quantity": 3,
+          "unitprice": 45,
+          "discount": 0,
+          "issample": false,
+          "createdat": "2025-10-18T14:18:10.791+00:00",
+          "appliedpricingrules": null,
+          "recoverable": false
+        },
+        {
+          "id": "8075fa91-11c5-402a-8842-da76e1302251",
+          "orderid": "6f8a7674-7184-4c88-8f79-0e668ed9f7d0",
+          "skuid": "0747ce35-d196-4e9b-9497-9ed3300e196c",
+          "quantity": 4,
+          "unitprice": 8.49,
+          "discount": 0,
+          "issample": false,
+          "createdat": "2025-10-18T14:18:10.791+00:00",
+          "appliedpricingrules": null,
+          "recoverable": false
+        }
+      ]
+    },
+    {
+      "category": "OrderLines Missing SKUs",
+      "totalOrphans": 0,
+      "recoverable": 0,
+      "unrecoverable": 0
+    },
+    {
+      "category": "SKUs Missing Products",
+      "totalOrphans": 363,
+      "recoverable": 0,
+      "unrecoverable": 363,
+      "patterns": [
+        "363 unique missing product IDs"
+      ],
+      "samples": [
+        {
+          "id": "bfc9f7f4-8d55-48d6-b511-551c6bef9feb",
+          "tenantid": "58b8126a-2d2f-4f55-bc98-5b6784800bed",
+          "productid": "618aba9d-42f6-4850-84d8-d5122619e1d8",
+          "code": "SPA1073",
+          "size": "750.000",
+          "unitofmeasure": "ml",
+          "abv": 14,
+          "casesperpallet": 12,
+          "priceperunit": 0,
+          "isactive": true,
+          "createdat": "2025-10-18T13:40:04.339+00:00",
+          "updatedat": "2025-10-22T03:34:23.270883+00:00",
+          "possible_match_product_id": null,
+          "possible_match_product_name": null,
+          "match_confidence": 0,
+          "recoverable": false
+        },
+        {
+          "id": "1063b6fd-972a-4a58-9ff8-8b6224cfbddc",
+          "tenantid": "58b8126a-2d2f-4f55-bc98-5b6784800bed",
+          "productid": "2943a49d-fb3e-4d87-be8b-db78a7f507a7",
+          "code": "SPA1076",
+          "size": "750.000",
+          "unitofmeasure": "ml",
+          "abv": 15,
+          "casesperpallet": 6,
+          "priceperunit": 0,
+          "isactive": true,
+          "createdat": "2025-10-18T13:40:04.701+00:00",
+          "updatedat": "2025-10-22T03:34:23.270883+00:00",
+          "possible_match_product_id": null,
+          "possible_match_product_name": null,
+          "match_confidence": 0,
+          "recoverable": false
+        },
+        {
+          "id": "b0f284a1-0164-4b5f-9991-e35b44b45c1b",
+          "tenantid": "58b8126a-2d2f-4f55-bc98-5b6784800bed",
+          "productid": "5c4d793b-5013-4811-abe0-1f284eb78008",
+          "code": "ISR1028",
+          "size": "750.000",
+          "unitofmeasure": "ml",
+          "abv": null,
+          "casesperpallet": 12,
+          "priceperunit": 0,
+          "isactive": true,
+          "createdat": "2025-10-18T13:40:05.761+00:00",
+          "updatedat": "2025-10-22T03:34:23.270883+00:00",
+          "possible_match_product_id": null,
+          "possible_match_product_name": null,
+          "match_confidence": 0,
+          "recoverable": false
+        },
+        {
+          "id": "92815fb3-dee3-4f8e-9084-41b7d60c1a5b",
+          "tenantid": "58b8126a-2d2f-4f55-bc98-5b6784800bed",
+          "productid": "54773fe0-6358-4267-80ff-41d8893ab599",
+          "code": "ISR1018",
+          "size": "750.000",
+          "unitofmeasure": "ml",
+          "abv": null,
+          "casesperpallet": 12,
+          "priceperunit": 0,
+          "isactive": true,
+          "createdat": "2025-10-18T13:40:07.211+00:00",
+          "updatedat": "2025-10-22T03:34:23.270883+00:00",
+          "possible_match_product_id": null,
+          "possible_match_product_name": null,
+          "match_confidence": 0,
+          "recoverable": false
+        },
+        {
+          "id": "467d8534-388d-46db-9f6b-07a3b04df8dd",
+          "tenantid": "58b8126a-2d2f-4f55-bc98-5b6784800bed",
+          "productid": "2b8391ed-7579-4c0b-a78f-bd240b261a22",
+          "code": "ISR1007",
+          "size": "750.000",
+          "unitofmeasure": "ml",
+          "abv": 12,
+          "casesperpallet": 12,
+          "priceperunit": 0,
+          "isactive": true,
+          "createdat": "2025-10-18T13:40:07.367+00:00",
+          "updatedat": "2025-10-22T03:34:23.270883+00:00",
+          "possible_match_product_id": null,
+          "possible_match_product_name": null,
+          "match_confidence": 0,
+          "recoverable": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "exportDate": "2025-10-23T16:34:21.427Z",
+  "exportDirectory": "/Users/greghogue/Leora2/exports/wellcrafted-complete-2025-10-23T16-34-20",
+  "tables": [
+    {
+      "tableName": "Customer",
+      "recordCount": 0,
+      "success": true
+    },
+    {
+      "tableName": "Order",
+      "recordCount": 0,
+      "success": true
+    },
+    {
+      "tableName": "OrderLine",
+      "recordCount": 0,
+      "success": true
+    },
+    {
+      "tableName": "Sku",
+      "recordCount": 0,
+      "success": true
+    },
+    {
+      "tableName": "Product",
+      "recordCount": 0,
+      "success": true
+    }
+  ],
+  "criticalVerification": {
+    "orderLinesExpected": 7774,
+    "orderLinesExported": 0,
+    "verified": false
+  },
+  "relationships": {
+    "totalCustomers": 0,
+    "totalOrders": 0,
+    "totalOrderLines": 0,
+    "totalSkus": 0,
+    "totalProducts": 0
+  },
+  "validation": {
+    "orphanedOrders": 0,
+    "orphanedOrderLines": 0,
+    "orphanedSkus": 0
+  },
+  "uuidMappings": {
+    "customers": 0,
+    "orders": 0,
+    "skus": 0,
+    "products": 0
+  }
+}

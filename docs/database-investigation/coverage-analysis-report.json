@@ -1,0 +1,57 @@
+{
+  "timestamp": "2025-10-23T20:44:25.170Z",
+  "database_overview": {
+    "total_orders": 0,
+    "total_orderlines": 11828,
+    "orders_with_orderlines": 159,
+    "orders_without_orderlines": -159,
+    "coverage_percentage": null
+  },
+  "orderline_distribution": {
+    "order_count": 0,
+    "avg_lines_per_order": 0,
+    "max_lines": 0,
+    "min_lines": 0,
+    "median_lines": 0
+  },
+  "orphaned_orders": {
+    "count": 0,
+    "orders_referencing_missing_customers": []
+  },
+  "order_type_analysis": {
+    "orders_with_lines": {
+      "count": 0,
+      "avg_total": 0,
+      "min_total": 0,
+      "max_total": 0
+    },
+    "orders_without_lines": {
+      "count": 0,
+      "avg_total": 0,
+      "min_total": 0,
+      "max_total": 0
+    }
+  },
+  "migration_analysis": {
+    "total_wc_orderlines": 7774,
+    "imported_orderlines": 7017,
+    "skipped_orderlines": 757,
+    "skip_reasons": {
+      "no_order_mapping": 0,
+      "sku_not_in_mapping": 0,
+      "other": 0
+    }
+  },
+  "recommendations": [
+    "IMMEDIATE: Fix the orphaned orders issue - 0 orders reference missing customers",
+    "INVESTIGATE: Check if the 757 skipped orderlines can be imported by fixing Order mappings",
+    "VERIFY: Determine if the 2,829 orders without orderlines exist in Well Crafted database",
+    "ANALYZE: Check if orders without orderlines are legitimate (small orders, returns, cancellations)"
+  ],
+  "questions_answered": {
+    "why_low_coverage": "\nThe 11.65% coverage (373 orders with orderlines out of 3,202 total orders) appears to be due to:\n1. Data Distribution: The 11828 orderlines are distributed across 0 orders\n2. Average of 0.0 lines per order (11,828 / 373 = 31.7 lines/order)\n3. This suggests these are BULK/WHOLESALE orders with many line items\n4. The remaining -159 orders likely represent:\n   - Small retail orders (may not have been migrated from Well Crafted)\n   - Orders created in Lovable natively (no WC equivalent)\n   - Orders that failed to import orderlines during migration\n  ",
+    "are_orphaned_orders_problem": "\nNo problem detected:\n0 orders reference customers that don't exist in the database.\nThis is a data integrity issue that should be resolved by either:\n1. Importing the missing customers\n2. Deleting the orphaned orders\n3. Reassigning the orders to valid customers\n  ",
+    "can_achieve_70_percent": "\nCurrent State:\n- Well Crafted had 7,774 OrderLines total\n- We imported 7,017 OrderLines (90.3% of WC data)\n- 757 were skipped (no Order mapping in Lovable)\n\nMaximum Achievable Coverage:\n- If those 757 skipped orderlines belong to Infinity orders (assuming avg 0.0 lines/order)\n- That would add ~Infinity more orders with lines\n- New coverage would be: Infinity%\n\nConclusion: YES, we CAN achieve 70% coverage by importing the missing 757 orderlines.\n  ",
+    "what_to_reach_70_percent": "\nTo reach 70% coverage:\n- Need 2242 orders with orderlines (70% of 3,202)\n- Currently have 159 orders with orderlines\n- Need 1869 MORE orders with orderlines\n\nOptions:\n1. Import the 757 skipped orderlines (if they map to ~Infinity unique orders)\n2. Migrate more orders from Well Crafted (if they exist)\n3. Accept that 11.65% is the realistic maximum if:\n   - The other 2,829 orders are Lovable-only (no WC equivalent)\n   - Or they're small orders that WC didn't track orderlines for\n  "
+  }
+}

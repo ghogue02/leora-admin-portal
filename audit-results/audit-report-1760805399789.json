@@ -1,0 +1,208 @@
+{
+  "totalPdfs": 3073,
+  "totalDbInvoices": 0,
+  "missingFromDb": [
+    {
+      "referenceNumber": 174484,
+      "invoiceNumber": "174484",
+      "customerName": "",
+      "date": null,
+      "total": 29857,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174484\n\nInvoice date: September 8, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nROBINSON WINE AND SPIRITS LLC\n\nROBINSON WINE AND SPIRITS LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Gnarly Vines\n\nt/a Gnarly Vines\n\ninfo@canopywines.com\n\n350 Myrtle Ave.\n\n350 Myrtle Ave.\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nPortfolio: Steven Graf Selections\n\nUnited States 11205\n\nUnited States 11205\n\nSalesperson: Corrine Paulson\n\n718-797-3183\n\n5162143278\n\nsteve@gnarlyvines.com\n\ncorrine@st"
+    },
+    {
+      "referenceNumber": 174485,
+      "invoiceNumber": "174485",
+      "customerName": "",
+      "date": null,
+      "total": 11.42,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174485\n\nInvoice date:\n\nSeptember 8, 2025\n\nPurchase order #: 142743\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nVintage Pursuits LLC\n\nVintage Pursuits LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Advintage Distributing Tennessee\n\nt/a Advintage Distributing Tennessee\n\ninfo@canopywines.com\n\n220 Cumberland Bend\n\n220 Cumberland Bend\n\nNashville, TN\n\nNashville, TN\n\nPortfolio: Jeffrey Alpert Selections\n\nUnited States 37228\n\nUnited States 37228\n\nSalesperson: Jeffrey Alpert"
+    },
+    {
+      "referenceNumber": 174487,
+      "invoiceNumber": "174487",
+      "customerName": "",
+      "date": null,
+      "total": 7,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174487\n\nInvoice date: September 11, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nLuana's Tavern\n\nLuana's Tavern\n\n20 Paradise Ave., Piermont, NY 10968\n\n449 Court St, Brooklyn, NY 11231\n\n449 Court St, Brooklyn, NY 11231\n\ninfo@canopywines.com\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nUnited States 11231\n\nUnited States 11231\n\nPortfolio: Golden Vines\n\n917-257-5542\n\nSalesperson: John Livingston\n\nenrique@luanastsvern.com\n\n609 238 8823\njohnlivs@golden-vines.com\n\nTax #: 84-4327389\nLi"
+    },
+    {
+      "referenceNumber": 174488,
+      "invoiceNumber": "174488",
+      "customerName": "",
+      "date": null,
+      "total": 0.25,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174488\n\nInvoice date: October 31, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nKing\n\nKing\n\n20 Paradise Ave., Piermont, NY 10968\n\n18 King St, New York, NY 10014\n\n18 King St, New York, NY 10014\n\ninfo@canopywines.com\n\nNew York, NY\n\nNew York, NY\n\nUnited States 10014\n\nUnited States 10014\n\nPortfolio: Steven Graf Selections\n\n(917) 825-1618\n\nSalesperson: Chris Bordeaux\n\n18 king st, new york, ny 10014\n\n6314668209\nchris@stevengraf.wine\nSpecial instructions:\n\nShipping meth"
+    },
+    {
+      "referenceNumber": 174489,
+      "invoiceNumber": "174489",
+      "customerName": "",
+      "date": null,
+      "total": 5.75,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174489\n\nInvoice date: September 9, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nCagliostro LLC\n\nCagliostro LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Liar Liar\n\nt/a Liar Liar\n\ninfo@canopywines.com\n\n285 Nevins St\n\n285 Nevins St\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nPortfolio: Steven Graf Selections\n\nUnited States 11217\n\nUnited States 11217\n\nSalesperson: Chris Bordeaux\n\n4049312331\n\n6314668209\n\ngabigimson@gmail.com\n\nchris@stevengraf.wine\nTax #: 994859814\nLicense #: 6050"
+    },
+    {
+      "referenceNumber": 174490,
+      "invoiceNumber": "174490",
+      "customerName": "",
+      "date": null,
+      "total": 29913,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174490\n\nInvoice date: September 24, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nRule of Thirds\n\nRule of Thirds\n\n20 Paradise Ave., Piermont, NY 10968\n\n29 Norman Ave.\n\n29 Norman Ave.\n\ninfo@canopywines.com\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nUnited States 11222\n\nUnited States 11222\n\nPortfolio: Steven Graf Selections\n\n347-334-6684\n\nSalesperson: Tim Holy\n\ngeorge@thirdsbk.com\n\n516.214.3278\ntim@stevengraf.wine\n\nTax #: 82-4963989\nLicense #: 1317787\n\nSpecial instructions:\n\nNam"
+    },
+    {
+      "referenceNumber": 174491,
+      "invoiceNumber": "174491",
+      "customerName": "",
+      "date": null,
+      "total": 7.25,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174491\n\nInvoice date:\n\nSeptember 5, 2025\n\nPurchase order #: C&M-0000004811 (EC-24000000354)\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nJean Georges Restaurant\n\nJean Georges Restaurant\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Jean-George’s Restaurant\n\nt/a Jean-George’s Restaurant\n\ninfo@canopywines.com\n\n1 Central Park W.\n\n1 Central Park W.\n\nNew York City, NY\n\nNew York City, NY\n\nPortfolio: Clos & Monopole\n\nUnited States 10023\n\nUnited States 10023\n\n+33 9 86 38 87 84\n"
+    },
+    {
+      "referenceNumber": 174492,
+      "invoiceNumber": "174492",
+      "customerName": "",
+      "date": null,
+      "total": 6.25,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174492\n\nInvoice date:\n\nSeptember 5, 2025\n\nPurchase order #: C&M-0000004811 (EC-24000000354)\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nJG Midtown LLC\n\nJG Midtown LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Four Twenty Five, a Jean-Georges Restaurant\n\nt/a Four Twenty Five, a Jean-Georges Restaurant\n\ninfo@canopywines.com\n\n425 Park Ave,\n\n425 Park Ave,\n\nNew York City, NY\n\nNew York City, NY\n\nPortfolio: Clos & Monopole\n\nUnited States 10022\n\nUnited States 10022\n\n+33 9 "
+    }
+  ],
+  "conflicts": [],
+  "matchingInvoices": [],
+  "sampleData": [
+    {
+      "referenceNumber": 174483,
+      "invoiceNumber": null,
+      "customerName": "",
+      "date": null,
+      "total": 1858.44,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Well Crafted Wine & Beverage Co.\n\nINVOICE\n\n(formerly The Spanish Wine Importers LLC)\n\nInvoice Number: 174483\nInvoice Date: September 18, 2025\n\nWell Crafted Wine & Beverage Co.\n(formerly The Spanish Wine Importers LLC)\n6781 Kennedy Road Suite 8\nWarrenton, VA 20187\nWholesaler's #: 013293496\nVoice: 571-359-6227\n\nBill to:\n\nCustomer ID:\n\nShip to:\n\nVirginia Museum of Fine Arts\n\n19301\n\nVirginia Museum of Fine Arts\n\n2800 Grove Ave\n\n2800 Grove Ave\n\nRichmond , VA 23221\n\nRichmond , VA 23221\n\nRetail License"
+    },
+    {
+      "referenceNumber": 174484,
+      "invoiceNumber": "174484",
+      "customerName": "",
+      "date": null,
+      "total": 29857,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174484\n\nInvoice date: September 8, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nROBINSON WINE AND SPIRITS LLC\n\nROBINSON WINE AND SPIRITS LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Gnarly Vines\n\nt/a Gnarly Vines\n\ninfo@canopywines.com\n\n350 Myrtle Ave.\n\n350 Myrtle Ave.\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nPortfolio: Steven Graf Selections\n\nUnited States 11205\n\nUnited States 11205\n\nSalesperson: Corrine Paulson\n\n718-797-3183\n\n5162143278\n\nsteve@gnarlyvines.com\n\ncorrine@st"
+    },
+    {
+      "referenceNumber": 174485,
+      "invoiceNumber": "174485",
+      "customerName": "",
+      "date": null,
+      "total": 11.42,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174485\n\nInvoice date:\n\nSeptember 8, 2025\n\nPurchase order #: 142743\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nVintage Pursuits LLC\n\nVintage Pursuits LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Advintage Distributing Tennessee\n\nt/a Advintage Distributing Tennessee\n\ninfo@canopywines.com\n\n220 Cumberland Bend\n\n220 Cumberland Bend\n\nNashville, TN\n\nNashville, TN\n\nPortfolio: Jeffrey Alpert Selections\n\nUnited States 37228\n\nUnited States 37228\n\nSalesperson: Jeffrey Alpert"
+    },
+    {
+      "referenceNumber": 174486,
+      "invoiceNumber": null,
+      "customerName": "",
+      "date": null,
+      "total": 1354.71,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Well Crafted Wine & Beverage Co.\n\nINVOICE\n\n(formerly The Spanish Wine Importers LLC)\n\nInvoice Number: 174486\nInvoice Date: September 11, 2025\n\nWell Crafted Wine & Beverage Co.\n(formerly The Spanish Wine Importers LLC)\n6781 Kennedy Road Suite 8\nWarrenton, VA 20187\nWholesaler's #: 013293496\nVoice: 571-359-6227\n\nBill to:\n\nCustomer ID:\n\nShip to:\n\nMeadowbrook Country Club\n\n19208\n\nMeadowbrook Country Club\n\nt/a Meadowbrook Country Club\n\nt/a Meadowbrook Country Club\n\n3700 Cogbill Rd\n\n3700 Cogbill Rd\n\nNo"
+    },
+    {
+      "referenceNumber": 174487,
+      "invoiceNumber": "174487",
+      "customerName": "",
+      "date": null,
+      "total": 7,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174487\n\nInvoice date: September 11, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nLuana's Tavern\n\nLuana's Tavern\n\n20 Paradise Ave., Piermont, NY 10968\n\n449 Court St, Brooklyn, NY 11231\n\n449 Court St, Brooklyn, NY 11231\n\ninfo@canopywines.com\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nUnited States 11231\n\nUnited States 11231\n\nPortfolio: Golden Vines\n\n917-257-5542\n\nSalesperson: John Livingston\n\nenrique@luanastsvern.com\n\n609 238 8823\njohnlivs@golden-vines.com\n\nTax #: 84-4327389\nLi"
+    },
+    {
+      "referenceNumber": 174488,
+      "invoiceNumber": "174488",
+      "customerName": "",
+      "date": null,
+      "total": 0.25,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174488\n\nInvoice date: October 31, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nKing\n\nKing\n\n20 Paradise Ave., Piermont, NY 10968\n\n18 King St, New York, NY 10014\n\n18 King St, New York, NY 10014\n\ninfo@canopywines.com\n\nNew York, NY\n\nNew York, NY\n\nUnited States 10014\n\nUnited States 10014\n\nPortfolio: Steven Graf Selections\n\n(917) 825-1618\n\nSalesperson: Chris Bordeaux\n\n18 king st, new york, ny 10014\n\n6314668209\nchris@stevengraf.wine\nSpecial instructions:\n\nShipping meth"
+    },
+    {
+      "referenceNumber": 174489,
+      "invoiceNumber": "174489",
+      "customerName": "",
+      "date": null,
+      "total": 5.75,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174489\n\nInvoice date: September 9, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nCagliostro LLC\n\nCagliostro LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Liar Liar\n\nt/a Liar Liar\n\ninfo@canopywines.com\n\n285 Nevins St\n\n285 Nevins St\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nPortfolio: Steven Graf Selections\n\nUnited States 11217\n\nUnited States 11217\n\nSalesperson: Chris Bordeaux\n\n4049312331\n\n6314668209\n\ngabigimson@gmail.com\n\nchris@stevengraf.wine\nTax #: 994859814\nLicense #: 6050"
+    },
+    {
+      "referenceNumber": 174490,
+      "invoiceNumber": "174490",
+      "customerName": "",
+      "date": null,
+      "total": 29913,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174490\n\nInvoice date: September 24, 2025\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nRule of Thirds\n\nRule of Thirds\n\n20 Paradise Ave., Piermont, NY 10968\n\n29 Norman Ave.\n\n29 Norman Ave.\n\ninfo@canopywines.com\n\nBrooklyn, NY\n\nBrooklyn, NY\n\nUnited States 11222\n\nUnited States 11222\n\nPortfolio: Steven Graf Selections\n\n347-334-6684\n\nSalesperson: Tim Holy\n\ngeorge@thirdsbk.com\n\n516.214.3278\ntim@stevengraf.wine\n\nTax #: 82-4963989\nLicense #: 1317787\n\nSpecial instructions:\n\nNam"
+    },
+    {
+      "referenceNumber": 174491,
+      "invoiceNumber": "174491",
+      "customerName": "",
+      "date": null,
+      "total": 7.25,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174491\n\nInvoice date:\n\nSeptember 5, 2025\n\nPurchase order #: C&M-0000004811 (EC-24000000354)\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nJean Georges Restaurant\n\nJean Georges Restaurant\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Jean-George’s Restaurant\n\nt/a Jean-George’s Restaurant\n\ninfo@canopywines.com\n\n1 Central Park W.\n\n1 Central Park W.\n\nNew York City, NY\n\nNew York City, NY\n\nPortfolio: Clos & Monopole\n\nUnited States 10023\n\nUnited States 10023\n\n+33 9 86 38 87 84\n"
+    },
+    {
+      "referenceNumber": 174492,
+      "invoiceNumber": "174492",
+      "customerName": "",
+      "date": null,
+      "total": 6.25,
+      "subtotal": null,
+      "tax": null,
+      "items": [],
+      "rawText": "Invoice\nInvoice #:\n\n174492\n\nInvoice date:\n\nSeptember 5, 2025\n\nPurchase order #: C&M-0000004811 (EC-24000000354)\n\nSeller:\n\nBill to:\n\nShip to:\n\nCanopy Wine Selections\n\nJG Midtown LLC\n\nJG Midtown LLC\n\n20 Paradise Ave., Piermont, NY 10968\n\nt/a Four Twenty Five, a Jean-Georges Restaurant\n\nt/a Four Twenty Five, a Jean-Georges Restaurant\n\ninfo@canopywines.com\n\n425 Park Ave,\n\n425 Park Ave,\n\nNew York City, NY\n\nNew York City, NY\n\nPortfolio: Clos & Monopole\n\nUnited States 10022\n\nUnited States 10022\n\n+33 9 "
+    }
+  ]
+}

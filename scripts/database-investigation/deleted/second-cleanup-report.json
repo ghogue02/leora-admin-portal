@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-10-23T21:04:33.252Z",
+  "secondCleanup": {
+    "orphanedOrdersDeleted": 0,
+    "orphanedSkusDeleted": 0,
+    "orderlinesRemovedWithOrphanedOrders": 0
+  },
+  "finalState": {
+    "customers": 4947,
+    "products": 3479,
+    "skus": 2243,
+    "orders": 2635,
+    "orderlines": 9042,
+    "ordersWithOrderlines": 1452
+  },
+  "coverage": {
+    "current": 55.1,
+    "target": 70,
+    "gap": 393,
+    "achieved": false
+  },
+  "integrity": {
+    "orphanedOrders": 0,
+    "orphanedSkus": 0,
+    "perfectIntegrity": true
+  }
+}

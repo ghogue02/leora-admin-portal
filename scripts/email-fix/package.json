@@ -1,0 +1,21 @@
+{
+  "name": "customer-email-fix",
+  "version": "1.0.0",
+  "description": "Scripts to fix missing customer email addresses from CSV import",
+  "private": true,
+  "scripts": {
+    "parse": "tsx parse-customer-emails.ts",
+    "update": "tsx update-customer-emails.ts",
+    "fix": "npm run parse && npm run update",
+    "verify": "cat update-results.json | jq '.stats'"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "csv-parse": "^5.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.9",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

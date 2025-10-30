@@ -1,0 +1,107 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║              🚀 DEPLOY PHASES 3-7 IN 15 MINUTES ✅                          ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+CURRENT STATUS:
+✅ Server running: http://localhost:3000
+✅ Phases 1-2 tested: 15/15 tests PASSED (100%)
+✅ Dependencies installing in background
+✅ SQL migration ready
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 3-STEP DEPLOYMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Apply Database Schema (5 min)
+────────────────────────────────────────
+1. Open file: /Users/greghogue/Leora2/web/prisma/migrations/deploy-all-phases.sql
+2. Copy ENTIRE contents (Cmd+A, Cmd+C)
+3. Open: https://supabase.com/dashboard/project/zqezunzlyjkseugujkrl/sql/new
+4. Paste SQL (Cmd+V)
+5. Click RUN button
+6. Wait ~30 seconds for completion
+7. Verify: Should see 14 new tables created
+
+STEP 2: Update Prisma Client (2 min)
+────────────────────────────────────────
+cd /Users/greghogue/Leora2/web
+npx prisma db pull
+npx prisma generate
+
+STEP 3: Seed Default Data (5 min)
+────────────────────────────────────────
+npx tsx scripts/seed-sample-feedback.ts
+npx tsx scripts/seed-default-triggers.ts 58b8126a-2d2f-4f55-bc98-5b6784800bed
+npx tsx scripts/seed-warehouse-config.ts 58b8126a-2d2f-4f55-bc98-5b6784800bed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After deployment, test these URLs:
+
+✅ Phase 3: http://localhost:3000/sales/analytics/samples
+✅ Phase 5: http://localhost:3000/sales/warehouse
+✅ Phase 5: http://localhost:3000/sales/operations/pick-sheets
+✅ Phase 6: http://localhost:3000/sales/map
+✅ Phase 7: http://localhost:3000/sales/marketing/mailchimp
+
+Login: test@wellcrafted.com / test123
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔑 YOUR CREDENTIALS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SERVER: http://localhost:3000/sales/login
+
+TEST ACCOUNT:
+  Email: test@wellcrafted.com
+  Password: test123
+
+EXISTING ACCOUNTS:
+  1. carolyn@wellcraftedbeverage.com
+  2. travis@wellcraftedbeverage.com
+  3. kelly@wellcraftedbeverage.com
+  4. greg.hogue@gmail.com
+  5. admin@wellcraftedbeverage.com
+
+DATABASE:
+  Tenant: 58b8126a-2d2f-4f55-bc98-5b6784800bed
+  Password: 9gpGHuAIr2vKf4hO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📦 WHAT GETS DEPLOYED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 3: Samples & Analytics
+  • 5 new tables (SampleFeedbackTemplate, SampleMetrics, AutomatedTrigger, TriggeredTask, Job)
+  • Sample tracking with 11 feedback templates
+  • Analytics dashboard with conversion tracking
+  • 4 automated trigger types
+  • AI product recommendations (Claude)
+
+PHASE 5: Operations & Warehouse
+  • 6 new tables (WarehouseConfig, PickSheet, PickSheetItem, DeliveryRoute, RouteStop, RouteExport)
+  • Warehouse location management
+  • Pick sheet generation
+  • Azuga routing integration
+  • Delivery tracking
+
+PHASE 6: Maps & Territory
+  • 2 new tables (Territory, GeocodingCache)
+  • Customer geocoding
+  • Interactive Mapbox maps
+  • Territory management
+  • Heat map visualization
+
+PHASE 7: Advanced Features
+  • 3 new tables (ImageScan, MailchimpSync, EmailCampaign)
+  • Image scanning (business cards, licenses)
+  • Mailchimp email marketing
+  • Mobile camera capture
+
+TOTAL: 14 new database tables + 7 new columns
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎊 START DEPLOYING NOW! Follow the 3 steps above. 🚀

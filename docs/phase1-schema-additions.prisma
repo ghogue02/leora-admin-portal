@@ -1,0 +1,87 @@
+// ============================================================================
+// PHASE 1: FOUNDATION & SETUP - METRIC DEFINITIONS & DASHBOARD
+// Add this section after DataIntegritySnapshot model (line 1069)
+// ============================================================================
+
+model MetricDefinition {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid
+  code        String   // "at_risk_customer", "contacted_recently", etc.
+  name        String   // "At Risk Customer"
+  description String   // Full definition
+  formula     Json?    // { field: "lastOrderDate", operator: ">", value: "30 days" }
+  version     Int      @default(1)
+  effectiveAt DateTime @default(now())
+  deprecatedAt DateTime?
+  createdById String   @db.Uuid
+  createdAt   DateTime @default(now())
+
+  tenant    Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdBy User   @relation(fields: [createdById], references: [id])
+
+  @@unique([tenantId, code, version])
+  @@index([tenantId, code])
+  @@index([tenantId, effectiveAt])
+}
+
+model DashboardWidget {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid
+  userId      String?  @db.Uuid // null = tenant default
+  widgetType  String   // "at_risk_customers", "revenue_trend", "tasks_from_management"
+  position    Int      // Display order
+  size        String   @default("medium") // "small", "medium", "large"
+  isVisible   Boolean  @default(true)
+  config      Json?    // Widget-specific configuration
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, userId, widgetType])
+  @@index([tenantId, userId])
+}
+
+model Job {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String   @db.Uuid
+  type        String   // "image_extraction", "account_type_update", etc.
+  payload     Json
+  status      String   @default("pending") // "pending", "processing", "completed", "failed"
+  attempts    Int      @default(0)
+  maxAttempts Int      @default(3)
+  result      Json?
+  error       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([status])
+  @@index([type, status])
+}
+
+// ============================================================================
+// REQUIRED UPDATES TO EXISTING MODELS
+// ============================================================================
+
+// Update Tenant model (lines 13-63):
+// Add these 3 relations to the existing Tenant model:
+//
+//   metricDefinitions MetricDefinition[]
+//   dashboardWidgets  DashboardWidget[]
+//   jobs              Job[]
+//
+// After the existing line:
+//   integritySnapshots  DataIntegritySnapshot[]
+
+// Update User model (lines 114-138):
+// Add these 2 relations to the existing User model:
+//
+//   metricDefinitions MetricDefinition[]
+//   dashboardWidgets  DashboardWidget[]
+//
+// After the existing line:
+//   auditLogs       AuditLog[]

@@ -1,0 +1,42 @@
+
+
+═══════════════════════════════════════════════════════════════
+                    🎉 INVESTIGATION COMPLETE 🎉
+═══════════════════════════════════════════════════════════════
+
+SUMMARY:
+--------
+✅ TRUE Coverage: 60.18% (1,927 orders out of 3,202)
+❌ Reported Coverage: 11.65% (373 orders - WRONG)
+🔧 Issue: Migration verification had pagination bug
+
+KEY FINDINGS:
+-------------
+1. Database has 1,927 orders with orderlines (NOT 373\!)
+2. Coverage is 60.18% - very close to 70% target
+3. 567 orphaned orders still need fixing
+4. 757 skipped orderlines could add ~123 more orders
+5. Only need 314 more orders to reach 70%
+
+CRITICAL DISCOVERY:
+------------------
+Lovable has 11,828 orderlines vs Well Crafted's 7,774
+That's 4,054 MORE orderlines (+52% more data\!)
+This needs investigation - where did they come from?
+
+DOCUMENTS CREATED:
+-----------------
+📄 /docs/database-investigation/COVERAGE_ANALYSIS.md
+📄 /docs/database-investigation/COVERAGE_ANALYSIS_CORRECTED.md
+📄 /docs/database-investigation/coverage-investigation-report.json
+📄 /docs/database-investigation/orderline-count-verification.json
+
+NEXT STEPS:
+----------
+1. Fix 567 orphaned orders (customer references)
+2. Import 757 skipped orderlines
+3. Investigate the 4,054 'extra' orderlines
+4. Find 191 more orders to hit 70% coverage
+
+═══════════════════════════════════════════════════════════════
+

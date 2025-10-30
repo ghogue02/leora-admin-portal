@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-10-23T16:12:11.498Z",
+  "differences": {
+    "customers": {
+      "inWC": 0,
+      "inLovable": 0,
+      "missing": 0
+    },
+    "orders": {
+      "inWC": 0,
+      "inLovable": 2843,
+      "missing": 0
+    },
+    "orderlines": {
+      "inWC": 0,
+      "inLovable": 2817,
+      "missing": 0
+    },
+    "skus": {
+      "inWC": 0,
+      "inLovable": 1000,
+      "missing": 0
+    },
+    "products": {
+      "inWC": 0,
+      "inLovable": 1000,
+      "missing": 0
+    }
+  },
+  "missingData": [],
+  "recommendations": []
+}

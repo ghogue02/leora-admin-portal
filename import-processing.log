@@ -1,0 +1,12 @@
+[dotenv@17.2.3] injecting env (25) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+🚀 COMPLETE INVOICE IMPORT SYSTEM
+======================================================================
+
+🔍 Finding tenant...
+❌ Error getting tenant: {
+  code: '42501',
+  details: null,
+  hint: null,
+  message: 'permission denied for schema public'
+}
+❌ Could not find tenant ID. Exiting.

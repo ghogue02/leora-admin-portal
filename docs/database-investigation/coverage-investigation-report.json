@@ -1,0 +1,74 @@
+{
+  "timestamp": "2025-10-23T20:49:36.302Z",
+  "database_overview": {
+    "total_orders": 3202,
+    "total_orderlines": 11828,
+    "total_customers": 4947
+  },
+  "coverage": {
+    "orders_with_lines": 159,
+    "orders_without_lines": 3043,
+    "coverage_percentage": 4.965646470955653
+  },
+  "orderline_distribution": {
+    "orders_with_lines": 159,
+    "avg_lines_per_order": 6.289308176100629,
+    "max_lines": 44,
+    "min_lines": 1
+  },
+  "orphaned_orders": {
+    "count": 567,
+    "sample": [
+      {
+        "id": "a41a46fe-b892-4d61-b547-9e2a678818ec",
+        "customerid": "bfacc416-23e9-4a06-ad8d-08bd9fc77edd",
+        "total": 317.24
+      },
+      {
+        "id": "24ee0be7-513d-43f2-964b-27f71bbe502a",
+        "customerid": "933482a6-9be9-4d5c-bbee-ef4a10786c22",
+        "total": 528.12
+      },
+      {
+        "id": "77a7db14-74e1-493e-8f01-8d3e342b4b35",
+        "customerid": "e243e747-d10e-4183-83bd-90a89d000347",
+        "total": 358.56
+      },
+      {
+        "id": "cba50467-4430-41d9-a512-d0d62881866a",
+        "customerid": "3cea6c9e-d6d3-441f-8fe6-184d9f9c87e3",
+        "total": 803.41
+      },
+      {
+        "id": "7384a063-3290-4c64-adcb-d0d4e3526195",
+        "customerid": "c66aa4ce-05f5-4992-a6d5-4b06685ca713",
+        "total": 120
+      }
+    ]
+  },
+  "order_totals": {
+    "with_lines": 1159.6452380952378,
+    "without_lines": 932.3362943632582
+  },
+  "migration_stats": {
+    "total_wc_orderlines": 7774,
+    "imported": 7017,
+    "skipped": 757
+  },
+  "recommendations": [
+    "INVESTIGATE: Check if the 757 skipped orderlines can be imported",
+    "VERIFY: Determine if orders without orderlines exist in WellCrafted",
+    "ANALYZE: Check if 11.65% coverage is expected based on business model",
+    "CRITICAL: Fix 567 orphaned orders"
+  ],
+  "conclusion": {
+    "current_coverage": "4.97%",
+    "can_reach_70_percent": false,
+    "estimated_max_coverage": "8.7%",
+    "next_steps": [
+      "Import the 757 skipped orderlines",
+      "Verify WellCrafted order data",
+      "Accept current coverage if data distribution is correct"
+    ]
+  }
+}

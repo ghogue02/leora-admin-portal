@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-10-23T20:34:20.952Z",
+  "stats": {
+    "totalProcessed": 7774,
+    "imported": 7017,
+    "skippedNoOrder": 757,
+    "skippedNoSKU": 0,
+    "skippedSKUNotInDB": 0,
+    "errors": 0,
+    "batchesProcessed": 71
+  },
+  "verification": {
+    "totalOrderLines": 11828,
+    "ordersWithOrderLines": 373,
+    "totalOrders": 3202,
+    "coverage": 11.648969394128668
+  },
+  "targetCoverage": 70,
+  "coverageMet": false
+}

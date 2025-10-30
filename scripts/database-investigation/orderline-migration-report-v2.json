@@ -1,0 +1,621 @@
+{
+  "timestamp": "2025-10-23T19:09:21.259Z",
+  "stats": {
+    "totalWCOrderLines": 7774,
+    "orderLinesImported": 0,
+    "orderLinesSkipped": 8,
+    "skipReasons": {
+      "SKU not in mapping": 23,
+      "Order not in Lovable": 7743
+    },
+    "revenueAccuracy": {
+      "perfectMatches": 0,
+      "minorDifferences": 0,
+      "majorDifferences": 6
+    }
+  },
+  "coverage": "1.0%",
+  "success": false,
+  "skippedOrderLines": [
+    {
+      "orderLineId": "e26e7738-c366-47b5-a1c0-329c78e6fbf0",
+      "orderId": "8dcf5c10-31ab-4664-89a3-e26877fe4b23",
+      "skuId": "9e14d641-acd2-49d6-93b5-5bb60afbc4a1",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "9eeccd61-ba8c-4c46-b1e1-b87c18a7bf82",
+      "orderId": "4a9d9857-8c03-42c0-a3a3-e9e33a9213ce",
+      "skuId": "aeeec774-ace5-4054-8609-ccc253cfbe41",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "7267c030-b77b-4ce3-92e0-3923b5feff2a",
+      "orderId": "4a9d9857-8c03-42c0-a3a3-e9e33a9213ce",
+      "skuId": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "4468ec53-a6ac-4019-8727-5316e413186e",
+      "orderId": "4a9d9857-8c03-42c0-a3a3-e9e33a9213ce",
+      "skuId": "d6769fba-c368-4215-80fc-072eff176f8b",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "c6c59636-da0b-441e-80ff-03aebb5ef7e6",
+      "orderId": "4a9d9857-8c03-42c0-a3a3-e9e33a9213ce",
+      "skuId": "25a7a765-9b6a-45f1-9ffe-8085e3c652d1",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "22205954-02a3-4a23-ac41-9a009e488d5e",
+      "orderId": "95f29483-8280-43c3-a3ea-8e453afbd21c",
+      "skuId": "437fe033-8c3a-4794-89ed-ee2b1ed950dc",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "63f2fedd-afc4-4e7e-bb17-a295449c84ae",
+      "orderId": "95f29483-8280-43c3-a3ea-8e453afbd21c",
+      "skuId": "d6769fba-c368-4215-80fc-072eff176f8b",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "66d7ade8-a0ee-4144-a896-062c1d5b034a",
+      "orderId": "95f29483-8280-43c3-a3ea-8e453afbd21c",
+      "skuId": "f48713da-3e7d-4904-812f-f58c707e94f3",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "f47caf70-f017-4499-85a0-4ca02997d030",
+      "orderId": "95f29483-8280-43c3-a3ea-8e453afbd21c",
+      "skuId": "25a7a765-9b6a-45f1-9ffe-8085e3c652d1",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "bf86d880-2d23-48c3-9f43-eaf02a118951",
+      "orderId": "78170444-401c-4d4b-884c-0a431585a50c",
+      "skuId": "fc866804-1aa2-4295-997e-5bc87616c3ce",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "3aa9e755-ced4-4e4d-ad6f-f139dcc32fc5",
+      "orderId": "78170444-401c-4d4b-884c-0a431585a50c",
+      "skuId": "8b1cc800-3aff-43bd-9156-f2cad9a03596",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "413a2dda-bc33-47ba-8642-23be09034a19",
+      "orderId": "78170444-401c-4d4b-884c-0a431585a50c",
+      "skuId": "ace7bf5d-a22a-4358-b4a0-846ecf197ddb",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "8075fa91-11c5-402a-8842-da76e1302251",
+      "orderId": "6f8a7674-7184-4c88-8f79-0e668ed9f7d0",
+      "skuId": "0747ce35-d196-4e9b-9497-9ed3300e196c",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "770f8171-b72f-45d0-84ac-35ebeb6a8948",
+      "orderId": "6f8a7674-7184-4c88-8f79-0e668ed9f7d0",
+      "skuId": "dab91dfd-776b-4c89-8052-764114fe3a38",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "861be03d-1a79-4295-88a4-a1ac022f7f05",
+      "orderId": "6f8a7674-7184-4c88-8f79-0e668ed9f7d0",
+      "skuId": "cca2c055-75f0-4182-bc8c-d9a8861e8c62",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "8b89d15e-7432-4e79-8c79-c25f37c51c9d",
+      "orderId": "1bbcc987-bc55-41fa-a9ca-fb527816cec3",
+      "skuId": "c16f6c33-afb3-4689-95d5-0130841a34c6",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "bcac1334-7895-4da2-8dbe-0ff712b7f912",
+      "orderId": "1bbcc987-bc55-41fa-a9ca-fb527816cec3",
+      "skuId": "dab91dfd-776b-4c89-8052-764114fe3a38",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "a4a5fcb8-3ced-4ce9-a0ab-afcfab1aed59",
+      "orderId": "1bbcc987-bc55-41fa-a9ca-fb527816cec3",
+      "skuId": "908bcf26-076f-4efb-8003-ca4a9c486cb6",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "cfa5a7d0-2ada-4916-a6e5-15db9bc9e8a7",
+      "orderId": "24e30551-fd5a-4b26-aa9c-809007800beb",
+      "skuId": "9e14d641-acd2-49d6-93b5-5bb60afbc4a1",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "c1d4de18-8521-4d4a-b541-a62da9d12781",
+      "orderId": "24e30551-fd5a-4b26-aa9c-809007800beb",
+      "skuId": "908bcf26-076f-4efb-8003-ca4a9c486cb6",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "196f31b1-90d0-4e17-9078-77d305f1d284",
+      "orderId": "7ee2be91-2582-4695-9808-b0445d89a2df",
+      "skuId": "20fc09e5-aaa7-493d-b404-18675ca8c421",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "395b5fd2-eb7f-4f63-8c1a-1584ad0da2d7",
+      "orderId": "7ee2be91-2582-4695-9808-b0445d89a2df",
+      "skuId": "25a7a765-9b6a-45f1-9ffe-8085e3c652d1",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "18214c84-23fe-426a-9bfa-533af6c780e4",
+      "orderId": "7ee2be91-2582-4695-9808-b0445d89a2df",
+      "skuId": "42a332e3-9452-4fe0-bbb0-7a1e8447b96f",
+      "reason": "SKU not in mapping"
+    },
+    {
+      "orderLineId": "968a8645-6094-498e-8a64-2d22cc8b37e5",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "e9040847-6ab5-4c97-a6f7-1406d7d45f55",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e9d5b6f9-2104-462b-858b-9b3359b0b3d6",
+      "orderId": "33e49a86-a042-4c7a-b1cb-2618c909227b",
+      "skuId": "bcaf17c6-df39-459f-8d14-7367c32d3f8c",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "6edf51f1-7b30-4a7e-be79-b56df5e27931",
+      "orderId": "0fb09818-7ab2-4133-8e00-416cd914402d",
+      "skuId": "59e4ad1e-a216-4928-8549-fa289bdf08a0",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "a1fb2370-7c11-4f7d-949f-854c0a52b4ea",
+      "orderId": "932c7515-b475-49c2-8030-ffa273e3564e",
+      "skuId": "1075b411-16d5-4a72-92c9-d8c1a4a32751",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "655fe867-d6c5-4eb5-9dea-e214ef16ec84",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "3975918a-6b88-4331-93d3-415af1551aba",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "96656376-409d-4ad5-98a1-58ddfca051a4",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "b61a099c-ba44-4750-ac6f-b6d17f72e4c3",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "6ca62ddd-0419-438b-8239-83bc7bdb39a8",
+      "orderId": "90407220-f8e6-4063-b897-82162514ae89",
+      "skuId": "d7492884-8f19-4bed-ac14-044cb04441b1",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "9aebfb76-2333-4d9b-bf3c-ed9dc5d04db0",
+      "orderId": "225afe7b-3924-4ee9-8991-9a539c8eb4c3",
+      "skuId": "4d0e8a14-2739-4db8-94be-eaa969d4e43e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e98ff872-28cb-49af-9607-28f3fc979850",
+      "orderId": "0fb09818-7ab2-4133-8e00-416cd914402d",
+      "skuId": "2d3d1ca9-e7cb-4684-a8ea-a9fbc6e2d724",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e0b03d9f-d216-4359-87c2-1ada082ae643",
+      "orderId": "0fb09818-7ab2-4133-8e00-416cd914402d",
+      "skuId": "b73ab385-7046-4c30-b910-5566d9c8c6c6",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "c89f192b-111d-41bb-a68f-4d30809ccbcc",
+      "orderId": "ac34ef19-f5cd-4b7d-a5af-1292cd1953b6",
+      "skuId": "36cfeddb-76d6-486f-858a-2d78ce3aa904",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "090b9e3a-72f1-4ce0-a9f9-e60298e4cf95",
+      "orderId": "6cb7cdb4-8dd6-4669-86f9-258d36f231d4",
+      "skuId": "db5be37c-8a9e-4d16-b8c2-200ed626bc81",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "0c566c17-b98e-4c68-ba0b-0245da38f68b",
+      "orderId": "7f75d189-76b7-45d9-90ce-810d67c37e43",
+      "skuId": "a62a96af-dc15-4ec7-9b5e-42b552431f21",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "63ae5d8f-9629-472b-9061-97ae427d590d",
+      "orderId": "8d8e0143-c282-4b5a-91b5-b1eac4fd142c",
+      "skuId": "9a7b3e94-8e0a-454c-96a4-6337f433d7a0",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "375f6328-4f58-4961-8ad6-4f93e2344a04",
+      "orderId": "8fb90a05-f870-4140-8f5c-5086e6268a9a",
+      "skuId": "3975918a-6b88-4331-93d3-415af1551aba",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "464d1a8f-86ea-4ae0-ac4b-feb3894562e9",
+      "orderId": "8fb90a05-f870-4140-8f5c-5086e6268a9a",
+      "skuId": "4455f2aa-8ede-4843-a0dc-b0ab5d630b8a",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "7187f99a-c177-4df0-9595-682d572978e4",
+      "orderId": "2cb7a3de-57a4-490a-b1af-9f5f8fa5747b",
+      "skuId": "6a9be919-ab79-4d49-ab34-66f8c55ceb6f",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "1f771311-812d-4a4f-a6c1-42037a7eed15",
+      "orderId": "ffb37d0a-ea8f-471f-8f31-1b153d002777",
+      "skuId": "366a003b-d2b5-407d-be88-da7797f36bea",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "4d913d27-11c3-4ae8-a9ca-d904cc46c88d",
+      "orderId": "9d469dab-dd95-46e5-abb2-efdde9430d33",
+      "skuId": "2dd8edb3-6f86-41b6-9fa4-aeecf774348c",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "7224eeb9-750c-4834-8215-fa4d559eebf2",
+      "orderId": "9d469dab-dd95-46e5-abb2-efdde9430d33",
+      "skuId": "e51729db-5c7c-4554-bbea-fa4b64dcb33c",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "c814581f-64c5-489a-a5f7-c8e2035a213f",
+      "orderId": "9a319149-bbad-4dbb-9bfb-ae4a23a77fc3",
+      "skuId": "105df3b0-2a1f-4868-b8c5-71ff067fb9fe",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "1e5e1f92-de84-4be7-b507-9f850b15ae7e",
+      "orderId": "9a319149-bbad-4dbb-9bfb-ae4a23a77fc3",
+      "skuId": "3fcbebae-0a1a-4e4f-80f3-31488afde266",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "d2b89ac9-5a66-4e6d-809d-a83f15b59ac9",
+      "orderId": "9a319149-bbad-4dbb-9bfb-ae4a23a77fc3",
+      "skuId": "a6a06b77-f630-4a95-b69c-15ee29201a5a",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "f9ac69fa-5a18-4a39-962f-55a028baafe0",
+      "orderId": "3d7174a1-14e6-44f5-9f3f-6f6cc2c9363c",
+      "skuId": "9055d438-8923-4780-8ff8-626ee1fbe272",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "864a5bc7-17a0-418f-97a0-546aafc4c718",
+      "orderId": "3d7174a1-14e6-44f5-9f3f-6f6cc2c9363c",
+      "skuId": "87791653-0057-4e5f-b5bb-ef3ee7a66ed5",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e5d0dc75-bde2-4e96-8430-54fdc578b946",
+      "orderId": "3d7174a1-14e6-44f5-9f3f-6f6cc2c9363c",
+      "skuId": "e6a34b00-bc5d-4ccd-b121-97eba82f96ff",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e1fdfe87-c932-450b-b162-78b9d5c4687a",
+      "orderId": "3d7174a1-14e6-44f5-9f3f-6f6cc2c9363c",
+      "skuId": "11750cba-c7e4-4536-8b59-349e68dc8be6",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "14e69b32-6159-4282-a73f-b1fbd8fe5e8d",
+      "orderId": "3d7174a1-14e6-44f5-9f3f-6f6cc2c9363c",
+      "skuId": "fd0df1ec-5701-4af3-88f2-b2aee3ee64d7",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "f6b0d9ae-ad95-4a5b-9b8a-eaf62771bf3c",
+      "orderId": "225afe7b-3924-4ee9-8991-9a539c8eb4c3",
+      "skuId": "814b844e-6ad0-41e8-8116-e93adc3e4e94",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "ad54a91d-49fc-44ee-a471-b1c97d0cf9c6",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "e88674c0-30ea-4903-9e7d-f4762f2badc8",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "61f47598-5f91-4098-b21e-0cf08180ff14",
+      "orderId": "225afe7b-3924-4ee9-8991-9a539c8eb4c3",
+      "skuId": "c51ffcce-baea-4c32-b6f4-26be7434ecd9",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "fa9b2e40-fa50-4fdc-9c24-2da449431eb7",
+      "orderId": "932c7515-b475-49c2-8030-ffa273e3564e",
+      "skuId": "3b1649bd-8cab-4e5e-9cdb-11ff64b36813",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "3ee5cbb7-58ca-426f-8e53-0d669cea29dd",
+      "orderId": "225afe7b-3924-4ee9-8991-9a539c8eb4c3",
+      "skuId": "0c673144-11ce-4a12-b3cc-ce457d51cc7a",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "f7d2a9d7-bd05-4ecc-a619-44a126bde0ab",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "622ef030-1d86-4899-80f4-e565a3051375",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "9c8dd30a-b0a8-4139-8ac8-97eb57343bc6",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "983748f9-e5aa-40d1-83b2-8c4bcdfdbc68",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "9aa31e88-fcb5-4b87-8da0-67de13b6af22",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "7e958236-638a-4781-bdab-57df53e77c8b",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "7e095404-696e-4631-9b81-200f2d56cfed",
+      "orderId": "9b500153-055d-4459-ad0b-66dcffed4b86",
+      "skuId": "ebc76879-aa59-49f1-a0e8-c5781ee1a609",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "354a46e8-ef57-4aa5-b586-1faf7cf2ddef",
+      "orderId": "acff72d9-e725-4a55-a288-33551558d99a",
+      "skuId": "ca1603ca-37c5-4ea8-8583-eb87698a8687",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "8ec95848-0a3b-4cd5-a76a-91155783fb2b",
+      "orderId": "225afe7b-3924-4ee9-8991-9a539c8eb4c3",
+      "skuId": "cc6b0aaf-7ae6-45a8-9d3f-20681752fe78",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "ae0e9ef8-be93-4f73-9ae4-14a01a7331c7",
+      "orderId": "9d34efeb-841b-45ba-bd13-0ba4f2a4f150",
+      "skuId": "7874a21e-070a-47e8-be6e-3c2de2698a8e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "7ea64bc5-79d6-449d-94cf-81c19b6cb69a",
+      "orderId": "9d34efeb-841b-45ba-bd13-0ba4f2a4f150",
+      "skuId": "3b4cd06c-f224-4035-be8c-ce47995fe34a",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "d478840b-b1f8-4fe1-b766-8e1b6fc9d018",
+      "orderId": "9d34efeb-841b-45ba-bd13-0ba4f2a4f150",
+      "skuId": "fa2e7d04-fd0a-463a-b72e-7f3f81ad5d41",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "6b9e17ea-6ea2-4895-ada8-d6a0311774bc",
+      "orderId": "8dbb68cb-6858-4b9e-b8d3-a0c06d22a0a3",
+      "skuId": "c0ee40e7-fc7f-47cd-8b23-1a0649885f10",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "f9a49382-b6e6-43ce-88d8-93c99b33aa7d",
+      "orderId": "8dbb68cb-6858-4b9e-b8d3-a0c06d22a0a3",
+      "skuId": "e68e1572-c54d-4d50-8933-9fc2b0d05fb3",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "c2cda718-1b12-46b9-99f5-ad8540ff6751",
+      "orderId": "1ae995a5-3fbd-455a-94a1-268b4ac8266e",
+      "skuId": "3bfabe8d-f52c-4efd-ad6b-a4e57fa29d27",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "1ee25317-e596-40c6-b13b-fe78507afebf",
+      "orderId": "ac34ef19-f5cd-4b7d-a5af-1292cd1953b6",
+      "skuId": "57724985-ee78-4efa-86f5-fbbc8a7a7b09",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "272c9d33-c355-4854-9df2-666372c05fac",
+      "orderId": "6cb7cdb4-8dd6-4669-86f9-258d36f231d4",
+      "skuId": "c9de9663-a81e-4d72-8435-5143b59a4ad0",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "98226ee5-0dfe-4fef-8260-e0ccd267dfbd",
+      "orderId": "3456153e-ac5c-41a8-9ba2-e047ce0896fd",
+      "skuId": "c814b7ba-816e-4cdd-acf7-c085cc1df727",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "831b73a9-70a5-42e7-a228-faa494b7215f",
+      "orderId": "8d495d9f-df44-4af1-b9e2-370b8136e368",
+      "skuId": "23b59c99-7e4b-487e-b6bb-5221b685a25e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "a4c198d3-69c7-457f-9841-a0bb32c8a00b",
+      "orderId": "dd978611-88d3-4227-b930-66ffdb0a9f13",
+      "skuId": "7b792d05-f72c-4b43-b8cc-2c497f1e3185",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e4b97f52-60f3-485d-9d0d-8bab0f754fee",
+      "orderId": "8d8e0143-c282-4b5a-91b5-b1eac4fd142c",
+      "skuId": "f505c151-eafb-4466-8bb9-71ecc7e50c77",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "553cc91f-fb86-4669-868e-e7af09c96b47",
+      "orderId": "8fb90a05-f870-4140-8f5c-5086e6268a9a",
+      "skuId": "ee7cd886-1df0-4d97-bca4-0f6f45153421",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "2b56f25e-5d0e-43e8-9367-22ac87a52415",
+      "orderId": "8d8e0143-c282-4b5a-91b5-b1eac4fd142c",
+      "skuId": "157da535-8cfc-495c-a427-98c2d91e307e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "f33d601c-d9d8-4f42-b137-1b24942c6385",
+      "orderId": "1ae995a5-3fbd-455a-94a1-268b4ac8266e",
+      "skuId": "e5a90533-cc61-4581-a08e-a7ce3475b136",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "168b74cd-5fdf-4bc1-80c0-9fad2cb060d3",
+      "orderId": "8dbb68cb-6858-4b9e-b8d3-a0c06d22a0a3",
+      "skuId": "70896f5d-d92c-465b-8b39-ab76b008b885",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "05dc115f-d33c-4332-95d2-152273e64867",
+      "orderId": "8dbb68cb-6858-4b9e-b8d3-a0c06d22a0a3",
+      "skuId": "2a449299-8b40-4de8-b583-c9a6c242a5de",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e0950b43-6e10-499f-a65c-65660313ce18",
+      "orderId": "8dbb68cb-6858-4b9e-b8d3-a0c06d22a0a3",
+      "skuId": "624ced90-3627-41ab-a99d-f44fa318686b",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "fac8c256-fb86-4111-8090-541e678f9e0c",
+      "orderId": "8dbb68cb-6858-4b9e-b8d3-a0c06d22a0a3",
+      "skuId": "30bea337-9419-4b34-b029-e3808e78097e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "7724a835-dcd5-4a69-bb7b-c0c5bc40a544",
+      "orderId": "8d8e0143-c282-4b5a-91b5-b1eac4fd142c",
+      "skuId": "de25c1c4-4591-47e2-99da-b845348f5751",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "4b5ec5f7-4910-444c-b747-6a95e47ea0b7",
+      "orderId": "8dbb68cb-6858-4b9e-b8d3-a0c06d22a0a3",
+      "skuId": "de25c1c4-4591-47e2-99da-b845348f5751",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "cf4b7929-7bf0-47bb-88ef-26a77a0488a0",
+      "orderId": "bd7dfe60-9924-4867-bf38-196f5d055641",
+      "skuId": "7edc932c-3219-4cb2-972c-298eeb0aa9da",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "ab50845c-ff7b-47dc-a02c-d76b448f469a",
+      "orderId": "3d7174a1-14e6-44f5-9f3f-6f6cc2c9363c",
+      "skuId": "453535e4-6987-4233-a71a-9fde7321c010",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "4c71f2dc-d873-4830-b331-ce7e73320eda",
+      "orderId": "7efbb183-af9e-4be3-877b-aeefdd6333ff",
+      "skuId": "6ec84118-dbc8-414a-a680-c4e0acc1b33e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "155d6f2f-a4c9-419a-8c5c-e33cea3d2061",
+      "orderId": "7efbb183-af9e-4be3-877b-aeefdd6333ff",
+      "skuId": "7e857a79-6d3b-4471-94ad-0260e36c009f",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "16f50e2a-fedb-41da-b4dc-5dfb24c5e0da",
+      "orderId": "3456153e-ac5c-41a8-9ba2-e047ce0896fd",
+      "skuId": "a7fef8b9-f3c6-40c2-b478-c88244312c7e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "0a4c4f27-8d4b-4900-80dc-8662ede4eaf1",
+      "orderId": "1978b9b1-dc25-4033-9ee5-6ca020474cd3",
+      "skuId": "4f0664b6-dff0-4ee0-9432-a5bd09e4635a",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "2d7992e8-8ee9-4e50-b533-8f52c0a3ea0a",
+      "orderId": "3b0a0bd3-540e-43db-9b24-b686d4ecd335",
+      "skuId": "2955c933-add0-4ad7-a9ec-6138eb55b9fe",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "bdc4da26-8d7f-4fc8-86f8-9a56adf55cc5",
+      "orderId": "2cb7a3de-57a4-490a-b1af-9f5f8fa5747b",
+      "skuId": "c16f6c33-afb3-4689-95d5-0130841a34c6",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "4187187f-5157-4b67-b5f6-d04386c5c166",
+      "orderId": "d4e40650-d45f-4b02-8e30-5aa38a2b4f1b",
+      "skuId": "05e3ecd5-2da3-420a-ba02-9dc373a9069b",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "2122e095-7e72-4096-90c8-7d4399a30c7a",
+      "orderId": "3c46300a-c67e-4b4f-8c4f-a3b19d40047b",
+      "skuId": "3cf42616-a161-4751-a511-c3c26e1d1043",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "e4bd07ee-254d-4cfa-8264-4816c8496eeb",
+      "orderId": "d4e40650-d45f-4b02-8e30-5aa38a2b4f1b",
+      "skuId": "000a1f14-a0e1-4ffe-bb91-bc9cc071d2da",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "5b21d159-b670-4716-8fb8-e7842541de67",
+      "orderId": "500c8122-d072-4ab9-a41d-20f3cf3d7a1d",
+      "skuId": "6710d224-8a0e-48fc-877f-29d61e11016f",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "d6bc3f97-76d4-42ce-be5e-10d52a4ba421",
+      "orderId": "3456153e-ac5c-41a8-9ba2-e047ce0896fd",
+      "skuId": "47fccf51-7391-4f93-93bd-f8686ef59412",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "8cf19daf-f9cc-47b2-9e92-6085335b3ff7",
+      "orderId": "6561b2e7-2fc5-40e7-a5e3-486b9df93cd5",
+      "skuId": "2fcffda7-37f1-4f39-89e7-cbc27fb196ee",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "21995445-42a3-4b7e-9551-f09269ffb040",
+      "orderId": "0bcfd080-15cd-4f2f-9643-0f637e14acaf",
+      "skuId": "0765a088-5fa1-4604-9a9a-e957ba29257e",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "544ca406-eca4-4ccd-8b73-42621b34f5b6",
+      "orderId": "6561b2e7-2fc5-40e7-a5e3-486b9df93cd5",
+      "skuId": "0e18b645-0219-4c13-83c2-b912489e07d3",
+      "reason": "Order not in Lovable"
+    },
+    {
+      "orderLineId": "6f7ba058-8c0b-4cb5-a6c7-54f099800b2d",
+      "orderId": "4e6d546c-f2da-46c9-ae4d-68f7e2258a51",
+      "skuId": "b7b9bc1f-f19b-4b31-81f4-24c627833528",
+      "reason": "Order not in Lovable"
+    }
+  ]
+}
