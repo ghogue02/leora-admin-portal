@@ -13,11 +13,16 @@ export default function SalesLoginPage() {
   // Check if already authenticated on mount
   useEffect(() => {
     const checkAuth = async () => {
+      console.log('[DEBUG] Starting auth check...');
       try {
         // Add timeout to prevent infinite loading
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+        const timeoutId = setTimeout(() => {
+          console.log('[DEBUG] Auth check timed out after 5 seconds');
+          controller.abort();
+        }, 5000); // 5 second timeout
 
+        console.log('[DEBUG] Fetching /api/sales/auth/me...');
         const response = await fetch("/api/sales/auth/me", {
           method: "GET",
           credentials: "include",
@@ -25,16 +30,22 @@ export default function SalesLoginPage() {
         });
 
         clearTimeout(timeoutId);
+        console.log('[DEBUG] Auth check response:', response.status, response.statusText);
 
         if (response.ok) {
           // Already logged in, redirect to dashboard
+          console.log('[DEBUG] Already authenticated, redirecting to dashboard');
           router.replace("/sales/dashboard");
           return;
         }
+
+        console.log('[DEBUG] Not authenticated, showing login form');
       } catch (error) {
         // Not logged in or timeout, continue to login form
-        console.log("Not authenticated or timeout, showing login form");
+        console.error('[DEBUG] Auth check error:', error);
+        console.log('[DEBUG] Showing login form due to error/timeout');
       }
+      console.log('[DEBUG] Setting status to idle');
       setStatus("idle");
     };
 
@@ -43,23 +54,28 @@ export default function SalesLoginPage() {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log('[DEBUG] Login form submitted');
 
     if (!email.trim()) {
+      console.log('[DEBUG] Email validation failed');
       setError("Email is required.");
       setStatus("error");
       return;
     }
 
     if (!password.trim()) {
+      console.log('[DEBUG] Password validation failed');
       setError("Password is required.");
       setStatus("error");
       return;
     }
 
+    console.log('[DEBUG] Starting login for:', email);
     setStatus("loading");
     setError(null);
 
     try {
+      console.log('[DEBUG] Calling /api/sales/auth/login...');
       const response = await fetch("/api/sales/auth/login", {
         method: "POST",
         credentials: "include", // Important: send and receive cookies
@@ -73,15 +89,20 @@ export default function SalesLoginPage() {
         }),
       });
 
+      console.log('[DEBUG] Login response:', response.status, response.statusText);
+
       if (!response.ok) {
         const payload = (await response.json().catch(() => ({}))) as { error?: string };
+        console.error('[DEBUG] Login failed:', payload.error);
         throw new Error(payload.error ?? "Unable to authenticate user.");
       }
 
+      const data = await response.json();
+      console.log('[DEBUG] Login successful, redirecting to /sales');
       setStatus("success");
       void router.push("/sales");
     } catch (err) {
-      console.error("Sales login failed:", err);
+      console.error("[DEBUG] Sales login error:", err);
       const message = err instanceof Error ? err.message : "Unable to authenticate user.";
       setError(message);
       setStatus("error");
@@ -95,6 +116,7 @@ export default function SalesLoginPage() {
         <div className="text-center">
           <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-gray-900"></div>
           <p className="mt-4 text-sm text-gray-600">Checking authentication...</p>
+          <p className="mt-2 text-xs text-gray-400">Check console for debug info (F12)</p>
         </div>
       </main>
     );
