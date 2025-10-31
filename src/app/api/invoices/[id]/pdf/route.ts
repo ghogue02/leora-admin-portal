@@ -7,7 +7,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { renderToStream } from '@react-pdf/renderer';
+import { renderToBuffer } from '@react-pdf/renderer';
 import { createElement } from 'react';
 import { PrismaClient } from '@prisma/client';
 import { buildInvoiceData } from '@/lib/invoices/invoice-data-builder';
@@ -18,6 +18,8 @@ import {
 } from '@/lib/invoices/templates';
 
 const prisma = new PrismaClient();
+
+export const runtime = 'nodejs';
 
 export async function GET(
   request: NextRequest,
@@ -76,10 +78,10 @@ export async function GET(
 
     // Generate PDF stream using createElement
     const PDFDocument = createElement(PDFComponent, { data: invoiceData });
-    const stream = await renderToStream(PDFDocument);
+    const pdfBuffer = await renderToBuffer(PDFDocument);
 
     // Return PDF as download
-    return new Response(stream as any, {
+    return new Response(pdfBuffer, {
       headers: {
         'Content-Type': 'application/pdf',
         'Content-Disposition': `attachment; filename="${filename}"`,
