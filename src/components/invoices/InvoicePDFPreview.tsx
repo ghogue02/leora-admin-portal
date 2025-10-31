@@ -90,7 +90,7 @@ export function InvoicePDFPreview({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl h-[90vh]">
+      <DialogContent className="w-[90vw] max-w-6xl h-[90vh]">
         <DialogHeader>
           <DialogTitle className="flex items-center justify-between">
             <span>Invoice Preview - {invoiceNumber}</span>
