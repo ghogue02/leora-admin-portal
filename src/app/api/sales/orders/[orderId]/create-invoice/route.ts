@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withSalesSession } from '@/lib/auth/sales';
 import { createAuditLog } from '@/lib/audit-log';
+import { runWithTransaction } from '@/lib/prisma';
 import { InvoiceFormatType } from '@prisma/client';
 
 type RouteParams = {
@@ -136,7 +137,7 @@ export async function POST(request: NextRequest, props: RouteParams) {
     }
 
     // 9. Create invoice in transaction
-    const invoice = await db.$transaction(async (tx) => {
+    const invoice = await runWithTransaction(db, async (tx) => {
       // Create invoice
       const newInvoice = await tx.invoice.create({
         data: {
