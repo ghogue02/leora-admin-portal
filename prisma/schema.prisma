@@ -16,6 +16,8 @@ model Tenant {
   slug                    String                    @unique
   name                    String
   timezone                String                    @default("America/New_York")
+  wholesalerLicenseNumber String?                   // VA ABC wholesaler license number
+  wholesalerPhone         String?                   // Wholesaler contact phone
   createdAt               DateTime                  @default(now())
   updatedAt               DateTime                  @updatedAt
   accountSnapshots        AccountHealthSnapshot[]
