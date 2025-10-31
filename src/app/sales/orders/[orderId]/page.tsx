@@ -156,33 +156,33 @@ export default function SalesOrderDetailPage() {
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-semibold mb-4">Invoice</h2>
 
-            {order.invoice ? (
+            {order.invoices?.[0] ? (
               <div className="space-y-4">
                 <div>
                   <p className="text-sm text-gray-600">Invoice Number</p>
-                  <p className="font-medium">{order.invoice.invoiceNumber || '—'}</p>
+                  <p className="font-medium">{order.invoices[0].invoiceNumber || '—'}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Status</p>
-                  <p className="font-medium">{order.invoice.status}</p>
+                  <p className="font-medium">{order.invoices[0].status}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Total</p>
                   <p className="font-medium text-lg">
-                    {formatCurrency(order.invoice.total, order.currency)}
+                    {formatCurrency(order.invoices[0].total, order.currency)}
                   </p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Due Date</p>
-                  <p>{formatDate(order.invoice.dueDate)}</p>
+                  <p>{formatDate(order.invoices[0].dueDate)}</p>
                 </div>
 
                 {/* PDF Download */}
                 <div className="mt-6 pt-6 border-t">
                   <InvoiceDownloadButton
-                    invoiceId={order.invoice.id}
-                    invoiceNumber={order.invoice.invoiceNumber || 'DRAFT'}
-                    formatType={order.invoice.invoiceFormatType || 'STANDARD'}
+                    invoiceId={order.invoices[0].id}
+                    invoiceNumber={order.invoices[0].invoiceNumber || 'DRAFT'}
+                    formatType={order.invoices[0].invoiceFormatType || 'STANDARD'}
                     showPreview={true}
                   />
                 </div>
@@ -221,7 +221,7 @@ export default function SalesOrderDetailPage() {
       </div>
 
       {/* CreateInvoiceDialog */}
-      {order && !order.invoice && (
+      {order && !order.invoices?.[0] && (
         <CreateInvoiceDialog
           orderId={order.id}
           customerId={order.customerId}
