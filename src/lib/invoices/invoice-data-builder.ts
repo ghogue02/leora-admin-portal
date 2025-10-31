@@ -107,7 +107,7 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
     prisma.order.findUniqueOrThrow({
       where: { id: orderId },
       include: {
-        orderLines: {
+        lines: {
           include: {
             sku: {
               include: {
@@ -160,7 +160,7 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
   });
 
   // Calculate enriched order lines with liters and cases
-  const enrichedOrderLines: EnrichedOrderLine[] = order.orderLines.map((line) => {
+  const enrichedOrderLines: EnrichedOrderLine[] = order.lines.map((line) => {
     const totalLiters = calculateLineItemLiters(line.quantity, line.sku.size);
     const casesQuantity = bottlesToCases(line.quantity, line.sku.itemsPerCase);
     const lineTotal = new Decimal(line.unitPrice).times(line.quantity);
@@ -405,7 +405,7 @@ export async function createVAInvoice(input: InvoiceDataInput) {
       customer: true,
       order: {
         include: {
-          orderLines: {
+          lines: {
             include: {
               sku: {
                 include: {
