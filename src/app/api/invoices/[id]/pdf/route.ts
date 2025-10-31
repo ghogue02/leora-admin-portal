@@ -76,8 +76,18 @@ export async function GET(
         break;
     }
 
+    // Ensure existing invoice metadata is used in the PDF
+    const pdfData = {
+      ...invoiceData,
+      invoiceNumber: invoice.invoiceNumber,
+      issuedAt: invoice.issuedAt,
+      dueDate: invoice.dueDate,
+      subtotal: invoice.subtotal,
+      total: invoice.total,
+    };
+
     // Generate PDF stream using createElement
-    const PDFDocument = createElement(PDFComponent, { data: invoiceData });
+    const PDFDocument = createElement(PDFComponent, { data: pdfData });
     const pdfBuffer = await renderToBuffer(PDFDocument);
 
     // Return PDF as download
