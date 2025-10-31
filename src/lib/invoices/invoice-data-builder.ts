@@ -103,7 +103,7 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
   const { orderId, tenantId, customerId, formatOverride, specialInstructions, poNumber, shippingMethod } = input;
 
   // Fetch all required data
-  const [order, customer, tenant, salesRep] = await Promise.all([
+  const [order, customer, tenant] = await Promise.all([
     prisma.order.findUniqueOrThrow({
       where: { id: orderId },
       include: {
@@ -140,16 +140,6 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
     prisma.tenant.findUniqueOrThrow({
       where: { id: tenantId },
     }),
-    customer ? prisma.customer.findUnique({
-      where: { id: customerId },
-      select: {
-        salesRep: {
-          include: {
-            user: true,
-          },
-        },
-      },
-    }) : null,
   ]);
 
   // Determine invoice format
