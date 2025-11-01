@@ -1,0 +1,2 @@
+-- Migration file intentionally left blank.
+-- Original migration not available in repository snapshot.

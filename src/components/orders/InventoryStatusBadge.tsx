@@ -84,7 +84,9 @@ export function InventoryStatusBadge({ status, loading = false, compact = false 
         {/* Compact view: Clear format */}
         {compact && (
           <span>
-            {status.available > 0 ? `${status.available} available` : 'Out of stock'}
+            {status.available > 0
+              ? `${status.available} available of ${status.onHand} on hand`
+              : `Out of stock (${status.onHand} on hand)`}
           </span>
         )}
 

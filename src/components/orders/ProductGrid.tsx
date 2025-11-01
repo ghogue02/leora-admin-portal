@@ -180,20 +180,21 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
   const handleAddProduct = useCallback((product: Product) => {
     const quantity = quantityBySku[product.skuId] || 1;
     const inventoryStatus = inventoryStatuses.get(product.skuId);
+    const pricing = resolvePriceForQuantity(product.priceLists, quantity, customer);
 
     if (!inventoryStatus) {
       // Re-check inventory for this specific product
       void checkInventoryForProducts([product.skuId]).then(() => {
         const freshStatus = inventoryStatuses.get(product.skuId);
         if (freshStatus) {
-          onAddProduct(product, quantity, freshStatus);
+          onAddProduct(product, quantity, freshStatus, pricing);
         }
       });
       return;
     }
 
-    onAddProduct(product, quantity, inventoryStatus);
-  }, [quantityBySku, inventoryStatuses, onAddProduct, checkInventoryForProducts]);
+    onAddProduct(product, quantity, inventoryStatus, pricing);
+  }, [quantityBySku, inventoryStatuses, onAddProduct, checkInventoryForProducts, customer]);
 
   // Calculate best price for quantity
   const resolvePricingSelection = useCallback(
@@ -348,7 +349,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
                     <td className="px-4 py-3 text-right">
                       <button
                         type="button"
-                        onClick={() => handleAddProduct(product, quantity, inventoryStatus, pricing)}
+                        onClick={() => handleAddProduct(product)}
                         disabled={!warehouseLocation || !canAdd}
                         className="rounded-md bg-gray-900 px-3 py-1 text-xs font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
                       >

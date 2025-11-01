@@ -569,7 +569,7 @@ export default function NewOrderPage() {
             </Link>
             <button
               type="submit"
-              disabled={submitting || !selectedCustomer || orderItems.length === 0}
+              disabled={submitting}
               className="rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitting ? 'Creating Order...' : requiresApproval ? 'Submit for Approval' : 'Create Order'}
