@@ -54,6 +54,9 @@ export async function GET(
           isDefault: priceList.isDefault,
           effectiveAt: priceList.effectiveAt,
           expiresAt: priceList.expiresAt,
+          jurisdictionType: priceList.jurisdictionType,
+          jurisdictionValue: priceList.jurisdictionValue,
+          allowManualOverride: priceList.allowManualOverride,
           items: priceList.items.map((item) => ({
             id: item.id,
             price: Number(item.price),
@@ -105,6 +108,13 @@ export async function PUT(
         });
       }
 
+      if (body.jurisdictionType && body.jurisdictionType !== "GLOBAL" && !body.jurisdictionValue) {
+        return NextResponse.json(
+          { error: "Jurisdiction value is required for non-global price lists" },
+          { status: 400 },
+        );
+      }
+
       // Update price list
       const updatedPriceList = await db.priceList.update({
         where: { id },
@@ -114,6 +124,15 @@ export async function PUT(
           isDefault: body.isDefault,
           effectiveAt: body.effectiveAt ? new Date(body.effectiveAt) : null,
           expiresAt: body.expiresAt ? new Date(body.expiresAt) : null,
+          jurisdictionType: body.jurisdictionType ?? currentPriceList.jurisdictionType,
+          jurisdictionValue:
+            body.jurisdictionType === "GLOBAL"
+              ? null
+              : body.jurisdictionValue ?? currentPriceList.jurisdictionValue,
+          allowManualOverride:
+            typeof body.allowManualOverride === "boolean"
+              ? body.allowManualOverride
+              : currentPriceList.allowManualOverride,
         },
       });
 

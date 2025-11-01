@@ -11,6 +11,9 @@ interface PriceList {
   isDefault: boolean;
   effectiveAt: string | null;
   expiresAt: string | null;
+  jurisdictionType: string;
+  jurisdictionValue: string | null;
+  allowManualOverride: boolean;
   items: PriceListItem[];
 }
 
@@ -30,6 +33,19 @@ interface PriceListItem {
   };
 }
 
+function describeJurisdiction(type: string, value: string | null) {
+  switch (type) {
+    case "STATE":
+      return value ? `State-specific: ${value}` : "State-specific";
+    case "FEDERAL_PROPERTY":
+      return "Federal property pricing";
+    case "CUSTOM":
+      return value ? `Custom rule: ${value}` : "Custom rule";
+    default:
+      return "Applies to all customers";
+  }
+}
+
 export default function PriceListDetailPage() {
   const router = useRouter();
   const params = useParams();
@@ -44,6 +60,9 @@ export default function PriceListDetailPage() {
     isDefault: false,
     effectiveAt: "",
     expiresAt: "",
+    jurisdictionType: "GLOBAL",
+    jurisdictionValue: "",
+    allowManualOverride: false,
   });
 
   useEffect(() => {
@@ -79,6 +98,9 @@ export default function PriceListDetailPage() {
         expiresAt: data.priceList.expiresAt
           ? new Date(data.priceList.expiresAt).toISOString().split("T")[0]
           : "",
+        jurisdictionType: data.priceList.jurisdictionType ?? "GLOBAL",
+        jurisdictionValue: data.priceList.jurisdictionValue ?? "",
+        allowManualOverride: data.priceList.allowManualOverride ?? false,
       });
     } catch (error) {
       console.error("Error fetching price list:", error);
@@ -91,6 +113,11 @@ export default function PriceListDetailPage() {
   const handleSave = async () => {
     if (!priceListId) return;
 
+    if (formData.jurisdictionType !== "GLOBAL" && !formData.jurisdictionValue.trim()) {
+      alert("Please provide a jurisdiction value for this price list.");
+      return;
+    }
+
     setSaving(true);
     try {
       const response = await fetch(`/api/admin/pricing/${priceListId}`, {
@@ -102,6 +129,14 @@ export default function PriceListDetailPage() {
           isDefault: formData.isDefault,
           effectiveAt: formData.effectiveAt || null,
           expiresAt: formData.expiresAt || null,
+          jurisdictionType: formData.jurisdictionType,
+          jurisdictionValue:
+            formData.jurisdictionType === "GLOBAL"
+              ? null
+              : (formData.jurisdictionType === "STATE"
+                  ? formData.jurisdictionValue.trim().toUpperCase()
+                  : formData.jurisdictionValue.trim()) || null,
+          allowManualOverride: formData.allowManualOverride,
         }),
       });
 
@@ -176,6 +211,9 @@ export default function PriceListDetailPage() {
             <p className="mt-1 text-sm text-gray-500">
               {priceList.items.length} item{priceList.items.length !== 1 ? "s" : ""}
             </p>
+            <p className="text-xs text-gray-500">
+              {describeJurisdiction(formData.jurisdictionType, formData.jurisdictionValue)}
+            </p>
           </div>
         </div>
         <button
@@ -240,6 +278,54 @@ export default function PriceListDetailPage() {
             />
           </div>
 
+          <div>
+            <label className="mb-1 block text-sm font-medium text-gray-700">Jurisdiction</label>
+            <select
+              value={formData.jurisdictionType}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  jurisdictionType: e.target.value,
+                  jurisdictionValue:
+                    e.target.value === "GLOBAL" ? "" : formData.jurisdictionValue,
+                })
+              }
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            >
+              <option value="GLOBAL">All customers</option>
+              <option value="STATE">Specific state</option>
+              <option value="FEDERAL_PROPERTY">Federal property</option>
+              <option value="CUSTOM">Custom rule</option>
+            </select>
+          </div>
+
+          {formData.jurisdictionType !== "GLOBAL" ? (
+            <div>
+              <label className="mb-1 block text-sm font-medium text-gray-700">
+                Jurisdiction Value
+              </label>
+              <input
+                type="text"
+                value={formData.jurisdictionValue}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    jurisdictionValue:
+                      formData.jurisdictionType === "STATE"
+                        ? e.target.value.toUpperCase()
+                        : e.target.value,
+                  })
+                }
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                placeholder={
+                  formData.jurisdictionType === "STATE"
+                    ? "e.g., VA"
+                    : "Describe the matching rule"
+                }
+              />
+            </div>
+          ) : null}
+
           <div className="md:col-span-2">
             <label className="flex items-center gap-2">
               <input
@@ -249,6 +335,20 @@ export default function PriceListDetailPage() {
                 className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
               <span className="text-sm font-medium text-gray-700">Set as default price list</span>
+            </label>
+          </div>
+
+          <div className="md:col-span-2">
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={formData.allowManualOverride}
+                onChange={(e) => setFormData({ ...formData, allowManualOverride: e.target.checked })}
+                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
+              <span className="text-sm font-medium text-gray-700">
+                Allow manual override for edge-case customers
+              </span>
             </label>
           </div>
         </div>

@@ -1,12 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withPortalSession } from "@/lib/auth/portal";
-import type { Prisma, PrismaClient } from "@prisma/client";
+import type { CustomerRiskStatus, Prisma, PrismaClient } from "@prisma/client";
 
 const CUSTOMER_SCOPED_ROLES = new Set(["portal.viewer", "portal.buyer"]);
 
 function hasTenantWideScope(roles: string[]) {
   return roles.some((role) => !CUSTOMER_SCOPED_ROLES.has(role));
 }
+
+const FALLBACK_CADENCE_DAYS = 45;
+const GRACE_PERIOD_PERCENT = 0.3;
+const MIN_GRACE_DAYS = 7;
 
 export async function GET(request: NextRequest) {
   return withPortalSession(
@@ -45,6 +49,10 @@ export async function GET(request: NextRequest) {
             contactName: true,
             createdAt: true,
             updatedAt: true,
+            riskStatus: true,
+            lastOrderDate: true,
+            nextExpectedOrderDate: true,
+            dormancySince: true,
             addresses: {
               select: {
                 id: true,
@@ -153,6 +161,11 @@ export async function GET(request: NextRequest) {
             contactName: customer.contactName,
             createdAt: customer.createdAt.toISOString(),
             updatedAt: customer.updatedAt.toISOString(),
+            lastOrderDate: customer.lastOrderDate?.toISOString() ?? null,
+            nextExpectedOrderDate: customer.nextExpectedOrderDate?.toISOString() ?? null,
+            riskStatus: customer.riskStatus,
+            dormancySince: customer.dormancySince?.toISOString() ?? null,
+            healthSummary: buildHealthSummary(customer),
             stats,
             addresses: customer.addresses.map((address) => ({
               id: address.id,
@@ -326,4 +339,87 @@ function buildScopedStats() {
     lastInvoiceAt: null,
     invoiceCount: 0,
   };
+}
+
+type CustomerForHealth = {
+  riskStatus: CustomerRiskStatus;
+  orderingPaceDays: number | null;
+  lastOrderDate: Date | null;
+  nextExpectedOrderDate: Date | null;
+  dormancySince: Date | null;
+};
+
+function buildHealthSummary(customer: CustomerForHealth) {
+  const lastOrderDate = customer.lastOrderDate ?? null;
+  const cadenceBaseline = Math.max(
+    customer.orderingPaceDays ?? FALLBACK_CADENCE_DAYS,
+    FALLBACK_CADENCE_DAYS,
+  );
+  const graceDays = Math.max(Math.round(cadenceBaseline * GRACE_PERIOD_PERCENT), MIN_GRACE_DAYS);
+  const dormantThreshold = cadenceBaseline + graceDays;
+  const daysSinceLastOrder = lastOrderDate ? differenceInDays(new Date(), lastOrderDate) : null;
+
+  return {
+    riskStatus: customer.riskStatus,
+    cadenceBaselineDays: cadenceBaseline,
+    graceDays,
+    dormantThresholdDays: dormantThreshold,
+    daysSinceLastOrder,
+    lastOrderDate: lastOrderDate?.toISOString() ?? null,
+    nextExpectedOrderDate: customer.nextExpectedOrderDate?.toISOString() ?? null,
+    dormancySince: customer.dormancySince?.toISOString() ?? null,
+    explanation: buildHealthExplanation({
+      riskStatus: customer.riskStatus,
+      cadenceBaseline,
+      graceDays,
+      daysSinceLastOrder,
+      dormantThreshold,
+      lastOrderDate,
+    }),
+  };
+}
+
+function buildHealthExplanation({
+  riskStatus,
+  cadenceBaseline,
+  graceDays,
+  daysSinceLastOrder,
+  dormantThreshold,
+  lastOrderDate,
+}: {
+  riskStatus: CustomerRiskStatus;
+  cadenceBaseline: number;
+  graceDays: number;
+  daysSinceLastOrder: number | null;
+  dormantThreshold: number;
+  lastOrderDate: Date | null;
+}) {
+  if (!lastOrderDate) {
+    if (riskStatus === "DORMANT") {
+      return "Dormant because no delivered orders have been recorded yet.";
+    }
+    return "No delivered orders recorded yet. Once the first order is delivered we'll start tracking cadence.";
+  }
+
+  if (daysSinceLastOrder == null) {
+    return "Unable to calculate order cadence.";
+  }
+
+  const cadenceLabel = `${cadenceBaseline} day cadence`;
+  const daysLabel = `${daysSinceLastOrder} days since last delivery`;
+
+  if (riskStatus === "DORMANT") {
+    return `Dormant: expected on a ${cadenceLabel} with a ${graceDays}-day grace window, but it's been ${daysLabel}.`;
+  }
+
+  if (riskStatus === "AT_RISK_CADENCE") {
+    return `At risk: ${daysLabel} versus the ${cadenceLabel}. Reach out before it passes the ${dormantThreshold}-day dormant threshold.`;
+  }
+
+  return `Healthy: last delivered ${daysLabel}, within the ${cadenceLabel} (grace ${graceDays} days).`;
+}
+
+function differenceInDays(later: Date, earlier: Date) {
+  const msPerDay = 1000 * 60 * 60 * 24;
+  return Math.floor((later.getTime() - earlier.getTime()) / msPerDay);
 }

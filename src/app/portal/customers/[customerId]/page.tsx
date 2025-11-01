@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
+import { FlagDuplicateButton } from "./FlagDuplicateButton";
 
 type CustomerDetail = {
   id: string;
@@ -20,6 +21,21 @@ type CustomerDetail = {
   contactName: string | null;
   createdAt: string;
   updatedAt: string;
+  lastOrderDate: string | null;
+  nextExpectedOrderDate: string | null;
+  riskStatus: string;
+  dormancySince: string | null;
+  healthSummary: {
+    riskStatus: string;
+    cadenceBaselineDays: number;
+    graceDays: number;
+    dormantThresholdDays: number;
+    daysSinceLastOrder: number | null;
+    lastOrderDate: string | null;
+    nextExpectedOrderDate: string | null;
+    dormancySince: string | null;
+    explanation: string;
+  };
   stats: {
     totalOrders: number;
     totalRevenue: number;
@@ -134,9 +150,19 @@ function formatMoney(value: number | null, fractionDigits = 0) {
   return currencyFormatter(fractionDigits).format(value ?? 0);
 }
 
+const riskStatusStyles: Record<string, string> = {
+  HEALTHY: "bg-emerald-100 text-emerald-800 border-emerald-200",
+  AT_RISK_CADENCE: "bg-amber-100 text-amber-800 border-amber-200",
+  AT_RISK_REVENUE: "bg-amber-100 text-amber-800 border-amber-200",
+  DORMANT: "bg-rose-100 text-rose-800 border-rose-200",
+  CLOSED: "bg-slate-200 text-slate-700 border-slate-300",
+};
+
 export default async function CustomerDetailPage({ params }: CustomerPageProps) {
   const { customerId } = await params;
   const customer = await fetchCustomer(customerId);
+  const healthSummary = customer.healthSummary;
+  const riskBadgeClass = riskStatusStyles[customer.riskStatus] ?? "bg-slate-100 text-slate-700 border-slate-200";
 
   const statCards = [
     {
@@ -187,15 +213,28 @@ export default async function CustomerDetailPage({ params }: CustomerPageProps) 
       <header className="flex flex-col gap-3">
         <p className="text-xs font-medium uppercase tracking-widest text-gray-500">Customer</p>
         <h1 className="text-3xl font-semibold text-gray-900">{customer.name}</h1>
-        <div className="text-sm text-gray-600">
-          <p>
-            Customer ID:{" "}
-            <span className="font-mono text-xs text-gray-500">{customer.id.slice(0, 8)}…</span>
-          </p>
-          {customer.accountNumber ? <p>Account #: {customer.accountNumber}</p> : null}
-          <p>Last updated {new Date(customer.updatedAt).toLocaleString()}</p>
+        <div className="flex flex-col gap-3 text-sm text-gray-600">
+          <div>
+            <p>
+              Customer ID:{" "}
+              <span className="font-mono text-xs text-gray-500">{customer.id.slice(0, 8)}…</span>
+            </p>
+            {customer.accountNumber ? <p>Account #: {customer.accountNumber}</p> : null}
+            <p>Last updated {new Date(customer.updatedAt).toLocaleString()}</p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold ${riskBadgeClass}`}>
+              {customer.riskStatus.replaceAll("_", " ")}
+            </span>
+            {healthSummary?.daysSinceLastOrder !== null ? (
+              <span className="text-xs text-gray-500">
+                {`${healthSummary.daysSinceLastOrder} days since last delivery`}
+              </span>
+            ) : null}
+          </div>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap items-center gap-3">
+          <FlagDuplicateButton customerId={customer.id} customerName={customer.name} />
           <Link
             href="/portal/orders"
             className="inline-flex items-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
@@ -225,6 +264,31 @@ export default async function CustomerDetailPage({ params }: CustomerPageProps) 
           </div>
         ))}
       </section>
+
+      {healthSummary ? (
+        <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-gray-500">Cadence insight</h2>
+          <p className="mt-2 text-sm text-gray-700">{healthSummary.explanation}</p>
+          <dl className="mt-4 grid gap-4 text-xs text-gray-500 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <dt className="font-medium text-gray-700">Cadence baseline</dt>
+              <dd>{healthSummary.cadenceBaselineDays} days</dd>
+            </div>
+            <div>
+              <dt className="font-medium text-gray-700">Grace window</dt>
+              <dd>{healthSummary.graceDays} days</dd>
+            </div>
+            <div>
+              <dt className="font-medium text-gray-700">Dormant threshold</dt>
+              <dd>{healthSummary.dormantThresholdDays} days</dd>
+            </div>
+            <div>
+              <dt className="font-medium text-gray-700">Days since last order</dt>
+              <dd>{healthSummary.daysSinceLastOrder ?? "—"}</dd>
+            </div>
+          </dl>
+        </section>
+      ) : null}
 
       <section className="grid gap-4 lg:grid-cols-4">
         {secondaryStats.map((card) => (
