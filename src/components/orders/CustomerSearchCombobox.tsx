@@ -15,7 +15,7 @@
  * - Accessible (ARIA labels)
  */
 
-import { useState, useEffect, useMemo, Fragment, useCallback } from 'react';
+import { useState, useEffect, useMemo, Fragment, useCallback, useRef } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { ChevronDown, Search, CheckIcon } from 'lucide-react';
 import { debounce } from 'lodash';
@@ -46,39 +46,35 @@ export function CustomerSearchCombobox({
   const [loading, setLoading] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
-  // Search customers from API (debounced)
-  const searchCustomers = useCallback(
-    debounce(async (searchQuery: string) => {
-      setLoading(true);
+  // Search customers from API (debounced) - use useRef to prevent recreating
+  const searchCustomers = useRef(
+    debounce(async (searchQuery: string, setLoadingFn: (val: boolean) => void, setCustomersFn: (val: Customer[]) => void) => {
+      setLoadingFn(true);
       try {
         const response = await fetch(`/api/sales/customers/search?q=${encodeURIComponent(searchQuery)}&limit=50`);
         if (!response.ok) throw new Error('Failed to search customers');
         const data = await response.json();
-        setCustomers(data.customers || []);
+        setCustomersFn(data.customers || []);
       } catch (err) {
         console.error('Customer search failed:', err);
-        setCustomers([]);
+        setCustomersFn([]);
       } finally {
-        setLoading(false);
+        setLoadingFn(false);
       }
-    }, 300),
-    []
-  );
+    }, 300)
+  ).current;
 
   // Load recent customers on mount
   useEffect(() => {
-    void searchCustomers('');
-  }, [searchCustomers]);
+    searchCustomers('', setLoading, setCustomers);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run on mount
 
   // Search when query changes
   useEffect(() => {
-    if (query.length > 0) {
-      void searchCustomers(query);
-    } else {
-      // Load recent customers when query cleared
-      void searchCustomers('');
-    }
-  }, [query, searchCustomers]);
+    searchCustomers(query, setLoading, setCustomers);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]); // Only depend on query
 
   const handleSelect = (customerId: string) => {
     const customer = customers.find(c => c.id === customerId);
