@@ -40,6 +40,22 @@ interface Customer {
   openInvoicesCount: number;
   outstandingAmount: number;
   daysSinceLastOrder: number | null;
+  duplicateFlags: Array<{
+    id: string;
+    notes: string | null;
+    createdAt: string;
+    duplicateOfCustomerId: string | null;
+    duplicateOf: {
+      id: string;
+      name: string;
+      accountNumber: string | null;
+    } | null;
+    flaggedByPortalUser: {
+      id: string;
+      fullName: string;
+      email: string;
+    } | null;
+  }>;
 }
 
 const RISK_STATUS_COLORS = {
@@ -58,6 +74,7 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<any>({});
+  const [resolvingFlagId, setResolvingFlagId] = useState<string | null>(null);
 
   // Unwrap params with React.use()
   useEffect(() => {
@@ -153,6 +170,7 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         body: JSON.stringify({
           isPermanentlyClosed: true,
           closedReason: reason,
+          updateReason: `Archived by admin: ${reason}`,
         }),
       });
 
@@ -164,6 +182,31 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
       router.push('/admin/customers');
     } catch (err: any) {
       alert('Error: ' + err.message);
+    }
+  };
+
+  const handleResolveDuplicate = async (flagId: string) => {
+    if (!customerId) return;
+    if (!confirm('Resolve this duplicate flag?')) {
+      return;
+    }
+
+    setResolvingFlagId(flagId);
+    try {
+      const response = await fetch(`/api/admin/customers/${customerId}/duplicate-flags/${flagId}/resolve`, {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to resolve flag');
+      }
+
+      fetchCustomer();
+    } catch (err: any) {
+      alert('Error: ' + err.message);
+    } finally {
+      setResolvingFlagId(null);
     }
   };
 
@@ -259,6 +302,58 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           </div>
         </div>
       </div>
+
+      {customer.duplicateFlags.length > 0 && (
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <h2 className="text-xl font-bold mb-4">Duplicate Flags</h2>
+          <div className="space-y-4">
+            {customer.duplicateFlags.map((flag) => (
+              <div
+                key={flag.id}
+                className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900"
+              >
+                <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <p className="font-semibold">Flagged for review</p>
+                    <p className="text-amber-800">
+                      {flag.notes ?? 'No notes provided.'}
+                    </p>
+                    <p className="text-xs text-amber-700">
+                      Raised {new Date(flag.createdAt).toLocaleString()} by {flag.flaggedByPortalUser?.fullName ?? 'unknown user'}
+                      {flag.flaggedByPortalUser?.email ? ` (${flag.flaggedByPortalUser.email})` : ''}
+                    </p>
+                    {flag.duplicateOf ? (
+                      <p className="text-xs text-amber-700">
+                        Suggested merge with {flag.duplicateOf.name}
+                        {flag.duplicateOf.accountNumber ? ` (Account #${flag.duplicateOf.accountNumber})` : ''}
+                        {flag.duplicateOf.id ? (
+                          <span>
+                            {' '}
+                            <Link
+                              href={`/admin/customers/${flag.duplicateOf.id}`}
+                              className="text-amber-800 underline transition hover:text-amber-900"
+                            >
+                              Review customer
+                            </Link>
+                          </span>
+                        ) : null}
+                      </p>
+                    ) : null}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleResolveDuplicate(flag.id)}
+                    disabled={resolvingFlagId === flag.id}
+                    className="inline-flex items-center justify-center rounded-md border border-amber-300 bg-white px-3 py-2 text-xs font-semibold text-amber-700 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {resolvingFlagId === flag.id ? 'Resolving…' : 'Mark resolved'}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Edit Form */}
       <form onSubmit={handleSubmit}>

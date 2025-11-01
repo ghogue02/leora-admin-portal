@@ -7,7 +7,6 @@ datasource db {
   provider          = "postgresql"
   url               = env("DATABASE_URL")
   directUrl         = env("DIRECT_URL")
-  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
   extensions        = [uuid_ossp(map: "uuid-ossp", schema: "extensions")]
 }
 
@@ -39,6 +38,7 @@ model Tenant {
   customerAddresses       CustomerAddress[]
   customerAssignments     CustomerAssignment[]
   customerTags            CustomerTag[]
+  customerDuplicateFlags  CustomerDuplicateFlag[]
   integritySnapshots      DataIntegritySnapshot[]
   deliveryRoutes          DeliveryRoute[]
   emailCampaigns          EmailCampaign[]
@@ -180,6 +180,8 @@ model User {
   savedQueries         SavedQuery[]
   scheduledReports     ScheduledReport[]
   assignedTasks        Task[]            @relation("AssignedTasks")
+  approvedOrders       Order[]           @relation("OrderApprovals")
+  resolvedDuplicateFlags CustomerDuplicateFlag[] @relation("CustomerDuplicateFlagResolvedBy")
   tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   roles                UserRole[]
 
@@ -215,6 +217,7 @@ model PortalUser {
   customer      Customer?            @relation(fields: [customerId], references: [id])
   tenant        Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   roles         PortalUserRole[]
+  duplicateFlagsRaised CustomerDuplicateFlag[]
 
   @@unique([tenantId, email])
   @@index([tenantId])
@@ -383,6 +386,9 @@ model PriceList {
   isDefault   Boolean         @default(false)
   effectiveAt DateTime?
   expiresAt   DateTime?
+  jurisdictionType   PriceListJurisdictionType @default(GLOBAL)
+  jurisdictionValue  String?
+  allowManualOverride Boolean                   @default(false)
   createdAt   DateTime        @default(now())
   updatedAt   DateTime        @updatedAt
   tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -455,6 +461,11 @@ model Customer {
   licenseNumber            String?                 // ABC license number for retailer
   licenseType              String?                 // Type of license (for determining invoice format)
 
+  // NEW: Order defaults for streamlined order creation
+  requiresPO               Boolean                 @default(false)
+  defaultWarehouseLocation String?                 // "Baltimore", "Warrenton", "main"
+  defaultDeliveryTimeWindow String?                // "8am-12pm", "12pm-5pm", "anytime", "after-5pm"
+
   accountSnapshots         AccountHealthSnapshot[]
   activities               Activity[]
   calendarEvents           CalendarEvent[]
@@ -466,6 +477,8 @@ model Customer {
   addresses                CustomerAddress[]
   assignments              CustomerAssignment[]
   tags                     CustomerTag[]
+  duplicateFlags          CustomerDuplicateFlag[]
+  duplicateOfRecords      CustomerDuplicateFlag[] @relation("DuplicateOfCustomer")
   imageScans               ImageScan[]
   invoices                 Invoice[]
   orders                   Order[]
@@ -507,12 +520,23 @@ model Order {
   isEventSale          Boolean                @default(false)
   eventType            String?
   eventNotes           String?
+
+  // NEW: Enhanced delivery and approval fields
+  deliveryDate         DateTime?              // Actual scheduled delivery date
+  requestedDeliveryDate DateTime?             // Originally requested date (if changed)
+  warehouseLocation    String?                // "Baltimore", "Warrenton", "main"
+  deliveryTimeWindow   String?                // "8am-12pm", "12pm-5pm", "anytime", "after-5pm"
+  requiresApproval     Boolean                @default(false)
+  approvedById         String?                @db.Uuid
+  approvedAt           DateTime?
+
   activities           Activity[]
   InventoryReservation InventoryReservation[]
   invoices             Invoice[]
   customer             Customer               @relation(fields: [customerId], references: [id], onDelete: Cascade)
   portalUser           PortalUser?            @relation(fields: [portalUserId], references: [id])
   tenant               Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  approvedBy           User?                  @relation("OrderApprovals", fields: [approvedById], references: [id])
   lines                OrderLine[]
   payments             Payment[]
   routeStops           RouteStop[]
@@ -520,8 +544,10 @@ model Order {
   @@index([tenantId])
   @@index([deliveredAt])
   @@index([deliveryWeek])
+  @@index([deliveryDate])
   @@index([isEventSale])
   @@index([customerId, orderedAt(sort: Desc)])
+  @@index([requiresApproval, status])
 }
 
 model OrderLine {
@@ -911,6 +937,10 @@ model SalesRep {
   isActive                Boolean              @default(true)
   createdAt               DateTime             @default(now())
   updatedAt               DateTime             @default(now()) @updatedAt
+
+  // NEW: Delivery schedule for territory-based validation
+  deliveryDaysArray       String[]             @default([])  // ["Monday", "Wednesday", "Friday"]
+
   customers               Customer[]
   assignments             CustomerAssignment[]
   productGoals            RepProductGoal[]
@@ -1646,6 +1676,31 @@ model CustomerTag {
   @@index([tagDefinitionId])
 }
 
+model CustomerDuplicateFlag {
+  id                    String                   @id @default(uuid()) @db.Uuid
+  tenantId              String                   @db.Uuid
+  customerId            String                   @db.Uuid
+  duplicateOfCustomerId String?                  @db.Uuid
+  flaggedByPortalUserId String?                  @db.Uuid
+  status                CustomerDuplicateStatus  @default(OPEN)
+  notes                 String?
+  resolvedAt            DateTime?
+  resolvedBy            String?                  @db.Uuid
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+  tenant                Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  customer              Customer                 @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  duplicateOf           Customer?                @relation("DuplicateOfCustomer", fields: [duplicateOfCustomerId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  adminUser             User?                    @relation("CustomerDuplicateFlagResolvedBy", fields: [resolvedBy], references: [id], onUpdate: NoAction)
+  flaggedByPortalUser   PortalUser?              @relation(fields: [flaggedByPortalUserId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+
+  @@index([tenantId])
+  @@index([customerId])
+  @@index([status])
+  @@index([duplicateOfCustomerId])
+  @@index([flaggedByPortalUserId])
+}
+
 model SavedQuery {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   tenantId    String    @db.Uuid
@@ -1997,8 +2052,12 @@ enum PortalUserStatus {
 
 enum OrderStatus {
   DRAFT
-  SUBMITTED
-  FULFILLED
+  PENDING                 // Awaiting approval or processing
+  READY_TO_DELIVER       // Ready for operations to pick
+  PICKED                 // Warehouse has picked the order
+  DELIVERED              // Order has been delivered
+  SUBMITTED              // Legacy - kept for backward compatibility
+  FULFILLED              // Legacy - kept for backward compatibility
   CANCELLED
   PARTIALLY_FULFILLED
 }
@@ -2058,6 +2117,18 @@ enum CustomerRiskStatus {
   AT_RISK_REVENUE
   DORMANT
   CLOSED
+}
+
+enum CustomerDuplicateStatus {
+  OPEN
+  RESOLVED
+}
+
+enum PriceListJurisdictionType {
+  GLOBAL
+  STATE
+  FEDERAL_PROPERTY
+  CUSTOM
 }
 
 enum AccountType {

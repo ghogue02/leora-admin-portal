@@ -1,10 +1,10 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useCart } from "../../_components/CartProvider";
 import { useToast } from "../../_components/ToastProvider";
 import { ProductDrilldownModal } from "../_components/ProductDrilldownModal";
 import { TastingNotesCard } from "../_components/TastingNotesCard";
+import Link from "next/link";
 
 type CatalogItem = {
   skuId: string;
@@ -51,11 +51,9 @@ export default function CatalogGrid() {
   const [priceListFilter, setPriceListFilter] = useState<string>("all");
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>("priority");
-  const [pendingSkuId, setPendingSkuId] = useState<string | null>(null);
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
   const [drilldownSkuId, setDrilldownSkuId] = useState<string | null>(null);
 
-  const { addItem, isMutating } = useCart();
   const { pushToast } = useToast();
 
   useEffect(() => {
@@ -173,33 +171,8 @@ export default function CatalogGrid() {
     setSortOption("priority");
   }, []);
 
-  const handleAddToCart = useCallback(
-    async (skuId: string, minQuantity: number) => {
-      setPendingSkuId(skuId);
-      try {
-        const desiredQuantity = quantityBySku[skuId] ?? minQuantity;
-        if (desiredQuantity < minQuantity) {
-          throw new Error(`Minimum purchase is ${minQuantity}`);
-        }
-        await addItem(skuId, desiredQuantity);
-        pushToast({
-          tone: "success",
-          title: "Cart updated",
-          description: `Added ${desiredQuantity} unit${desiredQuantity === 1 ? "" : "s"}. Ask Leora to confirm fill rate.`,
-        });
-      } catch (err) {
-        const message = err instanceof Error ? err.message : "Unable to add item to cart.";
-        pushToast({
-          tone: "error",
-          title: "Add to cart failed",
-          description: message,
-        });
-      } finally {
-        setPendingSkuId(null);
-      }
-    },
-    [addItem, pushToast, quantityBySku],
-  );
+  // Cart system removed - catalog is now view-only
+  // To create an order, sales reps use the "New Order" button from Orders page
 
   return (
     <section className="space-y-6">
@@ -416,18 +389,12 @@ export default function CatalogGrid() {
                       </button>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => void handleAddToCart(item.skuId, minQuantity)}
-                    disabled={isMutating || pendingSkuId === item.skuId || outOfStock}
-                    className="w-full rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  <Link
+                    href="/sales/orders"
+                    className="flex w-full items-center justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-gray-700"
                   >
-                    {outOfStock
-                      ? "Unavailable"
-                      : pendingSkuId === item.skuId
-                        ? "Adding…"
-                        : "Add to cart"}
-                  </button>
+                    {outOfStock ? "Out of Stock" : "Create Order"}
+                  </Link>
                 </footer>
               </article>
             );

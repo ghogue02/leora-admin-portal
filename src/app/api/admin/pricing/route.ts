@@ -28,6 +28,9 @@ export async function GET(request: NextRequest) {
           isDefault: pl.isDefault,
           effectiveAt: pl.effectiveAt,
           expiresAt: pl.expiresAt,
+          jurisdictionType: pl.jurisdictionType,
+          jurisdictionValue: pl.jurisdictionValue,
+          allowManualOverride: pl.allowManualOverride,
           itemCount: pl.items.length,
         })),
       });
@@ -47,10 +50,26 @@ export async function POST(request: NextRequest) {
     const { tenantId, db, user } = context;
     try {
       const body = await request.json();
-      const { name, currency, isDefault, effectiveAt, expiresAt } = body;
+      const {
+        name,
+        currency,
+        isDefault,
+        effectiveAt,
+        expiresAt,
+        jurisdictionType = "GLOBAL",
+        jurisdictionValue,
+        allowManualOverride = false,
+      } = body;
 
       if (!name) {
         return NextResponse.json({ error: "Name is required" }, { status: 400 });
+      }
+
+      if (jurisdictionType !== "GLOBAL" && !jurisdictionValue) {
+        return NextResponse.json(
+          { error: "Jurisdiction value is required for non-global price lists" },
+          { status: 400 },
+        );
       }
 
       // If setting as default, unset other defaults
@@ -69,6 +88,9 @@ export async function POST(request: NextRequest) {
           isDefault: isDefault || false,
           effectiveAt: effectiveAt ? new Date(effectiveAt) : null,
           expiresAt: expiresAt ? new Date(expiresAt) : null,
+          jurisdictionType,
+          jurisdictionValue: jurisdictionValue ?? null,
+          allowManualOverride,
         },
       });
 

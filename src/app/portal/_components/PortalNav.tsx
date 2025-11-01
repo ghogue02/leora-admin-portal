@@ -3,23 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { useCart } from "./CartProvider";
 
 const navigation = [
   { label: "Dashboard", href: "/portal" },
   { label: "Catalog", href: "/portal/catalog" },
   { label: "Orders", href: "/portal/orders" },
   { label: "Invoices", href: "/portal/invoices" },
-  { label: "Cart", href: "/portal/cart" },
   { label: "Copilot", href: "/portal/leora" },
-  { label: "Admin", href: "/portal/admin" },
   { label: "Audit", href: "/portal/audit/fulfillment" },
   { label: "Account", href: "/portal/account" },
 ];
 
 export default function PortalNav() {
   const pathname = usePathname();
-  const { itemCount } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
@@ -40,9 +36,14 @@ export default function PortalNav() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
-        <Link href="/portal" className="text-lg font-semibold tracking-tight text-gray-900">
-          Leora Portal
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link href="/portal" className="text-lg font-semibold tracking-tight text-gray-900">
+            Leora Portal
+          </Link>
+          <span className="hidden rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-emerald-700 md:inline-flex">
+            Sales Mode
+          </span>
+        </div>
         <button
           type="button"
           className="inline-flex items-center gap-2 rounded-md border border-gray-300 px-3 py-1 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 md:hidden"
@@ -54,8 +55,17 @@ export default function PortalNav() {
           <span className="text-xs text-gray-500">{mobileOpen ? "Close" : "Open"}</span>
         </button>
         <nav aria-label="Portal navigation" className="hidden md:block">
-          <NavList pathname={pathname} itemCount={itemCount} onNavigate={closeMobile} />
+          <NavList pathname={pathname} onNavigate={closeMobile} />
         </nav>
+        <div className="hidden items-center gap-2 md:flex">
+          <Link
+            href="/portal/admin"
+            aria-label="Switch to Admin mode"
+            className="inline-flex items-center rounded-full border border-gray-300 px-3 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+          >
+            Switch to Admin
+          </Link>
+        </div>
       </div>
       {mobileOpen ? (
         <div className="md:hidden">
@@ -65,7 +75,17 @@ export default function PortalNav() {
             role="dialog"
             aria-modal="true"
           >
-            <NavList pathname={pathname} itemCount={itemCount} onNavigate={closeMobile} vertical />
+            <NavList pathname={pathname} onNavigate={closeMobile} vertical />
+            <div className="mt-4 border-t border-slate-200 pt-4">
+              <Link
+                href="/portal/admin"
+                aria-label="Switch to Admin mode"
+                className="inline-flex w-full items-center justify-center rounded-full border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+                onClick={closeMobile}
+              >
+                Switch to Admin
+              </Link>
+            </div>
           </div>
         </div>
       ) : null}
@@ -75,12 +95,10 @@ export default function PortalNav() {
 
 function NavList({
   pathname,
-  itemCount,
   onNavigate,
   vertical = false,
 }: {
   pathname: string;
-  itemCount: number;
   onNavigate: () => void;
   vertical?: boolean;
 }) {
@@ -100,14 +118,7 @@ function NavList({
               }`}
               onClick={onNavigate}
             >
-              <span className="flex items-center gap-2">
-                {item.label}
-                {item.href === "/portal/cart" && itemCount > 0 ? (
-                  <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-gray-900 px-2 text-[11px] font-semibold text-white">
-                    {Math.min(itemCount, 99)}
-                  </span>
-                ) : null}
-              </span>
+              {item.label}
             </Link>
           </li>
         );

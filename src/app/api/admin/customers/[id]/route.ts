@@ -20,19 +20,47 @@ export async function GET(
           id,
           tenantId,
         },
-      include: {
-        salesRep: {
-          include: {
-            user: {
-              select: { fullName: true, email: true }
+        include: {
+          salesRep: {
+            include: {
+              user: {
+                select: { fullName: true, email: true }
+              }
             }
-          }
-        },
-        portalUsers: {
-          select: {
-            id: true,
-            fullName: true,
-            email: true,
+          },
+          duplicateFlags: {
+            where: {
+              status: 'OPEN',
+            },
+            orderBy: {
+              createdAt: 'desc',
+            },
+            select: {
+              id: true,
+              notes: true,
+              createdAt: true,
+              duplicateOfCustomerId: true,
+              duplicateOf: {
+                select: {
+                  id: true,
+                  name: true,
+                  accountNumber: true,
+                },
+              },
+              flaggedByPortalUser: {
+                select: {
+                  id: true,
+                  fullName: true,
+                  email: true,
+                },
+              },
+            },
+          },
+          portalUsers: {
+            select: {
+              id: true,
+              fullName: true,
+              email: true,
             status: true,
             lastLoginAt: true,
           }
@@ -111,6 +139,7 @@ export async function GET(
           openInvoicesCount: openInvoices.length,
           outstandingAmount,
           daysSinceLastOrder,
+          duplicateFlags: customer.duplicateFlags,
         }
       });
     } catch (error) {
@@ -199,6 +228,21 @@ export async function PUT(
       });
 
       console.log('✅ Customer updated successfully');
+
+      if (body.isPermanentlyClosed === true) {
+        await db.customerDuplicateFlag.updateMany({
+          where: {
+            tenantId,
+            customerId: id,
+            status: 'OPEN',
+          },
+          data: {
+            status: 'RESOLVED',
+            resolvedAt: new Date(),
+            resolvedBy: context.user.id,
+          },
+        });
+      }
 
       // Log changes
       console.log('📋 Logging audit trail...');

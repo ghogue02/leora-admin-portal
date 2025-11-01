@@ -15,6 +15,7 @@ type CustomerWithOrders = {
   lastOrderDate: Date | null;
   nextExpectedOrderDate: Date | null;
   averageOrderIntervalDays: number | null;
+  orderingPaceDays: number | null;
   establishedRevenue: any | null;
   dormancySince: Date | null;
   reactivatedDate: Date | null;
@@ -30,10 +31,15 @@ type CustomerHealthUpdate = {
   lastOrderDate?: Date;
   nextExpectedOrderDate?: Date;
   averageOrderIntervalDays?: number;
+  orderingPaceDays?: number | null;
   riskStatus: CustomerRiskStatus;
   dormancySince?: Date | null;
   reactivatedDate?: Date | null;
 };
+
+const FALLBACK_CADENCE_DAYS = 45;
+const GRACE_PERIOD_PERCENT = 0.3; // 30% buffer for cadence variance
+const MIN_GRACE_DAYS = 7;
 
 /**
  * Daily Customer Health Assessment Job
@@ -91,6 +97,7 @@ export async function run(options: RunOptions = {}) {
           lastOrderDate: true,
           nextExpectedOrderDate: true,
           averageOrderIntervalDays: true,
+          orderingPaceDays: true,
           establishedRevenue: true,
           dormancySince: true,
           reactivatedDate: true,
@@ -218,36 +225,34 @@ async function assessCustomerHealth(
   const orderingPace = calculateOrderingPace(deliveredOrders);
   const lastOrderDate = deliveredOrders[0].deliveredAt!;
 
-  // Determine next expected order date
-  const nextExpectedOrderDate = orderingPace.averageIntervalDays
-    ? addDays(lastOrderDate, orderingPace.averageIntervalDays)
-    : null;
+  // Determine cadence baseline and grace period
+  const cadenceBaseline = Math.max(orderingPace.averageIntervalDays ?? FALLBACK_CADENCE_DAYS, FALLBACK_CADENCE_DAYS);
+  const gracePeriod = Math.max(Math.round(cadenceBaseline * GRACE_PERIOD_PERCENT), MIN_GRACE_DAYS);
+  const dormantThreshold = cadenceBaseline + gracePeriod;
 
-  // Calculate days since expected order
-  const daysSinceExpected = nextExpectedOrderDate
-    ? differenceInDays(now, nextExpectedOrderDate)
-    : 0;
+  // Determine next expected order date based on cadence baseline
+  const nextExpectedOrderDate = addDays(lastOrderDate, cadenceBaseline);
 
-  // Calculate days since last order (simpler approach)
+  // Calculate days since last order
   const daysSinceLastOrder = differenceInDays(now, lastOrderDate);
 
-  // Determine risk status based on SIMPLIFIED business rules
+  // Determine risk status based on cadence-aware rules
   let newRiskStatus: CustomerRiskStatus;
   let newDormancySince: Date | null = customer.dormancySince;
   let newReactivatedDate: Date | null = customer.reactivatedDate;
 
-  // SIMPLIFIED RULES:
-  // - HEALTHY: Ordered within last 45 days
-  // - DORMANT: 45+ days since last order
-  if (daysSinceLastOrder >= 45) {
-    // Rule 1: 45+ days since last order = DORMANT
+  if (daysSinceLastOrder >= dormantThreshold) {
+    // Beyond cadence + grace: dormant
     newRiskStatus = CustomerRiskStatus.DORMANT;
     if (!customer.dormancySince) {
       newDormancySince = now;
       newReactivatedDate = null;
     }
+  } else if (daysSinceLastOrder >= cadenceBaseline) {
+    // Outside cadence but within grace: at-risk cadence
+    newRiskStatus = CustomerRiskStatus.AT_RISK_CADENCE;
   } else {
-    // Rule 2: Ordered within 45 days = HEALTHY
+    // Within cadence window: healthy
     newRiskStatus = CustomerRiskStatus.HEALTHY;
 
     // Check if was previously dormant for reactivation tracking
@@ -263,6 +268,7 @@ async function assessCustomerHealth(
     customer.lastOrderDate?.getTime() !== lastOrderDate.getTime() ||
     customer.nextExpectedOrderDate?.getTime() !== nextExpectedOrderDate?.getTime() ||
     customer.averageOrderIntervalDays !== orderingPace.averageIntervalDays ||
+    customer.orderingPaceDays !== cadenceBaseline ||
     customer.dormancySince?.getTime() !== newDormancySince?.getTime() ||
     customer.reactivatedDate?.getTime() !== newReactivatedDate?.getTime();
 
@@ -274,6 +280,7 @@ async function assessCustomerHealth(
     lastOrderDate,
     nextExpectedOrderDate: nextExpectedOrderDate ?? undefined,
     averageOrderIntervalDays: orderingPace.averageIntervalDays ?? undefined,
+    orderingPaceDays: cadenceBaseline,
     riskStatus: newRiskStatus,
     dormancySince: newDormancySince,
     reactivatedDate: newReactivatedDate,

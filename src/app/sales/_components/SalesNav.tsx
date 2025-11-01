@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState, useRef } from "react";
-import { useCart } from "./CartProvider";
 import { ChevronDown } from "lucide-react";
 
 const navigation = [
@@ -15,7 +14,7 @@ const navigation = [
   { label: "Samples", href: "/sales/samples" },
   { label: "Orders", href: "/sales/orders" },
   { label: "Catalog", href: "/sales/catalog" },
-  { label: "Cart", href: "/sales/cart" },
+  { label: "Operations", href: "/sales/operations/queue" },
   { label: "Manager", href: "/sales/manager", adminOnly: true },
   { label: "Admin", href: "/admin", adminOnly: true },
 ];
@@ -29,7 +28,6 @@ const toolsMenu = [
 export default function SalesNav() {
   const pathname = usePathname();
   const router = useRouter();
-  const { itemCount } = useCart();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
@@ -81,7 +79,7 @@ export default function SalesNav() {
           <span className="text-xs text-gray-500">{mobileOpen ? "Close" : "Open"}</span>
         </button>
         <nav aria-label="Sales navigation" className="hidden md:block">
-          <NavList pathname={pathname} itemCount={itemCount} onNavigate={closeMobile} onLogout={handleLogout} isLoggingOut={isLoggingOut} />
+          <NavList pathname={pathname} onNavigate={closeMobile} onLogout={handleLogout} isLoggingOut={isLoggingOut} />
         </nav>
       </div>
       {mobileOpen ? (
@@ -92,7 +90,7 @@ export default function SalesNav() {
             role="dialog"
             aria-modal="true"
           >
-            <NavList pathname={pathname} itemCount={itemCount} onNavigate={closeMobile} onLogout={handleLogout} isLoggingOut={isLoggingOut} vertical />
+            <NavList pathname={pathname} onNavigate={closeMobile} onLogout={handleLogout} isLoggingOut={isLoggingOut} vertical />
           </div>
         </div>
       ) : null}
@@ -102,14 +100,12 @@ export default function SalesNav() {
 
 function NavList({
   pathname,
-  itemCount,
   onNavigate,
   onLogout,
   isLoggingOut,
   vertical = false,
 }: {
   pathname: string;
-  itemCount: number;
   onNavigate: () => void;
   onLogout: () => void;
   isLoggingOut: boolean;
@@ -147,14 +143,7 @@ function NavList({
               }`}
               onClick={onNavigate}
             >
-              <span className="flex items-center gap-2">
-                {item.label}
-                {item.href === "/sales/cart" && itemCount > 0 ? (
-                  <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-gray-900 px-2 text-[11px] font-semibold text-white">
-                    {Math.min(itemCount, 99)}
-                  </span>
-                ) : null}
-              </span>
+              {item.label}
             </Link>
           </li>
         );

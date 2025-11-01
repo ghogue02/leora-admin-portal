@@ -24,5 +24,11 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/jobs/reservation-expiration",
+      "schedule": "0 * * * *"
+    }
+  ]
 }
