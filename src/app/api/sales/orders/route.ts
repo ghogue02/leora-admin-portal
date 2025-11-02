@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import type { OrderStatus, Prisma } from "@prisma/client";
+import { Prisma, type OrderStatus } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 import { runWithTransaction } from "@/lib/prisma";
 import {
