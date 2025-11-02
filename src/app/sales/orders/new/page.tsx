@@ -14,7 +14,8 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { toast } from 'sonner';
+import { showSuccess, showError, showWarning, notifications } from '@/lib/toast-helpers';
+import { ButtonWithLoading, SecondaryButton } from '@/components/ui/button-variants';
 import { ProductGrid } from '@/components/orders/ProductGrid';
 import { DeliveryDatePicker } from '@/components/orders/DeliveryDatePicker';
 import { WarehouseSelector } from '@/components/orders/WarehouseSelector';
@@ -171,20 +172,11 @@ export default function NewOrderPage() {
 
     // Show success toast with warnings
     if (isUnusualQuantity) {
-      toast.warning(`Added ${quantity}x ${product.productName} to order`, {
-        description: `⚠ Large quantity - Manager approval may be required`,
-        duration: 4000,
-      });
+      notifications.productAdded(product.productName, quantity, quantity * unitPrice, 'Large quantity - Manager approval may be required');
     } else if (isLowInventory) {
-      toast.success(`Added ${quantity}x ${product.productName} to order`, {
-        description: `⚠ Low inventory - Manager approval required • $${(quantity * unitPrice).toFixed(2)} total`,
-        duration: 4000,
-      });
+      notifications.productAdded(product.productName, quantity, quantity * unitPrice, 'Low inventory - Manager approval required');
     } else {
-      toast.success(`Added ${quantity}x ${product.productName} to order`, {
-        description: `$${(quantity * unitPrice).toFixed(2)} total`,
-        duration: 3000,
-      });
+      notifications.productAdded(product.productName, quantity, quantity * unitPrice);
     }
   }, []);
 
@@ -226,9 +218,7 @@ export default function NewOrderPage() {
     if (!validateForm()) {
       setError('Please fix the errors below');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      toast.error('Please complete all required fields', {
-        description: 'Review the error messages at the top of the form',
-      });
+      notifications.validationError('Please complete all required fields', 'Review the error messages at the top of the form');
       return;
     }
 
@@ -280,9 +270,7 @@ export default function NewOrderPage() {
       setError(err instanceof Error ? err.message : 'Failed to create order');
       setShowPreviewModal(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      toast.error('Order creation failed', {
-        description: err instanceof Error ? err.message : 'Unknown error',
-      });
+      showError('Order creation failed', err instanceof Error ? err.message : 'Unknown error');
     } finally {
       setSubmitting(false);
     }
@@ -551,14 +539,14 @@ export default function NewOrderPage() {
         <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-gray-900">Products</h2>
-            <button
+            <ButtonWithLoading
               type="button"
               onClick={() => setShowProductSelector(true)}
               disabled={!selectedCustomer || !warehouseLocation}
-              className="rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
+              variant="primary"
             >
-              Add Products
-            </button>
+              Add Products{orderItems.length > 0 && ` (${orderItems.length})`}
+            </ButtonWithLoading>
           </div>
 
           {orderItems.length === 0 ? (
@@ -728,13 +716,15 @@ export default function NewOrderPage() {
             >
               Cancel
             </Link>
-            <button
+            <ButtonWithLoading
               type="submit"
-              disabled={submitting}
-              className="rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
+              loading={submitting}
+              loadingText="Creating Order..."
+              variant="primary"
+              size="lg"
             >
-              {submitting ? 'Creating Order...' : requiresApproval ? 'Submit for Approval' : 'Create Order'}
-            </button>
+              {requiresApproval ? 'Submit for Approval' : 'Create Order'}
+            </ButtonWithLoading>
           </div>
         </form>
 
