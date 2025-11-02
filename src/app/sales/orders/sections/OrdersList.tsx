@@ -42,6 +42,8 @@ export default function OrdersList() {
   });
   const [cancelError, setCancelError] = useState<string | null>(null);
   const [cancelingId, setCancelingId] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [statusFilter, setStatusFilter] = useState<OrderStatus | 'all'>('all');
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
@@ -141,6 +143,23 @@ export default function OrdersList() {
 
   const { summary, orders } = state.data;
 
+  // Filter orders based on search and status
+  const filteredOrders = useMemo(() => {
+    return orders.filter((order) => {
+      // Search filter
+      const matchesSearch =
+        !searchTerm ||
+        order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        order.customer?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        false;
+
+      // Status filter
+      const matchesStatus = statusFilter === 'all' || order.status === statusFilter;
+
+      return matchesSearch && matchesStatus;
+    });
+  }, [orders, searchTerm, statusFilter]);
+
   return (
     <section className="space-y-6">
       <header className="flex flex-col gap-2 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -168,7 +187,48 @@ export default function OrdersList() {
         </div>
       ) : null}
 
-      {orders.length === 0 ? (
+      {/* Search and Filter Controls */}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex-1">
+          <input
+            type="text"
+            placeholder="Search orders by ID or customer name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          />
+        </div>
+        <div className="flex gap-2">
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value as OrderStatus | 'all')}
+            className="rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <option value="all">All Statuses</option>
+            <option value="SUBMITTED">Submitted</option>
+            <option value="PARTIALLY_FULFILLED">Partially Fulfilled</option>
+            <option value="FULFILLED">Fulfilled</option>
+            <option value="CANCELLED">Cancelled</option>
+          </select>
+          {(searchTerm || statusFilter !== 'all') && (
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setStatusFilter('all');
+              }}
+              className="rounded-md border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+            >
+              Clear
+            </button>
+          )}
+        </div>
+      </div>
+
+      {filteredOrders.length === 0 && orders.length > 0 ? (
+        <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-sm text-gray-600">
+          No orders match your search criteria. Try adjusting your filters.
+        </div>
+      ) : orders.length === 0 ? (
         <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-sm text-gray-600">
           No orders yet. Once Supabase ingestion is restored, live orders will populate here.
         </div>
@@ -188,7 +248,7 @@ export default function OrdersList() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
-              {orders.map((order) => (
+              {filteredOrders.map((order) => (
                 <tr key={order.id} className="hover:bg-slate-50">
                   <td className="px-4 py-3">
                     <div className="flex flex-col">

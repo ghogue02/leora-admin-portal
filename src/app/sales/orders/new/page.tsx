@@ -186,6 +186,17 @@ export default function NewOrderPage() {
     (item.inventoryStatus && !item.inventoryStatus.sufficient) || item.pricing.overrideApplied
   );
 
+  // Check if form is valid for submit button
+  const isFormValid = useMemo(() => {
+    return !!(
+      selectedCustomer &&
+      deliveryDate &&
+      warehouseLocation &&
+      orderItems.length > 0 &&
+      (!selectedCustomer.requiresPO || poNumber.trim())
+    );
+  }, [selectedCustomer, deliveryDate, warehouseLocation, orderItems.length, poNumber]);
+
   // Validate form
   const validateForm = useCallback(() => {
     const errors: Array<{field: string; message: string; type: 'missing' | 'validation'}> = [];
@@ -680,34 +691,6 @@ export default function NewOrderPage() {
           )}
         </section>
 
-        {/* Section 4: Order Summary */}
-        <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">Order Summary</h2>
-
-          <div className="space-y-2">
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Subtotal</span>
-              <span className="font-semibold text-gray-900">${orderTotal.toFixed(2)}</span>
-            </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-gray-600">Tax</span>
-              <span className="text-gray-500">Calculated at invoice</span>
-            </div>
-            <div className="border-t border-gray-200 pt-2">
-              <div className="flex justify-between">
-                <span className="text-base font-semibold text-gray-900">Total</span>
-                <span className="text-lg font-bold text-gray-900">${orderTotal.toFixed(2)}</span>
-              </div>
-            </div>
-
-            <div className="mt-4 text-xs text-gray-500">
-              <p>Items: {orderItems.length}</p>
-              <p>Delivery: {deliveryDate ? new Date(deliveryDate).toLocaleDateString() : 'Not set'}</p>
-              <p>Warehouse: {warehouseLocation || 'Not selected'}</p>
-            </div>
-          </div>
-        </section>
-
           {/* Submit Button */}
           <div className="flex items-center justify-end gap-4">
             <Link
@@ -722,6 +705,7 @@ export default function NewOrderPage() {
               loadingText="Creating Order..."
               variant="primary"
               size="lg"
+              disabled={!isFormValid || submitting}
             >
               {requiresApproval ? 'Submit for Approval' : 'Create Order'}
             </ButtonWithLoading>
