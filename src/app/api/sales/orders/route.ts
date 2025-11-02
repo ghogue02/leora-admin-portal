@@ -182,13 +182,8 @@ export async function GET(request: NextRequest) {
       ]);
 
       // Calculate open total from order lines if order.total is null
-      console.log("📊 [Orders] Open orders (SUBMITTED/PARTIALLY_FULFILLED) count:", openOrdersWithLines.length);
-      console.log("📊 [Orders] Total orders count:", totalCount);
-      console.log("📊 [Orders] Status breakdown:", JSON.stringify(grouped.map(g => ({ status: g.status, count: g._count._all }))));
-
       const openTotalFromLines = openOrdersWithLines.reduce((sum, order) => {
         if (order.total && Number(order.total) > 0) {
-          console.log("📊 [Orders] Order", order.id.substring(0, 8), "has total:", Number(order.total));
           return sum + Number(order.total);
         }
         // Calculate from order lines if total is null
@@ -196,10 +191,8 @@ export async function GET(request: NextRequest) {
           (lineSum, line) => lineSum + (line.quantity * Number(line.unitPrice)),
           0
         );
-        console.log("📊 [Orders] Order", order.id.substring(0, 8), "has null total, calculated from lines:", lineTotal, `(${order.lines.length} lines)`);
         return sum + lineTotal;
       }, 0);
-      console.log("📊 [Orders] ===== Final open total:", openTotalFromLines, "=====");
 
       const summary = grouped.reduce<OrdersSummary>(
         (acc, group) => {

@@ -110,10 +110,8 @@ export default function IntegrationsSettingsPage() {
   const handleConnect = async (integrationId: string) => {
     if (integrationId === 'mailchimp') {
       window.location.href = '/sales/marketing/mailchimp';
-    } else {
-      // Handle other integrations
-      console.log('Connect:', integrationId);
     }
+    // Handle other integrations
   };
 
   const handleDisconnect = async (integrationId: string) => {
@@ -129,7 +127,7 @@ export default function IntegrationsSettingsPage() {
 
   const handleConfigure = (integrationId: string) => {
     // Navigate to configuration page
-    console.log('Configure:', integrationId);
+    // TODO: Implement configuration navigation
   };
 
   const getStatusBadge = (status: Integration['status']) => {

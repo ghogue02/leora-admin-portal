@@ -88,8 +88,6 @@ export default function PickSheetsPage() {
 
   const handleGeneratePickSheet = async (orderIds: string[], pickerName: string) => {
     // TODO: Implement actual API call
-    console.log('Generating pick sheet:', { orderIds, pickerName });
-
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
 
