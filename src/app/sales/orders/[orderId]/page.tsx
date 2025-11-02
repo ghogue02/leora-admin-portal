@@ -12,6 +12,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import { CreateInvoiceDialog } from '@/components/invoices/CreateInvoiceDialog';
 import { InvoiceDownloadButton } from '@/components/invoices/InvoiceDownloadButton';
 import { ArrowLeft } from 'lucide-react';
@@ -76,15 +77,20 @@ export default function SalesOrderDetailPage() {
 
   return (
     <div className="mx-auto max-w-6xl p-8">
+      {/* Breadcrumbs */}
+      <div className="mb-4">
+        <Breadcrumbs
+          homeHref="/sales/dashboard"
+          homeLabel="Sales"
+          items={[
+            { label: 'Orders', href: '/sales/orders' },
+            { label: `Order #${order.id.substring(0, 8)}`, href: null },
+          ]}
+        />
+      </div>
+
       {/* Header */}
       <div className="mb-6">
-        <Link
-          href="/sales/orders"
-          className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 mb-4"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Orders
-        </Link>
         <h1 className="text-3xl font-semibold">Order #{order.id.substring(0, 8)}</h1>
         <p className="text-gray-600 mt-2">
           {order.customer.name} · {formatDate(order.orderedAt)}
