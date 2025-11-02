@@ -15,6 +15,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import { CreateInvoiceDialog } from '@/components/invoices/CreateInvoiceDialog';
 import { InvoiceDownloadButton } from '@/components/invoices/InvoiceDownloadButton';
+import { formatCurrency, formatDate } from '@/lib/format';
 import { ArrowLeft } from 'lucide-react';
 
 export default function SalesOrderDetailPage() {
@@ -40,21 +41,6 @@ export default function SalesOrderDetailPage() {
     }
   };
 
-  const formatCurrency = (amount: number, currency: string = 'USD') => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency,
-    }).format(amount);
-  };
-
-  const formatDate = (date: string | null) => {
-    if (!date) return '—';
-    return new Date(date).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
-  };
 
   if (loading) {
     return (

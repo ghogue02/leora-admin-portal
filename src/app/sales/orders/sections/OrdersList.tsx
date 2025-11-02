@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { OrderStatus } from "@prisma/client";
+import { formatCurrency, formatDate } from "@/lib/format";
 
 type OrdersResponse = {
   summary: {
@@ -168,11 +169,7 @@ export default function OrdersList() {
           <OrdersSummaryStat label="Total orders" value={summary.totalCount.toString()} />
           <OrdersSummaryStat
             label="Open exposure"
-            value={new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-              maximumFractionDigits: 0,
-            }).format(summary.openTotal)}
+            value={formatCurrency(summary.openTotal, 'USD')}
           />
           <OrdersSummaryStat
             label="Open order count"
@@ -259,10 +256,7 @@ export default function OrdersList() {
                         #{order.id.slice(0, 8)}
                       </Link>
                       <span className="text-xs text-gray-500">
-                        Ordered{" "}
-                        {order.orderedAt
-                          ? new Date(order.orderedAt).toLocaleDateString()
-                          : "—"}
+                        Ordered {formatDate(order.orderedAt)}
                       </span>
                     </div>
                     <span
@@ -290,13 +284,7 @@ export default function OrdersList() {
                   </td>
                   <td className="px-4 py-3">
                     <p className="font-semibold text-gray-900">
-                      {order.total
-                        ? new Intl.NumberFormat("en-US", {
-                            style: "currency",
-                            currency: order.currency ?? "USD",
-                            maximumFractionDigits: 0,
-                          }).format(order.total)
-                        : "TBD"}
+                      {order.total ? formatCurrency(order.total, order.currency ?? "USD") : "TBD"}
                     </p>
                   </td>
                   <td className="px-4 py-3">
@@ -304,13 +292,7 @@ export default function OrdersList() {
                       {Object.entries(order.invoiceTotals.byStatus).map(([status, amount]) => (
                         <li key={status} className="flex justify-between">
                           <span>{status}</span>
-                          <span>
-                            {new Intl.NumberFormat("en-US", {
-                              style: "currency",
-                              currency: order.currency ?? "USD",
-                              maximumFractionDigits: 0,
-                            }).format(amount)}
-                          </span>
+                          <span>{formatCurrency(amount, order.currency ?? "USD")}</span>
                         </li>
                       ))}
                     </ul>
