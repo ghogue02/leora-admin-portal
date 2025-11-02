@@ -6,8 +6,8 @@
  */
 
 import { renderToStream } from '@react-pdf/renderer';
-import { InvoiceDocument } from './templates';
-import type { InvoiceData } from './invoice-data-builder';
+import { StandardInvoice } from './templates';
+import type { CompleteInvoiceData } from './invoice-data-builder';
 
 /**
  * Generate PDF buffer for an invoice
@@ -15,11 +15,11 @@ import type { InvoiceData } from './invoice-data-builder';
  * @param invoiceData - Invoice data from invoice-data-builder
  * @returns PDF as buffer
  */
-export async function generateInvoicePDF(invoiceData: InvoiceData): Promise<Buffer> {
+export async function generateInvoicePDF(invoiceData: CompleteInvoiceData): Promise<Buffer> {
   try {
     // Use existing invoice template components
     const stream = await renderToStream(
-      InvoiceDocument({ data: invoiceData })
+      StandardInvoice({ data: invoiceData })
     );
 
     // Convert stream to buffer
@@ -39,7 +39,7 @@ export async function generateInvoicePDF(invoiceData: InvoiceData): Promise<Buff
 /**
  * Generate simple text invoice (fallback if PDF fails)
  */
-export function generateInvoiceText(invoiceData: InvoiceData): string {
+export function generateInvoiceText(invoiceData: CompleteInvoiceData): string {
   const { order, customer, lines } = invoiceData;
 
   const lineItems = lines.map((line, index) => {
