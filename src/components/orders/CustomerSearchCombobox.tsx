@@ -144,7 +144,12 @@ export function CustomerSearchCombobox({
                 <>
                   {query === '' && (
                     <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-500 bg-gray-50">
-                      Recent Customers (type to search all 5,000+)
+                      Recent Customers • Showing {customers.length} of 5,000+ (type to search all)
+                    </div>
+                  )}
+                  {query !== '' && (
+                    <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-500 bg-gray-50">
+                      Search Results • Showing {customers.length} customers
                     </div>
                   )}
                   {customers.map((customer) => (

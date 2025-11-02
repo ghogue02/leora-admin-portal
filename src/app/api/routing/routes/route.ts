@@ -4,9 +4,9 @@
  * POST /api/routing/routes - Import route from Azuga CSV
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { listRoutes, importRouteFromAzuga } from '@/lib/azuga-export';
-import { z } from 'zod';
+import { NextRequest, NextResponse } from "next/server";
+import { listRoutes, importRouteFromAzuga } from "@/lib/route-import";
+import { z } from "zod";
 
 const ImportRouteSchema = z.object({
   csvData: z.string().min(1),

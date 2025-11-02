@@ -1,240 +1,230 @@
-import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
-import prisma from '@/lib/prisma';
+import { NextRequest, NextResponse } from "next/server";
+import type { Prisma } from "@prisma/client";
+import { withSalesSession } from "@/lib/auth/sales";
 
-export async function GET(request: Request) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+export async function GET(request: NextRequest) {
+  const { searchParams } = request.nextUrl;
+  const status = searchParams.get("status");
+  const date = searchParams.get("date");
 
-    const { searchParams } = new URL(request.url);
-    const status = searchParams.get('status');
-    const date = searchParams.get('date');
+  return withSalesSession(
+    request,
+    async ({ db, tenantId }) => {
+      try {
+        const where: Prisma.PickSheetWhereInput = {
+          tenantId,
+        };
 
-    const where: any = {
-      tenantId: session.user.tenantId,
-    };
+        if (status && status !== "all") {
+          where.status = status as any;
+        }
 
-    if (status && status !== 'all') {
-      where.status = status;
-    }
+        if (date) {
+          const startDate = new Date(date);
+          const endDate = new Date(startDate);
+          endDate.setDate(endDate.getDate() + 1);
 
-    if (date) {
-      const startDate = new Date(date);
-      const endDate = new Date(startDate);
-      endDate.setDate(endDate.getDate() + 1);
+          where.createdAt = {
+            gte: startDate,
+            lt: endDate,
+          };
+        }
 
-      where.createdAt = {
-        gte: startDate,
-        lt: endDate,
-      };
-    }
-
-    const pickSheets = await prisma.pickSheet.findMany({
-      where,
-      include: {
-        items: {
+        const pickSheets = await db.pickSheet.findMany({
+          where,
           include: {
-            sku: {
+            items: {
               include: {
-                product: true,
-                inventories: {
-                  where: {
-                    tenantId: session.user.tenantId,
+                sku: {
+                  include: {
+                    product: true,
+                    inventories: {
+                      where: { tenantId },
+                      take: 1,
+                    },
                   },
-                  take: 1,
                 },
-              },
-            },
-            customer: {
-              select: {
-                id: true,
-                businessName: true,
-                shippingAddress: true,
-                shippingCity: true,
-                shippingState: true,
-                shippingZip: true,
-              },
-            },
-            OrderLine: {
-              include: {
-                order: {
+                customer: {
                   select: {
                     id: true,
-                    orderedAt: true,
+                    businessName: true,
+                    shippingAddress: true,
+                    shippingCity: true,
+                    shippingState: true,
+                    shippingZip: true,
+                  },
+                },
+                OrderLine: {
+                  include: {
+                    order: {
+                      select: {
+                        id: true,
+                        orderedAt: true,
+                      },
+                    },
                   },
                 },
               },
+              orderBy: {
+                pickOrder: "asc",
+              },
+            },
+            User: {
+              select: {
+                id: true,
+                name: true,
+                email: true,
+              },
             },
           },
           orderBy: {
-            pickOrder: 'asc',
+            createdAt: "desc",
           },
-        },
-        User: {
-          select: {
-            id: true,
-            name: true,
-            email: true,
-          },
-        },
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
+        });
 
-    return NextResponse.json({ pickSheets });
-  } catch (error) {
-    console.error('Error fetching pick sheets:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch pick sheets' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ pickSheets });
+      } catch (error) {
+        console.error("Error fetching pick sheets:", error);
+        return NextResponse.json(
+          { error: "Failed to fetch pick sheets" },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }
 
-export async function POST(request: Request) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId || !session?.user?.id) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+export async function POST(request: NextRequest) {
+  const body = await request.json();
 
-    const body = await request.json();
-    const { orderIds, pickerName, routeOptimization = 'location' } = body;
+  return withSalesSession(
+    request,
+    async ({ db, tenantId, session }) => {
+      try {
+        const { orderIds, pickerName } = body;
 
-    if (!orderIds || orderIds.length === 0) {
-      return NextResponse.json(
-        { error: 'At least one order is required' },
-        { status: 400 }
-      );
-    }
+        if (!orderIds || orderIds.length === 0) {
+          return NextResponse.json(
+            { error: "At least one order is required" },
+            { status: 400 },
+          );
+        }
 
-    // Get the next pick sheet number
-    const lastPickSheet = await prisma.pickSheet.findFirst({
-      where: { tenantId: session.user.tenantId },
-      orderBy: { sheetNumber: 'desc' },
-    });
+        const lastPickSheet = await db.pickSheet.findFirst({
+          where: { tenantId },
+          orderBy: { sheetNumber: "desc" },
+        });
 
-    const nextNumber = lastPickSheet
-      ? parseInt(lastPickSheet.sheetNumber.split('-').pop() || '0') + 1
-      : 1;
+        const nextNumber = lastPickSheet
+          ? parseInt(lastPickSheet.sheetNumber.split("-").pop() || "0", 10) + 1
+          : 1;
 
-    const sheetNumber = `PS-${new Date().getFullYear()}-${String(nextNumber).padStart(3, '0')}`;
+        const sheetNumber = `PS-${new Date().getFullYear()}-${String(nextNumber).padStart(3, "0")}`;
 
-    // Fetch order lines for selected orders
-    const orderLines = await prisma.orderLine.findMany({
-      where: {
-        tenantId: session.user.tenantId,
-        orderId: { in: orderIds },
-      },
-      include: {
-        sku: {
-          include: {
-            inventories: {
-              where: {
-                tenantId: session.user.tenantId,
-              },
-              orderBy: {
-                onHand: 'desc',
-              },
-              take: 1,
-            },
-            product: true,
+        const orderLines = await db.orderLine.findMany({
+          where: {
+            tenantId,
+            orderId: { in: orderIds },
           },
-        },
-        order: {
-          include: {
-            customer: true,
-          },
-        },
-      },
-    });
-
-    if (orderLines.length === 0) {
-      return NextResponse.json(
-        { error: 'No items found in selected orders' },
-        { status: 400 }
-      );
-    }
-
-    // Optimize pick order based on location
-    const optimizedItems = orderLines.map((line, index) => {
-      const location = line.sku.inventories[0]?.location || 'ZZZ-999-999';
-      const [aisle = 'ZZZ', bay = '999', shelf = '999'] = location.split('-');
-
-      return {
-        orderLine: line,
-        location,
-        aisle,
-        bay: parseInt(bay) || 999,
-        shelf: parseInt(shelf) || 999,
-        sortKey: `${aisle}-${String(parseInt(bay) || 999).padStart(3, '0')}-${String(parseInt(shelf) || 999).padStart(3, '0')}`,
-      };
-    });
-
-    // Sort by location for efficient picking
-    optimizedItems.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
-
-    // Create pick sheet with items
-    const pickSheet = await prisma.pickSheet.create({
-      data: {
-        tenantId: session.user.tenantId,
-        sheetNumber,
-        pickerName: pickerName || 'Unassigned',
-        status: 'READY',
-        createdById: session.user.id,
-        items: {
-          create: optimizedItems.map((item, index) => ({
-            tenantId: session.user.tenantId,
-            orderLineId: item.orderLine.id,
-            skuId: item.orderLine.skuId,
-            customerId: item.orderLine.order.customerId,
-            quantity: item.orderLine.quantity,
-            pickOrder: index + 1,
-          })),
-        },
-      },
-      include: {
-        items: {
           include: {
             sku: {
               include: {
+                inventories: {
+                  where: { tenantId },
+                  orderBy: { onHand: "desc" },
+                  take: 1,
+                },
                 product: true,
-                inventories: true,
               },
             },
-            customer: true,
+            order: {
+              include: {
+                customer: true,
+              },
+            },
           },
-          orderBy: {
-            pickOrder: 'asc',
+        });
+
+        if (orderLines.length === 0) {
+          return NextResponse.json(
+            { error: "No items found in selected orders" },
+            { status: 400 },
+          );
+        }
+
+        const optimizedItems = orderLines.map((line) => {
+          const location = line.sku.inventories[0]?.location || "ZZZ-999-999";
+          const [aisle = "ZZZ", bay = "999", shelf = "999"] = location.split("-");
+
+          const numericBay = parseInt(bay, 10) || 999;
+          const numericShelf = parseInt(shelf, 10) || 999;
+
+          return {
+            orderLine: line,
+            location,
+            sortKey: `${aisle}-${String(numericBay).padStart(3, "0")}-${String(numericShelf).padStart(3, "0")}`,
+          };
+        });
+
+        optimizedItems.sort((a, b) => a.sortKey.localeCompare(b.sortKey));
+
+        const pickSheet = await db.pickSheet.create({
+          data: {
+            tenantId,
+            sheetNumber,
+            pickerName: pickerName || "Unassigned",
+            status: "READY",
+            createdById: session.user.id,
+            items: {
+              create: optimizedItems.map((item, index) => ({
+                tenantId,
+                orderLineId: item.orderLine.id,
+                skuId: item.orderLine.skuId,
+                customerId: item.orderLine.order.customerId,
+                quantity: item.orderLine.quantity,
+                pickOrder: index + 1,
+              })),
+            },
           },
-        },
-      },
-    });
+          include: {
+            items: {
+              include: {
+                sku: {
+                  include: {
+                    product: true,
+                    inventories: true,
+                  },
+                },
+                customer: true,
+              },
+              orderBy: {
+                pickOrder: "asc",
+              },
+            },
+          },
+        });
 
-    // Update orders with pick sheet status
-    await prisma.order.updateMany({
-      where: {
-        id: { in: orderIds },
-        tenantId: session.user.tenantId,
-      },
-      data: {
-        pickSheetStatus: 'picking',
-        pickSheetId: pickSheet.id,
-      },
-    });
+        await db.order.updateMany({
+          where: {
+            id: { in: orderIds },
+            tenantId,
+          },
+          data: {
+            pickSheetStatus: "picking",
+            pickSheetId: pickSheet.id,
+          },
+        });
 
-    return NextResponse.json({ pickSheet }, { status: 201 });
-  } catch (error) {
-    console.error('Error creating pick sheet:', error);
-    return NextResponse.json(
-      { error: 'Failed to create pick sheet' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ pickSheet }, { status: 201 });
+      } catch (error) {
+        console.error("Error creating pick sheet:", error);
+        return NextResponse.json(
+          { error: "Failed to create pick sheet" },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }

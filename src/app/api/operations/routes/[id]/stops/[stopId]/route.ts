@@ -1,64 +1,66 @@
-import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
-import prisma from '@/lib/prisma';
+import { NextRequest, NextResponse } from "next/server";
+import { withSalesSession } from "@/lib/auth/sales";
 
-export async function PATCH(
-  request: Request,
-  { params }: { params: { id: string; stopId: string } }
-) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+type RouteParams = {
+  params: {
+    id: string;
+    stopId: string;
+  };
+};
 
-    const body = await request.json();
-    const { status, actualArrival, notes } = body;
+export async function PATCH(request: NextRequest, { params }: RouteParams) {
+  const body = await request.json();
 
-    const updateData: any = {};
+  return withSalesSession(
+    request,
+    async ({ db, tenantId }) => {
+      try {
+        const { status, actualArrival, notes } = body;
 
-    if (status) updateData.status = status;
-    if (notes !== undefined) updateData.notes = notes;
+        const updateData: Record<string, unknown> = {};
+        if (status) updateData.status = status;
+        if (notes !== undefined) updateData.notes = notes;
 
-    if (status === 'completed' || status === 'delivered') {
-      updateData.actualArrival = actualArrival ? new Date(actualArrival) : new Date();
-    }
+        if (status === "completed" || status === "delivered") {
+          updateData.actualArrival = actualArrival ? new Date(actualArrival) : new Date();
+        }
 
-    const stop = await prisma.routeStop.update({
-      where: {
-        id: params.stopId,
-        tenantId: session.user.tenantId,
-      },
-      data: updateData,
-      include: {
-        order: {
-          include: {
-            customer: true,
+        const stop = await db.routeStop.update({
+          where: {
+            id: params.stopId,
+            tenantId,
           },
-        },
-      },
-    });
+          data: updateData,
+          include: {
+            order: {
+              include: {
+                customer: true,
+              },
+            },
+          },
+        });
 
-    // Update order delivery status
-    if (status === 'completed' || status === 'delivered') {
-      await prisma.order.update({
-        where: {
-          id: stop.orderId,
-        },
-        data: {
-          deliveredAt: updateData.actualArrival,
-          status: 'FULFILLED',
-        },
-      });
-    }
+        if (status === "completed" || status === "delivered") {
+          await db.order.update({
+            where: {
+              id: stop.orderId,
+            },
+            data: {
+              deliveredAt: updateData.actualArrival as Date | undefined,
+              status: "FULFILLED",
+            },
+          });
+        }
 
-    return NextResponse.json({ stop });
-  } catch (error) {
-    console.error('Error updating route stop:', error);
-    return NextResponse.json(
-      { error: 'Failed to update stop' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ stop });
+      } catch (error) {
+        console.error("Error updating route stop:", error);
+        return NextResponse.json(
+          { error: "Failed to update stop" },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }

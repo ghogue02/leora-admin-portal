@@ -3,69 +3,65 @@
  * GET /api/routes/driver/[driverId] - Get routes assigned to a driver
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { getDriverRoutes } from '@/lib/route-visibility';
-import { getCurrentUser } from '@/lib/auth';
+import { NextRequest, NextResponse } from "next/server";
+import { getDriverRoutes } from "@/lib/route-visibility";
+import { withSalesSession } from "@/lib/auth/sales";
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { driverId: string } }
 ) {
-  try {
-    // Authenticate user
-    const user = await getCurrentUser();
+  return withSalesSession(
+    request,
+    async ({ tenantId }) => {
+      try {
+        const { driverId } = params;
 
-    if (!user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+        if (!driverId) {
+          return NextResponse.json(
+            { error: "Driver ID is required" },
+            { status: 400 },
+          );
+        }
 
-    const { driverId } = params;
+        // Get query params
+        const { searchParams } = new URL(request.url);
+        const dateParam = searchParams.get("date");
 
-    if (!driverId) {
-      return NextResponse.json(
-        { error: 'Driver ID is required' },
-        { status: 400 }
-      );
-    }
+        let date: Date | undefined;
 
-    // Get query params
-    const { searchParams } = new URL(request.url);
-    const dateParam = searchParams.get('date');
+        if (dateParam) {
+          date = new Date(dateParam);
 
-    let date: Date | undefined;
+          if (Number.isNaN(date.getTime())) {
+            return NextResponse.json(
+              { error: "Invalid date format" },
+              { status: 400 },
+            );
+          }
+        }
 
-    if (dateParam) {
-      date = new Date(dateParam);
+        // Get driver routes
+        const routes = await getDriverRoutes(tenantId, driverId, date);
 
-      if (isNaN(date.getTime())) {
+        return NextResponse.json({
+          driver_id: driverId,
+          date: date?.toISOString() || new Date().toISOString(),
+          routes,
+          count: routes.length,
+        });
+      } catch (error) {
+        console.error("Driver routes error:", error);
+
         return NextResponse.json(
-          { error: 'Invalid date format' },
-          { status: 400 }
+          {
+            error: "Failed to fetch driver routes",
+            message: error instanceof Error ? error.message : "Unknown error",
+          },
+          { status: 500 },
         );
       }
-    }
-
-    // Get driver routes
-    const routes = await getDriverRoutes(user.tenantId, driverId, date);
-
-    return NextResponse.json({
-      driver_id: driverId,
-      date: date?.toISOString() || new Date().toISOString(),
-      routes,
-      count: routes.length
-    });
-  } catch (error) {
-    console.error('Driver routes error:', error);
-
-    return NextResponse.json(
-      {
-        error: 'Failed to fetch driver routes',
-        message: error instanceof Error ? error.message : 'Unknown error'
-      },
-      { status: 500 }
-    );
-  }
+    },
+    { requireSalesRep: false },
+  );
 }

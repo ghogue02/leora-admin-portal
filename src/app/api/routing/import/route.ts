@@ -3,62 +3,58 @@
  * POST /api/routing/import - Import optimized routes from Azuga
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { importRouteFromAzuga } from '@/lib/route-import';
-import { getCurrentUser } from '@/lib/auth';
+import { NextRequest, NextResponse } from "next/server";
+import { importRouteFromAzuga } from "@/lib/route-import";
+import { withSalesSession } from "@/lib/auth/sales";
 
 export async function POST(request: NextRequest) {
-  try {
-    // Authenticate user
-    const user = await getCurrentUser();
+  return withSalesSession(
+    request,
+    async ({ tenantId }) => {
+      try {
+        // Parse FormData (for file upload)
+        const formData = await request.formData();
+        const file = formData.get("file") as File | null;
 
-    if (!user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+        if (!file) {
+          return NextResponse.json(
+            { error: "CSV file is required" },
+            { status: 400 },
+          );
+        }
 
-    // Parse FormData (for file upload)
-    const formData = await request.formData();
-    const file = formData.get('file') as File;
+        // Validate file type
+        if (!file.name.endsWith(".csv") && file.type !== "text/csv") {
+          return NextResponse.json(
+            { error: "File must be a CSV" },
+            { status: 400 },
+          );
+        }
 
-    if (!file) {
-      return NextResponse.json(
-        { error: 'CSV file is required' },
-        { status: 400 }
-      );
-    }
+        // Read CSV content
+        const csvData = await file.text();
 
-    // Validate file type
-    if (!file.name.endsWith('.csv') && file.type !== 'text/csv') {
-      return NextResponse.json(
-        { error: 'File must be a CSV' },
-        { status: 400 }
-      );
-    }
+        // Import route
+        const result = await importRouteFromAzuga(tenantId, csvData);
 
-    // Read CSV content
-    const csvData = await file.text();
+        return NextResponse.json({
+          success: true,
+          route: result.route,
+          stops: result.stops,
+          message: `Successfully imported route with ${result.stops} stops`,
+        });
+      } catch (error) {
+        console.error("Route import error:", error);
 
-    // Import route
-    const result = await importRouteFromAzuga(user.tenantId, csvData);
-
-    return NextResponse.json({
-      success: true,
-      route: result.route,
-      stops: result.stops,
-      message: `Successfully imported route with ${result.stops} stops`
-    });
-  } catch (error) {
-    console.error('Route import error:', error);
-
-    return NextResponse.json(
-      {
-        error: 'Failed to import route',
-        message: error instanceof Error ? error.message : 'Unknown error'
-      },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json(
+          {
+            error: "Failed to import route",
+            message: error instanceof Error ? error.message : "Unknown error",
+          },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }

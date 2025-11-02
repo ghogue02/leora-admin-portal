@@ -4,10 +4,10 @@ generator client {
 }
 
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
-  directUrl         = env("DIRECT_URL")
-  extensions        = [uuid_ossp(map: "uuid-ossp", schema: "extensions")]
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  directUrl  = env("DIRECT_URL")
+  extensions = [uuid_ossp(map: "uuid-ossp", schema: "extensions")]
 }
 
 model Tenant {
@@ -15,10 +15,10 @@ model Tenant {
   slug                    String                    @unique
   name                    String
   timezone                String                    @default("America/New_York")
-  wholesalerLicenseNumber String?                   // VA ABC wholesaler license number
-  wholesalerPhone         String?                   // Wholesaler contact phone
   createdAt               DateTime                  @default(now())
   updatedAt               DateTime                  @updatedAt
+  wholesalerLicenseNumber String?
+  wholesalerPhone         String?
   accountSnapshots        AccountHealthSnapshot[]
   activities              Activity[]
   activityTypes           ActivityType[]
@@ -37,8 +37,8 @@ model Tenant {
   customers               Customer[]
   customerAddresses       CustomerAddress[]
   customerAssignments     CustomerAssignment[]
-  customerTags            CustomerTag[]
   customerDuplicateFlags  CustomerDuplicateFlag[]
+  customerTags            CustomerTag[]
   integritySnapshots      DataIntegritySnapshot[]
   deliveryRoutes          DeliveryRoute[]
   emailCampaigns          EmailCampaign[]
@@ -53,7 +53,6 @@ model Tenant {
   InventoryReservation    InventoryReservation[]
   invoices                Invoice[]
   invoiceTemplates        InvoiceTemplate[]
-  taxRules                TaxRule[]
   mailchimpConnection     MailchimpConnection?
   mailchimpSyncs          MailchimpSync[]
   orders                  Order[]
@@ -95,6 +94,7 @@ model Tenant {
   suppliers               Supplier[]
   tagDefinitions          TagDefinition[]
   tasks                   Task[]
+  taxRules                TaxRule[]
   settings                TenantSettings?
   territories             Territory[]
   territoryBlocks         TerritoryBlock[]
@@ -152,38 +152,38 @@ model RolePermission {
 }
 
 model User {
-  id                   String            @id @default(uuid()) @db.Uuid
-  tenantId             String            @db.Uuid
-  email                String
-  fullName             String
-  hashedPassword       String
-  isActive             Boolean           @default(true)
-  lastLoginAt          DateTime?
-  createdAt            DateTime          @default(now())
-  updatedAt            DateTime          @updatedAt
-  calendarProvider     String?
-  calendarAccessToken  String?
-  calendarRefreshToken String?
-  lastCalendarSync     DateTime?
-  activities           Activity[]
-  auditLogs            AuditLog[]
-  calendarEvents       CalendarEvent[]
-  calendarSyncs        CalendarSync[]
-  callPlans            CallPlan[]
-  emailCampaigns       EmailCampaign[]
-  imageScans           ImageScan[]
-  PickSheet            PickSheet[]
-  queryHistory         QueryHistory[]
-  RouteExport          RouteExport[]
-  salesRepProfile      SalesRep?
-  salesSessions        SalesSession[]
-  savedQueries         SavedQuery[]
-  scheduledReports     ScheduledReport[]
-  assignedTasks        Task[]            @relation("AssignedTasks")
-  approvedOrders       Order[]           @relation("OrderApprovals")
+  id                     String                  @id @default(uuid()) @db.Uuid
+  tenantId               String                  @db.Uuid
+  email                  String
+  fullName               String
+  hashedPassword         String
+  isActive               Boolean                 @default(true)
+  lastLoginAt            DateTime?
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  calendarProvider       String?
+  calendarAccessToken    String?
+  calendarRefreshToken   String?
+  lastCalendarSync       DateTime?
+  activities             Activity[]
+  auditLogs              AuditLog[]
+  calendarEvents         CalendarEvent[]
+  calendarSyncs          CalendarSync[]
+  callPlans              CallPlan[]
   resolvedDuplicateFlags CustomerDuplicateFlag[] @relation("CustomerDuplicateFlagResolvedBy")
-  tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  roles                UserRole[]
+  emailCampaigns         EmailCampaign[]
+  imageScans             ImageScan[]
+  approvedOrders         Order[]                 @relation("OrderApprovals")
+  PickSheet              PickSheet[]
+  queryHistory           QueryHistory[]
+  RouteExport            RouteExport[]
+  salesRepProfile        SalesRep?
+  salesSessions          SalesSession[]
+  savedQueries           SavedQuery[]
+  scheduledReports       ScheduledReport[]
+  assignedTasks          Task[]                  @relation("AssignedTasks")
+  tenant                 Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles                  UserRole[]
 
   @@unique([tenantId, email])
   @@index([tenantId])
@@ -199,25 +199,25 @@ model UserRole {
 }
 
 model PortalUser {
-  id            String               @id @default(uuid()) @db.Uuid
-  tenantId      String               @db.Uuid
-  customerId    String?              @db.Uuid
-  email         String
-  fullName      String
-  portalUserKey String?
-  status        PortalUserStatus     @default(ACTIVE)
-  lastLoginAt   DateTime?
-  createdAt     DateTime             @default(now())
-  updatedAt     DateTime             @updatedAt
-  activities    Activity[]
-  carts         Cart[]
-  orders        Order[]
-  notifications PortalNotification[]
-  sessions      PortalSession[]
-  customer      Customer?            @relation(fields: [customerId], references: [id])
-  tenant        Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  roles         PortalUserRole[]
+  id                   String                  @id @default(uuid()) @db.Uuid
+  tenantId             String                  @db.Uuid
+  customerId           String?                 @db.Uuid
+  email                String
+  fullName             String
+  portalUserKey        String?
+  status               PortalUserStatus        @default(ACTIVE)
+  lastLoginAt          DateTime?
+  createdAt            DateTime                @default(now())
+  updatedAt            DateTime                @updatedAt
+  activities           Activity[]
+  carts                Cart[]
   duplicateFlagsRaised CustomerDuplicateFlag[]
+  orders               Order[]
+  notifications        PortalNotification[]
+  sessions             PortalSession[]
+  customer             Customer?               @relation(fields: [customerId], references: [id])
+  tenant               Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  roles                PortalUserRole[]
 
   @@unique([tenantId, email])
   @@index([tenantId])
@@ -333,9 +333,7 @@ model Sku {
   barrelOrTank         String?
   pendingOrders        Int?                   @default(0)
   pendingReceiving     Int?                   @default(0)
-
-  // VA ABC Invoice Fields
-  abcCodeNumber        String?                // e.g., "81394 - 14-A" or "12198 - 06-E"
+  abcCodeNumber        String?
   cartItems            CartItem[]
   inventories          Inventory[]
   InventoryReservation InventoryReservation[]
@@ -363,39 +361,41 @@ model Inventory {
   onHand      Int              @default(0)
   allocated   Int              @default(0)
   updatedAt   DateTime         @updatedAt
+  createdAt   DateTime         @default(now())
+  aisle       String?
+  row         Int?
+  shelf       String?
+  bin         String?
+  status      InventoryStatus? @default(AVAILABLE)
+  pickOrder   Int?
   binLocation String?
-  createdAt DateTime         @default(now())
-  aisle     String?
-  row       Int?
-  shelf     String?
-  bin       String?
-  status    InventoryStatus? @default(AVAILABLE)
-  pickOrder Int?
-  sku       Sku              @relation(fields: [skuId], references: [id], onDelete: Cascade)
-  tenant    Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sku         Sku              @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  tenant      Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, skuId, location])
   @@index([tenantId])
 }
 
 model PriceList {
-  id          String          @id @default(uuid()) @db.Uuid
-  tenantId    String          @db.Uuid
-  name        String
-  currency    String          @default("USD")
-  isDefault   Boolean         @default(false)
-  effectiveAt DateTime?
-  expiresAt   DateTime?
-  jurisdictionType   PriceListJurisdictionType @default(GLOBAL)
-  jurisdictionValue  String?
+  id                  String                    @id @default(uuid()) @db.Uuid
+  tenantId            String                    @db.Uuid
+  name                String
+  currency            String                    @default("USD")
+  isDefault           Boolean                   @default(false)
+  effectiveAt         DateTime?
+  expiresAt           DateTime?
+  createdAt           DateTime                  @default(now())
+  updatedAt           DateTime                  @updatedAt
+  jurisdictionType    PriceListJurisdictionType @default(GLOBAL)
+  jurisdictionValue   String?
   allowManualOverride Boolean                   @default(false)
-  createdAt   DateTime        @default(now())
-  updatedAt   DateTime        @updatedAt
-  tenant      Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  items       PriceListItem[]
+  tenant              Tenant                    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  items               PriceListItem[]
 
   @@unique([tenantId, name])
   @@index([tenantId])
+  @@index([jurisdictionType])
+  @@index([jurisdictionValue])
 }
 
 model PriceListItem {
@@ -417,77 +417,72 @@ model PriceListItem {
 }
 
 model Customer {
-  id                       String                  @id @default(uuid()) @db.Uuid
-  tenantId                 String                  @db.Uuid
-  externalId               String?
-  name                     String
-  accountNumber            String?
-  billingEmail             String?
-  phone                    String?
-  street1                  String?
-  street2                  String?
-  city                     String?
-  state                    String?
-  postalCode               String?
-  country                  String?                 @default("US")
-  paymentTerms             String?                 @default("Net 30")
-  orderingPaceDays         Int?
-  establishedRevenue       Decimal?                @db.Decimal(12, 2)
-  createdAt                DateTime                @default(now())
-  updatedAt                DateTime                @updatedAt
-  averageOrderIntervalDays Int?
-  closedReason             String?
-  dormancySince            DateTime?
-  isPermanentlyClosed      Boolean                 @default(false)
-  lastOrderDate            DateTime?
-  nextExpectedOrderDate    DateTime?
-  reactivatedDate          DateTime?
-  riskStatus               CustomerRiskStatus      @default(HEALTHY)
-  salesRepId               String?                 @db.Uuid
-  accountType              AccountType?
-  accountPriority          AccountPriority?
-  territory                String?
-  doNotContactUntil        DateTime?               @db.Timestamp(6)
-  latitude                 Float?
-  longitude                Float?
-  geocodedAt               DateTime?               @db.Timestamp(6)
-  quarterlyRevenueTarget   Decimal?                @db.Decimal(12, 2)
-  buyerFirstName           String?
-  buyerLastName            String?
-  csvImportedAt            DateTime?
-  csvLastSyncedAt          DateTime?
-
-  // VA ABC Invoice Fields
-  licenseNumber            String?                 // ABC license number for retailer
-  licenseType              String?                 // Type of license (for determining invoice format)
-
-  // NEW: Order defaults for streamlined order creation
-  requiresPO               Boolean                 @default(false)
-  defaultWarehouseLocation String?                 // "Baltimore", "Warrenton", "main"
-  defaultDeliveryTimeWindow String?                // "8am-12pm", "12pm-5pm", "anytime", "after-5pm"
-
-  accountSnapshots         AccountHealthSnapshot[]
-  activities               Activity[]
-  calendarEvents           CalendarEvent[]
-  callPlanAccounts         CallPlanAccount[]
-  callPlanActivities       CallPlanActivity[]
-  callPlanSchedules        CallPlanSchedule[]
-  salesRep                 SalesRep?               @relation(fields: [salesRepId], references: [id])
-  tenant                   Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  addresses                CustomerAddress[]
-  assignments              CustomerAssignment[]
-  tags                     CustomerTag[]
-  duplicateFlags          CustomerDuplicateFlag[]
-  duplicateOfRecords      CustomerDuplicateFlag[] @relation("DuplicateOfCustomer")
-  imageScans               ImageScan[]
-  invoices                 Invoice[]
-  orders                   Order[]
-  pickSheetItems           PickSheetItem[]
-  portalUsers              PortalUser[]
-  recurringCallPlans       RecurringCallPlan[]
-  sampleUsage              SampleUsage[]
-  tasks                    Task[]
-  triggeredTasks           TriggeredTask[]
+  id                        String                  @id @default(uuid()) @db.Uuid
+  tenantId                  String                  @db.Uuid
+  externalId                String?
+  name                      String
+  accountNumber             String?
+  billingEmail              String?
+  phone                     String?
+  street1                   String?
+  street2                   String?
+  city                      String?
+  state                     String?
+  postalCode                String?
+  country                   String?                 @default("US")
+  paymentTerms              String?                 @default("Net 30")
+  orderingPaceDays          Int?
+  establishedRevenue        Decimal?                @db.Decimal(12, 2)
+  createdAt                 DateTime                @default(now())
+  updatedAt                 DateTime                @updatedAt
+  averageOrderIntervalDays  Int?
+  closedReason              String?
+  dormancySince             DateTime?
+  isPermanentlyClosed       Boolean                 @default(false)
+  lastOrderDate             DateTime?
+  nextExpectedOrderDate     DateTime?
+  reactivatedDate           DateTime?
+  riskStatus                CustomerRiskStatus      @default(HEALTHY)
+  salesRepId                String?                 @db.Uuid
+  accountType               AccountType?
+  accountPriority           AccountPriority?
+  territory                 String?
+  doNotContactUntil         DateTime?               @db.Timestamp(6)
+  latitude                  Float?
+  longitude                 Float?
+  geocodedAt                DateTime?               @db.Timestamp(6)
+  buyerFirstName            String?
+  buyerLastName             String?
+  csvImportedAt             DateTime?
+  csvLastSyncedAt           DateTime?
+  quarterlyRevenueTarget    Decimal?                @db.Decimal(12, 2)
+  licenseNumber             String?
+  licenseType               String?
+  defaultDeliveryTimeWindow String?
+  defaultWarehouseLocation  String?
+  requiresPO                Boolean                 @default(false)
+  accountSnapshots          AccountHealthSnapshot[]
+  activities                Activity[]
+  calendarEvents            CalendarEvent[]
+  callPlanAccounts          CallPlanAccount[]
+  callPlanActivities        CallPlanActivity[]
+  callPlanSchedules         CallPlanSchedule[]
+  salesRep                  SalesRep?               @relation(fields: [salesRepId], references: [id])
+  tenant                    Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  addresses                 CustomerAddress[]
+  assignments               CustomerAssignment[]
+  duplicateFlags            CustomerDuplicateFlag[]
+  duplicateOfRecords        CustomerDuplicateFlag[] @relation("DuplicateOfCustomer")
+  tags                      CustomerTag[]
+  imageScans                ImageScan[]
+  invoices                  Invoice[]
+  orders                    Order[]
+  pickSheetItems            PickSheetItem[]
+  portalUsers               PortalUser[]
+  recurringCallPlans        RecurringCallPlan[]
+  sampleUsage               SampleUsage[]
+  tasks                     Task[]
+  triggeredTasks            TriggeredTask[]
 
   @@unique([tenantId, externalId])
   @@index([tenantId])
@@ -501,45 +496,42 @@ model Customer {
 }
 
 model Order {
-  id                   String                 @id @default(uuid()) @db.Uuid
-  tenantId             String                 @db.Uuid
-  customerId           String                 @db.Uuid
-  portalUserId         String?                @db.Uuid
-  status               OrderStatus            @default(DRAFT)
-  orderedAt            DateTime?
-  fulfilledAt          DateTime?
-  total                Decimal?               @db.Decimal(12, 2)
-  currency             String                 @default("USD")
-  createdAt            DateTime               @default(now())
-  updatedAt            DateTime               @updatedAt
-  deliveredAt          DateTime?
-  deliveryWeek         Int?
-  isFirstOrder         Boolean                @default(false)
-  pickSheetStatus      String?                @default("not_picked")
-  pickSheetId          String?                @db.Uuid
-  isEventSale          Boolean                @default(false)
-  eventType            String?
-  eventNotes           String?
-
-  // NEW: Enhanced delivery and approval fields
-  deliveryDate         DateTime?              // Actual scheduled delivery date
-  requestedDeliveryDate DateTime?             // Originally requested date (if changed)
-  warehouseLocation    String?                // "Baltimore", "Warrenton", "main"
-  deliveryTimeWindow   String?                // "8am-12pm", "12pm-5pm", "anytime", "after-5pm"
-  requiresApproval     Boolean                @default(false)
-  approvedById         String?                @db.Uuid
-  approvedAt           DateTime?
-
-  activities           Activity[]
-  InventoryReservation InventoryReservation[]
-  invoices             Invoice[]
-  customer             Customer               @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  portalUser           PortalUser?            @relation(fields: [portalUserId], references: [id])
-  tenant               Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  approvedBy           User?                  @relation("OrderApprovals", fields: [approvedById], references: [id])
-  lines                OrderLine[]
-  payments             Payment[]
-  routeStops           RouteStop[]
+  id                    String                 @id @default(uuid()) @db.Uuid
+  tenantId              String                 @db.Uuid
+  customerId            String                 @db.Uuid
+  portalUserId          String?                @db.Uuid
+  status                OrderStatus            @default(DRAFT)
+  orderedAt             DateTime?
+  fulfilledAt           DateTime?
+  total                 Decimal?               @db.Decimal(12, 2)
+  currency              String                 @default("USD")
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
+  deliveredAt           DateTime?
+  deliveryWeek          Int?
+  isFirstOrder          Boolean                @default(false)
+  pickSheetStatus       String?                @default("not_picked")
+  pickSheetId           String?                @db.Uuid
+  isEventSale           Boolean                @default(false)
+  eventType             String?
+  eventNotes            String?
+  approvedAt            DateTime?
+  approvedById          String?                @db.Uuid
+  deliveryDate          DateTime?
+  deliveryTimeWindow    String?
+  requestedDeliveryDate DateTime?
+  requiresApproval      Boolean                @default(false)
+  warehouseLocation     String?
+  activities            Activity[]
+  InventoryReservation  InventoryReservation[]
+  invoices              Invoice[]
+  approvedBy            User?                  @relation("OrderApprovals", fields: [approvedById], references: [id])
+  customer              Customer               @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  portalUser            PortalUser?            @relation(fields: [portalUserId], references: [id])
+  tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  lines                 OrderLine[]
+  payments              Payment[]
+  routeStops            RouteStop[]
 
   @@index([tenantId])
   @@index([deliveredAt])
@@ -561,11 +553,8 @@ model OrderLine {
   isSample            Boolean         @default(false)
   createdAt           DateTime        @default(now())
   updatedAt           DateTime        @updatedAt
-
-  // VA Invoice Fields
-  casesQuantity       Decimal?        @db.Decimal(10, 2) // Allow fractional cases like 8.83
+  casesQuantity       Decimal?        @db.Decimal(10, 2)
   totalLiters         Decimal?        @db.Decimal(10, 2)
-
   order               Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
   sku                 Sku             @relation(fields: [skuId], references: [id], onDelete: Cascade)
   tenant              Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -575,36 +564,33 @@ model OrderLine {
 }
 
 model Invoice {
-  id            String        @id @default(uuid()) @db.Uuid
-  tenantId      String        @db.Uuid
-  orderId       String        @db.Uuid
-  customerId    String?       @db.Uuid
-  invoiceNumber String?
-  status        InvoiceStatus @default(DRAFT)
-  subtotal      Decimal?      @db.Decimal(12, 2)
-  total         Decimal?      @db.Decimal(12, 2)
-  dueDate       DateTime?
+  id                  String             @id @default(uuid()) @db.Uuid
+  tenantId            String             @db.Uuid
+  orderId             String             @db.Uuid
+  customerId          String?            @db.Uuid
+  invoiceNumber       String?
+  status              InvoiceStatus      @default(DRAFT)
+  subtotal            Decimal?           @db.Decimal(12, 2)
+  total               Decimal?           @db.Decimal(12, 2)
+  dueDate             DateTime?
   issuedAt            DateTime?
   createdAt           DateTime           @default(now())
   updatedAt           DateTime           @updatedAt
-
-  // VA Invoice Format Fields
+  collectionTerms     String?
+  complianceNotice    String?
+  interestRate        Decimal?           @db.Decimal(5, 2)
   invoiceFormatType   InvoiceFormatType? @default(STANDARD)
+  paymentTermsText    String?
+  poNumber            String?
   salesperson         String?
-  paymentTermsText    String?            // e.g., "30 days", "C.O.D."
-  shippingMethod      String?            // e.g., "Hand deliver"
   shipDate            DateTime?
-  specialInstructions String?            @db.Text
-  poNumber            String?            // Customer PO number
+  shippingMethod      String?
+  specialInstructions String?
   totalLiters         Decimal?           @db.Decimal(10, 2)
-  interestRate        Decimal?           @db.Decimal(5, 2) // e.g., 3.00 for 3%
-  collectionTerms     String?            @db.Text
-  complianceNotice    String?            @db.Text
-
-  customer      Customer?     @relation(fields: [customerId], references: [id])
-  order         Order         @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  tenant        Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  payments      Payment[]
+  customer            Customer?          @relation(fields: [customerId], references: [id])
+  order               Order              @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  tenant              Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  payments            Payment[]
 
   @@index([tenantId])
   @@index([invoiceFormatType])
@@ -937,10 +923,7 @@ model SalesRep {
   isActive                Boolean              @default(true)
   createdAt               DateTime             @default(now())
   updatedAt               DateTime             @default(now()) @updatedAt
-
-  // NEW: Delivery schedule for territory-based validation
-  deliveryDaysArray       String[]             @default([])  // ["Monday", "Wednesday", "Friday"]
-
+  deliveryDaysArray       String[]             @default([])
   customers               Customer[]
   assignments             CustomerAssignment[]
   productGoals            RepProductGoal[]
@@ -1033,13 +1016,13 @@ model RepProductGoal {
   productCategory String?
   targetRevenue   Decimal? @db.Decimal(12, 2)
   targetCases     Int?
-  targetPod       Int?
-  metricType      String   @default("revenue")
-  periodType      String   @default("month")
   periodStart     DateTime
   periodEnd       DateTime
   createdAt       DateTime @default(now())
   updatedAt       DateTime @default(now()) @updatedAt
+  targetPod       Int?
+  metricType      String   @default("revenue")
+  periodType      String   @default("month")
   salesRep        SalesRep @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
   sku             Sku?     @relation(fields: [skuId], references: [id], onDelete: Cascade)
   tenant          Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
@@ -1677,22 +1660,22 @@ model CustomerTag {
 }
 
 model CustomerDuplicateFlag {
-  id                    String                   @id @default(uuid()) @db.Uuid
-  tenantId              String                   @db.Uuid
-  customerId            String                   @db.Uuid
-  duplicateOfCustomerId String?                  @db.Uuid
-  flaggedByPortalUserId String?                  @db.Uuid
-  status                CustomerDuplicateStatus  @default(OPEN)
+  id                    String                  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId              String                  @db.Uuid
+  customerId            String                  @db.Uuid
+  duplicateOfCustomerId String?                 @db.Uuid
+  flaggedByPortalUserId String?                 @db.Uuid
+  status                CustomerDuplicateStatus @default(OPEN)
   notes                 String?
-  resolvedAt            DateTime?
-  resolvedBy            String?                  @db.Uuid
-  createdAt             DateTime                 @default(now())
-  updatedAt             DateTime                 @updatedAt
-  tenant                Tenant                   @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  customer              Customer                 @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  duplicateOf           Customer?                @relation("DuplicateOfCustomer", fields: [duplicateOfCustomerId], references: [id], onDelete: SetNull, onUpdate: NoAction)
-  adminUser             User?                    @relation("CustomerDuplicateFlagResolvedBy", fields: [resolvedBy], references: [id], onUpdate: NoAction)
-  flaggedByPortalUser   PortalUser?              @relation(fields: [flaggedByPortalUserId], references: [id], onDelete: SetNull, onUpdate: NoAction)
+  resolvedAt            DateTime?               @db.Timestamp(6)
+  resolvedBy            String?                 @db.Uuid
+  createdAt             DateTime                @default(now()) @db.Timestamp(6)
+  updatedAt             DateTime                @default(now()) @updatedAt @db.Timestamp(6)
+  customer              Customer                @relation(fields: [customerId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CustomerDuplicateFlag_customer_fkey")
+  duplicateOf           Customer?               @relation("DuplicateOfCustomer", fields: [duplicateOfCustomerId], references: [id], onUpdate: NoAction, map: "CustomerDuplicateFlag_duplicate_of_fkey")
+  flaggedByPortalUser   PortalUser?             @relation(fields: [flaggedByPortalUserId], references: [id], onUpdate: NoAction, map: "CustomerDuplicateFlag_flagged_by_portal_user_fkey")
+  adminUser             User?                   @relation("CustomerDuplicateFlagResolvedBy", fields: [resolvedBy], references: [id], onUpdate: NoAction, map: "CustomerDuplicateFlag_resolved_by_fkey")
+  tenant                Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "CustomerDuplicateFlag_tenant_fkey")
 
   @@index([tenantId])
   @@index([customerId])
@@ -2003,36 +1986,34 @@ model PurchaseOrderLine {
 }
 
 model InvoiceTemplate {
-  id                   String            @id @default(uuid()) @db.Uuid
-  tenantId             String            @db.Uuid
-  name                 String            // e.g., "Virginia ABC In-State"
-  formatType           InvoiceFormatType
-  isDefault            Boolean           @default(false)
-  config               Json              // Layout configuration, field visibility, etc.
-  applicableStates     String[]          @default([])
-  applicableLicenseTypes String[]        @default([])
-  createdAt            DateTime          @default(now())
-  updatedAt            DateTime          @updatedAt
-
-  tenant               Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  id                     String            @id @default(uuid()) @db.Uuid
+  tenantId               String            @db.Uuid
+  name                   String
+  formatType             InvoiceFormatType
+  isDefault              Boolean           @default(false)
+  config                 Json
+  applicableStates       String[]          @default([])
+  applicableLicenseTypes String[]          @default([])
+  createdAt              DateTime          @default(now())
+  updatedAt              DateTime          @updatedAt
+  tenant                 Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, name])
   @@index([tenantId, formatType])
 }
 
 model TaxRule {
-  id        String   @id @default(uuid()) @db.Uuid
-  tenantId  String   @db.Uuid
-  state     String   // e.g., "VA", "MD", "DC"
-  taxType   String   // e.g., "EXCISE", "SALES"
-  rate      Decimal  @db.Decimal(10, 4) // e.g., 0.4000 for $0.40/liter
-  perUnit   String?  // e.g., "LITER", "BOTTLE", "CASE", "DOLLAR"
+  id        String    @id @default(uuid()) @db.Uuid
+  tenantId  String    @db.Uuid
+  state     String
+  taxType   String
+  rate      Decimal   @db.Decimal(10, 4)
+  perUnit   String?
   effective DateTime
   expires   DateTime?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  tenant    Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId, state, taxType])
   @@index([effective, expires])
@@ -2052,14 +2033,14 @@ enum PortalUserStatus {
 
 enum OrderStatus {
   DRAFT
-  PENDING                 // Awaiting approval or processing
-  READY_TO_DELIVER       // Ready for operations to pick
-  PICKED                 // Warehouse has picked the order
-  DELIVERED              // Order has been delivered
-  SUBMITTED              // Legacy - kept for backward compatibility
-  FULFILLED              // Legacy - kept for backward compatibility
+  SUBMITTED
+  FULFILLED
   CANCELLED
   PARTIALLY_FULFILLED
+  PENDING
+  READY_TO_DELIVER
+  PICKED
+  DELIVERED
 }
 
 enum InvoiceStatus {

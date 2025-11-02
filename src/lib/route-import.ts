@@ -11,6 +11,12 @@ export interface RouteImportResult {
   stops: number;
 }
 
+export interface ListRoutesOptions {
+  routeDate?: Date;
+  limit?: number;
+  offset?: number;
+}
+
 export interface AzugaRouteRow {
   stop: number;
   customer: string;
@@ -59,6 +65,45 @@ export async function importRouteFromAzuga(
     route,
     stops: routeData.length
   };
+}
+
+/**
+ * List delivery routes for a tenant with optional filters.
+ */
+export async function listRoutes(
+  tenantId: string,
+  options: ListRoutesOptions = {},
+) {
+  const { routeDate, limit, offset } = options;
+
+  let query = db.deliveryRoutes
+    .where('tenant_id', '=', tenantId);
+
+  if (routeDate) {
+    const startOfDay = new Date(routeDate);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    const endOfDay = new Date(routeDate);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    query = query
+      .where('delivery_date', '>=', startOfDay)
+      .where('delivery_date', '<=', endOfDay);
+  }
+
+  query = query
+    .orderBy('delivery_date', 'desc')
+    .orderBy('created_at', 'desc');
+
+  const routes = await query.execute();
+
+  const start = Math.max(offset ?? 0, 0);
+  if (limit === undefined) {
+    return start > 0 ? routes.slice(start) : routes;
+  }
+
+  const end = start + Math.max(limit, 0);
+  return routes.slice(start, end);
 }
 
 /**

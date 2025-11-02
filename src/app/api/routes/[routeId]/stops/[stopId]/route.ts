@@ -3,83 +3,79 @@
  * PATCH /api/routes/[routeId]/stops/[stopId] - Update stop status
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { updateStopStatus } from '@/lib/route-visibility';
-import { getCurrentUser } from '@/lib/auth';
+import { NextRequest, NextResponse } from "next/server";
+import { updateStopStatus } from "@/lib/route-visibility";
+import { withSalesSession } from "@/lib/auth/sales";
 
 export async function PATCH(
   request: NextRequest,
   { params }: { params: { routeId: string; stopId: string } }
 ) {
-  try {
-    // Authenticate user
-    const user = await getCurrentUser();
+  return withSalesSession(
+    request,
+    async () => {
+      try {
+        const { stopId } = params;
 
-    if (!user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+        if (!stopId) {
+          return NextResponse.json(
+            { error: "Stop ID is required" },
+            { status: 400 },
+          );
+        }
 
-    const { stopId } = params;
+        // Parse request body
+        const body = await request.json();
+        const { status, actualArrival, notes } = body;
 
-    if (!stopId) {
-      return NextResponse.json(
-        { error: 'Stop ID is required' },
-        { status: 400 }
-      );
-    }
+        // Validate status
+        const validStatuses = ["pending", "in_transit", "arrived", "delivered", "failed"];
 
-    // Parse request body
-    const body = await request.json();
-    const { status, actualArrival, notes } = body;
+        if (!status || !validStatuses.includes(status)) {
+          return NextResponse.json(
+            { error: `Status must be one of: ${validStatuses.join(", ")}` },
+            { status: 400 },
+          );
+        }
 
-    // Validate status
-    const validStatuses = ['pending', 'in_transit', 'arrived', 'delivered', 'failed'];
+        // Parse actual arrival if provided
+        let arrivalDate: Date | undefined;
 
-    if (!status || !validStatuses.includes(status)) {
-      return NextResponse.json(
-        { error: `Status must be one of: ${validStatuses.join(', ')}` },
-        { status: 400 }
-      );
-    }
+        if (actualArrival) {
+          arrivalDate = new Date(actualArrival);
 
-    // Parse actual arrival if provided
-    let arrivalDate: Date | undefined;
+          if (Number.isNaN(arrivalDate.getTime())) {
+            return NextResponse.json(
+              { error: "Invalid actual arrival date format" },
+              { status: 400 },
+            );
+          }
+        }
 
-    if (actualArrival) {
-      arrivalDate = new Date(actualArrival);
+        // Update stop
+        const updatedStop = await updateStopStatus(
+          stopId,
+          status,
+          arrivalDate,
+          notes,
+        );
 
-      if (isNaN(arrivalDate.getTime())) {
+        return NextResponse.json({
+          success: true,
+          stop: updatedStop,
+        });
+      } catch (error) {
+        console.error("Stop update error:", error);
+
         return NextResponse.json(
-          { error: 'Invalid actual arrival date format' },
-          { status: 400 }
+          {
+            error: "Failed to update stop status",
+            message: error instanceof Error ? error.message : "Unknown error",
+          },
+          { status: 500 },
         );
       }
-    }
-
-    // Update stop
-    const updatedStop = await updateStopStatus(
-      stopId,
-      status,
-      arrivalDate,
-      notes
-    );
-
-    return NextResponse.json({
-      success: true,
-      stop: updatedStop
-    });
-  } catch (error) {
-    console.error('Stop update error:', error);
-
-    return NextResponse.json(
-      {
-        error: 'Failed to update stop status',
-        message: error instanceof Error ? error.message : 'Unknown error'
-      },
-      { status: 500 }
-    );
-  }
+    },
+    { requireSalesRep: false },
+  );
 }

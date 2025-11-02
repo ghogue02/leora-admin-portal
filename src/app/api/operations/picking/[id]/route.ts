@@ -1,160 +1,156 @@
-import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
-import prisma from '@/lib/prisma';
+import { NextRequest, NextResponse } from "next/server";
+import { withSalesSession } from "@/lib/auth/sales";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+type RouteParams = {
+  params: {
+    id: string;
+  };
+};
 
-    const pickSheet = await prisma.pickSheet.findFirst({
-      where: {
-        id: params.id,
-        tenantId: session.user.tenantId,
-      },
-      include: {
-        items: {
+export async function GET(request: NextRequest, { params }: RouteParams) {
+  return withSalesSession(
+    request,
+    async ({ db, tenantId }) => {
+      try {
+        const pickSheet = await db.pickSheet.findFirst({
+          where: {
+            id: params.id,
+            tenantId,
+          },
           include: {
-            sku: {
+            items: {
               include: {
-                product: true,
-                inventories: {
-                  where: {
-                    tenantId: session.user.tenantId,
+                sku: {
+                  include: {
+                    product: true,
+                    inventories: {
+                      where: { tenantId },
+                    },
+                  },
+                },
+                customer: {
+                  select: {
+                    id: true,
+                    businessName: true,
+                    shippingAddress: true,
+                    shippingCity: true,
+                    shippingState: true,
+                    shippingZip: true,
+                  },
+                },
+                OrderLine: {
+                  include: {
+                    order: true,
                   },
                 },
               },
+              orderBy: {
+                pickOrder: "asc",
+              },
             },
-            customer: {
+            User: {
               select: {
                 id: true,
-                businessName: true,
-                shippingAddress: true,
-                shippingCity: true,
-                shippingState: true,
-                shippingZip: true,
-              },
-            },
-            OrderLine: {
-              include: {
-                order: true,
+                name: true,
+                email: true,
               },
             },
           },
-          orderBy: {
-            pickOrder: 'asc',
-          },
-        },
-        User: {
-          select: {
-            id: true,
-            name: true,
-            email: true,
-          },
-        },
-      },
-    });
+        });
 
-    if (!pickSheet) {
-      return NextResponse.json(
-        { error: 'Pick sheet not found' },
-        { status: 404 }
-      );
-    }
+        if (!pickSheet) {
+          return NextResponse.json(
+            { error: "Pick sheet not found" },
+            { status: 404 },
+          );
+        }
 
-    return NextResponse.json({ pickSheet });
-  } catch (error) {
-    console.error('Error fetching pick sheet:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch pick sheet' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ pickSheet });
+      } catch (error) {
+        console.error("Error fetching pick sheet:", error);
+        return NextResponse.json(
+          { error: "Failed to fetch pick sheet" },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }
 
-export async function PATCH(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+export async function PATCH(request: NextRequest, { params }: RouteParams) {
+  const body = await request.json();
 
-    const body = await request.json();
-    const { status, pickerName, startedAt, completedAt } = body;
+  return withSalesSession(
+    request,
+    async ({ db, tenantId }) => {
+      try {
+        const { status, pickerName, startedAt, completedAt } = body;
 
-    const updateData: any = {};
+        const updateData: Record<string, unknown> = {};
+        if (status) updateData.status = status;
+        if (pickerName) updateData.pickerName = pickerName;
+        if (startedAt) updateData.startedAt = new Date(startedAt);
+        if (completedAt) updateData.completedAt = new Date(completedAt);
 
-    if (status) updateData.status = status;
-    if (pickerName) updateData.pickerName = pickerName;
-    if (startedAt) updateData.startedAt = new Date(startedAt);
-    if (completedAt) updateData.completedAt = new Date(completedAt);
-
-    const pickSheet = await prisma.pickSheet.update({
-      where: {
-        id: params.id,
-        tenantId: session.user.tenantId,
-      },
-      data: updateData,
-      include: {
-        items: {
+        const pickSheet = await db.pickSheet.update({
+          where: {
+            id: params.id,
+            tenantId,
+          },
+          data: updateData,
           include: {
-            sku: {
+            items: {
               include: {
-                product: true,
-                inventories: true,
+                sku: {
+                  include: {
+                    product: true,
+                    inventories: true,
+                  },
+                },
+                customer: true,
+              },
+              orderBy: {
+                pickOrder: "asc",
               },
             },
-            customer: true,
           },
-          orderBy: {
-            pickOrder: 'asc',
-          },
-        },
-      },
-    });
+        });
 
-    return NextResponse.json({ pickSheet });
-  } catch (error) {
-    console.error('Error updating pick sheet:', error);
-    return NextResponse.json(
-      { error: 'Failed to update pick sheet' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ pickSheet });
+      } catch (error) {
+        console.error("Error updating pick sheet:", error);
+        return NextResponse.json(
+          { error: "Failed to update pick sheet" },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }
 
-export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+export async function DELETE(request: NextRequest, { params }: RouteParams) {
+  return withSalesSession(
+    request,
+    async ({ db, tenantId }) => {
+      try {
+        await db.pickSheet.delete({
+          where: {
+            id: params.id,
+            tenantId,
+          },
+        });
 
-    await prisma.pickSheet.delete({
-      where: {
-        id: params.id,
-        tenantId: session.user.tenantId,
-      },
-    });
-
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('Error deleting pick sheet:', error);
-    return NextResponse.json(
-      { error: 'Failed to delete pick sheet' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ success: true });
+      } catch (error) {
+        console.error("Error deleting pick sheet:", error);
+        return NextResponse.json(
+          { error: "Failed to delete pick sheet" },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }

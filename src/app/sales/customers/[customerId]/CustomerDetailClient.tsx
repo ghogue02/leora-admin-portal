@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
+import dynamic from "next/dynamic";
 import CustomerHeader from "./sections/CustomerHeader";
 import CustomerMetrics from "./sections/CustomerMetrics";
 import OrderingPaceIndicator from "./sections/OrderingPaceIndicator";
@@ -14,7 +15,6 @@ import OrderHistory from "./sections/OrderHistory";
 import AccountHolds from "./sections/AccountHolds";
 import CustomerContextSetter from "./sections/CustomerContextSetter";
 import OrderDeepDive from "./sections/OrderDeepDive";
-import ProductHistoryReports from "./sections/ProductHistoryReports";
 import CustomerInsights from "./sections/CustomerInsights";
 import CustomerTagManager from "./sections/CustomerTagManager";
 import {
@@ -24,6 +24,16 @@ import {
   ActivityTimelineSkeleton,
   TopProductsSkeleton,
 } from "./components/LoadingSkeletons";
+
+const ProductHistoryReports = dynamic(() => import("./sections/ProductHistoryReports"), {
+  ssr: false,
+  loading: () => (
+    <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="h-8 w-64 animate-pulse rounded bg-gray-200"></div>
+      <div className="mt-4 h-96 animate-pulse rounded bg-gray-100"></div>
+    </div>
+  ),
+});
 
 export default function CustomerDetailClient({
   customerId,

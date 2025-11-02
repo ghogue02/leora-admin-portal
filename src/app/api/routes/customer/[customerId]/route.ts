@@ -3,47 +3,43 @@
  * GET /api/routes/customer/[customerId] - Get customer's delivery ETA
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { getCustomerDeliveryETA } from '@/lib/route-visibility';
-import { getCurrentUser } from '@/lib/auth';
+import { NextRequest, NextResponse } from "next/server";
+import { getCustomerDeliveryETA } from "@/lib/route-visibility";
+import { withSalesSession } from "@/lib/auth/sales";
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { customerId: string } }
 ) {
-  try {
-    // Authenticate user
-    const user = await getCurrentUser();
+  return withSalesSession(
+    request,
+    async () => {
+      try {
+        const { customerId } = params;
 
-    if (!user) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
+        if (!customerId) {
+          return NextResponse.json(
+            { error: "Customer ID is required" },
+            { status: 400 },
+          );
+        }
 
-    const { customerId } = params;
+        // Get customer delivery info
+        const deliveryInfo = await getCustomerDeliveryETA(customerId);
 
-    if (!customerId) {
-      return NextResponse.json(
-        { error: 'Customer ID is required' },
-        { status: 400 }
-      );
-    }
+        return NextResponse.json(deliveryInfo);
+      } catch (error) {
+        console.error("Customer route error:", error);
 
-    // Get customer delivery info
-    const deliveryInfo = await getCustomerDeliveryETA(customerId);
-
-    return NextResponse.json(deliveryInfo);
-  } catch (error) {
-    console.error('Customer route error:', error);
-
-    return NextResponse.json(
-      {
-        error: 'Failed to fetch customer delivery info',
-        message: error instanceof Error ? error.message : 'Unknown error'
-      },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json(
+          {
+            error: "Failed to fetch customer delivery info",
+            message: error instanceof Error ? error.message : "Unknown error",
+          },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }

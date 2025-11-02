@@ -1,88 +1,87 @@
-import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
-import prisma from '@/lib/prisma';
+import { NextRequest, NextResponse } from "next/server";
+import { withSalesSession } from "@/lib/auth/sales";
 
-export async function GET(request: Request) {
-  try {
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+export async function GET(request: NextRequest) {
+  return withSalesSession(
+    request,
+    async ({ db, tenantId }) => {
+      try {
+        const { searchParams } = request.nextUrl;
+        const routeId = searchParams.get("routeId");
+        const date = searchParams.get("date");
 
-    const { searchParams } = new URL(request.url);
-    const routeId = searchParams.get('routeId');
-    const date = searchParams.get('date');
+        const where: Record<string, unknown> = {
+          tenantId,
+        };
 
-    const where: any = {
-      tenantId: session.user.tenantId,
-    };
+        if (routeId) {
+          where.routeId = routeId;
+        }
 
-    if (routeId) {
-      where.routeId = routeId;
-    }
+        if (date) {
+          const startDate = new Date(date);
+          const endDate = new Date(startDate);
+          endDate.setDate(endDate.getDate() + 1);
 
-    if (date) {
-      const startDate = new Date(date);
-      const endDate = new Date(startDate);
-      endDate.setDate(endDate.getDate() + 1);
+          where.estimatedArrival = {
+            gte: startDate,
+            lt: endDate,
+          };
+        }
 
-      where.estimatedArrival = {
-        gte: startDate,
-        lt: endDate,
-      };
-    }
-
-    const stops = await prisma.routeStop.findMany({
-      where,
-      include: {
-        route: {
-          select: {
-            id: true,
-            routeName: true,
-            driverName: true,
-            truckNumber: true,
-          },
-        },
-        order: {
+        const stops = await db.routeStop.findMany({
+          where,
           include: {
-            customer: {
+            route: {
               select: {
                 id: true,
-                businessName: true,
-                contactName: true,
-                phone: true,
-                email: true,
-                shippingAddress: true,
-                shippingCity: true,
-                shippingState: true,
-                shippingZip: true,
+                routeName: true,
+                driverName: true,
+                truckNumber: true,
               },
             },
-            lines: {
+            order: {
               include: {
-                sku: {
+                customer: {
+                  select: {
+                    id: true,
+                    businessName: true,
+                    contactName: true,
+                    phone: true,
+                    email: true,
+                    shippingAddress: true,
+                    shippingCity: true,
+                    shippingState: true,
+                    shippingZip: true,
+                  },
+                },
+                lines: {
                   include: {
-                    product: true,
+                    sku: {
+                      include: {
+                        product: true,
+                      },
+                    },
                   },
                 },
               },
             },
           },
-        },
-      },
-      orderBy: [
-        { route: { routeDate: 'desc' } },
-        { stopNumber: 'asc' },
-      ],
-    });
+          orderBy: [
+            { route: { routeDate: "desc" } },
+            { stopNumber: "asc" },
+          ],
+        });
 
-    return NextResponse.json({ stops });
-  } catch (error) {
-    console.error('Error fetching delivery tracking:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch delivery tracking' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ stops });
+      } catch (error) {
+        console.error("Error fetching delivery tracking:", error);
+        return NextResponse.json(
+          { error: "Failed to fetch delivery tracking" },
+          { status: 500 },
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }

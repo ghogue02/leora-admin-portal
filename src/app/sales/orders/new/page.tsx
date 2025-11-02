@@ -14,6 +14,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { toast } from 'sonner';
 import { ProductGrid } from '@/components/orders/ProductGrid';
 import { DeliveryDatePicker } from '@/components/orders/DeliveryDatePicker';
 import { WarehouseSelector } from '@/components/orders/WarehouseSelector';
@@ -135,6 +136,12 @@ export default function NewOrderPage() {
 
     setOrderItems(prev => [...prev, newItem]);
     setShowProductSelector(false);
+
+    // Show success toast
+    toast.success(`Added ${quantity}x ${product.productName} to order`, {
+      description: `$${(quantity * unitPrice).toFixed(2)} total`,
+      duration: 3000,
+    });
   }, []);
 
   // Calculate order total
@@ -174,7 +181,11 @@ export default function NewOrderPage() {
     // Validate form
     if (!validateForm()) {
       setError('Please fix the errors below');
+      // Smooth scroll to top to show errors
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      toast.error('Please complete all required fields', {
+        description: 'Review the error messages at the top of the form',
+      });
       return;
     }
 
@@ -340,7 +351,8 @@ export default function NewOrderPage() {
 
             <div>
               <label htmlFor="timeWindow" className="block text-sm font-medium text-gray-700">
-                Delivery Time Window
+                Delivery Time Window <span className="text-xs font-normal text-gray-500">(Optional)</span>
+                <span className="ml-1 cursor-help text-gray-400" title="Preferred time window for delivery. Leave as 'Anytime' if no preference.">ⓘ</span>
               </label>
               <select
                 id="timeWindow"
@@ -349,15 +361,15 @@ export default function NewOrderPage() {
                 className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
               >
                 <option value="anytime">Anytime</option>
-                <option value="8am-12pm">8am - 12pm</option>
-                <option value="12pm-5pm">12pm - 5pm</option>
-                <option value="after-5pm">After 5pm</option>
+                <option value="8am-12pm">Morning (8am - 12pm)</option>
+                <option value="12pm-5pm">Afternoon (12pm - 5pm)</option>
+                <option value="after-5pm">Evening (After 5pm)</option>
               </select>
             </div>
 
             <div>
               <label htmlFor="poNumber" className="block text-sm font-medium text-gray-700">
-                PO Number {selectedCustomer?.requiresPO && <span className="text-rose-600">*</span>}
+                PO Number {selectedCustomer?.requiresPO ? <span className="text-rose-600">*</span> : <span className="text-xs font-normal text-gray-500">(Optional)</span>}
               </label>
               <input
                 id="poNumber"
@@ -368,17 +380,20 @@ export default function NewOrderPage() {
                 className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
                 required={selectedCustomer?.requiresPO}
               />
+              {selectedCustomer?.requiresPO && (
+                <p className="mt-1 text-xs text-gray-600">This customer requires a PO number for all orders</p>
+              )}
             </div>
 
             <div className="sm:col-span-2">
               <label htmlFor="instructions" className="block text-sm font-medium text-gray-700">
-                Special Instructions
+                Special Instructions <span className="text-xs font-normal text-gray-500">(Optional)</span>
               </label>
               <textarea
                 id="instructions"
                 value={specialInstructions}
                 onChange={(e) => setSpecialInstructions(e.target.value)}
-                placeholder="Delivery instructions, gate codes, etc."
+                placeholder="Delivery instructions, gate codes, special handling requirements, etc."
                 rows={3}
                 className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
               />
