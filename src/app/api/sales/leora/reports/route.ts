@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { getSalesUserContext } from '@/lib/sales-auth';
+import { withSalesSession } from '@/lib/auth/sales';
 
 // Helper to calculate next scheduled time
 function calculateNextScheduled(
@@ -37,93 +37,99 @@ function calculateNextScheduled(
 
 // GET /api/sales/leora/reports - List all scheduled reports for current user
 export async function GET(request: NextRequest) {
-  try {
-    const context = await getSalesUserContext(request);
-    if (!context) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+  return withSalesSession(
+    request,
+    async ({ tenantId, session }) => {
+      try {
+        const userId = session.user.id;
 
-    const reports = await prisma.scheduledReport.findMany({
-      where: {
-        tenantId: context.tenantId,
-        userId: context.userId,
-      },
-      orderBy: { createdAt: 'desc' },
-    });
+        const reports = await prisma.scheduledReport.findMany({
+          where: {
+            tenantId,
+            userId,
+          },
+          orderBy: { createdAt: 'desc' },
+        });
 
-    return NextResponse.json({ reports });
-  } catch (error) {
-    console.error('Error fetching scheduled reports:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch scheduled reports' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ reports });
+      } catch (error) {
+        console.error('Error fetching scheduled reports:', error);
+        return NextResponse.json(
+          { error: 'Failed to fetch scheduled reports' },
+          { status: 500 }
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }
 
 // POST /api/sales/leora/reports - Create a new scheduled report
 export async function POST(request: NextRequest) {
-  try {
-    const context = await getSalesUserContext(request);
-    if (!context) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+  return withSalesSession(
+    request,
+    async ({ tenantId, session }) => {
+      try {
+        const userId = session.user.id;
 
-    const body = await request.json();
-    const {
-      name,
-      description,
-      reportType,
-      frequency,
-      dayOfWeek,
-      timeOfDay,
-      recipientEmail,
-    } = body;
+        const body = await request.json();
+        const {
+          name,
+          description,
+          reportType,
+          frequency,
+          dayOfWeek,
+          timeOfDay,
+          recipientEmail,
+        } = body;
 
-    if (!name || !reportType || !frequency || !recipientEmail) {
-      return NextResponse.json(
-        { error: 'Name, report type, frequency, and recipient email are required' },
-        { status: 400 }
-      );
-    }
+        if (!name || !reportType || !frequency || !recipientEmail) {
+          return NextResponse.json(
+            { error: 'Name, report type, frequency, and recipient email are required' },
+            { status: 400 }
+          );
+        }
 
-    // Validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(recipientEmail)) {
-      return NextResponse.json(
-        { error: 'Invalid email address' },
-        { status: 400 }
-      );
-    }
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(recipientEmail)) {
+          return NextResponse.json(
+            { error: 'Invalid email address' },
+            { status: 400 }
+          );
+        }
 
-    // Calculate next scheduled time
-    const nextScheduled = calculateNextScheduled(
-      frequency,
-      dayOfWeek ?? null,
-      timeOfDay || '08:00'
-    );
+        // Calculate next scheduled time
+        const nextScheduled = calculateNextScheduled(
+          frequency,
+          dayOfWeek ?? null,
+          timeOfDay || '08:00'
+        );
 
-    const report = await prisma.scheduledReport.create({
-      data: {
-        tenantId: context.tenantId,
-        userId: context.userId,
-        name,
-        description,
-        reportType,
-        frequency,
-        dayOfWeek,
-        timeOfDay: timeOfDay || '08:00',
-        recipientEmail,
-        nextScheduled,
-      },
-    });
+        const report = await prisma.scheduledReport.create({
+          data: {
+            tenantId,
+            userId,
+            name,
+            description,
+            reportType,
+            frequency,
+            dayOfWeek,
+            timeOfDay: timeOfDay || '08:00',
+            recipientEmail,
+            nextScheduled,
+          },
+        });
 
-    return NextResponse.json({ report }, { status: 201 });
-  } catch (error) {
-    console.error('Error creating scheduled report:', error);
-    return NextResponse.json(
-      { error: 'Failed to create scheduled report' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ report }, { status: 201 });
+      } catch (error) {
+        console.error('Error creating scheduled report:', error);
+        return NextResponse.json(
+          { error: 'Failed to create scheduled report' },
+          { status: 500 }
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }

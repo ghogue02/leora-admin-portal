@@ -12,9 +12,11 @@
  * - Reject → status changes to CANCELLED, inventory released (if any)
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import { Clock, DollarSign, AlertTriangle, CheckCircle } from 'lucide-react';
 
 type ApprovalOrder = {
   id: string;
@@ -94,10 +96,18 @@ export default function ManagerApprovalsPage() {
         throw new Error(data.error || 'Failed to approve order');
       }
 
+      // Show success toast
+      toast.success('Order approved successfully', {
+        description: 'Order has been moved to pending status',
+      });
+
       // Reload approvals list
       await loadApprovals();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to approve order');
+      toast.error('Failed to approve order', {
+        description: err instanceof Error ? err.message : 'Unknown error',
+      });
     } finally {
       setProcessingId(null);
     }
@@ -122,14 +132,50 @@ export default function ManagerApprovalsPage() {
         throw new Error(data.error || 'Failed to reject order');
       }
 
+      // Show success toast
+      toast.success('Order rejected', {
+        description: `Reason: ${reason}`,
+      });
+
       // Reload approvals list
       await loadApprovals();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to reject order');
+      toast.error('Failed to reject order', {
+        description: err instanceof Error ? err.message : 'Unknown error',
+      });
     } finally {
       setProcessingId(null);
     }
   }, [loadApprovals]);
+
+  // PHASE 2: Calculate dashboard statistics
+  const stats = useMemo(() => {
+    const totalValue = orders.reduce((sum, order) => sum + order.total, 0);
+    const urgentOrders = orders.filter(order => {
+      if (!order.deliveryDate) return false;
+      const daysUntilDelivery = Math.floor(
+        (new Date(order.deliveryDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+      );
+      return daysUntilDelivery <= 2; // Delivery in 2 days or less
+    }).length;
+
+    const avgWaitTime = orders.length > 0
+      ? Math.floor(
+          orders.reduce((sum, order) => {
+            const wait = new Date().getTime() - new Date(order.createdAt).getTime();
+            return sum + wait / (1000 * 60 * 60); // Convert to hours
+          }, 0) / orders.length
+        )
+      : 0;
+
+    return {
+      totalPending: orders.length,
+      totalValue,
+      urgentCount: urgentOrders,
+      avgWaitHours: avgWaitTime,
+    };
+  }, [orders]);
 
   return (
     <div className="mx-auto max-w-7xl">
@@ -139,6 +185,63 @@ export default function ManagerApprovalsPage() {
           Review and approve orders with insufficient inventory
         </p>
       </header>
+
+      {/* PHASE 2: Dashboard Statistics */}
+      {!loading && orders.length > 0 && (
+        <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Total Pending */}
+          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="rounded-lg bg-blue-100 p-2">
+                <Clock className="h-5 w-5 text-blue-700" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{stats.totalPending}</p>
+                <p className="text-xs text-gray-600">Pending Approvals</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Total Value */}
+          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="rounded-lg bg-emerald-100 p-2">
+                <DollarSign className="h-5 w-5 text-emerald-700" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">${stats.totalValue.toLocaleString('en-US', { maximumFractionDigits: 0 })}</p>
+                <p className="text-xs text-gray-600">Total Value</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Urgent Orders */}
+          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className={`rounded-lg p-2 ${stats.urgentCount > 0 ? 'bg-amber-100' : 'bg-gray-100'}`}>
+                <AlertTriangle className={`h-5 w-5 ${stats.urgentCount > 0 ? 'text-amber-700' : 'text-gray-500'}`} />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{stats.urgentCount}</p>
+                <p className="text-xs text-gray-600">Urgent (≤2 days)</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Average Wait Time */}
+          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="rounded-lg bg-purple-100 p-2">
+                <CheckCircle className="h-5 w-5 text-purple-700" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{stats.avgWaitHours}h</p>
+                <p className="text-xs text-gray-600">Avg Wait Time</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {error && (
         <div className="mb-6 rounded-lg border border-rose-200 bg-rose-50 p-4">

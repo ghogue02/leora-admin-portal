@@ -22,6 +22,7 @@ import { CustomerSearchCombobox } from '@/components/orders/CustomerSearchCombob
 import { OrderSummarySidebar } from '@/components/orders/OrderSummarySidebar';
 import { ValidationErrorSummary } from '@/components/orders/ValidationErrorSummary';
 import { OrderSuccessModal } from '@/components/orders/OrderSuccessModal';
+import { OrderPreviewModal } from '@/components/orders/OrderPreviewModal';
 import { FormProgress } from '@/components/orders/FormProgress';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
 
@@ -72,6 +73,9 @@ export default function NewOrderPage() {
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
 
+  // Inline validation state (Phase 2)
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
   const customerPricingContext = useMemo<CustomerPricingContext | null>(() => {
     if (!selectedCustomer) return null;
     return {
@@ -89,23 +93,33 @@ export default function NewOrderPage() {
   const [validationErrors, setValidationErrors] = useState<Array<{field: string; message: string; type: 'missing' | 'validation'}>>([]);
   const [salesRepDeliveryDays, setSalesRepDeliveryDays] = useState<string[]>([]);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [createdOrderData, setCreatedOrderData] = useState<{orderId: string; orderNumber: string; total: number; requiresApproval: boolean} | null>(null);
 
-  // Load sales rep delivery days
+  // Load sales rep delivery days and set smart defaults
   useEffect(() => {
     async function loadProfile() {
       try {
         const response = await fetch('/api/sales/profile');
         if (response.ok) {
           const profileData = await response.json();
-          setSalesRepDeliveryDays(profileData.salesRep?.deliveryDaysArray || []);
+          const deliveryDays = profileData.salesRep?.deliveryDaysArray || [];
+          setSalesRepDeliveryDays(deliveryDays);
+
+          // PHASE 2: Smart Default - Pre-fill next delivery date
+          if (deliveryDays.length > 0 && !deliveryDate) {
+            const nextDate = getNextDeliveryDate(deliveryDays);
+            if (nextDate) {
+              setDeliveryDate(nextDate);
+            }
+          }
         }
       } catch (err) {
         console.error('Failed to load profile:', err);
       }
     }
     void loadProfile();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-fill defaults when customer selected
   const handleCustomerSelect = useCallback((customer: Customer) => {
@@ -113,12 +127,23 @@ export default function NewOrderPage() {
     setSelectedCustomer(customer);
     setWarehouseLocation(customer.defaultWarehouseLocation || 'main');
     setDeliveryTimeWindow(customer.defaultDeliveryTimeWindow || 'anytime');
+
+    // PHASE 2: Clear customer error when selected
+    setFieldErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors.customer;
+      return newErrors;
+    });
   }, []);
 
   // Add product to order
   const handleAddProduct = useCallback((product: any, quantityFromGrid: number, inventoryStatus: InventoryStatus | undefined, pricing: PricingSelection) => {
     const unitPrice = pricing.unitPrice || product.pricePerUnit || 0;
     const quantity = Math.max(1, quantityFromGrid);
+
+    // PHASE 2: Quantity warning for unusual amounts
+    const isUnusualQuantity = quantity >= 100; // Warn for very large orders
+    const isLowInventory = inventoryStatus && !inventoryStatus.sufficient;
 
     const newItem: OrderItem = {
       skuId: product.skuId,
@@ -137,11 +162,30 @@ export default function NewOrderPage() {
     setOrderItems(prev => [...prev, newItem]);
     setShowProductSelector(false);
 
-    // Show success toast
-    toast.success(`Added ${quantity}x ${product.productName} to order`, {
-      description: `$${(quantity * unitPrice).toFixed(2)} total`,
-      duration: 3000,
+    // Clear products error when product added
+    setFieldErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors.products;
+      return newErrors;
     });
+
+    // Show success toast with warnings
+    if (isUnusualQuantity) {
+      toast.warning(`Added ${quantity}x ${product.productName} to order`, {
+        description: `⚠ Large quantity - Manager approval may be required`,
+        duration: 4000,
+      });
+    } else if (isLowInventory) {
+      toast.success(`Added ${quantity}x ${product.productName} to order`, {
+        description: `⚠ Low inventory - Manager approval required • $${(quantity * unitPrice).toFixed(2)} total`,
+        duration: 4000,
+      });
+    } else {
+      toast.success(`Added ${quantity}x ${product.productName} to order`, {
+        description: `$${(quantity * unitPrice).toFixed(2)} total`,
+        duration: 3000,
+      });
+    }
   }, []);
 
   // Calculate order total
@@ -174,14 +218,13 @@ export default function NewOrderPage() {
     return errors.length === 0;
   }, [selectedCustomer, deliveryDate, warehouseLocation, poNumber, orderItems]);
 
-  // Submit order
-  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+  // PHASE 2: Show preview modal before submission
+  const handleShowPreview = useCallback((e: React.FormEvent) => {
     e.preventDefault();
 
     // Validate form
     if (!validateForm()) {
       setError('Please fix the errors below');
-      // Smooth scroll to top to show errors
       window.scrollTo({ top: 0, behavior: 'smooth' });
       toast.error('Please complete all required fields', {
         description: 'Review the error messages at the top of the form',
@@ -189,6 +232,12 @@ export default function NewOrderPage() {
       return;
     }
 
+    // Show preview modal
+    setShowPreviewModal(true);
+  }, [validateForm]);
+
+  // Submit order (called from preview modal)
+  const handleConfirmSubmit = useCallback(async () => {
     setSubmitting(true);
     setError(null);
     setValidationErrors([]);
@@ -226,13 +275,18 @@ export default function NewOrderPage() {
         requiresApproval: result.requiresApproval || false,
       });
       setShowSuccessModal(true);
+      setShowPreviewModal(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to create order');
+      setShowPreviewModal(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      toast.error('Order creation failed', {
+        description: err instanceof Error ? err.message : 'Unknown error',
+      });
     } finally {
       setSubmitting(false);
     }
-  }, [selectedCustomer, deliveryDate, warehouseLocation, deliveryTimeWindow, poNumber, specialInstructions, orderItems, orderTotal, validateForm]);
+  }, [selectedCustomer, deliveryDate, warehouseLocation, deliveryTimeWindow, poNumber, specialInstructions, orderItems, orderTotal]);
 
   // Calculate form progress
   const formSteps = useMemo(() => [
@@ -257,6 +311,69 @@ export default function NewOrderPage() {
           : 0,
       }));
   }, [orderItems]);
+
+  // PHASE 2: Helper function to get next delivery date
+  function getNextDeliveryDate(deliveryDays: string[]): string | null {
+    if (deliveryDays.length === 0) return null;
+
+    const today = new Date();
+    let currentDate = new Date(today);
+    currentDate.setDate(currentDate.getDate() + 1); // Start from tomorrow
+
+    // Look ahead 14 days to find next delivery day
+    for (let i = 0; i < 14; i++) {
+      const dayName = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+      if (deliveryDays.includes(dayName)) {
+        return currentDate.toISOString().split('T')[0];
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    return null;
+  }
+
+  // PHASE 2: Inline validation for individual fields
+  const validateField = useCallback((field: string, value: any) => {
+    const errors: Record<string, string> = {};
+
+    switch (field) {
+      case 'customer':
+        if (!value) {
+          errors.customer = 'Please select a customer';
+        }
+        break;
+      case 'deliveryDate':
+        if (!value) {
+          errors.deliveryDate = 'Please select a delivery date';
+        }
+        break;
+      case 'warehouse':
+        if (!value) {
+          errors.warehouse = 'Please select a warehouse location';
+        }
+        break;
+      case 'poNumber':
+        if (selectedCustomer?.requiresPO && !value?.trim()) {
+          errors.poNumber = 'PO number is required for this customer';
+        }
+        break;
+      case 'products':
+        if (orderItems.length === 0) {
+          errors.products = 'Please add at least one product';
+        }
+        break;
+    }
+
+    setFieldErrors(prev => {
+      const newErrors = { ...prev };
+      if (errors[field]) {
+        newErrors[field] = errors[field];
+      } else {
+        delete newErrors[field];
+      }
+      return newErrors;
+    });
+  }, [selectedCustomer, orderItems.length]);
 
   return (
     <div className="mx-auto max-w-7xl">
@@ -304,7 +421,7 @@ export default function NewOrderPage() {
       {/* 2-Column Layout: Form + Sidebar */}
       <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
         {/* Main Form Column */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleShowPreview} className="space-y-6">
         {/* Section 1: Customer Selection */}
         <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="mb-4 text-lg font-semibold text-gray-900">Customer Information</h2>
@@ -317,8 +434,11 @@ export default function NewOrderPage() {
               <CustomerSearchCombobox
                 value={selectedCustomerId}
                 onChange={handleCustomerSelect}
-                error={error && !selectedCustomerId ? 'Please select a customer' : undefined}
+                error={fieldErrors.customer}
               />
+              {fieldErrors.customer && (
+                <p className="mt-1 text-xs text-rose-600">{fieldErrors.customer}</p>
+              )}
             </div>
           </div>
         </section>
@@ -331,12 +451,24 @@ export default function NewOrderPage() {
             <div>
               <label htmlFor="deliveryDate" className="block text-sm font-medium text-gray-700">
                 Delivery Date <span className="text-rose-600">*</span>
+                {deliveryDate && salesRepDeliveryDays.length > 0 && (
+                  <span className="ml-2 text-xs text-emerald-600 font-normal">
+                    ✓ Auto-selected next delivery day
+                  </span>
+                )}
               </label>
               <DeliveryDatePicker
                 value={deliveryDate}
-                onChange={setDeliveryDate}
+                onChange={(date) => {
+                  setDeliveryDate(date);
+                  validateField('deliveryDate', date);
+                }}
                 deliveryDays={salesRepDeliveryDays}
+                error={fieldErrors.deliveryDate}
               />
+              {fieldErrors.deliveryDate && (
+                <p className="mt-1 text-xs text-rose-600">{fieldErrors.deliveryDate}</p>
+              )}
             </div>
 
             <div>
@@ -345,8 +477,14 @@ export default function NewOrderPage() {
               </label>
               <WarehouseSelector
                 value={warehouseLocation}
-                onChange={setWarehouseLocation}
+                onChange={(warehouse) => {
+                  setWarehouseLocation(warehouse);
+                  validateField('warehouse', warehouse);
+                }}
               />
+              {fieldErrors.warehouse && (
+                <p className="mt-1 text-xs text-rose-600">{fieldErrors.warehouse}</p>
+              )}
             </div>
 
             <div>
@@ -376,12 +514,20 @@ export default function NewOrderPage() {
                 type="text"
                 value={poNumber}
                 onChange={(e) => setPoNumber(e.target.value)}
+                onBlur={(e) => validateField('poNumber', e.target.value)}
                 placeholder="Customer PO number"
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
+                className={`mt-1 block w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 ${
+                  fieldErrors.poNumber
+                    ? 'border-rose-300 bg-rose-50 focus:border-rose-500 focus:ring-rose-200'
+                    : 'border-gray-300 focus:border-gray-500 focus:ring-gray-200'
+                }`}
                 required={selectedCustomer?.requiresPO}
               />
-              {selectedCustomer?.requiresPO && (
+              {selectedCustomer?.requiresPO && !fieldErrors.poNumber && (
                 <p className="mt-1 text-xs text-gray-600">This customer requires a PO number for all orders</p>
+              )}
+              {fieldErrors.poNumber && (
+                <p className="mt-1 text-xs text-rose-600">{fieldErrors.poNumber}</p>
               )}
             </div>
 
@@ -630,6 +776,25 @@ export default function NewOrderPage() {
             />
           </div>
         </div>
+      )}
+
+      {/* PHASE 2: Order Preview Modal */}
+      {showPreviewModal && selectedCustomer && (
+        <OrderPreviewModal
+          isOpen={showPreviewModal}
+          customer={selectedCustomer}
+          deliveryDate={deliveryDate}
+          warehouseLocation={warehouseLocation}
+          deliveryTimeWindow={deliveryTimeWindow}
+          poNumber={poNumber}
+          specialInstructions={specialInstructions}
+          items={orderItems}
+          total={orderTotal}
+          requiresApproval={requiresApproval}
+          onConfirm={handleConfirmSubmit}
+          onCancel={() => setShowPreviewModal(false)}
+          submitting={submitting}
+        />
       )}
 
       {/* Success Modal */}

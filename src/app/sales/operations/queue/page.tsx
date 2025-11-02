@@ -13,8 +13,10 @@
  * - Shows only operational statuses (READY_TO_DELIVER, PICKED)
  */
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
+import { toast } from 'sonner';
+import { List, Package } from 'lucide-react';
 
 type QueueOrder = {
   id: string;
@@ -53,6 +55,9 @@ export default function OperationsQueuePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [bulkProcessing, setBulkProcessing] = useState(false);
+
+  // PHASE 2: View mode toggle
+  const [viewMode, setViewMode] = useState<'list' | 'picklist'>('list');
 
   // Filters
   const [filters, setFilters] = useState<FilterState>({
@@ -140,14 +145,42 @@ export default function OperationsQueuePage() {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
 
-      alert(`Successfully generated ${selectedOrders.size} invoices`);
+      toast.success(`Successfully generated ${selectedOrders.size} invoices`, {
+        description: 'ZIP file downloaded to your computer',
+      });
       clearSelection();
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Failed to print invoices');
+      toast.error('Failed to print invoices', {
+        description: err instanceof Error ? err.message : 'Unknown error',
+      });
     } finally {
       setBulkProcessing(false);
     }
   }, [selectedOrders, filters.deliveryDate, clearSelection]);
+
+  // PHASE 2: Group orders by warehouse for pick list view
+  const pickList = useMemo(() => {
+    const grouped: Record<string, {
+      warehouse: string;
+      orders: QueueOrder[];
+      totalItems: number;
+    }> = {};
+
+    orders.forEach(order => {
+      const warehouse = order.warehouseLocation || 'Unknown';
+      if (!grouped[warehouse]) {
+        grouped[warehouse] = {
+          warehouse,
+          orders: [],
+          totalItems: 0,
+        };
+      }
+      grouped[warehouse].orders.push(order);
+      grouped[warehouse].totalItems += order.lineCount;
+    });
+
+    return Object.values(grouped).sort((a, b) => b.totalItems - a.totalItems);
+  }, [orders]);
 
   const handleBulkStatusUpdate = useCallback(async (newStatus: string) => {
     if (selectedOrders.size === 0) {
@@ -187,11 +220,41 @@ export default function OperationsQueuePage() {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <header className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Operations Queue</h1>
-        <p className="mt-1 text-sm text-gray-600">
-          Manage orders ready for picking and delivery
-        </p>
+      <header className="mb-6 flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Operations Queue</h1>
+          <p className="mt-1 text-sm text-gray-600">
+            Manage orders ready for picking and delivery
+          </p>
+        </div>
+
+        {/* PHASE 2: View Mode Toggle */}
+        {!loading && orders.length > 0 && (
+          <div className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white p-1">
+            <button
+              onClick={() => setViewMode('list')}
+              className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition ${
+                viewMode === 'list'
+                  ? 'bg-gray-900 text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              <List className="h-4 w-4" />
+              List View
+            </button>
+            <button
+              onClick={() => setViewMode('picklist')}
+              className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition ${
+                viewMode === 'picklist'
+                  ? 'bg-gray-900 text-white'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              <Package className="h-4 w-4" />
+              Pick List
+            </button>
+          </div>
+        )}
       </header>
 
       {/* Filters */}
@@ -326,7 +389,96 @@ export default function OperationsQueuePage() {
               : 'Orders will appear here when sales reps mark them as Ready to Deliver'}
           </p>
         </div>
+      ) : viewMode === 'picklist' ? (
+        /* PHASE 2: Pick List View - Grouped by Warehouse */
+        <div className="space-y-6">
+          {pickList.map(group => (
+            <section key={group.warehouse} className="rounded-lg border border-slate-200 bg-white shadow-sm">
+              {/* Warehouse Header */}
+              <div className="border-b border-gray-200 bg-gray-50 px-6 py-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h2 className="text-lg font-semibold text-gray-900">
+                      📦 {group.warehouse} Warehouse
+                    </h2>
+                    <p className="mt-1 text-sm text-gray-600">
+                      {group.orders.length} orders • {group.totalItems} total items to pick
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      const warehouseOrderIds = group.orders.map(o => o.id);
+                      setSelectedOrders(new Set(warehouseOrderIds));
+                      toast.info(`Selected ${warehouseOrderIds.length} orders from ${group.warehouse}`);
+                    }}
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
+                  >
+                    Select All from This Warehouse
+                  </button>
+                </div>
+              </div>
+
+              {/* Orders in this warehouse */}
+              <div className="divide-y divide-gray-200">
+                {group.orders.map(order => (
+                  <div key={order.id} className="flex items-start gap-4 px-6 py-4 hover:bg-gray-50">
+                    <input
+                      type="checkbox"
+                      checked={selectedOrders.has(order.id)}
+                      onChange={() => toggleSelection(order.id)}
+                      className="mt-1 h-5 w-5 rounded border-gray-300"
+                    />
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <Link
+                            href={`/sales/orders/${order.id}`}
+                            className="text-sm font-semibold text-gray-900 hover:underline"
+                          >
+                            Order #{order.id.slice(0, 8)}
+                          </Link>
+                          <p className="mt-1 text-sm text-gray-700">
+                            {order.customer.name}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {order.customer.street1 && `${order.customer.street1}, `}
+                            {order.customer.city}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-bold text-gray-900">${order.total.toFixed(2)}</p>
+                          <p className="text-xs text-gray-500">{order.lineCount} items</p>
+                          {order.deliveryDate && (
+                            <p className="text-xs text-gray-600">
+                              {new Date(order.deliveryDate).toLocaleDateString('en-US', {
+                                weekday: 'short',
+                                month: 'short',
+                                day: 'numeric',
+                              })}
+                            </p>
+                          )}
+                          {order.deliveryTimeWindow && order.deliveryTimeWindow !== 'anytime' && (
+                            <p className="text-xs font-medium text-blue-700">
+                              {order.deliveryTimeWindow}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                      {order.specialInstructions && (
+                        <div className="mt-2 rounded-md bg-amber-50 border border-amber-200 p-2 text-xs">
+                          <span className="font-semibold text-amber-900">⚠ Special:</span>{' '}
+                          <span className="text-amber-800">{order.specialInstructions}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       ) : (
+        /* List View - Original */
         <div className="space-y-2">
           {/* Select All */}
           <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3">

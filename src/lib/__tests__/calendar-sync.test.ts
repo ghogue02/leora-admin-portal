@@ -71,8 +71,8 @@ jest.mock('@microsoft/microsoft-graph-client', () => ({
 }));
 
 jest.mock('@azure/msal-node', () => ({
-  ClientSecretCredential: jest.fn(() => ({
-    getToken: jest.fn(),
+  ConfidentialClientApplication: jest.fn(() => ({
+    acquireTokenByRefreshToken: jest.fn(),
   })),
 }));
 

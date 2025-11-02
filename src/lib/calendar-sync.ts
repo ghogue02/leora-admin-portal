@@ -1,6 +1,6 @@
 import { google, calendar_v3 } from 'googleapis';
 import { Client } from '@microsoft/microsoft-graph-client';
-import { ClientSecretCredential } from '@azure/msal-node';
+import { ConfidentialClientApplication } from '@azure/msal-node';
 import prisma from '@/lib/prisma';
 import { encryptToken, decryptToken, isEncrypted } from '@/lib/token-encryption';
 
@@ -525,6 +525,7 @@ export class OutlookCalendarClient {
   private tenantId: string;
   private clientId: string;
   private clientSecret: string;
+  private cca: ConfidentialClientApplication;
 
   constructor(accessToken: string) {
     this.tenantId = process.env.OUTLOOK_TENANT_ID!;
@@ -536,6 +537,14 @@ export class OutlookCalendarClient {
         done(null, accessToken);
       },
     });
+
+    this.cca = new ConfidentialClientApplication({
+      auth: {
+        clientId: this.clientId,
+        authority: `https://login.microsoftonline.com/${this.tenantId}`,
+        clientSecret: this.clientSecret,
+      },
+    });
   }
 
   /**
@@ -543,18 +552,19 @@ export class OutlookCalendarClient {
    */
   async refreshAccessToken(refreshToken: string): Promise<{ accessToken: string; expiresAt: Date }> {
     try {
-      const credential = new ClientSecretCredential(
-        this.tenantId,
-        this.clientId,
-        this.clientSecret
-      );
+      const tokenResponse = await this.cca.acquireTokenByRefreshToken({
+        scopes: ['https://graph.microsoft.com/.default'],
+        refreshToken,
+      });
 
-      const tokenResponse = await credential.getToken('https://graph.microsoft.com/.default');
+      if (!tokenResponse?.accessToken) {
+        throw new Error('No access token returned from Microsoft Graph');
+      }
 
       return {
-        accessToken: tokenResponse.token,
-        expiresAt: tokenResponse.expiresOnTimestamp
-          ? new Date(tokenResponse.expiresOnTimestamp)
+        accessToken: tokenResponse.accessToken,
+        expiresAt: tokenResponse.expiresOn
+          ? tokenResponse.expiresOn
           : new Date(Date.now() + 3600 * 1000),
       };
     } catch (error) {

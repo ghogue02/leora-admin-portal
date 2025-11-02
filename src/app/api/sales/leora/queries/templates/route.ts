@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { getSalesUserContext } from '@/lib/sales-auth';
+import { withSalesSession } from '@/lib/auth/sales';
 
 // Pre-defined query templates
 const QUERY_TEMPLATES = [
@@ -78,75 +78,81 @@ const QUERY_TEMPLATES = [
 
 // GET /api/sales/leora/queries/templates - Get all query templates
 export async function GET(request: NextRequest) {
-  try {
-    const context = await getSalesUserContext(request);
-    if (!context) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+  return withSalesSession(
+    request,
+    async ({ tenantId, session }) => {
+      try {
+        const userId = session.user.id;
 
-    // Get user-created templates
-    const userTemplates = await prisma.savedQuery.findMany({
-      where: {
-        tenantId: context.tenantId,
-        isTemplate: true,
-        OR: [
-          { userId: context.userId },
-          { isShared: true },
-        ],
-      },
-      orderBy: { usageCount: 'desc' },
-    });
+        // Get user-created templates
+        const userTemplates = await prisma.savedQuery.findMany({
+          where: {
+            tenantId,
+            isTemplate: true,
+            OR: [
+              { userId },
+              { isShared: true },
+            ],
+          },
+          orderBy: { usageCount: 'desc' },
+        });
 
-    // Combine with pre-defined templates
-    return NextResponse.json({
-      predefined: QUERY_TEMPLATES,
-      custom: userTemplates,
-    });
-  } catch (error) {
-    console.error('Error fetching query templates:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch query templates' },
-      { status: 500 }
-    );
-  }
+        // Combine with pre-defined templates
+        return NextResponse.json({
+          predefined: QUERY_TEMPLATES,
+          custom: userTemplates,
+        });
+      } catch (error) {
+        console.error('Error fetching query templates:', error);
+        return NextResponse.json(
+          { error: 'Failed to fetch query templates' },
+          { status: 500 }
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }
 
 // POST /api/sales/leora/queries/templates - Create template from existing query
 export async function POST(request: NextRequest) {
-  try {
-    const context = await getSalesUserContext(request);
-    if (!context) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+  return withSalesSession(
+    request,
+    async ({ tenantId, session }) => {
+      try {
+        const userId = session.user.id;
 
-    const body = await request.json();
-    const { queryId } = body;
+        const body = await request.json();
+        const { queryId } = body;
 
-    if (!queryId) {
-      return NextResponse.json(
-        { error: 'Query ID is required' },
-        { status: 400 }
-      );
-    }
+        if (!queryId) {
+          return NextResponse.json(
+            { error: 'Query ID is required' },
+            { status: 400 }
+          );
+        }
 
-    // Mark query as template
-    const query = await prisma.savedQuery.update({
-      where: {
-        id: queryId,
-        tenantId: context.tenantId,
-        userId: context.userId,
-      },
-      data: {
-        isTemplate: true,
-      },
-    });
+        // Mark query as template
+        const query = await prisma.savedQuery.update({
+          where: {
+            id: queryId,
+            tenantId,
+            userId,
+          },
+          data: {
+            isTemplate: true,
+          },
+        });
 
-    return NextResponse.json({ query });
-  } catch (error) {
-    console.error('Error creating template:', error);
-    return NextResponse.json(
-      { error: 'Failed to create template' },
-      { status: 500 }
-    );
-  }
+        return NextResponse.json({ query });
+      } catch (error) {
+        console.error('Error creating template:', error);
+        return NextResponse.json(
+          { error: 'Failed to create template' },
+          { status: 500 }
+        );
+      }
+    },
+    { requireSalesRep: false },
+  );
 }
