@@ -22,7 +22,7 @@ async function diagnose() {
 
     // Step 1: Check total counts
     console.log('📊 Step 1: Database Counts');
-    const skuCount = await prisma.sKU.count({ where: { tenantId: TENANT_ID } });
+    const skuCount = await prisma.sku.count({ where: { tenantId: TENANT_ID } });
     const inventoryCount = await prisma.inventory.count({ where: { tenantId: TENANT_ID } });
     console.log(`  SKUs: ${skuCount}`);
     console.log(`  Inventory records: ${inventoryCount}\n`);
@@ -31,17 +31,17 @@ async function diagnose() {
     console.log('🔎 Step 2: SKU/Inventory Matching');
 
     // Get SKUs with inventory
-    const skusWithInventory = await prisma.sKU.findMany({
+    const skusWithInventory = await prisma.sku.findMany({
       where: {
         tenantId: TENANT_ID,
-        inventory: { some: {} }
+        inventories: { some: {} }
       },
       take: 5,
       select: {
         id: true,
         code: true,
         product: { select: { name: true } },
-        inventory: {
+        inventories: {
           select: {
             location: true,
             onHand: true,
@@ -54,17 +54,17 @@ async function diagnose() {
     console.log(`  SKUs WITH inventory: ${skusWithInventory.length} (showing first 5):`);
     skusWithInventory.forEach(sku => {
       console.log(`    ✅ ${sku.code} - ${sku.product?.name}`);
-      sku.inventory.forEach(inv => {
+      sku.inventories.forEach(inv => {
         const available = inv.onHand - inv.allocated;
         console.log(`       ${inv.location}: ${inv.onHand} on hand, ${inv.allocated} allocated, ${available} available`);
       });
     });
 
     // Get SKUs without inventory
-    const skusWithoutInventory = await prisma.sKU.count({
+    const skusWithoutInventory = await prisma.sku.count({
       where: {
         tenantId: TENANT_ID,
-        inventory: { none: {} }
+        inventories: { none: {} }
       }
     });
 
@@ -73,7 +73,7 @@ async function diagnose() {
     // Step 3: Simulate catalog API query
     console.log('\n📦 Step 3: Simulating Catalog API Query\n');
 
-    const catalogSkus = await prisma.sKU.findMany({
+    const catalogSkus = await prisma.sku.findMany({
       where: {
         tenantId: TENANT_ID,
         isActive: true,
@@ -142,7 +142,7 @@ async function diagnose() {
     console.log('🔧 Step 4: Common Issues Check\n');
 
     // Check if inactive SKUs are being queried
-    const inactiveSKUCount = await prisma.sKU.count({
+    const inactiveSKUCount = await prisma.sku.count({
       where: {
         tenantId: TENANT_ID,
         OR: [

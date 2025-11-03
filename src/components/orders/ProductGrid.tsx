@@ -140,8 +140,9 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
     }
   }, [warehouseLocation, quantityBySku]);
 
-  // Filter products
-  const filteredProducts = useMemo(() => {
+  // Filter products - TWO STAGE APPROACH
+  // Stage 1: Catalog-level filtering (fast, uses cached catalog data)
+  const catalogFilteredProducts = useMemo(() => {
     const searchLower = search.toLowerCase().trim();
 
     return products.filter(product => {
@@ -160,7 +161,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
         if (!searchableText.includes(searchLower)) return false;
       }
 
-      // In-stock filter
+      // Catalog-level in-stock filter (quick but approximate)
       if (showInStockOnly && product.inventory?.outOfStock) {
         return false;
       }
@@ -169,13 +170,38 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
     });
   }, [products, search, showInStockOnly, existingSkuIds]);
 
-  // Check inventory when warehouse or filtered products change
-  useEffect(() => {
-    const visibleSkus = filteredProducts.slice(0, 20).map(p => p.skuId);
-    if (visibleSkus.length > 0) {
-      void checkInventoryForProducts(visibleSkus);
+  // Stage 2: Real-time warehouse filtering (accurate, uses live inventory data)
+  const filteredProducts = useMemo(() => {
+    if (!showInStockOnly || inventoryStatuses.size === 0) {
+      return catalogFilteredProducts;
     }
-  }, [warehouseLocation, filteredProducts, checkInventoryForProducts]);
+
+    // Filter by actual warehouse availability
+    return catalogFilteredProducts.filter(product => {
+      const status = inventoryStatuses.get(product.skuId);
+
+      // If no status yet, include it (will be checked and filtered)
+      if (!status) return true;
+
+      // Only show products with available inventory > 0
+      return status.available > 0;
+    });
+  }, [catalogFilteredProducts, inventoryStatuses, showInStockOnly]);
+
+  // Check inventory - more aggressive when filtering by stock
+  useEffect(() => {
+    if (showInStockOnly && catalogFilteredProducts.length > 0) {
+      // When filtering by stock, check first 100 products to get accurate results
+      const skusToCheck = catalogFilteredProducts.slice(0, 100).map(p => p.skuId);
+      void checkInventoryForProducts(skusToCheck);
+    } else {
+      // Normal mode: only check visible products (first 20)
+      const visibleSkus = catalogFilteredProducts.slice(0, 20).map(p => p.skuId);
+      if (visibleSkus.length > 0) {
+        void checkInventoryForProducts(visibleSkus);
+      }
+    }
+  }, [warehouseLocation, catalogFilteredProducts, showInStockOnly, checkInventoryForProducts]);
 
   const handleAddProduct = useCallback((product: Product) => {
     const quantity = quantityBySku[product.skuId] || 1;
@@ -264,6 +290,9 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
 
           <span className="text-xs text-gray-500">
             {filteredProducts.length} of {products.length} products
+            {showInStockOnly && checkingInventory && (
+              <span className="ml-1 text-amber-600">(verifying availability...)</span>
+            )}
           </span>
         </div>
       </div>
