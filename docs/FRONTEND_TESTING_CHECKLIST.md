@@ -2,7 +2,35 @@
 
 **Purpose**: Comprehensive testing checklist to verify order management workflow works as expected
 **Last Updated**: November 3, 2025
-**Version**: 1.0
+**Version**: 1.1
+**Related Docs**: See `TESTING_FINDINGS_2025-11-03.md` for investigation results
+
+---
+
+## ⚠️ CRITICAL: Understanding Frontend vs Backend Behavior
+
+### Key Lesson from November 3, 2025 Testing
+
+**Frontend shows ESTIMATES, Backend makes FINAL DECISIONS:**
+
+| Aspect | Frontend (Preview) | Backend (Authoritative) |
+|--------|-------------------|------------------------|
+| **Prices** | Estimated from price lists | Recalculated with customer context |
+| **Inventory** | Cached/stale availability | Real-time allocation attempt |
+| **Approval** | Advisory warning only | Final requiresApproval decision |
+| **Status** | Not determined | Sets DRAFT or PENDING |
+
+**What This Means for Testing**:
+
+1. ⚠️ **Frontend may show "needs approval" warning** even if order ultimately doesn't need approval
+2. ⚠️ **Frontend prices may differ** from final saved prices (backend recalculates)
+3. ⚠️ **Frontend inventory status** is advisory only (backend attempts actual allocation)
+4. ✅ **Backend decisions are FINAL** - always verify database state
+
+**Before Reporting Bugs**:
+- [ ] Query database to verify what was actually saved
+- [ ] Understand that frontend/backend discrepancies may be by design
+- [ ] Backend is source of truth, not frontend display
 
 ---
 
