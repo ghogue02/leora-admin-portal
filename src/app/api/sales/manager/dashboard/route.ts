@@ -15,11 +15,14 @@ export async function GET(request: NextRequest) {
     const weekStart = startOfWeek(now, { weekStartsOn: 1 });
     const weekEnd = endOfWeek(now, { weekStartsOn: 1 });
 
-    // Get all sales reps
+    // Get all sales reps (only active users and active sales rep profiles)
     const salesReps = await db.salesRep.findMany({
       where: {
         tenantId,
         isActive: true,
+        user: {
+          isActive: true,  // Filter out archived users
+        },
       },
       include: {
         user: {
