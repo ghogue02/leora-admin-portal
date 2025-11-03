@@ -126,7 +126,14 @@ export default function NewOrderPage() {
   const handleCustomerSelect = useCallback((customer: Customer) => {
     setSelectedCustomerId(customer.id);
     setSelectedCustomer(customer);
-    setWarehouseLocation(customer.defaultWarehouseLocation || 'main');
+
+    // Smart warehouse default: customer default > last used > 'main'
+    let defaultWarehouse = customer.defaultWarehouseLocation;
+    if (!defaultWarehouse && typeof window !== 'undefined') {
+      defaultWarehouse = localStorage.getItem('lastUsedWarehouse') || 'main';
+    }
+    setWarehouseLocation(defaultWarehouse || 'main');
+
     setDeliveryTimeWindow(customer.defaultDeliveryTimeWindow || 'anytime');
 
     // PHASE 2: Clear customer error when selected
@@ -479,6 +486,10 @@ export default function NewOrderPage() {
                 onChange={(warehouse) => {
                   setWarehouseLocation(warehouse);
                   validateField('warehouse', warehouse);
+                  // Remember warehouse selection for next order
+                  if (typeof window !== 'undefined') {
+                    localStorage.setItem('lastUsedWarehouse', warehouse);
+                  }
                 }}
               />
               {fieldErrors.warehouse && (

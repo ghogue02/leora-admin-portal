@@ -461,6 +461,9 @@ model Customer {
   defaultDeliveryTimeWindow String?
   defaultWarehouseLocation  String?
   requiresPO                Boolean                 @default(false)
+  invoiceStateCode          String?                 // State code for invoice numbering (VA, MD, DC, TE)
+  isTaxExempt               Boolean                 @default(false)
+  taxExemptNumber           String?                 // Tax exempt certificate number
   accountSnapshots          AccountHealthSnapshot[]
   activities                Activity[]
   calendarEvents            CalendarEvent[]

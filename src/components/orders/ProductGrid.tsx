@@ -67,6 +67,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
+  const [brandFilter, setBrandFilter] = useState<string>('all');
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
   const [inventoryStatuses, setInventoryStatuses] = useState<Map<string, InventoryStatus>>(new Map());
   const [checkingInventory, setCheckingInventory] = useState(false);
@@ -156,17 +157,30 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
         return false;
       }
 
+      // Brand filter
+      if (brandFilter !== 'all' && product.brand !== brandFilter) {
+        return false;
+      }
+
       return true;
     });
-  }, [products, search, categoryFilter, existingSkuIds]);
+  }, [products, search, categoryFilter, brandFilter, existingSkuIds]);
 
-  // Get unique categories
+  // Get unique categories and brands
   const categories = useMemo(() => {
     const cats = new Set<string>();
     products.forEach(p => {
       if (p.category) cats.add(p.category);
     });
     return Array.from(cats).sort();
+  }, [products]);
+
+  const brands = useMemo(() => {
+    const brandSet = new Set<string>();
+    products.forEach(p => {
+      if (p.brand) brandSet.add(p.brand);
+    });
+    return Array.from(brandSet).sort();
   }, [products]);
 
   // Check inventory when warehouse or filtered products change
@@ -239,7 +253,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
           />
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
@@ -251,8 +265,32 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
             ))}
           </select>
 
+          <select
+            value={brandFilter}
+            onChange={(e) => setBrandFilter(e.target.value)}
+            className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none"
+          >
+            <option value="all">All Brands</option>
+            {brands.map(brand => (
+              <option key={brand} value={brand}>{brand}</option>
+            ))}
+          </select>
+
+          {(search || categoryFilter !== 'all' || brandFilter !== 'all') && (
+            <button
+              onClick={() => {
+                setSearch('');
+                setCategoryFilter('all');
+                setBrandFilter('all');
+              }}
+              className="rounded-md border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+            >
+              Clear Filters
+            </button>
+          )}
+
           <span className="text-xs text-gray-500">
-            {filteredProducts.length} products
+            {filteredProducts.length} of {products.length} products
           </span>
         </div>
       </div>
@@ -261,8 +299,8 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
       {filteredProducts.length === 0 ? (
         <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-8 text-center">
           <p className="text-sm text-gray-600">
-            {search || categoryFilter !== 'all'
-              ? 'No products match your filters'
+            {search || categoryFilter !== 'all' || brandFilter !== 'all'
+              ? 'No products match your filters. Try adjusting or clearing filters.'
               : 'No products available'}
           </p>
         </div>

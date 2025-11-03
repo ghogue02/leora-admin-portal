@@ -11,6 +11,7 @@ import { withSalesSession } from '@/lib/auth/sales';
 import { createAuditLog } from '@/lib/audit-log';
 import { runWithTransaction } from '@/lib/prisma';
 import { InvoiceFormatType } from '@prisma/client';
+import { generateInvoiceNumber } from '@/lib/invoices/invoice-number-generator';
 
 type RouteParams = {
   params: Promise<{ orderId: string }>;
@@ -104,23 +105,15 @@ export async function POST(request: NextRequest, props: RouteParams) {
     defaultDueDate.setDate(defaultDueDate.getDate() + 30);
     const invoiceDueDate = dueDate ? new Date(dueDate) : defaultDueDate;
 
-    // 7. Generate invoice number
-    const now = new Date();
-    const yearMonth = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}`;
-    const prefix = `INV-${yearMonth}-`;
-
-    const latestInvoice = await db.invoice.findFirst({
-      where: { tenantId, invoiceNumber: { startsWith: prefix } },
-      orderBy: { invoiceNumber: 'desc' },
-    });
-
-    let sequence = 1;
-    if (latestInvoice?.invoiceNumber) {
-      const match = latestInvoice.invoiceNumber.match(/-(\d{4})$/);
-      if (match) sequence = parseInt(match[1], 10) + 1;
-    }
-
-    const invoiceNumber = `${prefix}${String(sequence).padStart(4, '0')}`;
+    // 7. Generate invoice number using Travis's format
+    // Format: [STATE][YY][00000]
+    // Examples: VA260001, TE260015, MD250123
+    const invoiceNumber = await generateInvoiceNumber(
+      db,
+      tenantId,
+      order.customerId!,
+      order.deliveryDate || new Date() // Use delivery date for year, fallback to today
+    );
 
     // 8. Determine invoice format type
     let finalFormatType: InvoiceFormatType = formatType || 'STANDARD';
