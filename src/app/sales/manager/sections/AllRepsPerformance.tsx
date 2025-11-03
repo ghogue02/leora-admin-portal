@@ -9,6 +9,7 @@ type Rep = {
   territoryName: string;
   thisMonthRevenue: number;
   lastMonthRevenue: number;
+  ytdRevenue: number;
   allTimeRevenue: number;
   customersAssigned: number;
   customersActive: number;
@@ -41,6 +42,9 @@ export default function AllRepsPerformance({ reps, onRepClick }: Props) {
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
                 This Month
+              </th>
+              <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
+                YTD
               </th>
               <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-500">
                 All-Time
@@ -82,6 +86,9 @@ export default function AllRepsPerformance({ reps, onRepClick }: Props) {
                   <td className="px-6 py-4 text-sm text-gray-700">{rep.territoryName}</td>
                   <td className="px-6 py-4 text-right font-semibold">
                     {formatCurrency(rep.thisMonthRevenue)}
+                  </td>
+                  <td className="px-6 py-4 text-right font-semibold text-blue-600">
+                    {formatCurrency(rep.ytdRevenue)}
                   </td>
                   <td className="px-6 py-4 text-right text-gray-900 font-semibold">
                     {formatCurrency(rep.allTimeRevenue)}

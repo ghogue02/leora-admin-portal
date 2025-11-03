@@ -16,6 +16,9 @@ export async function GET(request: NextRequest) {
       where: {
         tenantId,
         isActive: true,
+        user: {
+          isActive: true,  // Filter out archived users
+        },
       },
       include: {
         user: {

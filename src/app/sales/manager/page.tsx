@@ -70,9 +70,8 @@ export default function ManagerDashboardPage() {
         <>
           {/* Tabs for Different Views */}
           <Tabs value={activeView} onValueChange={setActiveView} className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
+            <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="performance">Performance</TabsTrigger>
               <TabsTrigger value="forecast">Forecast</TabsTrigger>
               <TabsTrigger value="samples">Samples</TabsTrigger>
             </TabsList>
@@ -81,12 +80,12 @@ export default function ManagerDashboardPage() {
               {/* Team Stats Summary */}
               <div className="grid gap-4 md:grid-cols-4">
                 <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-                  <p className="text-sm font-medium text-gray-600">Total Revenue (All-Time)</p>
+                  <p className="text-sm font-medium text-gray-600">Total Revenue (YTD)</p>
                   <p className="mt-2 text-3xl font-bold text-gray-900">
-                    {formatCurrency(Number(managerData.teamStats?.allTimeRevenue ?? 0))}
+                    {formatCurrency(Number(managerData.teamStats?.ytdRevenue ?? 0))}
                   </p>
                   <p className="mt-1 text-sm text-gray-500">
-                    This week: {formatCurrency(Number(managerData.teamStats?.totalRevenue ?? 0))}
+                    This month: {formatCurrency(Number(managerData.teamStats?.mtdRevenue ?? 0))}
                   </p>
                 </div>
 
@@ -128,10 +127,6 @@ export default function ManagerDashboardPage() {
                 territories={managerData.territories}
                 onTerritoryClick={setSelectedTerritory}
               />
-            </TabsContent>
-
-            <TabsContent value="performance" className="mt-6">
-              <PerformanceComparison reps={managerData.reps} />
             </TabsContent>
 
             <TabsContent value="forecast" className="mt-6">
