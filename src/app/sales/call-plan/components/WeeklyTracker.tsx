@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { format } from "date-fns";
+import { ChevronDown } from "lucide-react";
 import ContactOutcomeButtons from "./ContactOutcomeButtons";
 import WeeklyProgress from "./WeeklyProgress";
 import type {
@@ -231,43 +232,83 @@ export default function WeeklyTracker({
         </div>
       </div>
 
-      {/* Legend */}
-      <div className="rounded-lg border border-gray-200 bg-gradient-to-r from-blue-50 to-green-50 p-4">
-        <h4 className="mb-3 text-sm font-semibold text-gray-900">Marking Guide</h4>
-        <div className="grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
-          <div className="rounded-md bg-white p-3 shadow-sm">
-            <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg font-bold text-green-700">In-Person</span>
+      {/* Collapsible Marking Guide */}
+      <CollapsibleMarkingGuide />
+    </div>
+  );
+}
+
+// Collapsible Marking Guide Component
+function CollapsibleMarkingGuide() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Load collapsed state from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('markingGuideOpen');
+    if (saved !== null) {
+      setIsOpen(saved === 'true');
+    }
+  }, []);
+
+  // Save state to localStorage when it changes
+  const toggle = useCallback(() => {
+    setIsOpen(prev => {
+      const newState = !prev;
+      localStorage.setItem('markingGuideOpen', String(newState));
+      return newState;
+    });
+  }, []);
+
+  return (
+    <div className="rounded-lg border border-gray-200 bg-gray-50 overflow-hidden">
+      <button
+        type="button"
+        onClick={toggle}
+        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-100 transition"
+      >
+        <h4 className="text-sm font-semibold text-gray-900">Marking Guide</h4>
+        <ChevronDown
+          className={`h-4 w-4 text-gray-500 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+        />
+      </button>
+
+      {isOpen && (
+        <div className="border-t border-gray-200 bg-gradient-to-r from-blue-50 to-green-50 p-4">
+          <div className="grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
+            <div className="rounded-md bg-white p-3 shadow-sm">
+              <div className="mb-1 flex items-center gap-2">
+                <span className="text-lg font-bold text-green-700">In-Person</span>
+              </div>
+              <p className="text-xs text-gray-600">Face-to-face visit or meeting</p>
             </div>
-            <p className="text-xs text-gray-600">Face-to-face visit or meeting</p>
-          </div>
-          <div className="rounded-md bg-white p-3 shadow-sm">
-            <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg font-bold text-blue-600">Phone</span>
+            <div className="rounded-md bg-white p-3 shadow-sm">
+              <div className="mb-1 flex items-center gap-2">
+                <span className="text-lg font-bold text-blue-600">Phone</span>
+              </div>
+              <p className="text-xs text-gray-600">Phone call or voicemail</p>
             </div>
-            <p className="text-xs text-gray-600">Phone call or voicemail</p>
-          </div>
-          <div className="rounded-md bg-white p-3 shadow-sm">
-            <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg font-bold text-indigo-600">Email</span>
+            <div className="rounded-md bg-white p-3 shadow-sm">
+              <div className="mb-1 flex items-center gap-2">
+                <span className="text-lg font-bold text-indigo-600">Email</span>
+              </div>
+              <p className="text-xs text-gray-600">Follow-up email sent</p>
             </div>
-            <p className="text-xs text-gray-600">Follow-up email sent</p>
-          </div>
-          <div className="rounded-md bg-white p-3 shadow-sm">
-            <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg font-bold text-purple-600">Text</span>
+            <div className="rounded-md bg-white p-3 shadow-sm">
+              <div className="mb-1 flex items-center gap-2">
+                <span className="text-lg font-bold text-purple-600">Text</span>
+              </div>
+              <p className="text-xs text-gray-600">SMS or messaging app touch</p>
             </div>
-            <p className="text-xs text-gray-600">SMS or messaging app touch</p>
-          </div>
-          <div className="rounded-md bg-white p-3 shadow-sm">
-            <div className="mb-1 flex items-center gap-2">
-              <span className="text-lg font-bold text-gray-600">—</span>
-              <span className="font-medium text-gray-900">Not Reached</span>
+            <div className="rounded-md bg-white p-3 shadow-sm">
+              <div className="mb-1 flex items-center gap-2">
+                <span className="text-lg font-bold text-gray-600">—</span>
+                <span className="font-medium text-gray-900">Not Reached</span>
+              </div>
+              <p className="text-xs text-gray-600">No contact made yet</p>
             </div>
-            <p className="text-xs text-gray-600">No contact made yet</p>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

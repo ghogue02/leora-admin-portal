@@ -62,96 +62,74 @@ export default function WeeklyProgress({
         </div>
       </div>
 
-      {/* Breakdown */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {/* In-Person */}
-        <div className="rounded-lg bg-green-50 p-4">
-          <div className="mb-2 flex items-center gap-2">
-            <Users className="h-5 w-5 text-green-600" />
-            <span className="text-xs font-medium uppercase tracking-wide text-green-700">
-              In-Person
-            </span>
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-green-900">
-              {progress.inPersonCount}
-            </span>
-          </div>
-          <p className="mt-1 text-xs text-green-700">
-            {inPersonPercentage}% of total
-          </p>
+      {/* Horizontal Stacked Bar Chart */}
+      <div className="space-y-3">
+        {/* Stacked Bar */}
+        <div className="flex h-12 w-full overflow-hidden rounded-full border border-gray-300 shadow-sm">
+          {inPersonPercentage > 0 && (
+            <div
+              className="bg-green-500 transition-all hover:bg-green-600"
+              style={{ width: `${inPersonPercentage}%` }}
+              title={`In-Person: ${progress.inPersonCount} (${inPersonPercentage}%)`}
+            />
+          )}
+          {phonePercentage > 0 && (
+            <div
+              className="bg-blue-500 transition-all hover:bg-blue-600"
+              style={{ width: `${phonePercentage}%` }}
+              title={`Phone: ${progress.phoneCount} (${phonePercentage}%)`}
+            />
+          )}
+          {emailPercentage > 0 && (
+            <div
+              className="bg-indigo-500 transition-all hover:bg-indigo-600"
+              style={{ width: `${emailPercentage}%` }}
+              title={`Email: ${progress.emailCount} (${emailPercentage}%)`}
+            />
+          )}
+          {textPercentage > 0 && (
+            <div
+              className="bg-purple-500 transition-all hover:bg-purple-600"
+              style={{ width: `${textPercentage}%` }}
+              title={`Text: ${progress.textCount} (${textPercentage}%)`}
+            />
+          )}
+          {notReachedPercentage > 0 && (
+            <div
+              className="bg-gray-400 transition-all hover:bg-gray-500"
+              style={{ width: `${notReachedPercentage}%` }}
+              title={`Not Reached: ${progress.notReachedCount} (${notReachedPercentage}%)`}
+            />
+          )}
         </div>
 
-        {/* Phone */}
-        <div className="rounded-lg bg-blue-50 p-4">
-          <div className="mb-2 flex items-center gap-2">
-            <Phone className="h-5 w-5 text-blue-600" />
-            <span className="text-xs font-medium uppercase tracking-wide text-blue-700">
-              Phone
-            </span>
+        {/* Legend */}
+        <div className="grid grid-cols-2 gap-2 text-xs md:grid-cols-5">
+          <div className="flex items-center gap-2">
+            <div className="h-3 w-3 rounded-sm bg-green-500" />
+            <span className="font-medium text-gray-900">In-Person:</span>
+            <span className="text-gray-600">{progress.inPersonCount} ({inPersonPercentage}%)</span>
           </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-blue-900">
-              {progress.phoneCount}
-            </span>
+          <div className="flex items-center gap-2">
+            <div className="h-3 w-3 rounded-sm bg-blue-500" />
+            <span className="font-medium text-gray-900">Phone:</span>
+            <span className="text-gray-600">{progress.phoneCount} ({phonePercentage}%)</span>
           </div>
-          <p className="mt-1 text-xs text-blue-700">
-            {phonePercentage}% of total
-          </p>
-        </div>
-
-        {/* Email */}
-        <div className="rounded-lg bg-indigo-50 p-4">
-          <div className="mb-2 flex items-center gap-2">
-            <Mail className="h-5 w-5 text-indigo-600" />
-            <span className="text-xs font-medium uppercase tracking-wide text-indigo-700">
-              Email
-            </span>
+          <div className="flex items-center gap-2">
+            <div className="h-3 w-3 rounded-sm bg-indigo-500" />
+            <span className="font-medium text-gray-900">Email:</span>
+            <span className="text-gray-600">{progress.emailCount} ({emailPercentage}%)</span>
           </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-indigo-900">
-              {progress.emailCount}
-            </span>
+          <div className="flex items-center gap-2">
+            <div className="h-3 w-3 rounded-sm bg-purple-500" />
+            <span className="font-medium text-gray-900">Text:</span>
+            <span className="text-gray-600">{progress.textCount} ({textPercentage}%)</span>
           </div>
-          <p className="mt-1 text-xs text-indigo-700">
-            {emailPercentage}% of total
-          </p>
-        </div>
-
-        {/* Text */}
-        <div className="rounded-lg bg-purple-50 p-4">
-          <div className="mb-2 flex items-center gap-2">
-            <MessageCircle className="h-5 w-5 text-purple-600" />
-            <span className="text-xs font-medium uppercase tracking-wide text-purple-700">
-              Text
-            </span>
+          <div className="flex items-center gap-2">
+            <div className="h-3 w-3 rounded-sm bg-gray-400" />
+            <span className="font-medium text-gray-900">Not Reached:</span>
+            <span className="text-gray-600">{progress.notReachedCount} ({notReachedPercentage}%)</span>
           </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-purple-900">
-              {progress.textCount}
-            </span>
-          </div>
-          <p className="mt-1 text-xs text-purple-700">
-            {textPercentage}% of total
-          </p>
-        </div>
-
-        {/* Not Reached */}
-        <div className="rounded-lg bg-gray-50 p-4">
-          <div className="mb-2 flex items-center gap-2">
-            <Circle className="h-5 w-5 text-gray-600" />
-            <span className="text-xs font-medium uppercase tracking-wide text-gray-700">
-              Not Reached
-            </span>
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-gray-900">
-              {progress.notReachedCount}
-            </span>
-          </div>
-          <p className="mt-1 text-xs text-gray-700">
-            {notReachedPercentage}% remaining
-          </p>
         </div>
       </div>
 

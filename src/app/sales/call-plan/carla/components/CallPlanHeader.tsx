@@ -96,79 +96,69 @@ export default function CallPlanHeader({
         </div>
       </div>
 
-      {/* Week Navigation & Selection Counter */}
-      <Card>
-        <CardContent className="p-4">
-          <div className="flex items-center justify-between">
-            {/* Week Navigation */}
-            <div className="flex items-center gap-2">
-              <Button
-                onClick={onPreviousWeek}
-                variant="outline"
-                size="sm"
-              >
-                <ChevronLeft className="h-4 w-4" />
-                Previous
-              </Button>
+      {/* Compact Week Navigation & Selection Counter */}
+      <div className="flex items-center justify-between rounded-lg border border-gray-200 bg-white p-3 shadow-sm">
+        {/* Compact Week Navigation */}
+        <div className="flex items-center gap-1">
+          <Button
+            onClick={onPreviousWeek}
+            variant="outline"
+            size="sm"
+            className="h-8 px-2"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
 
-              <div className="flex items-center gap-2 px-4">
-                <Calendar className="h-4 w-4 text-gray-500" />
-                <div className="text-center">
-                  <p className="text-sm font-semibold text-gray-900">
-                    {format(weekStart, "MMM d")} - {format(weekEnd, "MMM d, yyyy")}
-                  </p>
-                  {isCurrentWeek && (
-                    <Badge variant="secondary" className="mt-1">
-                      Current Week
-                    </Badge>
-                  )}
-                </div>
-              </div>
-
-              <Button
-                onClick={onNextWeek}
-                variant="outline"
-                size="sm"
-              >
-                Next
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-
-              {!isCurrentWeek && (
-                <Button onClick={onThisWeek} size="sm">
-                  This Week
-                </Button>
-              )}
-            </div>
-
-            {/* Selection Counter with Color Coding */}
-            <div className={`flex items-center gap-3 rounded-lg border px-4 py-3 ${getCounterBgColor()}`}>
-              <div className="text-right">
-                <p className="text-xs font-medium text-gray-600">Accounts Selected</p>
-                <p className={`text-3xl font-bold ${getCounterColor()}`}>
-                  {selectedCount}
-                  <span className="text-lg font-normal text-gray-500"> / {maxAccounts}</span>
-                </p>
-                {selectedCount < 60 && selectedCount > 0 && (
-                  <p className="text-xs text-red-600 mt-0.5">Below target (60-75)</p>
-                )}
-                {selectedCount >= 60 && selectedCount < 70 && (
-                  <p className="text-xs text-yellow-600 mt-0.5">Good progress</p>
-                )}
-                {selectedCount >= 70 && selectedCount <= 75 && (
-                  <p className="text-xs text-green-600 mt-0.5">✓ Target range</p>
-                )}
-              </div>
-
-              {isAtLimit && (
-                <Badge variant="destructive">
-                  Limit Reached
-                </Badge>
-              )}
-            </div>
+          <div className="flex items-center gap-2 px-3">
+            <Calendar className="h-3.5 w-3.5 text-gray-500" />
+            <span className="text-sm font-semibold text-gray-900">
+              {format(weekStart, "MMM d")} - {format(weekEnd, "MMM d, yyyy")}
+              {isCurrentWeek && <span className="ml-2 text-xs font-normal text-green-600">(Current Week)</span>}
+            </span>
           </div>
-        </CardContent>
-      </Card>
+
+          <Button
+            onClick={onNextWeek}
+            variant="outline"
+            size="sm"
+            className="h-8 px-2"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+
+          {!isCurrentWeek && (
+            <Button onClick={onThisWeek} size="sm" className="h-8 ml-1">
+              This Week
+            </Button>
+          )}
+        </div>
+
+        {/* Selection Counter with Color Coding */}
+        <div className={`flex items-center gap-3 rounded-lg border px-4 py-3 ${getCounterBgColor()}`}>
+          <div className="text-right">
+              <p className="text-xs font-medium text-gray-600">Accounts Selected</p>
+            <p className={`text-3xl font-bold ${getCounterColor()}`}>
+              {selectedCount}
+              <span className="text-lg font-normal text-gray-500"> / {maxAccounts}</span>
+            </p>
+            {selectedCount < 60 && selectedCount > 0 && (
+              <p className="text-xs text-red-600 mt-0.5">Below target (60-75)</p>
+            )}
+            {selectedCount >= 60 && selectedCount < 70 && (
+              <p className="text-xs text-yellow-600 mt-0.5">Good progress</p>
+            )}
+            {selectedCount >= 70 && selectedCount <= 75 && (
+              <p className="text-xs text-green-600 mt-0.5">✓ Target range</p>
+            )}
+          </div>
+
+          {isAtLimit && (
+            <Badge variant="destructive">
+              Limit Reached
+            </Badge>
+          )}
+        </div>
+      </div>
     </header>
   );
 }

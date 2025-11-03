@@ -136,55 +136,88 @@ export default function CallPlanStats({ callPlan }: CallPlanStatsProps) {
   }
 
   return (
-    <div className="grid gap-4 md:grid-cols-4">
-      {/* Total Activities */}
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-        <p className="text-sm font-medium text-gray-600">Total Activities</p>
-        <p className="mt-2 text-3xl font-bold text-gray-900">{totalActivities}</p>
-        <p className="mt-1 text-xs text-gray-500">
-          {completedActivities} completed, {totalActivities - completedActivities} pending
-        </p>
-      </div>
-
-      {/* Completion Rate */}
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-        <p className="text-sm font-medium text-gray-600">Completion Rate</p>
-        <p className="mt-2 text-3xl font-bold text-green-600">{completionPercentage}%</p>
-        <div className="mt-2 h-2 overflow-hidden rounded-full bg-gray-200">
-          <div
-            className="h-full bg-green-500 transition-all"
-            style={{ width: `${completionPercentage}%` }}
-          ></div>
+    <div className="grid gap-4 md:grid-cols-2">
+      {/* Card 1: Overall Completion */}
+      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+        <p className="text-sm font-medium text-gray-600">Overall Completion</p>
+        <div className="mt-3 flex items-start gap-6">
+          {/* Left: Large percentage */}
+          <div>
+            <p className="text-5xl font-bold text-green-600">{completionPercentage}%</p>
+          </div>
+          {/* Right: Stats breakdown */}
+          <div className="flex-1 space-y-2">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-600">Total</span>
+              <span className="font-semibold text-gray-900">{totalActivities}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-600">Completed</span>
+              <span className="font-semibold text-green-600">{completedActivities}</span>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-600">Pending</span>
+              <span className="font-semibold text-gray-500">{totalActivities - completedActivities}</span>
+            </div>
+            <div className="mt-3 h-2 overflow-hidden rounded-full bg-gray-200">
+              <div
+                className="h-full bg-green-500 transition-all"
+                style={{ width: `${completionPercentage}%` }}
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* In-Person Balance */}
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-        <p className="text-sm font-medium text-gray-600">In-Person Activities</p>
-        <p className="mt-2 text-3xl font-bold text-blue-600">{inPersonPercentage}%</p>
-        <p className="mt-1 text-xs text-gray-500">
-          {inPersonAggregateCount} of {totalActivities} activities
-        </p>
-        <p className="mt-1 text-xs font-medium text-blue-600">
-          {inPersonPercentage >= 40 ? "✓ Good balance" : "⚠ Could increase"}
-        </p>
-      </div>
+      {/* Card 2: Contact Method Balance */}
+      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+        <p className="text-sm font-medium text-gray-600">Contact Method Balance</p>
+        <div className="mt-3 space-y-3">
+          {/* In-Person vs Electronic Split */}
+          <div className="flex items-center gap-4">
+            <div className="flex-1">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-sm font-semibold text-blue-600">In-Person</span>
+                <span className="text-2xl font-bold text-blue-600">{inPersonPercentage}%</span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-gray-200">
+                <div
+                  className="h-full bg-blue-500 transition-all"
+                  style={{ width: `${inPersonPercentage}%` }}
+                ></div>
+              </div>
+              <p className="mt-1 text-xs text-gray-500">{inPersonAggregateCount} activities</p>
+            </div>
+          </div>
 
-      {/* Electronic Balance */}
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-        <p className="text-sm font-medium text-gray-600">Electronic Contact</p>
-        <p className="mt-2 text-3xl font-bold text-gray-600">{electronicPercentage}%</p>
-        <p className="mt-1 text-xs text-gray-500">
-          {electronicCount} of {totalActivities} activities
-        </p>
-        <p className="mt-1 text-xs font-medium text-gray-600">
-          {electronicPercentage <= 35 ? "✓ Good balance" : "⚠ Too electronic-heavy"}
-        </p>
+          <div className="flex items-center gap-4">
+            <div className="flex-1">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-sm font-semibold text-gray-600">Electronic</span>
+                <span className="text-2xl font-bold text-gray-600">{electronicPercentage}%</span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-gray-200">
+                <div
+                  className="h-full bg-gray-500 transition-all"
+                  style={{ width: `${electronicPercentage}%` }}
+                ></div>
+              </div>
+              <p className="mt-1 text-xs text-gray-500">{electronicCount} activities</p>
+            </div>
+          </div>
+
+          {/* Balance Indicator */}
+          <div className="pt-2 border-t border-gray-100">
+            <p className={`text-xs font-medium ${inPersonPercentage >= 40 ? 'text-green-600' : 'text-amber-600'}`}>
+              {inPersonPercentage >= 40 ? '✓ Good balance' : '⚠ Could increase in-person contact'}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Activity Breakdown - Full Width */}
       {totalActivities > 0 && (
-        <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:col-span-4">
+        <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:col-span-2">
           <p className="mb-3 text-sm font-medium text-gray-600">Activity Type Breakdown</p>
           <div className="space-y-2">
             {breakdownEntries.map(({ config, count, label, percentage }) => (
