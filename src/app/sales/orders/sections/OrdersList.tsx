@@ -172,15 +172,19 @@ export default function OrdersList() {
 
   const { summary, orders } = state.data;
 
-  // Sort handler
-  const handleSort = useCallback((column: typeof sortBy) => {
-    if (sortBy === column) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortBy(column);
-      setSortDirection('desc');
-    }
-  }, [sortBy, sortDirection]);
+  // Sort handler - Fixed for React Error #310
+  // Uses functional state updates to avoid re-creating callback on every state change
+  const handleSort = useCallback((column: 'date' | 'customer' | 'total' | 'status') => {
+    setSortBy(prevSortBy => {
+      if (prevSortBy === column) {
+        setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
+        return prevSortBy;
+      } else {
+        setSortDirection('desc');
+        return column;
+      }
+    });
+  }, []); // Empty deps array prevents re-creation
 
   // Filter and sort orders
   const filteredAndSortedOrders = useMemo(() => {
@@ -211,9 +215,9 @@ export default function OrdersList() {
           break;
 
         case 'customer':
-          const nameA = a.customer?.name || '';
-          const nameB = b.customer?.name || '';
-          comparison = nameA.localeCompare(nameB);
+          const nameA = (a.customer?.name || '').toLowerCase();
+          const nameB = (b.customer?.name || '').toLowerCase();
+          comparison = nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
           break;
 
         case 'total':
@@ -223,7 +227,9 @@ export default function OrdersList() {
           break;
 
         case 'status':
-          comparison = a.status.localeCompare(b.status);
+          const statusA = a.status.toLowerCase();
+          const statusB = b.status.toLowerCase();
+          comparison = statusA < statusB ? -1 : statusA > statusB ? 1 : 0;
           break;
       }
 

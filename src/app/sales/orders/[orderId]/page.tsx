@@ -79,7 +79,7 @@ export default function SalesOrderDetailPage() {
       <div className="mb-6">
         <h1 className="text-3xl font-semibold">Order #{order.id.substring(0, 8)}</h1>
         <p className="text-gray-600 mt-2">
-          {order.customer.name} · {formatDate(order.orderedAt)}
+          {order.customer.name} · {formatShortDate(order.orderedAt)}
         </p>
       </div>
 
@@ -133,12 +133,12 @@ export default function SalesOrderDetailPage() {
               </div>
               <div>
                 <p className="text-sm text-gray-600">Ordered</p>
-                <p>{formatDate(order.orderedAt)}</p>
+                <p>{formatShortDate(order.orderedAt)}</p>
               </div>
               {order.fulfilledAt && (
                 <div>
                   <p className="text-sm text-gray-600">Fulfilled</p>
-                  <p>{formatDate(order.fulfilledAt)}</p>
+                  <p>{formatShortDate(order.fulfilledAt)}</p>
                 </div>
               )}
             </div>
@@ -166,7 +166,7 @@ export default function SalesOrderDetailPage() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Due Date</p>
-                  <p>{formatDate(order.invoices[0].dueDate)}</p>
+                  <p>{formatShortDate(order.invoices[0].dueDate)}</p>
                 </div>
 
                 {/* PDF Download */}
