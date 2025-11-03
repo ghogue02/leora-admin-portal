@@ -11,6 +11,11 @@ type OrdersResponse = {
     totalCount: number;
     openTotal: number;
     byStatus: Partial<Record<OrderStatus, { count: number; total: number }>>;
+    last30Days: {
+      count: number;
+      revenue: number;
+      avgOrderValue: number;
+    };
   };
   orders: Array<{
     id: string;
@@ -82,14 +87,7 @@ export default function OrdersList() {
     void load();
   }, [load]);
 
-  const openOrderCount = useMemo(() => {
-    if (!state.data) return 0;
-    const statuses: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
-    return statuses.reduce((count, status) => {
-      const entry = state.data?.summary.byStatus?.[status];
-      return count + (entry?.count ?? 0);
-    }, 0);
-  }, [state.data]);
+  // openOrderCount calculation removed - no longer displayed (using 30-day metrics instead)
 
   const handleCancel = useCallback(
     async (orderId: string) => {
@@ -192,16 +190,19 @@ export default function OrdersList() {
   return (
     <section className="space-y-6">
       <header className="flex flex-col gap-2 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-xs uppercase tracking-wide text-gray-500">At a glance</p>
+        <p className="text-xs uppercase tracking-wide text-gray-500">Last 30 Days</p>
         <div className="grid gap-4 sm:grid-cols-3">
-          <OrdersSummaryStat label="Total orders" value={summary.totalCount.toString()} />
           <OrdersSummaryStat
-            label="Open exposure"
-            value={formatCurrency(summary.openTotal, 'USD')}
+            label="Orders"
+            value={summary.last30Days.count.toString()}
           />
           <OrdersSummaryStat
-            label="Open order count"
-            value={openOrderCount.toString()}
+            label="Revenue"
+            value={formatCurrency(summary.last30Days.revenue, 'USD')}
+          />
+          <OrdersSummaryStat
+            label="Avg Order Value"
+            value={formatCurrency(summary.last30Days.avgOrderValue, 'USD')}
           />
         </div>
       </header>

@@ -13,11 +13,17 @@ import { calculateOrderTotal } from "@/lib/orders/calculations";
 
 const DEFAULT_LIMIT = 25;
 const OPEN_STATUSES: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
+const THIRTY_DAYS_AGO = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 
 type OrdersSummary = {
   totalCount: number;
   openTotal: number;
   byStatus: Partial<Record<OrderStatus, { count: number; total: number }>>;
+  last30Days: {
+    count: number;
+    revenue: number;
+    avgOrderValue: number;
+  };
 };
 
 type PriceListItemWithList = Prisma.PriceListItemGetPayload<{
@@ -129,7 +135,7 @@ export async function GET(request: NextRequest) {
         },
       };
 
-      const [orders, grouped, totalCount, openOrdersWithLines] = await Promise.all([
+      const [orders, grouped, totalCount, openOrdersWithLines, last30DaysOrders] = await Promise.all([
         db.order.findMany({
           where,
           include: {
@@ -180,12 +186,38 @@ export async function GET(request: NextRequest) {
             },
           },
         }),
+        // Fetch orders from last 30 days for recent performance metrics
+        db.order.findMany({
+          where: {
+            ...where,
+            orderedAt: {
+              gte: THIRTY_DAYS_AGO,
+            },
+          },
+          select: {
+            id: true,
+            total: true,
+            lines: {
+              select: {
+                quantity: true,
+                unitPrice: true,
+              },
+            },
+          },
+        }),
       ]);
 
       // Calculate open total from order lines if order.total is null (uses shared utility)
       const openTotalFromLines = openOrdersWithLines.reduce((sum, order) => {
         return sum + calculateOrderTotal({ total: order.total, lines: order.lines });
       }, 0);
+
+      // Calculate last 30 days metrics
+      const last30DaysCount = last30DaysOrders.length;
+      const last30DaysRevenue = last30DaysOrders.reduce((sum, order) => {
+        return sum + calculateOrderTotal({ total: order.total, lines: order.lines });
+      }, 0);
+      const avgOrderValue = last30DaysCount > 0 ? last30DaysRevenue / last30DaysCount : 0;
 
       const summary = grouped.reduce<OrdersSummary>(
         (acc, group) => {
@@ -200,6 +232,11 @@ export async function GET(request: NextRequest) {
           totalCount,
           openTotal: openTotalFromLines,
           byStatus: {},
+          last30Days: {
+            count: last30DaysCount,
+            revenue: last30DaysRevenue,
+            avgOrderValue: avgOrderValue,
+          },
         },
       );
 
