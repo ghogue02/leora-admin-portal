@@ -34,7 +34,12 @@ export async function withSalesSession(
 
   if (!sessionId) {
     console.log("❌ [withSalesSession] No session ID found in cookies");
-    return NextResponse.json({ error: "Not authenticated." }, { status: 401 });
+    return NextResponse.json({
+      error: "Not authenticated. Please log in to access this page.",
+      code: "AUTH_REQUIRED",
+      action: "redirect_to_login",
+      loginUrl: "/sales/login"
+    }, { status: 401 });
   }
 
   try {
@@ -46,7 +51,12 @@ export async function withSalesSession(
 
       if (!session) {
         console.log("❌ [withSalesSession] Session not found or expired");
-        return NextResponse.json({ error: "Session expired." }, { status: 401 });
+        return NextResponse.json({
+          error: "Your session has expired. Please log in again.",
+          code: "SESSION_EXPIRED",
+          action: "redirect_to_login",
+          loginUrl: "/sales/login"
+        }, { status: 401 });
       }
 
       console.log("✅ [withSalesSession] Session validated successfully");
@@ -55,18 +65,22 @@ export async function withSalesSession(
 
       // Check if user has sales rep profile if required
       if (options.requireSalesRep !== false && !session.user.salesRep) {
-        return NextResponse.json(
-          { error: "Sales rep profile required." },
-          { status: 403 },
-        );
+        return NextResponse.json({
+          error: "Sales representative profile required to access this page.",
+          code: "MISSING_SALES_REP_PROFILE",
+          action: "contact_admin",
+          message: "Your account doesn't have a sales rep profile. Please contact your administrator to set this up."
+        }, { status: 403 });
       }
 
       // Check if sales rep is active
       if (session.user.salesRep && !session.user.salesRep.isActive) {
-        return NextResponse.json(
-          { error: "Sales rep account is inactive." },
-          { status: 403 },
-        );
+        return NextResponse.json({
+          error: "Your sales representative account is inactive.",
+          code: "INACTIVE_SALES_REP",
+          action: "contact_admin",
+          message: "Your account has been deactivated. Please contact your administrator to reactivate."
+        }, { status: 403 });
       }
 
       const roles = session.user.roles.map((item) => item.role.code);

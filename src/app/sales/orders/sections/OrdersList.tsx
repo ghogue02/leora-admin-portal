@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import type { OrderStatus } from "@prisma/client";
 import { formatCurrency, formatDate } from "@/lib/format";
 
@@ -36,25 +37,36 @@ const STATUS_BADGES: Partial<Record<OrderStatus, string>> = {
 };
 
 export default function OrdersList() {
+  const router = useRouter();
   const [state, setState] = useState<OrdersState>({
     data: null,
     loading: true,
     error: null,
   });
+  const [errorDetails, setErrorDetails] = useState<{code?: string; action?: string; loginUrl?: string} | null>(null);
   const [cancelError, setCancelError] = useState<string | null>(null);
   const [cancelingId, setCancelingId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [statusFilter, setStatusFilter] = useState<OrderStatus | 'all'>('all');
+  const [sortBy, setSortBy] = useState<'date' | 'customer' | 'total' | 'status'>('date');
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
+    setErrorDetails(null);
 
     try {
       const response = await fetch("/api/sales/orders?limit=50", {
         cache: "no-store",
       });
       if (!response.ok) {
-        const body = (await response.json().catch(() => ({}))) as { error?: string };
+        const body = (await response.json().catch(() => ({}))) as {
+          error?: string;
+          code?: string;
+          action?: string;
+          loginUrl?: string;
+        };
+        setErrorDetails({ code: body.code, action: body.action, loginUrl: body.loginUrl });
         throw new Error(body.error ?? "Unable to load orders.");
       }
       const payload = (await response.json()) as OrdersResponse;
@@ -131,22 +143,49 @@ export default function OrdersList() {
       <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-sm text-red-700">
         <p className="font-semibold">We couldn&apos;t load orders right now.</p>
         <p className="mt-1">{state.error ?? "Try again shortly or contact support."}</p>
-        <button
-          type="button"
-          onClick={() => void load()}
-          className="mt-4 inline-flex items-center rounded-md border border-red-200 px-3 py-2 text-xs font-semibold text-red-700 transition hover:border-red-300 hover:text-red-800"
-        >
-          Retry
-        </button>
+        <div className="mt-4 flex gap-2">
+          <button
+            type="button"
+            onClick={() => void load()}
+            className="inline-flex items-center rounded-md border border-red-200 bg-white px-3 py-2 text-xs font-semibold text-red-700 transition hover:border-red-300 hover:bg-red-50"
+          >
+            Retry
+          </button>
+          {errorDetails?.action === 'redirect_to_login' && errorDetails.loginUrl && (
+            <button
+              type="button"
+              onClick={() => router.push(errorDetails.loginUrl!)}
+              className="inline-flex items-center rounded-md bg-red-700 px-3 py-2 text-xs font-semibold text-white transition hover:bg-red-800"
+            >
+              Log In Again
+            </button>
+          )}
+          {errorDetails?.code === 'MISSING_SALES_REP_PROFILE' && (
+            <p className="text-xs text-red-600 mt-2">
+              Contact your administrator to set up your sales rep profile.
+            </p>
+          )}
+        </div>
       </div>
     );
   }
 
   const { summary, orders } = state.data;
 
-  // Filter orders based on search and status
-  const filteredOrders = useMemo(() => {
-    return orders.filter((order) => {
+  // Sort handler
+  const handleSort = useCallback((column: typeof sortBy) => {
+    if (sortBy === column) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(column);
+      setSortDirection('desc');
+    }
+  }, [sortBy, sortDirection]);
+
+  // Filter and sort orders
+  const filteredAndSortedOrders = useMemo(() => {
+    // Filter first
+    const filtered = orders.filter((order) => {
       // Search filter
       const matchesSearch =
         !searchTerm ||
@@ -159,7 +198,38 @@ export default function OrdersList() {
 
       return matchesSearch && matchesStatus;
     });
-  }, [orders, searchTerm, statusFilter]);
+
+    // Then sort
+    return [...filtered].sort((a, b) => {
+      let comparison = 0;
+
+      switch (sortBy) {
+        case 'date':
+          const dateA = a.orderedAt ? new Date(a.orderedAt).getTime() : 0;
+          const dateB = b.orderedAt ? new Date(b.orderedAt).getTime() : 0;
+          comparison = dateA - dateB;
+          break;
+
+        case 'customer':
+          const nameA = a.customer?.name || '';
+          const nameB = b.customer?.name || '';
+          comparison = nameA.localeCompare(nameB);
+          break;
+
+        case 'total':
+          const totalA = a.total || 0;
+          const totalB = b.total || 0;
+          comparison = totalA - totalB;
+          break;
+
+        case 'status':
+          comparison = a.status.localeCompare(b.status);
+          break;
+      }
+
+      return sortDirection === 'asc' ? comparison : -comparison;
+    });
+  }, [orders, searchTerm, statusFilter, sortBy, sortDirection]);
 
   return (
     <section className="space-y-6">
@@ -234,9 +304,39 @@ export default function OrdersList() {
           <table className="min-w-full divide-y divide-slate-200 bg-white text-sm text-gray-700">
             <thead className="bg-slate-50 text-xs uppercase tracking-wider text-gray-500">
               <tr>
-                <th className="px-4 py-3 text-left">Order</th>
-                <th className="px-4 py-3 text-left">Customer</th>
-                <th className="px-4 py-3 text-left">Totals</th>
+                <th
+                  className="px-4 py-3 text-left cursor-pointer hover:bg-slate-100 transition select-none"
+                  onClick={() => handleSort('date')}
+                >
+                  <div className="flex items-center gap-2">
+                    <span>Order</span>
+                    {sortBy === 'date' && (
+                      <span className="text-gray-700">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+                    )}
+                  </div>
+                </th>
+                <th
+                  className="px-4 py-3 text-left cursor-pointer hover:bg-slate-100 transition select-none"
+                  onClick={() => handleSort('customer')}
+                >
+                  <div className="flex items-center gap-2">
+                    <span>Customer</span>
+                    {sortBy === 'customer' && (
+                      <span className="text-gray-700">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+                    )}
+                  </div>
+                </th>
+                <th
+                  className="px-4 py-3 text-left cursor-pointer hover:bg-slate-100 transition select-none"
+                  onClick={() => handleSort('total')}
+                >
+                  <div className="flex items-center gap-2">
+                    <span>Totals</span>
+                    {sortBy === 'total' && (
+                      <span className="text-gray-700">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+                    )}
+                  </div>
+                </th>
                 <th className="px-4 py-3 text-left">Invoices</th>
                 <th className="px-4 py-3 text-left">Updated</th>
                 <th className="px-4 py-3 text-left">
@@ -245,7 +345,7 @@ export default function OrdersList() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
-              {filteredOrders.map((order) => (
+              {filteredAndSortedOrders.map((order) => (
                 <tr key={order.id} className="hover:bg-slate-50">
                   <td className="px-4 py-3">
                     <div className="flex flex-col">
