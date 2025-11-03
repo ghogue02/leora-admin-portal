@@ -122,6 +122,24 @@ export default function OrdersList() {
     [load, state.data],
   );
 
+  // Filter orders - MUST be before early returns to maintain consistent hook order
+  const filteredOrders = useMemo(() => {
+    if (!state.data?.orders) return [];
+    return state.data.orders.filter((order) => {
+      // Search filter
+      const matchesSearch =
+        !searchTerm ||
+        order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        order.customer?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        false;
+
+      // Status filter
+      const matchesStatus = statusFilter === 'all' || order.status === statusFilter;
+
+      return matchesSearch && matchesStatus;
+    });
+  }, [state.data, searchTerm, statusFilter]);
+
   if (state.loading) {
     return (
       <div className="flex flex-col gap-4">
@@ -168,24 +186,8 @@ export default function OrdersList() {
     );
   }
 
+  // Safe to destructure here - we've already handled null/error cases above
   const { summary, orders } = state.data;
-
-  // Filter orders (sorting temporarily removed to fix React Error #310)
-  const filteredOrders = useMemo(() => {
-    return orders.filter((order) => {
-      // Search filter
-      const matchesSearch =
-        !searchTerm ||
-        order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        order.customer?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        false;
-
-      // Status filter
-      const matchesStatus = statusFilter === 'all' || order.status === statusFilter;
-
-      return matchesSearch && matchesStatus;
-    });
-  }, [orders, searchTerm, statusFilter]);
 
   return (
     <section className="space-y-6">
