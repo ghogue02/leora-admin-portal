@@ -733,6 +733,69 @@ DATABASE_URL="postgresql://user:password@host:5432/database?schema=public"
 
 ---
 
+## 📊 Data Import Rules & Known Issues
+
+### HAL Export SKU Misalignment - CRITICAL
+
+**Issue**: HAL inventory export files contain SKU codes that don't align with Wellcrafted's internal SKU system. Importing these will corrupt the product catalog.
+
+**MANDATORY RULES**:
+
+1. ❌ **NEVER import SKUs from HAL inventory CSV files**
+   - File pattern: `Well Crafted Wine & Beverage Co. inventory as at *.csv`
+   - Fields to SKIP: `SKU`, `Item number`, `Unit COGS`, inventory quantities
+   - These SKUs don't match Wellcrafted's system
+
+2. ❌ **NEVER update existing Product/SKU records from HAL exports**
+   - Do not modify `sku.code`, `sku.pricePerUnit`
+   - Do not create new SKU records based on HAL data
+   - Do not update inventory quantities from HAL
+
+3. ✅ **SAFE to import from HAL**:
+   - Sales reports (invoices/orders) - these reference validated existing SKUs
+   - Customer information (names, addresses, contacts)
+   - Order history and fulfillment data
+   - Invoice line items (they use existing SKUs)
+
+4. ✅ **Import Validation Required**:
+   - Before importing sales data, verify all SKUs exist in database
+   - Skip/report any line items with missing SKUs
+   - Never auto-create SKUs during sales import
+
+### Correct Import Workflow
+
+**For Sales Reports** (`Sales report *.csv`):
+```bash
+# Step 1: Validate SKUs exist
+npx tsx scripts/validate-sales-import.ts
+
+# Step 2: Import orders/invoices only
+npx tsx scripts/import-sales-report.ts
+
+# Step 3: Verify import results
+npx tsx scripts/verify-import.ts
+```
+
+**For Inventory Data**:
+- Use internal Wellcrafted inventory management system only
+- Do NOT import from HAL exports
+- Manual SKU updates through admin interface if needed
+
+### Known Safe Imports
+
+✅ **Sales Reports**: Customer orders, invoices, line items (uses existing SKUs)
+✅ **Customer Data**: Names, addresses, contacts, territories
+✅ **User Data**: Sales reps, accounts, permissions
+✅ **Order History**: Fulfillment status, delivery tracking
+
+### Known Unsafe Imports
+
+❌ **HAL Inventory CSV**: SKU codes, pricing, quantities
+❌ **SKU Creation**: From any external system without validation
+❌ **Bulk Price Updates**: Without schema verification
+
+---
+
 ## Support
 
 - Documentation: https://github.com/ruvnet/claude-flow
