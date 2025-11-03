@@ -97,14 +97,37 @@ export function formatQueueDate(date: string | Date): string {
  * Example: "$1,234.56"
  */
 export function formatCurrency(amount: number | string, currency: string = 'USD'): string {
-  const numAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+  // Convert to number (handle Prisma Decimal too)
+  let numAmount: number;
+  if (typeof amount === 'string') {
+    numAmount = parseFloat(amount);
+  } else if (typeof amount === 'object' && amount !== null && 'toNumber' in amount) {
+    numAmount = (amount as any).toNumber();
+  } else {
+    numAmount = amount as number;
+  }
 
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency,
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(numAmount);
+  if (isNaN(numAmount)) return '$0';
+
+  // React 19-safe manual formatting (no Intl)
+  const isNegative = numAmount < 0;
+  const absAmount = Math.abs(numAmount);
+
+  // Format with 0 decimals (whole dollars) and thousand separators
+  const formatted = absAmount
+    .toFixed(0)
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+  // Currency symbols
+  const symbols: Record<string, string> = {
+    USD: '$',
+    EUR: '€',
+    GBP: '£',
+    CAD: 'CA$',
+  };
+
+  const symbol = symbols[currency] || '$';
+  return `${isNegative ? '-' : ''}${symbol}${formatted}`;
 }
 
 /**
@@ -117,14 +140,27 @@ export function formatPrice(amount: number | string): string {
 /**
  * Format compact currency (for large amounts)
  * Example: "$1.2K", "$1.5M"
+ * React 19-safe manual implementation
  */
 export function formatCompactCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    notation: 'compact',
-    maximumFractionDigits: 1,
-  }).format(amount);
+  const absAmount = Math.abs(amount);
+  const isNegative = amount < 0;
+
+  let value: number;
+  let suffix: string;
+
+  if (absAmount >= 1000000) {
+    value = absAmount / 1000000;
+    suffix = 'M';
+  } else if (absAmount >= 1000) {
+    value = absAmount / 1000;
+    suffix = 'K';
+  } else {
+    return formatCurrency(amount);
+  }
+
+  const formatted = value.toFixed(1);
+  return `${isNegative ? '-' : ''}$${formatted}${suffix}`;
 }
 
 /**
@@ -134,20 +170,24 @@ export function formatCompactCurrency(amount: number): string {
 /**
  * Format quantity with thousand separators
  * Example: "1,234"
+ * React 19-safe manual implementation
  */
 export function formatQuantity(qty: number): string {
-  return new Intl.NumberFormat('en-US').format(qty);
+  return Math.floor(qty)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 /**
  * Format number
  * Example: "1,234.56"
+ * React 19-safe manual implementation
  */
 export function formatNumber(value: number, decimals: number = 0): string {
-  return new Intl.NumberFormat('en-US', {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  }).format(value);
+  const formatted = value
+    .toFixed(decimals)
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return formatted;
 }
 
 /**

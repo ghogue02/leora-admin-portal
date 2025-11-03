@@ -267,7 +267,6 @@ export default function OrdersList() {
                 <th className="px-4 py-3 text-left">Customer</th>
                 <th className="px-4 py-3 text-left">Totals</th>
                 <th className="px-4 py-3 text-left">Invoices</th>
-                <th className="px-4 py-3 text-left">Updated</th>
                 <th className="px-4 py-3 text-left">
                   <span className="sr-only">Actions</span>
                 </th>
@@ -325,9 +324,6 @@ export default function OrdersList() {
                         </li>
                       ))}
                     </ul>
-                  </td>
-                  <td className="px-4 py-3 text-xs text-gray-500">
-                    Synced live from Supabase
                   </td>
                   <td className="px-4 py-3 text-xs text-gray-500">
                     {isCancelable(order.status) ? (
