@@ -5,18 +5,24 @@ import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 
-const navigation = [
-  { label: "LeorAI", href: "/sales/leora" },
-  { label: "Dashboard", href: "/sales/dashboard" },
+// Reorganized navigation structure with dropdown categories
+const salesHubMenu = [
   { label: "Customers", href: "/sales/customers" },
-  { label: "Call Plan", href: "/sales/call-plan" },
   { label: "Activities", href: "/sales/activities" },
   { label: "Samples", href: "/sales/samples" },
   { label: "Orders", href: "/sales/orders" },
   { label: "Catalog", href: "/sales/catalog" },
+];
+
+const operationsMenu = [
+  { label: "Call Plan", href: "/sales/call-plan" },
   { label: "Operations", href: "/sales/operations/queue" },
+];
+
+const settingsMenu = [
   { label: "Manager", href: "/sales/manager", adminOnly: true },
   { label: "Admin", href: "/admin", adminOnly: true },
+  { label: "LeorAI", href: "/sales/leora", description: "AI-powered sales copilot" },
 ];
 
 const toolsMenu = [
@@ -111,65 +117,274 @@ function NavList({
   isLoggingOut: boolean;
   vertical?: boolean;
 }) {
-  const [toolsOpen, setToolsOpen] = useState(false);
-  const toolsRef = useRef<HTMLLIElement>(null);
+  const [salesHubOpen, setSalesHubOpen] = useState(false);
+  const [operationsOpen, setOperationsOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
-  // Close tools dropdown when clicking outside
+  const salesHubRef = useRef<HTMLLIElement>(null);
+  const operationsRef = useRef<HTMLLIElement>(null);
+  const settingsRef = useRef<HTMLLIElement>(null);
+
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (toolsRef.current && !toolsRef.current.contains(event.target as Node)) {
-        setToolsOpen(false);
+      if (salesHubRef.current && !salesHubRef.current.contains(event.target as Node)) {
+        setSalesHubOpen(false);
+      }
+      if (operationsRef.current && !operationsRef.current.contains(event.target as Node)) {
+        setOperationsOpen(false);
+      }
+      if (settingsRef.current && !settingsRef.current.contains(event.target as Node)) {
+        setSettingsOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const isToolsActive = toolsMenu.some(item => pathname.startsWith(item.href));
+  // Active state detection for dropdown categories
+  const isSalesHubActive = salesHubMenu.some(item => pathname.startsWith(item.href));
+  const isOperationsActive = operationsMenu.some(item => pathname.startsWith(item.href));
+  const isSettingsActive = settingsMenu.some(item => pathname.startsWith(item.href)) ||
+                           toolsMenu.some(item => pathname.startsWith(item.href));
 
+  // Mobile view: Flatten all dropdowns
+  if (vertical) {
+    return (
+      <ul className="flex flex-col gap-4 text-sm font-medium text-gray-600">
+        {/* Dashboard */}
+        <li>
+          <Link
+            href="/sales/dashboard"
+            className={`transition hover:text-gray-900 ${
+              pathname === "/sales/dashboard" ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
+            }`}
+            onClick={onNavigate}
+          >
+            Dashboard
+          </Link>
+        </li>
+
+        {/* Sales Hub - Flattened */}
+        <li>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">Sales Hub</div>
+          <ul className="ml-4 space-y-2">
+            {salesHubMenu.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`transition hover:text-gray-900 ${
+                    pathname.startsWith(item.href) ? "text-gray-900 font-semibold" : ""
+                  }`}
+                  onClick={onNavigate}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+
+        {/* Operations - Flattened */}
+        <li>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">Operations</div>
+          <ul className="ml-4 space-y-2">
+            {operationsMenu.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`transition hover:text-gray-900 ${
+                    pathname.startsWith(item.href) ? "text-gray-900 font-semibold" : ""
+                  }`}
+                  onClick={onNavigate}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+
+        {/* Settings - Flattened */}
+        <li>
+          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">Settings</div>
+          <ul className="ml-4 space-y-2">
+            {settingsMenu.map((item) => {
+              if (item.adminOnly) return null; // Hide admin items in mobile for now (TODO: check user role)
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`transition hover:text-gray-900 ${
+                      pathname.startsWith(item.href) ? "text-gray-900 font-semibold" : ""
+                    }`}
+                    onClick={onNavigate}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+            {toolsMenu.map((tool) => (
+              <li key={tool.href}>
+                <Link
+                  href={tool.href}
+                  className={`transition hover:text-gray-900 ${
+                    pathname.startsWith(tool.href) ? "text-gray-900 font-semibold" : ""
+                  }`}
+                  onClick={onNavigate}
+                >
+                  {tool.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+
+        {/* Logout */}
+        <li>
+          <button
+            type="button"
+            onClick={onLogout}
+            disabled={isLoggingOut}
+            className="text-sm font-medium text-gray-600 transition hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {isLoggingOut ? "Logging out..." : "Logout"}
+          </button>
+        </li>
+      </ul>
+    );
+  }
+
+  // Desktop view: Horizontal with dropdowns
   return (
-    <ul
-      className={`text-sm font-medium text-gray-600 ${vertical ? "flex flex-col gap-4" : "flex items-center gap-6"}`}
-    >
-      {navigation.map((item) => {
-        const isActive = item.href === "/sales/dashboard" ? pathname === item.href : pathname.startsWith(item.href);
+    <ul className="flex items-center gap-6 text-sm font-medium text-gray-600">
+      {/* Dashboard */}
+      <li>
+        <Link
+          href="/sales/dashboard"
+          className={`transition hover:text-gray-900 ${
+            pathname === "/sales/dashboard" ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
+          }`}
+          onClick={onNavigate}
+        >
+          Dashboard
+        </Link>
+      </li>
 
-        return (
-          <li key={item.href}>
-            <Link
-              href={item.href}
-              className={`transition hover:text-gray-900 ${
-                isActive ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
-              }`}
-              onClick={onNavigate}
-            >
-              {item.label}
-            </Link>
-          </li>
-        );
-      })}
-
-      {/* Tools Dropdown */}
-      <li className="relative" ref={toolsRef}>
+      {/* Sales Hub Dropdown */}
+      <li className="relative" ref={salesHubRef}>
         <button
           type="button"
-          onClick={() => setToolsOpen(!toolsOpen)}
+          onClick={() => setSalesHubOpen(!salesHubOpen)}
           className={`flex items-center gap-1 transition hover:text-gray-900 ${
-            isToolsActive ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
+            isSalesHubActive ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
           }`}
         >
-          Tools
-          <ChevronDown className={`h-3 w-3 transition-transform ${toolsOpen ? 'rotate-180' : ''}`} />
+          Sales Hub
+          <ChevronDown className={`h-3 w-3 transition-transform ${salesHubOpen ? 'rotate-180' : ''}`} />
         </button>
 
-        {toolsOpen && (
+        {salesHubOpen && (
+          <div className="absolute left-0 top-full mt-2 w-48 rounded-lg border border-gray-200 bg-white py-2 shadow-lg z-50">
+            {salesHubMenu.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => {
+                  setSalesHubOpen(false);
+                  onNavigate();
+                }}
+                className={`block px-4 py-2 text-sm transition hover:bg-gray-50 ${
+                  pathname.startsWith(item.href) ? "bg-blue-50 text-blue-900 font-semibold" : "text-gray-900"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </li>
+
+      {/* Operations Dropdown */}
+      <li className="relative" ref={operationsRef}>
+        <button
+          type="button"
+          onClick={() => setOperationsOpen(!operationsOpen)}
+          className={`flex items-center gap-1 transition hover:text-gray-900 ${
+            isOperationsActive ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
+          }`}
+        >
+          Operations
+          <ChevronDown className={`h-3 w-3 transition-transform ${operationsOpen ? 'rotate-180' : ''}`} />
+        </button>
+
+        {operationsOpen && (
+          <div className="absolute left-0 top-full mt-2 w-48 rounded-lg border border-gray-200 bg-white py-2 shadow-lg z-50">
+            {operationsMenu.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => {
+                  setOperationsOpen(false);
+                  onNavigate();
+                }}
+                className={`block px-4 py-2 text-sm transition hover:bg-gray-50 ${
+                  pathname.startsWith(item.href) ? "bg-blue-50 text-blue-900 font-semibold" : "text-gray-900"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </li>
+
+      {/* Settings Dropdown */}
+      <li className="relative" ref={settingsRef}>
+        <button
+          type="button"
+          onClick={() => setSettingsOpen(!settingsOpen)}
+          className={`flex items-center gap-1 transition hover:text-gray-900 ${
+            isSettingsActive ? "text-gray-900 underline decoration-2 underline-offset-4" : ""
+          }`}
+        >
+          Settings
+          <ChevronDown className={`h-3 w-3 transition-transform ${settingsOpen ? 'rotate-180' : ''}`} />
+        </button>
+
+        {settingsOpen && (
           <div className="absolute right-0 top-full mt-2 w-64 rounded-lg border border-gray-200 bg-white py-2 shadow-lg z-50">
+            {settingsMenu.map((item) => {
+              if (item.adminOnly) return null; // TODO: Check user role
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => {
+                    setSettingsOpen(false);
+                    onNavigate();
+                  }}
+                  className={`block px-4 py-2 text-sm transition hover:bg-gray-50 ${
+                    pathname.startsWith(item.href) ? "bg-blue-50 text-blue-900 font-semibold" : "text-gray-900"
+                  }`}
+                >
+                  <div className="font-medium">{item.label}</div>
+                  {item.description && <div className="text-xs text-gray-500">{item.description}</div>}
+                </Link>
+              );
+            })}
+
+            {/* Divider before Tools */}
+            <div className="my-2 border-t border-gray-200" />
+            <div className="px-4 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">Tools</div>
+
             {toolsMenu.map((tool) => (
               <Link
                 key={tool.href}
                 href={tool.href}
                 onClick={() => {
-                  setToolsOpen(false);
+                  setSettingsOpen(false);
                   onNavigate();
                 }}
                 className="block px-4 py-2 text-sm hover:bg-gray-50 transition"
