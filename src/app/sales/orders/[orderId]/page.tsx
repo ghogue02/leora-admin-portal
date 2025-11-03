@@ -15,7 +15,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
 import { CreateInvoiceDialog } from '@/components/invoices/CreateInvoiceDialog';
 import { InvoiceDownloadButton } from '@/components/invoices/InvoiceDownloadButton';
-import { formatCurrency, formatDate } from '@/lib/format';
+import { formatCurrency, formatShortDate } from '@/lib/format';
 import { ArrowLeft } from 'lucide-react';
 
 export default function SalesOrderDetailPage() {

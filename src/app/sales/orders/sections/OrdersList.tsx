@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { OrderStatus } from "@prisma/client";
-import { formatCurrency, formatDate } from "@/lib/format";
+import { formatCurrency, formatShortDate } from "@/lib/format";
 
 type OrdersResponse = {
   summary: {
@@ -291,7 +291,7 @@ export default function OrdersList() {
         </div>
       </div>
 
-      {filteredOrders.length === 0 && orders.length > 0 ? (
+      {filteredAndSortedOrders.length === 0 && orders.length > 0 ? (
         <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-sm text-gray-600">
           No orders match your search criteria. Try adjusting your filters.
         </div>
@@ -356,7 +356,7 @@ export default function OrdersList() {
                         #{order.id.slice(0, 8)}
                       </Link>
                       <span className="text-xs text-gray-500">
-                        Ordered {formatDate(order.orderedAt)}
+                        Ordered {formatShortDate(order.orderedAt)}
                       </span>
                     </div>
                     <span
