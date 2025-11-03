@@ -889,6 +889,123 @@ __________________________________________________
 
 ---
 
+## 📈 **SECTION 8: CUSTOMER HEALTH & DORMANT LOGIC (PORTAL)**
+
+> Goal: Validate cadence-based risk calculations and the explanations surfaced to sales reps.
+
+### **Test 8.1: Healthy Customer Cadence Summary**
+- [ ] Log in as a sales rep and open a customer that has ordered within the cadence window (e.g. last 30 days).
+- [ ] Confirm status badge shows `HEALTHY`.
+- [ ] Review the “Cadence insight” card and verify:
+  - Cadence baseline equals the ordering pace for that customer (e.g. 53 days → baseline ≈ 53).
+  - Grace window is 30% of cadence but at least 7 days.
+  - Dormant threshold = cadence baseline + grace window.
+- [ ] Ensure the explanation sentence references cadence and grace window clearly.
+
+### **Test 8.2: At-Risk Cadence Messaging**
+- [ ] Locate a customer whose `nextExpectedOrderDate` has passed but is not marked dormant.
+- [ ] Confirm badge reads `AT_RISK_CADENCE`.
+- [ ] Check that “Cadence insight” states the customer is past cadence but still inside grace window.
+- [ ] Validate “Days since last order” matches the explanation.
+
+### **Test 8.3: Dormant State Confirmation**
+- [ ] Find a dormant customer (> cadence + grace window since last order).
+- [ ] Verify badge shows `DORMANT`, explanation references exceeding threshold, and `Dormancy since` matches expectation.
+
+**Notes & Findings:**
+```
+Customers tested: __________________________
+Cadence baseline vs displayed: ______________
+Grace window accuracy: _____________________
+Discrepancies / screenshots: _______________
+```
+
+---
+
+## ♻️ **SECTION 9: DUPLICATE ACCOUNT FLAGGING & RESOLUTION**
+
+> Goal: Ensure duplicates can be reported by reps and resolved by admins end-to-end.
+
+### **Test 9.1: Flag Duplicate (Portal)**
+- [ ] On `/portal/customers/{id}`, click `Flag duplicate`.
+- [ ] Provide a detailed note naming the supposed duplicate.
+- [ ] Submit and confirm success toast.
+- [ ] Refresh page; ensure button is available again (no stuck disabled state).
+
+### **Test 9.2: Review Flag (Admin)**
+- [ ] Switch to Admin mode via header link.
+- [ ] Open matching customer in Admin portal.
+- [ ] Confirm “Duplicate Flags” panel shows note, reporter, merge target, and “Review customer” link.
+
+### **Test 9.3: Resolve Flag**
+- [ ] Click “Mark resolved”.
+- [ ] Refresh; make sure flag disappears.
+- [ ] Switch back to Sales mode and verify the flag button resets.
+
+**Notes & Findings:**
+```
+Customer flagged: __________________________
+Flag visibility in Admin: __________________
+Resolution workflow issues: ________________
+```
+
+---
+
+## 💵 **SECTION 10: ORDER PRICING & APPROVAL WORKFLOW (SALES PORTAL)**
+
+> Goal: Confirm jurisdiction-aware pricing, inventory checks, and approval messaging work together.
+
+### **Test 10.1: Jurisdiction-Based Pricing**
+- [ ] Open `/sales/orders/new` and choose a customer in a known state (e.g., VA).
+- [ ] Add a SKU with quantity equal to a tier minimum.
+- [ ] Verify unit price matches the state-specific price list (cross-check Admin → Price Lists).
+- [ ] Confirm line item shows badge text reflecting the applied price list.
+
+### **Test 10.2: Manual Override & Approval Trigger**
+- [ ] Increase quantity beyond available jurisdiction tiers OR pick a SKU without a state-specific entry.
+- [ ] Ensure line item shows amber “manual review” hint and unit price falls back to override tier.
+- [ ] Confirm “Manager Approval Required” banner appears.
+- [ ] Submit order; verify it lands in `DRAFT` status pending approval.
+
+### **Test 10.3: Inventory Warnings**
+- [ ] Add a SKU close to low stock;
+- [ ] Confirm Inventory badge displays LOW/CRITICAL.
+- [ ] Verify approval banner appears when available quantity < requested.
+
+**Notes & Findings:**
+```
+Customer tested: __________________________
+Expected price list: ______________________
+Actual unit price: ________________________
+Override/shortage triggers: _______________
+```
+
+---
+
+## 🔁 **SECTION 11: SALES ↔ ADMIN NAVIGATION CLARITY**
+
+> Goal: Validate mode indicators and switching affordances for context clarity.
+
+### **Test 11.1: Sales Mode Indicator**
+- [ ] Verify “Sales Mode” badge appears near the portal logo on desktop.
+- [ ] On mobile, open the nav menu; confirm context + switch option remain visible.
+- [ ] Click “Switch to Admin” and ensure Admin dashboard loads.
+
+### **Test 11.2: Admin Mode Indicator**
+- [ ] In Admin header, confirm “Admin Mode” badge and `Back to Sales Mode` CTA.
+- [ ] Click CTA; ensure redirect to `/portal` restores sales navigation.
+- [ ] Confirm Admin sidebar / breadcrumbs do not show in Sales view.
+
+**Notes & Findings:**
+```
+Sales badge visibility (1-10): _______
+Admin badge visibility (1-10): _______
+Switch friction (lower=better): ______
+Suggestions: _________________________
+```
+
+---
+
 ## 📝 **FINAL NOTES**
 
 **Testing Duration:** ___ hours

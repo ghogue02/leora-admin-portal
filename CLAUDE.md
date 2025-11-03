@@ -508,12 +508,59 @@ git remote -v
 
 ### GitHub Safety Rules
 
-1. ❌ NEVER run `git push --force` to main
+1. ❌ NEVER run `git push --force` to main (except for security fixes)
 2. ❌ NEVER skip commit hooks with `--no-verify`
 3. ❌ NEVER amend commits that have been pushed
 4. ✅ ALWAYS check `git status` before committing
 5. ✅ ALWAYS review `git diff` before committing
 6. ✅ ALWAYS write descriptive commit messages
+
+### 🔐 Security Rules - CRITICAL
+
+**NEVER commit these to GitHub:**
+
+1. ❌ **Passwords** - Use environment variables only
+   ```typescript
+   // ❌ WRONG
+   const password = 'Welcome2024!';
+
+   // ✅ CORRECT
+   const password = process.env.DEFAULT_PASSWORD || 'PlaceholderOnly!';
+   ```
+
+2. ❌ **API Keys** - Store in `.env` (already in `.gitignore`)
+3. ❌ **Database URLs** - Use environment variables
+4. ❌ **Private Keys** - Never commit `.pem`, `.key` files
+5. ❌ **Tokens** - OAuth, JWT, session tokens
+6. ❌ **Credentials** - Email passwords, service accounts
+
+**In Documentation:**
+- Use `[REDACTED]` for passwords
+- Use `[YOUR_API_KEY]` for API keys
+- Use `contact admin for credentials` instead of real values
+
+**If You Accidentally Commit a Secret:**
+
+1. **Immediately change the exposed credential**
+2. **Sanitize files** (replace with `[REDACTED]`)
+3. **Rewrite Git history**:
+   ```bash
+   # Create password list
+   echo "ExposedPassword123!" > /tmp/remove.txt
+
+   # Scrub from all history
+   git filter-repo --replace-text /tmp/remove.txt --force
+
+   # Re-add remote and force push
+   git remote add origin https://github.com/USER/REPO.git
+   git push origin main --force
+
+   # Clean up
+   rm /tmp/remove.txt
+   ```
+
+4. **Notify affected parties**
+5. **Document the incident**
 
 ---
 
@@ -523,6 +570,59 @@ git remote -v
 **Provider**: Supabase PostgreSQL
 **Schema Location**: `prisma/schema.prisma`
 **Environment Variable**: `DATABASE_URL` (configured in `.env`)
+
+### 🚨 CRITICAL: Always Verify Schema Before Changes
+
+**MANDATORY RULE**: Before writing any database queries or assuming table/field names:
+
+1. **Query the actual schema** using one of these methods:
+   ```bash
+   # Method 1: Check Prisma schema file
+   grep -A 20 "model ModelName" prisma/schema.prisma
+
+   # Method 2: Use MCP Supabase tools
+   mcp__wellcrafted-supabase__supabase_describe_table
+
+   # Method 3: Generate fresh Prisma client
+   npx prisma generate
+   ```
+
+2. **Common Schema Mistakes to Avoid**:
+   - User relation: `salesRepProfile` (NOT `salesRep`)
+   - SalesRep territory: `territoryName` (NOT `territory`)
+   - SalesRep quotas: `weeklyRevenueQuota` (NOT `weeklyQuota`)
+   - SalesRep active: `isActive` (NOT `active`)
+   - Customer relation: `salesRep` (NOT `salesRepProfile`)
+   - User password: `hashedPassword` (NOT `password`)
+   - User status: `isActive` (NOT `status`)
+
+3. **Verification Workflow**:
+   ```typescript
+   // ❌ WRONG: Assuming field names
+   const user = await prisma.user.findUnique({
+     where: { email: "test@example.com" },
+     include: { salesRep: true } // WRONG relation name!
+   });
+
+   // ✅ CORRECT: Check schema first, use correct names
+   const user = await prisma.user.findUnique({
+     where: {
+       tenantId_email: { // Compound unique key
+         tenantId: TENANT_ID,
+         email: "test@example.com"
+       }
+     },
+     include: { salesRepProfile: true } // CORRECT relation name
+   });
+   ```
+
+4. **Always Test Queries**:
+   ```bash
+   # Quick test before running full script
+   npx tsx -e "import { PrismaClient } from '@prisma/client';
+              const prisma = new PrismaClient();
+              prisma.salesRep.findFirst().then(r => console.log(Object.keys(r)))"
+   ```
 
 ### ✅ Verified Working Methods
 
