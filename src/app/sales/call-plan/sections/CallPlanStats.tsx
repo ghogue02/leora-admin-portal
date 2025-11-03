@@ -170,7 +170,7 @@ export default function CallPlanStats({ callPlan }: CallPlanStatsProps) {
       </div>
 
       {/* Card 2: Contact Method Balance */}
-      <div className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
+      <div className="rounded-lg border border-blue-200 bg-gradient-to-br from-blue-50 to-white p-5 shadow-sm">
         <p className="text-sm font-medium text-gray-600">Contact Method Balance</p>
         <div className="mt-3 space-y-3">
           {/* In-Person vs Electronic Split */}

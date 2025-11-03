@@ -48,20 +48,6 @@ export default function WeeklyProgress({
         </div>
       </div>
 
-      {/* Progress Bar */}
-      <div className="mb-6">
-        <div className="mb-2 flex items-center justify-between text-sm">
-          <span className="font-medium text-gray-700">Completion</span>
-          <span className="font-semibold text-blue-600">{progressPercentage}%</span>
-        </div>
-        <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200">
-          <div
-            className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500"
-            style={{ width: `${progressPercentage}%` }}
-          />
-        </div>
-      </div>
-
       {/* Horizontal Stacked Bar Chart */}
       <div className="space-y-3">
         {/* Stacked Bar */}

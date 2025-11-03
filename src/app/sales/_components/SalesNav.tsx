@@ -21,8 +21,18 @@ const operationsMenu = [
 
 const settingsMenu = [
   { label: "Manager", href: "/sales/manager", adminOnly: true },
-  { label: "Admin", href: "/admin", adminOnly: true },
   { label: "LeorAI", href: "/sales/leora", description: "AI-powered sales copilot" },
+];
+
+const adminMenu = [
+  { label: "Dashboard", href: "/admin", description: "Admin overview" },
+  { label: "Orders", href: "/admin/orders", description: "Order management" },
+  { label: "Customers", href: "/admin/customers", description: "Customer admin" },
+  { label: "Accounts", href: "/admin/accounts", description: "User accounts" },
+  { label: "Territories", href: "/admin/territories", description: "Territory management" },
+  { label: "Audit Logs", href: "/admin/audit-logs", description: "System audit logs" },
+  { label: "Data Integrity", href: "/admin/data-integrity", description: "Data validation" },
+  { label: "Bulk Operations", href: "/admin/bulk-operations", description: "Bulk actions" },
 ];
 
 const toolsMenu = [
@@ -146,6 +156,7 @@ function NavList({
   const isSalesHubActive = salesHubMenu.some(item => pathname.startsWith(item.href));
   const isOperationsActive = operationsMenu.some(item => pathname.startsWith(item.href));
   const isSettingsActive = settingsMenu.some(item => pathname.startsWith(item.href)) ||
+                           adminMenu.some(item => pathname.startsWith(item.href)) ||
                            toolsMenu.some(item => pathname.startsWith(item.href));
 
   // Mobile view: Flatten all dropdowns
@@ -225,6 +236,29 @@ function NavList({
                 </li>
               );
             })}
+
+            {/* Admin Section */}
+            <li className="pt-2">
+              <div className="mb-1 text-xs font-medium uppercase tracking-wide text-gray-400">Admin</div>
+            </li>
+            {adminMenu.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`transition hover:text-gray-900 ${
+                    pathname.startsWith(item.href) ? "text-gray-900 font-semibold" : ""
+                  }`}
+                  onClick={onNavigate}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+
+            {/* Tools Section */}
+            <li className="pt-2">
+              <div className="mb-1 text-xs font-medium uppercase tracking-wide text-gray-400">Tools</div>
+            </li>
             {toolsMenu.map((tool) => (
               <li key={tool.href}>
                 <Link
@@ -374,6 +408,27 @@ function NavList({
                 </Link>
               );
             })}
+
+            {/* Divider before Admin */}
+            <div className="my-2 border-t border-gray-200" />
+            <div className="px-4 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">Admin</div>
+
+            {adminMenu.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => {
+                  setSettingsOpen(false);
+                  onNavigate();
+                }}
+                className={`block px-4 py-2 text-sm transition hover:bg-gray-50 ${
+                  pathname.startsWith(item.href) ? "bg-blue-50 text-blue-900 font-semibold" : "text-gray-900"
+                }`}
+              >
+                <div className="font-medium">{item.label}</div>
+                <div className="text-xs text-gray-500">{item.description}</div>
+              </Link>
+            ))}
 
             {/* Divider before Tools */}
             <div className="my-2 border-t border-gray-200" />
