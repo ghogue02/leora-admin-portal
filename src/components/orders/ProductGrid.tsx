@@ -35,6 +35,15 @@ type Product = {
     jurisdictionValue: string | null;
     allowManualOverride: boolean;
   }>;
+  inventory?: {
+    totals: {
+      onHand: number;
+      allocated: number;
+      available: number;
+    };
+    lowStock: boolean;
+    outOfStock: boolean;
+  };
 };
 
 
@@ -66,8 +75,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState<string>('all');
-  const [brandFilter, setBrandFilter] = useState<string>('all');
+  const [showInStockOnly, setShowInStockOnly] = useState(false);
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
   const [inventoryStatuses, setInventoryStatuses] = useState<Map<string, InventoryStatus>>(new Map());
   const [checkingInventory, setCheckingInventory] = useState(false);
@@ -152,36 +160,14 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
         if (!searchableText.includes(searchLower)) return false;
       }
 
-      // Category filter
-      if (categoryFilter !== 'all' && product.category !== categoryFilter) {
-        return false;
-      }
-
-      // Brand filter
-      if (brandFilter !== 'all' && product.brand !== brandFilter) {
+      // In-stock filter
+      if (showInStockOnly && product.inventory?.outOfStock) {
         return false;
       }
 
       return true;
     });
-  }, [products, search, categoryFilter, brandFilter, existingSkuIds]);
-
-  // Get unique categories and brands
-  const categories = useMemo(() => {
-    const cats = new Set<string>();
-    products.forEach(p => {
-      if (p.category) cats.add(p.category);
-    });
-    return Array.from(cats).sort();
-  }, [products]);
-
-  const brands = useMemo(() => {
-    const brandSet = new Set<string>();
-    products.forEach(p => {
-      if (p.brand) brandSet.add(p.brand);
-    });
-    return Array.from(brandSet).sort();
-  }, [products]);
+  }, [products, search, showInStockOnly, existingSkuIds]);
 
   // Check inventory when warehouse or filtered products change
   useEffect(() => {
@@ -254,34 +240,21 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
         </div>
 
         <div className="flex items-center gap-3 flex-wrap">
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-            className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none"
-          >
-            <option value="all">All Categories</option>
-            {categories.map(cat => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
+          <label className="flex items-center gap-2 rounded-md border border-gray-300 px-3 py-2 text-sm cursor-pointer hover:bg-gray-50">
+            <input
+              type="checkbox"
+              checked={showInStockOnly}
+              onChange={(e) => setShowInStockOnly(e.target.checked)}
+              className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
+            />
+            <span className="text-gray-700">In Stock Only</span>
+          </label>
 
-          <select
-            value={brandFilter}
-            onChange={(e) => setBrandFilter(e.target.value)}
-            className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none"
-          >
-            <option value="all">All Brands</option>
-            {brands.map(brand => (
-              <option key={brand} value={brand}>{brand}</option>
-            ))}
-          </select>
-
-          {(search || categoryFilter !== 'all' || brandFilter !== 'all') && (
+          {(search || showInStockOnly) && (
             <button
               onClick={() => {
                 setSearch('');
-                setCategoryFilter('all');
-                setBrandFilter('all');
+                setShowInStockOnly(false);
               }}
               className="rounded-md border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
             >
@@ -299,7 +272,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
       {filteredProducts.length === 0 ? (
         <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-8 text-center">
           <p className="text-sm text-gray-600">
-            {search || categoryFilter !== 'all' || brandFilter !== 'all'
+            {search || showInStockOnly
               ? 'No products match your filters. Try adjusting or clearing filters.'
               : 'No products available'}
           </p>

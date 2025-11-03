@@ -9,6 +9,7 @@ import {
   fetchInventorySnapshots,
 } from "@/lib/orders";
 import { z } from "zod";
+import { calculateOrderTotal } from "@/lib/orders/calculations";
 
 const DEFAULT_LIMIT = 25;
 const OPEN_STATUSES: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
@@ -181,17 +182,9 @@ export async function GET(request: NextRequest) {
         }),
       ]);
 
-      // Calculate open total from order lines if order.total is null
+      // Calculate open total from order lines if order.total is null (uses shared utility)
       const openTotalFromLines = openOrdersWithLines.reduce((sum, order) => {
-        if (order.total && Number(order.total) > 0) {
-          return sum + Number(order.total);
-        }
-        // Calculate from order lines if total is null
-        const lineTotal = order.lines.reduce(
-          (lineSum, line) => lineSum + (line.quantity * Number(line.unitPrice)),
-          0
-        );
-        return sum + lineTotal;
+        return sum + calculateOrderTotal({ total: order.total, lines: order.lines });
       }, 0);
 
       const summary = grouped.reduce<OrdersSummary>(

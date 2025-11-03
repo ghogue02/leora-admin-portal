@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
 import { createAuditLog } from "@/lib/audit-log";
 import { Prisma } from "@prisma/client";
+import { calculateOrderTotal } from "@/lib/orders/calculations";
 
 // GET /api/sales/admin/orders - List orders with filters
 export async function GET(request: NextRequest) {
@@ -125,6 +126,12 @@ export async function GET(request: NextRequest) {
               createdAt: "desc",
             },
           },
+          lines: {
+            select: {
+              quantity: true,
+              unitPrice: true,
+            },
+          },
         },
         orderBy: {
           [sortBy]: sortOrder,
@@ -145,7 +152,7 @@ export async function GET(request: NextRequest) {
       id: order.id,
       orderedAt: order.orderedAt,
       status: order.status,
-      total: order.total ? Number(order.total) : 0,
+      total: calculateOrderTotal({ total: order.total, lines: order.lines }),
       currency: order.currency,
       deliveryWeek: order.deliveryWeek,
       updatedAt: order.updatedAt,

@@ -108,7 +108,10 @@ export default function OrdersListPage() {
       if (filters.minAmount) params.set("minAmount", filters.minAmount);
       if (filters.maxAmount) params.set("maxAmount", filters.maxAmount);
 
-      const response = await fetch(`/api/admin/orders?${params}`);
+      const response = await fetch(`/api/sales/admin/orders?${params}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch orders: ${response.statusText}`);
+      }
       const data = await response.json();
 
       setOrders(data.orders || []);
