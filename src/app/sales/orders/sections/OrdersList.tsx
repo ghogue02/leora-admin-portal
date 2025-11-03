@@ -48,8 +48,6 @@ export default function OrdersList() {
   const [cancelingId, setCancelingId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [statusFilter, setStatusFilter] = useState<OrderStatus | 'all'>('all');
-  const [sortBy, setSortBy] = useState<'date' | 'customer' | 'total' | 'status'>('date');
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('desc');
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
@@ -172,24 +170,9 @@ export default function OrdersList() {
 
   const { summary, orders } = state.data;
 
-  // Sort handler - Fixed for React Error #310
-  // Uses functional state updates to avoid re-creating callback on every state change
-  const handleSort = useCallback((column: 'date' | 'customer' | 'total' | 'status') => {
-    setSortBy(prevSortBy => {
-      if (prevSortBy === column) {
-        setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
-        return prevSortBy;
-      } else {
-        setSortDirection('desc');
-        return column;
-      }
-    });
-  }, []); // Empty deps array prevents re-creation
-
-  // Filter and sort orders
-  const filteredAndSortedOrders = useMemo(() => {
-    // Filter first
-    const filtered = orders.filter((order) => {
+  // Filter orders (sorting temporarily removed to fix React Error #310)
+  const filteredOrders = useMemo(() => {
+    return orders.filter((order) => {
       // Search filter
       const matchesSearch =
         !searchTerm ||
@@ -202,40 +185,7 @@ export default function OrdersList() {
 
       return matchesSearch && matchesStatus;
     });
-
-    // Then sort
-    return [...filtered].sort((a, b) => {
-      let comparison = 0;
-
-      switch (sortBy) {
-        case 'date':
-          const dateA = a.orderedAt ? new Date(a.orderedAt).getTime() : 0;
-          const dateB = b.orderedAt ? new Date(b.orderedAt).getTime() : 0;
-          comparison = dateA - dateB;
-          break;
-
-        case 'customer':
-          const nameA = (a.customer?.name || '').toLowerCase();
-          const nameB = (b.customer?.name || '').toLowerCase();
-          comparison = nameA < nameB ? -1 : nameA > nameB ? 1 : 0;
-          break;
-
-        case 'total':
-          const totalA = a.total || 0;
-          const totalB = b.total || 0;
-          comparison = totalA - totalB;
-          break;
-
-        case 'status':
-          const statusA = a.status.toLowerCase();
-          const statusB = b.status.toLowerCase();
-          comparison = statusA < statusB ? -1 : statusA > statusB ? 1 : 0;
-          break;
-      }
-
-      return sortDirection === 'asc' ? comparison : -comparison;
-    });
-  }, [orders, searchTerm, statusFilter, sortBy, sortDirection]);
+  }, [orders, searchTerm, statusFilter]);
 
   return (
     <section className="space-y-6">
@@ -297,7 +247,7 @@ export default function OrdersList() {
         </div>
       </div>
 
-      {filteredAndSortedOrders.length === 0 && orders.length > 0 ? (
+      {filteredOrders.length === 0 && orders.length > 0 ? (
         <div className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-8 text-center text-sm text-gray-600">
           No orders match your search criteria. Try adjusting your filters.
         </div>
@@ -310,39 +260,9 @@ export default function OrdersList() {
           <table className="min-w-full divide-y divide-slate-200 bg-white text-sm text-gray-700">
             <thead className="bg-slate-50 text-xs uppercase tracking-wider text-gray-500">
               <tr>
-                <th
-                  className="px-4 py-3 text-left cursor-pointer hover:bg-slate-100 transition select-none"
-                  onClick={() => handleSort('date')}
-                >
-                  <div className="flex items-center gap-2">
-                    <span>Order</span>
-                    {sortBy === 'date' && (
-                      <span className="text-gray-700">{sortDirection === 'asc' ? '↑' : '↓'}</span>
-                    )}
-                  </div>
-                </th>
-                <th
-                  className="px-4 py-3 text-left cursor-pointer hover:bg-slate-100 transition select-none"
-                  onClick={() => handleSort('customer')}
-                >
-                  <div className="flex items-center gap-2">
-                    <span>Customer</span>
-                    {sortBy === 'customer' && (
-                      <span className="text-gray-700">{sortDirection === 'asc' ? '↑' : '↓'}</span>
-                    )}
-                  </div>
-                </th>
-                <th
-                  className="px-4 py-3 text-left cursor-pointer hover:bg-slate-100 transition select-none"
-                  onClick={() => handleSort('total')}
-                >
-                  <div className="flex items-center gap-2">
-                    <span>Totals</span>
-                    {sortBy === 'total' && (
-                      <span className="text-gray-700">{sortDirection === 'asc' ? '↑' : '↓'}</span>
-                    )}
-                  </div>
-                </th>
+                <th className="px-4 py-3 text-left">Order</th>
+                <th className="px-4 py-3 text-left">Customer</th>
+                <th className="px-4 py-3 text-left">Totals</th>
                 <th className="px-4 py-3 text-left">Invoices</th>
                 <th className="px-4 py-3 text-left">Updated</th>
                 <th className="px-4 py-3 text-left">
@@ -351,7 +271,7 @@ export default function OrdersList() {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
-              {filteredAndSortedOrders.map((order) => (
+              {filteredOrders.map((order) => (
                 <tr key={order.id} className="hover:bg-slate-50">
                   <td className="px-4 py-3">
                     <div className="flex flex-col">
