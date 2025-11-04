@@ -91,7 +91,7 @@ export async function calculateDemandStats(
       order: {
         tenantId,
         orderedAt: { gte: lookbackDate },
-        status: { in: ['COMPLETED', 'FULFILLED'] },
+        status: { in: ['FULFILLED', 'PARTIALLY_FULFILLED'] }, // Use correct enum values
       },
     },
     include: {
