@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { startOfYear } from "date-fns";
+import { startOfYear, endOfYear } from "date-fns";
+import { expectedProgressByWorkingDays } from "@/lib/sales/goals/seasonality";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -111,14 +112,19 @@ export async function GET(request: NextRequest) {
           const annualGoal = Number(goal.targetRevenue ?? 0);
           const progressPct = annualGoal > 0 ? (ytdSales / annualGoal) * 100 : 0;
 
-          // Calculate expected progress based on time elapsed
+          // Phase 3 Improvement: Seasonality-aware expected progress
+          // Replaces linear time (days/365) with working delivery days
+          const expectedProgress = expectedProgressByWorkingDays(yearStart, now, yearEnd);
+          const expectedPct = expectedProgress * 100;
+
+          // Legacy linear time for comparison (can be removed after validation)
           const daysInYear = 365;
           const daysElapsed = Math.floor(
             (now.getTime() - yearStart.getTime()) / (1000 * 60 * 60 * 24)
           );
-          const expectedPct = (daysElapsed / daysInYear) * 100;
+          const linearExpectedPct = (daysElapsed / daysInYear) * 100;
 
-          // Determine status based on prorated goal
+          // Determine status based on seasonality-adjusted goal
           let status: "on_track" | "at_risk" | "behind";
           if (progressPct >= expectedPct * 0.8) {
             status = "on_track";
@@ -126,6 +132,15 @@ export async function GET(request: NextRequest) {
             status = "at_risk";
           } else {
             status = "behind";
+          }
+
+          // Log seasonality impact for debugging
+          if (Math.abs(expectedPct - linearExpectedPct) > 2) {
+            console.log(`Seasonality adjustment for ${goal.id}:`, {
+              linear: linearExpectedPct.toFixed(1),
+              seasonal: expectedPct.toFixed(1),
+              difference: (expectedPct - linearExpectedPct).toFixed(1),
+            });
           }
 
           // Product name with brand

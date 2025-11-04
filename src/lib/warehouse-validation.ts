@@ -187,21 +187,34 @@ export function optimizeLocationForFrequency(
   inventoryData: InventoryLocation[] = [],
   config: WarehouseConfig = DEFAULT_WAREHOUSE_CONFIG
 ): Location | null {
-  // High frequency items (>10/month) go to aisle A, middle shelf
-  // Medium frequency (5-10/month) go to aisles B-D, middle shelf
-  // Low frequency (<5/month) go to back aisles, any shelf
+  // Phase 3 Improvement: Basic frequency-based slotting (legacy)
+  // For advanced ABC classification using actual pick data, see:
+  // @see lib/warehouse/slotting/abc-classification.ts
+  //
+  // TODO: Integrate ABC classification results for more accurate slotting
+  // ABC approach uses: Pick Frequency × Weight × Volume vs simple frequency
+  //
+  // Current (frequency-based):
+  // - High frequency items (>10/month) go to aisle A, middle shelf
+  // - Medium frequency (5-10/month) go to aisles B-D, middle shelf
+  // - Low frequency (<5/month) go to back aisles, any shelf
+  //
+  // Future (ABC-based):
+  // - A items (top 20% activity) → aisles 1-3, middle shelf
+  // - B items (next 30%) → aisles 4-7, middle shelf
+  // - C items (bottom 50%) → aisles 8+, any shelf
 
   let targetAisles: number[];
   let targetShelf: string;
 
   if (frequency > 10) {
-    targetAisles = [1, 2]; // A, B
+    targetAisles = [1, 2]; // A, B (corresponds to ABC class A)
     targetShelf = config.shelfLevels[1] || 'Middle'; // Middle shelf
   } else if (frequency >= 5) {
-    targetAisles = [3, 4, 5]; // C, D, E
+    targetAisles = [3, 4, 5]; // C, D, E (corresponds to ABC class B)
     targetShelf = config.shelfLevels[1] || 'Middle';
   } else {
-    // Use any aisle beyond E
+    // Use any aisle beyond E (corresponds to ABC class C)
     targetAisles = Array.from(
       { length: config.aisleCount - 5 },
       (_, i) => i + 6
