@@ -105,6 +105,7 @@ model Tenant {
   webhookEvents           WebhookEvent[]
   webhookSubs             WebhookSubscription[]
   healthThresholds        HealthThreshold[]
+  SkuDemandStats          SkuDemandStats[]
 }
 
 model TenantSettings {
@@ -349,6 +350,7 @@ model Sku {
   product              Product                @relation(fields: [productId], references: [id], onDelete: Cascade)
   tenant               Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   topProducts          TopProduct[]
+  demandStats          SkuDemandStats?
 
   @@unique([tenantId, code])
   @@index([tenantId])
@@ -462,9 +464,9 @@ model Customer {
   defaultDeliveryTimeWindow String?
   defaultWarehouseLocation  String?
   requiresPO                Boolean                 @default(false)
-  invoiceStateCode          String?                 // State code for invoice numbering (VA, MD, DC, TE)
+  invoiceStateCode          String? // State code for invoice numbering (VA, MD, DC, TE)
   isTaxExempt               Boolean                 @default(false)
-  taxExemptNumber           String?                 // Tax exempt certificate number
+  taxExemptNumber           String? // Tax exempt certificate number
   accountSnapshots          AccountHealthSnapshot[]
   activities                Activity[]
   calendarEvents            CalendarEvent[]
@@ -2024,17 +2026,17 @@ model TaxRule {
 }
 
 model HealthThreshold {
-  id                    String            @id @default(uuid()) @db.Uuid
-  tenantId              String            @db.Uuid
-  accountType           AccountType?      // ON_PREMISE, OFF_PREMISE, null = all types
-  accountPriority       AccountPriority?  // A_TIER, B_TIER, C_TIER, null = all priorities
-  dormantDays           Int               @default(45)
-  gracePeriodPercent    Decimal           @db.Decimal(3, 2) @default(0.30) // 0.30 = 30%
-  revenueDeclinePercent Decimal           @db.Decimal(3, 2) @default(0.15) // 0.15 = 15%
-  minGraceDays          Int               @default(7)
-  createdAt             DateTime          @default(now())
-  updatedAt             DateTime          @updatedAt
-  tenant                Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  id                    String           @id @default(uuid()) @db.Uuid
+  tenantId              String           @db.Uuid
+  accountType           AccountType? // ON_PREMISE, OFF_PREMISE, null = all types
+  accountPriority       AccountPriority? // A_TIER, B_TIER, C_TIER, null = all priorities
+  dormantDays           Int              @default(45)
+  gracePeriodPercent    Decimal          @default(0.30) @db.Decimal(3, 2) // 0.30 = 30%
+  revenueDeclinePercent Decimal          @default(0.15) @db.Decimal(3, 2) // 0.15 = 15%
+  minGraceDays          Int              @default(7)
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+  tenant                Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@unique([tenantId, accountType, accountPriority])
   @@index([tenantId])
@@ -2121,9 +2123,9 @@ enum CustomerRiskStatus {
   AT_RISK_REVENUE
   DORMANT
   CLOSED
-  PROSPECT           // Never ordered, actively being prospected (in call plan or recent activity)
-  PROSPECT_COLD      // Never ordered, 90+ days, actively being prospected
-  UNQUALIFIED        // Never ordered, no call plan, no activity, 180+ days - suggest archive
+  PROSPECT // Never ordered, actively being prospected (in call plan or recent activity)
+  PROSPECT_COLD // Never ordered, 90+ days, actively being prospected
+  UNQUALIFIED // Never ordered, no call plan, no activity, 180+ days - suggest archive
 }
 
 enum CustomerDuplicateStatus {
@@ -2228,4 +2230,56 @@ enum SMSStatus {
   DELIVERED
   FAILED
   RECEIVED
+}
+
+// ============================================================================
+// Phase 2: Data-Driven Inventory Management
+// ============================================================================
+
+model SkuDemandStats {
+  id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tenantId String @db.Uuid
+  skuId    String @unique @db.Uuid
+
+  // Demand statistics
+  meanDailyDemand Decimal @db.Decimal(10, 4)
+  sdDailyDemand   Decimal @db.Decimal(10, 4)
+  minDailyDemand  Int     @default(0)
+  maxDailyDemand  Int     @default(0)
+  totalDemand     Int     @default(0)
+  daysWithDemand  Int     @default(0)
+  daysInPeriod    Int     @default(90)
+
+  // Lead time statistics
+  meanLeadDays Int @default(7)
+  sdLeadDays   Int @default(2)
+
+  // Calculated reorder point
+  reorderPoint  Int
+  serviceLevelZ Decimal @default(1.64) @db.Decimal(4, 2)
+
+  // Inventory optimization
+  targetDaysOfSupply Int  @default(14)
+  eoq                Int?
+  maxCapacity        Int?
+
+  // Demand pattern classification
+  demandPattern          String?
+  intermittencyRate      Decimal? @db.Decimal(5, 2)
+  coefficientOfVariation Decimal? @db.Decimal(6, 4)
+
+  // Metadata
+  lastCalculated DateTime @default(now())
+  lookbackDays   Int      @default(90)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  sku    Sku    @relation(fields: [skuId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, skuId])
+  @@index([tenantId])
+  @@index([tenantId, reorderPoint])
+  @@index([lastCalculated])
 }

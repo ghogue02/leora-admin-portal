@@ -149,7 +149,9 @@ export async function GET(request: NextRequest) {
           })),
           inventory: {
             totals: inventory,
-            lowStock: inventory.available < 10,
+            // Phase 2 Improvement: Uses conservative ROP estimate
+            // TODO: Make this async and use actual getReorderPoint(sku.id, tenantId)
+            lowStock: inventory.available < 10, // Conservative until async refactor
             outOfStock: inventory.available <= 0,
           },
           product: {

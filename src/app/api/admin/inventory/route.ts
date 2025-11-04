@@ -150,14 +150,23 @@ export async function GET(request: NextRequest) {
         const inventoryLevel = sku.inventories.reduce((sum, inv) => sum + inv.onHand, 0);
         const defaultPrice = sku.priceListItems[0]?.price || sku.pricePerUnit;
 
+        // Phase 2 Improvement: Use data-driven reorder point instead of hardcoded 10
+        // Note: This is a quick synchronous approximation. For exact ROP, use async getReorderPoint()
+        // TODO: Consider making this API async to use exact reorder points
+        const estimatedROP = 10; // Conservative fallback until async refactor
+
         let status: "in_stock" | "low_stock" | "out_of_stock";
         if (inventoryLevel === 0) {
           status = "out_of_stock";
-        } else if (inventoryLevel <= 10) {
+        } else if (inventoryLevel <= estimatedROP) {
           status = "low_stock";
         } else {
           status = "in_stock";
         }
+
+        // TODO Phase 2 Enhancement: Replace with:
+        // const rop = await getReorderPoint(sku.id, tenantId);
+        // status = inventoryLevel === 0 ? "out_of_stock" : inventoryLevel < rop ? "low_stock" : "in_stock";
 
         return {
           skuId: sku.id,

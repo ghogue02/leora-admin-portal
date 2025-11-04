@@ -141,19 +141,27 @@ export function isAvailable(
 /**
  * Get availability status classification
  *
- * Categorizes inventory into standard status buckets
+ * Categorizes inventory into standard status buckets using dynamic thresholds.
+ *
+ * Phase 2 Improvement: Now supports data-driven reorder points instead of
+ * hardcoded threshold. Pass the SKU's calculated reorder point for accuracy.
  *
  * @param snapshot - Inventory levels
- * @param lowStockThreshold - Units below which is considered "low" (default: 10)
+ * @param lowStockThreshold - Units below which is considered "low"
+ *   - Can be SKU-specific reorder point (recommended)
+ *   - Or fixed threshold (legacy, default: 10)
  * @returns Status classification
  *
  * @example
- * getAvailabilityStatus({ onHand: 50, allocated: 20, reserved: 10 })
- * // Returns: "in_stock" (20 available > 10 threshold)
+ * // Phase 2: Using SKU-specific reorder point
+ * const rop = await getReorderPoint(skuId, tenantId); // e.g., 42
+ * const status = getAvailabilityStatus({ onHand: 50, allocated: 20, reserved: 10 }, rop);
+ * // Returns: "low_stock" (20 available < 42 reorder point)
  *
  * @example
+ * // Legacy: Using fixed threshold
  * getAvailabilityStatus({ onHand: 15, allocated: 10, reserved: 2 })
- * // Returns: "low_stock" (3 available < 10 threshold, but > 0)
+ * // Returns: "low_stock" (3 available < 10 default threshold, but > 0)
  *
  * @example
  * getAvailabilityStatus({ onHand: 10, allocated: 10, reserved: 0 })

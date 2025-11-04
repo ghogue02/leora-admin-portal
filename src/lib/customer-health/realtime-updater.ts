@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { CustomerRiskStatus } from "@prisma/client";
 import { getHealthThresholds } from "./thresholds";
+import { assessRevenueHealthByTier } from "./baseline/ewma";
 
 /**
  * Real-time customer health updater
@@ -125,13 +126,44 @@ export async function updateCustomerHealthRealtime(
     let reactivatedDate: Date | null = customer.reactivatedDate;
 
     // Check for revenue decline if enabled
+    // Phase 2 Improvement: Uses EWMA baseline instead of fixed 15% threshold
     let isRevenueDeclined = false;
-    if (includeRevenueCalc && customer.establishedRevenue) {
+    let revenueConfidence = 0;
+
+    if (includeRevenueCalc && deliveredOrders.length >= 5) {
+      // Get recent order totals for statistical analysis
+      const recentTotals = deliveredOrders
+        .slice(0, 10) // Last 10 orders
+        .map(o => Number(o.total || 0));
+
+      // Calculate monthly revenue for spend tier classification
+      const monthlyRevenue = Number(customer.establishedRevenue || 0);
+
+      // Use EWMA baseline with tier-specific thresholds
+      const health = assessRevenueHealthByTier({
+        recentTotals,
+        monthlyRevenue,
+      });
+
+      isRevenueDeclined = health.isDecline && health.confidenceScore > 0.5;
+      revenueConfidence = health.confidenceScore;
+
+      // Log the statistical analysis for debugging
+      console.log(`Revenue health for ${customer.name}:`, {
+        status: health.status,
+        currentAvg: health.currentAverage,
+        baseline: health.baseline,
+        tier: health.tier,
+        confidence: health.confidenceScore,
+      });
+    } else if (includeRevenueCalc && customer.establishedRevenue) {
+      // Fallback to legacy fixed threshold if insufficient data
       const recentOrders = deliveredOrders.slice(0, 3);
       const recentAvg = recentOrders.reduce((sum, o) => sum + Number(o.total || 0), 0) / recentOrders.length;
       const establishedAmount = Number(customer.establishedRevenue);
       const revenueThreshold = establishedAmount * (1 - thresholds.revenueDeclinePercent);
       isRevenueDeclined = recentAvg < revenueThreshold;
+      revenueConfidence = 0.3; // Low confidence with legacy method
     }
 
     // Priority order: Revenue decline → Dormant → At Risk (Cadence) → Healthy

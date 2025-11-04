@@ -1,5 +1,6 @@
 import type { PrismaClient, Prisma } from "@prisma/client";
 import { getAvailableQty, getAvailabilityStatus } from './availability';
+import { getReorderPoint } from './reorder/get-reorder-point';
 
 /**
  * Inventory reservation system to prevent overselling
@@ -78,17 +79,14 @@ export async function checkInventoryAvailability(
     availableQuantity,
   };
 
-  // Add warnings for low stock using canonical status function
-  const status = getAvailabilityStatus({
-    onHand: totalOnHand,
-    allocated: totalAllocated,
-    reserved: totalReserved,
-  });
+  // Add warnings for low stock using data-driven reorder point
+  // Phase 2 Improvement: Uses SKU-specific ROP instead of hardcoded 10
+  const reorderPoint = await getReorderPoint(skuId, tenantId);
 
-  if (status === 'low_stock') {
-    result.warning = `Low stock: Only ${availableQuantity} units available`;
-  } else if (status === 'out_of_stock') {
+  if (availableQuantity === 0) {
     result.warning = "Out of stock";
+  } else if (availableQuantity < reorderPoint) {
+    result.warning = `Low stock: ${availableQuantity} units available (reorder point: ${reorderPoint})`;
   }
 
   return result;

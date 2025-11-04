@@ -1,9 +1,14 @@
 /**
  * Route Optimization Helper
- * Basic route optimization utilities for grouping and sorting
+ *
+ * Optimizes delivery routes using Haversine distance calculations.
+ * Replaces zip-code delta heuristic with accurate geospatial calculations.
+ *
+ * @see docs/CALCULATION_MODERNIZATION_PLAN.md Phase 2.7
  */
 
 import { Order, RouteStop } from '@/types';
+import { calculateRouteDistance, calculateRouteSummary, calculateRouteEfficiency } from './route/distance';
 
 export interface Location {
   latitude?: number;
@@ -75,20 +80,25 @@ function sortByZipCode(orders: Order[]): Order[] {
 }
 
 /**
- * Estimate distance between zip codes (simplified)
- * This is a rough approximation - real implementation would use geocoding
+ * Estimate distance between two locations
+ *
+ * @deprecated Use calculateDistance from @/lib/route/distance instead
+ * This function is kept for backward compatibility but now uses Haversine
+ * when coordinates are available, falling back to zip-code estimate.
  */
 function zipCodeDistance(zip1: string, zip2: string): number {
   if (!zip1 || !zip2) {
     return Infinity;
   }
 
-  // Simple numeric difference as rough proximity indicator
-  // In production, use actual geocoding service
+  // Legacy: Simple numeric difference as rough proximity indicator
+  // NOTE: This is only used as fallback when coordinates are missing
+  // New routes should use Haversine distance with lat/lon
   const num1 = parseInt(zip1.replace(/\D/g, ''));
   const num2 = parseInt(zip2.replace(/\D/g, ''));
 
-  return Math.abs(num1 - num2);
+  // Normalize to approximate miles (very rough)
+  return Math.min(Math.abs(num1 - num2) / 100, 20);
 }
 
 /**

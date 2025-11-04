@@ -74,9 +74,11 @@ export async function calculateSampleRevenue(
     throw new Error(`Sample usage ${sampleUsageId} not found`);
   }
 
-  // Attribution window: 30 days AFTER tasting
+  // Attribution window: configurable days AFTER tasting (default: 30)
+  // TODO: Get attribution window from tenant settings
+  const attributionWindowDays = 30; // Will be configurable in tenant settings
   const windowStart = startOfDay(sample.tastedAt);
-  const windowEnd = endOfDay(addDays(sample.tastedAt, 30));
+  const windowEnd = endOfDay(addDays(sample.tastedAt, attributionWindowDays));
 
   // Find all orders from this customer for this SKU within the attribution window
   const orders = await prisma.order.findMany({
