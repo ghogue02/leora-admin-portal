@@ -2,13 +2,12 @@ const CACHE_NAME = 'leora-sales-v1';
 const OFFLINE_URL = '/offline';
 
 // Assets to cache on install
+// Phase 1 & 2 Fix: Only cache guaranteed-available static assets
+// Removed authenticated routes that cause 404/auth errors in console
 const ASSETS_TO_CACHE = [
-  '/sales',
-  '/sales/customers',
-  '/sales/call-plan',
-  '/offline',
-  '/_next/static/css/app/layout.css',
-  '/_next/static/css/app/globals.css',
+  '/offline', // Offline fallback page
+  // Note: Dynamic routes removed to prevent cache.addAll() failures
+  // Next.js static assets are cached dynamically via fetch handler instead
 ];
 
 // Install service worker and cache assets
