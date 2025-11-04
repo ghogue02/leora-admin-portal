@@ -27,8 +27,8 @@ export type DashboardDrilldownType =
   | 'this-week-revenue'      // Current week revenue breakdown
   | 'last-week-revenue'      // Previous week comparison data
   | 'mtd-revenue'            // Month-to-Date revenue
+  | 'last-month-revenue'     // Last Month total revenue
   | 'ytd-revenue'            // Year-to-Date revenue
-  | 'all-time-revenue'       // All-time total revenue
 
   // Customer Tiles
   | 'unique-customers'       // Customers who ordered this week
@@ -38,6 +38,8 @@ export type DashboardDrilldownType =
   | 'dormant-customers'      // Inactive/dormant customer list
   | 'healthy-customers'      // Active and healthy customers
   | 'customers-due'          // Customers due to place orders
+  | 'prospect-customers'     // Prospects (never ordered, < 90 days)
+  | 'prospect-cold'          // Cold prospects (never ordered, 90+ days)
 
   // Activity & Task Tiles
   | 'upcoming-events'        // Calendar events and meetings
@@ -609,8 +611,8 @@ export function isDashboardDrilldownType(type: any): type is DashboardDrilldownT
     'this-week-revenue',
     'last-week-revenue',
     'mtd-revenue',
+    'last-month-revenue',
     'ytd-revenue',
-    'all-time-revenue',
     'unique-customers',
     'customer-health',
     'at-risk-cadence',
@@ -618,6 +620,8 @@ export function isDashboardDrilldownType(type: any): type is DashboardDrilldownT
     'dormant-customers',
     'healthy-customers',
     'customers-due',
+    'prospect-customers',
+    'prospect-cold',
     'upcoming-events',
     'pending-tasks',
   ];

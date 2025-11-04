@@ -1,0 +1,3 @@
+-- Add PROSPECT and PROSPECT_COLD to CustomerRiskStatus enum
+ALTER TYPE "CustomerRiskStatus" ADD VALUE IF NOT EXISTS 'PROSPECT';
+ALTER TYPE "CustomerRiskStatus" ADD VALUE IF NOT EXISTS 'PROSPECT_COLD';

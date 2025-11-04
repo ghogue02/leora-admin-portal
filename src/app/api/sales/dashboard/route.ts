@@ -399,7 +399,7 @@ export async function GET(request: NextRequest) {
         ? ((currentWeekRevenueAmount - lastWeekRevenueAmount) / lastWeekRevenueAmount) * 100
         : 0;
 
-      // Aggregate risk counts
+      // Aggregate risk counts (including new PROSPECT statuses)
       const riskCounts = customerRiskCounts.reduce(
         (acc, group) => {
           acc[group.riskStatus] = group._count._all;
@@ -411,6 +411,9 @@ export async function GET(request: NextRequest) {
           AT_RISK_REVENUE: 0,
           DORMANT: 0,
           CLOSED: 0,
+          PROSPECT: 0,
+          PROSPECT_COLD: 0,
+          UNQUALIFIED: 0,
         } as Record<string, number>
       );
 
@@ -494,11 +497,15 @@ export async function GET(request: NextRequest) {
           atRiskRevenue: riskCounts.AT_RISK_REVENUE,
           dormant: riskCounts.DORMANT,
           closed: riskCounts.CLOSED,
+          prospect: riskCounts.PROSPECT,
+          prospectCold: riskCounts.PROSPECT_COLD,
+          unqualified: riskCounts.UNQUALIFIED,
           total:
             riskCounts.HEALTHY +
             riskCounts.AT_RISK_CADENCE +
             riskCounts.AT_RISK_REVENUE +
             riskCounts.DORMANT,
+          totalProspects: riskCounts.PROSPECT + riskCounts.PROSPECT_COLD,
         },
         activities: {
           recent: recentActivities.map((activity) => ({

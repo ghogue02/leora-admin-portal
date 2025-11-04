@@ -42,6 +42,17 @@ const METRIC_DEFINITIONS: Record<string, MetricDefinition> = {
     ],
     example: 'In October 2025, shows all revenue from Oct 1 - Oct 27',
   },
+  'last-month-revenue': {
+    title: 'Last Month Revenue',
+    description: 'Total revenue from the previous calendar month',
+    details: [
+      'Shows the complete revenue from last month',
+      'Useful for month-over-month comparisons',
+      'Includes all delivered orders from previous month',
+      'Updates on the 1st of each month',
+    ],
+    example: 'In November, shows all revenue from October 1-31',
+  },
   'ytd-revenue': {
     title: 'Year-to-Date Revenue',
     description: 'Total revenue from January 1st to today',
@@ -91,12 +102,36 @@ const METRIC_DEFINITIONS: Record<string, MetricDefinition> = {
   },
   'dormant-customers': {
     title: 'Dormant Customers',
-    description: 'Customers with no orders in 45+ days',
+    description: 'Previously active customers who stopped ordering',
     details: [
-      'No activity for extended period (45-65 days)',
-      'High risk of permanent loss',
-      'Priority for reactivation outreach',
+      'Have order history but no recent activity',
+      'Exceeded their normal ordering cadence + grace period',
+      'High risk of permanent loss without intervention',
+      'Priority for win-back campaigns and reactivation',
     ],
+    example: 'Customer used to order every 30 days but hasn\'t ordered in 50+ days',
+  },
+  'prospect-customers': {
+    title: 'Recent Prospects',
+    description: 'New prospects who haven\'t placed their first order yet (< 90 days)',
+    details: [
+      'Account created within last 90 days',
+      'Never placed an order',
+      'Still in active sales cycle - warm leads',
+      'Focus on first-order conversion tactics',
+    ],
+    example: 'Restaurant added 45 days ago, samples sent, demo scheduled',
+  },
+  'prospect-cold': {
+    title: 'Cold Leads',
+    description: 'Long-standing prospects who never converted (90+ days)',
+    details: [
+      'Account created 90+ days ago',
+      'Never placed an order despite time in system',
+      'Low conversion probability without significant intervention',
+      'Consider cleanup or final re-engagement campaign',
+    ],
+    example: 'Bar added 6 months ago, no activity, never ordered',
   },
   'contacted-recently': {
     title: 'Contacted Recently',

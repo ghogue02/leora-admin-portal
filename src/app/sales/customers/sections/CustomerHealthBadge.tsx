@@ -41,6 +41,20 @@ const BADGE_STYLES: Record<CustomerRiskStatus, { bg: string; text: string; borde
     label: "Closed",
     icon: "🔒",
   },
+  PROSPECT: {
+    bg: "bg-blue-100",
+    text: "text-blue-800",
+    border: "border-blue-200",
+    label: "Prospect",
+    icon: "🆕",
+  },
+  PROSPECT_COLD: {
+    bg: "bg-slate-100",
+    text: "text-slate-800",
+    border: "border-slate-200",
+    label: "Cold Lead",
+    icon: "❄️",
+  },
 };
 
 export default function CustomerHealthBadge({ status, className = "" }: CustomerHealthBadgeProps) {

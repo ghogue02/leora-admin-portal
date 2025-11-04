@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { subDays, subMonths } from "date-fns";
+import { generateDrilldownActions, formatActionSteps } from "@/lib/ai/drilldown-actions";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -321,6 +322,34 @@ export async function GET(request: NextRequest) {
           : 0,
       };
 
+      // Format insights as string array
+      const highPriorityCustomers = data.filter((c) => c.reactivation.priority === "HIGH");
+      const bestOpportunities = [...data]
+        .sort((a, b) => Number(b.reactivation.potentialScore) - Number(a.reactivation.potentialScore))
+        .slice(0, 5);
+
+      const insightMessages = [
+        `${summary.totalDormant} customers have gone dormant (average ${summary.avgDaysDormant} days inactive)`,
+        `${summary.criticalRisk} CRITICAL RISK: ${summary.criticalRisk > 0 ? highPriorityCustomers.slice(0, 3).map(c => c.name).join(', ') : 'None'}`,
+        `Reactivation potential: $${summary.totalRevenueAtRisk.toLocaleString()} in annual revenue`,
+        `Average reactivation score: ${summary.avgReactivationScore}/100`,
+        `${highPriorityCustomers.length} high-priority win-back opportunities`,
+        bestOpportunities.length > 0
+          ? `Best opportunity: ${bestOpportunities[0].name} (${bestOpportunities[0].reactivation.potentialScore}/100 score, $${bestOpportunities[0].historicalMetrics.establishedRevenue.toLocaleString()}/year)`
+          : 'Review all dormant customers for win-back campaigns',
+        `Recommended strategy: ${summary.criticalRisk > 0 ? 'Focus on critical cases first' : 'Systematic re-engagement campaign'}`,
+      ];
+
+      // Generate AI-powered action steps
+      const aiActionSteps = await generateDrilldownActions({
+        drilldownType: 'dormant-customers',
+        customerData: data,
+        summary,
+        salesRepName: session.user.name || 'Sales Rep',
+      });
+
+      const formattedActions = formatActionSteps(aiActionSteps);
+
       return NextResponse.json({
         summary,
         data,
@@ -331,27 +360,8 @@ export async function GET(request: NextRequest) {
           hasMore: offset + limit < totalCount,
           timestamp: now.toISOString(),
         },
-        insights: {
-          highPriority: data
-            .filter((c) => c.reactivation.priority === "HIGH")
-            .slice(0, 5)
-            .map((c) => ({
-              customerId: c.id,
-              customerName: c.name,
-              daysDormant: c.dormancyMetrics.daysSinceLastOrder,
-              potentialRevenue: c.historicalMetrics.establishedRevenue,
-              strategy: c.reactivation.strategy,
-            })),
-          bestOpportunities: data
-            .sort((a, b) => Number(b.reactivation.potentialScore) - Number(a.reactivation.potentialScore))
-            .slice(0, 5)
-            .map((c) => ({
-              customerId: c.id,
-              customerName: c.name,
-              reactivationScore: c.reactivation.potentialScore,
-              revenue: c.historicalMetrics.establishedRevenue,
-            })),
-        },
+        insights: insightMessages,
+        aiActionSteps: formattedActions,
       });
     }
   );

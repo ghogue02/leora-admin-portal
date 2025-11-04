@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { subDays, subMonths, startOfMonth, endOfMonth } from "date-fns";
+import { generateDrilldownActions, formatActionSteps } from "@/lib/ai/drilldown-actions";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -395,6 +396,37 @@ export async function GET(request: NextRequest) {
         ),
       };
 
+      // Format insights as string array
+      const criticalCustomers = sortedData.filter((c) => c.recovery.priority === "CRITICAL");
+      const orderSizeDeclineCount = data.filter((c) => Number(c.orderTrends.orderSizeChange) < -15).length;
+      const productMixShiftCount = data.filter(
+        (c) => c.productMixAnalysis.mixChanges.length > 0 &&
+               c.productMixAnalysis.mixChanges[0].change < -20
+      ).length;
+      const upsellCount = data.filter((c) => c.upsellOpportunities.length > 0).length;
+
+      const insightMessages = [
+        `${summary.totalAtRisk} customers showing revenue decline of ${summary.averageDecline}% on average`,
+        `${summary.criticalPriority} CRITICAL priority: ${criticalCustomers.slice(0, 3).map(c => `${c.name} (-${c.revenueMetrics.revenueDecline30Days}%)`).join(', ')}`,
+        `Total revenue at risk: $${summary.totalRevenueAtRisk.toLocaleString()}`,
+        `Estimated revenue loss: $${summary.totalRevenueLoss.toLocaleString()} if trend continues`,
+        `Recovery potential: $${summary.recoveryPotential.toLocaleString()} with intervention`,
+        `Common patterns: ${orderSizeDeclineCount} order size decline, ${productMixShiftCount} product mix shift, ${upsellCount} upsell opportunities`,
+        sortedData.length > 0
+          ? `Top concern: ${sortedData[0].name} with ${sortedData[0].revenueMetrics.revenueDecline30Days}% decline - ${sortedData[0].recovery.recommendedActions[0]}`
+          : 'No high-priority cases',
+      ];
+
+      // Generate AI-powered action steps
+      const aiActionSteps = await generateDrilldownActions({
+        drilldownType: 'at-risk-revenue',
+        customerData: sortedData,
+        summary,
+        salesRepName: session.user.name || 'Sales Rep',
+      });
+
+      const formattedActions = formatActionSteps(aiActionSteps);
+
       return NextResponse.json({
         summary,
         data: sortedData,
@@ -405,28 +437,8 @@ export async function GET(request: NextRequest) {
           hasMore: offset + limit < totalCount,
           timestamp: now.toISOString(),
         },
-        insights: {
-          topPriorities: sortedData.slice(0, 5).map((c) => ({
-            customerId: c.id,
-            customerName: c.name,
-            revenueDecline: c.revenueMetrics.revenueDecline30Days,
-            revenueLoss: c.revenueMetrics.establishedRevenue - c.revenueMetrics.last30DaysRevenue,
-            priority: c.recovery.priority,
-            topAction: c.recovery.recommendedActions[0],
-          })),
-          commonPatterns: {
-            orderSizeDecline: data.filter(
-              (c) => Number(c.orderTrends.orderSizeChange) < -15
-            ).length,
-            productMixShift: data.filter(
-              (c) => c.productMixAnalysis.mixChanges.length > 0 &&
-                     c.productMixAnalysis.mixChanges[0].change < -20
-            ).length,
-            upsellPotential: data.filter(
-              (c) => c.upsellOpportunities.length > 0
-            ).length,
-          },
-        },
+        insights: insightMessages,
+        aiActionSteps: formattedActions,
       });
     }
   );

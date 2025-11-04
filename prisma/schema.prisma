@@ -104,6 +104,7 @@ model Tenant {
   warehouseConfig         WarehouseConfig?
   webhookEvents           WebhookEvent[]
   webhookSubs             WebhookSubscription[]
+  healthThresholds        HealthThreshold[]
 }
 
 model TenantSettings {
@@ -2022,6 +2023,25 @@ model TaxRule {
   @@index([effective, expires])
 }
 
+model HealthThreshold {
+  id                    String            @id @default(uuid()) @db.Uuid
+  tenantId              String            @db.Uuid
+  accountType           AccountType?      // ON_PREMISE, OFF_PREMISE, null = all types
+  accountPriority       AccountPriority?  // A_TIER, B_TIER, C_TIER, null = all priorities
+  dormantDays           Int               @default(45)
+  gracePeriodPercent    Decimal           @db.Decimal(3, 2) @default(0.30) // 0.30 = 30%
+  revenueDeclinePercent Decimal           @db.Decimal(3, 2) @default(0.15) // 0.15 = 15%
+  minGraceDays          Int               @default(7)
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  tenant                Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, accountType, accountPriority])
+  @@index([tenantId])
+  @@index([accountType])
+  @@index([accountPriority])
+}
+
 enum InvoiceFormatType {
   STANDARD
   VA_ABC_INSTATE
@@ -2101,6 +2121,9 @@ enum CustomerRiskStatus {
   AT_RISK_REVENUE
   DORMANT
   CLOSED
+  PROSPECT           // Never ordered, actively being prospected (in call plan or recent activity)
+  PROSPECT_COLD      // Never ordered, 90+ days, actively being prospected
+  UNQUALIFIED        // Never ordered, no call plan, no activity, 180+ days - suggest archive
 }
 
 enum CustomerDuplicateStatus {

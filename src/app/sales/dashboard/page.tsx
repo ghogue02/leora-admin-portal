@@ -85,7 +85,10 @@ type DashboardData = {
     atRiskRevenue: number;
     dormant: number;
     closed: number;
+    prospect: number;
+    prospectCold: number;
     total: number;
+    totalProspects: number;
   };
   activities: {
     recent: Array<{
@@ -254,21 +257,11 @@ export default function SalesDashboardPage() {
         />
       )}
 
-      {isSectionEnabled('revenue-chart') && isSectionEnabled('customer-health') && (
-        <div className="grid gap-6 lg:grid-cols-2">
-          {isSectionEnabled('revenue-chart') && (
-            <WeeklyRevenueChart
-              currentMonthRevenue={metrics.currentMonth.revenue}
-              lastMonthRevenue={metrics.lastMonth.revenue}
-            />
-          )}
-          {isSectionEnabled('customer-health') && (
-            <CustomerHealthSummary
-              customerHealth={customerHealth}
-              onDrilldown={setActiveDrilldown}
-            />
-          )}
-        </div>
+      {isSectionEnabled('customer-health') && (
+        <CustomerHealthSummary
+          customerHealth={customerHealth}
+          onDrilldown={setActiveDrilldown}
+        />
       )}
 
       {isSectionEnabled('tasks') && (

@@ -4,6 +4,7 @@ import { PrismaClient } from '@prisma/client';
 
 import { logChange, AuditOperation } from '@/lib/audit';
 import { OrderStatus } from '@prisma/client';
+import { handleOrderDeliveryEvent } from '@/lib/customer-health/realtime-updater';
 
 /**
  * POST /api/admin/bulk-operations/change-order-status
@@ -125,13 +126,23 @@ export async function POST(request: NextRequest) {
             // Set timestamp based on new status
             if (newStatus === 'FULFILLED') {
               updateData.fulfilledAt = new Date();
+              updateData.deliveredAt = new Date(); // Also set deliveredAt for health calculations
             }
 
             // Update order
-            await tx.order.update({
+            const updatedOrder = await tx.order.update({
               where: { id: order.id },
-              data: updateData
+              data: updateData,
+              select: { id: true, customerId: true }
             });
+
+            // Trigger real-time health update when order is delivered
+            if (newStatus === 'FULFILLED' && updatedOrder.customerId) {
+              // Don't await - fire and forget to avoid blocking bulk operation
+              handleOrderDeliveryEvent(order.id).catch((error) => {
+                console.error(`[Real-time Health] Failed to update customer health for order ${order.id}:`, error);
+              });
+            }
 
             // Log the change
             await logChange(

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { subDays, subMonths } from "date-fns";
+import { generateDrilldownActions, formatActionSteps } from "@/lib/ai/drilldown-actions";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -268,18 +269,54 @@ export async function GET(request: NextRequest) {
       const paginatedData = sortedData.slice(offset, offset + limit);
 
       // Calculate summary statistics
+      const totalRevenue = data.reduce((sum, c) => sum + c.revenueMetrics.establishedRevenue, 0);
+
+      // Filter out NaN/invalid engagement scores before averaging
+      const validEngagementScores = data
+        .map(c => Number(c.engagement.score))
+        .filter(score => !isNaN(score) && isFinite(score));
+
+      const avgEngagement = validEngagementScores.length > 0
+        ? validEngagementScores.reduce((sum, score) => sum + score, 0) / validEngagementScores.length
+        : 0;
+
+      const avgOrderValue = data.length > 0
+        ? data.reduce((sum, c) => sum + c.revenueMetrics.averageOrderValue, 0) / data.length
+        : 0;
+
       const summary = {
         totalHealthy: healthyCustomers.length,
-        totalRevenue: data.reduce((sum, c) => sum + c.revenueMetrics.establishedRevenue, 0),
-        averageEngagement: data.length > 0
-          ? (data.reduce((sum, c) => sum + Number(c.engagement.score), 0) / data.length).toFixed(1)
-          : "0",
-        averageOrderValue: data.length > 0
-          ? data.reduce((sum, c) => sum + c.revenueMetrics.averageOrderValue, 0) / data.length
-          : 0,
+        totalRevenue: totalRevenue,
+        averageEngagement: avgEngagement.toFixed(1),
+        averageOrderValue: avgOrderValue,
         activeOrdering: data.filter((c) => c.orderingPattern.orderCount30Days > 0).length,
         recentActivity: data.filter((c) => c.engagement.recentActivities > 0).length,
       };
+
+      // Format insights as string array for display
+      const topPerformers = sortedData.slice(0, 5);
+      const mostConsistent = [...sortedData]
+        .sort((a, b) => Number(b.orderingPattern.intervalConsistency) - Number(a.orderingPattern.intervalConsistency))
+        .slice(0, 5);
+
+      const insightMessages = [
+        `${summary.totalHealthy} healthy customers contributing $${summary.totalRevenue.toLocaleString()} in annual revenue`,
+        `Average engagement score: ${summary.averageEngagement}/100`,
+        `Top performer: ${topPerformers[0]?.name || 'N/A'} ($${topPerformers[0]?.revenueMetrics.establishedRevenue.toLocaleString() || '0'}/year)`,
+        `Most consistent: ${mostConsistent[0]?.name || 'N/A'} (${mostConsistent[0]?.orderingPattern.intervalConsistency || '0'}% consistency)`,
+        `${summary.activeOrdering} customers ordered in last 30 days`,
+        `${summary.recentActivity} customers have recent sales activities`,
+      ];
+
+      // Generate AI-powered action steps
+      const aiActionSteps = await generateDrilldownActions({
+        drilldownType: 'healthy-customers',
+        customerData: data,
+        summary,
+        salesRepName: session.user.name || 'Sales Rep',
+      });
+
+      const formattedActions = formatActionSteps(aiActionSteps);
 
       return NextResponse.json({
         summary,
@@ -293,22 +330,8 @@ export async function GET(request: NextRequest) {
           sortOrder,
           timestamp: now.toISOString(),
         },
-        insights: {
-          topPerformers: sortedData.slice(0, 5).map((c) => ({
-            customerId: c.id,
-            customerName: c.name,
-            revenue: c.revenueMetrics.establishedRevenue,
-            engagement: c.engagement.score,
-          })),
-          mostConsistent: sortedData
-            .sort((a, b) => Number(b.orderingPattern.intervalConsistency) - Number(a.orderingPattern.intervalConsistency))
-            .slice(0, 5)
-            .map((c) => ({
-              customerId: c.id,
-              customerName: c.name,
-              consistency: c.orderingPattern.intervalConsistency,
-            })),
-        },
+        insights: insightMessages,
+        aiActionSteps: formattedActions,
       });
     }
   );

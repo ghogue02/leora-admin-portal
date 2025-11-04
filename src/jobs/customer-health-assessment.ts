@@ -1,5 +1,6 @@
 import { CustomerRiskStatus } from "@prisma/client";
 import { prisma, withTenant } from "@/lib/prisma";
+import { subDays } from "date-fns";
 
 type RunOptions = {
   tenantId?: string;
@@ -20,10 +21,20 @@ type CustomerWithOrders = {
   dormancySince: Date | null;
   reactivatedDate: Date | null;
   isPermanentlyClosed: boolean;
+  createdAt: Date;
   orders: Array<{
     id: string;
     deliveredAt: Date | null;
     total: any | null;
+  }>;
+  callPlanAccounts: Array<{
+    callPlan: {
+      status: string | null;
+    };
+    contactOutcome: string | null;
+  }>;
+  activities: Array<{
+    occurredAt: Date;
   }>;
 };
 
@@ -40,6 +51,8 @@ type CustomerHealthUpdate = {
 const FALLBACK_CADENCE_DAYS = 45;
 const GRACE_PERIOD_PERCENT = 0.3; // 30% buffer for cadence variance
 const MIN_GRACE_DAYS = 7;
+const MAX_CADENCE_FOR_FREQUENT_ORDERERS = 90; // Customers ordering more than quarterly
+const ABSOLUTE_DORMANT_DAYS = 90; // Hard cap: 90 days without order = dormant for all customers
 
 /**
  * Daily Customer Health Assessment Job
@@ -102,6 +115,7 @@ export async function run(options: RunOptions = {}) {
           dormancySince: true,
           reactivatedDate: true,
           isPermanentlyClosed: true,
+          createdAt: true,
           orders: {
             where: {
               deliveredAt: { not: null },
@@ -116,6 +130,26 @@ export async function run(options: RunOptions = {}) {
             },
             take: 10, // Get last 10 orders for analysis
           },
+          callPlanAccounts: {
+            select: {
+              callPlan: {
+                select: {
+                  status: true,
+                },
+              },
+              contactOutcome: true,
+            },
+          },
+          activities: {
+            where: {
+              occurredAt: {
+                gte: subDays(new Date(), 30), // Last 30 days
+              },
+            },
+            select: {
+              occurredAt: true,
+            },
+          },
         },
       });
     }) as CustomerWithOrders[];
@@ -127,11 +161,26 @@ export async function run(options: RunOptions = {}) {
     let dormantCount = 0;
     let reactivatedCount = 0;
 
-    // Process each customer
-    await withTenant(tenant.id, async (tx) => {
-      for (const customer of customers) {
-        try {
-          const healthUpdate = await assessCustomerHealth(customer);
+    // Process in batches to avoid transaction timeout (500 customers at a time)
+    const BATCH_SIZE = 500;
+    const totalBatches = Math.ceil(customers.length / BATCH_SIZE);
+    let prospectCount = 0;
+    let prospectColdCount = 0;
+    let atRiskRevenueCount = 0;
+    let atRiskCadenceCount = 0;
+    let unqualifiedCount = 0;
+
+    for (let batchIndex = 0; batchIndex < totalBatches; batchIndex++) {
+      const start = batchIndex * BATCH_SIZE;
+      const end = Math.min(start + BATCH_SIZE, customers.length);
+      const batch = customers.slice(start, end);
+
+      console.log(`[customer-health-assessment] Processing batch ${batchIndex + 1}/${totalBatches} (${batch.length} customers)...`);
+
+      await withTenant(tenant.id, async (tx) => {
+        for (const customer of batch) {
+          try {
+            const healthUpdate = await assessCustomerHealth(customer);
 
           if (healthUpdate) {
             await tx.customer.update({
@@ -142,10 +191,28 @@ export async function run(options: RunOptions = {}) {
             updatedCount++;
 
             // Track statistics
-            if (healthUpdate.riskStatus === CustomerRiskStatus.DORMANT) {
-              dormantCount++;
-            } else if (healthUpdate.riskStatus === CustomerRiskStatus.HEALTHY) {
-              healthyCount++;
+            switch (healthUpdate.riskStatus) {
+              case CustomerRiskStatus.HEALTHY:
+                healthyCount++;
+                break;
+              case CustomerRiskStatus.DORMANT:
+                dormantCount++;
+                break;
+              case CustomerRiskStatus.PROSPECT:
+                prospectCount++;
+                break;
+              case CustomerRiskStatus.PROSPECT_COLD:
+                prospectColdCount++;
+                break;
+              case CustomerRiskStatus.AT_RISK_REVENUE:
+                atRiskRevenueCount++;
+                break;
+              case CustomerRiskStatus.AT_RISK_CADENCE:
+                atRiskCadenceCount++;
+                break;
+              case CustomerRiskStatus.UNQUALIFIED:
+                unqualifiedCount++;
+                break;
             }
 
             // Track reactivations (was dormant, now healthy)
@@ -164,8 +231,9 @@ export async function run(options: RunOptions = {}) {
           );
           // Continue processing other customers
         }
-      }
-    });
+        }
+      });
+    }
 
     const duration = Date.now() - startTime;
     console.log(
@@ -173,8 +241,13 @@ export async function run(options: RunOptions = {}) {
     );
     console.log(`  - Total customers analyzed: ${customers.length}`);
     console.log(`  - Customers updated: ${updatedCount}`);
-    console.log(`  - Healthy (< 45 days): ${healthyCount}`);
-    console.log(`  - Dormant (45+ days): ${dormantCount}`);
+    console.log(`  - Healthy: ${healthyCount}`);
+    console.log(`  - At Risk (Cadence): ${atRiskCadenceCount}`);
+    console.log(`  - At Risk (Revenue): ${atRiskRevenueCount}`);
+    console.log(`  - Dormant: ${dormantCount}`);
+    console.log(`  - Prospects (< 90 days, active): ${prospectCount}`);
+    console.log(`  - Cold Leads (90+ days, active): ${prospectColdCount}`);
+    console.log(`  - Unqualified (abandoned): ${unqualifiedCount}`);
     console.log(`  - Reactivated: ${reactivatedCount}`);
     console.log(`  - Duration: ${duration}ms`);
   } catch (error) {
@@ -203,9 +276,39 @@ async function assessCustomerHealth(
     .filter((order) => order.deliveredAt !== null)
     .sort((a, b) => b.deliveredAt!.getTime() - a.deliveredAt!.getTime());
 
-  // If customer has NO orders, mark as DORMANT
+  // If customer has NO orders, classify based on prospecting activity
   if (deliveredOrders.length === 0) {
-    const newStatus = CustomerRiskStatus.DORMANT;
+    const daysSinceCreated = differenceInDays(now, customer.createdAt);
+
+    // Check if customer is being actively prospected
+    const isInActiveCallPlan = customer.callPlanAccounts.some(
+      (cpa) => cpa.callPlan.status === 'ACTIVE' && cpa.contactOutcome !== 'NOT_INTERESTED'
+    );
+
+    const hasRecentActivity = customer.activities.length > 0; // Any activity in last 30 days
+
+    // Determine prospect status based on engagement
+    let newStatus: CustomerRiskStatus;
+
+    // Check if being actively worked (call plan OR recent activity)
+    const isActivelyWorked = isInActiveCallPlan || hasRecentActivity;
+
+    if (isActivelyWorked) {
+      // Real prospect - being actively prospected
+      newStatus = daysSinceCreated < 90
+        ? CustomerRiskStatus.PROSPECT
+        : CustomerRiskStatus.PROSPECT_COLD;
+    } else if (daysSinceCreated > 180) {
+      // Abandoned - no engagement for 180+ days
+      newStatus = CustomerRiskStatus.UNQUALIFIED;
+    } else if (daysSinceCreated > 90) {
+      // Cold lead - no engagement for 90+ days
+      newStatus = CustomerRiskStatus.PROSPECT_COLD;
+    } else {
+      // Recent account but no engagement yet - still cold until worked
+      // Default to PROSPECT_COLD (not PROSPECT) since not being actively prospected
+      newStatus = CustomerRiskStatus.PROSPECT_COLD;
+    }
 
     // Only update if status changed
     if (customer.riskStatus === newStatus) {
@@ -214,7 +317,7 @@ async function assessCustomerHealth(
 
     return {
       riskStatus: newStatus,
-      dormancySince: customer.dormancySince || now,
+      dormancySince: null, // Prospects aren't "dormant"
       lastOrderDate: undefined,
       nextExpectedOrderDate: undefined,
       averageOrderIntervalDays: undefined,
@@ -225,10 +328,20 @@ async function assessCustomerHealth(
   const orderingPace = calculateOrderingPace(deliveredOrders);
   const lastOrderDate = deliveredOrders[0].deliveredAt!;
 
-  // Determine cadence baseline and grace period
-  const cadenceBaseline = Math.max(orderingPace.averageIntervalDays ?? FALLBACK_CADENCE_DAYS, FALLBACK_CADENCE_DAYS);
+  // Determine cadence baseline and grace period with caps for infrequent orderers
+  const rawCadence = orderingPace.averageIntervalDays ?? FALLBACK_CADENCE_DAYS;
+  const isInfrequentOrderer = rawCadence > MAX_CADENCE_FOR_FREQUENT_ORDERERS;
+
+  // Cap cadence for infrequent orderers (prevents 300+ day thresholds for annual orderers)
+  const cadenceBaseline = isInfrequentOrderer
+    ? 60  // Infrequent orderers: cap at 60 days
+    : Math.max(rawCadence, FALLBACK_CADENCE_DAYS); // Frequent orderers: use their pace (min 45 days)
+
   const gracePeriod = Math.max(Math.round(cadenceBaseline * GRACE_PERIOD_PERCENT), MIN_GRACE_DAYS);
-  const dormantThreshold = cadenceBaseline + gracePeriod;
+  const calculatedThreshold = cadenceBaseline + gracePeriod;
+
+  // Enforce absolute maximum: no customer waits more than 90 days before being marked dormant
+  const dormantThreshold = Math.min(calculatedThreshold, ABSOLUTE_DORMANT_DAYS);
 
   // Determine next expected order date based on cadence baseline
   const nextExpectedOrderDate = addDays(lastOrderDate, cadenceBaseline);
@@ -236,23 +349,30 @@ async function assessCustomerHealth(
   // Calculate days since last order
   const daysSinceLastOrder = differenceInDays(now, lastOrderDate);
 
-  // Determine risk status based on cadence-aware rules
+  // Check for revenue decline (AT_RISK_REVENUE)
+  const revenueMetrics = calculateRevenueMetrics(deliveredOrders, customer.establishedRevenue);
+
+  // Determine risk status based on cadence-aware rules and revenue trends
+  // PRIORITY ORDER: Cadence (time-based urgency) BEFORE Revenue (trend-based)
   let newRiskStatus: CustomerRiskStatus;
   let newDormancySince: Date | null = customer.dormancySince;
   let newReactivatedDate: Date | null = customer.reactivatedDate;
 
   if (daysSinceLastOrder >= dormantThreshold) {
-    // Beyond cadence + grace: dormant
+    // Priority 1: Beyond cadence + grace = dormant (most urgent)
     newRiskStatus = CustomerRiskStatus.DORMANT;
     if (!customer.dormancySince) {
       newDormancySince = now;
       newReactivatedDate = null;
     }
   } else if (daysSinceLastOrder >= cadenceBaseline) {
-    // Outside cadence but within grace: at-risk cadence
+    // Priority 2: Outside cadence but within grace = at-risk cadence (time-sensitive)
     newRiskStatus = CustomerRiskStatus.AT_RISK_CADENCE;
+  } else if (revenueMetrics.isRevenueDeclined) {
+    // Priority 3: Within cadence window but revenue declining (trend issue)
+    newRiskStatus = CustomerRiskStatus.AT_RISK_REVENUE;
   } else {
-    // Within cadence window: healthy
+    // Priority 4: Ordering on time with normal revenue = healthy
     newRiskStatus = CustomerRiskStatus.HEALTHY;
 
     // Check if was previously dormant for reactivation tracking

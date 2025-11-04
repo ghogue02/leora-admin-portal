@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { subDays } from "date-fns";
+import { generateDrilldownActions, formatActionSteps } from "@/lib/ai/drilldown-actions";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -200,6 +201,31 @@ export async function GET(request: NextRequest) {
         totalRevenueAtRisk: data.reduce((sum, c) => sum + c.revenueMetrics.establishedRevenue, 0),
       };
 
+      // Format insights as string array
+      const criticalCustomers = data.filter((c) => Number(c.riskMetrics.daysOverdue) > 14);
+      const urgentCustomers = data.filter((c) => Number(c.riskMetrics.daysOverdue) > 7 && Number(c.riskMetrics.daysOverdue) <= 14);
+
+      const insightMessages = [
+        `${summary.totalAtRisk} customers are overdue on their expected ordering cadence`,
+        `${summary.criticalCount} CRITICAL: ${summary.criticalCount > 0 ? criticalCustomers.slice(0, 3).map(c => c.name).join(', ') : 'None'}`,
+        `${summary.urgentCount} URGENT: Need contact within 48 hours`,
+        `Average days overdue: ${summary.avgDaysOverdue}`,
+        `Total revenue at risk: $${summary.totalRevenueAtRisk.toLocaleString()}`,
+        summary.criticalCount > 0
+          ? `Top priority: ${criticalCustomers[0].name} (${criticalCustomers[0].riskMetrics.daysOverdue} days overdue)`
+          : 'No critical cases - monitor moderate cases',
+      ];
+
+      // Generate AI-powered action steps
+      const aiActionSteps = await generateDrilldownActions({
+        drilldownType: 'at-risk-cadence',
+        customerData: data,
+        summary,
+        salesRepName: session.user.name || 'Sales Rep',
+      });
+
+      const formattedActions = formatActionSteps(aiActionSteps);
+
       return NextResponse.json({
         summary,
         data,
@@ -210,17 +236,8 @@ export async function GET(request: NextRequest) {
           hasMore: offset + limit < totalCount,
           timestamp: now.toISOString(),
         },
-        insights: {
-          topPriorities: data
-            .filter((c) => Number(c.riskMetrics.daysOverdue) > 7)
-            .slice(0, 5)
-            .map((c) => ({
-              customerId: c.id,
-              customerName: c.name,
-              daysOverdue: c.riskMetrics.daysOverdue,
-              action: c.recommendedAction,
-            })),
-        },
+        insights: insightMessages,
+        aiActionSteps: formattedActions,
       });
     }
   );

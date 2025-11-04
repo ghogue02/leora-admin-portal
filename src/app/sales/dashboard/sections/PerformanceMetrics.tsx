@@ -167,6 +167,31 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           </div>
         </DashboardTile>
 
+        {/* Last Month Revenue - New */}
+        <DashboardTile
+          drilldownType="last-month-revenue"
+          title="Last Month Revenue"
+          onClick={() => onDrilldown?.('last-month-revenue')}
+          className="group h-full"
+        >
+          <div className={`${tileBaseClasses} border-purple-200 bg-purple-50`}>
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-xs font-medium uppercase tracking-widest text-purple-700">
+                Last Month Revenue
+              </p>
+              <MetricTooltip metricKey="last-month-revenue" />
+            </div>
+            <div className="flex flex-1 flex-col justify-end gap-2">
+              <p className="text-3xl font-semibold text-purple-900">
+                {formatCurrency(metrics.lastMonth?.revenue || 0)}
+              </p>
+              <p className="text-xs text-purple-600">
+                Previous month total
+              </p>
+            </div>
+          </div>
+        </DashboardTile>
+
         {/* YTD Revenue - New */}
         <DashboardTile
           drilldownType="ytd-revenue"
@@ -210,29 +235,6 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
                 {metrics.currentWeek.uniqueCustomers}
               </p>
               <p className="text-xs text-gray-500">Orders this week</p>
-            </div>
-          </div>
-        </DashboardTile>
-
-        <DashboardTile
-          drilldownType="all-time-revenue"
-          title="Total Revenue"
-          onClick={() => onDrilldown?.('all-time-revenue')}
-          className="group h-full"
-        >
-          <div className={`${tileBaseClasses} border-slate-200 bg-white`}>
-            <div className="flex items-start justify-between gap-2">
-              <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-                Total Revenue
-              </p>
-            </div>
-            <div className="flex flex-1 flex-col justify-end gap-2">
-              <p className="text-3xl font-semibold text-gray-900">
-                {formatCurrency(metrics.allTime.revenue)}
-              </p>
-              <p className="text-xs text-gray-500">
-                All-time across {metrics.allTime.uniqueCustomers} customers
-              </p>
             </div>
           </div>
         </DashboardTile>
