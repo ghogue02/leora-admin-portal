@@ -18,6 +18,7 @@
 
 import { useMemo } from 'react';
 import { format } from 'date-fns';
+import { useTaxEstimation } from '@/hooks/useTaxEstimation';
 
 type OrderItem = {
   skuId: string;
@@ -54,9 +55,18 @@ export function OrderSummarySidebar({
     return items.reduce((sum, item) => sum + item.lineTotal, 0);
   }, [items]);
 
-  // Simple tax estimate (6% for VA)
-  const estimatedTax = subtotal * 0.06;
-  const estimatedTotal = subtotal + estimatedTax;
+  // Estimate liters (assuming 0.75L bottles as default)
+  // TODO: Get actual bottle sizes from SKU data for more accurate tax calculation
+  const estimatedLiters = useMemo(() => {
+    return items.reduce((sum, item) => sum + (item.quantity * 0.75), 0);
+  }, [items]);
+
+  // Use unified tax calculation (matches server-side logic)
+  const taxEstimate = useTaxEstimation({
+    subtotal,
+    liters: estimatedLiters,
+    isInState: true, // Assume in-state for UI estimate
+  });
 
   // Calculate progress
   const progress = {
@@ -204,15 +214,24 @@ export function OrderSummarySidebar({
             <span className="text-gray-600">Subtotal</span>
             <span className="font-medium text-gray-900">${subtotal.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between">
-            <span className="text-gray-600">Est. Tax (6%)</span>
-            <span className="text-gray-600">${estimatedTax.toFixed(2)}</span>
+          <div className="flex justify-between text-xs">
+            <span className="text-gray-500">Est. Sales Tax (5.3%)</span>
+            <span className="text-gray-600">${taxEstimate.salesTax.toFixed(2)}</span>
           </div>
+          {taxEstimate.exciseTax > 0 && (
+            <div className="flex justify-between text-xs">
+              <span className="text-gray-500">Est. Excise Tax (~{estimatedLiters.toFixed(1)}L)</span>
+              <span className="text-gray-600">${taxEstimate.exciseTax.toFixed(2)}</span>
+            </div>
+          )}
           <div className="border-t border-gray-200 pt-2">
             <div className="flex justify-between">
               <span className="font-semibold text-gray-900">Estimated Total</span>
-              <span className="text-lg font-bold text-gray-900">${estimatedTotal.toFixed(2)}</span>
+              <span className="text-lg font-bold text-gray-900">${taxEstimate.total.toFixed(2)}</span>
             </div>
+            <p className="mt-1 text-xs text-gray-500">
+              Final tax calculated at invoicing
+            </p>
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import type { PrismaClient, Prisma } from "@prisma/client";
+import { getAvailableQty, getAvailabilityStatus } from './availability';
 
 /**
  * Inventory reservation system to prevent overselling
@@ -63,7 +64,12 @@ export async function checkInventoryAvailability(
     totalReserved = 0;
   }
 
-  const availableQuantity = totalOnHand - totalAllocated - totalReserved;
+  // Use canonical availability calculation
+  const availableQuantity = getAvailableQty({
+    onHand: totalOnHand,
+    allocated: totalAllocated,
+    reserved: totalReserved,
+  });
 
   const result: InventoryCheckResult = {
     available: availableQuantity >= requestedQuantity,
@@ -72,10 +78,16 @@ export async function checkInventoryAvailability(
     availableQuantity,
   };
 
-  // Add warnings for low stock
-  if (availableQuantity < 10 && availableQuantity > 0) {
+  // Add warnings for low stock using canonical status function
+  const status = getAvailabilityStatus({
+    onHand: totalOnHand,
+    allocated: totalAllocated,
+    reserved: totalReserved,
+  });
+
+  if (status === 'low_stock') {
     result.warning = `Low stock: Only ${availableQuantity} units available`;
-  } else if (availableQuantity <= 0) {
+  } else if (status === 'out_of_stock') {
     result.warning = "Out of stock";
   }
 

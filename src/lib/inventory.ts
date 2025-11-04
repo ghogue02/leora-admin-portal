@@ -12,6 +12,7 @@
 
 import { prisma } from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
+import { getAvailableQty } from './inventory/availability';
 
 /**
  * Inventory transaction types for audit trail
@@ -104,7 +105,14 @@ export async function allocateInventory(
         throw new InventoryNotFoundError(item.skuId, location);
       }
 
-      const available = inventory.onHand - inventory.allocated;
+      // Use canonical availability calculation
+      // Note: reserved is currently 0 as allocation happens after reservation expires
+      const available = getAvailableQty({
+        onHand: inventory.onHand,
+        allocated: inventory.allocated,
+        reserved: 0,
+      });
+
       if (available < item.quantity) {
         throw new InsufficientInventoryError(item.skuId, item.quantity, available);
       }
@@ -146,7 +154,11 @@ export async function allocateInventory(
             },
           },
           metadata: {
-            available: inventory.onHand - inventory.allocated,
+            available: getAvailableQty({
+              onHand: inventory.onHand,
+              allocated: inventory.allocated,
+              reserved: 0,
+            }),
             requested: item.quantity,
           },
         },
@@ -576,7 +588,13 @@ export async function getAvailableInventory(
     return 0;
   }
 
-  return Math.max(0, inventory.onHand - inventory.allocated);
+  // Use canonical availability calculation
+  // Note: reserved is currently 0 as this field is managed separately in InventoryReservation table
+  return getAvailableQty({
+    onHand: inventory.onHand,
+    allocated: inventory.allocated,
+    reserved: 0, // Managed in separate InventoryReservation table
+  });
 }
 
 /**

@@ -8,6 +8,8 @@
 import { renderToStream } from '@react-pdf/renderer';
 import { StandardInvoice } from './templates';
 import type { CompleteInvoiceData } from './invoice-data-builder';
+import { calcSubtotal } from '@/lib/money/totals';
+import Decimal from 'decimal.js';
 
 /**
  * Generate PDF buffer for an invoice
@@ -44,17 +46,21 @@ export function generateInvoiceText(invoiceData: CompleteInvoiceData): string {
 
   const lineItems = lines.map((line, index) => {
     const quantity = line.quantity;
-    const unitPrice = Number(line.unitPrice);
-    const lineTotal = quantity * unitPrice;
+    const unitPrice = new Decimal(line.unitPrice);
+    // Use money-safe arithmetic for line total
+    const lineTotal = unitPrice.times(quantity);
 
     return `${index + 1}. ${line.productName}${line.brand ? ` (${line.brand})` : ''}
    SKU: ${line.skuCode}
    Quantity: ${quantity} @ $${unitPrice.toFixed(2)} = $${lineTotal.toFixed(2)}`;
   }).join('\n\n');
 
-  const subtotal = lines.reduce((sum, line) => {
-    return sum + (line.quantity * Number(line.unitPrice));
-  }, 0);
+  // Use unified money-safe subtotal calculation
+  const subtotal = calcSubtotal(lines.map(line => ({
+    quantity: line.quantity,
+    unitPrice: line.unitPrice
+  })));
+  const subtotalNumber = Number(subtotal.toFixed(2));
 
   return `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -92,7 +98,7 @@ ${lineItems}
 
 SUMMARY:
 
-Subtotal:        $${subtotal.toFixed(2)}
+Subtotal:        $${subtotalNumber.toFixed(2)}
 Tax:             (Calculated at delivery)
 Total:           $${Number(order.total || 0).toFixed(2)}
 
