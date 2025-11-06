@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { startOfYear, subMonths, eachMonthOfInterval, format } from "date-fns";
+import { subMonths, eachMonthOfInterval, format } from "date-fns";
 
 type RouteContext = {
   params: Promise<{ customerId: string }>;
