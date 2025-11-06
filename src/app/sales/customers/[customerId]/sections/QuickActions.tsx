@@ -19,8 +19,11 @@ export default function QuickActions({
   const [isLoading, setIsLoading] = useState(false);
 
   const handleAddOrder = () => {
-    // Navigate to cart page - customer context will be preserved via session
-    router.push("/sales/cart");
+    // Send reps to the new order workflow with the customer pre-selected
+    const targetUrl = customerId
+      ? `/sales/orders/new?customerId=${encodeURIComponent(customerId)}`
+      : "/sales/orders/new";
+    router.push(targetUrl);
   };
 
   const handleAddToDo = () => {

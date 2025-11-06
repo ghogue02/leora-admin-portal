@@ -26,6 +26,10 @@ type Customer = {
   territory: string | null;
   accountNumber: string | null;
   requiresPO: boolean;
+  defaultWarehouseLocation?: string | null;
+  defaultDeliveryTimeWindow?: string | null;
+  paymentTerms?: string | null;
+  state?: string | null;
 };
 
 type Props = {
@@ -45,6 +49,10 @@ export function CustomerSearchCombobox({
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
+  const existingSelectedCustomer = useMemo(
+    () => customers.find((customer) => customer.id === value) || null,
+    [customers, value],
+  );
 
   // Search customers from API (debounced) - use useRef to prevent recreating
   const searchCustomers = useRef(
@@ -75,6 +83,70 @@ export function CustomerSearchCombobox({
     searchCustomers(query, setLoading, setCustomers);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]); // Only depend on query
+
+  // Ensure the combobox reflects externally controlled selections (e.g., deep links)
+  useEffect(() => {
+    if (!value) {
+      setSelectedCustomer(null);
+      return;
+    }
+
+    if (selectedCustomer?.id === value) {
+      return;
+    }
+
+    if (existingSelectedCustomer) {
+      setSelectedCustomer(existingSelectedCustomer);
+      return;
+    }
+
+    let cancelled = false;
+
+    const loadCustomerById = async (customerId: string) => {
+      try {
+        const response = await fetch(`/api/sales/customers/${customerId}`);
+        if (!response.ok) {
+          return;
+        }
+
+        const data = await response.json();
+        if (cancelled || !data?.customer) {
+          return;
+        }
+
+        const customer = data.customer;
+        const normalizedCustomer: Customer = {
+          id: customer.id,
+          name: customer.name,
+          territory: customer.territory ?? customer.salesRep?.territory ?? null,
+          accountNumber: customer.accountNumber ?? null,
+          requiresPO: Boolean(customer.requiresPO),
+          defaultWarehouseLocation: customer.defaultWarehouseLocation ?? null,
+          defaultDeliveryTimeWindow: customer.defaultDeliveryTimeWindow ?? null,
+          paymentTerms: customer.paymentTerms ?? null,
+          state: customer.address?.state ?? customer.state ?? null,
+        };
+
+        setSelectedCustomer(normalizedCustomer);
+        setCustomers((prev) => {
+          if (prev.some((entry) => entry.id === normalizedCustomer.id)) {
+            return prev.map((entry) =>
+              entry.id === normalizedCustomer.id ? normalizedCustomer : entry,
+            );
+          }
+          return [normalizedCustomer, ...prev].slice(0, 50);
+        });
+      } catch (error) {
+        console.error("Failed to load customer for selection:", error);
+      }
+    };
+
+    void loadCustomerById(value);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [value, existingSelectedCustomer, selectedCustomer]);
 
   const handleSelect = (customerId: string) => {
     const customer = customers.find(c => c.id === customerId);

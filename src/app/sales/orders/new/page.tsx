@@ -12,7 +12,7 @@
  */
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { showSuccess, showError, showWarning, notifications } from '@/lib/toast-helpers';
 import { ButtonWithLoading, SecondaryButton } from '@/components/ui/button-variants';
@@ -68,6 +68,7 @@ type OrderItem = {
 
 export default function NewOrderPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   // Form state
   const [selectedCustomerId, setSelectedCustomerId] = useState<string>('');
@@ -173,6 +174,53 @@ export default function NewOrderPage() {
       return newErrors;
     });
   }, []);
+
+  // Preselect customer when arriving from deep links (e.g., Quick Actions)
+  const prefillCustomerId = searchParams.get('customerId');
+  useEffect(() => {
+    if (!prefillCustomerId || selectedCustomerId) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const preselectCustomer = async (customerId: string) => {
+      try {
+        const response = await fetch(`/api/sales/customers/${customerId}`);
+        if (!response.ok) {
+          console.warn('Unable to preselect customer:', await response.text());
+          return;
+        }
+
+        const data = await response.json();
+        if (cancelled || !data?.customer) {
+          return;
+        }
+
+        const customerData: Customer = {
+          id: data.customer.id,
+          name: data.customer.name,
+          territory: data.customer.territory ?? data.customer.salesRep?.territory ?? null,
+          state: data.customer.address?.state ?? data.customer.state ?? null,
+          accountNumber: data.customer.accountNumber ?? null,
+          requiresPO: Boolean(data.customer.requiresPO),
+          defaultWarehouseLocation: data.customer.defaultWarehouseLocation ?? null,
+          defaultDeliveryTimeWindow: data.customer.defaultDeliveryTimeWindow ?? null,
+          paymentTerms: data.customer.paymentTerms ?? null,
+        };
+
+        handleCustomerSelect(customerData);
+      } catch (error) {
+        console.error('Failed to preload customer for new order:', error);
+      }
+    };
+
+    void preselectCustomer(prefillCustomerId);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [prefillCustomerId, selectedCustomerId, handleCustomerSelect]);
 
   // Add product to order
   const handleAddProduct = useCallback((product: any, quantityFromGrid: number, inventoryStatus: InventoryStatus | undefined, pricing: PricingSelection, priceOverride?: PriceOverride) => {
