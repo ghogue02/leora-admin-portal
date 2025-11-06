@@ -204,7 +204,7 @@ export default function ActivityForm({
         />
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2">
         {/* Occurred At */}
         <div>
           <label htmlFor="occurredAt" className="block text-sm font-semibold text-gray-700">
@@ -233,50 +233,49 @@ export default function ActivityForm({
             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
         </div>
+      </div>
 
-        {/* Outcomes */}
-        <div>
-          <label className="block text-sm font-semibold text-gray-700">
-            Outcomes (Select all that apply)
-          </label>
-          <div className="mt-2 grid gap-2 sm:grid-cols-2">
-            {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
-              const checked = formData.outcomes.includes(option.value);
-              return (
-                <label
-                  key={option.value}
-                  className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
-                    checked ? "border-blue-500 bg-blue-50 text-blue-900" : "border-gray-200 bg-white hover:border-gray-300"
-                  }`}
-                >
-                  <input
-                    type="checkbox"
-                    checked={checked}
-                    onChange={() => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        outcomes: prev.outcomes.includes(option.value)
-                          ? prev.outcomes.filter((value) => value !== option.value)
-                          : [...prev.outcomes, option.value],
-                      }));
-                    }}
-                    className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span>{option.label}</span>
-                </label>
-              );
-            })}
-          </div>
-          {formData.outcomes.length > 0 && (
-            <button
-              type="button"
-              onClick={() => setFormData((prev) => ({ ...prev, outcomes: [] }))}
-              className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800"
-            >
-              Clear selections
-            </button>
-          )}
+      <div>
+        <label className="block text-sm font-semibold text-gray-700">
+          Outcomes (Select all that apply)
+        </label>
+        <div className="mt-2 grid gap-2 sm:grid-cols-2">
+          {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
+            const checked = formData.outcomes.includes(option.value);
+            return (
+              <label
+                key={option.value}
+                className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
+                  checked ? "border-blue-500 bg-blue-50 text-blue-900" : "border-gray-200 bg-white hover:border-gray-300"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => {
+                    setFormData((prev) => ({
+                      ...prev,
+                      outcomes: prev.outcomes.includes(option.value)
+                        ? prev.outcomes.filter((value) => value !== option.value)
+                        : [...prev.outcomes, option.value],
+                    }));
+                  }}
+                  className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
+                <span className="break-words leading-tight">{option.label}</span>
+              </label>
+            );
+          })}
         </div>
+        {formData.outcomes.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setFormData((prev) => ({ ...prev, outcomes: [] }))}
+            className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800"
+          >
+            Clear selections
+          </button>
+        )}
       </div>
 
       <SampleItemsSelector value={sampleSelections} onChange={setSampleSelections} />

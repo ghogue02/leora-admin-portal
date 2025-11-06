@@ -19,6 +19,7 @@ import RecurringSchedule from "./carla/components/RecurringSchedule";
 import WeeklyCallPlanGrid from "./sections/WeeklyCallPlanGrid";
 import CallPlanStats from "./sections/CallPlanStats";
 import WeeklyTracker from "./components/WeeklyTracker";
+import SampleFollowUpPanel from "./sections/SampleFollowUpPanel";
 
 import { Button } from "@/components/ui/button";
 
@@ -438,6 +439,13 @@ function CallPlanPageContent() {
         <TabsContent value="list" className="space-y-6 pt-6">
           {callPlanOverview && <CallPlanStats callPlan={callPlanOverview} />}
 
+          {callPlanOverview && (
+            <SampleFollowUpPanel
+              followUps={callPlanOverview.sampleFollowUps ?? []}
+              onLogged={handleSampleFollowUpLogged}
+            />
+          )}
+
           <WeeklyTracker
             weekStart={currentWeekStart}
             callPlanId={callPlanOverview?.id}
@@ -519,3 +527,6 @@ export default function CallPlanPage() {
     </Suspense>
   );
 }
+  const handleSampleFollowUpLogged = useCallback(() => {
+    void loadCallPlanOverview();
+  }, [loadCallPlanOverview]);

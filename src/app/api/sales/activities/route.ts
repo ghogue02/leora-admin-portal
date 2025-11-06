@@ -1,12 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
-import { z } from "zod";
+import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import {
   activitySampleItemSelect,
   serializeActivityRecord,
   sampleItemsInputSchema,
   ensureSampleItemsValid,
+  createActivitySampleItems,
 } from "./_helpers";
 
 type SortField = "occurredAt" | "customer" | "type";
@@ -133,9 +133,9 @@ export async function GET(request: NextRequest) {
                 status: true,
               },
             },
-            sampleItems: {
-              select: activitySampleItemSelect,
-            },
+          sampleItems: {
+            select: activitySampleItemSelect,
+          },
           },
           orderBy,
           skip: (page - 1) * pageSize,
@@ -361,84 +361,111 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      // Create activity
-      const normalizedOutcomes: string[] = Array.isArray(outcomes)
-        ? outcomes
-        : outcome
-          ? [outcome]
-          : [];
+      try {
+        // Create activity
+        const normalizedOutcomes: string[] = Array.isArray(outcomes)
+          ? outcomes
+          : outcome
+            ? [outcome]
+            : [];
 
-      const activity = await db.activity.create({
-        data: {
+        const activity = await db.activity.create({
+          data: {
+            tenantId,
+            activityTypeId: activityType.id,
+            userId: session.user.id,
+            customerId,
+            subject,
+            notes: notes || null,
+            occurredAt: new Date(occurredAt),
+            followUpAt: followUpAt ? new Date(followUpAt) : null,
+            outcomes: { set: normalizedOutcomes },
+          },
+        });
+
+        await createActivitySampleItems(db, activity.id, sampleItemsInput);
+
+        const fullActivity = await db.activity.findUnique({
+          where: { id: activity.id },
+          select: {
+            id: true,
+            subject: true,
+            notes: true,
+            occurredAt: true,
+            followUpAt: true,
+            outcomes: true,
+            createdAt: true,
+            activityType: {
+              select: {
+                id: true,
+                name: true,
+                code: true,
+              },
+            },
+            customer: {
+              select: {
+                id: true,
+                name: true,
+                accountNumber: true,
+              },
+            },
+            order: {
+              select: {
+                id: true,
+                orderedAt: true,
+                total: true,
+                status: true,
+              },
+            },
+            sampleItems: {
+              select: activitySampleItemSelect,
+            },
+          },
+        });
+
+        if (!fullActivity) {
+          throw new Error("ACTIVITY_NOT_FOUND_AFTER_CREATE");
+        }
+
+        return NextResponse.json({
+          activity: serializeActivityRecord(fullActivity),
+        });
+      } catch (error) {
+        if (error instanceof Prisma.PrismaClientKnownRequestError) {
+          if (error.code === "P2003") {
+            return NextResponse.json(
+              { error: "Sample selection references invalid records" },
+              { status: 400 }
+            );
+          }
+          if (error.code === "P2025") {
+            return NextResponse.json(
+              { error: "Activity reference could not be found after creation" },
+              { status: 400 }
+            );
+          }
+        }
+
+        console.error("❌ [Activities] Failed to create activity with samples", {
+          error: error instanceof Error ? { name: error.name, message: error.message, stack: error.stack } : error,
           tenantId,
-          activityTypeId: activityType.id,
           userId: session.user.id,
           customerId,
-          subject,
-          notes: notes || null,
-          occurredAt: new Date(occurredAt),
-          followUpAt: followUpAt ? new Date(followUpAt) : null,
-          outcomes: { set: normalizedOutcomes },
-        },
-      });
+          activityTypeCode,
+          sampleItemCount: sampleItemsInput.length,
+        });
 
-      if (sampleItemsInput.length > 0) {
-        await Promise.all(
-          sampleItemsInput.map((item) =>
-            db.activitySampleItem.create({
-              data: {
-                activityId: activity.id,
-                skuId: item.skuId,
-                sampleListItemId: item.sampleListItemId ?? null,
-                feedback: item.feedback ?? null,
-                followUpNeeded: item.followUpNeeded ?? false,
-              },
-            })
-          )
+        return NextResponse.json(
+          {
+            error: "Failed to log activity",
+            details:
+              process.env.NODE_ENV === "development" && error instanceof Error
+                ? { message: error.message, stack: error.stack }
+                : undefined,
+          },
+          { status: 500 }
         );
       }
-
-      const fullActivity = await db.activity.findUnique({
-        where: { id: activity.id },
-        select: {
-          id: true,
-          subject: true,
-          notes: true,
-          occurredAt: true,
-          followUpAt: true,
-          outcomes: true,
-          createdAt: true,
-          activityType: {
-            select: {
-              id: true,
-              name: true,
-              code: true,
-            },
-          },
-          customer: {
-            select: {
-              id: true,
-              name: true,
-              accountNumber: true,
-            },
-          },
-          order: {
-            select: {
-              id: true,
-              orderedAt: true,
-              total: true,
-              status: true,
-            },
-          },
-          sampleItems: {
-            select: activitySampleItemSelect,
-          },
-        },
-      });
-
-      return NextResponse.json({
-        activity: serializeActivityRecord(fullActivity),
-      });
     }
   );
 }

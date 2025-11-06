@@ -273,7 +273,7 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
                     }}
                     className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />
-                  <span>{option.label}</span>
+                  <span className="break-words leading-tight">{option.label}</span>
                 </label>
               );
             })}

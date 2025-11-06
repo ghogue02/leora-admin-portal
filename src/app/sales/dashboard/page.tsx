@@ -13,6 +13,8 @@ import AssignedTasks from "./sections/AssignedTasks";
 import Incentives from "./sections/Incentives";
 import TopProducts from "./sections/TopProducts";
 import CustomerBalances from "./sections/CustomerBalances";
+import SampleActivitySummary from "./sections/SampleActivitySummary";
+import type { SampleActivityRecord, SampleInsightsSummary } from "@/types/activities";
 // import NewCustomersMetric from "./sections/NewCustomersMetric";
 import ProductGoalsEnhanced from "./sections/ProductGoalsEnhanced";
 import DashboardCustomizer from "./sections/DashboardCustomizer";
@@ -104,6 +106,7 @@ type DashboardData = {
       } | null;
       outcome: string | null;
       outcomes: string[];
+      samples: SampleActivityRecord[];
     }>;
     summary: Record<string, number>;
   };
@@ -140,6 +143,7 @@ type DashboardData = {
       name: string;
     } | null;
   }>;
+  sampleInsights: SampleInsightsSummary;
 };
 
 type DashboardState = {
@@ -220,7 +224,15 @@ export default function SalesDashboardPage() {
     );
   }
 
-  const { salesRep, metrics, customerHealth, upcomingEvents, customersDue, tasks } = state.data;
+  const {
+    salesRep,
+    metrics,
+    customerHealth,
+    upcomingEvents,
+    customersDue,
+    tasks,
+    sampleInsights,
+  } = state.data;
 
   const isSectionEnabled = (sectionId: string) => {
     if (!dashboardPrefs?.sections) return true; // Show all by default
@@ -274,6 +286,10 @@ export default function SalesDashboardPage() {
           customers={customersDue}
           onDrilldown={setActiveDrilldown}
         />
+      )}
+
+      {isSectionEnabled('sample-activities') && (
+        <SampleActivitySummary insights={sampleInsights} />
       )}
 
       {/* Top Products Section */}

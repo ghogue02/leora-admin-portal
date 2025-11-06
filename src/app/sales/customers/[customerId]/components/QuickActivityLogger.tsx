@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import { VoiceActivityForm, ActivityFormData } from '@/components/voice/VoiceActivityForm';
 import { Mic, Plus, X } from 'lucide-react';
 
@@ -27,6 +28,7 @@ export const QuickActivityLogger: React.FC<QuickActivityLoggerProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const queryClient = useQueryClient();
 
   const handleSubmit = async (data: ActivityFormData) => {
     try {
@@ -54,6 +56,8 @@ export const QuickActivityLogger: React.FC<QuickActivityLoggerProps> = ({
 
       const result = await response.json();
       console.log('Activity logged:', result);
+
+      await queryClient.invalidateQueries({ queryKey: ['customer', customerId] });
 
       // Close form and notify parent
       setIsOpen(false);

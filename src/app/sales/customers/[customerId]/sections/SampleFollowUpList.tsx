@@ -75,7 +75,7 @@ export default function SampleFollowUpList({ items, onComplete }: SampleFollowUp
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
-                  {item.followUpNeeded && !item.sampleListItemId && (
+                  {item.followUpNeeded && (
                     <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
                       <Clock className="h-3 w-3" /> Follow-up
                     </span>

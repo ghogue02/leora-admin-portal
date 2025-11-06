@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
-import { activitySampleItemSelect } from "@/app/api/sales/activities/_helpers";
+import {
+  activitySampleItemSelect,
+  activitySampleItemWithActivitySelect,
+  serializeSampleFollowUp,
+} from "@/app/api/sales/activities/_helpers";
 import { startOfWeek, endOfWeek, subWeeks, addDays, startOfYear, startOfMonth, subMonths, endOfMonth } from "date-fns";
 
 export async function GET(request: NextRequest) {
@@ -63,6 +66,11 @@ export async function GET(request: NextRequest) {
         customersDue,
         weeklyMetrics,
         pendingTasks,
+        recentSampleItems,
+        openSampleFollowUpItems,
+        samplesLoggedThisWeek,
+        samplesCompletedThisWeek,
+        openSampleFollowUpCount,
       ] = await Promise.all([
         // Current week revenue (delivered orders only)
         db.order.aggregate({
@@ -390,6 +398,80 @@ export async function GET(request: NextRequest) {
           },
           take: 5,
         }),
+
+        db.activitySampleItem.findMany({
+          where: {
+            activity: {
+              tenantId,
+              userId: session.user.id,
+              occurredAt: {
+                gte: subWeeks(now, 1),
+              },
+            },
+          },
+          select: activitySampleItemWithActivitySelect,
+          orderBy: {
+            activity: {
+              occurredAt: "desc",
+            },
+          },
+          take: 5,
+        }),
+
+        db.activitySampleItem.findMany({
+          where: {
+            followUpNeeded: true,
+            followUpCompletedAt: null,
+            activity: {
+              tenantId,
+              userId: session.user.id,
+            },
+          },
+          select: activitySampleItemWithActivitySelect,
+          orderBy: {
+            activity: {
+              occurredAt: "asc",
+            },
+          },
+          take: 20,
+        }),
+
+        db.activitySampleItem.count({
+          where: {
+            activity: {
+              tenantId,
+              userId: session.user.id,
+              occurredAt: {
+                gte: currentWeekStart,
+                lte: now,
+              },
+            },
+          },
+        }),
+
+        db.activitySampleItem.count({
+          where: {
+            followUpCompletedAt: {
+              gte: currentWeekStart,
+              lte: now,
+            },
+            activity: {
+              tenantId,
+              userId: session.user.id,
+            },
+          },
+        }),
+
+        db.activitySampleItem.count({
+          where: {
+            followUpNeeded: true,
+            followUpCompletedAt: null,
+            activity: {
+              tenantId,
+              userId: session.user.id,
+            },
+          },
+        }),
       ]);
 
       // Calculate metrics
@@ -437,6 +519,19 @@ export async function GET(request: NextRequest) {
       const monthlyQuota = monthlyQuotaValue > 0 ? monthlyQuotaValue : weeklyQuota * 4.33; // Average weeks per month fallback
       const weeklyQuotaProgress = weeklyQuota > 0 ? (currentWeekRevenueAmount / weeklyQuota) * 100 : 0;
       const monthlyQuotaProgress = monthlyQuota > 0 ? (currentMonthRevenueAmount / monthlyQuota) * 100 : 0;
+
+      const recentSamples = recentSampleItems.map(serializeSampleFollowUp);
+      const openSampleFollowUpsSerialized = openSampleFollowUpItems.map(serializeSampleFollowUp);
+
+      const sampleInsights = {
+        metrics: {
+          loggedThisWeek: samplesLoggedThisWeek,
+          completedThisWeek: samplesCompletedThisWeek,
+          openFollowUps: openSampleFollowUpCount,
+        },
+        recentActivities: recentSamples,
+        followUps: openSampleFollowUpsSerialized,
+      };
 
       return NextResponse.json({
         salesRep: {
@@ -580,6 +675,7 @@ export async function GET(request: NextRequest) {
               )
             : 0,
         })),
+        sampleInsights,
         tasks: pendingTasks.map((task) => ({
           id: task.id,
           title: task.title,

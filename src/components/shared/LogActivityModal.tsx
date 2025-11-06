@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants/activityOutcomes";
 import SampleItemsSelector from "@/components/activities/SampleItemsSelector";
 import type { ActivitySampleSelection } from "@/types/activities";
@@ -44,6 +45,7 @@ export default function LogActivityModal({
   contextType,
   contextLabel,
 }: LogActivityModalProps) {
+  const queryClient = useQueryClient();
   const [customers, setCustomers] = useState<Customer[]>([]);
   const [activityTypes, setActivityTypes] = useState<ActivityType[]>([]);
   const [loading, setLoading] = useState(false);
@@ -236,6 +238,11 @@ export default function LogActivityModal({
         throw new Error(body.error || "Failed to log activity");
       }
 
+      const targetCustomerId = formData.customerId || presetCustomerId;
+      if (targetCustomerId) {
+        await queryClient.invalidateQueries({ queryKey: ["customer", targetCustomerId] });
+      }
+
       // Show success toast
       setShowToast(true);
       setTimeout(() => setShowToast(false), 3000);
@@ -415,7 +422,7 @@ export default function LogActivityModal({
               </div>
 
               {/* Date, Follow-up, Outcome */}
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="occurredAt" className="block text-sm font-semibold text-gray-700">
                     Date & Time <span className="text-rose-500">*</span>
@@ -443,53 +450,54 @@ export default function LogActivityModal({
                   />
                 </div>
 
-                <div>
-                  <span className="block text-sm font-semibold text-gray-700">
-                    Outcomes (Select all that apply)
-                  </span>
-                  <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                    {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
-                      const checked = formData.outcomes.includes(option.value);
-                      return (
-                        <label
-                          key={option.value}
-                          className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
-                            checked ? "border-blue-500 bg-blue-50 text-blue-900" : "border-gray-200 bg-white hover:border-gray-300"
-                          }`}
-                        >
-                          <input
-                            type="checkbox"
-                            checked={checked}
-                            onChange={() =>
-                              setFormData((prev) => ({
-                                ...prev,
-                                outcomes: prev.outcomes.includes(option.value)
-                                  ? prev.outcomes.filter((value) => value !== option.value)
-                                  : [...prev.outcomes, option.value],
-                              }))
-                            }
-                            className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                          />
-                          <span>{option.label}</span>
-                        </label>
-                      );
-                    })}
-                  </div>
-                  {formData.outcomes.length > 0 && (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setFormData((prev) => ({
-                          ...prev,
-                          outcomes: [],
-                        }))
-                      }
-                      className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800"
-                    >
-                      Clear selections
-                    </button>
-                  )}
+              </div>
+
+              <div>
+                <span className="block text-sm font-semibold text-gray-700">
+                  Outcomes (Select all that apply)
+                </span>
+                <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                  {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
+                    const checked = formData.outcomes.includes(option.value);
+                    return (
+                      <label
+                        key={option.value}
+                        className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
+                          checked ? "border-blue-500 bg-blue-50 text-blue-900" : "border-gray-200 bg-white hover:border-gray-300"
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              outcomes: prev.outcomes.includes(option.value)
+                                ? prev.outcomes.filter((value) => value !== option.value)
+                                : [...prev.outcomes, option.value],
+                            }))
+                          }
+                          className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <span className="break-words leading-tight">{option.label}</span>
+                      </label>
+                    );
+                  })}
                 </div>
+                {formData.outcomes.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        outcomes: [],
+                      }))
+                    }
+                    className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800"
+                  >
+                    Clear selections
+                  </button>
+                )}
               </div>
 
               {/* Error Message */}

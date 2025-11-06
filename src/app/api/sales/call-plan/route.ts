@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfWeek, endOfWeek, parseISO } from "date-fns";
 import { enrichCallPlanTasks } from "@/lib/call-plan/enrich-tasks.server";
+import {
+  activitySampleItemWithActivitySelect,
+  serializeSampleFollowUp,
+} from "@/app/api/sales/activities/_helpers";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -18,6 +22,26 @@ export async function GET(request: NextRequest) {
     const weekStartDate = parseISO(weekStartParam);
     const weekStart = startOfWeek(weekStartDate, { weekStartsOn: 1 }); // Monday
     const weekEnd = endOfWeek(weekStartDate, { weekStartsOn: 1 }); // Sunday
+
+    const sampleFollowUpItems = await db.activitySampleItem.findMany({
+      where: {
+        followUpNeeded: true,
+        followUpCompletedAt: null,
+        activity: {
+          tenantId,
+          userId: session.user.id,
+        },
+      },
+      select: activitySampleItemWithActivitySelect,
+      orderBy: {
+        activity: {
+          occurredAt: "asc",
+        },
+      },
+      take: 25,
+    });
+
+    const sampleFollowUps = sampleFollowUpItems.map(serializeSampleFollowUp);
 
     // Get the sales rep's call plan for this week
     const callPlan = await db.callPlan.findFirst({
@@ -86,6 +110,7 @@ export async function GET(request: NextRequest) {
         weekStart: weekStart.toISOString(),
         weekEnd: weekEnd.toISOString(),
         tasks: enrichedTasks,
+        sampleFollowUps,
       });
     }
 
@@ -97,6 +122,7 @@ export async function GET(request: NextRequest) {
       weekStart: weekStart.toISOString(),
       weekEnd: weekEnd.toISOString(),
       tasks: enrichedTasks,
+      sampleFollowUps,
     });
   });
 }

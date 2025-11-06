@@ -13,6 +13,7 @@ import {
   Package,
   ScrollText,
   UserCog,
+  ActivitySquare,
 } from "lucide-react";
 
 const navigation = [
@@ -36,6 +37,11 @@ const navigation = [
     label: "Orders & Invoices",
     href: "/admin/orders",
     icon: ShoppingCart,
+  },
+  {
+    label: "Activity Log",
+    href: "/admin/activities",
+    icon: ActivitySquare,
   },
   {
     label: "Invoice Templates",

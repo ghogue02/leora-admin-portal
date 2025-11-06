@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ActivitySampleSelection, SampleListSummary } from "@/types/activities";
 import { formatCurrency } from "@/lib/format";
 
@@ -19,6 +19,20 @@ type SkuOption = {
   price?: number | null;
 };
 
+type CatalogSkuResponse = {
+  id: string;
+  code: string;
+  size?: string | null;
+  unitOfMeasure?: string | null;
+  product?: {
+    name?: string | null;
+    brand?: string | null;
+  } | null;
+  priceListItems?: Array<{
+    price?: number | string | null;
+  } | null> | null;
+};
+
 export default function SampleItemsSelector({ value, onChange }: SampleItemsSelectorProps) {
   const [sampleLists, setSampleLists] = useState<SampleListSummary[]>([]);
   const [selectedListId, setSelectedListId] = useState<string | null>(null);
@@ -28,10 +42,67 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
   const [loadingLists, setLoadingLists] = useState(false);
   const [loadingSkus, setLoadingSkus] = useState(false);
   const [savingList, setSavingList] = useState(false);
+  const pendingChangeRef = useRef<ActivitySampleSelection[] | null>(null);
+  const hasAutoSeededRef = useRef(false);
 
   useEffect(() => {
-    setItems(value);
+    setItems((current) => (current === value ? current : value));
   }, [value]);
+
+  const selectedListIdRef = useRef<string | null>(null);
+  const valueLength = value.length;
+  const valueCountRef = useRef<number>(valueLength);
+
+  useEffect(() => {
+    selectedListIdRef.current = selectedListId;
+  }, [selectedListId]);
+
+  useEffect(() => {
+    valueCountRef.current = valueLength;
+    if (valueLength === 0) {
+      hasAutoSeededRef.current = false;
+    }
+  }, [valueLength]);
+
+  const updateItems = useCallback(
+    (updater: (current: ActivitySampleSelection[]) => ActivitySampleSelection[]) => {
+      setItems((current) => {
+        const next = updater(current);
+        pendingChangeRef.current = next;
+        return next;
+      });
+    },
+    []
+  );
+
+  useEffect(() => {
+    if (pendingChangeRef.current) {
+      onChange(pendingChangeRef.current);
+      pendingChangeRef.current = null;
+    }
+  }, [items, onChange]);
+
+  const mapListToSelections = useCallback(
+    (list: SampleListSummary): ActivitySampleSelection[] =>
+      list.items.map((item) => ({
+        skuId: item.skuId,
+        sampleListItemId: item.id,
+        name: item.sku?.name ?? "Unknown Item",
+        code: item.sku?.code ?? null,
+        brand: item.sku?.brand ?? null,
+        selected: true,
+        feedback: "",
+        followUp: item.defaultFollowUp ?? false,
+      })),
+    []
+  );
+
+  const applyListToSelections = useCallback(
+    (list: SampleListSummary) => {
+      updateItems(() => mapListToSelections(list));
+    },
+    [mapListToSelections, updateItems]
+  );
 
   const fetchSampleLists = useCallback(async () => {
     setLoadingLists(true);
@@ -39,14 +110,37 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
       const response = await fetch("/api/sales/sample-lists", { cache: "no-store" });
       if (response.ok) {
         const data = await response.json();
-        setSampleLists(data.lists ?? []);
+        const lists: SampleListSummary[] = data.lists ?? [];
+        setSampleLists(lists);
+
+        if (lists.length === 0) {
+          setSelectedListId(null);
+          return;
+        }
+
+        const valueCount = valueCountRef.current;
+        const currentSelectedId = selectedListIdRef.current;
+        const preferredSelection = lists.find((list) => list.isActive) ?? lists[0];
+        const nextSelectedId =
+          currentSelectedId && lists.some((list) => list.id === currentSelectedId)
+            ? currentSelectedId
+            : preferredSelection.id;
+
+        setSelectedListId(nextSelectedId);
+        selectedListIdRef.current = nextSelectedId;
+
+        if (!hasAutoSeededRef.current && valueCount === 0) {
+          hasAutoSeededRef.current = true;
+          const nextSelectedList = lists.find((list) => list.id === nextSelectedId) ?? preferredSelection;
+          applyListToSelections(nextSelectedList);
+        }
       }
     } catch (error) {
       console.error("Failed to load sample lists", error);
     } finally {
       setLoadingLists(false);
     }
-  }, []);
+  }, [applyListToSelections]);
 
   useEffect(() => {
     void fetchSampleLists();
@@ -63,15 +157,24 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
         });
         if (response.ok) {
           const data = await response.json();
-          const mapped: SkuOption[] = (data.skus ?? []).map((sku: any) => ({
-            id: sku.id,
-            code: sku.code,
-            name: sku.product?.name ?? null,
-            brand: sku.product?.brand ?? null,
-            size: sku.size ?? null,
-            unitOfMeasure: sku.unitOfMeasure ?? null,
-            price: sku.priceListItems?.[0]?.price ?? null,
-          }));
+          const mapped: SkuOption[] = (data.skus ?? []).map((sku: CatalogSkuResponse) => {
+            const priceEntry = sku.priceListItems?.find((item): item is { price?: number | string | null } => Boolean(item));
+            const rawPrice = priceEntry?.price ?? null;
+            const numericPrice =
+              typeof rawPrice === "number" ? rawPrice : rawPrice != null ? Number(rawPrice) : null;
+            const normalizedPrice =
+              typeof numericPrice === "number" && Number.isFinite(numericPrice) ? numericPrice : null;
+
+            return {
+              id: sku.id,
+              code: sku.code,
+              name: sku.product?.name ?? null,
+              brand: sku.product?.brand ?? null,
+              size: sku.size ?? null,
+              unitOfMeasure: sku.unitOfMeasure ?? null,
+              price: normalizedPrice,
+            };
+          });
           setSkuOptions(mapped);
         }
       } catch (error) {
@@ -94,17 +197,6 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
     return () => clearTimeout(handler);
   }, [skuSearch, fetchSkus]);
 
-  const updateItems = useCallback(
-    (updater: (current: ActivitySampleSelection[]) => ActivitySampleSelection[]) => {
-      setItems((current) => {
-        const next = updater(current);
-        onChange(next);
-        return next;
-      });
-    },
-    [onChange]
-  );
-
   const handleSelectList = useCallback(
     (listId: string) => {
       setSelectedListId(listId);
@@ -112,19 +204,9 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
       if (!list) {
         return;
       }
-      const seeded = list.items.map<ActivitySampleSelection>((item) => ({
-        skuId: item.skuId,
-        sampleListItemId: item.id,
-        name: item.sku?.name ?? "Unknown Item",
-        code: item.sku?.code ?? null,
-        brand: item.sku?.brand ?? null,
-        selected: true,
-        feedback: "",
-        followUp: item.defaultFollowUp ?? false,
-      }));
-      updateItems(() => seeded);
+      applyListToSelections(list);
     },
-    [sampleLists, updateItems]
+    [applyListToSelections, sampleLists]
   );
 
   const handleToggleItem = useCallback(
@@ -224,19 +306,8 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
         const list = data.list as SampleListSummary;
         setSampleLists((prev) => [list, ...prev]);
         setSelectedListId(list.id);
-        // Align items with saved list ids
-        updateItems(() =>
-          list.items.map((item) => ({
-            skuId: item.skuId,
-            sampleListItemId: item.id,
-            name: item.sku?.name ?? "Unknown Item",
-            code: item.sku?.code ?? null,
-            brand: item.sku?.brand ?? null,
-            selected: true,
-            feedback: "",
-            followUp: item.defaultFollowUp ?? false,
-          }))
-        );
+        selectedListIdRef.current = list.id;
+        applyListToSelections(list);
       } else {
         console.error("Failed to save sample list", await response.text());
         alert("Failed to save sample list");
@@ -247,47 +318,66 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
     } finally {
       setSavingList(false);
     }
-  }, [items, updateItems]);
+  }, [applyListToSelections, items]);
 
   const availableSkuOptions = useMemo(() => {
     const selectedSkuIds = new Set(items.map((item) => item.skuId));
     return skuOptions.filter((option) => !selectedSkuIds.has(option.id));
   }, [items, skuOptions]);
 
+  const displayedSkuOptions = useMemo(() => {
+    if (skuSearch.trim()) {
+      return availableSkuOptions;
+    }
+    return availableSkuOptions.slice(0, 25);
+  }, [availableSkuOptions, skuSearch]);
+
+  const showingLimitedResults =
+    !skuSearch.trim() && availableSkuOptions.length > displayedSkuOptions.length;
+
   return (
     <section className="space-y-4">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <label htmlFor="sample-list" className="text-sm font-semibold text-gray-700">
             Sample List
           </label>
-          <select
-            id="sample-list"
-            value={selectedListId ?? ""}
-            onChange={(e) => handleSelectList(e.target.value)}
-            className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            disabled={loadingLists}
-          >
-            <option value="">Choose list...</option>
-            {sampleLists.map((list) => (
-              <option key={list.id} value={list.id}>
-                {list.name} {list.isActive ? "(Active)" : ""}
-              </option>
-            ))}
-          </select>
+          {sampleLists.length > 0 ? (
+            <select
+              id="sample-list"
+              value={selectedListId ?? ""}
+              onChange={(e) => {
+                const listId = e.target.value;
+                if (listId) {
+                  handleSelectList(listId);
+                }
+              }}
+              className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              disabled={loadingLists}
+            >
+              {selectedListId === null && <option value="">Choose list...</option>}
+              {sampleLists.map((list) => (
+                <option key={list.id} value={list.id}>
+                  {list.name} {list.isActive ? "(Active)" : ""}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <span className="text-sm text-gray-500">No saved sample lists yet</span>
+          )}
           <button
             type="button"
             onClick={() => void fetchSampleLists()}
-            className="text-xs font-semibold text-blue-600 hover:text-blue-800"
+            className="text-xs font-semibold text-blue-600 hover:text-blue-800 disabled:opacity-60"
             disabled={loadingLists}
           >
-            Refresh
+            {loadingLists ? "Refreshing..." : "Refresh"}
           </button>
         </div>
         <button
           type="button"
           onClick={handleSaveAsList}
-          className="inline-flex items-center justify-center rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-600 transition hover:bg-blue-50 disabled:opacity-60"
+          className="inline-flex items-center justify-center rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-600 transition hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-60"
           disabled={savingList}
         >
           {savingList ? "Saving..." : "Save as Sample List"}
@@ -369,44 +459,67 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
         </table>
       </div>
 
-      <div className="rounded-lg border border-dashed border-slate-300 p-4">
+      <div className="space-y-3 rounded-lg border border-dashed border-slate-300 p-4">
         <p className="text-sm font-semibold text-gray-700">Add Sample Item</p>
-        <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="relative">
           <input
             type="text"
             value={skuSearch}
             onChange={(e) => setSkuSearch(e.target.value)}
-            placeholder="Search by name, brand, or SKU code"
-            className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            placeholder="Search by name, brand, SKU code, or size"
+            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
-          <div className="relative flex-1">
-            <select
-              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-              onChange={(e) => {
-                const sku = availableSkuOptions.find((option) => option.id === e.target.value);
-                if (sku) {
-                  handleAddItem(sku);
-                }
-                e.currentTarget.value = "";
-              }}
-              value=""
-              disabled={loadingSkus}
+          {skuSearch && (
+            <button
+              type="button"
+              onClick={() => setSkuSearch("")}
+              className="absolute right-2 top-2 text-xs font-semibold text-gray-500 hover:text-gray-700"
             >
-              <option value="">Select item...</option>
-              {availableSkuOptions.map((option) => (
-                <option key={option.id} value={option.id}>
-                  {option.brand ? `${option.brand} ` : ""}
-                  {option.name ?? option.code}
-                  {option.size ? ` • ${option.size}` : ""}
-                  {option.price ? ` • ${formatCurrency(Number(option.price), "USD")}` : ""}
-                </option>
-              ))}
-            </select>
-          </div>
+              Clear
+            </button>
+          )}
         </div>
-        <p className="mt-2 text-xs text-gray-500">
+        <div className="max-h-60 overflow-y-auto rounded-md border border-slate-200 bg-white">
+          {loadingSkus ? (
+            <div className="px-3 py-4 text-sm text-gray-500">Searching...</div>
+          ) : displayedSkuOptions.length > 0 ? (
+            displayedSkuOptions.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                onClick={() => handleAddItem(option)}
+                className="flex w-full items-center justify-between gap-3 border-b border-slate-100 px-3 py-2 text-left text-sm transition hover:bg-slate-50 last:border-b-0"
+              >
+                <div className="flex flex-col">
+                  <span className="font-medium text-gray-900">
+                    {option.name ?? option.code ?? "Sample Item"}
+                  </span>
+                  <span className="text-xs text-gray-500">
+                    {option.brand ? `${option.brand} • ` : ""}
+                    SKU {option.code}
+                    {option.size ? ` • ${option.size}` : ""}
+                    {option.unitOfMeasure ? ` • ${option.unitOfMeasure}` : ""}
+                  </span>
+                </div>
+                {option.price != null ? (
+                  <span className="text-xs font-semibold text-gray-700">
+                    {formatCurrency(option.price, "USD")}
+                  </span>
+                ) : null}
+              </button>
+            ))
+          ) : (
+            <div className="px-3 py-4 text-sm text-gray-500">
+              {skuSearch.trim()
+                ? "No matches found. Adjust your search."
+                : "Start typing to search for samples."}
+            </div>
+          )}
+        </div>
+        <p className="text-xs text-gray-500">
           Pull items into this activity and capture feedback or mark follow-up requirements. Only
           checked items will be saved.
+          {showingLimitedResults ? " Showing first 25 items — refine your search to see more results." : ""}
         </p>
       </div>
     </section>
