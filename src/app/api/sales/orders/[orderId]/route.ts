@@ -7,11 +7,100 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { Prisma } from '@prisma/client';
 import { withSalesSession } from '@/lib/auth/sales';
 
 type RouteParams = {
   params: Promise<{ orderId: string }>;
 };
+
+type PriceListItemWithList = Prisma.PriceListItemGetPayload<{
+  include: {
+    priceList: true;
+  };
+}>;
+
+type CustomerPricingContext = {
+  state: string | null;
+  territory: string | null;
+  accountNumber: string | null;
+  name: string;
+};
+
+function isFederalPropertyCustomer(customer: CustomerPricingContext) {
+  const territory = (customer.territory ?? '').toLowerCase();
+  const name = customer.name.toLowerCase();
+  return (
+    territory.includes('federal') ||
+    territory.includes('military') ||
+    name.includes('air force') ||
+    name.includes('naval') ||
+    name.includes('army') ||
+    name.includes('marine') ||
+    name.includes('base')
+  );
+}
+
+function priceListMatchesCustomer(
+  priceList: { jurisdictionType: string; jurisdictionValue: string | null },
+  customer: CustomerPricingContext
+) {
+  const value = (priceList.jurisdictionValue ?? '').trim().toUpperCase();
+  const state = (customer.state ?? '').trim().toUpperCase();
+  switch (priceList.jurisdictionType) {
+    case 'STATE':
+      return value !== '' && state !== '' && value === state;
+    case 'FEDERAL_PROPERTY':
+      return isFederalPropertyCustomer(customer);
+    case 'CUSTOM':
+      if (!value) return false;
+      return [customer.territory, customer.accountNumber, customer.name]
+        .filter(Boolean)
+        .some((field) => field?.toString().toLowerCase().includes(value.toLowerCase()));
+    default:
+      return true;
+  }
+}
+
+function meetsQuantityBounds(item: PriceListItemWithList, quantity: number) {
+  const aboveMin = quantity >= (item.minQuantity ?? 1);
+  const belowMax = item.maxQuantity === null || quantity <= item.maxQuantity;
+  return aboveMin && belowMax;
+}
+
+function selectPriceListItem(
+  priceListItems: PriceListItemWithList[],
+  quantity: number,
+  customer: CustomerPricingContext
+) {
+  const sorted = (items: PriceListItemWithList[]) =>
+    [...items].sort((a, b) => (b.minQuantity ?? 0) - (a.minQuantity ?? 0));
+
+  const jurisdictionMatches = sorted(
+    priceListItems.filter(
+      (item) => meetsQuantityBounds(item, quantity) && priceListMatchesCustomer(item.priceList, customer)
+    )
+  );
+  if (jurisdictionMatches.length > 0) {
+    return { item: jurisdictionMatches[0], overrideApplied: false, reason: null as string | null };
+  }
+
+  const manualOverrideCandidates = sorted(
+    priceListItems.filter(
+      (item) => meetsQuantityBounds(item, quantity) && item.priceList.allowManualOverride
+    )
+  );
+  if (manualOverrideCandidates.length > 0) {
+    return { item: manualOverrideCandidates[0], overrideApplied: true, reason: 'manualOverride' as const };
+  }
+
+  const fallback = sorted(priceListItems.filter((item) => meetsQuantityBounds(item, quantity)));
+  if (fallback.length > 0) {
+    return { item: fallback[0], overrideApplied: true, reason: 'noJurisdictionMatch' as const };
+  }
+
+  return { item: null, overrideApplied: true, reason: 'noPriceConfigured' as const };
+}
 
 export async function GET(request: NextRequest, props: RouteParams) {
   const params = await props.params;
@@ -213,7 +302,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
               brand: true,
             },
           },
-          priceLists: {
+          priceListItems: {
             include: {
               priceList: true,
             },
@@ -222,26 +311,53 @@ export async function PUT(request: NextRequest, props: RouteParams) {
       });
 
       // Apply pricing rules to each item
-      const pricedItems = await Promise.all(
-        items.map(async (item: any) => {
-          const sku = skus.find(s => s.id === item.skuId);
-          if (!sku) {
-            throw new Error(`SKU ${item.skuId} not found`);
-          }
+      const customerPricingContext: CustomerPricingContext = {
+        state: existingOrder.customer.state ?? null,
+        territory: existingOrder.customer.territory ?? null,
+        accountNumber: existingOrder.customer.accountNumber ?? null,
+        name: existingOrder.customer.name,
+      };
 
-          // Use the price provided in the request (already calculated on frontend)
-          return {
-            skuId: sku.id,
-            quantity: item.quantity,
-            unitPrice: item.unitPrice,  // Already calculated on frontend
-            priceOverridden: item.priceOverridden || false,
-            overridePrice: item.overridePrice,
-            overrideReason: item.overrideReason,
-            overriddenBy: item.priceOverridden ? session.user.id : null,
-            overriddenAt: item.priceOverridden ? new Date() : null,
-          };
-        })
-      );
+      const pricedItems = items.map((item: any) => {
+        const sku = skus.find((s) => s.id === item.skuId);
+        if (!sku) {
+          throw new Error(`SKU ${item.skuId} not found`);
+        }
+
+        const selection = selectPriceListItem(
+          sku.priceListItems,
+          item.quantity,
+          customerPricingContext
+        );
+
+        if (!selection.item) {
+          throw new Error(
+            `No pricing configured for SKU ${sku.product.name} (${sku.id}).`
+          );
+        }
+
+        const unitPrice = Number(selection.item.price ?? sku.pricePerUnit ?? 0);
+
+        return {
+          skuId: sku.id,
+          quantity: item.quantity,
+          unitPrice,
+          appliedPricingRules: {
+            source: selection.overrideApplied ? 'price_list_override' : 'price_list',
+            priceListId: selection.item.priceListId,
+            priceListName: selection.item.priceList.name,
+            minQuantity: selection.item.minQuantity,
+            maxQuantity: selection.item.maxQuantity,
+            jurisdictionType: selection.item.priceList.jurisdictionType,
+            jurisdictionValue: selection.item.priceList.jurisdictionValue,
+            manualOverrideApplied: selection.overrideApplied,
+            overrideReason: selection.reason,
+            allowManualOverride: selection.item.priceList.allowManualOverride,
+            allocations: [],
+            resolvedAt: new Date().toISOString(),
+          },
+        };
+      });
 
       // Calculate new total
       const newTotal = pricedItems.reduce(
@@ -258,7 +374,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
           deliveryTimeWindow,
           poNumber: poNumber || null,
           specialInstructions: specialInstructions || null,
-          total: newTotal,
+          total: new Prisma.Decimal(newTotal.toFixed(2)),
           updatedAt: new Date(),
         },
       });
@@ -275,7 +391,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
           orderId,
           skuId: item.skuId,
           quantity: item.quantity,
-          unitPrice: item.unitPrice,
+          unitPrice: new Prisma.Decimal(item.unitPrice.toFixed(2)),
           appliedPricingRules: item.appliedPricingRules,
         })),
       });

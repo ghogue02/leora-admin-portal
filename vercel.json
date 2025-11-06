@@ -29,6 +29,10 @@
     {
       "path": "/api/jobs/reservation-expiration",
       "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/cron/process-email-queue",
+      "schedule": "*/5 * * * *"
     }
   ]
 }

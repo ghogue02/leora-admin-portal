@@ -17,6 +17,7 @@ interface Invoice {
   deliveryMethod: string;
   status: string;
   invoiceType: string;
+  total?: string;
 }
 
 interface ApiResponse {

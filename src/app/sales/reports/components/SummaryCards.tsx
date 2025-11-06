@@ -11,6 +11,7 @@ interface Invoice {
   deliveryMethod: string;
   status: string;
   invoiceType: string;
+  total?: string; // Added total field from API
 }
 
 interface SummaryCardsProps {
@@ -21,9 +22,12 @@ export function SummaryCards({ invoices }: SummaryCardsProps) {
   // Calculate summary metrics
   const totalInvoices = invoices.length;
 
-  // Note: The API doesn't return total amounts yet, so we'll show 0 for now
-  // This can be enhanced when the API includes financial data
-  const totalRevenue = 0;
+  // Calculate total revenue from invoice totals
+  const totalRevenue = invoices.reduce((sum, invoice) => {
+    const amount = parseFloat(invoice.total || '0');
+    return sum + amount;
+  }, 0);
+
   const averageOrderValue = totalInvoices > 0 ? totalRevenue / totalInvoices : 0;
 
   const formatCurrency = (value: number) => {

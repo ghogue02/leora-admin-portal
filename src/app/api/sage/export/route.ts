@@ -11,17 +11,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession } from '@/lib/auth/admin';
 
-export const POST = withAdminSession(async (req: NextRequest, ctx) => {
-  // TEMPORARY: SAGE export disabled due to Vercel module resolution issue
-  // The export-to-sage script works locally but Vercel can't resolve '@/scripts/export-to-sage'
-  // This will be re-enabled once the module resolution issue is fixed
+export async function POST(request: NextRequest) {
+  return withAdminSession(request, async () => {
+    // TEMPORARY: SAGE export disabled due to Vercel module resolution issue
+    // The export-to-sage script works locally but Vercel can't resolve '@/scripts/export-to-sage'
+    // This will be re-enabled once the module resolution issue is fixed
 
-  return NextResponse.json(
-    {
-      error: 'SAGE export temporarily disabled',
-      code: 'SAGE_DISABLED',
-      details: 'Module resolution issue in Vercel production builds. Feature works locally and will be re-enabled shortly. For now, use the manual export script: npx tsx scripts/export-to-sage.ts',
-    },
-    { status: 503 }
-  );
-});
+    return NextResponse.json(
+      {
+        error: 'SAGE export temporarily disabled',
+        code: 'SAGE_DISABLED',
+        details: 'Module resolution issue in Vercel production builds. Feature works locally and will be re-enabled shortly. For now, use the manual export script: npx tsx scripts/export-to-sage.ts',
+      },
+      { status: 503 }
+    );
+  });
+}

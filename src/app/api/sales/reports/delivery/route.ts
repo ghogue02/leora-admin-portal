@@ -23,51 +23,80 @@ export async function GET(request: NextRequest) {
     request,
     async ({ db, tenantId }) => {
       try {
-        // Build dynamic SQL query with proper parameter binding
-        const conditions: string[] = ['1=1'];
-        const params: any[] = [];
+        // Build Prisma where clause
+        const where: any = {
+          tenantId,
+          order: {},
+        };
 
-        if (deliveryMethod) {
-          params.push(deliveryMethod);
-          conditions.push(`delivery_method = $${params.length}`);
+        // Filter by delivery time window (closest to delivery method)
+        if (deliveryMethod && deliveryMethod !== 'all') {
+          where.order.deliveryTimeWindow = deliveryMethod;
         }
 
-        if (startDate) {
-          params.push(startDate);
-          conditions.push(`date >= $${params.length}::date`);
+        // Filter by invoice issue date
+        if (startDate || endDate) {
+          where.issuedAt = {};
+          if (startDate) {
+            where.issuedAt.gte = new Date(startDate);
+          }
+          if (endDate) {
+            where.issuedAt.lte = new Date(endDate);
+          }
         }
 
-        if (endDate) {
-          params.push(endDate);
-          conditions.push(`date <= $${params.length}::date`);
-        }
+        // Query invoices using Prisma
+        const invoices = await db.invoice.findMany({
+          where,
+          select: {
+            id: true,
+            invoiceNumber: true,
+            issuedAt: true,
+            status: true,
+            total: true,
+            shippingMethod: true,
+            customer: {
+              select: {
+                name: true,
+              },
+            },
+            order: {
+              select: {
+                deliveryTimeWindow: true,
+                deliveryDate: true,
+                orderNumber: true,
+              },
+            },
+          },
+          orderBy: {
+            issuedAt: 'desc',
+          },
+          take: 1000,
+        });
 
-        const whereClause = conditions.join(' AND ');
-
-        // Query the legacy invoices table (lowercase table name from HAL import)
-        const invoices = await db.$queryRawUnsafe<any[]>(`
-          SELECT
-            id,
-            reference_number as "referenceNumber",
-            date,
-            customer_name as "customerName",
-            delivery_method as "deliveryMethod",
-            status,
-            invoice_type as "invoiceType"
-          FROM invoices
-          WHERE ${whereClause}
-          ORDER BY date DESC
-          LIMIT 1000
-        `, ...params);
+        // Transform to expected format
+        const transformedInvoices = invoices.map((invoice) => ({
+          id: invoice.id,
+          referenceNumber: invoice.invoiceNumber || 'N/A',
+          date: invoice.issuedAt?.toISOString() || new Date().toISOString(),
+          customerName: invoice.customer?.name || 'Unknown',
+          deliveryMethod:
+            invoice.order?.deliveryTimeWindow ||
+            invoice.shippingMethod ||
+            'Not Specified',
+          status: invoice.status,
+          invoiceType: 'Invoice',
+          total: invoice.total?.toString() || '0',
+        }));
 
         return NextResponse.json({
-          invoices,
+          invoices: transformedInvoices,
           filters: {
             deliveryMethod,
             startDate,
             endDate,
           },
-          count: invoices.length,
+          count: transformedInvoices.length,
         });
       } catch (error) {
         console.error('Error generating delivery report:', error);
@@ -76,7 +105,10 @@ export async function GET(request: NextRequest) {
           {
             error: 'Failed to generate report',
             details: error instanceof Error ? error.message : 'Unknown error',
-            stack: process.env.NODE_ENV === 'development' && error instanceof Error ? error.stack : undefined
+            stack:
+              process.env.NODE_ENV === 'development' && error instanceof Error
+                ? error.stack
+                : undefined,
           },
           { status: 500 }
         );
