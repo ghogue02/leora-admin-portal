@@ -365,6 +365,10 @@ function CallPlanPageContent() {
     [callPlanId, loadSelectedAccounts, loadCallPlanOverview, selectedAccountIds],
   );
 
+  const handleSampleFollowUpLogged = useCallback(() => {
+    void loadCallPlanOverview();
+  }, [loadCallPlanOverview]);
+
   const handleGenerateRecurring = useCallback(async () => {
     if (!callPlanId) {
       toast.error("Create a call plan first");
@@ -530,6 +534,3 @@ export default function CallPlanPage() {
     </Suspense>
   );
 }
-  const handleSampleFollowUpLogged = useCallback(() => {
-    void loadCallPlanOverview();
-  }, [loadCallPlanOverview]);
