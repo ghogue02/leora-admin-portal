@@ -26,7 +26,7 @@ describe('Order System - Smoke Tests', () => {
     });
 
     it('should have PDF generation route defined', () => {
-      const routePath = '/api/invoices/[id]/pdf';
+      const routePath = '/api/invoices/[invoiceId]/pdf';
       expect(routePath).toBeDefined();
     });
   });

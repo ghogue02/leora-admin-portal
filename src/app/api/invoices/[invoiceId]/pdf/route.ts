@@ -1,7 +1,7 @@
 /**
  * Invoice PDF Generation API
  *
- * GET /api/invoices/[id]/pdf
+ * GET /api/invoices/[invoiceId]/pdf
  *
  * Generates PDF invoice in the appropriate format based on invoice type
  */
@@ -28,10 +28,10 @@ export const runtime = 'nodejs';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ invoiceId: string }> }
 ) {
   try {
-    const { id: invoiceId } = await params;
+    const { invoiceId } = await params;
 
     // Fetch invoice
     const invoice = await prisma.invoice.findUnique({
@@ -133,14 +133,17 @@ export async function GET(
 }
 
 /**
- * POST /api/invoices/[id]/pdf
+ * POST /api/invoices/[invoiceId]/pdf
  *
  * Generate and save PDF (for future email/storage features)
  */
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ invoiceId: string }> }
 ) {
+  const { invoiceId } = await params;
+  void invoiceId;
+
   // TODO: Implement PDF storage to S3/Vercel Blob
   return NextResponse.json(
     { message: 'PDF storage not yet implemented' },
