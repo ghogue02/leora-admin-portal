@@ -71,7 +71,7 @@ export default function NewOrderPage() {
   const [selectedCustomerId, setSelectedCustomerId] = useState<string>('');
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
   const [deliveryDate, setDeliveryDate] = useState<string>('');
-  const [warehouseLocation, setWarehouseLocation] = useState<string>('');
+  const [warehouseLocation, setWarehouseLocation] = useState<string>('Warrington');
   const [deliveryTimeWindow, setDeliveryTimeWindow] = useState<string>('');
   const [poNumber, setPoNumber] = useState<string>('');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
@@ -140,12 +140,12 @@ export default function NewOrderPage() {
     setSelectedCustomerId(customer.id);
     setSelectedCustomer(customer);
 
-    // Smart warehouse default: customer default > last used > 'main'
+    // Smart warehouse default: customer default > last used > 'Warrington'
     let defaultWarehouse = customer.defaultWarehouseLocation;
     if (!defaultWarehouse && typeof window !== 'undefined') {
-      defaultWarehouse = localStorage.getItem('lastUsedWarehouse') || 'main';
+      defaultWarehouse = localStorage.getItem('lastUsedWarehouse') || 'Warrington';
     }
-    setWarehouseLocation(defaultWarehouse || 'main');
+    setWarehouseLocation(defaultWarehouse || 'Warrington');
 
     setDeliveryTimeWindow(customer.defaultDeliveryTimeWindow || 'anytime');
 
