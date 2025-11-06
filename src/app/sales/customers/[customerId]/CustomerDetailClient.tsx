@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
+import { useQueryClient } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import CustomerHeader from "./sections/CustomerHeader";
 import CustomerMetrics from "./sections/CustomerMetrics";
@@ -18,6 +19,7 @@ import OrderDeepDive from "./sections/OrderDeepDive";
 import CustomerInsights from "./sections/CustomerInsights";
 import CustomerTagManager from "./sections/CustomerTagManager";
 import BtgPlacements from "./sections/BtgPlacements";
+import SampleFollowUpList from "./sections/SampleFollowUpList";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -42,6 +44,30 @@ export default function CustomerDetailClient({
   customerId: string;
 }) {
   const { data, isLoading, error } = useCustomerDetail(customerId);
+  const queryClient = useQueryClient();
+
+  const handleFollowUpComplete = async (activityId: string, sampleItemId: string) => {
+    try {
+      const response = await fetch(
+        `/api/sales/activities/${activityId}/samples/${sampleItemId}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ followUpCompleted: true }),
+        }
+      );
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error ?? "Failed to update follow-up");
+      }
+
+      await queryClient.invalidateQueries({ queryKey: ["customer", customerId] });
+    } catch (err) {
+      console.error("Failed to mark follow-up complete", err);
+      alert("Could not mark item as completed. Please try again.");
+    }
+  };
 
   if (error) {
     return (
@@ -165,6 +191,9 @@ export default function CustomerDetailClient({
 
       {/* Sample History */}
       <SampleHistory samples={data.samples} />
+
+      {/* Follow-up Queue */}
+      <SampleFollowUpList items={data.followUps} onComplete={handleFollowUpComplete} />
 
       {/* AI-Powered Customer Insights */}
       <CustomerInsights customerId={customerId} />

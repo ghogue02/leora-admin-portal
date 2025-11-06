@@ -4,6 +4,14 @@ import React, { useState } from 'react';
 import { VoiceActivityForm, ActivityFormData } from '@/components/voice/VoiceActivityForm';
 import { Mic, Plus, X } from 'lucide-react';
 
+const ACTIVITY_TYPE_CODE_MAP: Record<ActivityFormData['type'], string> = {
+  call: 'PHONE_CALL',
+  email: 'EMAIL_FOLLOW_UP',
+  meeting: 'IN_PERSON_VISIT',
+  note: 'NOTE',
+  task: 'TASK',
+};
+
 interface QuickActivityLoggerProps {
   customerId: string;
   customerName: string;
@@ -23,19 +31,20 @@ export const QuickActivityLogger: React.FC<QuickActivityLoggerProps> = ({
   const handleSubmit = async (data: ActivityFormData) => {
     try {
       // Submit to Activity API
-      const response = await fetch('/api/activities', {
+      const response = await fetch('/api/sales/activities/quick-log', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           customerId,
-          type: data.type,
+          activityTypeCode: ACTIVITY_TYPE_CODE_MAP[data.type] ?? 'NOTE',
           subject: data.subject,
           notes: data.notes,
           duration: data.duration,
           outcomes: data.outcomes,
-          timestamp: new Date().toISOString(),
+          sampleItems: data.sampleItems,
+          occurredAt: new Date().toISOString(),
         }),
       });
 

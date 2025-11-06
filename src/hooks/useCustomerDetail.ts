@@ -96,6 +96,43 @@ interface CustomerDetailData {
       orderedAt: string | null;
       total: number;
     } | null;
+    samples: Array<{
+      id: string;
+      skuId: string;
+      sampleListItemId: string | null;
+      feedback: string;
+      followUpNeeded: boolean;
+      followUpCompletedAt: string | null;
+      sku: {
+        id: string;
+        code: string;
+        name: string | null;
+        brand: string | null;
+        unitOfMeasure: string | null;
+        size: string | null;
+      } | null;
+    }>;
+  }>;
+  followUps: Array<{
+    id: string;
+    activityId: string;
+    sampleListItemId: string | null;
+    feedback: string;
+    followUpNeeded: boolean;
+    createdAt: string;
+    activity: {
+      id: string;
+      subject: string;
+      occurredAt: string;
+    };
+    sku: {
+      id: string;
+      code: string;
+      name: string | null;
+      brand: string | null;
+      unitOfMeasure: string | null;
+      size: string | null;
+    } | null;
   }>;
   orders: Array<{
     id: string;

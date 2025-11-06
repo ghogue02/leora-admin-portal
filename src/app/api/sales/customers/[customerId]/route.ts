@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { subMonths, startOfYear, differenceInDays } from "date-fns";
+import { activitySampleItemSelect } from "@/app/api/sales/activities/_helpers";
 
 type RouteContext = {
   params: Promise<{
@@ -81,6 +82,7 @@ export async function GET(
         topProductsRaw,
         companyTopProducts,
         invoices,
+        followUpItems,
       ] = await Promise.all([
         // Order history with invoice links (LIMITED to 50 most recent)
         db.order.findMany({
@@ -253,6 +255,45 @@ export async function GET(
           },
           orderBy: {
             dueDate: "asc",
+          },
+        }),
+
+        // Open follow-up sample items
+        db.activitySampleItem.findMany({
+          where: {
+            followUpNeeded: true,
+            followUpCompletedAt: null,
+            activity: {
+              tenantId,
+              customerId,
+            },
+          },
+          include: {
+            activity: {
+              select: {
+                id: true,
+                subject: true,
+                occurredAt: true,
+              },
+            },
+            sku: {
+              select: {
+                id: true,
+                code: true,
+                size: true,
+                unitOfMeasure: true,
+                product: {
+                  select: {
+                    id: true,
+                    name: true,
+                    brand: true,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: {
+            createdAt: "asc",
           },
         }),
       ]);
@@ -543,6 +584,47 @@ export async function GET(
                 id: activity.order.id,
                 orderedAt: activity.order.orderedAt?.toISOString() ?? null,
                 total: Number(activity.order.total ?? 0),
+              }
+            : null,
+          samples: (activity.sampleItems ?? []).map((item) => ({
+            id: item.id,
+            skuId: item.skuId,
+            sampleListItemId: item.sampleListItemId ?? null,
+            feedback: item.feedback ?? "",
+            followUpNeeded: item.followUpNeeded ?? false,
+            followUpCompletedAt: item.followUpCompletedAt?.toISOString() ?? null,
+            sku: item.sku
+              ? {
+                  id: item.sku.id,
+                  code: item.sku.code,
+                  name: item.sku.product?.name ?? null,
+                  brand: item.sku.product?.brand ?? null,
+                  unitOfMeasure: item.sku.unitOfMeasure ?? null,
+                  size: item.sku.size ?? null,
+                }
+              : null,
+          })),
+        })),
+        followUps: followUpItems.map((item) => ({
+          id: item.id,
+          activityId: item.activityId,
+          sampleListItemId: item.sampleListItemId ?? null,
+          feedback: item.feedback ?? "",
+          followUpNeeded: item.followUpNeeded ?? false,
+          createdAt: item.createdAt.toISOString(),
+          activity: {
+            id: item.activity.id,
+            subject: item.activity.subject,
+            occurredAt: item.activity.occurredAt.toISOString(),
+          },
+          sku: item.sku
+            ? {
+                id: item.sku.id,
+                code: item.sku.code,
+                name: item.sku.product?.name ?? null,
+                brand: item.sku.product?.brand ?? null,
+                unitOfMeasure: item.sku.unitOfMeasure ?? null,
+                size: item.sku.size ?? null,
               }
             : null,
         })),

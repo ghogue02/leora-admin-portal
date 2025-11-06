@@ -13,6 +13,22 @@ type Activity = {
   occurredAt: string;
   followUpAt: string | null;
   outcomes: string[];
+  samples: Array<{
+    id: string;
+    skuId: string;
+    sampleListItemId: string | null;
+    feedback: string;
+    followUpNeeded: boolean;
+    followUpCompletedAt: string | null;
+    sku: {
+      id: string;
+      code: string;
+      name: string | null;
+      brand: string | null;
+      unitOfMeasure: string | null;
+      size: string | null;
+    } | null;
+  }>;
   userName: string;
   relatedOrder: {
     id: string;
@@ -144,6 +160,33 @@ export default function ActivityTimeline({ activities, customerId, customerName 
                   {activity.notes && (
                     <div className="mt-3 rounded-md border border-slate-200 bg-white p-3">
                       <p className="text-sm text-gray-900">{activity.notes}</p>
+                    </div>
+                  )}
+
+                  {activity.samples && activity.samples.length > 0 && (
+                    <div className="mt-3 space-y-2">
+                      {activity.samples.map((sample) => (
+                        <div
+                          key={sample.id}
+                          className="rounded-md border border-blue-100 bg-blue-50 p-3 text-xs text-blue-900"
+                        >
+                          <p className="font-semibold">
+                            {sample.sku?.name ?? "Sample"}
+                            {sample.sku?.brand ? ` • ${sample.sku.brand}` : ""}
+                            {sample.sku?.size ? ` • ${sample.sku.size}` : ""}
+                          </p>
+                          {sample.feedback && (
+                            <p className="mt-1 text-[11px] text-blue-800">
+                              Feedback: {sample.feedback}
+                            </p>
+                          )}
+                          {sample.followUpNeeded && !sample.followUpCompletedAt && (
+                            <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                              Follow-up required
+                            </p>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   )}
 

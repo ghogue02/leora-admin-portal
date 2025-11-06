@@ -28,6 +28,22 @@ type Activity = {
     total: number;
     status: OrderStatus;
   } | null;
+  samples: Array<{
+    id: string;
+    skuId: string;
+    sampleListItemId: string | null;
+    feedback: string;
+    followUpNeeded: boolean;
+    followUpCompletedAt: string | null;
+    sku: {
+      id: string;
+      code: string;
+      name: string | null;
+      brand: string | null;
+      unitOfMeasure: string | null;
+      size: string | null;
+    } | null;
+  }>;
 };
 
 type ActivityType = {
@@ -313,6 +329,27 @@ export default function ActivityList({
                         <span className="mt-1 text-xs text-blue-600">
                           Follow-up: {formatDateTime(activity.followUpAt)}
                         </span>
+                      )}
+                      {activity.samples.length > 0 && (
+                        <div className="mt-2 space-y-1">
+                          {activity.samples.map((sample) => (
+                            <div key={sample.id} className="text-xs text-gray-600">
+                              <span className="font-semibold text-gray-700">
+                                {sample.sku?.name ?? "Sample"}
+                              </span>
+                              {sample.feedback && (
+                                <span className="ml-2 text-gray-500">
+                                  “{sample.feedback}”
+                                </span>
+                              )}
+                              {sample.followUpNeeded && !sample.followUpCompletedAt && (
+                                <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                                  Follow-up
+                                </span>
+                              )}
+                            </div>
+                          ))}
+                        </div>
                       )}
                     </div>
                   </td>

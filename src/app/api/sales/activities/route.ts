@@ -1,9 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
+import { z } from "zod";
 import { withSalesSession } from "@/lib/auth/sales";
+import {
+  activitySampleItemSelect,
+  serializeActivityRecord,
+  sampleItemsInputSchema,
+  ensureSampleItemsValid,
+} from "./_helpers";
 
 type SortField = "occurredAt" | "customer" | "type";
 type SortDirection = "asc" | "desc";
+
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -125,6 +133,9 @@ export async function GET(request: NextRequest) {
                 status: true,
               },
             },
+            sampleItems: {
+              select: activitySampleItemSelect,
+            },
           },
           orderBy,
           skip: (page - 1) * pageSize,
@@ -182,26 +193,7 @@ export async function GET(request: NextRequest) {
         : 0;
 
       // Serialize activities
-      const serializedActivities = activities.map((activity) => ({
-        id: activity.id,
-        subject: activity.subject,
-        notes: activity.notes,
-        occurredAt: activity.occurredAt.toISOString(),
-        followUpAt: activity.followUpAt?.toISOString() ?? null,
-        outcome: activity.outcomes?.[0] ?? null,
-        outcomes: activity.outcomes ?? [],
-        createdAt: activity.createdAt.toISOString(),
-        activityType: activity.activityType,
-        customer: activity.customer,
-        order: activity.order
-          ? {
-              id: activity.order.id,
-              orderedAt: activity.order.orderedAt?.toISOString() ?? null,
-              total: Number(activity.order.total ?? 0),
-              status: activity.order.status,
-            }
-          : null,
-      }));
+      const serializedActivities = activities.map(serializeActivityRecord);
 
       return NextResponse.json({
         activities: serializedActivities,
@@ -285,7 +277,18 @@ export async function POST(request: NextRequest) {
         followUpAt,
         outcome,
         outcomes,
+        sampleItems,
       } = body;
+
+      const sampleItemsParse = sampleItemsInputSchema.safeParse(sampleItems ?? []);
+      if (!sampleItemsParse.success) {
+        return NextResponse.json(
+          { error: "Invalid sample items", details: sampleItemsParse.error.format() },
+          { status: 400 }
+        );
+      }
+
+      const sampleItemsInput = sampleItemsParse.data ?? [];
 
       // Validate required fields
       if (!activityTypeCode || !customerId || !subject || !occurredAt) {
@@ -328,6 +331,36 @@ export async function POST(request: NextRequest) {
         );
       }
 
+      try {
+        await ensureSampleItemsValid(db, tenantId, salesRep.id, sampleItemsInput);
+      } catch (error) {
+        if (error instanceof Error) {
+          if (error.message === "INVALID_SKU_SELECTION") {
+            return NextResponse.json(
+              { error: "One or more sample items reference invalid SKUs" },
+              { status: 400 }
+            );
+          }
+          if (error.message === "INVALID_SAMPLE_LIST_ITEM") {
+            return NextResponse.json(
+              { error: "One or more sample list items are invalid or inaccessible" },
+              { status: 400 }
+            );
+          }
+          if (error.message === "SAMPLE_LIST_ITEM_MISMATCH") {
+            return NextResponse.json(
+              { error: "Sample list item does not match selected SKU" },
+              { status: 400 }
+            );
+          }
+        }
+
+        return NextResponse.json(
+          { error: "Unable to validate sample items" },
+          { status: 400 }
+        );
+      }
+
       // Create activity
       const normalizedOutcomes: string[] = Array.isArray(outcomes)
         ? outcomes
@@ -347,7 +380,34 @@ export async function POST(request: NextRequest) {
           followUpAt: followUpAt ? new Date(followUpAt) : null,
           outcomes: { set: normalizedOutcomes },
         },
-        include: {
+      });
+
+      if (sampleItemsInput.length > 0) {
+        await Promise.all(
+          sampleItemsInput.map((item) =>
+            db.activitySampleItem.create({
+              data: {
+                activityId: activity.id,
+                skuId: item.skuId,
+                sampleListItemId: item.sampleListItemId ?? null,
+                feedback: item.feedback ?? null,
+                followUpNeeded: item.followUpNeeded ?? false,
+              },
+            })
+          )
+        );
+      }
+
+      const fullActivity = await db.activity.findUnique({
+        where: { id: activity.id },
+        select: {
+          id: true,
+          subject: true,
+          notes: true,
+          occurredAt: true,
+          followUpAt: true,
+          outcomes: true,
+          createdAt: true,
           activityType: {
             select: {
               id: true,
@@ -362,22 +422,22 @@ export async function POST(request: NextRequest) {
               accountNumber: true,
             },
           },
+          order: {
+            select: {
+              id: true,
+              orderedAt: true,
+              total: true,
+              status: true,
+            },
+          },
+          sampleItems: {
+            select: activitySampleItemSelect,
+          },
         },
       });
 
       return NextResponse.json({
-        activity: {
-          id: activity.id,
-          subject: activity.subject,
-          notes: activity.notes,
-          occurredAt: activity.occurredAt.toISOString(),
-          followUpAt: activity.followUpAt?.toISOString() ?? null,
-          outcome: activity.outcomes?.[0] ?? null,
-          outcomes: activity.outcomes ?? [],
-          createdAt: activity.createdAt.toISOString(),
-          activityType: activity.activityType,
-          customer: activity.customer,
-        },
+        activity: serializeActivityRecord(fullActivity),
       });
     }
   );

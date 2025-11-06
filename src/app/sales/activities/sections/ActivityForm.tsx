@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants/activityOutcomes";
+import SampleItemsSelector from "@/components/activities/SampleItemsSelector";
+import type { ActivitySampleSelection } from "@/types/activities";
 
 type ActivityType = {
   code: string;
@@ -29,6 +31,12 @@ export type ActivityFormData = {
   occurredAt: string;
   followUpAt: string;
   outcomes: ActivityOutcomeValue[];
+  sampleItems: Array<{
+    skuId: string;
+    sampleListItemId?: string;
+    feedback?: string;
+    followUpNeeded?: boolean;
+  }>;
 };
 
 export default function ActivityForm({
@@ -45,9 +53,11 @@ export default function ActivityForm({
     occurredAt: new Date().toISOString().slice(0, 16),
     followUpAt: "",
     outcomes: [],
+    sampleItems: [],
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [sampleSelections, setSampleSelections] = useState<ActivitySampleSelection[]>([]);
 
   // Auto-generate subject when activity type or customer changes
   useEffect(() => {
@@ -84,7 +94,19 @@ export default function ActivityForm({
         throw new Error("Please select a date and time");
       }
 
-      await onSubmit(formData);
+      const selectedSampleItems = sampleSelections
+        .filter((item) => item.selected)
+        .map((item) => ({
+          skuId: item.skuId,
+          sampleListItemId: item.sampleListItemId,
+          feedback: item.feedback?.trim() ? item.feedback.trim() : undefined,
+          followUpNeeded: item.followUp,
+        }));
+
+      await onSubmit({
+        ...formData,
+        sampleItems: selectedSampleItems,
+      });
 
       // Reset form
       setFormData({
@@ -95,7 +117,9 @@ export default function ActivityForm({
         occurredAt: new Date().toISOString().slice(0, 16),
         followUpAt: "",
         outcomes: [],
+        sampleItems: [],
       });
+      setSampleSelections([]);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to log activity");
     } finally {
@@ -254,6 +278,8 @@ export default function ActivityForm({
           )}
         </div>
       </div>
+
+      <SampleItemsSelector value={sampleSelections} onChange={setSampleSelections} />
 
       {/* Error Message */}
       {error && (

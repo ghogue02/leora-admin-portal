@@ -3,6 +3,8 @@
 import React, { useState, useCallback } from 'react';
 import { VoiceRecorder } from './VoiceRecorder';
 import { Phone, Mail, MessageSquare, Calendar, User, FileText, Save, X } from 'lucide-react';
+import SampleItemsSelector from '@/components/activities/SampleItemsSelector';
+import type { ActivitySampleSelection } from '@/types/activities';
 import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from '@/constants/activityOutcomes';
 
 export interface ActivityFormData {
@@ -11,6 +13,12 @@ export interface ActivityFormData {
   subject?: string;
   duration?: number;
   outcomes: ActivityOutcomeValue[];
+  sampleItems: Array<{
+    skuId: string;
+    sampleListItemId?: string;
+    feedback?: string;
+    followUpNeeded?: boolean;
+  }>;
 }
 
 interface VoiceActivityFormProps {
@@ -43,6 +51,7 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
   const [selectedOutcomes, setSelectedOutcomes] = useState<ActivityOutcomeValue[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [useVoice, setUseVoice] = useState(true);
+  const [sampleSelections, setSampleSelections] = useState<ActivitySampleSelection[]>([]);
 
   const handleTranscript = useCallback((transcript: string) => {
     setNotes((prev) => {
@@ -62,12 +71,22 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
     setIsSubmitting(true);
 
     try {
+      const selectedSampleItems = sampleSelections
+        .filter((item) => item.selected)
+        .map((item) => ({
+          skuId: item.skuId,
+          sampleListItemId: item.sampleListItemId,
+          feedback: item.feedback?.trim() ? item.feedback.trim() : undefined,
+          followUpNeeded: item.followUp,
+        }));
+
       const formData: ActivityFormData = {
         type: activityType,
         notes: notes.trim(),
         subject: subject.trim() || undefined,
         duration: duration || undefined,
         outcomes: selectedOutcomes,
+        sampleItems: selectedSampleItems,
       };
 
       await onSubmit(formData);
@@ -77,6 +96,7 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
       setSubject('');
       setDuration(undefined);
       setSelectedOutcomes([]);
+      setSampleSelections([]);
     } catch (error) {
       console.error('Error submitting activity:', error);
       alert('Failed to save activity. Please try again.');
@@ -267,6 +287,14 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
               Clear selections
             </button>
           )}
+        </div>
+
+        {/* Sample Items */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Samples Shared
+          </label>
+          <SampleItemsSelector value={sampleSelections} onChange={setSampleSelections} />
         </div>
 
         {/* Actions */}

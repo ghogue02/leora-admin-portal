@@ -86,6 +86,7 @@ model Tenant {
   sampleFeedbackTemplates SampleFeedbackTemplate[]
   sampleMetrics           SampleMetrics[]
   sampleUsage             SampleUsage[]
+  sampleLists             SampleList[]
   savedQueries            SavedQuery[]
   scheduledReports        ScheduledReport[]
   skus                    Sku[]
@@ -351,6 +352,8 @@ model Sku {
   incentives           SalesIncentive[]
   sampleMetrics        SampleMetrics[]
   sampleUsage          SampleUsage[]
+  sampleListItems      SampleListItem[]
+  activitySampleItems  ActivitySampleItem[]
   product              Product                @relation(fields: [productId], references: [id], onDelete: Cascade)
   tenant               Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   topProducts          TopProduct[]
@@ -728,28 +731,80 @@ model ActivityType {
 }
 
 model Activity {
-  id             String           @id @default(uuid()) @db.Uuid
-  tenantId       String           @db.Uuid
-  activityTypeId String           @db.Uuid
-  userId         String?          @db.Uuid
-  portalUserId   String?          @db.Uuid
-  customerId     String?          @db.Uuid
-  orderId        String?          @db.Uuid
+  id             String               @id @default(uuid()) @db.Uuid
+  tenantId       String               @db.Uuid
+  activityTypeId String               @db.Uuid
+  userId         String?              @db.Uuid
+  portalUserId   String?              @db.Uuid
+  customerId     String?              @db.Uuid
+  orderId        String?              @db.Uuid
   subject        String
   notes          String?
   occurredAt     DateTime
   followUpAt     DateTime?
-  outcomes       String[]          @default([])
-  createdAt      DateTime         @default(now())
-  updatedAt      DateTime         @updatedAt
-  activityType   ActivityType     @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
-  customer       Customer?        @relation(fields: [customerId], references: [id])
-  order          Order?           @relation(fields: [orderId], references: [id])
-  portalUser     PortalUser?      @relation(fields: [portalUserId], references: [id])
-  tenant         Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user           User?            @relation(fields: [userId], references: [id])
+  outcomes       String[]             @default([])
+  createdAt      DateTime             @default(now())
+  updatedAt      DateTime             @updatedAt
+  activityType   ActivityType         @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
+  customer       Customer?            @relation(fields: [customerId], references: [id])
+  order          Order?               @relation(fields: [orderId], references: [id])
+  portalUser     PortalUser?          @relation(fields: [portalUserId], references: [id])
+  tenant         Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user           User?                @relation(fields: [userId], references: [id])
+  sampleItems    ActivitySampleItem[]
 
   @@index([tenantId])
+}
+
+model SampleList {
+  id         String           @id @default(uuid()) @db.Uuid
+  tenantId   String           @db.Uuid
+  salesRepId String           @db.Uuid
+  name       String
+  isActive   Boolean          @default(true)
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+  items      SampleListItem[]
+  tenant     Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salesRep   SalesRep         @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([salesRepId, isActive])
+}
+
+model SampleListItem {
+  id              String               @id @default(uuid()) @db.Uuid
+  sampleListId    String               @db.Uuid
+  skuId           String               @db.Uuid
+  notes           String?
+  defaultFollowUp Boolean              @default(false)
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  sampleList      SampleList           @relation(fields: [sampleListId], references: [id], onDelete: Cascade)
+  sku             Sku                  @relation(fields: [skuId], references: [id])
+  activityItems   ActivitySampleItem[]
+
+  @@unique([sampleListId, skuId])
+  @@index([skuId])
+}
+
+model ActivitySampleItem {
+  id                  String          @id @default(uuid()) @db.Uuid
+  activityId          String          @db.Uuid
+  skuId               String          @db.Uuid
+  sampleListItemId    String?         @db.Uuid
+  feedback            String?
+  followUpNeeded      Boolean         @default(false)
+  followUpCompletedAt DateTime?
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+  activity            Activity        @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  sku                 Sku             @relation(fields: [skuId], references: [id])
+  sampleListItem      SampleListItem? @relation(fields: [sampleListItemId], references: [id])
+
+  @@index([activityId])
+  @@index([skuId])
+  @@index([followUpNeeded, followUpCompletedAt])
 }
 
 model CallPlan {
@@ -959,6 +1014,7 @@ model SalesRep {
   user                    User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
   sampleUsage             SampleUsage[]
   territories             Territory[]
+  sampleLists             SampleList[]
 
   @@unique([tenantId, userId])
   @@index([tenantId])

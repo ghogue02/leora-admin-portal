@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import {
+  activitySampleItemSelect,
+  ensureSampleItemsValid,
+  sampleItemsInputSchema,
+  serializeActivityRecord,
+} from "../_helpers";
 
 export async function POST(request: NextRequest) {
   return withSalesSession(
@@ -35,7 +41,18 @@ export async function POST(request: NextRequest) {
         followUpAt,
         outcome,
         outcomes,
+        sampleItems,
       } = body;
+
+      const sampleItemsParse = sampleItemsInputSchema.safeParse(sampleItems ?? []);
+      if (!sampleItemsParse.success) {
+        return NextResponse.json(
+          { error: "Invalid sample items", details: sampleItemsParse.error.format() },
+          { status: 400 }
+        );
+      }
+
+      const sampleItemsInput = sampleItemsParse.data ?? [];
 
       // Validate required fields
       if (!activityTypeCode || !customerId || !subject || !occurredAt) {
@@ -75,6 +92,36 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(
           { error: "Customer not found or not assigned to you" },
           { status: 404 }
+        );
+      }
+
+      try {
+        await ensureSampleItemsValid(db, tenantId, salesRep.id, sampleItemsInput);
+      } catch (error) {
+        if (error instanceof Error) {
+          if (error.message === "INVALID_SKU_SELECTION") {
+            return NextResponse.json(
+              { error: "One or more sample items reference invalid SKUs" },
+              { status: 400 }
+            );
+          }
+          if (error.message === "INVALID_SAMPLE_LIST_ITEM") {
+            return NextResponse.json(
+              { error: "One or more sample list items are invalid or inaccessible" },
+              { status: 400 }
+            );
+          }
+          if (error.message === "SAMPLE_LIST_ITEM_MISMATCH") {
+            return NextResponse.json(
+              { error: "Sample list item does not match selected SKU" },
+              { status: 400 }
+            );
+          }
+        }
+
+        return NextResponse.json(
+          { error: "Unable to validate sample items" },
+          { status: 400 }
         );
       }
 
@@ -135,7 +182,34 @@ export async function POST(request: NextRequest) {
           followUpAt: followUpAt ? new Date(followUpAt) : null,
           outcomes: { set: normalizedOutcomes },
         },
-        include: {
+      });
+
+      if (sampleItemsInput.length > 0) {
+        await Promise.all(
+          sampleItemsInput.map((item) =>
+            db.activitySampleItem.create({
+              data: {
+                activityId: activity.id,
+                skuId: item.skuId,
+                sampleListItemId: item.sampleListItemId ?? null,
+                feedback: item.feedback ?? null,
+                followUpNeeded: item.followUpNeeded ?? false,
+              },
+            })
+          )
+        );
+      }
+
+      const fullActivity = await db.activity.findUnique({
+        where: { id: activity.id },
+        select: {
+          id: true,
+          subject: true,
+          notes: true,
+          occurredAt: true,
+          followUpAt: true,
+          outcomes: true,
+          createdAt: true,
           activityType: {
             select: {
               id: true,
@@ -164,37 +238,14 @@ export async function POST(request: NextRequest) {
               sentAt: true,
             },
           },
+          sampleItems: {
+            select: activitySampleItemSelect,
+          },
         },
       });
 
       return NextResponse.json({
-        activity: {
-          id: activity.id,
-          subject: activity.subject,
-          notes: activity.notes,
-          occurredAt: activity.occurredAt.toISOString(),
-          followUpAt: activity.followUpAt?.toISOString() ?? null,
-          outcome: activity.outcomes?.[0] ?? null,
-          outcomes: activity.outcomes ?? [],
-          outcomes: activity.outcomes ?? [],
-          createdAt: activity.createdAt.toISOString(),
-          activityType: activity.activityType,
-          customer: activity.customer,
-          order: activity.order
-            ? {
-                id: activity.order.id,
-                orderedAt: activity.order.orderedAt?.toISOString() ?? null,
-                total: Number(activity.order.total ?? 0),
-                status: activity.order.status,
-              }
-            : null,
-          sample: activity.sample
-            ? {
-                id: activity.sample.id,
-                sentAt: activity.sample.sentAt?.toISOString() ?? null,
-              }
-            : null,
-        },
+        activity: serializeActivityRecord(fullActivity),
       });
     }
   );

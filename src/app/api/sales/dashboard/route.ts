@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
+import { activitySampleItemSelect } from "@/app/api/sales/activities/_helpers";
 import { startOfWeek, endOfWeek, subWeeks, addDays, startOfYear, startOfMonth, subMonths, endOfMonth } from "date-fns";
 
 export async function GET(request: NextRequest) {
@@ -297,6 +298,9 @@ export async function GET(request: NextRequest) {
                 name: true,
               },
             },
+            sampleItems: {
+              select: activitySampleItemSelect,
+            },
           },
           orderBy: {
             occurredAt: "desc",
@@ -523,6 +527,24 @@ export async function GET(request: NextRequest) {
               : null,
             outcome: activity.outcomes?.[0] ?? null,
             outcomes: activity.outcomes ?? [],
+            samples: (activity.sampleItems ?? []).map((item) => ({
+              id: item.id,
+              skuId: item.skuId,
+              sampleListItemId: item.sampleListItemId ?? null,
+              feedback: item.feedback ?? "",
+              followUpNeeded: item.followUpNeeded ?? false,
+              followUpCompletedAt: item.followUpCompletedAt?.toISOString() ?? null,
+              sku: item.sku
+                ? {
+                    id: item.sku.id,
+                    code: item.sku.code,
+                    name: item.sku.product?.name ?? null,
+                    brand: item.sku.product?.brand ?? null,
+                    unitOfMeasure: item.sku.unitOfMeasure ?? null,
+                    size: item.sku.size ?? null,
+                  }
+                : null,
+            })),
           })),
           summary: activitySummary,
         },
