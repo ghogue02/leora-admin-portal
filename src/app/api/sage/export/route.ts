@@ -9,7 +9,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
-import { exportToSage, SageExportResult } from '../../../../scripts/export-to-sage';
+import { exportToSage, SageExportResult } from '@/scripts/export-to-sage';
 import { parse, differenceInDays } from 'date-fns';
 import { formatUTCDate } from '@/lib/dates';
 

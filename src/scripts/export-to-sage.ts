@@ -22,8 +22,9 @@
  */
 
 import { PrismaClient } from '@prisma/client';
-import { parse, format } from 'date-fns';
-import { normalizePaymentTerms, VALID_PAYMENT_TERMS } from '../lib/sage/payment-terms';
+import { parse } from 'date-fns';
+import { formatDateForSAGE, parseUTCDate, formatUTCDate } from '@/lib/dates';
+import { normalizePaymentTerms, VALID_PAYMENT_TERMS } from '@/lib/sage/payment-terms';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -77,7 +78,7 @@ interface SageExportRow {
   accountsReceivableAccount: number;      // Static: 11000
   taxType: number;                        // Static: 1
   glAccount: number;                      // Static: 40000
-  creditMemo: boolean;                    // TRUE if row represents a credit memo/return
+  creditMemo: boolean;                    // Static: FALSE
   itemId: string;                         // Same as UPC/SKU
   numberOfDistributions: number;          // Line items per invoice
 }
@@ -199,6 +200,13 @@ function calculateDueDate(invoiceDate: Date, paymentTerms: string | null): Date 
 function validateOrder(order: OrderWithRelations): ValidationError[] {
   const errors: ValidationError[] = [];
 
+  // Skip orders with no non-sample line items (valid scenario)
+  const nonSampleLines = order.lines.filter(line => !line.isSample);
+  if (nonSampleLines.length === 0) {
+    // Order has only samples or is empty - will be skipped during export
+    return errors; // Return empty errors (not an error)
+  }
+
   // Check if invoice exists
   if (!order.invoices || order.invoices.length === 0) {
     errors.push({
@@ -303,7 +311,7 @@ function validateOrder(order: OrderWithRelations): ValidationError[] {
     }
 
     // Validate amounts
-    if (typeof line.quantity !== 'number' || Number.isNaN(line.quantity) || line.quantity === 0) {
+    if (line.quantity <= 0) {
       errors.push({
         type: 'INVALID_AMOUNT',
         message: `Invalid quantity: ${line.quantity}`,
@@ -331,15 +339,8 @@ function validateOrder(order: OrderWithRelations): ValidationError[] {
 // CSV FORMATTING
 // ============================================================================
 
-/**
- * Format date for SAGE CSV (MM/DD/YYYY) using UTC components to avoid timezone drift.
- */
-function formatDateForSage(date: Date): string {
-  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
-  const day = String(date.getUTCDate()).padStart(2, '0');
-  const year = date.getUTCFullYear();
-  return `${month}/${day}/${year}`;
-}
+// Date formatting now handled by centralized /lib/dates.ts utility
+// Using formatDateForSAGE() which formats in UTC to prevent timezone shifts
 
 /**
  * Format amount as negative (SAGE accounting convention)
@@ -385,28 +386,24 @@ function orderToSageRows(
     }
 
     const unitPrice = Number(line.unitPrice);
-    const rawQuantity = Number(line.quantity);
-    const quantity = Math.abs(rawQuantity);
-    const isCreditMemo = rawQuantity < 0;
-    const lineTotal = quantity * unitPrice;
-    const amount = isCreditMemo ? Math.abs(lineTotal) : -Math.abs(lineTotal);
+    const amount = formatAmount(line.quantity, unitPrice);
 
     rows.push({
-      date: formatDateForSage(invoiceDate),
+      date: formatDateForSAGE(invoiceDate),
       customerIdSage: order.customer.name,
-      dueDate: formatDateForSage(dueDate),
+      dueDate: formatDateForSAGE(dueDate),
       invoiceNumber: invoiceNumber,
       customerPO: poNumber,
       salesRepId: salesRepName,
       upcSku: line.sku.code,
       description: line.sku.product.name,
-      quantity,
+      quantity: line.quantity,
       unitPrice: unitPrice,
-      amount,
+      amount: amount,
       accountsReceivableAccount: 11000,
       taxType: 1,
       glAccount: 40000,
-      creditMemo: isCreditMemo,
+      creditMemo: false,
       itemId: line.sku.code,
       numberOfDistributions: numberOfDistributions,
     });
@@ -534,7 +531,7 @@ async function exportToSage(
     });
 
     console.log(`Created export record: ${exportRecord.id}`);
-    console.log(`Date range: ${formatDateForSage(startDate)} - ${formatDateForSage(endDate)}`);
+    console.log(`Date range: ${formatDateForSAGE(startDate)} - ${formatDateForSAGE(endDate)}`);
 
     // ========================================================================
     // STEP 2: Query orders with invoices in date range
@@ -718,8 +715,8 @@ async function exportToSage(
 
     const csvContent = rowsToCSV(allRows);
 
-    // Generate filename: SAGE_Export_YYYY-MM-DD.csv
-    const dateStr = format(startDate, 'yyyy-MM-dd');
+    // Generate filename: SAGE_Export_YYYY-MM-DD.csv (using UTC to prevent timezone shift)
+    const dateStr = formatUTCDate(startDate);
     const fileName = `SAGE_Export_${dateStr}.csv`;
 
     // ========================================================================
@@ -896,7 +893,7 @@ export {
   validateOrder,
   orderToSageRows,
   rowsToCSV,
-  formatDateForSage,
+  formatDateForSAGE,
   formatAmount,
 };
 
