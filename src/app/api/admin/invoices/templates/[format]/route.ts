@@ -12,7 +12,7 @@ const SUPPORTED_FORMATS: InvoiceFormatType[] = [
   'VA_ABC_TAX_EXEMPT',
 ];
 
-function parseFormat(value: string | undefined): InvoiceFormatType | null {
+export function parseFormat(value: string | undefined): InvoiceFormatType | null {
   if (!value) {
     return null;
   }
