@@ -34,14 +34,13 @@ interface RouteStop {
   order: {
     id: string;
     customer: {
-      businessName: string;
-      contactName?: string;
+      name: string; // Customer name
       phone?: string;
       email?: string;
-      shippingAddress?: string;
-      shippingCity?: string;
-      shippingState?: string;
-      shippingZip?: string;
+      street1?: string; // Shipping address
+      city?: string;
+      state?: string;
+      postalCode?: string;
     };
     lines: Array<{
       quantity: number;
@@ -261,18 +260,18 @@ export default function DeliveryTrackingPage() {
                           </div>
 
                           <div className="font-semibold text-lg mb-1">
-                            {stop.order.customer.businessName}
+                            {stop.order.customer.name}
                           </div>
 
                           <div className="text-sm text-gray-600 space-y-1">
-                            {stop.order.customer.shippingAddress && (
+                            {stop.order.customer.street1 && (
                               <div className="flex items-start gap-2">
                                 <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
                                 <span>
-                                  {stop.order.customer.shippingAddress},{' '}
-                                  {stop.order.customer.shippingCity},{' '}
-                                  {stop.order.customer.shippingState}{' '}
-                                  {stop.order.customer.shippingZip}
+                                  {stop.order.customer.street1},{' '}
+                                  {stop.order.customer.city},{' '}
+                                  {stop.order.customer.state}{' '}
+                                  {stop.order.customer.postalCode}
                                 </span>
                               </div>
                             )}

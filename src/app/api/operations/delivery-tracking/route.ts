@@ -45,14 +45,13 @@ export async function GET(request: NextRequest) {
                 customer: {
                   select: {
                     id: true,
-                    businessName: true,
-                    contactName: true,
+                    name: true, // Customer name field
                     phone: true,
                     email: true,
-                    shippingAddress: true,
-                    shippingCity: true,
-                    shippingState: true,
-                    shippingZip: true,
+                    street1: true, // Shipping address field
+                    city: true,
+                    state: true,
+                    postalCode: true,
                   },
                 },
                 lines: {
