@@ -8,6 +8,7 @@ type Recommendation = {
   category: string | null;
   rank: number;
   calculationMode: string;
+  lastOrderedAt?: string | null;
 };
 
 type ProductRecommendationsProps = {
@@ -111,8 +112,8 @@ export default function ProductRecommendations({
         <div className="mt-4 rounded-md border border-blue-200 bg-blue-50 p-3 text-sm text-blue-900">
           <p className="font-semibold">Sales Tip</p>
           <p className="mt-1 text-xs">
-            These are the company's top-performing wines that this customer
-            hasn't tried yet. Consider offering samples or highlighting these
+            These are the company’s top-performing wines that this customer
+            hasn’t tried yet. Consider offering samples or highlighting these
             during your next visit.
           </p>
         </div>

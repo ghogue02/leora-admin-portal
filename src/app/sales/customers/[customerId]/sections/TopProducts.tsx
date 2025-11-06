@@ -9,6 +9,7 @@ type TopProduct = {
   totalCases: number;
   revenue: number;
   orderCount: number;
+  lastOrderedAt: string | null;
 };
 
 type TopProductsProps = {
@@ -27,6 +28,25 @@ export default function TopProducts({ topProducts }: TopProductsProps) {
       currency: "USD",
       maximumFractionDigits: 0,
     }).format(value);
+
+  const formatDate = (isoDate: string | null) => {
+    if (!isoDate) {
+      return "—";
+    }
+    try {
+      const date = new Date(isoDate);
+      if (Number.isNaN(date.getTime())) {
+        return "—";
+      }
+      return new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }).format(date);
+    } catch {
+      return "—";
+    }
+  };
 
   const productsToShow =
     viewMode === "revenue" ? topProducts.byRevenue : topProducts.byCases;
@@ -89,6 +109,9 @@ export default function TopProducts({ topProducts }: TopProductsProps) {
                 <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-600">
                   Orders
                 </th>
+                <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-600">
+                  Last Ordered
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
@@ -115,6 +138,9 @@ export default function TopProducts({ topProducts }: TopProductsProps) {
                   </td>
                   <td className="px-4 py-3 text-right text-sm text-gray-600">
                     {product.orderCount}
+                  </td>
+                  <td className="px-4 py-3 text-right text-sm text-gray-600">
+                    {formatDate(product.lastOrderedAt)}
                   </td>
                 </tr>
               ))}

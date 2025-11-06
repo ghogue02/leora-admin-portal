@@ -47,6 +47,7 @@ interface CustomerDetailData {
       totalCases: number;
       revenue: number;
       orderCount: number;
+      lastOrderedAt: string | null;
     }>;
     byCases: Array<{
       skuId: string;
@@ -56,6 +57,7 @@ interface CustomerDetailData {
       totalCases: number;
       revenue: number;
       orderCount: number;
+      lastOrderedAt: string | null;
     }>;
   };
   recommendations: Array<{
@@ -66,6 +68,7 @@ interface CustomerDetailData {
     category: string | null;
     rank: number;
     calculationMode: string;
+    lastOrderedAt: string | null;
   }>;
   samples: Array<{
     id: string;

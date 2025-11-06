@@ -108,6 +108,7 @@ export async function GET(
                 unitPrice: true,
                 sku: {
                   select: {
+                    id: true,
                     code: true,
                     product: {
                       select: {
@@ -205,12 +206,20 @@ export async function GET(
           totalCases: bigint;
           revenue: number;
           orderCount: bigint;
+          lastOrderedAt: Date | null;
         }>>`
           SELECT
             ol."skuId",
             SUM(ol.quantity)::bigint as "totalCases",
             SUM(ol.quantity * ol."unitPrice")::decimal as revenue,
-            COUNT(DISTINCT ol."orderId")::bigint as "orderCount"
+            COUNT(DISTINCT ol."orderId")::bigint as "orderCount",
+            MAX(
+              COALESCE(
+                o."deliveredAt",
+                o."orderedAt",
+                o."createdAt"
+              )
+            ) AS "lastOrderedAt"
           FROM "OrderLine" ol
           INNER JOIN "Order" o ON o.id = ol."orderId"
           WHERE o."customerId" = ${customerId}::uuid
@@ -223,23 +232,46 @@ export async function GET(
           LIMIT 10
         `,
 
-        // Company-wide top 20 products (most recent calculation)
-        db.topProduct.findMany({
-          where: {
-            tenantId,
-          },
-          orderBy: {
-            calculatedAt: "desc",
-          },
-          take: 20,
-          include: {
-            sku: {
-              include: {
-                product: true,
-              },
-            },
-          },
-        }),
+        // Company-wide top 20 products (last 6 months, calculated on demand)
+        db.$queryRaw<Array<{
+          skuId: string;
+          skuCode: string;
+          productName: string;
+          brand: string | null;
+          category: string | null;
+          totalCases: bigint;
+          revenue: number;
+          orderCount: bigint;
+          lastOrderedAt: Date | null;
+        }>>`
+          SELECT
+            s.id AS "skuId",
+            s.code AS "skuCode",
+            p.name AS "productName",
+            p.brand AS "brand",
+            p.category AS "category",
+            SUM(ol.quantity)::bigint AS "totalCases",
+            SUM(ol.quantity * ol."unitPrice")::decimal AS revenue,
+            COUNT(DISTINCT ol."orderId")::bigint AS "orderCount",
+            MAX(
+              COALESCE(
+                o."deliveredAt",
+                o."orderedAt",
+                o."createdAt"
+              )
+            ) AS "lastOrderedAt"
+          FROM "OrderLine" ol
+          INNER JOIN "Order" o ON o.id = ol."orderId"
+          INNER JOIN "Sku" s ON s.id = ol."skuId"
+          INNER JOIN "Product" p ON p.id = s."productId"
+          WHERE o."tenantId" = ${tenantId}::uuid
+            AND o.status != 'CANCELLED'
+            AND COALESCE(o."deliveredAt", o."orderedAt", o."createdAt") >= ${sixMonthsAgo}
+            AND ol."isSample" = false
+          GROUP BY s.id, s.code, p.name, p.brand, p.category
+          ORDER BY revenue DESC
+          LIMIT 20
+        `,
 
         // Invoices for account holds/balances
         db.invoice.findMany({
@@ -366,6 +398,9 @@ export async function GET(
           totalCases: Number(tp.totalCases),
           revenue: Number(tp.revenue),
           orderCount: Number(tp.orderCount),
+          lastOrderedAt: tp.lastOrderedAt
+            ? new Date(tp.lastOrderedAt).toISOString()
+            : null,
         };
       });
 
@@ -378,18 +413,32 @@ export async function GET(
       );
 
       // Product gap analysis - Top 20 company wines not yet ordered
-      const orderedSkuIds = new Set(topProductsRaw.map((tp) => tp.skuId));
-      const recommendations = companyTopProducts
-        .filter((tp) => !orderedSkuIds.has(tp.skuId))
-        .map((tp) => ({
-          skuId: tp.skuId,
-          skuCode: tp.sku.code,
-          productName: tp.sku.product.name,
-          brand: tp.sku.product.brand,
-          category: tp.sku.product.category,
-          rank: tp.rank,
-          calculationMode: tp.rankingType,
-        }));
+      const customerOrderedSkuIds = new Set<string>();
+      orders.forEach((order) => {
+        order.lines.forEach((line) => {
+          const skuId = line.sku?.id;
+          if (skuId) {
+            customerOrderedSkuIds.add(skuId);
+          }
+        });
+      });
+
+      const recommendationsRaw = companyTopProducts.filter(
+        (tp) => !customerOrderedSkuIds.has(tp.skuId)
+      );
+
+      const recommendations = recommendationsRaw.map((tp, index) => ({
+        skuId: tp.skuId,
+        skuCode: tp.skuCode,
+        productName: tp.productName,
+        brand: tp.brand,
+        category: tp.category,
+        rank: index + 1,
+        calculationMode: "REVENUE",
+        lastOrderedAt: tp.lastOrderedAt
+          ? new Date(tp.lastOrderedAt).toISOString()
+          : null,
+      }));
 
       // Calculate days since last order
       const daysSinceLastOrder = customer.lastOrderDate
