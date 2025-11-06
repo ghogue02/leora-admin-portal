@@ -5,7 +5,7 @@
  *
  * Dropdown for selecting warehouse location (Travis's HAL requirement)
  * - Baltimore
- * - Warrington
+ * - Warrenton
  * - Storage
  * - (Future: dynamic from database)
  */
@@ -33,7 +33,7 @@ export function WarehouseSelector({
 }: Props) {
   const [warehouses, setWarehouses] = useState<WarehouseOption[]>([
     { value: 'Baltimore', label: 'Baltimore' },
-    { value: 'Warrington', label: 'Warrington' },
+    { value: 'Warrenton', label: 'Warrenton' },
     { value: 'Storage', label: 'Storage' },
   ]);
 

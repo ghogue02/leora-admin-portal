@@ -13,7 +13,7 @@ describe('WarehouseSelector', () => {
 
     // Check for updated warehouse names
     expect(screen.getByText('Baltimore')).toBeInTheDocument();
-    expect(screen.getByText('Warrington')).toBeInTheDocument();
+    expect(screen.getByText('Warrenton')).toBeInTheDocument();
     expect(screen.getByText('Storage')).toBeInTheDocument();
   });
 
@@ -22,7 +22,7 @@ describe('WarehouseSelector', () => {
     render(<WarehouseSelector value="" onChange={mockOnChange} />);
 
     // Verify old names are not present
-    expect(screen.queryByText('Warrenton')).not.toBeInTheDocument();
+    expect(screen.queryByText('Warrington')).not.toBeInTheDocument();
     expect(screen.queryByText('Main Warehouse')).not.toBeInTheDocument();
   });
 
@@ -33,9 +33,9 @@ describe('WarehouseSelector', () => {
     );
 
     const select = container.querySelector('select') as HTMLSelectElement;
-    fireEvent.change(select, { target: { value: 'Warrington' } });
+    fireEvent.change(select, { target: { value: 'Warrenton' } });
 
-    expect(mockOnChange).toHaveBeenCalledWith('Warrington');
+    expect(mockOnChange).toHaveBeenCalledWith('Warrenton');
   });
 
   it('should display selected warehouse', () => {
