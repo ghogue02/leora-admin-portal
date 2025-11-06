@@ -174,6 +174,15 @@ interface CustomerDetailData {
     daysSinceLastOrder: number | null;
     isActivePlacement: boolean;
   }>;
+  tasks: Array<{
+    id: string;
+    title: string;
+    description: string | null;
+    dueAt: string | null;
+    status: string;
+    priority: string | null;
+    createdAt: string;
+  }>;
 }
 
 async function fetchCustomerDetail(

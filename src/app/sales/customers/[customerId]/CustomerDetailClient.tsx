@@ -18,6 +18,7 @@ import CustomerContextSetter from "./sections/CustomerContextSetter";
 import OrderDeepDive from "./sections/OrderDeepDive";
 import CustomerInsights from "./sections/CustomerInsights";
 import CustomerTagManager from "./sections/CustomerTagManager";
+import CustomerTasks from "./sections/CustomerTasks";
 import BtgPlacements from "./sections/BtgPlacements";
 import SampleFollowUpList from "./sections/SampleFollowUpList";
 import {
@@ -139,6 +140,9 @@ export default function CustomerDetailClient({
 
       {/* Customer Header */}
       <CustomerHeader customer={data.customer} />
+
+      {/* Customer To-Dos */}
+      <CustomerTasks customerId={customerId} tasks={data.tasks} />
 
       {/* Recent Orders - Moved to TOP (position 2) */}
       <OrderHistory orders={data.orders} customerId={customerId} isCompact={true} />

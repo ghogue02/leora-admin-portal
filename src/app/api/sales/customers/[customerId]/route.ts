@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { subMonths, startOfYear, differenceInDays } from "date-fns";
+import { TaskStatus } from "@prisma/client";
 import { activitySampleItemSelect } from "@/app/api/sales/activities/_helpers";
 
 type RouteContext = {
@@ -83,6 +84,7 @@ export async function GET(
         companyTopProducts,
         invoices,
         followUpItems,
+        tasks,
       ] = await Promise.all([
         // Order history with invoice links (LIMITED to 50 most recent)
         db.order.findMany({
@@ -158,6 +160,9 @@ export async function GET(
                 orderedAt: true,
                 total: true,
               },
+            },
+            sampleItems: {
+              select: activitySampleItemSelect,
             },
           },
           orderBy: {
@@ -295,6 +300,31 @@ export async function GET(
           orderBy: {
             createdAt: "asc",
           },
+        }),
+        db.task.findMany({
+          where: {
+            tenantId,
+            customerId,
+            userId: session.user.id,
+            status: TaskStatus.PENDING,
+          },
+          select: {
+            id: true,
+            title: true,
+            description: true,
+            dueAt: true,
+            status: true,
+            priority: true,
+            createdAt: true,
+          },
+          orderBy: [
+            {
+              dueAt: "asc",
+            },
+            {
+              createdAt: "asc",
+            },
+          ],
         }),
       ]);
 
@@ -673,6 +703,26 @@ export async function GET(
             : 0,
         })),
         btgPlacements,
+        tasks: tasks
+          .map((task) => ({
+            id: task.id,
+            title: task.title,
+            description: task.description ?? null,
+            dueAt: task.dueAt?.toISOString() ?? null,
+            status: task.status,
+            priority: task.priority ?? null,
+            createdAt: task.createdAt.toISOString(),
+          }))
+          .sort((a, b) => {
+            const dueA = a.dueAt ? new Date(a.dueAt).getTime() : Number.MAX_SAFE_INTEGER;
+            const dueB = b.dueAt ? new Date(b.dueAt).getTime() : Number.MAX_SAFE_INTEGER;
+
+            if (dueA !== dueB) {
+              return dueA - dueB;
+            }
+
+            return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+          }),
       });
     }
   );
@@ -733,7 +783,10 @@ export async function PATCH(
       }
 
       // Prepare update data
-      const updateData: any = {};
+      const updateData: Partial<{
+        isPermanentlyClosed: boolean;
+        closedReason: string | null;
+      }> = {};
 
       if (typeof body.isPermanentlyClosed === "boolean") {
         updateData.isPermanentlyClosed = body.isPermanentlyClosed;
