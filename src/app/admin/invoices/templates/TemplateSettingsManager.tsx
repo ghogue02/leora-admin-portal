@@ -557,41 +557,24 @@ export function TemplateSettingsManager() {
           </CardDescription>
         </div>
 
-        <div className="flex flex-col gap-2 md:flex-row md:items-center">
-          <div className="min-w-[220px]">
-            <Label className="text-xs uppercase text-muted-foreground">Invoice format</Label>
-            <Select value={selectedFormat} onValueChange={(value) => setSelectedFormat(value as InvoiceFormat)}>
-              <SelectTrigger className="mt-1">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {formatOptions.map(([value, label]) => (
-                  <SelectItem key={value} value={value}>
-                    {label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleGenerateTestPdf}
-            disabled={testPdfLoading}
-          >
-            {testPdfLoading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Preparing…
-              </>
-            ) : (
-              <>
-                <FileDown className="mr-2 h-4 w-4" />
-                Test PDF
-              </>
-            )}
-          </Button>
-        </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleGenerateTestPdf}
+          disabled={testPdfLoading}
+        >
+          {testPdfLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Preparing…
+            </>
+          ) : (
+            <>
+              <FileDown className="mr-2 h-4 w-4" />
+              Test PDF
+            </>
+          )}
+        </Button>
       </CardHeader>
 
       <CardContent className="grid gap-8">
@@ -602,6 +585,25 @@ export function TemplateSettingsManager() {
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-2 md:col-span-2">
+              <Label>Invoice format</Label>
+              <Select value={selectedFormat} onValueChange={(value) => setSelectedFormat(value as InvoiceFormat)}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {formatOptions.map(([value, label]) => (
+                    <SelectItem key={value} value={value}>
+                      {label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground">
+                Choose the invoice format first, then adjust the base template and layout settings below.
+              </p>
+            </div>
+
             <div className="space-y-2">
               <Label>Base template</Label>
               <Select
