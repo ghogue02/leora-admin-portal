@@ -3,7 +3,6 @@
 import { format } from "date-fns";
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 type Order = {
   id: string;
@@ -42,7 +41,6 @@ type OrderHistoryProps = {
 };
 
 export default function OrderHistory({ orders, customerId, isCompact = false }: OrderHistoryProps) {
-  const router = useRouter();
   const [expandedOrderId, setExpandedOrderId] = useState<string | null>(null);
 
   // Show only last 5 orders in compact mode
@@ -89,10 +87,6 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
     setExpandedOrderId(expandedOrderId === orderId ? null : orderId);
   };
 
-  const handleRowClick = (orderId: string) => {
-    router.push(`/sales/orders/${orderId}`);
-  };
-
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-start justify-between">
@@ -121,14 +115,16 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
               className="rounded-lg border border-slate-200 bg-slate-50"
             >
               <div
-                onClick={() => isCompact ? handleRowClick(order.id) : toggleOrder(order.id)}
+                onClick={() => toggleOrder(order.id)}
                 className="flex w-full items-center justify-between p-4 text-left transition hover:bg-slate-100 cursor-pointer"
                 role="button"
                 tabIndex={0}
+                aria-expanded={expandedOrderId === order.id}
+                aria-controls={`order-${order.id}-details`}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    isCompact ? handleRowClick(order.id) : toggleOrder(order.id);
+                    toggleOrder(order.id);
                   }
                 }}
               >
@@ -198,8 +194,11 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
                 </div>
               </div>
 
-              {!isCompact && expandedOrderId === order.id && (
-                <div className="border-t border-slate-200 bg-white p-4">
+              {expandedOrderId === order.id && (
+                <div
+                  id={`order-${order.id}-details`}
+                  className="border-t border-slate-200 bg-white p-4"
+                >
                   {/* Order Line Items */}
                   {order.lines && order.lines.length > 0 && (
                     <div className="mb-4">
@@ -210,23 +209,31 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
                         {order.lines.map((line) => (
                           <div
                             key={line.id}
-                            className="flex items-center justify-between rounded-md bg-slate-50 px-3 py-2 text-sm"
+                            className="flex flex-wrap items-center justify-between gap-3 rounded-md bg-slate-50 px-3 py-2 text-sm"
                           >
                             <div className="flex-1">
-                              <span className="font-medium text-gray-900">
-                                {line.sku?.product?.name || 'Unknown Product'}
-                              </span>
-                              {line.sku?.product?.brand && (
-                                <span className="ml-2 text-xs text-gray-500">
-                                  {line.sku.product.brand}
+                              <div className="flex flex-col">
+                                <span className="font-medium text-gray-900">
+                                  {line.sku?.product?.name || 'Unknown Product'}
                                 </span>
-                              )}
+                                <div className="text-xs text-gray-500">
+                                  {line.sku?.product?.brand && (
+                                    <span className="mr-2">{line.sku.product.brand}</span>
+                                  )}
+                                  <span className="font-mono">
+                                    SKU: {line.sku?.code ?? 'N/A'}
+                                  </span>
+                                </div>
+                              </div>
                             </div>
-                            <div className="flex items-center gap-4 text-right">
-                              <span className="text-gray-600">
+                            <div className="flex flex-wrap items-center gap-4 text-right">
+                              <span className="text-gray-600 whitespace-nowrap">
                                 Qty: {line.quantity}
                               </span>
-                              <span className="font-semibold text-gray-900 min-w-[80px]">
+                              <span className="text-gray-600 whitespace-nowrap">
+                                Price: {formatCurrency(line.unitPrice)}
+                              </span>
+                              <span className="font-semibold text-gray-900 min-w-[90px] whitespace-nowrap">
                                 {formatCurrency(line.quantity * line.unitPrice)}
                               </span>
                             </div>
