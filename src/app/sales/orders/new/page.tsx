@@ -11,7 +11,7 @@
  * 5. Submit order (goes to PENDING or DRAFT if needs approval)
  */
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { Suspense, useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { showSuccess, showError, showWarning, notifications } from '@/lib/toast-helpers';
@@ -66,7 +66,7 @@ type OrderItem = {
   usageType: OrderUsageCode | null;
 };
 
-export default function NewOrderPage() {
+function NewOrderPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -1015,5 +1015,24 @@ export default function NewOrderPage() {
         />
       )}
     </div>
+  );
+}
+
+export default function NewOrderPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="mx-auto flex max-w-7xl flex-col gap-6 pb-12">
+          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 className="text-lg font-semibold text-gray-900">Loading order form...</h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Preparing customer data and pricing context. Please hold on a moment.
+            </p>
+          </section>
+        </main>
+      }
+    >
+      <NewOrderPageContent />
+    </Suspense>
   );
 }
