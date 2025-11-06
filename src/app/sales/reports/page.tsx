@@ -26,6 +26,7 @@ interface ApiResponse {
     deliveryMethod: string | null;
     startDate: string | null;
     endDate: string | null;
+    usageFilter?: string | null;
   };
   count: number;
 }
@@ -35,6 +36,7 @@ export default function SalesReportsPage() {
     deliveryMethod: null,
     startDate: null,
     endDate: null,
+    usageFilter: null,
   });
 
   const [invoices, setInvoices] = useState<Invoice[]>([]);
@@ -57,6 +59,9 @@ export default function SalesReportsPage() {
       }
       if (filters.endDate) {
         params.append('endDate', filters.endDate);
+      }
+      if (filters.usageFilter) {
+        params.append('usageFilter', filters.usageFilter);
       }
 
       const response = await fetch(`/api/sales/reports/delivery?${params}`);
@@ -87,6 +92,7 @@ export default function SalesReportsPage() {
       deliveryMethod: null,
       startDate: null,
       endDate: null,
+      usageFilter: null,
     });
     setInvoices([]);
     setHasSearched(false);

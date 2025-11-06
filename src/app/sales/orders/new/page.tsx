@@ -28,6 +28,7 @@ import { FormProgress } from '@/components/orders/FormProgress';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
 import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
+import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 
 type Customer = {
   id: string;
@@ -62,6 +63,7 @@ type OrderItem = {
   pricing: PricingSelection;
   priceLists: PriceListSummary[];
   priceOverride?: PriceOverride;
+  usageType: OrderUsageCode | null;
 };
 
 export default function NewOrderPage() {
@@ -102,6 +104,21 @@ export default function NewOrderPage() {
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [createdOrderData, setCreatedOrderData] = useState<{orderId: string; orderNumber: string; total: number; requiresApproval: boolean} | null>(null);
   const [canOverridePrices, setCanOverridePrices] = useState(false);
+  const handleUsageSelect = useCallback((rowIndex: number, value: OrderUsageCode) => {
+    setOrderItems(prev => {
+      const next = [...prev];
+      const current = next[rowIndex];
+      if (!current) {
+        return prev;
+      }
+      const nextUsage = current.usageType === value ? null : value;
+      next[rowIndex] = {
+        ...current,
+        usageType: nextUsage,
+      };
+      return next;
+    });
+  }, []);
 
   // Load sales rep delivery days and permission checks
   useEffect(() => {
@@ -161,7 +178,7 @@ export default function NewOrderPage() {
   const handleAddProduct = useCallback((product: any, quantityFromGrid: number, inventoryStatus: InventoryStatus | undefined, pricing: PricingSelection, priceOverride?: PriceOverride) => {
     const baseUnitPrice = pricing.unitPrice || product.pricePerUnit || 0;
     const effectiveUnitPrice = priceOverride?.price ?? baseUnitPrice;
-    const quantity = Math.max(1, quantityFromGrid);
+    const quantity = Math.max(0, quantityFromGrid);
 
     // PHASE 2: Quantity warning for unusual amounts
     const isUnusualQuantity = quantity >= 100; // Warn for very large orders
@@ -181,6 +198,7 @@ export default function NewOrderPage() {
       pricing,
       priceLists: product.priceLists as PriceListSummary[],
       priceOverride,
+      usageType: null,
     };
 
     setOrderItems(prev => [...prev, newItem]);
@@ -214,7 +232,7 @@ export default function NewOrderPage() {
   }>) => {
     const newItems: OrderItem[] = products.map(({ product, quantity, inventoryStatus, pricing }) => {
       const unitPrice = pricing.unitPrice || product.pricePerUnit || 0;
-      const actualQuantity = Math.max(1, quantity);
+      const actualQuantity = Math.max(0, quantity);
 
       return {
         skuId: product.skuId,
@@ -228,6 +246,7 @@ export default function NewOrderPage() {
         inventoryStatus,
         pricing,
         priceLists: product.priceLists as PriceListSummary[],
+        usageType: null,
       };
     });
 
@@ -265,9 +284,10 @@ export default function NewOrderPage() {
       deliveryDate &&
       warehouseLocation &&
       orderItems.length > 0 &&
+      orderItems.every(item => item.quantity > 0) &&
       (!selectedCustomer.requiresPO || poNumber.trim())
     );
-  }, [selectedCustomer, deliveryDate, warehouseLocation, orderItems.length, poNumber]);
+  }, [selectedCustomer, deliveryDate, warehouseLocation, orderItems, poNumber]);
 
   // Validate form
   const validateForm = useCallback(() => {
@@ -287,6 +307,8 @@ export default function NewOrderPage() {
     }
     if (orderItems.length === 0) {
       errors.push({ field: 'Products', message: 'Please add at least one product to the order', type: 'missing' });
+    } else if (orderItems.some(item => item.quantity <= 0)) {
+      errors.push({ field: 'Products', message: 'Enter a quantity greater than zero for each product', type: 'validation' });
     }
 
     setValidationErrors(errors);
@@ -329,6 +351,7 @@ export default function NewOrderPage() {
           items: orderItems.map(item => ({
             skuId: item.skuId,
             quantity: item.quantity,
+            ...(item.usageType ? { usageType: item.usageType } : {}),
             ...(item.priceOverride && {
               priceOverride: {
                 price: item.priceOverride.price,
@@ -657,7 +680,7 @@ export default function NewOrderPage() {
                       Product
                     </th>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600">
-                      Inventory
+                      Usage <span className="font-normal lowercase text-gray-400">(optional)</span>
                     </th>
                     <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-600">
                       Qty
@@ -709,32 +732,61 @@ export default function NewOrderPage() {
                             'No price list match'
                           )}
                         </div>
-                      </td>
-                      <td className="px-4 py-3">
                         {item.inventoryStatus ? (
-                          <div className="text-xs">
-                            <div className={`font-medium ${
-                              item.inventoryStatus.sufficient ? 'text-emerald-700' : 'text-rose-700'
-                            }`}>
+                          <div className="mt-2 text-xs text-gray-500">
+                            <div
+                              className={`font-medium ${
+                                item.inventoryStatus.sufficient ? 'text-emerald-700' : 'text-rose-700'
+                              }`}
+                            >
                               {item.inventoryStatus.available} available
                             </div>
-                            <div className="text-gray-500">
+                            <div>
                               {item.inventoryStatus.onHand} on hand • {item.inventoryStatus.allocated} allocated
                             </div>
                           </div>
                         ) : (
-                          <span className="text-xs text-gray-400">—</span>
+                          <div className="mt-2 text-xs text-gray-400">Inventory info unavailable</div>
                         )}
+                      </td>
+                      <td className="px-4 py-3 align-top">
+                        <div className="flex flex-col gap-2">
+                          <div className="flex flex-wrap gap-2">
+                            {ORDER_USAGE_OPTIONS.map(option => {
+                              const isActive = item.usageType === option.value;
+                              return (
+                                <button
+                                  key={option.value}
+                                  type="button"
+                                  onClick={() => handleUsageSelect(index, option.value)}
+                                  className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition ${
+                                    isActive
+                                      ? 'border-gray-900 bg-gray-900 text-white shadow-sm'
+                                      : 'border-gray-300 bg-gray-100 text-gray-700 hover:border-gray-400 hover:bg-gray-200'
+                                  }`}
+                                  title={option.helper}
+                                  aria-pressed={isActive}
+                                >
+                                  {option.label}
+                                </button>
+                              );
+                            })}
+                          </div>
+                          <span className="text-xs text-gray-500">
+                            {item.usageType ? ORDER_USAGE_LABELS[item.usageType] : 'Leave blank for standard sales'}
+                          </span>
+                        </div>
                       </td>
                       <td className="px-4 py-3 text-right">
                         <input
                           type="number"
                           value={item.quantity}
                           onChange={(e) => {
-                            const newQty = parseInt(e.target.value) || 1;
+                            const parsedQty = parseInt(e.target.value, 10);
+                            const safeQty = Number.isNaN(parsedQty) ? 0 : Math.max(parsedQty, 0);
                             const pricing = resolvePriceForQuantity(
                               item.priceLists,
-                              Math.max(newQty, 1),
+                              Math.max(safeQty, 1),
                               customerPricingContext ?? undefined,
                             );
                             const effectivePricing: PricingSelection =
@@ -750,14 +802,14 @@ export default function NewOrderPage() {
                             const newItems = [...orderItems];
                             newItems[index] = {
                               ...item,
-                              quantity: Math.max(newQty, 1),
+                              quantity: safeQty,
                               unitPrice: resolvedUnitPrice,
-                              lineTotal: Math.max(newQty, 1) * resolvedUnitPrice,
+                              lineTotal: safeQty * resolvedUnitPrice,
                               pricing: effectivePricing,
                             };
                             setOrderItems(newItems);
                           }}
-                          min="1"
+                          min="0"
                           className="w-20 rounded-md border border-gray-300 px-2 py-1 text-sm text-right focus:border-gray-500 focus:outline-none"
                         />
                       </td>

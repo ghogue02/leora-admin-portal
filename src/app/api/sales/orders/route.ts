@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Prisma, type OrderStatus } from "@prisma/client";
+import { Prisma, type OrderStatus, OrderUsageType } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 import { runWithTransaction } from "@/lib/prisma";
 import {
@@ -14,7 +14,13 @@ import { parseUTCDate } from "@/lib/dates";
 import { generateOrderNumber } from "@/lib/orders/order-number-generator";
 
 const DEFAULT_LIMIT = 25;
-const OPEN_STATUSES: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
+const OPEN_STATUSES: OrderStatus[] = [
+  "SUBMITTED",
+  "PARTIALLY_FULFILLED",
+  "PENDING",
+  "READY_TO_DELIVER",
+  "PICKED",
+];
 const THIRTY_DAYS_AGO = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 
 type OrdersSummary = {
@@ -288,6 +294,7 @@ function serializeOrder(order: OrderWithRelations) {
     orderNumber: order.orderNumber,
     status: order.status,
     orderedAt: order.orderedAt,
+    deliveryDate: order.deliveryDate,
     customer: order.customer
       ? {
           id: order.customer.id,
@@ -328,6 +335,7 @@ const CreateOrderSchema = z.object({
         price: z.number().positive(),
         reason: z.string().min(10),
       }).optional(),
+      usageType: z.nativeEnum(OrderUsageType).optional(),
     })
   ).min(1),
 });
@@ -507,6 +515,7 @@ export async function POST(request: NextRequest) {
               skuId: item.skuId,
               quantity: item.quantity,
               unitPrice: new Prisma.Decimal(effectiveUnitPrice),
+              usageType: item.usageType ?? null,
               // Manual price override fields
               priceOverridden: hasPriceOverride,
               overridePrice: hasPriceOverride ? new Prisma.Decimal(item.priceOverride!.price) : null,

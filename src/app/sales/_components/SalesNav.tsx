@@ -13,6 +13,7 @@ const salesHubMenu = [
   { label: "Orders", href: "/sales/orders" },
   { label: "Catalog", href: "/sales/catalog" },
   { label: "Reports", href: "/sales/reports" },
+  { label: "BTG Placements", href: "/sales/btg" },
 ];
 
 const operationsMenu = [

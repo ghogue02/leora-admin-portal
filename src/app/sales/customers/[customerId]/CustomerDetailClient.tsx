@@ -17,6 +17,7 @@ import CustomerContextSetter from "./sections/CustomerContextSetter";
 import OrderDeepDive from "./sections/OrderDeepDive";
 import CustomerInsights from "./sections/CustomerInsights";
 import CustomerTagManager from "./sections/CustomerTagManager";
+import BtgPlacements from "./sections/BtgPlacements";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -139,6 +140,9 @@ export default function CustomerDetailClient({
           daysUntilExpected: data.metrics.daysUntilExpected,
         }}
       />
+
+      {/* BTG Placements */}
+      <BtgPlacements placements={data.btgPlacements} />
 
       {/* Quick Actions */}
       <QuickActions

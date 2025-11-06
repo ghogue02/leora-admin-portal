@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
   const deliveryMethod = searchParams.get('deliveryMethod');
   const startDate = searchParams.get('startDate');
   const endDate = searchParams.get('endDate');
+  const usageFilter = searchParams.get('usageFilter');
 
   return withSalesSession(
     request,
@@ -65,6 +66,11 @@ export async function GET(request: NextRequest) {
                 deliveryTimeWindow: true,
                 deliveryDate: true,
                 orderNumber: true,
+                lines: {
+                  select: {
+                    usageType: true,
+                  },
+                },
               },
             },
           },
@@ -74,8 +80,22 @@ export async function GET(request: NextRequest) {
           take: 1000,
         });
 
+        const filteredInvoices = invoices.filter((invoice) => {
+          if (!usageFilter || usageFilter === 'all') return true;
+          const usageValues =
+            invoice.order?.lines
+              ?.map((line) => line.usageType)
+              .filter((value): value is string => !!value) ?? [];
+
+          if (usageFilter === 'standard') {
+            return usageValues.length === 0;
+          }
+
+          return usageValues.includes(usageFilter);
+        });
+
         // Transform to expected format
-        const transformedInvoices = invoices.map((invoice) => ({
+        const transformedInvoices = filteredInvoices.map((invoice) => ({
           id: invoice.id,
           referenceNumber: invoice.invoiceNumber || 'N/A',
           date: invoice.issuedAt?.toISOString() || new Date().toISOString(),
@@ -95,6 +115,7 @@ export async function GET(request: NextRequest) {
             deliveryMethod,
             startDate,
             endDate,
+            usageFilter,
           },
           count: transformedInvoices.length,
         });

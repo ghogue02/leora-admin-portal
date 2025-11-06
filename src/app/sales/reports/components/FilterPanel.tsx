@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -13,11 +13,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Calendar, Filter, X } from 'lucide-react';
+import { ORDER_USAGE_OPTIONS } from '@/constants/orderUsage';
 
 export interface FilterState {
   deliveryMethod: string | null;
   startDate: string | null;
   endDate: string | null;
+  usageFilter: string | null;
 }
 
 interface FilterPanelProps {
@@ -40,10 +42,23 @@ export function FilterPanel({
   onApply,
   onClear,
 }: FilterPanelProps) {
+  const usageOptions = useMemo(
+    () => [
+      { value: 'all', label: 'All Usage' },
+      { value: 'standard', label: 'Standard Sales Only' },
+      ...ORDER_USAGE_OPTIONS.map((option) => ({
+        value: option.value,
+        label: option.longLabel ?? option.label,
+      })),
+    ],
+    []
+  );
+
   const hasActiveFilters =
     filters.deliveryMethod !== null ||
     filters.startDate !== null ||
-    filters.endDate !== null;
+    filters.endDate !== null ||
+    filters.usageFilter !== null;
 
   return (
     <Card>
@@ -54,7 +69,7 @@ export function FilterPanel({
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           {/* Delivery Method Filter */}
           <div className="space-y-2">
             <Label htmlFor="delivery-method">Delivery Method</Label>
@@ -74,6 +89,31 @@ export function FilterPanel({
                 {DELIVERY_METHODS.map((method) => (
                   <SelectItem key={method.value} value={method.value}>
                     {method.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Usage Filter */}
+          <div className="space-y-2">
+            <Label htmlFor="usage-filter">Usage Classification</Label>
+            <Select
+              value={filters.usageFilter || 'all'}
+              onValueChange={(value) =>
+                onFiltersChange({
+                  ...filters,
+                  usageFilter: value === 'all' ? null : value,
+                })
+              }
+            >
+              <SelectTrigger id="usage-filter" className="w-full">
+                <SelectValue placeholder="Select usage" />
+              </SelectTrigger>
+              <SelectContent>
+                {usageOptions.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
                   </SelectItem>
                 ))}
               </SelectContent>

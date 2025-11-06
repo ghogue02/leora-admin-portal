@@ -21,6 +21,7 @@ type OrdersResponse = {
     id: string;
     orderNumber: string | null;
     orderedAt: string | null;
+    deliveryDate: string | null;
     status: OrderStatus;
     total: number | null;
     currency: string | null;
@@ -121,20 +122,26 @@ export default function OrdersList() {
     [load, state.data],
   );
 
-  // Unfulfilled statuses (PENDING, READY_TO_DELIVER, PICKED are not in the current data model,
-  // so we use SUBMITTED and PARTIALLY_FULFILLED as unfulfilled)
-  const UNFULFILLED_STATUSES: OrderStatus[] = ['SUBMITTED', 'PARTIALLY_FULFILLED'];
+  // Treat active workflow statuses as "unfulfilled" so reps see open work first.
+  const UNFULFILLED_STATUSES: OrderStatus[] = [
+    'SUBMITTED',
+    'PARTIALLY_FULFILLED',
+    'PENDING',
+    'READY_TO_DELIVER',
+    'PICKED',
+  ];
 
   // Filter orders - MUST be before early returns to maintain consistent hook order
   const filteredOrders = useMemo(() => {
     if (!state.data?.orders) return [];
+    const normalizedSearch = searchTerm.trim().toLowerCase();
     return state.data.orders.filter((order) => {
       // Search filter
       const matchesSearch =
-        !searchTerm ||
-        order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        order.customer?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        false;
+        !normalizedSearch ||
+        order.id.toLowerCase().includes(normalizedSearch) ||
+        (order.orderNumber?.toLowerCase() ?? '').includes(normalizedSearch) ||
+        (order.customer?.name?.toLowerCase() ?? '').includes(normalizedSearch);
 
       // Status filter
       let matchesStatus = true;
@@ -150,15 +157,24 @@ export default function OrdersList() {
 
   // Sort by earliest delivery date first for unfulfilled orders
   const sortedOrders = useMemo(() => {
-    if (statusFilter === 'unfulfilled') {
-      return [...filteredOrders].sort((a, b) => {
-        // Orders without orderedAt go to end
-        if (!a.orderedAt) return 1;
-        if (!b.orderedAt) return -1;
-        return new Date(a.orderedAt).getTime() - new Date(b.orderedAt).getTime();
-      });
+    if (statusFilter !== 'unfulfilled') {
+      return filteredOrders;
     }
-    return filteredOrders;
+
+    const getSortTimestamp = (order: OrdersResponse['orders'][number]) => {
+      const source = order.deliveryDate ?? order.orderedAt;
+      return source ? new Date(source).getTime() : null;
+    };
+
+    return [...filteredOrders].sort((a, b) => {
+      const aTime = getSortTimestamp(a);
+      const bTime = getSortTimestamp(b);
+
+      if (aTime === null && bTime === null) return 0;
+      if (aTime === null) return 1;
+      if (bTime === null) return -1;
+      return aTime - bTime;
+    });
   }, [filteredOrders, statusFilter]);
 
   if (state.loading) {
@@ -308,7 +324,11 @@ export default function OrdersList() {
                         {order.orderNumber || `#${order.id.slice(0, 8)}`}
                       </Link>
                       <span className="text-xs text-gray-500">
-                        Ordered {formatShortDate(order.orderedAt)}
+                        {order.deliveryDate
+                          ? `Delivery ${formatShortDate(order.deliveryDate)}`
+                          : order.orderedAt
+                            ? `Ordered ${formatShortDate(order.orderedAt)}`
+                            : "Delivery date TBD"}
                       </span>
                     </div>
                     <span

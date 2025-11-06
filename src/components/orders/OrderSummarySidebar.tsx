@@ -21,6 +21,7 @@ import { useMemo, useState } from 'react';
 import { format, parse } from 'date-fns';
 import { useTaxEstimation } from '@/hooks/useTaxEstimation';
 import { DiscountIndicator } from './DiscountIndicator';
+import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 
 type OrderItem = {
   skuId: string;
@@ -30,6 +31,7 @@ type OrderItem = {
   quantity: number;
   unitPrice: number;
   lineTotal: number;
+  usageType?: OrderUsageCode | null;
 };
 
 type Props = {
@@ -247,6 +249,16 @@ export function OrderSummarySidebar({
                   </div>
                   <div className="mt-0.5 text-xs text-gray-500">
                     {item.skuCode} • Qty: {item.quantity}
+                  </div>
+                  <div className="mt-0.5 text-xs text-gray-500">
+                    {item.usageType
+                      ? (
+                        <span className="inline-flex items-center rounded-full bg-gray-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-700">
+                          {ORDER_USAGE_LABELS[item.usageType]}
+                        </span>
+                      )
+                      : <span className="italic text-gray-400">Standard sale</span>
+                    }
                   </div>
                   <div className="mt-0.5 text-xs font-medium text-gray-900">
                     ${item.lineTotal.toFixed(2)}

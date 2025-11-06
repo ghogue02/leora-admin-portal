@@ -9,6 +9,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Prisma } from '@prisma/client';
 import { withSalesSession } from '@/lib/auth/sales';
+import { isValidOrderUsage } from '@/constants/orderUsage';
 
 type RouteParams = {
   params: Promise<{ orderId: string }>;
@@ -238,7 +239,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
       deliveryTimeWindow,
       poNumber,
       specialInstructions,
-      items, // Array of { skuId, quantity }
+      items, // Array of { skuId, quantity, usageType? }
     } = body;
 
     // 3. Validate order exists and sales rep has access
@@ -338,10 +339,13 @@ export async function PUT(request: NextRequest, props: RouteParams) {
 
         const unitPrice = Number(selection.item.price ?? sku.pricePerUnit ?? 0);
 
+        const usageType = isValidOrderUsage(item.usageType) ? item.usageType : null;
+
         return {
           skuId: sku.id,
           quantity: item.quantity,
           unitPrice,
+          usageType,
           appliedPricingRules: {
             source: selection.overrideApplied ? 'price_list_override' : 'price_list',
             priceListId: selection.item.priceListId,
@@ -392,6 +396,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
           skuId: item.skuId,
           quantity: item.quantity,
           unitPrice: new Prisma.Decimal(item.unitPrice.toFixed(2)),
+          usageType: item.usageType,
           appliedPricingRules: item.appliedPricingRules,
         })),
       });

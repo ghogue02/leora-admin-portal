@@ -17,6 +17,7 @@ import { CreateInvoiceDialog } from '@/components/invoices/CreateInvoiceDialog';
 import { InvoiceDownloadButton } from '@/components/invoices/InvoiceDownloadButton';
 import { formatCurrency, formatShortDate } from '@/lib/format';
 import { ArrowLeft, Pencil } from 'lucide-react';
+import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 
 export default function SalesOrderDetailPage() {
   const params = useParams();
@@ -150,6 +151,15 @@ export default function SalesOrderDetailPage() {
                     </p>
                     <p className="text-sm text-gray-600">
                       Quantity: {line.quantity} {line.isSample && '(Sample)'}
+                    </p>
+                    <p className="mt-1 text-xs text-gray-500">
+                      {line.usageType ? (
+                        <span className="inline-flex items-center rounded-full bg-gray-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-700">
+                          {ORDER_USAGE_LABELS[(line.usageType as OrderUsageCode)] ?? line.usageType}
+                        </span>
+                      ) : (
+                        <span className="italic text-gray-400">Standard sale</span>
+                      )}
                     </p>
                   </div>
                   <div className="text-right">

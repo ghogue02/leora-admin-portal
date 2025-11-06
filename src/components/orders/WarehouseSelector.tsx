@@ -33,7 +33,7 @@ export function WarehouseSelector({
 }: Props) {
   const [warehouses, setWarehouses] = useState<WarehouseOption[]>([
     { value: 'Baltimore', label: 'Baltimore' },
-    { value: 'Warrenton', label: 'Warrenton' },
+    { value: 'Warrenton', label: 'Warrington' },
     { value: 'Storage', label: 'Storage' },
   ]);
 

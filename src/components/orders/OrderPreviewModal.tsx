@@ -14,6 +14,7 @@
 
 import React from 'react';
 import { X, AlertTriangle, CheckCircle } from 'lucide-react';
+import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 
 type Customer = {
   id: string;
@@ -42,6 +43,7 @@ type OrderItem = {
     priceList: any;
     overrideApplied: boolean;
   };
+  usageType?: OrderUsageCode | null;
 };
 
 type Props = {
@@ -180,6 +182,15 @@ export function OrderPreviewModal({
                         <div className="text-sm font-medium text-gray-900">{item.productName}</div>
                         <div className="text-xs text-gray-500">
                           {item.skuCode} {item.size && `• ${item.size}`}
+                        </div>
+                        <div className="mt-1">
+                          {item.usageType ? (
+                            <span className="inline-flex items-center rounded-full bg-gray-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-700">
+                              {ORDER_USAGE_LABELS[item.usageType]}
+                            </span>
+                          ) : (
+                            <span className="text-xs italic text-gray-400">Standard sale</span>
+                          )}
                         </div>
                       </td>
                       <td className="px-4 py-3 text-right text-sm text-gray-900">{item.quantity}</td>
