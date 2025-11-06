@@ -26,14 +26,7 @@ const settingsMenu = [
 ];
 
 const adminMenu = [
-  { label: "Dashboard", href: "/admin", description: "Admin overview" },
-  { label: "Orders", href: "/admin/orders", description: "Order management" },
-  { label: "Customers", href: "/admin/customers", description: "Customer admin" },
-  { label: "Accounts", href: "/admin/accounts", description: "User accounts" },
-  { label: "Territories", href: "/admin/territories", description: "Territory management" },
-  { label: "Audit Logs", href: "/admin/audit-logs", description: "System audit logs" },
-  { label: "Data Integrity", href: "/admin/data-integrity", description: "Data validation" },
-  { label: "Bulk Operations", href: "/admin/bulk-operations", description: "Bulk actions" },
+  { label: "Admin", href: "/admin", description: "Admin portal" },
 ];
 
 const toolsMenu = [
