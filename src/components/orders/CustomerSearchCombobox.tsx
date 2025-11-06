@@ -163,29 +163,27 @@ export function CustomerSearchCombobox({
                       value={customer.id}
                     >
                       {({ selected, active }) => (
-                        <>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <span
-                                className={`block truncate ${
-                                  selected ? 'font-semibold' : 'font-normal'
-                                }`}
-                              >
-                                {customer.name}
-                              </span>
-                              {customer.territory && (
-                                <span className="text-xs text-gray-500">
-                                  {customer.territory}
-                                  {customer.accountNumber && ` • ${customer.accountNumber}`}
-                                </span>
-                              )}
-                            </div>
-                            {customer.requiresPO && (
-                              <span className="ml-2 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">
-                                PO Required
+                        <div className="relative flex w-full items-center justify-between">
+                          <div>
+                            <span
+                              className={`block truncate ${
+                                selected ? 'font-semibold' : 'font-normal'
+                              }`}
+                            >
+                              {customer.name}
+                            </span>
+                            {customer.territory && (
+                              <span className="text-xs text-gray-500">
+                                {customer.territory}
+                                {customer.accountNumber && ` • ${customer.accountNumber}`}
                               </span>
                             )}
                           </div>
+                          {customer.requiresPO && (
+                            <span className="ml-2 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800">
+                              PO Required
+                            </span>
+                          )}
                           {selected ? (
                             <span
                               className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
@@ -195,7 +193,7 @@ export function CustomerSearchCombobox({
                               <CheckIcon className="h-5 w-5" aria-hidden="true" />
                             </span>
                           ) : null}
-                        </>
+                        </div>
                       )}
                     </Combobox.Option>
                   ))}
