@@ -16,7 +16,7 @@ import {
   Package,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { getTodayUTC } from '@/lib/dates';
+import { getTodayLocal } from '@/lib/dates';
 
 interface RouteStop {
   id: string;
@@ -57,7 +57,7 @@ interface RouteStop {
 export default function DeliveryTrackingPage() {
   const [stops, setStops] = useState<RouteStop[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(getTodayUTC());
+  const [selectedDate, setSelectedDate] = useState(getTodayLocal());
 
   useEffect(() => {
     fetchStops();

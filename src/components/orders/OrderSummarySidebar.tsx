@@ -19,6 +19,7 @@
 import { useMemo } from 'react';
 import { format } from 'date-fns';
 import { useTaxEstimation } from '@/hooks/useTaxEstimation';
+import { parseUTCDate } from '@/lib/dates';
 
 type OrderItem = {
   skuId: string;
@@ -134,7 +135,7 @@ export function OrderSummarySidebar({
               {deliveryDate ? (
                 <div>
                   <div className="font-medium">
-                    {format(new Date(deliveryDate), 'EEEE, MMM d, yyyy')}
+                    {format(parseUTCDate(deliveryDate), 'EEEE, MMM d, yyyy')}
                   </div>
                   <div className="text-xs text-gray-500">
                     {deliveryTimeWindow || 'Anytime'}
