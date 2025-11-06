@@ -93,12 +93,12 @@ const BASE_TEMPLATE_OPTIONS: Record<InvoiceFormat, Array<{ value: BaseTemplate; 
 };
 
 const SECTION_LABELS: Record<keyof TemplateSections, { label: string; description: string }> = {
-  showBillTo: { label: "Bill To section", description: "Displays billing address in the header." },
-  showShipTo: { label: "Ship To section", description: "Displays shipping address in the header." },
-  showCustomerInfo: { label: "Invoice details", description: "Shows salesperson, PO, delivery info." },
-  showTotals: { label: "Totals block", description: "Shows liters and total amount rows." },
-  showSignature: { label: "Retailer signature", description: "Includes the signature block." },
-  showComplianceNotice: { label: "Compliance notice", description: "Displays compliance/legal text." },
+  showBillTo: { label: "Bill To", description: "Header address for billing." },
+  showShipTo: { label: "Ship To", description: "Header address for shipping." },
+  showCustomerInfo: { label: "Invoice details", description: "Salesperson, PO, dates." },
+  showTotals: { label: "Totals block", description: "Total liters & amount rows." },
+  showSignature: { label: "Signature block", description: "Retailer sign-off area." },
+  showComplianceNotice: { label: "Compliance notice", description: "Legal text footer." },
 };
 
 const HEADER_NOTE_POSITIONS: Array<{ value: HeaderNotePosition; label: string }> = [
@@ -270,6 +270,35 @@ export function TemplateSettingsManager() {
           ? {
               ...column,
               ...changes,
+            }
+          : column
+      );
+      return {
+        ...layout,
+        columns,
+      };
+    });
+  };
+
+  const handleColumnIdChange = (index: number, nextId: InvoiceColumnId) => {
+    const preset = COLUMN_PRESETS.find(
+      (candidate) =>
+        candidate.id === nextId &&
+        (!candidate.formats || candidate.formats.includes(selectedFormat))
+    );
+    if (!preset) {
+      return;
+    }
+    updateLayout((layout) => {
+      const columns = layout.columns.map((column, idx) =>
+        idx === index
+          ? {
+              ...column,
+              id: nextId,
+              label: preset.label,
+              width: preset.defaultWidth,
+              align: preset.defaultAlign ?? "left",
+              enabled: column.enabled,
             }
           : column
       );
@@ -671,16 +700,17 @@ export function TemplateSettingsManager() {
 
         <section className="grid gap-4 rounded-lg border p-4">
           <h3 className="font-medium text-gray-900">Visible Sections</h3>
-          <div className="grid gap-3">
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {(Object.entries(SECTION_LABELS) as Array<[keyof TemplateSections, { label: string; description: string }]>).map(([key, meta]) => (
-              <div key={key} className="flex items-center justify-between rounded-md border px-3 py-2">
-                <div>
+              <div key={key} className="flex items-start justify-between rounded-md border px-3 py-3">
+                <div className="pr-4">
                   <p className="text-sm font-medium text-gray-900">{meta.label}</p>
                   <p className="text-xs text-muted-foreground">{meta.description}</p>
                 </div>
                 <Switch
                   checked={currentSettings.layout.sections[key]}
                   onCheckedChange={(checked) => handleSectionToggle(key, checked)}
+                  className="mt-1"
                 />
               </div>
             ))}
@@ -793,7 +823,21 @@ export function TemplateSettingsManager() {
                   </div>
                   <div className="space-y-2">
                     <Label>Field</Label>
-                    <Input value={column.id} readOnly className="bg-muted/40" />
+                    <Select
+                      value={column.id}
+                      onValueChange={(value) => handleColumnIdChange(index, value as InvoiceColumnId)}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {COLUMN_PRESETS.filter((preset) => !preset.formats || preset.formats.includes(selectedFormat)).map((preset) => (
+                          <SelectItem key={preset.id} value={preset.id}>
+                            {preset.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
               </div>
