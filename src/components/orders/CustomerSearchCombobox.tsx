@@ -141,7 +141,7 @@ export function CustomerSearchCombobox({
                   No customers available
                 </div>
               ) : (
-                <>
+                <div className="space-y-0">
                   {query === '' && (
                     <div className="px-4 py-2 text-xs font-semibold uppercase tracking-wide text-gray-500 bg-gray-50">
                       Recent Customers • Showing {customers.length} of 5,000+ (type to search all)
@@ -197,7 +197,7 @@ export function CustomerSearchCombobox({
                       )}
                     </Combobox.Option>
                   ))}
-                </>
+                </div>
               )}
             </Combobox.Options>
           </Transition>

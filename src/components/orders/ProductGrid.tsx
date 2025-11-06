@@ -90,7 +90,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState<string>('');
-  const [showInStockOnly, setShowInStockOnly] = useState(false);
+  const [showInStockOnly, setShowInStockOnly] = useState(true);
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
   const [selectedSkuIds, setSelectedSkuIds] = useState<Set<string>>(new Set());
   const [inventoryStatuses, setInventoryStatuses] = useState<Map<string, InventoryStatus>>(new Map());
