@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { subMonths, startOfWeek, endOfWeek } from "date-fns";
+import { formatUTCDate } from '@/lib/dates';
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -452,7 +453,7 @@ async function getSamplesDrilldown(db: any, tenantId: string, salesRep: any) {
     product: s.sku.product.name,
     brand: s.sku.product.brand,
     quantity: s.quantity,
-    tastedAt: s.tastedAt.toISOString().split('T')[0],
+    tastedAt: formatUTCDate(s.tastedAt),
     resultedInOrder: s.resultedInOrder,
     needsFollowUp: s.needsFollowUp,
     feedback: s.feedback,
@@ -517,7 +518,7 @@ async function getOrderStatusDrilldown(db: any, tenantId: string, salesRepFilter
     orderId: o.id.slice(0, 8),
     customer: o.customer.name,
     status: o.status,
-    orderedAt: o.orderedAt?.toISOString().split('T')[0] ?? 'N/A',
+    orderedAt: o.orderedAt ? formatUTCDate(o.orderedAt) : 'N/A',
     total: Number(o.total ?? 0),
   }));
 
@@ -579,7 +580,7 @@ async function getRecentActivityDrilldown(db: any, tenantId: string, userId: str
     type: a.activityType.name,
     customer: a.customer?.name ?? 'N/A',
     subject: a.subject,
-    occurredAt: a.occurredAt.toISOString().split('T')[0],
+    occurredAt: formatUTCDate(a.occurredAt),
     outcome: a.outcome,
     user: a.user?.fullName ?? 'System',
   }));

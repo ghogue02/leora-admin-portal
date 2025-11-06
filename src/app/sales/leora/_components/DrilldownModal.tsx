@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { formatUTCDate } from '@/lib/dates';
 
 type DrilldownType =
   | 'top-customers'
@@ -340,7 +341,7 @@ function exportToCSV(items: any[], columns: any[], filename: string) {
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${filename.toLowerCase().replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.csv`;
+  a.download = `${filename.toLowerCase().replace(/\s+/g, '-')}-${formatUTCDate(new Date())}.csv`;
   a.click();
   window.URL.revokeObjectURL(url);
 }

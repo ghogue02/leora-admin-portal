@@ -391,7 +391,7 @@ function validateOrderLine(
   validateSku(orderId, line.id, line.skuId, skuMap, errors);
 
   // Validate quantity
-  if (!line.quantity || typeof line.quantity !== 'number' || line.quantity <= 0) {
+  if (!line.quantity || typeof line.quantity !== 'number' || Number.isNaN(line.quantity)) {
     errors.push({
       type: SageErrorType.INVALID_QUANTITY,
       message: `Invalid quantity: ${line.quantity}`,

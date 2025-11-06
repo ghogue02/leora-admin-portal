@@ -8,6 +8,7 @@ import type {
   DrilldownModalProps,
 } from '@/types/drilldown';
 import { formatCurrency, formatNumber, formatPercentage } from '@/lib/utils/format';
+import { formatUTCDate } from '@/lib/dates';
 
 // Helper function to get appropriate icon for insight
 function getInsightIcon(key: string, value: any): string {
@@ -683,7 +684,7 @@ function exportToCSV(items: any[], columns: any[], filename: string) {
   const url = window.URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `${filename.toLowerCase().replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.csv`;
+  a.download = `${filename.toLowerCase().replace(/\s+/g, '-')}-${formatUTCDate(new Date())}.csv`;
   a.click();
   window.URL.revokeObjectURL(url);
 }

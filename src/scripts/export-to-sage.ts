@@ -77,7 +77,7 @@ interface SageExportRow {
   accountsReceivableAccount: number;      // Static: 11000
   taxType: number;                        // Static: 1
   glAccount: number;                      // Static: 40000
-  creditMemo: boolean;                    // Static: FALSE
+  creditMemo: boolean;                    // TRUE if row represents a credit memo/return
   itemId: string;                         // Same as UPC/SKU
   numberOfDistributions: number;          // Line items per invoice
 }
@@ -303,7 +303,7 @@ function validateOrder(order: OrderWithRelations): ValidationError[] {
     }
 
     // Validate amounts
-    if (line.quantity <= 0) {
+    if (typeof line.quantity !== 'number' || Number.isNaN(line.quantity) || line.quantity === 0) {
       errors.push({
         type: 'INVALID_AMOUNT',
         message: `Invalid quantity: ${line.quantity}`,
@@ -385,7 +385,11 @@ function orderToSageRows(
     }
 
     const unitPrice = Number(line.unitPrice);
-    const amount = formatAmount(line.quantity, unitPrice);
+    const rawQuantity = Number(line.quantity);
+    const quantity = Math.abs(rawQuantity);
+    const isCreditMemo = rawQuantity < 0;
+    const lineTotal = quantity * unitPrice;
+    const amount = isCreditMemo ? Math.abs(lineTotal) : -Math.abs(lineTotal);
 
     rows.push({
       date: formatDateForSage(invoiceDate),
@@ -396,13 +400,13 @@ function orderToSageRows(
       salesRepId: salesRepName,
       upcSku: line.sku.code,
       description: line.sku.product.name,
-      quantity: line.quantity,
+      quantity,
       unitPrice: unitPrice,
-      amount: amount,
+      amount,
       accountsReceivableAccount: 11000,
       taxType: 1,
       glAccount: 40000,
-      creditMemo: false,
+      creditMemo: isCreditMemo,
       itemId: line.sku.code,
       numberOfDistributions: numberOfDistributions,
     });

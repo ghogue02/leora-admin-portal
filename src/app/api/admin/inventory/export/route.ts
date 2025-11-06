@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { createCSVResponse, arrayToCSV, formatCurrencyForCSV } from '@/lib/csv-helper';
 import { Prisma } from '@prisma/client';
+import { formatUTCDate } from '@/lib/dates';
 
 /**
  * POST /api/admin/inventory/export
@@ -161,7 +162,7 @@ export async function POST(request: NextRequest) {
 
       return createCSVResponse(
         metadata + csvContent,
-        `inventory-export-${new Date().toISOString().split('T')[0]}.csv`
+        `inventory-export-${formatUTCDate(new Date())}.csv`
       );
     } catch (error) {
       console.error('Error exporting inventory:', error);

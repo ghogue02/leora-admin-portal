@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { createCSVResponse, arrayToCSV, formatCurrencyForCSV, formatDateForCSV } from '@/lib/csv-helper';
+import { formatUTCDate } from '@/lib/dates';
 import { Prisma } from '@prisma/client';
 
 /**
@@ -144,7 +145,7 @@ export async function POST(request: NextRequest) {
 
       return createCSVResponse(
         metadata + csvContent,
-        `orders-export-${new Date().toISOString().split('T')[0]}.csv`
+        `orders-export-${formatUTCDate(new Date())}.csv`
       );
     } catch (error) {
       console.error('Error exporting orders:', error);

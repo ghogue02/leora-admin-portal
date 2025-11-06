@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Download, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
+import { getTodayUTC } from '@/lib/dates';
 
 interface Order {
   id: string;
@@ -31,9 +32,7 @@ interface ExportDialogProps {
 }
 
 export function ExportDialog({ open, onOpenChange, orders }: ExportDialogProps) {
-  const [deliveryDate, setDeliveryDate] = useState(
-    new Date().toISOString().split('T')[0]
-  );
+  const [deliveryDate, setDeliveryDate] = useState(getTodayUTC());
   const [territoryFilter, setTerritoryFilter] = useState<string>('all');
   const [selectedOrders, setSelectedOrders] = useState<Set<string>>(new Set());
 

@@ -5,6 +5,7 @@
 
 import { db } from '@/lib/db';
 import { DeliveryRoute, RouteStop } from '@/types';
+import { formatUTCDate } from './dates';
 
 export interface RouteImportResult {
   route: DeliveryRoute;
@@ -272,7 +273,7 @@ async function createDeliveryRoute(
   deliveryDate.setHours(0, 0, 0, 0);
 
   // Generate route name
-  const routeName = `Route ${deliveryDate.toISOString().split('T')[0]}`;
+  const routeName = `Route ${formatUTCDate(deliveryDate)}`;
 
   // Calculate estimated duration
   const lastETA = parseETA(routeData[routeData.length - 1].eta);

@@ -14,6 +14,7 @@ import { PrismaClient, OrderStatus } from "@prisma/client";
 import { run as runCustomerHealthAssessment } from "../src/jobs/customer-health-assessment";
 import { config } from "dotenv";
 import { resolve } from "path";
+import { formatUTCDate } from "@/lib/dates";
 
 // Load environment variables from .env.local
 config({ path: resolve(__dirname, "../.env.local") });
@@ -198,11 +199,11 @@ async function fixDashboardData() {
     if (sampleCustomer) {
       console.log("\nSample updated customer:");
       console.log(`  Customer: ${sampleCustomer.name}`);
-      console.log(`  Last Order: ${sampleCustomer.lastOrderDate?.toISOString().split('T')[0]}`);
-      console.log(`  Next Expected: ${sampleCustomer.nextExpectedOrderDate?.toISOString().split('T')[0] || 'N/A'}`);
+      console.log(`  Last Order: ${sampleCustomer.lastOrderDate ? formatUTCDate(sampleCustomer.lastOrderDate) : 'N/A'}`);
+      console.log(`  Next Expected: ${sampleCustomer.nextExpectedOrderDate ? formatUTCDate(sampleCustomer.nextExpectedOrderDate) : 'N/A'}`);
       console.log(`  Avg Interval: ${sampleCustomer.averageOrderIntervalDays || 'N/A'} days`);
       console.log(`  Risk Status: ${sampleCustomer.riskStatus}`);
-      console.log(`  Dormant Since: ${sampleCustomer.dormancySince?.toISOString().split('T')[0] || 'N/A'}`);
+      console.log(`  Dormant Since: ${sampleCustomer.dormancySince ? formatUTCDate(sampleCustomer.dormancySince) : 'N/A'}`);
     }
 
     // ========================================================================

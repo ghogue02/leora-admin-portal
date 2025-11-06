@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { createPickSheetSchema, pickSheetQuerySchema } from '@/lib/validations/warehouse';
+import { formatUTCDate } from '@/lib/dates';
 import { z } from 'zod';
 
 export async function GET(request: NextRequest) {
@@ -120,7 +121,7 @@ export async function POST(request: NextRequest) {
 
       // Generate sheet number
       const today = new Date();
-      const dateStr = today.toISOString().split('T')[0].replace(/-/g, '');
+      const dateStr = formatUTCDate(today).replace(/-/g, '');
       const count = await tx.pickSheet.count({
         where: {
           tenantId: session.user.tenantId,

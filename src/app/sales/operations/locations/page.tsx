@@ -22,6 +22,7 @@ import {
 } from '@/components/ui/dialog';
 import { Search, MapPin, Edit, Upload, Download, Plus } from 'lucide-react';
 import { toast } from 'sonner';
+import { formatUTCDate } from '@/lib/dates';
 
 interface InventoryLocation {
   id: string;
@@ -162,7 +163,7 @@ export default function LocationsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `warehouse-locations-${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `warehouse-locations-${formatUTCDate(new Date())}.csv`;
     a.click();
     toast.success('Locations exported');
   };

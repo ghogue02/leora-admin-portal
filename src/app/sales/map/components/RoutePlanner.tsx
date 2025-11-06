@@ -15,6 +15,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { formatDistance, formatDrivingTime } from '@/lib/distance';
+import { formatUTCDate } from '@/lib/dates';
 
 interface RouteStop {
   order: number;
@@ -153,7 +154,7 @@ export default function RoutePlanner({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `route-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `route-${formatUTCDate(new Date())}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };

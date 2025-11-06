@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { createCSVResponse, arrayToCSV, formatCurrencyForCSV, formatDateForCSV } from '@/lib/csv-helper';
+import { formatUTCDate } from '@/lib/dates';
 
 /**
  * POST /api/admin/sales-reps/export
@@ -139,7 +140,7 @@ export async function POST(request: NextRequest) {
 
       return createCSVResponse(
         metadata + csvContent,
-        `sales-reps-export-${new Date().toISOString().split('T')[0]}.csv`
+        `sales-reps-export-${formatUTCDate(new Date())}.csv`
       );
     } catch (error) {
       console.error('Error exporting sales reps:', error);

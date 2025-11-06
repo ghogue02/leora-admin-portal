@@ -4,6 +4,7 @@ import { z } from "zod";
 import JSZip from "jszip";
 import { generateInvoicePDF } from "@/lib/invoices/pdf-generator";
 import { buildInvoiceData } from "@/lib/invoices/invoice-data-builder";
+import { formatUTCDate } from "@/lib/dates";
 
 /**
  * POST /api/sales/orders/bulk-print
@@ -141,8 +142,8 @@ export async function POST(request: NextRequest) {
 
       // Return ZIP file
       const deliveryDate = orders[0]?.deliveryDate
-        ? new Date(orders[0].deliveryDate).toISOString().split('T')[0]
-        : new Date().toISOString().split('T')[0];
+        ? formatUTCDate(new Date(orders[0].deliveryDate))
+        : formatUTCDate(new Date());
 
       return new NextResponse(zipBuffer, {
         headers: {

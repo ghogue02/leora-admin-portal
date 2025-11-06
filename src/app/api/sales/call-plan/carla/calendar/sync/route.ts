@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { makeGoogleCalendarRequest } from "@/lib/google-calendar";
+import { formatUTCDate } from '@/lib/dates';
 
 export async function POST(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -66,7 +67,7 @@ export async function POST(request: NextRequest) {
 
       const combineDateAndTime = (dateValue: Date, time: string) => {
         // Parse date and time in local timezone (server timezone)
-        const dateStr = dateValue.toISOString().split('T')[0]; // YYYY-MM-DD
+        const dateStr = formatUTCDate(dateValue); // YYYY-MM-DD in UTC
         const [hours, minutes] = time.split(":").map(Number);
 
         // Create a date object in the local timezone
@@ -84,7 +85,7 @@ export async function POST(request: NextRequest) {
 
         // Format date and time for Google Calendar API
         // Google expects RFC3339 format: "2025-10-28T12:00:00-04:00" for EDT
-        const dateStr = schedule.scheduledDate.toISOString().split('T')[0]; // YYYY-MM-DD
+        const dateStr = formatUTCDate(schedule.scheduledDate); // YYYY-MM-DD in UTC
         const startDateTimeStr = `${dateStr}T${schedule.scheduledTime}:00`;
 
         // Calculate end time

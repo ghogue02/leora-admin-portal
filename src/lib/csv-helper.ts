@@ -3,6 +3,8 @@
  * Provides functions for creating CSV files from data
  */
 
+import { formatUTCDate } from './dates';
+
 /**
  * Escape a CSV cell value (handle commas, quotes, newlines)
  */
@@ -106,7 +108,7 @@ export function createCSVWithMetadata(
 export function formatDateForCSV(date: Date | string | null | undefined): string {
   if (!date) return '';
   const d = typeof date === 'string' ? new Date(date) : date;
-  return d.toISOString().split('T')[0]; // YYYY-MM-DD
+  return formatUTCDate(d); // YYYY-MM-DD in UTC
 }
 
 /**

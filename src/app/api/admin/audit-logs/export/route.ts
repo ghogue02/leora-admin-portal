@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { Prisma } from '@prisma/client';
+import { formatUTCDate } from '@/lib/dates';
 
 /**
  * POST /api/admin/audit-logs/export
@@ -114,7 +115,7 @@ export async function POST(request: NextRequest) {
       return new NextResponse(csvContent, {
         headers: {
           'Content-Type': 'text/csv',
-          'Content-Disposition': `attachment; filename="audit-logs-${new Date().toISOString().split('T')[0]}.csv"`,
+          'Content-Disposition': `attachment; filename="audit-logs-${formatUTCDate(new Date())}.csv"`,
         },
       });
     } catch (error) {

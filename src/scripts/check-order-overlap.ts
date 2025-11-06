@@ -6,6 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 import { PrismaClient } from '@prisma/client';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { formatUTCDate } from '@/lib/dates';
 
 function loadEnv() {
   const envPath = resolve(process.cwd(), '.env.local');
@@ -50,7 +51,7 @@ async function checkOverlap() {
 
   console.log('Well Crafted Orders (sample):');
   wcOrders.forEach(o => {
-    console.log(`  ${o.customer.name}: $${o.total} on ${o.orderedAt?.toISOString().split('T')[0]}`);
+    console.log(`  ${o.customer.name}: $${o.total} on ${o.orderedAt ? formatUTCDate(o.orderedAt) : 'N/A'}`);
   });
 
   // Try to find matching orders in Lovable by amount

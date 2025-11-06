@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { Prisma } from '@prisma/client';
+import { formatUTCDate } from '@/lib/dates';
 
 /**
  * POST /api/admin/customers/export
@@ -99,7 +100,7 @@ export async function POST(request: NextRequest) {
           customer.salesRep?.territoryName || '',
           customer.salesRep?.user.fullName || '',
           customer.salesRep?.user.email || '',
-          customer.lastOrderDate?.toISOString().split('T')[0] || '',
+          customer.lastOrderDate ? formatUTCDate(customer.lastOrderDate) : '',
           customer.orders.length.toString(),
           totalRevenue.toFixed(2),
           customer.riskStatus,
@@ -125,7 +126,7 @@ export async function POST(request: NextRequest) {
         status: 200,
         headers: {
           'Content-Type': 'text/csv',
-          'Content-Disposition': `attachment; filename="customers-export-${new Date().toISOString().split('T')[0]}.csv"`,
+          'Content-Disposition': `attachment; filename="customers-export-${formatUTCDate(new Date())}.csv"`,
         },
       });
     } catch (error) {

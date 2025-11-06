@@ -16,6 +16,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { InvoiceFormatSelector } from './InvoiceFormatSelector';
 import { Loader2 } from 'lucide-react';
+import { formatUTCDate } from '@/lib/dates';
 
 interface CreateInvoiceDialogProps {
   orderId: string;
@@ -65,9 +66,8 @@ export function CreateInvoiceDialog({
 
   // Set default due date (30 days from now)
   useEffect(() => {
-    const defaultDate = new Date();
-    defaultDate.setDate(defaultDate.getDate() + 30);
-    setDueDate(defaultDate.toISOString().split('T')[0]);
+    const dueDate = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+    setDueDate(formatUTCDate(dueDate));
   }, []);
 
   const handleCreate = async () => {

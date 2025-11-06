@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Lead, FunnelStage, PipelineMetrics } from '@/lib/models/Lead';
 import FunnelBoard from '@/components/sales/FunnelBoard';
 import PipelineMetricsComponent from '@/components/sales/PipelineMetrics';
+import { formatUTCDate } from '@/lib/dates';
 
 export default function FunnelPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
@@ -112,7 +113,7 @@ export default function FunnelPage() {
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `pipeline-${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `pipeline-${formatUTCDate(new Date())}.csv`;
     a.click();
   };
 

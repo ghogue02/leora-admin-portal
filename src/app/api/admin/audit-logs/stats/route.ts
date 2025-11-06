@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { Prisma } from '@prisma/client';
+import { formatUTCDate } from '@/lib/dates';
 
 /**
  * GET /api/admin/audit-logs/stats
@@ -145,7 +146,7 @@ export async function GET(request: NextRequest) {
             }
           : null,
         activityByDay: activityByDay.map((item) => ({
-          date: item.date.toISOString().split('T')[0],
+          date: formatUTCDate(item.date),
           count: Number(item.count),
         })),
         actionsBreakdown: actionsBreakdown.map((item) => ({

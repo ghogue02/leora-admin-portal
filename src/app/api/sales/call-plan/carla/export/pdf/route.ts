@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import prisma from "@/lib/prisma";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
+import { formatUTCDate } from "@/lib/dates";
 
 export async function GET(request: NextRequest) {
   try {
@@ -166,7 +167,7 @@ export async function GET(request: NextRequest) {
     return new NextResponse(pdfBytes, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": `attachment; filename="call-plan-${new Date(callPlan.weekStart).toISOString().split('T')[0]}.pdf"`,
+        "Content-Disposition": `attachment; filename="call-plan-${formatUTCDate(new Date(callPlan.weekStart))}.pdf"`,
       },
     });
   } catch (error) {

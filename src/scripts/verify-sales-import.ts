@@ -6,6 +6,7 @@
  */
 
 import { PrismaClient } from '@prisma/client';
+import { formatUTCDate } from '@/lib/dates';
 
 const TENANT_ID = '58b8126a-2d2f-4f55-bc98-5b6784800bed';
 
@@ -99,7 +100,7 @@ async function main() {
     console.log(`Customers w/Orders:  ${customersWithOrders.toLocaleString()}`);
 
     if (dateRange._min.orderedAt && dateRange._max.orderedAt) {
-      console.log(`Date Range:          ${dateRange._min.orderedAt.toISOString().split('T')[0]} to ${dateRange._max.orderedAt.toISOString().split('T')[0]}`);
+      console.log(`Date Range:          ${formatUTCDate(dateRange._min.orderedAt)} to ${formatUTCDate(dateRange._max.orderedAt)}`);
     }
     console.log('');
 

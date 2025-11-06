@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FileDown, RefreshCw, Filter, X, AlertTriangle } from 'lucide-react';
 import DetailModal from './components/DetailModal';
+import { formatUTCDate } from '@/lib/dates';
 
 interface AuditLog {
   id: string;
@@ -187,7 +188,7 @@ export default function AuditLogsPage() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `audit-logs-${new Date().toISOString().split('T')[0]}.csv`;
+      a.download = `audit-logs-${formatUTCDate(new Date())}.csv`;
       a.click();
       window.URL.revokeObjectURL(url);
     } catch (err) {

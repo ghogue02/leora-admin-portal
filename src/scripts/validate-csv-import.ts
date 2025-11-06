@@ -16,6 +16,7 @@ import { PrismaClient } from '@prisma/client';
 import { parse } from 'csv-parse/sync';
 import * as fs from 'fs';
 import * as path from 'path';
+import { formatUTCDate } from '@/lib/dates';
 
 const prisma = new PrismaClient();
 
@@ -486,8 +487,8 @@ function displayReport(report: ValidationReport) {
   console.log(`   Unique invoices: ${report.salesReport.uniqueInvoices}`);
   const earliestDate = report.salesReport.dateRange.earliest;
   const latestDate = report.salesReport.dateRange.latest;
-  const earliestStr = earliestDate && !isNaN(earliestDate.getTime()) ? earliestDate.toISOString().split('T')[0] : 'Invalid';
-  const latestStr = latestDate && !isNaN(latestDate.getTime()) ? latestDate.toISOString().split('T')[0] : 'Invalid';
+  const earliestStr = earliestDate && !isNaN(earliestDate.getTime()) ? formatUTCDate(earliestDate) : 'Invalid';
+  const latestStr = latestDate && !isNaN(latestDate.getTime()) ? formatUTCDate(latestDate) : 'Invalid';
   console.log(`   Date range: ${earliestStr} to ${latestStr}`);
   console.log(`   Unique customers: ${report.salesReport.customers.length}`);
   console.log(`   Unique sales reps: ${report.salesReport.salespeople.length}`);

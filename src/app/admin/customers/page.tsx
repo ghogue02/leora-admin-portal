@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { formatUTCDate } from '@/lib/dates';
 
 interface Customer {
   id: string;
@@ -153,7 +154,7 @@ export default function CustomersPage() {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `customers-export-${new Date().toISOString().split('T')[0]}.csv`;
+      a.download = `customers-export-${formatUTCDate(new Date())}.csv`;
       a.click();
     } catch (err: any) {
       alert('Export failed: ' + err.message);

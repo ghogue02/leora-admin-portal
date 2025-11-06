@@ -5,6 +5,7 @@
 
 import { db } from '@/lib/db';
 import { Order, OrderItem, Customer, Product } from '@/types';
+import { formatUTCDate } from './dates';
 
 export interface AzugaExportFilters {
   territory?: string;
@@ -59,7 +60,7 @@ export async function exportToAzuga(
   const csv = generateAzugaCSV(orders);
 
   // Create filename with timestamp
-  const dateStr = deliveryDate.toISOString().split('T')[0];
+  const dateStr = formatUTCDate(deliveryDate);
   const timestamp = new Date().getTime();
   const filename = `azuga_export_${dateStr}_${timestamp}.csv`;
 
