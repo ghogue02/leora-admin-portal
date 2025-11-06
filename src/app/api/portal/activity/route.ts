@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ActivityOutcome, Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { withPortalSession } from "@/lib/auth/portal";
+import { ACTIVITY_OUTCOME_OPTIONS } from "@/constants/activityOutcomes";
 
 const DEFAULT_LIMIT = 50;
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const limitParam = searchParams.get("limit");
-  const outcomeParam = searchParams.get("outcome") as ActivityOutcome | null;
+  const outcomeParam = searchParams.get("outcome");
   const typeParam = searchParams.get("type");
 
   const limit = limitParam ? Math.min(Math.max(parseInt(limitParam, 10) || DEFAULT_LIMIT, 1), 100) : DEFAULT_LIMIT;
@@ -23,8 +24,13 @@ export async function GET(request: NextRequest) {
         ].filter(Boolean) as Prisma.ActivityWhereInput["OR"],
       };
 
-      if (outcomeParam && Object.values(ActivityOutcome).includes(outcomeParam)) {
-        where.outcome = outcomeParam;
+      if (outcomeParam) {
+        const validOutcomeValues = new Set(ACTIVITY_OUTCOME_OPTIONS.map((option) => option.value));
+        if (validOutcomeValues.has(outcomeParam)) {
+          where.outcomes = {
+            has: outcomeParam,
+          };
+        }
       }
 
       if (typeParam) {
@@ -63,7 +69,8 @@ export async function GET(request: NextRequest) {
           id: activity.id,
           occurredAt: activity.occurredAt,
           followUpAt: activity.followUpAt,
-          outcome: activity.outcome,
+          outcome: activity.outcomes?.[0] ?? null,
+          outcomes: activity.outcomes ?? [],
           subject: activity.subject,
           notes: activity.notes,
           type: {

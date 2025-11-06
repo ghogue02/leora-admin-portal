@@ -68,7 +68,8 @@ export async function GET(
         activities: activities.map((activity) => ({
           id: activity.id,
           occurredAt: activity.occurredAt,
-          outcome: activity.outcome,
+          outcome: activity.outcomes?.[0] ?? null,
+          outcomes: activity.outcomes ?? [],
           subject: activity.subject,
           notes: activity.notes,
           type: {
