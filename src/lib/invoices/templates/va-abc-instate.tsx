@@ -1,7 +1,8 @@
 /**
- * VA ABC In-State Invoice Template - Condensed
+ * VA ABC In-State Invoice Template
  *
- * Optimized to fit 10-line orders on 1 page. Shares layout config options with the full version.
+ * Format: Total Wine / VA ABC Required Format
+ * Used for: Virginia distributor → Virginia customer (excise taxes paid)
  */
 
 import React from 'react';
@@ -19,17 +20,11 @@ import type { InvoiceColumnId } from '../column-presets';
 const styles = StyleSheet.create({
   ...sharedStyles,
 
-  // Condensed overrides
-  page: {
-    padding: 20,
-    fontSize: 7,
-    lineHeight: 1.2,
-  },
-
+  // VA ABC specific styles
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 3,
+    marginBottom: 5,
   },
   headerLeft: {
     flex: 2,
@@ -38,142 +33,95 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-end',
   },
-  companyName: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    marginBottom: 1,
-  },
-  companySubtitle: {
-    fontSize: 7,
-    marginBottom: 1,
-  },
-  companyAddress: {
-    fontSize: 7,
-    marginBottom: 0.5,
-  },
   wholesalerInfo: {
-    fontSize: 7,
-    marginBottom: 0.5,
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 5,
+    fontSize: 9,
+    color: '#333',
+    marginBottom: 1,
   },
 
+  // Three-column customer section
   threeColumnSection: {
     flexDirection: 'row',
-    marginBottom: 8,
-    gap: 10,
+    marginBottom: 20,
+    gap: 15,
   },
   column: {
     flex: 1,
-    borderWidth: 0.5,
+    borderWidth: 1,
     borderColor: '#ccc',
-    padding: 5,
+    padding: 10,
     backgroundColor: '#fff',
   },
   columnHeader: {
-    fontSize: 7,
+    fontSize: 9,
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 8,
     textTransform: 'uppercase',
-    borderBottomWidth: 0.5,
+    borderBottomWidth: 1,
     borderBottomColor: '#ccc',
-    paddingBottom: 2,
-  },
-  customerName: {
-    fontSize: 7,
-    fontWeight: 'bold',
-    marginBottom: 2,
-  },
-  customerAddress: {
-    fontSize: 6,
-    marginBottom: 1,
+    paddingBottom: 3,
   },
   customerIdBox: {
-    borderWidth: 0.5,
+    borderWidth: 1,
     borderColor: '#000',
-    padding: 6,
+    padding: 15,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
   },
   customerIdLabel: {
-    fontSize: 6,
-    marginBottom: 2,
+    fontSize: 8,
+    marginBottom: 3,
   },
   customerId: {
-    fontSize: 10,
+    fontSize: 16,
     fontWeight: 'bold',
   },
 
+  // Order details
   orderDetails: {
-    marginBottom: 6,
-    paddingBottom: 4,
-    borderBottomWidth: 0.5,
+    marginBottom: 15,
+    paddingBottom: 10,
+    borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
   detailRow: {
     flexDirection: 'row',
-    marginBottom: 1,
+    marginBottom: 3,
   },
   detailLabel: {
-    width: 80,
-    fontSize: 6,
+    width: 120,
+    fontSize: 9,
     fontWeight: 'bold',
   },
   detailValue: {
-    fontSize: 6,
+    fontSize: 9,
   },
 
+  // Signature section for retailer
   retailerSignature: {
-    marginTop: 8,
-    padding: 6,
-    borderWidth: 1,
+    marginTop: 30,
+    padding: 15,
+    borderWidth: 2,
     borderColor: '#000',
   },
   retailerHeader: {
-    fontSize: 7,
+    fontSize: 10,
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 10,
     textAlign: 'center',
   },
   signatureGrid: {
     flexDirection: 'row',
-    gap: 6,
-  },
-  signatureField: {
-    flex: 1,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#000',
-    paddingBottom: 2,
-  },
-  signatureLabel: {
-    fontSize: 6,
-  },
-
-  complianceNotice: {
-    marginTop: 4,
-    padding: 3,
-    backgroundColor: '#f9f9f9',
-    borderWidth: 0.5,
-    borderColor: '#ccc',
-  },
-
-  legalText: {
-    marginTop: 4,
-    fontSize: 5,
-    color: '#666',
+    gap: 10,
   },
 
   noteBlock: {
-    marginBottom: 8,
-    padding: 4,
-    borderWidth: 0.5,
+    marginBottom: 12,
+    padding: 8,
+    borderWidth: 1,
     borderColor: '#ccc',
-    fontSize: 5,
+    fontSize: 7,
     lineHeight: 1.3,
   },
 });
@@ -191,14 +139,14 @@ type ColumnConfig = {
 };
 
 const DEFAULT_COLUMNS: ColumnConfig[] = [
-  { id: 'quantity', label: 'Bottles', width: 8, align: 'left', enabled: true },
-  { id: 'size', label: 'Size', width: 8, align: 'left', enabled: true },
-  { id: 'abcCode', label: 'Code', width: 10, align: 'left', enabled: true },
+  { id: 'quantity', label: 'No. bottles', width: 10, align: 'left', enabled: true },
+  { id: 'size', label: 'Size', width: 9, align: 'left', enabled: true },
+  { id: 'abcCode', label: 'Code', width: 12, align: 'left', enabled: true },
   { id: 'sku', label: 'SKU', width: 10, align: 'left', enabled: true },
-  { id: 'productName', label: 'Brand & Type', width: 38, align: 'left', enabled: true },
+  { id: 'productName', label: 'Brand & type', width: 35, align: 'left', enabled: true },
   { id: 'liters', label: 'Liters', width: 10, align: 'left', enabled: true },
-  { id: 'unitPrice', label: 'Price', width: 10, align: 'right', enabled: true },
-  { id: 'lineTotal', label: 'Amount', width: 12, align: 'right', enabled: true },
+  { id: 'unitPrice', label: 'Unit price', width: 7, align: 'right', enabled: true },
+  { id: 'lineTotal', label: 'Amount', width: 7, align: 'right', enabled: true },
 ];
 
 const DEFAULT_SECTIONS = {
@@ -271,7 +219,7 @@ function renderLineValue(columnId: InvoiceColumnId, line: CompleteInvoiceData['o
     case 'description':
       return `${line.sku.product.name}${line.sku.size ? ` (${line.sku.size})` : ''}`;
     case 'liters':
-      return line.totalLiters.toFixed(2);
+      return line.totalLiters.toFixed(3);
     case 'unitPrice':
     case 'bottlePrice':
       return formatCurrency(line.unitPrice);
@@ -286,9 +234,11 @@ function renderLineValue(columnId: InvoiceColumnId, line: CompleteInvoiceData['o
   }
 }
 
-export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = ({ data }) => {
+export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }) => {
   const palette = data.templateSettings?.palette ?? {};
+  const options = data.templateSettings?.options ?? {};
   const layout = data.templateSettings?.layout;
+
   const sections = {
     ...DEFAULT_SECTIONS,
     ...(layout?.sections ?? {}),
@@ -300,6 +250,9 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
   const columnHeaderBackgroundStyle = palette.sectionHeaderBackground
     ? { backgroundColor: palette.sectionHeaderBackground }
     : undefined;
+  const customerIdBoxBorderStyle = palette.borderColor
+    ? { borderColor: palette.borderColor }
+    : undefined;
   const tableHeaderBackgroundStyle = palette.tableHeaderBackground
     ? { backgroundColor: palette.tableHeaderBackground }
     : undefined;
@@ -310,21 +263,25 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
     ? { borderTopColor: palette.borderColor }
     : undefined;
 
+  const showCustomerIdColumn = options.showCustomerIdColumn ?? true;
+  const useCondensedSignature = options.signatureStyle === 'condensed';
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
         {renderNotesBlock(headerNotes.beforeHeader)}
 
-        {/* Header */}
+        {/* Header with company info and invoice details */}
         <View style={styles.headerRow}>
           <View style={styles.headerLeft}>
             <Text style={styles.companyName}>{data.tenantName}</Text>
             <Text style={styles.companySubtitle}>(formerly The Spanish Wine Importers LLC)</Text>
-            <Text style={styles.companyAddress}>6781 Kennedy Road Suite 8, Warrenton, VA 20187</Text>
+            <Text style={styles.companyAddress}>6781 Kennedy Road Suite 8</Text>
+            <Text style={styles.companyAddress}>Warrenton, VA 20187</Text>
           </View>
           <View style={styles.headerRight}>
             <Text style={styles.wholesalerInfo}>
-              Wholesaler #: {data.wholesalerLicenseNumber || 'N/A'}
+              Wholesaler's #: {data.wholesalerLicenseNumber || 'N/A'}
             </Text>
             <Text style={styles.wholesalerInfo}>
               Voice: {data.wholesalerPhone || 'N/A'}
@@ -334,12 +291,12 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
 
         {renderNotesBlock(headerNotes.afterHeader)}
 
-        {/* Title */}
+        {/* Invoice Title */}
         <View style={styles.mb15}>
           <Text style={styles.title}>INVOICE</Text>
         </View>
 
-        {/* Bill / Ship sections */}
+        {/* Three-column section: Bill To | Customer ID | Ship To */}
         <View style={styles.threeColumnSection}>
           {sections.showBillTo && (
             <View style={[styles.column, columnBorderStyle]}>
@@ -347,20 +304,29 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
               <Text style={styles.customerName}>{data.customer.name}</Text>
               <Text style={styles.customerAddress}>
                 {data.billingAddress.street1}
-                {data.billingAddress.street2 && `, ${data.billingAddress.street2}`}
+                {data.billingAddress.street2 && `\n${data.billingAddress.street2}`}
               </Text>
               <Text style={styles.customerAddress}>
                 {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
               </Text>
+              {data.customer.phone && (
+                <Text style={styles.customerAddress}>{data.customer.phone}</Text>
+              )}
+              {data.customer.billingEmail && (
+                <Text style={styles.customerAddress}>{data.customer.billingEmail}</Text>
+              )}
             </View>
           )}
 
-          <View style={[styles.column, columnBorderStyle]}>
-            <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Invoice</Text>
-            <Text style={styles.customerAddress}>Invoice #: {data.invoiceNumber}</Text>
-            <Text style={styles.customerAddress}>Invoice Date: {formatShortDate(data.issuedAt)}</Text>
-            <Text style={styles.customerAddress}>Due Date: {formatShortDate(data.dueDate)}</Text>
-          </View>
+          {showCustomerIdColumn && (
+            <View style={[styles.column, columnBorderStyle]}>
+              <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Customer ID</Text>
+              <View style={[styles.customerIdBox, customerIdBoxBorderStyle]}>
+                <Text style={styles.customerIdLabel}>ID</Text>
+                <Text style={styles.customerId}>{data.customer.accountNumber || data.customer.id.substring(0, 8)}</Text>
+              </View>
+            </View>
+          )}
 
           {sections.showShipTo && (
             <View style={[styles.column, columnBorderStyle]}>
@@ -368,7 +334,7 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
               <Text style={styles.customerName}>{data.customer.name}</Text>
               <Text style={styles.customerAddress}>
                 {data.shippingAddress.street1}
-                {data.shippingAddress.street2 && `, ${data.shippingAddress.street2}`}
+                {data.shippingAddress.street2 && `\n${data.shippingAddress.street2}`}
               </Text>
               <Text style={styles.customerAddress}>
                 {data.shippingAddress.city}, {data.shippingAddress.state} {data.shippingAddress.postalCode}
@@ -380,31 +346,41 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
         {/* Order Details */}
         {sections.showCustomerInfo && (
           <View style={styles.orderDetails}>
-            <View style={{ flexDirection: 'row', gap: 20 }}>
-              <View style={{ flex: 1 }}>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>PO Number:</Text>
-                  <Text style={styles.detailValue}>{data.poNumber || 'N/A'}</Text>
-                </View>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Salesperson:</Text>
-                  <Text style={styles.detailValue}>{data.salesperson}</Text>
-                </View>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Ship Date:</Text>
-                  <Text style={styles.detailValue}>{formatShortDate(data.shipDate)}</Text>
-                </View>
-              </View>
-              <View style={{ flex: 1 }}>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Shipping Method:</Text>
-                  <Text style={styles.detailValue}>{data.shippingMethod}</Text>
-                </View>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Payment Terms:</Text>
-                  <Text style={styles.detailValue}>{data.paymentTermsText}</Text>
-                </View>
-              </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Invoice Number:</Text>
+              <Text style={styles.detailValue}>{data.invoiceNumber}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Invoice Date:</Text>
+              <Text style={styles.detailValue}>{formatShortDate(data.issuedAt)}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Special instructions:</Text>
+              <Text style={styles.detailValue}>{data.specialInstructions || 'None'}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Customer P.O. number:</Text>
+              <Text style={styles.detailValue}>{data.poNumber || 'N/A'}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Payment terms:</Text>
+              <Text style={styles.detailValue}>{data.paymentTermsText}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Salesperson:</Text>
+              <Text style={styles.detailValue}>{data.salesperson}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Shipping method:</Text>
+              <Text style={styles.detailValue}>{data.shippingMethod}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Ship date:</Text>
+              <Text style={styles.detailValue}>{formatShortDate(data.shipDate)}</Text>
+            </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Due date:</Text>
+              <Text style={styles.detailValue}>{formatShortDate(data.dueDate)}</Text>
             </View>
           </View>
         )}
@@ -452,51 +428,81 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
 
         {renderNotesBlock(headerNotes.afterTable)}
 
-        {/* Totals */}
+        {/* Totals Section */}
         {sections.showTotals && (
           <View style={styles.totalsSection}>
             <View style={styles.totalRow}>
               <Text style={styles.totalLabel}>Total Liters:</Text>
-              <Text style={styles.totalValue}>{data.totalLiters.toFixed(2)}</Text>
+              <Text style={styles.totalValue}>{data.totalLiters.toFixed(3)}</Text>
             </View>
             <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
-              <Text style={styles.grandTotalLabel}>Total:</Text>
+              <Text style={styles.grandTotalLabel}>Total Amount:</Text>
               <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
             </View>
           </View>
         )}
 
-        {/* Signature */}
+        {/* Retailer Signature Section */}
         {sections.showSignature && (
           <View style={styles.retailerSignature}>
-            <Text style={styles.retailerHeader}>TO BE FILLED BY RETAIL LICENSEE</Text>
-            <Text style={{ fontSize: 5, marginBottom: 3 }}>
-              Goods listed received and cash paid in full on date below
-            </Text>
-            <View style={styles.signatureGrid}>
-              <View style={styles.signatureField}>
-                <Text style={styles.signatureLabel}>Date: _______________</Text>
-              </View>
-              <View style={styles.signatureField}>
-                <Text style={styles.signatureLabel}>Signed: _______________</Text>
-              </View>
-            </View>
+            {useCondensedSignature ? (
+              <>
+                <Text style={styles.retailerHeader}>TO BE FILLED BY RETAIL LICENSEE</Text>
+                <Text style={{ fontSize: 9, marginBottom: 8 }}>
+                  Goods listed above have been received and cash in full paid therefor on the above date. Goods received from:
+                </Text>
+                <View style={styles.signatureGrid}>
+                  <View style={styles.signatureField}>
+                    <Text style={styles.signatureLabel}>Date: _______________</Text>
+                  </View>
+                  <View style={styles.signatureField}>
+                    <Text style={styles.signatureLabel}>Signed: _______________</Text>
+                  </View>
+                </View>
+              </>
+            ) : (
+              <>
+                <Text style={styles.retailerHeader}>(TO BE FILLED IN BY RETAIL LICENSEE)</Text>
+
+                <View style={styles.detailRow}>
+                  <Text style={styles.detailLabel}>Date:</Text>
+                  <View style={styles.signatureField} />
+                </View>
+
+                <Text style={[styles.mb10, { fontSize: 8, marginTop: 10 }]}>
+                  Goods as listed above have been received and cash in full paid therefor on the above date.
+                </Text>
+
+                <View style={styles.detailRow}>
+                  <Text style={styles.detailLabel}>Goods received from:</Text>
+                </View>
+                <Text style={styles.mb5}>Name of Transportation Company: {data.tenantName}</Text>
+
+                <View style={styles.signatureGrid}>
+                  <View style={styles.signatureField}>
+                    <Text style={styles.signatureLabel}>Signed:</Text>
+                  </View>
+                  <View style={styles.signatureField}>
+                    <Text style={styles.signatureLabel}>By:</Text>
+                  </View>
+                </View>
+              </>
+            )}
           </View>
         )}
 
-        {/* Compliance */}
+        {/* Compliance Notice */}
         {sections.showComplianceNotice && (
           <View style={styles.complianceNotice}>
-            <Text style={{ fontSize: 5 }}>
-              {data.interestRate.times(100).toFixed(1)}% finance charge on late payments. {data.complianceNotice}
-            </Text>
+            <Text>{data.complianceNotice}</Text>
           </View>
         )}
 
-        {/* Legal */}
+        {/* Legal Terms */}
         <View style={styles.legalText}>
           <Text>
-            {data.interestRate.times(100).toFixed(1)}% finance charge on late payments. {data.collectionTerms}
+            Accounts not paid on-time in accordance with the above due date are subject to{' '}
+            {data.interestRate.times(100).toFixed(1)}% finance charges
           </Text>
         </View>
       </Page>

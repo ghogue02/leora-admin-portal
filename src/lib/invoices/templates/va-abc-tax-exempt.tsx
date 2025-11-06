@@ -1,18 +1,8 @@
 /**
  * VA ABC Tax-Exempt Invoice Template
  *
- * Format: Cask & Cork / Distributor's Wine Invoice
  * Used for: Virginia distributor → Out-of-state customer (no excise taxes)
- *
- * Key Features:
- * - "Distributor's Wine Invoice" title
- * - Licensee/License # field
- * - Shows both TOTAL CASES and TOTAL BOTTLES
- * - Supports fractional cases (8.83)
- * - Complex CODE NUMBER format
- * - Two-page format with extended compliance notice
- * - Transportation company field
- * - Multiple signature sections
+ * Layout is now configurable via admin template settings.
  */
 
 import React from 'react';
@@ -25,11 +15,11 @@ import {
 } from '@react-pdf/renderer';
 import { CompleteInvoiceData } from '../invoice-data-builder';
 import { sharedStyles, formatCurrency, formatShortDate } from './styles';
+import type { InvoiceColumnId } from '../column-presets';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
 
-  // Tax-exempt specific styles
   distributorTitle: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -37,8 +27,6 @@ const styles = StyleSheet.create({
     textDecoration: 'underline',
     marginBottom: 20,
   },
-
-  // Header info section
   invoiceHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -47,31 +35,24 @@ const styles = StyleSheet.create({
   invoiceCol: {
     flex: 1,
   },
-
-  // Licensee section
   licenseeSection: {
     marginBottom: 15,
     borderWidth: 1,
     borderColor: '#000',
     padding: 10,
   },
-  licenseeLabelRow: {
+  detailRow: {
     flexDirection: 'row',
-    marginBottom: 5,
+    marginBottom: 3,
   },
-
-  // Table columns (Tax-Exempt format - different from in-state!)
-  col_cases: { width: '10%' },
-  col_bottles: { width: '10%' },
-  col_size: { width: '10%' },
-  col_codeNumber: { width: '15%' },
-  col_sku: { width: '10%' },
-  col_brand: { width: '25%' },
-  col_liters: { width: '8%' },
-  col_bottlePrice: { width: '10%' },
-  col_totalCost: { width: '12%', textAlign: 'right' },
-
-  // Payment terms box
+  detailLabel: {
+    width: 150,
+    fontSize: 8,
+    fontWeight: 'bold',
+  },
+  detailValue: {
+    fontSize: 8,
+  },
   paymentTermsBox: {
     marginTop: 20,
     padding: 10,
@@ -79,8 +60,18 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     backgroundColor: '#f9f9f9',
   },
-
-  // Page 2 styles
+  totalsSection: {
+    marginTop: 15,
+    alignItems: 'flex-end',
+  },
+  noteBlock: {
+    marginBottom: 12,
+    padding: 8,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    fontSize: 7,
+    lineHeight: 1.3,
+  },
   page2Header: {
     fontSize: 12,
     fontWeight: 'bold',
@@ -99,8 +90,121 @@ interface VAAbcTaxExemptInvoiceProps {
   data: CompleteInvoiceData;
 }
 
+type ColumnConfig = {
+  id: InvoiceColumnId;
+  label: string;
+  width: number;
+  align: 'left' | 'center' | 'right';
+  enabled: boolean;
+};
+
+const DEFAULT_COLUMNS: ColumnConfig[] = [
+  { id: 'cases', label: 'Total Cases', width: 10, align: 'left', enabled: true },
+  { id: 'totalBottles', label: 'Total Bottles', width: 10, align: 'left', enabled: true },
+  { id: 'size', label: 'Size in Liters', width: 10, align: 'left', enabled: true },
+  { id: 'abcCode', label: 'Code Number', width: 15, align: 'left', enabled: true },
+  { id: 'sku', label: 'SKU', width: 10, align: 'left', enabled: true },
+  { id: 'productName', label: 'Brand and Type', width: 25, align: 'left', enabled: true },
+  { id: 'liters', label: 'Liters', width: 8, align: 'left', enabled: true },
+  { id: 'bottlePrice', label: 'Price Each', width: 6, align: 'right', enabled: true },
+  { id: 'lineTotal', label: 'Amount', width: 6, align: 'right', enabled: true },
+];
+
+const DEFAULT_SECTIONS = {
+  showBillTo: true,
+  showShipTo: true,
+  showCustomerInfo: true,
+  showTotals: true,
+  showSignature: false,
+  showComplianceNotice: true,
+};
+
+type HeaderNote = {
+  id: string;
+  label: string;
+  text: string;
+  enabled: boolean;
+  position: 'beforeHeader' | 'afterHeader' | 'beforeTable' | 'afterTable';
+};
+
+function parseColumns(columns?: ColumnConfig[] | null): ColumnConfig[] {
+  if (!columns || columns.length === 0) {
+    return DEFAULT_COLUMNS;
+  }
+  return columns
+    .map((column) => ({
+      ...column,
+      align: column.align ?? 'left',
+    }))
+    .filter((column) => column.enabled !== false);
+}
+
+function groupNotes(notes: HeaderNote[] | undefined) {
+  const enabledNotes = (notes ?? []).filter((note) => note.enabled && note.text.trim().length);
+  return {
+    beforeHeader: enabledNotes.filter((note) => note.position === 'beforeHeader'),
+    afterHeader: enabledNotes.filter((note) => note.position === 'afterHeader'),
+    beforeTable: enabledNotes.filter((note) => note.position === 'beforeTable'),
+    afterTable: enabledNotes.filter((note) => note.position === 'afterTable'),
+  };
+}
+
+function renderNotesBlock(notes: HeaderNote[]) {
+  if (!notes.length) {
+    return null;
+  }
+  return (
+    <View style={styles.noteBlock}>
+      {notes.map((note) => (
+        <Text key={note.id}>{note.text}</Text>
+      ))}
+    </View>
+  );
+}
+
+function renderLineValue(columnId: InvoiceColumnId, line: CompleteInvoiceData['orderLines'][number]) {
+  switch (columnId) {
+    case 'cases':
+      return line.casesQuantity.toFixed(2);
+    case 'totalBottles':
+      return line.quantity;
+    case 'size':
+      return line.sku.size || '-';
+    case 'abcCode':
+      return line.sku.abcCodeNumber || '-';
+    case 'sku':
+    case 'code':
+      return line.sku.code;
+    case 'productName':
+      return line.sku.product.name;
+    case 'productCategory':
+      return line.sku.product.category || '-';
+    case 'description':
+      return `${line.sku.product.name}${line.sku.product.category ? ` • ${line.sku.product.category}` : ''}`;
+    case 'liters':
+      return line.totalLiters.toFixed(2);
+    case 'unitPrice':
+    case 'bottlePrice':
+      return formatCurrency(line.unitPrice);
+    case 'lineTotal':
+      return formatCurrency(line.lineTotal);
+    case 'quantity':
+      return line.quantity;
+    default:
+      return '';
+  }
+}
+
 export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ data }) => {
   const palette = data.templateSettings?.palette ?? {};
+  const layout = data.templateSettings?.layout;
+
+  const sections = {
+    ...DEFAULT_SECTIONS,
+    ...(layout?.sections ?? {}),
+  };
+  const columns = parseColumns(layout?.columns);
+  const headerNotes = groupNotes(layout?.headerNotes);
 
   const tableHeaderBackgroundStyle = palette.tableHeaderBackground
     ? { backgroundColor: palette.tableHeaderBackground }
@@ -114,19 +218,26 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
   const sectionHeaderBackgroundStyle = palette.sectionHeaderBackground
     ? { backgroundColor: palette.sectionHeaderBackground }
     : undefined;
+  const grandTotalBorderStyle = palette.borderColor
+    ? { borderTopColor: palette.borderColor }
+    : undefined;
 
   return (
     <Document>
-      {/* PAGE 1: Invoice Details */}
+      {/* PAGE 1 */}
       <Page size="A4" style={styles.page}>
+        {renderNotesBlock(headerNotes.beforeHeader)}
+
         {/* Company Header */}
         <View style={styles.header}>
           <Text style={styles.companyName}>{data.tenantName}</Text>
           <Text style={styles.companyAddress}>6781 Kennedy Road Suite 8, Warrenton, VA 20187</Text>
         </View>
 
+        {renderNotesBlock(headerNotes.afterHeader)}
+
         {/* Title */}
-        <Text style={styles.distributorTitle}>Distributor's Wine Invoice</Text>
+        <Text style={styles.distributorTitle}>Distributor&apos;s Wine Invoice</Text>
 
         {/* Invoice Info */}
         <View style={styles.invoiceHeader}>
@@ -145,35 +256,35 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
               <Text style={styles.detailLabel}>Payment Terms:</Text>
               <Text style={styles.detailValue}>{data.paymentTermsText}</Text>
             </View>
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Salesperson:</Text>
+              <Text style={styles.detailValue}>{data.salesperson}</Text>
+            </View>
           </View>
         </View>
 
         {/* Licensee Section */}
         <View style={[styles.licenseeSection, columnBorderStyle]}>
-          <View style={styles.licenseeLabelRow}>
+          <View style={styles.detailRow}>
             <Text style={[styles.detailLabel, { width: 150 }]}>Licensee:</Text>
             <Text style={styles.detailValue}>{data.customer.name}</Text>
           </View>
-          <View style={styles.licenseeLabelRow}>
+          <View style={styles.detailRow}>
             <Text style={[styles.detailLabel, { width: 150 }]}>Licensee/License #:</Text>
             <Text style={styles.detailValue}>{data.customer.licenseNumber || 'N/A'}</Text>
           </View>
-          <View style={styles.mb5}>
-            <Text style={styles.detailLabel}>Street Address:</Text>
+          <View style={styles.detailRow}>
+            <Text style={[styles.detailLabel, { width: 150 }]}>Street Address:</Text>
             <Text style={styles.detailValue}>
               {data.billingAddress.street1}
               {data.billingAddress.street2 && `, ${data.billingAddress.street2}`}
             </Text>
           </View>
-          <View style={styles.mb5}>
-            <Text style={styles.detailLabel}>City/State/Zip:</Text>
+          <View style={styles.detailRow}>
+            <Text style={[styles.detailLabel, { width: 150 }]}>City/State/Zip:</Text>
             <Text style={styles.detailValue}>
               {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
             </Text>
-          </View>
-          <View style={styles.detailRow}>
-            <Text style={[styles.detailLabel, { width: 150 }]}>Salesperson:</Text>
-            <Text style={styles.detailValue}>{data.salesperson}</Text>
           </View>
           <View style={styles.detailRow}>
             <Text style={[styles.detailLabel, { width: 150 }]}>PO #:</Text>
@@ -187,104 +298,103 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
           )}
         </View>
 
-        {/* Line Items Table with CASES column */}
+        {renderNotesBlock(headerNotes.beforeTable)}
+
+        {/* Line Items Table */}
         <View style={styles.table}>
-          {/* Table Header */}
           <View style={[styles.tableHeader, tableHeaderBackgroundStyle]}>
-            <Text style={[styles.tableCell, styles.col_cases]}>TOTAL CASES</Text>
-            <Text style={[styles.tableCell, styles.col_bottles]}>TOTAL BOTTLES</Text>
-            <Text style={[styles.tableCell, styles.col_size]}>SIZE IN LITERS</Text>
-            <Text style={[styles.tableCell, styles.col_codeNumber]}>CODE NUMBER</Text>
-            <Text style={[styles.tableCell, styles.col_sku]}>SKU</Text>
-            <Text style={[styles.tableCell, styles.col_brand]}>BRAND AND TYPE</Text>
-            <Text style={[styles.tableCell, styles.col_liters]}>LITERS</Text>
-            <Text style={[styles.tableCell, styles.col_bottlePrice]}>BOTTLE PRICE</Text>
-            <Text style={[styles.tableCell, styles.col_totalCost]}>TOTAL COST</Text>
+            {columns.map((column) => (
+              <Text
+                key={column.id}
+                style={[
+                  styles.tableCell,
+                  {
+                    width: `${column.width}%`,
+                    textAlign: column.align,
+                  },
+                ]}
+              >
+                {column.label}
+              </Text>
+            ))}
           </View>
 
-          {/* Table Rows */}
           {data.orderLines.map((line, index) => (
             <View key={index} style={[styles.tableRow, tableRowBorderStyle]}>
-              <Text style={[styles.tableCell, styles.col_cases]}>{line.casesQuantity.toFixed(2)}</Text>
-              <Text style={[styles.tableCell, styles.col_bottles]}>{line.quantity}</Text>
-              <Text style={[styles.tableCell, styles.col_size]}>{line.sku.size || 'N/A'}</Text>
-              <Text style={[styles.tableCell, styles.col_codeNumber]}>{line.sku.abcCodeNumber || 'N/A'}</Text>
-              <Text style={[styles.tableCell, styles.col_sku]}>{line.sku.code}</Text>
-              <Text style={[styles.tableCell, styles.col_brand]}>{line.sku.product.name}</Text>
-              <Text style={[styles.tableCell, styles.col_liters]}>{line.totalLiters.toFixed(3)}</Text>
-              <Text style={[styles.tableCell, styles.col_bottlePrice]}>{formatCurrency(line.unitPrice)}</Text>
-              <Text style={[styles.tableCell, styles.col_totalCost]}>{formatCurrency(line.lineTotal)}</Text>
+              {columns.map((column) => (
+                <Text
+                  key={column.id}
+                  style={[
+                    styles.tableCell,
+                    {
+                      width: `${column.width}%`,
+                      textAlign: column.align,
+                    },
+                  ]}
+                >
+                  {renderLineValue(column.id, line)}
+                </Text>
+              ))}
             </View>
           ))}
         </View>
 
-        {/* Totals */}
-        <View style={styles.totalsSection}>
-          <View style={styles.totalRow}>
-            <Text style={styles.totalLabel}>Total Liters:</Text>
-            <Text style={styles.totalValue}>{data.totalLiters.toFixed(3)}</Text>
-          </View>
-          <View style={styles.grandTotalRow}>
-            <Text style={styles.grandTotalLabel}>Grand Total:</Text>
-            <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
-          </View>
-        </View>
+        {renderNotesBlock(headerNotes.afterTable)}
 
-        {/* Date Received Signature */}
-        <View style={[styles.signatureSection, styles.mt15]}>
-          <View style={styles.detailRow}>
-            <Text style={styles.detailLabel}>DATE RECEIVED:</Text>
-            <View style={styles.signatureField} />
+        {/* Totals */}
+        {sections.showTotals && (
+          <View style={styles.totalsSection}>
+            <View style={styles.totalRow}>
+              <Text style={styles.totalLabel}>Total Liters:</Text>
+              <Text style={styles.totalValue}>{data.totalLiters.toFixed(2)}</Text>
+            </View>
+            <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
+              <Text style={styles.grandTotalLabel}>Total Amount:</Text>
+              <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
+            </View>
           </View>
-        </View>
+        )}
 
         {/* Payment Terms */}
-        <View style={styles.paymentTermsBox}>
-          <Text style={styles.legalText}>{data.collectionTerms}</Text>
+        <View style={[styles.paymentTermsBox, sectionHeaderBackgroundStyle]}>
+          <Text style={{ fontSize: 7 }}>
+            Payment/Credit Applied: {formatCurrency(data.total)}
+          </Text>
+          <Text style={{ fontSize: 7 }}>
+            Total Amount Due: {formatCurrency(data.total)}
+          </Text>
         </View>
+
+        {/* Compliance */}
+        {sections.showComplianceNotice && (
+          <View style={styles.legalText}>
+            <Text>{data.complianceNotice}</Text>
+          </View>
+        )}
       </Page>
 
-      {/* PAGE 2: Transportation and Compliance */}
+      {/* PAGE 2 */}
       <Page size="A4" style={styles.page}>
-        <Text style={styles.page2Header}>Distributor's Wine Invoice - Page 2</Text>
+        <Text style={styles.page2Header}>Transportation and Compliance Information</Text>
 
-        <View style={styles.invoiceHeader}>
-          <Text style={styles.detailLabel}>Invoice Number: {data.invoiceNumber}</Text>
-          <Text style={styles.detailLabel}>Customer: {data.customer.name}</Text>
-        </View>
+        <Text style={{ fontSize: 8, marginBottom: 12 }}>
+          This invoice certifies that the listed goods are being shipped in accordance with the transportation
+          laws of the destination state. Retain this document for your compliance records.
+        </Text>
 
-        {/* Transportation Section */}
         <View style={styles.transportationSection}>
-          <Text style={[styles.detailLabel, styles.mb10]}>Transportation Company:</Text>
-          <View style={styles.signatureField}>
-            <Text style={styles.signatureLabel}>Company Name:</Text>
-          </View>
-
-          <View style={[styles.signatureGrid, styles.mt15]}>
-            <View style={styles.signatureField}>
-              <Text style={styles.signatureLabel}>Signed:</Text>
-            </View>
-            <View style={styles.signatureField}>
-              <Text style={styles.signatureLabel}>Date:</Text>
-            </View>
-          </View>
-        </View>
-
-        {/* Extended Compliance Notice */}
-        <View style={[styles.complianceNotice, styles.mt15]}>
-          <Text>{data.complianceNotice}</Text>
-        </View>
-
-        {/* Additional Legal Text */}
-        <View style={[styles.legalText, styles.mt15]}>
-          <Text style={styles.bold}>IMPORTANT:</Text>
-          <Text style={styles.mt5}>
-            This invoice represents a tax-exempt sale to an out-of-state licensee.
-            The distributor has verified the licensee's status and retained copies of
-            all required documentation.
+          <Text style={{ fontSize: 8, fontWeight: 'bold', marginBottom: 6 }}>Transportation Log</Text>
+          <Text style={{ fontSize: 7, marginBottom: 4 }}>
+            Shipped via: {data.shippingMethod}
           </Text>
-          <Text style={styles.mt5}>
-            Excise taxes are not applicable to this sale per Virginia ABC regulations.
+          <Text style={{ fontSize: 7, marginBottom: 4 }}>
+            Ship Date: {formatShortDate(data.shipDate)}
+          </Text>
+          <Text style={{ fontSize: 7, marginBottom: 4 }}>
+            Due Date: {formatShortDate(data.dueDate)}
+          </Text>
+          <Text style={{ fontSize: 7 }}>
+            Compliance Notice: {data.complianceNotice}
           </Text>
         </View>
       </Page>
