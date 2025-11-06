@@ -172,8 +172,11 @@ function CallPlanPageContent() {
   useEffect(() => {
     loadAccounts();
     loadSelectedAccounts();
+  }, [loadAccounts, loadSelectedAccounts]);
+
+  useEffect(() => {
     loadCallPlanOverview();
-  }, [loadAccounts, loadSelectedAccounts, loadCallPlanOverview]);
+  }, [loadCallPlanOverview]);
 
   const tabParam = searchParams.get("tab");
   useEffect(() => {

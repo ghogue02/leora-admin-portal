@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Download } from "lucide-react";
 import { DashboardTile } from "@/components/dashboard/DashboardTile";
 import type { DashboardDrilldownType } from "@/types/drilldown";
 
@@ -22,6 +23,35 @@ type CustomersDueListProps = {
 
 export default function CustomersDueList({ customers, onDrilldown }: CustomersDueListProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [exporting, setExporting] = useState(false);
+
+  const handleExport = async () => {
+    try {
+      setExporting(true);
+      const response = await fetch("/api/sales/dashboard/customers-due/export", {
+        credentials: "include",
+      });
+      if (!response.ok) {
+        throw new Error("Failed to export customers due.");
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      const timestamp = new Date().toISOString().slice(0, 10);
+      link.download = `customers-due-${timestamp}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Failed to export customers due:", error);
+      alert("Unable to export customers right now. Please try again.");
+    } finally {
+      setExporting(false);
+    }
+  };
   if (customers.length === 0) {
     return (
       <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -47,9 +77,20 @@ export default function CustomersDueList({ customers, onDrilldown }: CustomersDu
               Based on ordering history and expected cadence
             </p>
           </div>
-          <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700">
-            {customers.length} customer{customers.length === 1 ? "" : "s"}
-          </span>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={handleExport}
+              disabled={exporting}
+              className="inline-flex items-center gap-2 rounded-md border border-gray-300 px-3 py-1.5 text-xs font-semibold text-gray-700 transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <Download className="h-4 w-4" />
+              {exporting ? "Exporting..." : "Export CSV"}
+            </button>
+            <span className="rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700">
+              {customers.length} customer{customers.length === 1 ? "" : "s"}
+            </span>
+          </div>
         </div>
 
       <ul className="mt-4 space-y-3">
