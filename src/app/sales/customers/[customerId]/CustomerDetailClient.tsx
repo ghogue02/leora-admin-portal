@@ -113,6 +113,9 @@ export default function CustomerDetailClient({
       {/* Customer Header */}
       <CustomerHeader customer={data.customer} />
 
+      {/* Recent Orders - Moved to TOP (position 2) */}
+      <OrderHistory orders={data.orders} customerId={customerId} isCompact={true} />
+
       {/* Customer Tags */}
       <CustomerTagManager customerId={customerId} />
 
@@ -143,9 +146,6 @@ export default function CustomerDetailClient({
         isPermanentlyClosed={data.customer.isPermanentlyClosed}
         customerName={data.customer.name}
       />
-
-      {/* Recent Orders - Moved to position 7 */}
-      <OrderHistory orders={data.orders} customerId={customerId} isCompact={true} />
 
       {/* Account Holds/Balances */}
       <AccountHolds

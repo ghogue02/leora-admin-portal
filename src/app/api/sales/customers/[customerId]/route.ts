@@ -412,11 +412,29 @@ export async function GET(
         })),
         orders: orders.map((order) => ({
           id: order.id,
+          orderNumber: order.orderNumber,
           orderedAt: order.orderedAt?.toISOString() ?? null,
           deliveredAt: order.deliveredAt?.toISOString() ?? null,
           status: order.status,
           total: Number(order.total ?? 0),
           lineCount: order._count.lines,
+          lines: order.lines.map((line) => ({
+            id: line.id,
+            quantity: line.quantity,
+            unitPrice: Number(line.unitPrice),
+            sku: line.sku
+              ? {
+                  code: line.sku.code,
+                  product: line.sku.product
+                    ? {
+                        id: line.sku.product.id,
+                        name: line.sku.product.name,
+                        brand: line.sku.product.brand,
+                      }
+                    : null,
+                }
+              : null,
+          })),
           invoices: order.invoices.map((inv) => ({
             id: inv.id,
             invoiceNumber: inv.invoiceNumber,

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 type Order = {
   id: string;
+  orderNumber: string | null;
   orderedAt: string | null;
   deliveredAt: string | null;
   status: string;
@@ -139,9 +140,7 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
                         onClick={(e) => e.stopPropagation()}
                         className="font-mono text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline"
                       >
-                        {order.invoices.length > 0 && order.invoices[0].invoiceNumber
-                          ? `${order.invoices[0].invoiceNumber} / `
-                          : ''}#{order.id.slice(0, 8)}
+                        {order.orderNumber || `#${order.id.slice(0, 8)}`}
                       </Link>
                       <span
                         className={`rounded-full border px-2 py-0.5 text-xs font-semibold ${getStatusBadge(

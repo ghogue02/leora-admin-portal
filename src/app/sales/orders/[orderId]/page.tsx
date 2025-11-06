@@ -121,14 +121,14 @@ export default function SalesOrderDetailPage() {
           homeLabel="Sales"
           items={[
             { label: 'Orders', href: '/sales/orders' },
-            { label: `Order #${order.id.substring(0, 8)}`, href: null },
+            { label: order.orderNumber || `Order #${order.id.substring(0, 8)}`, href: null },
           ]}
         />
       </div>
 
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-3xl font-semibold">Order #{order.id.substring(0, 8)}</h1>
+        <h1 className="text-3xl font-semibold">{order.orderNumber || `Order #${order.id.substring(0, 8)}`}</h1>
         <p className="text-gray-600 mt-2">
           {order.customer.name} · {formatShortDate(order.orderedAt)}
         </p>

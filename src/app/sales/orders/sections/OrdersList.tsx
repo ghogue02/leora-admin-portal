@@ -19,6 +19,7 @@ type OrdersResponse = {
   };
   orders: Array<{
     id: string;
+    orderNumber: string | null;
     orderedAt: string | null;
     status: OrderStatus;
     total: number | null;
@@ -52,7 +53,7 @@ export default function OrdersList() {
   const [cancelError, setCancelError] = useState<string | null>(null);
   const [cancelingId, setCancelingId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [statusFilter, setStatusFilter] = useState<OrderStatus | 'all' | 'unfulfilled'>('all');
+  const [statusFilter, setStatusFilter] = useState<OrderStatus | 'all' | 'unfulfilled'>('unfulfilled');
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
@@ -252,18 +253,18 @@ export default function OrdersList() {
             onChange={(e) => setStatusFilter(e.target.value as OrderStatus | 'all' | 'unfulfilled')}
             className="rounded-md border border-gray-300 px-4 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
           >
-            <option value="all">All Statuses (Default)</option>
-            <option value="unfulfilled">Unfulfilled Orders</option>
+            <option value="unfulfilled">Unfulfilled Orders (Default)</option>
+            <option value="all">All Statuses</option>
             <option value="SUBMITTED">Submitted</option>
             <option value="PARTIALLY_FULFILLED">Partially Fulfilled</option>
             <option value="FULFILLED">Fulfilled</option>
             <option value="CANCELLED">Cancelled</option>
           </select>
-          {(searchTerm || statusFilter !== 'all') && (
+          {(searchTerm || statusFilter !== 'unfulfilled') && (
             <button
               onClick={() => {
                 setSearchTerm('');
-                setStatusFilter('all');
+                setStatusFilter('unfulfilled');
               }}
               className="rounded-md border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
             >
@@ -304,7 +305,7 @@ export default function OrdersList() {
                         href={`/sales/orders/${order.id}`}
                         className="font-medium text-gray-900 underline decoration-dotted underline-offset-4 transition hover:text-gray-900"
                       >
-                        #{order.id.slice(0, 8)}
+                        {order.orderNumber || `#${order.id.slice(0, 8)}`}
                       </Link>
                       <span className="text-xs text-gray-500">
                         Ordered {formatShortDate(order.orderedAt)}

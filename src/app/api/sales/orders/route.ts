@@ -285,6 +285,7 @@ function serializeOrder(order: OrderWithRelations) {
 
   return {
     id: order.id,
+    orderNumber: order.orderNumber,
     status: order.status,
     orderedAt: order.orderedAt,
     customer: order.customer
