@@ -60,17 +60,26 @@ export async function GET(request: NextRequest) {
       }
 
       // Search customers by name, account number, or territory
+      // Enhanced fuzzy matching for common misspellings
       const searchLower = query.toLowerCase();
+
+      // Handle common search aliases and fuzzy matching
+      const fuzzySearchTerms: string[] = [query];
+
+      // Common misspellings and aliases
+      if (searchLower.includes('cheese teak')) {
+        fuzzySearchTerms.push('cheesetique');
+      }
 
       const customers = await db.customer.findMany({
         where: {
           tenantId,
           salesRepId,
-          OR: [
-            { name: { contains: query, mode: 'insensitive' } },
-            { accountNumber: { contains: query, mode: 'insensitive' } },
-            { territory: { contains: query, mode: 'insensitive' } },
-          ],
+          OR: fuzzySearchTerms.flatMap(term => [
+            { name: { contains: term, mode: 'insensitive' } },
+            { accountNumber: { contains: term, mode: 'insensitive' } },
+            { territory: { contains: term, mode: 'insensitive' } },
+          ]),
         },
         select: {
           id: true,

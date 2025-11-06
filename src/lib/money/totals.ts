@@ -108,7 +108,7 @@ export function formatMoney(d: Decimal): string {
 /**
  * Complete order total calculation
  *
- * Single source of truth for calculating order totals with taxes.
+ * Single source of truth for calculating order totals with taxes and fees.
  * This function should be used everywhere totals are calculated:
  * - UI order summary
  * - Server-side order processing
@@ -126,13 +126,17 @@ export function formatMoney(d: Decimal): string {
  *   ],
  *   liters: 2.25,
  *   salesTaxRate: 0.053,
- *   excisePerLiter: 0.40
+ *   excisePerLiter: 0.40,
+ *   deliveryFee: 10.00,
+ *   splitCaseFee: 5.00
  * });
  * // Returns: {
  * //   subtotal: "70.48",
+ * //   deliveryFee: "10.00",
+ * //   splitCaseFee: "5.00",
  * //   salesTax: "3.74",
  * //   exciseTax: "0.90",
- * //   total: "75.12"
+ * //   total: "90.12"
  * // }
  */
 export function calcOrderTotal({
@@ -140,25 +144,42 @@ export function calcOrderTotal({
   liters,
   salesTaxRate = VA_TAX_RATES.SALES_TAX_RATE,
   excisePerLiter = VA_TAX_RATES.EXCISE_PER_LITER,
+  deliveryFee = 0,
+  splitCaseFee = 0,
+  isB2B = false,
 }: {
   lines: MoneyLine[];
   liters: number;
   salesTaxRate?: number;
   excisePerLiter?: number;
-}): MoneyTotals {
+  deliveryFee?: number;
+  splitCaseFee?: number;
+  isB2B?: boolean;
+}): MoneyTotals & { deliveryFee: string; splitCaseFee: string } {
   const subtotal = calcSubtotal(lines);
+  const deliveryFeeDecimal = new Decimal(deliveryFee);
+  const splitCaseFeeDecimal = new Decimal(splitCaseFee);
 
-  const { salesTax, exciseTax } = calcTaxes({
-    subtotal,
-    liters: new Decimal(liters),
-    salesTaxRate,
-    excisePerLiter,
-  });
+  // B2B customers are tax-exempt
+  const { salesTax, exciseTax } = isB2B
+    ? { salesTax: new Decimal(0), exciseTax: new Decimal(0) }
+    : calcTaxes({
+        subtotal,
+        liters: new Decimal(liters),
+        salesTaxRate,
+        excisePerLiter,
+      });
 
-  const total = subtotal.plus(salesTax).plus(exciseTax);
+  const total = subtotal
+    .plus(deliveryFeeDecimal)
+    .plus(splitCaseFeeDecimal)
+    .plus(salesTax)
+    .plus(exciseTax);
 
   return {
     subtotal: formatMoney(subtotal),
+    deliveryFee: formatMoney(deliveryFeeDecimal),
+    splitCaseFee: formatMoney(splitCaseFeeDecimal),
     salesTax: formatMoney(salesTax),
     exciseTax: formatMoney(exciseTax),
     total: formatMoney(total),

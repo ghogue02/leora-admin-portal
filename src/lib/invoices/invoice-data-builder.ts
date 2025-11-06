@@ -12,6 +12,7 @@ import { calculateInvoiceTaxes } from './tax-calculator';
 import { calculateLineItemLiters, calculateInvoiceTotalLiters } from './liter-calculator';
 import { bottlesToCases } from './case-converter';
 import { getVACollectionTerms, getVAComplianceNotice, VA_INTEREST_RATE } from './interest-calculator';
+import type { InvoiceTemplateSettings } from './template-settings';
 
 const prisma = new PrismaClient();
 
@@ -89,6 +90,9 @@ export interface CompleteInvoiceData {
   wholesalerLicenseNumber: string | null;
   wholesalerPhone: string | null;
   tenantName: string;
+
+  // Template customization
+  templateSettings?: InvoiceTemplateSettings;
 }
 
 /**

@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
     padding: 10,
+    backgroundColor: '#fff',
   },
   columnHeader: {
     fontSize: 9,
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
     padding: 15,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#fff',
   },
   customerIdLabel: {
     fontSize: 8,
@@ -136,6 +138,29 @@ interface VAAbcInstateInvoiceProps {
 }
 
 export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }) => {
+  const palette = data.templateSettings?.palette ?? {};
+  const options = data.templateSettings?.options ?? {};
+
+  const columnBorderStyle = palette.borderColor ? { borderColor: palette.borderColor } : undefined;
+  const columnHeaderBackgroundStyle = palette.sectionHeaderBackground
+    ? { backgroundColor: palette.sectionHeaderBackground }
+    : undefined;
+  const customerIdBoxBorderStyle = palette.borderColor
+    ? { borderColor: palette.borderColor }
+    : undefined;
+  const tableHeaderBackgroundStyle = palette.tableHeaderBackground
+    ? { backgroundColor: palette.tableHeaderBackground }
+    : undefined;
+  const tableRowBorderStyle = palette.borderColor
+    ? { borderBottomColor: palette.borderColor }
+    : undefined;
+  const grandTotalBorderStyle = palette.borderColor
+    ? { borderTopColor: palette.borderColor }
+    : undefined;
+
+  const showCustomerIdColumn = options.showCustomerIdColumn ?? true;
+  const useCondensedSignature = options.signatureStyle === 'condensed';
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -165,8 +190,8 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
         {/* Three-column section: Bill To | Customer ID | Ship To */}
         <View style={styles.threeColumnSection}>
           {/* Bill To */}
-          <View style={styles.column}>
-            <Text style={styles.columnHeader}>Bill To</Text>
+          <View style={[styles.column, columnBorderStyle]}>
+            <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Bill To</Text>
             <Text style={styles.customerName}>{data.customer.name}</Text>
             <Text style={styles.customerAddress}>
               {data.billingAddress.street1}
@@ -184,17 +209,19 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
           </View>
 
           {/* Customer ID */}
-          <View style={styles.column}>
-            <Text style={styles.columnHeader}>Customer ID</Text>
-            <View style={styles.customerIdBox}>
-              <Text style={styles.customerIdLabel}>ID</Text>
-              <Text style={styles.customerId}>{data.customer.accountNumber || data.customer.id.substring(0, 8)}</Text>
+          {showCustomerIdColumn && (
+            <View style={[styles.column, columnBorderStyle]}>
+              <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Customer ID</Text>
+              <View style={[styles.customerIdBox, customerIdBoxBorderStyle]}>
+                <Text style={styles.customerIdLabel}>ID</Text>
+                <Text style={styles.customerId}>{data.customer.accountNumber || data.customer.id.substring(0, 8)}</Text>
+              </View>
             </View>
-          </View>
+          )}
 
           {/* Ship To */}
-          <View style={styles.column}>
-            <Text style={styles.columnHeader}>Ship To</Text>
+          <View style={[styles.column, columnBorderStyle]}>
+            <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Ship To</Text>
             <Text style={styles.customerName}>{data.customer.name}</Text>
             <Text style={styles.customerAddress}>
               {data.shippingAddress.street1}
@@ -249,7 +276,7 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
         {/* Line Items Table */}
         <View style={styles.table}>
           {/* Table Header */}
-          <View style={styles.tableHeader}>
+          <View style={[styles.tableHeader, tableHeaderBackgroundStyle]}>
             <Text style={[styles.tableCell, styles.col_bottles]}>No. bottles</Text>
             <Text style={[styles.tableCell, styles.col_size]}>Size</Text>
             <Text style={[styles.tableCell, styles.col_code]}>Code</Text>
@@ -262,7 +289,7 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
 
           {/* Table Rows */}
           {data.orderLines.map((line, index) => (
-            <View key={index} style={styles.tableRow}>
+            <View key={index} style={[styles.tableRow, tableRowBorderStyle]}>
               <Text style={[styles.tableCell, styles.col_bottles]}>{line.quantity}</Text>
               <Text style={[styles.tableCell, styles.col_size]}>{line.sku.size || 'N/A'}</Text>
               <Text style={[styles.tableCell, styles.col_code]}>{line.sku.abcCodeNumber || 'N/A'}</Text>
@@ -281,7 +308,7 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
             <Text style={styles.totalLabel}>Total Liters:</Text>
             <Text style={styles.totalValue}>{data.totalLiters.toFixed(3)}</Text>
           </View>
-          <View style={styles.grandTotalRow}>
+          <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
             <Text style={styles.grandTotalLabel}>Total Amount:</Text>
             <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
           </View>
@@ -289,30 +316,49 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
 
         {/* Retailer Signature Section */}
         <View style={styles.retailerSignature}>
-          <Text style={styles.retailerHeader}>(TO BE FILLED IN BY RETAIL LICENSEE)</Text>
+          {useCondensedSignature ? (
+            <>
+              <Text style={styles.retailerHeader}>TO BE FILLED BY RETAIL LICENSEE</Text>
+              <Text style={{ fontSize: 9, marginBottom: 8 }}>
+                Goods listed above have been received and cash in full paid therefor on the above date. Goods received from:
+              </Text>
+              <View style={styles.signatureGrid}>
+                <View style={styles.signatureField}>
+                  <Text style={styles.signatureLabel}>Date: _______________</Text>
+                </View>
+                <View style={styles.signatureField}>
+                  <Text style={styles.signatureLabel}>Signed: _______________</Text>
+                </View>
+              </View>
+            </>
+          ) : (
+            <>
+              <Text style={styles.retailerHeader}>(TO BE FILLED IN BY RETAIL LICENSEE)</Text>
 
-          <View style={styles.detailRow}>
-            <Text style={styles.detailLabel}>Date:</Text>
-            <View style={styles.signatureField} />
-          </View>
+              <View style={styles.detailRow}>
+                <Text style={styles.detailLabel}>Date:</Text>
+                <View style={styles.signatureField} />
+              </View>
 
-          <Text style={[styles.mb10, { fontSize: 8, marginTop: 10 }]}>
-            Goods as listed above have been received and cash in full paid therefor on the above date.
-          </Text>
+              <Text style={[styles.mb10, { fontSize: 8, marginTop: 10 }]}>
+                Goods as listed above have been received and cash in full paid therefor on the above date.
+              </Text>
 
-          <View style={styles.detailRow}>
-            <Text style={styles.detailLabel}>Goods received from:</Text>
-          </View>
-          <Text style={styles.mb5}>Name of Transportation Company: {data.tenantName}</Text>
+              <View style={styles.detailRow}>
+                <Text style={styles.detailLabel}>Goods received from:</Text>
+              </View>
+              <Text style={styles.mb5}>Name of Transportation Company: {data.tenantName}</Text>
 
-          <View style={styles.signatureGrid}>
-            <View style={styles.signatureField}>
-              <Text style={styles.signatureLabel}>Signed:</Text>
-            </View>
-            <View style={styles.signatureField}>
-              <Text style={styles.signatureLabel}>By:</Text>
-            </View>
-          </View>
+              <View style={styles.signatureGrid}>
+                <View style={styles.signatureField}>
+                  <Text style={styles.signatureLabel}>Signed:</Text>
+                </View>
+                <View style={styles.signatureField}>
+                  <Text style={styles.signatureLabel}>By:</Text>
+                </View>
+              </View>
+            </>
+          )}
         </View>
 
         {/* Compliance Notice */}

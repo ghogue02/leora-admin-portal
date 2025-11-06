@@ -271,6 +271,21 @@ export default function SalesOrderDetailPage() {
                     showPreview={true}
                   />
                 </div>
+
+                {/* Edit Order After Invoice - Sprint 2 Feature #4 */}
+                {/* Allow editing delivered orders with invoice regeneration */}
+                <div className="mt-4">
+                  <Link
+                    href={`/sales/orders/${order.id}/edit`}
+                    className="flex items-center justify-center gap-2 w-full px-4 py-2 border-2 border-amber-500 text-amber-700 bg-amber-50 rounded-md hover:bg-amber-100 font-semibold transition"
+                  >
+                    <Pencil className="h-4 w-4" />
+                    Edit Order & Regenerate Invoice
+                  </Link>
+                  <p className="text-xs text-amber-600 mt-2 text-center">
+                    ⚠ Editing will create a new invoice version
+                  </p>
+                </div>
               </div>
             ) : (
               <div>

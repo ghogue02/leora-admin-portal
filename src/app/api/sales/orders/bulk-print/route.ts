@@ -5,6 +5,7 @@ import JSZip from "jszip";
 import { generateInvoicePDF } from "@/lib/invoices/pdf-generator";
 import { buildInvoiceData } from "@/lib/invoices/invoice-data-builder";
 import { formatUTCDate } from "@/lib/dates";
+import { getInvoiceTemplateSettings } from "@/lib/invoices/template-settings";
 
 /**
  * POST /api/sales/orders/bulk-print
@@ -120,7 +121,13 @@ export async function POST(request: NextRequest) {
           });
 
           // Generate PDF buffer
-          const pdfBuffer = await generateInvoicePDF(invoiceData);
+          const templateSettings = await getInvoiceTemplateSettings(
+            db,
+            tenantId,
+            invoiceData.invoiceFormatType
+          );
+
+          const pdfBuffer = await generateInvoicePDF(invoiceData, templateSettings);
 
           // Add to ZIP
           const filename = `${invoiceNumber.replace(/[^a-zA-Z0-9-]/g, '_')}.pdf`;
@@ -155,4 +162,3 @@ export async function POST(request: NextRequest) {
     }
   );
 }
-

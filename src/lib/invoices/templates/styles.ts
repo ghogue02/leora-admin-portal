@@ -94,6 +94,7 @@ export const sharedStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 8,
     textTransform: 'uppercase',
+    backgroundColor: '#fff',
   },
   tableRow: {
     flexDirection: 'row',

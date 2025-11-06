@@ -74,6 +74,8 @@ export default function NewOrderPage() {
   const [poNumber, setPoNumber] = useState<string>('');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
+  const [deliveryFee, setDeliveryFee] = useState<number>(0);
+  const [splitCaseFee, setSplitCaseFee] = useState<number>(0);
 
   // Inline validation state (Phase 2)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -188,6 +190,51 @@ export default function NewOrderPage() {
     }
   }, []);
 
+  // Add multiple products at once (multi-select)
+  const handleAddMultipleProducts = useCallback((products: Array<{
+    product: any;
+    quantity: number;
+    inventoryStatus: InventoryStatus | undefined;
+    pricing: PricingSelection;
+  }>) => {
+    const newItems: OrderItem[] = products.map(({ product, quantity, inventoryStatus, pricing }) => {
+      const unitPrice = pricing.unitPrice || product.pricePerUnit || 0;
+      const actualQuantity = Math.max(1, quantity);
+
+      return {
+        skuId: product.skuId,
+        skuCode: product.skuCode,
+        productName: product.productName,
+        brand: product.brand,
+        size: product.size,
+        quantity: actualQuantity,
+        unitPrice,
+        lineTotal: actualQuantity * unitPrice,
+        inventoryStatus,
+        pricing,
+        priceLists: product.priceLists as PriceListSummary[],
+      };
+    });
+
+    setOrderItems(prev => [...prev, ...newItems]);
+    setShowProductSelector(false);
+
+    // Clear products error when products added
+    setFieldErrors(prev => {
+      const newErrors = { ...prev };
+      delete newErrors.products;
+      return newErrors;
+    });
+
+    // Show success notification
+    notifications.productAdded(
+      `${newItems.length} products`,
+      newItems.reduce((sum, item) => sum + item.quantity, 0),
+      newItems.reduce((sum, item) => sum + item.lineTotal, 0),
+      `Added ${newItems.length} products to order`
+    );
+  }, []);
+
   // Calculate order total
   const orderTotal = orderItems.reduce((sum, item) => sum + item.lineTotal, 0);
   const requiresApproval = orderItems.some(item =>
@@ -279,7 +326,7 @@ export default function NewOrderPage() {
       // Show success modal instead of immediate redirect
       setCreatedOrderData({
         orderId: result.orderId,
-        orderNumber: result.orderId.slice(0, 8).toUpperCase(),
+        orderNumber: result.orderNumber || result.orderId.slice(0, 8).toUpperCase(),
         total: orderTotal,
         requiresApproval: result.requiresApproval || false,
       });
@@ -736,6 +783,10 @@ export default function NewOrderPage() {
             setOrderItems(orderItems.filter(item => item.skuId !== skuId));
           }}
           requiresApproval={requiresApproval}
+          deliveryFee={deliveryFee}
+          splitCaseFee={splitCaseFee}
+          onDeliveryFeeChange={setDeliveryFee}
+          onSplitCaseFeeChange={setSplitCaseFee}
         />
       </div>
 
@@ -757,6 +808,7 @@ export default function NewOrderPage() {
             <ProductGrid
               warehouseLocation={warehouseLocation}
               onAddProduct={handleAddProduct}
+              onAddMultipleProducts={handleAddMultipleProducts}
               existingSkuIds={orderItems.map(item => item.skuId)}
               customer={customerPricingContext ?? undefined}
             />

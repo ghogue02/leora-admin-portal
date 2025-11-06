@@ -6,8 +6,16 @@
  */
 
 import { renderToStream } from '@react-pdf/renderer';
-import { StandardInvoice } from './templates';
+import { createElement } from 'react';
+import {
+  StandardInvoice,
+  VAAbcInstateInvoice,
+  VAAbcInstateInvoiceCondensed,
+  VAAbcTaxExemptInvoice,
+} from './templates';
 import type { CompleteInvoiceData } from './invoice-data-builder';
+import type { InvoiceTemplateSettings } from './template-settings';
+import { resolveBaseTemplateComponent } from './template-settings';
 import { calcSubtotal } from '@/lib/money/totals';
 import Decimal from 'decimal.js';
 
@@ -17,11 +25,41 @@ import Decimal from 'decimal.js';
  * @param invoiceData - Invoice data from invoice-data-builder
  * @returns PDF as buffer
  */
-export async function generateInvoicePDF(invoiceData: CompleteInvoiceData): Promise<Buffer> {
+export async function generateInvoicePDF(
+  invoiceData: CompleteInvoiceData,
+  templateSettings?: InvoiceTemplateSettings
+): Promise<Buffer> {
   try {
+    const baseTemplateChoice = resolveBaseTemplateComponent(
+      invoiceData.invoiceFormatType,
+      templateSettings?.baseTemplate
+    );
+
+    let Component = StandardInvoice;
+    switch (baseTemplateChoice) {
+      case 'VA_ABC_INSTATE_FULL':
+        Component = VAAbcInstateInvoice;
+        break;
+      case 'VA_ABC_INSTATE_CONDENSED':
+        Component = VAAbcInstateInvoiceCondensed;
+        break;
+      case 'VA_ABC_TAX_EXEMPT':
+        Component = VAAbcTaxExemptInvoice;
+        break;
+      case 'STANDARD':
+      default:
+        Component = StandardInvoice;
+        break;
+    }
+
+    const pdfData: CompleteInvoiceData = {
+      ...invoiceData,
+      templateSettings: templateSettings ?? invoiceData.templateSettings,
+    };
+
     // Use existing invoice template components
     const stream = await renderToStream(
-      StandardInvoice({ data: invoiceData })
+      createElement(Component, { data: pdfData })
     );
 
     // Convert stream to buffer

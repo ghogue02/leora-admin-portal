@@ -1,16 +1,18 @@
 'use client';
 
 /**
- * Order Preview Modal - PHASE 2
+ * Order Preview Modal - SPRINT 3 POLISH
  *
  * Shows complete order summary before submission
  * - Customer details
  * - Delivery information
  * - All products with pricing
  * - Total breakdown
+ * - Status selection (Pending/Ready)
  * - Approval requirements
  */
 
+import React from 'react';
 import { X, AlertTriangle, CheckCircle } from 'lucide-react';
 
 type Customer = {
@@ -53,7 +55,7 @@ type Props = {
   items: OrderItem[];
   total: number;
   requiresApproval: boolean;
-  onConfirm: () => void;
+  onConfirm: (selectedStatus: 'PENDING' | 'READY') => void;
   onCancel: () => void;
   submitting?: boolean;
 };
@@ -77,6 +79,11 @@ export function OrderPreviewModal({
 
   const inventoryIssues = items.filter(item => item.inventoryStatus && !item.inventoryStatus.sufficient);
   const priceOverrides = items.filter(item => item.pricing.overrideApplied);
+
+  // Smart default: READY if no issues, PENDING if needs approval
+  const [selectedStatus, setSelectedStatus] = React.useState<'PENDING' | 'READY'>(
+    requiresApproval ? 'PENDING' : 'READY'
+  );
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
@@ -207,6 +214,46 @@ export function OrderPreviewModal({
             </div>
           </section>
 
+          {/* Order Status Selection */}
+          <section>
+            <h3 className="text-sm font-semibold text-gray-900 mb-3">Order Status</h3>
+            <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 space-y-3">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  name="orderStatus"
+                  value="PENDING"
+                  checked={selectedStatus === 'PENDING'}
+                  onChange={(e) => setSelectedStatus('PENDING')}
+                  className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
+                />
+                <div className="flex-1">
+                  <span className="text-sm font-medium text-gray-900">Save as Pending</span>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Save order for later review. Customer will not be notified yet.
+                  </p>
+                </div>
+              </label>
+
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  name="orderStatus"
+                  value="READY"
+                  checked={selectedStatus === 'READY'}
+                  onChange={(e) => setSelectedStatus('READY')}
+                  className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
+                />
+                <div className="flex-1">
+                  <span className="text-sm font-medium text-gray-900">Mark as Ready</span>
+                  <p className="text-xs text-gray-600 mt-1">
+                    Order is complete and ready for processing/fulfillment.
+                  </p>
+                </div>
+              </label>
+            </div>
+          </section>
+
           {/* Warnings */}
           {(requiresApproval || inventoryIssues.length > 0 || priceOverrides.length > 0) && (
             <section>
@@ -215,18 +262,18 @@ export function OrderPreviewModal({
                   <div className="flex items-start gap-3">
                     <AlertTriangle className="h-5 w-5 text-amber-700 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm font-semibold text-amber-900">Manager Approval Required</p>
+                      <p className="text-sm font-semibold text-amber-900">Manager Approval May Be Required</p>
                       <p className="mt-1 text-sm text-amber-700">
-                        This order will be sent to your manager for review before processing.
+                        Note: Orders marked as Ready may still require approval based on your settings.
                       </p>
                       {inventoryIssues.length > 0 && (
                         <p className="mt-2 text-xs text-amber-800">
-                          Reason: {inventoryIssues.length} item(s) with insufficient inventory
+                          • {inventoryIssues.length} item(s) with insufficient inventory
                         </p>
                       )}
                       {priceOverrides.length > 0 && (
                         <p className="mt-1 text-xs text-amber-800">
-                          Reason: {priceOverrides.length} item(s) with manual pricing
+                          • {priceOverrides.length} item(s) with manual pricing
                         </p>
                       )}
                     </div>
@@ -234,14 +281,14 @@ export function OrderPreviewModal({
                 </div>
               )}
 
-              {!requiresApproval && (
+              {!requiresApproval && selectedStatus === 'READY' && (
                 <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-emerald-700 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-sm font-semibold text-emerald-900">Ready to Submit</p>
+                      <p className="text-sm font-semibold text-emerald-900">Ready for Processing</p>
                       <p className="mt-1 text-sm text-emerald-700">
-                        This order has sufficient inventory and will be processed immediately.
+                        This order has sufficient inventory and will be marked as ready for fulfillment.
                       </p>
                     </div>
                   </div>
@@ -261,11 +308,11 @@ export function OrderPreviewModal({
             Go Back
           </button>
           <button
-            onClick={onConfirm}
+            onClick={() => onConfirm(selectedStatus)}
             disabled={submitting}
             className="rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {submitting ? 'Creating Order...' : requiresApproval ? 'Submit for Approval' : 'Confirm & Create Order'}
+            {submitting ? 'Creating Order...' : selectedStatus === 'READY' ? 'Confirm & Create Order' : 'Save as Pending'}
           </button>
         </div>
       </div>

@@ -100,6 +100,21 @@ interface VAAbcTaxExemptInvoiceProps {
 }
 
 export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ data }) => {
+  const palette = data.templateSettings?.palette ?? {};
+
+  const tableHeaderBackgroundStyle = palette.tableHeaderBackground
+    ? { backgroundColor: palette.tableHeaderBackground }
+    : undefined;
+  const tableRowBorderStyle = palette.borderColor
+    ? { borderBottomColor: palette.borderColor }
+    : undefined;
+  const columnBorderStyle = palette.borderColor
+    ? { borderColor: palette.borderColor }
+    : undefined;
+  const sectionHeaderBackgroundStyle = palette.sectionHeaderBackground
+    ? { backgroundColor: palette.sectionHeaderBackground }
+    : undefined;
+
   return (
     <Document>
       {/* PAGE 1: Invoice Details */}
@@ -134,7 +149,7 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
         </View>
 
         {/* Licensee Section */}
-        <View style={styles.licenseeSection}>
+        <View style={[styles.licenseeSection, columnBorderStyle]}>
           <View style={styles.licenseeLabelRow}>
             <Text style={[styles.detailLabel, { width: 150 }]}>Licensee:</Text>
             <Text style={styles.detailValue}>{data.customer.name}</Text>
@@ -175,7 +190,7 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
         {/* Line Items Table with CASES column */}
         <View style={styles.table}>
           {/* Table Header */}
-          <View style={styles.tableHeader}>
+          <View style={[styles.tableHeader, tableHeaderBackgroundStyle]}>
             <Text style={[styles.tableCell, styles.col_cases]}>TOTAL CASES</Text>
             <Text style={[styles.tableCell, styles.col_bottles]}>TOTAL BOTTLES</Text>
             <Text style={[styles.tableCell, styles.col_size]}>SIZE IN LITERS</Text>
@@ -189,7 +204,7 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
 
           {/* Table Rows */}
           {data.orderLines.map((line, index) => (
-            <View key={index} style={styles.tableRow}>
+            <View key={index} style={[styles.tableRow, tableRowBorderStyle]}>
               <Text style={[styles.tableCell, styles.col_cases]}>{line.casesQuantity.toFixed(2)}</Text>
               <Text style={[styles.tableCell, styles.col_bottles]}>{line.quantity}</Text>
               <Text style={[styles.tableCell, styles.col_size]}>{line.sku.size || 'N/A'}</Text>

@@ -30,6 +30,17 @@ interface StandardInvoiceProps {
 }
 
 export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
+  const palette = data.templateSettings?.palette ?? {};
+  const tableHeaderBackgroundStyle = palette.tableHeaderBackground
+    ? { backgroundColor: palette.tableHeaderBackground }
+    : undefined;
+  const tableRowBorderStyle = palette.borderColor
+    ? { borderBottomColor: palette.borderColor }
+    : undefined;
+  const grandTotalBorderStyle = palette.borderColor
+    ? { borderTopColor: palette.borderColor }
+    : undefined;
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -92,7 +103,7 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
         {/* Line Items Table */}
         <View style={styles.table}>
           {/* Header */}
-          <View style={styles.tableHeader}>
+          <View style={[styles.tableHeader, tableHeaderBackgroundStyle]}>
             <Text style={[styles.tableCell, styles.col_qty]}>Quantity</Text>
             <Text style={[styles.tableCell, styles.col_sku]}>SKU</Text>
             <Text style={[styles.tableCell, styles.col_description]}>Description</Text>
@@ -102,7 +113,7 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
 
           {/* Rows */}
           {data.orderLines.map((line, index) => (
-            <View key={index} style={styles.tableRow}>
+            <View key={index} style={[styles.tableRow, tableRowBorderStyle]}>
               <Text style={[styles.tableCell, styles.col_qty]}>{line.quantity}</Text>
               <Text style={[styles.tableCell, styles.col_sku]}>{line.sku.code}</Text>
               <Text style={[styles.tableCell, styles.col_description]}>
@@ -127,7 +138,7 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
               <Text style={styles.totalValue}>{formatCurrency(data.totalTax)}</Text>
             </View>
           )}
-          <View style={styles.grandTotalRow}>
+          <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
             <Text style={styles.grandTotalLabel}>Total:</Text>
             <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
           </View>

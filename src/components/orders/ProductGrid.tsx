@@ -66,17 +66,25 @@ type Props = {
     inventoryStatus: InventoryStatus | undefined,
     pricing: PricingSelection,
   ) => void;
+  onAddMultipleProducts?: (products: Array<{
+    product: Product;
+    quantity: number;
+    inventoryStatus: InventoryStatus | undefined;
+    pricing: PricingSelection;
+  }>) => void;
   existingSkuIds?: string[];
   customer?: CustomerPricingContext | null;
 };
 
-export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = [], customer }: Props) {
+export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProducts, existingSkuIds = [], customer }: Props) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState<string>('');
   const [showInStockOnly, setShowInStockOnly] = useState(false);
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
+  const [selectedSkuIds, setSelectedSkuIds] = useState<Set<string>>(new Set());
   const [inventoryStatuses, setInventoryStatuses] = useState<Map<string, InventoryStatus>>(new Map());
   const [checkingInventory, setCheckingInventory] = useState(false);
 
@@ -139,6 +147,17 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
     }
   }, [warehouseLocation, quantityBySku]);
 
+  // Get unique categories for filter dropdown
+  const categories = useMemo(() => {
+    const uniqueCategories = new Set<string>();
+    products.forEach(product => {
+      if (product.category) {
+        uniqueCategories.add(product.category);
+      }
+    });
+    return Array.from(uniqueCategories).sort();
+  }, [products]);
+
   // Filter products - TWO STAGE APPROACH
   // Stage 1: Catalog-level filtering (fast, uses cached catalog data)
   const catalogFilteredProducts = useMemo(() => {
@@ -147,6 +166,11 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
     return products.filter(product => {
       // Exclude already added products
       if (existingSkuIds.includes(product.skuId)) return false;
+
+      // Category filter
+      if (categoryFilter && product.category !== categoryFilter) {
+        return false;
+      }
 
       // Search filter
       if (searchLower) {
@@ -167,7 +191,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
 
       return true;
     });
-  }, [products, search, showInStockOnly, existingSkuIds]);
+  }, [products, search, categoryFilter, showInStockOnly, existingSkuIds]);
 
   // Stage 2: Real-time warehouse filtering (accurate, uses live inventory data)
   const filteredProducts = useMemo(() => {
@@ -229,6 +253,62 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
     onAddProduct(product, quantity, inventoryStatus, pricing);
   }, [quantityBySku, inventoryStatuses, onAddProduct, checkInventoryForProducts, customer]);
 
+  // Handle bulk add of selected products
+  const handleAddSelectedProducts = useCallback(() => {
+    if (!onAddMultipleProducts || selectedSkuIds.size === 0) return;
+
+    const productsToAdd: Array<{
+      product: Product;
+      quantity: number;
+      inventoryStatus: InventoryStatus | undefined;
+      pricing: PricingSelection;
+    }> = [];
+
+    selectedSkuIds.forEach(skuId => {
+      const product = products.find(p => p.skuId === skuId);
+      if (!product) return;
+
+      // Add with quantity 0 initially so user can set quantities
+      const quantity = 0;
+      const inventoryStatus = inventoryStatuses.get(product.skuId);
+      const pricing = resolvePriceForQuantity(product.priceLists, quantity, customer);
+
+      productsToAdd.push({ product, quantity, inventoryStatus, pricing });
+    });
+
+    if (productsToAdd.length > 0) {
+      onAddMultipleProducts(productsToAdd);
+      setSelectedSkuIds(new Set()); // Clear selection after adding
+    }
+  }, [onAddMultipleProducts, selectedSkuIds, products, inventoryStatuses, customer]);
+
+  // Toggle individual product selection
+  const toggleProductSelection = useCallback((skuId: string) => {
+    setSelectedSkuIds(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(skuId)) {
+        newSet.delete(skuId);
+      } else {
+        newSet.add(skuId);
+      }
+      return newSet;
+    });
+  }, []);
+
+  // Toggle select all visible products
+  const toggleSelectAll = useCallback(() => {
+    const visibleSkuIds = filteredProducts.slice(0, 50).map(p => p.skuId);
+    const allSelected = visibleSkuIds.every(id => selectedSkuIds.has(id));
+
+    if (allSelected) {
+      // Deselect all
+      setSelectedSkuIds(new Set());
+    } else {
+      // Select all visible
+      setSelectedSkuIds(new Set(visibleSkuIds));
+    }
+  }, [filteredProducts, selectedSkuIds]);
+
   // Calculate best price for quantity
   const resolvePricingSelection = useCallback(
     (product: Product, quantity: number) =>
@@ -273,6 +353,18 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
         </div>
 
         <div className="flex items-center gap-3 flex-wrap">
+          {/* Category Filter Dropdown */}
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <option value="">All Categories</option>
+            {categories.map(category => (
+              <option key={category} value={category}>{category}</option>
+            ))}
+          </select>
+
           <label className="flex items-center gap-2 rounded-md border border-gray-300 px-3 py-2 text-sm cursor-pointer hover:bg-gray-50">
             <input
               type="checkbox"
@@ -283,10 +375,11 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
             <span className="text-gray-700">In Stock Only</span>
           </label>
 
-          {(search || showInStockOnly) && (
+          {(search || categoryFilter || showInStockOnly) && (
             <button
               onClick={() => {
                 setSearch('');
+                setCategoryFilter('');
                 setShowInStockOnly(false);
               }}
               className="rounded-md border border-gray-300 px-3 py-2 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
@@ -304,6 +397,30 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
         </div>
       </div>
 
+      {/* Multi-Select Actions */}
+      {onAddMultipleProducts && selectedSkuIds.size > 0 && (
+        <div className="flex items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3">
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-semibold text-blue-900">
+              {selectedSkuIds.size} product{selectedSkuIds.size !== 1 ? 's' : ''} selected
+            </span>
+            <button
+              onClick={() => setSelectedSkuIds(new Set())}
+              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
+            >
+              Clear Selection
+            </button>
+          </div>
+          <button
+            onClick={handleAddSelectedProducts}
+            disabled={!warehouseLocation}
+            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            Add Selected ({selectedSkuIds.size})
+          </button>
+        </div>
+      )}
+
       {/* Products Table */}
       {filteredProducts.length === 0 ? (
         <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-8 text-center">
@@ -318,6 +435,17 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
           <table className="min-w-full divide-y divide-gray-200 bg-white">
             <thead className="bg-gray-50">
               <tr>
+                {onAddMultipleProducts && (
+                  <th className="px-4 py-3 text-left">
+                    <input
+                      type="checkbox"
+                      checked={filteredProducts.slice(0, 50).length > 0 && filteredProducts.slice(0, 50).every(p => selectedSkuIds.has(p.skuId))}
+                      onChange={toggleSelectAll}
+                      className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
+                      title="Select all visible products"
+                    />
+                  </th>
+                )}
                 <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600">
                   Product
                 </th>
@@ -358,6 +486,16 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
 
                 return (
                   <tr key={product.skuId} className="hover:bg-gray-50">
+                    {onAddMultipleProducts && (
+                      <td className="px-4 py-3">
+                        <input
+                          type="checkbox"
+                          checked={selectedSkuIds.has(product.skuId)}
+                          onChange={() => toggleProductSelection(product.skuId)}
+                          className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
+                        />
+                      </td>
+                    )}
                     <td className="px-4 py-3">
                       <div className="text-sm font-medium text-gray-900">{product.productName}</div>
                       <div className="text-xs text-gray-500">

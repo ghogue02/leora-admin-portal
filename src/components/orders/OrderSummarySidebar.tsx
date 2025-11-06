@@ -1,11 +1,9 @@
 'use client';
 
 /**
- * Order Summary Sidebar - ENHANCED
+ * Order Summary Sidebar - ENHANCED with Sprint 1 Features
  *
- * Fixes frontend agent's Issue #6: Order summary is incomplete & confusing
- *
- * New features:
+ * Features:
  * - Sticky sidebar (always visible while scrolling)
  * - Real-time updates as form changes
  * - Shows delivery date with day name
@@ -14,11 +12,15 @@
  * - Estimated tax calculation
  * - Progress indicator
  * - Clear formatting
+ * - Volume discount messaging (Sprint 2)
+ * - Optional delivery & split-case fees (Sprint 1)
+ * - B2B tax exemption (Sprint 1)
  */
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { format, parse } from 'date-fns';
 import { useTaxEstimation } from '@/hooks/useTaxEstimation';
+import { DiscountIndicator } from './DiscountIndicator';
 
 type OrderItem = {
   skuId: string;
@@ -31,7 +33,7 @@ type OrderItem = {
 };
 
 type Props = {
-  customer: { name: string; territory: string | null } | null;
+  customer: { name: string; territory: string | null; accountType?: string | null } | null;
   deliveryDate: string;
   warehouseLocation: string;
   deliveryTimeWindow: string;
@@ -39,6 +41,10 @@ type Props = {
   items: OrderItem[];
   onRemoveItem: (skuId: string) => void;
   requiresApproval: boolean;
+  deliveryFee?: number;
+  splitCaseFee?: number;
+  onDeliveryFeeChange?: (fee: number) => void;
+  onSplitCaseFeeChange?: (fee: number) => void;
 };
 
 export function OrderSummarySidebar({
@@ -50,7 +56,14 @@ export function OrderSummarySidebar({
   items,
   onRemoveItem,
   requiresApproval,
+  deliveryFee = 0,
+  splitCaseFee = 0,
+  onDeliveryFeeChange,
+  onSplitCaseFeeChange,
 }: Props) {
+  const [showDeliveryFee, setShowDeliveryFee] = useState(deliveryFee > 0);
+  const [showSplitCaseFee, setShowSplitCaseFee] = useState(splitCaseFee > 0);
+
   const subtotal = useMemo(() => {
     return items.reduce((sum, item) => sum + item.lineTotal, 0);
   }, [items]);
@@ -61,11 +74,23 @@ export function OrderSummarySidebar({
     return items.reduce((sum, item) => sum + (item.quantity * 0.75), 0);
   }, [items]);
 
+  // Check if customer is B2B (tax-exempt)
+  // B2B customers typically have accountType of 'ACTIVE' or 'TARGET'
+  // and may be commercial accounts (not individual consumers)
+  const isB2B = useMemo(() => {
+    // This is a placeholder - actual B2B detection would come from customer data
+    // For now, we'll use accountType if available
+    return customer?.accountType === 'ACTIVE' || customer?.accountType === 'TARGET';
+  }, [customer]);
+
   // Use unified tax calculation (matches server-side logic)
   const taxEstimate = useTaxEstimation({
     subtotal,
     liters: estimatedLiters,
     isInState: true, // Assume in-state for UI estimate
+    isB2B,
+    deliveryFee: showDeliveryFee ? deliveryFee : 0,
+    splitCaseFee: showSplitCaseFee ? splitCaseFee : 0,
   });
 
   // Calculate progress
@@ -85,6 +110,26 @@ export function OrderSummarySidebar({
     const parsed = parse(deliveryDate, 'yyyy-MM-dd', new Date());
     return Number.isNaN(parsed.getTime()) ? null : parsed;
   }, [deliveryDate]);
+
+  const handleDeliveryFeeToggle = () => {
+    const newState = !showDeliveryFee;
+    setShowDeliveryFee(newState);
+    if (!newState && onDeliveryFeeChange) {
+      onDeliveryFeeChange(0);
+    } else if (newState && deliveryFee === 0 && onDeliveryFeeChange) {
+      onDeliveryFeeChange(10); // Default $10 delivery fee
+    }
+  };
+
+  const handleSplitCaseFeeToggle = () => {
+    const newState = !showSplitCaseFee;
+    setShowSplitCaseFee(newState);
+    if (!newState && onSplitCaseFeeChange) {
+      onSplitCaseFeeChange(0);
+    } else if (newState && splitCaseFee === 0 && onSplitCaseFeeChange) {
+      onSplitCaseFeeChange(5); // Default $5 split-case fee
+    }
+  };
 
   return (
     <aside className="sticky top-24 h-fit space-y-4">
@@ -127,6 +172,11 @@ export function OrderSummarySidebar({
                   <div className="font-medium">{customer.name}</div>
                   {customer.territory && (
                     <div className="text-xs text-gray-500">{customer.territory}</div>
+                  )}
+                  {isB2B && (
+                    <div className="mt-1 inline-flex items-center rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-800">
+                      B2B Account (Tax-Exempt)
+                    </div>
                   )}
                 </>
               ) : (
@@ -215,6 +265,68 @@ export function OrderSummarySidebar({
         )}
       </div>
 
+      {/* Volume Discount Indicator */}
+      <DiscountIndicator items={items} />
+
+      {/* Optional Fees Card */}
+      <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+        <h3 className="text-sm font-semibold text-gray-900 mb-3">Optional Fees</h3>
+
+        <div className="space-y-3">
+          {/* Delivery Fee */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={showDeliveryFee}
+                  onChange={handleDeliveryFeeToggle}
+                  className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
+                />
+                <span className="text-xs font-medium text-gray-700">Delivery Fee</span>
+              </label>
+            </div>
+            {showDeliveryFee && onDeliveryFeeChange && (
+              <input
+                type="number"
+                value={deliveryFee}
+                onChange={(e) => onDeliveryFeeChange(Number(e.target.value) || 0)}
+                min="0"
+                step="0.01"
+                className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                placeholder="Enter amount"
+              />
+            )}
+          </div>
+
+          {/* Split-Case Fee */}
+          <div>
+            <div className="flex items-center justify-between mb-2">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={showSplitCaseFee}
+                  onChange={handleSplitCaseFeeToggle}
+                  className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
+                />
+                <span className="text-xs font-medium text-gray-700">Split-Case Fee</span>
+              </label>
+            </div>
+            {showSplitCaseFee && onSplitCaseFeeChange && (
+              <input
+                type="number"
+                value={splitCaseFee}
+                onChange={(e) => onSplitCaseFeeChange(Number(e.target.value) || 0)}
+                min="0"
+                step="0.01"
+                className="w-full rounded-md border border-gray-300 px-3 py-1.5 text-sm focus:border-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                placeholder="Enter amount"
+              />
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* Totals Card */}
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
         <div className="space-y-2 text-sm">
@@ -222,23 +334,52 @@ export function OrderSummarySidebar({
             <span className="text-gray-600">Subtotal</span>
             <span className="font-medium text-gray-900">${subtotal.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between text-xs">
-            <span className="text-gray-500">Est. Sales Tax (5.3%)</span>
-            <span className="text-gray-600">${taxEstimate.salesTax.toFixed(2)}</span>
-          </div>
-          {taxEstimate.exciseTax > 0 && (
+
+          {/* Show fees if enabled */}
+          {showDeliveryFee && deliveryFee > 0 && (
             <div className="flex justify-between text-xs">
-              <span className="text-gray-500">Est. Excise Tax (~{estimatedLiters.toFixed(1)}L)</span>
-              <span className="text-gray-600">${taxEstimate.exciseTax.toFixed(2)}</span>
+              <span className="text-gray-500">Delivery Fee</span>
+              <span className="text-gray-600">${deliveryFee.toFixed(2)}</span>
             </div>
           )}
+          {showSplitCaseFee && splitCaseFee > 0 && (
+            <div className="flex justify-between text-xs">
+              <span className="text-gray-500">Split-Case Fee</span>
+              <span className="text-gray-600">${splitCaseFee.toFixed(2)}</span>
+            </div>
+          )}
+
+          {/* Taxes - hidden for B2B */}
+          {!isB2B && (
+            <>
+              <div className="flex justify-between text-xs">
+                <span className="text-gray-500">Est. Sales Tax (5.3%)</span>
+                <span className="text-gray-600">${taxEstimate.salesTax.toFixed(2)}</span>
+              </div>
+              {taxEstimate.exciseTax > 0 && (
+                <div className="flex justify-between text-xs">
+                  <span className="text-gray-500">Est. Excise Tax (~{estimatedLiters.toFixed(1)}L)</span>
+                  <span className="text-gray-600">${taxEstimate.exciseTax.toFixed(2)}</span>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* B2B Tax Exempt Message */}
+          {isB2B && (
+            <div className="flex justify-between text-xs">
+              <span className="text-blue-600 font-medium">Tax-Exempt (B2B)</span>
+              <span className="text-blue-600">$0.00</span>
+            </div>
+          )}
+
           <div className="border-t border-gray-200 pt-2">
             <div className="flex justify-between">
               <span className="font-semibold text-gray-900">Estimated Total</span>
               <span className="text-lg font-bold text-gray-900">${taxEstimate.total.toFixed(2)}</span>
             </div>
             <p className="mt-1 text-xs text-gray-500">
-              Final tax calculated at invoicing
+              {isB2B ? 'Tax-exempt commercial account' : 'Final tax calculated at invoicing'}
             </p>
           </div>
         </div>

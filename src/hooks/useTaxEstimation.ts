@@ -16,13 +16,17 @@ import { VA_TAX_RATES } from '@/lib/money/totals';
 export type TaxEstimate = {
   /** Subtotal before taxes (already calculated) */
   subtotal: number;
+  /** Delivery fee */
+  deliveryFee: number;
+  /** Split-case fee */
+  splitCaseFee: number;
   /** Virginia wine excise tax ($0.40/liter) */
   exciseTax: number;
   /** Virginia sales tax (5.3%) */
   salesTax: number;
   /** Total of all taxes */
   totalTax: number;
-  /** Estimated grand total (subtotal + taxes) */
+  /** Estimated grand total (subtotal + fees + taxes) */
   total: number;
   /** True if this is an estimate (final may differ) */
   isEstimate: boolean;
@@ -30,6 +34,8 @@ export type TaxEstimate = {
   salesTaxRate: number;
   /** Tax rate used for excise tax */
   excisePerLiter: number;
+  /** Whether customer is B2B (tax-exempt) */
+  isB2B: boolean;
 };
 
 export type UseTaxEstimationParams = {
@@ -43,6 +49,12 @@ export type UseTaxEstimationParams = {
   excisePerLiter?: number;
   /** Whether customer is in-state (affects excise tax) */
   isInState?: boolean;
+  /** Whether customer is B2B (tax-exempt) */
+  isB2B?: boolean;
+  /** Optional delivery fee */
+  deliveryFee?: number;
+  /** Optional split-case fee */
+  splitCaseFee?: number;
 };
 
 /**
@@ -58,12 +70,15 @@ export type UseTaxEstimationParams = {
  * const tax = useTaxEstimation({
  *   subtotal: 500,
  *   liters: 20,
- *   isInState: true
+ *   isInState: true,
+ *   isB2B: false,
+ *   deliveryFee: 10,
+ *   splitCaseFee: 5
  * });
  *
- * console.log(tax.salesTax); // 26.50 (5.3% of $500)
- * console.log(tax.exciseTax); // 8.00 (20 liters × $0.40)
- * console.log(tax.total); // 534.50
+ * console.log(tax.salesTax); // 26.50 (5.3% of $500) or 0 if B2B
+ * console.log(tax.exciseTax); // 8.00 (20 liters × $0.40) or 0 if B2B
+ * console.log(tax.total); // 549.50 (includes fees)
  */
 export function useTaxEstimation({
   subtotal,
@@ -71,28 +86,42 @@ export function useTaxEstimation({
   salesTaxRate = VA_TAX_RATES.SALES_TAX_RATE,
   excisePerLiter = VA_TAX_RATES.EXCISE_PER_LITER,
   isInState = true,
+  isB2B = false,
+  deliveryFee = 0,
+  splitCaseFee = 0,
 }: UseTaxEstimationParams): TaxEstimate {
   return useMemo(() => {
     // Use Decimal for accuracy
     const subtotalDecimal = new Decimal(subtotal);
     const litersDecimal = new Decimal(liters);
+    const deliveryFeeDecimal = new Decimal(deliveryFee);
+    const splitCaseFeeDecimal = new Decimal(splitCaseFee);
 
-    // Calculate excise tax (only for in-state sales)
-    const exciseTaxDecimal = isInState
+    // B2B customers are tax-exempt
+    const exciseTaxDecimal = isB2B
+      ? new Decimal(0)
+      : isInState
       ? litersDecimal.times(excisePerLiter)
       : new Decimal(0);
 
-    // Calculate sales tax
-    const salesTaxDecimal = subtotalDecimal.times(salesTaxRate);
+    // Calculate sales tax (exempt for B2B)
+    const salesTaxDecimal = isB2B
+      ? new Decimal(0)
+      : subtotalDecimal.times(salesTaxRate);
 
     // Total tax
     const totalTaxDecimal = exciseTaxDecimal.plus(salesTaxDecimal);
 
-    // Grand total
-    const totalDecimal = subtotalDecimal.plus(totalTaxDecimal);
+    // Grand total includes fees
+    const totalDecimal = subtotalDecimal
+      .plus(deliveryFeeDecimal)
+      .plus(splitCaseFeeDecimal)
+      .plus(totalTaxDecimal);
 
     return {
       subtotal,
+      deliveryFee: Number(deliveryFeeDecimal.toFixed(2)),
+      splitCaseFee: Number(splitCaseFeeDecimal.toFixed(2)),
       exciseTax: Number(exciseTaxDecimal.toFixed(2)),
       salesTax: Number(salesTaxDecimal.toFixed(2)),
       totalTax: Number(totalTaxDecimal.toFixed(2)),
@@ -100,6 +129,7 @@ export function useTaxEstimation({
       isEstimate: true, // UI calculations are always estimates
       salesTaxRate,
       excisePerLiter,
+      isB2B,
     };
-  }, [subtotal, liters, salesTaxRate, excisePerLiter, isInState]);
+  }, [subtotal, liters, salesTaxRate, excisePerLiter, isInState, isB2B, deliveryFee, splitCaseFee]);
 }

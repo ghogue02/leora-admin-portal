@@ -3,6 +3,7 @@ import { withAdminSession } from "@/lib/auth/admin";
 import { createAuditLog } from "@/lib/audit-log";
 import { Prisma } from "@prisma/client";
 import { calculateOrderTotal } from "@/lib/orders/calculations";
+import { generateOrderNumber } from "@/lib/orders/order-number-generator";
 
 // GET /api/sales/admin/orders - List orders with filters
 export async function GET(request: NextRequest) {
@@ -190,7 +191,7 @@ export async function GET(request: NextRequest) {
   });
 }
 
-// POST /api/sales/admin/orders - Create new order
+// POST /api/sales/admin/orders - Create new order (Sprint 3: Added orderNumber generation)
 export async function POST(request: NextRequest) {
   return withAdminSession(request, async ({ db, tenantId, session }) => {
     const body = await request.json();
@@ -253,6 +254,9 @@ export async function POST(request: NextRequest) {
       };
     });
 
+    // Generate order number (Sprint 3 Polish)
+    const orderNumber = await generateOrderNumber(db, tenantId, customerId);
+
     // Create order with line items in a transaction
     const order = await db.$transaction(async (tx) => {
       // Create the order
@@ -261,6 +265,7 @@ export async function POST(request: NextRequest) {
           tenantId,
           customerId,
           portalUserId: session.user.id,
+          orderNumber,
           status: status || "DRAFT",
           orderedAt: orderedAt ? new Date(orderedAt) : new Date(),
           total,

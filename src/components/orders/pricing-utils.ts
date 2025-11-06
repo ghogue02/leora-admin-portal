@@ -24,7 +24,12 @@ export type PricingSelection = {
 };
 
 function matchesJurisdiction(priceList: PriceListSummary, customer?: CustomerPricingContext | null) {
-  if (!customer) return priceList.jurisdictionType === "GLOBAL";
+  // GLOBAL price lists match everyone (with or without customer)
+  if (priceList.jurisdictionType === "GLOBAL") return true;
+
+  // Non-GLOBAL price lists require customer context
+  if (!customer) return false;
+
   const value = (priceList.jurisdictionValue ?? "").trim().toUpperCase();
   const state = (customer.state ?? "").trim().toUpperCase();
   switch (priceList.jurisdictionType) {
@@ -38,7 +43,7 @@ function matchesJurisdiction(priceList: PriceListSummary, customer?: CustomerPri
         .filter(Boolean)
         .some((field) => field!.toString().toLowerCase().includes(value.toLowerCase()));
     default:
-      return true;
+      return false;
   }
 }
 
@@ -57,6 +62,11 @@ function isFederalProperty(customer: CustomerPricingContext) {
 }
 
 function meetsQuantity(priceList: PriceListSummary, quantity: number) {
+  // For display purposes (quantity = 0), show the lowest tier price (min = 1)
+  if (quantity === 0) {
+    return (priceList.minQuantity ?? 1) === 1;
+  }
+
   const min = priceList.minQuantity ?? 1;
   const max = priceList.maxQuantity ?? Infinity;
   return quantity >= min && quantity <= max;

@@ -11,6 +11,7 @@ import {
 import { z } from "zod";
 import { calculateOrderTotal } from "@/lib/orders/calculations";
 import { parseUTCDate } from "@/lib/dates";
+import { generateOrderNumber } from "@/lib/orders/order-number-generator";
 
 const DEFAULT_LIMIT = 25;
 const OPEN_STATUSES: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
@@ -520,11 +521,15 @@ export async function POST(request: NextRequest) {
           // DRAFT if needs approval, PENDING if inventory sufficient
           const orderStatus = requiresApproval ? 'DRAFT' : 'PENDING';
 
+          // 5.5. Generate order number (Sprint 3 Polish: VA-25-00001 format)
+          const orderNumber = await generateOrderNumber(tx, tenantId, orderData.customerId);
+
           // 6. Create order
           const order = await tx.order.create({
             data: {
               tenantId,
               customerId: orderData.customerId,
+              orderNumber,
               status: orderStatus,
               deliveryDate: orderData.deliveryDate ? parseUTCDate(orderData.deliveryDate) : null,
               warehouseLocation: orderData.warehouseLocation,
@@ -615,6 +620,7 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({
           orderId: result.order.id,
+          orderNumber: result.order.orderNumber,
           status: result.order.status,
           requiresApproval: result.order.requiresApproval,
           total: Number(result.order.total),

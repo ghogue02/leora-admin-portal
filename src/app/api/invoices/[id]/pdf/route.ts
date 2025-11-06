@@ -13,9 +13,14 @@ import { PrismaClient } from '@prisma/client';
 import { buildInvoiceData } from '@/lib/invoices/invoice-data-builder';
 import {
   VAAbcInstateInvoice,
+  VAAbcInstateInvoiceCondensed,
   VAAbcTaxExemptInvoice,
   StandardInvoice,
 } from '@/lib/invoices/templates';
+import {
+  getInvoiceTemplateSettings,
+  resolveBaseTemplateComponent,
+} from '@/lib/invoices/template-settings';
 
 const prisma = new PrismaClient();
 
@@ -23,10 +28,10 @@ export const runtime = 'nodejs';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const invoiceId = params.id;
+    const { id: invoiceId } = await params;
 
     // Fetch invoice
     const invoice = await prisma.invoice.findUnique({
@@ -55,21 +60,34 @@ export async function GET(
       shippingMethod: invoice.shippingMethod || undefined,
     });
 
-    // Select appropriate template based on format type
+    const templateSettings = await getInvoiceTemplateSettings(
+      prisma,
+      invoice.tenantId,
+      invoiceData.invoiceFormatType
+    );
+
+    // Select appropriate template based on format type + tenant preference
+    const baseTemplateChoice = resolveBaseTemplateComponent(
+      invoiceData.invoiceFormatType,
+      templateSettings.baseTemplate
+    );
+
     let PDFComponent;
     let filename = `invoice-${invoice.invoiceNumber}.pdf`;
 
-    switch (invoiceData.invoiceFormatType) {
-      case 'VA_ABC_INSTATE':
+    switch (baseTemplateChoice) {
+      case 'VA_ABC_INSTATE_CONDENSED':
+        PDFComponent = VAAbcInstateInvoiceCondensed;
+        filename = `invoice-va-instate-${invoice.invoiceNumber}.pdf`;
+        break;
+      case 'VA_ABC_INSTATE_FULL':
         PDFComponent = VAAbcInstateInvoice;
         filename = `invoice-va-instate-${invoice.invoiceNumber}.pdf`;
         break;
-
       case 'VA_ABC_TAX_EXEMPT':
         PDFComponent = VAAbcTaxExemptInvoice;
         filename = `invoice-va-taxexempt-${invoice.invoiceNumber}.pdf`;
         break;
-
       case 'STANDARD':
       default:
         PDFComponent = StandardInvoice;
@@ -84,6 +102,7 @@ export async function GET(
       dueDate: invoice.dueDate,
       subtotal: invoice.subtotal,
       total: invoice.total,
+      templateSettings,
     };
 
     // Generate PDF stream using createElement

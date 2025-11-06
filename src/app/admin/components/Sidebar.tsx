@@ -7,6 +7,7 @@ import {
   Users,
   MapPin,
   ShoppingCart,
+  Palette,
   FileText,
   Settings,
   Package,
@@ -35,6 +36,11 @@ const navigation = [
     label: "Orders & Invoices",
     href: "/admin/orders",
     icon: ShoppingCart,
+  },
+  {
+    label: "Invoice Templates",
+    href: "/admin/invoices/templates",
+    icon: Palette,
   },
   {
     label: "Accounts & Users",

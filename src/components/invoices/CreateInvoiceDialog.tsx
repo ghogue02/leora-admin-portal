@@ -97,7 +97,21 @@ export function CreateInvoiceDialog({
       }
 
       const data = await response.json();
-      onSuccess?.(data.invoice.id);
+      const invoiceId = data.invoice.id;
+
+      // Auto-open PDF in new tab
+      const pdfUrl = `/api/invoices/${invoiceId}/pdf`;
+
+      // Try to open PDF automatically
+      const pdfWindow = window.open(pdfUrl, '_blank');
+
+      // Check for pop-up blocker
+      if (!pdfWindow || pdfWindow.closed || typeof pdfWindow.closed === 'undefined') {
+        // Pop-up was blocked - show fallback
+        alert(`Invoice created successfully!\n\nPop-up blocker detected. Click "Download PDF" to view your invoice.`);
+      }
+
+      onSuccess?.(invoiceId);
       onOpenChange(false);
 
       // Reset form
