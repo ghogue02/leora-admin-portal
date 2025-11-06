@@ -23,6 +23,9 @@ interface Customer {
   averageOrderIntervalDays: number | null;
   isPermanentlyClosed: boolean;
   closedReason: string | null;
+  type: string | null;
+  volumeCapacity: string | null;
+  featurePrograms: string[];
   salesRep: {
     id: string;
     user: { fullName: string; email: string };
@@ -116,6 +119,9 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         salesRepId: data.customer.salesRep?.id || '',
         isPermanentlyClosed: data.customer.isPermanentlyClosed,
         closedReason: data.customer.closedReason,
+        type: data.customer.type || '',
+        volumeCapacity: data.customer.volumeCapacity || '',
+        featurePrograms: data.customer.featurePrograms || [],
       });
     } catch (err: any) {
       setError(err.message);
@@ -529,6 +535,77 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           ) : (
             <p className="text-gray-500">No portal users associated with this customer</p>
           )}
+        </div>
+
+        {/* Analytics & Reporting */}
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <div className="border-t pt-6">
+            <h3 className="text-lg font-medium mb-1">Analytics & Reporting</h3>
+            <p className="text-sm text-gray-500 mb-4">
+              Used for customer segmentation and sales analysis
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Customer Type */}
+              <div>
+                <label className="block text-sm font-medium mb-1">Customer Type</label>
+                <select
+                  value={formData.type || ''}
+                  onChange={(e) => setFormData({ ...formData, type: e.target.value || null })}
+                  className="w-full border rounded px-3 py-2 bg-white"
+                >
+                  <option value="">-- Select Type --</option>
+                  <option value="On Premise">On Premise</option>
+                  <option value="Off Premise">Off Premise</option>
+                  <option value="On and Off Premise">On and Off Premise</option>
+                  <option value="Distributor">Distributor</option>
+                  <option value="Caterer">Caterer</option>
+                </select>
+                <p className="text-xs text-gray-500 mt-1">Select the primary business type for analytics</p>
+              </div>
+
+              {/* Volume Capacity */}
+              <div>
+                <label className="block text-sm font-medium mb-1">Volume Capacity</label>
+                <select
+                  value={formData.volumeCapacity || ''}
+                  onChange={(e) => setFormData({ ...formData, volumeCapacity: e.target.value || null })}
+                  className="w-full border rounded px-3 py-2 bg-white"
+                >
+                  <option value="">-- Select Capacity --</option>
+                  <option value="High">High</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Low">Low</option>
+                </select>
+                <p className="text-xs text-gray-500 mt-1">Estimated purchasing volume capacity</p>
+              </div>
+
+              {/* Feature Programs */}
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium mb-2">Feature Programs</label>
+                <div className="space-y-2">
+                  {['Wine Club', 'Catering', 'Email Offers'].map((program) => (
+                    <label key={program} className="flex items-center space-x-2">
+                      <input
+                        type="checkbox"
+                        checked={formData.featurePrograms?.includes(program) || false}
+                        onChange={(e) => {
+                          const currentPrograms = formData.featurePrograms || [];
+                          const newPrograms = e.target.checked
+                            ? [...currentPrograms, program]
+                            : currentPrograms.filter(p => p !== program);
+                          setFormData({ ...formData, featurePrograms: newPrograms });
+                        }}
+                        className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                      />
+                      <span className="text-sm">{program}</span>
+                    </label>
+                  ))}
+                </div>
+                <p className="text-xs text-gray-500 mt-1">Select all programs this customer participates in</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Form Actions */}

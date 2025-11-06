@@ -472,6 +472,9 @@ model Customer {
   invoiceStateCode          String? // State code for invoice numbering (VA, MD, DC, TE)
   isTaxExempt               Boolean                 @default(false)
   taxExemptNumber           String? // Tax exempt certificate number
+  type                      String? // "On Premise", "Off Premise", "On and Off Premise", "Distributor", "Caterer"
+  volumeCapacity            String? // "High", "Medium", "Low"
+  featurePrograms           String[]                @default([]) // ["Wine Club", "Catering", "Email Offers"]
   accountSnapshots          AccountHealthSnapshot[]
   activities                Activity[]
   calendarEvents            CalendarEvent[]

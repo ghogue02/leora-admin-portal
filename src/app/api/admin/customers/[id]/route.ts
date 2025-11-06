@@ -202,10 +202,22 @@ export async function PUT(
         'salesRepId',
         'isPermanentlyClosed',
         'closedReason',
+        'type',
+        'volumeCapacity',
+        'featurePrograms',
       ];
 
       for (const field of allowedFields) {
         if (field in body) {
+          // Validate featurePrograms is an array
+          if (field === 'featurePrograms') {
+            if (!Array.isArray(body[field])) {
+              return NextResponse.json(
+                { error: 'featurePrograms must be an array' },
+                { status: 400 }
+              );
+            }
+          }
           updateData[field] = body[field];
         }
       }

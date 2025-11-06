@@ -144,6 +144,9 @@ export default function CustomerDetailClient({
         customerName={data.customer.name}
       />
 
+      {/* Recent Orders - Moved to position 7 */}
+      <OrderHistory orders={data.orders} customerId={customerId} isCompact={true} />
+
       {/* Account Holds/Balances */}
       <AccountHolds
         invoices={data.invoices}
@@ -174,9 +177,6 @@ export default function CustomerDetailClient({
         customerId={customerId}
         customerName={data.customer.name}
       />
-
-      {/* Order History */}
-      <OrderHistory orders={data.orders} />
     </main>
   );
 }

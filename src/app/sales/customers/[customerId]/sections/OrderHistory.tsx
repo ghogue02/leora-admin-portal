@@ -2,6 +2,8 @@
 
 import { format } from "date-fns";
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Order = {
   id: string;
@@ -34,10 +36,16 @@ type Order = {
 
 type OrderHistoryProps = {
   orders: Order[];
+  customerId?: string;
+  isCompact?: boolean;
 };
 
-export default function OrderHistory({ orders }: OrderHistoryProps) {
+export default function OrderHistory({ orders, customerId, isCompact = false }: OrderHistoryProps) {
+  const router = useRouter();
   const [expandedOrderId, setExpandedOrderId] = useState<string | null>(null);
+
+  // Show only last 5 orders in compact mode
+  const displayOrders = isCompact ? orders.slice(0, 5) : orders;
 
   const formatCurrency = (value: number) =>
     new Intl.NumberFormat("en-US", {
@@ -80,12 +88,20 @@ export default function OrderHistory({ orders }: OrderHistoryProps) {
     setExpandedOrderId(expandedOrderId === orderId ? null : orderId);
   };
 
+  const handleRowClick = (orderId: string) => {
+    router.push(`/sales/orders/${orderId}`);
+  };
+
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-start justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">Order History</h2>
-          <p className="text-xs text-gray-500">Complete order history with invoices</p>
+          <h2 className="text-lg font-semibold text-gray-900">
+            {isCompact ? "Recent Orders" : "Order History"}
+          </h2>
+          <p className="text-xs text-gray-500">
+            {isCompact ? "Last 5 orders" : "Complete order history with invoices"}
+          </p>
         </div>
         <div className="rounded-md border border-slate-300 bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-700">
           {orders.length} Orders
@@ -98,21 +114,35 @@ export default function OrderHistory({ orders }: OrderHistoryProps) {
         </div>
       ) : (
         <div className="mt-4 space-y-2">
-          {orders.map((order) => (
+          {displayOrders.map((order) => (
             <div
               key={order.id}
               className="rounded-lg border border-slate-200 bg-slate-50"
             >
-              <button
-                onClick={() => toggleOrder(order.id)}
-                className="flex w-full items-center justify-between p-4 text-left transition hover:bg-slate-100"
+              <div
+                onClick={() => isCompact ? handleRowClick(order.id) : toggleOrder(order.id)}
+                className="flex w-full items-center justify-between p-4 text-left transition hover:bg-slate-100 cursor-pointer"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    isCompact ? handleRowClick(order.id) : toggleOrder(order.id);
+                  }
+                }}
               >
                 <div className="flex flex-1 items-center gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-sm font-semibold text-gray-900">
-                        {order.id.slice(0, 8)}
-                      </span>
+                      <Link
+                        href={`/sales/orders/${order.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="font-mono text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline"
+                      >
+                        {order.invoices.length > 0 && order.invoices[0].invoiceNumber
+                          ? `${order.invoices[0].invoiceNumber} / `
+                          : ''}#{order.id.slice(0, 8)}
+                      </Link>
                       <span
                         className={`rounded-full border px-2 py-0.5 text-xs font-semibold ${getStatusBadge(
                           order.status
@@ -149,25 +179,27 @@ export default function OrderHistory({ orders }: OrderHistoryProps) {
                     )}
                   </div>
 
-                  <svg
-                    className={`h-5 w-5 text-gray-400 transition-transform ${
-                      expandedOrderId === order.id ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  {!isCompact && (
+                    <svg
+                      className={`h-5 w-5 text-gray-400 transition-transform ${
+                        expandedOrderId === order.id ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  )}
                 </div>
-              </button>
+              </div>
 
-              {expandedOrderId === order.id && (
+              {!isCompact && expandedOrderId === order.id && (
                 <div className="border-t border-slate-200 bg-white p-4">
                   {/* Order Line Items */}
                   {order.lines && order.lines.length > 0 && (
@@ -250,6 +282,28 @@ export default function OrderHistory({ orders }: OrderHistoryProps) {
               )}
             </div>
           ))}
+        </div>
+      )}
+
+      {/* View All Orders Link - shown only in compact mode */}
+      {isCompact && orders.length > 5 && customerId && (
+        <div className="mt-4 text-center">
+          <Link
+            href={`/sales/customers/${customerId}`}
+            onClick={() => {
+              // Scroll to full order history section after navigation
+              setTimeout(() => {
+                const orderHistorySection = document.querySelector('h2:contains("Order History")');
+                orderHistorySection?.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
+            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline"
+          >
+            View All {orders.length} Orders
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       )}
     </section>

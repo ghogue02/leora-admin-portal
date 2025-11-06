@@ -1,5 +1,9 @@
 'use client';
 
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { Pencil } from "lucide-react";
+
 type CustomerHeaderProps = {
   customer: {
     name: string;
@@ -22,6 +26,9 @@ type CustomerHeaderProps = {
 };
 
 export default function CustomerHeader({ customer }: CustomerHeaderProps) {
+  const params = useParams();
+  const customerId = params.customerId as string;
+
   const getRiskBadge = (status: string) => {
     switch (status) {
       case "HEALTHY":
@@ -72,7 +79,7 @@ export default function CustomerHeader({ customer }: CustomerHeaderProps) {
     <header className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div className="flex-1">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <h1 className="text-3xl font-semibold text-gray-900">
               {customer.name}
             </h1>
@@ -88,6 +95,13 @@ export default function CustomerHeader({ customer }: CustomerHeaderProps) {
                 CLOSED
               </span>
             )}
+            <Link
+              href={`/sales/customers/${customerId}/edit`}
+              className="inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+            >
+              <Pencil className="h-4 w-4" />
+              Edit Customer
+            </Link>
           </div>
 
           <div className="mt-3 grid gap-2 text-sm text-gray-600">

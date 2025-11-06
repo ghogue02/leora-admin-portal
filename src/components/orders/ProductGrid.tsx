@@ -89,11 +89,10 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
         const data = await response.json();
         setProducts(data.items || []);
 
-        // Initialize quantities with minimum from price lists
+        // Initialize quantities to 0 (users must enter quantity before adding)
         const initialQty: Record<string, number> = {};
         (data.items || []).forEach((product: Product) => {
-          const minQty = product.priceLists[0]?.minQuantity || 1;
-          initialQty[product.skuId] = minQty;
+          initialQty[product.skuId] = 0;
         });
         setQuantityBySku(initialQty);
       } catch (err) {
@@ -204,7 +203,15 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
   }, [warehouseLocation, catalogFilteredProducts, showInStockOnly, checkInventoryForProducts]);
 
   const handleAddProduct = useCallback((product: Product) => {
-    const quantity = quantityBySku[product.skuId] || 1;
+    const quantity = quantityBySku[product.skuId] || 0;
+
+    // Enforce minimum quantity from price list
+    const minQty = product.priceLists[0]?.minQuantity || 1;
+    if (quantity < minQty) {
+      alert(`Minimum quantity for this product is ${minQty}`);
+      return;
+    }
+
     const inventoryStatus = inventoryStatuses.get(product.skuId);
     const pricing = resolvePriceForQuantity(product.priceLists, quantity, customer);
 
@@ -333,7 +340,8 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
             </thead>
             <tbody className="divide-y divide-gray-200">
               {filteredProducts.slice(0, 50).map(product => {
-                const quantity = quantityBySku[product.skuId] || 1;
+                const quantity = quantityBySku[product.skuId] || 0;
+                const minQty = product.priceLists[0]?.minQuantity || 1;
                 const pricing = resolvePricingSelection(product, quantity);
                 const inventoryStatus = inventoryStatuses.get(product.skuId);
                 const unitPrice = pricing.unitPrice || product.pricePerUnit || 0;
@@ -377,13 +385,14 @@ export function ProductGrid({ warehouseLocation, onAddProduct, existingSkuIds = 
                         type="number"
                         value={quantity}
                         onChange={(e) => {
-                          const newQty = parseInt(e.target.value) || 1;
+                          const newQty = parseInt(e.target.value) || 0;
                           setQuantityBySku(prev => ({
                             ...prev,
-                            [product.skuId]: Math.max(1, newQty),
+                            [product.skuId]: Math.max(0, newQty),
                           }));
                         }}
-                        min="1"
+                        min="0"
+                        placeholder={`Min: ${minQty}`}
                         className="w-20 rounded-md border border-gray-300 px-2 py-1 text-sm text-right focus:border-gray-500 focus:outline-none"
                       />
                     </td>

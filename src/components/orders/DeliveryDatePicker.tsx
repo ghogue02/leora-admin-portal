@@ -51,9 +51,10 @@ export function DeliveryDatePicker({
       return;
     }
 
+    // CRITICAL: Use UTC methods to avoid timezone bugs
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    date.setHours(0, 0, 0, 0);
+    today.setUTCHours(0, 0, 0, 0);
+    date.setUTCHours(0, 0, 0, 0);
 
     // Check if same-day
     if (isSameDay(date, today)) {
@@ -265,28 +266,34 @@ function getSuggestedDeliveryDates(deliveryDays: string[], count: number): Array
   const suggestions: Array<{ date: string; label: string }> = [];
   const today = new Date();
   let currentDate = new Date(today);
-  currentDate.setDate(currentDate.getDate() + 1); // Start from tomorrow
+  // CRITICAL: Use UTC methods to avoid timezone bugs
+  currentDate.setUTCDate(currentDate.getUTCDate() + 1); // Start from tomorrow
 
   let attempts = 0;
   const maxAttempts = 30; // Look ahead 30 days max
 
   while (suggestions.length < count && attempts < maxAttempts) {
-    const dayName = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+    // Use UTC date to get day name to match timezone-aware storage
+    const dayName = new Date(currentDate.toISOString()).toLocaleDateString('en-US', {
+      weekday: 'long',
+      timeZone: 'UTC'
+    });
 
     if (deliveryDays.includes(dayName)) {
       const normalized = new Date(currentDate);
-      normalized.setHours(0, 0, 0, 0);
+      normalized.setUTCHours(0, 0, 0, 0);
       const dateStr = formatUTCDate(normalized);
-      const label = normalized.toLocaleDateString('en-US', {
+      const label = new Date(normalized.toISOString()).toLocaleDateString('en-US', {
         weekday: 'short',
         month: 'short',
         day: 'numeric',
+        timeZone: 'UTC'
       });
 
       suggestions.push({ date: dateStr, label });
     }
 
-    currentDate.setDate(currentDate.getDate() + 1);
+    currentDate.setUTCDate(currentDate.getUTCDate() + 1);
     attempts++;
   }
 

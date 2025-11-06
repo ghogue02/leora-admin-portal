@@ -11,3 +11,10 @@ export type {
   DrilldownData,
   DrilldownModalProps,
 } from './drilldown';
+
+export type {
+  CustomerType,
+  VolumeCapacity,
+  FeatureProgram,
+  CustomerAnalyticsUpdate,
+} from './customer';
