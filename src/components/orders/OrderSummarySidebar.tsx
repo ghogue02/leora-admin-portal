@@ -17,9 +17,8 @@
  */
 
 import { useMemo } from 'react';
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 import { useTaxEstimation } from '@/hooks/useTaxEstimation';
-import { parseUTCDate } from '@/lib/dates';
 
 type OrderItem = {
   skuId: string;
@@ -79,6 +78,14 @@ export function OrderSummarySidebar({
 
   const completedSteps = [progress.customer, progress.delivery, progress.products].filter(Boolean).length;
 
+  const parsedDeliveryDate = useMemo(() => {
+    if (!deliveryDate) {
+      return null;
+    }
+    const parsed = parse(deliveryDate, 'yyyy-MM-dd', new Date());
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }, [deliveryDate]);
+
   return (
     <aside className="sticky top-24 h-fit space-y-4">
       {/* Progress Card */}
@@ -132,10 +139,10 @@ export function OrderSummarySidebar({
           <div>
             <div className="text-xs font-medium text-gray-600">Delivery</div>
             <div className="mt-0.5 text-gray-900">
-              {deliveryDate ? (
+              {parsedDeliveryDate ? (
                 <div>
                   <div className="font-medium">
-                    {format(parseUTCDate(deliveryDate), 'EEEE, MMM d, yyyy')}
+                    {format(parsedDeliveryDate, 'EEEE, MMM d, yyyy')}
                   </div>
                   <div className="text-xs text-gray-500">
                     {deliveryTimeWindow || 'Anytime'}
