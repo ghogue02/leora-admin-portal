@@ -26,6 +26,7 @@ import { OrderSuccessModal } from '@/components/orders/OrderSuccessModal';
 import { OrderPreviewModal } from '@/components/orders/OrderPreviewModal';
 import { FormProgress } from '@/components/orders/FormProgress';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
+import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
 
 type Customer = {
@@ -60,6 +61,7 @@ type OrderItem = {
   inventoryStatus: InventoryStatus | null;
   pricing: PricingSelection;
   priceLists: PriceListSummary[];
+  priceOverride?: PriceOverride;
 };
 
 export default function NewOrderPage() {
@@ -99,8 +101,9 @@ export default function NewOrderPage() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [createdOrderData, setCreatedOrderData] = useState<{orderId: string; orderNumber: string; total: number; requiresApproval: boolean} | null>(null);
+  const [canOverridePrices, setCanOverridePrices] = useState(false);
 
-  // Load sales rep delivery days and set smart defaults
+  // Load sales rep delivery days and permission checks
   useEffect(() => {
     async function loadProfile() {
       try {
@@ -109,6 +112,13 @@ export default function NewOrderPage() {
           const profileData = await response.json();
           const deliveryDays = profileData.salesRep?.deliveryDaysArray || [];
           setSalesRepDeliveryDays(deliveryDays);
+
+          // Check if user can override prices (manager or admin)
+          const roles = profileData.user?.roles || [];
+          const hasOverrideRole = roles.some((r: any) =>
+            ['manager', 'admin', 'system_admin'].includes(r.role?.code)
+          );
+          setCanOverridePrices(hasOverrideRole);
 
           // PHASE 2: Smart Default - Pre-fill next delivery date
           if (deliveryDays.length > 0 && !deliveryDate) {
@@ -148,13 +158,15 @@ export default function NewOrderPage() {
   }, []);
 
   // Add product to order
-  const handleAddProduct = useCallback((product: any, quantityFromGrid: number, inventoryStatus: InventoryStatus | undefined, pricing: PricingSelection) => {
-    const unitPrice = pricing.unitPrice || product.pricePerUnit || 0;
+  const handleAddProduct = useCallback((product: any, quantityFromGrid: number, inventoryStatus: InventoryStatus | undefined, pricing: PricingSelection, priceOverride?: PriceOverride) => {
+    const baseUnitPrice = pricing.unitPrice || product.pricePerUnit || 0;
+    const effectiveUnitPrice = priceOverride?.price ?? baseUnitPrice;
     const quantity = Math.max(1, quantityFromGrid);
 
     // PHASE 2: Quantity warning for unusual amounts
     const isUnusualQuantity = quantity >= 100; // Warn for very large orders
     const isLowInventory = inventoryStatus && !inventoryStatus.sufficient;
+    const hasPriceOverride = !!priceOverride;
 
     const newItem: OrderItem = {
       skuId: product.skuId,
@@ -163,11 +175,12 @@ export default function NewOrderPage() {
       brand: product.brand,
       size: product.size,
       quantity,
-      unitPrice,
-      lineTotal: quantity * unitPrice,
+      unitPrice: effectiveUnitPrice,
+      lineTotal: quantity * effectiveUnitPrice,
       inventoryStatus,
       pricing,
       priceLists: product.priceLists as PriceListSummary[],
+      priceOverride,
     };
 
     setOrderItems(prev => [...prev, newItem]);
@@ -181,12 +194,14 @@ export default function NewOrderPage() {
     });
 
     // Show success toast with warnings
-    if (isUnusualQuantity) {
-      notifications.productAdded(product.productName, quantity, quantity * unitPrice, 'Large quantity - Manager approval may be required');
+    if (hasPriceOverride) {
+      notifications.productAdded(product.productName, quantity, quantity * effectiveUnitPrice, 'Price override applied - Manager approval required');
+    } else if (isUnusualQuantity) {
+      notifications.productAdded(product.productName, quantity, quantity * effectiveUnitPrice, 'Large quantity - Manager approval may be required');
     } else if (isLowInventory) {
-      notifications.productAdded(product.productName, quantity, quantity * unitPrice, 'Low inventory - Manager approval required');
+      notifications.productAdded(product.productName, quantity, quantity * effectiveUnitPrice, 'Low inventory - Manager approval required');
     } else {
-      notifications.productAdded(product.productName, quantity, quantity * unitPrice);
+      notifications.productAdded(product.productName, quantity, quantity * effectiveUnitPrice);
     }
   }, []);
 
@@ -238,7 +253,9 @@ export default function NewOrderPage() {
   // Calculate order total
   const orderTotal = orderItems.reduce((sum, item) => sum + item.lineTotal, 0);
   const requiresApproval = orderItems.some(item =>
-    (item.inventoryStatus && !item.inventoryStatus.sufficient) || item.pricing.overrideApplied
+    (item.inventoryStatus && !item.inventoryStatus.sufficient) ||
+    item.pricing.overrideApplied ||
+    !!item.priceOverride
   );
 
   // Check if form is valid for submit button
@@ -312,6 +329,12 @@ export default function NewOrderPage() {
           items: orderItems.map(item => ({
             skuId: item.skuId,
             quantity: item.quantity,
+            ...(item.priceOverride && {
+              priceOverride: {
+                price: item.priceOverride.price,
+                reason: item.priceOverride.reason,
+              }
+            }),
           })),
         }),
       });
@@ -661,17 +684,30 @@ export default function NewOrderPage() {
                         {item.brand && <div className="text-xs text-gray-500">{item.brand}</div>}
                         <div
                           className={`text-xs ${
-                            item.pricing.priceList
+                            item.priceOverride
+                              ? 'text-blue-700'
+                              : item.pricing.priceList
                               ? item.pricing.overrideApplied
                                 ? 'text-amber-700'
                                 : 'text-gray-500'
                               : 'text-rose-700'
                           }`}
                         >
-                          {item.pricing.priceList
-                            ? describePriceListForDisplay(item.pricing.priceList)
-                            : 'No price list match'}
-                          {item.pricing.overrideApplied && item.pricing.priceList ? ' • manual review' : ''}
+                          {item.priceOverride ? (
+                            <>
+                              Manual Price Override
+                              <div className="text-xs text-gray-600 mt-0.5">
+                                {item.priceOverride.reason}
+                              </div>
+                            </>
+                          ) : item.pricing.priceList ? (
+                            <>
+                              {describePriceListForDisplay(item.pricing.priceList)}
+                              {item.pricing.overrideApplied && item.pricing.priceList ? ' • manual review' : ''}
+                            </>
+                          ) : (
+                            'No price list match'
+                          )}
                         </div>
                       </td>
                       <td className="px-4 py-3">
@@ -725,8 +761,21 @@ export default function NewOrderPage() {
                           className="w-20 rounded-md border border-gray-300 px-2 py-1 text-sm text-right focus:border-gray-500 focus:outline-none"
                         />
                       </td>
-                      <td className="px-4 py-3 text-right text-sm text-gray-900">
-                        ${item.unitPrice.toFixed(2)}
+                      <td className="px-4 py-3 text-right">
+                        {item.priceOverride ? (
+                          <div className="text-right">
+                            <div className="text-sm font-semibold text-blue-700">
+                              ${item.unitPrice.toFixed(2)}
+                            </div>
+                            <div className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 mt-1">
+                              Override Applied
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="text-sm text-gray-900">
+                            ${item.unitPrice.toFixed(2)}
+                          </div>
+                        )}
                       </td>
                       <td className="px-4 py-3 text-right text-sm font-semibold text-gray-900">
                         ${item.lineTotal.toFixed(2)}
@@ -811,6 +860,7 @@ export default function NewOrderPage() {
               onAddMultipleProducts={handleAddMultipleProducts}
               existingSkuIds={orderItems.map(item => item.skuId)}
               customer={customerPricingContext ?? undefined}
+              canOverridePrices={canOverridePrices}
             />
           </div>
         </div>

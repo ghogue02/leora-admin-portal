@@ -13,6 +13,7 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { InventoryStatusBadge } from './InventoryStatusBadge';
+import { PriceOverrideDialog } from './PriceOverrideDialog';
 import { resolvePriceForQuantity, CustomerPricingContext, PricingSelection, describePriceListForDisplay } from './pricing-utils';
 
 type Product = {
@@ -58,6 +59,11 @@ type InventoryStatus = {
   shortfall: number;
 };
 
+export type PriceOverride = {
+  price: number;
+  reason: string;
+};
+
 type Props = {
   warehouseLocation: string;
   onAddProduct: (
@@ -65,6 +71,7 @@ type Props = {
     quantity: number,
     inventoryStatus: InventoryStatus | undefined,
     pricing: PricingSelection,
+    priceOverride?: PriceOverride,
   ) => void;
   onAddMultipleProducts?: (products: Array<{
     product: Product;
@@ -74,9 +81,10 @@ type Props = {
   }>) => void;
   existingSkuIds?: string[];
   customer?: CustomerPricingContext | null;
+  canOverridePrices?: boolean;
 };
 
-export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProducts, existingSkuIds = [], customer }: Props) {
+export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProducts, existingSkuIds = [], customer, canOverridePrices = false }: Props) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -87,6 +95,11 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
   const [selectedSkuIds, setSelectedSkuIds] = useState<Set<string>>(new Set());
   const [inventoryStatuses, setInventoryStatuses] = useState<Map<string, InventoryStatus>>(new Map());
   const [checkingInventory, setCheckingInventory] = useState(false);
+
+  // Price override state
+  const [priceOverrides, setPriceOverrides] = useState<Map<string, PriceOverride>>(new Map());
+  const [overrideDialogOpen, setOverrideDialogOpen] = useState(false);
+  const [overrideDialogProduct, setOverrideDialogProduct] = useState<Product | null>(null);
 
   // Load products
   useEffect(() => {
@@ -238,20 +251,49 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
 
     const inventoryStatus = inventoryStatuses.get(product.skuId);
     const pricing = resolvePriceForQuantity(product.priceLists, quantity, customer);
+    const priceOverride = priceOverrides.get(product.skuId);
 
     if (!inventoryStatus) {
       // Re-check inventory for this specific product
       void checkInventoryForProducts([product.skuId]).then(() => {
         const freshStatus = inventoryStatuses.get(product.skuId);
         if (freshStatus) {
-          onAddProduct(product, quantity, freshStatus, pricing);
+          onAddProduct(product, quantity, freshStatus, pricing, priceOverride);
         }
       });
       return;
     }
 
-    onAddProduct(product, quantity, inventoryStatus, pricing);
-  }, [quantityBySku, inventoryStatuses, onAddProduct, checkInventoryForProducts, customer]);
+    onAddProduct(product, quantity, inventoryStatus, pricing, priceOverride);
+  }, [quantityBySku, inventoryStatuses, priceOverrides, onAddProduct, checkInventoryForProducts, customer]);
+
+  // Handle opening price override dialog
+  const handleOpenOverrideDialog = useCallback((product: Product) => {
+    setOverrideDialogProduct(product);
+    setOverrideDialogOpen(true);
+  }, []);
+
+  // Handle confirming price override
+  const handleConfirmOverride = useCallback((newPrice: number, reason: string) => {
+    if (overrideDialogProduct) {
+      setPriceOverrides(prev => {
+        const newMap = new Map(prev);
+        newMap.set(overrideDialogProduct.skuId, { price: newPrice, reason });
+        return newMap;
+      });
+      setOverrideDialogOpen(false);
+      setOverrideDialogProduct(null);
+    }
+  }, [overrideDialogProduct]);
+
+  // Handle removing price override
+  const handleRemoveOverride = useCallback((skuId: string) => {
+    setPriceOverrides(prev => {
+      const newMap = new Map(prev);
+      newMap.delete(skuId);
+      return newMap;
+    });
+  }, []);
 
   // Handle bulk add of selected products
   const handleAddSelectedProducts = useCallback(() => {
@@ -472,8 +514,13 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
                 const minQty = product.priceLists[0]?.minQuantity || 1;
                 const pricing = resolvePricingSelection(product, quantity);
                 const inventoryStatus = inventoryStatuses.get(product.skuId);
-                const unitPrice = pricing.unitPrice || product.pricePerUnit || 0;
-                const lineTotal = quantity * unitPrice;
+                const priceOverride = priceOverrides.get(product.skuId);
+
+                // Calculate effective price (override takes precedence)
+                const baseUnitPrice = pricing.unitPrice || product.pricePerUnit || 0;
+                const effectiveUnitPrice = priceOverride?.price ?? baseUnitPrice;
+                const lineTotal = quantity * effectiveUnitPrice;
+
                 const priceListLabel = pricing.priceList
                   ? describePriceListForDisplay(pricing.priceList)
                   : "No matching price list";
@@ -534,8 +581,52 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
                         className="w-20 rounded-md border border-gray-300 px-2 py-1 text-sm text-right focus:border-gray-500 focus:outline-none"
                       />
                     </td>
-                    <td className="px-4 py-3 text-right text-sm text-gray-900">
-                      {pricing.priceList ? `$${unitPrice.toFixed(2)}` : <span className="text-xs text-rose-700">No price</span>}
+                    <td className="px-4 py-3 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        {priceOverride ? (
+                          <div className="text-right">
+                            <div className="text-sm font-semibold text-blue-700">
+                              ${effectiveUnitPrice.toFixed(2)}
+                            </div>
+                            <div className="text-xs text-gray-400 line-through">
+                              ${baseUnitPrice.toFixed(2)}
+                            </div>
+                            <div className="flex items-center justify-end gap-1 mt-1">
+                              <span className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700">
+                                Override
+                              </span>
+                              {canOverridePrices && (
+                                <button
+                                  type="button"
+                                  onClick={() => handleRemoveOverride(product.skuId)}
+                                  className="text-xs text-gray-400 hover:text-rose-600"
+                                  title="Remove override"
+                                >
+                                  ✕
+                                </button>
+                              )}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="flex items-center gap-2">
+                            <div className="text-sm text-gray-900">
+                              {pricing.priceList ? `$${effectiveUnitPrice.toFixed(2)}` : <span className="text-xs text-rose-700">No price</span>}
+                            </div>
+                            {canOverridePrices && pricing.priceList && (
+                              <button
+                                type="button"
+                                onClick={() => handleOpenOverrideDialog(product)}
+                                className="text-gray-400 hover:text-blue-600 transition"
+                                title="Override price"
+                              >
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                </svg>
+                              </button>
+                            )}
+                          </div>
+                        )}
+                      </div>
                     </td>
                     <td className="px-4 py-3 text-right text-sm font-semibold text-gray-900">
                       {pricing.priceList ? `$${lineTotal.toFixed(2)}` : '—'}
@@ -562,6 +653,22 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
         <p className="text-xs text-gray-500 text-center">
           Showing first 50 products. Use search to narrow results.
         </p>
+      )}
+
+      {/* Price Override Dialog */}
+      {overrideDialogProduct && (
+        <PriceOverrideDialog
+          isOpen={overrideDialogOpen}
+          productName={overrideDialogProduct.productName}
+          skuCode={overrideDialogProduct.skuCode}
+          currentPrice={resolvePricingSelection(overrideDialogProduct, quantityBySku[overrideDialogProduct.skuId] || 1).unitPrice || overrideDialogProduct.pricePerUnit || 0}
+          currentQuantity={quantityBySku[overrideDialogProduct.skuId] || 1}
+          onConfirm={handleConfirmOverride}
+          onCancel={() => {
+            setOverrideDialogOpen(false);
+            setOverrideDialogProduct(null);
+          }}
+        />
       )}
     </div>
   );

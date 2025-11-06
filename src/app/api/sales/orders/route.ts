@@ -323,6 +323,10 @@ const CreateOrderSchema = z.object({
     z.object({
       skuId: z.string().uuid(),
       quantity: z.number().int().positive(),
+      priceOverride: z.object({
+        price: z.number().positive(),
+        reason: z.string().min(10),
+      }).optional(),
     })
   ).min(1),
 });
@@ -487,24 +491,37 @@ export async function POST(request: NextRequest) {
               requiresApproval = true;
             }
 
-            const unitPrice = Number(selection.item.price ?? sku.pricePerUnit ?? 0);
+            // Check for manual price override
+            const hasPriceOverride = !!item.priceOverride;
+            if (hasPriceOverride) {
+              requiresApproval = true;
+            }
+
+            const baseUnitPrice = Number(selection.item.price ?? sku.pricePerUnit ?? 0);
+            const effectiveUnitPrice = hasPriceOverride ? item.priceOverride!.price : baseUnitPrice;
             const allocations = allocationsBySku.get(item.skuId) ?? [];
 
             return {
               tenantId,
               skuId: item.skuId,
               quantity: item.quantity,
-              unitPrice: new Prisma.Decimal(unitPrice),
+              unitPrice: new Prisma.Decimal(effectiveUnitPrice),
+              // Manual price override fields
+              priceOverridden: hasPriceOverride,
+              overridePrice: hasPriceOverride ? new Prisma.Decimal(item.priceOverride!.price) : null,
+              overrideReason: hasPriceOverride ? item.priceOverride!.reason : null,
+              overriddenBy: hasPriceOverride ? session.userId : null,
+              overriddenAt: hasPriceOverride ? new Date() : null,
               appliedPricingRules: {
-                source: selection.overrideApplied ? 'price_list_override' : 'price_list',
+                source: hasPriceOverride ? 'manual_price_override' : (selection.overrideApplied ? 'price_list_override' : 'price_list'),
                 priceListId: selection.item.priceListId,
                 priceListName: selection.item.priceList.name,
                 minQuantity: selection.item.minQuantity,
                 maxQuantity: selection.item.maxQuantity,
                 jurisdictionType: selection.item.priceList.jurisdictionType,
                 jurisdictionValue: selection.item.priceList.jurisdictionValue,
-                manualOverrideApplied: selection.overrideApplied,
-                overrideReason: selection.reason,
+                manualOverrideApplied: selection.overrideApplied || hasPriceOverride,
+                overrideReason: hasPriceOverride ? item.priceOverride!.reason : selection.reason,
                 allowManualOverride: selection.item.priceList.allowManualOverride,
                 allocations,
                 resolvedAt: new Date().toISOString(),

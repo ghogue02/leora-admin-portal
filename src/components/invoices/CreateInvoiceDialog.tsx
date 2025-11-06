@@ -39,12 +39,26 @@ export function CreateInvoiceDialog({
   onSuccess,
   apiRoute = 'admin', // Default to admin for backward compatibility
 }: CreateInvoiceDialogProps) {
+  const deriveFormatForState = (state?: string | null): InvoiceFormatType => {
+    if (state === 'VA') {
+      return 'VA_ABC_INSTATE';
+    }
+    if (state && state !== 'VA') {
+      return 'VA_ABC_TAX_EXEMPT';
+    }
+    return 'STANDARD';
+  };
+
   const [loading, setLoading] = useState(false);
   const [step, setStep] = useState(1); // 1 = Format, 2 = Details
 
   // Form state
-  const [invoiceFormat, setInvoiceFormat] = useState<InvoiceFormatType>('STANDARD');
-  const [recommendedFormat, setRecommendedFormat] = useState<InvoiceFormatType>('STANDARD');
+  const [invoiceFormat, setInvoiceFormat] = useState<InvoiceFormatType>(() =>
+    deriveFormatForState(customerState)
+  );
+  const [recommendedFormat, setRecommendedFormat] = useState<InvoiceFormatType>(() =>
+    deriveFormatForState(customerState)
+  );
   const [poNumber, setPoNumber] = useState('');
   const [specialInstructions, setSpecialInstructions] = useState('');
   const [shippingMethod, setShippingMethod] = useState('Hand deliver');
@@ -52,16 +66,9 @@ export function CreateInvoiceDialog({
 
   // Determine recommended format based on customer state
   useEffect(() => {
-    if (customerState === 'VA') {
-      setRecommendedFormat('VA_ABC_INSTATE');
-      setInvoiceFormat('VA_ABC_INSTATE');
-    } else if (customerState && customerState !== 'VA') {
-      setRecommendedFormat('VA_ABC_TAX_EXEMPT');
-      setInvoiceFormat('VA_ABC_TAX_EXEMPT');
-    } else {
-      setRecommendedFormat('STANDARD');
-      setInvoiceFormat('STANDARD');
-    }
+    const nextFormat = deriveFormatForState(customerState);
+    setRecommendedFormat(nextFormat);
+    setInvoiceFormat(nextFormat);
   }, [customerState]);
 
   // Set default due date (30 days from now)
