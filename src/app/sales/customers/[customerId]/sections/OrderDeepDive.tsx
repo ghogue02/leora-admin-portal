@@ -6,7 +6,10 @@ import { formatCurrency, formatNumber } from "@/lib/utils/format";
 
 type ProductBreakdown = {
   productId: string;
+  skuId: string;
+  skuCode: string;
   productName: string;
+  vintage: string | null;
   lastOrderDate: string;
   totalOrders: number;
   totalRevenue: number;
@@ -70,6 +73,8 @@ export default function OrderDeepDive({ customerId }: OrderDeepDiveProps) {
   const exportToCSV = () => {
     const headers = [
       "Product",
+      "SKU",
+      "Vintage",
       "Last Order Date",
       "Total Orders",
       "Total Revenue",
@@ -79,6 +84,8 @@ export default function OrderDeepDive({ customerId }: OrderDeepDiveProps) {
 
     const rows = sortedProducts.map((p) => [
       p.productName,
+      p.skuCode,
+      p.vintage ?? "NV",
       new Date(p.lastOrderDate).toLocaleDateString(),
       p.totalOrders,
       p.totalRevenue.toFixed(2),
@@ -142,11 +149,17 @@ export default function OrderDeepDive({ customerId }: OrderDeepDiveProps) {
         <table className="w-full">
           <thead className="bg-gray-50">
             <tr>
-              <th
+                <th
                 className="cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
                 onClick={() => handleSort("productName")}
               >
                 Product {sortField === "productName" && (sortDirection === "asc" ? "↑" : "↓")}
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                SKU
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                Vintage
               </th>
               <th
                 className="cursor-pointer px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500 hover:bg-gray-100"
@@ -189,9 +202,13 @@ export default function OrderDeepDive({ customerId }: OrderDeepDiveProps) {
               </tr>
             ) : (
               sortedProducts.map((product) => (
-                <tr key={product.productId} className="hover:bg-gray-50">
+                <tr key={product.skuId} className="hover:bg-gray-50">
                   <td className="px-6 py-4 text-sm font-medium text-gray-900">
                     {product.productName}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-600">{product.skuCode}</td>
+                  <td className="px-6 py-4 text-sm text-gray-600">
+                    {product.vintage ?? "NV"}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-600">
                     {new Date(product.lastOrderDate).toLocaleDateString()}

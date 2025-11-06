@@ -40,6 +40,7 @@ export async function GET(request: NextRequest, context: RouteContext) {
                   id: true,
                   name: true,
                   brand: true,
+                  vintage: true,
                 },
               },
             },
@@ -58,12 +59,15 @@ export async function GET(request: NextRequest, context: RouteContext) {
         },
       });
 
-      // Group by product
+      // Group by SKU
       const productMap = new Map<
         string,
         {
+          skuId: string;
+          skuCode: string;
           productId: string;
           productName: string;
+          vintage: string | null;
           orders: { date: Date; revenue: number }[];
           totalRevenue: number;
           totalOrders: number;
@@ -71,22 +75,31 @@ export async function GET(request: NextRequest, context: RouteContext) {
       >();
 
       for (const line of orderLines) {
+        const skuId = line.sku?.id || `unknown-${line.id}`;
+        const skuCode = line.sku?.code || "UNKNOWN";
         const productId = line.sku?.product?.id || "unknown";
         const productName = line.sku?.product?.name || "Unknown Product";
+        const vintage =
+          line.sku?.product?.vintage !== null && line.sku?.product?.vintage !== undefined
+            ? String(line.sku.product.vintage)
+            : null;
         const orderDate = line.order.deliveredAt || line.order.createdAt;
         const revenue = Number(line.quantity) * Number(line.unitPrice);
 
-        if (!productMap.has(productId)) {
-          productMap.set(productId, {
+        if (!productMap.has(skuId)) {
+          productMap.set(skuId, {
+            skuId,
+            skuCode,
             productId,
             productName,
+            vintage,
             orders: [],
             totalRevenue: 0,
             totalOrders: 0,
           });
         }
 
-        const product = productMap.get(productId)!;
+        const product = productMap.get(skuId)!;
         product.orders.push({ date: orderDate, revenue });
         product.totalRevenue += revenue;
       }
@@ -122,8 +135,11 @@ export async function GET(request: NextRequest, context: RouteContext) {
         const ordersPerMonth = totalOrders / monthsSpan;
 
         return {
+          skuId: p.skuId,
+          skuCode: p.skuCode,
           productId: p.productId,
           productName: p.productName,
+          vintage: p.vintage,
           lastOrderDate: lastOrderDate.toISOString(),
           totalOrders,
           totalRevenue: p.totalRevenue,
