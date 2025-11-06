@@ -66,7 +66,7 @@ export type PriceOverride = {
 
 type Props = {
   warehouseLocation: string;
-  onAddProduct: (
+  onAddProduct?: (
     product: Product,
     quantity: number,
     inventoryStatus: InventoryStatus | undefined,
@@ -84,7 +84,7 @@ type Props = {
   canOverridePrices?: boolean;
 };
 
-export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProducts, existingSkuIds = [], customer, canOverridePrices = false }: Props) {
+export function ProductGrid({ warehouseLocation, onAddMultipleProducts, existingSkuIds = [], customer, canOverridePrices = false }: Props) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -93,8 +93,13 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
   const [showInStockOnly, setShowInStockOnly] = useState(true);
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
   const [selectedSkuIds, setSelectedSkuIds] = useState<Set<string>>(new Set());
+  const [selectedProductDetails, setSelectedProductDetails] = useState<Record<string, Product>>({});
   const [inventoryStatuses, setInventoryStatuses] = useState<Map<string, InventoryStatus>>(new Map());
   const [checkingInventory, setCheckingInventory] = useState(false);
+  const clearSelection = useCallback(() => {
+    setSelectedSkuIds(new Set());
+    setSelectedProductDetails({});
+  }, []);
 
   // Price override state
   const [priceOverrides, setPriceOverrides] = useState<Map<string, PriceOverride>>(new Map());
@@ -224,6 +229,19 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
     });
   }, [catalogFilteredProducts, inventoryStatuses, showInStockOnly]);
 
+  const selectedProductsArray = useMemo(() => {
+    return Array.from(selectedSkuIds)
+      .map((skuId) => selectedProductDetails[skuId] ?? products.find((item) => item.skuId === skuId))
+      .filter((product): product is Product => Boolean(product));
+  }, [selectedProductDetails, selectedSkuIds, products]);
+
+  const visibleProducts = useMemo(() => {
+    const remaining = filteredProducts.filter((product) => !selectedSkuIds.has(product.skuId));
+    const remainingLimit = Math.max(0, 50 - selectedProductsArray.length);
+    const limitedRemaining = remainingLimit > 0 ? remaining.slice(0, remainingLimit) : [];
+    return [...selectedProductsArray, ...limitedRemaining];
+  }, [filteredProducts, selectedProductsArray, selectedSkuIds]);
+
   // Check inventory - more aggressive when filtering by stock
   useEffect(() => {
     if (showInStockOnly && catalogFilteredProducts.length > 0) {
@@ -238,34 +256,6 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
       }
     }
   }, [warehouseLocation, catalogFilteredProducts, showInStockOnly, checkInventoryForProducts]);
-
-  const handleAddProduct = useCallback((product: Product) => {
-    const quantity = quantityBySku[product.skuId] || 0;
-
-    // Enforce minimum quantity from price list
-    const minQty = product.priceLists[0]?.minQuantity || 1;
-    if (quantity < minQty) {
-      alert(`Minimum quantity for this product is ${minQty}`);
-      return;
-    }
-
-    const inventoryStatus = inventoryStatuses.get(product.skuId);
-    const pricing = resolvePriceForQuantity(product.priceLists, quantity, customer);
-    const priceOverride = priceOverrides.get(product.skuId);
-
-    if (!inventoryStatus) {
-      // Re-check inventory for this specific product
-      void checkInventoryForProducts([product.skuId]).then(() => {
-        const freshStatus = inventoryStatuses.get(product.skuId);
-        if (freshStatus) {
-          onAddProduct(product, quantity, freshStatus, pricing, priceOverride);
-        }
-      });
-      return;
-    }
-
-    onAddProduct(product, quantity, inventoryStatus, pricing, priceOverride);
-  }, [quantityBySku, inventoryStatuses, priceOverrides, onAddProduct, checkInventoryForProducts, customer]);
 
   // Handle opening price override dialog
   const handleOpenOverrideDialog = useCallback((product: Product) => {
@@ -307,7 +297,8 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
     }> = [];
 
     selectedSkuIds.forEach(skuId => {
-      const product = products.find(p => p.skuId === skuId);
+      const product =
+        selectedProductDetails[skuId] ?? products.find(p => p.skuId === skuId);
       if (!product) return;
 
       // Add with quantity 0 initially so user can set quantities
@@ -320,34 +311,64 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
 
     if (productsToAdd.length > 0) {
       onAddMultipleProducts(productsToAdd);
-      setSelectedSkuIds(new Set()); // Clear selection after adding
+      clearSelection(); // Clear selection after adding
     }
-  }, [onAddMultipleProducts, selectedSkuIds, products, inventoryStatuses, customer]);
+  }, [onAddMultipleProducts, selectedSkuIds, selectedProductDetails, products, inventoryStatuses, customer, clearSelection]);
 
   // Toggle individual product selection
-  const toggleProductSelection = useCallback((skuId: string) => {
+  const toggleProductSelection = useCallback((product: Product) => {
     setSelectedSkuIds(prev => {
       const newSet = new Set(prev);
-      if (newSet.has(skuId)) {
-        newSet.delete(skuId);
+      if (newSet.has(product.skuId)) {
+        newSet.delete(product.skuId);
       } else {
-        newSet.add(skuId);
+        newSet.add(product.skuId);
       }
       return newSet;
+    });
+    setSelectedProductDetails(prev => {
+      const next = { ...prev };
+      if (next[product.skuId]) {
+        delete next[product.skuId];
+      } else {
+        next[product.skuId] = product;
+      }
+      return next;
     });
   }, []);
 
   // Toggle select all visible products
   const toggleSelectAll = useCallback(() => {
-    const visibleSkuIds = filteredProducts.slice(0, 50).map(p => p.skuId);
+    const visibleProducts = filteredProducts.slice(0, 50);
+    const visibleSkuIds = visibleProducts.map(p => p.skuId);
     const allSelected = visibleSkuIds.every(id => selectedSkuIds.has(id));
 
     if (allSelected) {
-      // Deselect all
-      setSelectedSkuIds(new Set());
+      setSelectedSkuIds(prev => {
+        const next = new Set(prev);
+        visibleSkuIds.forEach(id => next.delete(id));
+        return next;
+      });
+      setSelectedProductDetails(prev => {
+        const next = { ...prev };
+        visibleSkuIds.forEach(id => {
+          delete next[id];
+        });
+        return next;
+      });
     } else {
-      // Select all visible
-      setSelectedSkuIds(new Set(visibleSkuIds));
+      setSelectedSkuIds(prev => {
+        const next = new Set(prev);
+        visibleSkuIds.forEach(id => next.add(id));
+        return next;
+      });
+      setSelectedProductDetails(prev => {
+        const next = { ...prev };
+        visibleProducts.forEach(product => {
+          next[product.skuId] = product;
+        });
+        return next;
+      });
     }
   }, [filteredProducts, selectedSkuIds]);
 
@@ -441,18 +462,18 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
 
       {/* Multi-Select Actions */}
       {onAddMultipleProducts && selectedSkuIds.size > 0 && (
-        <div className="flex items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3">
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-semibold text-blue-900">
-              {selectedSkuIds.size} product{selectedSkuIds.size !== 1 ? 's' : ''} selected
-            </span>
-            <button
-              onClick={() => setSelectedSkuIds(new Set())}
-              className="text-xs font-semibold text-blue-700 hover:text-blue-900"
-            >
-              Clear Selection
-            </button>
-          </div>
+          <div className="flex items-center justify-between rounded-lg border border-blue-200 bg-blue-50 px-4 py-3">
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-semibold text-blue-900">
+                {selectedSkuIds.size} product{selectedSkuIds.size !== 1 ? 's' : ''} selected
+              </span>
+              <button
+                onClick={clearSelection}
+                className="text-xs font-semibold text-blue-700 hover:text-blue-900"
+              >
+                Clear Selection
+              </button>
+            </div>
           <button
             onClick={handleAddSelectedProducts}
             disabled={!warehouseLocation}
@@ -481,7 +502,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
                   <th className="px-4 py-3 text-left">
                     <input
                       type="checkbox"
-                      checked={filteredProducts.slice(0, 50).length > 0 && filteredProducts.slice(0, 50).every(p => selectedSkuIds.has(p.skuId))}
+                      checked={visibleProducts.length > 0 && visibleProducts.every(p => selectedSkuIds.has(p.skuId))}
                       onChange={toggleSelectAll}
                       className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                       title="Select all visible products"
@@ -503,13 +524,10 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
                 <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-600">
                   Total
                 </th>
-                <th className="px-4 py-3 text-right">
-                  <span className="sr-only">Actions</span>
-                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {filteredProducts.slice(0, 50).map(product => {
+              {visibleProducts.map(product => {
                 const quantity = quantityBySku[product.skuId] || 0;
                 const minQty = product.priceLists[0]?.minQuantity || 1;
                 const pricing = resolvePricingSelection(product, quantity);
@@ -529,8 +547,6 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
                     ? "text-amber-700"
                     : "text-gray-500"
                   : "text-rose-700";
-                const canAdd = Boolean(pricing.priceList);
-
                 return (
                   <tr key={product.skuId} className="hover:bg-gray-50">
                     {onAddMultipleProducts && (
@@ -538,7 +554,7 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
                         <input
                           type="checkbox"
                           checked={selectedSkuIds.has(product.skuId)}
-                          onChange={() => toggleProductSelection(product.skuId)}
+                          onChange={() => toggleProductSelection(product)}
                           className="rounded border-gray-300 text-gray-900 focus:ring-gray-500"
                         />
                       </td>
@@ -631,16 +647,6 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
                     <td className="px-4 py-3 text-right text-sm font-semibold text-gray-900">
                       {pricing.priceList ? `$${lineTotal.toFixed(2)}` : '—'}
                     </td>
-                    <td className="px-4 py-3 text-right">
-                      <button
-                        type="button"
-                        onClick={() => handleAddProduct(product)}
-                        disabled={!warehouseLocation || !canAdd}
-                        className="rounded-md bg-gray-900 px-3 py-1 text-xs font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
-                      >
-                        Add
-                      </button>
-                    </td>
                   </tr>
                 );
               })}
@@ -649,9 +655,9 @@ export function ProductGrid({ warehouseLocation, onAddProduct, onAddMultipleProd
         </div>
       )}
 
-      {filteredProducts.length > 50 && (
+      {filteredProducts.length > visibleProducts.length && (
         <p className="text-xs text-gray-500 text-center">
-          Showing first 50 products. Use search to narrow results.
+          Showing selected products and first 50 matches. Use search to narrow results.
         </p>
       )}
 
