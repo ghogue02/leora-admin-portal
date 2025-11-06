@@ -7,6 +7,7 @@ import { createClient } from '@supabase/supabase-js';
 import { PrismaClient } from '@prisma/client';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { formatUTCDate } from '../lib/dates';
 
 function loadEnv() {
   const envPath = resolve(process.cwd(), '.env.local');
@@ -65,7 +66,8 @@ async function importOrderLinesFast() {
       }
 
       // Find matching order in Lovable by amount and date
-      const wcDate = wcOrder.orderedAt!.toISOString().split('T')[0];
+      // Use UTC date formatting for consistent matching across timezones
+      const wcDate = formatUTCDate(wcOrder.orderedAt!);
 
       const { data: lovableOrders } = await lovable
         .from('order')

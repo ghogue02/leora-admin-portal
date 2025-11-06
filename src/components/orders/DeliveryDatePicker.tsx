@@ -16,8 +16,9 @@
 
 import { useState, useEffect } from 'react';
 import { DayPicker } from 'react-day-picker';
-import { format, addDays, isSameDay, isToday } from 'date-fns';
+import { format, isSameDay, isToday, parse } from 'date-fns';
 import 'react-day-picker/dist/style.css';
+import { formatUTCDate } from '@/lib/dates';
 
 type Props = {
   value: string;
@@ -41,7 +42,7 @@ export function DeliveryDatePicker({
   const [warningType, setWarningType] = useState<'same-day' | 'non-delivery-day' | null>(null);
   const [pendingDate, setPendingDate] = useState<Date | null>(null);
 
-  const selectedDate = value ? new Date(value) : undefined;
+  const selectedDate = value ? parse(value, 'yyyy-MM-dd', new Date()) : undefined;
 
   const handleDateSelect = (date: Date | undefined) => {
     if (!date) {
@@ -60,7 +61,7 @@ export function DeliveryDatePicker({
       setWarningType('same-day');
       setShowWarningModal(true);
       setShowCalendar(false);
-      onWarning?.('same-day', date.toISOString());
+      onWarning?.('same-day', formatUTCDate(date));
       return;
     }
 
@@ -72,19 +73,19 @@ export function DeliveryDatePicker({
         setWarningType('non-delivery-day');
         setShowWarningModal(true);
         setShowCalendar(false);
-        onWarning?.('non-delivery-day', date.toISOString());
+        onWarning?.('non-delivery-day', formatUTCDate(date));
         return;
       }
     }
 
     // No warnings - accept the date
-    onChange(date.toISOString().split('T')[0]);
+    onChange(formatUTCDate(date));
     setShowCalendar(false);
   };
 
   const handleConfirmDate = () => {
     if (pendingDate) {
-      onChange(pendingDate.toISOString().split('T')[0]);
+      onChange(formatUTCDate(pendingDate));
     }
     setShowWarningModal(false);
     setWarningType(null);
@@ -120,8 +121,8 @@ export function DeliveryDatePicker({
           } ${disabled ? 'cursor-not-allowed bg-gray-100' : 'cursor-pointer'}`}
         >
           <span className={value ? 'text-gray-900 font-medium' : 'text-gray-500'}>
-            {value
-              ? format(new Date(value), 'EEEE, MMMM d, yyyy')
+            {selectedDate
+              ? format(selectedDate, 'EEEE, MMMM d, yyyy')
               : 'Select delivery date...'}
           </span>
           <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -188,7 +189,7 @@ export function DeliveryDatePicker({
               key={date}
               type="button"
               onClick={() => {
-                const d = new Date(date);
+                const d = parse(date, 'yyyy-MM-dd', new Date());
                 handleDateSelect(d);
               }}
               className="rounded-md border border-emerald-300 bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-700 transition hover:bg-emerald-100"
@@ -273,8 +274,10 @@ function getSuggestedDeliveryDates(deliveryDays: string[], count: number): Array
     const dayName = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
 
     if (deliveryDays.includes(dayName)) {
-      const dateStr = currentDate.toISOString().split('T')[0];
-      const label = currentDate.toLocaleDateString('en-US', {
+      const normalized = new Date(currentDate);
+      normalized.setHours(0, 0, 0, 0);
+      const dateStr = formatUTCDate(normalized);
+      const label = normalized.toLocaleDateString('en-US', {
         weekday: 'short',
         month: 'short',
         day: 'numeric',

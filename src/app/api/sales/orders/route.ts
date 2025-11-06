@@ -10,6 +10,7 @@ import {
 } from "@/lib/orders";
 import { z } from "zod";
 import { calculateOrderTotal } from "@/lib/orders/calculations";
+import { parseUTCDate } from "@/lib/dates";
 
 const DEFAULT_LIMIT = 25;
 const OPEN_STATUSES: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
@@ -525,7 +526,7 @@ export async function POST(request: NextRequest) {
               tenantId,
               customerId: orderData.customerId,
               status: orderStatus,
-              deliveryDate: new Date(orderData.deliveryDate),
+              deliveryDate: orderData.deliveryDate ? parseUTCDate(orderData.deliveryDate) : null,
               warehouseLocation: orderData.warehouseLocation,
               deliveryTimeWindow: orderData.deliveryTimeWindow,
               requiresApproval,

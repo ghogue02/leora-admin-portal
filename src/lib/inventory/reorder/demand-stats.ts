@@ -8,6 +8,7 @@
  */
 
 import { PrismaClient } from '@prisma/client';
+import { formatUTCDate } from '../../dates';
 
 const prisma = new PrismaClient();
 
@@ -109,10 +110,11 @@ export async function calculateDemandStats(
   });
 
   // Group by date and sum quantities
+  // Use UTC date formatting to ensure consistent date grouping across timezones
   const dailyDemandMap = new Map<string, number>();
 
   orderLines.forEach(line => {
-    const date = line.order.orderedAt.toISOString().split('T')[0];
+    const date = formatUTCDate(line.order.orderedAt);
     const current = dailyDemandMap.get(date) || 0;
     dailyDemandMap.set(date, current + line.quantity);
   });

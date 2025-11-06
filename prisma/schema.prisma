@@ -106,6 +106,8 @@ model Tenant {
   webhookSubs             WebhookSubscription[]
   healthThresholds        HealthThreshold[]
   SkuDemandStats          SkuDemandStats[]
+  sageExports             SageExport[]
+  sageExportErrors        SageExportError[]
 }
 
 model TenantSettings {
@@ -184,6 +186,8 @@ model User {
   savedQueries           SavedQuery[]
   scheduledReports       ScheduledReport[]
   assignedTasks          Task[]                  @relation("AssignedTasks")
+  sageExports            SageExport[]
+  resolvedSageErrors     SageExportError[]       @relation("SageErrorResolver")
   tenant                 Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   roles                  UserRole[]
 
@@ -351,6 +355,7 @@ model Sku {
   tenant               Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   topProducts          TopProduct[]
   demandStats          SkuDemandStats?
+  sageExportErrors     SageExportError[]
 
   @@unique([tenantId, code])
   @@index([tenantId])
@@ -489,6 +494,7 @@ model Customer {
   sampleUsage               SampleUsage[]
   tasks                     Task[]
   triggeredTasks            TriggeredTask[]
+  sageExportErrors          SageExportError[]
 
   @@unique([tenantId, externalId])
   @@index([tenantId])
@@ -538,6 +544,7 @@ model Order {
   lines                 OrderLine[]
   payments              Payment[]
   routeStops            RouteStop[]
+  sageExportErrors      SageExportError[]
 
   @@index([tenantId])
   @@index([deliveredAt])
@@ -597,6 +604,7 @@ model Invoice {
   order               Order              @relation(fields: [orderId], references: [id], onDelete: Cascade)
   tenant              Tenant             @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   payments            Payment[]
+  sageExportErrors    SageExportError[]
 
   @@index([tenantId])
   @@index([invoiceFormatType])
@@ -2282,4 +2290,87 @@ model SkuDemandStats {
   @@index([tenantId])
   @@index([tenantId, reorderPoint])
   @@index([lastCalculated])
+}
+
+// ============================================================================
+// SAGE Export System
+// ============================================================================
+
+model SageExport {
+  id           String           @id @default(uuid()) @db.Uuid
+  tenantId     String           @db.Uuid
+  startDate    DateTime
+  endDate      DateTime
+  status       SageExportStatus @default(PENDING)
+  recordCount  Int              @default(0)
+  invoiceCount Int              @default(0)
+  filePath     String?
+  fileName     String?
+  exportedBy   String           @db.Uuid // User ID
+  exportedAt   DateTime         @default(now())
+  completedAt  DateTime?
+  errorMessage String?
+
+  // Relations
+  tenant Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user   User              @relation(fields: [exportedBy], references: [id])
+  errors SageExportError[]
+
+  @@index([tenantId])
+  @@index([status])
+  @@index([exportedAt])
+  @@index([startDate, endDate])
+}
+
+model SageExportError {
+  id           String        @id @default(uuid()) @db.Uuid
+  tenantId     String        @db.Uuid
+  exportId     String        @db.Uuid
+  invoiceId    String?       @db.Uuid
+  orderId      String?       @db.Uuid
+  customerId   String?       @db.Uuid
+  skuId        String?       @db.Uuid
+  errorType    SageErrorType
+  errorMessage String
+  rowData      Json? // Original data for reference
+  resolvedAt   DateTime?
+  resolvedBy   String?       @db.Uuid // User ID who fixed it
+  resolution   String? // How it was resolved
+  createdAt    DateTime      @default(now())
+
+  // Relations
+  tenant   Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  export   SageExport @relation(fields: [exportId], references: [id], onDelete: Cascade)
+  invoice  Invoice?   @relation(fields: [invoiceId], references: [id])
+  order    Order?     @relation(fields: [orderId], references: [id])
+  customer Customer?  @relation(fields: [customerId], references: [id])
+  sku      Sku?       @relation(fields: [skuId], references: [id])
+  resolver User?      @relation("SageErrorResolver", fields: [resolvedBy], references: [id])
+
+  @@index([tenantId])
+  @@index([exportId])
+  @@index([errorType])
+  @@index([resolvedAt])
+  @@index([customerId])
+  @@index([skuId])
+}
+
+enum SageExportStatus {
+  PENDING
+  VALIDATING
+  EXPORTING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum SageErrorType {
+  MISSING_CUSTOMER
+  MISSING_SKU
+  MISSING_SALES_REP
+  INVALID_AMOUNT
+  INVALID_DATE
+  INVALID_PAYMENT_TERMS
+  DUPLICATE_INVOICE
+  VALIDATION_FAILED
 }

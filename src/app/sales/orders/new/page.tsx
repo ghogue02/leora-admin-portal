@@ -26,6 +26,7 @@ import { OrderSuccessModal } from '@/components/orders/OrderSuccessModal';
 import { OrderPreviewModal } from '@/components/orders/OrderPreviewModal';
 import { FormProgress } from '@/components/orders/FormProgress';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
+import { formatUTCDate } from '@/lib/dates';
 
 type Customer = {
   id: string;
@@ -330,7 +331,7 @@ export default function NewOrderPage() {
     for (let i = 0; i < 14; i++) {
       const dayName = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
       if (deliveryDays.includes(dayName)) {
-        return currentDate.toISOString().split('T')[0];
+        return formatUTCDate(currentDate);
       }
       currentDate.setDate(currentDate.getDate() + 1);
     }
