@@ -89,6 +89,7 @@ interface CustomerDetailData {
     occurredAt: string;
     followUpAt: string | null;
     outcome: string | null;
+    outcomes: string[];
     userName: string;
     relatedOrder: {
       id: string;
@@ -119,6 +120,22 @@ interface CustomerDetailData {
     dueDate: string | null;
     issuedAt: string | null;
     daysOverdue: number;
+  }>;
+  btgPlacements: Array<{
+    skuId: string;
+    skuCode: string;
+    productName: string;
+    brand: string | null;
+    category: string | null;
+    supplierName: string | null;
+    totalUnits: number;
+    orderCount: number;
+    recentUnits: number;
+    averageMonthlyUnits: number;
+    firstOrderDate: string | null;
+    lastOrderDate: string | null;
+    daysSinceLastOrder: number | null;
+    isActivePlacement: boolean;
   }>;
 }
 

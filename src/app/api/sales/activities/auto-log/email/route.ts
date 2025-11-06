@@ -13,6 +13,7 @@ export async function POST(request: NextRequest) {
         occurredAt,
         activityTypeCode = 'EMAIL_FOLLOW_UP',
         outcome = 'SUCCESS',
+        outcomes,
         metadata,
       } = body;
 
@@ -66,6 +67,12 @@ export async function POST(request: NextRequest) {
         );
       }
 
+      const normalizedOutcomes: string[] = Array.isArray(outcomes)
+        ? outcomes
+        : outcome
+          ? [outcome]
+          : [];
+
       // Create activity
       const activity = await db.activity.create({
         data: {
@@ -76,7 +83,7 @@ export async function POST(request: NextRequest) {
           subject,
           notes,
           occurredAt: new Date(occurredAt),
-          outcome,
+          outcomes: { set: normalizedOutcomes },
         },
       });
 

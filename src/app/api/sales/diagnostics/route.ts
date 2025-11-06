@@ -517,7 +517,7 @@ export async function GET(request: NextRequest) {
               hasOrder: activity.orderId !== null,
               hasNotes: activity.notes !== null,
               hasFollowUpAt: activity.followUpAt !== null,
-              hasOutcome: activity.outcome !== null,
+              hasOutcome: (activity.outcomes ?? []).length > 0,
             })),
           },
         };
@@ -594,7 +594,8 @@ export async function GET(request: NextRequest) {
                 occurredAt: activity.occurredAt.toISOString(),
                 userName: activity.user?.fullName ?? null,
                 customerName: activity.customer?.name ?? null,
-                outcome: activity.outcome,
+                outcome: activity.outcomes?.[0] ?? null,
+                outcomes: activity.outcomes ?? [],
               })),
             },
 

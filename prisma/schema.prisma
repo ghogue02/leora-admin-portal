@@ -578,6 +578,7 @@ model OrderLine {
   priceOverridden     Boolean         @default(false)
   overridePrice       Decimal?        @db.Decimal(10, 2)
   overrideReason      String?
+  usageType           OrderUsageType?
   overriddenBy        String?
   overriddenAt        DateTime?
   order               Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
@@ -738,7 +739,7 @@ model Activity {
   notes          String?
   occurredAt     DateTime
   followUpAt     DateTime?
-  outcome        ActivityOutcome?
+  outcomes       String[]          @default([])
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
   activityType   ActivityType     @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
@@ -2088,6 +2089,13 @@ enum OrderStatus {
   DELIVERED
 }
 
+enum OrderUsageType {
+  BTG
+  WINE_CLUB
+  SUPPLIER_EVENT
+  OTHER_ONE_OFF
+}
+
 enum InvoiceStatus {
   DRAFT
   SENT
@@ -2100,13 +2108,6 @@ enum CartStatus {
   ACTIVE
   SUBMITTED
   ABANDONED
-}
-
-enum ActivityOutcome {
-  PENDING
-  SUCCESS
-  FAILED
-  NO_RESPONSE
 }
 
 enum TaskStatus {

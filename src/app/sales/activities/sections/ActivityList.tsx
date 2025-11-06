@@ -1,7 +1,8 @@
 'use client';
 
 import Link from "next/link";
-import type { ActivityOutcome, OrderStatus } from "@prisma/client";
+import type { OrderStatus } from "@prisma/client";
+import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants/activityOutcomes";
 
 type Activity = {
   id: string;
@@ -9,7 +10,7 @@ type Activity = {
   notes: string | null;
   occurredAt: string;
   followUpAt: string | null;
-  outcome: ActivityOutcome | null;
+  outcomes: ActivityOutcomeValue[];
   createdAt: string;
   activityType: {
     id: string;
@@ -149,25 +150,22 @@ export default function ActivityList({
     }).format(amount);
   };
 
-  const getOutcomeBadge = (outcome: ActivityOutcome | null) => {
-    if (!outcome) return null;
+  const getOutcomeBadges = (outcomes: ActivityOutcomeValue[] = []) => {
+    if (!outcomes.length) return null;
 
-    const badges = {
-      PENDING: { text: "Pending", color: "bg-gray-100 text-gray-700" },
-      SUCCESS: { text: "Success", color: "bg-emerald-100 text-emerald-700" },
-      FAILED: { text: "Failed", color: "bg-rose-100 text-rose-700" },
-      NO_RESPONSE: { text: "No Response", color: "bg-amber-100 text-amber-700" },
-    };
+    const labelMap = ACTIVITY_OUTCOME_OPTIONS.reduce<Record<ActivityOutcomeValue, string>>((acc, option) => {
+      acc[option.value] = option.label;
+      return acc;
+    }, {} as Record<ActivityOutcomeValue, string>);
 
-    const badge = badges[outcome];
-
-    return (
+    return outcomes.map((outcome) => (
       <span
-        className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${badge.color}`}
+        key={outcome}
+        className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-blue-700"
       >
-        {badge.text}
+        {labelMap[outcome] ?? outcome}
       </span>
-    );
+    ));
   };
 
   const getActivityTypeIcon = (code: string) => {
@@ -338,7 +336,11 @@ export default function ActivityList({
                     )}
                   </td>
                   <td className="px-4 py-3 text-gray-700">{formatDateTime(activity.occurredAt)}</td>
-                  <td className="px-4 py-3">{getOutcomeBadge(activity.outcome)}</td>
+                  <td className="px-4 py-3">
+                    <div className="flex flex-wrap gap-1">
+                      {getOutcomeBadges(activity.outcomes)}
+                    </div>
+                  </td>
                   <td className="px-4 py-3">
                     {activity.order ? (
                       <div className="flex flex-col">

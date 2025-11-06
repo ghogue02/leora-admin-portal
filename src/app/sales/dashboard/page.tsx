@@ -103,6 +103,7 @@ type DashboardData = {
         name: string;
       } | null;
       outcome: string | null;
+      outcomes: string[];
     }>;
     summary: Record<string, number>;
   };

@@ -34,7 +34,7 @@ export const QuickActivityLogger: React.FC<QuickActivityLoggerProps> = ({
           subject: data.subject,
           notes: data.notes,
           duration: data.duration,
-          outcome: data.outcome,
+          outcomes: data.outcomes,
           timestamp: new Date().toISOString(),
         }),
       });

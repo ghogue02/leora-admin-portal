@@ -581,7 +581,8 @@ async function getRecentActivityDrilldown(db: any, tenantId: string, userId: str
     customer: a.customer?.name ?? 'N/A',
     subject: a.subject,
     occurredAt: formatUTCDate(a.occurredAt),
-    outcome: a.outcome,
+    outcome: a.outcomes?.[0] ?? null,
+    outcomes: a.outcomes ?? [],
     user: a.user?.fullName ?? 'System',
   }));
 
@@ -612,7 +613,9 @@ async function getRecentActivityDrilldown(db: any, tenantId: string, userId: str
       },
       insights: [
         `Most common activity: ${Object.entries(typeCounts).reduce((a, b) => a[1] > b[1] ? a : b)[0]}`,
-        `${activities.filter((a) => a.outcome === 'SUCCESS').length} successful activities`,
+        `${
+          activities.filter((a) => (a.outcomes ?? []).includes('RECEIVED_ORDER')).length
+        } activities resulted in orders`,
         `${activities.filter((a) => a.followUpAt).length} activities with follow-ups scheduled`,
       ],
     },

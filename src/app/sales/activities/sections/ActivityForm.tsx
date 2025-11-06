@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import type { ActivityOutcome } from "@prisma/client";
+import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants/activityOutcomes";
 
 type ActivityType = {
   code: string;
@@ -28,7 +28,7 @@ export type ActivityFormData = {
   notes: string;
   occurredAt: string;
   followUpAt: string;
-  outcome: ActivityOutcome;
+  outcomes: ActivityOutcomeValue[];
 };
 
 export default function ActivityForm({
@@ -44,7 +44,7 @@ export default function ActivityForm({
     notes: "",
     occurredAt: new Date().toISOString().slice(0, 16),
     followUpAt: "",
-    outcome: "PENDING",
+    outcomes: [],
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -94,7 +94,7 @@ export default function ActivityForm({
         notes: "",
         occurredAt: new Date().toISOString().slice(0, 16),
         followUpAt: "",
-        outcome: "PENDING",
+        outcomes: [],
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to log activity");
@@ -210,22 +210,48 @@ export default function ActivityForm({
           />
         </div>
 
-        {/* Outcome */}
+        {/* Outcomes */}
         <div>
-          <label htmlFor="outcome" className="block text-sm font-semibold text-gray-700">
-            Outcome
+          <label className="block text-sm font-semibold text-gray-700">
+            Outcomes (Select all that apply)
           </label>
-          <select
-            id="outcome"
-            value={formData.outcome}
-            onChange={(e) => setFormData({ ...formData, outcome: e.target.value as ActivityOutcome })}
-            className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-          >
-            <option value="PENDING">Pending</option>
-            <option value="SUCCESS">Success</option>
-            <option value="FAILED">Failed</option>
-            <option value="NO_RESPONSE">No Response</option>
-          </select>
+          <div className="mt-2 grid gap-2 sm:grid-cols-2">
+            {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
+              const checked = formData.outcomes.includes(option.value);
+              return (
+                <label
+                  key={option.value}
+                  className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
+                    checked ? "border-blue-500 bg-blue-50 text-blue-900" : "border-gray-200 bg-white hover:border-gray-300"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => {
+                      setFormData((prev) => ({
+                        ...prev,
+                        outcomes: prev.outcomes.includes(option.value)
+                          ? prev.outcomes.filter((value) => value !== option.value)
+                          : [...prev.outcomes, option.value],
+                      }));
+                    }}
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  />
+                  <span>{option.label}</span>
+                </label>
+              );
+            })}
+          </div>
+          {formData.outcomes.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setFormData((prev) => ({ ...prev, outcomes: [] }))}
+              className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800"
+            >
+              Clear selections
+            </button>
+          )}
         </div>
       </div>
 

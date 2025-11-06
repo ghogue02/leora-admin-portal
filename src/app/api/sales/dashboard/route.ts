@@ -521,7 +521,8 @@ export async function GET(request: NextRequest) {
                   name: activity.customer.name,
                 }
               : null,
-            outcome: activity.outcome,
+            outcome: activity.outcomes?.[0] ?? null,
+            outcomes: activity.outcomes ?? [],
           })),
           summary: activitySummary,
         },

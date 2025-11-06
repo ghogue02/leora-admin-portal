@@ -2,6 +2,7 @@
 
 import { format } from "date-fns";
 import LogActivityButton from "@/components/shared/LogActivityButton";
+import { ACTIVITY_OUTCOME_OPTIONS } from "@/constants/activityOutcomes";
 
 type Activity = {
   id: string;
@@ -11,7 +12,7 @@ type Activity = {
   notes: string | null;
   occurredAt: string;
   followUpAt: string | null;
-  outcome: string | null;
+  outcomes: string[];
   userName: string;
   relatedOrder: {
     id: string;
@@ -53,37 +54,26 @@ export default function ActivityTimeline({ activities, customerId, customerName 
     }
   };
 
-  const getOutcomeBadge = (outcome: string | null) => {
-    if (!outcome) return null;
+  const outcomeLabelMap = ACTIVITY_OUTCOME_OPTIONS.reduce<Record<string, string>>((acc, option) => {
+    acc[option.value] = option.label;
+    return acc;
+  }, {});
 
-    switch (outcome) {
-      case "SUCCESS":
-        return (
-          <span className="rounded-full bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">
-            Success
+  const renderOutcomeBadges = (outcomes: string[] = []) => {
+    if (!outcomes.length) return null;
+
+    return (
+      <div className="flex flex-wrap gap-1">
+        {outcomes.map((outcome) => (
+          <span
+            key={outcome}
+            className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-700"
+          >
+            {outcomeLabelMap[outcome] ?? outcome}
           </span>
-        );
-      case "PENDING":
-        return (
-          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
-            Pending
-          </span>
-        );
-      case "FAILED":
-        return (
-          <span className="rounded-full bg-rose-100 px-2 py-0.5 text-xs font-semibold text-rose-700">
-            Failed
-          </span>
-        );
-      case "NO_RESPONSE":
-        return (
-          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs font-semibold text-slate-700">
-            No Response
-          </span>
-        );
-      default:
-        return null;
-    }
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -137,7 +127,7 @@ export default function ActivityTimeline({ activities, customerId, customerName 
                         <h4 className="font-semibold text-gray-900">
                           {activity.subject}
                         </h4>
-                        {getOutcomeBadge(activity.outcome)}
+                        {renderOutcomeBadges(activity.outcomes)}
                       </div>
                       <p className="mt-1 text-xs text-gray-500">
                         {activity.type} - {activity.userName}

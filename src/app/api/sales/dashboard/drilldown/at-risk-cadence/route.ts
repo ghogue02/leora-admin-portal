@@ -170,7 +170,8 @@ export async function GET(request: NextRequest) {
             typeCode: activity.activityType.code,
             subject: activity.subject,
             occurredAt: activity.occurredAt.toISOString(),
-            outcome: activity.outcome,
+            outcome: activity.outcomes?.[0] ?? null,
+            outcomes: activity.outcomes ?? [],
           })),
           pendingTasks: customer.tasks.map((task) => ({
             id: task.id,

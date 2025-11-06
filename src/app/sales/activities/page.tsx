@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from "react";
-import type { ActivityOutcome } from "@prisma/client";
+import type { ActivityOutcomeValue } from "@/constants/activityOutcomes";
 import ActivityForm, { type ActivityFormData } from "./sections/ActivityForm";
 import ActivityList from "./sections/ActivityList";
 
@@ -22,7 +22,8 @@ type Activity = {
   notes: string | null;
   occurredAt: string;
   followUpAt: string | null;
-  outcome: ActivityOutcome | null;
+  outcomes: ActivityOutcomeValue[];
+  outcome?: string | null;
   createdAt: string;
   activityType: {
     id: string;

@@ -3,13 +3,14 @@
 import React, { useState, useCallback } from 'react';
 import { VoiceRecorder } from './VoiceRecorder';
 import { Phone, Mail, MessageSquare, Calendar, User, FileText, Save, X } from 'lucide-react';
+import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from '@/constants/activityOutcomes';
 
 export interface ActivityFormData {
   type: 'call' | 'email' | 'meeting' | 'note' | 'task';
   notes: string;
   subject?: string;
   duration?: number;
-  outcome?: string;
+  outcomes: ActivityOutcomeValue[];
 }
 
 interface VoiceActivityFormProps {
@@ -39,7 +40,7 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
   const [notes, setNotes] = useState('');
   const [subject, setSubject] = useState('');
   const [duration, setDuration] = useState<number | undefined>();
-  const [outcome, setOutcome] = useState('');
+  const [selectedOutcomes, setSelectedOutcomes] = useState<ActivityOutcomeValue[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [useVoice, setUseVoice] = useState(true);
 
@@ -66,7 +67,7 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
         notes: notes.trim(),
         subject: subject.trim() || undefined,
         duration: duration || undefined,
-        outcome: outcome.trim() || undefined,
+        outcomes: selectedOutcomes,
       };
 
       await onSubmit(formData);
@@ -75,7 +76,7 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
       setNotes('');
       setSubject('');
       setDuration(undefined);
-      setOutcome('');
+      setSelectedOutcomes([]);
     } catch (error) {
       console.error('Error submitting activity:', error);
       alert('Failed to save activity. Please try again.');
@@ -225,19 +226,47 @@ export const VoiceActivityForm: React.FC<VoiceActivityFormProps> = ({
           </p>
         </div>
 
-        {/* Outcome (optional) */}
+        {/* Outcomes */}
         <div>
-          <label htmlFor="outcome" className="block text-sm font-medium text-gray-700 mb-2">
-            Outcome (Optional)
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Outcomes (Select all that apply)
           </label>
-          <input
-            id="outcome"
-            type="text"
-            value={outcome}
-            onChange={(e) => setOutcome(e.target.value)}
-            placeholder="e.g., Scheduled follow-up, Closed deal, etc."
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          />
+          <div className="grid gap-2 sm:grid-cols-2">
+            {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
+              const checked = selectedOutcomes.includes(option.value);
+              return (
+                <label
+                  key={option.value}
+                  className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
+                    checked ? 'border-blue-500 bg-blue-50 text-blue-900' : 'border-gray-200 bg-white hover:border-gray-300'
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => {
+                      setSelectedOutcomes((prev) =>
+                        prev.includes(option.value)
+                          ? prev.filter((value) => value !== option.value)
+                          : [...prev, option.value]
+                      );
+                    }}
+                    className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  />
+                  <span>{option.label}</span>
+                </label>
+              );
+            })}
+          </div>
+          {selectedOutcomes.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setSelectedOutcomes([])}
+              className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800"
+            >
+              Clear selections
+            </button>
+          )}
         </div>
 
         {/* Actions */}

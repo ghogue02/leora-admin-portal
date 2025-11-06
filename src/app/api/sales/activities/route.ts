@@ -101,7 +101,7 @@ export async function GET(request: NextRequest) {
             notes: true,
             occurredAt: true,
             followUpAt: true,
-            outcome: true,
+            outcomes: true,
             createdAt: true,
             activityType: {
               select: {
@@ -188,7 +188,8 @@ export async function GET(request: NextRequest) {
         notes: activity.notes,
         occurredAt: activity.occurredAt.toISOString(),
         followUpAt: activity.followUpAt?.toISOString() ?? null,
-        outcome: activity.outcome,
+        outcome: activity.outcomes?.[0] ?? null,
+        outcomes: activity.outcomes ?? [],
         createdAt: activity.createdAt.toISOString(),
         activityType: activity.activityType,
         customer: activity.customer,
@@ -283,6 +284,7 @@ export async function POST(request: NextRequest) {
         occurredAt,
         followUpAt,
         outcome,
+        outcomes,
       } = body;
 
       // Validate required fields
@@ -327,6 +329,12 @@ export async function POST(request: NextRequest) {
       }
 
       // Create activity
+      const normalizedOutcomes: string[] = Array.isArray(outcomes)
+        ? outcomes
+        : outcome
+          ? [outcome]
+          : [];
+
       const activity = await db.activity.create({
         data: {
           tenantId,
@@ -337,7 +345,7 @@ export async function POST(request: NextRequest) {
           notes: notes || null,
           occurredAt: new Date(occurredAt),
           followUpAt: followUpAt ? new Date(followUpAt) : null,
-          outcome: outcome || "PENDING",
+          outcomes: { set: normalizedOutcomes },
         },
         include: {
           activityType: {
@@ -364,7 +372,8 @@ export async function POST(request: NextRequest) {
           notes: activity.notes,
           occurredAt: activity.occurredAt.toISOString(),
           followUpAt: activity.followUpAt?.toISOString() ?? null,
-          outcome: activity.outcome,
+          outcome: activity.outcomes?.[0] ?? null,
+          outcomes: activity.outcomes ?? [],
           createdAt: activity.createdAt.toISOString(),
           activityType: activity.activityType,
           customer: activity.customer,

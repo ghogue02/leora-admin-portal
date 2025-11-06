@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Prisma } from "@prisma/client";
+import { Prisma, OrderUsageType } from "@prisma/client";
 import { withPortalSession } from "@/lib/auth/portal";
 
 const CUSTOMER_SCOPED_ROLES = new Set(["portal.viewer", "portal.buyer"]);
@@ -35,6 +35,7 @@ export async function GET(request: NextRequest) {
               quantity: true,
               unitPrice: true,
               isSample: true,
+              usageType: true,
               appliedPricingRules: true,
               sku: {
                 select: {
@@ -110,6 +111,7 @@ type OrderLineWithPricing = {
   quantity: number;
   unitPrice: Prisma.Decimal;
   isSample: boolean;
+  usageType: OrderUsageType | null;
   appliedPricingRules: unknown;
   sku: {
     id: string;
@@ -181,6 +183,7 @@ function serializeOrder(order: OrderWithRelations) {
       unitPrice,
       lineTotal,
       isSample: Boolean(line.isSample),
+      usageType: line.usageType,
       pricing: pricingRules
         ? {
             source: pricingRules.source ?? "unknown",

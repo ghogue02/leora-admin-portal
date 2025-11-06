@@ -71,6 +71,7 @@ export async function GET(
       const now = new Date();
       const ytdStart = startOfYear(now);
       const sixMonthsAgo = subMonths(now, 6);
+      const ninetyDaysAgo = subMonths(now, 3);
 
       // Fetch all related data in parallel (OPTIMIZED)
       const [
@@ -335,6 +336,140 @@ export async function GET(
         0
       );
 
+      const btgOrderLines = await db.orderLine.findMany({
+        where: {
+          tenantId,
+          usageType: 'BTG',
+          order: {
+            customerId,
+            status: {
+              not: 'CANCELLED',
+            },
+          },
+        },
+        select: {
+          quantity: true,
+          order: {
+            select: {
+              orderedAt: true,
+            },
+          },
+          sku: {
+            select: {
+              id: true,
+              code: true,
+              product: {
+                select: {
+                  id: true,
+                  name: true,
+                  brand: true,
+                  category: true,
+                  supplier: {
+                    select: {
+                      name: true,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      });
+
+      const btgSummaryMap = new Map<
+        string,
+        {
+          skuId: string;
+          skuCode: string;
+          productName: string;
+          brand: string | null;
+          category: string | null;
+          supplierName: string | null;
+          totalUnits: number;
+          orderCount: number;
+          recentUnits: number;
+          firstOrderDate: Date | null;
+          lastOrderDate: Date | null;
+        }
+      >();
+
+      for (const line of btgOrderLines) {
+        if (!line.sku) continue;
+        const key = line.sku.id;
+        const orderedAt = line.order?.orderedAt ? new Date(line.order.orderedAt) : null;
+        let entry = btgSummaryMap.get(key);
+        if (!entry) {
+          entry = {
+            skuId: line.sku.id,
+            skuCode: line.sku.code,
+            productName: line.sku.product?.name ?? 'Unknown Product',
+            brand: line.sku.product?.brand ?? null,
+            category: line.sku.product?.category ?? null,
+            supplierName: line.sku.product?.supplier?.name ?? null,
+            totalUnits: 0,
+            orderCount: 0,
+            recentUnits: 0,
+            firstOrderDate: null,
+            lastOrderDate: null,
+          };
+          btgSummaryMap.set(key, entry);
+        }
+
+        entry.totalUnits += line.quantity;
+        entry.orderCount += 1;
+
+        if (orderedAt) {
+          if (!entry.firstOrderDate || orderedAt < entry.firstOrderDate) {
+            entry.firstOrderDate = orderedAt;
+          }
+          if (!entry.lastOrderDate || orderedAt > entry.lastOrderDate) {
+            entry.lastOrderDate = orderedAt;
+          }
+          if (orderedAt >= ninetyDaysAgo) {
+            entry.recentUnits += line.quantity;
+          }
+        }
+      }
+
+      const btgPlacements = Array.from(btgSummaryMap.values())
+        .map((entry) => {
+          const monthsActive =
+            entry.firstOrderDate && entry.firstOrderDate < now
+              ? Math.max(1, Math.ceil(differenceInDays(now, entry.firstOrderDate) / 30))
+              : 1;
+          const averageMonthlyUnits = entry.totalUnits / monthsActive;
+          const lastOrderDateIso = entry.lastOrderDate?.toISOString() ?? null;
+          const firstOrderDateIso = entry.firstOrderDate?.toISOString() ?? null;
+          const daysSinceLast = entry.lastOrderDate
+            ? differenceInDays(now, entry.lastOrderDate)
+            : null;
+
+          return {
+            skuId: entry.skuId,
+            skuCode: entry.skuCode,
+            productName: entry.productName,
+            brand: entry.brand,
+            category: entry.category,
+            supplierName: entry.supplierName,
+            totalUnits: entry.totalUnits,
+            orderCount: entry.orderCount,
+            recentUnits: entry.recentUnits,
+            averageMonthlyUnits,
+            firstOrderDate: firstOrderDateIso,
+            lastOrderDate: lastOrderDateIso,
+            daysSinceLastOrder: daysSinceLast,
+            isActivePlacement: daysSinceLast !== null ? daysSinceLast <= 90 : false,
+          };
+        })
+        .sort((a, b) => {
+          if (a.lastOrderDate && b.lastOrderDate) {
+            return new Date(b.lastOrderDate).getTime() - new Date(a.lastOrderDate).getTime();
+          }
+          if (a.lastOrderDate) return -1;
+          if (b.lastOrderDate) return 1;
+          return a.productName.localeCompare(b.productName);
+        });
+
       return NextResponse.json({
         customer: {
           id: customer.id,
@@ -400,7 +535,8 @@ export async function GET(
           notes: activity.notes,
           occurredAt: activity.occurredAt.toISOString(),
           followUpAt: activity.followUpAt?.toISOString() ?? null,
-          outcome: activity.outcome,
+          outcome: activity.outcomes?.[0] ?? null,
+          outcomes: activity.outcomes ?? [],
           userName: activity.user?.fullName ?? "Unknown",
           relatedOrder: activity.order
             ? {
@@ -454,6 +590,7 @@ export async function GET(
             ? Math.max(0, differenceInDays(now, inv.dueDate))
             : 0,
         })),
+        btgPlacements,
       });
     }
   );
