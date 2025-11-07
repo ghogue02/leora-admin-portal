@@ -407,6 +407,7 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
           </button>
         </div>
       </div>
+      </div>
 
       <div className="rounded-lg border border-slate-200">
         <table className="min-w-full divide-y divide-slate-200 text-sm">
@@ -543,7 +544,11 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
         <p className="text-xs text-gray-500">
           Pull items into this activity and capture feedback or mark follow-up requirements. Only
           checked items will be saved.
-          {showingLimitedResults ? " Showing first 25 items — refine your search to see more results." : ""}
+          {showingLimitedResults && (
+            <span className="ml-1 font-semibold text-gray-700">
+              Showing first 25 items - refine your search to see more results.
+            </span>
+          )}
         </p>
       </div>
     </section>

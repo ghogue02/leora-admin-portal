@@ -239,16 +239,16 @@ export async function POST(request: NextRequest, { params }: { params: { listId:
           email: salesRep.user.email,
           phone: undefined,
         }}
-        listName: sampleList.name,
-        generatedAt: new Date(),
-        priceLists: orderedPriceLists.map((list) => ({
+        listName={sampleList.name}
+        generatedAt={new Date()}
+        priceLists={orderedPriceLists.map((list) => ({
           id: list.id,
           name: list.name,
           currency: list.currency,
-        })),
-        items,
-        layout,
-        hideAboveQuantity: hideDiscountAbove,
+        }))}
+        items={items}
+        layout={layout}
+        hideAboveQuantity={hideDiscountAbove}
       />
     );
 
