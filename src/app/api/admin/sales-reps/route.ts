@@ -44,6 +44,9 @@ export async function POST(request: NextRequest) {
         );
       }
 
+      const orderEntryEnabled =
+        typeof body.orderEntryEnabled === 'boolean' ? body.orderEntryEnabled : false;
+
       // Create sales rep
       const salesRep = await db.salesRep.create({
         data: {
@@ -58,6 +61,7 @@ export async function POST(request: NextRequest) {
           weeklyCustomerQuota: body.weeklyCustomerQuota || null,
           sampleAllowancePerMonth: body.sampleAllowancePerMonth ?? 60,
           isActive: body.isActive ?? true,
+          orderEntryEnabled,
         },
         include: {
           user: {

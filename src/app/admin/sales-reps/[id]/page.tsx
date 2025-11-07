@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -65,18 +65,13 @@ export default function SalesRepDetailPage({ params }: { params: Promise<{ id: s
   const [weeklyCustomerQuota, setWeeklyCustomerQuota] = useState("");
   const [sampleAllowancePerMonth, setSampleAllowancePerMonth] = useState("");
   const [isActive, setIsActive] = useState(true);
+  const [orderEntryEnabled, setOrderEntryEnabled] = useState(true);
 
   useEffect(() => {
     params.then(p => setRepId(p.id));
   }, [params]);
 
-  useEffect(() => {
-    if (repId) {
-      fetchRepDetail();
-    }
-  }, [repId]);
-
-  const fetchRepDetail = async () => {
+  const fetchRepDetail = useCallback(async () => {
     if (!repId) return;
 
     try {
@@ -100,12 +95,17 @@ export default function SalesRepDetailPage({ params }: { params: Promise<{ id: s
       setWeeklyCustomerQuota(data.rep.weeklyCustomerQuota?.toString() || "");
       setSampleAllowancePerMonth(data.rep.sampleAllowancePerMonth?.toString() || "60");
       setIsActive(data.rep.isActive);
+      setOrderEntryEnabled(data.rep.orderEntryEnabled);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [repId]);
+
+  useEffect(() => {
+    void fetchRepDetail();
+  }, [fetchRepDetail]);
 
   const handleSave = async () => {
     if (!repId) return;
@@ -123,6 +123,7 @@ export default function SalesRepDetailPage({ params }: { params: Promise<{ id: s
         weeklyCustomerQuota: weeklyCustomerQuota ? parseInt(weeklyCustomerQuota) : null,
         sampleAllowancePerMonth: sampleAllowancePerMonth ? parseInt(sampleAllowancePerMonth) : 60,
         isActive,
+        orderEntryEnabled,
       };
 
       // Validate quotas
@@ -342,6 +343,22 @@ export default function SalesRepDetailPage({ params }: { params: Promise<{ id: s
                   </label>
                   <p className="mt-1 text-xs text-gray-500">
                     Inactive reps cannot access the sales portal
+                  </p>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={orderEntryEnabled}
+                      onChange={(e) => setOrderEntryEnabled(e.target.checked)}
+                      className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="ml-2 text-sm font-medium text-gray-700">
+                      Enable for Order Entry
+                    </span>
+                  </label>
+                  <p className="mt-1 text-xs text-gray-500">
+                    Enabled reps appear in the Sales &gt; Orders workflow for assignment (useful when onboarding team members like Mike Allen).
                   </p>
                 </div>
               </div>

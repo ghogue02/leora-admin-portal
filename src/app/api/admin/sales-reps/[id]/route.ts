@@ -155,6 +155,9 @@ export async function PUT(
           weeklyCustomerQuota: body.weeklyCustomerQuota,
           sampleAllowancePerMonth: body.sampleAllowancePerMonth,
           isActive: body.isActive,
+          orderEntryEnabled: typeof body.orderEntryEnabled === 'boolean'
+            ? body.orderEntryEnabled
+            : existingSalesRep.orderEntryEnabled,
         },
         include: {
           user: {

@@ -30,6 +30,7 @@ export default function NewSalesRepPage() {
   const [weeklyCustomerQuota, setWeeklyCustomerQuota] = useState("");
   const [sampleAllowancePerMonth, setSampleAllowancePerMonth] = useState("60");
   const [isActive, setIsActive] = useState(true);
+  const [orderEntryEnabled, setOrderEntryEnabled] = useState(true);
 
   // Create new user inline
   const [showCreateUser, setShowCreateUser] = useState(false);
@@ -137,6 +138,7 @@ export default function NewSalesRepPage() {
         weeklyCustomerQuota: weeklyCustomerQuota ? parseInt(weeklyCustomerQuota) : null,
         sampleAllowancePerMonth: sampleAllowancePerMonth ? parseInt(sampleAllowancePerMonth) : 60,
         isActive,
+        orderEntryEnabled,
       };
 
       // Validate quotas
@@ -394,6 +396,22 @@ export default function NewSalesRepPage() {
                 </label>
                 <p className="mt-1 ml-6 text-xs text-gray-500">
                   Inactive reps cannot access the sales portal
+                </p>
+              </div>
+              <div className="md:col-span-2">
+                <label className="flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={orderEntryEnabled}
+                    onChange={(e) => setOrderEntryEnabled(e.target.checked)}
+                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  />
+                  <span className="ml-2 text-sm font-medium text-gray-700">
+                    Enable for direct order entry
+                  </span>
+                </label>
+                <p className="mt-1 ml-6 text-xs text-gray-500">
+                  When enabled, this rep appears in the Sales &gt; New Order salesperson dropdown (including new hires like Mike Allen).
                 </p>
               </div>
             </div>

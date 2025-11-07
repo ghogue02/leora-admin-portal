@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 type SalesRep = {
@@ -13,6 +13,7 @@ type SalesRep = {
   annualRevenueQuota: number | null;
   sampleAllowancePerMonth: number;
   isActive: boolean;
+  orderEntryEnabled: boolean;
   user: {
     fullName: string;
     email: string;
@@ -42,13 +43,37 @@ export default function SalesRepsPage() {
   // Get unique territories
   const territories = Array.from(new Set(reps.map(r => r.territoryName))).sort();
 
+  const applyFilters = useCallback(() => {
+    let filtered = [...reps];
+
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      filtered = filtered.filter(
+        rep =>
+          rep.user.fullName.toLowerCase().includes(term) ||
+          rep.user.email.toLowerCase().includes(term)
+      );
+    }
+
+    if (territoryFilter !== "all") {
+      filtered = filtered.filter(rep => rep.territoryName === territoryFilter);
+    }
+
+    if (statusFilter !== "all") {
+      const isActiveFilter = statusFilter === "active";
+      filtered = filtered.filter(rep => rep.isActive === isActiveFilter);
+    }
+
+    setFilteredReps(filtered);
+  }, [reps, searchTerm, territoryFilter, statusFilter]);
+
   useEffect(() => {
     fetchReps();
   }, []);
 
   useEffect(() => {
     applyFilters();
-  }, [reps, searchTerm, territoryFilter, statusFilter]);
+  }, [applyFilters]);
 
   const fetchReps = async () => {
     try {
@@ -66,33 +91,6 @@ export default function SalesRepsPage() {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const applyFilters = () => {
-    let filtered = [...reps];
-
-    // Search filter
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase();
-      filtered = filtered.filter(
-        rep =>
-          rep.user.fullName.toLowerCase().includes(term) ||
-          rep.user.email.toLowerCase().includes(term)
-      );
-    }
-
-    // Territory filter
-    if (territoryFilter !== "all") {
-      filtered = filtered.filter(rep => rep.territoryName === territoryFilter);
-    }
-
-    // Status filter
-    if (statusFilter !== "all") {
-      const isActive = statusFilter === "active";
-      filtered = filtered.filter(rep => rep.isActive === isActive);
-    }
-
-    setFilteredReps(filtered);
   };
 
   const toggleSelectRep = (repId: string) => {
@@ -133,6 +131,7 @@ export default function SalesRepsPage() {
       setSelectedReps(new Set());
       fetchReps();
     } catch (err) {
+      console.error("Failed to deactivate sales reps", err);
       alert("Failed to deactivate sales reps");
     }
   };
@@ -324,6 +323,9 @@ export default function SalesRepsPage() {
                       Status
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Order Entry
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Actions
                     </th>
                   </tr>
@@ -399,6 +401,17 @@ export default function SalesRepsPage() {
                           }`}
                         >
                           {rep.isActive ? "Active" : "Inactive"}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span
+                          className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                            rep.orderEntryEnabled
+                              ? "bg-emerald-100 text-emerald-800"
+                              : "bg-gray-100 text-gray-500"
+                          }`}
+                        >
+                          {rep.orderEntryEnabled ? "Enabled" : "Disabled"}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
