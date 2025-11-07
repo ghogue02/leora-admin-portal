@@ -5,12 +5,9 @@
 import { describe, it, expect } from 'vitest';
 import {
   determineInvoiceFormat,
-  shouldApplyExciseTax,
   getFormatDescription,
   getRequiredFields,
 } from '@/lib/invoices/format-selector';
-import { InvoiceFormatType } from '@prisma/client';
-
 describe('Invoice Format Selector', () => {
   describe('determineInvoiceFormat', () => {
     it('should return VA_ABC_INSTATE for VA to VA sales', () => {
@@ -57,20 +54,6 @@ describe('Invoice Format Selector', () => {
       });
 
       expect(result).toBe('STANDARD');
-    });
-  });
-
-  describe('shouldApplyExciseTax', () => {
-    it('should return true for VA_ABC_INSTATE', () => {
-      expect(shouldApplyExciseTax('VA_ABC_INSTATE')).toBe(true);
-    });
-
-    it('should return false for VA_ABC_TAX_EXEMPT', () => {
-      expect(shouldApplyExciseTax('VA_ABC_TAX_EXEMPT')).toBe(false);
-    });
-
-    it('should return false for STANDARD', () => {
-      expect(shouldApplyExciseTax('STANDARD')).toBe(false);
     });
   });
 

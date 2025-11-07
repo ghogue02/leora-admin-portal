@@ -9,17 +9,14 @@
  * - Shows delivery date with day name
  * - Shows warehouse location
  * - Line items with remove buttons
- * - Estimated tax calculation
  * - Progress indicator
  * - Clear formatting
  * - Volume discount messaging (Sprint 2)
  * - Optional delivery & split-case fees (Sprint 1)
- * - B2B tax exemption (Sprint 1)
  */
 
 import { useMemo, useState } from 'react';
 import { format, parse } from 'date-fns';
-import { useTaxEstimation } from '@/hooks/useTaxEstimation';
 import { DiscountIndicator } from './DiscountIndicator';
 import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 
@@ -35,7 +32,7 @@ type OrderItem = {
 };
 
 type Props = {
-  customer: { name: string; territory: string | null; accountType?: string | null } | null;
+  customer: { name: string; territory: string | null } | null;
   deliveryDate: string;
   warehouseLocation: string;
   deliveryTimeWindow: string;
@@ -70,30 +67,11 @@ export function OrderSummarySidebar({
     return items.reduce((sum, item) => sum + item.lineTotal, 0);
   }, [items]);
 
-  // Estimate liters (assuming 0.75L bottles as default)
-  // TODO: Get actual bottle sizes from SKU data for more accurate tax calculation
-  const estimatedLiters = useMemo(() => {
-    return items.reduce((sum, item) => sum + (item.quantity * 0.75), 0);
-  }, [items]);
-
-  // Check if customer is B2B (tax-exempt)
-  // B2B customers typically have accountType of 'ACTIVE' or 'TARGET'
-  // and may be commercial accounts (not individual consumers)
-  const isB2B = useMemo(() => {
-    // This is a placeholder - actual B2B detection would come from customer data
-    // For now, we'll use accountType if available
-    return customer?.accountType === 'ACTIVE' || customer?.accountType === 'TARGET';
-  }, [customer]);
-
-  // Use unified tax calculation (matches server-side logic)
-  const taxEstimate = useTaxEstimation({
-    subtotal,
-    liters: estimatedLiters,
-    isInState: true, // Assume in-state for UI estimate
-    isB2B,
-    deliveryFee: showDeliveryFee ? deliveryFee : 0,
-    splitCaseFee: showSplitCaseFee ? splitCaseFee : 0,
-  });
+  const appliedDeliveryFee = showDeliveryFee ? deliveryFee : 0;
+  const appliedSplitCaseFee = showSplitCaseFee ? splitCaseFee : 0;
+  const estimatedTotal = useMemo(() => {
+    return subtotal + appliedDeliveryFee + appliedSplitCaseFee;
+  }, [subtotal, appliedDeliveryFee, appliedSplitCaseFee]);
 
   // Calculate progress
   const progress = {
@@ -361,37 +339,13 @@ export function OrderSummarySidebar({
             </div>
           )}
 
-          {/* Taxes - hidden for B2B */}
-          {!isB2B && (
-            <>
-              <div className="flex justify-between text-xs">
-                <span className="text-gray-500">Est. Sales Tax (5.3%)</span>
-                <span className="text-gray-600">${taxEstimate.salesTax.toFixed(2)}</span>
-              </div>
-              {taxEstimate.exciseTax > 0 && (
-                <div className="flex justify-between text-xs">
-                  <span className="text-gray-500">Est. Excise Tax (~{estimatedLiters.toFixed(1)}L)</span>
-                  <span className="text-gray-600">${taxEstimate.exciseTax.toFixed(2)}</span>
-                </div>
-              )}
-            </>
-          )}
-
-          {/* B2B Tax Exempt Message */}
-          {isB2B && (
-            <div className="flex justify-between text-xs">
-              <span className="text-blue-600 font-medium">Tax-Exempt (B2B)</span>
-              <span className="text-blue-600">$0.00</span>
-            </div>
-          )}
-
           <div className="border-t border-gray-200 pt-2">
             <div className="flex justify-between">
               <span className="font-semibold text-gray-900">Estimated Total</span>
-              <span className="text-lg font-bold text-gray-900">${taxEstimate.total.toFixed(2)}</span>
+              <span className="text-lg font-bold text-gray-900">${estimatedTotal.toFixed(2)}</span>
             </div>
             <p className="mt-1 text-xs text-gray-500">
-              {isB2B ? 'Tax-exempt commercial account' : 'Final tax calculated at invoicing'}
+              Delivery and split-case fees are included in this estimate.
             </p>
           </div>
         </div>

@@ -7,14 +7,30 @@
 
 import { PrismaClient, InvoiceFormatType, Prisma } from '@prisma/client';
 import { Decimal } from '@prisma/client/runtime/library';
-import { determineInvoiceFormat, shouldApplyExciseTax } from './format-selector';
-import { calculateInvoiceTaxes } from './tax-calculator';
+import { determineInvoiceFormat } from './format-selector';
 import { calculateLineItemLiters, calculateInvoiceTotalLiters } from './liter-calculator';
 import { bottlesToCases } from './case-converter';
 import { getVACollectionTerms, getVAComplianceNotice, VA_INTEREST_RATE } from './interest-calculator';
 import type { InvoiceTemplateSettings } from './template-settings';
 
 const prisma = new PrismaClient();
+
+type CustomerRecord = Prisma.CustomerGetPayload<{
+  include: {
+    addresses: true;
+    salesRep: { include: { user: true } };
+  };
+}>;
+
+type InvoiceAddress = {
+  street1?: string | null;
+  street2?: string | null;
+  city?: string | null;
+  state?: string | null;
+  postalCode?: string | null;
+  phone?: string | null;
+  billingEmail?: string | null;
+};
 
 export interface InvoiceDataInput {
   orderId: string;
@@ -60,9 +76,9 @@ export interface CompleteInvoiceData {
   formatDescription: string;
 
   // Customer and shipping
-  customer: any;
-  billingAddress: any;
-  shippingAddress: any;
+  customer: CustomerRecord;
+  billingAddress: InvoiceAddress;
+  shippingAddress: InvoiceAddress;
 
   // Order details
   salesperson: string;
@@ -185,18 +201,14 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
     new Decimal(0)
   );
 
-  // Calculate taxes
-  const taxes = await calculateInvoiceTaxes({
-    tenantId,
-    customerState: customer.state,
-    distributorState: 'VA',
-    totalLiters: invoiceTotalLiters,
-    subtotal,
-    includeExcise: shouldApplyExciseTax(invoiceFormatType),
-    includeSales: false, // VA ABC invoices don't typically show sales tax separately
-  });
+  // Tax logic removed; all tax fields remain zeroed out
+  const taxes = {
+    exciseTax: new Decimal(0),
+    salesTax: new Decimal(0),
+    totalTax: new Decimal(0),
+  };
 
-  const total = subtotal.plus(taxes.totalTax);
+  const total = subtotal;
 
   // Generate invoice number if not provided
   const invoiceNumber = await generateInvoiceNumber(tenantId);
@@ -213,7 +225,7 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
   const paymentTermsText = customer.paymentTerms || 'Net 30';
 
   // Get billing and shipping addresses
-  const billingAddress = {
+  const billingAddress: InvoiceAddress = {
     street1: customer.street1,
     street2: customer.street2,
     city: customer.city,
@@ -221,7 +233,17 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
     postalCode: customer.postalCode,
   };
 
-  const shippingAddress = customer.addresses?.[0] || billingAddress;
+  const shippingAddress: InvoiceAddress = customer.addresses?.[0]
+    ? {
+        street1: customer.addresses[0].street1,
+        street2: customer.addresses[0].street2,
+        city: customer.addresses[0].city,
+        state: customer.addresses[0].state,
+        postalCode: customer.addresses[0].postalCode,
+        phone: customer.addresses[0].phone,
+        billingEmail: customer.billingEmail ?? null,
+      }
+    : billingAddress;
 
   // Get VA-specific legal text
   const collectionTerms = getVACollectionTerms(VA_INTEREST_RATE);

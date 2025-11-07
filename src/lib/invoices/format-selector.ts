@@ -22,8 +22,8 @@ export interface FormatSelectionContext {
  *
  * Rules:
  * 1. Manual override takes precedence
- * 2. VA distributor → VA customer = VA_ABC_INSTATE (excise tax paid)
- * 3. VA distributor → Out-of-state customer = VA_ABC_TAX_EXEMPT (no excise tax)
+ * 2. VA distributor → VA customer = VA_ABC_INSTATE
+ * 3. VA distributor → Out-of-state customer = VA_ABC_TAX_EXEMPT
  * 4. All other cases = STANDARD
  *
  * @param context - Customer and distributor state information
@@ -44,7 +44,7 @@ export function determineInvoiceFormat(context: FormatSelectionContext): Invoice
 
   // Virginia-specific rules
   if (distributorState === 'VA') {
-    // VA to VA = In-state format with excise taxes
+    // VA to VA = In-state format
     if (customerState === 'VA') {
       return 'VA_ABC_INSTATE';
     }
@@ -58,17 +58,6 @@ export function determineInvoiceFormat(context: FormatSelectionContext): Invoice
 }
 
 /**
- * Check if excise tax should be applied to this invoice
- *
- * @param formatType - The invoice format type
- * @returns true if excise tax should be calculated and applied
- */
-export function shouldApplyExciseTax(formatType: InvoiceFormatType): boolean {
-  // Only VA in-state invoices have excise tax
-  return formatType === 'VA_ABC_INSTATE';
-}
-
-/**
  * Get human-readable description of invoice format
  *
  * @param formatType - The invoice format type
@@ -77,7 +66,7 @@ export function shouldApplyExciseTax(formatType: InvoiceFormatType): boolean {
 export function getFormatDescription(formatType: InvoiceFormatType): string {
   switch (formatType) {
     case 'VA_ABC_INSTATE':
-      return 'Virginia ABC In-State (Excise Tax Applied)';
+      return 'Virginia ABC In-State';
     case 'VA_ABC_TAX_EXEMPT':
       return 'Virginia ABC Tax-Exempt (Out-of-State)';
     case 'STANDARD':
@@ -132,9 +121,19 @@ export function getRequiredFields(formatType: InvoiceFormatType): string[] {
  * @param tenant - Tenant object (for wholesaler info)
  * @returns Validation result with missing fields
  */
+type InvoiceRecord = {
+  [key: string]: unknown;
+  invoiceFormatType?: InvoiceFormatType | null;
+};
+
+type TenantInfo = {
+  wholesalerLicenseNumber?: string | null;
+  wholesalerPhone?: string | null;
+};
+
 export function validateInvoiceFormat(
-  invoice: any,
-  tenant?: any
+  invoice: InvoiceRecord,
+  tenant?: TenantInfo
 ): { valid: boolean; missingFields: string[] } {
   const requiredFields = getRequiredFields(invoice.invoiceFormatType || 'STANDARD');
   const missingFields: string[] = [];
@@ -151,7 +150,12 @@ export function validateInvoiceFormat(
     }
 
     // Check invoice fields
-    if (!invoice[field] || (Array.isArray(invoice[field]) && invoice[field].length === 0)) {
+    const value = invoice[field];
+    if (
+      value === undefined ||
+      value === null ||
+      (Array.isArray(value) && value.length === 0)
+    ) {
       missingFields.push(field);
     }
   }

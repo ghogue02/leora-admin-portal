@@ -31,11 +31,10 @@ const FORMAT_DESCRIPTIONS = {
   },
   VA_ABC_INSTATE: {
     label: 'VA ABC In-State',
-    description: 'Virginia ABC format for in-state sales (excise tax applied)',
+    description: 'Virginia ABC format for in-state sales',
     features: [
       'Three-column header',
       'Wholesaler license displayed',
-      'Excise tax calculated ($0.40/liter)',
       'Retailer signature section',
       'VA ABC compliant',
     ],
@@ -43,13 +42,13 @@ const FORMAT_DESCRIPTIONS = {
   },
   VA_ABC_TAX_EXEMPT: {
     label: 'VA ABC Tax-Exempt',
-    description: 'Virginia ABC format for out-of-state sales (no excise tax)',
+    description: 'Virginia ABC format for out-of-state shipments',
     features: [
       'Two-page layout',
       'Cases and bottles display',
       'Fractional case support',
       'Transportation section',
-      'Tax-exempt compliance',
+      'Out-of-state compliance',
     ],
     icon: '📋',
   },
@@ -136,7 +135,7 @@ export function InvoiceFormatSelector({
           <div className="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-md flex items-start gap-2">
             <Info className="w-4 h-4 text-amber-600 mt-0.5 flex-shrink-0" />
             <div className="text-sm text-amber-800">
-              <strong>Note:</strong> You've selected a different format than recommended.
+              <strong>Note:</strong> You’ve selected a different format than recommended.
               The recommended format for {customerState || 'this customer'} is{' '}
               <strong>{FORMAT_DESCRIPTIONS[recommendedFormat].label}</strong>.
             </div>

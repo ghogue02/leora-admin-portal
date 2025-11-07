@@ -7,24 +7,11 @@
 // Format Selection
 export {
   determineInvoiceFormat,
-  shouldApplyExciseTax,
   getFormatDescription,
   getRequiredFields,
   validateInvoiceFormat,
   type FormatSelectionContext,
 } from './format-selector';
-
-// Tax Calculation
-export {
-  calculateVAExciseTax,
-  calculateSalesTax,
-  calculateInvoiceTaxes,
-  getTaxRule,
-  calculateTaxFromRules,
-  initializeDefaultTaxRules,
-  VA_TAX_RATES,
-  type TaxCalculation,
-} from './tax-calculator';
 
 // Liter Calculations
 export {
