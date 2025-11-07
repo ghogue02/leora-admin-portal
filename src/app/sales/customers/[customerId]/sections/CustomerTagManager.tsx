@@ -6,6 +6,7 @@ import {
   CUSTOMER_TAG_META,
   CUSTOMER_TAG_TYPES,
   CustomerTagType,
+  getCustomerTagLabel,
 } from '@/constants/customerTags';
 
 type CustomerTag = {
@@ -182,7 +183,7 @@ export default function CustomerTagManager({ customerId }: CustomerTagManagerPro
                 onClick={() => handleRemoveTag(tag.id)}
                 disabled={removingId === tag.id}
                 className="rounded-full p-0.5 transition-colors hover:bg-black/10 disabled:opacity-50"
-                aria-label={`Remove ${TAG_LABELS[tag.tagType]} tag`}
+                aria-label={`Remove ${getCustomerTagLabel(tag.tagType)} tag`}
               >
                 {removingId === tag.id ? (
                   <div className="h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />
