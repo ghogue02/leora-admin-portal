@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { subMonths, startOfYear, differenceInDays } from "date-fns";
+import { subMonths, startOfYear, differenceInDays, addDays } from "date-fns";
 import { TaskStatus } from "@prisma/client";
 import { activitySampleItemSelect } from "@/app/api/sales/activities/_helpers";
 import {
@@ -366,7 +366,114 @@ export async function GET(
             },
           ],
         }),
+        db.sampleUsage.findMany({
+          where: {
+            tenantId,
+            customerId,
+            needsFollowUp: true,
+            resultedInOrder: false,
+            followedUpAt: null,
+          },
+          include: {
+            sku: {
+              select: {
+                id: true,
+                code: true,
+                size: true,
+                unitOfMeasure: true,
+                product: {
+                  select: {
+                    id: true,
+                    name: true,
+                    brand: true,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: {
+            tastedAt: "asc",
+          },
+        }),
       ]);
+
+      type FollowUpSkuResult = {
+        id: string;
+        code: string | null;
+        size: string | null;
+        unitOfMeasure: string | null;
+        product: {
+          id: string;
+          name: string | null;
+          brand: string | null;
+        } | null;
+      };
+
+      const nowTime = new Date();
+      const buildSkuPayload = (sku?: FollowUpSkuResult | null) =>
+        sku
+          ? {
+              id: sku.id,
+              code: sku.code,
+              name: sku.product?.name ?? null,
+              brand: sku.product?.brand ?? null,
+              unitOfMeasure: sku.unitOfMeasure ?? null,
+              size: sku.size ?? null,
+            }
+          : null;
+
+      const activityFollowUpsSerialized = followUpItems.map((item) => {
+        const tastedAt = item.activity?.occurredAt ?? item.createdAt;
+        const dueAt = addDays(tastedAt ?? item.createdAt, 7);
+        return {
+          id: item.id,
+          source: "activity" as const,
+          activityId: item.activityId,
+          sampleItemId: item.id,
+          sampleUsageId: null,
+          feedback: item.feedback ?? "",
+          followUpNeeded: item.followUpNeeded ?? false,
+          tastedAt: tastedAt ? tastedAt.toISOString() : null,
+          dueAt: dueAt.toISOString(),
+          overdue: dueAt.getTime() < nowTime.getTime(),
+          description: item.feedback ?? null,
+          activity: item.activity
+            ? {
+                id: item.activity.id,
+                subject: item.activity.subject,
+                occurredAt: item.activity.occurredAt?.toISOString() ?? null,
+              }
+            : null,
+          sku: buildSkuPayload(item.sku),
+        };
+      });
+
+      const sampleUsageFollowUpsSerialized = sampleUsageFollowUps.map((usage) => {
+        const dueAt = addDays(usage.tastedAt, 7);
+        return {
+          id: usage.id,
+          source: "sample_usage" as const,
+          activityId: null,
+          sampleItemId: null,
+          sampleUsageId: usage.id,
+          feedback: usage.feedback ?? "",
+          followUpNeeded: usage.needsFollowUp,
+          tastedAt: usage.tastedAt.toISOString(),
+          dueAt: dueAt.toISOString(),
+          overdue: dueAt.getTime() < nowTime.getTime(),
+          description: usage.customerResponse ?? usage.feedback ?? null,
+          activity: null,
+          sku: buildSkuPayload(usage.sku),
+        };
+      });
+
+      const combinedFollowUps = [...activityFollowUpsSerialized, ...sampleUsageFollowUpsSerialized].sort(
+        (a, b) => {
+          const aDue = a.dueAt ? new Date(a.dueAt).getTime() : Date.now();
+          const bDue = b.dueAt ? new Date(b.dueAt).getTime() : Date.now();
+          return aDue - bDue;
+        },
+      );
 
       // Calculate YTD metrics
       const ytdOrders = orders.filter(
@@ -696,29 +803,7 @@ export async function GET(
               : null,
           })),
         })),
-        followUps: followUpItems.map((item) => ({
-          id: item.id,
-          activityId: item.activityId,
-          sampleListItemId: item.sampleListItemId ?? null,
-          feedback: item.feedback ?? "",
-          followUpNeeded: item.followUpNeeded ?? false,
-          createdAt: item.createdAt.toISOString(),
-          activity: {
-            id: item.activity.id,
-            subject: item.activity.subject,
-            occurredAt: item.activity.occurredAt.toISOString(),
-          },
-          sku: item.sku
-            ? {
-                id: item.sku.id,
-                code: item.sku.code,
-                name: item.sku.product?.name ?? null,
-                brand: item.sku.product?.brand ?? null,
-                unitOfMeasure: item.sku.unitOfMeasure ?? null,
-                size: item.sku.size ?? null,
-              }
-            : null,
-        })),
+        followUps: combinedFollowUps,
         orders: orders.map((order) => ({
           id: order.id,
           orderNumber: order.orderNumber,

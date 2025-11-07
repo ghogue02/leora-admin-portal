@@ -1,21 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import { format } from "date-fns";
-import { CheckCircle, Clock } from "lucide-react";
+import { differenceInDays, format } from "date-fns";
+import { CheckCircle, Clock, AlertTriangle } from "lucide-react";
 
 export type SampleFollowUpItem = {
   id: string;
-  activityId: string;
-  sampleListItemId: string | null;
+  source: "activity" | "sample_usage";
+  activityId: string | null;
+  sampleItemId: string | null;
+  sampleUsageId: string | null;
   feedback: string;
   followUpNeeded: boolean;
-  createdAt: string;
+  tastedAt: string | null;
+  dueAt: string | null;
+  overdue: boolean;
+  description: string | null;
   activity: {
     id: string;
     subject: string;
     occurredAt: string;
-  };
+  } | null;
   sku: {
     id: string;
     code: string;
@@ -28,7 +33,7 @@ export type SampleFollowUpItem = {
 
 type SampleFollowUpListProps = {
   items: SampleFollowUpItem[];
-  onComplete: (activityId: string, sampleItemId: string) => Promise<void>;
+  onComplete: (item: SampleFollowUpItem) => Promise<void>;
 };
 
 export default function SampleFollowUpList({ items, onComplete }: SampleFollowUpListProps) {
@@ -37,6 +42,8 @@ export default function SampleFollowUpList({ items, onComplete }: SampleFollowUp
   if (items.length === 0) {
     return null;
   }
+
+  const overdueCount = items.filter((item) => item.overdue).length;
 
   return (
     <section className="rounded-lg border border-amber-200 bg-amber-50 p-6 shadow-sm">
@@ -51,17 +58,43 @@ export default function SampleFollowUpList({ items, onComplete }: SampleFollowUp
           {items.length} open
         </span>
       </div>
+      {overdueCount > 0 && (
+        <div className="mt-3 inline-flex items-center gap-2 rounded-md bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-700">
+          <AlertTriangle className="h-4 w-4" />
+          {overdueCount} overdue
+        </div>
+      )}
 
       <div className="mt-4 space-y-3">
         {items.map((item) => {
-          const occurredAt = item.activity.occurredAt
-            ? format(new Date(item.activity.occurredAt), "MMM d, yyyy h:mm a")
-            : "";
+          const tastedOn = item.tastedAt ? new Date(item.tastedAt) : null;
+          const dueDate = item.dueAt ? new Date(item.dueAt) : null;
+          const dueLabel =
+            dueDate != null
+              ? dueDate < new Date()
+                ? `Overdue ${format(dueDate, "MMM d")}`
+                : (() => {
+                    const days = differenceInDays(dueDate, new Date());
+                    if (days === 0) return "Due today";
+                    if (days === 1) return "Due tomorrow";
+                    return `Due in ${days} days`;
+                  })()
+              : "No due date";
+
+          const occurredAt =
+            item.activity?.occurredAt || item.tastedAt
+              ? format(
+                  new Date(item.activity?.occurredAt ?? item.tastedAt ?? ""),
+                  "MMM d, yyyy h:mm a",
+                )
+              : "";
 
           return (
             <div
               key={item.id}
-              className="rounded-md border border-amber-200 bg-white p-4 shadow-sm"
+              className={`rounded-md border p-4 shadow-sm ${
+                item.overdue ? "border-rose-300 bg-white" : "border-amber-200 bg-white"
+              }`}
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -71,7 +104,8 @@ export default function SampleFollowUpList({ items, onComplete }: SampleFollowUp
                     {item.sku?.size ? ` • ${item.sku.size}` : ""}
                   </p>
                   <p className="text-xs text-gray-500">
-                    Logged {occurredAt} • Activity: {item.activity.subject}
+                    Logged {occurredAt}
+                    {item.activity?.subject ? ` • Activity: ${item.activity.subject}` : ""}
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
@@ -80,12 +114,15 @@ export default function SampleFollowUpList({ items, onComplete }: SampleFollowUp
                       <Clock className="h-3 w-3" /> Follow-up
                     </span>
                   )}
+                  <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-semibold text-gray-600">
+                    {dueLabel}
+                  </span>
                   <button
                     type="button"
                     onClick={async () => {
                       setCompletingId(item.id);
                       try {
-                        await onComplete(item.activityId, item.id);
+                        await onComplete(item);
                       } finally {
                         setCompletingId(null);
                       }
@@ -99,11 +136,20 @@ export default function SampleFollowUpList({ items, onComplete }: SampleFollowUp
                 </div>
               </div>
 
-              {item.feedback && (
+              {(item.description || item.feedback) && (
                 <div className="mt-3 rounded-md border border-amber-100 bg-amber-50 p-3 text-xs text-amber-900">
                   <p className="font-semibold">Customer Feedback</p>
-                  <p className="mt-1 whitespace-pre-line">{item.feedback}</p>
+                  <p className="mt-1 whitespace-pre-line">
+                    {item.description || item.feedback}
+                  </p>
                 </div>
+              )}
+
+              {tastedOn && (
+                <p className="mt-2 text-xs text-gray-500">
+                  Sampled {format(tastedOn, "MMM d, yyyy")}
+                  {item.source === "sample_usage" ? " • Logged via quick sample" : ""}
+                </p>
               )}
             </div>
           );

@@ -127,16 +127,21 @@ interface CustomerDetailData {
   }>;
   followUps: Array<{
     id: string;
-    activityId: string;
-    sampleListItemId: string | null;
+    source: "activity" | "sample_usage";
+    activityId: string | null;
+    sampleItemId: string | null;
+    sampleUsageId: string | null;
     feedback: string;
     followUpNeeded: boolean;
-    createdAt: string;
+    tastedAt: string | null;
+    dueAt: string | null;
+    overdue: boolean;
+    description: string | null;
     activity: {
       id: string;
       subject: string;
       occurredAt: string;
-    };
+    } | null;
     sku: {
       id: string;
       code: string;

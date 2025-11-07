@@ -20,7 +20,7 @@ import CustomerInsights from "./sections/CustomerInsights";
 import CustomerTagManager from "./sections/CustomerTagManager";
 import CustomerTasks from "./sections/CustomerTasks";
 import BtgPlacements from "./sections/BtgPlacements";
-import SampleFollowUpList from "./sections/SampleFollowUpList";
+import SampleFollowUpList, { SampleFollowUpItem } from "./sections/SampleFollowUpList";
 import { CustomerClassificationCard } from "./sections/CustomerClassificationCard";
 import {
   CustomerHeaderSkeleton,
@@ -49,16 +49,25 @@ export default function CustomerDetailClient({
   const queryClient = useQueryClient();
   const fullHistorySectionId = "full-order-history";
 
-  const handleFollowUpComplete = async (activityId: string, sampleItemId: string) => {
+  const handleFollowUpComplete = async (item: SampleFollowUpItem) => {
     try {
-      const response = await fetch(
-        `/api/sales/activities/${activityId}/samples/${sampleItemId}`,
-        {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ followUpCompleted: true }),
-        }
-      );
+      let response: Response;
+      if (item.source === "activity" && item.activityId && item.sampleItemId) {
+        response = await fetch(
+          `/api/sales/activities/${item.activityId}/samples/${item.sampleItemId}`,
+          {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ followUpCompleted: true }),
+          }
+        );
+      } else if (item.source === "sample_usage" && item.sampleUsageId) {
+        response = await fetch(`/api/sales/samples/${item.sampleUsageId}/follow-up`, {
+          method: "PUT",
+        });
+      } else {
+        throw new Error("Unsupported follow-up item.");
+      }
 
       if (!response.ok) {
         const body = await response.json().catch(() => ({}));
