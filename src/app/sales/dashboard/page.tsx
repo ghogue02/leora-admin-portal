@@ -244,9 +244,7 @@ export default function SalesDashboardPage() {
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
       {/* Dashboard Header */}
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Sales Dashboard</h1>
-        </div>
+        <div />
         <div className="flex gap-3">
           <button
             onClick={() => setShowGlossary(true)}
