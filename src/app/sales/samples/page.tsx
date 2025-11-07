@@ -7,7 +7,7 @@ import SampleBudgetTracker from "./sections/SampleBudgetTracker";
 import SampleUsageLog from "./sections/SampleUsageLog";
 import LogSampleUsageModal from "./sections/LogSampleUsageModal";
 import ConversionFunnel from "./components/ConversionFunnel";
-import { BarChart3, Plus, History, Package } from "lucide-react";
+import { BarChart3, FileText, History, Package, Plus } from "lucide-react";
 
 export default function SalesSamplesPage() {
   const [budget, setBudget] = useState<any>(null);
@@ -74,6 +74,13 @@ export default function SalesSamplesPage() {
           </div>
 
           <div className="flex gap-2">
+            <Link
+              href="/sales/sample-lists"
+              className="flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
+            >
+              <FileText className="h-4 w-4" />
+              Build Tech Sheets
+            </Link>
             <Link
               href="/sales/analytics/samples"
               className="flex items-center gap-2 rounded-md border border-purple-600 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 transition hover:bg-purple-100"

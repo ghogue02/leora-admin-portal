@@ -13,6 +13,7 @@ export type SampleListSummary = {
   id: string;
   name: string;
   isActive: boolean;
+  preferredPriceListIds?: string[];
   items: Array<{
     id: string;
     skuId: string;

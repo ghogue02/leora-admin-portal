@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -12,14 +12,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 import { FilterIcon, XIcon } from 'lucide-react';
-
-export type CustomerTagType =
-  | 'WINE_CLUB'
-  | 'EVENTS'
-  | 'FEMALE_WINEMAKERS'
-  | 'ORGANIC'
-  | 'NATURAL_WINE'
-  | 'BIODYNAMIC';
+import {
+  CUSTOMER_TAG_META,
+  CUSTOMER_TAG_TYPES,
+  CustomerTagType,
+} from '@/constants/customerTags';
 
 type TagCount = {
   type: CustomerTagType;
@@ -34,24 +31,6 @@ type CustomerTagFilterProps = {
   filteredCustomers: number;
 };
 
-const TAG_LABELS: Record<CustomerTagType, string> = {
-  WINE_CLUB: 'Wine Club',
-  EVENTS: 'Events',
-  FEMALE_WINEMAKERS: 'Female Winemakers',
-  ORGANIC: 'Organic',
-  NATURAL_WINE: 'Natural Wine',
-  BIODYNAMIC: 'Biodynamic',
-};
-
-const TAG_COLORS: Record<CustomerTagType, string> = {
-  WINE_CLUB: 'bg-purple-100 text-purple-800 border-purple-200',
-  EVENTS: 'bg-blue-100 text-blue-800 border-blue-200',
-  FEMALE_WINEMAKERS: 'bg-pink-100 text-pink-800 border-pink-200',
-  ORGANIC: 'bg-green-100 text-green-800 border-green-200',
-  NATURAL_WINE: 'bg-amber-100 text-amber-800 border-amber-200',
-  BIODYNAMIC: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-};
-
 export default function CustomerTagFilter({
   tagCounts,
   selectedTags,
@@ -60,6 +39,14 @@ export default function CustomerTagFilter({
   filteredCustomers,
 }: CustomerTagFilterProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const orderedTagCounts = useMemo(() => {
+    const countsMap = new Map(tagCounts.map(({ type, count }) => [type, count]));
+    return CUSTOMER_TAG_TYPES.map((type) => ({
+      type,
+      count: countsMap.get(type) ?? 0,
+    }));
+  }, [tagCounts]);
+  const hasAnyTagActivity = orderedTagCounts.some(({ count }) => count > 0);
 
   const handleTagToggle = (tagType: CustomerTagType) => {
     if (selectedTags.includes(tagType)) {
@@ -113,12 +100,12 @@ export default function CustomerTagFilter({
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
 
-          {tagCounts.length === 0 ? (
+          {!hasAnyTagActivity ? (
             <div className="px-2 py-6 text-center text-sm text-slate-500">
               No tags found
             </div>
           ) : (
-            tagCounts.map(({ type, count }) => (
+            orderedTagCounts.map(({ type, count }) => (
               <DropdownMenuCheckboxItem
                 key={type}
                 checked={selectedTags.includes(type)}
@@ -128,10 +115,10 @@ export default function CustomerTagFilter({
                 <div className="flex w-full items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <span
-                      className={`h-2 w-2 rounded-full ${TAG_COLORS[type].split(' ')[0].replace('bg-', 'bg-')}`}
+                      className={`h-2 w-2 rounded-full ${CUSTOMER_TAG_META[type].dotClass}`}
                       aria-hidden="true"
                     />
-                    <span className="text-sm">{TAG_LABELS[type]}</span>
+                    <span className="text-sm">{CUSTOMER_TAG_META[type].label}</span>
                   </div>
                   <span className="text-xs text-slate-500">
                     {count.toLocaleString()}
@@ -159,15 +146,15 @@ export default function CustomerTagFilter({
           {selectedTags.map((tagType) => (
             <Badge
               key={tagType}
-              className={`${TAG_COLORS[tagType]} gap-1.5 pr-1`}
+              className={`${CUSTOMER_TAG_META[tagType].pillClass} gap-1.5 pr-1`}
               variant="outline"
             >
-              {TAG_LABELS[tagType]}
+              {CUSTOMER_TAG_META[tagType].label}
               <button
                 type="button"
                 onClick={() => handleTagToggle(tagType)}
                 className="ml-1 rounded-full p-0.5 transition-colors hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-offset-1"
-                aria-label={`Remove ${TAG_LABELS[tagType]} filter`}
+                aria-label={`Remove ${CUSTOMER_TAG_META[tagType].label} filter`}
               >
                 <XIcon className="h-3 w-3" aria-hidden="true" />
               </button>

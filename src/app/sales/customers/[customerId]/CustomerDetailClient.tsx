@@ -21,6 +21,7 @@ import CustomerTagManager from "./sections/CustomerTagManager";
 import CustomerTasks from "./sections/CustomerTasks";
 import BtgPlacements from "./sections/BtgPlacements";
 import SampleFollowUpList from "./sections/SampleFollowUpList";
+import { CustomerClassificationCard } from "./sections/CustomerClassificationCard";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -46,6 +47,7 @@ export default function CustomerDetailClient({
 }) {
   const { data, isLoading, error } = useCustomerDetail(customerId);
   const queryClient = useQueryClient();
+  const fullHistorySectionId = "full-order-history";
 
   const handleFollowUpComplete = async (activityId: string, sampleItemId: string) => {
     try {
@@ -145,10 +147,23 @@ export default function CustomerDetailClient({
       <CustomerTasks customerId={customerId} tasks={data.tasks} />
 
       {/* Recent Orders - Moved to TOP (position 2) */}
-      <OrderHistory orders={data.orders} customerId={customerId} isCompact={true} />
+      <OrderHistory
+        orders={data.orders}
+        customerId={customerId}
+        isCompact={true}
+        fullHistorySectionId={fullHistorySectionId}
+      />
 
       {/* Customer Tags */}
       <CustomerTagManager customerId={customerId} />
+
+      {/* Classification */}
+      <CustomerClassificationCard
+        customerId={customerId}
+        type={data.customer.type ?? null}
+        volumeCapacity={data.customer.volumeCapacity ?? null}
+        featurePrograms={data.customer.featurePrograms ?? []}
+      />
 
       {/* Performance Metrics */}
       <CustomerMetrics
@@ -207,6 +222,13 @@ export default function CustomerDetailClient({
 
       {/* Product History Reports */}
       <ProductHistoryReports customerId={customerId} />
+
+      {/* Full Order History */}
+      <OrderHistory
+        orders={data.orders}
+        customerId={customerId}
+        sectionId={fullHistorySectionId}
+      />
 
       {/* Activity Timeline */}
       <ActivityTimeline

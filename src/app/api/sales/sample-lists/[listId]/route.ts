@@ -14,6 +14,7 @@ const updateSchema = z.object({
       })
     )
     .optional(),
+  preferredPriceListIds: z.array(z.string().uuid()).optional(),
 });
 
 const serializeSampleList = (list: any) => ({
@@ -22,6 +23,9 @@ const serializeSampleList = (list: any) => ({
   isActive: list.isActive,
   createdAt: list.createdAt,
   updatedAt: list.updatedAt,
+  preferredPriceListIds: Array.isArray(list.preferredPriceListIds)
+    ? list.preferredPriceListIds
+    : [],
   items: list.items.map((item: any) => ({
     id: item.id,
     skuId: item.skuId,
@@ -98,7 +102,7 @@ export async function PATCH(
         );
       }
 
-      const { name, isActive, items } = parsed.data;
+      const { name, isActive, items, preferredPriceListIds } = parsed.data;
 
       if (isActive === true) {
         await db.sampleList.updateMany({
@@ -119,6 +123,7 @@ export async function PATCH(
         data: {
           name: name ?? list.name,
           isActive: isActive ?? list.isActive,
+          preferredPriceListIds: preferredPriceListIds ?? list.preferredPriceListIds ?? [],
           items: items
             ? {
                 deleteMany: {},

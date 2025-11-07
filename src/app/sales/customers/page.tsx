@@ -8,6 +8,7 @@ import CustomerSearchBar from "./sections/CustomerSearchBar";
 import CustomerTagFilter from "./sections/CustomerTagFilter";
 import { SkeletonTable } from "../_components/SkeletonLoader";
 import { EmptyCustomers, EmptySearch } from "../_components/EmptyState";
+import { CustomerTagType } from "@/constants/customerTags";
 
 type Customer = {
   id: string;
@@ -46,6 +47,10 @@ type CustomersResponse = {
     ytdRevenue?: number;
     customersDue: number;
     riskCounts: Record<string, number>;
+    tagCounts: {
+      type: CustomerTagType;
+      count: number;
+    }[];
   };
 };
 
@@ -64,6 +69,7 @@ export default function SalesCustomersPage() {
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const [currentPage, setCurrentPage] = useState(1);
   const [showAllCustomers, setShowAllCustomers] = useState(false);
+  const [selectedTags, setSelectedTags] = useState<CustomerTagType[]>([]);
 
   const loadCustomers = useCallback(async () => {
     setLoading(true);
@@ -97,6 +103,10 @@ export default function SalesCustomersPage() {
         params.set("showAll", "true");
       }
 
+      if (selectedTags.length > 0) {
+        params.set("tags", selectedTags.join(","));
+      }
+
       const response = await fetch(`/api/sales/customers?${params.toString()}`, {
         cache: "no-store",
       });
@@ -115,7 +125,7 @@ export default function SalesCustomersPage() {
     } finally {
       setLoading(false);
     }
-  }, [searchQuery, activeFilter, sortField, sortDirection, currentPage, showAllCustomers]);
+  }, [searchQuery, activeFilter, sortField, sortDirection, currentPage, showAllCustomers, selectedTags]);
 
   useEffect(() => {
     void loadCustomers();
@@ -125,6 +135,11 @@ export default function SalesCustomersPage() {
     setActiveFilter(filter);
     setCurrentPage(1); // Reset to first page when filter changes
   };
+
+  const handleTagFilterChange = useCallback((tags: CustomerTagType[]) => {
+    setSelectedTags(tags);
+    setCurrentPage(1);
+  }, []);
 
   const handleSearch = useCallback((query: string) => {
     setSearchQuery(query);
@@ -245,12 +260,21 @@ export default function SalesCustomersPage() {
         <CustomerSearchBar onSearch={handleSearch} initialValue={searchQuery} />
 
         {data && (
-          <CustomerFilters
-            activeFilter={activeFilter}
-            onFilterChange={handleFilterChange}
-            riskCounts={data.summary.riskCounts}
-            customersDueCount={data.summary.customersDue}
-          />
+          <>
+            <CustomerFilters
+              activeFilter={activeFilter}
+              onFilterChange={handleFilterChange}
+              riskCounts={data.summary.riskCounts}
+              customersDueCount={data.summary.customersDue}
+            />
+            <CustomerTagFilter
+              tagCounts={data.summary.tagCounts}
+              selectedTags={selectedTags}
+              onTagsChange={handleTagFilterChange}
+              totalCustomers={data.summary.totalCustomers}
+              filteredCustomers={data.pagination.totalCount}
+            />
+          </>
         )}
         {data && (activeFilter !== "ALL" || activeFilter === "DUE" || searchQuery) && (
           <p

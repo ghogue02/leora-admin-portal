@@ -7,6 +7,8 @@ import {
   sampleItemsInputSchema,
   ensureSampleItemsValid,
   createActivitySampleItems,
+  createSampleUsageEntries,
+  createFollowUpTasksForSamples,
 } from "./_helpers";
 
 type SortField = "occurredAt" | "customer" | "type";
@@ -369,21 +371,44 @@ export async function POST(request: NextRequest) {
             ? [outcome]
             : [];
 
-        const activity = await db.activity.create({
-          data: {
+        const occurredAtDate = new Date(occurredAt);
+
+        const activity = await db.$transaction(async (tx) => {
+          const created = await tx.activity.create({
+            data: {
+              tenantId,
+              activityTypeId: activityType.id,
+              userId: session.user.id,
+              customerId,
+              subject,
+              notes: notes || null,
+              occurredAt: occurredAtDate,
+              followUpAt: followUpAt ? new Date(followUpAt) : null,
+              outcomes: { set: normalizedOutcomes },
+            },
+          });
+
+          await createActivitySampleItems(tx, created.id, sampleItemsInput);
+
+          await createSampleUsageEntries(tx, {
             tenantId,
-            activityTypeId: activityType.id,
+            salesRepId: salesRep.id,
+            customerId,
+            occurredAt: occurredAtDate,
+            sampleSource: "activity_log",
+            items: sampleItemsInput,
+          });
+
+          await createFollowUpTasksForSamples(tx, {
+            tenantId,
             userId: session.user.id,
             customerId,
-            subject,
-            notes: notes || null,
-            occurredAt: new Date(occurredAt),
-            followUpAt: followUpAt ? new Date(followUpAt) : null,
-            outcomes: { set: normalizedOutcomes },
-          },
-        });
+            occurredAt: occurredAtDate,
+            items: sampleItemsInput,
+          });
 
-        await createActivitySampleItems(db, activity.id, sampleItemsInput);
+          return created;
+        });
 
         const fullActivity = await db.activity.findUnique({
           where: { id: activity.id },

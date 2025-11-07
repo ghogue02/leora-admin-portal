@@ -1,6 +1,11 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import type {
+  CustomerType,
+  FeatureProgram,
+  VolumeCapacity,
+} from "@/types/customer";
 
 interface CustomerDetailData {
   customer: {
@@ -11,6 +16,7 @@ interface CustomerDetailData {
     riskStatus: string;
     phone: string | null;
     billingEmail: string | null;
+    paymentTerms: string | null;
     address: {
       street1: string | null;
       street2: string | null;
@@ -26,6 +32,9 @@ interface CustomerDetailData {
     } | null;
     isPermanentlyClosed: boolean;
     closedReason: string | null;
+    type: CustomerType | null;
+    volumeCapacity: VolumeCapacity | null;
+    featurePrograms: FeatureProgram[];
   };
   metrics: {
     ytdRevenue: number;
@@ -139,11 +148,25 @@ interface CustomerDetailData {
   }>;
   orders: Array<{
     id: string;
+    orderNumber: string | null;
     orderedAt: string | null;
     deliveredAt: string | null;
     status: string;
     total: number;
     lineCount: number;
+    lines: Array<{
+      id: string;
+      quantity: number;
+      unitPrice: number;
+      sku: {
+        code: string;
+        product: {
+          id: string;
+          name: string;
+          brand: string | null;
+        } | null;
+      } | null;
+    }>;
     invoices: Array<{
       id: string;
       invoiceNumber: string | null;

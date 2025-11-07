@@ -1,16 +1,17 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import { z } from "zod";
 
-export const sampleItemsInputSchema = z
-  .array(
-    z.object({
-      skuId: z.string().uuid(),
-      sampleListItemId: z.string().uuid().optional(),
-      feedback: z.string().max(1000).optional(),
-      followUpNeeded: z.boolean().optional(),
-    })
-  )
-  .optional();
+const sampleItemSchema = z.object({
+  skuId: z.string().uuid(),
+  sampleListItemId: z.string().uuid().optional(),
+  feedback: z.string().max(1000).optional(),
+  followUpNeeded: z.boolean().optional(),
+  quantity: z.number().int().min(1).max(100).optional(),
+});
+
+export type SampleItemInput = z.infer<typeof sampleItemSchema>;
+
+export const sampleItemsInputSchema = z.array(sampleItemSchema).optional();
 
 export const activitySampleItemSelect = {
   id: true,
@@ -257,14 +258,9 @@ export async function ensureSampleItemsValid(
 }
 
 export async function createActivitySampleItems(
-  db: PrismaClient,
+  db: PrismaClient | Prisma.TransactionClient,
   activityId: string,
-  items: Array<{
-    skuId: string;
-    sampleListItemId?: string;
-    feedback?: string;
-    followUpNeeded?: boolean;
-  }>
+  items: SampleItemInput[],
 ) {
   if (items.length === 0) {
     return;
@@ -313,4 +309,99 @@ export async function createActivitySampleItems(
       throw error;
     }
   }
+}
+
+export async function createSampleUsageEntries(
+  db: PrismaClient | Prisma.TransactionClient,
+  params: {
+    tenantId: string;
+    salesRepId: string;
+    customerId: string;
+    occurredAt: Date;
+    sampleSource: string;
+    items: SampleItemInput[];
+  },
+) {
+  const { tenantId, salesRepId, customerId, occurredAt, sampleSource, items } = params;
+  if (!items.length) return;
+
+  await Promise.all(
+    items.map((item) =>
+      db.sampleUsage.create({
+        data: {
+          tenantId,
+          salesRepId,
+          customerId,
+          skuId: item.skuId,
+          quantity: item.quantity ?? 1,
+          tastedAt: occurredAt,
+          feedback: item.feedback ?? null,
+          needsFollowUp: item.followUpNeeded ?? false,
+          sampleSource,
+        },
+      }),
+    ),
+  );
+}
+
+export async function createFollowUpTasksForSamples(
+  db: PrismaClient | Prisma.TransactionClient,
+  params: {
+    tenantId: string;
+    userId: string;
+    customerId: string;
+    occurredAt: Date;
+    items: SampleItemInput[];
+  },
+) {
+  const { tenantId, userId, customerId, occurredAt, items } = params;
+  const flaggedItems = items.filter((item) => item.followUpNeeded);
+  if (!flaggedItems.length) return;
+
+  const uniqueSkuIds = Array.from(new Set(flaggedItems.map((item) => item.skuId)));
+  const skus = await db.sku.findMany({
+    where: {
+      tenantId,
+      id: { in: uniqueSkuIds },
+    },
+    select: {
+      id: true,
+      code: true,
+      product: {
+        select: {
+          name: true,
+          brand: true,
+        },
+      },
+    },
+  });
+  const skuMap = new Map(skus.map((sku) => [sku.id, sku]));
+
+  await Promise.all(
+    flaggedItems.map((item) => {
+      const sku = skuMap.get(item.skuId);
+      const productLabel =
+        sku?.product?.brand && sku.product.name
+          ? `${sku.product.brand} ${sku.product.name}`.trim()
+          : sku?.product?.name ?? sku?.code ?? "sample item";
+
+      const dueDate = new Date(occurredAt);
+      dueDate.setDate(dueDate.getDate() + 7);
+
+      return db.task.create({
+        data: {
+          tenantId,
+          userId,
+          customerId,
+          title: `Follow up on ${productLabel} sample`,
+          description: item.feedback
+            ? `Customer feedback: ${item.feedback}`
+            : `Check if the customer is ready to order ${productLabel}.`,
+          dueAt: dueDate,
+          status: "PENDING",
+          priority: "MEDIUM",
+        },
+      });
+    }),
+  );
 }

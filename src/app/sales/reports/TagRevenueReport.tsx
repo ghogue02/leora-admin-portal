@@ -24,14 +24,10 @@ import {
   DownloadIcon,
   TrendingUpIcon,
 } from 'lucide-react';
-
-export type CustomerTagType =
-  | 'WINE_CLUB'
-  | 'EVENTS'
-  | 'FEMALE_WINEMAKERS'
-  | 'ORGANIC'
-  | 'NATURAL_WINE'
-  | 'BIODYNAMIC';
+import {
+  CUSTOMER_TAG_META,
+  CustomerTagType,
+} from '@/constants/customerTags';
 
 type TimeFrame = '30d' | '90d' | '1y' | 'all';
 
@@ -57,24 +53,6 @@ type TagRevenueReportProps = {
   onTimeframeChange?: (timeframe: TimeFrame) => void;
   isLoading?: boolean;
   onExportCSV?: () => void;
-};
-
-const TAG_LABELS: Record<CustomerTagType, string> = {
-  WINE_CLUB: 'Wine Club',
-  EVENTS: 'Events',
-  FEMALE_WINEMAKERS: 'Female Winemakers',
-  ORGANIC: 'Organic',
-  NATURAL_WINE: 'Natural Wine',
-  BIODYNAMIC: 'Biodynamic',
-};
-
-const TAG_COLORS: Record<CustomerTagType, string> = {
-  WINE_CLUB: 'bg-purple-100 text-purple-800 border-purple-200',
-  EVENTS: 'bg-blue-100 text-blue-800 border-blue-200',
-  FEMALE_WINEMAKERS: 'bg-pink-100 text-pink-800 border-pink-200',
-  ORGANIC: 'bg-green-100 text-green-800 border-green-200',
-  NATURAL_WINE: 'bg-amber-100 text-amber-800 border-amber-200',
-  BIODYNAMIC: 'bg-emerald-100 text-emerald-800 border-emerald-200',
 };
 
 const TIMEFRAME_LABELS: Record<TimeFrame, string> = {
@@ -243,10 +221,10 @@ export default function TagRevenueReport({
                       </TableCell>
                       <TableCell>
                         <Badge
-                          className={TAG_COLORS[item.tagType]}
+                          className={CUSTOMER_TAG_META[item.tagType].pillClass}
                           variant="outline"
                         >
-                          {TAG_LABELS[item.tagType]}
+                          {CUSTOMER_TAG_META[item.tagType].label}
                         </Badge>
                       </TableCell>
                       <TableCell className="text-right font-semibold">

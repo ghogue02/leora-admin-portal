@@ -3,6 +3,14 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { subMonths, startOfYear, differenceInDays } from "date-fns";
 import { TaskStatus } from "@prisma/client";
 import { activitySampleItemSelect } from "@/app/api/sales/activities/_helpers";
+import {
+  CUSTOMER_TYPE_OPTIONS,
+  FEATURE_PROGRAM_OPTIONS,
+  VOLUME_CAPACITY_OPTIONS,
+  CustomerType,
+  FeatureProgram,
+  VolumeCapacity,
+} from "@/types/customer";
 
 type RouteContext = {
   params: Promise<{
@@ -599,6 +607,10 @@ export async function GET(
           riskStatus: customer.riskStatus,
           phone: customer.phone,
           billingEmail: customer.billingEmail,
+          paymentTerms: customer.paymentTerms,
+          type: (customer.type as CustomerType | null) ?? null,
+          volumeCapacity: (customer.volumeCapacity as VolumeCapacity | null) ?? null,
+          featurePrograms: (customer.featurePrograms as FeatureProgram[]) ?? [],
           address: {
             street1: customer.street1,
             street2: customer.street2,
@@ -835,7 +847,64 @@ export async function PATCH(
       const updateData: Partial<{
         isPermanentlyClosed: boolean;
         closedReason: string | null;
+        name: string;
+        accountNumber: string | null;
+        billingEmail: string | null;
+        phone: string | null;
+        paymentTerms: string | null;
+        street1: string | null;
+        street2: string | null;
+        city: string | null;
+        state: string | null;
+        postalCode: string | null;
+        country: string | null;
+        type: CustomerType | null;
+        volumeCapacity: VolumeCapacity | null;
+        featurePrograms: FeatureProgram[];
       }> = {};
+
+      const editableStringFields = [
+        "name",
+        "accountNumber",
+        "billingEmail",
+        "phone",
+        "paymentTerms",
+        "street1",
+        "street2",
+        "city",
+        "state",
+        "postalCode",
+        "country",
+      ] as const;
+
+      for (const field of editableStringFields) {
+        if (!(field in body)) {
+          continue;
+        }
+
+        const rawValue = body[field];
+        if (rawValue !== null && typeof rawValue !== "string") {
+          return NextResponse.json(
+            { error: `${field} must be a string or null` },
+            { status: 400 }
+          );
+        }
+
+        const trimmedValue =
+          typeof rawValue === "string" ? rawValue.trim() : null;
+
+        if (field === "name") {
+          if (!trimmedValue) {
+            return NextResponse.json(
+              { error: "Customer name is required" },
+              { status: 400 }
+            );
+          }
+          updateData.name = trimmedValue;
+        } else {
+          updateData[field] = trimmedValue;
+        }
+      }
 
       if (typeof body.isPermanentlyClosed === "boolean") {
         updateData.isPermanentlyClosed = body.isPermanentlyClosed;
@@ -843,6 +912,57 @@ export async function PATCH(
         if (body.isPermanentlyClosed && body.closedReason) {
           updateData.closedReason = body.closedReason;
         }
+      }
+
+      if (typeof body.type !== "undefined") {
+        if (
+          body.type !== null &&
+          !CUSTOMER_TYPE_OPTIONS.includes(body.type as CustomerType)
+        ) {
+          return NextResponse.json(
+            { error: "Invalid customer type" },
+            { status: 400 }
+          );
+        }
+        updateData.type = body.type ?? null;
+      }
+
+      if (typeof body.volumeCapacity !== "undefined") {
+        if (
+          body.volumeCapacity !== null &&
+          !VOLUME_CAPACITY_OPTIONS.includes(body.volumeCapacity as VolumeCapacity)
+        ) {
+          return NextResponse.json(
+            { error: "Invalid volume capacity" },
+            { status: 400 }
+          );
+        }
+        updateData.volumeCapacity = body.volumeCapacity ?? null;
+      }
+
+      if (typeof body.featurePrograms !== "undefined") {
+        if (!Array.isArray(body.featurePrograms)) {
+          return NextResponse.json(
+            { error: "featurePrograms must be an array" },
+            { status: 400 }
+          );
+        }
+
+        const cleanedPrograms = body.featurePrograms
+          .filter((program: unknown): program is FeatureProgram =>
+            typeof program === "string" &&
+            FEATURE_PROGRAM_OPTIONS.includes(program as FeatureProgram)
+          )
+          .filter((program, index, arr) => arr.indexOf(program) === index);
+
+        if (cleanedPrograms.length !== body.featurePrograms.length) {
+          return NextResponse.json(
+            { error: "featurePrograms contains invalid entries" },
+            { status: 400 }
+          );
+        }
+
+        updateData.featurePrograms = cleanedPrograms;
       }
 
       // Update customer

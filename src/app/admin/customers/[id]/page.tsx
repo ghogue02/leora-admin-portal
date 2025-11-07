@@ -3,6 +3,14 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { CustomerClassificationFields } from '@/components/customers/CustomerClassificationFields';
+import { CustomerBasicInfoFields } from '@/components/customers/forms/CustomerBasicInfoFields';
+import { CustomerAddressFields } from '@/components/customers/forms/CustomerAddressFields';
+import type {
+  CustomerType,
+  FeatureProgram,
+  VolumeCapacity,
+} from '@/types/customer';
 
 interface Customer {
   id: string;
@@ -25,7 +33,7 @@ interface Customer {
   closedReason: string | null;
   type: string | null;
   volumeCapacity: string | null;
-  featurePrograms: string[];
+  featurePrograms: FeatureProgram[];
   salesRep: {
     id: string;
     user: { fullName: string; email: string };
@@ -366,116 +374,45 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         {/* Basic Information */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
           <h2 className="text-xl font-bold mb-4">Basic Information</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-1">Customer Name *</label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Account Number</label>
-              <input
-                type="text"
-                disabled
-                value={customer.accountNumber || ''}
-                className="w-full border rounded px-3 py-2 bg-gray-100"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Billing Email *</label>
-              <input
-                type="email"
-                required
-                value={formData.billingEmail}
-                onChange={(e) => setFormData({ ...formData, billingEmail: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Phone</label>
-              <input
-                type="tel"
-                value={formData.phone || ''}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Payment Terms</label>
-              <input
-                type="text"
-                value={formData.paymentTerms || ''}
-                onChange={(e) => setFormData({ ...formData, paymentTerms: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-          </div>
+          <CustomerBasicInfoFields
+            values={{
+              name: formData.name || '',
+              accountNumber: customer.accountNumber || '',
+              billingEmail: formData.billingEmail || '',
+              phone: formData.phone || '',
+              paymentTerms: formData.paymentTerms || '',
+            }}
+            onChange={(field, value) =>
+              setFormData((prev: any) => ({
+                ...prev,
+                [field]: value,
+              }))
+            }
+            disabled={saving}
+            readOnlyFields={{ accountNumber: true }}
+          />
         </div>
 
         {/* Location & Territory */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
           <h2 className="text-xl font-bold mb-4">Location & Territory</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Street Address</label>
-              <input
-                type="text"
-                value={formData.street1 || ''}
-                onChange={(e) => setFormData({ ...formData, street1: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium mb-1">Street Address 2</label>
-              <input
-                type="text"
-                value={formData.street2 || ''}
-                onChange={(e) => setFormData({ ...formData, street2: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">City</label>
-              <input
-                type="text"
-                value={formData.city || ''}
-                onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">State</label>
-              <input
-                type="text"
-                value={formData.state || ''}
-                onChange={(e) => setFormData({ ...formData, state: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Postal Code</label>
-              <input
-                type="text"
-                value={formData.postalCode || ''}
-                onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Country</label>
-              <input
-                type="text"
-                value={formData.country}
-                onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                className="w-full border rounded px-3 py-2"
-              />
-            </div>
-          </div>
+          <CustomerAddressFields
+            values={{
+              street1: formData.street1 || '',
+              street2: formData.street2 || '',
+              city: formData.city || '',
+              state: formData.state || '',
+              postalCode: formData.postalCode || '',
+              country: formData.country || 'US',
+            }}
+            onChange={(field, value) =>
+              setFormData((prev: any) => ({
+                ...prev,
+                [field]: value,
+              }))
+            }
+            disabled={saving}
+          />
           <div className="mt-4">
             <div className="text-sm font-medium mb-1">Current Sales Rep</div>
             {customer.salesRep ? (
@@ -539,74 +476,38 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
 
         {/* Analytics & Reporting */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <div className="border-t pt-6">
-            <h3 className="text-lg font-medium mb-1">Analytics & Reporting</h3>
-            <p className="text-sm text-gray-500 mb-4">
-              Used for customer segmentation and sales analysis
-            </p>
+        <div className="border-t pt-6">
+          <h3 className="text-lg font-medium mb-1">Analytics & Reporting</h3>
+          <p className="text-sm text-gray-500 mb-4">
+            Used for customer segmentation and sales analysis
+          </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Customer Type */}
-              <div>
-                <label className="block text-sm font-medium mb-1">Customer Type</label>
-                <select
-                  value={formData.type || ''}
-                  onChange={(e) => setFormData({ ...formData, type: e.target.value || null })}
-                  className="w-full border rounded px-3 py-2 bg-white"
-                >
-                  <option value="">-- Select Type --</option>
-                  <option value="On Premise">On Premise</option>
-                  <option value="Off Premise">Off Premise</option>
-                  <option value="On and Off Premise">On and Off Premise</option>
-                  <option value="Distributor">Distributor</option>
-                  <option value="Caterer">Caterer</option>
-                </select>
-                <p className="text-xs text-gray-500 mt-1">Select the primary business type for analytics</p>
-              </div>
-
-              {/* Volume Capacity */}
-              <div>
-                <label className="block text-sm font-medium mb-1">Volume Capacity</label>
-                <select
-                  value={formData.volumeCapacity || ''}
-                  onChange={(e) => setFormData({ ...formData, volumeCapacity: e.target.value || null })}
-                  className="w-full border rounded px-3 py-2 bg-white"
-                >
-                  <option value="">-- Select Capacity --</option>
-                  <option value="High">High</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Low">Low</option>
-                </select>
-                <p className="text-xs text-gray-500 mt-1">Estimated purchasing volume capacity</p>
-              </div>
-
-              {/* Feature Programs */}
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium mb-2">Feature Programs</label>
-                <div className="space-y-2">
-                  {['Wine Club', 'Catering', 'Email Offers'].map((program) => (
-                    <label key={program} className="flex items-center space-x-2">
-                      <input
-                        type="checkbox"
-                        checked={formData.featurePrograms?.includes(program) || false}
-                        onChange={(e) => {
-                          const currentPrograms = formData.featurePrograms || [];
-                          const newPrograms = e.target.checked
-                            ? [...currentPrograms, program]
-                            : currentPrograms.filter(p => p !== program);
-                          setFormData({ ...formData, featurePrograms: newPrograms });
-                        }}
-                        className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                      />
-                      <span className="text-sm">{program}</span>
-                    </label>
-                  ))}
-                </div>
-                <p className="text-xs text-gray-500 mt-1">Select all programs this customer participates in</p>
-              </div>
-            </div>
-          </div>
+          <CustomerClassificationFields
+            typeValue={(formData.type as CustomerType | null) ?? ""}
+            volumeCapacityValue={(formData.volumeCapacity as VolumeCapacity | null) ?? ""}
+            featureProgramsValue={(formData.featurePrograms as FeatureProgram[]) ?? []}
+            onTypeChange={(value) =>
+              setFormData({
+                ...formData,
+                type: value || null,
+              })
+            }
+            onVolumeCapacityChange={(value) =>
+              setFormData({
+                ...formData,
+                volumeCapacity: value || null,
+              })
+            }
+            onFeatureProgramsChange={(programs) =>
+              setFormData({
+                ...formData,
+                featurePrograms: programs,
+              })
+            }
+            disabled={saving}
+          />
         </div>
+      </div>
 
         {/* Form Actions */}
         <div className="flex gap-4">

@@ -3,6 +3,7 @@
 import { format } from "date-fns";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Order = {
   id: string;
@@ -38,10 +39,19 @@ type OrderHistoryProps = {
   orders: Order[];
   customerId?: string;
   isCompact?: boolean;
+  sectionId?: string;
+  fullHistorySectionId?: string;
 };
 
-export default function OrderHistory({ orders, customerId, isCompact = false }: OrderHistoryProps) {
+export default function OrderHistory({
+  orders,
+  customerId,
+  isCompact = false,
+  sectionId,
+  fullHistorySectionId,
+}: OrderHistoryProps) {
   const [expandedOrderId, setExpandedOrderId] = useState<string | null>(null);
+  const router = useRouter();
 
   // Show only last 5 orders in compact mode
   const displayOrders = isCompact ? orders.slice(0, 5) : orders;
@@ -87,8 +97,15 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
     setExpandedOrderId(expandedOrderId === orderId ? null : orderId);
   };
 
+  const handleNavigateToOrder = (orderId: string) => {
+    router.push(`/sales/orders/${orderId}`);
+  };
+
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+    <section
+      className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+      id={sectionId}
+    >
       <div className="flex items-start justify-between">
         <div>
           <h2 className="text-lg font-semibold text-gray-900">
@@ -115,16 +132,15 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
               className="rounded-lg border border-slate-200 bg-slate-50"
             >
               <div
-                onClick={() => toggleOrder(order.id)}
+                onClick={() => handleNavigateToOrder(order.id)}
                 className="flex w-full items-center justify-between p-4 text-left transition hover:bg-slate-100 cursor-pointer"
                 role="button"
                 tabIndex={0}
-                aria-expanded={expandedOrderId === order.id}
-                aria-controls={`order-${order.id}-details`}
+                aria-label="View order details"
                 onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
+                  if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    toggleOrder(order.id);
+                    handleNavigateToOrder(order.id);
                   }
                 }}
               >
@@ -175,21 +191,35 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
                   </div>
 
                   {!isCompact && (
-                    <svg
-                      className={`h-5 w-5 text-gray-400 transition-transform ${
-                        expandedOrderId === order.id ? "rotate-180" : ""
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                    <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        toggleOrder(order.id);
+                      }}
+                      aria-label={
+                        expandedOrderId === order.id
+                          ? "Collapse order items"
+                          : "Expand order items"
+                      }
+                      className="rounded-full p-1 text-gray-500 transition hover:bg-slate-200"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
+                      <svg
+                        className={`h-5 w-5 transition-transform ${
+                          expandedOrderId === order.id ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
                   )}
                 </div>
               </div>
@@ -292,16 +322,16 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
       )}
 
       {/* View All Orders Link - shown only in compact mode */}
-      {isCompact && orders.length > 5 && customerId && (
+      {isCompact && orders.length > 5 && fullHistorySectionId && (
         <div className="mt-4 text-center">
-          <Link
-            href={`/sales/customers/${customerId}`}
+          <button
+            type="button"
             onClick={() => {
-              // Scroll to full order history section after navigation
-              setTimeout(() => {
-                const orderHistorySection = document.querySelector('h2:contains("Order History")');
-                orderHistorySection?.scrollIntoView({ behavior: 'smooth' });
-              }, 100);
+              if (typeof window !== "undefined") {
+                document
+                  .getElementById(fullHistorySectionId)
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
             }}
             className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline"
           >
@@ -309,7 +339,7 @@ export default function OrderHistory({ orders, customerId, isCompact = false }: 
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </Link>
+          </button>
         </div>
       )}
     </section>

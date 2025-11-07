@@ -762,6 +762,7 @@ model SampleList {
   salesRepId String           @db.Uuid
   name       String
   isActive   Boolean          @default(true)
+  preferredPriceListIds Json? @default("[]")
   createdAt  DateTime         @default(now())
   updatedAt  DateTime         @updatedAt
   items      SampleListItem[]

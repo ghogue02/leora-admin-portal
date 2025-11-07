@@ -1,11 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Plus, X, Tag } from 'lucide-react';
+import {
+  CUSTOMER_TAG_META,
+  CUSTOMER_TAG_TYPES,
+  CustomerTagType,
+} from '@/constants/customerTags';
 
 type CustomerTag = {
   id: string;
-  tagType: string;
+  tagType: CustomerTagType;
   tagValue: string | null;
   addedAt: string;
 };
@@ -14,30 +19,13 @@ type CustomerTagManagerProps = {
   customerId: string;
 };
 
-const TAG_LABELS: Record<string, string> = {
-  wine_club: 'Wine Club',
-  events: 'Events',
-  female_winemakers: 'Female Winemakers',
-  organic: 'Organic',
-  natural_wine: 'Natural Wine',
-  biodynamic: 'Biodynamic',
-};
-
-const TAG_COLORS: Record<string, string> = {
-  wine_club: 'bg-purple-100 text-purple-800 border-purple-300',
-  events: 'bg-blue-100 text-blue-800 border-blue-300',
-  female_winemakers: 'bg-pink-100 text-pink-800 border-pink-300',
-  organic: 'bg-green-100 text-green-800 border-green-300',
-  natural_wine: 'bg-amber-100 text-amber-800 border-amber-300',
-  biodynamic: 'bg-emerald-100 text-emerald-800 border-emerald-300',
-};
-
 export default function CustomerTagManager({ customerId }: CustomerTagManagerProps) {
   const [tags, setTags] = useState<CustomerTag[]>([]);
   const [loading, setLoading] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
   const [adding, setAdding] = useState(false);
   const [removingId, setRemovingId] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     loadTags();
@@ -57,7 +45,25 @@ export default function CustomerTagManager({ customerId }: CustomerTagManagerPro
     }
   };
 
-  const handleAddTag = async (tagType: string) => {
+  useEffect(() => {
+    if (!showDropdown) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
+  }, [showDropdown]);
+
+  const handleAddTag = async (tagType: CustomerTagType) => {
     setAdding(true);
     setShowDropdown(false);
     try {
@@ -93,9 +99,7 @@ export default function CustomerTagManager({ customerId }: CustomerTagManagerPro
   };
 
   const existingTagTypes = new Set(tags.map((tag) => tag.tagType));
-  const availableTagTypes = Object.keys(TAG_LABELS).filter(
-    (type) => !existingTagTypes.has(type)
-  );
+  const availableTagTypes = CUSTOMER_TAG_TYPES.filter((type) => !existingTagTypes.has(type));
 
   if (loading) {
     return (
@@ -117,7 +121,10 @@ export default function CustomerTagManager({ customerId }: CustomerTagManagerPro
         </div>
 
         {availableTagTypes.length > 0 && (
-          <div className="relative">
+          <div
+            className="relative"
+            ref={dropdownRef}
+          >
             <button
               type="button"
               onClick={() => setShowDropdown(!showDropdown)}
@@ -142,9 +149,10 @@ export default function CustomerTagManager({ customerId }: CustomerTagManagerPro
                     className="flex w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition"
                   >
                     <span
-                      className={`h-3 w-3 rounded-full ${TAG_COLORS[tagType].split(' ')[0]}`}
+                      className={`h-3 w-3 rounded-full ${CUSTOMER_TAG_META[tagType].dotClass}`}
+                      aria-hidden="true"
                     />
-                    {TAG_LABELS[tagType]}
+                    {CUSTOMER_TAG_META[tagType].label}
                   </button>
                 ))}
               </div>
@@ -166,9 +174,9 @@ export default function CustomerTagManager({ customerId }: CustomerTagManagerPro
           {tags.map((tag) => (
             <div
               key={tag.id}
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${TAG_COLORS[tag.tagType]}`}
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${CUSTOMER_TAG_META[tag.tagType].pillClass}`}
             >
-              {TAG_LABELS[tag.tagType]}
+              {CUSTOMER_TAG_META[tag.tagType].label}
               <button
                 type="button"
                 onClick={() => handleRemoveTag(tag.id)}

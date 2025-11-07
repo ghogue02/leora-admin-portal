@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { Prisma, CustomerRiskStatus } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 import {
+  CUSTOMER_TAG_TYPES,
+  CustomerTagType,
+} from "@/constants/customerTags";
+import {
   startOfYear,
   startOfMonth,
   startOfDay,
@@ -44,6 +48,15 @@ export async function GET(request: NextRequest) {
       const pageSize = Math.min(parseInt(searchParams.get("pageSize") || "50", 10), 100);
       const showAll = searchParams.get("showAll") === "true";
       const dueOnly = searchParams.get("due") === "true";
+      const selectedTagsParam = searchParams.get("tags");
+      const selectedTags: CustomerTagType[] = selectedTagsParam
+        ? selectedTagsParam
+            .split(",")
+            .map((tag) => tag.trim())
+            .filter((tag): tag is CustomerTagType =>
+              CUSTOMER_TAG_TYPES.includes(tag as CustomerTagType)
+            )
+        : [];
 
       // Shared visibility scope (ignores UI filters)
       const baseWhere: Prisma.CustomerWhereInput = {
@@ -87,6 +100,19 @@ export async function GET(request: NextRequest) {
         };
       }
 
+      if (selectedTags.length > 0) {
+        const tagFilters = selectedTags.map((tag) => ({
+          tags: {
+            some: {
+              tagType: tag,
+              removedAt: null,
+            },
+          },
+        }));
+
+        where.AND = [...(where.AND ?? []), ...tagFilters];
+      }
+
       // Build order by clause
       let orderBy: Prisma.CustomerOrderByWithRelationInput = {};
       switch (sortField) {
@@ -107,7 +133,14 @@ export async function GET(request: NextRequest) {
       }
 
       // Execute queries in parallel
-      const [customers, totalCount, riskCounts, allCustomers, customersDueCount] = await Promise.all([
+      const [
+        customers,
+        totalCount,
+        riskCounts,
+        allCustomers,
+        customersDueCount,
+        tagCountsRaw,
+      ] = await Promise.all([
         // Get customers with pagination
         db.customer.findMany({
           where,
@@ -163,7 +196,35 @@ export async function GET(request: NextRequest) {
             },
           },
         }),
+        db.customerTag.groupBy({
+          by: ["tagType"],
+          where: {
+            tenantId,
+            removedAt: null,
+            tagType: {
+              in: CUSTOMER_TAG_TYPES,
+            },
+            customer: {
+              is: {
+                tenantId,
+                ...(showAll ? {} : { salesRepId: salesRep.id }),
+                isPermanentlyClosed: false,
+              },
+            },
+          },
+          _count: {
+            _all: true,
+          },
+        }),
       ]);
+
+      const tagCountMap = new Map<string, number>(
+        tagCountsRaw.map((entry) => [entry.tagType, entry._count._all])
+      );
+      const tagCounts = CUSTOMER_TAG_TYPES.map((tag) => ({
+        type: tag,
+        count: tagCountMap.get(tag) ?? 0,
+      }));
 
       // Calculate revenue per customer for each customer
       const customerIds = customers.map((c) => c.id);
@@ -422,6 +483,7 @@ export async function GET(request: NextRequest) {
           ytdRevenue: Number(ytdRevenueData._sum.total ?? 0),
           customersDue: customersDueCount,
           riskCounts: riskStatusCounts,
+          tagCounts,
         },
       });
     }

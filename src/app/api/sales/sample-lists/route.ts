@@ -14,6 +14,7 @@ const createSchema = z.object({
     )
     .min(1),
   setActive: z.boolean().optional(),
+  preferredPriceListIds: z.array(z.string().uuid()).optional(),
 });
 
 const serializeSampleList = (list: any) => ({
@@ -22,6 +23,9 @@ const serializeSampleList = (list: any) => ({
   isActive: list.isActive,
   createdAt: list.createdAt,
   updatedAt: list.updatedAt,
+  preferredPriceListIds: Array.isArray(list.preferredPriceListIds)
+    ? list.preferredPriceListIds
+    : [],
   items: list.items.map((item: any) => ({
     id: item.id,
     skuId: item.skuId,
@@ -111,7 +115,7 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const { name, items, setActive } = parsed.data;
+      const { name, items, setActive, preferredPriceListIds } = parsed.data;
 
       if (setActive ?? true) {
         await db.sampleList.updateMany({
@@ -132,6 +136,7 @@ export async function POST(request: NextRequest) {
           salesRepId,
           name,
           isActive: setActive ?? true,
+          preferredPriceListIds: preferredPriceListIds ?? [],
           items: {
             create: items.map((item) => ({
               skuId: item.skuId,

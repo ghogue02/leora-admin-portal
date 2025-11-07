@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { createFollowUpTasksForSamples } from "@/app/api/sales/activities/_helpers";
 
 export async function POST(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -49,35 +50,57 @@ export async function POST(request: NextRequest) {
     }
 
     // Create sample usage record
-    const sampleUsage = await db.sampleUsage.create({
-      data: {
-        tenantId,
-        salesRepId: salesRep.id,
-        customerId,
-        skuId,
-        quantity: quantity || 1,
-        tastedAt: new Date(tastedAt),
-        feedback,
-        needsFollowUp: needsFollowUp || false,
-      },
-      include: {
-        customer: {
-          select: {
-            id: true,
-            name: true,
-          },
+    const tastedAtDate = new Date(tastedAt);
+
+    const sampleUsage = await db.$transaction(async (tx) => {
+      const created = await tx.sampleUsage.create({
+        data: {
+          tenantId,
+          salesRepId: salesRep.id,
+          customerId,
+          skuId,
+          quantity: quantity || 1,
+          tastedAt: tastedAtDate,
+          feedback,
+          needsFollowUp: needsFollowUp || false,
+          sampleSource: "manual_log",
         },
-        sku: {
-          include: {
-            product: {
-              select: {
-                name: true,
-                brand: true,
+        include: {
+          customer: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+          sku: {
+            include: {
+              product: {
+                select: {
+                  name: true,
+                  brand: true,
+                },
               },
             },
           },
         },
-      },
+      });
+
+      await createFollowUpTasksForSamples(tx, {
+        tenantId,
+        userId: session.user.id,
+        customerId,
+        occurredAt: tastedAtDate,
+        items: [
+          {
+            skuId,
+            feedback: feedback ?? undefined,
+            followUpNeeded: needsFollowUp ?? false,
+            quantity: quantity ?? undefined,
+          },
+        ],
+      });
+
+      return created;
     });
 
     return NextResponse.json({

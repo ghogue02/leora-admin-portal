@@ -1,23 +1,30 @@
 /**
- * Customer-specific type definitions
+ * Customer-specific type definitions & helpers
  */
 
-export type CustomerType =
-  | "On Premise"
-  | "Off Premise"
-  | "On and Off Premise"
-  | "Distributor"
-  | "Caterer";
+export const CUSTOMER_TYPE_OPTIONS = [
+  "On Premise",
+  "Off Premise",
+  "On and Off Premise",
+  "Distributor",
+  "Caterer",
+] as const;
 
-export type VolumeCapacity = "High" | "Medium" | "Low";
+export type CustomerType = (typeof CUSTOMER_TYPE_OPTIONS)[number];
 
-export type FeatureProgram = "Wine Club" | "Catering" | "Email Offers";
+export const VOLUME_CAPACITY_OPTIONS = ["High", "Medium", "Low"] as const;
+
+export type VolumeCapacity = (typeof VOLUME_CAPACITY_OPTIONS)[number];
+
+export const FEATURE_PROGRAM_OPTIONS = ["Wine Club", "Catering", "Email Offers"] as const;
+
+export type FeatureProgram = (typeof FEATURE_PROGRAM_OPTIONS)[number];
 
 /**
  * Customer analytics update payload
  */
 export interface CustomerAnalyticsUpdate {
-  type?: CustomerType;
-  volumeCapacity?: VolumeCapacity;
+  type?: CustomerType | null;
+  volumeCapacity?: VolumeCapacity | null;
   featurePrograms?: FeatureProgram[];
 }

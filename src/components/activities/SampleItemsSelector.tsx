@@ -274,6 +274,13 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
     [updateItems]
   );
 
+  const handleSetAllFollowUp = useCallback(
+    (flag: boolean) => {
+      updateItems((current) => current.map((item) => ({ ...item, followUp: flag })));
+    },
+    [updateItems],
+  );
+
   const handleSaveAsList = useCallback(async () => {
     const selectedItems = items.filter((item) => item.selected);
     if (selectedItems.length === 0) {
@@ -373,7 +380,8 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
           >
             {loadingLists ? "Refreshing..." : "Refresh"}
           </button>
-        </div>
+      </div>
+      <div className="flex flex-col gap-2 sm:items-end">
         <button
           type="button"
           onClick={handleSaveAsList}
@@ -382,6 +390,22 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
         >
           {savingList ? "Saving..." : "Save as Sample List"}
         </button>
+        <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
+          <button
+            type="button"
+            onClick={() => handleSetAllFollowUp(true)}
+            className="font-semibold text-amber-700 hover:text-amber-900"
+          >
+            Flag all for follow-up
+          </button>
+          <button
+            type="button"
+            onClick={() => handleSetAllFollowUp(false)}
+            className="font-semibold text-gray-500 hover:text-gray-700"
+          >
+            Clear all flags
+          </button>
+        </div>
       </div>
 
       <div className="rounded-lg border border-slate-200">
