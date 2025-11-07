@@ -64,7 +64,7 @@ export async function generateOrderNumber(
   customerId: string
 ): Promise<string> {
   // Get customer with shipping address
-  const customer = await prisma.customer.findUnique({
+  const customer = await prisma.customer.findFirst({
     where: {
       id: customerId,
       tenantId,

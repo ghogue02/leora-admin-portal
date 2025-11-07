@@ -32,7 +32,7 @@ type OrderItem = {
 };
 
 type Props = {
-  customer: { name: string; territory: string | null } | null;
+  customer: { name: string; territory: string | null; accountType?: string | null } | null;
   deliveryDate: string;
   warehouseLocation: string;
   deliveryTimeWindow: string;
@@ -72,6 +72,11 @@ export function OrderSummarySidebar({
   const estimatedTotal = useMemo(() => {
     return subtotal + appliedDeliveryFee + appliedSplitCaseFee;
   }, [subtotal, appliedDeliveryFee, appliedSplitCaseFee]);
+
+  const isB2B = useMemo(() => {
+    if (!customer?.accountType) return false;
+    return customer.accountType === 'ACTIVE' || customer.accountType === 'TARGET';
+  }, [customer?.accountType]);
 
   // Calculate progress
   const progress = {
