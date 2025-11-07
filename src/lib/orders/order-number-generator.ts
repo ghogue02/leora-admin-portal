@@ -71,10 +71,10 @@ export async function generateOrderNumber(
     },
     include: {
       addresses: {
-        where: {
-          isPrimary: true,
-        },
-        take: 1,
+        orderBy: [
+          { isDefault: 'desc' },
+          { updatedAt: 'desc' },
+        ],
       },
     },
   });
@@ -84,7 +84,9 @@ export async function generateOrderNumber(
   }
 
   // Extract state code
-  const primaryAddress = customer.addresses[0];
+  const primaryAddress =
+    customer.addresses.find(address => address.isDefault) ??
+    customer.addresses[0];
   const stateCode = primaryAddress
     ? parseStateFromAddress(primaryAddress)
     : 'XX';
