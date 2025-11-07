@@ -93,6 +93,7 @@ export async function GET(
         invoices,
         followUpItems,
         tasks,
+        sampleUsageFollowUps,
       ] = await Promise.all([
         // Order history with invoice links (LIMITED to 50 most recent)
         db.order.findMany({
