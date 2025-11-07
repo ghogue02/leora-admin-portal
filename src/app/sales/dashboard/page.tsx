@@ -246,9 +246,6 @@ export default function SalesDashboardPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Sales Dashboard</h1>
-          <p className="mt-1 text-sm text-gray-500">
-            Track your performance and manage your territory
-          </p>
         </div>
         <div className="flex gap-3">
           <button
