@@ -243,19 +243,7 @@ export default function SalesDashboardPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
       {/* Dashboard Header */}
-      <div className="flex items-center justify-between">
-        <div />
-        <div className="flex gap-3">
-          <button
-            onClick={() => setShowGlossary(true)}
-            className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-          >
-            <HelpCircle className="h-4 w-4" />
-            Metric Glossary
-          </button>
-          {/* <DashboardCustomizer onPreferencesChange={setDashboardPrefs} /> */}
-        </div>
-      </div>
+      {/* <DashboardCustomizer onPreferencesChange={setDashboardPrefs} /> */}
 
       {isSectionEnabled('performance-metrics') && (
         <PerformanceMetrics
