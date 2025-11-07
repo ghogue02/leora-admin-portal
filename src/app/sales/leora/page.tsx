@@ -396,18 +396,6 @@ export default function SalesLeoraCopilotPage() {
 
   return (
     <main className="mx-auto flex max-w-5xl flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">LeorAI</p>
-            <h1 className="text-3xl font-semibold text-gray-900">Smart Answers, Fast Action</h1>
-          </div>
-        </div>
-        <p className="max-w-2xl text-sm text-gray-600">
-          Stop digging through spreadsheets. Start asking questions. Which customers need attention this week? What's driving my revenue? Who should I call today? LeorAI connects your sales data with AI to surface the insights that matter—so you can spend less time analyzing and more time selling.
-        </p>
-      </header>
-
       {/* Auto-Insights Section */}
       <AutoInsights onInsightClick={handleSuggestionClick} />
 

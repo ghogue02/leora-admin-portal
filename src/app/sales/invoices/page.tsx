@@ -62,14 +62,6 @@ export default async function InvoicesPage() {
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-8">
-      <header className="flex flex-col gap-2">
-        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">Invoices</p>
-        <h1 className="text-3xl font-semibold text-gray-900">Track billing status.</h1>
-        <p className="max-w-2xl text-sm text-gray-600">
-          Review issued invoices, remaining balances, and jump into order context when needed.
-        </p>
-      </header>
-
       {invoices.length === 0 ? (
         <div className="rounded-lg border border-slate-200 bg-white p-6 text-sm text-gray-600">
           No invoices yet. Once orders are invoiced, they will appear here automatically.

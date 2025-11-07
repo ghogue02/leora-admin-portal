@@ -133,63 +133,51 @@ export default function SampleAnalyticsPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
       {/* Header */}
-      <header className="flex flex-col gap-3">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              Analytics
-            </p>
-            <h1 className="text-3xl font-semibold text-gray-900">Sample Performance</h1>
-            <p className="mt-1 text-sm text-gray-600">
-              Track conversion rates, revenue impact, and ROI from sample distribution
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => handleDateRangeChange(30)}
-              className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
-                dateRange.start >= subDays(new Date(), 30)
-                  ? 'border-blue-600 bg-blue-50 text-blue-700'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
-              }`}
-            >
-              30 Days
-            </button>
-            <button
-              onClick={() => handleDateRangeChange(90)}
-              className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
-                dateRange.start < subDays(new Date(), 30) && dateRange.start >= subDays(new Date(), 90)
-                  ? 'border-blue-600 bg-blue-50 text-blue-700'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
-              }`}
-            >
-              90 Days
-            </button>
-            <button
-              onClick={() => handleDateRangeChange(180)}
-              className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
-                dateRange.start < subDays(new Date(), 90)
-                  ? 'border-blue-600 bg-blue-50 text-blue-700'
-                  : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
-              }`}
-            >
-              180 Days
-            </button>
-            <div className="h-6 w-px bg-gray-300"></div>
-            <button
-              onClick={() => handleExport('csv')}
-              className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
-            >
-              Export CSV
-            </button>
-            <button
-              onClick={() => handleExport('pdf')}
-              className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
-            >
-              Export PDF
-            </button>
-          </div>
+      <header className="flex justify-end">
+        <div className="flex flex-wrap gap-2">
+          <button
+            onClick={() => handleDateRangeChange(30)}
+            className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
+              dateRange.start >= subDays(new Date(), 30)
+                ? 'border-blue-600 bg-blue-50 text-blue-700'
+                : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+            }`}
+          >
+            30 Days
+          </button>
+          <button
+            onClick={() => handleDateRangeChange(90)}
+            className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
+              dateRange.start < subDays(new Date(), 30) && dateRange.start >= subDays(new Date(), 90)
+                ? 'border-blue-600 bg-blue-50 text-blue-700'
+                : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+            }`}
+          >
+            90 Days
+          </button>
+          <button
+            onClick={() => handleDateRangeChange(180)}
+            className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
+              dateRange.start < subDays(new Date(), 90)
+                ? 'border-blue-600 bg-blue-50 text-blue-700'
+                : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+            }`}
+          >
+            180 Days
+          </button>
+          <div className="h-6 w-px bg-gray-300"></div>
+          <button
+            onClick={() => handleExport('csv')}
+            className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
+          >
+            Export CSV
+          </button>
+          <button
+            onClick={() => handleExport('pdf')}
+            className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
+          >
+            Export PDF
+          </button>
         </div>
       </header>
 

@@ -133,16 +133,6 @@ export default function SupplierPerformancePage() {
         </Link>
 
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              Supplier Analytics
-            </p>
-            <h1 className="text-3xl font-semibold text-gray-900">Sample Performance by Supplier</h1>
-            <p className="mt-1 text-sm text-gray-600">
-              Track which suppliers' samples convert best to orders
-            </p>
-          </div>
-
           <button
             onClick={exportToCSV}
             disabled={suppliers.length === 0}

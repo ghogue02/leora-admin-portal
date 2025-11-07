@@ -24,12 +24,6 @@ export default function CustomerFilters({
 }: CustomerFiltersProps) {
   const filters: FilterOption[] = [
     {
-      label: "All Customers",
-      value: "ALL",
-      count: Object.values(riskCounts).reduce((sum, count) => sum + count, 0),
-      color: "text-gray-700 bg-white border-gray-300 hover:bg-gray-50",
-    },
-    {
       label: "Due to Order",
       value: "DUE",
       count: customersDueCount,
@@ -58,6 +52,12 @@ export default function CustomerFilters({
       value: "DORMANT",
       count: riskCounts.DORMANT,
       color: "text-rose-700 bg-rose-50 border-rose-300 hover:bg-rose-100",
+    },
+    {
+      label: "All Customers",
+      value: "ALL",
+      count: Object.values(riskCounts).reduce((sum, count) => sum + count, 0),
+      color: "text-gray-700 bg-white border-gray-300 hover:bg-gray-50",
     },
   ];
 

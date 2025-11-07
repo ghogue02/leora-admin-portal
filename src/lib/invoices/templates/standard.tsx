@@ -16,6 +16,8 @@ import { CompleteInvoiceData } from '../invoice-data-builder';
 import { sharedStyles, formatCurrency, formatShortDate } from './styles';
 
 import type { InvoiceColumnId } from '../column-presets';
+import type { InvoiceBodyBlockId, InvoiceSectionKey } from '../template-settings';
+import { getBodyBlockOrder, getVisibleSectionBuckets } from '../layout-utils';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
@@ -26,6 +28,25 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     fontSize: 8,
     lineHeight: 1.3,
+  },
+  sectionBlock: {
+    marginTop: 10,
+  },
+  signatureBlock: {
+    marginTop: 15,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  signatureLabel: {
+    fontSize: 9,
+    fontWeight: 'bold',
+  },
+  signatureLine: {
+    marginTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#000',
+    width: '60%',
   },
 });
 
@@ -145,6 +166,12 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
   };
   const columns = parseColumns(layout?.columns);
   const headerNotes = groupNotes(layout?.headerNotes);
+  const sectionBuckets = layout
+    ? getVisibleSectionBuckets(layout)
+    : { headerLeft: [], headerRight: [], fullWidth: [] };
+  const bodyBlockOrder = layout
+    ? getBodyBlockOrder(layout)
+    : (['totals', 'signature', 'compliance'] as InvoiceBodyBlockId[]);
 
   const tableHeaderBackgroundStyle = palette.tableHeaderBackground
     ? { backgroundColor: palette.tableHeaderBackground }
@@ -175,7 +202,7 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
         {/* Title */}
         <Text style={styles.title}>Invoice</Text>
 
-        {/* Invoice Details and Customer Info */}
+        {/* Invoice Details & Header Sections */}
         <View style={styles.invoiceInfo}>
           <View style={styles.invoiceInfoColumn}>
             <Text style={styles.label}>Invoice Number</Text>
@@ -186,40 +213,30 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
 
             <Text style={[styles.label, styles.mt10]}>Due Date</Text>
             <Text style={styles.value}>{formatShortDate(data.dueDate)}</Text>
+
+            {sectionBuckets.headerLeft.map((sectionKey) => (
+              <View key={sectionKey} style={styles.sectionBlock}>
+                {renderSectionBlock(sectionKey, data, sections)}
+              </View>
+            ))}
           </View>
 
-          {sections.showBillTo && (
+          {sectionBuckets.headerRight.length > 0 && (
             <View style={styles.invoiceInfoColumn}>
-              <Text style={styles.label}>Bill To</Text>
-              <Text style={styles.customerName}>{data.customer.name}</Text>
-              <Text style={styles.customerAddress}>
-                {data.billingAddress.street1}
-                {data.billingAddress.street2 && `\n${data.billingAddress.street2}`}
-              </Text>
-              <Text style={styles.customerAddress}>
-                {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
-              </Text>
+              {sectionBuckets.headerRight.map((sectionKey) => (
+                <View key={sectionKey} style={styles.sectionBlock}>
+                  {renderSectionBlock(sectionKey, data, sections)}
+                </View>
+              ))}
             </View>
           )}
         </View>
 
-        {/* Order Details */}
-        {sections.showCustomerInfo && (data.salesperson || data.poNumber) && (
-          <View style={[styles.orderDetails, styles.mb15]}>
-            {data.salesperson && (
-              <View style={styles.detailRow}>
-                <Text style={styles.detailLabel}>Salesperson:</Text>
-                <Text style={styles.detailValue}>{data.salesperson}</Text>
-              </View>
-            )}
-            {data.poNumber && (
-              <View style={styles.detailRow}>
-                <Text style={styles.detailLabel}>PO Number:</Text>
-                <Text style={styles.detailValue}>{data.poNumber}</Text>
-              </View>
-            )}
+        {sectionBuckets.fullWidth.map((sectionKey) => (
+          <View key={sectionKey} style={[styles.sectionBlock, styles.orderDetails]}>
+            {renderSectionBlock(sectionKey, data, sections)}
           </View>
-        )}
+        ))}
 
         {renderNotesBlock(headerNotes.beforeTable)}
 
@@ -266,33 +283,107 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
 
         {renderNotesBlock(headerNotes.afterTable)}
 
-        {/* Totals */}
-        {sections.showTotals && (
-          <View style={styles.totalsSection}>
-            <View style={styles.totalRow}>
-              <Text style={styles.totalLabel}>Subtotal:</Text>
-              <Text style={styles.totalValue}>{formatCurrency(data.subtotal)}</Text>
-            </View>
-            {data.totalTax.greaterThan(0) && (
-              <View style={styles.totalRow}>
-                <Text style={styles.totalLabel}>Tax:</Text>
-                <Text style={styles.totalValue}>{formatCurrency(data.totalTax)}</Text>
+        {bodyBlockOrder.map((blockId) => {
+          if (blockId === 'totals' && sections.showTotals) {
+            return (
+              <View key="totals" style={styles.totalsSection}>
+                <View style={styles.totalRow}>
+                  <Text style={styles.totalLabel}>Subtotal:</Text>
+                  <Text style={styles.totalValue}>{formatCurrency(data.subtotal)}</Text>
+                </View>
+                {data.totalTax.greaterThan(0) && (
+                  <View style={styles.totalRow}>
+                    <Text style={styles.totalLabel}>Tax:</Text>
+                    <Text style={styles.totalValue}>{formatCurrency(data.totalTax)}</Text>
+                  </View>
+                )}
+                <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
+                  <Text style={styles.grandTotalLabel}>Total:</Text>
+                  <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
+                </View>
               </View>
-            )}
-            <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
-              <Text style={styles.grandTotalLabel}>Total:</Text>
-              <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
-            </View>
-          </View>
-        )}
+            );
+          }
 
-        {/* Payment Terms */}
-        {sections.showComplianceNotice && data.collectionTerms && (
-          <View style={styles.legalText}>
-            <Text>{data.collectionTerms}</Text>
-          </View>
-        )}
+          if (blockId === 'signature' && sections.showSignature) {
+            return (
+              <View key="signature" style={styles.signatureBlock}>
+                <Text style={styles.signatureLabel}>Authorized Signature</Text>
+                <View style={styles.signatureLine} />
+              </View>
+            );
+          }
+
+          if (blockId === 'compliance' && sections.showComplianceNotice && data.collectionTerms) {
+            return (
+              <View key="compliance" style={styles.legalText}>
+                <Text>{data.collectionTerms}</Text>
+              </View>
+            );
+          }
+
+          return null;
+        })}
       </Page>
     </Document>
   );
 };
+
+function renderSectionBlock(
+  sectionKey: InvoiceSectionKey,
+  data: CompleteInvoiceData,
+  sections: typeof DEFAULT_SECTIONS,
+) {
+  switch (sectionKey) {
+    case 'billTo':
+      return (
+        <>
+          <Text style={styles.label}>Bill To</Text>
+          <Text style={styles.customerName}>{data.customer.name}</Text>
+          <Text style={styles.customerAddress}>
+            {data.billingAddress.street1}
+            {data.billingAddress.street2 && `\n${data.billingAddress.street2}`}
+          </Text>
+          <Text style={styles.customerAddress}>
+            {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
+          </Text>
+        </>
+      );
+    case 'shipTo':
+      return (
+        <>
+          <Text style={styles.label}>Ship To</Text>
+          <Text style={styles.customerName}>{data.customer.name}</Text>
+          <Text style={styles.customerAddress}>
+            {data.shippingAddress.street1}
+            {data.shippingAddress.street2 && `\n${data.shippingAddress.street2}`}
+          </Text>
+          <Text style={styles.customerAddress}>
+            {data.shippingAddress.city}, {data.shippingAddress.state} {data.shippingAddress.postalCode}
+          </Text>
+        </>
+      );
+    case 'customerInfo':
+      if (!sections.showCustomerInfo) {
+        return null;
+      }
+      return (
+        <>
+          {data.salesperson && (
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Salesperson:</Text>
+              <Text style={styles.detailValue}>{data.salesperson}</Text>
+            </View>
+          )}
+          {data.poNumber && (
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>PO Number:</Text>
+              <Text style={styles.detailValue}>{data.poNumber}</Text>
+            </View>
+          )}
+        </>
+      );
+    default:
+      return null;
+  }
+}

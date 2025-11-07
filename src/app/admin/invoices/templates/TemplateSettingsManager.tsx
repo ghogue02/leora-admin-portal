@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ArrowDown, ArrowUp, FileDown, Loader2, Palette, Settings2, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, FileDown, GripVertical, Loader2, Palette, Settings2, Trash2 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -10,12 +10,27 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
-import { COLUMN_PRESETS } from "@/lib/invoices/column-presets";
+import { COLUMN_PRESETS, type InvoiceColumnId } from "@/lib/invoices/column-presets";
+import { getVisibleSectionBuckets, SECTION_VISIBILITY_FIELDS } from "@/lib/invoices/layout-utils";
 
 type InvoiceFormat = "STANDARD" | "VA_ABC_INSTATE" | "VA_ABC_TAX_EXEMPT";
 type BaseTemplate = "STANDARD" | "VA_ABC_INSTATE_FULL" | "VA_ABC_INSTATE_CONDENSED" | "VA_ABC_TAX_EXEMPT";
 type SignatureStyle = "full" | "condensed";
 type ColumnAlign = "left" | "center" | "right";
+type SectionArea = "headerLeft" | "headerRight" | "fullWidth";
+type TemplateSectionKey = "billTo" | "shipTo" | "customerInfo";
+type BodyBlockId = "totals" | "signature" | "compliance";
+
+interface TemplateSectionPlacement {
+  section: TemplateSectionKey;
+  area: SectionArea;
+  order: number;
+}
+
+interface BodyBlockConfig {
+  id: BodyBlockId;
+  order: number;
+}
 
 interface TemplatePalette {
   tableHeaderBackground: string;
@@ -30,7 +45,7 @@ interface TemplateOptions {
 }
 
 interface TemplateColumn {
-  id: string;
+  id: InvoiceColumnId;
   label: string;
   width: number;
   align: ColumnAlign;
@@ -60,6 +75,8 @@ interface TemplateLayout {
   sections: TemplateSections;
   columns: TemplateColumn[];
   headerNotes: TemplateHeaderNote[];
+  sectionPlacements: TemplateSectionPlacement[];
+  bodyBlocks: BodyBlockConfig[];
 }
 
 interface TemplateSettings {
@@ -78,6 +95,52 @@ const FORMAT_LABELS: Record<InvoiceFormat, string> = {
   VA_ABC_INSTATE: "Virginia ABC (In-State)",
   VA_ABC_TAX_EXEMPT: "Virginia ABC (Tax-Exempt)",
 };
+
+const SECTION_METADATA: Record<TemplateSectionKey, { label: string; description: string }> = {
+  billTo: {
+    label: "Bill To",
+    description: "Customer billing contact and address",
+  },
+  shipTo: {
+    label: "Ship To",
+    description: "Delivery destination block",
+  },
+  customerInfo: {
+    label: "Order Details",
+    description: "Invoice dates, PO, salesperson, and logistics",
+  },
+};
+
+const BODY_BLOCK_METADATA: Record<BodyBlockId, { label: string; description: string }> = {
+  totals: {
+    label: "Totals",
+    description: "Subtotal and grand total rows",
+  },
+  signature: {
+    label: "Signature",
+    description: "Retailer sign-off block",
+  },
+  compliance: {
+    label: "Compliance notice",
+    description: "Footer legal text",
+  },
+};
+
+const BODY_BLOCK_VISIBILITY_FIELDS: Record<BodyBlockId, keyof TemplateSections> = {
+  totals: "showTotals",
+  signature: "showSignature",
+  compliance: "showComplianceNotice",
+};
+
+const AREA_LABELS: Record<SectionArea, string> = {
+  headerLeft: "Left Column",
+  headerRight: "Right Column",
+  fullWidth: "Full Width Row",
+};
+
+const SECTION_KEYS: TemplateSectionKey[] = ["billTo", "shipTo", "customerInfo"];
+const SECTION_AREAS: SectionArea[] = ["headerLeft", "headerRight", "fullWidth"];
+const BODY_BLOCK_IDS: BodyBlockId[] = ["totals", "signature", "compliance"];
 
 const BASE_TEMPLATE_OPTIONS: Record<InvoiceFormat, Array<{ value: BaseTemplate; label: string }>> = {
   STANDARD: [
@@ -194,6 +257,25 @@ export function TemplateSettingsManager() {
     return getAvailableColumns(selectedFormat, currentSettings.layout.columns);
   }, [currentSettings, selectedFormat]);
 
+  const sectionPlacementBuckets = useMemo(() => {
+    if (!currentSettings) {
+      return createEmptyPlacementBuckets();
+    }
+    return bucketPlacements(currentSettings.layout.sectionPlacements);
+  }, [currentSettings]);
+
+  const previewSectionBuckets = useMemo(() => {
+    if (!currentSettings) {
+      return createEmptyPreviewBuckets();
+    }
+    return getVisibleSectionBuckets(currentSettings.layout);
+  }, [currentSettings]);
+
+  const bodyBlocks = useMemo(() => {
+    if (!currentSettings) return [];
+    return [...currentSettings.layout.bodyBlocks].sort((a, b) => a.order - b.order);
+  }, [currentSettings]);
+
   const isDirty = useMemo(() => {
     if (!templates || !initialTemplates) return false;
     const current = templates[selectedFormat];
@@ -279,6 +361,77 @@ export function TemplateSettingsManager() {
       };
     });
   };
+
+  const handleSectionPlacementChange = useCallback(
+    (section: TemplateSectionKey, targetArea: SectionArea, targetIndex?: number) => {
+      updateLayout((layout) => {
+        const placements = layout.sectionPlacements ?? [];
+        const filtered = placements.filter((placement) => placement.section !== section);
+        const buckets = bucketPlacements(filtered);
+        const insertionIndex =
+          typeof targetIndex === "number" && targetIndex >= 0
+            ? Math.min(targetIndex, buckets[targetArea].length)
+            : buckets[targetArea].length;
+
+        buckets[targetArea].splice(insertionIndex, 0, {
+          section,
+          area: targetArea,
+          order: insertionIndex,
+        });
+
+        const nextPlacements: TemplateSectionPlacement[] = [];
+        SECTION_AREAS.forEach((area) => {
+          buckets[area].forEach((placement, index) => {
+            nextPlacements.push({
+              section: placement.section,
+              area,
+              order: index,
+            });
+          });
+        });
+
+        SECTION_KEYS.forEach((key) => {
+          if (!nextPlacements.some((placement) => placement.section === key)) {
+            nextPlacements.push({
+              section: key,
+              area: "fullWidth",
+              order: nextPlacements.length,
+            });
+          }
+        });
+
+        return {
+          ...layout,
+          sectionPlacements: nextPlacements,
+        };
+      });
+    },
+    [updateLayout]
+  );
+
+  const handleBodyBlockMove = useCallback(
+    (blockId: BodyBlockId, direction: number) => {
+      updateLayout((layout) => {
+        const blocks = [...(layout.bodyBlocks ?? [])];
+        blocks.sort((a, b) => a.order - b.order);
+        const index = blocks.findIndex((block) => block.id === blockId);
+        if (index === -1) return layout;
+        const targetIndex = index + direction;
+        if (targetIndex < 0 || targetIndex >= blocks.length) {
+          return layout;
+        }
+        const updated = [...blocks];
+        const [moved] = updated.splice(index, 1);
+        updated.splice(targetIndex, 0, moved);
+        const nextBlocks = updated.map((block, idx) => ({ ...block, order: idx }));
+        return {
+          ...layout,
+          bodyBlocks: nextBlocks,
+        };
+      });
+    },
+    [updateLayout]
+  );
 
   const handleColumnIdChange = (index: number, nextId: InvoiceColumnId) => {
     const preset = COLUMN_PRESETS.find(
@@ -720,6 +873,85 @@ export function TemplateSettingsManager() {
         <section className="grid gap-4 rounded-lg border p-4">
           <div className="flex items-center justify-between gap-2">
             <div>
+              <h3 className="font-medium text-gray-900">Visual Layout (WYSIWYG)</h3>
+              <p className="text-xs text-muted-foreground">
+                Drag the section cards between columns or into the full-width row to control how the PDF header renders.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            <SectionDesigner
+              placements={sectionPlacementBuckets}
+              sections={currentSettings.layout.sections}
+              onMove={handleSectionPlacementChange}
+            />
+
+            <InvoicePreview
+              settings={currentSettings}
+              sectionBuckets={previewSectionBuckets}
+              bodyBlocks={bodyBlocks}
+            />
+          </div>
+        </section>
+
+        <section className="grid gap-4 rounded-lg border p-4">
+          <div className="flex items-center justify-between gap-2">
+            <div>
+              <h3 className="font-medium text-gray-900">Post-table Blocks</h3>
+              <p className="text-xs text-muted-foreground">
+                Control the order of totals, signature, and compliance sections beneath the line items.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            {bodyBlocks.map((block, index) => {
+              const meta = BODY_BLOCK_METADATA[block.id];
+              const isVisible = currentSettings.layout.sections[BODY_BLOCK_VISIBILITY_FIELDS[block.id]];
+              return (
+                <div
+                  key={block.id}
+                  className="flex items-center justify-between gap-3 rounded-md border bg-white px-3 py-2"
+                >
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{meta.label}</p>
+                    <p className="text-xs text-muted-foreground">{meta.description}</p>
+                    {!isVisible && (
+                      <span className="mt-1 inline-flex text-[10px] font-semibold uppercase text-amber-600">
+                        Hidden
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex gap-1">
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => handleBodyBlockMove(block.id, -1)}
+                      disabled={index === 0}
+                    >
+                      <ArrowUp className="h-3.5 w-3.5" />
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className="h-8 w-8"
+                      onClick={() => handleBodyBlockMove(block.id, 1)}
+                      disabled={index === bodyBlocks.length - 1}
+                    >
+                      <ArrowDown className="h-3.5 w-3.5" />
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="grid gap-4 rounded-lg border p-4">
+          <div className="flex items-center justify-between gap-2">
+            <div>
               <h3 className="font-medium text-gray-900">Line Item Columns</h3>
               <p className="text-xs text-muted-foreground">
                 Reorder, rename, or hide columns in the invoice table. Widths are percentages and should total roughly 100%.
@@ -997,3 +1229,307 @@ export function TemplateSettingsManager() {
     </Card>
   );
 }
+
+interface SectionDesignerProps {
+  placements: Record<SectionArea, TemplateSectionPlacement[]>;
+  sections: TemplateSections;
+  onMove: (section: TemplateSectionKey, area: SectionArea, index?: number) => void;
+}
+
+function SectionDesigner({ placements, sections, onMove }: SectionDesignerProps) {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="grid gap-4 md:grid-cols-2">
+        {(["headerLeft", "headerRight"] as SectionArea[]).map((area) => (
+          <SectionDropZone
+            key={area}
+            area={area}
+            placements={placements[area]}
+            sections={sections}
+            onMove={onMove}
+          />
+        ))}
+      </div>
+      <SectionDropZone
+        area="fullWidth"
+        placements={placements.fullWidth}
+        sections={sections}
+        onMove={onMove}
+        fullWidth
+      />
+    </div>
+  );
+}
+
+interface SectionDropZoneProps {
+  area: SectionArea;
+  placements: TemplateSectionPlacement[];
+  sections: TemplateSections;
+  onMove: (section: TemplateSectionKey, area: SectionArea, index?: number) => void;
+  fullWidth?: boolean;
+}
+
+function SectionDropZone({ area, placements, sections, onMove, fullWidth }: SectionDropZoneProps) {
+  const handleDrop = (event: React.DragEvent, index?: number) => {
+    event.preventDefault();
+    event.stopPropagation();
+    const sectionKey = readDraggedSection(event);
+    if (!sectionKey) return;
+    onMove(sectionKey, area, index);
+  };
+
+  return (
+    <div
+      className={`rounded-md border border-dashed bg-muted/20 p-3 ${fullWidth ? "" : ""}`}
+      onDragOver={(event) => event.preventDefault()}
+      onDrop={(event) => handleDrop(event)}
+    >
+      <p className="text-xs font-semibold uppercase text-muted-foreground">{AREA_LABELS[area]}</p>
+      <div className="mt-2 flex flex-col gap-2">
+        {placements.map((placement, index) => (
+          <div key={placement.section} onDrop={(event) => handleDrop(event, index)}>
+            <SectionCard placement={placement} sections={sections} />
+          </div>
+        ))}
+      </div>
+      {!placements.length && (
+        <div className="mt-2 rounded-md border border-dashed bg-white/60 px-3 py-6 text-center text-xs text-muted-foreground">
+          Drag a section here
+        </div>
+      )}
+    </div>
+  );
+}
+
+interface SectionCardProps {
+  placement: TemplateSectionPlacement;
+  sections: TemplateSections;
+}
+
+function SectionCard({ placement, sections }: SectionCardProps) {
+  const isVisible = sections[SECTION_VISIBILITY_FIELDS[placement.section]];
+
+  return (
+    <div
+      className={`flex cursor-grab items-start gap-2 rounded-md border bg-white p-3 shadow-sm transition hover:border-primary ${
+        isVisible ? "" : "opacity-60"
+      }`}
+      draggable
+      onDragStart={(event) => handleSectionDragStart(event, placement.section)}
+    >
+      <GripVertical className="mt-1 h-4 w-4 text-muted-foreground" />
+      <div className="flex-1">
+        <p className="text-sm font-medium text-gray-900">{SECTION_METADATA[placement.section].label}</p>
+        <p className="text-xs text-muted-foreground">{SECTION_METADATA[placement.section].description}</p>
+        {!isVisible && (
+          <span className="mt-1 inline-flex text-[10px] font-semibold uppercase text-amber-600">Hidden</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+interface InvoicePreviewProps {
+  settings: TemplateSettings;
+  sectionBuckets: Record<SectionArea, TemplateSectionKey[]>;
+  bodyBlocks: BodyBlockConfig[];
+}
+
+function InvoicePreview({ settings, sectionBuckets, bodyBlocks }: InvoicePreviewProps) {
+  const columns = settings.layout.columns.filter((column) => column.enabled !== false);
+
+  return (
+    <div className="rounded-lg border bg-white p-4 shadow-sm">
+      <div className="flex items-center justify-between">
+        <p className="text-sm font-medium text-gray-900">Live Preview</p>
+        <span className="text-[11px] text-muted-foreground">Sample data</span>
+      </div>
+
+      <div className="mt-3 grid gap-3 md:grid-cols-2">
+        <PreviewColumn title="Left column" sections={sectionBuckets.headerLeft} />
+        <PreviewColumn title="Right column" sections={sectionBuckets.headerRight} />
+      </div>
+
+      {sectionBuckets.fullWidth.length > 0 && (
+        <div className="mt-3 space-y-2">
+          {sectionBuckets.fullWidth.map((section) => (
+            <PreviewSection key={`full-${section}`} section={section} />
+          ))}
+        </div>
+      )}
+
+      <div className="mt-4">
+        <p className="text-xs font-semibold uppercase text-muted-foreground">Line items</p>
+        <div className="mt-2 overflow-hidden rounded border">
+          <div className="flex bg-muted/40 text-[11px] font-medium text-muted-foreground">
+            {columns.map((column) => (
+              <span
+                key={column.id}
+                className="border-r px-2 py-1"
+                style={{ width: `${column.width}%` }}
+              >
+                {column.label}
+              </span>
+            ))}
+          </div>
+          <div className="flex border-t text-[10px]">
+            {columns.map((column) => (
+              <span
+                key={`${column.id}-preview`}
+                className="border-r px-2 py-1 text-muted-foreground"
+                style={{ width: `${column.width}%` }}
+              >
+                {COLUMN_SAMPLE_VALUES[column.id] ?? "—"}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <p className="text-xs font-semibold uppercase text-muted-foreground">Post-table blocks</p>
+        <div className="mt-2 space-y-1">
+          {bodyBlocks.map((block) => {
+            const meta = BODY_BLOCK_METADATA[block.id];
+            const isVisible = settings.layout.sections[BODY_BLOCK_VISIBILITY_FIELDS[block.id]];
+            return (
+              <div
+                key={`preview-${block.id}`}
+                className="flex items-center justify-between rounded border border-muted/50 bg-muted/10 px-2 py-1 text-[11px]"
+              >
+                <span>{meta.label}</span>
+                {!isVisible && <span className="text-[10px] uppercase text-amber-600">Hidden</span>}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PreviewColumn({ title, sections }: { title: string; sections: TemplateSectionKey[] }) {
+  return (
+    <div className="rounded-md border bg-muted/10 p-3">
+      <p className="text-[11px] font-semibold uppercase text-muted-foreground">{title}</p>
+      <div className="mt-2 space-y-2">
+        {sections.length ? (
+          sections.map((section) => <PreviewSection key={section} section={section} />)
+        ) : (
+          <p className="text-xs text-muted-foreground">No sections assigned</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function PreviewSection({ section }: { section: TemplateSectionKey }) {
+  const sample = SECTION_SAMPLE_CONTENT[section];
+  return (
+    <div className="rounded border border-muted/50 bg-white px-3 py-2">
+      <p className="text-[11px] font-medium text-gray-900">{SECTION_METADATA[section].label}</p>
+      <ul className="mt-1 text-[10px] text-muted-foreground">
+        {sample.map((line, index) => (
+          <li key={`${section}-${index}`}>{line}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function bucketPlacements(placements?: TemplateSectionPlacement[]) {
+  const buckets = createEmptyPlacementBuckets();
+  const seen = new Set<TemplateSectionKey>();
+
+  (placements ?? []).forEach((placement) => {
+    const area = SECTION_AREAS.includes(placement.area) ? placement.area : "fullWidth";
+    buckets[area].push({
+      section: placement.section,
+      area,
+      order: placement.order,
+    });
+    seen.add(placement.section);
+  });
+
+  SECTION_KEYS.forEach((section) => {
+    if (!seen.has(section)) {
+      buckets.fullWidth.push({
+        section,
+        area: "fullWidth",
+        order: buckets.fullWidth.length,
+      });
+    }
+  });
+
+  SECTION_AREAS.forEach((area) => {
+    buckets[area].sort((a, b) => a.order - b.order);
+  });
+
+  return buckets;
+}
+
+function createEmptyPlacementBuckets(): Record<SectionArea, TemplateSectionPlacement[]> {
+  return {
+    headerLeft: [],
+    headerRight: [],
+    fullWidth: [],
+  };
+}
+
+function createEmptyPreviewBuckets(): Record<SectionArea, TemplateSectionKey[]> {
+  return {
+    headerLeft: [],
+    headerRight: [],
+    fullWidth: [],
+  };
+}
+
+const DRAG_DATA_KEY = "text/template-section";
+
+function handleSectionDragStart(event: React.DragEvent, section: TemplateSectionKey) {
+  event.dataTransfer.setData(DRAG_DATA_KEY, section);
+  event.dataTransfer.setData("text/plain", section);
+  event.dataTransfer.effectAllowed = "move";
+}
+
+function readDraggedSection(event: React.DragEvent): TemplateSectionKey | null {
+  const value = event.dataTransfer.getData(DRAG_DATA_KEY) || event.dataTransfer.getData("text/plain");
+  return isTemplateSectionKey(value) ? (value as TemplateSectionKey) : null;
+}
+
+function isTemplateSectionKey(value: string | null | undefined): value is TemplateSectionKey {
+  if (!value) return false;
+  return SECTION_KEYS.includes(value as TemplateSectionKey);
+}
+
+const SECTION_SAMPLE_CONTENT: Record<TemplateSectionKey, string[]> = {
+  billTo: [
+    "Cheesetique Old Town",
+    "2411 Mount Vernon Ave",
+    "Alexandria, VA 22301",
+  ],
+  shipTo: [
+    "Cheesetique Old Town",
+    "Suite 200",
+    "Alexandria, VA 22301",
+  ],
+  customerInfo: [
+    "Invoice #INV-1042",
+    "Salesperson: Travis Leonard",
+    "PO: PO-56789",
+  ],
+};
+
+const COLUMN_SAMPLE_VALUES: Partial<Record<InvoiceColumnId, string>> = {
+  quantity: "12",
+  sku: "SKU-001",
+  productName: "Rioja Crianza",
+  unitPrice: "$14.50",
+  lineTotal: "$174.00",
+  abcCode: "289654",
+  size: "750ml",
+  liters: "9.00",
+  cases: "1.0",
+  totalBottles: "12",
+  bottlePrice: "$14.50",
+};

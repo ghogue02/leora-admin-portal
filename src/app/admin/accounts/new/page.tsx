@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -50,17 +50,7 @@ export default function NewAccountPage() {
     sendInvitation: false,
   });
 
-  useEffect(() => {
-    fetchRoles();
-  }, [userType]);
-
-  useEffect(() => {
-    if (userType === 'portal') {
-      fetchCustomers();
-    }
-  }, [userType]);
-
-  const fetchRoles = async () => {
+  const fetchRoles = useCallback(async () => {
     try {
       const type = userType === 'internal' ? 'internal' : 'portal';
       const response = await fetch(`/api/admin/roles?type=${type}`);
@@ -71,12 +61,12 @@ export default function NewAccountPage() {
       }
 
       setAvailableRoles(data.roles);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error fetching roles:', err);
     }
-  };
+  }, [userType]);
 
-  const fetchCustomers = async () => {
+  const fetchCustomers = useCallback(async () => {
     setLoadingCustomers(true);
     try {
       const response = await fetch('/api/admin/customers?limit=1000');
@@ -87,12 +77,22 @@ export default function NewAccountPage() {
       }
 
       setAvailableCustomers(data.customers || []);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error fetching customers:', err);
     } finally {
       setLoadingCustomers(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchRoles();
+  }, [fetchRoles]);
+
+  useEffect(() => {
+    if (userType === 'portal') {
+      fetchCustomers();
+    }
+  }, [userType, fetchCustomers]);
 
   const toggleRole = (roleId: string, type: UserType) => {
     if (type === 'internal') {
@@ -169,8 +169,8 @@ export default function NewAccountPage() {
 
         alert('Internal user created successfully');
         router.push(`/admin/accounts/user/${data.user.id}`);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : 'Failed to create user');
       } finally {
         setLoading(false);
       }
@@ -194,8 +194,8 @@ export default function NewAccountPage() {
 
         alert('Portal user created successfully');
         router.push(`/admin/accounts/portal-user/${data.portalUser.id}`);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : 'Failed to create portal user');
       } finally {
         setLoading(false);
       }

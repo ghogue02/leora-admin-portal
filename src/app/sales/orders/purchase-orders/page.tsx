@@ -60,17 +60,6 @@ export default function PurchaseOrdersPage() {
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-          Purchase Orders
-        </p>
-        <h1 className="text-3xl font-semibold text-gray-900">Supplier Orders & ETAs</h1>
-        <p className="max-w-2xl text-sm text-gray-600">
-          Track purchase orders from suppliers and view expected arrival dates for backordered
-          items.
-        </p>
-      </header>
-
       <div className="flex justify-between items-center">
         <div className="text-sm text-gray-600">
           {data?.purchaseOrders.length ?? 0} purchase order

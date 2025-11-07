@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { formatCurrency, formatNumber } from '@/lib/utils/format';
@@ -71,14 +71,7 @@ export default function UserDetailPage() {
     }
   }, [params]);
 
-  useEffect(() => {
-    if (userId) {
-      fetchUser();
-      fetchAvailableRoles();
-    }
-  }, [userId]);
-
-  const fetchUser = async () => {
+  const fetchUser = useCallback(async () => {
     if (!userId) return;
 
     try {
@@ -96,14 +89,14 @@ export default function UserDetailPage() {
         isActive: data.user.isActive,
       });
       setSelectedRoleIds(data.user.roles.map((r: Role) => r.id));
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch user');
     } finally {
       setLoading(false);
     }
-  };
+  }, [userId]);
 
-  const fetchAvailableRoles = async () => {
+  const fetchAvailableRoles = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/roles?type=internal');
       const data = await response.json();
@@ -113,10 +106,17 @@ export default function UserDetailPage() {
       }
 
       setAvailableRoles(data.roles);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error fetching roles:', err);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchUser();
+      fetchAvailableRoles();
+    }
+  }, [userId, fetchUser, fetchAvailableRoles]);
 
   const handleSave = async () => {
     if (!userId) return;
@@ -140,8 +140,8 @@ export default function UserDetailPage() {
 
       alert('User updated successfully');
       fetchUser(); // Refresh user data
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to update user');
     } finally {
       setSaving(false);
     }
@@ -168,8 +168,8 @@ export default function UserDetailPage() {
 
       alert('Roles updated successfully');
       fetchUser(); // Refresh user data
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to update roles');
     } finally {
       setSaving(false);
     }
@@ -197,8 +197,8 @@ export default function UserDetailPage() {
 
       alert('User deactivated successfully');
       router.push('/admin/accounts');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to deactivate user');
     } finally {
       setSaving(false);
     }

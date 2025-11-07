@@ -178,15 +178,6 @@ function QuickAssignPageContent() {
 
   return (
     <main className="mx-auto flex max-w-4xl flex-col gap-6 p-6">
-      {/* Header */}
-      <header>
-        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-          Quick Assignment
-        </p>
-        <h1 className="text-3xl font-semibold text-gray-900">Assign Sample</h1>
-        <p className="mt-1 text-sm text-gray-600">Fast sample distribution with instant activity logging</p>
-      </header>
-
       {/* Progress Steps */}
       <div className="flex items-center gap-2">
         {['product', 'customer', 'details'].map((s, i) => (

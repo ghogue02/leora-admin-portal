@@ -157,14 +157,7 @@ export default function SampleListsPage() {
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
-      <header className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">Samples</p>
-          <h1 className="text-3xl font-semibold text-gray-900">Sample Lists & Tech Sheets</h1>
-          <p className="mt-1 text-sm text-gray-600">
-            Build reusable sample pulls, control pricing, and export branded PDFs in seconds.
-          </p>
-        </div>
+      <header className="flex justify-end">
         <div className="flex flex-wrap gap-2">
           <Link
             href="/sales/samples"

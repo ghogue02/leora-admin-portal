@@ -142,7 +142,7 @@ export function GlobalSearch() {
             <div className="max-h-96 overflow-y-auto">
               {results.length === 0 && !isLoading && (
                 <div className="p-8 text-center text-gray-500">
-                  No results found for "{query}"
+                  No results found for &ldquo;{query}&rdquo;
                 </div>
               )}
 

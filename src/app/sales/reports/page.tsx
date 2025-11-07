@@ -107,24 +107,6 @@ export default function SalesReportsPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
       {/* Header */}
-      <header className="flex flex-col gap-3">
-        <div className="flex items-center gap-2">
-          <BarChart3 className="h-8 w-8 text-primary" />
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              Reports
-            </p>
-            <h1 className="text-3xl font-semibold text-gray-900">
-              Delivery Method Reports
-            </h1>
-          </div>
-        </div>
-        <p className="max-w-2xl text-sm text-gray-600">
-          Filter and analyze invoices by delivery method, date range, and export
-          results to CSV or Excel.
-        </p>
-      </header>
-
       {/* Filter Panel */}
       <FilterPanel
         filters={filters}

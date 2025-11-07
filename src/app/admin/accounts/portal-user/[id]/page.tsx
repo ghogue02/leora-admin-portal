@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -76,14 +76,7 @@ export default function PortalUserDetailPage() {
     }
   }, [params]);
 
-  useEffect(() => {
-    if (portalUserId) {
-      fetchPortalUser();
-      fetchAvailableRoles();
-    }
-  }, [portalUserId]);
-
-  const fetchPortalUser = async () => {
+  const fetchPortalUser = useCallback(async () => {
     if (!portalUserId) return;
 
     try {
@@ -101,14 +94,14 @@ export default function PortalUserDetailPage() {
         status: data.portalUser.status,
       });
       setSelectedRoleIds(data.portalUser.roles.map((r: Role) => r.id));
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch portal user');
     } finally {
       setLoading(false);
     }
-  };
+  }, [portalUserId]);
 
-  const fetchAvailableRoles = async () => {
+  const fetchAvailableRoles = useCallback(async () => {
     try {
       const response = await fetch('/api/admin/roles?type=portal');
       const data = await response.json();
@@ -118,10 +111,17 @@ export default function PortalUserDetailPage() {
       }
 
       setAvailableRoles(data.roles);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Error fetching roles:', err);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (portalUserId) {
+      fetchPortalUser();
+      fetchAvailableRoles();
+    }
+  }, [portalUserId, fetchPortalUser, fetchAvailableRoles]);
 
   const handleSave = async () => {
     if (!portalUserId) return;
@@ -144,8 +144,8 @@ export default function PortalUserDetailPage() {
 
       alert('Portal user updated successfully');
       fetchPortalUser();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to update portal user');
     } finally {
       setSaving(false);
     }
@@ -172,8 +172,8 @@ export default function PortalUserDetailPage() {
 
       alert('Roles updated successfully');
       fetchPortalUser();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to update roles');
     } finally {
       setSaving(false);
     }
@@ -201,8 +201,8 @@ export default function PortalUserDetailPage() {
 
       alert('Portal user disabled successfully');
       router.push('/admin/accounts');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to disable portal user');
     } finally {
       setSaving(false);
     }
@@ -289,7 +289,9 @@ export default function PortalUserDetailPage() {
                 </label>
                 <select
                   value={formData.status}
-                  onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, status: e.target.value as PortalUser['status'] })
+                  }
                   className="w-full px-4 py-2 border rounded-lg"
                 >
                   {STATUS_OPTIONS.map((status) => (

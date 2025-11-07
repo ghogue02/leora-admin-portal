@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
 interface User {
@@ -47,6 +47,13 @@ const STATUS_COLORS = {
   DISABLED: 'bg-red-100 text-red-800',
 };
 
+const createFilterState = () => ({
+  search: '',
+  role: '',
+  status: '',
+  territory: '',
+});
+
 export default function AccountsPage() {
   const [activeTab, setActiveTab] = useState<'internal' | 'portal'>('internal');
 
@@ -72,14 +79,19 @@ export default function AccountsPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Filters
-  const [search, setSearch] = useState('');
-  const [role, setRole] = useState('');
-  const [status, setStatus] = useState('');
-  const [territory, setTerritory] = useState('');
+  const [filters, setFilters] = useState(createFilterState);
+  const [appliedFilters, setAppliedFilters] = useState(createFilterState);
 
-  // Sorting
-  const [sortBy, setSortBy] = useState('fullName');
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const { search, role, status, territory } = filters;
+  const {
+    search: appliedSearch,
+    role: appliedRole,
+    status: appliedStatus,
+    territory: appliedTerritory,
+  } = appliedFilters;
+
+  const sortBy = 'fullName';
+  const sortOrder: 'asc' | 'desc' = 'asc';
 
   // Bulk selection
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -90,9 +102,9 @@ export default function AccountsPage() {
     } else {
       fetchPortalUsers();
     }
-  }, [activeTab, usersPagination.page, portalUsersPagination.page, sortBy, sortOrder]);
+  }, [activeTab, fetchUsers, fetchPortalUsers]);
 
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -103,10 +115,10 @@ export default function AccountsPage() {
       sortOrder,
     });
 
-    if (search) params.append('search', search);
-    if (role) params.append('role', role);
-    if (status) params.append('status', status);
-    if (territory) params.append('territory', territory);
+    if (appliedSearch) params.append('search', appliedSearch);
+    if (appliedRole) params.append('role', appliedRole);
+    if (appliedStatus) params.append('status', appliedStatus);
+    if (appliedTerritory) params.append('territory', appliedTerritory);
 
     try {
       const response = await fetch(`/api/admin/accounts/users?${params}`);
@@ -118,14 +130,23 @@ export default function AccountsPage() {
 
       setUsers(data.users);
       setUsersPagination(data.pagination);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch users');
     } finally {
       setLoading(false);
     }
-  };
+  }, [
+    usersPagination.page,
+    usersPagination.limit,
+    sortBy,
+    sortOrder,
+    appliedSearch,
+    appliedRole,
+    appliedStatus,
+    appliedTerritory,
+  ]);
 
-  const fetchPortalUsers = async () => {
+  const fetchPortalUsers = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -136,9 +157,9 @@ export default function AccountsPage() {
       sortOrder,
     });
 
-    if (search) params.append('search', search);
-    if (role) params.append('role', role);
-    if (status) params.append('status', status);
+    if (appliedSearch) params.append('search', appliedSearch);
+    if (appliedRole) params.append('role', appliedRole);
+    if (appliedStatus) params.append('status', appliedStatus);
 
     try {
       const response = await fetch(`/api/admin/accounts/portal-users?${params}`);
@@ -150,32 +171,38 @@ export default function AccountsPage() {
 
       setPortalUsers(data.portalUsers);
       setPortalUsersPagination(data.pagination);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch portal users');
     } finally {
       setLoading(false);
     }
-  };
+  }, [
+    portalUsersPagination.page,
+    portalUsersPagination.limit,
+    sortBy,
+    sortOrder,
+    appliedSearch,
+    appliedRole,
+    appliedStatus,
+  ]);
 
   const handleSearch = () => {
+    setAppliedFilters({ ...filters });
     if (activeTab === 'internal') {
-      setUsersPagination({ ...usersPagination, page: 1 });
-      fetchUsers();
+      setUsersPagination((prev) => ({ ...prev, page: 1 }));
     } else {
-      setPortalUsersPagination({ ...portalUsersPagination, page: 1 });
-      fetchPortalUsers();
+      setPortalUsersPagination((prev) => ({ ...prev, page: 1 }));
     }
   };
 
   const handleClearFilters = () => {
-    setSearch('');
-    setRole('');
-    setStatus('');
-    setTerritory('');
+    const cleared = createFilterState();
+    setFilters(cleared);
+    setAppliedFilters(cleared);
     if (activeTab === 'internal') {
-      setUsersPagination({ ...usersPagination, page: 1 });
+      setUsersPagination((prev) => ({ ...prev, page: 1 }));
     } else {
-      setPortalUsersPagination({ ...portalUsersPagination, page: 1 });
+      setPortalUsersPagination((prev) => ({ ...prev, page: 1 }));
     }
   };
 
@@ -260,7 +287,7 @@ export default function AccountsPage() {
               type="text"
               placeholder="Search by name or email..."
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               className="px-4 py-2 border rounded-lg"
             />
@@ -269,13 +296,13 @@ export default function AccountsPage() {
               type="text"
               placeholder="Filter by role..."
               value={role}
-              onChange={(e) => setRole(e.target.value)}
+              onChange={(e) => setFilters((prev) => ({ ...prev, role: e.target.value }))}
               className="px-4 py-2 border rounded-lg"
             />
 
             <select
               value={status}
-              onChange={(e) => setStatus(e.target.value)}
+              onChange={(e) => setFilters((prev) => ({ ...prev, status: e.target.value }))}
               className="px-4 py-2 border rounded-lg"
             >
               <option value="">All Statuses</option>
@@ -298,7 +325,7 @@ export default function AccountsPage() {
                 type="text"
                 placeholder="Filter by territory..."
                 value={territory}
-                onChange={(e) => setTerritory(e.target.value)}
+                onChange={(e) => setFilters((prev) => ({ ...prev, territory: e.target.value }))}
                 className="px-4 py-2 border rounded-lg"
               />
             )}

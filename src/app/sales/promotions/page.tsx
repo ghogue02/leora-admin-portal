@@ -61,17 +61,6 @@ export default function PromotionsPage() {
 
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-8">
-      <header className="flex flex-col gap-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-          Special Offers
-        </p>
-        <h1 className="text-3xl font-semibold text-gray-900">Promotions & Closeouts</h1>
-        <p className="max-w-2xl text-sm text-gray-600">
-          Take advantage of special pricing and limited-time offers. Stock up on closeout items
-          before they're gone.
-        </p>
-      </header>
-
       <div className="flex gap-2 border-b border-gray-200">
         <button
           type="button"

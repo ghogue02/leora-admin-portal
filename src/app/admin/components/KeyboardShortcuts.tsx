@@ -160,5 +160,5 @@ export function useKeyboardShortcut(
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, deps);
+  }, [key, callback, ...deps]);
 }

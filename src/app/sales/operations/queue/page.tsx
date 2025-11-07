@@ -220,14 +220,7 @@ export default function OperationsQueuePage() {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <header className="mb-6 flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">Operations Queue</h1>
-          <p className="mt-1 text-sm text-gray-600">
-            Manage orders ready for picking and delivery
-          </p>
-        </div>
-
+      <header className="mb-6 flex justify-end">
         {/* PHASE 2: View Mode Toggle */}
         {!loading && orders.length > 0 && (
           <div className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white p-1">

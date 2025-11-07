@@ -61,41 +61,29 @@ export default function SalesSamplesPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
       {/* Header */}
-      <header className="flex flex-col gap-3">
-        <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-              Samples
-            </p>
-            <h1 className="text-3xl font-semibold text-gray-900">Sample Management</h1>
-            <p className="mt-1 text-sm text-gray-600">
-              Track sample distribution, customer feedback, and conversion rates
-            </p>
-          </div>
-
-          <div className="flex gap-2">
-            <Link
-              href="/sales/sample-lists"
-              className="flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
-            >
-              <FileText className="h-4 w-4" />
-              Build Tech Sheets
-            </Link>
-            <Link
-              href="/sales/analytics/samples"
-              className="flex items-center gap-2 rounded-md border border-purple-600 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 transition hover:bg-purple-100"
-            >
-              <BarChart3 className="h-4 w-4" />
-              View Analytics
-            </Link>
-            <button
-              onClick={() => setIsLogModalOpen(true)}
-              className="flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
-            >
-              <Plus className="h-4 w-4" />
-              Log Sample
-            </button>
-          </div>
+      <header className="flex justify-end">
+        <div className="flex gap-2">
+          <Link
+            href="/sales/sample-lists"
+            className="flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-50"
+          >
+            <FileText className="h-4 w-4" />
+            Build Tech Sheets
+          </Link>
+          <Link
+            href="/sales/analytics/samples"
+            className="flex items-center gap-2 rounded-md border border-purple-600 bg-purple-50 px-4 py-2 text-sm font-medium text-purple-700 transition hover:bg-purple-100"
+          >
+            <BarChart3 className="h-4 w-4" />
+            View Analytics
+          </Link>
+          <button
+            onClick={() => setIsLogModalOpen(true)}
+            className="flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          >
+            <Plus className="h-4 w-4" />
+            Log Sample
+          </button>
         </div>
       </header>
 

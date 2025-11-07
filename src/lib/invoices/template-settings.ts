@@ -47,6 +47,30 @@ const sectionsSchema = z.object({
   showComplianceNotice: z.boolean().default(true),
 });
 
+const SECTION_KEYS = ['billTo', 'shipTo', 'customerInfo'] as const;
+
+const SECTION_AREAS = ['headerLeft', 'headerRight', 'fullWidth'] as const;
+
+export type InvoiceSectionKey = typeof SECTION_KEYS[number];
+export type InvoiceSectionArea = typeof SECTION_AREAS[number];
+
+const sectionPlacementSchema = z.object({
+  section: z.enum(SECTION_KEYS),
+  area: z.enum(SECTION_AREAS).default('headerLeft'),
+  order: z.number().int().nonnegative().default(0),
+});
+
+export type InvoiceSectionPlacement = z.infer<typeof sectionPlacementSchema>;
+
+const BODY_BLOCK_IDS = ['totals', 'signature', 'compliance'] as const;
+
+export type InvoiceBodyBlockId = typeof BODY_BLOCK_IDS[number];
+
+const bodyBlockSchema = z.object({
+  id: z.enum(BODY_BLOCK_IDS),
+  order: z.number().int().nonnegative().default(0),
+});
+
 const headerNoteSchema = z.object({
   id: z.string().min(1),
   label: z.string().min(1),
@@ -59,6 +83,8 @@ const layoutSchema = z.object({
   sections: sectionsSchema.partial().optional(),
   columns: z.array(columnSchema).optional(),
   headerNotes: z.array(headerNoteSchema).optional(),
+  sectionPlacements: z.array(sectionPlacementSchema).optional(),
+  bodyBlocks: z.array(bodyBlockSchema).optional(),
 });
 
 const templateConfigSchema = z.object({
@@ -93,6 +119,8 @@ export type InvoiceTemplateLayout = {
     enabled: boolean;
     position: 'beforeHeader' | 'afterHeader' | 'beforeTable' | 'afterTable';
   }>;
+  sectionPlacements: Array<z.infer<typeof sectionPlacementSchema>>;
+  bodyBlocks: Array<z.infer<typeof bodyBlockSchema>>;
 };
 
 export type InvoiceTemplateConfig = {
@@ -139,6 +167,24 @@ function columnConfig(
   };
 }
 
+const DEFAULT_SECTION_PLACEMENTS: Record<InvoiceFormatType, InvoiceSectionPlacement[]> = {
+  STANDARD: [
+    { section: 'billTo', area: 'headerLeft', order: 0 },
+    { section: 'shipTo', area: 'headerRight', order: 0 },
+    { section: 'customerInfo', area: 'fullWidth', order: 0 },
+  ],
+  VA_ABC_INSTATE: [
+    { section: 'billTo', area: 'headerLeft', order: 0 },
+    { section: 'shipTo', area: 'headerRight', order: 0 },
+    { section: 'customerInfo', area: 'fullWidth', order: 0 },
+  ],
+  VA_ABC_TAX_EXEMPT: [
+    { section: 'billTo', area: 'headerLeft', order: 0 },
+    { section: 'shipTo', area: 'headerRight', order: 0 },
+    { section: 'customerInfo', area: 'fullWidth', order: 0 },
+  ],
+};
+
 const DEFAULT_LAYOUTS: Record<InvoiceFormatType, InvoiceTemplateLayout> = {
   STANDARD: {
     sections: {
@@ -154,6 +200,8 @@ const DEFAULT_LAYOUTS: Record<InvoiceFormatType, InvoiceTemplateLayout> = {
       columnConfig('lineTotal', { width: 17 }),
     ],
     headerNotes: [...DEFAULT_HEADER_NOTES],
+    sectionPlacements: DEFAULT_SECTION_PLACEMENTS.STANDARD.map((placement) => ({ ...placement })),
+    bodyBlocks: BODY_BLOCK_IDS.map((id, index) => ({ id, order: index })),
   },
   VA_ABC_INSTATE: {
     sections: {
@@ -170,6 +218,8 @@ const DEFAULT_LAYOUTS: Record<InvoiceFormatType, InvoiceTemplateLayout> = {
       columnConfig('lineTotal', { width: 7, label: 'Amount' }),
     ],
     headerNotes: [...DEFAULT_HEADER_NOTES],
+    sectionPlacements: DEFAULT_SECTION_PLACEMENTS.VA_ABC_INSTATE.map((placement) => ({ ...placement })),
+    bodyBlocks: BODY_BLOCK_IDS.map((id, index) => ({ id, order: index })),
   },
   VA_ABC_TAX_EXEMPT: {
     sections: {
@@ -187,6 +237,8 @@ const DEFAULT_LAYOUTS: Record<InvoiceFormatType, InvoiceTemplateLayout> = {
       columnConfig('lineTotal', { width: 6, label: 'Amount' }),
     ],
     headerNotes: [...DEFAULT_HEADER_NOTES],
+    sectionPlacements: DEFAULT_SECTION_PLACEMENTS.VA_ABC_TAX_EXEMPT.map((placement) => ({ ...placement })),
+    bodyBlocks: BODY_BLOCK_IDS.map((id, index) => ({ id, order: index })),
   },
 };
 
@@ -195,7 +247,80 @@ function getDefaultLayout(format: InvoiceFormatType): InvoiceTemplateLayout {
     sections: { ...DEFAULT_LAYOUTS[format].sections },
     columns: DEFAULT_LAYOUTS[format].columns.map((col) => ({ ...col })),
     headerNotes: DEFAULT_LAYOUTS[format].headerNotes.map((note) => ({ ...note })),
+    sectionPlacements: DEFAULT_LAYOUTS[format].sectionPlacements.map((placement) => ({ ...placement })),
+    bodyBlocks: DEFAULT_LAYOUTS[format].bodyBlocks.map((block) => ({ ...block })),
   };
+}
+
+function mergeSectionPlacements(
+  format: InvoiceFormatType,
+  placements: InvoiceSectionPlacement[] | null | undefined,
+): InvoiceSectionPlacement[] {
+  const defaults = DEFAULT_SECTION_PLACEMENTS[format];
+  const mergedMap = new Map<InvoiceSectionKey, InvoiceSectionPlacement>();
+
+  defaults.forEach((placement) => {
+    mergedMap.set(placement.section, { ...placement });
+  });
+
+  if (placements?.length) {
+    placements.forEach((placement) => {
+      if (!SECTION_KEYS.includes(placement.section)) {
+        return;
+      }
+      mergedMap.set(placement.section, {
+        section: placement.section,
+        area: SECTION_AREAS.includes(placement.area as InvoiceSectionArea)
+          ? (placement.area as InvoiceSectionArea)
+          : (mergedMap.get(placement.section)?.area ?? 'headerLeft'),
+        order:
+          typeof placement.order === 'number'
+            ? Math.max(0, placement.order)
+            : mergedMap.get(placement.section)?.order ?? 0,
+      });
+    });
+  }
+
+  const byArea: Record<InvoiceSectionArea, InvoiceSectionPlacement[]> = {
+    headerLeft: [],
+    headerRight: [],
+    fullWidth: [],
+  };
+
+  mergedMap.forEach((placement) => {
+    byArea[placement.area].push(placement);
+  });
+
+  (Object.keys(byArea) as InvoiceSectionArea[]).forEach((area) => {
+    byArea[area]
+      .sort((a, b) => a.order - b.order || a.section.localeCompare(b.section))
+      .forEach((placement, index) => {
+        placement.order = index;
+      });
+  });
+
+  return (Object.values(byArea) as InvoiceSectionPlacement[][]).flat();
+}
+
+function mergeBodyBlocks(
+  blocks: Array<z.infer<typeof bodyBlockSchema>> | null | undefined,
+): Array<z.infer<typeof bodyBlockSchema>> {
+  const map = new Map<InvoiceBodyBlockId, z.infer<typeof bodyBlockSchema>>();
+  BODY_BLOCK_IDS.forEach((id, order) => {
+    map.set(id, { id, order });
+  });
+
+  (blocks ?? []).forEach((block) => {
+    if (!BODY_BLOCK_IDS.includes(block.id)) {
+      return;
+    }
+    map.set(block.id, {
+      id: block.id,
+      order: typeof block.order === 'number' ? Math.max(0, block.order) : map.get(block.id)?.order ?? 0,
+    });
+  });
+
+  return Array.from(map.values()).sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
 }
 
 function mergeLayout(
@@ -258,10 +383,15 @@ function mergeLayout(
       }))
     : defaults.headerNotes.map((note) => ({ ...note }));
 
+  const sectionPlacements = mergeSectionPlacements(format, layout.sectionPlacements);
+  const bodyBlocks = mergeBodyBlocks(layout.bodyBlocks);
+
   return {
     sections,
     columns: mergedColumns,
     headerNotes,
+    sectionPlacements,
+    bodyBlocks,
   };
 }
 

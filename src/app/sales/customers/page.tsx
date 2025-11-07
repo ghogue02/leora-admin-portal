@@ -63,7 +63,7 @@ export default function SalesCustomersPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Filters and search
-  const [activeFilter, setActiveFilter] = useState<CustomerRiskStatus | "ALL" | "DUE">("ALL");
+  const [activeFilter, setActiveFilter] = useState<CustomerRiskStatus | "ALL" | "DUE">("DUE");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortField, setSortField] = useState<SortField>("name");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");

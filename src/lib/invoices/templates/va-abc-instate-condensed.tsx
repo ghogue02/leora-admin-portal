@@ -15,6 +15,8 @@ import {
 import { CompleteInvoiceData } from '../invoice-data-builder';
 import { sharedStyles, formatCurrency, formatShortDate } from './styles';
 import type { InvoiceColumnId } from '../column-presets';
+import type { InvoiceBodyBlockId, InvoiceSectionKey } from '../template-settings';
+import { getBodyBlockOrder, getVisibleSectionBuckets } from '../layout-utils';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
@@ -286,6 +288,66 @@ function renderLineValue(columnId: InvoiceColumnId, line: CompleteInvoiceData['o
   }
 }
 
+function renderCustomerSection(
+  sectionKey: InvoiceSectionKey,
+  data: CompleteInvoiceData,
+  columnHeaderBackgroundStyle?: Record<string, unknown>,
+) {
+  switch (sectionKey) {
+    case 'billTo':
+      return (
+        <>
+          <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Bill To</Text>
+          <Text style={styles.customerName}>{data.customer.name}</Text>
+          <Text style={styles.customerAddress}>
+            {data.billingAddress.street1}
+            {data.billingAddress.street2 && `, ${data.billingAddress.street2}`}
+          </Text>
+          <Text style={styles.customerAddress}>
+            {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
+          </Text>
+        </>
+      );
+    case 'shipTo':
+      return (
+        <>
+          <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Ship To</Text>
+          <Text style={styles.customerName}>{data.customer.name}</Text>
+          <Text style={styles.customerAddress}>
+            {data.shippingAddress.street1}
+            {data.shippingAddress.street2 && `, ${data.shippingAddress.street2}`}
+          </Text>
+          <Text style={styles.customerAddress}>
+            {data.shippingAddress.city}, {data.shippingAddress.state} {data.shippingAddress.postalCode}
+          </Text>
+        </>
+      );
+    case 'customerInfo':
+      return (
+        <>
+          <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Invoice</Text>
+          <Text style={styles.customerAddress}>Invoice #: {data.invoiceNumber}</Text>
+          <Text style={styles.customerAddress}>Invoice Date: {formatShortDate(data.issuedAt)}</Text>
+          <Text style={styles.customerAddress}>Due Date: {formatShortDate(data.dueDate)}</Text>
+          {data.poNumber && (
+            <Text style={styles.customerAddress}>PO Number: {data.poNumber}</Text>
+          )}
+          {data.salesperson && (
+            <Text style={styles.customerAddress}>Salesperson: {data.salesperson}</Text>
+          )}
+          {data.shippingMethod && (
+            <Text style={styles.customerAddress}>Ship Method: {data.shippingMethod}</Text>
+          )}
+          {data.paymentTermsText && (
+            <Text style={styles.customerAddress}>Terms: {data.paymentTermsText}</Text>
+          )}
+        </>
+      );
+    default:
+      return null;
+  }
+}
+
 export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = ({ data }) => {
   const palette = data.templateSettings?.palette ?? {};
   const layout = data.templateSettings?.layout;
@@ -293,6 +355,7 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
     ...DEFAULT_SECTIONS,
     ...(layout?.sections ?? {}),
   };
+  const options = data.templateSettings?.options ?? {};
   const columns = parseColumns(layout?.columns);
   const headerNotes = groupNotes(layout?.headerNotes);
 
@@ -309,6 +372,13 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
   const grandTotalBorderStyle = palette.borderColor
     ? { borderTopColor: palette.borderColor }
     : undefined;
+  const showCustomerIdColumn = options.showCustomerIdColumn ?? true;
+  const sectionBuckets = layout
+    ? getVisibleSectionBuckets(layout)
+    : { headerLeft: [], headerRight: [], fullWidth: [] };
+  const bodyBlockOrder = layout
+    ? getBodyBlockOrder(layout)
+    : (['totals', 'signature', 'compliance'] as InvoiceBodyBlockId[]);
 
   return (
     <Document>
@@ -341,73 +411,42 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
 
         {/* Bill / Ship sections */}
         <View style={styles.threeColumnSection}>
-          {sections.showBillTo && (
+          {sectionBuckets.headerLeft.length > 0 && (
             <View style={[styles.column, columnBorderStyle]}>
-              <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Bill To</Text>
-              <Text style={styles.customerName}>{data.customer.name}</Text>
-              <Text style={styles.customerAddress}>
-                {data.billingAddress.street1}
-                {data.billingAddress.street2 && `, ${data.billingAddress.street2}`}
-              </Text>
-              <Text style={styles.customerAddress}>
-                {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
-              </Text>
+              {sectionBuckets.headerLeft.map((sectionKey) => (
+                <View key={sectionKey}>
+                  {renderCustomerSection(sectionKey, data, columnHeaderBackgroundStyle)}
+                </View>
+              ))}
             </View>
           )}
 
-          <View style={[styles.column, columnBorderStyle]}>
-            <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Invoice</Text>
-            <Text style={styles.customerAddress}>Invoice #: {data.invoiceNumber}</Text>
-            <Text style={styles.customerAddress}>Invoice Date: {formatShortDate(data.issuedAt)}</Text>
-            <Text style={styles.customerAddress}>Due Date: {formatShortDate(data.dueDate)}</Text>
-          </View>
-
-          {sections.showShipTo && (
+          {showCustomerIdColumn && (
             <View style={[styles.column, columnBorderStyle]}>
-              <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Ship To</Text>
-              <Text style={styles.customerName}>{data.customer.name}</Text>
-              <Text style={styles.customerAddress}>
-                {data.shippingAddress.street1}
-                {data.shippingAddress.street2 && `, ${data.shippingAddress.street2}`}
-              </Text>
-              <Text style={styles.customerAddress}>
-                {data.shippingAddress.city}, {data.shippingAddress.state} {data.shippingAddress.postalCode}
-              </Text>
+              <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Customer ID</Text>
+              <View style={[styles.customerIdBox, columnBorderStyle]}>
+                <Text style={styles.customerIdLabel}>ID</Text>
+                <Text style={styles.customerId}>{data.customer.accountNumber || data.customer.id.substring(0, 8)}</Text>
+              </View>
+            </View>
+          )}
+
+          {sectionBuckets.headerRight.length > 0 && (
+            <View style={[styles.column, columnBorderStyle]}>
+              {sectionBuckets.headerRight.map((sectionKey) => (
+                <View key={sectionKey}>
+                  {renderCustomerSection(sectionKey, data, columnHeaderBackgroundStyle)}
+                </View>
+              ))}
             </View>
           )}
         </View>
 
-        {/* Order Details */}
-        {sections.showCustomerInfo && (
-          <View style={styles.orderDetails}>
-            <View style={{ flexDirection: 'row', gap: 20 }}>
-              <View style={{ flex: 1 }}>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>PO Number:</Text>
-                  <Text style={styles.detailValue}>{data.poNumber || 'N/A'}</Text>
-                </View>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Salesperson:</Text>
-                  <Text style={styles.detailValue}>{data.salesperson}</Text>
-                </View>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Ship Date:</Text>
-                  <Text style={styles.detailValue}>{formatShortDate(data.shipDate)}</Text>
-                </View>
-              </View>
-              <View style={{ flex: 1 }}>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Shipping Method:</Text>
-                  <Text style={styles.detailValue}>{data.shippingMethod}</Text>
-                </View>
-                <View style={styles.detailRow}>
-                  <Text style={styles.detailLabel}>Payment Terms:</Text>
-                  <Text style={styles.detailValue}>{data.paymentTermsText}</Text>
-                </View>
-              </View>
-            </View>
+        {sectionBuckets.fullWidth.map((sectionKey) => (
+          <View key={sectionKey} style={styles.orderDetails}>
+            {renderCustomerSection(sectionKey, data)}
           </View>
-        )}
+        ))}
 
         {renderNotesBlock(headerNotes.beforeTable)}
 
@@ -452,46 +491,53 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
 
         {renderNotesBlock(headerNotes.afterTable)}
 
-        {/* Totals */}
-        {sections.showTotals && (
-          <View style={styles.totalsSection}>
-            <View style={styles.totalRow}>
-              <Text style={styles.totalLabel}>Total Liters:</Text>
-              <Text style={styles.totalValue}>{data.totalLiters.toFixed(2)}</Text>
-            </View>
-            <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
-              <Text style={styles.grandTotalLabel}>Total:</Text>
-              <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
-            </View>
-          </View>
-        )}
-
-        {/* Signature */}
-        {sections.showSignature && (
-          <View style={styles.retailerSignature}>
-            <Text style={styles.retailerHeader}>TO BE FILLED BY RETAIL LICENSEE</Text>
-            <Text style={{ fontSize: 5, marginBottom: 3 }}>
-              Goods listed received and cash paid in full on date below
-            </Text>
-            <View style={styles.signatureGrid}>
-              <View style={styles.signatureField}>
-                <Text style={styles.signatureLabel}>Date: _______________</Text>
+        {bodyBlockOrder.map((blockId) => {
+          if (blockId === 'totals' && sections.showTotals) {
+            return (
+              <View key="totals" style={styles.totalsSection}>
+                <View style={styles.totalRow}>
+                  <Text style={styles.totalLabel}>Total Liters:</Text>
+                  <Text style={styles.totalValue}>{data.totalLiters.toFixed(2)}</Text>
+                </View>
+                <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
+                  <Text style={styles.grandTotalLabel}>Total:</Text>
+                  <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
+                </View>
               </View>
-              <View style={styles.signatureField}>
-                <Text style={styles.signatureLabel}>Signed: _______________</Text>
-              </View>
-            </View>
-          </View>
-        )}
+            );
+          }
 
-        {/* Compliance */}
-        {sections.showComplianceNotice && (
-          <View style={styles.complianceNotice}>
-            <Text style={{ fontSize: 5 }}>
-              {data.interestRate.times(100).toFixed(1)}% finance charge on late payments. {data.complianceNotice}
-            </Text>
-          </View>
-        )}
+          if (blockId === 'signature' && sections.showSignature) {
+            return (
+              <View key="signature" style={styles.retailerSignature}>
+                <Text style={styles.retailerHeader}>TO BE FILLED BY RETAIL LICENSEE</Text>
+                <Text style={{ fontSize: 5, marginBottom: 3 }}>
+                  Goods listed received and cash paid in full on date below
+                </Text>
+                <View style={styles.signatureGrid}>
+                  <View style={styles.signatureField}>
+                    <Text style={styles.signatureLabel}>Date: _______________</Text>
+                  </View>
+                  <View style={styles.signatureField}>
+                    <Text style={styles.signatureLabel}>Signed: _______________</Text>
+                  </View>
+                </View>
+              </View>
+            );
+          }
+
+          if (blockId === 'compliance' && sections.showComplianceNotice) {
+            return (
+              <View key="compliance" style={styles.complianceNotice}>
+                <Text style={{ fontSize: 5 }}>
+                  {data.interestRate.times(100).toFixed(1)}% finance charge on late payments. {data.complianceNotice}
+                </Text>
+              </View>
+            );
+          }
+
+          return null;
+        })}
 
         {/* Legal */}
         <View style={styles.legalText}>

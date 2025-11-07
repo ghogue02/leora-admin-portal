@@ -16,6 +16,8 @@ import {
 import { CompleteInvoiceData } from '../invoice-data-builder';
 import { sharedStyles, formatCurrency, formatShortDate } from './styles';
 import type { InvoiceColumnId } from '../column-presets';
+import type { InvoiceBodyBlockId, InvoiceSectionKey } from '../template-settings';
+import { getBodyBlockOrder, getVisibleSectionBuckets } from '../layout-utils';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
@@ -60,6 +62,22 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     backgroundColor: '#f9f9f9',
   },
+  signatureBlock: {
+    marginTop: 15,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: '#000',
+  },
+  signatureLabel: {
+    fontSize: 9,
+    fontWeight: 'bold',
+  },
+  signatureLine: {
+    marginTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#000',
+    width: '60%',
+  },
   totalsSection: {
     marginTop: 15,
     alignItems: 'flex-end',
@@ -83,6 +101,31 @@ const styles = StyleSheet.create({
     padding: 15,
     borderWidth: 1,
     borderColor: '#000',
+  },
+  sectionGrid: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 15,
+  },
+  sectionColumn: {
+    flex: 1,
+    gap: 12,
+  },
+  sectionCard: {
+    borderWidth: 1,
+    borderColor: '#000',
+    padding: 10,
+    backgroundColor: '#fff',
+  },
+  sectionTitle: {
+    fontSize: 9,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    marginBottom: 6,
+  },
+  sectionLine: {
+    fontSize: 8,
+    marginBottom: 3,
   },
 });
 
@@ -221,6 +264,12 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
   const grandTotalBorderStyle = palette.borderColor
     ? { borderTopColor: palette.borderColor }
     : undefined;
+  const sectionBuckets = layout
+    ? getVisibleSectionBuckets(layout)
+    : { headerLeft: [], headerRight: [], fullWidth: [] };
+  const bodyBlockOrder = layout
+    ? getBodyBlockOrder(layout)
+    : (['totals', 'signature', 'compliance'] as InvoiceBodyBlockId[]);
 
   return (
     <Document>
@@ -263,40 +312,29 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
           </View>
         </View>
 
-        {/* Licensee Section */}
-        <View style={[styles.licenseeSection, columnBorderStyle]}>
-          <View style={styles.detailRow}>
-            <Text style={[styles.detailLabel, { width: 150 }]}>Licensee:</Text>
-            <Text style={styles.detailValue}>{data.customer.name}</Text>
+        {/* Dynamic Licensee / Ship / Order sections */}
+        <View style={styles.sectionGrid}>
+          <View style={styles.sectionColumn}>
+            {sectionBuckets.headerLeft.map((sectionKey) => (
+              <View key={`left-${sectionKey}`} style={[styles.sectionCard, columnBorderStyle]}>
+                {renderSectionBlock(sectionKey, data)}
+              </View>
+            ))}
           </View>
-          <View style={styles.detailRow}>
-            <Text style={[styles.detailLabel, { width: 150 }]}>Licensee/License #:</Text>
-            <Text style={styles.detailValue}>{data.customer.licenseNumber || 'N/A'}</Text>
+          <View style={styles.sectionColumn}>
+            {sectionBuckets.headerRight.map((sectionKey) => (
+              <View key={`right-${sectionKey}`} style={[styles.sectionCard, columnBorderStyle]}>
+                {renderSectionBlock(sectionKey, data)}
+              </View>
+            ))}
           </View>
-          <View style={styles.detailRow}>
-            <Text style={[styles.detailLabel, { width: 150 }]}>Street Address:</Text>
-            <Text style={styles.detailValue}>
-              {data.billingAddress.street1}
-              {data.billingAddress.street2 && `, ${data.billingAddress.street2}`}
-            </Text>
-          </View>
-          <View style={styles.detailRow}>
-            <Text style={[styles.detailLabel, { width: 150 }]}>City/State/Zip:</Text>
-            <Text style={styles.detailValue}>
-              {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
-            </Text>
-          </View>
-          <View style={styles.detailRow}>
-            <Text style={[styles.detailLabel, { width: 150 }]}>PO #:</Text>
-            <Text style={styles.detailValue}>{data.poNumber || 'N/A'}</Text>
-          </View>
-          {data.specialInstructions && (
-            <View style={styles.detailRow}>
-              <Text style={[styles.detailLabel, { width: 150 }]}>Special Instructions:</Text>
-              <Text style={styles.detailValue}>{data.specialInstructions}</Text>
-            </View>
-          )}
         </View>
+
+        {sectionBuckets.fullWidth.map((sectionKey) => (
+          <View key={`full-${sectionKey}`} style={[styles.sectionCard, columnBorderStyle, { marginBottom: 12 }]}>
+            {renderSectionBlock(sectionKey, data, true)}
+          </View>
+        ))}
 
         {renderNotesBlock(headerNotes.beforeTable)}
 
@@ -341,19 +379,41 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
 
         {renderNotesBlock(headerNotes.afterTable)}
 
-        {/* Totals */}
-        {sections.showTotals && (
-          <View style={styles.totalsSection}>
-            <View style={styles.totalRow}>
-              <Text style={styles.totalLabel}>Total Liters:</Text>
-              <Text style={styles.totalValue}>{data.totalLiters.toFixed(2)}</Text>
-            </View>
-            <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
-              <Text style={styles.grandTotalLabel}>Total Amount:</Text>
-              <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
-            </View>
-          </View>
-        )}
+        {bodyBlockOrder.map((blockId) => {
+          if (blockId === 'totals' && sections.showTotals) {
+            return (
+              <View key="totals" style={styles.totalsSection}>
+                <View style={styles.totalRow}>
+                  <Text style={styles.totalLabel}>Total Liters:</Text>
+                  <Text style={styles.totalValue}>{data.totalLiters.toFixed(2)}</Text>
+                </View>
+                <View style={[styles.grandTotalRow, grandTotalBorderStyle]}>
+                  <Text style={styles.grandTotalLabel}>Total Amount:</Text>
+                  <Text style={styles.grandTotalValue}>{formatCurrency(data.total)}</Text>
+                </View>
+              </View>
+            );
+          }
+
+          if (blockId === 'signature' && sections.showSignature) {
+            return (
+              <View key="signature" style={styles.signatureBlock}>
+                <Text style={styles.signatureLabel}>Authorized Signature</Text>
+                <View style={styles.signatureLine} />
+              </View>
+            );
+          }
+
+          if (blockId === 'compliance' && sections.showComplianceNotice) {
+            return (
+              <View key="compliance" style={styles.legalText}>
+                <Text>{data.complianceNotice}</Text>
+              </View>
+            );
+          }
+
+          return null;
+        })}
 
         {/* Payment Terms */}
         <View style={[styles.paymentTermsBox, sectionHeaderBackgroundStyle]}>
@@ -364,13 +424,6 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
             Total Amount Due: {formatCurrency(data.total)}
           </Text>
         </View>
-
-        {/* Compliance */}
-        {sections.showComplianceNotice && (
-          <View style={styles.legalText}>
-            <Text>{data.complianceNotice}</Text>
-          </View>
-        )}
       </Page>
 
       {/* PAGE 2 */}
@@ -401,3 +454,66 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
     </Document>
   );
 };
+
+function renderSectionBlock(
+  sectionKey: InvoiceSectionKey,
+  data: CompleteInvoiceData,
+  emphasize?: boolean,
+) {
+  switch (sectionKey) {
+    case 'billTo':
+      return (
+        <>
+          <Text style={styles.sectionTitle}>Licensee / Bill To</Text>
+          <Text style={styles.sectionLine}>{data.customer.name}</Text>
+          <Text style={styles.sectionLine}>
+            License #: {data.customer.licenseNumber || 'N/A'}
+          </Text>
+          <Text style={styles.sectionLine}>
+            {data.billingAddress.street1}
+            {data.billingAddress.street2 && `, ${data.billingAddress.street2}`}
+          </Text>
+          <Text style={styles.sectionLine}>
+            {data.billingAddress.city}, {data.billingAddress.state} {data.billingAddress.postalCode}
+          </Text>
+          <Text style={styles.sectionLine}>PO #: {data.poNumber || 'N/A'}</Text>
+        </>
+      );
+    case 'shipTo':
+      return (
+        <>
+          <Text style={styles.sectionTitle}>Ship To</Text>
+          <Text style={styles.sectionLine}>{data.customer.name}</Text>
+          <Text style={styles.sectionLine}>
+            {data.shippingAddress.street1}
+            {data.shippingAddress.street2 && `, ${data.shippingAddress.street2}`}
+          </Text>
+          <Text style={styles.sectionLine}>
+            {data.shippingAddress.city}, {data.shippingAddress.state} {data.shippingAddress.postalCode}
+          </Text>
+          <Text style={styles.sectionLine}>Shipping Method: {data.shippingMethod || 'N/A'}</Text>
+        </>
+      );
+    case 'customerInfo':
+      return (
+        <>
+          <Text style={styles.sectionTitle}>{emphasize ? 'Order Details' : 'Invoice Details'}</Text>
+          <Text style={styles.sectionLine}>Invoice #: {data.invoiceNumber}</Text>
+          <Text style={styles.sectionLine}>Invoice Date: {formatShortDate(data.issuedAt)}</Text>
+          <Text style={styles.sectionLine}>Due Date: {formatShortDate(data.dueDate)}</Text>
+          <Text style={styles.sectionLine}>Ship Date: {formatShortDate(data.shipDate)}</Text>
+          {data.paymentTermsText && (
+            <Text style={styles.sectionLine}>Terms: {data.paymentTermsText}</Text>
+          )}
+          {data.salesperson && (
+            <Text style={styles.sectionLine}>Salesperson: {data.salesperson}</Text>
+          )}
+          {data.specialInstructions && (
+            <Text style={styles.sectionLine}>Instructions: {data.specialInstructions}</Text>
+          )}
+        </>
+      );
+    default:
+      return null;
+  }
+}

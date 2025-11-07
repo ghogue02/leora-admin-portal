@@ -179,12 +179,7 @@ export default function ManagerApprovalsPage() {
 
   return (
     <div className="mx-auto max-w-7xl">
-      <header className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Order Approvals</h1>
-        <p className="mt-1 text-sm text-gray-600">
-          Review and approve orders with insufficient inventory
-        </p>
-      </header>
+      <header className="mb-6" />
 
       {/* PHASE 2: Dashboard Statistics */}
       {!loading && orders.length > 0 && (

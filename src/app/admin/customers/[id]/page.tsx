@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { CustomerClassificationFields } from '@/components/customers/CustomerClassificationFields';
@@ -77,6 +77,44 @@ const RISK_STATUS_COLORS = {
   CLOSED: 'bg-gray-100 text-gray-800 border-gray-300',
 };
 
+type CustomerFormState = {
+  name: string;
+  billingEmail: string;
+  phone: string;
+  street1: string;
+  street2: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  paymentTerms: string;
+  salesRepId: string;
+  isPermanentlyClosed: boolean;
+  closedReason: string;
+  type: CustomerType | '';
+  volumeCapacity: VolumeCapacity | '';
+  featurePrograms: FeatureProgram[];
+};
+
+const INITIAL_FORM_STATE: CustomerFormState = {
+  name: '',
+  billingEmail: '',
+  phone: '',
+  street1: '',
+  street2: '',
+  city: '',
+  state: '',
+  postalCode: '',
+  country: 'US',
+  paymentTerms: '',
+  salesRepId: '',
+  isPermanentlyClosed: false,
+  closedReason: '',
+  type: '',
+  volumeCapacity: '',
+  featurePrograms: [],
+};
+
 export default function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [customerId, setCustomerId] = useState<string | null>(null);
@@ -84,21 +122,18 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [formData, setFormData] = useState<any>({});
+  const [formData, setFormData] = useState<CustomerFormState>(INITIAL_FORM_STATE);
   const [resolvingFlagId, setResolvingFlagId] = useState<string | null>(null);
+  const updateForm = useCallback((updates: Partial<CustomerFormState>) => {
+    setFormData((prev) => ({ ...prev, ...updates }));
+  }, []);
 
   // Unwrap params with React.use()
   useEffect(() => {
     params.then(p => setCustomerId(p.id));
   }, [params]);
 
-  useEffect(() => {
-    if (customerId) {
-      fetchCustomer();
-    }
-  }, [customerId]);
-
-  const fetchCustomer = async () => {
+  const fetchCustomer = useCallback(async () => {
     if (!customerId) return;
 
     setLoading(true);
@@ -114,29 +149,35 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
 
       setCustomer(data.customer);
       setFormData({
-        name: data.customer.name,
-        billingEmail: data.customer.billingEmail,
-        phone: data.customer.phone,
-        street1: data.customer.street1,
-        street2: data.customer.street2,
-        city: data.customer.city,
-        state: data.customer.state,
-        postalCode: data.customer.postalCode,
-        country: data.customer.country,
-        paymentTerms: data.customer.paymentTerms,
-        salesRepId: data.customer.salesRep?.id || '',
-        isPermanentlyClosed: data.customer.isPermanentlyClosed,
-        closedReason: data.customer.closedReason,
-        type: data.customer.type || '',
-        volumeCapacity: data.customer.volumeCapacity || '',
-        featurePrograms: data.customer.featurePrograms || [],
+        name: data.customer.name ?? '',
+        billingEmail: data.customer.billingEmail ?? '',
+        phone: data.customer.phone ?? '',
+        street1: data.customer.street1 ?? '',
+        street2: data.customer.street2 ?? '',
+        city: data.customer.city ?? '',
+        state: data.customer.state ?? '',
+        postalCode: data.customer.postalCode ?? '',
+        country: data.customer.country ?? 'US',
+        paymentTerms: data.customer.paymentTerms ?? '',
+        salesRepId: data.customer.salesRep?.id ?? '',
+        isPermanentlyClosed: Boolean(data.customer.isPermanentlyClosed),
+        closedReason: data.customer.closedReason ?? '',
+        type: (data.customer.type as CustomerType) || '',
+        volumeCapacity: (data.customer.volumeCapacity as VolumeCapacity) || '',
+        featurePrograms: data.customer.featurePrograms ?? [],
       });
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch customer');
     } finally {
       setLoading(false);
     }
-  };
+  }, [customerId]);
+
+  useEffect(() => {
+    if (customerId) {
+      fetchCustomer();
+    }
+  }, [customerId, fetchCustomer]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -160,8 +201,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
 
       alert('Customer updated successfully');
       fetchCustomer(); // Refresh data
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to update customer');
     } finally {
       setSaving(false);
     }
@@ -194,8 +235,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
 
       alert('Customer archived successfully');
       router.push('/admin/customers');
-    } catch (err: any) {
-      alert('Error: ' + err.message);
+    } catch (err: unknown) {
+      alert('Error: ' + (err instanceof Error ? err.message : 'Failed to archive customer'));
     }
   };
 
@@ -217,8 +258,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
       }
 
       fetchCustomer();
-    } catch (err: any) {
-      alert('Error: ' + err.message);
+    } catch (err: unknown) {
+      alert('Error: ' + (err instanceof Error ? err.message : 'Failed to resolve duplicate flag'));
     } finally {
       setResolvingFlagId(null);
     }
@@ -376,17 +417,14 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           <h2 className="text-xl font-bold mb-4">Basic Information</h2>
           <CustomerBasicInfoFields
             values={{
-              name: formData.name || '',
-              accountNumber: customer.accountNumber || '',
-              billingEmail: formData.billingEmail || '',
-              phone: formData.phone || '',
-              paymentTerms: formData.paymentTerms || '',
+              name: formData.name,
+              accountNumber: customer?.accountNumber || '',
+              billingEmail: formData.billingEmail,
+              phone: formData.phone,
+              paymentTerms: formData.paymentTerms,
             }}
             onChange={(field, value) =>
-              setFormData((prev: any) => ({
-                ...prev,
-                [field]: value,
-              }))
+              updateForm({ [field]: value } as Partial<CustomerFormState>)
             }
             disabled={saving}
             readOnlyFields={{ accountNumber: true }}
@@ -398,18 +436,15 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           <h2 className="text-xl font-bold mb-4">Location & Territory</h2>
           <CustomerAddressFields
             values={{
-              street1: formData.street1 || '',
-              street2: formData.street2 || '',
-              city: formData.city || '',
-              state: formData.state || '',
-              postalCode: formData.postalCode || '',
+              street1: formData.street1,
+              street2: formData.street2,
+              city: formData.city,
+              state: formData.state,
+              postalCode: formData.postalCode,
               country: formData.country || 'US',
             }}
             onChange={(field, value) =>
-              setFormData((prev: any) => ({
-                ...prev,
-                [field]: value,
-              }))
+              updateForm({ [field]: value } as Partial<CustomerFormState>)
             }
             disabled={saving}
           />
@@ -483,26 +518,17 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           </p>
 
           <CustomerClassificationFields
-            typeValue={(formData.type as CustomerType | null) ?? ""}
-            volumeCapacityValue={(formData.volumeCapacity as VolumeCapacity | null) ?? ""}
-            featureProgramsValue={(formData.featurePrograms as FeatureProgram[]) ?? []}
+            typeValue={formData.type || ''}
+            volumeCapacityValue={formData.volumeCapacity || ''}
+            featureProgramsValue={formData.featurePrograms}
             onTypeChange={(value) =>
-              setFormData({
-                ...formData,
-                type: value || null,
-              })
+              updateForm({ type: (value as CustomerType) || '' })
             }
             onVolumeCapacityChange={(value) =>
-              setFormData({
-                ...formData,
-                volumeCapacity: value || null,
-              })
+              updateForm({ volumeCapacity: (value as VolumeCapacity) || '' })
             }
             onFeatureProgramsChange={(programs) =>
-              setFormData({
-                ...formData,
-                featurePrograms: programs,
-              })
+              updateForm({ featurePrograms: programs })
             }
             disabled={saving}
           />

@@ -41,6 +41,22 @@ interface Role {
   code: string;
 }
 
+type UserAction = 'activate' | 'deactivate' | 'addRole' | 'removeRole';
+
+type OperationError = {
+  message?: string;
+  [key: string]: unknown;
+};
+
+type OperationResult = {
+  successCount?: number;
+  errorCount?: number;
+  errors?: OperationError[];
+  [key: string]: unknown;
+};
+
+type InventoryPreviewRow = Record<string, string | number | null>;
+
 export default function BulkOperationsPage() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
@@ -53,13 +69,13 @@ export default function BulkOperationsPage() {
   const [targetSalesRepId, setTargetSalesRepId] = useState('');
   const [reassignReason, setReassignReason] = useState('');
   const [csvFileCustomers, setCsvFileCustomers] = useState<File | null>(null);
-  const [reassignResults, setReassignResults] = useState<any>(null);
+  const [reassignResults, setReassignResults] = useState<OperationResult | null>(null);
   const [reassignLoading, setReassignLoading] = useState(false);
 
   // Section 2: Inventory Adjustment
   const [inventoryCsvFile, setInventoryCsvFile] = useState<File | null>(null);
-  const [inventoryPreview, setInventoryPreview] = useState<any[]>([]);
-  const [inventoryResults, setInventoryResults] = useState<any>(null);
+  const [inventoryPreview, setInventoryPreview] = useState<InventoryPreviewRow[]>([]);
+  const [inventoryResults, setInventoryResults] = useState<OperationResult | null>(null);
   const [inventoryLoading, setInventoryLoading] = useState(false);
 
   // Section 3: Order Status Change
@@ -69,7 +85,7 @@ export default function BulkOperationsPage() {
   const [orderStatusFilter, setOrderStatusFilter] = useState('');
   const [newOrderStatus, setNewOrderStatus] = useState('');
   const [orderReason, setOrderReason] = useState('');
-  const [orderResults, setOrderResults] = useState<any>(null);
+  const [orderResults, setOrderResults] = useState<OperationResult | null>(null);
   const [orderLoading, setOrderLoading] = useState(false);
 
   // Section 4: User Management
@@ -77,10 +93,10 @@ export default function BulkOperationsPage() {
   const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [userSearch, setUserSearch] = useState('');
-  const [userAction, setUserAction] = useState<'activate' | 'deactivate' | 'addRole' | 'removeRole'>('activate');
+  const [userAction, setUserAction] = useState<UserAction>('activate');
   const [selectedRoleId, setSelectedRoleId] = useState('');
   const [roles, setRoles] = useState<Role[]>([]);
-  const [userResults, setUserResults] = useState<any>(null);
+  const [userResults, setUserResults] = useState<OperationResult | null>(null);
   const [userLoading, setUserLoading] = useState(false);
 
   // Fetch sales reps
@@ -96,7 +112,7 @@ export default function BulkOperationsPage() {
       if (response.ok) {
         setSalesReps(data.salesReps || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error fetching sales reps:', error);
     }
   };
@@ -108,7 +124,7 @@ export default function BulkOperationsPage() {
       if (response.ok) {
         setRoles(data.roles || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error fetching roles:', error);
     }
   };
@@ -124,7 +140,7 @@ export default function BulkOperationsPage() {
       if (response.ok) {
         setCustomers(data.customers || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error fetching customers:', error);
     }
   };
@@ -141,7 +157,7 @@ export default function BulkOperationsPage() {
       if (response.ok) {
         setOrders(data.orders || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error fetching orders:', error);
     }
   };
@@ -161,7 +177,7 @@ export default function BulkOperationsPage() {
       if (response.ok) {
         setUsers(data.users || data.portalUsers || []);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error fetching users:', error);
     }
   };
@@ -216,8 +232,9 @@ export default function BulkOperationsPage() {
       } else {
         alert(`Error: ${result.error}`);
       }
-    } catch (error: any) {
-      alert(`Error: ${error.message}`);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Unknown error occurred';
+      alert(`Error: ${message}`);
     } finally {
       setReassignLoading(false);
     }
@@ -255,8 +272,9 @@ export default function BulkOperationsPage() {
       } else {
         alert(`Error: ${result.error || 'Unknown error'}`);
       }
-    } catch (error: any) {
-      alert(`Error: ${error.message}`);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Unknown error occurred';
+      alert(`Error: ${message}`);
     } finally {
       setInventoryLoading(false);
     }
@@ -301,8 +319,9 @@ export default function BulkOperationsPage() {
       } else {
         alert(`Error: ${result.error}`);
       }
-    } catch (error: any) {
-      alert(`Error: ${error.message}`);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Unknown error occurred';
+      alert(`Error: ${message}`);
     } finally {
       setOrderLoading(false);
     }
@@ -348,8 +367,9 @@ export default function BulkOperationsPage() {
       } else {
         alert(`Error: ${result.error}`);
       }
-    } catch (error: any) {
-      alert(`Error: ${error.message}`);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Unknown error occurred';
+      alert(`Error: ${message}`);
     } finally {
       setUserLoading(false);
     }
@@ -369,8 +389,9 @@ export default function BulkOperationsPage() {
       } else {
         setInventoryPreview(parsed.rows);
       }
-    } catch (error: any) {
-      alert(`Error parsing CSV: ${error.message}`);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Unable to parse CSV';
+      alert(`Error parsing CSV: ${message}`);
     }
   };
 
@@ -540,8 +561,11 @@ export default function BulkOperationsPage() {
                     <div className="mt-2">
                       <p className="font-medium text-red-600">Errors:</p>
                       <ul className="text-sm">
-                        {reassignResults.errors.slice(0, 10).map((err: any, i: number) => (
-                          <li key={i}>{err.customerName}: {err.error}</li>
+                        {reassignResults.errors.slice(0, 10).map((err, i) => (
+                          <li key={`reassign-error-${i}`}>
+                            {String((err as Record<string, unknown>).customerName ?? `Row ${i + 1}`)}:{' '}
+                            {String(err.error ?? err.message ?? 'Unknown error')}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -601,13 +625,13 @@ export default function BulkOperationsPage() {
                         </tr>
                       </thead>
                       <tbody>
-                        {inventoryPreview.slice(0, 20).map((row: any, i: number) => (
-                          <tr key={i} className="border-t">
-                            <td className="px-2 py-1">{row.skuCode}</td>
-                            <td className="px-2 py-1">{row.location}</td>
-                            <td className="px-2 py-1">{row.adjustmentType}</td>
-                            <td className="px-2 py-1">{row.quantity}</td>
-                            <td className="px-2 py-1">{row.reason}</td>
+                        {inventoryPreview.slice(0, 20).map((row, i) => (
+                          <tr key={`inventory-preview-${i}`} className="border-t">
+                            <td className="px-2 py-1">{String(row.skuCode ?? '')}</td>
+                            <td className="px-2 py-1">{String(row.location ?? '')}</td>
+                            <td className="px-2 py-1">{String(row.adjustmentType ?? '')}</td>
+                            <td className="px-2 py-1">{String(row.quantity ?? '')}</td>
+                            <td className="px-2 py-1">{String(row.reason ?? '')}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -633,8 +657,11 @@ export default function BulkOperationsPage() {
                     <div className="mt-2">
                       <p className="font-medium text-red-600">Errors:</p>
                       <ul className="text-sm">
-                        {inventoryResults.errors.slice(0, 10).map((err: any, i: number) => (
-                          <li key={i}>{err.skuCode} @ {err.location}: {err.error}</li>
+                        {inventoryResults.errors.slice(0, 10).map((err, i) => (
+                          <li key={`inventory-error-${i}`}>
+                            {String((err as Record<string, unknown>).skuCode ?? 'SKU')} @{' '}
+                            {String((err as Record<string, unknown>).location ?? 'location')}: {String(err.error ?? err.message ?? 'Unknown error')}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -756,8 +783,11 @@ export default function BulkOperationsPage() {
                     <div className="mt-2">
                       <p className="font-medium text-red-600">Errors:</p>
                       <ul className="text-sm">
-                        {orderResults.errors.slice(0, 10).map((err: any, i: number) => (
-                          <li key={i}>{err.orderId}: {err.error}</li>
+                        {orderResults.errors.slice(0, 10).map((err, i) => (
+                          <li key={`order-error-${i}`}>
+                            {String((err as Record<string, unknown>).orderId ?? `Order ${i + 1}`)}:{' '}
+                            {String(err.error ?? err.message ?? 'Unknown error')}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -863,7 +893,7 @@ export default function BulkOperationsPage() {
                 <label className="block font-medium mb-1">Action</label>
                 <select
                   value={userAction}
-                  onChange={(e) => setUserAction(e.target.value as any)}
+                  onChange={(e) => setUserAction(e.target.value as UserAction)}
                   className="border rounded px-3 py-2 w-full"
                 >
                   <option value="activate">Activate</option>
@@ -908,8 +938,11 @@ export default function BulkOperationsPage() {
                     <div className="mt-2">
                       <p className="font-medium text-red-600">Errors:</p>
                       <ul className="text-sm">
-                        {userResults.errors.slice(0, 10).map((err: any, i: number) => (
-                          <li key={i}>{err.userName}: {err.error}</li>
+                        {userResults.errors.slice(0, 10).map((err, i) => (
+                          <li key={`user-error-${i}`}>
+                            {String((err as Record<string, unknown>).userName ?? `User ${i + 1}`)}:{' '}
+                            {String(err.error ?? err.message ?? 'Unknown error')}
+                          </li>
                         ))}
                       </ul>
                     </div>

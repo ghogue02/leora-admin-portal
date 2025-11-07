@@ -51,7 +51,7 @@ export function UnsavedChangesWarning({
 }
 
 // Hook to track form changes
-export function useUnsavedChanges<T extends Record<string, any>>(
+export function useUnsavedChanges<T extends Record<string, unknown>>(
   initialData: T,
   currentData: T
 ): boolean {

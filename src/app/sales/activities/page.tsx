@@ -201,23 +201,14 @@ export default function SalesActivitiesPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8">
       {/* Header */}
-      <header className="flex flex-col gap-3">
-        <p className="text-xs font-medium uppercase tracking-widest text-gray-500">Activities</p>
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-semibold text-gray-900">My Activities</h1>
-            <p className="mt-2 max-w-2xl text-sm text-gray-600">
-              Track all customer interactions and measure conversion to orders.
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => setShowForm(!showForm)}
-            className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            {showForm ? "Hide Form" : "Log Activity"}
-          </button>
-        </div>
+      <header className="flex justify-end">
+        <button
+          type="button"
+          onClick={() => setShowForm(!showForm)}
+          className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          {showForm ? "Hide Form" : "Log Activity"}
+        </button>
       </header>
 
       {/* Summary Stats */}

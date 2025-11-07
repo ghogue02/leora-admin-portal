@@ -41,16 +41,7 @@ export default function ManagerDashboardPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
       {/* Header */}
-      <header className="flex items-start justify-between gap-4">
-        <div className="flex flex-col gap-3">
-          <p className="text-xs font-medium uppercase tracking-widest text-gray-500">
-            Management
-          </p>
-          <h1 className="text-3xl font-semibold text-gray-900">Team Dashboard</h1>
-          <p className="text-sm text-gray-600">
-            Monitor all sales representatives' performance and territory health
-          </p>
-        </div>
+      <header className="flex justify-end gap-4">
         <Link
           href="/sales/manager/approvals"
           className="rounded-md border border-amber-300 bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-900 transition hover:bg-amber-100"
