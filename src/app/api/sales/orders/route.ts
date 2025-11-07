@@ -135,12 +135,19 @@ export async function GET(request: NextRequest) {
         );
       }
 
-      // Build where clause to filter orders by sales rep's assigned customers
+      // Allow reps to see orders they own via customer assignment or explicit credit
       const where: Prisma.OrderWhereInput = {
         tenantId,
-        customer: {
-          salesRepId,
-        },
+        OR: [
+          {
+            customer: {
+              salesRepId,
+            },
+          },
+          {
+            salesRepId,
+          },
+        ],
       };
 
       const [orders, grouped, totalCount, openOrdersWithLines, last30DaysOrders] = await Promise.all([
@@ -158,6 +165,17 @@ export async function GET(request: NextRequest) {
                 id: true,
                 status: true,
                 total: true,
+              },
+            },
+            salesRep: {
+              select: {
+                id: true,
+                territoryName: true,
+                user: {
+                  select: {
+                    fullName: true,
+                  },
+                },
               },
             },
           },
@@ -271,6 +289,17 @@ type OrderWithRelations = Prisma.OrderGetPayload<{
         total: true;
       };
     };
+    salesRep: {
+      select: {
+        id: true;
+        territoryName: true;
+        user: {
+          select: {
+            fullName: true;
+          };
+        };
+      };
+    };
   };
 }>;
 
@@ -304,6 +333,13 @@ function serializeOrder(order: OrderWithRelations) {
     total,
     currency: order.currency,
     invoiceTotals,
+    salesRep: order.salesRep
+      ? {
+          id: order.salesRep.id,
+          name: order.salesRep.user.fullName,
+          territory: order.salesRep.territoryName,
+        }
+      : null,
   };
 }
 
@@ -327,6 +363,7 @@ const CreateOrderSchema = z.object({
   deliveryTimeWindow: z.string().optional(),
   poNumber: z.string().optional(),
   specialInstructions: z.string().optional(),
+  salesRepId: z.string().uuid().optional(),
   items: z.array(
     z.object({
       skuId: z.string().uuid(),
@@ -339,8 +376,6 @@ const CreateOrderSchema = z.object({
     })
   ).min(1),
 });
-
-type CreateOrderRequest = z.infer<typeof CreateOrderSchema>;
 
 export async function POST(request: NextRequest) {
   let payload: unknown;
@@ -385,6 +420,18 @@ export async function POST(request: NextRequest) {
           territory: true,
           state: true,
           accountNumber: true,
+          salesRepId: true,
+          salesRep: {
+            select: {
+              id: true,
+              territoryName: true,
+              user: {
+                select: {
+                  fullName: true,
+                },
+              },
+            },
+          },
         },
       });
 
@@ -399,6 +446,83 @@ export async function POST(request: NextRequest) {
       if (customer.requiresPO && !orderData.poNumber?.trim()) {
         return NextResponse.json(
           { error: "PO number is required for this customer." },
+          { status: 400 },
+        );
+      }
+
+      type LightweightSalesRep = {
+        id: string;
+        territoryName: string | null;
+        user: {
+          fullName: string;
+        };
+      };
+
+      let selectedSalesRep: LightweightSalesRep | null = null;
+      if (orderData.salesRepId) {
+        selectedSalesRep = await db.salesRep.findFirst({
+          where: {
+            id: orderData.salesRepId,
+            tenantId,
+            isActive: true,
+            orderEntryEnabled: true,
+          },
+          select: {
+            id: true,
+            territoryName: true,
+            user: {
+              select: {
+                fullName: true,
+              },
+            },
+          },
+        });
+
+        if (!selectedSalesRep) {
+          return NextResponse.json(
+            { error: "Selected salesperson is not available for order entry." },
+            { status: 400 },
+          );
+        }
+      } else if (customer.salesRepId) {
+        selectedSalesRep = await db.salesRep.findFirst({
+          where: {
+            id: customer.salesRepId,
+            tenantId,
+          },
+          select: {
+            id: true,
+            territoryName: true,
+            user: {
+              select: {
+                fullName: true,
+              },
+            },
+          },
+        });
+      }
+
+      if (!selectedSalesRep && salesRepId) {
+        selectedSalesRep = await db.salesRep.findFirst({
+          where: {
+            id: salesRepId,
+            tenantId,
+          },
+          select: {
+            id: true,
+            territoryName: true,
+            user: {
+              select: {
+                fullName: true,
+              },
+            },
+          },
+        });
+      }
+
+      if (!selectedSalesRep) {
+        return NextResponse.json(
+          { error: "Unable to determine salesperson for this order." },
           { status: 400 },
         );
       }
@@ -556,6 +680,7 @@ export async function POST(request: NextRequest) {
             data: {
               tenantId,
               customerId: orderData.customerId,
+              salesRepId: selectedSalesRep.id,
               orderNumber,
               status: orderStatus,
               deliveryDate: orderData.deliveryDate ? parseUTCDate(orderData.deliveryDate) : null,
@@ -574,6 +699,17 @@ export async function POST(request: NextRequest) {
                 select: {
                   id: true,
                   name: true,
+                },
+              },
+              salesRep: {
+                select: {
+                  id: true,
+                  territoryName: true,
+                  user: {
+                    select: {
+                      fullName: true,
+                    },
+                  },
                 },
               },
               lines: {
@@ -614,6 +750,11 @@ export async function POST(request: NextRequest) {
           });
 
           if (activityType) {
+            const creditedToDifferentRep = selectedSalesRep.id !== salesRepId;
+            const salesRepAssignmentNote = creditedToDifferentRep
+              ? ` Sales credit assigned to ${selectedSalesRep.user.fullName}.`
+              : "";
+
             await tx.activity.create({
               data: {
                 tenantId,
@@ -622,7 +763,7 @@ export async function POST(request: NextRequest) {
                 customerId: orderData.customerId,
                 orderId: order.id,
                 subject: `Order created for ${customer.name}`,
-                notes: `Order created by ${session.user.fullName}. Delivery: ${orderData.deliveryDate}. Warehouse: ${orderData.warehouseLocation}.${requiresApproval ? ' Requires manager approval due to insufficient inventory.' : ''}`,
+                notes: `Order created by ${session.user.fullName}. Delivery: ${orderData.deliveryDate}. Warehouse: ${orderData.warehouseLocation}.${requiresApproval ? ' Requires manager approval due to insufficient inventory.' : ''}${salesRepAssignmentNote}`,
                 occurredAt: new Date(),
               },
             });
@@ -653,6 +794,18 @@ export async function POST(request: NextRequest) {
           total: Number(result.order.total),
           currency: result.order.currency,
           deliveryDate: result.order.deliveryDate,
+          salesRepId: selectedSalesRep.id,
+           salesRep: result.order.salesRep
+             ? {
+                 id: result.order.salesRep.id,
+                 name: result.order.salesRep.user.fullName,
+                 territory: result.order.salesRep.territoryName,
+               }
+             : {
+                 id: selectedSalesRep.id,
+                 name: selectedSalesRep.user.fullName,
+                 territory: selectedSalesRep.territoryName,
+               },
           inventoryStatus: {
             checks: result.inventoryChecks,
             allSufficient: !result.order.requiresApproval,

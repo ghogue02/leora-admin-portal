@@ -518,6 +518,7 @@ model Order {
   tenantId              String                 @db.Uuid
   customerId            String                 @db.Uuid
   portalUserId          String?                @db.Uuid
+  salesRepId            String?                @db.Uuid
   orderNumber           String?                @unique
   status                OrderStatus            @default(DRAFT)
   orderedAt             DateTime?
@@ -549,6 +550,7 @@ model Order {
   approvedBy            User?                  @relation("OrderApprovals", fields: [approvedById], references: [id])
   customer              Customer               @relation(fields: [customerId], references: [id], onDelete: Cascade)
   portalUser            PortalUser?            @relation(fields: [portalUserId], references: [id])
+  salesRep              SalesRep?              @relation(fields: [salesRepId], references: [id])
   tenant                Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   lines                 OrderLine[]
   payments              Payment[]
@@ -563,6 +565,7 @@ model Order {
   @@index([customerId, orderedAt(sort: Desc)])
   @@index([requiresApproval, status])
   @@index([orderNumber])
+  @@index([salesRepId])
 }
 
 model OrderLine {
@@ -1004,6 +1007,7 @@ model SalesRep {
   weeklyCustomerQuota     Int?
   sampleAllowancePerMonth Int                  @default(60)
   isActive                Boolean              @default(true)
+  orderEntryEnabled       Boolean              @default(false)
   createdAt               DateTime             @default(now())
   updatedAt               DateTime             @default(now()) @updatedAt
   deliveryDaysArray       String[]             @default([])
@@ -1016,6 +1020,7 @@ model SalesRep {
   sampleUsage             SampleUsage[]
   territories             Territory[]
   sampleLists             SampleList[]
+  orders                  Order[]
 
   @@unique([tenantId, userId])
   @@index([tenantId])

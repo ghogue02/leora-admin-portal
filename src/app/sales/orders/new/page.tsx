@@ -14,8 +14,8 @@
 import { Suspense, useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { showSuccess, showError, showWarning, notifications } from '@/lib/toast-helpers';
-import { ButtonWithLoading, SecondaryButton } from '@/components/ui/button-variants';
+import { showError, notifications } from '@/lib/toast-helpers';
+import { ButtonWithLoading } from '@/components/ui/button-variants';
 import { ProductGrid } from '@/components/orders/ProductGrid';
 import { DeliveryDatePicker } from '@/components/orders/DeliveryDatePicker';
 import { WarehouseSelector } from '@/components/orders/WarehouseSelector';
@@ -40,6 +40,8 @@ type Customer = {
   defaultWarehouseLocation: string | null;
   defaultDeliveryTimeWindow: string | null;
   paymentTerms: string | null;
+  salesRepId: string | null;
+  salesRepName: string | null;
 };
 
 type InventoryStatus = {
@@ -48,6 +50,14 @@ type InventoryStatus = {
   available: number;
   sufficient: boolean;
   warningLevel: 'none' | 'low' | 'critical';
+};
+
+type SalesRepOption = {
+  id: string;
+  name: string;
+  territory: string | null;
+  email: string | null;
+  orderEntryEnabled?: boolean;
 };
 
 type OrderItem = {
@@ -66,6 +76,16 @@ type OrderItem = {
   usageType: OrderUsageCode | null;
 };
 
+type ProductSummary = {
+  skuId: string;
+  skuCode: string;
+  productName: string;
+  brand: string | null;
+  size: string | null;
+  pricePerUnit?: number;
+  priceLists?: PriceListSummary[] | null;
+};
+
 function NewOrderPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -81,6 +101,23 @@ function NewOrderPageContent() {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
   const [deliveryFee, setDeliveryFee] = useState<number>(0);
   const [splitCaseFee, setSplitCaseFee] = useState<number>(0);
+  const [salesRepOptions, setSalesRepOptions] = useState<SalesRepOption[]>([]);
+  const [salesRepOptionsLoading, setSalesRepOptionsLoading] = useState(true);
+  const [selectedSalesRepId, setSelectedSalesRepId] = useState<string | null>(null);
+  const [selectedSalesRepName, setSelectedSalesRepName] = useState<string | null>(null);
+  const [customerDefaultSalesRepId, setCustomerDefaultSalesRepId] = useState<string | null>(null);
+  const [customerDefaultSalesRepName, setCustomerDefaultSalesRepName] = useState<string | null>(null);
+  const [loggedInSalesRepId, setLoggedInSalesRepId] = useState<string | null>(null);
+  const [loggedInSalesRepName, setLoggedInSalesRepName] = useState<string | null>(null);
+
+  const getSalesRepNameById = useCallback(
+    (repId: string | null | undefined) => {
+      if (!repId) return null;
+      const match = salesRepOptions.find((rep) => rep.id === repId);
+      return match?.name ?? null;
+    },
+    [salesRepOptions],
+  );
 
   // Inline validation state (Phase 2)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -130,11 +167,21 @@ function NewOrderPageContent() {
           const profileData = await response.json();
           const deliveryDays = profileData.salesRep?.deliveryDaysArray || [];
           setSalesRepDeliveryDays(deliveryDays);
+          setLoggedInSalesRepId(profileData.salesRep?.id ?? null);
+          setLoggedInSalesRepName(profileData.user?.fullName ?? null);
+          setSelectedSalesRepId((current) => current ?? profileData.salesRep?.id ?? current);
+          setSelectedSalesRepName((current) => {
+            if (current) return current;
+            if (profileData.salesRep?.id) {
+              return profileData.user?.fullName ?? current;
+            }
+            return current;
+          });
 
           // Check if user can override prices (manager or admin)
-          const roles = profileData.user?.roles || [];
-          const hasOverrideRole = roles.some((r: any) =>
-            ['manager', 'admin', 'system_admin'].includes(r.role?.code)
+          const roles: Array<{ role?: { code?: string | null } | null }> = profileData.user?.roles || [];
+          const hasOverrideRole = roles.some((roleEntry) =>
+            ['manager', 'admin', 'system_admin'].includes(roleEntry.role?.code ?? '')
           );
           setCanOverridePrices(hasOverrideRole);
 
@@ -153,10 +200,40 @@ function NewOrderPageContent() {
     void loadProfile();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    async function loadSalesReps() {
+      try {
+        const response = await fetch('/api/sales/sales-reps/order-entry');
+        if (!response.ok) {
+          throw new Error('Failed to load sales reps');
+        }
+        const data = await response.json();
+        setSalesRepOptions(data.salesReps ?? []);
+      } catch (err) {
+        console.error('Failed to load sales reps for order entry', err);
+        setSalesRepOptions([]);
+      } finally {
+        setSalesRepOptionsLoading(false);
+      }
+    }
+    void loadSalesReps();
+  }, []);
+
   // Auto-fill defaults when customer selected
   const handleCustomerSelect = useCallback((customer: Customer) => {
     setSelectedCustomerId(customer.id);
     setSelectedCustomer(customer);
+
+    setCustomerDefaultSalesRepId(customer.salesRepId ?? null);
+    setCustomerDefaultSalesRepName(customer.salesRepName ?? null);
+
+    const fallbackRepId = customer.salesRepId ?? loggedInSalesRepId ?? null;
+    setSelectedSalesRepId(fallbackRepId);
+    const fallbackRepName =
+      customer.salesRepName ??
+      getSalesRepNameById(customer.salesRepId) ??
+      (fallbackRepId === loggedInSalesRepId ? loggedInSalesRepName : null);
+    setSelectedSalesRepName(fallbackRepName ?? null);
 
     // Smart warehouse default: customer default > last used > 'Warrenton'
     let defaultWarehouse = customer.defaultWarehouseLocation;
@@ -171,9 +248,10 @@ function NewOrderPageContent() {
     setFieldErrors(prev => {
       const newErrors = { ...prev };
       delete newErrors.customer;
+      delete newErrors.salesRep;
       return newErrors;
     });
-  }, []);
+  }, [getSalesRepNameById, loggedInSalesRepId, loggedInSalesRepName]);
 
   // Preselect customer when arriving from deep links (e.g., Quick Actions)
   const prefillCustomerId = searchParams.get('customerId');
@@ -207,6 +285,8 @@ function NewOrderPageContent() {
           defaultWarehouseLocation: data.customer.defaultWarehouseLocation ?? null,
           defaultDeliveryTimeWindow: data.customer.defaultDeliveryTimeWindow ?? null,
           paymentTerms: data.customer.paymentTerms ?? null,
+          salesRepId: data.customer.salesRepId ?? data.customer.salesRep?.id ?? null,
+          salesRepName: data.customer.salesRep?.user?.fullName ?? null,
         };
 
         handleCustomerSelect(customerData);
@@ -222,8 +302,23 @@ function NewOrderPageContent() {
     };
   }, [prefillCustomerId, selectedCustomerId, handleCustomerSelect]);
 
+  useEffect(() => {
+    if (!selectedSalesRepId) return;
+    const match = salesRepOptions.find((rep) => rep.id === selectedSalesRepId);
+    if (match && match.name !== selectedSalesRepName) {
+      setSelectedSalesRepName(match.name);
+    }
+  }, [salesRepOptions, selectedSalesRepId, selectedSalesRepName]);
+
   // Add product to order
-  const handleAddProduct = useCallback((product: any, quantityFromGrid: number, inventoryStatus: InventoryStatus | undefined, pricing: PricingSelection, priceOverride?: PriceOverride) => {
+  const handleAddProduct = useCallback(
+    (
+      product: ProductSummary,
+      quantityFromGrid: number,
+      inventoryStatus: InventoryStatus | undefined,
+      pricing: PricingSelection,
+      priceOverride?: PriceOverride,
+    ) => {
     const baseUnitPrice = pricing.unitPrice || product.pricePerUnit || 0;
     const effectiveUnitPrice = priceOverride?.price ?? baseUnitPrice;
     const quantity = Math.max(0, quantityFromGrid);
@@ -244,7 +339,7 @@ function NewOrderPageContent() {
       lineTotal: quantity * effectiveUnitPrice,
       inventoryStatus,
       pricing,
-      priceLists: product.priceLists as PriceListSummary[],
+      priceLists: (product.priceLists as PriceListSummary[] | null) ?? [],
       priceOverride,
       usageType: null,
     };
@@ -269,11 +364,13 @@ function NewOrderPageContent() {
     } else {
       notifications.productAdded(product.productName, quantity, quantity * effectiveUnitPrice);
     }
-  }, []);
+    },
+    [],
+  );
 
   // Add multiple products at once (multi-select)
   const handleAddMultipleProducts = useCallback((products: Array<{
-    product: any;
+    product: ProductSummary;
     quantity: number;
     inventoryStatus: InventoryStatus | undefined;
     pricing: PricingSelection;
@@ -293,7 +390,7 @@ function NewOrderPageContent() {
         lineTotal: actualQuantity * unitPrice,
         inventoryStatus,
         pricing,
-        priceLists: product.priceLists as PriceListSummary[],
+        priceLists: (product.priceLists as PriceListSummary[] | null) ?? [],
         usageType: null,
       };
     });
@@ -331,11 +428,12 @@ function NewOrderPageContent() {
       selectedCustomer &&
       deliveryDate &&
       warehouseLocation &&
+      selectedSalesRepId &&
       orderItems.length > 0 &&
       orderItems.every(item => item.quantity > 0) &&
       (!selectedCustomer.requiresPO || poNumber.trim())
     );
-  }, [selectedCustomer, deliveryDate, warehouseLocation, orderItems, poNumber]);
+  }, [selectedCustomer, deliveryDate, warehouseLocation, orderItems, poNumber, selectedSalesRepId]);
 
   // Validate form
   const validateForm = useCallback(() => {
@@ -358,10 +456,13 @@ function NewOrderPageContent() {
     } else if (orderItems.some(item => item.quantity <= 0)) {
       errors.push({ field: 'Products', message: 'Enter a quantity greater than zero for each product', type: 'validation' });
     }
+    if (!selectedSalesRepId) {
+      errors.push({ field: 'Salesperson', message: 'Select the salesperson who should receive credit', type: 'missing' });
+    }
 
     setValidationErrors(errors);
     return errors.length === 0;
-  }, [selectedCustomer, deliveryDate, warehouseLocation, poNumber, orderItems]);
+  }, [selectedCustomer, deliveryDate, warehouseLocation, poNumber, orderItems, selectedSalesRepId]);
 
   // PHASE 2: Show preview modal before submission
   const handleShowPreview = useCallback((e: React.FormEvent) => {
@@ -385,21 +486,22 @@ function NewOrderPageContent() {
     setError(null);
     setValidationErrors([]);
 
-    try {
-      const response = await fetch('/api/sales/orders', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          customerId: selectedCustomer.id,
-          deliveryDate,
-          warehouseLocation,
-          deliveryTimeWindow,
-          poNumber: poNumber.trim() || undefined,
-          specialInstructions: specialInstructions.trim() || undefined,
-          items: orderItems.map(item => ({
-            skuId: item.skuId,
-            quantity: item.quantity,
-            ...(item.usageType ? { usageType: item.usageType } : {}),
+      try {
+        const response = await fetch('/api/sales/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customerId: selectedCustomer.id,
+            deliveryDate,
+            warehouseLocation,
+            deliveryTimeWindow,
+            poNumber: poNumber.trim() || undefined,
+            specialInstructions: specialInstructions.trim() || undefined,
+            salesRepId: selectedSalesRepId ?? undefined,
+            items: orderItems.map(item => ({
+              skuId: item.skuId,
+              quantity: item.quantity,
+              ...(item.usageType ? { usageType: item.usageType } : {}),
             ...(item.priceOverride && {
               priceOverride: {
                 price: item.priceOverride.price,
@@ -434,7 +536,7 @@ function NewOrderPageContent() {
     } finally {
       setSubmitting(false);
     }
-  }, [selectedCustomer, deliveryDate, warehouseLocation, deliveryTimeWindow, poNumber, specialInstructions, orderItems, orderTotal]);
+  }, [selectedCustomer, deliveryDate, warehouseLocation, deliveryTimeWindow, poNumber, specialInstructions, orderItems, orderTotal, selectedSalesRepId]);
 
   // Calculate form progress
   const formSteps = useMemo(() => [
@@ -460,12 +562,46 @@ function NewOrderPageContent() {
       }));
   }, [orderItems]);
 
+  const combinedSalesRepOptions = useMemo(() => {
+    const map = new Map<string, SalesRepOption>();
+    salesRepOptions.forEach((rep) => map.set(rep.id, rep));
+    if (selectedSalesRepId && !map.has(selectedSalesRepId)) {
+      map.set(selectedSalesRepId, {
+        id: selectedSalesRepId,
+        name: selectedSalesRepName ?? customerDefaultSalesRepName ?? loggedInSalesRepName ?? 'Assigned Salesperson',
+        territory: null,
+        email: null,
+        orderEntryEnabled: false,
+      });
+    }
+    return Array.from(map.values()).sort((a, b) => {
+      const aKey = a.name.split(/\s+/)[0]?.toLowerCase() ?? a.name.toLowerCase();
+      const bKey = b.name.split(/\s+/)[0]?.toLowerCase() ?? b.name.toLowerCase();
+      if (aKey === bKey) {
+        return a.name.localeCompare(b.name);
+      }
+      return aKey.localeCompare(bKey);
+    });
+  }, [
+    salesRepOptions,
+    selectedSalesRepId,
+    selectedSalesRepName,
+    customerDefaultSalesRepName,
+    loggedInSalesRepName,
+  ]);
+
+  const isSalesRepOverride = useMemo(() => {
+    if (!selectedSalesRepId) return false;
+    if (!customerDefaultSalesRepId) return false;
+    return selectedSalesRepId !== customerDefaultSalesRepId;
+  }, [selectedSalesRepId, customerDefaultSalesRepId]);
+
   // PHASE 2: Helper function to get next delivery date
   function getNextDeliveryDate(deliveryDays: string[]): string | null {
     if (deliveryDays.length === 0) return null;
 
     const today = new Date();
-    let currentDate = new Date(today);
+    const currentDate = new Date(today);
     currentDate.setDate(currentDate.getDate() + 1); // Start from tomorrow
 
     // Look ahead 14 days to find next delivery day
@@ -481,7 +617,7 @@ function NewOrderPageContent() {
   }
 
   // PHASE 2: Inline validation for individual fields
-  const validateField = useCallback((field: string, value: any) => {
+  const validateField = useCallback((field: string, value: unknown) => {
     const errors: Record<string, string> = {};
 
     switch (field) {
@@ -510,6 +646,11 @@ function NewOrderPageContent() {
           errors.products = 'Please add at least one product';
         }
         break;
+      case 'salesRep':
+        if (!selectedSalesRepId) {
+          errors.salesRep = 'Select a salesperson';
+        }
+        break;
     }
 
     setFieldErrors(prev => {
@@ -521,7 +662,7 @@ function NewOrderPageContent() {
       }
       return newErrors;
     });
-  }, [selectedCustomer, orderItems.length]);
+  }, [selectedCustomer, orderItems.length, selectedSalesRepId]);
 
   return (
     <div className="mx-auto max-w-7xl">
@@ -539,6 +680,12 @@ function NewOrderPageContent() {
           Cancel
         </Link>
       </header>
+
+      {error && (
+        <div className="mb-6 rounded-md border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
+          {error}
+        </div>
+      )}
 
       {/* Progress Indicator */}
       <FormProgress steps={formSteps} currentStep={currentStep} />
@@ -586,6 +733,57 @@ function NewOrderPageContent() {
               />
               {fieldErrors.customer && (
                 <p className="mt-1 text-xs text-rose-600">{fieldErrors.customer}</p>
+              )}
+            </div>
+            <div>
+              <label htmlFor="salesRep" className="block text-sm font-medium text-gray-700 mb-1">
+                Salesperson <span className="text-rose-600">*</span>
+              </label>
+              <select
+                id="salesRep"
+                value={selectedSalesRepId ?? ''}
+                onChange={(e) => {
+                  const nextId = e.target.value || null;
+                  setSelectedSalesRepId(nextId);
+                  const derivedName =
+                    getSalesRepNameById(nextId) ??
+                    (nextId === customerDefaultSalesRepId ? customerDefaultSalesRepName : null) ??
+                    (nextId === loggedInSalesRepId ? loggedInSalesRepName : null);
+                  setSelectedSalesRepName(derivedName ?? null);
+                  validateField('salesRep', nextId);
+                }}
+                onBlur={(e) => validateField('salesRep', e.target.value)}
+                disabled={salesRepOptionsLoading && !selectedSalesRepId}
+                className={`mt-1 block w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 ${
+                  fieldErrors.salesRep
+                    ? 'border-rose-300 bg-rose-50 focus:border-rose-500 focus:ring-rose-200'
+                    : 'border-gray-300 focus:border-gray-500 focus:ring-gray-200'
+                } ${salesRepOptionsLoading && !selectedSalesRepId ? 'bg-gray-50 text-gray-500' : ''}`}
+              >
+                <option value="" disabled>
+                  {salesRepOptionsLoading && !selectedSalesRepId
+                    ? 'Loading sales reps...'
+                    : 'Select salesperson'}
+                </option>
+                {combinedSalesRepOptions.map((rep) => (
+                  <option key={rep.id} value={rep.id}>
+                    {rep.name}
+                    {rep.orderEntryEnabled === false ? ' (not order-entry enabled)' : ''}
+                  </option>
+                ))}
+              </select>
+              {isSalesRepOverride && customerDefaultSalesRepName && (
+                <p className="mt-1 text-xs text-amber-700">
+                  Reassigned from {customerDefaultSalesRepName}. Make sure commissions are updated accordingly.
+                </p>
+              )}
+              {!selectedSalesRepId && (
+                <p className="mt-1 text-xs text-gray-500">
+                  Defaulted to the salesperson on the customer record. Override if another rep should receive credit.
+                </p>
+              )}
+              {fieldErrors.salesRep && (
+                <p className="mt-1 text-xs text-rose-600">{fieldErrors.salesRep}</p>
               )}
             </div>
           </div>
@@ -716,7 +914,7 @@ function NewOrderPageContent() {
           {orderItems.length === 0 ? (
             <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-8 text-center">
               <p className="text-sm text-gray-600">
-                No products added yet. Click "Add Products" to start building the order.
+                No products added yet. Use the Add Products button to start building the order.
               </p>
             </div>
           ) : (
@@ -979,6 +1177,12 @@ function NewOrderPageContent() {
           items={orderItems}
           total={orderTotal}
           requiresApproval={requiresApproval}
+          salesRepName={
+            selectedSalesRepName ??
+            customerDefaultSalesRepName ??
+            loggedInSalesRepName ??
+            null
+          }
           onConfirm={handleConfirmSubmit}
           onCancel={() => setShowPreviewModal(false)}
           submitting={submitting}
@@ -1011,6 +1215,14 @@ function NewOrderPageContent() {
             setSpecialInstructions('');
             setOrderItems([]);
             setCreatedOrderData(null);
+            setDeliveryFee(0);
+            setSplitCaseFee(0);
+            setCustomerDefaultSalesRepId(null);
+            setCustomerDefaultSalesRepName(null);
+            setSelectedSalesRepId(loggedInSalesRepId ?? null);
+            setSelectedSalesRepName(loggedInSalesRepName ?? null);
+            setFieldErrors({});
+            setValidationErrors([]);
           }}
         />
       )}

@@ -285,36 +285,6 @@ export function ProductGrid({ warehouseLocation, onAddMultipleProducts, existing
     });
   }, []);
 
-  // Handle bulk add of selected products
-  const handleAddSelectedProducts = useCallback(() => {
-    if (!onAddMultipleProducts || selectedSkuIds.size === 0) return;
-
-    const productsToAdd: Array<{
-      product: Product;
-      quantity: number;
-      inventoryStatus: InventoryStatus | undefined;
-      pricing: PricingSelection;
-    }> = [];
-
-    selectedSkuIds.forEach(skuId => {
-      const product =
-        selectedProductDetails[skuId] ?? products.find(p => p.skuId === skuId);
-      if (!product) return;
-
-      // Add with quantity 0 initially so user can set quantities
-      const quantity = 0;
-      const inventoryStatus = inventoryStatuses.get(product.skuId);
-      const pricing = resolvePriceForQuantity(product.priceLists, quantity, customer);
-
-      productsToAdd.push({ product, quantity, inventoryStatus, pricing });
-    });
-
-    if (productsToAdd.length > 0) {
-      onAddMultipleProducts(productsToAdd);
-      clearSelection(); // Clear selection after adding
-    }
-  }, [onAddMultipleProducts, selectedSkuIds, selectedProductDetails, products, inventoryStatuses, customer, clearSelection]);
-
   // Toggle individual product selection
   const toggleProductSelection = useCallback((product: Product) => {
     setSelectedSkuIds(prev => {
@@ -378,6 +348,45 @@ export function ProductGrid({ warehouseLocation, onAddMultipleProducts, existing
       resolvePriceForQuantity(product.priceLists, quantity, customer),
     [customer],
   );
+
+  // Handle bulk add of selected products
+  const handleAddSelectedProducts = useCallback(() => {
+    if (!onAddMultipleProducts || selectedSkuIds.size === 0) return;
+
+    const productsToAdd: Array<{
+      product: Product;
+      quantity: number;
+      inventoryStatus: InventoryStatus | undefined;
+      pricing: PricingSelection;
+    }> = [];
+
+    selectedSkuIds.forEach((skuId) => {
+      const product =
+        selectedProductDetails[skuId] ?? products.find((p) => p.skuId === skuId);
+      if (!product) return;
+
+      const rawQuantity = quantityBySku[skuId] ?? 0;
+      const quantity = rawQuantity > 0 ? rawQuantity : 1;
+      const inventoryStatus = inventoryStatuses.get(product.skuId);
+      const pricing = resolvePricingSelection(product, quantity);
+
+      productsToAdd.push({ product, quantity, inventoryStatus, pricing });
+    });
+
+    if (productsToAdd.length > 0) {
+      onAddMultipleProducts(productsToAdd);
+      clearSelection();
+    }
+  }, [
+    clearSelection,
+    inventoryStatuses,
+    onAddMultipleProducts,
+    products,
+    quantityBySku,
+    resolvePricingSelection,
+    selectedProductDetails,
+    selectedSkuIds,
+  ]);
 
   if (loading) {
     return (

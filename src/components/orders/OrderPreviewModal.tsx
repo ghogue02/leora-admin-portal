@@ -40,7 +40,7 @@ type OrderItem = {
     sufficient: boolean;
   } | null;
   pricing: {
-    priceList: any;
+    priceList: unknown;
     overrideApplied: boolean;
   };
   usageType?: OrderUsageCode | null;
@@ -60,6 +60,7 @@ type Props = {
   onConfirm: (selectedStatus: 'PENDING' | 'READY') => void;
   onCancel: () => void;
   submitting?: boolean;
+  salesRepName?: string | null;
 };
 
 export function OrderPreviewModal({
@@ -76,16 +77,16 @@ export function OrderPreviewModal({
   onConfirm,
   onCancel,
   submitting = false,
+  salesRepName,
 }: Props) {
+  const [selectedStatus, setSelectedStatus] = React.useState<'PENDING' | 'READY'>(
+    requiresApproval ? 'PENDING' : 'READY'
+  );
+
   if (!isOpen) return null;
 
   const inventoryIssues = items.filter(item => item.inventoryStatus && !item.inventoryStatus.sufficient);
   const priceOverrides = items.filter(item => item.pricing.overrideApplied);
-
-  // Smart default: READY if no issues, PENDING if needs approval
-  const [selectedStatus, setSelectedStatus] = React.useState<'PENDING' | 'READY'>(
-    requiresApproval ? 'PENDING' : 'READY'
-  );
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
@@ -112,6 +113,9 @@ export function OrderPreviewModal({
               <p className="font-semibold text-gray-900">{customer.name}</p>
               {customer.territory && (
                 <p className="text-gray-700">Territory: {customer.territory}</p>
+              )}
+              {salesRepName && (
+                <p className="text-gray-700">Salesperson: {salesRepName}</p>
               )}
               {customer.accountNumber && (
                 <p className="text-gray-700">Account: {customer.accountNumber}</p>
@@ -235,7 +239,7 @@ export function OrderPreviewModal({
                   name="orderStatus"
                   value="PENDING"
                   checked={selectedStatus === 'PENDING'}
-                  onChange={(e) => setSelectedStatus('PENDING')}
+                  onChange={() => setSelectedStatus('PENDING')}
                   className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
                 />
                 <div className="flex-1">
@@ -252,7 +256,7 @@ export function OrderPreviewModal({
                   name="orderStatus"
                   value="READY"
                   checked={selectedStatus === 'READY'}
-                  onChange={(e) => setSelectedStatus('READY')}
+                  onChange={() => setSelectedStatus('READY')}
                   className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
                 />
                 <div className="flex-1">

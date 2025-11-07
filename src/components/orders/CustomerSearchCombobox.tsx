@@ -15,7 +15,7 @@
  * - Accessible (ARIA labels)
  */
 
-import { useState, useEffect, useMemo, Fragment, useCallback, useRef } from 'react';
+import { useState, useEffect, useMemo, Fragment, useRef } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { ChevronDown, Search, CheckIcon } from 'lucide-react';
 import { debounce } from 'lodash';
@@ -30,7 +30,46 @@ type Customer = {
   defaultDeliveryTimeWindow?: string | null;
   paymentTerms?: string | null;
   state?: string | null;
+  salesRepId?: string | null;
+  salesRepName?: string | null;
 };
+
+type CustomerApiResult = {
+  id: string;
+  name: string;
+  territory?: string | null;
+  accountNumber?: string | null;
+  requiresPO?: boolean;
+  defaultWarehouseLocation?: string | null;
+  defaultDeliveryTimeWindow?: string | null;
+  paymentTerms?: string | null;
+  state?: string | null;
+  address?: {
+    state?: string | null;
+  } | null;
+  salesRepId?: string | null;
+  salesRep?: {
+    id?: string | null;
+    territory?: string | null;
+    user?: {
+      fullName?: string | null;
+    } | null;
+  } | null;
+};
+
+const toCustomer = (entry: CustomerApiResult): Customer => ({
+  id: entry.id,
+  name: entry.name,
+  territory: entry.territory ?? entry.salesRep?.territory ?? null,
+  accountNumber: entry.accountNumber ?? null,
+  requiresPO: Boolean(entry.requiresPO),
+  defaultWarehouseLocation: entry.defaultWarehouseLocation ?? null,
+  defaultDeliveryTimeWindow: entry.defaultDeliveryTimeWindow ?? null,
+  paymentTerms: entry.paymentTerms ?? null,
+  state: entry.address?.state ?? entry.state ?? null,
+  salesRepId: entry.salesRepId ?? entry.salesRep?.id ?? null,
+  salesRepName: entry.salesRep?.user?.fullName ?? null,
+});
 
 type Props = {
   value: string;
@@ -62,7 +101,7 @@ export function CustomerSearchCombobox({
         const response = await fetch(`/api/sales/customers/search?q=${encodeURIComponent(searchQuery)}&limit=50`);
         if (!response.ok) throw new Error('Failed to search customers');
         const data = await response.json();
-        setCustomersFn(data.customers || []);
+        setCustomersFn((data.customers || []).map(toCustomer));
       } catch (err) {
         console.error('Customer search failed:', err);
         setCustomersFn([]);
@@ -114,18 +153,8 @@ export function CustomerSearchCombobox({
           return;
         }
 
-        const customer = data.customer;
-        const normalizedCustomer: Customer = {
-          id: customer.id,
-          name: customer.name,
-          territory: customer.territory ?? customer.salesRep?.territory ?? null,
-          accountNumber: customer.accountNumber ?? null,
-          requiresPO: Boolean(customer.requiresPO),
-          defaultWarehouseLocation: customer.defaultWarehouseLocation ?? null,
-          defaultDeliveryTimeWindow: customer.defaultDeliveryTimeWindow ?? null,
-          paymentTerms: customer.paymentTerms ?? null,
-          state: customer.address?.state ?? customer.state ?? null,
-        };
+        const customer = data.customer as CustomerApiResult;
+        const normalizedCustomer: Customer = toCustomer(customer);
 
         setSelectedCustomer(normalizedCustomer);
         setCustomers((prev) => {
@@ -165,7 +194,7 @@ export function CustomerSearchCombobox({
           } ${disabled || loading ? 'cursor-not-allowed bg-gray-100' : ''}`}>
             <Combobox.Input
               className="w-full border-none py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:outline-none focus:ring-0 bg-transparent"
-              displayValue={(customerId: string) => {
+              displayValue={() => {
                 return selectedCustomer
                   ? `${selectedCustomer.name}${selectedCustomer.territory ? ` (${selectedCustomer.territory})` : ''}`
                   : '';
@@ -205,7 +234,7 @@ export function CustomerSearchCombobox({
                 <div className="relative cursor-default select-none px-4 py-2 text-gray-700">
                   <div className="flex items-center gap-2">
                     <Search className="h-4 w-4 text-gray-400" />
-                    <span>No customers found matching "{query}"</span>
+                    <span>No customers found matching {query}</span>
                   </div>
                 </div>
               ) : customers.length === 0 ? (

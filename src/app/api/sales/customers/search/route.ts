@@ -46,6 +46,17 @@ export async function GET(request: NextRequest) {
             defaultDeliveryTimeWindow: true,
             paymentTerms: true,
             lastOrderDate: true,
+            salesRepId: true,
+            salesRep: {
+              select: {
+                id: true,
+                user: {
+                  select: {
+                    fullName: true,
+                  },
+                },
+              },
+            },
           },
           orderBy: {
             lastOrderDate: 'desc',
@@ -90,6 +101,17 @@ export async function GET(request: NextRequest) {
           defaultWarehouseLocation: true,
           defaultDeliveryTimeWindow: true,
           paymentTerms: true,
+          salesRepId: true,
+          salesRep: {
+            select: {
+              id: true,
+              user: {
+                select: {
+                  fullName: true,
+                },
+              },
+            },
+          },
         },
         orderBy: {
           name: 'asc',

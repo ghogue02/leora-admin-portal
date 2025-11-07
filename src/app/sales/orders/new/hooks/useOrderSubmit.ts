@@ -6,7 +6,6 @@
  */
 
 import { useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
 
 type OrderData = {
   customerId: string;
@@ -15,6 +14,7 @@ type OrderData = {
   deliveryTimeWindow?: string;
   poNumber?: string;
   specialInstructions?: string;
+  salesRepId?: string;
   items: Array<{
     skuId: string;
     quantity: number;
@@ -29,7 +29,6 @@ type SubmitResult = {
 };
 
 export function useOrderSubmit() {
-  const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 

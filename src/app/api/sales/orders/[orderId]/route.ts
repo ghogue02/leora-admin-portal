@@ -123,9 +123,16 @@ export async function GET(request: NextRequest, props: RouteParams) {
       where: {
         id: orderId,
         tenantId,
-        customer: {
-          salesRepId, // ✅ This ensures the sales rep owns the customer
-        },
+        OR: [
+          {
+            customer: {
+              salesRepId,
+            },
+          },
+          {
+            salesRepId,
+          },
+        ],
       },
       include: {
         customer: {
@@ -142,6 +149,17 @@ export async function GET(request: NextRequest, props: RouteParams) {
             paymentTerms: true,
             licenseNumber: true,
             licenseType: true,
+          },
+        },
+        salesRep: {
+          select: {
+            id: true,
+            territoryName: true,
+            user: {
+              select: {
+                fullName: true,
+              },
+            },
           },
         },
         lines: {
@@ -201,6 +219,13 @@ export async function GET(request: NextRequest, props: RouteParams) {
           ...invoice,
           total: invoice.total ? Number(invoice.total) : null,
         })),
+        salesRep: order.salesRep
+          ? {
+              id: order.salesRep.id,
+              name: order.salesRep.user.fullName,
+              territory: order.salesRep.territoryName,
+            }
+          : null,
       },
     });
   });
@@ -241,15 +266,27 @@ export async function PUT(request: NextRequest, props: RouteParams) {
       specialInstructions,
       items, // Array of { skuId, quantity, usageType? }
     } = body;
+    const normalizedItems: Array<{
+      skuId: string;
+      quantity: number;
+      usageType?: string | null;
+    }> = Array.isArray(items) ? items : [];
 
     // 3. Validate order exists and sales rep has access
     const existingOrder = await db.order.findFirst({
       where: {
         id: orderId,
         tenantId,
-        customer: {
-          salesRepId, // SECURITY: Ensure sales rep owns customer
-        },
+        OR: [
+          {
+            customer: {
+              salesRepId,
+            },
+          },
+          {
+            salesRepId,
+          },
+        ],
       },
       include: {
         customer: true,
@@ -272,7 +309,10 @@ export async function PUT(request: NextRequest, props: RouteParams) {
     }
 
     // 4. Track changes for audit log
-    const changes: any = {
+    const changes: {
+      before: Record<string, unknown>;
+      after: Record<string, unknown>;
+    } = {
       before: {},
       after: {},
     };
@@ -290,7 +330,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
     // 5. Update order and order lines in transaction
     const result = await runWithTransaction(db, async (tx) => {
       // Get SKU details with pricing for line items
-      const skuIds = items.map((item: any) => item.skuId);
+      const skuIds = normalizedItems.map((item) => item.skuId);
       const skus = await tx.sku.findMany({
         where: {
           id: { in: skuIds },
@@ -319,7 +359,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
         name: existingOrder.customer.name,
       };
 
-      const pricedItems = items.map((item: any) => {
+      const pricedItems = normalizedItems.map((item) => {
         const sku = skus.find((s) => s.id === item.skuId);
         if (!sku) {
           throw new Error(`SKU ${item.skuId} not found`);

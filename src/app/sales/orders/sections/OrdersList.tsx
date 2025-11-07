@@ -27,6 +27,7 @@ type OrdersResponse = {
     currency: string | null;
     customer: { id: string; name: string } | null;
     invoiceTotals: { total: number; byStatus: Record<string, number> };
+    salesRep: { id: string; name: string; territory: string | null } | null;
   }>;
 };
 
@@ -35,6 +36,14 @@ type OrdersState = {
   loading: boolean;
   error: string | null;
 };
+
+const UNFULFILLED_STATUSES: OrderStatus[] = [
+  "SUBMITTED",
+  "PARTIALLY_FULFILLED",
+  "PENDING",
+  "READY_TO_DELIVER",
+  "PICKED",
+];
 
 const STATUS_BADGES: Partial<Record<OrderStatus, string>> = {
   SUBMITTED: "bg-amber-100 text-amber-700",
@@ -122,15 +131,6 @@ export default function OrdersList() {
     [load, state.data],
   );
 
-  // Treat active workflow statuses as "unfulfilled" so reps see open work first.
-  const UNFULFILLED_STATUSES: OrderStatus[] = [
-    'SUBMITTED',
-    'PARTIALLY_FULFILLED',
-    'PENDING',
-    'READY_TO_DELIVER',
-    'PICKED',
-  ];
-
   // Filter orders - MUST be before early returns to maintain consistent hook order
   const filteredOrders = useMemo(() => {
     if (!state.data?.orders) return [];
@@ -141,7 +141,8 @@ export default function OrdersList() {
         !normalizedSearch ||
         order.id.toLowerCase().includes(normalizedSearch) ||
         (order.orderNumber?.toLowerCase() ?? '').includes(normalizedSearch) ||
-        (order.customer?.name?.toLowerCase() ?? '').includes(normalizedSearch);
+        (order.customer?.name?.toLowerCase() ?? '').includes(normalizedSearch) ||
+        (order.salesRep?.name?.toLowerCase() ?? '').includes(normalizedSearch);
 
       // Status filter
       let matchesStatus = true;
@@ -353,6 +354,9 @@ export default function OrdersList() {
                     ) : (
                       <span className="text-xs text-gray-500">Portal order</span>
                     )}
+                    <p className="mt-1 text-xs text-gray-500">
+                      Salesperson: {order.salesRep?.name ?? 'Unassigned'}
+                    </p>
                   </td>
                   <td className="px-4 py-3">
                     <p className="font-semibold text-gray-900">
