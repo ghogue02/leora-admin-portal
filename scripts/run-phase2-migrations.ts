@@ -19,6 +19,7 @@
  */
 
 import { PrismaClient } from '@prisma/client';
+import { Client } from 'pg';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -202,8 +203,25 @@ async function runPhase2Migration(): Promise<MigrationResult> {
 
     logInfo('Executing migration SQL...');
 
-    // Execute the migration within a transaction
-    await prisma.$executeRawUnsafe(sql);
+    const connectionString =
+      process.env.DIRECT_URL ||
+      process.env.DATABASE_URL;
+
+    if (!connectionString) {
+      throw new Error('DATABASE_URL or DIRECT_URL must be set to run migrations');
+    }
+
+    const client = new Client({
+      connectionString,
+    });
+
+    await client.connect();
+
+    try {
+      await client.query(sql);
+    } finally {
+      await client.end();
+    }
 
     logSuccess('Phase 2 migration SQL executed successfully');
 

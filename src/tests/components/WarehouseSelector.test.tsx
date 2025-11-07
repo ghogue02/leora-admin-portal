@@ -17,13 +17,15 @@ describe('WarehouseSelector', () => {
     expect(screen.getByText('Storage')).toBeInTheDocument();
   });
 
-  it('should NOT display old warehouse names', () => {
+  it('renders only the supported warehouse options', () => {
     const mockOnChange = jest.fn();
-    render(<WarehouseSelector value="" onChange={mockOnChange} />);
+    const { container } = render(<WarehouseSelector value="" onChange={mockOnChange} />);
 
-    // Verify old names are not present
-    expect(screen.queryByText('Warrington')).not.toBeInTheDocument();
-    expect(screen.queryByText('Main Warehouse')).not.toBeInTheDocument();
+    const optionLabels = Array.from(
+      container.querySelectorAll('option')
+    ).map(option => option.textContent?.trim());
+
+    expect(optionLabels).toEqual(['Select warehouse', 'Baltimore', 'Warrenton', 'Storage']);
   });
 
   it('should call onChange with correct warehouse value', () => {
