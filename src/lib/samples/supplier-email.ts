@@ -1,7 +1,7 @@
-import { PrismaClient } from "@prisma/client";
-import { format } from "date-fns";
-import { sendEmail } from "@/lib/email";
-import { fetchSampleAnalytics } from "@/app/api/sales/analytics/samples/_service";
+import { PrismaClient } from '@prisma/client';
+import { format } from 'date-fns';
+import { sendEmail } from '@/lib/marketing/email-service';
+import { fetchSampleAnalytics } from '@/app/api/sales/analytics/samples/_service';
 
 export async function sendSupplierSampleReportEmail(
   db: PrismaClient,
@@ -35,11 +35,16 @@ export async function sendSupplierSampleReportEmail(
   const subject = `Sampling Performance Update: ${supplier.name}`;
   const body = buildEmailBody({ supplier, analytics, startDate, endDate, requestedBy: options.requestedBy });
 
-  await sendEmail({
+  const result = await sendEmail(options.tenantId, {
     to: options.recipient,
+    from: process.env.EMAIL_FROM ?? 'samples@wellcraftedwine.com',
     subject,
     html: body,
   });
+
+  if (!result.success) {
+    throw new Error(result.error ?? 'Unable to send supplier sample report email');
+  }
 
   return { subject };
 }
