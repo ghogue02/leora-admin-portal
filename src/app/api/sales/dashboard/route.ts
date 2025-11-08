@@ -642,6 +642,12 @@ export async function GET(request: NextRequest) {
         },
         recentActivities: recentSamples,
         followUps: openSampleFollowUpsSerialized,
+        alerts: buildSampleAlerts({
+          samplesLoggedThisWeek,
+          openSampleFollowUpCount,
+          periodConversionRate,
+          periodSampleQuantity,
+        }),
       };
 
       return NextResponse.json({
@@ -803,4 +809,39 @@ export async function GET(request: NextRequest) {
       });
     }
   );
+}
+
+function buildSampleAlerts(params: {
+  samplesLoggedThisWeek: number;
+  openSampleFollowUpCount: number;
+  periodConversionRate: number;
+  periodSampleQuantity: number;
+}) {
+  const alerts: Array<{ id: string; message: string; severity: "info" | "warning" | "critical" }> = [];
+
+  if (params.openSampleFollowUpCount > 0) {
+    alerts.push({
+      id: "follow-ups-open",
+      message: `${params.openSampleFollowUpCount.toLocaleString()} sample follow-up${params.openSampleFollowUpCount === 1 ? "" : "s"} need attention.`,
+      severity: params.openSampleFollowUpCount > 5 ? "critical" : "warning",
+    });
+  }
+
+  if (params.samplesLoggedThisWeek === 0) {
+    alerts.push({
+      id: "no-samples-week",
+      message: "No samples logged this week. Add at least one tasting to stay on track.",
+      severity: "warning",
+    });
+  }
+
+  if (params.periodSampleQuantity >= 10 && params.periodConversionRate < 0.25) {
+    alerts.push({
+      id: "conversion-low",
+      message: "Conversion rate is trending low for this period.",
+      severity: "info",
+    });
+  }
+
+  return alerts;
 }

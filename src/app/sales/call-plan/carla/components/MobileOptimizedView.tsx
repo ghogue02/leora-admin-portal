@@ -4,15 +4,7 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  CheckCircle,
-  XCircle,
-  Phone,
-  MapPin,
-  Navigation,
-  MoreVertical,
-  Trash2,
-} from "lucide-react";
+import { CheckCircle, XCircle, Phone, MapPin, Navigation, MoreVertical } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -28,13 +20,11 @@ type MobileAccount = CarlaSelectedAccount & {
 interface MobileAccountCardProps {
   account: MobileAccount;
   onContactUpdate: (customerId: string, outcome: string) => void;
-  onRemoveAccount: (customerId: string) => void;
 }
 
 export function MobileAccountCard({
   account,
   onContactUpdate,
-  onRemoveAccount,
 }: MobileAccountCardProps) {
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
@@ -134,13 +124,6 @@ export function MobileAccountCard({
                   Call
                 </DropdownMenuItem>
               )}
-              <DropdownMenuItem
-                onClick={() => onRemoveAccount(customer.id)}
-                className="text-red-600"
-              >
-                <Trash2 className="h-4 w-4 mr-2" />
-                Remove from Plan
-              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
@@ -216,13 +199,11 @@ export function MobileAccountCard({
 interface MobileOptimizedViewProps {
   accounts: MobileAccount[];
   onContactUpdate: (customerId: string, outcome: string, notes?: string) => void;
-  onRemoveAccount: (customerId: string) => void;
 }
 
 export default function MobileOptimizedView({
   accounts,
   onContactUpdate,
-  onRemoveAccount,
 }: MobileOptimizedViewProps) {
   const contactedCount = accounts.filter((a) => a.contactOutcome === "YES").length;
   const totalCount = accounts.length;
@@ -256,7 +237,7 @@ export default function MobileOptimizedView({
           <CardContent className="p-8 text-center">
             <p className="text-gray-500">No accounts in your call plan</p>
             <p className="text-sm text-gray-400 mt-2">
-              Tap &quot;Select Accounts&quot; to add accounts
+              Your assigned customer list will appear here automatically.
             </p>
           </CardContent>
         </Card>
@@ -266,7 +247,6 @@ export default function MobileOptimizedView({
             key={account.id}
             account={account}
             onContactUpdate={onContactUpdate}
-            onRemoveAccount={onRemoveAccount}
           />
         ))
       )}

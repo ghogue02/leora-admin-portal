@@ -24,6 +24,24 @@ export default function SampleActivitySummary({ insights }: SampleActivitySummar
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+      {insights.alerts && insights.alerts.length > 0 && (
+        <div className="mb-4 space-y-2">
+          {insights.alerts.map((alert) => (
+            <div
+              key={alert.id}
+              className={`rounded-md border px-3 py-2 text-xs font-semibold ${
+                alert.severity === "critical"
+                  ? "border-rose-200 bg-rose-50 text-rose-800"
+                  : alert.severity === "warning"
+                    ? "border-amber-200 bg-amber-50 text-amber-800"
+                    : "border-blue-200 bg-blue-50 text-blue-800"
+              }`}
+            >
+              {alert.message}
+            </div>
+          ))}
+        </div>
+      )}
       <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <h2 className="text-lg font-semibold text-gray-900">Sample Activity Snapshot</h2>

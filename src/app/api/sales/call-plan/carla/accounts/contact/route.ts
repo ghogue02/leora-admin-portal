@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { ContactOutcome } from "@prisma/client";
 
 /**
  * PUT - Update contact outcome for an account in call plan
@@ -18,13 +19,7 @@ export async function PUT(request: NextRequest) {
       }
 
       // Valid contact outcomes from schema
-      const validOutcomes = [
-        "NOT_ATTEMPTED",
-        "LEFT_MESSAGE",
-        "SPOKE_WITH_CONTACT",
-        "IN_PERSON_VISIT",
-        "EMAIL_SENT",
-      ];
+      const validOutcomes = Object.values(ContactOutcome);
 
       if (!validOutcomes.includes(contactOutcome)) {
         return NextResponse.json(
@@ -32,6 +27,8 @@ export async function PUT(request: NextRequest) {
           { status: 400 }
         );
       }
+
+      const normalizedOutcome = contactOutcome as ContactOutcome;
 
       // Update the call plan account
       const updated = await db.callPlanAccount.updateMany({
@@ -41,8 +38,8 @@ export async function PUT(request: NextRequest) {
           tenantId,
         },
         data: {
-          contactOutcome,
-          contactedAt: contactOutcome !== "NOT_ATTEMPTED" ? new Date() : null,
+          contactOutcome: normalizedOutcome,
+          contactedAt: normalizedOutcome !== ContactOutcome.NOT_ATTEMPTED ? new Date() : null,
           notes: notes || undefined,
         },
       });

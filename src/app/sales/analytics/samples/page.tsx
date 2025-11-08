@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { format, subDays } from 'date-fns';
 import ConversionChart from './sections/ConversionChart';
 import TopPerformers from './sections/TopPerformers';
@@ -43,15 +43,39 @@ type AnalyticsData = {
 };
 
 export default function SampleAnalyticsPage() {
-  const [data, setData] = useState<AnalyticsData | null>(null);
+  const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [supplierOptions, setSupplierOptions] = useState<Array<{ id: string; name: string }>>([]);
   const [dateRange, setDateRange] = useState<{ start: Date; end: Date }>({
     start: subDays(new Date(), 90),
     end: new Date(),
   });
+  const [filters, setFilters] = useState({
+    salesRepId: 'all',
+    supplierId: 'all',
+    skuId: 'all',
+  });
+
+  const repOptions = useMemo(() => {
+    if (!analytics) return [];
+    return analytics.repPerformance.map((rep) => ({ id: rep.id, name: rep.name }));
+  }, [analytics]);
+
+  const productOptions = useMemo(() => {
+    if (!analytics) return [];
+    return analytics.topProducts.map((product) => ({ id: product.id, name: product.productName }));
+  }, [analytics]);
+
+  const handleFilterChange = (field: 'salesRepId' | 'supplierId' | 'skuId', value: string) => {
+    setFilters((prev) => ({ ...prev, [field]: value }));
+  };
 
   useEffect(() => {
-    loadAnalytics();
+    void loadAnalytics();
+  }, [dateRange, filters]);
+
+  useEffect(() => {
+    void loadSuppliers();
   }, [dateRange]);
 
   const loadAnalytics = async () => {
@@ -61,16 +85,40 @@ export default function SampleAnalyticsPage() {
         startDate: format(dateRange.start, 'yyyy-MM-dd'),
         endDate: format(dateRange.end, 'yyyy-MM-dd'),
       });
+      if (filters.salesRepId !== 'all') params.set('salesRepId', filters.salesRepId);
+      if (filters.supplierId !== 'all') params.set('supplierId', filters.supplierId);
+      if (filters.skuId !== 'all') params.set('skuId', filters.skuId);
 
       const response = await fetch(`/api/sales/analytics/samples?${params}`);
       if (response.ok) {
         const result = await response.json();
-        setData(result);
+        setAnalytics(result);
       }
     } catch (error) {
       console.error('Failed to load analytics:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const loadSuppliers = async () => {
+    const params = new URLSearchParams({
+      startDate: format(dateRange.start, 'yyyy-MM-dd'),
+      endDate: format(dateRange.end, 'yyyy-MM-dd'),
+    });
+    try {
+      const response = await fetch(`/api/sales/analytics/samples/suppliers?${params}`);
+      if (response.ok) {
+        const data = await response.json();
+        setSupplierOptions(
+          (data.suppliers ?? []).map((supplier: { supplierId: string; supplierName: string }) => ({
+            id: supplier.supplierId,
+            name: supplier.supplierName,
+          })),
+        );
+      }
+    } catch (error) {
+      console.error('Failed to load supplier options', error);
     }
   };
 
@@ -88,6 +136,9 @@ export default function SampleAnalyticsPage() {
         endDate: format(dateRange.end, 'yyyy-MM-dd'),
         format,
       });
+      if (filters.salesRepId !== 'all') params.set('salesRepId', filters.salesRepId);
+      if (filters.supplierId !== 'all') params.set('supplierId', filters.supplierId);
+      if (filters.skuId !== 'all') params.set('skuId', filters.skuId);
 
       const response = await fetch(`/api/sales/analytics/samples/export?${params}`);
       if (response.ok) {
@@ -119,20 +170,21 @@ export default function SampleAnalyticsPage() {
     );
   }
 
-  if (!data) {
-    return (
-      <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
-        <div className="rounded-lg border border-red-100 bg-red-50 p-6">
-          <p className="text-sm text-red-700">Failed to load analytics data. Please try again.</p>
-        </div>
-      </main>
-    );
+  if (!analytics) {
+    return null;
   }
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
       {/* Header */}
-      <header className="flex justify-end">
+      <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <FilterPanel
+          filters={filters}
+          repOptions={repOptions}
+          supplierOptions={supplierOptions}
+          productOptions={productOptions}
+          onFilterChange={handleFilterChange}
+        />
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => handleDateRangeChange(30)}
@@ -185,47 +237,43 @@ export default function SampleAnalyticsPage() {
         <AnalyticsStatCard
           icon={<Package className="h-5 w-5" />}
           label="Total Samples"
-          value={data.overview.totalSamples.toLocaleString()}
-          trend={null}
+          value={analytics.overview.totalSamples.toLocaleString()}
           color="blue"
         />
         <AnalyticsStatCard
           icon={<TrendingUp className="h-5 w-5" />}
           label="Conversion Rate"
-          value={`${(data.overview.conversionRate * 100).toFixed(1)}%`}
-          trend={null}
+          value={`${(analytics.overview.conversionRate * 100).toFixed(1)}%`}
           color="green"
         />
         <AnalyticsStatCard
           icon={<DollarSign className="h-5 w-5" />}
           label="Revenue Generated"
-          value={`$${data.overview.totalRevenue.toLocaleString()}`}
-          trend={null}
+          value={`$${analytics.overview.totalRevenue.toLocaleString()}`}
           color="purple"
         />
         <AnalyticsStatCard
           icon={<Calendar className="h-5 w-5" />}
           label="Active Products"
-          value={data.overview.activeProducts.toLocaleString()}
-          trend={null}
+          value={analytics.overview.activeProducts.toLocaleString()}
           color="orange"
         />
       </div>
 
       {/* Conversion Chart */}
-      <ConversionChart trends={data.trends} />
+      <ConversionChart trends={analytics.trends} />
 
       {/* Top Performers & Rep Leaderboard */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <TopPerformers products={data.topProducts} />
-        <RepLeaderboard reps={data.repPerformance} />
+        <TopPerformers products={analytics.topProducts} />
+        <RepLeaderboard reps={analytics.repPerformance} />
       </div>
 
       {/* Customer Sample History */}
       <CustomerSampleHistory />
 
       {/* Supplier Report */}
-      <SupplierReport />
+      <SupplierReport startDate={dateRange.start} endDate={dateRange.end} />
     </main>
   );
 }
@@ -271,6 +319,70 @@ function AnalyticsStatCard({ icon, label, value, color }: StatCardProps) {
         <p className="text-xs font-medium uppercase tracking-wide text-gray-500">{label}</p>
         <p className={`mt-1 text-2xl font-bold ${palette.text}`}>{value}</p>
       </div>
+    </div>
+  );
+}
+
+type FilterPanelProps = {
+  filters: {
+    salesRepId: string;
+    supplierId: string;
+    skuId: string;
+  };
+  repOptions: Array<{ id: string; name: string }>;
+  supplierOptions: Array<{ id: string; name: string }>;
+  productOptions: Array<{ id: string; name: string }>;
+  onFilterChange: (field: 'salesRepId' | 'supplierId' | 'skuId', value: string) => void;
+};
+
+function FilterPanel({ filters, repOptions, supplierOptions, productOptions, onFilterChange }: FilterPanelProps) {
+  return (
+    <div className="grid w-full gap-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm sm:grid-cols-2 lg:grid-cols-3">
+      <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+        Sales Rep
+        <select
+          value={filters.salesRepId}
+          onChange={(event) => onFilterChange('salesRepId', event.target.value)}
+          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        >
+          <option value="all">All reps</option>
+          {repOptions.map((rep) => (
+            <option key={rep.id} value={rep.id}>
+              {rep.name}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+        Supplier
+        <select
+          value={filters.supplierId}
+          onChange={(event) => onFilterChange('supplierId', event.target.value)}
+          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        >
+          <option value="all">All suppliers</option>
+          {supplierOptions.map((supplier) => (
+            <option key={supplier.id} value={supplier.id}>
+              {supplier.name}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+        Product
+        <select
+          value={filters.skuId}
+          onChange={(event) => onFilterChange('skuId', event.target.value)}
+          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        >
+          <option value="all">All products</option>
+          {productOptions.map((product) => (
+            <option key={product.id} value={product.id}>
+              {product.name}
+            </option>
+          ))}
+        </select>
+      </label>
     </div>
   );
 }

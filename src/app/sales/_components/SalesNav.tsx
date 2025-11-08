@@ -9,15 +9,15 @@ import { ChevronDown } from "lucide-react";
 const salesHubMenu = [
   { label: "Customers", href: "/sales/customers" },
   { label: "Activities", href: "/sales/activities" },
-  { label: "Samples", href: "/sales/analytics/samples" },
+  { label: "Samples", href: "/sales/samples" },
   { label: "Orders", href: "/sales/orders" },
   { label: "Catalog", href: "/sales/catalog" },
   { label: "Reports", href: "/sales/reports" },
   { label: "BTG Placements", href: "/sales/btg" },
+  { label: "Call Plan", href: "/sales/call-plan" },
 ];
 
 const operationsMenu = [
-  { label: "Call Plan", href: "/sales/call-plan" },
   { label: "Operations", href: "/sales/operations/queue" },
 ];
 

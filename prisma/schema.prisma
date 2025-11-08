@@ -2251,6 +2251,12 @@ enum ContactOutcome {
   NO_CONTACT
   CONTACTED
   VISITED
+  LEFT_MESSAGE
+  SPOKE_WITH_CONTACT
+  IN_PERSON_VISIT
+  EMAIL_SENT
+  YES
+  NO
 }
 
 enum TriggerType {

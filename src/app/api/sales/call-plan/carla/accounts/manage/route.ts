@@ -25,13 +25,6 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      if (accountIds.length > 75) {
-        return NextResponse.json(
-          { error: "Maximum 75 accounts can be selected" },
-          { status: 400 }
-        );
-      }
-
       const weekStartDate = parseISO(weekStart);
       const weekStartNormalized = startOfWeek(weekStartDate, { weekStartsOn: 1 });
       const weekEndNormalized = endOfWeek(weekStartDate, { weekStartsOn: 1 });
@@ -45,6 +38,9 @@ export async function POST(request: NextRequest) {
             gte: weekStartNormalized,
             lte: weekEndNormalized,
           },
+        },
+        orderBy: {
+          effectiveAt: "desc",
         },
         include: {
           accounts: true,
@@ -145,6 +141,9 @@ export async function DELETE(request: NextRequest) {
             lte: weekEndNormalized,
           },
         },
+        orderBy: {
+          effectiveAt: "desc",
+        },
       });
 
       if (!callPlan) {
@@ -201,8 +200,86 @@ export async function GET(request: NextRequest) {
       const weekStartNormalized = startOfWeek(weekStartDate, { weekStartsOn: 1 });
       const weekEndNormalized = endOfWeek(weekStartDate, { weekStartsOn: 1 });
 
-      // Find call plan for this week
-      const callPlan = await db.callPlan.findFirst({
+      const salesRep = await db.salesRep.findUnique({
+        where: {
+          tenantId_userId: {
+            tenantId,
+            userId: session.user.id,
+          },
+        },
+      });
+
+      if (!salesRep) {
+        return NextResponse.json(
+          { error: "Sales rep profile not found" },
+          { status: 404 }
+        );
+      }
+
+      const [assignmentCustomers, directCustomers] = await Promise.all([
+        db.customerAssignment.findMany({
+          where: {
+            tenantId,
+            salesRepId: salesRep.id,
+            unassignedAt: null,
+          },
+          select: {
+            customerId: true,
+          },
+        }),
+        db.customer.findMany({
+          where: {
+            tenantId,
+            salesRepId: salesRep.id,
+            isPermanentlyClosed: false,
+          },
+          select: {
+            id: true,
+          },
+        }),
+      ]);
+
+      const customerIdsSet = new Set<string>();
+      assignmentCustomers.forEach((assignment) => customerIdsSet.add(assignment.customerId));
+      directCustomers.forEach((customer) => customerIdsSet.add(customer.id));
+
+      if (customerIdsSet.size === 0) {
+        return NextResponse.json({
+          selectedAccountIds: [],
+          accounts: [],
+          callPlan: null,
+        });
+      }
+
+      const repCustomers = await db.customer.findMany({
+        where: {
+          tenantId,
+          id: {
+            in: Array.from(customerIdsSet),
+          },
+          isPermanentlyClosed: false,
+        },
+        select: {
+          id: true,
+        },
+      });
+
+      const callPlanAccountInclude = {
+        customer: {
+          select: {
+            id: true,
+            name: true,
+            accountNumber: true,
+            city: true,
+            state: true,
+            lastOrderDate: true,
+            riskStatus: true,
+            territory: true,
+          },
+        },
+      } as const;
+
+      let callPlan = await db.callPlan.findFirst({
         where: {
           tenantId,
           userId: session.user.id,
@@ -211,31 +288,73 @@ export async function GET(request: NextRequest) {
             lte: weekEndNormalized,
           },
         },
+        orderBy: {
+          effectiveAt: "desc",
+        },
         include: {
           accounts: {
-            include: {
-              customer: {
-                select: {
-                  id: true,
-                  name: true,
-                  accountNumber: true,
-                  city: true,
-                  state: true,
-                  lastOrderDate: true,
-                  riskStatus: true,
-                },
-              },
-            },
+            include: callPlanAccountInclude,
           },
         },
       });
 
       if (!callPlan) {
-        return NextResponse.json({
-          selectedAccountIds: [],
-          accounts: [],
-          callPlan: null,
+        callPlan = await db.callPlan.create({
+          data: {
+            tenantId,
+            userId: session.user.id,
+            name: `Week of ${weekStartNormalized.toISOString().split("T")[0]}`,
+            effectiveAt: weekStartNormalized,
+            status: "ACTIVE",
+            targetCount: repCustomers.length,
+          },
+          include: {
+            accounts: {
+              include: callPlanAccountInclude,
+            },
+          },
         });
+      }
+
+      const existingAccountIds = new Set(callPlan.accounts.map((account) => account.customerId));
+      const missingCustomers = repCustomers.filter(
+        (customer) => !existingAccountIds.has(customer.id)
+      );
+
+      if (missingCustomers.length > 0) {
+        await db.callPlanAccount.createMany({
+          data: missingCustomers.map((customer) => ({
+            tenantId,
+            callPlanId: callPlan!.id,
+            customerId: customer.id,
+            contactOutcome: "NOT_ATTEMPTED",
+          })),
+          skipDuplicates: true,
+        });
+
+        callPlan = await db.callPlan.findFirst({
+          where: {
+            tenantId,
+            id: callPlan.id,
+          },
+          include: {
+            accounts: {
+              include: callPlanAccountInclude,
+            },
+          },
+        });
+
+        await db.callPlan.update({
+          where: { id: callPlan!.id },
+          data: { targetCount: repCustomers.length },
+        });
+      }
+
+      if (!callPlan) {
+        return NextResponse.json(
+          { error: "Failed to load call plan" },
+          { status: 500 }
+        );
       }
 
       const selectedAccountIds = callPlan.accounts.map((a) => a.customerId);
@@ -250,6 +369,7 @@ export async function GET(request: NextRequest) {
         contactedAt: account.contactedAt?.toISOString(),
         objective: account.objective,
         notes: account.notes,
+        territory: account.customer.territory,
       }));
 
       return NextResponse.json({

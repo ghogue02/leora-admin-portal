@@ -389,7 +389,6 @@ export default function CarlaCallPlanPageEnhanced() {
             currentWeekStart.getTime()
           }
           selectedCount={selectedAccountIds.size}
-          maxAccounts={75}
           onPreviousWeek={() => setCurrentWeekStart(subWeeks(currentWeekStart, 1))}
           onNextWeek={() => setCurrentWeekStart(addWeeks(currentWeekStart, 1))}
           onThisWeek={() =>
@@ -459,9 +458,6 @@ export default function CarlaCallPlanPageEnhanced() {
         <MobileOptimizedView
           accounts={selectedAccounts}
           onContactUpdate={handleContactUpdate}
-          onRemoveAccount={async (customerId) => {
-            // Handle remove
-          }}
         />
       ) : (
         <Tabs defaultValue="planning" className="w-full">
@@ -483,9 +479,6 @@ export default function CarlaCallPlanPageEnhanced() {
               accounts={selectedAccounts}
               callPlanId={callPlanId}
               onContactUpdate={handleContactUpdate}
-              onRemoveAccount={async (customerId) => {
-                // Handle remove
-              }}
             />
           </TabsContent>
         </Tabs>
@@ -501,7 +494,6 @@ export default function CarlaCallPlanPageEnhanced() {
           // Handle save
           setIsModalOpen(false);
         }}
-        maxAccounts={75}
       />
 
       <TerritoryBlockingModal

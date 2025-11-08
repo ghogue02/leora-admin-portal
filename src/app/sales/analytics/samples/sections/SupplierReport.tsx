@@ -46,7 +46,12 @@ const RANGE_OPTIONS = [
   { label: '180 Days', value: 180 },
 ];
 
-export default function SupplierReport() {
+type SupplierReportProps = {
+  startDate: Date;
+  endDate: Date;
+};
+
+export default function SupplierReport({ startDate, endDate }: SupplierReportProps) {
   const [suppliers, setSuppliers] = useState<SupplierSummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedSupplier, setSelectedSupplier] = useState<string | null>(null);
@@ -57,8 +62,9 @@ export default function SupplierReport() {
 
   const loadSupplierData = useCallback(async (days: number) => {
     setLoading(true);
-    const end = new Date();
-    const start = subDays(end, days);
+    const end = endDate;
+    const startCandidate = subDays(end, days);
+    const start = startCandidate < startDate ? startDate : startCandidate;
     const params = new URLSearchParams({
       startDate: format(start, 'yyyy-MM-dd'),
       endDate: format(end, 'yyyy-MM-dd'),
@@ -78,11 +84,11 @@ export default function SupplierReport() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [endDate, startDate]);
 
   useEffect(() => {
     void loadSupplierData(rangeDays);
-  }, [loadSupplierData, rangeDays]);
+  }, [loadSupplierData, rangeDays, startDate, endDate]);
 
   const handleRangeChange = (days: number) => {
     if (days === rangeDays) return;

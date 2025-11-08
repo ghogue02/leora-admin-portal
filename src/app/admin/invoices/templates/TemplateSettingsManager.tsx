@@ -213,13 +213,13 @@ const BASE_TEMPLATE_OPTIONS: Record<InvoiceFormat, Array<{ value: BaseTemplate; 
   ],
 };
 
-const SECTION_LABELS: Record<keyof TemplateSections, { label: string; description: string }> = {
-  showBillTo: { label: "Bill To", description: "Header address for billing." },
-  showShipTo: { label: "Ship To", description: "Header address for shipping." },
-  showCustomerInfo: { label: "Invoice details", description: "Salesperson, PO, dates." },
-  showTotals: { label: "Totals block", description: "Total liters & amount rows." },
-  showSignature: { label: "Signature block", description: "Retailer sign-off area." },
-  showComplianceNotice: { label: "Compliance notice", description: "Legal text footer." },
+const SECTION_LABELS: Record<keyof TemplateSections, { label: string; description?: string }> = {
+  showBillTo: { label: "Bill To" },
+  showShipTo: { label: "Ship To" },
+  showCustomerInfo: { label: "Invoice details" },
+  showTotals: { label: "Totals block" },
+  showSignature: { label: "Signature block" },
+  showComplianceNotice: { label: "Compliance notice" },
 };
 
 const HEADER_NOTE_POSITIONS: Array<{ value: HeaderNotePosition; label: string }> = [
@@ -1063,7 +1063,7 @@ export function TemplateSettingsManager() {
           Use the toggles to show or hide each block. Rows stack vertically to avoid cramped layouts inside the editor.
         </p>
         <div className="flex flex-col gap-2">
-          {(Object.entries(SECTION_LABELS) as Array<[keyof TemplateSections, { label: string; description: string }]>).map(([key, meta]) => (
+          {(Object.entries(SECTION_LABELS) as Array<[keyof TemplateSections, { label: string; description?: string }]>).map(([key, meta]) => (
             <VisibilityToggleRow
               key={key}
               label={meta.label}
@@ -1579,7 +1579,7 @@ function CommandBar({ lastUpdated, isDirty, saving, onReset, onSave }: CommandBa
 
 interface VisibilityToggleRowProps {
   label: string;
-  description: string;
+  description?: string;
   enabled: boolean;
   onToggle: (next: boolean) => void;
 }
@@ -1590,12 +1590,11 @@ function VisibilityToggleRow({ label, description, enabled, onToggle }: Visibili
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm font-medium text-gray-900">{label}</p>
-          <p className="text-xs text-muted-foreground">{description}</p>
+          {description ? (
+            <p className="text-xs text-muted-foreground">{description}</p>
+          ) : null}
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-            {enabled ? "Shown" : "Hidden"}
-          </span>
           <Switch checked={enabled} onCheckedChange={onToggle} aria-label={`Toggle ${label}`} />
         </div>
       </div>

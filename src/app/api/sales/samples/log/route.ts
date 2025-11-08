@@ -1,10 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { withSalesSession } from "@/lib/auth/sales";
-import {
-  ensureSampleItemsValid,
-  createFollowUpTasksForSamples,
-} from "@/app/api/sales/activities/_helpers";
+import { ensureSampleItemsValid } from "@/app/api/sales/activities/_helpers";
+import { createFollowUpTaskForSampleUsage } from "@/lib/samples/follow-up-automation";
 
 const logSamplesSchema = z.object({
   customerId: z.string().uuid(),
@@ -150,13 +148,11 @@ export async function POST(request: NextRequest) {
           ),
         );
 
-        await createFollowUpTasksForSamples(tx, {
-          tenantId,
-          userId: session.user.id,
-          customerId,
-          occurredAt: tastedAt,
-          items: helperItems,
-        });
+        await Promise.all(
+          rows
+            .filter((row) => row.needsFollowUp)
+            .map((row) => createFollowUpTaskForSampleUsage(tx, row.id)),
+        );
 
         return rows;
       });

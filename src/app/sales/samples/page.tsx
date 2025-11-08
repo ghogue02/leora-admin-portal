@@ -1,34 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
 import { CheckCircle2, BarChart3, ClipboardPen, Mail } from "lucide-react";
-import SampleQuickLogPanel from "../customers/[customerId]/sections/SampleQuickLogPanel";
-import SampleFollowUpList, {
-  type SampleFollowUpItem,
-} from "../customers/[customerId]/sections/SampleFollowUpList";
-import type { SampleInsightsSummary } from "@/types/activities";
-
-// TODO: wire to real customer context; placeholder until we add server data fetchers.
-const placeholderFollowUps: SampleFollowUpItem[] = [];
-const placeholderInsights: SampleInsightsSummary = {
-  metrics: {
-    loggedThisWeek: 0,
-    completedThisWeek: 0,
-    openFollowUps: 0,
-    periodLabel: "",
-    periodSampleQuantity: 0,
-    periodUniqueCustomers: 0,
-    periodCustomerConversionRate: 0,
-  },
-  recentActivities: [],
-  followUps: [],
-};
-
 export default function SalesSamplesLandingPage() {
-  const insights = useMemo(() => placeholderInsights, []);
-  const followUps = useMemo(() => placeholderFollowUps, []);
-
   return (
     <main className="mx-auto flex max-w-6xl flex-col gap-6 p-6">
       <header className="flex flex-col gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm md:flex-row md:items-center md:justify-between">
@@ -60,14 +34,14 @@ export default function SalesSamplesLandingPage() {
         <QuickStatCard
           icon={<ClipboardPen className="h-5 w-5 text-blue-600" />}
           title="Log Samples"
-          description="Use any customer record or the quick log below to capture tastings in seconds."
+          description="Open any customer record to capture tastings or use Quick Assign for a faster flow."
           action={{ label: "Find a customer", href: "/sales/customers" }}
         />
         <QuickStatCard
           icon={<CheckCircle2 className="h-5 w-5 text-emerald-600" />}
           title="Follow Ups"
-          description="Mark items complete right from each customer page or below."
-          action={{ label: "View follow-ups", href: "#follow-ups" }}
+          description="Mark items complete from customer pages or the dashboard sampling widget."
+          action={{ label: "View follow-ups", href: "/sales/dashboard" }}
         />
         <QuickStatCard
           icon={<Mail className="h-5 w-5 text-purple-600" />}
@@ -84,11 +58,20 @@ export default function SalesSamplesLandingPage() {
         </p>
       </section>
 
-      <SampleQuickLogPanel customerId="" customerName="" />
-
-      <div id="follow-ups">
-        <SampleFollowUpList items={followUps} onComplete={async () => {}} />
-      </div>
+      <section className="grid gap-4 md:grid-cols-2">
+        <QuickStatCard
+          icon={<ClipboardPen className="h-5 w-5 text-blue-600" />}
+          title="Log from Customer Page"
+          description="Open any customer profile and use the Log Samples panel to capture tastings instantly."
+          action={{ label: "View customers", href: "/sales/customers" }}
+        />
+        <QuickStatCard
+          icon={<CheckCircle2 className="h-5 w-5 text-emerald-600" />}
+          title="Manage Follow-ups"
+          description="Follow-up queues live inside each customer file and on your dashboard widget."
+          action={{ label: "Go to dashboard", href: "/sales/dashboard" }}
+        />
+      </section>
     </main>
   );
 }

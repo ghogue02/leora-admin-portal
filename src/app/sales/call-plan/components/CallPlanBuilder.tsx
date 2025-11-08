@@ -49,7 +49,7 @@ const priorityConfig = {
 
 export default function CallPlanBuilder({
   selectedAccounts,
-  targetCount = 75,
+  targetCount = 30,
   weekNumber,
   year,
   callPlanId,

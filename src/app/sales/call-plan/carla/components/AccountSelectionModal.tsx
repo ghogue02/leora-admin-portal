@@ -17,7 +17,6 @@ interface AccountSelectionModalProps {
   accounts: Account[];
   selectedAccountIds: Set<string>;
   onSave: (selectedIds: string[]) => void;
-  maxAccounts?: number;
 }
 
 type HealthFilter = "all" | "healthy" | "at-risk" | "dormant";
@@ -41,7 +40,6 @@ export default function AccountSelectionModal({
   accounts,
   selectedAccountIds,
   onSave,
-  maxAccounts = 75,
 }: AccountSelectionModalProps) {
   const [localSelection, setLocalSelection] = useState<Set<string>>(new Set(selectedAccountIds));
   const [searchQuery, setSearchQuery] = useState("");
@@ -136,10 +134,6 @@ export default function AccountSelectionModal({
     if (newSelection.has(accountId)) {
       newSelection.delete(accountId);
     } else {
-      if (newSelection.size >= maxAccounts) {
-        alert(`Maximum ${maxAccounts} accounts can be selected`);
-        return;
-      }
       newSelection.add(accountId);
     }
     setLocalSelection(newSelection);
@@ -155,17 +149,12 @@ export default function AccountSelectionModal({
       currentlyDisplayed.forEach((id) => newSelection.delete(id));
       setLocalSelection(newSelection);
     } else {
-      // Select all displayed (up to max)
+      // Select all displayed
       const newSelection = new Set(localSelection);
-      let added = 0;
       for (const id of currentlyDisplayed) {
-        if (!newSelection.has(id) && newSelection.size < maxAccounts) {
+        if (!newSelection.has(id)) {
           newSelection.add(id);
-          added++;
         }
-      }
-      if (added < currentlyDisplayed.length) {
-        alert(`Only added ${added} accounts to reach the ${maxAccounts} account limit`);
       }
       setLocalSelection(newSelection);
     }
@@ -193,8 +182,7 @@ export default function AccountSelectionModal({
   };
 
   const selectedCount = localSelection.size;
-  const countColor =
-    selectedCount < 60 ? "text-red-600" : selectedCount < 70 ? "text-yellow-600" : "text-green-600";
+  const countColor = selectedCount < 30 ? "text-red-600" : "text-green-600";
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -203,7 +191,7 @@ export default function AccountSelectionModal({
           <div className="flex items-center justify-between">
             <DialogTitle className="text-2xl">Select Accounts for Call Plan</DialogTitle>
             <div className={`text-lg font-semibold ${countColor}`}>
-              {selectedCount} / {maxAccounts} accounts
+              Selected: {selectedCount}
             </div>
           </div>
         </DialogHeader>
@@ -456,13 +444,8 @@ export default function AccountSelectionModal({
           <div className="flex items-center justify-between w-full">
             <div className={`text-sm font-medium ${countColor}`}>
               {selectedCount} accounts selected
-              {selectedCount < 60 && (
-                <span className="text-red-600 ml-2">
-                  (⚠️ Below recommended minimum of 60)
-                </span>
-              )}
-              {selectedCount >= 70 && selectedCount <= 75 && (
-                <span className="text-green-600 ml-2">(✓ Target range)</span>
+              {selectedCount < 30 && (
+                <span className="text-red-600 ml-2">(add more — target 30+)</span>
               )}
             </div>
             <div className="flex gap-3">

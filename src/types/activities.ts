@@ -83,4 +83,9 @@ export type SampleInsightsSummary = {
   };
   recentActivities: SampleActivityRecord[];
   followUps: SampleActivityRecord[];
+  alerts?: Array<{
+    id: string;
+    message: string;
+    severity: "info" | "warning" | "critical";
+  }>;
 };

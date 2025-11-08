@@ -29,6 +29,7 @@ import type {
   CarlaTerritoryBlock,
   CarlaUnscheduledAccount,
 } from "../types";
+import type { CarlaSelectedAccount } from "../types";
 
 const tenantHeaders = {
   "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
@@ -38,6 +39,7 @@ interface DragDropCalendarProps {
   callPlanId?: string;
   weekStart: Date;
   refreshKey: number;
+  weeklyAccounts: CarlaSelectedAccount[];
 }
 
 type CalendarEventInput = {
@@ -97,7 +99,12 @@ function getTerritoryColor(territory: string | null | undefined) {
   return `hsl(${hue}deg 55% 65%)`;
 }
 
-export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: DragDropCalendarProps) {
+export default function DragDropCalendar({
+  callPlanId,
+  weekStart,
+  refreshKey,
+  weeklyAccounts,
+}: DragDropCalendarProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [schedules, setSchedules] = useState<CarlaScheduleEvent[]>([]);
   const [unscheduledAccounts, setUnscheduledAccounts] = useState<CarlaUnscheduledAccount[]>([]);
@@ -249,7 +256,7 @@ export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: 
 
   const draggableAccounts: PlannerAccount[] = useMemo(() => {
     return unscheduledAccounts.map((account) => ({
-      id: account.callPlanAccountId,
+      id: account.customerId,
       customerId: account.customerId,
       customerName: account.customerName,
       accountNumber: account.accountNumber,
@@ -264,6 +271,26 @@ export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: 
     }));
   }, [unscheduledAccounts]);
 
+  const weeklyDraggableAccounts: PlannerAccount[] = useMemo(() => {
+    return weeklyAccounts.map((account) => {
+      const city = account.city ?? account.customer?.city ?? null;
+      const state = account.state ?? account.customer?.state ?? null;
+      return {
+        id: account.id,
+        customerId: account.id,
+        customerName: account.name ?? account.customer?.customerName ?? "Customer",
+        accountNumber: account.accountNumber ?? account.customer?.accountNumber ?? null,
+        accountType: "ACTIVE",
+        priority: "MEDIUM",
+        objective: account.objective ?? "",
+        lastOrderDate: account.lastOrderDate ?? account.customer?.lastOrderDate ?? null,
+        location: city && state ? `${city}, ${state}` : city ?? state ?? null,
+        territory: account.territory ?? account.customer?.territory ?? null,
+        isScheduled: false,
+      };
+    });
+  }, [weeklyAccounts]);
+
   useEffect(() => {
     if (typeof document === "undefined") {
       return undefined;
@@ -271,45 +298,50 @@ export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: 
 
     const draggables: Draggable[] = [];
 
-    draggableAccounts.forEach((account) => {
-      const draggableEl = document.getElementById(`draggable-account-${account.id}`);
+    const registerDraggables = (accounts: PlannerAccount[], idPrefix: string) => {
+      accounts.forEach((account) => {
+        const draggableEl = document.getElementById(`${idPrefix}${account.customerId}`);
 
-      if (draggableEl && !account.isScheduled) {
-        const payload = {
-          id: account.id,
-          customerId: account.customerId,
-          customerName: account.customerName,
-          priority: account.priority ?? "MEDIUM",
-          accountType: account.accountType ?? "ACTIVE",
-          accountNumber: account.accountNumber ?? null,
-          location: account.location ?? null,
-          objective: account.objective ?? "",
-          territory: account.territory ?? null,
-          lastOrderDate: account.lastOrderDate ?? null,
-          isScheduled: account.isScheduled ?? false,
-        };
+        if (draggableEl && !account.isScheduled) {
+          const payload = {
+            id: account.id,
+            customerId: account.customerId,
+            customerName: account.customerName,
+            priority: account.priority ?? "MEDIUM",
+            accountType: account.accountType ?? "ACTIVE",
+            accountNumber: account.accountNumber ?? null,
+            location: account.location ?? null,
+            objective: account.objective ?? "",
+            territory: account.territory ?? null,
+            lastOrderDate: account.lastOrderDate ?? null,
+            isScheduled: account.isScheduled ?? false,
+          };
 
-        draggableEl.setAttribute("data-account", JSON.stringify(payload));
-        const draggable = new Draggable(draggableEl, {
-          eventData: {
-            id: account.customerId,
-            title: account.customerName,
-            duration: { minutes: 30 },
-            extendedProps: {
-              customerId: account.customerId,
-              territory: account.territory ?? null,
-              priority: account.priority,
+          draggableEl.setAttribute("data-account", JSON.stringify(payload));
+          const draggable = new Draggable(draggableEl, {
+            eventData: {
+              id: account.customerId,
+              title: account.customerName,
+              duration: { minutes: 30 },
+              extendedProps: {
+                customerId: account.customerId,
+                territory: account.territory ?? null,
+                priority: account.priority,
+              },
             },
-          },
-        });
-        draggables.push(draggable);
-      }
-    });
+          });
+          draggables.push(draggable);
+        }
+      });
+    };
+
+    registerDraggables(draggableAccounts, "draggable-account-");
+    registerDraggables(weeklyDraggableAccounts, "weekly-draggable-account-");
 
     return () => {
       draggables.forEach((draggable) => draggable.destroy());
     };
-  }, [draggableAccounts]);
+  }, [draggableAccounts, weeklyDraggableAccounts]);
 
   const blocksByDay = useMemo(() => {
     const map = new Map<number, TerritoryBlock[]>();

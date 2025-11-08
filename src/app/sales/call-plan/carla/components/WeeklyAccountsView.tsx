@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar, MapPin, CheckCircle2, Circle, MessageSquare } from "lucide-react";
 import { format } from "date-fns";
 import type { CarlaSelectedAccount } from "../types";
@@ -13,7 +11,6 @@ interface WeeklyAccountsViewProps {
   accounts: CarlaSelectedAccount[];
   callPlanId?: string;
   onContactUpdate: (customerId: string, outcome: string, notes?: string) => void;
-  onRemoveAccount?: (customerId: string) => void;
 }
 
 const CONTACT_OUTCOMES = [
@@ -28,9 +25,9 @@ export default function WeeklyAccountsView({
   accounts,
   callPlanId,
   onContactUpdate,
-  onRemoveAccount,
 }: WeeklyAccountsViewProps) {
   const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set());
+  const [draggedAccountId, setDraggedAccountId] = useState<string | null>(null);
 
   const toggleNotes = (accountId: string) => {
     const newExpanded = new Set(expandedNotes);
@@ -47,6 +44,41 @@ export default function WeeklyAccountsView({
     onContactUpdate(customerId, outcome);
   };
 
+  const buildDragPayload = (account: CarlaSelectedAccount, accountName: string) => {
+    const lastOrderDate = account.lastOrderDate ?? account.customer?.lastOrderDate ?? undefined;
+    const city = account.city ?? account.customer?.city ?? null;
+    const state = account.state ?? account.customer?.state ?? null;
+    const territory = account.territory ?? account.customer?.territory ?? null;
+
+    return {
+      id: account.id,
+      customerId: account.id,
+      customerName: accountName,
+      priority: "MEDIUM",
+      accountType: "ACTIVE",
+      accountNumber: account.accountNumber ?? account.customer?.accountNumber ?? null,
+      location: city && state ? `${city}, ${state}` : city ?? state ?? null,
+      objective: account.objective ?? "",
+      territory,
+      lastOrderDate,
+      isScheduled: false,
+    };
+  };
+
+  const handleDragStart = (
+    event: React.DragEvent<HTMLDivElement>,
+    payload: ReturnType<typeof buildDragPayload>,
+    id: string
+  ) => {
+    event.dataTransfer.effectAllowed = "copy";
+    event.dataTransfer.setData("application/json", JSON.stringify(payload));
+    setDraggedAccountId(id);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedAccountId(null);
+  };
+
   const contactedCount = accounts.filter(
     (a) => (a.contactOutcome ?? "NOT_ATTEMPTED") !== "NOT_ATTEMPTED"
   ).length;
@@ -60,8 +92,9 @@ export default function WeeklyAccountsView({
       <Card>
         <CardContent className="flex flex-col items-center justify-center py-12">
           <p className="text-lg font-medium text-gray-900">No accounts selected</p>
-          <p className="mt-1 text-sm text-gray-500">
-            Click &quot;Select Accounts&quot; to add customers to your weekly plan
+          <p className="mt-1 text-sm text-gray-500 text-center">
+            Your weekly call plan will load automatically once customer assignments sync.
+            Refresh the page if this message persists.
           </p>
         </CardContent>
       </Card>
@@ -89,7 +122,7 @@ export default function WeeklyAccountsView({
       </CardHeader>
 
       <CardContent>
-        <div className="space-y-2">
+        <div className="space-y-2 max-h-[520px] overflow-y-auto pr-1">
           {accounts.map((account) => {
             const outcomeValue = account.contactOutcome ?? "NOT_ATTEMPTED";
             const currentOutcome =
@@ -101,18 +134,23 @@ export default function WeeklyAccountsView({
             const accountName = account.name ?? account.customer?.customerName ?? "Customer";
             const accountNumber = account.accountNumber ?? account.customer?.accountNumber ?? undefined;
             const lastOrderDate = account.lastOrderDate ?? account.customer?.lastOrderDate ?? undefined;
-            const city = account.city ?? account.customer?.addresses?.[0]?.city ?? undefined;
-            const state = account.state ?? account.customer?.addresses?.[0]?.state ?? undefined;
+            const city = account.city ?? account.customer?.city ?? undefined;
+            const state = account.state ?? account.customer?.state ?? undefined;
             const objective = account.objective ?? account.objectives ?? undefined;
+            const dragPayload = buildDragPayload(account, accountName);
 
             return (
               <div
                 key={account.id}
+                id={`weekly-draggable-account-${account.id}`}
                 className={`rounded-lg border p-4 transition-colors ${
                   isContacted
                     ? "border-green-200 bg-green-50/50"
                     : "border-gray-200 bg-white"
-                }`}
+                } ${draggedAccountId === account.id ? "ring-2 ring-blue-300" : ""}`}
+                draggable
+                onDragStart={(event) => handleDragStart(event, dragPayload, account.id)}
+                onDragEnd={handleDragEnd}
               >
                 <div className="flex items-start gap-4">
                   {/* Contact Status Icon */}
@@ -206,16 +244,6 @@ export default function WeeklyAccountsView({
                     )}
                   </div>
 
-                  {/* Remove Button */}
-                  {onRemoveAccount && (
-                    <button
-                      onClick={() => onRemoveAccount(account.id)}
-                      className="text-xs text-gray-400 hover:text-red-600 flex-shrink-0"
-                      title="Remove from plan"
-                    >
-                      ✕
-                    </button>
-                  )}
                 </div>
               </div>
             );

@@ -1,14 +1,7 @@
+import type { ContactOutcome as PrismaContactOutcome } from "@prisma/client";
 import type { DraggableAccountData } from "@/types/calendar";
 
-export type ContactOutcome =
-  | "NOT_ATTEMPTED"
-  | "LEFT_MESSAGE"
-  | "SPOKE_WITH_CONTACT"
-  | "IN_PERSON_VISIT"
-  | "EMAIL_SENT"
-  | "YES"
-  | "NO"
-  | null;
+export type ContactOutcome = PrismaContactOutcome | null;
 
 export type CarlaScheduleCustomer = {
   id: string;
@@ -86,6 +79,7 @@ export type CarlaSelectedAccount = {
   accountNumber?: string | null;
   city?: string | null;
   state?: string | null;
+  territory?: string | null;
   lastOrderDate?: string | null;
   contactOutcome?: ContactOutcome;
   contactedAt?: string | null;
@@ -100,6 +94,7 @@ export type CarlaSelectedAccount = {
     lastOrderDate?: string | null;
     annualRevenue?: number | null;
     priority?: "A" | "B" | "C";
+    territory?: string | null;
     addresses?: Array<{
       address1?: string | null;
       city?: string | null;

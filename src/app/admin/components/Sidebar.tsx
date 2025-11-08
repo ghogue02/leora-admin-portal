@@ -14,6 +14,7 @@ import {
   ScrollText,
   UserCog,
   ActivitySquare,
+  BellRing,
 } from "lucide-react";
 
 const navigation = [
@@ -57,6 +58,11 @@ const navigation = [
     label: "Inventory & Products",
     href: "/admin/inventory",
     icon: Package,
+  },
+  {
+    label: "Sample Follow-ups",
+    href: "/admin/samples/follow-ups",
+    icon: BellRing,
   },
   {
     label: "Audit Logs",

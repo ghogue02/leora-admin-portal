@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import { format, addDays, isSameDay } from "date-fns";
-import AddActivityModal from "./AddActivityModal";
+import { toast } from "sonner";
 import type { EnrichedCallPlanTask } from "@/lib/call-plan/enrich-tasks.server";
+
+const tenantHeaders = {
+  "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
+};
 
 type DayPlan = {
   date: Date;
@@ -27,7 +31,7 @@ type WeeklyCallPlanGridProps = {
   callPlan: {
     tasks: EnrichedCallPlanTask[];
   } | null;
-  onUpdate: () => void;
+  onRefresh?: () => void;
 };
 
 const WEEKDAYS = [
@@ -51,10 +55,10 @@ const ACTIVITY_TYPE_COLORS: Record<string, string> = {
 export default function WeeklyCallPlanGrid({
   weekStart,
   callPlan,
-  onUpdate,
+  onRefresh,
 }: WeeklyCallPlanGridProps) {
-  const [selectedDay, setSelectedDay] = useState<Date | null>(null);
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [activeDropDay, setActiveDropDay] = useState<number | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Build days array
   const days: DayPlan[] = WEEKDAYS.map((_, index) => ({
@@ -87,26 +91,78 @@ export default function WeeklyCallPlanGrid({
     });
   }
 
-  const handleAddActivity = (day: Date) => {
-    setSelectedDay(day);
-    setIsAddModalOpen(true);
+  const handleDragOverDay = (index: number, event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    if (activeDropDay !== index) {
+      setActiveDropDay(index);
+    }
   };
 
-  const handleToggleComplete = async (activityId: string, completed: boolean) => {
-    try {
-      const endpoint = completed
-        ? `/api/sales/tasks/${activityId}/uncomplete`
-        : `/api/sales/tasks/${activityId}/complete`;
+  const handleDragLeaveDay = (index: number) => {
+    if (activeDropDay === index) {
+      setActiveDropDay(null);
+    }
+  };
 
-      const response = await fetch(endpoint, {
-        method: "PUT",
+  const handleDropOnDay = async (index: number, event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    setActiveDropDay(null);
+    if (isSubmitting) {
+      return;
+    }
+
+    const raw = event.dataTransfer.getData("application/json");
+    if (!raw) {
+      toast.error("Unable to read account data");
+      return;
+    }
+
+    let payload: { customerId?: string; customerName?: string; objective?: string };
+    try {
+      payload = JSON.parse(raw);
+    } catch (error) {
+      console.error("[WeeklyCallPlanGrid] Failed to parse drag payload", error);
+      toast.error("Invalid account payload");
+      return;
+    }
+
+    if (!payload.customerId) {
+      toast.error("Missing customer information");
+      return;
+    }
+
+    const targetDate = new Date(days[index].date);
+    targetDate.setHours(10, 0, 0, 0);
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("/api/sales/call-plan/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          ...tenantHeaders,
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          customerId: payload.customerId,
+          dueAt: targetDate.toISOString(),
+          title: `${payload.customerName ?? "Customer"} - Planned Activity`,
+          description: payload.objective ?? undefined,
+        }),
       });
 
-      if (response.ok) {
-        onUpdate();
+      if (!response.ok) {
+        const error = await response.json().catch(() => ({}));
+        throw new Error(error.error ?? "Unable to schedule activity");
       }
+
+      toast.success(`Added ${payload.customerName ?? "customer"} to ${format(targetDate, "EEE, MMM d")}`);
+      onRefresh?.();
     } catch (error) {
-      console.error("Error updating activity:", error);
+      console.error("[WeeklyCallPlanGrid] handleDropOnDay", error);
+      toast.error(error instanceof Error ? error.message : "Failed to create activity");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -168,12 +224,16 @@ export default function WeeklyCallPlanGrid({
           {days.map((day, index) => {
             const today = isToday(day.date);
 
+            const isActiveTarget = activeDropDay === index;
             return (
               <div
                 key={index}
                 className={`min-h-[400px] border-r border-gray-200 p-3 last:border-r-0 ${
                   today ? "bg-blue-50/30" : ""
-                }`}
+                } ${isActiveTarget ? "border-blue-400 bg-blue-50/40" : ""}`}
+                onDragOver={(event) => handleDragOverDay(index, event)}
+                onDragLeave={() => handleDragLeaveDay(index)}
+                onDrop={(event) => handleDropOnDay(index, event)}
               >
                 {/* Activities List */}
                 <div className="space-y-2">
@@ -190,14 +250,7 @@ export default function WeeklyCallPlanGrid({
                         }`}
                       >
                         <div className="flex items-start gap-2">
-                          <input
-                            type="checkbox"
-                            checked={activity.completed}
-                            onChange={() =>
-                              activity.id && handleToggleComplete(activity.id, activity.completed)
-                            }
-                            className="mt-0.5 cursor-pointer"
-                          />
+                          <div className="mt-0.5 h-3.5 w-3.5 rounded border border-gray-400" />
                           <div className="flex-1">
                             <p
                               className={`font-semibold ${
@@ -219,13 +272,6 @@ export default function WeeklyCallPlanGrid({
                   })}
                 </div>
 
-                {/* Add Activity Button */}
-                <button
-                  onClick={() => handleAddActivity(day.date)}
-                  className="mt-3 w-full rounded-md border-2 border-dashed border-gray-300 py-3 text-xs font-medium text-gray-500 transition hover:border-blue-400 hover:text-blue-600"
-                >
-                  + Add Activity
-                </button>
               </div>
             );
           })}
@@ -254,21 +300,6 @@ export default function WeeklyCallPlanGrid({
         </div>
       </div>
 
-      {/* Add Activity Modal */}
-      {isAddModalOpen && selectedDay && (
-        <AddActivityModal
-          selectedDate={selectedDay}
-          onClose={() => {
-            setIsAddModalOpen(false);
-            setSelectedDay(null);
-          }}
-          onSuccess={() => {
-            setIsAddModalOpen(false);
-            setSelectedDay(null);
-            onUpdate();
-          }}
-        />
-      )}
     </>
   );
 }

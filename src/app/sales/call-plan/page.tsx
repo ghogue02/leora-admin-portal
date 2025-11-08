@@ -8,7 +8,6 @@ import { List, Calendar as CalendarIcon, Map, Repeat } from "lucide-react";
 import { toast } from "sonner";
 
 import CallPlanHeader from "./carla/components/CallPlanHeader";
-import AccountSelectionModal from "./carla/components/AccountSelectionModal";
 import WeeklyAccountsView from "./carla/components/WeeklyAccountsView";
 import DragDropCalendar from "./carla/components/DragDropCalendar";
 import TerritoryBlocker from "./carla/components/TerritoryBlocker";
@@ -65,7 +64,6 @@ function CallPlanPageContent() {
   const [callPlanId, setCallPlanId] = useState<string | undefined>();
   const [scheduleRefreshKey, setScheduleRefreshKey] = useState<number>(0);
   const [suggestionsRefreshKey, setSuggestionsRefreshKey] = useState<number>(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [callPlanOverview, setCallPlanOverview] = useState<CallPlanOverview | null>(null);
   const [callPlanLoading, setCallPlanLoading] = useState(true);
@@ -147,9 +145,22 @@ function CallPlanPageContent() {
       if (response.ok) {
         const data = await response.json();
         setSelectedAccountIds(new Set(data.selectedAccountIds || []));
-        const accountsWithStatus: CarlaSelectedAccount[] = Array.isArray(data.accounts)
+        let accountsWithStatus: CarlaSelectedAccount[] = Array.isArray(data.accounts)
           ? data.accounts
           : [];
+        if (!accountsWithStatus.length) {
+          try {
+            const fallback = await apiFetch(`/api/sales/call-plan/carla/accounts?weekStart=${weekStart}`);
+            if (fallback.ok) {
+              const fallbackData = await fallback.json();
+              accountsWithStatus = Array.isArray(fallbackData.accounts)
+                ? fallbackData.accounts
+                : [];
+            }
+          } catch (fallbackError) {
+            console.error("Error loading fallback account list:", fallbackError);
+          }
+        }
         setSelectedAccounts(accountsWithStatus);
         setCallPlanId(data.callPlan?.id);
       } else {
@@ -257,37 +268,6 @@ function CallPlanPageContent() {
     setCurrentWeekStart(startOfWeek(new Date(), { weekStartsOn: 1 }));
   };
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleSaveSelection = async (accountIds: string[]) => {
-    try {
-      const response = await apiFetch("/api/sales/call-plan/carla/accounts/manage", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          weekStart: currentWeekStart.toISOString(),
-          accountIds,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        toast.success(
-          `Successfully added ${data.callPlan.newAccountsAdded} account(s) to your plan`,
-        );
-        await Promise.all([loadSelectedAccounts(), loadCallPlanOverview()]);
-      } else {
-        const error = await response.json();
-        toast.error(`Error: ${error.error}`);
-      }
-    } catch (error) {
-      console.error("Error saving selection:", error);
-      toast.error("Failed to save account selection");
-    }
-  };
-
   const handleContactUpdate = async (
     customerId: string,
     outcome: string,
@@ -317,30 +297,6 @@ function CallPlanPageContent() {
     } catch (error) {
       console.error("Error updating contact:", error);
       toast.error("Failed to update contact status");
-    }
-  };
-
-  const handleRemoveAccount = async (customerId: string) => {
-    try {
-      const response = await apiFetch("/api/sales/call-plan/carla/accounts/manage", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          weekStart: currentWeekStart.toISOString(),
-          accountIds: [customerId],
-        }),
-      });
-
-      if (response.ok) {
-        toast.success("Account removed from plan");
-        await Promise.all([loadSelectedAccounts(), loadCallPlanOverview()]);
-      } else {
-        const error = await response.json();
-        toast.error(`Error: ${error.error}`);
-      }
-    } catch (error) {
-      console.error("Error removing account:", error);
-      toast.error("Failed to remove account");
     }
   };
 
@@ -430,13 +386,11 @@ function CallPlanPageContent() {
         weekEnd={weekEnd}
         isCurrentWeek={isCurrentWeek}
         selectedCount={selectedCount}
-        maxAccounts={75}
         onPreviousWeek={handlePreviousWeek}
         onNextWeek={handleNextWeek}
         onThisWeek={handleThisWeek}
         onCreatePlan={() => toast.success("Plan saved automatically")}
         onExportPDF={handleExportPDF}
-        onSelectAccounts={handleOpenModal}
         calendarSyncButton={<CalendarSync callPlanId={callPlanId} weekStart={currentWeekStart} />}
       />
 
@@ -467,28 +421,6 @@ function CallPlanPageContent() {
         </TabsList>
 
         <TabsContent value="list" className="space-y-6 pt-6">
-          {callPlanOverview && <CallPlanStats callPlan={callPlanOverview} />}
-
-          {callPlanOverview && (
-            <SampleFollowUpPanel
-              followUps={callPlanOverview.sampleFollowUps ?? []}
-              onLogged={handleSampleFollowUpLogged}
-            />
-          )}
-
-          <WeeklyTracker
-            weekStart={currentWeekStart}
-            callPlanId={callPlanOverview?.id}
-            onUpdate={loadCallPlanOverview}
-          />
-
-          <WeeklyAccountsView
-            accounts={selectedAccounts}
-            callPlanId={callPlanId}
-            onContactUpdate={handleContactUpdate}
-            onRemoveAccount={handleRemoveAccount}
-          />
-
           {callPlanLoading ? (
             <div className="flex items-center justify-center rounded-lg border border-gray-200 bg-white p-12">
               <div className="text-center">
@@ -500,7 +432,28 @@ function CallPlanPageContent() {
             <WeeklyCallPlanGrid
               weekStart={currentWeekStart}
               callPlan={callPlanOverview}
-              onUpdate={loadCallPlanOverview}
+              onRefresh={loadCallPlanOverview}
+            />
+          )}
+
+          <WeeklyAccountsView
+            accounts={selectedAccounts}
+            callPlanId={callPlanId}
+            onContactUpdate={handleContactUpdate}
+          />
+
+          {callPlanOverview && <CallPlanStats callPlan={callPlanOverview} />}
+
+          <WeeklyTracker
+            weekStart={currentWeekStart}
+            callPlanId={callPlanOverview?.id}
+            onUpdate={loadCallPlanOverview}
+          />
+
+          {callPlanOverview && (
+            <SampleFollowUpPanel
+              followUps={callPlanOverview.sampleFollowUps ?? []}
+              onLogged={handleSampleFollowUpLogged}
             />
           )}
         </TabsContent>
@@ -510,6 +463,7 @@ function CallPlanPageContent() {
             callPlanId={callPlanId}
             weekStart={currentWeekStart}
             refreshKey={scheduleRefreshKey}
+            weeklyAccounts={selectedAccounts}
           />
         </TabsContent>
 
@@ -538,14 +492,6 @@ function CallPlanPageContent() {
         </TabsContent>
       </Tabs>
 
-      <AccountSelectionModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        accounts={accounts}
-        selectedAccountIds={selectedAccountIds}
-        onSave={handleSaveSelection}
-        maxAccounts={75}
-      />
     </main>
   );
 }
