@@ -3,7 +3,7 @@ import type { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 import { computeOrderHealthMetrics } from "@/lib/analytics";
 import { buildSystemPrompt, buildUserPrompt } from "@/lib/copilot/prompts";
-import { streamCopilotResponse, buildMessagesWithFunctionResults } from "@/lib/copilot/service";
+import { streamCopilotResponse, buildMessagesWithFunctionResults, type ChatMessage } from "@/lib/copilot/service";
 import { FUNCTION_DEFINITIONS, FUNCTIONS } from "@/lib/copilot/functions";
 
 type CopilotRequestPayload = {
@@ -154,9 +154,8 @@ export async function POST(request: NextRequest) {
 
     // Execute initial AI call to detect if functions are needed
     // This MUST happen inside the transaction scope
-    let initialResponseForFunctions: Awaited<ReturnType<typeof streamCopilotResponse>> | null = null;
     let functionResults: Array<{ tool_call_id: string; name: string; result: unknown }> = [];
-    let messagesWithResults: any[] | null = null;
+    let messagesWithResults: ChatMessage[] | null = null;
 
     // First: Get AI decision on whether to use functions (non-streaming, just to detect tool calls)
     const detectionStart = Date.now();

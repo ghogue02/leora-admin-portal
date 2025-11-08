@@ -14,6 +14,19 @@ const updateInventorySchema = z.object({
   totalQuantity: z.number().int().nonnegative().optional(),
 });
 
+type InventoryWhereClause = {
+  skuId?: string;
+  availableQuantity?: {
+    lte: number;
+  };
+};
+
+type InventoryUpdateData = {
+  availableQuantity?: number;
+  totalQuantity?: number;
+  lastUpdated: Date;
+};
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -25,7 +38,7 @@ export async function GET(request: NextRequest) {
     });
 
     // Build where clause
-    const whereClause: any = {};
+    const whereClause: InventoryWhereClause = {};
 
     if (params.skuId) {
       whereClause.skuId = params.skuId;
@@ -104,7 +117,7 @@ export async function PATCH(request: NextRequest) {
     }
 
     // Build update data
-    const updateData: any = {
+    const updateData: InventoryUpdateData = {
       lastUpdated: new Date(),
     };
 

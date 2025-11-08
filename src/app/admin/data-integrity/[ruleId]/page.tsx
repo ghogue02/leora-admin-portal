@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import {
   ArrowLeft,
@@ -14,7 +14,7 @@ import {
 type AffectedRecord = {
   id: string;
   entityType: string;
-  details: Record<string, any>;
+  details: Record<string, unknown>;
 };
 
 type RuleDetails = {
@@ -53,13 +53,7 @@ export default function IssueDetailPage() {
     }
   }, [params]);
 
-  useEffect(() => {
-    if (ruleId) {
-      fetchRuleDetails();
-    }
-  }, [ruleId, page]);
-
-  const fetchRuleDetails = async () => {
+  const fetchRuleDetails = useCallback(async () => {
     if (!ruleId) return;
 
     try {
@@ -75,13 +69,19 @@ export default function IssueDetailPage() {
       } else {
         setError(result.error || 'Failed to fetch details');
       }
-    } catch (err) {
+    } catch (err: unknown) {
       setError('Network error occurred');
       console.error('Error fetching rule details:', err);
     } finally {
       setLoading(false);
     }
-  };
+  }, [ruleId, page]);
+
+  useEffect(() => {
+    if (ruleId) {
+      fetchRuleDetails();
+    }
+  }, [ruleId, fetchRuleDetails]);
 
   const toggleRecord = (recordId: string) => {
     const newSelected = new Set(selectedRecords);
@@ -105,7 +105,7 @@ export default function IssueDetailPage() {
     if (!data || selectedRecords.size === 0) return;
 
     // For different rule types, we may need different fix parameters
-    let fixParams = {};
+    let fixParams: Record<string, unknown> = {};
 
     // Special handling for assign-sales-rep
     if (ruleId === 'customers-without-sales-rep') {
@@ -140,7 +140,7 @@ export default function IssueDetailPage() {
       } else {
         alert(`✗ Error: ${result.error}`);
       }
-    } catch (err) {
+    } catch (err: unknown) {
       alert('Network error occurred');
       console.error('Error fixing records:', err);
     } finally {

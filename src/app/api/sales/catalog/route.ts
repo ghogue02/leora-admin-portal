@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { getInventoryStatus } from "@/lib/inventory/reservation";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(

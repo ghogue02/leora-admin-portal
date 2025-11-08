@@ -24,8 +24,6 @@ const CheckAvailabilitySchema = z.object({
   warehouseLocation: z.string().optional(),
 });
 
-type CheckAvailabilityRequest = z.infer<typeof CheckAvailabilitySchema>;
-
 export async function POST(request: NextRequest) {
   let payload: unknown;
   try {

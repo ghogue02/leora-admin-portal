@@ -60,8 +60,8 @@ export default function ReassignModal({
       }
 
       setSalesReps(data.salesReps || []);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch sales reps');
     } finally {
       setLoading(false);
     }
@@ -97,8 +97,8 @@ export default function ReassignModal({
       alert('Customer reassigned successfully');
       onSuccess();
       onClose();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to reassign customer');
     } finally {
       setSubmitting(false);
     }

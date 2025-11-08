@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from '@jest/globals';
+import type { Polygon } from 'geojson';
 import { prisma } from '@/lib/prisma';
 import { geocodeAddress, batchGeocodeAddresses } from '@/lib/services/geocoding';
 import {
@@ -139,7 +140,7 @@ describe('Maps & Territory Integration Tests', () => {
     });
 
     it('should detect point in polygon', () => {
-      const polygon = {
+      const polygon: Polygon = {
         type: 'Polygon',
         coordinates: [[
           [-77.1, 38.8],
@@ -153,8 +154,8 @@ describe('Maps & Territory Integration Tests', () => {
       const insidePoint = { latitude: 38.85, longitude: -77.05 };
       const outsidePoint = { latitude: 39.0, longitude: -77.0 };
 
-      expect(isPointInPolygon(insidePoint, polygon as any)).toBe(true);
-      expect(isPointInPolygon(outsidePoint, polygon as any)).toBe(false);
+      expect(isPointInPolygon(insidePoint, polygon)).toBe(true);
+      expect(isPointInPolygon(outsidePoint, polygon)).toBe(false);
     });
 
     it('should find points within radius', () => {
@@ -207,7 +208,7 @@ describe('Maps & Territory Integration Tests', () => {
     });
 
     it('should calculate bounding box', () => {
-      const polygon = {
+      const polygon: Polygon = {
         type: 'Polygon',
         coordinates: [[
           [-77.1, 38.8],
@@ -218,7 +219,7 @@ describe('Maps & Territory Integration Tests', () => {
         ]]
       };
 
-      const bounds = getBoundingBox(polygon as any);
+      const bounds = getBoundingBox(polygon);
 
       expect(bounds.minLng).toBe(-77.1);
       expect(bounds.maxLng).toBe(-77.0);
@@ -227,7 +228,7 @@ describe('Maps & Territory Integration Tests', () => {
     });
 
     it('should calculate polygon center', () => {
-      const polygon = {
+      const polygon: Polygon = {
         type: 'Polygon',
         coordinates: [[
           [-77.1, 38.8],
@@ -238,14 +239,14 @@ describe('Maps & Territory Integration Tests', () => {
         ]]
       };
 
-      const center = centerOfPolygon(polygon as any);
+      const center = centerOfPolygon(polygon);
 
       expect(center[0]).toBeCloseTo(-77.05, 2);
       expect(center[1]).toBeCloseTo(38.85, 2);
     });
 
     it('should simplify polygon', () => {
-      const complexPolygon = {
+      const complexPolygon: Polygon = {
         type: 'Polygon',
         coordinates: [[
           [-77.1, 38.8],
@@ -258,7 +259,7 @@ describe('Maps & Territory Integration Tests', () => {
         ]]
       };
 
-      const simplified = simplifyPolygon(complexPolygon as any, 0.05);
+      const simplified = simplifyPolygon(complexPolygon, 0.05);
 
       expect(simplified.geometry.coordinates[0].length).toBeLessThanOrEqual(
         complexPolygon.coordinates[0].length
@@ -278,9 +279,13 @@ describe('Maps & Territory Integration Tests', () => {
         where: { id: testCustomerId }
       });
 
+      const territoryPolygon = territory?.boundaries as unknown as Polygon | undefined;
+      if (!territoryPolygon || territoryPolygon.type !== 'Polygon') {
+        throw new Error('Territory boundaries missing polygon data');
+      }
       const isInside = isPointInPolygon(
         { latitude: customer!.latitude!, longitude: customer!.longitude! },
-        territory!.boundaries as any
+        territoryPolygon
       );
 
       expect(typeof isInside).toBe('boolean');

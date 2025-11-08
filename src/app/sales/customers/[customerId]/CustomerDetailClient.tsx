@@ -21,6 +21,7 @@ import CustomerTagManager from "./sections/CustomerTagManager";
 import CustomerTasks from "./sections/CustomerTasks";
 import BtgPlacements from "./sections/BtgPlacements";
 import SampleFollowUpList, { SampleFollowUpItem } from "./sections/SampleFollowUpList";
+import SampleQuickLogPanel from "./sections/SampleQuickLogPanel";
 import { CustomerClassificationCard } from "./sections/CustomerClassificationCard";
 import {
   CustomerHeaderSkeleton,
@@ -204,6 +205,9 @@ export default function CustomerDetailClient({
         isPermanentlyClosed={data.customer.isPermanentlyClosed}
         customerName={data.customer.name}
       />
+
+      {/* Sample Quick Log */}
+      <SampleQuickLogPanel customerId={customerId} customerName={data.customer.name} />
 
       {/* Account Holds/Balances */}
       <AccountHolds

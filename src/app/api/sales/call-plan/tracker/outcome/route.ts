@@ -3,13 +3,21 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { startOfWeek, endOfWeek } from "date-fns";
 import { composeTaskDescription, parseTaskMetadata } from "@/lib/call-plan/task-metadata";
 
+type TrackerOutcomePayload = {
+  accountId: string;
+  weekStart: string;
+  outcome?: string;
+  notes?: string;
+  markedAt?: string;
+};
+
 /**
  * POST /api/sales/call-plan/tracker/outcome
  * Update contact outcome (contact method) for an account
  */
 export async function POST(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
-    let body: any;
+    let body: Partial<TrackerOutcomePayload>;
     try {
       body = await request.json();
     } catch {

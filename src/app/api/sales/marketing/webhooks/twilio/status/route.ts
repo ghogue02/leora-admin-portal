@@ -5,9 +5,18 @@
  * Updates activity records with delivery status.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { validateWebhookSignature } from '@/lib/services/twilio/client';
-import { createClient } from '@/lib/supabase/server';
+import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import { validateWebhookSignature } from "@/lib/services/twilio/client";
+import { createClient } from "@/lib/supabase/server";
+
+const twilioStatusSchema = z.object({
+  MessageSid: z.string().min(1),
+  MessageStatus: z.string().min(1),
+  To: z.string().min(1),
+  ErrorCode: z.string().optional(),
+  ErrorMessage: z.string().optional(),
+});
 
 /**
  * POST /api/sales/marketing/webhooks/twilio/status
@@ -18,14 +27,13 @@ export async function POST(request: NextRequest) {
   try {
     // Parse form data
     const formData = await request.formData();
-    const params: Record<string, any> = {};
-
-    formData.forEach((value, key) => {
-      params[key] = value.toString();
-    });
+    const params = Object.fromEntries(
+      Array.from(formData.entries()).map(([key, value]) => [key, value.toString()])
+    );
+    const parsedParams = twilioStatusSchema.parse(params);
 
     // Validate webhook signature
-    const signature = request.headers.get('X-Twilio-Signature') || '';
+    const signature = request.headers.get("X-Twilio-Signature") || "";
     const url = request.url;
 
     const isValid = validateWebhookSignature({
@@ -35,36 +43,28 @@ export async function POST(request: NextRequest) {
     });
 
     if (!isValid) {
-      console.error('Invalid Twilio status callback signature');
+      console.error("Invalid Twilio status callback signature");
       return NextResponse.json(
-        { error: 'Invalid signature' },
+        { error: "Invalid signature" },
         { status: 401 }
       );
     }
 
     // Extract status details
-    const {
-      MessageSid,
-      MessageStatus,
-      To,
-      ErrorCode,
-      ErrorMessage,
-    } = params;
-
-    console.log('Received Twilio status update:', {
-      messageSid: MessageSid,
-      status: MessageStatus,
-      to: To,
-      errorCode: ErrorCode,
-      errorMessage: ErrorMessage,
+    console.log("Received Twilio status update:", {
+      messageSid: parsedParams.MessageSid,
+      status: parsedParams.MessageStatus,
+      to: parsedParams.To,
+      errorCode: parsedParams.ErrorCode,
+      errorMessage: parsedParams.ErrorMessage,
     });
 
     // Update activity record with status
     await updateActivityStatus({
-      messageSid: MessageSid,
-      status: MessageStatus,
-      errorCode: ErrorCode,
-      errorMessage: ErrorMessage,
+      messageSid: parsedParams.MessageSid,
+      status: parsedParams.MessageStatus,
+      errorCode: parsedParams.ErrorCode,
+      errorMessage: parsedParams.ErrorMessage,
     });
 
     return NextResponse.json({
@@ -72,10 +72,10 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Error processing status callback:', error);
+    console.error("Error processing status callback:", error);
 
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }

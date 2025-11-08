@@ -22,6 +22,15 @@ const paletteSchema = z.object({
 const optionsSchema = z.object({
   showCustomerIdColumn: z.boolean().default(true),
   signatureStyle: z.enum(['full', 'condensed']).default('full'),
+  logoUrl: z.string().url().nullable().default(null),
+  companyName: z.string().max(200).optional(),
+  companySecondary: z.string().max(200).optional(),
+  companyTagline: z.string().max(200).optional(),
+  companyAddressLines: z.array(z.string().max(200)).max(4).optional(),
+  companyLicenseText: z.string().max(200).optional(),
+  companyContactLines: z.array(z.string().max(200)).max(4).optional(),
+  companyWebsite: z.string().max(200).optional(),
+  footerNotes: z.array(z.string().max(300)).max(4).optional(),
 });
 
 const columnSchema = z.object({
@@ -94,7 +103,7 @@ const templateConfigSchema = z.object({
   layout: layoutSchema.optional(),
 });
 
-const updatePayloadSchema = z.object({
+export const updatePayloadSchema = z.object({
   baseTemplate: z.enum(BASE_TEMPLATE_VALUES),
   palette: paletteSchema.partial().optional(),
   options: optionsSchema.partial().optional(),
@@ -437,7 +446,7 @@ const DEFAULT_SETTINGS: Record<InvoiceFormatType, InvoiceTemplateSettings> = {
 
 const templateNameForFormat = (format: InvoiceFormatType) => `format:${format}`;
 
-function mergeWithDefaults(
+export function mergeWithDefaults(
   format: InvoiceFormatType,
   config: Partial<InvoiceTemplateConfig> | null | undefined,
   meta?: { templateId?: string; updatedAt?: Date | null }

@@ -32,6 +32,26 @@ type RepAggregate = {
   revenue: number;
 };
 
+type TopProductSummary = {
+  id: string;
+  productName: string;
+  skuCode: string;
+  brand: string;
+  samplesGiven: number;
+  orders: number;
+  conversionRate: number;
+  revenue: number;
+};
+
+type RepPerformanceSummary = {
+  id: string;
+  name: string;
+  samplesGiven: number;
+  conversions: number;
+  revenue: number;
+  conversionRate: number;
+};
+
 function parseDateParam(value: string | null, fallback: Date): Date {
   if (!value) {
     return fallback;
@@ -107,8 +127,8 @@ export async function GET(request: NextRequest) {
           activeProducts: 0,
         },
         trends: [] as TrendPoint[],
-        topProducts: [] as any[],
-        repPerformance: [] as any[],
+        topProducts: [] as TopProductSummary[],
+        repPerformance: [] as RepPerformanceSummary[],
       });
     }
 

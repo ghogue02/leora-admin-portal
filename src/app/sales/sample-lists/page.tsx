@@ -163,7 +163,7 @@ export default function SampleListsPage() {
             href="/sales/samples"
             className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
-            Back to Samples
+            Back to Samples Hub
           </Link>
           <button
             onClick={() => setShowCreateModal(true)}

@@ -1,5 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
+import { z } from "zod";
 import { withSalesSession } from "@/lib/auth/sales";
+
+const dateParamSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional();
+
+type EventSalesRow = {
+  eventType: string;
+  customerCount: bigint | number;
+  orderCount: bigint | number;
+  totalRevenue: number;
+  avgOrderValue: number;
+};
 
 /**
  * GET /api/sales/reports/event-sales
@@ -11,20 +23,18 @@ export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId }) => {
     try {
       const searchParams = request.nextUrl.searchParams;
-      const startDate = searchParams.get("startDate");
-      const endDate = searchParams.get("endDate");
+      const startDate = dateParamSchema.parse(searchParams.get("startDate") ?? undefined);
+      const endDate = dateParamSchema.parse(searchParams.get("endDate") ?? undefined);
 
-      // Build date filter
-      let dateFilter = "";
-      if (startDate && endDate) {
-        dateFilter = `AND o."deliveredAt" >= '${startDate}'::timestamp AND o."deliveredAt" <= '${endDate}'::timestamp`;
-      } else if (startDate) {
-        dateFilter = `AND o."deliveredAt" >= '${startDate}'::timestamp`;
-      } else if (endDate) {
-        dateFilter = `AND o."deliveredAt" <= '${endDate}'::timestamp`;
+      const dateFilters: Prisma.Sql[] = [];
+      if (startDate) {
+        dateFilters.push(Prisma.sql`AND o."deliveredAt" >= ${new Date(startDate)}`);
+      }
+      if (endDate) {
+        dateFilters.push(Prisma.sql`AND o."deliveredAt" <= ${new Date(endDate)}`);
       }
 
-      const eventSalesReport = await db.$queryRaw`
+      const eventSalesReport = await db.$queryRaw<EventSalesRow[]>(Prisma.sql`
         SELECT
           COALESCE(ct."tagValue", 'Untagged') AS "eventType",
           COUNT(DISTINCT c."id") AS "customerCount",
@@ -50,15 +60,15 @@ export async function GET(request: NextRequest) {
           AND ct."removedAt" IS NULL
         LEFT JOIN "Order" o ON c."id" = o."customerId"
           AND c."tenantId" = o."tenantId"
-          ${dateFilter}
+          ${Prisma.join(dateFilters, Prisma.sql` `)}
         WHERE c."tenantId" = ${tenantId}::uuid
           AND c."isPermanentlyClosed" = false
         GROUP BY ct."tagValue"
         ORDER BY "totalRevenue" DESC
-      `;
+      `);
 
       // Calculate totals
-      const totals = (eventSalesReport as any[]).reduce(
+      const totals = eventSalesReport.reduce(
         (acc, row) => ({
           totalCustomers: acc.totalCustomers + Number(row.customerCount),
           totalOrders: acc.totalOrders + Number(row.orderCount),
@@ -68,7 +78,7 @@ export async function GET(request: NextRequest) {
       );
 
       return NextResponse.json({
-        report: eventSalesReport || [],
+        report: eventSalesReport,
         summary: {
           totalCustomers: totals.totalCustomers,
           totalOrders: totals.totalOrders,

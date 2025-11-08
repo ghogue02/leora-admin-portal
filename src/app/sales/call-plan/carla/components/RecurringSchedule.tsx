@@ -177,7 +177,7 @@ export default function RecurringSchedule({
             <p className="text-sm text-gray-500">Loading...</p>
           ) : schedules.length === 0 ? (
             <p className="text-sm text-gray-500">
-              No recurring schedules. Click "Add Recurring" to create one.
+              No recurring schedules. Click &quot;Add Recurring&quot; to create one.
             </p>
           ) : (
             <div className="space-y-2">

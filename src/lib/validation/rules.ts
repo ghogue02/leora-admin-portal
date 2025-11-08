@@ -1,6 +1,8 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Prisma } from '@prisma/client';
 
 export type ValidationSeverity = 'high' | 'medium' | 'low';
+
+type PrismaExecutor = PrismaClient | Prisma.TransactionClient;
 
 export type ValidationResult = {
   ruleId: string;
@@ -8,7 +10,7 @@ export type ValidationResult = {
   affectedRecords: Array<{
     id: string;
     entityType: string;
-    details: Record<string, any>;
+    details: Record<string, unknown>;
   }>;
 };
 
@@ -17,8 +19,8 @@ export type ValidationRule = {
   name: string;
   description: string;
   severity: ValidationSeverity;
-  check: (db: PrismaClient, tenantId: string) => Promise<ValidationResult>;
-  fix?: (db: PrismaClient, tenantId: string, recordIds: string[], params?: any) => Promise<void>;
+  check: (db: PrismaExecutor, tenantId: string) => Promise<ValidationResult>;
+  fix?: (db: PrismaExecutor, tenantId: string, recordIds: string[], params?: unknown) => Promise<void>;
 };
 
 // Rule 1: Customers Without Sales Rep

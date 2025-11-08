@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { addDays, startOfDay, endOfDay, format } from "date-fns";
 
+type UpcomingActivity = {
+  id: string;
+  time: string;
+  title: string;
+  customer: string | null;
+  customerId: string | null;
+  type: string;
+  status: string;
+  description: string | null;
+};
+
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
     const { searchParams } = request.nextUrl;
@@ -40,7 +51,7 @@ export async function GET(request: NextRequest) {
     });
 
     // Group tasks by date
-    const dayMap = new Map<string, any[]>();
+    const dayMap = new Map<string, UpcomingActivity[]>();
 
     // Initialize all days in range
     for (let i = 0; i < days; i++) {

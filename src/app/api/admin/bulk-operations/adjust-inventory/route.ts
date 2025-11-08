@@ -259,11 +259,11 @@ export async function POST(request: NextRequest) {
 
             results.successCount++;
           });
-        } catch (error: any) {
+        } catch (error: unknown) {
           results.errors.push({
             skuCode: adjustment.skuCode,
             location: adjustment.location,
-            error: error.message || 'Unknown error'
+            error: error instanceof Error ? error.message : 'Unknown error'
           });
         }
       }
@@ -274,10 +274,13 @@ export async function POST(request: NextRequest) {
         errorCount: results.errors.length,
         errors: results.errors
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error in bulk inventory adjustment:', error);
       return NextResponse.json(
-        { error: 'Failed to perform bulk inventory adjustment', details: error.message },
+        {
+          error: 'Failed to perform bulk inventory adjustment',
+          details: error instanceof Error ? error.message : 'Unknown error',
+        },
         { status: 500 }
       );
     }

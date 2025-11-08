@@ -93,6 +93,7 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
         selected: true,
         feedback: "",
         followUp: item.defaultFollowUp ?? false,
+        quantity: 1,
       })),
     []
   );
@@ -267,9 +268,30 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
             selected: true,
             feedback: "",
             followUp: false,
+            quantity: 1,
           },
         ];
       });
+    },
+    [updateItems]
+  );
+
+  const handleQuantityChange = useCallback(
+    (skuId: string, quantityValue: number) => {
+      const normalized =
+        Number.isFinite(quantityValue) && quantityValue > 0
+          ? Math.min(999, Math.max(1, Math.round(quantityValue)))
+          : 1;
+      updateItems((current) =>
+        current.map((item) =>
+          item.skuId === skuId
+            ? {
+                ...item,
+                quantity: normalized,
+              }
+            : item
+        )
+      );
     },
     [updateItems]
   );
@@ -414,6 +436,7 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
           <thead className="bg-slate-50">
             <tr>
               <th className="px-3 py-2 text-left font-semibold text-gray-700">Sample</th>
+              <th className="px-3 py-2 text-left font-semibold text-gray-700">Qty</th>
               <th className="px-3 py-2 text-left font-semibold text-gray-700">Feedback</th>
               <th className="px-3 py-2 text-left font-semibold text-gray-700">Follow-up</th>
               <th className="px-3 py-2 text-right font-semibold text-gray-700">Actions</th>
@@ -422,7 +445,7 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
           <tbody className="divide-y divide-slate-100">
             {items.length === 0 ? (
               <tr>
-                <td colSpan={4} className="px-4 py-6 text-center text-sm text-gray-500">
+                <td colSpan={5} className="px-4 py-6 text-center text-sm text-gray-500">
                   No samples selected yet.
                 </td>
               </tr>
@@ -447,6 +470,16 @@ export default function SampleItemsSelector({ value, onChange }: SampleItemsSele
                         </p>
                       </div>
                     </div>
+                  </td>
+                  <td className="px-3 py-3">
+                    <input
+                      type="number"
+                      min={1}
+                      max={999}
+                      value={item.quantity ?? 1}
+                      onChange={(e) => handleQuantityChange(item.skuId, Number(e.target.value))}
+                      className="w-20 rounded-md border border-gray-300 px-2 py-1 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    />
                   </td>
                   <td className="px-3 py-3">
                     <textarea

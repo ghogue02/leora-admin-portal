@@ -1,9 +1,12 @@
 "use client";
 
 import { getActivityTypeUiConfig } from "@/lib/call-plan/task-metadata";
+import type { EnrichedCallPlanTask } from "@/lib/call-plan/enrich-tasks.server";
 
 type CallPlanStatsProps = {
-  callPlan: any;
+  callPlan: {
+    tasks: EnrichedCallPlanTask[];
+  };
 };
 
 type BreakdownEntry = {
@@ -21,7 +24,7 @@ export default function CallPlanStats({ callPlan }: CallPlanStatsProps) {
   let electronicCount = 0;
 
   if (callPlan?.tasks) {
-    callPlan.tasks.forEach((task: any) => {
+    callPlan.tasks.forEach((task) => {
       totalActivities++;
       if (task.status === "COMPLETED") {
         completedActivities++;

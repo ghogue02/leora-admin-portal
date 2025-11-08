@@ -7,21 +7,35 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 import { GET, POST } from './route';
 import { PrismaClient } from '@prisma/client';
+import { withAdminSession } from '@/lib/auth/admin';
 
 const prisma = new PrismaClient();
 
+type AdminSessionCallback = (
+  context: {
+    tenantId: string;
+    user: { id: string; email: string };
+    db: PrismaClient;
+  }
+) => Promise<Response> | Response;
+
 // Mock authentication
-vi.mock('@/lib/auth/admin', () => ({
-  withAdminSession: (request: NextRequest, callback: Function) => {
-    const mockContext = {
-      tenantId: 'test-tenant-id',
-      user: { id: 'test-user-id', email: 'admin@test.com' },
-      db: prisma,
-    };
-    return callback(mockContext);
-  },
-  AdminSessionContext: vi.fn(),
-}));
+vi.mock('@/lib/auth/admin', () => {
+  const mockContext = {
+    tenantId: 'test-tenant-id',
+    user: { id: 'test-user-id', email: 'admin@test.com' },
+    db: prisma,
+  };
+
+  return {
+    withAdminSession: vi.fn((_request: NextRequest, callback: AdminSessionCallback) => {
+      return callback(mockContext);
+    }),
+    AdminSessionContext: vi.fn(),
+  };
+});
+
+const mockedWithAdminSession = vi.mocked(withAdminSession);
 
 describe('Metrics Definition API Routes', () => {
   let testTenantId: string;
@@ -50,8 +64,8 @@ describe('Metrics Definition API Routes', () => {
     testUserId = user.id;
 
     // Override mock to use real IDs
-    vi.mocked(require('@/lib/auth/admin').withAdminSession).mockImplementation(
-      (request: NextRequest, callback: Function) => {
+    mockedWithAdminSession.mockImplementation(
+      (_request: NextRequest, callback: AdminSessionCallback) => {
         const mockContext = {
           tenantId: testTenantId,
           user: { id: testUserId, email: 'admin@test.com' },

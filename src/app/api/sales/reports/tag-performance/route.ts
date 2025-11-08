@@ -1,5 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
+import { z } from "zod";
 import { withSalesSession } from "@/lib/auth/sales";
+
+const dateParamSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional();
+const tagTypeSchema = z.string().min(1).optional();
+
+type TagPerformanceRow = {
+  tagType: string | null;
+  tagValue: string | null;
+  customerCount: number | bigint;
+  totalRevenue: number;
+  avgRevenuePerCustomer: number;
+  maxRevenue: number;
+  minRevenue: number;
+};
 
 /**
  * GET /api/sales/reports/tag-performance
@@ -10,26 +25,23 @@ export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId }) => {
     try {
       const searchParams = request.nextUrl.searchParams;
-      const startDate = searchParams.get("startDate");
-      const endDate = searchParams.get("endDate");
-      const tagType = searchParams.get("tagType"); // Optional: filter by specific tag type
+      const startDate = dateParamSchema.parse(searchParams.get("startDate") ?? undefined);
+      const endDate = dateParamSchema.parse(searchParams.get("endDate") ?? undefined);
+      const tagType = tagTypeSchema.parse(searchParams.get("tagType") ?? undefined);
 
-      // Build date filter
-      let dateFilter = "";
-      if (startDate && endDate) {
-        dateFilter = `AND o."deliveredAt" >= '${startDate}'::timestamp AND o."deliveredAt" <= '${endDate}'::timestamp`;
-      } else if (startDate) {
-        dateFilter = `AND o."deliveredAt" >= '${startDate}'::timestamp`;
-      } else if (endDate) {
-        dateFilter = `AND o."deliveredAt" <= '${endDate}'::timestamp`;
+      const dateFilters: Prisma.Sql[] = [];
+      if (startDate) {
+        dateFilters.push(Prisma.sql`AND o."deliveredAt" >= ${new Date(startDate)}`);
+      }
+      if (endDate) {
+        dateFilters.push(Prisma.sql`AND o."deliveredAt" <= ${new Date(endDate)}`);
       }
 
-      // Build tag type filter
-      const tagTypeFilter = tagType
-        ? `AND ct."tagType" = '${tagType}'`
-        : "";
+      const tagFilters = tagType
+        ? Prisma.sql`AND ct."tagType" = ${tagType}`
+        : Prisma.empty;
 
-      const tagPerformance = await db.$queryRaw`
+      const tagPerformance = await db.$queryRaw<TagPerformanceRow[]>(Prisma.sql`
         WITH TaggedCustomerRevenue AS (
           SELECT
             ct."tagType",
@@ -45,11 +57,11 @@ export async function GET(request: NextRequest) {
           FROM "CustomerTag" ct
           INNER JOIN "Customer" c ON ct."customerId" = c."id" AND ct."tenantId" = c."tenantId"
           LEFT JOIN "Order" o ON c."id" = o."customerId" AND c."tenantId" = o."tenantId"
-            ${dateFilter}
+            ${Prisma.join(dateFilters, Prisma.sql` `)}
           WHERE ct."tenantId" = ${tenantId}::uuid
             AND ct."removedAt" IS NULL
             AND c."isPermanentlyClosed" = false
-            ${tagTypeFilter}
+            ${tagFilters}
           GROUP BY ct."tagType", ct."tagValue", c."id"
         )
         SELECT
@@ -67,40 +79,56 @@ export async function GET(request: NextRequest) {
         FROM TaggedCustomerRevenue
         GROUP BY "tagType", "tagValue"
         ORDER BY "tagType", "totalRevenue" DESC
-      `;
+      `);
 
       // Group by tag type for comparison
-      const performanceByType = (tagPerformance as any[]).reduce(
-        (acc, row) => {
-          if (!acc[row.tagType]) {
-            acc[row.tagType] = {
-              tagType: row.tagType,
-              tags: [],
-              totalCustomers: 0,
-              totalRevenue: 0,
-            };
+      const performanceByType = tagPerformance.reduce<
+        Record<
+          string,
+          {
+            tagType: string | null;
+            tags: Array<{
+              tagValue: string | null;
+              customerCount: number;
+              totalRevenue: number;
+              avgRevenuePerCustomer: number;
+              maxRevenue: number;
+              minRevenue: number;
+            }>;
+            totalCustomers: number;
+            totalRevenue: number;
+            avgRevenuePerCustomer?: number;
           }
+        >
+      >((acc, row) => {
+        const key = row.tagType ?? "Untagged";
+        if (!acc[key]) {
+          acc[key] = {
+            tagType: row.tagType,
+            tags: [],
+            totalCustomers: 0,
+            totalRevenue: 0,
+          };
+        }
 
-          acc[row.tagType].tags.push({
-            tagValue: row.tagValue,
-            customerCount: row.customerCount,
-            totalRevenue: row.totalRevenue,
-            avgRevenuePerCustomer: row.avgRevenuePerCustomer,
-            maxRevenue: row.maxRevenue,
-            minRevenue: row.minRevenue,
-          });
+        acc[key].tags.push({
+          tagValue: row.tagValue,
+          customerCount: Number(row.customerCount),
+          totalRevenue: Number(row.totalRevenue),
+          avgRevenuePerCustomer: Number(row.avgRevenuePerCustomer),
+          maxRevenue: Number(row.maxRevenue),
+          minRevenue: Number(row.minRevenue),
+        });
 
-          acc[row.tagType].totalCustomers += Number(row.customerCount);
-          acc[row.tagType].totalRevenue += Number(row.totalRevenue);
+        acc[key].totalCustomers += Number(row.customerCount);
+        acc[key].totalRevenue += Number(row.totalRevenue);
 
-          return acc;
-        },
-        {} as Record<string, any>
-      );
+        return acc;
+      }, {});
 
       // Calculate overall averages
       const performanceArray = Object.values(performanceByType);
-      performanceArray.forEach((typePerf: any) => {
+      performanceArray.forEach((typePerf) => {
         typePerf.avgRevenuePerCustomer =
           typePerf.totalCustomers > 0
             ? typePerf.totalRevenue / typePerf.totalCustomers

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { parseISO, startOfDay, startOfWeek, endOfWeek } from "date-fns";
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 
 const createScheduleSchema = z.object({
   callPlanId: z.string().uuid(),
@@ -251,8 +252,8 @@ export async function POST(request: NextRequest) {
           },
         },
       });
-    } catch (error: any) {
-      if (error?.code === "P2002") {
+    } catch (error: unknown) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
         return NextResponse.json(
           { error: "Account already scheduled at that time" },
           { status: 409 },

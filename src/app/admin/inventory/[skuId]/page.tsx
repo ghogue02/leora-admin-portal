@@ -654,9 +654,19 @@ export default function ProductDetailPage({
                         by {log.user.fullName} ({log.user.email})
                       </p>
                     )}
-                    {log.metadata && typeof (log.metadata as any).reason === 'string' && (
-                      <p className="mt-1 text-xs text-gray-600">Reason: {(log.metadata as any).reason}</p>
-                    )}
+                    {(() => {
+                      if (
+                        log.metadata &&
+                        typeof (log.metadata as { reason?: unknown }).reason === 'string'
+                      ) {
+                        return (
+                          <p className="mt-1 text-xs text-gray-600">
+                            Reason: {(log.metadata as { reason: string }).reason}
+                          </p>
+                        );
+                      }
+                      return null;
+                    })()}
                   </div>
                   <span className="text-xs text-gray-500">
                     {new Date(log.createdAt).toLocaleString()}

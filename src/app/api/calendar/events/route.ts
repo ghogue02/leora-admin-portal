@@ -2,6 +2,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import prisma from '@/lib/prisma';
 import { GoogleCalendarClient, OutlookCalendarClient } from '@/lib/calendar-sync';
+import type { Prisma } from '@prisma/client';
+
+type CalendarProvider = 'google' | 'outlook';
+
+interface CalendarEventPayload {
+  id?: string;
+  title?: string;
+  description?: string;
+  startTime?: string;
+  endTime?: string;
+  location?: string;
+  customerId?: string | null;
+  eventType?: string | null;
+  syncToProvider?: CalendarProvider;
+}
 
 /**
  * GET /api/calendar/events
@@ -27,15 +42,16 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    const where: any = {
+    const where: Prisma.CalendarEventWhereInput = {
       tenantId: user.tenantId,
       userId: user.id,
     };
 
     if (startDate || endDate) {
-      where.startTime = {};
-      if (startDate) where.startTime.gte = new Date(startDate);
-      if (endDate) where.startTime.lte = new Date(endDate);
+      const startTimeFilter: Prisma.DateTimeFilter = {};
+      if (startDate) startTimeFilter.gte = new Date(startDate);
+      if (endDate) startTimeFilter.lte = new Date(endDate);
+      where.startTime = startTimeFilter;
     }
 
     if (customerId) {
@@ -78,7 +94,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const data = await request.json();
+    const data = (await request.json()) as CalendarEventPayload;
     const { title, description, startTime, endTime, location, customerId, eventType, syncToProvider } = data;
 
     if (!title || !startTime || !endTime) {
@@ -171,7 +187,7 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const data = await request.json();
+    const data = (await request.json()) as CalendarEventPayload;
     const { id, title, description, startTime, endTime, location, customerId, eventType, syncToProvider } = data;
 
     if (!id) {
@@ -200,7 +216,7 @@ export async function PATCH(request: NextRequest) {
     }
 
     // Update event in database
-    const updateData: any = {};
+    const updateData: Prisma.CalendarEventUpdateInput = {};
     if (title !== undefined) updateData.title = title;
     if (description !== undefined) updateData.description = description;
     if (startTime !== undefined) updateData.startTime = new Date(startTime);
@@ -241,7 +257,11 @@ export async function PATCH(request: NextRequest) {
 
           // Note: This would require storing the external event ID
           // For now, this is a placeholder
-          console.log('Update to external calendar not fully implemented');
+          console.log('Update to external calendar not fully implemented', {
+            provider: syncToProvider,
+            eventId: existingEvent.id,
+          });
+          void client;
         }
       } catch (syncError) {
         console.error('Error syncing to external calendar:', syncError);

@@ -3,6 +3,34 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { subDays, subMonths, startOfMonth, endOfMonth } from "date-fns";
 import { generateDrilldownActions, formatActionSteps } from "@/lib/ai/drilldown-actions";
 
+type CategoryMixEntry = {
+  revenue: number;
+  quantity: number;
+};
+
+type ProductMixEntry = {
+  name: string;
+  brand: string | null;
+  category: string | null;
+  revenue: number;
+  quantity: number;
+};
+
+type ProductMixAggregate = {
+  byCategory: Record<string, CategoryMixEntry>;
+  byProduct: Record<string, ProductMixEntry>;
+};
+
+type HistoricalProductOpportunity = {
+  name: string;
+  brand: string | null;
+  category: string | null;
+  historicalRevenue: number;
+  lastPurchased: Date | null;
+};
+
+type HistoricalProductMap = Record<string, HistoricalProductOpportunity>;
+
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
@@ -162,7 +190,7 @@ export async function GET(request: NextRequest) {
         // Product mix analysis
         const currentProductMix = last90DaysOrders
           .flatMap((order) => order.lines)
-          .reduce((acc, line) => {
+          .reduce<ProductMixAggregate>((acc, line) => {
             const category = line.sku.product.category || "Uncategorized";
             const productName = line.sku.product.name;
 
@@ -186,13 +214,13 @@ export async function GET(request: NextRequest) {
             acc.byProduct[productName].quantity += line.quantity;
 
             return acc;
-          }, { byCategory: {} as Record<string, any>, byProduct: {} as Record<string, any> });
+          }, { byCategory: {}, byProduct: {} });
 
         const historicalProductMix = customer.orders
           .filter((o) => o.deliveredAt && o.deliveredAt < ninetyDaysAgo)
           .slice(0, 20)
           .flatMap((order) => order.lines)
-          .reduce((acc, line) => {
+          .reduce<Record<string, CategoryMixEntry>>((acc, line) => {
             const category = line.sku.product.category || "Uncategorized";
             if (!acc[category]) {
               acc[category] = { revenue: 0, quantity: 0 };
@@ -201,11 +229,11 @@ export async function GET(request: NextRequest) {
             acc[category].revenue += lineTotal;
             acc[category].quantity += line.quantity;
             return acc;
-          }, {} as Record<string, any>);
+          }, {});
 
         // Identify product mix changes
         const mixChanges = Object.entries(currentProductMix.byCategory).map(
-          ([category, current]: [string, any]) => {
+          ([category, current]) => {
             const historical = historicalProductMix[category] || { revenue: 0, quantity: 0 };
             const revenueChange = historical.revenue > 0
               ? ((current.revenue - historical.revenue) / historical.revenue) * 100
@@ -250,7 +278,7 @@ export async function GET(request: NextRequest) {
         const historicalProducts = customer.orders
           .filter((o) => o.deliveredAt && o.deliveredAt < ninetyDaysAgo)
           .flatMap((order) => order.lines)
-          .reduce((acc, line) => {
+          .reduce<HistoricalProductMap>((acc, line) => {
             const productName = line.sku.product.name;
             if (!recentProducts.has(productName)) {
               if (!acc[productName]) {
@@ -265,10 +293,10 @@ export async function GET(request: NextRequest) {
               acc[productName].historicalRevenue += Number(line.unitPrice) * line.quantity;
             }
             return acc;
-          }, {} as Record<string, any>);
+          }, {});
 
         const upsellOpportunities = Object.values(historicalProducts)
-          .sort((a: any, b: any) => b.historicalRevenue - a.historicalRevenue)
+          .sort((a, b) => b.historicalRevenue - a.historicalRevenue)
           .slice(0, 5);
 
         // Recommended recovery actions
@@ -328,7 +356,7 @@ export async function GET(request: NextRequest) {
           },
           productMixAnalysis: {
             currentCategories: Object.entries(currentProductMix.byCategory).map(
-              ([category, data]: [string, any]) => ({
+              ([category, data]) => ({
                 category,
                 revenue: data.revenue,
                 quantity: data.quantity,
@@ -336,7 +364,7 @@ export async function GET(request: NextRequest) {
             ),
             mixChanges: mixChanges.slice(0, 5),
             topCurrentProducts: Object.values(currentProductMix.byProduct)
-              .sort((a: any, b: any) => b.revenue - a.revenue)
+              .sort((a, b) => b.revenue - a.revenue)
               .slice(0, 5),
           },
           upsellOpportunities,

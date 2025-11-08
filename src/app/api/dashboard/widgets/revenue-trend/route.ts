@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { db } from '@/lib/db';
@@ -7,7 +7,7 @@ import { db } from '@/lib/db';
  * GET /api/dashboard/widgets/revenue-trend
  * Retrieve revenue trend data for the current sales rep (last 8 weeks)
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession(authOptions);
     if (!session?.user?.id) {

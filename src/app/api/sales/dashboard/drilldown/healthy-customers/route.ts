@@ -3,6 +3,14 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { subDays, subMonths } from "date-fns";
 import { generateDrilldownActions, formatActionSteps } from "@/lib/ai/drilldown-actions";
 
+type ProductDiversityEntry = {
+  name: string;
+  quantity: number;
+  revenue: number;
+};
+
+type ProductDiversityMap = Record<string, ProductDiversityEntry>;
+
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
@@ -218,7 +226,7 @@ export async function GET(request: NextRequest) {
             uniqueCategories,
             topProducts: customer.orders
               .flatMap((order) => order.lines)
-              .reduce((acc, line) => {
+              .reduce<ProductDiversityMap>((acc, line) => {
                 const productName = line.sku.product.name;
                 if (!acc[productName]) {
                   acc[productName] = { name: productName, quantity: 0, revenue: 0 };
@@ -226,7 +234,7 @@ export async function GET(request: NextRequest) {
                 acc[productName].quantity += line.quantity;
                 acc[productName].revenue += Number(line.unitPrice) * line.quantity;
                 return acc;
-              }, {} as Record<string, any>),
+              }, {}),
           },
           recentOrders: recentOrders.map((order) => ({
             id: order.id,

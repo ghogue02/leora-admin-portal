@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfMonth, eachDayOfInterval, format } from "date-fns";
+import type { CustomerRevenueAggregate, ProductSalesMap } from "../types";
+
+type CustomerRevenueMap = Record<string, CustomerRevenueAggregate>;
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -128,7 +131,7 @@ export async function GET(request: NextRequest) {
       });
 
       // Calculate revenue by customer
-      const customerRevenue = currentMonthOrders.reduce((acc, order) => {
+      const customerRevenue = currentMonthOrders.reduce<CustomerRevenueMap>((acc, order) => {
         const customerId = order.customer.id;
         if (!acc[customerId]) {
           acc[customerId] = {
@@ -147,12 +150,12 @@ export async function GET(request: NextRequest) {
           status: order.status,
         });
         return acc;
-      }, {} as Record<string, any>);
+      }, {});
 
       const topCustomers = Object.values(customerRevenue)
-        .sort((a: any, b: any) => b.revenue - a.revenue)
+        .sort((a, b) => b.revenue - a.revenue)
         .slice(0, 10)
-        .map((item: any) => ({
+        .map((item) => ({
           customerId: item.customer.id,
           customerName: item.customer.name,
           accountNumber: item.customer.accountNumber,
@@ -187,7 +190,7 @@ export async function GET(request: NextRequest) {
       }, { byCategory: {} as Record<string, number>, byBrand: {} as Record<string, number> });
 
       // Get top products sold this month
-      const productSales = currentMonthOrders.reduce((acc, order) => {
+      const productSales = currentMonthOrders.reduce<ProductSalesMap>((acc, order) => {
         order.lines.forEach((line) => {
           const productName = line.sku.product.name;
           const skuCode = line.sku.code;
@@ -210,10 +213,10 @@ export async function GET(request: NextRequest) {
           acc[key].orderCount += 1;
         });
         return acc;
-      }, {} as Record<string, any>);
+      }, {});
 
       const topProducts = Object.values(productSales)
-        .sort((a: any, b: any) => b.revenue - a.revenue)
+        .sort((a, b) => b.revenue - a.revenue)
         .slice(0, 10);
 
       // Calculate totals

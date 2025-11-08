@@ -7,6 +7,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { withSalesSession } from "@/lib/auth/sales";
 
+type TerritoryStats = Record<string, { routes: number; stops: number; completed: number }>;
+
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
@@ -98,7 +100,7 @@ export async function GET(request: NextRequest) {
           : 0;
 
         // Territory breakdown
-        const territoryStats = routes.reduce((acc, route) => {
+        const territoryStats = routes.reduce<TerritoryStats>((acc, route) => {
           const territory = route.territory || "unassigned";
 
           if (!acc[territory]) {
@@ -117,7 +119,7 @@ export async function GET(request: NextRequest) {
           }
 
           return acc;
-        }, {} as Record<string, any>);
+        }, {});
 
         return NextResponse.json({
           period: {

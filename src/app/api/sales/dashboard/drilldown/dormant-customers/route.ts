@@ -3,6 +3,17 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { subDays, subMonths } from "date-fns";
 import { generateDrilldownActions, formatActionSteps } from "@/lib/ai/drilldown-actions";
 
+type ProductPurchaseSummary = {
+  name: string;
+  brand: string;
+  category: string;
+  quantity: number;
+  revenue: number;
+  orderCount: number;
+};
+
+type ProductPurchaseMap = Record<string, ProductPurchaseSummary>;
+
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
@@ -153,7 +164,7 @@ export async function GET(request: NextRequest) {
         // Product preferences
         const productPurchases = customer.orders
           .flatMap((order) => order.lines)
-          .reduce((acc, line) => {
+          .reduce<ProductPurchaseMap>((acc, line) => {
             const productName = line.sku.product.name;
             const brand = line.sku.product.brand || "Unknown";
             const category = line.sku.product.category || "Uncategorized";
@@ -172,10 +183,10 @@ export async function GET(request: NextRequest) {
             acc[productName].revenue += Number(line.unitPrice) * line.quantity;
             acc[productName].orderCount += 1;
             return acc;
-          }, {} as Record<string, any>);
+          }, {});
 
         const topProducts = Object.values(productPurchases)
-          .sort((a: any, b: any) => b.revenue - a.revenue)
+          .sort((a, b) => b.revenue - a.revenue)
           .slice(0, 5);
 
         // Recent engagement
@@ -279,7 +290,7 @@ export async function GET(request: NextRequest) {
           productPreferences: {
             topProducts,
             uniqueProducts: Object.keys(productPurchases).length,
-            favoriteCategories: [...new Set(Object.values(productPurchases).map((p: any) => p.category))],
+            favoriteCategories: [...new Set(Object.values(productPurchases).map((p) => p.category))],
           },
           reactivation: {
             potentialScore: reactivationScore.toFixed(1),

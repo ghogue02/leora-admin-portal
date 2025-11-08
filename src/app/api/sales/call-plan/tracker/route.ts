@@ -55,7 +55,7 @@ export async function GET(request: NextRequest) {
       },
     });
 
-    let tasks = callPlan
+    const tasks = callPlan
       ? callPlan.tasks
       : await db.task.findMany({
           where: {

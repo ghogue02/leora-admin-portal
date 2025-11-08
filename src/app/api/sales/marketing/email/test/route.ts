@@ -3,15 +3,55 @@
  * POST /api/sales/marketing/email/test - Send test email
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { sendEmailViaSendGrid, validateSendGridApiKey } from '@/lib/marketing/email-providers/sendgrid-provider';
-import { replacePersonalizationTokens } from '@/lib/marketing/email-service';
-import { getTemplateById } from '@/lib/marketing/email-templates-data';
+import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import {
+  sendEmailViaSendGrid,
+  validateSendGridApiKey,
+} from "@/lib/marketing/email-providers/sendgrid-provider";
+import { replacePersonalizationTokens } from "@/lib/marketing/email-service";
+import { getTemplateById, EMAIL_TEMPLATES } from "@/lib/marketing/email-templates-data";
+
+const testRequestSchema = z.object({
+  testType: z.enum(["validate-api-key", "send-test", "test-all-templates"]),
+  to: z.string().email().optional(),
+  templateId: z.string().optional(),
+  personalization: z.record(z.string()).optional(),
+});
+
+const defaultPersonalization = () => ({
+  customer_name: "Test Customer",
+  week_date: new Date().toLocaleDateString(),
+  special_wine_1: "2019 Napa Valley Cabernet Sauvignon",
+  special_wine_2: "2020 Russian River Chardonnay",
+  special_wine_3: "2021 Willamette Valley Pinot Noir",
+  discount_percent: "15",
+  order_link: "https://example.com/order",
+  product_name: "Test Wine",
+  product_description: "A wonderful test wine",
+  tasting_notes: "Rich, bold, complex",
+  price: "$49.99",
+  order_number: "12345",
+  order_date: new Date().toLocaleDateString(),
+  order_total: "$299.97",
+  delivery_date: "Tomorrow",
+  items_ordered: "Test items",
+  tracking_link: "https://example.com/track",
+  event_name: "Test Tasting Event",
+  event_date: "Next Friday",
+  event_time: "6:00 PM - 8:00 PM",
+  event_location: "123 Main Street",
+  event_description: "Join us for a special tasting",
+  rsvp_link: "https://example.com/rsvp",
+  feedback_link: "https://example.com/feedback",
+  reorder_link: "https://example.com/reorder",
+});
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { testType, to, templateId, personalization } = body;
+    const { testType, to, templateId, personalization } = testRequestSchema.parse(
+      await request.json()
+    );
 
     // Test API key validation
     if (testType === 'validate-api-key') {
@@ -41,47 +81,20 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      let subject = 'Test Email from Well Crafted CRM';
-      let html = '<h1>Test Email</h1><p>This is a test email from your CRM system.</p>';
+      let subject = "Test Email from Well Crafted CRM";
+      let html = "<h1>Test Email</h1><p>This is a test email from your CRM system.</p>";
 
       // Use template if specified
       if (templateId) {
         const template = getTemplateById(templateId);
         if (!template) {
           return NextResponse.json(
-            { error: 'Template not found' },
+            { error: "Template not found" },
             { status: 404 }
           );
         }
 
-        // Apply personalization
-        const testPersonalization = personalization || {
-          customer_name: 'Test Customer',
-          week_date: new Date().toLocaleDateString(),
-          special_wine_1: '2019 Napa Valley Cabernet Sauvignon',
-          special_wine_2: '2020 Russian River Chardonnay',
-          special_wine_3: '2021 Willamette Valley Pinot Noir',
-          discount_percent: '15',
-          order_link: 'https://example.com/order',
-          product_name: 'Test Wine',
-          product_description: 'A wonderful test wine',
-          tasting_notes: 'Rich, bold, complex',
-          price: '$49.99',
-          order_number: '12345',
-          order_date: new Date().toLocaleDateString(),
-          order_total: '$299.97',
-          delivery_date: 'Tomorrow',
-          items_ordered: 'Test items',
-          tracking_link: 'https://example.com/track',
-          event_name: 'Test Tasting Event',
-          event_date: 'Next Friday',
-          event_time: '6:00 PM - 8:00 PM',
-          event_location: '123 Main Street',
-          event_description: 'Join us for a special tasting',
-          rsvp_link: 'https://example.com/rsvp',
-          feedback_link: 'https://example.com/feedback',
-          reorder_link: 'https://example.com/reorder',
-        };
+        const testPersonalization = personalization ?? defaultPersonalization();
 
         subject = replacePersonalizationTokens(template.subject, testPersonalization);
         html = replacePersonalizationTokens(template.html, testPersonalization);
@@ -89,8 +102,8 @@ export async function POST(request: NextRequest) {
 
       const result = await sendEmailViaSendGrid({
         to,
-        from: process.env.FROM_EMAIL || 'noreply@example.com',
-        fromName: process.env.FROM_NAME || 'Well Crafted Wine & Beverage',
+        from: process.env.FROM_EMAIL || "noreply@example.com",
+        fromName: process.env.FROM_NAME || "Well Crafted Wine & Beverage",
         subject,
         html,
       });
@@ -118,46 +131,19 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const { EMAIL_TEMPLATES } = await import('@/lib/marketing/email-templates-data');
-      const results = [];
+      const results: Array<Record<string, unknown>> = [];
 
       for (const template of EMAIL_TEMPLATES) {
         try {
-          const testPersonalization = {
-            customer_name: 'Test Customer',
-            week_date: new Date().toLocaleDateString(),
-            special_wine_1: '2019 Napa Valley Cabernet Sauvignon',
-            special_wine_2: '2020 Russian River Chardonnay',
-            special_wine_3: '2021 Willamette Valley Pinot Noir',
-            discount_percent: '15',
-            order_link: 'https://example.com/order',
-            product_name: 'Test Wine',
-            product_description: 'A wonderful test wine',
-            tasting_notes: 'Rich, bold, complex',
-            price: '$49.99',
-            order_number: '12345',
-            order_date: new Date().toLocaleDateString(),
-            order_total: '$299.97',
-            delivery_date: 'Tomorrow',
-            items_ordered: 'Test items',
-            tracking_link: 'https://example.com/track',
-            event_name: 'Test Tasting Event',
-            event_date: 'Next Friday',
-            event_time: '6:00 PM - 8:00 PM',
-            event_location: '123 Main Street',
-            event_description: 'Join us for a special tasting',
-            rsvp_link: 'https://example.com/rsvp',
-            feedback_link: 'https://example.com/feedback',
-            reorder_link: 'https://example.com/reorder',
-          };
+          const testPersonalization = personalization ?? defaultPersonalization();
 
           const subject = replacePersonalizationTokens(template.subject, testPersonalization);
           const html = replacePersonalizationTokens(template.html, testPersonalization);
 
           const result = await sendEmailViaSendGrid({
             to,
-            from: process.env.FROM_EMAIL || 'noreply@example.com',
-            fromName: process.env.FROM_NAME || 'Well Crafted Wine & Beverage',
+            from: process.env.FROM_EMAIL || "noreply@example.com",
+            fromName: process.env.FROM_NAME || "Well Crafted Wine & Beverage",
             subject: `[TEST] ${subject}`,
             html,
           });
@@ -172,12 +158,12 @@ export async function POST(request: NextRequest) {
 
           // Wait 100ms between emails to avoid rate limiting
           await new Promise(resolve => setTimeout(resolve, 100));
-        } catch (error: any) {
+        } catch (error) {
           results.push({
             templateId: template.id,
             templateName: template.name,
             success: false,
-            error: error.message,
+            error: error instanceof Error ? error.message : "Unknown error",
           });
         }
       }
@@ -192,14 +178,12 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { error: 'Invalid testType. Use: validate-api-key, send-test, or test-all-templates' },
+      { error: "Invalid testType. Use: validate-api-key, send-test, or test-all-templates" },
       { status: 400 }
     );
-  } catch (error: any) {
-    console.error('Email test error:', error);
-    return NextResponse.json(
-      { error: error.message || 'Failed to run email test' },
-      { status: 500 }
-    );
+  } catch (error) {
+    console.error("Email test error:", error);
+    const message = error instanceof Error ? error.message : "Failed to run email test";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

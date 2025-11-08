@@ -90,7 +90,55 @@ export type ActivitySampleItemWithActivity = Prisma.ActivitySampleItemGetPayload
 
 export type SerializedActivity = ReturnType<typeof serializeActivityRecord>;
 
-export const serializeActivityRecord = (activity: any) => ({
+export const activityRecordSelect = {
+  id: true,
+  subject: true,
+  notes: true,
+  occurredAt: true,
+  followUpAt: true,
+  outcomes: true,
+  createdAt: true,
+  activityType: {
+    select: {
+      id: true,
+      name: true,
+      code: true,
+    },
+  },
+  customer: {
+    select: {
+      id: true,
+      name: true,
+      accountNumber: true,
+    },
+  },
+  order: {
+    select: {
+      id: true,
+      orderedAt: true,
+      total: true,
+      status: true,
+    },
+  },
+  user: {
+    select: {
+      id: true,
+      fullName: true,
+      email: true,
+    },
+  },
+  sampleItems: {
+    select: activitySampleItemSelect,
+  },
+} satisfies Prisma.ActivitySelect;
+
+export type ActivityRecord = Prisma.ActivityGetPayload<{
+  select: typeof activityRecordSelect;
+}>;
+
+type ActivitySampleItemRecord = ActivityRecord["sampleItems"][number];
+
+export const serializeActivityRecord = (activity: ActivityRecord) => ({
   id: activity.id,
   subject: activity.subject,
   notes: activity.notes,
@@ -113,14 +161,6 @@ export const serializeActivityRecord = (activity: any) => ({
         status: activity.order.status,
       }
     : null,
-  sample: activity.sample
-    ? {
-        id: activity.sample.id,
-        sentAt: activity.sample.sentAt instanceof Date
-          ? activity.sample.sentAt.toISOString()
-          : activity.sample.sentAt ?? null,
-      }
-    : activity.sample ?? null,
   user: activity.user
     ? {
         id: activity.user.id,
@@ -128,7 +168,7 @@ export const serializeActivityRecord = (activity: any) => ({
         email: activity.user.email,
       }
     : null,
-  samples: (activity.sampleItems ?? []).map((item: any) => ({
+  samples: (activity.sampleItems ?? []).map((item: ActivitySampleItemRecord) => ({
     id: item.id,
     skuId: item.skuId,
     sampleListItemId: item.sampleListItemId ?? null,

@@ -23,6 +23,19 @@ const supabase = createClient(
 const BUCKET_NAME = 'customer-scans';
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
+let bucketReadyPromise: Promise<void> | null = null;
+
+async function ensureBucketReady() {
+  if (!bucketReadyPromise) {
+    bucketReadyPromise = initializeStorageBucket().catch((error) => {
+      bucketReadyPromise = null;
+      throw error;
+    });
+  }
+
+  return bucketReadyPromise;
+}
+
 /**
  * Upload image to Supabase Storage
  *
@@ -40,8 +53,10 @@ const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 export async function uploadImageToSupabase(
   file: File,
   tenantId: string,
-  scanType: 'business_card' | 'liquor_license'
+  scanType: 'business_card' | 'liquor_license' | 'invoice_logo'
 ): Promise<string> {
+  await ensureBucketReady();
+
   // Validate file size
   if (file.size > MAX_FILE_SIZE) {
     throw new Error(`File size exceeds 5MB limit (size: ${(file.size / 1024 / 1024).toFixed(2)}MB)`);

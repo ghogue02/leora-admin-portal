@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Prisma } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { tenantId, filters, metric = 'revenue' } = body;
+    const { tenantId, filters } = body;
 
     if (!tenantId) {
       return NextResponse.json(
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Build where clause
-    const where: any = {
+    const where: Prisma.CustomerWhereInput = {
       tenantId,
       latitude: { not: null },
       longitude: { not: null },
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Date range filter for orders
-    let orderWhere: any = { status: { not: 'CANCELLED' } };
+    const orderWhere: Prisma.OrderWhereInput = { status: { not: 'CANCELLED' } };
 
     if (filters?.dateRange?.start && filters?.dateRange?.end) {
       orderWhere.createdAt = {

@@ -67,24 +67,6 @@ export default function SageExportPage() {
   const [exportHistory, setExportHistory] = useState<ExportHistoryRecord[]>([]);
   const [isLoadingHistory, setIsLoadingHistory] = useState(true);
 
-  // Fetch validation on date change (debounced)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      validateDateRange();
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [dateRange]);
-
-  // Load export history on mount
-  useEffect(() => {
-    loadExportHistory();
-  }, []);
-
-  // ============================================================================
-  // API FUNCTIONS
-  // ============================================================================
-
   const validateDateRange = useCallback(async () => {
     setIsValidating(true);
 
@@ -117,6 +99,24 @@ export default function SageExportPage() {
       setIsValidating(false);
     }
   }, [dateRange]);
+
+  // Fetch validation on date change (debounced)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      validateDateRange();
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [validateDateRange]);
+
+  // Load export history on mount
+  useEffect(() => {
+    loadExportHistory();
+  }, []);
+
+  // ============================================================================
+  // API FUNCTIONS
+  // ============================================================================
 
   const handleExport = async () => {
     if (!validation?.valid) return;

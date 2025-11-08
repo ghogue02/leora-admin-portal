@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { format, addDays, isSameDay } from "date-fns";
 import AddActivityModal from "./AddActivityModal";
+import type { EnrichedCallPlanTask } from "@/lib/call-plan/enrich-tasks.server";
 
 type DayPlan = {
   date: Date;
@@ -23,7 +24,9 @@ type PlannedActivity = {
 
 type WeeklyCallPlanGridProps = {
   weekStart: Date;
-  callPlan: any;
+  callPlan: {
+    tasks: EnrichedCallPlanTask[];
+  } | null;
   onUpdate: () => void;
 };
 
@@ -61,7 +64,7 @@ export default function WeeklyCallPlanGrid({
 
   // Populate activities from callPlan if exists
   if (callPlan?.tasks) {
-    callPlan.tasks.forEach((task: any) => {
+    callPlan.tasks.forEach((task) => {
       const taskDate = new Date(task.dueAt);
       const dayIndex = days.findIndex((day) => isSameDay(day.date, taskDate));
       if (dayIndex !== -1) {

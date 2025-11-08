@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { logCustomerReassignment } from '@/lib/audit';
 
+const getErrorMessage = (error: unknown): string =>
+  error instanceof Error ? error.message : 'Unknown error';
+
 /**
  * POST /api/admin/customers/bulk-reassign
  * Bulk reassign multiple customers to a new sales rep
@@ -105,10 +108,10 @@ export async function POST(request: NextRequest) {
           );
 
           results.successful.push(customer.id);
-        } catch (error: any) {
+        } catch (error: unknown) {
           results.failed.push({
             id: customer.id,
-            error: error.message || 'Unknown error',
+            error: getErrorMessage(error),
           });
         }
       }
@@ -117,10 +120,10 @@ export async function POST(request: NextRequest) {
         message: `Bulk reassignment completed. ${results.successful.length} successful, ${results.failed.length} failed.`,
         results,
       });
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error in bulk reassignment:', error);
       return NextResponse.json(
-        { error: 'Failed to perform bulk reassignment' },
+        { error: 'Failed to perform bulk reassignment', details: getErrorMessage(error) },
         { status: 500 }
       );
     }

@@ -2,6 +2,56 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfWeek, endOfWeek, format } from "date-fns";
 
+type CustomerLocation = {
+  address: string | null;
+  city: string | null;
+  state: string | null;
+  postalCode: string | null;
+};
+
+type UniqueCustomerProfile = {
+  id: string;
+  name: string;
+  accountNumber: string | null;
+  email: string | null;
+  phone: string | null;
+  location: CustomerLocation;
+  territory: string | null;
+};
+
+type OrderProductDetail = {
+  productName: string;
+  brand: string | null;
+  category: string | null;
+  skuCode: string;
+  quantity: number;
+  unitPrice: number;
+  lineTotal: number;
+};
+
+type CustomerOrderDetail = {
+  id: string;
+  orderNumber: string | null;
+  total: number;
+  deliveredAt: string | null;
+  status: string;
+  itemCount: number;
+  products: OrderProductDetail[];
+};
+
+type UniqueCustomerAggregate = {
+  customer: UniqueCustomerProfile;
+  orders: CustomerOrderDetail[];
+  totalSpent: number;
+  orderCount: number;
+  productsPurchased: Set<string>;
+  categoriesPurchased: Set<string>;
+  firstOrderDate: Date | null;
+  lastOrderDate: Date | null;
+};
+
+type UniqueCustomerMap = Record<string, UniqueCustomerAggregate>;
+
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
     try {
@@ -82,7 +132,7 @@ export async function GET(request: NextRequest) {
       });
 
       // Group orders by customer
-      const customerData = currentWeekOrders.reduce(
+      const customerData = currentWeekOrders.reduce<UniqueCustomerMap>(
         (acc, order) => {
           const customerId = order.customer.id;
           if (!acc[customerId]) {
@@ -155,12 +205,12 @@ export async function GET(request: NextRequest) {
 
           return acc;
         },
-        {} as Record<string, any>
+        {}
       );
 
       // Convert to array and add calculated metrics
       const customers = Object.values(customerData)
-        .map((item: any) => ({
+        .map((item) => ({
           customer: item.customer,
           orders: item.orders,
           metrics: {

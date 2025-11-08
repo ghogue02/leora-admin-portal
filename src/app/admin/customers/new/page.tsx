@@ -44,8 +44,8 @@ export default function NewCustomerPage() {
 
       alert('Customer created successfully');
       router.push(`/admin/customers/${data.customer.id}`);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to create customer');
     } finally {
       setSaving(false);
     }

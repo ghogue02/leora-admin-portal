@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
       const body = await request.json();
       const { customerIds, filters } = body;
 
-      let where: Prisma.CustomerWhereInput = {
+      const where: Prisma.CustomerWhereInput = {
         tenantId,
       };
 

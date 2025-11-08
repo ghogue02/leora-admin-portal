@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession, AdminSessionContext } from "@/lib/auth/admin";
 import { logChange, calculateChanges, AuditOperation } from "@/lib/audit";
 import { PrismaClient } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 /**
  * GET /api/admin/inventory/[skuId]
@@ -151,7 +152,7 @@ export async function PUT(
       }
 
       // Update product if fields provided
-      const productUpdates: any = {};
+      const productUpdates: Prisma.ProductUpdateInput = {};
       if (body.productName !== undefined) productUpdates.name = body.productName;
       if (body.brand !== undefined) productUpdates.brand = body.brand;
       if (body.category !== undefined) productUpdates.category = body.category;
@@ -160,7 +161,7 @@ export async function PUT(
       if (body.isSampleOnly !== undefined) productUpdates.isSampleOnly = body.isSampleOnly;
 
       // Update SKU fields
-      const skuUpdates: any = {};
+      const skuUpdates: Prisma.SkuUpdateInput = {};
       if (body.isActive !== undefined) skuUpdates.isActive = body.isActive;
       if (body.size !== undefined) skuUpdates.size = body.size;
       if (body.unitOfMeasure !== undefined) skuUpdates.unitOfMeasure = body.unitOfMeasure;
@@ -170,28 +171,32 @@ export async function PUT(
 
       // Perform updates in transaction
       const dbClient = db as PrismaClient;
-      const [updatedProduct, updatedSku] = await dbClient.$transaction([
-        // Update product if there are changes
-        Object.keys(productUpdates).length > 0
-          ? dbClient.product.update({
+      const hasProductChanges = Object.keys(productUpdates).length > 0;
+      const hasSkuChanges = Object.keys(skuUpdates).length > 0;
+
+      const { product: updatedProduct, sku: updatedSku } = await dbClient.$transaction(async (tx) => {
+        const productResult = hasProductChanges
+          ? await tx.product.update({
               where: { id: currentSku.productId },
               data: productUpdates,
             })
-          : (dbClient.product.findUnique({ where: { id: currentSku.productId } }) as any),
-        // Update SKU if there are changes
-        Object.keys(skuUpdates).length > 0
-          ? dbClient.sku.update({
+          : currentSku.product;
+
+        const skuResult = hasSkuChanges
+          ? await tx.sku.update({
               where: { id: skuId },
               data: skuUpdates,
             })
-          : (dbClient.sku.findUnique({ where: { id: skuId } }) as any),
-      ]);
+          : currentSku;
+
+        return { product: productResult, sku: skuResult };
+      });
 
       // Log product changes
-      if (Object.keys(productUpdates).length > 0) {
+      if (hasProductChanges) {
         const productChanges = calculateChanges(
-          currentSku.product as any,
-          updatedProduct as any
+          currentSku.product as unknown as Record<string, unknown>,
+          updatedProduct as unknown as Record<string, unknown>
         );
         await logChange(
           {
@@ -208,8 +213,11 @@ export async function PUT(
       }
 
       // Log SKU changes
-      if (Object.keys(skuUpdates).length > 0) {
-        const skuChanges = calculateChanges(currentSku as any, updatedSku as any);
+      if (hasSkuChanges) {
+        const skuChanges = calculateChanges(
+          currentSku as unknown as Record<string, unknown>,
+          updatedSku as unknown as Record<string, unknown>
+        );
         await logChange(
           {
             tenantId,

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { withSalesSession } from "@/lib/auth/sales";
+import type { Prisma } from "@prisma/client";
 
 const updateSchema = z.object({
   followUpCompleted: z.boolean().optional(),
@@ -74,7 +75,7 @@ export async function PATCH(
       }
 
       const { followUpCompleted, feedback } = parsed.data;
-      const updateData: Record<string, any> = {};
+      const updateData: Prisma.ActivitySampleItemUpdateInput = {};
 
       if (followUpCompleted !== undefined) {
         updateData.followUpCompletedAt = followUpCompleted ? new Date() : null;

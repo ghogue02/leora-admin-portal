@@ -4,8 +4,26 @@ import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { exportFormatSchema } from '@/lib/validations/warehouse';
 import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
-function generateCSV(pickSheet: any): string {
+const pickSheetExportInclude = {
+  items: {
+    include: {
+      sku: {
+        include: {
+          product: true,
+        },
+      },
+      customer: true,
+    },
+  },
+} as const;
+
+type PickSheetExport = Prisma.PickSheetGetPayload<{
+  include: typeof pickSheetExportInclude;
+}>;
+
+function generateCSV(pickSheet: PickSheetExport): string {
   const lines: string[] = [];
 
   // Header info
@@ -48,15 +66,9 @@ export async function GET(
         tenantId: session.user.tenantId,
       },
       include: {
+        ...pickSheetExportInclude,
         items: {
-          include: {
-            sku: {
-              include: {
-                product: true,
-              },
-            },
-            customer: true,
-          },
+          ...pickSheetExportInclude.items,
           orderBy: {
             pickOrder: 'asc',
           },

@@ -7,22 +7,10 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar, MapPin, CheckCircle2, Circle, MessageSquare } from "lucide-react";
 import { format } from "date-fns";
-
-interface SelectedAccount {
-  id: string;
-  name: string;
-  accountNumber?: string;
-  city?: string;
-  state?: string;
-  lastOrderDate?: string;
-  contactOutcome: string;
-  contactedAt?: string;
-  objective?: string;
-  notes?: string;
-}
+import type { CarlaSelectedAccount } from "../types";
 
 interface WeeklyAccountsViewProps {
-  accounts: SelectedAccount[];
+  accounts: CarlaSelectedAccount[];
   callPlanId?: string;
   onContactUpdate: (customerId: string, outcome: string, notes?: string) => void;
   onRemoveAccount?: (customerId: string) => void;
@@ -60,7 +48,7 @@ export default function WeeklyAccountsView({
   };
 
   const contactedCount = accounts.filter(
-    (a) => a.contactOutcome !== "NOT_ATTEMPTED"
+    (a) => (a.contactOutcome ?? "NOT_ATTEMPTED") !== "NOT_ATTEMPTED"
   ).length;
 
   const visitedCount = accounts.filter(
@@ -73,7 +61,7 @@ export default function WeeklyAccountsView({
         <CardContent className="flex flex-col items-center justify-center py-12">
           <p className="text-lg font-medium text-gray-900">No accounts selected</p>
           <p className="mt-1 text-sm text-gray-500">
-            Click "Select Accounts" to add customers to your weekly plan
+            Click &quot;Select Accounts&quot; to add customers to your weekly plan
           </p>
         </CardContent>
       </Card>
@@ -103,12 +91,19 @@ export default function WeeklyAccountsView({
       <CardContent>
         <div className="space-y-2">
           {accounts.map((account) => {
+            const outcomeValue = account.contactOutcome ?? "NOT_ATTEMPTED";
             const currentOutcome =
-              CONTACT_OUTCOMES.find((o) => o.value === account.contactOutcome) ||
+              CONTACT_OUTCOMES.find((o) => o.value === outcomeValue) ||
               CONTACT_OUTCOMES[0];
             const Icon = currentOutcome.icon;
-            const isContacted = account.contactOutcome !== "NOT_ATTEMPTED";
+            const isContacted = outcomeValue !== "NOT_ATTEMPTED";
             const notesExpanded = expandedNotes.has(account.id);
+            const accountName = account.name ?? account.customer?.customerName ?? "Customer";
+            const accountNumber = account.accountNumber ?? account.customer?.accountNumber ?? undefined;
+            const lastOrderDate = account.lastOrderDate ?? account.customer?.lastOrderDate ?? undefined;
+            const city = account.city ?? account.customer?.addresses?.[0]?.city ?? undefined;
+            const state = account.state ?? account.customer?.addresses?.[0]?.state ?? undefined;
+            const objective = account.objective ?? account.objectives ?? undefined;
 
             return (
               <div
@@ -129,9 +124,9 @@ export default function WeeklyAccountsView({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h3 className="font-semibold text-gray-900">{account.name}</h3>
-                        {account.accountNumber && (
-                          <p className="text-sm text-gray-500">#{account.accountNumber}</p>
+                        <h3 className="font-semibold text-gray-900">{accountName}</h3>
+                        {accountNumber && (
+                          <p className="text-sm text-gray-500">#{accountNumber}</p>
                         )}
                       </div>
 
@@ -144,36 +139,36 @@ export default function WeeklyAccountsView({
                     </div>
 
                     {/* Location */}
-                    {account.city && account.state && (
+                    {city && state && (
                       <div className="flex items-center gap-1 mt-1 text-sm text-gray-600">
                         <MapPin className="h-3.5 w-3.5" />
                         <span>
-                          {account.city}, {account.state}
+                          {city}, {state}
                         </span>
                       </div>
                     )}
 
                     {/* Last Order */}
-                    {account.lastOrderDate && (
+                    {lastOrderDate && (
                       <div className="flex items-center gap-1 mt-1 text-sm text-gray-600">
                         <Calendar className="h-3.5 w-3.5" />
                         <span>
-                          Last Order: {format(new Date(account.lastOrderDate), "MMM d, yyyy")}
+                          Last Order: {format(new Date(lastOrderDate), "MMM d, yyyy")}
                         </span>
                       </div>
                     )}
 
                     {/* Objective */}
-                    {account.objective && (
+                    {objective && (
                       <div className="mt-2 text-sm text-gray-700">
-                        <span className="font-medium">Objective:</span> {account.objective}
+                        <span className="font-medium">Objective:</span> {objective}
                       </div>
                     )}
 
                     {/* Contact Outcome Buttons */}
                     <div className="mt-3 flex flex-wrap gap-2">
                       {CONTACT_OUTCOMES.map((outcome) => {
-                        const isSelected = account.contactOutcome === outcome.value;
+                        const isSelected = outcomeValue === outcome.value;
                         const OutcomeIcon = outcome.icon;
 
                         return (

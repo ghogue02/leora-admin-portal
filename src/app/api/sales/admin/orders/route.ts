@@ -1,13 +1,38 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
 import { createAuditLog } from "@/lib/audit-log";
-import { Prisma } from "@prisma/client";
+import { Prisma, OrderStatus, InvoiceStatus } from "@prisma/client";
 import { calculateOrderTotal } from "@/lib/orders/calculations";
 import { generateOrderNumber } from "@/lib/orders/order-number-generator";
 
+const parseOrderStatuses = (values?: string[] | null): OrderStatus[] =>
+  (values ?? []).filter((value): value is OrderStatus =>
+    Object.values(OrderStatus).includes(value as OrderStatus)
+  );
+
+const parseInvoiceStatuses = (values?: string[] | null): InvoiceStatus[] =>
+  (values ?? []).filter((value): value is InvoiceStatus =>
+    Object.values(InvoiceStatus).includes(value as InvoiceStatus)
+  );
+
+type LineItemInput = {
+  skuId: string;
+  quantity: number;
+  unitPrice?: number;
+  isSample?: boolean;
+};
+
+const isLineItemInput = (value: unknown): value is LineItemInput => {
+  if (typeof value !== "object" || value === null) {
+    return false;
+  }
+  const candidate = value as Partial<LineItemInput>;
+  return typeof candidate.skuId === "string" && typeof candidate.quantity === "number";
+};
+
 // GET /api/sales/admin/orders - List orders with filters
 export async function GET(request: NextRequest) {
-  return withAdminSession(request, async ({ db, tenantId, session }) => {
+  return withAdminSession(request, async ({ db, tenantId }) => {
     const { searchParams } = new URL(request.url);
 
     // Pagination
@@ -35,8 +60,9 @@ export async function GET(request: NextRequest) {
       tenantId,
     };
 
-    if (statusFilter?.length) {
-      where.status = { in: statusFilter as any[] };
+    const parsedStatusFilter = parseOrderStatuses(statusFilter);
+    if (parsedStatusFilter.length) {
+      where.status = { in: parsedStatusFilter };
     }
 
     if (customerId) {
@@ -60,31 +86,34 @@ export async function GET(request: NextRequest) {
     }
 
     if (dateFrom || dateTo) {
-      where.orderedAt = {};
+      const orderedAtFilter: Prisma.DateTimeFilter = {};
       if (dateFrom) {
-        where.orderedAt.gte = new Date(dateFrom);
+        orderedAtFilter.gte = new Date(dateFrom);
       }
       if (dateTo) {
-        where.orderedAt.lte = new Date(dateTo);
+        orderedAtFilter.lte = new Date(dateTo);
       }
+      where.orderedAt = orderedAtFilter;
     }
 
     if (minAmount || maxAmount) {
-      where.total = {};
+      const totalFilter: Prisma.DecimalNullableFilter = {};
       if (minAmount) {
-        where.total.gte = parseFloat(minAmount);
+        totalFilter.gte = parseFloat(minAmount);
       }
       if (maxAmount) {
-        where.total.lte = parseFloat(maxAmount);
+        totalFilter.lte = parseFloat(maxAmount);
       }
+      where.total = totalFilter;
     }
 
     // Invoice status filter requires a complex query
-    let invoiceStatusWhere: any = undefined;
-    if (invoiceStatusFilter?.length) {
+    let invoiceStatusWhere: Prisma.InvoiceListRelationFilter | undefined;
+    const parsedInvoiceStatuses = parseInvoiceStatuses(invoiceStatusFilter);
+    if (parsedInvoiceStatuses.length) {
       invoiceStatusWhere = {
         some: {
-          status: { in: invoiceStatusFilter as any[] },
+          status: { in: parsedInvoiceStatuses },
         },
       };
     }
@@ -195,7 +224,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   return withAdminSession(request, async ({ db, tenantId, session }) => {
     const body = await request.json();
-    const { customerId, orderedAt, status, currency, deliveryWeek, lineItems, notes } = body;
+    const { customerId, orderedAt, status, currency, deliveryWeek, lineItems } = body;
 
     // Validate required fields
     if (!customerId) {
@@ -222,8 +251,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!lineItems.every(isLineItemInput)) {
+      return NextResponse.json(
+        { error: "Invalid line item format" },
+        { status: 400 }
+      );
+    }
+
+    const normalizedLineItems = lineItems as LineItemInput[];
+
     // Verify all SKUs exist
-    const skuIds = lineItems.map((item: any) => item.skuId);
+    const skuIds = normalizedLineItems.map((item) => item.skuId);
     const skus = await db.sku.findMany({
       where: {
         id: { in: skuIds },
@@ -240,7 +278,7 @@ export async function POST(request: NextRequest) {
 
     // Calculate total
     let total = 0;
-    const validatedLineItems = lineItems.map((item: any) => {
+    const validatedLineItems = normalizedLineItems.map((item) => {
       const sku = skus.find((s) => s.id === item.skuId);
       const unitPrice = item.unitPrice || (sku?.pricePerUnit ? Number(sku.pricePerUnit) : 0);
       const lineTotal = item.quantity * unitPrice;

@@ -1,7 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
-import { createCSVResponse, arrayToCSV, formatCurrencyForCSV, formatDateForCSV } from '@/lib/csv-helper';
+import { createCSVResponse, arrayToCSV, formatCurrencyForCSV } from '@/lib/csv-helper';
 import { formatUTCDate } from '@/lib/dates';
+import { Prisma } from '@prisma/client';
+
+type SalesRepExportFilters = {
+  search?: string;
+  territory?: string;
+  isActive?: boolean;
+};
+
+type SalesRepExportPayload = {
+  filters?: SalesRepExportFilters;
+};
 
 /**
  * POST /api/admin/sales-reps/export
@@ -12,11 +23,11 @@ export async function POST(request: NextRequest) {
     const { tenantId, db, user } = context;
 
     try {
-      const body = await request.json().catch(() => ({}));
+      const body = (await request.json().catch(() => ({}))) as SalesRepExportPayload;
       const { filters = {} } = body;
 
       // Build where clause from filters
-      const where: any = {
+      const where: Prisma.SalesRepWhereInput = {
         tenantId,
       };
 
@@ -33,7 +44,7 @@ export async function POST(request: NextRequest) {
         where.territoryName = { contains: filters.territory, mode: 'insensitive' };
       }
 
-      if (filters.isActive !== undefined) {
+      if (typeof filters.isActive === 'boolean') {
         where.isActive = filters.isActive;
       }
 
@@ -104,7 +115,9 @@ export async function POST(request: NextRequest) {
             'Weekly Quota': formatCurrencyForCSV(rep.weeklyRevenueQuota ? Number(rep.weeklyRevenueQuota) : null),
             'Monthly Quota': formatCurrencyForCSV(rep.monthlyRevenueQuota ? Number(rep.monthlyRevenueQuota) : null),
             'Quarterly Quota': formatCurrencyForCSV(rep.quarterlyRevenueQuota ? Number(rep.quarterlyRevenueQuota) : null),
-            'Sample Allowance/Month': rep.sampleAllowancePerMonth,
+            'Sample Allowance/Month': formatCurrencyForCSV(
+              rep.sampleAllowancePerMonth ? Number(rep.sampleAllowancePerMonth) : null
+            ),
             'Status': rep.isActive ? 'Active' : 'Inactive',
           };
         })

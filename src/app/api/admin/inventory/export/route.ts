@@ -83,9 +83,6 @@ export async function POST(request: NextRequest) {
 
       // Transform to export format
       const exportData = skus.flatMap((sku) => {
-        const totalOnHand = sku.inventories.reduce((sum, inv) => sum + inv.onHand, 0);
-        const totalAllocated = sku.inventories.reduce((sum, inv) => sum + inv.allocated, 0);
-        const available = totalOnHand - totalAllocated;
         const defaultPrice = Number(sku.priceListItems[0]?.price || sku.pricePerUnit || 0);
 
         // If no inventory records, create one row with zeros

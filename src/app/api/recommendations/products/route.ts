@@ -11,12 +11,27 @@ import {
   getRecentlyOrderedProductIds,
 } from '@/lib/recommendation-context';
 
+type RecommendationResult = {
+  productId: string;
+  reason: string;
+  confidence: number;
+  product?: ProductSummary | null;
+};
+
+type ProductSummary = {
+  id: string;
+  name: string | null;
+  category: string | null;
+  varietal: string | null;
+  vintage: string | null;
+  price: number | null;
+  description: string | null;
+  stock_quantity: number | null;
+};
+
 // Cache recommendations for 15 minutes
 const CACHE_TTL = 15 * 60 * 1000;
-const cache = new Map<
-  string,
-  { recommendations: any[]; timestamp: number }
->();
+const cache = new Map<string, { recommendations: RecommendationResult[]; timestamp: number }>();
 
 export async function POST(request: NextRequest) {
   try {
@@ -116,7 +131,7 @@ export async function POST(request: NextRequest) {
  */
 async function enrichRecommendations(
   recommendations: { productId: string; reason: string; confidence: number }[]
-) {
+): Promise<RecommendationResult[]> {
   if (recommendations.length === 0) return [];
 
   const { createClient } = await import('@/lib/supabase/server');
@@ -132,7 +147,7 @@ async function enrichRecommendations(
   if (!products) return recommendations;
 
   // Map products to recommendations
-  return recommendations.map(rec => {
+  return recommendations.map<RecommendationResult>(rec => {
     const product = products.find(p => p.id === rec.productId);
     return {
       ...rec,

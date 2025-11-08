@@ -14,7 +14,6 @@ export async function POST(request: NextRequest) {
         activityTypeCode = 'EMAIL_FOLLOW_UP',
         outcome = 'SUCCESS',
         outcomes,
-        metadata,
       } = body;
 
       // Get sales rep

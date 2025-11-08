@@ -1,26 +1,48 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import { withSalesSession } from "@/lib/auth/sales";
-import { createFollowUpTasksForSamples } from "@/app/api/sales/activities/_helpers";
+import {
+  ensureSampleItemsValid,
+  createFollowUpTasksForSamples,
+} from "@/app/api/sales/activities/_helpers";
+
+const logSamplesSchema = z.object({
+  customerId: z.string().uuid(),
+  occurredAt: z.string().datetime().optional(),
+  context: z.string().max(100).optional(),
+  items: z
+    .array(
+      z.object({
+        skuId: z.string().uuid(),
+        sampleListItemId: z.string().uuid().optional(),
+        quantity: z.number().int().positive().max(100).optional(),
+        feedback: z.string().max(2000).optional(),
+        customerResponse: z.string().max(2000).optional(),
+        followUp: z.boolean().optional(),
+      }),
+    )
+    .min(1, "At least one sample item is required"),
+});
 
 export async function POST(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
-    let body: any;
+    let body: unknown;
     try {
       body = await request.json();
     } catch {
-      return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid JSON payload" }, { status: 400 });
     }
 
-    const { customerId, skuId, quantity, tastedAt, feedback, needsFollowUp } = body;
-
-    if (!customerId || !skuId || !tastedAt) {
+    const parseResult = logSamplesSchema.safeParse(body);
+    if (!parseResult.success) {
       return NextResponse.json(
-        { error: "customerId, skuId, and tastedAt are required" },
-        { status: 400 }
+        { error: "Invalid sample submission", details: parseResult.error.format() },
+        { status: 400 },
       );
     }
 
-    // Get sales rep profile
+    const { customerId, occurredAt, context, items } = parseResult.data;
+
     const salesRep = await db.salesRep.findUnique({
       where: {
         tenantId_userId: {
@@ -31,81 +53,146 @@ export async function POST(request: NextRequest) {
     });
 
     if (!salesRep) {
-      return NextResponse.json({ error: "Sales rep not found" }, { status: 404 });
+      return NextResponse.json({ error: "Sales rep profile not found" }, { status: 404 });
     }
 
-    // Verify customer belongs to this rep
     const customer = await db.customer.findFirst({
       where: {
         id: customerId,
+        tenantId,
         salesRepId: salesRep.id,
+      },
+      select: {
+        id: true,
       },
     });
 
     if (!customer) {
       return NextResponse.json(
         { error: "Customer not found or not assigned to you" },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
-    // Create sample usage record
-    const tastedAtDate = new Date(tastedAt);
+    const helperItems = items.map((item) => ({
+      skuId: item.skuId,
+      sampleListItemId: item.sampleListItemId,
+      feedback: item.feedback,
+      followUpNeeded: item.followUp ?? false,
+      quantity: item.quantity ?? 1,
+    }));
 
-    const sampleUsage = await db.$transaction(async (tx) => {
-      const created = await tx.sampleUsage.create({
-        data: {
-          tenantId,
-          salesRepId: salesRep.id,
-          customerId,
-          skuId,
-          quantity: quantity || 1,
-          tastedAt: tastedAtDate,
-          feedback,
-          needsFollowUp: needsFollowUp || false,
-          sampleSource: "manual_log",
-        },
-        include: {
-          customer: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
-          sku: {
-            include: {
-              product: {
-                select: {
-                  name: true,
-                  brand: true,
+    try {
+      await ensureSampleItemsValid(db, tenantId, salesRep.id, helperItems);
+    } catch (error) {
+      if (error instanceof Error) {
+        if (error.message === "INVALID_SKU_SELECTION") {
+          return NextResponse.json(
+            { error: "One or more sample items reference invalid SKUs" },
+            { status: 400 },
+          );
+        }
+        if (error.message === "INVALID_SAMPLE_LIST_ITEM") {
+          return NextResponse.json(
+            { error: "Sample list selection is invalid or not accessible" },
+            { status: 400 },
+          );
+        }
+        if (error.message === "SAMPLE_LIST_ITEM_MISMATCH") {
+          return NextResponse.json(
+            { error: "Sample list item does not match the selected SKU" },
+            { status: 400 },
+          );
+        }
+      }
+
+      return NextResponse.json(
+        { error: "Unable to validate selected samples" },
+        { status: 400 },
+      );
+    }
+
+    const tastedAt = occurredAt ? new Date(occurredAt) : new Date();
+    const sampleSource = context?.trim() || "crm_sample_log";
+
+    try {
+      const createdSamples = await db.$transaction(async (tx) => {
+        const rows = await Promise.all(
+          items.map((item) =>
+            tx.sampleUsage.create({
+              data: {
+                tenantId,
+                salesRepId: salesRep.id,
+                customerId,
+                skuId: item.skuId,
+                quantity: item.quantity ?? 1,
+                tastedAt,
+                feedback: item.feedback ?? null,
+                customerResponse: item.customerResponse ?? null,
+                needsFollowUp: item.followUp ?? false,
+                sampleSource,
+              },
+              include: {
+                sku: {
+                  select: {
+                    id: true,
+                    code: true,
+                    product: {
+                      select: {
+                        name: true,
+                        brand: true,
+                      },
+                    },
+                  },
                 },
               },
-            },
-          },
-        },
+            }),
+          ),
+        );
+
+        await createFollowUpTasksForSamples(tx, {
+          tenantId,
+          userId: session.user.id,
+          customerId,
+          occurredAt: tastedAt,
+          items: helperItems,
+        });
+
+        return rows;
       });
 
-      await createFollowUpTasksForSamples(tx, {
+      return NextResponse.json(
+        {
+          success: true,
+          samples: createdSamples.map((sample) => ({
+            id: sample.id,
+            customerId: sample.customerId,
+            skuId: sample.skuId,
+            skuCode: sample.sku.code,
+            productName: sample.sku.product?.name ?? null,
+            brand: sample.sku.product?.brand ?? null,
+            quantity: sample.quantity,
+            tastedAt: sample.tastedAt.toISOString(),
+            feedback: sample.feedback,
+            customerResponse: sample.customerResponse,
+            needsFollowUp: sample.needsFollowUp,
+            sampleSource: sample.sampleSource,
+          })),
+        },
+        { status: 201 },
+      );
+    } catch (error) {
+      console.error("Failed to log samples", {
+        error,
         tenantId,
         userId: session.user.id,
         customerId,
-        occurredAt: tastedAtDate,
-        items: [
-          {
-            skuId,
-            feedback: feedback ?? undefined,
-            followUpNeeded: needsFollowUp ?? false,
-            quantity: quantity ?? undefined,
-          },
-        ],
       });
 
-      return created;
-    });
-
-    return NextResponse.json({
-      success: true,
-      sample: sampleUsage,
-    });
+      return NextResponse.json(
+        { error: "Failed to log samples. Please try again." },
+        { status: 500 },
+      );
+    }
   });
 }

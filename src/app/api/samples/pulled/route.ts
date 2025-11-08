@@ -7,6 +7,13 @@ const pulledQuerySchema = z.object({
   days: z.coerce.number().int().positive().default(21),
 });
 
+type PulledSamplesWhere = {
+  dateGiven: {
+    gte: Date;
+  };
+  salesRepId?: string;
+};
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -20,7 +27,7 @@ export async function GET(request: NextRequest) {
     const dateThreshold = new Date(Date.now() - params.days * 24 * 60 * 60 * 1000);
 
     // Build where clause
-    const whereClause: any = {
+    const whereClause: PulledSamplesWhere = {
       dateGiven: {
         gte: dateThreshold,
       },

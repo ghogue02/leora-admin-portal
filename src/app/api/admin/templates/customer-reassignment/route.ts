@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import { withAdminSession } from '@/lib/auth/admin';
 import { createCSVResponse, arrayToCSV } from '@/lib/csv-helper';
 

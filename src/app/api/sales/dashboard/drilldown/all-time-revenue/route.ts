@@ -1,6 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { format } from "date-fns";
+import type { ProductSalesMap } from "../types";
+
+type YearlyRevenueEntry = {
+  year: string;
+  revenue: number;
+  orderCount: number;
+  uniqueCustomers: Set<string>;
+};
+
+type CustomerRevenueEntry = {
+  customer: {
+    id: string;
+    name: string;
+    accountNumber: string | null;
+    city: string | null;
+    state: string | null;
+  };
+  revenue: number;
+  orderCount: number;
+  firstOrderDate: Date | null;
+  lastOrderDate: Date | null;
+  orders: Array<{ id: string; total: number; deliveredAt: string | null; status: string }>;
+};
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -71,28 +94,26 @@ export async function GET(request: NextRequest) {
       });
 
       // Group revenue by year
-      const yearlyRevenue = allOrders.reduce((acc, order) => {
-        if (!order.deliveredAt) return acc;
-
+      const yearlyRevenue: Record<string, YearlyRevenueEntry> = {};
+      for (const order of allOrders) {
+        if (!order.deliveredAt) continue;
         const year = format(order.deliveredAt, "yyyy");
-        if (!acc[year]) {
-          acc[year] = {
+        if (!yearlyRevenue[year]) {
+          yearlyRevenue[year] = {
             year,
             revenue: 0,
             orderCount: 0,
-            uniqueCustomers: new Set(),
+            uniqueCustomers: new Set<string>(),
           };
         }
-
-        acc[year].revenue += Number(order.total || 0);
-        acc[year].orderCount += 1;
-        acc[year].uniqueCustomers.add(order.customerId);
-
-        return acc;
-      }, {} as Record<string, any>);
+        const entry = yearlyRevenue[year];
+        entry.revenue += Number(order.total ?? 0);
+        entry.orderCount += 1;
+        entry.uniqueCustomers.add(order.customerId);
+      }
 
       const yearlyRevenueArray = Object.values(yearlyRevenue)
-        .map((item: any) => ({
+        .map((item) => ({
           year: item.year,
           revenue: item.revenue,
           orderCount: item.orderCount,
@@ -101,41 +122,50 @@ export async function GET(request: NextRequest) {
         .sort((a, b) => a.year.localeCompare(b.year));
 
       // Calculate revenue by customer (lifetime)
-      const customerRevenue = allOrders.reduce((acc, order) => {
+      const customerRevenue: Record<string, CustomerRevenueEntry> = {};
+      for (const order of allOrders) {
         const customerId = order.customer.id;
-        if (!acc[customerId]) {
-          acc[customerId] = {
-            customer: order.customer,
+        if (!customerRevenue[customerId]) {
+          customerRevenue[customerId] = {
+            customer: {
+              id: order.customer.id,
+              name: order.customer.name,
+              accountNumber: order.customer.accountNumber,
+              city: order.customer.city,
+              state: order.customer.state,
+            },
             revenue: 0,
             orderCount: 0,
-            firstOrderDate: order.deliveredAt,
-            lastOrderDate: order.deliveredAt,
+            firstOrderDate: order.deliveredAt ?? null,
+            lastOrderDate: order.deliveredAt ?? null,
             orders: [],
           };
         }
-        acc[customerId].revenue += Number(order.total || 0);
-        acc[customerId].orderCount += 1;
+        const aggregate = customerRevenue[customerId];
+        aggregate.revenue += Number(order.total ?? 0);
+        aggregate.orderCount += 1;
 
-        if (order.deliveredAt && order.deliveredAt < acc[customerId].firstOrderDate) {
-          acc[customerId].firstOrderDate = order.deliveredAt;
-        }
-        if (order.deliveredAt && order.deliveredAt > acc[customerId].lastOrderDate) {
-          acc[customerId].lastOrderDate = order.deliveredAt;
+        if (order.deliveredAt) {
+          if (!aggregate.firstOrderDate || order.deliveredAt < aggregate.firstOrderDate) {
+            aggregate.firstOrderDate = order.deliveredAt;
+          }
+          if (!aggregate.lastOrderDate || order.deliveredAt > aggregate.lastOrderDate) {
+            aggregate.lastOrderDate = order.deliveredAt;
+          }
         }
 
-        acc[customerId].orders.push({
+        aggregate.orders.push({
           id: order.id,
-          total: Number(order.total || 0),
-          deliveredAt: order.deliveredAt?.toISOString() || null,
+          total: Number(order.total ?? 0),
+          deliveredAt: order.deliveredAt?.toISOString() ?? null,
           status: order.status,
         });
-        return acc;
-      }, {} as Record<string, any>);
+      }
 
       const topCustomers = Object.values(customerRevenue)
-        .sort((a: any, b: any) => b.revenue - a.revenue)
+        .sort((a, b) => b.revenue - a.revenue)
         .slice(0, 10)
-        .map((item: any) => ({
+        .map((item) => ({
           customerId: item.customer.id,
           customerName: item.customer.name,
           accountNumber: item.customer.accountNumber,
@@ -147,12 +177,12 @@ export async function GET(request: NextRequest) {
           lastOrderDate: item.lastOrderDate?.toISOString() || null,
           recentOrders: item.orders
             .sort(
-              (a: { deliveredAt: string | null }, b: { deliveredAt: string | null }) =>
+              (a, b) =>
                 (b.deliveredAt ? new Date(b.deliveredAt).getTime() : 0) -
                 (a.deliveredAt ? new Date(a.deliveredAt).getTime() : 0)
             )
             .slice(0, 3)
-            .map((order: { id: string; total: number; deliveredAt: string | null }) => ({
+            .map((order) => ({
               id: order.id,
               deliveredAt: order.deliveredAt,
               total: order.total,
@@ -180,7 +210,7 @@ export async function GET(request: NextRequest) {
       }, { byCategory: {} as Record<string, number>, byBrand: {} as Record<string, number> });
 
       // Get top products sold (lifetime)
-      const productSales = allOrders.reduce((acc, order) => {
+      const productSales = allOrders.reduce<ProductSalesMap>((acc, order) => {
         order.lines.forEach((line) => {
           const productName = line.sku.product.name;
           const skuCode = line.sku.code;
@@ -203,10 +233,10 @@ export async function GET(request: NextRequest) {
           acc[key].orderCount += 1;
         });
         return acc;
-      }, {} as Record<string, any>);
+      }, {});
 
       const topProducts = Object.values(productSales)
-        .sort((a: any, b: any) => b.revenue - a.revenue)
+        .sort((a, b) => b.revenue - a.revenue)
         .slice(0, 10);
 
       // Calculate totals

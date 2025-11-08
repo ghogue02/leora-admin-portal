@@ -18,6 +18,11 @@ interface FeedbackRequest {
   notes?: string;
 }
 
+type RecommendationFeedbackRecord = {
+  action: FeedbackAction;
+  confidence_score: number | null;
+};
+
 export async function POST(request: NextRequest) {
   try {
     const body: FeedbackRequest = await request.json();
@@ -112,7 +117,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Calculate analytics
-    const analytics = calculateFeedbackAnalytics(feedback || []);
+    const analytics = calculateFeedbackAnalytics((feedback ?? []) as RecommendationFeedbackRecord[]);
 
     return NextResponse.json({
       feedback: feedback || [],
@@ -151,7 +156,7 @@ async function trackRecommendationMetrics(action: FeedbackAction, confidence: nu
 /**
  * Calculate analytics from feedback data
  */
-function calculateFeedbackAnalytics(feedback: any[]) {
+function calculateFeedbackAnalytics(feedback: RecommendationFeedbackRecord[]) {
   if (feedback.length === 0) {
     return {
       total: 0,

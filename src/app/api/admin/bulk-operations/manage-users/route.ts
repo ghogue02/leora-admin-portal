@@ -1,11 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
-import { PrismaClient } from '@prisma/client';
-
 import { logChange, AuditOperation } from '@/lib/audit';
 
 type UserAction = 'activate' | 'deactivate' | 'addRole' | 'removeRole';
-type UserType = 'internal' | 'portal';
+
+type ManageUsersPayload = {
+  userIds?: string[];
+  userType?: 'internal' | 'portal';
+  action?: UserAction;
+  roleId?: string;
+};
 
 /**
  * POST /api/admin/bulk-operations/manage-users
@@ -16,8 +20,11 @@ export async function POST(request: NextRequest) {
     const { tenantId, db, user } = context;
 
     try {
-      const body = await request.json();
-      const { userIds, userType, action, roleId } = body;
+      const body = (await request.json().catch(() => null)) as ManageUsersPayload | null;
+      const userIds = body?.userIds ?? [];
+      const userType = body?.userType;
+      const action = body?.action;
+      const roleId = body?.roleId;
 
       if (!userIds || !Array.isArray(userIds) || userIds.length === 0) {
         return NextResponse.json(
@@ -72,15 +79,15 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const results = {
+      const results: { successCount: number; errors: Array<{ userId: string; userName: string; error: string }> } = {
         successCount: 0,
-        errors: [] as Array<{ userId: string; userName: string; error: string }>
+        errors: [],
       };
 
       // Process each user
       for (const userId of userIds) {
         try {
-          await (db as PrismaClient).$transaction(async (tx) => {
+          await db.$transaction(async (tx) => {
             if (userType === 'internal') {
               // Process internal users (User model)
               const targetUser = await tx.user.findUnique({
@@ -418,11 +425,11 @@ export async function POST(request: NextRequest) {
 
             results.successCount++;
           });
-        } catch (error: any) {
+        } catch (error: unknown) {
           results.errors.push({
             userId,
             userName: 'Unknown',
-            error: error.message || 'Unknown error'
+            error: error instanceof Error ? error.message : 'Unknown error'
           });
         }
       }
@@ -435,10 +442,13 @@ export async function POST(request: NextRequest) {
         action,
         userType
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error in bulk user management:', error);
       return NextResponse.json(
-        { error: 'Failed to perform bulk user management', details: error.message },
+        {
+          error: 'Failed to perform bulk user management',
+          details: error instanceof Error ? error.message : 'Unknown error',
+        },
         { status: 500 }
       );
     }

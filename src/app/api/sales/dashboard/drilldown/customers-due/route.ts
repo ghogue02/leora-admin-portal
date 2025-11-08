@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { addDays, startOfWeek, endOfWeek } from "date-fns";
+import type { Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -46,7 +47,7 @@ export async function GET(request: NextRequest) {
       }
 
       // Build where clause based on timeframe
-      const whereClause: any = {
+      const whereClause: Prisma.CustomerWhereInput = {
         tenantId,
         salesRepId: salesRep.id,
         isPermanentlyClosed: false,

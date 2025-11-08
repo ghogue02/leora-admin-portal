@@ -7,20 +7,34 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 import { GET, POST } from './route';
 import { PrismaClient } from '@prisma/client';
+import { withSalesSession } from '@/lib/auth/sales';
 
 const prisma = new PrismaClient();
 
+type SalesSessionCallback = (
+  context: {
+    tenantId: string;
+    session: { user: { id: string; email: string } };
+    db: PrismaClient;
+  }
+) => Promise<Response> | Response;
+
 // Mock authentication
-vi.mock('@/lib/auth/sales', () => ({
-  withSalesSession: (request: NextRequest, callback: Function) => {
-    const mockContext = {
-      tenantId: 'test-tenant-id',
-      session: { user: { id: 'test-user-id', email: 'sales@test.com' } },
-      db: prisma,
-    };
-    return callback(mockContext);
-  },
-}));
+vi.mock('@/lib/auth/sales', () => {
+  const mockContext = {
+    tenantId: 'test-tenant-id',
+    session: { user: { id: 'test-user-id', email: 'sales@test.com' } },
+    db: prisma,
+  };
+
+  return {
+    withSalesSession: vi.fn((_request: NextRequest, callback: SalesSessionCallback) => {
+      return callback(mockContext);
+    }),
+  };
+});
+
+const mockedWithSalesSession = vi.mocked(withSalesSession);
 
 describe('Dashboard Widgets API Routes', () => {
   let testTenantId: string;
@@ -49,15 +63,15 @@ describe('Dashboard Widgets API Routes', () => {
     testUserId = user.id;
 
     // Override mock to use real IDs
-    vi.mocked(require('@/lib/auth/sales').withSalesSession).mockImplementation(
-      (request: NextRequest, callback: Function) => {
+    mockedWithSalesSession.mockImplementation(
+      (_request: NextRequest, callback: SalesSessionCallback) => {
         const mockContext = {
           tenantId: testTenantId,
           session: { user: { id: testUserId, email: 'sales@test.com' } },
           db: prisma,
         };
         return callback(mockContext);
-      }
+      },
     );
   });
 
@@ -526,15 +540,15 @@ describe('Dashboard Widgets API Routes', () => {
       });
 
       // User 2 should be able to create same widget type
-      vi.mocked(require('@/lib/auth/sales').withSalesSession).mockImplementationOnce(
-        (request: NextRequest, callback: Function) => {
+      mockedWithSalesSession.mockImplementationOnce(
+        (_request: NextRequest, callback: SalesSessionCallback) => {
           const mockContext = {
             tenantId: testTenantId,
             session: { user: { id: user2.id, email: 'sales2@test.com' } },
             db: prisma,
           };
           return callback(mockContext);
-        }
+        },
       );
 
       const request = new NextRequest('http://localhost/api/dashboard/widgets', {

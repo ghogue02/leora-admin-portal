@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import prisma from '@/lib/prisma';
+import { Prisma } from '@prisma/client';
 import { Decimal } from '@prisma/client/runtime/library';
 
 // Validation schema
@@ -9,6 +10,22 @@ const topPerformersQuerySchema = z.object({
   sortBy: z.enum(['conversion', 'revenue']).default('conversion'),
   period: z.enum(['7d', '30d', '90d', '365d', 'all']).default('30d'),
 });
+
+type SampleMetricWithSku = Prisma.SampleMetricsGetPayload<{
+  include: {
+    sku: {
+      include: { product: true };
+    };
+  };
+}>;
+
+type PerformerAggregate = {
+  sku: SampleMetricWithSku['sku'];
+  samplesGiven: number;
+  conversions: number;
+  conversionRate: number;
+  revenue: Decimal;
+};
 
 export async function GET(request: NextRequest) {
   try {
@@ -44,13 +61,7 @@ export async function GET(request: NextRequest) {
     });
 
     // Aggregate by SKU
-    const skuMap = new Map<string, {
-      sku: any;
-      samplesGiven: number;
-      conversions: number;
-      conversionRate: number;
-      revenue: Decimal;
-    }>();
+    const skuMap = new Map<string, PerformerAggregate>();
 
     metrics.forEach(m => {
       const key = m.skuId;

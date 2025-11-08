@@ -2,6 +2,13 @@ import { describe, it, expect, beforeAll, afterAll, beforeEach } from '@jest/glo
 import prisma from '@/lib/prisma';
 import { Decimal } from '@prisma/client/runtime/library';
 
+type SupplierRecord = Awaited<ReturnType<typeof prisma.supplier.create>>;
+type ProductRecord = Awaited<ReturnType<typeof prisma.product.create>>;
+type SkuRecord = Awaited<ReturnType<typeof prisma.sku.create>>;
+type CustomerRecord = Awaited<ReturnType<typeof prisma.customer.create>>;
+type SalesRepRecord = Awaited<ReturnType<typeof prisma.salesRep.create>>;
+type SampleInventoryRecord = Awaited<ReturnType<typeof prisma.sampleInventory.create>>;
+
 /**
  * Sample Management API Integration Tests
  *
@@ -10,12 +17,12 @@ import { Decimal } from '@prisma/client/runtime/library';
  */
 
 describe('Sample Management API Integration Tests', () => {
-  let testSupplier: any;
-  let testProduct: any;
-  let testSku: any;
-  let testCustomer: any;
-  let testSalesRep: any;
-  let testInventory: any;
+  let testSupplier: SupplierRecord;
+  let testProduct: ProductRecord;
+  let testSku: SkuRecord;
+  let testCustomer: CustomerRecord;
+  let testSalesRep: SalesRepRecord;
+  let testInventory: SampleInventoryRecord;
 
   beforeAll(async () => {
     // Create test data

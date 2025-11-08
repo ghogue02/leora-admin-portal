@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { releaseExpiredReservations } from "@/lib/jobs/reservation-expiration";
 
 /**
@@ -20,7 +20,7 @@ import { releaseExpiredReservations } from "@/lib/jobs/reservation-expiration";
  * }
  */
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   // TODO: Add authentication - only allow from cron service or admin
   // For now, anyone can trigger (useful for testing)
 

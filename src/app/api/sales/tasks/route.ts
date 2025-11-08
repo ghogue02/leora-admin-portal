@@ -8,15 +8,14 @@ export async function GET(request: NextRequest) {
     const status = searchParams.get("status");
     const limit = parseInt(searchParams.get("limit") || "50");
 
-    // Build where clause
-    const where: any = {
+    const where = {
       tenantId,
       userId: session.user.id, // Only tasks assigned to this user
     };
 
     // Filter by status if provided
     if (status && status !== "ALL") {
-      where.status = status as TaskStatus;
+      (where as { status?: TaskStatus }).status = status as TaskStatus;
     }
 
     // Fetch tasks

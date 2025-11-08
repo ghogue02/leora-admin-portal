@@ -65,20 +65,6 @@ export async function POST(request: NextRequest) {
 
       let eventCount = 0;
 
-      const combineDateAndTime = (dateValue: Date, time: string) => {
-        // Parse date and time in local timezone (server timezone)
-        const dateStr = formatUTCDate(dateValue); // YYYY-MM-DD in UTC
-        const [hours, minutes] = time.split(":").map(Number);
-
-        // Create a date object in the local timezone
-        const year = parseInt(dateStr.split('-')[0]);
-        const month = parseInt(dateStr.split('-')[1]) - 1; // JS months are 0-indexed
-        const day = parseInt(dateStr.split('-')[2]);
-
-        const combined = new Date(year, month, day, hours, minutes, 0, 0);
-        return combined;
-      };
-
       for (const schedule of schedules) {
         const customer = schedule.customer;
         const address = customer.addresses?.[0];

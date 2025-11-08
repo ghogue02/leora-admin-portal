@@ -1,0 +1,1291 @@
+
+/Users/greghogue/Leora2/web/src/app/admin/invoices/templates/TemplateSettingsManager.tsx
+  852:27  error  React Hook "useMemo" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks
+
+/Users/greghogue/Leora2/web/src/app/api/sales/reports/tag-performance/route.ts
+   73:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   98:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  103:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/__tests__/api.integration.test.ts
+   22:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   24:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   38:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   46:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  244:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  357:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  366:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  455:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  455:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  493:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  493:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  517:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  517:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  532:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  532:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  562:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  562:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  585:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  585:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  601:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  601:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  607:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  607:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/__tests__/integration.test.ts
+  13:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  14:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  15:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  16:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  17:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  18:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/analytics/rep-leaderboard/route.ts
+  55:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/analytics/route.ts
+  53:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  62:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/analytics/top-performers/route.ts
+  48:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/inventory/route.ts
+   28:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/pulled/route.ts
+  23:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/samples/supplier-report/route.ts
+  37:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/scan/__tests__/integration.test.ts
+  146:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  162:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  181:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  198:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  212:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  236:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  260:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  284:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  315:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  370:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/territories/suggest/route.ts
+  17:9   error  'whereClause' is never reassigned. Use 'const' instead  prefer-const
+  17:22  error  Unexpected any. Specify a different type                @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/warehouse/__tests__/api.integration.test.ts
+  568:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  601:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  627:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/warehouse/inventory/locations/route.ts
+   19:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  120:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/api/warehouse/locations/import/route.ts
+  108:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/not-found.tsx
+  22:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  22:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/offline/page.tsx
+  31:14  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  35:28  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  63:43  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/portal/leora/page.tsx
+  252:29  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/jobs/_components/JobDetailsModal.tsx
+   9:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  33:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/jobs/_components/JobsTable.tsx
+  9:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/jobs/page.tsx
+  14:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/scans/page.tsx
+  45:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/triggers/components/TriggerCard.tsx
+  13:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/triggers/components/TriggerConfigEditor.tsx
+  16:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  17:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  25:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/triggers/components/TriggerForm.tsx
+  18:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  46:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/triggers/components/TriggeredTasksList.tsx
+  29:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/admin/triggers/page.tsx
+  24:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/analytics/samples/sections/CustomerSampleHistory.tsx
+  167:31  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  167:49  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/catalog/_components/ProductDrilldownModal.tsx
+  179:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/catalog/_components/ProductEditForm.tsx
+  124:21  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  479:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  479:30  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/customers/components/QuickSampleModal.tsx
+  20:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/customers/new/scan/page.tsx
+  149:50  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  298:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  307:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/dashboard/components/DashboardGrid.tsx
+  24:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/dashboard/page.tsx
+  163:56  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  210:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  239:54  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/dashboard/sections/Incentives.tsx
+  266:28  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/dashboard/sections/ProductGoalsEnhanced.tsx
+  418:66  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/dashboard/sections/TasksList.tsx
+  55:32  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/debug/cookies/page.tsx
+  7:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/funnel/page.tsx
+  60:11  error  'notes' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/greghogue/Leora2/web/src/app/sales/leads/page.tsx
+  75:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  88:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/leora/_components/DrilldownModal.tsx
+   19:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   23:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   27:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  150:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  328:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  328:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/leora/_components/QueryBuilder.tsx
+  262:68  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  262:89  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  317:70  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  317:88  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  363:58  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  363:75  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/leora/_components/ScheduledReports.tsx
+  118:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/leora/page.tsx
+  307:52   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  314:23   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  317:23   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  333:49   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  335:40   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  345:78   error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  407:36   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  407:40   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  407:67   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  407:72   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  407:108  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/manager/page.tsx
+  16:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/manager/sections/SampleBudgetOverview.tsx
+   5:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/manager/sections/TerritoryHealthOverview.tsx
+   6:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  16:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/map/components/WhosClosest.tsx
+  138:14  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/map/sections/TerritoryDrawer.tsx
+   31:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   50:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/map/types.ts
+  108:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/marketing/mailchimp/campaigns/new/page.tsx
+   45:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  206:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  301:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/marketing/mailchimp/components/MailchimpConnection.tsx
+  108:55  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  122:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  123:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/marketing/mailchimp/components/SegmentBuilder.tsx
+   56:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  149:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/operations/delivery-tracking/page.tsx
+  135:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/operations/locations/page.tsx
+  101:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/operations/pick-sheets/components/ExportButtons.tsx
+  10:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/operations/routing/page.tsx
+  147:26  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  217:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/orders/[orderId]/edit/page.tsx
+   70:54  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  154:59  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  205:50  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  232:14  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  355:64  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  512:47  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  512:65  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/orders/[orderId]/page.tsx
+   24:38  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  108:63  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  145:39  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/reports/__tests__/delivery-reports-dashboard.test.ts
+   57:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  123:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  173:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/sample-lists/page.tsx
+   72:44  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  355:65  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  844:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/samples/page.tsx
+  13:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  14:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/samples/sections/LogSampleUsageModal.tsx
+  12:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  13:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/samples/sections/SampleUsageLog.tsx
+   72:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   72:36  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  110:70  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  110:88  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/app/sales/settings/integrations/page.tsx
+  36:9  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/territories/analytics/page.tsx
+  202:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/territories/components/BoundaryDrawer.tsx
+   76:49  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  188:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  281:15  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/src/app/sales/territories/mobile/page.tsx
+  198:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  231:74  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/territories/sections/TerritoryMap.tsx
+  135:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/warehouse/sections/ConfigEditor.tsx
+  25:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/warehouse/sections/LocationImport.tsx
+  15:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  53:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/app/sales/warehouse/sections/WarehouseMap.tsx
+  72:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/components/ai/ProductRecommendations.tsx
+  278:61  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  278:85  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/components/camera/BusinessCardScanner.tsx
+   99:19  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  194:19  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  266:60  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  267:30  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  267:36  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/components/dashboard/DrilldownModal.tsx
+   14:45   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:36   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  170:36   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  422:62   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  424:93   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  521:25   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  521:70   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  521:102  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  528:31   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  671:29   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  671:45   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/components/email/TemplatePreview.tsx
+  144:15  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  198:49  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/components/map/MapboxMap.tsx
+  33:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/components/orders/DeliveryDatePicker.tsx
+  215:49  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  215:67  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  268:7   error  'currentDate' is never reassigned. Use 'const' instead           prefer-const
+
+/Users/greghogue/Leora2/web/src/components/orders/OrderSuccessModal.tsx
+   93:83  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  108:78  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  108:95  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/components/sales/LeadForm.tsx
+  7:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  8:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/components/scanning/CameraCapture.tsx
+  59:60  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  89:60  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  93:11  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+/Users/greghogue/Leora2/web/src/components/scanning/__tests__/CameraCapture.test.tsx
+   30:10  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+   35:10  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  135:12  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  252:12  error  Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  338:7   error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+/Users/greghogue/Leora2/web/src/components/shared/LogActivityModal.tsx
+   59:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   77:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   77:79  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   85:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  106:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/components/ui/alert-dialog.tsx
+  64:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/components/ui/skeleton.tsx
+  4:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+/Users/greghogue/Leora2/web/src/components/voice/VoiceRecorder.tsx
+   32:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   33:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   35:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  164:67  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/emails/templates/daily-summary.tsx
+   60:17  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   66:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  155:32  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/hooks/useOrderValidation.ts
+   35:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   41:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  172:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/jobs/customer-health-assessment.ts
+   20:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   28:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  451:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  452:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/jobs/refresh-tokens.ts
+  104:1  error  Parsing error: Expression expected
+
+/Users/greghogue/Leora2/web/src/jobs/weekly-metrics-aggregation.ts
+  417:7  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/ai-recommendations.test.ts
+  145:7  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  207:7  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  254:7  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  293:7  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  327:7  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+  350:7  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/automated-triggers.integration.test.ts
+   22:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   23:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   24:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   25:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  515:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  540:49  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/automated-triggers.test.ts
+  34:6  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/calendar-sync.test.ts
+  105:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  152:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  199:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  251:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  279:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  286:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  328:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  334:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  360:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  362:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  396:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  477:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/campaign-builder.test.ts
+   52:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  187:76  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/geocoding.integration.test.ts
+   20:26  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  183:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/geocoding.test.ts
+   32:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   50:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   60:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   79:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  103:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  185:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  186:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/geospatial.test.ts
+  279:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  371:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/image-extraction.integration.test.ts
+   55:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   77:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  102:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  134:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  153:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  200:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  220:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  238:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  261:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  271:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  296:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  321:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  326:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  331:79  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  336:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/mailchimp-sync.test.ts
+   41:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   72:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   98:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  109:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  136:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  146:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  163:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  174:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  190:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/mailchimp.integration.test.ts
+   46:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   78:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   97:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   98:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  105:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  120:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  150:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  165:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  194:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  224:73  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  240:67  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  251:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  266:79  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  283:79  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  303:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  319:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  327:84  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  347:66  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  353:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  358:66  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  364:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  373:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  391:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  394:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  402:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  403:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  404:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  409:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  419:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  419:80  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  423:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  423:78  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  427:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  427:69  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  431:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  431:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  435:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  439:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  455:76  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  471:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/mailchimp.test.ts
+   66:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  115:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  121:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  180:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  214:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  217:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  242:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  245:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  248:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  275:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  289:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  293:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  317:69  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/routing.test.ts
+  103:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  134:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  166:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  181:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  192:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  211:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  228:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  246:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  261:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  448:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  460:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  487:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  517:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/sample-analytics.integration.test.ts
+   21:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   22:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  344:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  357:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  371:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  372:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  399:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  403:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  403:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  424:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  424:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/sample-analytics.test.ts
+   70:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   82:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  113:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  125:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  144:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  155:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  165:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  177:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  189:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  225:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  228:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  229:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  258:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  280:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  319:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  320:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  354:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  379:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  380:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  412:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  423:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  440:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  451:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  468:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  479:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  497:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  508:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/__tests__/warehouse.test.ts
+  144:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  162:72  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/ai/drilldown-actions.ts
+  10:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  11:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  85:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/ai/leora-enhancements.ts
+  192:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  193:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/ai/recommendation-engine.ts
+  378:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/api-client.ts
+  12:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  24:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  75:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  86:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  89:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  89:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  92:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  92:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  95:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  95:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  98:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/audit-log.ts
+  11:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  12:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  43:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  78:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  79:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  80:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  81:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/audit.ts
+   10:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   10:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   11:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   73:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   74:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   87:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   88:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   89:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   89:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   90:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   90:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  159:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  160:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  187:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  241:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  275:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/audit/log.ts
+  11:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  12:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  55:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  56:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  90:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/auth-sales.ts
+  22:8  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/auth/sales.ts
+  129:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  130:65  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  136:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/auto-logging/call-tracker.ts
+   76:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  148:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  189:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  200:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/auto-logging/email-tracker.ts
+  62:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/auto-logging/sms-tracker.ts
+   72:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  192:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/automated-triggers.ts
+   91:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  179:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  253:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  320:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  409:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  417:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/azuga-export.ts
+  309:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/calendar-sync.ts
+   92:33  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  187:21  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  230:10  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  295:25  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  347:21  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  377:58  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+  378:54  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+  392:21  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  428:54  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+  429:50  error  Optional chain expressions can return undefined by design - using a non-null assertion is unsafe and wrong  @typescript-eslint/no-non-null-asserted-optional-chain
+  598:29  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  610:49  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  646:41  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  653:45  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  706:25  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+  949:21  error  Unexpected any. Specify a different type                                                                    @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/call-plan/account-suggester.ts
+  144:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/campaign-builder.ts
+  266:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  282:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/csv-helper.ts
+   11:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   29:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   34:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   68:9   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   74:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   77:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   77:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  191:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  197:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  199:67  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  217:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/csv-parser.ts
+  157:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  178:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  238:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  242:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/email/resend-service.ts
+   28:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  234:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  257:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  342:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/format.ts
+  105:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/geospatial.ts
+  63:39  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/hooks/customer-geocoding.ts
+  19:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/image-extraction.ts
+  266:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/integrations/calendar-batch.ts
+  172:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  346:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  383:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  399:63  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/invoices/templates/va-abc-instate.tsx
+  387:25  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/lib/job-queue.ts
+   49:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  219:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  229:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/jobs/data-integrity-check.ts
+   41:34  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+   44:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  137:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/mailchimp-sync.ts
+   61:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  101:66  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  226:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/mailchimp.ts
+  122:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  241:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  344:18  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  354:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/marketing/email-providers/sendgrid-provider.ts
+   62:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  101:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  155:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  157:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  186:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  216:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/marketing/email-service.ts
+  15:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/marketing/mailchimp-service.ts
+    8:19  error  A `require()` style import is forbidden              @typescript-eslint/no-require-imports
+  265:7   error  'imported' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/greghogue/Leora2/web/src/lib/marketing/smart-lists.ts
+   89:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   95:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  207:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/marketing/sms-service.ts
+  13:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/models/Lead.ts
+  139:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  178:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  281:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  341:67  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  389:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/pdf/sample-tech-sheet.tsx
+  409:57  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  409:68  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/greghogue/Leora2/web/src/lib/recommendation-context.ts
+  110:49  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  210:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  309:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/route-optimizer.ts
+  186:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/route-visibility.ts
+  133:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/services/customer-geocoding.ts
+  70:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/services/geocoding.ts
+  22:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/services/twilio/client.ts
+   82:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  135:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  181:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  231:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  235:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/services/twilio/templates.ts
+  249:49  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/territory-management.ts
+   71:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  102:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  152:80  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/utils/mobile-detection.ts
+   9:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  19:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  20:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  33:75  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/validation/metrics.ts
+  9:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/validation/rules.ts
+  512:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  715:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/warehouse-validation.ts
+  287:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/lib/warehouse.ts
+  173:48  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  180:3   error  'aisle' is never reassigned. Use 'const' instead  prefer-const
+  181:3   error  'row' is never reassigned. Use 'const' instead    prefer-const
+  182:3   error  'shelf' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/greghogue/Leora2/web/src/lib/warehouse/slotting/abc-classification.ts
+  304:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/analyze-database-state.ts
+   20:88  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   35:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   49:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   64:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   71:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   75:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   76:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   87:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  104:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  108:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  112:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  117:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  121:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  126:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  130:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/analyze-unenriched-products.ts
+  24:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  41:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/apply-batches-1-50.ts
+  16:132  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  17:92   error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  43:11   error  'wines' is never reassigned. Use 'const' instead  prefer-const
+  70:89   error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  70:160  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  70:198  error  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/apply-batches-101-150.ts
+  123:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  124:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  125:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  126:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/apply-batches-51-100.ts
+  122:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/apply-enhanced-enrichment.ts
+  84:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  85:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  86:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  87:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/check-lovable-tables.ts
+  54:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/check-tenant.ts
+  31:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/check-unique-notes.ts
+  39:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  73:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/email-setup-check.ts
+  254:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  270:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  279:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/enhanced-product-matcher.ts
+   24:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   26:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   27:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  261:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  262:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  263:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  264:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  398:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/enrich-10-products.ts
+   36:8   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  253:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  254:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  255:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  256:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/enrich-from-csv.ts
+  24:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/enrich-products-test.ts
+  35:8  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/enrich-remaining-psql.ts
+  27:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  93:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/enrich-remaining.ts
+  29:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/enrich-wines-accurate.ts
+  192:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  193:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  194:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  195:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/execute-batch-enrichment.ts
+  157:63  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  257:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  292:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/export-to-sage.ts
+   60:13  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  112:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  516:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/generate-auth.js
+   1:22  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  15:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/src/scripts/generate-encryption-key.js
+  17:16  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/src/scripts/geocode-all-customers.ts
+  57:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/geocode-customers.ts
+  94:16  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/import-customers-direct.ts
+  148:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  232:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/import-customers.ts
+  148:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/import-orderlines-phase2.ts
+  93:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/import-remaining-2025.ts
+  32:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  58:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/import-sales-report-to-lovable.ts
+  207:7   error  'customersCreated' is never reassigned. Use 'const' instead  prefer-const
+  208:7   error  'productsCreated' is never reassigned. Use 'const' instead   prefer-const
+  303:21  error  Unexpected any. Specify a different type                     @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/import-sales-report.ts
+  338:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/investigate-missing-orders.ts
+  106:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  110:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  120:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/investigate-products.ts
+  49:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/migrate-customer-invoice-codes.ts
+  43:9  error  'stateCodeCount' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/greghogue/Leora2/web/src/scripts/migrate-to-lovable-final.ts
+  19:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/migrate-to-lovable-v2.ts
+  87:36  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  88:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  89:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/migrate-to-lovable.ts
+  118:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  121:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  124:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/recalculate-pick-orders.ts
+   60:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  108:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  179:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/run-health-assessment-batched.ts
+  37:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  37:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  39:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/run-phase2-migrations.ts
+   68:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  216:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/seed-default-triggers.ts
+  16:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/setup-local-db.ts
+  21:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  22:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  23:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  24:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/sync-inventory-enrichment.ts
+  129:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  176:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  273:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/sync-pricing-csv.ts
+  246:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  329:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/upload-all-enrichment.ts
+  25:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  28:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  82:63  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  83:63  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  84:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  85:61  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/upload-enrichment.ts
+  24:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  25:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/upload-via-psql.ts
+  30:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/validate-csv-import.ts
+  426:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  427:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  428:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/verify-batch-application.ts
+  42:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  49:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/scripts/verify-enrichment-quality.ts
+  472:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/src/scripts/verify-enrichment.ts
+   40:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   49:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   67:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   80:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  139:50  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  237:16  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  238:18  error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/src/scripts/verify-phase5-integration.ts
+   22:15  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   33:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   59:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   61:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   77:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   82:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   95:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  150:9   error  A `require()` style import is forbidden   @typescript-eslint/no-require-imports
+  152:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  219:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  281:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  324:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  387:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  413:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/src/tests/components/DeliveryDatePicker.timezone.test.ts
+  149:13  error  'currentDate' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/greghogue/Leora2/web/src/types/drilldown.ts
+  110:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  134:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  151:18  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  189:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  506:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  608:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  634:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  658:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/e2e/fixtures.ts
+   8:22  error  Unexpected any. Specify a different type                                                                                                                                                                                                            @typescript-eslint/no-explicit-any
+  17:11  error  React Hook "use" is called in function "authenticatedPage" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"  react-hooks/rules-of-hooks
+  31:34  error  Unexpected any. Specify a different type                                                                                                                                                                                                            @typescript-eslint/no-explicit-any
+  38:30  error  Unexpected any. Specify a different type                                                                                                                                                                                                            @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/edit-order-after-invoice.test.ts
+  380:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/email-delivery-system.test.ts
+   64:83  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   70:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  107:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  115:83  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  119:12  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  146:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  163:83  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  208:83  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  270:82  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  271:69  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  297:82  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  317:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  332:82  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  333:69  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/generate-test-data.ts
+   54:94  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  188:92  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/integration/bulk-categorization.test.ts
+  14:54  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  66:15  error  A `require()` style import is forbidden                                                                                  @typescript-eslint/no-require-imports
+  67:40  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+
+/Users/greghogue/Leora2/web/tests/integration/calendar-sync.test.ts
+  482:17  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/greghogue/Leora2/web/tests/integration/call-plan-accounts-route.test.ts
+  15:54  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  66:15  error  A `require()` style import is forbidden                                                                                  @typescript-eslint/no-require-imports
+  67:40  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+
+/Users/greghogue/Leora2/web/tests/integration/call-plans-route.test.ts
+  15:54  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  52:15  error  A `require()` style import is forbidden                                                                                  @typescript-eslint/no-require-imports
+  53:40  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+
+/Users/greghogue/Leora2/web/tests/integration/export-call-plan.test.ts
+   14:54  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  103:15  error  A `require()` style import is forbidden                                                                                  @typescript-eslint/no-require-imports
+  104:40  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+
+/Users/greghogue/Leora2/web/tests/integration/outcomes-tracking.test.ts
+  14:54  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+  61:15  error  A `require()` style import is forbidden                                                                                  @typescript-eslint/no-require-imports
+  62:40  error  The `Function` type accepts any function-like value.
+Prefer explicitly defining any function parameters and return type  @typescript-eslint/no-unsafe-function-type
+
+/Users/greghogue/Leora2/web/tests/integration/voice-recorder.test.tsx
+   68:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   69:70  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   73:62  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   74:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   81:10  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  440:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  482:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  483:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/manual-pricing-override.test.ts
+  272:9  error  'priceOverrides' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/greghogue/Leora2/web/tests/mocks/google-calendar.ts
+   7:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  11:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  29:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  45:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  55:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  64:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  90:24  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  92:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/mocks/outlook-graph.ts
+   7:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  16:20  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  35:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/mocks/web-speech.ts
+   12:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   13:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   99:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  101:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  198:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  199:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  200:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  204:26  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  207:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  226:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  227:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  228:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/greghogue/Leora2/web/tests/performance/load-testing.spec.ts
+  137:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 825 problems (825 errors, 0 warnings)
+  10 errors and 0 warnings potentially fixable with the `--fix` option.
+

@@ -1,6 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession, AdminSessionContext } from "@/lib/auth/admin";
 import { logChange, AuditOperation } from "@/lib/audit";
+import { Prisma } from "@prisma/client";
+
+type CreatePriceListPayload = {
+  name: string;
+  currency?: string;
+  isDefault?: boolean;
+  effectiveAt?: string | null;
+  expiresAt?: string | null;
+  jurisdictionType?: "GLOBAL" | "STATE" | "FEDERAL_PROPERTY" | "CUSTOM";
+  jurisdictionValue?: string | null;
+  allowManualOverride?: boolean;
+};
+
+const getErrorMessage = (error: unknown): string => (error instanceof Error ? error.message : "Unknown error");
 
 /**
  * GET /api/admin/pricing
@@ -49,7 +63,7 @@ export async function POST(request: NextRequest) {
   return withAdminSession(request, async (context: AdminSessionContext) => {
     const { tenantId, db, user } = context;
     try {
-      const body = await request.json();
+      const body = (await request.json()) as CreatePriceListPayload;
       const {
         name,
         currency,
@@ -113,17 +127,20 @@ export async function POST(request: NextRequest) {
       );
 
       return NextResponse.json({ priceList }, { status: 201 });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error creating price list:", error);
 
-      if (error.code === "P2002") {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
         return NextResponse.json(
           { error: "A price list with this name already exists" },
           { status: 409 }
         );
       }
 
-      return NextResponse.json({ error: "Failed to create price list" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Failed to create price list", details: getErrorMessage(error) },
+        { status: 500 }
+      );
     }
   });
 }

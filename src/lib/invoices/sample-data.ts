@@ -129,9 +129,8 @@ export function buildSampleInvoiceData(
     salesTax: new Decimal(0),
     totalTax: new Decimal(0),
     interestRate: new Decimal(0.015),
-    collectionTerms: 'Accounts over 30 days past due are subject to a 1.5% monthly finance charge.',
-    complianceNotice:
-      'Out-of-state shipment—tax-exempt. Retailer responsible for reporting in destination state.',
+    collectionTerms: undefined,
+    complianceNotice: undefined,
     orderLines: SAMPLE_LINES,
     wholesalerLicenseNumber: '0903-123456',
     wholesalerPhone: '(540) 555-0198',

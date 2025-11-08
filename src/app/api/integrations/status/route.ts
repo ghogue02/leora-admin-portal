@@ -1,13 +1,37 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import prisma from '@/lib/prisma';
 import { validateMailchimpConnection } from '@/lib/mailchimp';
+
+type IntegrationUsageStats = {
+  label: string;
+  value: string;
+};
+
+type IntegrationStatus = {
+  connected: boolean;
+  status: 'active' | 'inactive' | 'error';
+  lastSync?: Date;
+  error?: string;
+  usageStats?: IntegrationUsageStats;
+};
+
+type IntegrationKey = 'google-calendar' | 'outlook-calendar' | 'mailchimp' | 'mapbox';
+type CalendarProvider = 'google' | 'outlook';
+
+const mapProviderToKey = (provider: string): IntegrationKey | null => {
+  if (provider === 'google') return 'google-calendar';
+  if (provider === 'outlook') return 'outlook-calendar';
+  if (provider === 'mailchimp') return 'mailchimp';
+  if (provider === 'mapbox') return 'mapbox';
+  return null;
+};
 
 /**
  * GET /api/integrations/status
  * Get status of all configured integrations
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession();
     if (!session?.user?.email) {
@@ -37,7 +61,7 @@ export async function GET(request: NextRequest) {
     });
 
     // Build status object for each integration
-    const status: Record<string, any> = {
+    const status: Record<IntegrationKey, IntegrationStatus> = {
       'google-calendar': {
         connected: false,
         status: 'inactive',
@@ -64,11 +88,9 @@ export async function GET(request: NextRequest) {
     for (const token of tokens) {
       const isExpired = token.expiresAt && token.expiresAt < new Date();
 
-      let integrationKey = token.provider;
-      if (token.provider === 'google') {
-        integrationKey = 'google-calendar';
-      } else if (token.provider === 'outlook') {
-        integrationKey = 'outlook-calendar';
+      const integrationKey = mapProviderToKey(token.provider);
+      if (!integrationKey) {
+        continue;
       }
 
       status[integrationKey] = {
@@ -82,11 +104,12 @@ export async function GET(request: NextRequest) {
 
       // Add provider-specific stats
       if (token.provider === 'google' || token.provider === 'outlook') {
+        const provider = token.provider as CalendarProvider;
         const eventCount = await prisma.calendarEvent.count({
           where: {
             tenantId: user.tenantId,
             userId: user.id,
-            provider: token.provider as any,
+            provider,
           },
         });
 
@@ -94,7 +117,7 @@ export async function GET(request: NextRequest) {
           where: {
             tenantId: user.tenantId,
             userId: user.id,
-            provider: token.provider as any,
+            provider,
             startTime: {
               gte: new Date(),
             },
@@ -108,10 +131,13 @@ export async function GET(request: NextRequest) {
       }
 
       if (token.provider === 'mailchimp' && token.metadata) {
-        const metadata = token.metadata as any;
+        const metadata = token.metadata as Record<string, unknown>;
         status.mailchimp.usageStats = {
           label: 'Account',
-          value: metadata.accountId || metadata.dc || 'Connected',
+          value:
+            (metadata.accountId as string | undefined) ||
+            (metadata.dc as string | undefined) ||
+            'Connected',
         };
       }
     }
@@ -124,7 +150,8 @@ export async function GET(request: NextRequest) {
           status.mailchimp.status = 'error';
           status.mailchimp.error = 'Connection test failed';
         }
-      } catch (error) {
+      } catch (connectionError) {
+        console.error('Mailchimp connection validation failed:', connectionError);
         status.mailchimp.status = 'error';
         status.mailchimp.error = 'API connection failed';
       }

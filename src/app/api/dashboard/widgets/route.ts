@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { z } from "zod";
-import type { WidgetType, WidgetSize, WidgetConfig } from "@/types/dashboard-widget";
+import type { WidgetType, WidgetConfig } from "@/types/dashboard-widget";
 import { WIDGET_METADATA } from "@/types/dashboard-widget";
 
 /**

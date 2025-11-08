@@ -32,24 +32,25 @@ export default function CalendarPage() {
 
         // Mark accounts as scheduled if they have events
         const eventCustomerIds = new Set(
-          eventsData.events.map((e: CalendarEvent) => e.customerId).filter(Boolean)
+          (Array.isArray(eventsData.events) ? eventsData.events : [])
+            .map((event: CalendarEvent) => event.customerId)
+            .filter((customerId): customerId is string => Boolean(customerId))
         );
 
-        const accountsWithSchedule = accountsData.accounts.map((account: any) => ({
-          id: account.id,
-          customerId: account.customerId,
-          customerName: account.customerName,
-          accountNumber: account.accountNumber,
-          accountType: account.accountType,
-          priority: account.priority,
-          objective: account.objective,
-          lastOrderDate: account.lastOrderDate,
-          location: account.location,
+        const accountList: DraggableAccountData[] = Array.isArray(accountsData.accounts)
+          ? accountsData.accounts
+          : [];
+        const eventList: CalendarEvent[] = Array.isArray(eventsData.events)
+          ? eventsData.events
+          : [];
+
+        const accountsWithSchedule = accountList.map((account) => ({
+          ...account,
           isScheduled: eventCustomerIds.has(account.customerId),
         }));
 
         setAccounts(accountsWithSchedule);
-        setEvents(eventsData.events);
+        setEvents(eventList);
       } catch (error) {
         console.error("Error fetching data:", error);
         toast({
@@ -89,7 +90,7 @@ export default function CalendarPage() {
 
         if (!response.ok) throw new Error("Failed to create event");
 
-        const newEvent = await response.json();
+        const newEvent: CalendarEvent = await response.json();
         setEvents((prev) => [...prev, newEvent]);
 
         // Update account scheduled status

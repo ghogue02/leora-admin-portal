@@ -9,6 +9,7 @@ import {
   TechSheetItemPriceTable,
 } from "@/lib/pdf/sample-tech-sheet";
 
+
 const requestSchema = z.object({
   priceListIds: z.array(z.string().uuid()).min(1).max(5),
   layout: z.enum(["multi", "single"]).default("multi"),
@@ -36,8 +37,8 @@ const ensureArrayOfStrings = (value: unknown): string[] => {
 
 const coerceDescription = (value: unknown, fallback?: string | null) => {
   if (typeof value === "string") return value;
-  if (value && typeof value === "object" && "text" in (value as any)) {
-    const textValue = (value as any).text;
+  if (value && typeof value === "object" && "text" in (value as Record<string, unknown>)) {
+    const textValue = (value as Record<string, unknown>).text;
     if (typeof textValue === "string") return textValue;
   }
   if (Array.isArray(value)) {
@@ -47,10 +48,13 @@ const coerceDescription = (value: unknown, fallback?: string | null) => {
   return fallback ?? null;
 };
 
-const extractImageUrl = (product: any, sku: any): string | null => {
-  if (product && typeof product.imageUrl === "string") return product.imageUrl;
-  if (sku && typeof sku.imageUrl === "string") return sku.imageUrl;
-  if (product && typeof product.tastingNotes === "object" && product.tastingNotes !== null) {
+const extractImageUrl = (
+  product: Prisma.ProductGetPayload<{ include: { supplier: true } }> | null | undefined,
+  sku: Prisma.SkuGetPayload<{ include: { product: true } }> | null | undefined
+): string | null => {
+  if (product?.imageUrl) return product.imageUrl;
+  if (sku?.imageUrl) return sku.imageUrl;
+  if (product?.tastingNotes && typeof product.tastingNotes === "object") {
     const notes = product.tastingNotes as Record<string, unknown>;
     if (typeof notes.imageUrl === "string") return notes.imageUrl;
   }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import type { Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId }) => {
@@ -7,7 +8,7 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "100");
     const search = searchParams.get("search");
 
-    const where: any = {
+    const where: Prisma.SkuWhereInput = {
       tenantId,
       isActive: true,
     };

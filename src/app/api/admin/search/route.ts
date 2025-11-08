@@ -10,10 +10,8 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ results: [] });
     }
 
-    const searchQuery = `%${query}%`;
-
     // Search across multiple entities in parallel
-    const [customers, orders, users, inventory] = await Promise.all([
+    const [customers, users, inventory] = await Promise.all([
       // Search customers
       db.customer.findMany({
         where: {
@@ -30,10 +28,6 @@ export async function GET(request: NextRequest) {
         },
         take: 5,
       }),
-
-      // Search orders - skip UUID search (can't use text operators on UUID)
-      // Only return if query is a valid UUID
-      Promise.resolve([]),
 
       // Search users
       db.user.findMany({
@@ -87,7 +81,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Orders search disabled (UUID fields don't support text search)
-    // if (orders.length > 0) { ... }
+    // Future enhancement: include order lookup when alternative search strategy available.
 
     if (users.length > 0) {
       results.push({

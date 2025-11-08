@@ -2,6 +2,20 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { makeGoogleCalendarRequest } from "@/lib/google-calendar";
 
+type GoogleCalendarEvent = {
+  id: string;
+  summary?: string | null;
+  start: {
+    dateTime?: string;
+    date?: string;
+  };
+  end: {
+    dateTime?: string;
+    date?: string;
+  };
+  location?: string | null;
+};
+
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, session }) => {
     try {
@@ -36,7 +50,7 @@ export async function GET(request: NextRequest) {
       weekEnd.setDate(weekEnd.getDate() + 4);
       weekEnd.setHours(23, 59, 59, 999);
 
-      let googleEvents: any[] = [];
+      let googleEvents: GoogleCalendarEvent[] = [];
 
       console.log("[CalendarEvents] Fetching Google Calendar events", {
         weekStart: weekStart.toISOString(),
@@ -65,7 +79,7 @@ export async function GET(request: NextRequest) {
           const data = await response.json();
           googleEvents = data.items || [];
           console.log("[CalendarEvents] ✅ Fetched", googleEvents.length, "events from Google");
-          console.log("[CalendarEvents] Events:", googleEvents.map((e: any) => ({
+          console.log("[CalendarEvents] Events:", googleEvents.map((e) => ({
             id: e.id,
             summary: e.summary,
             start: e.start,
@@ -77,7 +91,7 @@ export async function GET(request: NextRequest) {
       }
 
       // Transform to common format
-      const events = googleEvents.map((event: any) => ({
+      const events = googleEvents.map((event) => ({
         id: event.id,
         title: event.summary,
         start: event.start.dateTime || event.start.date,

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 
 const updateSchema = z.object({
@@ -17,7 +18,25 @@ const updateSchema = z.object({
   preferredPriceListIds: z.array(z.string().uuid()).optional(),
 });
 
-const serializeSampleList = (list: any) => ({
+const serializeSampleList = (
+  list: Prisma.SampleListGetPayload<{
+    include: {
+      items: {
+        include: {
+          sku: {
+            select: {
+              id: true;
+              code: true;
+              size: true;
+              unitOfMeasure: true;
+              product: { select: { id: true; name: true; brand: true } };
+            };
+          };
+        };
+      };
+    };
+  }>
+) => ({
   id: list.id,
   name: list.name,
   isActive: list.isActive,
@@ -26,7 +45,7 @@ const serializeSampleList = (list: any) => ({
   preferredPriceListIds: Array.isArray(list.preferredPriceListIds)
     ? list.preferredPriceListIds
     : [],
-  items: list.items.map((item: any) => ({
+  items: list.items.map((item) => ({
     id: item.id,
     skuId: item.skuId,
     defaultFollowUp: item.defaultFollowUp,

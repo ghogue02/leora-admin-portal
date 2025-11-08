@@ -4,6 +4,7 @@ import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { updatePickSheetSchema } from '@/lib/validations/warehouse';
 import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
 export async function GET(
   request: NextRequest,
@@ -81,7 +82,7 @@ export async function PATCH(
         throw new Error('Pick sheet not found');
       }
 
-      const updates: any = {};
+      const updates: Prisma.PickSheetUpdateInput = {};
 
       switch (action) {
         case 'start':

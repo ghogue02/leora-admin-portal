@@ -9,7 +9,7 @@ import { ChevronDown } from "lucide-react";
 const salesHubMenu = [
   { label: "Customers", href: "/sales/customers" },
   { label: "Activities", href: "/sales/activities" },
-  { label: "Samples", href: "/sales/samples" },
+  { label: "Samples", href: "/sales/analytics/samples" },
   { label: "Orders", href: "/sales/orders" },
   { label: "Catalog", href: "/sales/catalog" },
   { label: "Reports", href: "/sales/reports" },

@@ -9,7 +9,7 @@ import prisma from '@/lib/prisma';
  *
  * Returns health status for all calendar syncs
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession(authOptions);
     if (!session?.user?.email) {

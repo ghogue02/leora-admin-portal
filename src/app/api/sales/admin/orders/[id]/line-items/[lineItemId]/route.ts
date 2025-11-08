@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
 import { createAuditLog, calculateChanges } from "@/lib/audit-log";
+import type { Prisma } from "@prisma/client";
 
 type RouteParams = {
   params: Promise<{
@@ -39,7 +40,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
     }
 
     // Build update data
-    const updateData: any = {};
+    const updateData: Prisma.OrderLineUpdateInput = {};
     if (quantity !== undefined) updateData.quantity = quantity;
     if (unitPrice !== undefined) updateData.unitPrice = unitPrice;
     if (isSample !== undefined) updateData.isSample = isSample;

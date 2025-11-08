@@ -7,7 +7,6 @@ import TopPerformers from './sections/TopPerformers';
 import RepLeaderboard from './sections/RepLeaderboard';
 import CustomerSampleHistory from './sections/CustomerSampleHistory';
 import SupplierReport from './sections/SupplierReport';
-import SampleStatsCard from '../../samples/components/SampleStatsCard';
 import { Calendar, TrendingUp, DollarSign, Package } from 'lucide-react';
 
 type AnalyticsData = {
@@ -183,28 +182,28 @@ export default function SampleAnalyticsPage() {
 
       {/* Overview Metrics */}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <SampleStatsCard
+        <AnalyticsStatCard
           icon={<Package className="h-5 w-5" />}
           label="Total Samples"
           value={data.overview.totalSamples.toLocaleString()}
           trend={null}
           color="blue"
         />
-        <SampleStatsCard
+        <AnalyticsStatCard
           icon={<TrendingUp className="h-5 w-5" />}
           label="Conversion Rate"
           value={`${(data.overview.conversionRate * 100).toFixed(1)}%`}
           trend={null}
           color="green"
         />
-        <SampleStatsCard
+        <AnalyticsStatCard
           icon={<DollarSign className="h-5 w-5" />}
           label="Revenue Generated"
           value={`$${data.overview.totalRevenue.toLocaleString()}`}
           trend={null}
           color="purple"
         />
-        <SampleStatsCard
+        <AnalyticsStatCard
           icon={<Calendar className="h-5 w-5" />}
           label="Active Products"
           value={data.overview.activeProducts.toLocaleString()}
@@ -228,5 +227,50 @@ export default function SampleAnalyticsPage() {
       {/* Supplier Report */}
       <SupplierReport />
     </main>
+  );
+}
+
+type StatCardProps = {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  color: 'blue' | 'green' | 'purple' | 'orange';
+};
+
+const colorMap = {
+  blue: {
+    bg: 'bg-blue-50',
+    border: 'border-blue-200',
+    text: 'text-blue-700',
+  },
+  green: {
+    bg: 'bg-green-50',
+    border: 'border-green-200',
+    text: 'text-green-700',
+  },
+  purple: {
+    bg: 'bg-purple-50',
+    border: 'border-purple-200',
+    text: 'text-purple-700',
+  },
+  orange: {
+    bg: 'bg-orange-50',
+    border: 'border-orange-200',
+    text: 'text-orange-700',
+  },
+};
+
+function AnalyticsStatCard({ icon, label, value, color }: StatCardProps) {
+  const palette = colorMap[color];
+  return (
+    <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="flex items-start justify-between">
+        <div className={`rounded-lg ${palette.bg} p-2`}>{icon}</div>
+      </div>
+      <div className="mt-3">
+        <p className="text-xs font-medium uppercase tracking-wide text-gray-500">{label}</p>
+        <p className={`mt-1 text-2xl font-bold ${palette.text}`}>{value}</p>
+      </div>
+    </div>
   );
 }

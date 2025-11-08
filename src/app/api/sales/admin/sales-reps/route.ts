@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import type { Prisma } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -12,7 +13,7 @@ export async function GET(request: NextRequest) {
       const search = searchParams.get("search");
 
       // Build where clause
-      const where: any = {
+      const where: Prisma.SalesRepWhereInput = {
         tenantId,
       };
 

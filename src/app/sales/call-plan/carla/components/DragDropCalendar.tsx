@@ -4,7 +4,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin, { Draggable, DropArg } from "@fullcalendar/interaction";
+import interactionPlugin, {
+  Draggable,
+  DropArg,
+  EventDropArg,
+  EventResizeDoneArg,
+} from "@fullcalendar/interaction";
 import type { EventClickArg } from "@fullcalendar/core";
 import { format, differenceInMinutes } from "date-fns";
 import { toast } from "sonner";
@@ -16,53 +21,17 @@ import { Button } from "@/components/ui/button";
 import { CalendarClock, RotateCw, AlertCircle } from "lucide-react";
 import { DraggableAccount } from "@/app/sales/calendar/components/DraggableAccount";
 import type { DraggableAccountData } from "@/types/calendar";
+import type {
+  CarlaCalendarEventsResponse,
+  CarlaExternalCalendarEvent,
+  CarlaScheduleEvent,
+  CarlaScheduleResponse,
+  CarlaTerritoryBlock,
+  CarlaUnscheduledAccount,
+} from "../types";
 
 const tenantHeaders = {
   "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
-};
-
-type ScheduleEvent = {
-  id: string;
-  customerId: string;
-  scheduledDate: string;
-  scheduledTime: string;
-  duration: number;
-  googleEventId?: string | null;
-  outlookEventId?: string | null;
-  customer: {
-    id: string;
-    name: string;
-    accountNumber: string | null;
-    territory: string | null;
-    city: string | null;
-    state: string | null;
-    priority: string | null;
-    accountType: string | null;
-    lastOrderDate: string | null;
-  };
-};
-
-type TerritoryBlock = {
-  id: string;
-  territory: string;
-  dayOfWeek: number;
-  allDay: boolean;
-  startTime: string | null;
-  endTime: string | null;
-};
-
-type UnscheduledAccount = {
-  callPlanAccountId: string;
-  customerId: string;
-  customerName: string;
-  accountNumber: string | null;
-  territory: string | null;
-  city: string | null;
-  state: string | null;
-  priority: string | null;
-  accountType: string | null;
-  objective: string | null;
-  lastOrderDate: string | null;
 };
 
 interface DragDropCalendarProps {
@@ -81,8 +50,11 @@ type CalendarEventInput = {
   extendedProps: {
     customerId: string;
     territory: string | null;
+    source?: string;
   };
 };
+
+type PlannerAccount = DraggableAccountData & { territory?: string | null };
 
 function combineDateAndTime(dateIso: string, time: string) {
   const date = new Date(dateIso);
@@ -125,14 +97,12 @@ function getTerritoryColor(territory: string | null | undefined) {
   return `hsl(${hue}deg 55% 65%)`;
 }
 
-type PlannerAccount = DraggableAccountData & { territory?: string | null };
-
 export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: DragDropCalendarProps) {
   const [isLoading, setIsLoading] = useState(false);
-  const [schedules, setSchedules] = useState<ScheduleEvent[]>([]);
-  const [unscheduledAccounts, setUnscheduledAccounts] = useState<UnscheduledAccount[]>([]);
-  const [territoryBlocks, setTerritoryBlocks] = useState<TerritoryBlock[]>([]);
-  const [googleCalendarEvents, setGoogleCalendarEvents] = useState<any[]>([]);
+  const [schedules, setSchedules] = useState<CarlaScheduleEvent[]>([]);
+  const [unscheduledAccounts, setUnscheduledAccounts] = useState<CarlaUnscheduledAccount[]>([]);
+  const [territoryBlocks, setTerritoryBlocks] = useState<CarlaTerritoryBlock[]>([]);
+  const [googleCalendarEvents, setGoogleCalendarEvents] = useState<CarlaExternalCalendarEvent[]>([]);
   const calendarRef = useRef<FullCalendar>(null);
 
   const weekRangeLabel = useMemo(() => {
@@ -163,7 +133,7 @@ export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: 
         throw new Error(`Failed to load schedule (${response.status})`);
       }
 
-      const data = await response.json();
+      const data: CarlaScheduleResponse = await response.json();
       setSchedules(data.schedules ?? []);
       setUnscheduledAccounts(data.unscheduledAccounts ?? []);
       setTerritoryBlocks(data.territoryBlocks ?? []);
@@ -197,10 +167,10 @@ export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: 
       console.log("[DragDropCalendar] Google events response status:", response.status);
 
       if (response.ok) {
-        const data = await response.json();
+        const data: CarlaCalendarEventsResponse = await response.json();
         console.log("[DragDropCalendar] ✅ Received", data.events?.length || 0, "Google Calendar events");
         console.log("[DragDropCalendar] Events:", data.events);
-        setGoogleCalendarEvents(data.events || []);
+        setGoogleCalendarEvents(Array.isArray(data.events) ? data.events : []);
       } else {
         console.error("[DragDropCalendar] Failed to fetch Google events:", response.status);
       }
@@ -243,35 +213,36 @@ export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: 
 
     // Add Google Calendar events (show as conflicts)
     const googleEvents = googleCalendarEvents
-      .filter((event: any) => {
+      .filter((event) => {
         // Filter out CARLA-created events (we already show those)
-        const isCarlaEvent = schedules.some(s => s.googleEventId === event.id);
+        const isCarlaEvent = schedules.some((s) => s.googleEventId === event.id);
         return !isCarlaEvent;
       })
-      .map((event: any) => {
-        // Parse Google Calendar time correctly (it's in ISO format with timezone)
-        let startTime = new Date(event.start);
-        let endTime = new Date(event.end);
+      .map((event) => {
+        if (!event.start || !event.end) {
+          return null;
+        }
 
-        // If Google returns UTC time, we need to display it in local time
-        // FullCalendar will handle timezone display automatically
+        const startTime = new Date(event.start);
+        const endTime = new Date(event.end);
 
         return {
           id: `google-${event.id}`,
-          title: `🔒 ${event.title}`,
+          title: `🔒 ${event.title ?? "Calendar Event"}`,
           start: startTime,
           end: endTime,
-          backgroundColor: "#dc2626", // Red for conflicts
+          backgroundColor: "#dc2626",
           borderColor: "#dc2626",
-          editable: false, // Can't edit Google Calendar events from CARLA
+          editable: false,
           extendedProps: {
-            source: "google",
+            source: event.source,
             isConflict: true,
             originalStart: event.start,
             originalEnd: event.end,
           },
         };
-      });
+      })
+      .filter((event): event is CalendarEventInput => Boolean(event));
 
     return [...carlaEvents, ...googleEvents];
   }, [schedules, googleCalendarEvents]);
@@ -552,28 +523,36 @@ export default function DragDropCalendar({ callPlanId, weekStart, refreshKey }: 
         toast.success(`Scheduled ${accountPayload.customerName}`);
         await fetchSchedule();
         triggerAutoSync(); // Auto-sync after creating schedule
-      } catch (error: any) {
-        toast.error(error.message ?? "Failed to add schedule");
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Failed to add schedule";
+        toast.error(message);
       }
     },
     [fetchSchedule, isSlotAllowed, persistCreate, triggerAutoSync],
   );
 
   const handleEventChange = useCallback(
-    async (info: any) => {
+    async (info: EventDropArg | EventResizeDoneArg) => {
       try {
+        if (!info.event.start) {
+          toast.error("Unable to determine event start time");
+          info.revert();
+          return;
+        }
+
         const territory = info.event.extendedProps?.territory ?? null;
         if (!isSlotAllowed(territory, info.event.start)) {
           toast.error("Territory is blocked for this slot");
           info.revert();
           return;
         }
-        await persistUpdate(info.event.id, info.event.start, info.event.end);
+        await persistUpdate(info.event.id, info.event.start, info.event.end ?? null);
         toast.success("Schedule updated");
         await fetchSchedule();
         triggerAutoSync(); // Auto-sync after updating schedule
-      } catch (error: any) {
-        toast.error(error.message ?? "Unable to reschedule");
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Unable to reschedule";
+        toast.error(message);
         info.revert();
       }
     },

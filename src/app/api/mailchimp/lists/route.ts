@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getMailchimpLists, createSegment } from '@/lib/mailchimp';
+import { getMailchimpLists } from '@/lib/mailchimp';
 import { requireAuth } from '@/lib/auth-utils';
 import { prisma } from '@/lib/prisma';
 
@@ -49,10 +49,9 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
-    const user = await requireAuth(request);
+    await requireAuth(request);
     const body = await request.json();
-
-    const { name, permissionReminder, contactInfo } = body;
+    const { name } = body;
 
     if (!name) {
       return NextResponse.json(

@@ -54,7 +54,6 @@ export async function GET(
         inventoryData,
         priceListData,
         orderLinesData,
-        topCustomersData,
         monthlyTrendData,
       ] = await Promise.all([
         // Inventory by location
@@ -110,30 +109,6 @@ export async function GET(
               },
             },
           },
-        }),
-
-        // Top customers for this product
-        db.orderLine.groupBy({
-          by: ['orderId'],
-          where: {
-            tenantId,
-            skuId,
-            order: {
-              status: { not: 'CANCELLED' },
-            },
-          },
-          _sum: {
-            quantity: true,
-          },
-          _count: {
-            id: true,
-          },
-          orderBy: {
-            _sum: {
-              quantity: 'desc',
-            },
-          },
-          take: 10,
         }),
 
         // Monthly trend

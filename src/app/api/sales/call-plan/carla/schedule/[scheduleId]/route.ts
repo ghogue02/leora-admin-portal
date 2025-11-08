@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { parseISO, startOfDay } from "date-fns";
 import { z } from "zod";
+import { Prisma } from "@prisma/client";
 
 const updateScheduleSchema = z
   .object({
@@ -127,8 +128,8 @@ export async function PATCH(
           },
         },
       });
-    } catch (error: any) {
-      if (error?.code === "P2002") {
+    } catch (error: unknown) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
         return NextResponse.json(
           { error: "Account already scheduled at that time" },
           { status: 409 },

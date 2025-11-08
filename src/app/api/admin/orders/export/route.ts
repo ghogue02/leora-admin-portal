@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       const { filters = {}, orderIds } = body;
 
       // Build where clause
-      let where: Prisma.OrderWhereInput = {
+      const where: Prisma.OrderWhereInput = {
         tenantId,
       };
 

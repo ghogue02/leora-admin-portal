@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession, AdminSessionContext } from "@/lib/auth/admin";
-import { logChange, AuditOperation } from "@/lib/audit";
+import { logChange } from "@/lib/audit";
 
 /**
  * POST /api/admin/inventory/[skuId]/adjust

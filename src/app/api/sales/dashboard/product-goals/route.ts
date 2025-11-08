@@ -1,5 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { withSalesSession } from '@/lib/auth/sales';
+import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
+import { z } from "zod";
+import { withSalesSession } from "@/lib/auth/sales";
 import {
   startOfWeek,
   endOfWeek,
@@ -13,7 +15,70 @@ import {
   subMonths,
   subQuarters,
   subYears,
-} from 'date-fns';
+} from "date-fns";
+
+const METRIC_TYPES = ["revenue", "cases", "pod"] as const;
+type MetricType = (typeof METRIC_TYPES)[number];
+
+const PERIOD_TYPES = ["week", "month", "quarter", "year"] as const;
+type PeriodType = (typeof PERIOD_TYPES)[number];
+
+const PERIOD_SCOPES = ["current", "previous"] as const;
+type PeriodScope = (typeof PERIOD_SCOPES)[number];
+
+const isMetricType = (value: string): value is MetricType =>
+  METRIC_TYPES.includes(value as MetricType);
+
+const isPeriodType = (value: string): value is PeriodType =>
+  PERIOD_TYPES.includes(value as PeriodType);
+
+type GoalStatsRow = {
+  total: Prisma.Decimal | number | null;
+  cases: Prisma.Decimal | number | null;
+  distribution: Prisma.Decimal | number | null;
+};
+
+const goalStatsTotals = (row?: GoalStatsRow) => ({
+  revenue: toNumber(row?.total),
+  cases: toNumber(row?.cases),
+  pod: toNumber(row?.distribution),
+});
+
+const createGoalSchema = z.object({
+  productCategory: z.union([z.string(), z.null()]).optional(),
+  skuId: z.union([z.string().uuid(), z.null()]).optional(),
+  targetRevenue: z.union([z.number(), z.string(), z.null()]).optional(),
+  targetCases: z.union([z.number(), z.string(), z.null()]).optional(),
+  targetPod: z.union([z.number(), z.string(), z.null()]).optional(),
+  metricType: z.enum(METRIC_TYPES).optional(),
+  periodType: z.enum(PERIOD_TYPES).optional(),
+  periodScope: z.enum(PERIOD_SCOPES).optional(),
+});
+
+const normalizeNumericInput = (value?: string | number | null) => {
+  if (value === undefined || value === null || value === "") {
+    return undefined;
+  }
+  const parsed = typeof value === "string" ? Number(value) : value;
+  return Number.isFinite(parsed) ? parsed : undefined;
+};
+
+const normalizeOptionalString = (value?: string | null) => {
+  if (typeof value !== "string") {
+    return null;
+  }
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : null;
+};
+
+const toNumber = (value: Prisma.Decimal | number | bigint | null | undefined) =>
+  Number(value ?? 0);
+
+const hasPositiveValue = (value: Prisma.Decimal | number | bigint | null | undefined) =>
+  toNumber(value) > 0;
+
+const percentOfTarget = (current: number, target: number) =>
+  target > 0 ? (current / target) * 100 : 0;
 
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -34,166 +99,173 @@ export async function GET(request: NextRequest) {
         );
       }
 
-    // Get active goals for this rep
-    const goals = await db.repProductGoal.findMany({
-      where: {
-        tenantId: salesRep.tenantId,
-        salesRepId: salesRep.id,
-      },
-      include: {
-        sku: {
-          include: {
-            product: true,
+      const goals = await db.repProductGoal.findMany({
+        where: {
+          tenantId: salesRep.tenantId,
+          salesRepId: salesRep.id,
+        },
+        include: {
+          sku: {
+            include: {
+              product: true,
+            },
           },
         },
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-      take: 25,
-    });
+        orderBy: {
+          createdAt: "desc",
+        },
+        take: 25,
+      });
 
-    const deriveMetricType = (goal: typeof goals[number]): 'revenue' | 'cases' | 'pod' => {
-      const rawType = goal.metricType?.toLowerCase();
-      if (rawType === 'revenue' || rawType === 'cases' || rawType === 'pod') {
-        return rawType;
-      }
-      if (goal.targetRevenue) return 'revenue';
-      if (goal.targetCases) return 'cases';
-      if (goal.targetPod) return 'pod';
-      return 'revenue';
-    };
+      type GoalRecord = (typeof goals)[number];
 
-    const derivePeriodType = (goal: typeof goals[number]): 'week' | 'month' | 'quarter' | 'year' => {
-      const raw = goal.periodType?.toLowerCase();
-      if (raw === 'week' || raw === 'month' || raw === 'quarter' || raw === 'year') {
-        return raw;
-      }
-      const durationMs = goal.periodEnd.getTime() - goal.periodStart.getTime();
-      const oneDay = 24 * 60 * 60 * 1000;
-      const days = Math.round(durationMs / oneDay);
-      if (days <= 7) return 'week';
-      if (days <= 31) return 'month';
-      if (days <= 92) return 'quarter';
-      return 'year';
-    };
+      const deriveMetricType = (goal: GoalRecord): MetricType => {
+        const rawType = goal.metricType?.toLowerCase();
+        if (rawType && isMetricType(rawType)) {
+          return rawType;
+        }
+        if (hasPositiveValue(goal.targetRevenue)) return "revenue";
+        if (hasPositiveValue(goal.targetCases)) return "cases";
+        if (hasPositiveValue(goal.targetPod)) return "pod";
+        return "revenue";
+      };
 
-    // Calculate current progress for each goal
-    const goalsWithProgress = await Promise.all(
-      goals.map(async (goal) => {
-        let currentRevenue = 0;
-        let currentCases = 0;
-        let currentPod = 0;
-
-        if (goal.skuId) {
-          const stats = await db.$queryRaw<Array<{ total: number; cases: number; distribution: number }>>`
-            SELECT
-              COALESCE(SUM(ol.quantity * ol."unitPrice"), 0)::DECIMAL AS total,
-              COALESCE(SUM(ol.quantity), 0)::INT AS cases,
-              COALESCE(COUNT(DISTINCT o."customerId"), 0)::INT AS distribution
-            FROM "OrderLine" ol
-            INNER JOIN "Order" o ON ol."orderId" = o.id
-            INNER JOIN "Customer" c ON o."customerId" = c.id
-            WHERE ol."tenantId" = ${salesRep.tenantId}::uuid
-              AND ol."skuId" = ${goal.skuId}::uuid
-              AND o.status = 'FULFILLED'
-              AND o."deliveredAt" >= ${goal.periodStart}
-              AND o."deliveredAt" <= ${goal.periodEnd}
-              AND c."salesRepId" = ${salesRep.id}::uuid
-          `;
-
-          currentRevenue = Number(stats[0]?.total || 0);
-          currentCases = Number(stats[0]?.cases || 0);
-          currentPod = Number(stats[0]?.distribution || 0);
-        } else if (goal.productCategory) {
-          const stats = await db.$queryRaw<Array<{ total: number; cases: number; distribution: number }>>`
-            SELECT
-              COALESCE(SUM(ol.quantity * ol."unitPrice"), 0)::DECIMAL AS total,
-              COALESCE(SUM(ol.quantity), 0)::INT AS cases,
-              COALESCE(COUNT(DISTINCT o."customerId"), 0)::INT AS distribution
-            FROM "OrderLine" ol
-            INNER JOIN "Order" o ON ol."orderId" = o.id
-            INNER JOIN "Customer" c ON o."customerId" = c.id
-            INNER JOIN "Sku" s ON ol."skuId" = s.id
-            INNER JOIN "Product" p ON s."productId" = p.id
-            WHERE ol."tenantId" = ${salesRep.tenantId}::uuid
-              AND p.category = ${goal.productCategory}
-              AND o.status = 'FULFILLED'
-              AND o."deliveredAt" >= ${goal.periodStart}
-              AND o."deliveredAt" <= ${goal.periodEnd}
-              AND c."salesRepId" = ${salesRep.id}::uuid
-          `;
-
-          currentRevenue = Number(stats[0]?.total || 0);
-          currentCases = Number(stats[0]?.cases || 0);
-          currentPod = Number(stats[0]?.distribution || 0);
+      const derivePeriodType = (goal: GoalRecord): PeriodType => {
+        const raw = goal.periodType?.toLowerCase();
+        if (raw && isPeriodType(raw)) {
+          return raw;
         }
 
-        const metricType = deriveMetricType(goal);
-        const periodType = derivePeriodType(goal);
+        const durationMs = goal.periodEnd.getTime() - goal.periodStart.getTime();
+        const days = Math.round(durationMs / (24 * 60 * 60 * 1000));
+        if (days <= 7) return "week";
+        if (days <= 31) return "month";
+        if (days <= 92) return "quarter";
+        return "year";
+      };
 
-        let progressPercent = 0;
-        if (metricType === 'revenue' && goal.targetRevenue && Number(goal.targetRevenue) > 0) {
-          progressPercent = (currentRevenue / Number(goal.targetRevenue)) * 100;
-        } else if (metricType === 'cases' && goal.targetCases && goal.targetCases > 0) {
-          progressPercent = (currentCases / goal.targetCases) * 100;
-        } else if (metricType === 'pod' && goal.targetPod && goal.targetPod > 0) {
-          progressPercent = (currentPod / goal.targetPod) * 100;
-        }
+      const goalsWithProgress = await Promise.all(
+        goals.map(async (goal) => {
+          let currentRevenue = 0;
+          let currentCases = 0;
+          let currentPod = 0;
 
-        return {
-          id: goal.id,
-          skuId: goal.skuId,
-          productCategory: goal.productCategory,
-          targetRevenue: goal.targetRevenue ? Number(goal.targetRevenue) : null,
-          targetCases: goal.targetCases,
-          targetPod: goal.targetPod,
-          metricType,
-          periodType,
-          periodStart: goal.periodStart.toISOString(),
-          periodEnd: goal.periodEnd.toISOString(),
-          productName: goal.sku?.product.name,
-          skuCode: goal.sku?.code,
-          currentRevenue,
-          currentCases,
-          currentPod,
-          progressPercent: Math.round(progressPercent),
-        };
-      })
-    );
+          if (goal.skuId) {
+            const stats = await db.$queryRaw<GoalStatsRow[]>`
+              SELECT
+                COALESCE(SUM(ol.quantity * ol."unitPrice"), 0)::DECIMAL AS total,
+                COALESCE(SUM(ol.quantity), 0)::INT AS cases,
+                COALESCE(COUNT(DISTINCT o."customerId"), 0)::INT AS distribution
+              FROM "OrderLine" ol
+              INNER JOIN "Order" o ON ol."orderId" = o.id
+              INNER JOIN "Customer" c ON o."customerId" = c.id
+              WHERE ol."tenantId" = ${salesRep.tenantId}
+                AND ol."skuId" = ${goal.skuId}
+                AND o.status = 'FULFILLED'
+                AND o."deliveredAt" >= ${goal.periodStart}
+                AND o."deliveredAt" <= ${goal.periodEnd}
+                AND c."salesRepId" = ${salesRep.id}
+            `;
+            const totals = goalStatsTotals(stats[0]);
+            currentRevenue = totals.revenue;
+            currentCases = totals.cases;
+            currentPod = totals.pod;
+          } else if (goal.productCategory) {
+            const stats = await db.$queryRaw<GoalStatsRow[]>`
+              SELECT
+                COALESCE(SUM(ol.quantity * ol."unitPrice"), 0)::DECIMAL AS total,
+                COALESCE(SUM(ol.quantity), 0)::INT AS cases,
+                COALESCE(COUNT(DISTINCT o."customerId"), 0)::INT AS distribution
+              FROM "OrderLine" ol
+              INNER JOIN "Order" o ON ol."orderId" = o.id
+              INNER JOIN "Customer" c ON o."customerId" = c.id
+              INNER JOIN "Sku" s ON ol."skuId" = s.id
+              INNER JOIN "Product" p ON s."productId" = p.id
+              WHERE ol."tenantId" = ${salesRep.tenantId}
+                AND p.category = ${goal.productCategory}
+                AND o.status = 'FULFILLED'
+                AND o."deliveredAt" >= ${goal.periodStart}
+                AND o."deliveredAt" <= ${goal.periodEnd}
+                AND c."salesRepId" = ${salesRep.id}
+            `;
+            const totals = goalStatsTotals(stats[0]);
+            currentRevenue = totals.revenue;
+            currentCases = totals.cases;
+            currentPod = totals.pod;
+          }
 
-    return NextResponse.json({
-      goals: goalsWithProgress,
-    });
+          const metricType = deriveMetricType(goal);
+          const periodType = derivePeriodType(goal);
+
+          const targetRevenueValue = hasPositiveValue(goal.targetRevenue)
+            ? toNumber(goal.targetRevenue)
+            : null;
+          const targetCasesValue = hasPositiveValue(goal.targetCases)
+            ? toNumber(goal.targetCases)
+            : null;
+          const targetPodValue = hasPositiveValue(goal.targetPod)
+            ? toNumber(goal.targetPod)
+            : null;
+
+          let progressPercent = 0;
+          if (metricType === "revenue" && targetRevenueValue) {
+            progressPercent = percentOfTarget(currentRevenue, targetRevenueValue);
+          } else if (metricType === "cases" && targetCasesValue) {
+            progressPercent = percentOfTarget(currentCases, targetCasesValue);
+          } else if (metricType === "pod" && targetPodValue) {
+            progressPercent = percentOfTarget(currentPod, targetPodValue);
+          }
+
+          return {
+            id: goal.id,
+            skuId: goal.skuId,
+            productCategory: goal.productCategory,
+            targetRevenue: targetRevenueValue,
+            targetCases: targetCasesValue,
+            targetPod: targetPodValue,
+            metricType,
+            periodType,
+            periodStart: goal.periodStart.toISOString(),
+            periodEnd: goal.periodEnd.toISOString(),
+            productName: goal.sku?.product?.name ?? null,
+            skuCode: goal.sku?.code ?? null,
+            currentRevenue,
+            currentCases,
+            currentPod,
+            progressPercent: Math.round(progressPercent),
+          };
+        })
+      );
+
+      return NextResponse.json({
+        goals: goalsWithProgress,
+      });
     } catch (error) {
-      console.error('Product goals error:', error);
+      console.error("Product goals error:", error);
       return NextResponse.json(
-        { error: 'Failed to load product goals' },
+        { error: "Failed to load product goals" },
         { status: 500 }
       );
     }
   });
 }
 
-function calculatePeriodDates(
-  periodType: string,
-  scope: 'current' | 'previous' = 'current'
-) {
+function calculatePeriodDates(periodType: PeriodType, scope: PeriodScope = "current") {
   const now = new Date();
   let reference = now;
 
-  if (scope === 'previous') {
+  if (scope === "previous") {
     switch (periodType) {
-      case 'week':
+      case "week":
         reference = subWeeks(now, 1);
         break;
-      case 'quarter':
+      case "quarter":
         reference = subQuarters(now, 1);
         break;
-      case 'year':
+      case "year":
         reference = subYears(now, 1);
         break;
-      case 'month':
+      case "month":
       default:
         reference = subMonths(now, 1);
         break;
@@ -201,24 +273,24 @@ function calculatePeriodDates(
   }
 
   switch (periodType) {
-    case 'week': {
+    case "week": {
       const start = startOfWeek(reference, { weekStartsOn: 1 });
       const end = endOfWeek(reference, { weekStartsOn: 1 });
       return { periodStart: start, periodEnd: end };
     }
-    case 'quarter': {
+    case "quarter": {
       return {
         periodStart: startOfQuarter(reference),
         periodEnd: endOfQuarter(reference),
       };
     }
-    case 'year': {
+    case "year": {
       return {
         periodStart: startOfYear(reference),
         periodEnd: endOfYear(reference),
       };
     }
-    case 'month':
+    case "month":
     default: {
       return {
         periodStart: startOfMonth(reference),
@@ -246,77 +318,67 @@ export async function POST(request: NextRequest) {
           { status: 404 }
         );
       }
-    const body = await request.json();
+      const parsedBody = createGoalSchema.parse(await request.json());
+      const productCategory = normalizeOptionalString(parsedBody.productCategory);
+      const skuId = parsedBody.skuId ?? null;
+      const targetRevenueValue = normalizeNumericInput(parsedBody.targetRevenue);
+      const targetCasesValue = normalizeNumericInput(parsedBody.targetCases);
+      const targetPodValue = normalizeNumericInput(parsedBody.targetPod);
+      const metricType = parsedBody.metricType ?? "revenue";
+      const periodType = parsedBody.periodType ?? "month";
+      const periodScope = parsedBody.periodScope ?? "current";
 
-    const {
-      productCategory,
-      skuId,
-      targetRevenue,
-      targetCases,
-      targetPod,
-      metricType = 'revenue',
-      periodType = 'month',
-      periodScope = 'current',
-    } = body;
+      const { periodStart, periodEnd } = calculatePeriodDates(periodType, periodScope);
 
-    const normalizedMetric =
-      typeof metricType === 'string' ? metricType.toLowerCase() : 'revenue';
-    const normalizedPeriod =
-      typeof periodType === 'string' ? periodType.toLowerCase() : 'month';
-    const normalizedScope =
-      typeof periodScope === 'string' ? periodScope.toLowerCase() : 'current';
+      const createData: Prisma.RepProductGoalUncheckedCreateInput = {
+        tenantId: salesRep.tenantId,
+        salesRepId: salesRep.id,
+        productCategory,
+        skuId,
+        periodStart,
+        periodEnd,
+        metricType,
+        periodType,
+        targetRevenue: null,
+        targetCases: null,
+        targetPod: null,
+      };
 
-    const { periodStart, periodEnd } = calculatePeriodDates(normalizedPeriod, normalizedScope);
-
-    const createData: any = {
-      tenantId: salesRep.tenantId,
-      salesRepId: salesRep.id,
-      productCategory: productCategory ?? null,
-      skuId: skuId ?? null,
-      periodStart,
-      periodEnd,
-      metricType: normalizedMetric,
-      periodType: normalizedPeriod,
-      targetRevenue: null,
-      targetCases: null,
-      targetPod: null,
-    };
-
-    if (normalizedMetric === 'revenue') {
-      if (!targetRevenue) {
-        return NextResponse.json(
-          { error: 'Target revenue is required for revenue goals' },
-          { status: 400 }
-        );
+      if (metricType === "revenue") {
+        if (targetRevenueValue === undefined || targetRevenueValue <= 0) {
+          return NextResponse.json(
+            { error: "Target revenue is required for revenue goals" },
+            { status: 400 }
+          );
+        }
+        createData.targetRevenue = targetRevenueValue;
+      } else if (metricType === "cases") {
+        if (targetCasesValue === undefined || targetCasesValue <= 0) {
+          return NextResponse.json(
+            { error: "Target cases are required for case-based goals" },
+            { status: 400 }
+          );
+        }
+        createData.targetCases = targetCasesValue;
+      } else if (metricType === "pod") {
+        if (targetPodValue === undefined || targetPodValue <= 0) {
+          return NextResponse.json(
+            { error: "Target Points of Distribution are required for POD goals" },
+            { status: 400 }
+          );
+        }
+        createData.targetPod = targetPodValue;
       }
-      createData.targetRevenue = Number(targetRevenue);
-    } else if (normalizedMetric === 'cases') {
-      if (!targetCases) {
-        return NextResponse.json(
-          { error: 'Target cases are required for case-based goals' },
-          { status: 400 }
-        );
-      }
-      createData.targetCases = Number(targetCases);
-    } else if (normalizedMetric === 'pod') {
-      if (!targetPod) {
-        return NextResponse.json(
-          { error: 'Target Points of Distribution are required for POD goals' },
-          { status: 400 }
-        );
-      }
-      createData.targetPod = Number(targetPod);
-    }
 
-    const goal = await db.repProductGoal.create({
-      data: createData,
-    });
+      const goal = await db.repProductGoal.create({
+        data: createData,
+      });
 
-    return NextResponse.json(goal);
+      return NextResponse.json(goal);
     } catch (error) {
-      console.error('Create product goal error:', error);
+      console.error("Create product goal error:", error);
       return NextResponse.json(
-        { error: 'Failed to create product goal' },
+        { error: "Failed to create product goal" },
         { status: 500 }
       );
     }

@@ -62,7 +62,7 @@ export async function GET(
       }
 
       // Optionally fetch version history
-      let history = [];
+      let history: typeof currentDefinition[] = [];
       if (includeHistory) {
         history = await db.metricDefinition.findMany({
           where: {
@@ -181,10 +181,10 @@ export async function PATCH(
         message: `Created version ${newDefinition.version} of metric definition '${code}'`,
         previousVersion: currentDefinition.version,
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`Error updating metric definition '${code}':`, error);
 
-      if (error.code === 'P2002') {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
         return NextResponse.json(
           { error: 'Version conflict. Please retry.' },
           { status: 409 }

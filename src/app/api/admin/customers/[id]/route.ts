@@ -1,6 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { logCustomerUpdate } from '@/lib/audit';
+import { Prisma } from '@prisma/client';
+
+const ALLOWED_CUSTOMER_FIELDS = [
+  'name',
+  'billingEmail',
+  'phone',
+  'street1',
+  'street2',
+  'city',
+  'state',
+  'postalCode',
+  'country',
+  'paymentTerms',
+  'salesRepId',
+  'isPermanentlyClosed',
+  'closedReason',
+  'type',
+  'volumeCapacity',
+  'featurePrograms',
+] as const satisfies readonly (keyof Prisma.CustomerUpdateInput)[];
+
+type AllowedCustomerField = (typeof ALLOWED_CUSTOMER_FIELDS)[number];
+
+type UpdateCustomerPayload = Partial<Record<AllowedCustomerField, unknown>> & {
+  updateReason?: string;
+};
 
 /**
  * GET /api/admin/customers/[id]
@@ -164,7 +190,7 @@ export async function PUT(
     const { tenantId, db } = context;
     try {
       const { id } = await params;
-      const body = await request.json();
+      const body = (await request.json()) as UpdateCustomerPayload;
 
       console.log('📝 Update request for customer:', id);
       console.log('📦 Request body:', JSON.stringify(body, null, 2));
@@ -187,39 +213,26 @@ export async function PUT(
       }
 
       // Prepare update data
-      const updateData: any = {};
-      const allowedFields = [
-        'name',
-        'billingEmail',
-        'phone',
-        'street1',
-        'street2',
-        'city',
-        'state',
-        'postalCode',
-        'country',
-        'paymentTerms',
-        'salesRepId',
-        'isPermanentlyClosed',
-        'closedReason',
-        'type',
-        'volumeCapacity',
-        'featurePrograms',
-      ];
+      const updateData: Prisma.CustomerUpdateInput = {};
 
-      for (const field of allowedFields) {
-        if (field in body) {
-          // Validate featurePrograms is an array
-          if (field === 'featurePrograms') {
-            if (!Array.isArray(body[field])) {
-              return NextResponse.json(
-                { error: 'featurePrograms must be an array' },
-                { status: 400 }
-              );
-            }
-          }
-          updateData[field] = body[field];
+      for (const field of ALLOWED_CUSTOMER_FIELDS) {
+        if (!Object.prototype.hasOwnProperty.call(body, field)) {
+          continue;
         }
+
+        const value = body[field];
+        if (typeof value === 'undefined') {
+          continue;
+        }
+
+        if (field === 'featurePrograms' && !Array.isArray(value)) {
+          return NextResponse.json(
+            { error: 'featurePrograms must be an array' },
+            { status: 400 }
+          );
+        }
+
+        updateData[field] = value as Prisma.CustomerUpdateInput[typeof field];
       }
 
       console.log('💾 Update data:', JSON.stringify(updateData, null, 2));
@@ -270,13 +283,21 @@ export async function PUT(
       console.log('✅ Audit log completed');
 
       return NextResponse.json({ customer });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('❌ Error updating customer:', error);
-      console.error('Error stack:', error.stack);
-      console.error('Error code:', error.code);
-      console.error('Error message:', error.message);
+      if (error instanceof Error) {
+        console.error('Error stack:', error.stack);
+        console.error('Error message:', error.message);
+      }
 
-      if (error.code === 'P2002') {
+      const prismaError = error instanceof Prisma.PrismaClientKnownRequestError ? error : null;
+      if (prismaError) {
+        console.error('Error code:', prismaError.code);
+      } else {
+        console.error('Error code: Unknown');
+      }
+
+      if (prismaError?.code === 'P2002') {
         return NextResponse.json(
           { error: 'Account number already exists' },
           { status: 409 }

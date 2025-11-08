@@ -1,6 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfMonth, endOfMonth, eachDayOfInterval, format, addDays } from "date-fns";
+import type { CustomerRevenueAggregate } from "../types";
+
+type CustomerContributionMap = Record<string, CustomerRevenueAggregate>;
+
+type ProductContribution = {
+  product: {
+    id: string;
+    name: string;
+    brand: string | null;
+    category: string | null;
+  };
+  revenue: number;
+  quantity: number;
+  orderCount: number;
+};
+
+type ProductContributionMap = Record<string, ProductContribution>;
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -51,6 +68,8 @@ export async function GET(request: NextRequest) {
               id: true,
               name: true,
               accountNumber: true,
+              city: true,
+              state: true,
             },
           },
           lines: {
@@ -106,7 +125,7 @@ export async function GET(request: NextRequest) {
       });
 
       // Get top contributing customers
-      const customerContributions = monthOrders.reduce((acc, order) => {
+      const customerContributions = monthOrders.reduce<CustomerContributionMap>((acc, order) => {
         const customerId = order.customer.id;
         if (!acc[customerId]) {
           acc[customerId] = {
@@ -122,14 +141,15 @@ export async function GET(request: NextRequest) {
           id: order.id,
           total: Number(order.total || 0),
           deliveredAt: order.deliveredAt?.toISOString() || null,
+          status: order.status,
         });
         return acc;
-      }, {} as Record<string, any>);
+      }, {});
 
       const topCustomers = Object.values(customerContributions)
-        .sort((a: any, b: any) => b.revenue - a.revenue)
+        .sort((a, b) => b.revenue - a.revenue)
         .slice(0, 10)
-        .map((contrib: any) => ({
+        .map((contrib) => ({
           customerId: contrib.customer.id,
           customerName: contrib.customer.name,
           accountNumber: contrib.customer.accountNumber,
@@ -140,7 +160,7 @@ export async function GET(request: NextRequest) {
         }));
 
       // Get top contributing products
-      const productContributions = monthOrders.reduce((acc, order) => {
+      const productContributions = monthOrders.reduce<ProductContributionMap>((acc, order) => {
         order.lines.forEach((line) => {
           const productId = line.sku.product.id;
           const revenue = Number(line.unitPrice) * line.quantity;
@@ -158,12 +178,12 @@ export async function GET(request: NextRequest) {
           acc[productId].orderCount += 1;
         });
         return acc;
-      }, {} as Record<string, any>);
+      }, {});
 
       const topProducts = Object.values(productContributions)
-        .sort((a: any, b: any) => b.revenue - a.revenue)
+        .sort((a, b) => b.revenue - a.revenue)
         .slice(0, 10)
-        .map((contrib: any) => ({
+        .map((contrib) => ({
           productId: contrib.product.id,
           productName: contrib.product.name,
           brand: contrib.product.brand,

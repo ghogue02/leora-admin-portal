@@ -10,6 +10,11 @@ const supplierReportQuerySchema = z.object({
   format: z.enum(['json', 'pdf']).default('json'),
 });
 
+type DateRangeFilter = {
+  gte?: Date;
+  lte?: Date;
+};
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -34,7 +39,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Build date filter
-    const dateFilter: any = {};
+    const dateFilter: DateRangeFilter = {};
     if (params.startDate) {
       dateFilter.gte = new Date(params.startDate);
     }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import type { Prisma } from "@prisma/client";
 
 /**
  * PUT /api/sales/catalog/[skuId]
@@ -34,7 +35,7 @@ export async function PUT(
 
         // Update Product fields
         if (updates.product) {
-          const productUpdates: any = {};
+          const productUpdates: Prisma.ProductUpdateInput = {};
 
           // Basic fields
           if (updates.product.name !== undefined) productUpdates.name = updates.product.name;
@@ -72,7 +73,7 @@ export async function PUT(
 
         // Update SKU fields
         if (updates.sku) {
-          const skuUpdates: any = {};
+          const skuUpdates: Prisma.SkuUpdateInput = {};
 
           if (updates.sku.size !== undefined) skuUpdates.size = updates.sku.size;
           if (updates.sku.unitOfMeasure !== undefined) skuUpdates.unitOfMeasure = updates.sku.unitOfMeasure;
@@ -109,10 +110,13 @@ export async function PUT(
           success: true,
           message: "Product updated successfully",
         });
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error("[ProductUpdate] Error:", error);
         return NextResponse.json(
-          { error: "Failed to update product", details: error.message },
+          {
+            error: "Failed to update product",
+            details: error instanceof Error ? error.message : undefined,
+          },
           { status: 500 }
         );
       }

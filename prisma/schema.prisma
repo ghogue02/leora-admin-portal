@@ -856,6 +856,7 @@ model Task {
   tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   user           User?           @relation("AssignedTasks", fields: [userId], references: [id])
   triggeredTasks TriggeredTask[]
+  sampleFollowUps SampleUsage[]
 
   @@index([tenantId])
   @@index([assignedById])
@@ -1059,10 +1060,12 @@ model SampleUsage {
   feedbackOptions  Json?
   customerResponse String?
   sampleSource     String?
+  followUpTaskId   String?   @db.Uuid
   customer         Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
   salesRep         SalesRep  @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
   sku              Sku       @relation(fields: [skuId], references: [id], onDelete: Cascade)
   tenant           Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  followUpTask     Task?     @relation(fields: [followUpTaskId], references: [id])
 
   @@index([tenantId])
   @@index([salesRepId, tastedAt])

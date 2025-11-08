@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -22,8 +22,15 @@ type LineItem = {
 export default function NewOrderPage() {
   const router = useRouter();
   const [saving, setSaving] = useState(false);
-  const [customers, setCustomers] = useState<any[]>([]);
-  const [skus, setSkus] = useState<any[]>([]);
+  const [customers, setCustomers] = useState<{ id: string; name: string }[]>([]);
+  const [skus, setSkus] = useState<
+    Array<{
+      id: string;
+      code: string;
+      product: { name: string; brand: string | null };
+      price: number;
+    }>
+  >([]);
   const [formData, setFormData] = useState({
     customerId: "",
     orderedAt: new Date().toISOString().slice(0, 16),
@@ -42,27 +49,44 @@ export default function NewOrderPage() {
   useEffect(() => {
     fetchCustomers();
     fetchSkus();
-  }, []);
+  }, [fetchCustomers, fetchSkus]);
 
-  const fetchCustomers = async () => {
+  const fetchCustomers = useCallback(async () => {
     try {
       const response = await fetch("/api/sales/customers");
       const data = await response.json();
-      setCustomers(data.customers || []);
+      setCustomers((data.customers || []).map((customer: { id: string; name: string }) => ({
+        id: customer.id,
+        name: customer.name,
+      })));
     } catch (error) {
       console.error("Failed to fetch customers:", error);
     }
-  };
+  }, []);
 
-  const fetchSkus = async () => {
+  const fetchSkus = useCallback(async () => {
     try {
       const response = await fetch("/api/sales/catalog/skus");
       const data = await response.json();
-      setSkus(data.skus || []);
+      setSkus(
+        (data.skus || []).map(
+          (sku: {
+            id: string;
+            code: string;
+            product: { name: string; brand: string | null };
+            pricePerUnit: number | null;
+          }) => ({
+            id: sku.id,
+            code: sku.code,
+            product: sku.product,
+            price: sku.pricePerUnit ?? 0,
+          })
+        )
+      );
     } catch (error) {
       console.error("Failed to fetch SKUs:", error);
     }
-  };
+  }, []);
 
   const handleAddLineItem = () => {
     if (!newLineItem.skuId || newLineItem.quantity <= 0) {

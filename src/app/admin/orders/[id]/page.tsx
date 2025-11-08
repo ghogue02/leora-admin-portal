@@ -1,31 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+import { useParams } from "next/navigation";
 import Link from "next/link";
+import type { Order } from "@/types/orders";
 
-type OrderDetail = {
-  id: string;
-  customerId: string;
-  status: string;
-  orderedAt: string | null;
-  fulfilledAt: string | null;
-  deliveredAt: string | null;
-  deliveryWeek: number | null;
-  isFirstOrder: boolean;
-  total: number;
-  currency: string;
-  createdAt: string;
-  updatedAt: string;
-  customer: {
-    id: string;
-    name: string;
-  };
-  salesRep: {
-    id: string;
-    name: string;
-    territory: string;
-  } | null;
+type OrderDetail = Order & {
   lines: LineItem[];
   invoice: InvoiceInfo | null;
   portalUser: {
@@ -77,11 +57,13 @@ type Payment = {
   reference: string | null;
 };
 
+type AuditLogChange = Record<string, { from: unknown; to: unknown }>;
+type AuditLogMetadata = Record<string, unknown>;
 type AuditLog = {
   id: string;
   action: string;
-  changes: any;
-  metadata: any;
+  changes: AuditLogChange | null;
+  metadata: AuditLogMetadata | null;
   createdAt: string;
   user: {
     fullName: string;
@@ -90,34 +72,53 @@ type AuditLog = {
 };
 
 const ORDER_STATUSES = ["DRAFT", "SUBMITTED", "FULFILLED", "CANCELLED", "PARTIALLY_FULFILLED"];
+type OrderUpdatePayload = Partial<{
+  customerId: string;
+  status: string;
+  orderedAt: string | null;
+  deliveredAt: string | null;
+  fulfilledAt: string | null;
+  deliveryWeek: number | null;
+  currency: string;
+  isFirstOrder: boolean;
+}>;
+
+type LineItemUpdatePayload = Partial<Pick<LineItem, "quantity" | "unitPrice" | "isSample">>;
 
 export default function OrderDetailPage() {
-  const params = useParams();
-  const router = useRouter();
+  const params = useParams<{ id: string }>();
+  const orderId = params?.id;
   const [order, setOrder] = useState<OrderDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [customers, setCustomers] = useState<any[]>([]);
-  const [skus, setSkus] = useState<any[]>([]);
+  const [customers, setCustomers] = useState<Array<{ id: string; name: string }>>([]);
+  const [skus, setSkus] = useState<
+    Array<{
+      id: string;
+      code: string;
+      product: { name: string; brand: string | null };
+      defaultPrice: number;
+    }>
+  >([]);
   const [editingLineItem, setEditingLineItem] = useState<string | null>(null);
   const [showAddLineItem, setShowAddLineItem] = useState(false);
-  const [newLineItem, setNewLineItem] = useState({
+  const [newLineItem, setNewLineItem] = useState<{
+    skuId: string;
+    quantity: number;
+    unitPrice: number;
+    isSample: boolean;
+  }>({
     skuId: "",
     quantity: 1,
     unitPrice: 0,
     isSample: false,
   });
 
-  useEffect(() => {
-    fetchOrder();
-    fetchCustomers();
-    fetchSkus();
-  }, [params.id]);
-
-  const fetchOrder = async () => {
+  const fetchOrder = useCallback(async () => {
+    if (!orderId) return;
     setLoading(true);
     try {
-      const response = await fetch(`/api/admin/orders/${params.id}`);
+      const response = await fetch(`/api/admin/orders/${orderId}`);
       const data = await response.json();
       setOrder(data.order);
     } catch (error) {
@@ -125,32 +126,59 @@ export default function OrderDetailPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [orderId]);
 
-  const fetchCustomers = async () => {
+  const fetchCustomers = useCallback(async () => {
     try {
       const response = await fetch("/api/sales/customers");
       const data = await response.json();
-      setCustomers(data.customers || []);
+      setCustomers(
+        (data.customers || []).map((customer: { id: string; name: string }) => ({
+          id: customer.id,
+          name: customer.name,
+        }))
+      );
     } catch (error) {
       console.error("Failed to fetch customers:", error);
     }
-  };
+  }, []);
 
-  const fetchSkus = async () => {
+  const fetchSkus = useCallback(async () => {
     try {
       const response = await fetch("/api/sales/catalog/skus");
       const data = await response.json();
-      setSkus(data.skus || []);
+      setSkus(
+        (data.skus || []).map(
+          (sku: {
+            id: string;
+            code: string;
+            product: { name: string; brand: string | null };
+            pricePerUnit: number | null;
+          }) => ({
+            id: sku.id,
+            code: sku.code,
+            product: sku.product,
+            defaultPrice: sku.pricePerUnit ?? 0,
+          })
+        )
+      );
     } catch (error) {
       console.error("Failed to fetch SKUs:", error);
     }
-  };
+  }, []);
 
-  const handleUpdateOrder = async (updates: any) => {
+  useEffect(() => {
+    if (!orderId) return;
+    fetchOrder();
+    fetchCustomers();
+    fetchSkus();
+  }, [orderId, fetchOrder, fetchCustomers, fetchSkus]);
+
+  const handleUpdateOrder = async (updates: OrderUpdatePayload) => {
+    if (!orderId) return;
     setSaving(true);
     try {
-      const response = await fetch(`/api/admin/orders/${params.id}`, {
+      const response = await fetch(`/api/admin/orders/${orderId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updates),
@@ -170,13 +198,14 @@ export default function OrderDetailPage() {
   };
 
   const handleAddLineItem = async () => {
+    if (!orderId) return;
     if (!newLineItem.skuId || newLineItem.quantity <= 0) {
       alert("Please select a SKU and enter a valid quantity");
       return;
     }
 
     try {
-      const response = await fetch(`/api/admin/orders/${params.id}/line-items`, {
+      const response = await fetch(`/api/admin/orders/${orderId}/line-items`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newLineItem),
@@ -195,10 +224,14 @@ export default function OrderDetailPage() {
     }
   };
 
-  const handleUpdateLineItem = async (lineItemId: string, updates: any) => {
+  const handleUpdateLineItem = async (
+    lineItemId: string,
+    updates: LineItemUpdatePayload
+  ) => {
+    if (!orderId) return;
     try {
       const response = await fetch(
-        `/api/admin/orders/${params.id}/line-items/${lineItemId}`,
+        `/api/admin/orders/${orderId}/line-items/${lineItemId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -219,13 +252,14 @@ export default function OrderDetailPage() {
   };
 
   const handleDeleteLineItem = async (lineItemId: string) => {
+    if (!orderId) return;
     if (!confirm("Are you sure you want to delete this line item?")) {
       return;
     }
 
     try {
       const response = await fetch(
-        `/api/admin/orders/${params.id}/line-items/${lineItemId}`,
+        `/api/admin/orders/${orderId}/line-items/${lineItemId}`,
         {
           method: "DELETE",
         }
@@ -243,11 +277,12 @@ export default function OrderDetailPage() {
   };
 
   const handleCancelOrder = async () => {
+    if (!orderId) return;
     const reason = prompt("Please provide a reason for cancellation:");
     if (!reason) return;
 
     try {
-      const response = await fetch(`/api/admin/orders/${params.id}/cancel`, {
+      const response = await fetch(`/api/admin/orders/${orderId}/cancel`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ reason }),
@@ -266,12 +301,13 @@ export default function OrderDetailPage() {
   };
 
   const handleCreateInvoice = async () => {
+    if (!orderId) return;
     if (!confirm("Create an invoice for this order?")) {
       return;
     }
 
     try {
-      const response = await fetch(`/api/admin/orders/${params.id}/create-invoice`, {
+      const response = await fetch(`/api/admin/orders/${orderId}/create-invoice`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}),
@@ -315,6 +351,14 @@ export default function OrderDetailPage() {
       minute: "2-digit",
     });
   };
+
+  if (!orderId) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center text-gray-600">Invalid order identifier.</div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -506,7 +550,7 @@ export default function OrderDetailPage() {
                         setNewLineItem({
                           ...newLineItem,
                           skuId: e.target.value,
-                          unitPrice: sku?.pricePerUnit ? Number(sku.pricePerUnit) : 0,
+                          unitPrice: sku ? sku.defaultPrice : 0,
                         });
                       }}
                       className="px-3 py-2 border border-gray-300 rounded-md"

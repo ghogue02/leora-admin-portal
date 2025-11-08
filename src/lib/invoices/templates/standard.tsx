@@ -11,6 +11,7 @@ import {
   Text,
   View,
   StyleSheet,
+  Image,
 } from '@react-pdf/renderer';
 import { CompleteInvoiceData } from '../invoice-data-builder';
 import { sharedStyles, formatCurrency, formatShortDate } from './styles';
@@ -18,6 +19,8 @@ import { sharedStyles, formatCurrency, formatShortDate } from './styles';
 import type { InvoiceColumnId } from '../column-presets';
 import type { InvoiceBodyBlockId, InvoiceSectionKey } from '../template-settings';
 import { getBodyBlockOrder, getVisibleSectionBuckets } from '../layout-utils';
+import { resolveFooterNotes } from '../footer-notes';
+import { resolveBrandingProfile } from '../branding';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
@@ -160,18 +163,39 @@ interface StandardInvoiceProps {
 export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
   const palette = data.templateSettings?.palette ?? {};
   const layout = data.templateSettings?.layout;
+  const options = data.templateSettings?.options ?? {};
   const sections = {
     ...DEFAULT_SECTIONS,
     ...(layout?.sections ?? {}),
   };
   const columns = parseColumns(layout?.columns);
   const headerNotes = groupNotes(layout?.headerNotes);
+  const branding = resolveBrandingProfile(options, {
+    name: data.tenantName,
+    contactLines: [
+      data.wholesalerPhone ? `Phone: ${data.wholesalerPhone}` : null,
+    ].filter((line): line is string => Boolean(line)),
+  });
   const sectionBuckets = layout
     ? getVisibleSectionBuckets(layout)
     : { headerLeft: [], headerRight: [], fullWidth: [] };
   const bodyBlockOrder = layout
     ? getBodyBlockOrder(layout)
     : (['totals', 'signature', 'compliance'] as InvoiceBodyBlockId[]);
+  const fallbackFooter: string[] = [];
+  if (data.collectionTerms?.trim()) {
+    fallbackFooter.push(data.collectionTerms.trim());
+  }
+  if (data.complianceNotice?.trim()) {
+    if (
+      !fallbackFooter.length
+      || fallbackFooter[0].toLowerCase() !== data.complianceNotice.trim().toLowerCase()
+    ) {
+      fallbackFooter.push(data.complianceNotice.trim());
+    }
+  }
+  const footerLines = resolveFooterNotes(data.templateSettings?.options?.footerNotes, fallbackFooter);
+  const uniqueFooterLines = [...new Set(footerLines.map((line) => line.trim()))].filter((line) => line.length);
 
   const tableHeaderBackgroundStyle = palette.tableHeaderBackground
     ? { backgroundColor: palette.tableHeaderBackground }
@@ -190,11 +214,19 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
 
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.companyName}>{data.tenantName}</Text>
-          <Text style={styles.companyAddress}>6781 Kennedy Road Suite 8, Warrenton, VA 20187</Text>
-          {data.wholesalerPhone && (
-            <Text style={styles.companyAddress}>Phone: {data.wholesalerPhone}</Text>
+          {!!options.logoUrl && (
+            <Image src={options.logoUrl} style={{ height: 48, width: 48, objectFit: 'contain', marginBottom: 6 }} />
           )}
+          <Text style={styles.companyName}>{branding.name}</Text>
+          {branding.secondary && <Text style={styles.companyAddress}>{branding.secondary}</Text>}
+          {branding.tagline && <Text style={styles.companyAddress}>{branding.tagline}</Text>}
+          {branding.addressLines.map((line) => (
+            <Text key={line} style={styles.companyAddress}>{line}</Text>
+          ))}
+          {branding.contactLines.map((line) => (
+            <Text key={line} style={styles.companyAddress}>{line}</Text>
+          ))}
+          {branding.website && <Text style={styles.companyAddress}>{branding.website}</Text>}
         </View>
 
         {renderNotesBlock(headerNotes.afterHeader)}
@@ -314,10 +346,12 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
             );
           }
 
-          if (blockId === 'compliance' && sections.showComplianceNotice && data.collectionTerms) {
+          if (blockId === 'compliance' && sections.showComplianceNotice) {
             return (
               <View key="compliance" style={styles.legalText}>
-                <Text>{data.collectionTerms}</Text>
+                {uniqueFooterLines.map((line) => (
+                  <Text key={line}>{line}</Text>
+                ))}
               </View>
             );
           }

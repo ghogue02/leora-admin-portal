@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { logSalesRepUpdate } from "@/lib/audit/log";
+import type { Prisma } from "@prisma/client";
 
 export async function GET(
   request: NextRequest,
@@ -225,7 +226,7 @@ export async function PUT(
       }
 
       // Prepare update data
-      const updateData: any = {};
+      const updateData: Prisma.SalesRepUpdateInput = {};
 
       if (body.territoryName !== undefined) updateData.territoryName = body.territoryName;
       if (body.deliveryDay !== undefined) updateData.deliveryDay = body.deliveryDay;

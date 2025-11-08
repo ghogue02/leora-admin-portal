@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import {
   activitySampleItemSelect,
+  activityRecordSelect,
   serializeActivityRecord,
   sampleItemsInputSchema,
   ensureSampleItemsValid,
@@ -105,40 +106,7 @@ export async function GET(request: NextRequest) {
         // Get activities with pagination
         db.activity.findMany({
           where,
-          select: {
-            id: true,
-            subject: true,
-            notes: true,
-            occurredAt: true,
-            followUpAt: true,
-            outcomes: true,
-            createdAt: true,
-            activityType: {
-              select: {
-                id: true,
-                name: true,
-                code: true,
-              },
-            },
-            customer: {
-              select: {
-                id: true,
-                name: true,
-                accountNumber: true,
-              },
-            },
-            order: {
-              select: {
-                id: true,
-                orderedAt: true,
-                total: true,
-                status: true,
-              },
-            },
-          sampleItems: {
-            select: activitySampleItemSelect,
-          },
-          },
+          select: activityRecordSelect,
           orderBy,
           skip: (page - 1) * pageSize,
           take: pageSize,
@@ -213,13 +181,16 @@ export async function GET(request: NextRequest) {
         },
       });
     } catch (error) {
+      const prismaError = typeof error === "object" && error !== null
+        ? (error as Partial<{ code: string; meta: unknown }>)
+        : null;
       console.error("❌ [Activities] Query failed:", error);
       console.error("❌ [Activities] Error type:", typeof error);
       console.error("❌ [Activities] Error details:", {
         name: error instanceof Error ? error.name : "Unknown",
         message: error instanceof Error ? error.message : String(error),
-        code: (error as any).code,
-        meta: (error as any).meta,
+        code: prismaError?.code,
+        meta: prismaError?.meta,
         stack: error instanceof Error ? error.stack : undefined,
       });
       console.error("❌ [Activities] Query context:", {
@@ -236,8 +207,8 @@ export async function GET(request: NextRequest) {
           details: error instanceof Error ? error.message : String(error),
           debugInfo: process.env.NODE_ENV === 'development' ? {
             name: error instanceof Error ? error.name : "Unknown",
-            code: (error as any).code,
-            meta: (error as any).meta,
+            code: prismaError?.code,
+            meta: prismaError?.meta,
           } : undefined
         },
         { status: 500 }

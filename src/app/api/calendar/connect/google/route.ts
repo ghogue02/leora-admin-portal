@@ -10,7 +10,7 @@ const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
  * GET /api/calendar/connect/google
  * Initiate Google OAuth flow
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession();
     if (!session?.user?.email) {
@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
  * DELETE /api/calendar/connect/google
  * Disconnect Google Calendar integration
  */
-export async function DELETE(request: NextRequest) {
+export async function DELETE() {
   try {
     const session = await getServerSession();
     if (!session?.user?.email) {

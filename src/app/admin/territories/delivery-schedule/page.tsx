@@ -4,7 +4,7 @@
  * Territory Delivery Schedule Admin Page
  *
  * Allows admins to configure delivery days for each sales rep/territory
- * Travis's requirement: Assign delivery dates for territories
+ * Travis’s requirement: Assign delivery dates for territories
  *
  * Features:
  * - List all sales reps with their territories
@@ -117,7 +117,7 @@ export default function DeliverySchedulePage() {
       <header className="mb-6">
         <h1 className="text-2xl font-bold text-gray-900">Territory Delivery Schedule</h1>
         <p className="mt-1 text-sm text-gray-600">
-          Configure delivery days for each sales rep's territory. These are used to validate delivery dates when creating orders.
+          Configure delivery days for each sales rep&rsquo;s territory. These are used to validate delivery dates when creating orders.
         </p>
       </header>
 

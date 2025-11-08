@@ -18,24 +18,10 @@ import {
 } from "lucide-react";
 import { format } from "date-fns";
 import { toast } from "sonner";
-
-interface WeeklyAccountWithEnhancements {
-  id: string;
-  customer: {
-    id: string;
-    customerName: string;
-    accountNumber?: string;
-    lastOrderDate?: string;
-    annualRevenue?: number;
-    priority?: "A" | "B" | "C";
-  };
-  objectives?: string;
-  notes?: string;
-  contactOutcome?: string;
-}
+import type { CarlaSelectedAccount } from "../types";
 
 interface WeeklyPlanningEnhancementsProps {
-  accounts: WeeklyAccountWithEnhancements[];
+  accounts: CarlaSelectedAccount[];
   onUpdateAccount: (
     accountId: string,
     updates: { objectives?: string; notes?: string }
@@ -58,9 +44,9 @@ export default function WeeklyPlanningEnhancements({
   const [editObjectives, setEditObjectives] = useState("");
   const [editNotes, setEditNotes] = useState("");
 
-  const handleStartEdit = (account: WeeklyAccountWithEnhancements) => {
+  const handleStartEdit = (account: CarlaSelectedAccount) => {
     setEditingId(account.id);
-    setEditObjectives(account.objectives || "");
+    setEditObjectives(account.objectives || account.objective || "");
     setEditNotes(account.notes || "");
   };
 
@@ -126,7 +112,15 @@ export default function WeeklyPlanningEnhancements({
       <div className="grid gap-4">
         {accounts.map((account) => {
           const isEditing = editingId === account.id;
-          const customer = account.customer;
+          const customer =
+            account.customer ?? {
+              id: account.id,
+              customerName: account.name ?? "Customer",
+              accountNumber: account.accountNumber ?? null,
+              lastOrderDate: account.lastOrderDate ?? null,
+              annualRevenue: null,
+              priority: undefined,
+            };
           const priorityColor = customer.priority
             ? PRIORITY_COLORS[customer.priority]
             : PRIORITY_COLORS.C;

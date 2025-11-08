@@ -10,8 +10,11 @@ const mockAuthContext = {
   db: prisma,
 };
 
+type SalesSessionContext = typeof mockAuthContext;
+type SalesSessionCallback = (context: SalesSessionContext) => Promise<Response> | Response;
+
 vi.mock('@/lib/auth/sales', () => ({
-  withSalesSession: (request: NextRequest, callback: Function) => callback(mockAuthContext),
+  withSalesSession: vi.fn((_request: NextRequest, callback: SalesSessionCallback) => callback(mockAuthContext)),
 }));
 
 describe('GET /api/sales/analytics/samples', () => {

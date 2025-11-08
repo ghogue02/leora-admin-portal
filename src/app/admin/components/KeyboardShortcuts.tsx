@@ -135,30 +135,24 @@ export function KeyboardShortcutsHelp({
 export function useKeyboardShortcut(
   key: string,
   callback: () => void,
-  deps: React.DependencyList = []
 ) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
       const modifierKey = isMac ? e.metaKey : e.ctrlKey;
 
-      // Handle Ctrl+S / Cmd+S
       if (key === 'save' && modifierKey && e.key === 's') {
         e.preventDefault();
         callback();
-      }
-      // Handle Ctrl+K / Cmd+K
-      else if (key === 'search' && modifierKey && e.key === 'k') {
+      } else if (key === 'search' && modifierKey && e.key === 'k') {
         e.preventDefault();
         callback();
-      }
-      // Handle Escape
-      else if (key === 'escape' && e.key === 'Escape') {
+      } else if (key === 'escape' && e.key === 'Escape') {
         callback();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [key, callback, ...deps]);
+  }, [key, callback]);
 }

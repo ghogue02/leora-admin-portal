@@ -1,8 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
+import { withAdminSession, type AdminSessionContext } from '@/lib/auth/admin';
 import { logChange, AuditOperation } from '@/lib/audit';
-import { Prisma, PrismaClient } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+
+type CreateUserPayload = {
+  email: string;
+  fullName: string;
+  password: string;
+  roleIds?: string[];
+  createSalesRep?: boolean;
+  territoryName?: string;
+};
 
 /**
  * GET /api/admin/accounts/users
@@ -15,8 +24,8 @@ export async function GET(request: NextRequest) {
       const { searchParams } = new URL(request.url);
 
       // Pagination
-      const page = parseInt(searchParams.get('page') || '1');
-      const limit = parseInt(searchParams.get('limit') || '50');
+      const page = Number.parseInt(searchParams.get('page') || '1');
+      const limit = Number.parseInt(searchParams.get('limit') || '50');
       const skip = (page - 1) * limit;
 
       // Search
@@ -24,12 +33,12 @@ export async function GET(request: NextRequest) {
 
       // Filters
       const role = searchParams.get('role');
-      const status = searchParams.get('status'); // 'active' or 'inactive'
+      const status = searchParams.get('status') as 'active' | 'inactive' | null;
       const territory = searchParams.get('territory');
 
       // Sorting
       const sortBy = searchParams.get('sortBy') || 'fullName';
-      const sortOrder = (searchParams.get('sortOrder') || 'asc') as 'asc' | 'desc';
+      const sortOrder = (searchParams.get('sortOrder') === 'desc' ? 'desc' : 'asc');
 
       // Build where clause
       const where: Prisma.UserWhereInput = {
@@ -163,10 +172,23 @@ export async function POST(request: NextRequest) {
   return withAdminSession(request, async (context: AdminSessionContext) => {
     const { tenantId, db } = context;
     try {
-      const body = await request.json();
+      const body = (await request.json().catch(() => null)) as CreateUserPayload | null;
+      if (!body) {
+        return NextResponse.json({ error: 'Invalid request payload' }, { status: 400 });
+      }
 
-      // Validate required fields
-      const { email, fullName, password, roleIds, createSalesRep, territoryName } = body;
+      const {
+        email,
+        fullName,
+        password,
+        roleIds: rawRoleIds,
+        createSalesRep,
+        territoryName,
+      } = body;
+
+      const roleIds = Array.isArray(rawRoleIds)
+        ? rawRoleIds.filter((roleId): roleId is string => typeof roleId === 'string' && roleId.trim().length > 0)
+        : [];
 
       if (!email || !fullName || !password) {
         return NextResponse.json(
@@ -210,15 +232,15 @@ export async function POST(request: NextRequest) {
           tenantId,
           email,
           fullName,
-            hashedPassword,
-            isActive: true,
-          }
-        });
+          hashedPassword,
+          isActive: true,
+        },
+      });
 
       // Create role assignments if provided
       if (roleIds && roleIds.length > 0) {
         await db.userRole.createMany({
-          data: roleIds.map((roleId: string) => ({
+          data: roleIds.map((roleId) => ({
             userId: newUser.id,
             roleId,
           })),
@@ -270,10 +292,10 @@ export async function POST(request: NextRequest) {
       );
 
       return NextResponse.json({ user }, { status: 201 });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating user:', error);
 
-      if (error.code === 'P2002') {
+      if (typeof error === 'object' && error && 'code' in error && (error as { code?: string }).code === 'P2002') {
         return NextResponse.json(
           { error: 'User with this email already exists' },
           { status: 409 }

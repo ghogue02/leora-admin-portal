@@ -4,7 +4,7 @@ import { useState, useCallback, useRef } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction";
+import interactionPlugin, { DropArg, EventDropArg, EventResizeDoneArg } from "@fullcalendar/interaction";
 import type { EventInput, DateSelectArg, EventClickArg } from "@fullcalendar/core";
 import { DraggableAccountData, CalendarEvent } from "@/types/calendar";
 import { useToast } from "@/hooks/use-toast";
@@ -62,7 +62,7 @@ export function CalendarView({
 
   // Handle external account drop onto calendar
   const handleDrop = useCallback(
-    async (info: any) => {
+    async (info: DropArg) => {
       const accountData = draggedAccount;
       if (!accountData) return;
 
@@ -88,8 +88,18 @@ export function CalendarView({
 
   // Handle event resize/move
   const handleEventChange = useCallback(
-    async (info: any) => {
+    async (info: EventDropArg | EventResizeDoneArg) => {
       try {
+        if (!info.event.start || !info.event.end) {
+          toast({
+            title: "Error",
+            description: "Event is missing required timing information",
+            variant: "destructive",
+          });
+          info.revert();
+          return;
+        }
+
         await onEventUpdate(info.event.id, info.event.start, info.event.end);
         toast({
           title: "Event Updated",

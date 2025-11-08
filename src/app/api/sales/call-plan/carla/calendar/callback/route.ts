@@ -33,7 +33,6 @@ export async function GET(request: NextRequest) {
 
       let accessToken: string;
       let refreshToken: string;
-      let expiresIn: number;
 
       // Exchange code for tokens based on provider
       if (state === "google") {
@@ -58,7 +57,6 @@ export async function GET(request: NextRequest) {
         const tokens = await tokenResponse.json();
         accessToken = tokens.access_token;
         refreshToken = tokens.refresh_token;
-        expiresIn = tokens.expires_in;
       } else if (state === "outlook") {
         const tokenResponse = await fetch(
           "https://login.microsoftonline.com/common/oauth2/v2.0/token",
@@ -84,7 +82,6 @@ export async function GET(request: NextRequest) {
         const tokens = await tokenResponse.json();
         accessToken = tokens.access_token;
         refreshToken = tokens.refresh_token;
-        expiresIn = tokens.expires_in;
       } else {
         return NextResponse.json({ error: "Invalid provider" }, { status: 400 });
       }

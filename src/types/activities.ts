@@ -4,6 +4,7 @@ export type ActivitySampleSelection = {
   code?: string | null;
   brand?: string | null;
   sampleListItemId?: string;
+  quantity?: number;
   selected: boolean;
   feedback: string;
   followUp: boolean;
@@ -75,6 +76,10 @@ export type SampleInsightsSummary = {
     loggedThisWeek: number;
     completedThisWeek: number;
     openFollowUps: number;
+    periodLabel: string;
+    periodSampleQuantity: number;
+    periodUniqueCustomers: number;
+    periodCustomerConversionRate: number;
   };
   recentActivities: SampleActivityRecord[];
   followUps: SampleActivityRecord[];

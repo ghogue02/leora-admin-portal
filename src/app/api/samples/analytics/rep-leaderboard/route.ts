@@ -51,13 +51,21 @@ export async function GET(request: NextRequest) {
     });
 
     // Aggregate current period by sales rep
-    const currentRepMap = new Map<string, {
-      salesRep: any;
-      samplesGiven: number;
-      conversions: number;
-      conversionRate: number;
-      revenue: Decimal;
-    }>();
+    type SalesRepSummary = {
+      id?: string | null;
+      name?: string | null;
+    };
+
+    const currentRepMap = new Map<
+      string,
+      {
+        salesRep: SalesRepSummary | null;
+        samplesGiven: number;
+        conversions: number;
+        conversionRate: number;
+        revenue: Decimal;
+      }
+    >();
 
     currentMetrics.forEach(m => {
       if (!m.salesRepId) return;

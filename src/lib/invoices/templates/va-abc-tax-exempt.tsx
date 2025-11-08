@@ -18,6 +18,8 @@ import { sharedStyles, formatCurrency, formatShortDate } from './styles';
 import type { InvoiceColumnId } from '../column-presets';
 import type { InvoiceBodyBlockId, InvoiceSectionKey } from '../template-settings';
 import { getBodyBlockOrder, getVisibleSectionBuckets } from '../layout-utils';
+import { resolveFooterNotes } from '../footer-notes';
+import { resolveBrandingProfile } from '../branding';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
@@ -241,6 +243,16 @@ function renderLineValue(columnId: InvoiceColumnId, line: CompleteInvoiceData['o
 export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ data }) => {
   const palette = data.templateSettings?.palette ?? {};
   const layout = data.templateSettings?.layout;
+  const options = data.templateSettings?.options ?? {};
+  const branding = resolveBrandingProfile(options, {
+    name: data.tenantName,
+    licenseText: data.wholesalerLicenseNumber
+      ? `VA ABC Wholesale #${data.wholesalerLicenseNumber}`
+      : undefined,
+    contactLines: [
+      data.wholesalerPhone ? `Voice: ${data.wholesalerPhone}` : null,
+    ].filter((line): line is string => Boolean(line)),
+  });
 
   const sections = {
     ...DEFAULT_SECTIONS,
@@ -270,6 +282,20 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
   const bodyBlockOrder = layout
     ? getBodyBlockOrder(layout)
     : (['totals', 'signature', 'compliance'] as InvoiceBodyBlockId[]);
+  const fallbackFooter: string[] = [];
+  if (data.complianceNotice?.trim()) {
+    fallbackFooter.push(data.complianceNotice.trim());
+  }
+  if (data.collectionTerms?.trim()) {
+    if (
+      !fallbackFooter.length
+      || fallbackFooter[0].toLowerCase() !== data.collectionTerms.trim().toLowerCase()
+    ) {
+      fallbackFooter.push(data.collectionTerms.trim());
+    }
+  }
+  const footerLines = resolveFooterNotes(data.templateSettings?.options?.footerNotes, fallbackFooter);
+  const uniqueFooterLines = [...new Set(footerLines.map((line) => line.trim()))].filter((line) => line.length);
 
   return (
     <Document>
@@ -279,8 +305,17 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
 
         {/* Company Header */}
         <View style={styles.header}>
-          <Text style={styles.companyName}>{data.tenantName}</Text>
-          <Text style={styles.companyAddress}>6781 Kennedy Road Suite 8, Warrenton, VA 20187</Text>
+          <Text style={styles.companyName}>{branding.name}</Text>
+          {branding.secondary && <Text style={styles.companyAddress}>{branding.secondary}</Text>}
+          {branding.tagline && <Text style={styles.companyAddress}>{branding.tagline}</Text>}
+          {branding.addressLines.map((line) => (
+            <Text key={line} style={styles.companyAddress}>{line}</Text>
+          ))}
+          {branding.licenseText && <Text style={styles.companyAddress}>{branding.licenseText}</Text>}
+          {branding.contactLines.map((line) => (
+            <Text key={line} style={styles.companyAddress}>{line}</Text>
+          ))}
+          {branding.website && <Text style={styles.companyAddress}>{branding.website}</Text>}
         </View>
 
         {renderNotesBlock(headerNotes.afterHeader)}
@@ -407,7 +442,9 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
           if (blockId === 'compliance' && sections.showComplianceNotice) {
             return (
               <View key="compliance" style={styles.legalText}>
-                <Text>{data.complianceNotice}</Text>
+                {uniqueFooterLines.map((line) => (
+                  <Text key={line}>{line}</Text>
+                ))}
               </View>
             );
           }
@@ -431,8 +468,7 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
         <Text style={styles.page2Header}>Transportation and Compliance Information</Text>
 
         <Text style={{ fontSize: 8, marginBottom: 12 }}>
-          This invoice certifies that the listed goods are being shipped in accordance with the transportation
-          laws of the destination state. Retain this document for your compliance records.
+          {uniqueFooterLines.join(' ')}
         </Text>
 
         <View style={styles.transportationSection}>
@@ -447,7 +483,7 @@ export const VAAbcTaxExemptInvoice: React.FC<VAAbcTaxExemptInvoiceProps> = ({ da
             Due Date: {formatShortDate(data.dueDate)}
           </Text>
           <Text style={{ fontSize: 7 }}>
-            Compliance Notice: {data.complianceNotice}
+            Compliance Notice: {uniqueFooterLines.join(' ')}
           </Text>
         </View>
       </Page>

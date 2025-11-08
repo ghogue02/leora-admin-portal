@@ -1,13 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
+type JobStatusBucket = 'pending' | 'processing' | 'completed' | 'failed';
+type JobTypeStatsMap = Record<
+  string,
+  { total: number } & Record<JobStatusBucket, number>
+>;
+
+const JOB_STATUS_BUCKETS: JobStatusBucket[] = ['pending', 'processing', 'completed', 'failed'];
+const isJobStatusBucket = (value: string): value is JobStatusBucket =>
+  JOB_STATUS_BUCKETS.includes(value as JobStatusBucket);
+
+const getErrorMessage = (error: unknown): string => (error instanceof Error ? error.message : 'Unknown error');
 
 /**
  * GET /api/admin/jobs/stats
  * Get job queue statistics and metrics
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -22,7 +33,7 @@ export async function GET(request: NextRequest) {
       failedLast24h,
       jobsByType,
       recentJobs,
-      avgProcessingTime
+      attemptAggregate
     ] = await Promise.all([
       // Total jobs
       prisma.job.count(),
@@ -102,11 +113,13 @@ export async function GET(request: NextRequest) {
       : 0;
 
     // Format job type statistics
-    const typeStats = jobsByType.reduce((acc: any, item) => {
+    const typeStats = jobsByType.reduce<JobTypeStatsMap>((acc, item) => {
       if (!acc[item.type]) {
         acc[item.type] = { total: 0, pending: 0, processing: 0, completed: 0, failed: 0 };
       }
-      acc[item.type][item.status] = item._count;
+      if (isJobStatusBucket(item.status)) {
+        acc[item.type][item.status] += item._count;
+      }
       acc[item.type].total += item._count;
       return acc;
     }, {});
@@ -121,17 +134,17 @@ export async function GET(request: NextRequest) {
           completedToday,
           failedLast24h,
           avgProcessingTime: Math.round(avgTime / 1000), // Convert to seconds
-          avgAttempts: avgProcessingTime._avg.attempts || 0
+          avgAttempts: attemptAggregate._avg.attempts ?? 0
         },
         byType: typeStats,
         recent: recentJobs
       }
     });
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error fetching job stats:', error);
     return NextResponse.json(
-      { success: false, error: 'Failed to fetch statistics' },
+      { success: false, error: 'Failed to fetch statistics', details: getErrorMessage(error) },
       { status: 500 }
     );
   }

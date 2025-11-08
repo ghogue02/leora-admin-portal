@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
 import { createAuditLog, calculateChanges } from "@/lib/audit-log";
+import type { Prisma } from "@prisma/client";
 
 type RouteParams = {
   params: Promise<{
@@ -223,7 +224,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
     }
 
     // Build update data
-    const updateData: any = {};
+    const updateData: Prisma.OrderUpdateInput = {};
 
     if (customerId !== undefined) updateData.customerId = customerId;
     if (orderedAt !== undefined) updateData.orderedAt = new Date(orderedAt);

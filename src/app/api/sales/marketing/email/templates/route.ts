@@ -4,62 +4,82 @@
  * POST /api/sales/marketing/email/templates - Create new template
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
-import { EMAIL_TEMPLATES, getTemplateById, getTemplatesByCategory } from '@/lib/marketing/email-templates-data';
+import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import { prisma } from "@/lib/prisma";
+import {
+  EMAIL_TEMPLATES,
+  getTemplatesByCategory,
+} from "@/lib/marketing/email-templates-data";
+
+const templateSourceSchema = z.enum(["all", "system", "custom"]).default("all");
+const templateCategorySchema = z.string().optional();
+const createTemplateSchema = z.object({
+  name: z.string().min(1),
+  subject: z.string().min(1),
+  category: z.string().optional(),
+  description: z.string().optional(),
+  html: z.string().min(1),
+  tokens: z.array(z.string()).optional(),
+});
+
+type SystemTemplate = (typeof EMAIL_TEMPLATES)[number];
+type CustomTemplateDto = SystemTemplate & {
+  isCustom: true;
+  createdAt: Date;
+  updatedAt?: Date | null;
+};
 
 /**
  * GET - List all email templates
  */
 export async function GET(request: NextRequest) {
   try {
-    const tenantId = request.headers.get('x-tenant-id') || '';
+    const tenantId = getTenantId(request);
     const searchParams = request.nextUrl.searchParams;
-    const category = searchParams.get('category');
-    const source = searchParams.get('source') || 'all'; // 'all', 'system', 'custom'
+    const category = templateCategorySchema.parse(searchParams.get("category"));
+    const source = templateSourceSchema.parse(searchParams.get("source") ?? undefined);
 
-    let templates: any[] = [];
+    const templates: Array<SystemTemplate | CustomTemplateDto> = [];
 
-    // Get system templates
-    if (source === 'all' || source === 'system') {
+    if (source === "all" || source === "system") {
       const systemTemplates = category
-        ? getTemplatesByCategory(category as any)
+        ? getTemplatesByCategory(category)
         : EMAIL_TEMPLATES;
 
       templates.push(
-        ...systemTemplates.map((t) => ({
-          ...t,
-          source: 'system',
-          isCustom: false,
+        ...systemTemplates.map((template) => ({
+          ...template,
+          source: "system",
+          isCustom: false as const,
         }))
       );
     }
 
-    // Get custom templates from database
-    if (source === 'all' || source === 'custom') {
+    if (source === "all" || source === "custom") {
       const customTemplates = await prisma.emailTemplate.findMany({
         where: {
           tenantId,
-          ...(category && { category }),
+          ...(category ? { category } : {}),
         },
         orderBy: {
-          createdAt: 'desc',
+          createdAt: "desc",
         },
       });
 
       templates.push(
-        ...customTemplates.map((t) => ({
-          id: t.id,
-          name: t.name,
-          subject: t.subject,
-          category: t.category,
-          description: t.description || '',
-          html: t.body,
-          tokens: [], // Parse from body
-          source: 'custom',
+        ...customTemplates.map<CustomTemplateDto>((template) => ({
+          id: template.id,
+          name: template.name,
+          subject: template.subject,
+          category: template.category,
+          description: template.description ?? "",
+          html: template.body,
+          tokens: (template.metadata?.tokens as string[]) ?? [],
+          source: "custom",
           isCustom: true,
-          createdAt: t.createdAt,
-          updatedAt: t.updatedAt,
+          createdAt: template.createdAt,
+          updatedAt: template.updatedAt,
         }))
       );
     }
@@ -69,9 +89,9 @@ export async function GET(request: NextRequest) {
       count: templates.length,
     });
   } catch (error) {
-    console.error('Error fetching templates:', error);
+    console.error("Error fetching templates:", error);
     return NextResponse.json(
-      { error: 'Failed to fetch templates' },
+      { error: "Failed to fetch templates" },
       { status: 500 }
     );
   }
@@ -82,30 +102,18 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
-    const tenantId = request.headers.get('x-tenant-id') || '';
-    const userId = request.headers.get('x-user-id') || '';
+    const tenantId = request.headers.get("x-tenant-id") || "";
+    const body = createTemplateSchema.parse(await request.json());
 
-    const body = await request.json();
-    const { name, subject, category, description, html, tokens } = body;
-
-    // Validate required fields
-    if (!name || !subject || !html) {
-      return NextResponse.json(
-        { error: 'Missing required fields: name, subject, html' },
-        { status: 400 }
-      );
-    }
-
-    // Create template
     const template = await prisma.emailTemplate.create({
       data: {
         tenantId,
-        name,
-        subject,
-        category: category || 'marketing',
-        description,
-        body: html,
-        metadata: { tokens: tokens || [] },
+        name: body.name,
+        subject: body.subject,
+        category: body.category ?? "marketing",
+        description: body.description ?? "",
+        body: body.html,
+        metadata: { tokens: body.tokens ?? [] },
       },
     });
 
@@ -118,14 +126,15 @@ export async function POST(request: NextRequest) {
         category: template.category,
         description: template.description,
         html: template.body,
+        tokens: (template.metadata?.tokens as string[]) ?? [],
         isCustom: true,
         createdAt: template.createdAt,
       },
     });
   } catch (error) {
-    console.error('Error creating template:', error);
+    console.error("Error creating template:", error);
     return NextResponse.json(
-      { error: 'Failed to create template' },
+      { error: "Failed to create template" },
       { status: 500 }
     );
   }

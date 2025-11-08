@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import prisma from '@/lib/prisma';
+import { Prisma } from '@prisma/client';
 import { Decimal } from '@prisma/client/runtime/library';
 
 // Validation schema for query parameters
@@ -37,6 +38,17 @@ interface TimelinePoint {
   revenue: Decimal;
 }
 
+type DateRangeFilter = {
+  gte?: Date;
+  lte?: Date;
+};
+
+type AnalyticsWhereClause = {
+  dateGiven?: DateRangeFilter;
+  skuId?: string;
+  salesRepId?: string;
+};
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -50,7 +62,7 @@ export async function GET(request: NextRequest) {
     });
 
     // Build date filter
-    const dateFilter: any = {};
+    const dateFilter: DateRangeFilter = {};
     if (params.startDate) {
       dateFilter.gte = new Date(params.startDate);
     }
@@ -59,7 +71,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Build where clause
-    const whereClause: any = {};
+    const whereClause: AnalyticsWhereClause = {};
     if (Object.keys(dateFilter).length > 0) {
       whereClause.dateGiven = dateFilter;
     }
@@ -72,7 +84,7 @@ export async function GET(request: NextRequest) {
 
     // Query SampleMetrics table
     const metrics = await prisma.sampleMetrics.findMany({
-      where: whereClause,
+      where: whereClause as unknown as Prisma.SampleMetricsWhereInput,
       include: {
         sku: {
           include: { product: true },

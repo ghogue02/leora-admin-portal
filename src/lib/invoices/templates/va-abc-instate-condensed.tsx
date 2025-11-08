@@ -11,12 +11,15 @@ import {
   Text,
   View,
   StyleSheet,
+  Image,
 } from '@react-pdf/renderer';
 import { CompleteInvoiceData } from '../invoice-data-builder';
 import { sharedStyles, formatCurrency, formatShortDate } from './styles';
 import type { InvoiceColumnId } from '../column-presets';
 import type { InvoiceBodyBlockId, InvoiceSectionKey } from '../template-settings';
 import { getBodyBlockOrder, getVisibleSectionBuckets } from '../layout-utils';
+import { resolveFooterNotes } from '../footer-notes';
+import { resolveBrandingProfile } from '../branding';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
@@ -356,6 +359,17 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
     ...(layout?.sections ?? {}),
   };
   const options = data.templateSettings?.options ?? {};
+  const branding = resolveBrandingProfile(options, {
+    name: data.tenantName,
+    licenseText: data.wholesalerLicenseNumber
+      ? `VA ABC Wholesale #${data.wholesalerLicenseNumber}`
+      : undefined,
+    contactLines: [
+      data.wholesalerLicenseNumber ? `Wholesaler #: ${data.wholesalerLicenseNumber}` : null,
+      data.wholesalerPhone ? `Voice: ${data.wholesalerPhone}` : null,
+    ].filter((line): line is string => Boolean(line)),
+    website: options.companyWebsite ?? undefined,
+  });
   const columns = parseColumns(layout?.columns);
   const headerNotes = groupNotes(layout?.headerNotes);
 
@@ -379,6 +393,19 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
   const bodyBlockOrder = layout
     ? getBodyBlockOrder(layout)
     : (['totals', 'signature', 'compliance'] as InvoiceBodyBlockId[]);
+  const complianceText = data.complianceNotice?.trim();
+  const legalText = data.collectionTerms?.trim();
+  const fallbackFooter: string[] = [];
+  if (legalText) {
+    fallbackFooter.push(legalText);
+  } else {
+    fallbackFooter.push(`${data.interestRate.times(100).toFixed(1)}% finance charge on late payments.`);
+  }
+  if (complianceText && (!legalText || legalText.toLowerCase() !== complianceText.toLowerCase())) {
+    fallbackFooter.push(complianceText);
+  }
+  const footerLines = resolveFooterNotes(data.templateSettings?.options?.footerNotes, fallbackFooter);
+  const uniqueFooterLines = [...new Set(footerLines.map((line) => line.trim()))].filter((line) => line.length);
 
   return (
     <Document>
@@ -388,17 +415,27 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
         {/* Header */}
         <View style={styles.headerRow}>
           <View style={styles.headerLeft}>
-            <Text style={styles.companyName}>{data.tenantName}</Text>
-            <Text style={styles.companySubtitle}>(formerly The Spanish Wine Importers LLC)</Text>
-            <Text style={styles.companyAddress}>6781 Kennedy Road Suite 8, Warrenton, VA 20187</Text>
+            {!!options.logoUrl && (
+              <Image
+                src={options.logoUrl}
+                style={{ height: 40, width: 40, marginBottom: 4, objectFit: 'contain' }}
+              />
+            )}
+            <Text style={styles.companyName}>{branding.name}</Text>
+            {branding.secondary && <Text style={styles.companySubtitle}>{branding.secondary}</Text>}
+            {branding.tagline && <Text style={styles.companySubtitle}>{branding.tagline}</Text>}
+            {branding.addressLines.map((line) => (
+              <Text key={line} style={styles.companyAddress}>{line}</Text>
+            ))}
+            {branding.licenseText && <Text style={styles.companyAddress}>{branding.licenseText}</Text>}
           </View>
           <View style={styles.headerRight}>
-            <Text style={styles.wholesalerInfo}>
-              Wholesaler #: {data.wholesalerLicenseNumber || 'N/A'}
-            </Text>
-            <Text style={styles.wholesalerInfo}>
-              Voice: {data.wholesalerPhone || 'N/A'}
-            </Text>
+            {branding.contactLines.map((line) => (
+              <Text key={line} style={styles.wholesalerInfo}>
+                {line}
+              </Text>
+            ))}
+            {branding.website && <Text style={styles.wholesalerInfo}>{branding.website}</Text>}
           </View>
         </View>
 
@@ -529,9 +566,11 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
           if (blockId === 'compliance' && sections.showComplianceNotice) {
             return (
               <View key="compliance" style={styles.complianceNotice}>
-                <Text style={{ fontSize: 5 }}>
-                  {data.interestRate.times(100).toFixed(1)}% finance charge on late payments. {data.complianceNotice}
-                </Text>
+                {uniqueFooterLines.map((line) => (
+                  <Text key={line} style={{ fontSize: 5 }}>
+                    {line}
+                  </Text>
+                ))}
               </View>
             );
           }
@@ -539,12 +578,7 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
           return null;
         })}
 
-        {/* Legal */}
-        <View style={styles.legalText}>
-          <Text>
-            {data.interestRate.times(100).toFixed(1)}% finance charge on late payments. {data.collectionTerms}
-          </Text>
-        </View>
+        {/* Footer already rendered within compliance block; avoid duplicating legal text */}
       </Page>
     </Document>
   );

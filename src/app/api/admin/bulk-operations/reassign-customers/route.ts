@@ -5,6 +5,9 @@ import { PrismaClient } from '@prisma/client';
 import { logChange, AuditOperation } from '@/lib/audit';
 import { parseCSV } from '@/lib/csv-parser';
 
+const getErrorMessage = (error: unknown): string =>
+  error instanceof Error ? error.message : 'Unknown error';
+
 /**
  * POST /api/admin/bulk-operations/reassign-customers
  * Bulk reassign multiple customers to a new sales rep
@@ -206,7 +209,7 @@ export async function POST(request: NextRequest) {
 
             results.successCount++;
           });
-        } catch (error: any) {
+        } catch (error: unknown) {
           const customer = await db.customer.findUnique({
             where: { id: customerId },
             select: { name: true }
@@ -215,7 +218,7 @@ export async function POST(request: NextRequest) {
           results.errors.push({
             customerId,
             customerName: customer?.name || 'Unknown',
-            error: error.message || 'Unknown error'
+            error: getErrorMessage(error)
           });
         }
       }
@@ -231,10 +234,10 @@ export async function POST(request: NextRequest) {
           territory: salesRep.territoryName
         }
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error in bulk customer reassignment:', error);
       return NextResponse.json(
-        { error: 'Failed to perform bulk reassignment', details: error.message },
+        { error: 'Failed to perform bulk reassignment', details: getErrorMessage(error) },
         { status: 500 }
       );
     }

@@ -1,6 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession, AdminSessionContext } from "@/lib/auth/admin";
 import { logChange, calculateChanges, AuditOperation } from "@/lib/audit";
+import type { Prisma } from "@prisma/client";
+
+type PriceListUpdatePayload = {
+  name?: string;
+  currency?: string;
+  isDefault?: boolean;
+  effectiveAt?: string | null;
+  expiresAt?: string | null;
+  jurisdictionType?: Prisma.PriceListUpdateInput["jurisdictionType"];
+  jurisdictionValue?: string | null;
+  allowManualOverride?: boolean;
+};
 
 /**
  * GET /api/admin/pricing/[id]
@@ -89,7 +101,7 @@ export async function PUT(
     const { tenantId, db, user } = context;
     try {
       const { id } = await params;
-      const body = await request.json();
+      const body = (await request.json().catch(() => ({}))) as PriceListUpdatePayload;
 
       // Find current price list
       const currentPriceList = await db.priceList.findFirst({
@@ -137,7 +149,10 @@ export async function PUT(
       });
 
       // Log changes
-      const changes = calculateChanges(currentPriceList as any, updatedPriceList as any);
+      const changes = calculateChanges(
+        currentPriceList as Record<string, unknown>,
+        updatedPriceList as Record<string, unknown>
+      );
       if (Object.keys(changes).length > 0) {
         await logChange(
           {

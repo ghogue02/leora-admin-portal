@@ -55,7 +55,7 @@ export async function POST(
       }
 
       // Create the tag
-      const tag = await db.$executeRaw`
+      await db.$executeRaw`
         INSERT INTO "CustomerTag" ("id", "tenantId", "customerId", "tagType", "tagValue", "addedAt")
         VALUES (gen_random_uuid(), ${tenantId}::uuid, ${customerId}::uuid, ${tagType}, ${tagValue}, NOW())
         RETURNING *

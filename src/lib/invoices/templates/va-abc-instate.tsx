@@ -12,12 +12,15 @@ import {
   Text,
   View,
   StyleSheet,
+  Image,
 } from '@react-pdf/renderer';
 import { CompleteInvoiceData } from '../invoice-data-builder';
 import { sharedStyles, formatCurrency, formatShortDate } from './styles';
 import type { InvoiceColumnId } from '../column-presets';
 import type { InvoiceBodyBlockId, InvoiceSectionKey } from '../template-settings';
 import { getBodyBlockOrder, getVisibleSectionBuckets } from '../layout-utils';
+import { resolveFooterNotes } from '../footer-notes';
+import { resolveBrandingProfile } from '../branding';
 
 const styles = StyleSheet.create({
   ...sharedStyles,
@@ -335,6 +338,17 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
   const palette = data.templateSettings?.palette ?? {};
   const options = data.templateSettings?.options ?? {};
   const layout = data.templateSettings?.layout;
+  const branding = resolveBrandingProfile(options, {
+    name: data.tenantName,
+    licenseText: data.wholesalerLicenseNumber
+      ? `VA ABC Wholesale #${data.wholesalerLicenseNumber}`
+      : undefined,
+    contactLines: [
+      data.wholesalerLicenseNumber ? `Wholesaler #: ${data.wholesalerLicenseNumber}` : null,
+      data.wholesalerPhone ? `Voice: ${data.wholesalerPhone}` : null,
+    ].filter((line): line is string => Boolean(line)),
+    website: options.companyWebsite ?? undefined,
+  });
 
   const sections = {
     ...DEFAULT_SECTIONS,
@@ -377,18 +391,29 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
         {/* Header with company info and invoice details */}
         <View style={styles.headerRow}>
           <View style={styles.headerLeft}>
-            <Text style={styles.companyName}>{data.tenantName}</Text>
-            <Text style={styles.companySubtitle}>(formerly The Spanish Wine Importers LLC)</Text>
-            <Text style={styles.companyAddress}>6781 Kennedy Road Suite 8</Text>
-            <Text style={styles.companyAddress}>Warrenton, VA 20187</Text>
+            {!!logoUrl && (
+              <Image
+                src={logoUrl}
+                style={{ height: 56, width: 56, marginBottom: 6, objectFit: 'contain' }}
+              />
+            )}
+            <Text style={styles.companyName}>{branding.name}</Text>
+            {branding.secondary && <Text style={styles.companySubtitle}>{branding.secondary}</Text>}
+            {branding.tagline && <Text style={styles.companySubtitle}>{branding.tagline}</Text>}
+            {branding.addressLines.map((line) => (
+              <Text key={line} style={styles.companyAddress}>{line}</Text>
+            ))}
+            {branding.licenseText && <Text style={styles.companyAddress}>{branding.licenseText}</Text>}
           </View>
           <View style={styles.headerRight}>
-            <Text style={styles.wholesalerInfo}>
-              Wholesaler's #: {data.wholesalerLicenseNumber || 'N/A'}
-            </Text>
-            <Text style={styles.wholesalerInfo}>
-              Voice: {data.wholesalerPhone || 'N/A'}
-            </Text>
+            {branding.contactLines.map((line) => (
+              <Text key={line} style={styles.wholesalerInfo}>
+                {line}
+              </Text>
+            ))}
+            {branding.website && (
+              <Text style={styles.wholesalerInfo}>{branding.website}</Text>
+            )}
           </View>
         </View>
 
@@ -548,23 +573,36 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
           }
 
           if (blockId === 'compliance' && sections.showComplianceNotice) {
+            const complianceText = data.complianceNotice?.trim();
+            const legalText = data.collectionTerms?.trim()
+              || `Accounts not paid on-time in accordance with the above due date are subject to ${data.interestRate
+                  .times(100)
+                  .toFixed(1)}% finance charges.`;
+
+            const showLegalLine = legalText
+              && (!complianceText || legalText.toLowerCase() !== complianceText.toLowerCase());
+
+            const fallbackFooter: string[] = [];
+            if (complianceText) fallbackFooter.push(complianceText);
+            if (showLegalLine && legalText) fallbackFooter.push(legalText);
+
+            const footerLines = resolveFooterNotes(
+              data.templateSettings?.options?.footerNotes,
+              fallbackFooter
+            );
+            const uniqueFooterLines = [...new Set(footerLines.map((line) => line.trim()))].filter((line) => line.length);
+
             return (
               <View key="compliance" style={styles.complianceNotice}>
-                <Text>{data.complianceNotice}</Text>
+                {uniqueFooterLines.map((line) => (
+                  <Text key={line}>{line}</Text>
+                ))}
               </View>
             );
           }
 
           return null;
         })}
-
-        {/* Legal Terms */}
-        <View style={styles.legalText}>
-          <Text>
-            Accounts not paid on-time in accordance with the above due date are subject to{' '}
-            {data.interestRate.times(100).toFixed(1)}% finance charges
-          </Text>
-        </View>
       </Page>
     </Document>
   );

@@ -1,7 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession } from '@/lib/auth/admin';
-import { runDataIntegrityCheck, getLatestSnapshot } from '@/lib/jobs/data-integrity-check';
+import { runDataIntegrityCheck, getLatestSnapshot, type IntegrityCheckResult } from '@/lib/jobs/data-integrity-check';
 import { allValidationRules } from '@/lib/validation/rules';
+
+type IntegritySummary = Pick<
+  IntegrityCheckResult,
+  'tenantId' | 'totalIssues' | 'criticalIssues' | 'qualityScore' | 'issuesByRule' | 'timestamp'
+> & {
+  cached: boolean;
+};
 
 /**
  * GET /api/admin/data-integrity
@@ -14,11 +21,11 @@ export async function GET(request: NextRequest) {
       const latestSnapshot = await getLatestSnapshot(tenantId);
       const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
 
-      let result;
+      let summary: IntegritySummary;
 
       if (latestSnapshot && new Date(latestSnapshot.snapshotDate) > fiveMinutesAgo) {
         // Use cached snapshot
-        result = {
+        summary = {
           tenantId,
           totalIssues: latestSnapshot.totalIssues,
           criticalIssues: latestSnapshot.criticalIssues,
@@ -29,8 +36,16 @@ export async function GET(request: NextRequest) {
         };
       } else {
         // Run fresh check
-        result = await runDataIntegrityCheck(tenantId);
-        (result as any).cached = false;
+        const freshResult = await runDataIntegrityCheck(tenantId);
+        summary = {
+          tenantId: freshResult.tenantId,
+          totalIssues: freshResult.totalIssues,
+          criticalIssues: freshResult.criticalIssues,
+          qualityScore: freshResult.qualityScore,
+          issuesByRule: freshResult.issuesByRule,
+          timestamp: freshResult.timestamp,
+          cached: false,
+        };
       }
 
       // Build alerts array with metadata
@@ -39,7 +54,7 @@ export async function GET(request: NextRequest) {
         name: rule.name,
         description: rule.description,
         severity: rule.severity,
-        count: result.issuesByRule[rule.id] || 0,
+        count: summary.issuesByRule[rule.id] || 0,
         hasFix: !!rule.fix,
       }));
 
@@ -47,11 +62,11 @@ export async function GET(request: NextRequest) {
         success: true,
         data: {
           summary: {
-            totalIssues: result.totalIssues,
-            criticalIssues: result.criticalIssues,
-            qualityScore: result.qualityScore,
-            lastChecked: result.timestamp,
-            cached: (result as any).cached,
+            totalIssues: summary.totalIssues,
+            criticalIssues: summary.criticalIssues,
+            qualityScore: summary.qualityScore,
+            lastChecked: summary.timestamp,
+            cached: summary.cached,
           },
           alerts,
         },

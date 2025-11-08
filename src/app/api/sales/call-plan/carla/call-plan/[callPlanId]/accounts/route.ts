@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { Prisma } from "@prisma/client";
 
 export async function POST(
   request: NextRequest,
@@ -82,8 +83,8 @@ export async function POST(
         success: true,
         totalAccounts,
       });
-    } catch (error: any) {
-      if (error?.code === "P2002") {
+    } catch (error: unknown) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
         return NextResponse.json({
           success: true,
           message: "Account already added",

@@ -13,16 +13,20 @@ import {
   MoreVertical,
   Trash2,
 } from "lucide-react";
-import { format } from "date-fns";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import type { CarlaSelectedAccount } from "../types";
+
+type MobileAccount = CarlaSelectedAccount & {
+  objectives?: string | null;
+};
 
 interface MobileAccountCardProps {
-  account: any;
+  account: MobileAccount;
   onContactUpdate: (customerId: string, outcome: string) => void;
   onRemoveAccount: (customerId: string) => void;
 }
@@ -34,10 +38,19 @@ export function MobileAccountCard({
 }: MobileAccountCardProps) {
   const [touchStartX, setTouchStartX] = useState(0);
   const [touchEndX, setTouchEndX] = useState(0);
-  const [showActions, setShowActions] = useState(false);
 
-  const customer = account.customer;
+  const customer =
+    account.customer ?? {
+      id: account.id,
+      customerName: account.name ?? "Customer",
+      accountNumber: account.accountNumber ?? null,
+      phone: null,
+      addresses: [] as Array<{ address1?: string | null; city?: string | null; state?: string | null; zipCode?: string | null }>,
+    };
+
   const address = customer.addresses?.[0];
+  const customerDisplayName = customer.customerName ?? account.name ?? "Customer";
+  const objectives = account.objectives ?? account.objective ?? null;
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStartX(e.targetTouches[0].clientX);
@@ -98,7 +111,7 @@ export function MobileAccountCard({
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-lg truncate">
-              {customer.customerName}
+              {customerDisplayName}
             </h3>
             {customer.accountNumber && (
               <p className="text-sm text-gray-500">#{customer.accountNumber}</p>
@@ -133,7 +146,7 @@ export function MobileAccountCard({
         </div>
 
         {/* Address */}
-        {address && (
+        {address ? (
           <div className="flex items-start gap-2 mb-3 text-sm text-gray-600">
             <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
             <span>
@@ -141,13 +154,23 @@ export function MobileAccountCard({
               {address.zipCode}
             </span>
           </div>
+        ) : (
+          account.city &&
+          account.state && (
+            <div className="flex items-start gap-2 mb-3 text-sm text-gray-600">
+              <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
+              <span>
+                {account.city}, {account.state}
+              </span>
+            </div>
+          )
         )}
 
         {/* Objectives */}
-        {account.objectives && (
+        {objectives && (
           <div className="mb-3 p-2 bg-blue-50 rounded text-sm">
             <span className="font-medium text-blue-900">Objectives: </span>
-            <span className="text-blue-700">{account.objectives}</span>
+            <span className="text-blue-700">{objectives}</span>
           </div>
         )}
 
@@ -191,7 +214,7 @@ export function MobileAccountCard({
 }
 
 interface MobileOptimizedViewProps {
-  accounts: any[];
+  accounts: MobileAccount[];
   onContactUpdate: (customerId: string, outcome: string, notes?: string) => void;
   onRemoveAccount: (customerId: string) => void;
 }
@@ -233,7 +256,7 @@ export default function MobileOptimizedView({
           <CardContent className="p-8 text-center">
             <p className="text-gray-500">No accounts in your call plan</p>
             <p className="text-sm text-gray-400 mt-2">
-              Tap "Select Accounts" to add accounts
+              Tap &quot;Select Accounts&quot; to add accounts
             </p>
           </CardContent>
         </Card>

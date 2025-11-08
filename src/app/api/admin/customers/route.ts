@@ -1,7 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { logCustomerCreate } from '@/lib/audit';
-import { Prisma } from '@prisma/client';
+import { Prisma, CustomerRiskStatus } from '@prisma/client';
+
+const CUSTOMER_RISK_STATUS_SET = new Set(Object.values(CustomerRiskStatus));
+
+const parseRiskStatuses = (value: string): CustomerRiskStatus[] =>
+  value
+    .split(',')
+    .map((status) => status.trim())
+    .filter((status): status is CustomerRiskStatus => CUSTOMER_RISK_STATUS_SET.has(status as CustomerRiskStatus));
 
 /**
  * GET /api/admin/customers
@@ -61,8 +69,10 @@ export async function GET(request: NextRequest) {
 
       // Risk status filter
       if (riskStatus) {
-        const statuses = riskStatus.split(',') as any[];
-        where.riskStatus = { in: statuses };
+        const statuses = parseRiskStatuses(riskStatus);
+        if (statuses.length > 0) {
+          where.riskStatus = { in: statuses };
+        }
       }
 
       // Date range filter (last order date)
@@ -171,7 +181,7 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   return withAdminSession(request, async (context: AdminSessionContext) => {
-    const { tenantId, user, db } = context;
+    const { tenantId, db } = context;
     try {
       const body = await request.json();
 
@@ -242,10 +252,10 @@ export async function POST(request: NextRequest) {
       );
 
       return NextResponse.json({ customer }, { status: 201 });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating customer:', error);
 
-      if (error.code === 'P2002') {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
         return NextResponse.json(
           { error: 'Customer with this account number already exists' },
           { status: 409 }

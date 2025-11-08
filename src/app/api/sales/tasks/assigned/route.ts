@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { TaskStatus } from "@prisma/client";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -7,7 +8,12 @@ export async function GET(request: NextRequest) {
     const statusFilter = searchParams.get("status");
 
     // Build where clause - fetch tasks assigned TO current user
-    const where: any = {
+    const where: {
+      tenantId: string;
+      userId: string;
+      status?: TaskStatus;
+      dueAt?: { lt: Date };
+    } = {
       tenantId,
       userId: session.user.id,
     };
@@ -21,7 +27,7 @@ export async function GET(request: NextRequest) {
           lt: new Date(),
         };
       } else {
-        where.status = statusFilter.toUpperCase();
+        where.status = statusFilter.toUpperCase() as TaskStatus;
       }
     }
 

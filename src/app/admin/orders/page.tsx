@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 
 type Order = {
@@ -64,28 +64,33 @@ export default function OrdersListPage() {
     minAmount: "",
     maxAmount: "",
   });
-  const [salesReps, setSalesReps] = useState<any[]>([]);
+  const [salesReps, setSalesReps] = useState<{ id: string; name: string }[]>([]);
   const [selectedOrders, setSelectedOrders] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     fetchSalesReps();
-  }, []);
+  }, [fetchSalesReps]);
 
   useEffect(() => {
     fetchOrders();
-  }, [pagination.page, sortBy, sortOrder, filters]);
+  }, [fetchOrders]);
 
-  const fetchSalesReps = async () => {
+  const fetchSalesReps = useCallback(async () => {
     try {
       const response = await fetch("/api/admin/sales-reps");
       const data = await response.json();
-      setSalesReps(data.reps || []);
+      setSalesReps(
+        (data.reps || []).map((rep: { id: string; user: { fullName: string } }) => ({
+          id: rep.id,
+          name: rep.user.fullName,
+        }))
+      );
     } catch (error) {
       console.error("Failed to fetch sales reps:", error);
     }
-  };
+  }, []);
 
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
@@ -121,7 +126,7 @@ export default function OrdersListPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pagination.page, pagination.limit, sortBy, sortOrder, filters]);
 
   const handleSort = (column: string) => {
     if (sortBy === column) {
@@ -132,7 +137,7 @@ export default function OrdersListPage() {
     }
   };
 
-  const handleFilterChange = (key: keyof Filters, value: any) => {
+  const handleFilterChange = <K extends keyof Filters>(key: K, value: Filters[K]) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
     setPagination((prev) => ({ ...prev, page: 1 }));
   };

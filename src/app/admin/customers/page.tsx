@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { formatUTCDate } from '@/lib/dates';
 
@@ -50,12 +50,14 @@ export default function CustomersPage() {
   const [error, setError] = useState<string | null>(null);
 
   // Filters
-  const [search, setSearch] = useState('');
-  const [territory, setTerritory] = useState('');
-  const [salesRepId, setSalesRepId] = useState('');
-  const [riskStatus, setRiskStatus] = useState<string[]>([]);
-  const [dateFrom, setDateFrom] = useState('');
-  const [dateTo, setDateTo] = useState('');
+  const [filters, setFilters] = useState({
+    search: '',
+    territory: '',
+    riskStatus: [] as string[],
+    dateFrom: '',
+    dateTo: '',
+  });
+  const [appliedFilters, setAppliedFilters] = useState(filters);
 
   // Sorting
   const [sortBy, setSortBy] = useState('name');
@@ -64,11 +66,16 @@ export default function CustomersPage() {
   // Bulk selection
   const [selectedCustomers, setSelectedCustomers] = useState<string[]>([]);
 
-  useEffect(() => {
-    fetchCustomers();
-  }, [pagination.page, sortBy, sortOrder]);
+  const { search, territory, riskStatus, dateFrom, dateTo } = filters;
+  const {
+    search: appliedSearch,
+    territory: appliedTerritory,
+    riskStatus: appliedRiskStatus,
+    dateFrom: appliedDateFrom,
+    dateTo: appliedDateTo,
+  } = appliedFilters;
 
-  const fetchCustomers = async () => {
+  const fetchCustomers = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -79,12 +86,11 @@ export default function CustomersPage() {
       sortOrder,
     });
 
-    if (search) params.append('search', search);
-    if (territory) params.append('territory', territory);
-    if (salesRepId) params.append('salesRepId', salesRepId);
-    if (riskStatus.length > 0) params.append('riskStatus', riskStatus.join(','));
-    if (dateFrom) params.append('dateFrom', dateFrom);
-    if (dateTo) params.append('dateTo', dateTo);
+    if (appliedSearch) params.append('search', appliedSearch);
+    if (appliedTerritory) params.append('territory', appliedTerritory);
+    if (appliedRiskStatus.length > 0) params.append('riskStatus', appliedRiskStatus.join(','));
+    if (appliedDateFrom) params.append('dateFrom', appliedDateFrom);
+    if (appliedDateTo) params.append('dateTo', appliedDateTo);
 
     try {
       const response = await fetch(`/api/admin/customers?${params}`);
@@ -96,16 +102,30 @@ export default function CustomersPage() {
 
       setCustomers(data.customers);
       setPagination(data.pagination);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch customers');
     } finally {
       setLoading(false);
     }
-  };
+  }, [
+    pagination.page,
+    pagination.limit,
+    sortBy,
+    sortOrder,
+    appliedSearch,
+    appliedTerritory,
+    appliedRiskStatus,
+    appliedDateFrom,
+    appliedDateTo,
+  ]);
+
+  useEffect(() => {
+    fetchCustomers();
+  }, [fetchCustomers]);
 
   const handleSearch = () => {
+    setAppliedFilters(filters);
     setPagination(prev => ({ ...prev, page: 1 }));
-    fetchCustomers();
   };
 
   const handleSort = (column: string) => {
@@ -156,8 +176,8 @@ export default function CustomersPage() {
       a.href = url;
       a.download = `customers-export-${formatUTCDate(new Date())}.csv`;
       a.click();
-    } catch (err: any) {
-      alert('Export failed: ' + err.message);
+    } catch (err: unknown) {
+      alert('Export failed: ' + (err instanceof Error ? err.message : 'Unknown error'));
     }
   };
 
@@ -180,28 +200,28 @@ export default function CustomersPage() {
             type="text"
             placeholder="Search customers..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
             className="border rounded px-3 py-2"
           />
           <input
             type="text"
             placeholder="Territory"
             value={territory}
-            onChange={(e) => setTerritory(e.target.value)}
+            onChange={(e) => setFilters((prev) => ({ ...prev, territory: e.target.value }))}
             className="border rounded px-3 py-2"
           />
           <input
             type="date"
             placeholder="From Date"
             value={dateFrom}
-            onChange={(e) => setDateFrom(e.target.value)}
+            onChange={(e) => setFilters((prev) => ({ ...prev, dateFrom: e.target.value }))}
             className="border rounded px-3 py-2"
           />
           <input
             type="date"
             placeholder="To Date"
             value={dateTo}
-            onChange={(e) => setDateTo(e.target.value)}
+            onChange={(e) => setFilters((prev) => ({ ...prev, dateTo: e.target.value }))}
             className="border rounded px-3 py-2"
           />
         </div>
@@ -215,11 +235,10 @@ export default function CustomersPage() {
                 type="checkbox"
                 checked={riskStatus.includes(status)}
                 onChange={(e) => {
-                  if (e.target.checked) {
-                    setRiskStatus([...riskStatus, status]);
-                  } else {
-                    setRiskStatus(riskStatus.filter(s => s !== status));
-                  }
+                  const nextStatuses = e.target.checked
+                    ? [...riskStatus, status]
+                    : riskStatus.filter(s => s !== status);
+                  setFilters((prev) => ({ ...prev, riskStatus: nextStatuses }));
                 }}
                 className="mr-1"
               />

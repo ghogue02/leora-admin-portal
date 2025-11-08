@@ -1,5 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { withSalesSession } from '@/lib/auth/sales';
+import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
+import { z } from "zod";
+import { withSalesSession } from "@/lib/auth/sales";
 import {
   startOfWeek,
   endOfWeek,
@@ -13,27 +15,63 @@ import {
   subMonths,
   subQuarters,
   subYears,
-} from 'date-fns';
+} from "date-fns";
+
+const METRIC_TYPES = ["revenue", "cases", "pod"] as const;
+type MetricType = (typeof METRIC_TYPES)[number];
+
+const PERIOD_TYPES = ["week", "month", "quarter", "year"] as const;
+type PeriodType = (typeof PERIOD_TYPES)[number];
+
+const PERIOD_SCOPES = ["current", "previous"] as const;
+type PeriodScope = (typeof PERIOD_SCOPES)[number];
+
+const updateGoalSchema = z.object({
+  productCategory: z.union([z.string(), z.null()]).optional(),
+  skuId: z.union([z.string().uuid(), z.null()]).optional(),
+  targetRevenue: z.union([z.number(), z.string(), z.null()]).optional(),
+  targetCases: z.union([z.number(), z.string(), z.null()]).optional(),
+  targetPod: z.union([z.number(), z.string(), z.null()]).optional(),
+  metricType: z.enum(METRIC_TYPES).optional(),
+  periodType: z.enum(PERIOD_TYPES).optional(),
+  periodScope: z.enum(PERIOD_SCOPES).optional(),
+});
+
+const normalizeNumericInput = (value?: string | number | null) => {
+  if (value === undefined || value === null || value === "") {
+    return undefined;
+  }
+  const parsed = typeof value === "string" ? Number(value) : value;
+  return Number.isFinite(parsed) ? parsed : undefined;
+};
+
+const normalizeOptionalString = (value?: string | null) => {
+  if (typeof value !== "string") {
+    return null;
+  }
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : null;
+};
 
 function calculatePeriodDates(
-  periodType: string,
-  scope: 'current' | 'previous' = 'current'
+  periodType: PeriodType,
+  scope: PeriodScope = "current"
 ) {
   const now = new Date();
   let reference = now;
 
-  if (scope === 'previous') {
+  if (scope === "previous") {
     switch (periodType) {
-      case 'week':
+      case "week":
         reference = subWeeks(now, 1);
         break;
-      case 'quarter':
+      case "quarter":
         reference = subQuarters(now, 1);
         break;
-      case 'year':
+      case "year":
         reference = subYears(now, 1);
         break;
-      case 'month':
+      case "month":
       default:
         reference = subMonths(now, 1);
         break;
@@ -41,24 +79,24 @@ function calculatePeriodDates(
   }
 
   switch (periodType) {
-    case 'week': {
+    case "week": {
       const start = startOfWeek(reference, { weekStartsOn: 1 });
       const end = endOfWeek(reference, { weekStartsOn: 1 });
       return { periodStart: start, periodEnd: end };
     }
-    case 'quarter': {
+    case "quarter": {
       return {
         periodStart: startOfQuarter(reference),
         periodEnd: endOfQuarter(reference),
       };
     }
-    case 'year': {
+    case "year": {
       return {
         periodStart: startOfYear(reference),
         periodEnd: endOfYear(reference),
       };
     }
-    case 'month':
+    case "month":
     default: {
       return {
         periodStart: startOfMonth(reference),
@@ -90,38 +128,28 @@ export async function PUT(
         );
       }
 
-      const body = await request.json();
+      const parsedBody = updateGoalSchema.parse(await request.json());
+      const productCategory = normalizeOptionalString(parsedBody.productCategory);
+      const skuId = parsedBody.skuId ?? null;
+      const targetRevenueValue = normalizeNumericInput(parsedBody.targetRevenue);
+      const targetCasesValue = normalizeNumericInput(parsedBody.targetCases);
+      const targetPodValue = normalizeNumericInput(parsedBody.targetPod);
+      const metricType: MetricType = parsedBody.metricType ?? "revenue";
 
-      const {
+      const updateData: Prisma.RepProductGoalUncheckedUpdateInput = {
         productCategory,
         skuId,
-        targetRevenue,
-        targetCases,
-        targetPod,
-        metricType = 'revenue',
-        periodType,
-        periodScope,
-      } = body;
-
-      const normalizedMetric =
-        typeof metricType === 'string' ? metricType.toLowerCase() : 'revenue';
-      const normalizedPeriod =
-        typeof periodType === 'string' ? periodType.toLowerCase() : undefined;
-      const normalizedScope =
-        typeof periodScope === 'string' ? periodScope.toLowerCase() : undefined;
-
-      const updateData: any = {
-        productCategory: productCategory ?? null,
-        skuId: skuId ?? null,
-        metricType: normalizedMetric,
+        metricType,
       };
 
-      if (normalizedPeriod) {
+      const periodTypeValue = parsedBody.periodType;
+      if (periodTypeValue) {
+        const periodScopeValue = parsedBody.periodScope ?? "current";
         const { periodStart, periodEnd } = calculatePeriodDates(
-          normalizedPeriod,
-          (normalizedScope as 'current' | 'previous') ?? 'current'
+          periodTypeValue,
+          periodScopeValue
         );
-        updateData.periodType = normalizedPeriod;
+        updateData.periodType = periodTypeValue;
         updateData.periodStart = periodStart;
         updateData.periodEnd = periodEnd;
       }
@@ -130,12 +158,15 @@ export async function PUT(
       updateData.targetCases = null;
       updateData.targetPod = null;
 
-      if (normalizedMetric === 'revenue') {
-        updateData.targetRevenue = targetRevenue ? Number(targetRevenue) : null;
-      } else if (normalizedMetric === 'cases') {
-        updateData.targetCases = targetCases ? Number(targetCases) : null;
-      } else if (normalizedMetric === 'pod') {
-        updateData.targetPod = targetPod ? Number(targetPod) : null;
+      if (metricType === "revenue") {
+        updateData.targetRevenue =
+          targetRevenueValue && targetRevenueValue > 0 ? targetRevenueValue : null;
+      } else if (metricType === "cases") {
+        updateData.targetCases =
+          targetCasesValue && targetCasesValue > 0 ? targetCasesValue : null;
+      } else if (metricType === "pod") {
+        updateData.targetPod =
+          targetPodValue && targetPodValue > 0 ? targetPodValue : null;
       }
 
       const goal = await db.repProductGoal.update({

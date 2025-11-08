@@ -3,9 +3,17 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { TaskStatus } from "@prisma/client";
 import { startOfWeek, endOfWeek } from "date-fns";
 
+type CallPlanTaskPayload = {
+  customerId: string;
+  activityTypeId?: string;
+  dueAt: string;
+  title: string;
+  description?: string;
+};
+
 export async function POST(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
-    let body: any;
+    let body: Partial<CallPlanTaskPayload>;
     try {
       body = await request.json();
     } catch {

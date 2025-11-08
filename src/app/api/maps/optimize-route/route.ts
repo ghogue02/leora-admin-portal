@@ -2,15 +2,31 @@ import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 import { calculateDistance } from '@/lib/distance';
 
+type RoutePoint = { latitude: number; longitude: number };
+
+type RouteStop = {
+  id: string;
+  name: string;
+  street1: string | null;
+  street2: string | null;
+  city: string | null;
+  state: string | null;
+  postalCode: string | null;
+  latitude: number;
+  longitude: number;
+  phone: string | null;
+  accountType: string | null;
+};
+
 const prisma = new PrismaClient();
 
 /**
  * Optimize route using 2-opt algorithm
  */
 function optimizeRoute2Opt(
-  start: { latitude: number; longitude: number },
-  stops: Array<{ id: string; latitude: number; longitude: number; [key: string]: any }>
-): typeof stops {
+  start: RoutePoint,
+  stops: RouteStop[]
+): RouteStop[] {
   if (stops.length <= 2) return stops;
 
   let route = [...stops];
@@ -117,7 +133,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const start = {
+    const start: RoutePoint = {
       latitude: startLatitude,
       longitude: startLongitude,
     };
@@ -125,18 +141,43 @@ export async function POST(request: NextRequest) {
     // Optimize route
     const optimizedStops = optimizeRoute2Opt(
       start,
-      customers.map(c => ({
-        ...c,
-        latitude: c.latitude!,
-        longitude: c.longitude!,
+      customers.map<RouteStop>(c => ({
+        id: c.id,
+        name: c.name,
+        street1: c.street1,
+        street2: c.street2,
+        city: c.city,
+        state: c.state,
+        postalCode: c.postalCode,
+        latitude: c.latitude as number,
+        longitude: c.longitude as number,
+        phone: c.phone,
+        accountType: c.accountType,
       }))
     );
 
     // Calculate route segments
-    const segments = [];
+    const segments: Array<{
+      from: {
+        name: string;
+        address: string;
+        latitude?: number;
+        longitude?: number;
+      };
+      to: {
+        id: string;
+        name: string;
+        address: string;
+        city: string;
+        state: string;
+        postalCode: string;
+      };
+      distance: number;
+      drivingTime: number;
+    }> = [];
     let totalDistance = 0;
     let totalDuration = 0;
-    let currentPosition = start;
+    let currentPosition: RoutePoint = start;
 
     for (let i = 0; i < optimizedStops.length; i++) {
       const stop = optimizedStops[i];

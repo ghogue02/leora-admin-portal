@@ -2,7 +2,7 @@ import { Prisma } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import {
-  activitySampleItemSelect,
+  activityRecordSelect,
   ensureSampleItemsValid,
   sampleItemsInputSchema,
   serializeActivityRecord,
@@ -197,40 +197,7 @@ export async function POST(request: NextRequest) {
 
         const fullActivity = await db.activity.findUnique({
           where: { id: activity.id },
-          select: {
-            id: true,
-            subject: true,
-            notes: true,
-            occurredAt: true,
-            followUpAt: true,
-            outcomes: true,
-            createdAt: true,
-            activityType: {
-              select: {
-                id: true,
-                name: true,
-                code: true,
-              },
-            },
-            customer: {
-              select: {
-                id: true,
-                name: true,
-                accountNumber: true,
-              },
-            },
-            order: {
-              select: {
-                id: true,
-                orderedAt: true,
-                total: true,
-                status: true,
-              },
-            },
-            sampleItems: {
-              select: activitySampleItemSelect,
-            },
-          },
+          select: activityRecordSelect,
         });
 
         if (!fullActivity) {

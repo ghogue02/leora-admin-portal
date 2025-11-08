@@ -22,6 +22,9 @@ import WeeklyTracker from "./components/WeeklyTracker";
 import SampleFollowUpPanel from "./sections/SampleFollowUpPanel";
 
 import { Button } from "@/components/ui/button";
+import type { CarlaSelectedAccount } from "./carla/types";
+import type { EnrichedCallPlanTask } from "@/lib/call-plan/enrich-tasks.server";
+import type { SampleFollowUpItem } from "@/app/sales/customers/[customerId]/sections/SampleFollowUpList";
 
 export type AccountType = "PROSPECT" | "TARGET" | "ACTIVE";
 export type Priority = "HIGH" | "MEDIUM" | "LOW";
@@ -39,6 +42,15 @@ export interface Account {
   selected?: boolean;
 }
 
+type CallPlanOverview = {
+  id?: string;
+  name?: string;
+  weekStart: string;
+  weekEnd: string;
+  tasks: EnrichedCallPlanTask[];
+  sampleFollowUps: SampleFollowUpItem[];
+};
+
 function CallPlanPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -49,13 +61,13 @@ function CallPlanPageContent() {
   );
   const [accounts, setAccounts] = useState<Account[]>([]);
   const [selectedAccountIds, setSelectedAccountIds] = useState<Set<string>>(new Set());
-  const [selectedAccounts, setSelectedAccounts] = useState<any[]>([]);
+  const [selectedAccounts, setSelectedAccounts] = useState<CarlaSelectedAccount[]>([]);
   const [callPlanId, setCallPlanId] = useState<string | undefined>();
   const [scheduleRefreshKey, setScheduleRefreshKey] = useState<number>(0);
   const [suggestionsRefreshKey, setSuggestionsRefreshKey] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [callPlanOverview, setCallPlanOverview] = useState<any>(null);
+  const [callPlanOverview, setCallPlanOverview] = useState<CallPlanOverview | null>(null);
   const [callPlanLoading, setCallPlanLoading] = useState(true);
 
   const weekEnd = useMemo(
@@ -135,7 +147,10 @@ function CallPlanPageContent() {
       if (response.ok) {
         const data = await response.json();
         setSelectedAccountIds(new Set(data.selectedAccountIds || []));
-        setSelectedAccounts(data.accounts || []);
+        const accountsWithStatus: CarlaSelectedAccount[] = Array.isArray(data.accounts)
+          ? data.accounts
+          : [];
+        setSelectedAccounts(accountsWithStatus);
         setCallPlanId(data.callPlan?.id);
       } else {
         setSelectedAccountIds(new Set());
@@ -157,7 +172,15 @@ function CallPlanPageContent() {
 
       if (response.ok) {
         const data = await response.json();
-        setCallPlanOverview(data);
+        const overview: CallPlanOverview = {
+          id: data.id ?? undefined,
+          name: data.name ?? undefined,
+          weekStart: data.weekStart,
+          weekEnd: data.weekEnd,
+          tasks: Array.isArray(data.tasks) ? data.tasks : [],
+          sampleFollowUps: Array.isArray(data.sampleFollowUps) ? data.sampleFollowUps : [],
+        };
+        setCallPlanOverview(overview);
       } else {
         setCallPlanOverview(null);
       }

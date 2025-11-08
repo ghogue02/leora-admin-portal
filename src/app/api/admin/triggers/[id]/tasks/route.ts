@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
+import type { Prisma } from "@prisma/client";
 
 /**
  * GET /api/admin/triggers/[id]/tasks
@@ -27,10 +28,16 @@ export async function GET(
     const offset = parseInt(searchParams.get("offset") || "0");
 
     // Build where clause
-    const where: any = {
+    const where: Prisma.TriggeredTaskWhereInput = {
       tenantId,
       triggerId,
     };
+
+    if (status) {
+      where.task = {
+        status,
+      };
+    }
 
     // Get triggered tasks with related data
     const triggeredTasks = await prisma.triggeredTask.findMany({
@@ -69,21 +76,13 @@ export async function GET(
       skip: offset,
     });
 
-    // Filter by task status if provided
-    let filteredTasks = triggeredTasks;
-    if (status) {
-      filteredTasks = triggeredTasks.filter(
-        (tt) => tt.task.status === status,
-      );
-    }
-
     // Get total count
     const totalCount = await prisma.triggeredTask.count({
       where,
     });
 
     return NextResponse.json({
-      tasks: filteredTasks,
+      tasks: triggeredTasks,
       pagination: {
         total: totalCount,
         limit,

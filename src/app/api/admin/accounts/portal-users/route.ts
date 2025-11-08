@@ -1,7 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
+import { withAdminSession, type AdminSessionContext } from '@/lib/auth/admin';
 import { logChange, AuditOperation } from '@/lib/audit';
-import { Prisma, PrismaClient } from '@prisma/client';
+import { Prisma, type PortalUserStatus } from '@prisma/client';
+
+type CreatePortalUserPayload = {
+  email: string;
+  fullName: string;
+  customerId: string;
+  roleIds?: string[];
+};
 
 /**
  * GET /api/admin/accounts/portal-users
@@ -13,9 +20,8 @@ export async function GET(request: NextRequest) {
     try {
       const { searchParams } = new URL(request.url);
 
-      // Pagination
-      const page = parseInt(searchParams.get('page') || '1');
-      const limit = parseInt(searchParams.get('limit') || '50');
+      const page = Number.parseInt(searchParams.get('page') || '1');
+      const limit = Number.parseInt(searchParams.get('limit') || '50');
       const skip = (page - 1) * limit;
 
       // Search
@@ -23,12 +29,15 @@ export async function GET(request: NextRequest) {
 
       // Filters
       const role = searchParams.get('role');
-      const status = searchParams.get('status'); // ACTIVE, INVITED, DISABLED
+      const statusParam = searchParams.get('status');
+      const status = statusParam && ['ACTIVE','INVITED','DISABLED'].includes(statusParam)
+        ? (statusParam as PortalUserStatus)
+        : undefined;
       const customerId = searchParams.get('customerId');
 
       // Sorting
       const sortBy = searchParams.get('sortBy') || 'fullName';
-      const sortOrder = (searchParams.get('sortOrder') || 'asc') as 'asc' | 'desc';
+      const sortOrder = (searchParams.get('sortOrder') === 'desc' ? 'desc' : 'asc');
 
       // Build where clause
       const where: Prisma.PortalUserWhereInput = {
@@ -56,7 +65,7 @@ export async function GET(request: NextRequest) {
 
       // Status filter
       if (status) {
-        where.status = status as any;
+        where.status = status;
       }
 
       // Customer filter
@@ -165,10 +174,15 @@ export async function POST(request: NextRequest) {
   return withAdminSession(request, async (context: AdminSessionContext) => {
     const { tenantId, db } = context;
     try {
-      const body = await request.json();
+      const body = (await request.json().catch(() => null)) as CreatePortalUserPayload | null;
+      if (!body) {
+        return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
+      }
 
-      // Validate required fields
-      const { email, fullName, customerId, roleIds } = body;
+      const { email, fullName, customerId } = body;
+      const roleIds = Array.isArray(body.roleIds)
+        ? body.roleIds.filter((id): id is string => typeof id === 'string' && id.trim().length > 0)
+        : [];
 
       if (!email || !fullName || !customerId) {
         return NextResponse.json(
@@ -219,7 +233,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Create portal user and role assignments in a transaction
-      const portalUser = await (db as PrismaClient).$transaction(async (tx) => {
+      const portalUser = await db.$transaction(async (tx) => {
         // Create portal user
         const newPortalUser = await tx.portalUser.create({
           data: {
@@ -234,7 +248,7 @@ export async function POST(request: NextRequest) {
         // Create role assignments
         if (roleIds && roleIds.length > 0) {
           await tx.portalUserRole.createMany({
-            data: roleIds.map((roleId: string) => ({
+            data: roleIds.map((roleId) => ({
               portalUserId: newPortalUser.id,
               roleId
             }))
@@ -256,25 +270,27 @@ export async function POST(request: NextRequest) {
       });
 
       // Log creation
-      await logChange({
-        tenantId,
-        userId: context.user.id,
-        action: AuditOperation.CREATE,
-        entityType: 'PortalUser',
-        entityId: portalUser!.id,
-        metadata: {
-          email,
-          fullName,
-          customerId,
-          roles: roleIds
-        }
-      }, db, request);
+      if (portalUser) {
+        await logChange({
+          tenantId,
+          userId: context.user.id,
+          action: AuditOperation.CREATE,
+          entityType: 'PortalUser',
+          entityId: portalUser.id,
+          metadata: {
+            email,
+            fullName,
+            customerId,
+            roles: roleIds
+          }
+        }, db, request);
+      }
 
       return NextResponse.json({ portalUser }, { status: 201 });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating portal user:', error);
 
-      if (error.code === 'P2002') {
+      if (typeof error === 'object' && error && 'code' in error && (error as { code?: string }).code === 'P2002') {
         return NextResponse.json(
           { error: 'Portal user with this email already exists' },
           { status: 409 }

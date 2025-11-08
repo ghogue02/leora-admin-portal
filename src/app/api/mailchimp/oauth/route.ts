@@ -7,7 +7,7 @@ import { encryptToken } from '@/lib/token-encryption';
  * GET /api/mailchimp/oauth
  * Initiate Mailchimp OAuth flow
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession();
     if (!session?.user?.email) {
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
  * DELETE /api/mailchimp/oauth
  * Disconnect Mailchimp integration
  */
-export async function DELETE(request: NextRequest) {
+export async function DELETE() {
   try {
     const session = await getServerSession();
     if (!session?.user?.email) {

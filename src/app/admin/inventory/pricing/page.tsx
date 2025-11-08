@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Plus, Edit, Trash2, DollarSign, Calendar, CheckCircle2 } from "lucide-react";
 
@@ -36,11 +36,7 @@ export default function PriceListsPage() {
   const [loading, setLoading] = useState(true);
   const [showCreateModal, setShowCreateModal] = useState(false);
 
-  useEffect(() => {
-    fetchPriceLists();
-  }, []);
-
-  const fetchPriceLists = async () => {
+  const fetchPriceLists = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch("/api/admin/pricing");
@@ -53,7 +49,11 @@ export default function PriceListsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchPriceLists();
+  }, [fetchPriceLists]);
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this price list? All associated items will be removed.")) return;
@@ -69,9 +69,9 @@ export default function PriceListsPage() {
       }
 
       fetchPriceLists();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error deleting price list:", error);
-      alert(error.message || "Failed to delete price list");
+      alert(error instanceof Error ? error.message : "Failed to delete price list");
     }
   };
 
@@ -254,9 +254,9 @@ function CreatePriceListModal({ onClose, onSuccess }: CreatePriceListModalProps)
       }
 
       onSuccess();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error creating price list:", error);
-      alert(error.message || "Failed to create price list");
+      alert(error instanceof Error ? error.message : "Failed to create price list");
     } finally {
       setSubmitting(false);
     }

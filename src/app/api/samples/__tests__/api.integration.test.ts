@@ -12,30 +12,37 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach } from '@jest/globals';
-import { createTestSample, createTestMetrics } from '../../../__tests__/factories/sample-factory';
+import {
+  createTestSample,
+  createTestMetrics,
+  type TestSampleMetrics,
+  type TestSampleUsage,
+} from '../../../__tests__/factories/sample-factory';
 
 // Mock Next.js request/response
-class MockRequest {
+class MockRequest<TBody = undefined> {
   method: string;
   url: string;
   headers: Map<string, string>;
-  body: any;
+  body?: TBody;
 
-  constructor(method: string, url: string, body?: any) {
+  constructor(method: string, url: string, body?: TBody) {
     this.method = method;
     this.url = url;
     this.headers = new Map();
-    this.body = body;
+    if (body !== undefined) {
+      this.body = body;
+    }
   }
 
-  json() {
-    return Promise.resolve(this.body);
+  json(): Promise<TBody> {
+    return Promise.resolve(this.body as TBody);
   }
 }
 
-class MockResponse {
-  statusCode: number = 200;
-  body: any;
+class MockResponse<TBody = unknown> {
+  statusCode = 200;
+  body?: TBody;
   headers: Map<string, string> = new Map();
 
   status(code: number) {
@@ -43,7 +50,7 @@ class MockResponse {
     return this;
   }
 
-  json(data: any) {
+  json(data: TBody) {
     this.body = data;
     return this;
   }
@@ -53,6 +60,94 @@ class MockResponse {
     return this;
   }
 }
+
+type ApiError = { error: string };
+type ValidationError = { errors: string[] };
+
+type QuickAssignRequestBody = {
+  customerId?: string;
+  productId?: string;
+  salesRepId?: string;
+  quantity?: number;
+  feedbackOptions?: string[];
+  customerResponse?: string;
+  sampleSource?: string;
+  notes?: string;
+};
+
+type QuickAssignSuccess = {
+  success: true;
+  sample: TestSampleUsage;
+  activityCreated: boolean;
+  activity: { id: string };
+};
+
+type QuickAssignResponse = QuickAssignSuccess | ApiError | ValidationError;
+
+type AnalyticsResponse = TestSampleMetrics & {
+  filters: {
+    salesRepId: string | null;
+    productId: string | null;
+    customerId: string | null;
+  };
+  dateRange: { startDate: string; endDate: string } | null;
+};
+
+type TopPerformerProduct = {
+  productId: string;
+  productName: string;
+  totalSamples: number;
+  conversions: number;
+  conversionRate: number;
+};
+
+type TopPerformersResponse = {
+  products: TopPerformerProduct[];
+};
+
+type RepLeaderboardEntry = {
+  repId: string;
+  name: string;
+  totalSamples: number;
+  conversions: number;
+  conversionRate: number;
+  totalRevenue: number;
+};
+
+type RepLeaderboardResponse = {
+  reps: RepLeaderboardEntry[];
+  dateRange: { startDate: string; endDate: string } | null;
+};
+
+type SupplierReportRequestBody = {
+  supplierId?: string;
+};
+
+type SupplierReportResponse = {
+  reportId: string;
+  pdfUrl: string;
+  preview: {
+    totalSamples: number;
+    conversionRate: number;
+    productBreakdown: Array<{
+      productName: string;
+      samples: number;
+      conversions: number;
+    }>;
+  };
+};
+
+type FeedbackTemplate = {
+  id: string;
+  name: string;
+  template: string;
+  category: string;
+  isActive: boolean;
+};
+
+type FeedbackTemplatesResponse = {
+  templates: FeedbackTemplate[];
+};
 
 describe('Sample API Integration', () => {
   beforeEach(() => {
@@ -241,7 +336,8 @@ describe('Sample API Integration', () => {
 
       await topPerformersHandler(req, res);
 
-      const rates = res.body.products.map((p: any) => p.conversionRate);
+      const products = (res.body as TopPerformersResponse | undefined)?.products ?? [];
+      const rates = products.map(product => product.conversionRate);
       const sorted = [...rates].sort((a, b) => b - a);
 
       expect(rates).toEqual(sorted);
@@ -354,7 +450,8 @@ describe('Sample API Integration', () => {
 
       await feedbackTemplatesHandler(req, res);
 
-      expect(res.body.templates.every((t: any) => t.category === 'positive')).toBe(true);
+      const templates = (res.body as FeedbackTemplatesResponse | undefined)?.templates ?? [];
+      expect(templates.every(template => template.category === 'positive')).toBe(true);
     });
 
     it('should return only active templates', async () => {
@@ -363,7 +460,8 @@ describe('Sample API Integration', () => {
 
       await feedbackTemplatesHandler(req, res);
 
-      expect(res.body.templates.every((t: any) => t.isActive === true)).toBe(true);
+      const templates = (res.body as FeedbackTemplatesResponse | undefined)?.templates ?? [];
+      expect(templates.every(template => template.isActive === true)).toBe(true);
     });
   });
 
@@ -452,17 +550,20 @@ describe('Sample API Integration', () => {
 
 // Handler mock implementations
 
-async function quickAssignHandler(req: any, res: any) {
+async function quickAssignHandler(
+  req: MockRequest<QuickAssignRequestBody>,
+  res: MockResponse<QuickAssignResponse>
+) {
   const body = await req.json();
 
   // Validation
-  if (!body.customerId || !body.productId || !body.salesRepId) {
+  if (!body?.customerId || !body.productId || !body.salesRepId) {
     return res.status(400).json({
       error: 'Missing required fields: customerId, productId, salesRepId',
     });
   }
 
-  if (body.quantity <= 0) {
+  if (!body.quantity || body.quantity <= 0) {
     return res.status(400).json({
       errors: ['Quantity must be greater than 0'],
     });
@@ -490,7 +591,10 @@ async function quickAssignHandler(req: any, res: any) {
   });
 }
 
-async function analyticsHandler(req: any, res: any) {
+async function analyticsHandler(
+  req: MockRequest,
+  res: MockResponse<AnalyticsResponse | ApiError>
+) {
   const url = new URL(req.url, 'http://localhost');
   const startDate = url.searchParams.get('startDate');
   const endDate = url.searchParams.get('endDate');
@@ -509,12 +613,19 @@ async function analyticsHandler(req: any, res: any) {
 
   return res.status(200).json({
     ...metrics,
-    filters: { salesRepId, productId, customerId },
+    filters: {
+      salesRepId,
+      productId,
+      customerId,
+    },
     dateRange: startDate && endDate ? { startDate, endDate } : null,
   });
 }
 
-async function topPerformersHandler(req: any, res: any) {
+async function topPerformersHandler(
+  req: MockRequest,
+  res: MockResponse<TopPerformersResponse>
+) {
   const url = new URL(req.url, 'http://localhost');
   const limit = parseInt(url.searchParams.get('limit') || '10');
 
@@ -529,7 +640,10 @@ async function topPerformersHandler(req: any, res: any) {
   return res.status(200).json({ products });
 }
 
-async function repLeaderboardHandler(req: any, res: any) {
+async function repLeaderboardHandler(
+  req: MockRequest,
+  res: MockResponse<RepLeaderboardResponse>
+) {
   const url = new URL(req.url, 'http://localhost');
   const startDate = url.searchParams.get('startDate');
   const endDate = url.searchParams.get('endDate');
@@ -559,10 +673,13 @@ async function repLeaderboardHandler(req: any, res: any) {
   });
 }
 
-async function supplierReportHandler(req: any, res: any) {
+async function supplierReportHandler(
+  req: MockRequest<SupplierReportRequestBody>,
+  res: MockResponse<SupplierReportResponse | ApiError>
+) {
   const body = await req.json();
 
-  if (body.supplierId === 'invalid-supplier') {
+  if (body?.supplierId === 'invalid-supplier') {
     return res.status(404).json({
       error: 'Supplier not found',
     });
@@ -582,7 +699,10 @@ async function supplierReportHandler(req: any, res: any) {
   });
 }
 
-async function feedbackTemplatesHandler(req: any, res: any) {
+async function feedbackTemplatesHandler(
+  req: MockRequest,
+  res: MockResponse<FeedbackTemplatesResponse>
+) {
   const url = new URL(req.url, 'http://localhost');
   const category = url.searchParams.get('category');
 
@@ -598,13 +718,16 @@ async function feedbackTemplatesHandler(req: any, res: any) {
   return res.status(200).json({ templates });
 }
 
-async function getSampleHandler(req: any, res: any) {
+async function getSampleHandler(req: MockRequest, res: MockResponse<ApiError>) {
   return res.status(404).json({
     error: 'Sample not found',
   });
 }
 
-async function analyticsHandlerWithError(req: any, res: any) {
+async function analyticsHandlerWithError(
+  req: MockRequest,
+  res: MockResponse<ApiError>
+) {
   return res.status(500).json({
     error: 'Internal server error',
   });

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { ArrowLeft, Save, Plus, Trash2, Edit, DollarSign } from "lucide-react";
+import { ArrowLeft, Save, Plus, Trash2, DollarSign } from "lucide-react";
 
 interface PriceList {
   id: string;
@@ -71,13 +71,7 @@ export default function PriceListDetailPage() {
     }
   }, [params]);
 
-  useEffect(() => {
-    if (priceListId) {
-      fetchPriceList();
-    }
-  }, [priceListId]);
-
-  const fetchPriceList = async () => {
+  const fetchPriceList = useCallback(async () => {
     if (!priceListId) return;
 
     setLoading(true);
@@ -108,7 +102,13 @@ export default function PriceListDetailPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [priceListId]);
+
+  useEffect(() => {
+    if (priceListId) {
+      fetchPriceList();
+    }
+  }, [priceListId, fetchPriceList]);
 
   const handleSave = async () => {
     if (!priceListId) return;
@@ -403,7 +403,7 @@ export default function PriceListDetailPage() {
               {priceList.items.length === 0 ? (
                 <tr>
                   <td colSpan={8} className="px-6 py-8 text-center text-sm text-gray-500">
-                    No items in this price list yet. Click "Add Items" to get started.
+                    No items in this price list yet. Click &ldquo;Add Items&rdquo; to get started.
                   </td>
                 </tr>
               ) : (

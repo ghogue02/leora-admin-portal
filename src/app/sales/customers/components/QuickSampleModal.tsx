@@ -52,13 +52,20 @@ export default function QuickSampleModal({
     setSubmitting(true);
 
     try {
-      const response = await fetch("/api/sales/samples/quick-assign", {
+      const response = await fetch("/api/sales/samples/log", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           customerId,
-          ...formData,
-          tastedAt: new Date().toISOString(),
+          items: [
+            {
+              skuId: formData.skuId,
+              quantity: formData.quantity,
+              feedback: formData.feedback || undefined,
+              customerResponse: formData.customerResponse || undefined,
+              followUp: formData.needsFollowUp,
+            },
+          ],
         }),
       });
 

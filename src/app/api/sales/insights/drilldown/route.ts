@@ -1,18 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
+import type { PrismaClient } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
-import { subMonths, startOfWeek, endOfWeek } from "date-fns";
-import { formatUTCDate } from '@/lib/dates';
+import { subMonths } from "date-fns";
+import { formatUTCDate } from "@/lib/dates";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
     async ({ db, tenantId, session }) => {
       const searchParams = request.nextUrl.searchParams;
-      const type = searchParams.get('type');
+      const type = searchParams.get("type");
 
       if (!type) {
         return NextResponse.json(
-          { error: 'type parameter is required' },
+          { error: "type parameter is required" },
           { status: 400 }
         );
       }
@@ -27,35 +29,40 @@ export async function GET(request: NextRequest) {
         },
       });
 
-      const salesRepFilter = salesRep ? { salesRepId: salesRep.id } : {};
+      const salesRepId = salesRep?.id;
 
       let drilldownData;
 
       switch (type) {
-        case 'top-customers':
-          drilldownData = await getTopCustomersDrilldown(db, tenantId, salesRepFilter);
+        case "top-customers":
+          drilldownData = await getTopCustomersDrilldown(db, tenantId, salesRepId);
           break;
-        case 'top-products':
-          drilldownData = await getTopProductsDrilldown(db, tenantId, salesRepFilter);
+        case "top-products":
+          drilldownData = await getTopProductsDrilldown(db, tenantId, salesRepId);
           break;
-        case 'customer-risk':
-          drilldownData = await getCustomerRiskDrilldown(db, tenantId, salesRepFilter);
+        case "customer-risk":
+          drilldownData = await getCustomerRiskDrilldown(db, tenantId, salesRepId);
           break;
-        case 'monthly-trend':
-          drilldownData = await getMonthlyTrendDrilldown(db, tenantId, salesRepFilter);
+        case "monthly-trend":
+          drilldownData = await getMonthlyTrendDrilldown(db, tenantId, salesRepId);
           break;
-        case 'samples':
-          drilldownData = await getSamplesDrilldown(db, tenantId, salesRep);
+        case "samples":
+          drilldownData = await getSamplesDrilldown(db, tenantId, salesRepId);
           break;
-        case 'order-status':
-          drilldownData = await getOrderStatusDrilldown(db, tenantId, salesRepFilter);
+        case "order-status":
+          drilldownData = await getOrderStatusDrilldown(db, tenantId, salesRepId);
           break;
-        case 'recent-activity':
-          drilldownData = await getRecentActivityDrilldown(db, tenantId, session.user.id, salesRep);
+        case "recent-activity":
+          drilldownData = await getRecentActivityDrilldown(
+            db,
+            tenantId,
+            session.user.id,
+            Boolean(salesRep)
+          );
           break;
         default:
           return NextResponse.json(
-            { error: 'Invalid drilldown type' },
+            { error: "Invalid drilldown type" },
             { status: 400 }
           );
       }
@@ -65,17 +72,21 @@ export async function GET(request: NextRequest) {
   );
 }
 
-async function getTopCustomersDrilldown(db: any, tenantId: string, salesRepFilter: any) {
+async function getTopCustomersDrilldown(
+  db: PrismaClient,
+  tenantId: string,
+  salesRepId?: string
+) {
   // Get all customers with their order metrics
   const customers = await db.customer.findMany({
     where: {
       tenantId,
-      ...salesRepFilter,
+      ...(salesRepId ? { salesRepId } : {}),
       isPermanentlyClosed: false,
     },
     include: {
       orders: {
-        where: { status: { not: 'CANCELLED' } },
+        where: { status: { not: "CANCELLED" } },
         select: {
           id: true,
           total: true,
@@ -91,15 +102,15 @@ async function getTopCustomersDrilldown(db: any, tenantId: string, salesRepFilte
     },
   });
 
-  const customersWithMetrics = customers.map((customer) => {
+const customersWithMetrics = customers.map((customer) => {
     const totalRevenue = customer.orders.reduce(
-      (sum: number, order: any) => sum + Number(order.total ?? 0),
+      (sum, order) => sum + Number(order.total ?? 0),
       0
     );
     const orderCount = customer.orders.length;
     const avgOrderValue = orderCount > 0 ? totalRevenue / orderCount : 0;
     const lastOrderDate = customer.orders.length > 0
-      ? new Date(Math.max(...customer.orders.map((o: any) => new Date(o.orderedAt).getTime())))
+      ? new Date(Math.max(...customer.orders.map((o) => new Date(o.orderedAt).getTime())))
       : null;
     const daysSinceLastOrder = lastOrderDate
       ? Math.floor((Date.now() - lastOrderDate.getTime()) / (1000 * 60 * 60 * 24))
@@ -115,7 +126,7 @@ async function getTopCustomersDrilldown(db: any, tenantId: string, salesRepFilte
       avgOrderValue,
       lastOrderDate: lastOrderDate?.toISOString(),
       daysSinceLastOrder,
-      salesRep: customer.salesRep?.user.fullName ?? 'Unassigned',
+      salesRep: customer.salesRep?.user.fullName ?? "Unassigned",
       paymentTerms: customer.paymentTerms,
     };
   });
@@ -127,7 +138,7 @@ async function getTopCustomersDrilldown(db: any, tenantId: string, salesRepFilte
   const totalOrders = customersWithMetrics.reduce((sum, c) => sum + c.orderCount, 0);
 
   return {
-    title: 'Top Customers - Detailed Analysis',
+    title: "Top Customers - Detailed Analysis",
     description: `Complete breakdown of all ${customersWithMetrics.length} customers sorted by revenue`,
     data: {
       summary: {
@@ -145,10 +156,10 @@ async function getTopCustomersDrilldown(db: any, tenantId: string, salesRepFilte
         })),
       },
       insights: [
-        `Top customer generates ${((customersWithMetrics[0]?.totalRevenue / totalRevenue) * 100).toFixed(1)}% of total revenue`,
+        `Top customer generates ${((customersWithMetrics[0]?.totalRevenue ?? 0) / totalRevenue * 100).toFixed(1)}% of total revenue`,
         `Top 10 customers represent ${((customersWithMetrics.slice(0, 10).reduce((s, c) => s + c.totalRevenue, 0) / totalRevenue) * 100).toFixed(1)}% of revenue`,
         `Average customer lifetime value: $${(totalRevenue / customersWithMetrics.length).toFixed(0)}`,
-        `${customersWithMetrics.filter((c) => c.riskStatus !== 'HEALTHY').length} customers need attention`,
+        `${customersWithMetrics.filter((c) => c.riskStatus !== "HEALTHY").length} customers need attention`,
       ],
     },
     columns: [
@@ -164,13 +175,31 @@ async function getTopCustomersDrilldown(db: any, tenantId: string, salesRepFilte
   };
 }
 
-async function getTopProductsDrilldown(db: any, tenantId: string, salesRepFilter: any) {
+type ProductAggregate = {
+  skuId: string;
+  productName: string;
+  brand: string | null;
+  category: string | null;
+  size: number | null;
+  unitsSold: number;
+  orderCount: number;
+  revenue: number;
+  avgUnitPrice: number;
+};
+
+async function getTopProductsDrilldown(
+  db: PrismaClient,
+  tenantId: string,
+  salesRepId?: string
+) {
   const orderLines = await db.orderLine.findMany({
     where: {
       tenantId,
       order: {
-        customer: salesRepFilter,
-        status: { not: 'CANCELLED' },
+        is: {
+          status: { not: "CANCELLED" },
+          ...(salesRepId ? { customer: { is: { salesRepId } } } : {}),
+        },
       },
     },
     include: {
@@ -195,8 +224,8 @@ async function getTopProductsDrilldown(db: any, tenantId: string, salesRepFilter
   });
 
   // Group by SKU
-  const productMap = new Map();
-  orderLines.forEach((line: any) => {
+  const productMap = new Map<string, ProductAggregate>();
+  orderLines.forEach((line) => {
     const skuId = line.skuId;
     if (!productMap.has(skuId)) {
       productMap.set(skuId, {
@@ -211,11 +240,11 @@ async function getTopProductsDrilldown(db: any, tenantId: string, salesRepFilter
         avgUnitPrice: 0,
       });
     }
-    const product = productMap.get(skuId);
+    const product = productMap.get(skuId)!;
     product.unitsSold += line.quantity;
     product.orderCount += 1;
     product.revenue += Number(line.unitPrice) * line.quantity;
-    product.avgUnitPrice = product.revenue / product.unitsSold;
+    product.avgUnitPrice = product.unitsSold > 0 ? product.revenue / product.unitsSold : 0;
   });
 
   const products = Array.from(productMap.values()).sort((a, b) => b.revenue - a.revenue);
@@ -260,11 +289,15 @@ async function getTopProductsDrilldown(db: any, tenantId: string, salesRepFilter
   };
 }
 
-async function getCustomerRiskDrilldown(db: any, tenantId: string, salesRepFilter: any) {
+async function getCustomerRiskDrilldown(
+  db: PrismaClient,
+  tenantId: string,
+  salesRepId?: string
+) {
   const customers = await db.customer.findMany({
     where: {
       tenantId,
-      ...salesRepFilter,
+      ...(salesRepId ? { salesRepId } : {}),
       isPermanentlyClosed: false,
     },
     select: {
@@ -302,7 +335,7 @@ async function getCustomerRiskDrilldown(db: any, tenantId: string, salesRepFilte
       daysUntilExpected,
       averagePace: customer.averageOrderIntervalDays,
       establishedRevenue: Number(customer.establishedRevenue ?? 0),
-      salesRep: customer.salesRep?.user.fullName ?? 'Unassigned',
+      salesRep: customer.salesRep?.user.fullName ?? "Unassigned",
     };
   });
 
@@ -315,8 +348,8 @@ async function getCustomerRiskDrilldown(db: any, tenantId: string, salesRepFilte
   );
 
   return {
-    title: 'Customer Risk Analysis',
-    description: 'Detailed breakdown of customer health and risk factors',
+    title: "Customer Risk Analysis",
+    description: "Detailed breakdown of customer health and risk factors",
     data: {
       summary: {
         totalCustomers: customersWithDetails.length,
@@ -353,8 +386,16 @@ async function getCustomerRiskDrilldown(db: any, tenantId: string, salesRepFilte
   };
 }
 
-async function getMonthlyTrendDrilldown(db: any, tenantId: string, salesRepFilter: any) {
+async function getMonthlyTrendDrilldown(
+  db: PrismaClient,
+  tenantId: string,
+  salesRepId?: string
+) {
   const twelveMonthsAgo = subMonths(new Date(), 12);
+
+  const salesRepClause = salesRepId
+    ? Prisma.sql`AND "customerId" IN (SELECT "id" FROM "Customer" WHERE "salesRepId" = ${salesRepId})`
+    : Prisma.sql``;
 
   const monthlyData = await db.$queryRaw<
     Array<{
@@ -375,6 +416,7 @@ async function getMonthlyTrendDrilldown(db: any, tenantId: string, salesRepFilte
     WHERE "orderedAt" >= ${twelveMonthsAgo}
       AND "tenantId" = ${tenantId}::uuid
       AND status != 'CANCELLED'
+      ${salesRepClause}
     GROUP BY DATE_TRUNC('month', "orderedAt")
     ORDER BY month DESC
   `;
@@ -391,8 +433,8 @@ async function getMonthlyTrendDrilldown(db: any, tenantId: string, salesRepFilte
   const totalOrders = items.reduce((sum, m) => sum + m.orders, 0);
 
   return {
-    title: 'Monthly Trend Analysis (12 Months)',
-    description: 'Month-over-month performance metrics and trends',
+    title: "Monthly Trend Analysis (12 Months)",
+    description: "Month-over-month performance metrics and trends",
     data: {
       summary: {
         totalMonths: items.length,
@@ -425,11 +467,15 @@ async function getMonthlyTrendDrilldown(db: any, tenantId: string, salesRepFilte
   };
 }
 
-async function getSamplesDrilldown(db: any, tenantId: string, salesRep: any) {
+async function getSamplesDrilldown(
+  db: PrismaClient,
+  tenantId: string,
+  salesRepId?: string
+) {
   const samples = await db.sampleUsage.findMany({
     where: {
       tenantId,
-      ...(salesRep ? { salesRepId: salesRep.id } : {}),
+      ...(salesRepId ? { salesRepId } : {}),
     },
     include: {
       customer: { select: { name: true } },
@@ -444,7 +490,7 @@ async function getSamplesDrilldown(db: any, tenantId: string, salesRep: any) {
         },
       },
     },
-    orderBy: { tastedAt: 'desc' },
+    orderBy: { tastedAt: "desc" },
   });
 
   const items = samples.map((s) => ({
@@ -464,8 +510,8 @@ async function getSamplesDrilldown(db: any, tenantId: string, salesRep: any) {
   const conversionRate = samples.length > 0 ? (converted / samples.length) * 100 : 0;
 
   return {
-    title: 'Sample Usage - Detailed Tracking',
-    description: 'Complete history of samples given and their conversion outcomes',
+    title: "Sample Usage - Detailed Tracking",
+    description: "Complete history of samples given and their conversion outcomes",
     data: {
       summary: {
         totalSamples: samples.reduce((sum, s) => sum + s.quantity, 0),
@@ -501,16 +547,20 @@ async function getSamplesDrilldown(db: any, tenantId: string, salesRep: any) {
   };
 }
 
-async function getOrderStatusDrilldown(db: any, tenantId: string, salesRepFilter: any) {
+async function getOrderStatusDrilldown(
+  db: PrismaClient,
+  tenantId: string,
+  salesRepId?: string
+) {
   const orders = await db.order.findMany({
     where: {
       tenantId,
-      customer: salesRepFilter,
+      ...(salesRepId ? { customer: { is: { salesRepId } } } : {}),
     },
     include: {
       customer: { select: { name: true } },
     },
-    orderBy: { orderedAt: 'desc' },
+    orderBy: { orderedAt: "desc" },
     take: 200,
   });
 
@@ -518,7 +568,7 @@ async function getOrderStatusDrilldown(db: any, tenantId: string, salesRepFilter
     orderId: o.id.slice(0, 8),
     customer: o.customer.name,
     status: o.status,
-    orderedAt: o.orderedAt ? formatUTCDate(o.orderedAt) : 'N/A',
+    orderedAt: o.orderedAt ? formatUTCDate(o.orderedAt) : "N/A",
     total: Number(o.total ?? 0),
   }));
 
@@ -531,8 +581,8 @@ async function getOrderStatusDrilldown(db: any, tenantId: string, salesRepFilter
   );
 
   return {
-    title: 'Order Status Distribution',
-    description: 'Recent orders grouped by status',
+    title: "Order Status Distribution",
+    description: "Recent orders grouped by status",
     data: {
       summary: statusCounts,
       items,
@@ -558,32 +608,37 @@ async function getOrderStatusDrilldown(db: any, tenantId: string, salesRepFilter
   };
 }
 
-async function getRecentActivityDrilldown(db: any, tenantId: string, userId: string, salesRep: any) {
+async function getRecentActivityDrilldown(
+  db: PrismaClient,
+  tenantId: string,
+  userId: string,
+  limitToCurrentRep: boolean
+) {
   const thirtyDaysAgo = subMonths(new Date(), 1);
 
   const activities = await db.activity.findMany({
     where: {
       tenantId,
       occurredAt: { gte: thirtyDaysAgo },
-      ...(salesRep ? { userId } : {}),
+      ...(limitToCurrentRep ? { userId } : {}),
     },
     include: {
       activityType: true,
       customer: { select: { name: true } },
       user: { select: { fullName: true } },
     },
-    orderBy: { occurredAt: 'desc' },
+    orderBy: { occurredAt: "desc" },
   });
 
   const items = activities.map((a) => ({
     id: a.id.slice(0, 8),
     type: a.activityType.name,
-    customer: a.customer?.name ?? 'N/A',
+    customer: a.customer?.name ?? "N/A",
     subject: a.subject,
     occurredAt: formatUTCDate(a.occurredAt),
     outcome: a.outcomes?.[0] ?? null,
     outcomes: a.outcomes ?? [],
-    user: a.user?.fullName ?? 'System',
+    user: a.user?.fullName ?? "System",
   }));
 
   const typeCounts = activities.reduce(
@@ -596,8 +651,8 @@ async function getRecentActivityDrilldown(db: any, tenantId: string, userId: str
   );
 
   return {
-    title: 'Recent Activity Log (30 Days)',
-    description: 'All sales activities in the last 30 days',
+    title: "Recent Activity Log (30 Days)",
+    description: "All sales activities in the last 30 days",
     data: {
       summary: {
         totalActivities: activities.length,

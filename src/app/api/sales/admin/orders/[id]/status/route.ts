@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
 import { createAuditLog } from "@/lib/audit-log";
+import type { Prisma } from "@prisma/client";
+import { OrderStatus } from "@prisma/client";
 
 type RouteParams = {
   params: Promise<{
@@ -19,17 +21,13 @@ export async function PUT(request: NextRequest, props: RouteParams) {
       return NextResponse.json({ error: "Status is required" }, { status: 400 });
     }
 
-    // Validate status
-    const validStatuses = [
-      "DRAFT",
-      "SUBMITTED",
-      "FULFILLED",
-      "CANCELLED",
-      "PARTIALLY_FULFILLED",
-    ];
-    if (!validStatuses.includes(status)) {
+    const isOrderStatus = (value: string): value is OrderStatus =>
+      Object.values(OrderStatus).includes(value as OrderStatus);
+
+    if (!isOrderStatus(status)) {
       return NextResponse.json({ error: "Invalid status" }, { status: 400 });
     }
+    const nextStatus: OrderStatus = status;
 
     // Get current order
     const currentOrder = await db.order.findUnique({
@@ -45,12 +43,12 @@ export async function PUT(request: NextRequest, props: RouteParams) {
 
     // Update order in transaction
     const updatedOrder = await db.$transaction(async (tx) => {
-      const updateData: any = {
-        status,
+      const updateData: Prisma.OrderUpdateInput = {
+        status: nextStatus,
       };
 
       // If changing to FULFILLED, set fulfilledAt if not already set
-      if (status === "FULFILLED" && !currentOrder.fulfilledAt) {
+      if (nextStatus === OrderStatus.FULFILLED && !currentOrder.fulfilledAt) {
         updateData.fulfilledAt = new Date();
       }
 
@@ -72,7 +70,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
         changes: {
           status: {
             from: currentOrder.status,
-            to: status,
+            to: nextStatus,
           },
         },
         metadata: {

@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
-export async function GET(request: Request) {
+type RecentAuditLog = Awaited<ReturnType<typeof prisma.auditLog.findMany>>[number];
+
+export async function GET() {
   try {
     // Fetch last 10 audit log entries with user information
     const recentActivities = await prisma.auditLog.findMany({
@@ -50,7 +52,7 @@ export async function GET(request: Request) {
 }
 
 // Helper function to generate human-readable descriptions
-function generateDescription(log: any): string {
+function generateDescription(log: RecentAuditLog): string {
   const user = log.user?.fullName || 'Unknown User';
   const entity = log.entityType?.toLowerCase() || 'item';
   const action = log.action?.toLowerCase() || 'modified';

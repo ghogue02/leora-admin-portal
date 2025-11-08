@@ -53,7 +53,7 @@ export async function POST(
 
       // Execute fix in a transaction
       await prisma.$transaction(async (tx) => {
-        await rule.fix!(tx as any, tenantId, recordIds, fixParams);
+        await rule.fix!(tx, tenantId, recordIds, fixParams);
       });
 
       // Log to audit log

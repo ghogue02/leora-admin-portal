@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
       const refreshToken = randomUUID();
       const expiresAt = new Date(Date.now() + SESSION_TTL_MS);
 
-      const session = await createSalesSession(
+      await createSalesSession(
         db,
         tenantId,
         user.id,

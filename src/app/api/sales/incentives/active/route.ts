@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 import { differenceInDays } from "date-fns";
 
@@ -56,8 +57,7 @@ export async function GET(request: NextRequest) {
           let totalParticipants = 0;
           let rank: number | undefined = undefined;
 
-          // Build base where clause for orders
-          const orderWhere: any = {
+          const orderFilter: Prisma.OrderWhereInput = {
             tenantId,
             customer: {
               salesRepId: salesRep.id,
@@ -75,7 +75,7 @@ export async function GET(request: NextRequest) {
             case "revenue": {
               // Calculate revenue from delivered orders
               const revenueData = await db.order.aggregate({
-                where: orderWhere,
+                where: orderFilter,
                 _sum: {
                   total: true,
                 },
@@ -148,7 +148,9 @@ export async function GET(request: NextRequest) {
               const casesData = await db.orderLine.aggregate({
                 where: {
                   tenantId,
-                  order: orderWhere,
+                  order: {
+                    is: orderFilter,
+                  },
                   isSample: false,
                 },
                 _sum: {

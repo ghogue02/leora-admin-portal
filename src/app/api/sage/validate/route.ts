@@ -80,7 +80,8 @@ export async function GET(request: NextRequest) {
 
         endDate = parse(endDateStr, 'yyyy-MM-dd', new Date());
         endDate.setUTCHours(23, 59, 59, 999); // End of day in UTC
-      } catch (error) {
+      } catch (err) {
+        console.error('Error parsing validation dates:', err);
         return NextResponse.json(
           { error: 'Invalid date format. Use YYYY-MM-DD' },
           { status: 400 }

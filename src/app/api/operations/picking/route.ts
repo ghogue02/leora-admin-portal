@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import type { Prisma } from "@prisma/client";
+import { PickSheetStatus } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 
 export async function GET(request: NextRequest) {
@@ -16,7 +17,13 @@ export async function GET(request: NextRequest) {
         };
 
         if (status && status !== "all") {
-          where.status = status as any;
+          if (!Object.values(PickSheetStatus).includes(status as PickSheetStatus)) {
+            return NextResponse.json(
+              { error: "Invalid pick sheet status" },
+              { status: 400 },
+            );
+          }
+          where.status = status as PickSheetStatus;
         }
 
         if (date) {

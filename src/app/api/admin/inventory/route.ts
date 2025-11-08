@@ -37,6 +37,7 @@ export async function GET(request: NextRequest) {
         tenantId,
         ...((!includeInactive) && { isActive: true }),
       };
+      const productFilters: Prisma.ProductWhereInput = {};
 
       // Search filter
       if (search) {
@@ -48,16 +49,16 @@ export async function GET(request: NextRequest) {
 
       // Category filter
       if (category) {
-        where.product = (where.product
-          ? { ...where.product, category: category as string }
-          : { category: category as string }) as any;
+        productFilters.category = category;
       }
 
       // Brand filter
       if (brand) {
-        where.product = (where.product
-          ? { ...where.product, brand }
-          : { brand }) as any;
+        productFilters.brand = brand;
+      }
+
+      if (Object.keys(productFilters).length > 0) {
+        where.product = productFilters;
       }
 
       // Price range filter
@@ -72,7 +73,7 @@ export async function GET(request: NextRequest) {
       }
 
       // Build order by
-      let orderBy: Prisma.SkuOrderByWithRelationInput = {};
+      const orderBy: Prisma.SkuOrderByWithRelationInput = {};
 
       switch (sortBy) {
         case "skuCode":

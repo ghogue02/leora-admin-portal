@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
-import type { Prisma } from "@prisma/client";
+
+const statusFilterSchema = z.enum(["all", "READY_TO_DELIVER", "PICKED", "PENDING", "DELIVERED"]).optional();
+const queueQuerySchema = z.object({
+  deliveryDate: z.string().optional(),
+  status: statusFilterSchema,
+  warehouse: z.string().optional(),
+});
 
 /**
  * GET /api/sales/operations/queue
@@ -16,10 +24,11 @@ import type { Prisma } from "@prisma/client";
  */
 
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const deliveryDate = searchParams.get('deliveryDate');
-  const status = searchParams.get('status');
-  const warehouse = searchParams.get('warehouse');
+  const params = queueQuerySchema.parse({
+    deliveryDate: request.nextUrl.searchParams.get("deliveryDate") ?? undefined,
+    status: request.nextUrl.searchParams.get("status") ?? undefined,
+    warehouse: request.nextUrl.searchParams.get("warehouse") ?? undefined,
+  });
 
   return withSalesSession(
     request,
@@ -30,8 +39,8 @@ export async function GET(request: NextRequest) {
       };
 
       // Filter by delivery date
-      if (deliveryDate) {
-        const date = new Date(deliveryDate);
+      if (params.deliveryDate) {
+        const date = new Date(params.deliveryDate);
         const nextDay = new Date(date);
         nextDay.setDate(nextDay.getDate() + 1);
 
@@ -42,18 +51,18 @@ export async function GET(request: NextRequest) {
       }
 
       // Filter by status
-      if (status && status !== 'all') {
-        where.status = status as any;
+      if (params.status && params.status !== "all") {
+        where.status = params.status;
       } else {
         // Default: Show operational statuses only
         where.status = {
-          in: ['READY_TO_DELIVER', 'PICKED', 'PENDING'],
+          in: ["READY_TO_DELIVER", "PICKED", "PENDING"],
         };
       }
 
       // Filter by warehouse
-      if (warehouse && warehouse !== 'all') {
-        where.warehouseLocation = warehouse;
+      if (params.warehouse && params.warehouse !== "all") {
+        where.warehouseLocation = params.warehouse;
       }
 
       const orders = await db.order.findMany({
@@ -81,13 +90,13 @@ export async function GET(request: NextRequest) {
           },
         },
         orderBy: [
-          { deliveryDate: 'asc' },
-          { createdAt: 'asc' },
+          { deliveryDate: "asc" },
+          { createdAt: "asc" },
         ],
       });
 
       return NextResponse.json({
-        orders: orders.map(order => ({
+        orders: orders.map((order) => ({
           id: order.id,
           customer: order.customer,
           deliveryDate: order.deliveryDate,

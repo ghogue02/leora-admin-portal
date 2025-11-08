@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { withAdminSession } from "@/lib/auth/admin";
 import {
-  activitySampleItemSelect,
+  activityRecordSelect,
   serializeActivityRecord,
 } from "@/app/api/sales/activities/_helpers";
 
@@ -93,31 +93,7 @@ export async function GET(request: NextRequest) {
         orderBy: {
           occurredAt: "desc",
         },
-        include: {
-          activityType: {
-            select: {
-              id: true,
-              name: true,
-              code: true,
-            },
-          },
-          customer: {
-            select: {
-              id: true,
-              name: true,
-            },
-          },
-          user: {
-            select: {
-              id: true,
-              fullName: true,
-              email: true,
-            },
-          },
-          sampleItems: {
-            select: activitySampleItemSelect,
-          },
-        },
+        select: activityRecordSelect,
         skip,
         take: pageSize,
       }),

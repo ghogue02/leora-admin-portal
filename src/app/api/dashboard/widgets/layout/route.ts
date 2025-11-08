@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
 const LayoutSchema = z.object({
   layouts: z.object({
@@ -45,11 +46,16 @@ const LayoutSchema = z.object({
   })
 });
 
+type ResponsiveLayouts = z.infer<typeof LayoutSchema>['layouts'];
+
+const toJsonValue = (layouts: ResponsiveLayouts): Prisma.JsonValue =>
+  layouts as unknown as Prisma.JsonValue;
+
 /**
  * GET /api/dashboard/widgets/layout
  * Retrieve saved dashboard layout for the current user
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const session = await getServerSession(authOptions);
     if (!session?.user?.id) {
@@ -65,8 +71,10 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ layouts: null });
     }
 
+    const parsedLayouts = LayoutSchema.shape.layouts.safeParse(layoutData.layouts);
+
     return NextResponse.json({
-      layouts: layoutData.layouts as any,
+      layouts: parsedLayouts.success ? parsedLayouts.data : null,
       updatedAt: layoutData.updatedAt
     });
   } catch (error) {
@@ -97,10 +105,10 @@ export async function POST(request: NextRequest) {
       where: { userId: session.user.id },
       create: {
         userId: session.user.id,
-        layouts: validated.layouts as any
+        layouts: toJsonValue(validated.layouts)
       },
       update: {
-        layouts: validated.layouts as any,
+        layouts: toJsonValue(validated.layouts),
         updatedAt: new Date()
       }
     });

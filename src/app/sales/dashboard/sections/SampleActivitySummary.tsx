@@ -20,6 +20,7 @@ const formatDate = (value: string | null | undefined) => {
 
 export default function SampleActivitySummary({ insights }: SampleActivitySummaryProps) {
   const { metrics, recentActivities, followUps } = insights;
+  const periodConversionPercent = (metrics.periodCustomerConversionRate * 100).toFixed(1);
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -30,10 +31,15 @@ export default function SampleActivitySummary({ insights }: SampleActivitySummar
             Track shared samples, feedback collected, and follow-ups that still need attention.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
           <MetricCard label="Samples Logged (This Week)" value={metrics.loggedThisWeek} />
           <MetricCard label="Follow-ups Completed" value={metrics.completedThisWeek} />
           <MetricCard label="Open Follow-ups" value={metrics.openFollowUps} highlight />
+          <MetricCard
+            label={`${metrics.periodLabel} Conversion`}
+            valueLabel={`${periodConversionPercent}%`}
+            sublabel={`${metrics.periodSampleQuantity.toLocaleString()} samples across ${metrics.periodUniqueCustomers.toLocaleString()} customers`}
+          />
         </div>
       </div>
 
@@ -58,11 +64,15 @@ export default function SampleActivitySummary({ insights }: SampleActivitySummar
 function MetricCard({
   label,
   value,
+  valueLabel,
   highlight = false,
+  sublabel,
 }: {
   label: string;
-  value: number;
+  value?: number;
+  valueLabel?: string;
   highlight?: boolean;
+  sublabel?: string;
 }) {
   return (
     <div
@@ -76,8 +86,9 @@ function MetricCard({
           highlight ? "text-amber-700" : "text-gray-900"
         }`}
       >
-        {value}
+        {valueLabel ?? value}
       </p>
+      {sublabel && <p className="mt-1 text-xs text-gray-500">{sublabel}</p>}
     </div>
   );
 }

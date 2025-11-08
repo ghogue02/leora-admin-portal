@@ -1,10 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
-import { PrismaClient } from '@prisma/client';
-
+import { withAdminSession, type AdminSessionContext } from '@/lib/auth/admin';
 import { logChange, AuditOperation } from '@/lib/audit';
-import { OrderStatus } from '@prisma/client';
+import { OrderStatus, Prisma } from '@prisma/client';
 import { handleOrderDeliveryEvent } from '@/lib/customer-health/realtime-updater';
+
+type ChangeOrderStatusPayload = {
+  orderIds?: string[];
+  newStatus?: OrderStatus;
+  reason?: string;
+};
 
 /**
  * POST /api/admin/bulk-operations/change-order-status
@@ -15,8 +19,10 @@ export async function POST(request: NextRequest) {
     const { tenantId, db, user } = context;
 
     try {
-      const body = await request.json();
-      const { orderIds, newStatus, reason } = body;
+      const body = (await request.json().catch(() => null)) as ChangeOrderStatusPayload | null;
+      const orderIds = body?.orderIds ?? [];
+      const newStatus = body?.newStatus;
+      const reason = body?.reason;
 
       if (!orderIds || !Array.isArray(orderIds) || orderIds.length === 0) {
         return NextResponse.json(
@@ -75,9 +81,9 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const results = {
+      const results: { successCount: number; errors: Array<{ orderId: string; customerName: string; error: string }> } = {
         successCount: 0,
-        errors: [] as Array<{ orderId: string; customerName: string; error: string }>
+        errors: [],
       };
 
       // Define valid status transitions
@@ -118,22 +124,21 @@ export async function POST(request: NextRequest) {
             continue;
           }
 
-          await (db as PrismaClient).$transaction(async (tx) => {
-            const updateData: any = {
-              status: newStatus
+          await db.$transaction(async (tx) => {
+            const updateData: Prisma.OrderUpdateInput = {
+              status: newStatus,
             };
 
-            // Set timestamp based on new status
             if (newStatus === 'FULFILLED') {
-              updateData.fulfilledAt = new Date();
-              updateData.deliveredAt = new Date(); // Also set deliveredAt for health calculations
+              const timestamp = new Date();
+              updateData.fulfilledAt = timestamp;
+              updateData.deliveredAt = timestamp;
             }
 
-            // Update order
             const updatedOrder = await tx.order.update({
               where: { id: order.id },
               data: updateData,
-              select: { id: true, customerId: true }
+              select: { id: true, customerId: true },
             });
 
             // Trigger real-time health update when order is delivered
@@ -176,11 +181,11 @@ export async function POST(request: NextRequest) {
           });
 
           results.successCount++;
-        } catch (error: any) {
+        } catch (error: unknown) {
           results.errors.push({
             orderId: order.id,
             customerName: order.customer.name,
-            error: error.message || 'Unknown error'
+            error: error instanceof Error ? error.message : 'Unknown error'
           });
         }
       }
@@ -192,10 +197,13 @@ export async function POST(request: NextRequest) {
         errors: results.errors,
         newStatus
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error in bulk order status change:', error);
       return NextResponse.json(
-        { error: 'Failed to perform bulk status change', details: error.message },
+        {
+          error: 'Failed to perform bulk status change',
+          details: error instanceof Error ? error.message : 'Unknown error',
+        },
         { status: 500 }
       );
     }

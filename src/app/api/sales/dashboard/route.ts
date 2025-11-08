@@ -5,7 +5,17 @@ import {
   activitySampleItemWithActivitySelect,
   serializeSampleFollowUp,
 } from "@/app/api/sales/activities/_helpers";
-import { startOfWeek, endOfWeek, subWeeks, addDays, startOfYear, startOfMonth, subMonths, endOfMonth } from "date-fns";
+import {
+  startOfWeek,
+  endOfWeek,
+  subWeeks,
+  addDays,
+  startOfYear,
+  startOfMonth,
+  subMonths,
+  endOfMonth,
+  subDays,
+} from "date-fns";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
@@ -474,6 +484,103 @@ export async function GET(request: NextRequest) {
         }),
       ]);
 
+      const sampleLookbackDays = 30;
+      const samplePeriodStart = subDays(now, sampleLookbackDays);
+      const periodSamples = await db.sampleUsage.findMany({
+        where: {
+          tenantId,
+          salesRepId: salesRep.id,
+          tastedAt: {
+            gte: samplePeriodStart,
+            lte: now,
+          },
+        },
+        select: {
+          id: true,
+          customerId: true,
+          skuId: true,
+          tastedAt: true,
+          quantity: true,
+          resultedInOrder: true,
+        },
+      });
+
+      let periodSampleQuantity = 0;
+      const periodCustomerIds = new Set<string>();
+      const periodConvertedCustomerIds = new Set<string>();
+
+      if (periodSamples.length > 0) {
+        const customerIdList = Array.from(new Set(periodSamples.map((sample) => sample.customerId)));
+        const skuIdList = Array.from(new Set(periodSamples.map((sample) => sample.skuId)));
+
+        const periodOrders = await db.order.findMany({
+          where: {
+            tenantId,
+            customerId: {
+              in: customerIdList,
+            },
+            orderedAt: {
+              gte: samplePeriodStart,
+              lte: now,
+            },
+            lines: {
+              some: {
+                skuId: {
+                  in: skuIdList,
+                },
+              },
+            },
+          },
+          select: {
+            id: true,
+            customerId: true,
+            orderedAt: true,
+            lines: {
+              select: {
+                skuId: true,
+                quantity: true,
+                unitPrice: true,
+              },
+            },
+          },
+        });
+
+        const ordersByCustomer = new Map<string, typeof periodOrders[number][]>();
+        for (const order of periodOrders) {
+          const bucket = ordersByCustomer.get(order.customerId) ?? [];
+          bucket.push(order);
+          ordersByCustomer.set(order.customerId, bucket);
+        }
+
+        for (const sample of periodSamples) {
+          periodSampleQuantity += sample.quantity ?? 1;
+          periodCustomerIds.add(sample.customerId);
+
+          const windowEnd = addDays(sample.tastedAt, 30);
+          const candidateOrders = ordersByCustomer.get(sample.customerId) ?? [];
+          const convertedByOrder = candidateOrders.some((order) => {
+            if (!order.orderedAt) return false;
+            if (order.orderedAt < sample.tastedAt || order.orderedAt > windowEnd) {
+              return false;
+            }
+            return order.lines.some(
+              (line) => line.skuId === sample.skuId && Number(line.unitPrice) * line.quantity > 0,
+            );
+          });
+
+          if (convertedByOrder || sample.resultedInOrder) {
+            periodConvertedCustomerIds.add(sample.customerId);
+          }
+        }
+      }
+
+      const periodLabel = "Last 30 Days";
+      const periodUniqueCustomers = periodCustomerIds.size;
+      const periodConversionRate =
+        periodUniqueCustomers > 0
+          ? periodConvertedCustomerIds.size / periodUniqueCustomers
+          : 0;
+
       // Calculate metrics
       const currentWeekRevenueAmount = Number(currentWeekRevenue._sum.total ?? 0);
       const lastWeekRevenueAmount = Number(lastWeekRevenue._sum.total ?? 0);
@@ -528,6 +635,10 @@ export async function GET(request: NextRequest) {
           loggedThisWeek: samplesLoggedThisWeek,
           completedThisWeek: samplesCompletedThisWeek,
           openFollowUps: openSampleFollowUpCount,
+          periodLabel,
+          periodSampleQuantity,
+          periodUniqueCustomers,
+          periodCustomerConversionRate: periodConversionRate,
         },
         recentActivities: recentSamples,
         followUps: openSampleFollowUpsSerialized,

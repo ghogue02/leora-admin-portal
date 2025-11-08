@@ -1,6 +1,47 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import prisma from '@/lib/prisma';
+import type { Prisma } from '@prisma/client';
+
+type MailchimpWebhookData = {
+  email?: string;
+  list_id?: string;
+  merges?: Record<string, string>;
+  reason?: string;
+  old_email?: string;
+  new_email?: string;
+  id?: string;
+  status?: string;
+  subject?: string;
+};
+
+type MailchimpWebhookPayload = {
+  type: string;
+  fired_at?: string;
+  data?: MailchimpWebhookData;
+};
+
+const toJsonObject = (value: Prisma.JsonValue | null | undefined): Record<string, unknown> =>
+  value && typeof value === 'object' && !Array.isArray(value) ? { ...(value as Record<string, unknown>) } : {};
+
+const mergeMailchimpMetadata = (
+  metadata: Prisma.JsonValue | null | undefined,
+  mailchimpData: Record<string, unknown>
+): Prisma.JsonObject => {
+  const base = toJsonObject(metadata);
+  const existingMailchimp =
+    base.mailchimp && typeof base.mailchimp === 'object' && !Array.isArray(base.mailchimp)
+      ? { ...(base.mailchimp as Record<string, unknown>) }
+      : {};
+
+  return {
+    ...base,
+    mailchimp: {
+      ...existingMailchimp,
+      ...mailchimpData,
+    },
+  };
+};
 
 /**
  * POST /api/mailchimp/webhooks
@@ -33,35 +74,35 @@ export async function POST(request: NextRequest) {
     }
 
     // Parse webhook data
-    const data = JSON.parse(body);
-    const eventType = data.type;
+    const payload = JSON.parse(body) as MailchimpWebhookPayload;
+    const eventType = payload.type;
 
-    console.log(`Received Mailchimp webhook: ${eventType}`, data);
+    console.log(`Received Mailchimp webhook: ${eventType}`, payload);
 
     // Handle different event types
     switch (eventType) {
       case 'subscribe':
-        await handleSubscribe(data);
+        await handleSubscribe(payload);
         break;
 
       case 'unsubscribe':
-        await handleUnsubscribe(data);
+        await handleUnsubscribe(payload);
         break;
 
       case 'profile':
-        await handleProfileUpdate(data);
+        await handleProfileUpdate(payload);
         break;
 
       case 'cleaned':
-        await handleCleaned(data);
+        await handleCleaned(payload);
         break;
 
       case 'upemail':
-        await handleEmailChange(data);
+        await handleEmailChange(payload);
         break;
 
       case 'campaign':
-        await handleCampaignEvent(data);
+        await handleCampaignEvent(payload);
         break;
 
       default:
@@ -82,7 +123,7 @@ export async function POST(request: NextRequest) {
  * GET /api/mailchimp/webhooks
  * Webhook verification endpoint for Mailchimp
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   // Mailchimp sends a GET request to verify the webhook URL
   return NextResponse.json({ success: true });
 }
@@ -91,10 +132,9 @@ export async function GET(request: NextRequest) {
 // Webhook Event Handlers
 // ============================================================================
 
-async function handleSubscribe(data: any) {
-  const email = data.data?.email;
-  const listId = data.data?.list_id;
-  const merges = data.data?.merges;
+async function handleSubscribe(payload: MailchimpWebhookPayload) {
+  const email = payload.data?.email;
+  const listId = payload.data?.list_id;
 
   if (!email) return;
 
@@ -109,14 +149,11 @@ async function handleSubscribe(data: any) {
       where: { id: customer.id },
       data: {
         emailOptOut: false,
-        metadata: {
-          ...(customer.metadata as any),
-          mailchimp: {
-            subscribed: true,
-            listId,
-            subscribedAt: new Date().toISOString(),
-          },
-        },
+        metadata: mergeMailchimpMetadata(customer.metadata, {
+          subscribed: true,
+          listId,
+          subscribedAt: new Date().toISOString(),
+        }),
       },
     });
 
@@ -124,10 +161,10 @@ async function handleSubscribe(data: any) {
   }
 }
 
-async function handleUnsubscribe(data: any) {
-  const email = data.data?.email;
-  const listId = data.data?.list_id;
-  const reason = data.data?.reason;
+async function handleUnsubscribe(payload: MailchimpWebhookPayload) {
+  const email = payload.data?.email;
+  const listId = payload.data?.list_id;
+  const reason = payload.data?.reason;
 
   if (!email) return;
 
@@ -142,15 +179,12 @@ async function handleUnsubscribe(data: any) {
       where: { id: customer.id },
       data: {
         emailOptOut: true,
-        metadata: {
-          ...(customer.metadata as any),
-          mailchimp: {
-            subscribed: false,
-            listId,
-            unsubscribedAt: new Date().toISOString(),
-            unsubscribeReason: reason,
-          },
-        },
+        metadata: mergeMailchimpMetadata(customer.metadata, {
+          subscribed: false,
+          listId,
+          unsubscribedAt: new Date().toISOString(),
+          unsubscribeReason: reason,
+        }),
       },
     });
 
@@ -158,9 +192,9 @@ async function handleUnsubscribe(data: any) {
   }
 }
 
-async function handleProfileUpdate(data: any) {
-  const email = data.data?.email;
-  const merges = data.data?.merges;
+async function handleProfileUpdate(payload: MailchimpWebhookPayload) {
+  const email = payload.data?.email;
+  const merges = payload.data?.merges;
 
   if (!email || !merges) return;
 
@@ -171,7 +205,7 @@ async function handleProfileUpdate(data: any) {
 
   if (customer) {
     // Update customer profile with merge field changes
-    const updates: any = {};
+    const updates: Record<string, unknown> = {};
 
     if (merges.FNAME) {
       const nameParts = customer.name?.split(' ') || [];
@@ -201,9 +235,9 @@ async function handleProfileUpdate(data: any) {
   }
 }
 
-async function handleCleaned(data: any) {
-  const email = data.data?.email;
-  const reason = data.data?.reason;
+async function handleCleaned(payload: MailchimpWebhookPayload) {
+  const email = payload.data?.email;
+  const reason = payload.data?.reason;
 
   if (!email) return;
 
@@ -217,14 +251,11 @@ async function handleCleaned(data: any) {
       where: { id: customer.id },
       data: {
         emailOptOut: true,
-        metadata: {
-          ...(customer.metadata as any),
-          mailchimp: {
-            cleaned: true,
-            cleanedReason: reason,
-            cleanedAt: new Date().toISOString(),
-          },
-        },
+        metadata: mergeMailchimpMetadata(customer.metadata, {
+          cleaned: true,
+          cleanedReason: reason,
+          cleanedAt: new Date().toISOString(),
+        }),
       },
     });
 
@@ -232,9 +263,9 @@ async function handleCleaned(data: any) {
   }
 }
 
-async function handleEmailChange(data: any) {
-  const oldEmail = data.data?.old_email;
-  const newEmail = data.data?.new_email;
+async function handleEmailChange(payload: MailchimpWebhookPayload) {
+  const oldEmail = payload.data?.old_email;
+  const newEmail = payload.data?.new_email;
 
   if (!oldEmail || !newEmail) return;
 
@@ -248,15 +279,12 @@ async function handleEmailChange(data: any) {
       where: { id: customer.id },
       data: {
         billingEmail: newEmail,
-        metadata: {
-          ...(customer.metadata as any),
-          mailchimp: {
-            emailChanged: true,
-            oldEmail,
-            newEmail,
-            changedAt: new Date().toISOString(),
-          },
-        },
+        metadata: mergeMailchimpMetadata(customer.metadata, {
+          emailChanged: true,
+          oldEmail,
+          newEmail,
+          changedAt: new Date().toISOString(),
+        }),
       },
     });
 
@@ -264,10 +292,10 @@ async function handleEmailChange(data: any) {
   }
 }
 
-async function handleCampaignEvent(data: any) {
-  const campaignId = data.data?.id;
-  const status = data.data?.status;
-  const subject = data.data?.subject;
+async function handleCampaignEvent(payload: MailchimpWebhookPayload) {
+  const campaignId = payload.data?.id;
+  const status = payload.data?.status;
+  const subject = payload.data?.subject;
 
   if (!campaignId) return;
 

@@ -13,7 +13,6 @@ import {
   createMetricDefinitionSchema,
   metricDefinitionQuerySchema,
 } from '@/lib/validation/metrics';
-import { ZodError } from 'zod';
 
 /**
  * GET /api/metrics/definitions
@@ -178,11 +177,11 @@ export async function POST(request: NextRequest) {
         },
         { status: 201 }
       );
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error creating metric definition:', error);
 
       // Handle unique constraint violations
-      if (error.code === 'P2002') {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
         return NextResponse.json(
           { error: 'A metric definition with this code and version already exists' },
           { status: 409 }
@@ -190,7 +189,7 @@ export async function POST(request: NextRequest) {
       }
 
       // Handle foreign key violations
-      if (error.code === 'P2003') {
+      if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2003') {
         return NextResponse.json(
           { error: 'Invalid user or tenant reference' },
           { status: 400 }

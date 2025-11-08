@@ -20,6 +20,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { MapPin, List, Grid } from "lucide-react";
 import { toast } from "sonner";
+import type { CarlaSelectedAccount } from "./types";
 
 export type AccountType = "PROSPECT" | "TARGET" | "ACTIVE";
 export type Priority = "HIGH" | "MEDIUM" | "LOW";
@@ -53,7 +54,7 @@ export default function CarlaCallPlanPageEnhanced() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAccountIds, setSelectedAccountIds] = useState<Set<string>>(new Set());
-  const [selectedAccounts, setSelectedAccounts] = useState<any[]>([]);
+  const [selectedAccounts, setSelectedAccounts] = useState<CarlaSelectedAccount[]>([]);
   const [callPlanId, setCallPlanId] = useState<string | undefined>();
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
 
@@ -133,7 +134,8 @@ export default function CarlaCallPlanPageEnhanced() {
       if (response.ok) {
         const data = await response.json();
         setSelectedAccountIds(new Set(data.selectedAccountIds || []));
-        setSelectedAccounts(data.accounts || []);
+        const accounts: CarlaSelectedAccount[] = Array.isArray(data.accounts) ? data.accounts : [];
+        setSelectedAccounts(accounts);
         setCallPlanId(data.callPlan?.id);
       } else {
         setSelectedAccountIds(new Set());

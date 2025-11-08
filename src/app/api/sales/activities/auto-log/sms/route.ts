@@ -14,7 +14,6 @@ export async function POST(request: NextRequest) {
         activityTypeCode = 'TEXT_MESSAGE',
         outcome = 'SUCCESS',
         outcomes,
-        metadata,
       } = body;
 
       // Get sales rep

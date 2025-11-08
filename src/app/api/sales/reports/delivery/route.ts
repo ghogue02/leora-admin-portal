@@ -1,5 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { withSalesSession } from '@/lib/auth/sales';
+import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
+import { Prisma } from "@prisma/client";
+import { withSalesSession } from "@/lib/auth/sales";
+
+const deliveryMethodSchema = z.enum(["Delivery", "Pick up", "Will Call", "all"]).optional();
+const usageFilterSchema = z.enum(["all", "standard", "promotion", "sample"]).optional();
+const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional();
 
 /**
  * GET /api/sales/reports/delivery
@@ -15,24 +21,29 @@ import { withSalesSession } from '@/lib/auth/sales';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
-  const deliveryMethod = searchParams.get('deliveryMethod');
-  const startDate = searchParams.get('startDate');
-  const endDate = searchParams.get('endDate');
-  const usageFilter = searchParams.get('usageFilter');
+  const deliveryMethod = deliveryMethodSchema.parse(
+    searchParams.get("deliveryMethod") ?? undefined
+  );
+  const startDate = dateSchema.parse(searchParams.get("startDate") ?? undefined);
+  const endDate = dateSchema.parse(searchParams.get("endDate") ?? undefined);
+  const usageFilter = usageFilterSchema.parse(searchParams.get("usageFilter") ?? undefined);
 
   return withSalesSession(
     request,
     async ({ db, tenantId }) => {
       try {
         // Build Prisma where clause
-        const where: any = {
+        const where: Prisma.InvoiceWhereInput = {
           tenantId,
           order: {},
         };
 
         // Filter by delivery time window (closest to delivery method)
-        if (deliveryMethod && deliveryMethod !== 'all') {
-          where.order.deliveryTimeWindow = deliveryMethod;
+        if (deliveryMethod && deliveryMethod !== "all") {
+          where.order = {
+            ...(where.order || {}),
+            deliveryTimeWindow: deliveryMethod,
+          };
         }
 
         // Filter by invoice issue date

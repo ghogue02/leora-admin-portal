@@ -1,7 +1,39 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Prisma } from '@prisma/client';
 
 const prisma = new PrismaClient();
+type JobAction = 'retry' | 'delete';
+type JobSortField = 'createdAt' | 'updatedAt' | 'status' | 'type' | 'startedAt' | 'completedAt';
+
+interface JobActionPayload {
+  action: JobAction;
+  jobIds: string[];
+}
+
+const SORTABLE_FIELDS: JobSortField[] = ['createdAt', 'updatedAt', 'status', 'type', 'startedAt', 'completedAt'];
+
+const isJobSortField = (value: string): value is JobSortField => SORTABLE_FIELDS.includes(value as JobSortField);
+
+const buildOrderBy = (field: JobSortField, direction: Prisma.SortOrder): Prisma.JobOrderByWithRelationInput => {
+  switch (field) {
+    case 'createdAt':
+      return { createdAt: direction };
+    case 'updatedAt':
+      return { updatedAt: direction };
+    case 'status':
+      return { status: direction };
+    case 'type':
+      return { type: direction };
+    case 'startedAt':
+      return { startedAt: direction };
+    case 'completedAt':
+      return { completedAt: direction };
+    default:
+      return { createdAt: direction };
+  }
+};
+
+const getErrorMessage = (error: unknown): string => (error instanceof Error ? error.message : 'Unknown error');
 
 /**
  * GET /api/admin/jobs
@@ -18,10 +50,12 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
     const sortBy = searchParams.get('sortBy') || 'createdAt';
-    const sortOrder = searchParams.get('sortOrder') || 'desc';
+    const sortOrderParam = searchParams.get('sortOrder');
+    const sortOrder: Prisma.SortOrder = sortOrderParam === 'asc' ? 'asc' : 'desc';
+    const sortField = isJobSortField(sortBy) ? sortBy : 'createdAt';
 
     // Build where clause
-    const where: any = {};
+    const where: Prisma.JobWhereInput = {};
 
     if (status !== 'all') {
       where.status = status;
@@ -45,7 +79,7 @@ export async function GET(request: NextRequest) {
     // Get jobs with pagination and sorting
     const jobs = await prisma.job.findMany({
       where,
-      orderBy: { [sortBy]: sortOrder },
+      orderBy: buildOrderBy(sortField, sortOrder),
       skip: (page - 1) * limit,
       take: limit
     });
@@ -63,10 +97,10 @@ export async function GET(request: NextRequest) {
       }
     });
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error fetching jobs:', error);
     return NextResponse.json(
-      { success: false, error: 'Failed to fetch jobs' },
+      { success: false, error: 'Failed to fetch jobs', details: getErrorMessage(error) },
       { status: 500 }
     );
   }
@@ -78,8 +112,15 @@ export async function GET(request: NextRequest) {
  */
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
+    const body = (await request.json()) as JobActionPayload;
     const { action, jobIds } = body;
+
+    if (!action || !jobIds || !Array.isArray(jobIds) || jobIds.length === 0) {
+      return NextResponse.json(
+        { success: false, error: 'action and jobIds are required' },
+        { status: 400 }
+      );
+    }
 
     if (action === 'retry') {
       // Reset failed jobs to pending status
@@ -124,10 +165,10 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error processing job action:', error);
     return NextResponse.json(
-      { success: false, error: 'Failed to process action' },
+      { success: false, error: 'Failed to process action', details: getErrorMessage(error) },
       { status: 500 }
     );
   }

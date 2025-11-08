@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { createPickSheetSchema, pickSheetQuerySchema } from '@/lib/validations/warehouse';
 import { formatUTCDate } from '@/lib/dates';
 import { z } from 'zod';
+import type { Prisma } from '@prisma/client';
 
 export async function GET(request: NextRequest) {
   try {
@@ -16,7 +17,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const query = pickSheetQuerySchema.parse(Object.fromEntries(searchParams));
 
-    const where: any = {
+    const where: Prisma.PickSheetWhereInput = {
       tenantId: session.user.tenantId,
     };
 
@@ -25,9 +26,10 @@ export async function GET(request: NextRequest) {
     }
 
     if (query.startDate || query.endDate) {
-      where.createdAt = {};
-      if (query.startDate) where.createdAt.gte = new Date(query.startDate);
-      if (query.endDate) where.createdAt.lte = new Date(query.endDate);
+      const dateFilter: Prisma.DateTimeFilter = {};
+      if (query.startDate) dateFilter.gte = new Date(query.startDate);
+      if (query.endDate) dateFilter.lte = new Date(query.endDate);
+      where.createdAt = dateFilter;
     }
 
     const pickSheets = await prisma.pickSheet.findMany({
@@ -80,7 +82,7 @@ export async function POST(request: NextRequest) {
 
     await prisma.$transaction(async (tx) => {
       // Find orders to include in pick sheet
-      const where: any = {
+      const where: Prisma.OrderWhereInput = {
         tenantId: session.user.tenantId,
         status: 'SUBMITTED',
         pickSheetStatus: 'NONE',
@@ -141,7 +143,7 @@ export async function POST(request: NextRequest) {
       });
 
       // Create pick sheet items
-      const items: any[] = [];
+      const items: Prisma.PickSheetItemCreateManyInput[] = [];
       for (const order of orders) {
         for (const line of order.lines) {
           const inventory = line.sku.inventories[0];

@@ -21,9 +21,6 @@ export async function GET(request: NextRequest) {
 
     const includeObjectives = searchParams.get("includeObjectives") === "true";
     const includeNotes = searchParams.get("includeNotes") === "true";
-    const includeMap = searchParams.get("includeMap") === "true";
-    const includeDirections = searchParams.get("includeDirections") === "true";
-    const includeProductRecommendations = searchParams.get("includeProductRecommendations") === "true";
 
     // Fetch call plan with accounts
     const callPlan = await prisma.weeklyCallPlan.findUnique({
