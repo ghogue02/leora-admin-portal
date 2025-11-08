@@ -21,7 +21,7 @@ import {
   RotateCw
 } from 'lucide-react';
 
-interface ScanResult {
+export interface BusinessCardScanResult {
   name?: string;
   company?: string;
   email?: string;
@@ -33,18 +33,20 @@ interface ScanResult {
 interface BusinessCardScannerProps {
   isOpen: boolean;
   onClose: () => void;
-  onScanComplete: (data: ScanResult) => void;
+  onScanComplete: (data: BusinessCardScanResult) => void;
+  onImageCapture?: (imageData: string) => void;
 }
 
 export function BusinessCardScanner({
   isOpen,
   onClose,
-  onScanComplete
+  onScanComplete,
+  onImageCapture,
 }: BusinessCardScannerProps) {
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [scanResult, setScanResult] = useState<ScanResult | null>(null);
+  const [scanResult, setScanResult] = useState<BusinessCardScanResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [permissionDenied, setPermissionDenied] = useState(false);
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
@@ -137,6 +139,10 @@ export function BusinessCardScanner({
     const imageData = canvas.toDataURL('image/jpeg', 0.9);
     setCapturedImage(imageData);
 
+    if (onImageCapture) {
+      onImageCapture(imageData);
+    }
+
     // Process the image
     processImage(imageData);
   };
@@ -155,6 +161,9 @@ export function BusinessCardScanner({
     reader.onload = (e) => {
       const imageData = e.target?.result as string;
       setCapturedImage(imageData);
+      if (onImageCapture) {
+        onImageCapture(imageData);
+      }
       processImage(imageData);
     };
     reader.readAsDataURL(file);

@@ -2,6 +2,22 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { FlagDuplicateButton } from "./FlagDuplicateButton";
+import { PortalContactList } from "./ContactList";
+
+type DeliveryWindow =
+  | {
+      type: "BEFORE";
+      time: string;
+    }
+  | {
+      type: "AFTER";
+      time: string;
+    }
+  | {
+      type: "BETWEEN";
+      startTime: string;
+      endTime: string;
+    };
 
 type CustomerDetail = {
   id: string;
@@ -16,6 +32,12 @@ type CustomerDetail = {
   postalCode: string | null;
   country: string | null;
   paymentTerms: string | null;
+  licenseNumber: string | null;
+  deliveryInstructions: string | null;
+  deliveryMethod: string | null;
+  paymentMethod: string | null;
+  defaultWarehouseLocation: string | null;
+  deliveryWindows: DeliveryWindow[];
   orderingPaceDays: number | null;
   establishedRevenue: number | null;
   contactName: string | null;
@@ -91,6 +113,17 @@ type CustomerDetail = {
     notes: string | null;
     occurredAt: string | null;
   }>;
+  contacts: Array<{
+    id: string;
+    fullName: string;
+    role: string | null;
+    phone: string | null;
+    mobile: string | null;
+    email: string | null;
+    notes: string | null;
+    businessCardUrl: string | null;
+    createdAt: string;
+  }>;
 };
 
 type CustomerResponse = {
@@ -148,6 +181,19 @@ function formatDate(value: string | null) {
 
 function formatMoney(value: number | null, fractionDigits = 0) {
   return currencyFormatter(fractionDigits).format(value ?? 0);
+}
+
+function formatDeliveryWindow(window: DeliveryWindow) {
+  switch (window.type) {
+    case "BEFORE":
+      return `Before ${window.time}`;
+    case "AFTER":
+      return `After ${window.time}`;
+    case "BETWEEN":
+      return `Between ${window.startTime} – ${window.endTime}`;
+    default:
+      return "Custom window";
+  }
 }
 
 const riskStatusStyles: Record<string, string> = {
@@ -337,6 +383,18 @@ export default async function CustomerDetailPage({ params }: CustomerPageProps) 
                   : "—"}
               </dd>
             </div>
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-gray-500">License number</dt>
+              <dd>{customer.licenseNumber ?? "—"}</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-gray-500">Preferred payment method</dt>
+              <dd>{customer.paymentMethod ?? "Not specified"}</dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-wide text-gray-500">Delivery method</dt>
+              <dd>{customer.deliveryMethod ?? "Not specified"}</dd>
+            </div>
           </dl>
         </article>
 
@@ -370,6 +428,61 @@ export default async function CustomerDetailPage({ params }: CustomerPageProps) 
           )}
         </article>
       </section>
+
+      <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+        <h2 className="text-lg font-semibold text-gray-900">Delivery & Payment Preferences</h2>
+        <p className="text-xs text-gray-500">
+          Guidance for drivers and logistics teams fulfilling this account.
+        </p>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-md border border-slate-100 bg-slate-50 p-4 text-sm text-gray-700">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Instructions</p>
+            <p className="mt-2">
+              {customer.deliveryInstructions?.trim()
+                ? customer.deliveryInstructions
+                : "No specific delivery instructions recorded."}
+            </p>
+          </div>
+          <div className="rounded-md border border-slate-100 bg-slate-50 p-4 text-sm text-gray-700">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Delivery windows</p>
+            {customer.deliveryWindows?.length ? (
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {customer.deliveryWindows.map((window, index) => (
+                  <li key={`${window.type}-${index}`}>{formatDeliveryWindow(window)}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-2">Flexible / no preferred window.</p>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-3 text-sm text-gray-700">
+          <div className="rounded-md border border-slate-100 bg-white p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Payment terms
+            </p>
+            <p className="mt-2">{customer.paymentTerms ?? "Not specified"}</p>
+          </div>
+          <div className="rounded-md border border-slate-100 bg-white p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Warehouse source
+            </p>
+            <p className="mt-2">{customer.defaultWarehouseLocation ?? "Not specified"}</p>
+          </div>
+          <div className="rounded-md border border-slate-100 bg-white p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Preferred payment method
+            </p>
+            <p className="mt-2">{customer.paymentMethod ?? "Not specified"}</p>
+          </div>
+        </div>
+      </section>
+
+      {customer.contacts.length > 0 ? (
+        <PortalContactList contacts={customer.contacts} />
+      ) : null}
 
       <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
         <div className="flex items-center justify-between">

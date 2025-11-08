@@ -2,17 +2,69 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { parseISO, startOfDay, startOfWeek, endOfWeek } from "date-fns";
 import { z } from "zod";
-import { Prisma } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 
-const createScheduleSchema = z.object({
-  callPlanId: z.string().uuid(),
-  customerId: z.string().uuid(),
-  scheduledDate: z.string().min(1),
-  scheduledTime: z
-    .string()
-    .regex(/^([01]\d|2[0-3]):[0-5]\d$/, "scheduledTime must be HH:mm format"),
-  duration: z.number().int().min(15).max(480).optional(),
-});
+const BLOCK_TYPES = ["DRIVE_TIME", "ADMIN"] as const;
+type BlockType = (typeof BLOCK_TYPES)[number];
+
+const BLOCK_METADATA: Record<BlockType, { externalId: string; name: string }> = {
+  DRIVE_TIME: {
+    externalId: "call-plan-block:drive-time",
+    name: "Drive Time",
+  },
+  ADMIN: {
+    externalId: "call-plan-block:admin",
+    name: "Admin",
+  },
+};
+
+const createScheduleSchema = z
+  .object({
+    callPlanId: z.string().uuid(),
+    customerId: z.string().uuid().optional(),
+    blockType: z.enum(BLOCK_TYPES).optional(),
+    scheduledDate: z.string().min(1),
+    scheduledTime: z
+      .string()
+      .regex(/^([01]\d|2[0-3]):[0-5]\d$/, "scheduledTime must be HH:mm format"),
+    duration: z.number().int().min(15).max(480).optional(),
+  })
+  .refine((data) => data.customerId || data.blockType, {
+    message: "customerId or blockType is required",
+    path: ["customerId"],
+  });
+
+const resolveBlockType = (externalId?: string | null): BlockType | null => {
+  if (!externalId) return null;
+  const match = (Object.keys(BLOCK_METADATA) as BlockType[]).find(
+    (key) => BLOCK_METADATA[key].externalId === externalId
+  );
+  return match ?? null;
+};
+
+async function ensureBlockCustomer(
+  db: PrismaClient,
+  tenantId: string,
+  blockType: BlockType
+) {
+  const metadata = BLOCK_METADATA[blockType];
+  const customer = await db.customer.upsert({
+    where: {
+      tenantId_externalId: {
+        tenantId,
+        externalId: metadata.externalId,
+      },
+    },
+    update: {},
+    create: {
+      tenantId,
+      externalId: metadata.externalId,
+      name: metadata.name,
+      accountNumber: null,
+    },
+  });
+  return customer;
+}
 
 export async function GET(request: NextRequest) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
@@ -44,7 +96,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: "Call plan not found" }, { status: 404 });
     }
 
-    const [callPlanAccounts, schedules, territoryBlocks] = await Promise.all([
+    const [callPlanAccounts, schedules, territoryBlocks, plannedTasks] = await Promise.all([
       db.callPlanAccount.findMany({
         where: { callPlanId, tenantId },
         include: {
@@ -59,6 +111,7 @@ export async function GET(request: NextRequest) {
               accountPriority: true,
               accountType: true,
               lastOrderDate: true,
+              externalId: true,
             },
           },
         },
@@ -105,11 +158,34 @@ export async function GET(request: NextRequest) {
           { territory: "asc" },
         ],
       }),
+      db.task.findMany({
+        where: {
+          tenantId,
+          callPlanId,
+          customerId: {
+            not: null,
+          },
+          dueAt: {
+            gte: weekStartDate,
+            lte: weekEndDate,
+          },
+        },
+        select: {
+          customerId: true,
+        },
+      }),
     ]);
 
     const scheduledCustomerIds = new Set(schedules.map((schedule) => schedule.customerId));
+    const plannedCustomerIds = new Set(
+      plannedTasks
+        .map((task) => task.customerId)
+        .filter((id): id is string => Boolean(id))
+    );
+
     const unscheduledAccounts = callPlanAccounts
       .filter((account) => !scheduledCustomerIds.has(account.customerId))
+      .filter((account) => plannedCustomerIds.has(account.customerId))
       .map((account) => ({
         callPlanAccountId: account.id,
         customerId: account.customerId,
@@ -132,6 +208,7 @@ export async function GET(request: NextRequest) {
       duration: schedule.duration,
       googleEventId: schedule.googleEventId,
       outlookEventId: schedule.outlookEventId,
+      blockType: resolveBlockType(schedule.customer.externalId),
       customer: {
         id: schedule.customer.id,
         name: schedule.customer.name,
@@ -170,7 +247,7 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const { callPlanId, customerId, scheduledDate, scheduledTime } = parsed.data;
+      const { callPlanId, customerId, blockType, scheduledDate, scheduledTime } = parsed.data;
       const duration = parsed.data.duration ?? 30;
       const scheduleDate = startOfDay(parseISO(scheduledDate));
 
@@ -181,25 +258,42 @@ export async function POST(request: NextRequest) {
         );
       }
 
+      let targetCustomerId = customerId ?? null;
+      const resolvedBlockType: BlockType | null = blockType ?? null;
+
+      if (resolvedBlockType) {
+        const blockCustomer = await ensureBlockCustomer(db, tenantId, resolvedBlockType);
+        targetCustomerId = blockCustomer.id;
+      }
+
+      if (!targetCustomerId) {
+        return NextResponse.json({ error: "customerId is required" }, { status: 400 });
+      }
+
       const callPlan = await db.callPlan.findFirst({
         where: {
           id: callPlanId,
           tenantId,
           userId: session.user.id,
         },
-        include: {
-          accounts: {
-            where: { customerId },
-            select: { id: true },
-          },
-        },
+        include: resolvedBlockType
+          ? undefined
+          : {
+              accounts: {
+                where: { customerId: targetCustomerId },
+                select: { id: true },
+              },
+            },
       });
 
       if (!callPlan) {
         return NextResponse.json({ error: "Call plan not found" }, { status: 404 });
       }
 
-      if (callPlan.accounts.length === 0) {
+      if (
+        !resolvedBlockType &&
+        (!callPlan.accounts || callPlan.accounts.length === 0)
+      ) {
         return NextResponse.json(
           { error: "Account is not part of this call plan" },
           { status: 400 },
@@ -210,7 +304,7 @@ export async function POST(request: NextRequest) {
         data: {
           tenantId,
           callPlanId,
-          customerId,
+          customerId: targetCustomerId,
           scheduledDate: scheduleDate,
           scheduledTime,
           duration,
@@ -227,6 +321,7 @@ export async function POST(request: NextRequest) {
               accountPriority: true,
               accountType: true,
               lastOrderDate: true,
+              externalId: true,
             },
           },
         },
@@ -239,6 +334,7 @@ export async function POST(request: NextRequest) {
           scheduledDate: schedule.scheduledDate.toISOString(),
           scheduledTime: schedule.scheduledTime,
           duration: schedule.duration,
+          blockType: resolveBlockType(schedule.customer.externalId),
           customer: {
             id: schedule.customer.id,
             name: schedule.customer.name,

@@ -4,9 +4,57 @@ import type { DraggableAccountData } from "@/types/calendar";
 import { Calendar, MapPin, AlertCircle, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const OBJECTIVE_THEME: Record<
+  string,
+  { label: string; container: string; badge: string }
+> = {
+  tasting: {
+    label: "Tasting Appt",
+    container: "border-green-500 bg-green-50",
+    badge: "bg-green-600 text-white",
+  },
+  visit: {
+    label: "Visit",
+    container: "border-blue-500 bg-blue-50",
+    badge: "bg-blue-600 text-white",
+  },
+  email: {
+    label: "Email",
+    container: "border-purple-400 bg-purple-50",
+    badge: "bg-purple-600 text-white",
+  },
+  call: {
+    label: "Call",
+    container: "border-purple-400 bg-purple-50",
+    badge: "bg-purple-600 text-white",
+  },
+  text: {
+    label: "Text",
+    container: "border-purple-400 bg-purple-50",
+    badge: "bg-purple-600 text-white",
+  },
+  "public-event": {
+    label: "Public Event",
+    container: "border-red-500 bg-red-50",
+    badge: "bg-red-600 text-white",
+  },
+  "cold-call": {
+    label: "Cold Call",
+    container: "border-amber-400 bg-amber-50",
+    badge: "bg-amber-500 text-white",
+  },
+  other: {
+    label: "Other",
+    container: "border-slate-300 bg-slate-50",
+    badge: "bg-slate-600 text-white",
+  },
+};
+
 interface DraggableAccountProps {
-  account: DraggableAccountData & { territory?: string | null };
-  onDragStart: (account: DraggableAccountData & { territory?: string | null }) => void;
+  account: DraggableAccountData & { territory?: string | null; objectiveValue?: string | null };
+  onDragStart: (
+    account: DraggableAccountData & { territory?: string | null; objectiveValue?: string | null }
+  ) => void;
 }
 
 export function DraggableAccount({ account, onDragStart }: DraggableAccountProps) {
@@ -22,6 +70,7 @@ export function DraggableAccount({ account, onDragStart }: DraggableAccountProps
     territory: account.territory ?? null,
     lastOrderDate: account.lastOrderDate ?? null,
     isScheduled: account.isScheduled ?? false,
+    objectiveValue: account.objectiveValue ?? null,
   };
 
   const serializedPayload = JSON.stringify(dragPayload);
@@ -44,6 +93,18 @@ export function DraggableAccount({ account, onDragStart }: DraggableAccountProps
     LOW: "bg-green-100 text-green-800",
   };
 
+  const objectiveTheme = account.objectiveValue
+    ? OBJECTIVE_THEME[account.objectiveValue] ?? OBJECTIVE_THEME.other
+    : null;
+  const cardBorderClass = objectiveTheme?.container
+    ? objectiveTheme.container
+    : priorityColors[account.priority as keyof typeof priorityColors] || "border-gray-300";
+  const badgeClass = objectiveTheme?.badge
+    ? objectiveTheme.badge
+    : priorityBadgeColors[account.priority as keyof typeof priorityBadgeColors] ||
+      "bg-gray-100 text-gray-800";
+  const badgeLabel = objectiveTheme?.label ?? account.priority;
+
   return (
     <div
       id={`draggable-account-${account.id}`}
@@ -55,7 +116,7 @@ export function DraggableAccount({ account, onDragStart }: DraggableAccountProps
         account.isScheduled
           ? "opacity-50 cursor-not-allowed border-gray-300"
           : "cursor-grab hover:shadow-md active:cursor-grabbing",
-        priorityColors[account.priority as keyof typeof priorityColors] || "border-gray-300"
+        cardBorderClass,
       )}
     >
       <div className="flex items-start justify-between gap-2 mb-2">
@@ -67,12 +128,9 @@ export function DraggableAccount({ account, onDragStart }: DraggableAccountProps
         </div>
         <div className="flex gap-1 flex-shrink-0">
           <span
-            className={cn(
-              "px-2 py-0.5 rounded text-xs font-medium whitespace-nowrap",
-              priorityBadgeColors[account.priority as keyof typeof priorityBadgeColors] || "bg-gray-100 text-gray-800"
-            )}
+            className={cn("px-2 py-0.5 rounded text-xs font-medium whitespace-nowrap", badgeClass)}
           >
-            {account.priority}
+            {badgeLabel}
           </span>
           {account.isScheduled && (
             <CheckCircle2 className="h-4 w-4 text-green-600" title="Already scheduled" />

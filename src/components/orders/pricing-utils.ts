@@ -1,20 +1,6 @@
-export type PriceListSummary = {
-  priceListId: string;
-  priceListName: string;
-  price: number;
-  minQuantity: number;
-  maxQuantity: number | null;
-  jurisdictionType: string;
-  jurisdictionValue: string | null;
-  allowManualOverride: boolean;
-};
+import type { PriceListSummary, CustomerPricingContext } from '@/types/pricing';
 
-export type CustomerPricingContext = {
-  state?: string | null;
-  territory?: string | null;
-  accountNumber?: string | null;
-  name?: string | null;
-};
+export type { PriceListSummary, CustomerPricingContext };
 
 export type PricingSelection = {
   priceList: PriceListSummary | null;

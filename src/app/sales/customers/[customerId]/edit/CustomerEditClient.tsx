@@ -7,11 +7,13 @@ import { useQueryClient } from "@tanstack/react-query";
 import { CustomerClassificationFields } from "@/components/customers/CustomerClassificationFields";
 import { CustomerBasicInfoFields } from "@/components/customers/forms/CustomerBasicInfoFields";
 import { CustomerAddressFields } from "@/components/customers/forms/CustomerAddressFields";
+import { CustomerDeliveryFields } from "@/components/customers/forms/CustomerDeliveryFields";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
 import type {
   CustomerType,
   FeatureProgram,
   VolumeCapacity,
+  DeliveryWindow,
 } from "@/types/customer";
 
 type CustomerEditClientProps = {
@@ -24,12 +26,18 @@ type ContactFormState = {
   billingEmail: string;
   phone: string;
   paymentTerms: string;
+  licenseNumber: string;
   street1: string;
   street2: string;
   city: string;
   state: string;
   postalCode: string;
   country: string;
+  deliveryInstructions: string;
+  deliveryMethod: string;
+  paymentMethod: string;
+  defaultWarehouseLocation: string;
+  deliveryWindows: DeliveryWindow[];
 };
 
 type ClassificationState = {
@@ -44,12 +52,18 @@ const blankContactState: ContactFormState = {
   billingEmail: "",
   phone: "",
   paymentTerms: "",
+  licenseNumber: "",
   street1: "",
   street2: "",
   city: "",
   state: "",
   postalCode: "",
   country: "US",
+  deliveryInstructions: "",
+  deliveryMethod: "",
+  paymentMethod: "",
+  defaultWarehouseLocation: "",
+  deliveryWindows: [],
 };
 
 const blankClassificationState: ClassificationState = {
@@ -77,12 +91,20 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
         billingEmail: data.customer.billingEmail ?? "",
         phone: data.customer.phone ?? "",
         paymentTerms: data.customer.paymentTerms ?? "",
+        licenseNumber: data.customer.licenseNumber ?? "",
         street1: data.customer.address.street1 ?? "",
         street2: data.customer.address.street2 ?? "",
         city: data.customer.address.city ?? "",
         state: data.customer.address.state ?? "",
         postalCode: data.customer.address.postalCode ?? "",
         country: data.customer.address.country ?? "US",
+        deliveryInstructions: data.customer.deliveryInstructions ?? "",
+        deliveryMethod: data.customer.deliveryMethod ?? "",
+        paymentMethod: data.customer.paymentMethod ?? "",
+        defaultWarehouseLocation: data.customer.defaultWarehouseLocation ?? "",
+        deliveryWindows: Array.isArray(data.customer.deliveryWindows)
+          ? (data.customer.deliveryWindows as DeliveryWindow[])
+          : [],
       });
 
       setClassification({
@@ -93,7 +115,9 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
     }
   }, [data?.customer]);
 
-  const handleContactChange = (field: keyof ContactFormState, value: string | null) => {
+  type ContactStringField = Exclude<keyof ContactFormState, "deliveryWindows">;
+
+  const handleContactChange = (field: ContactStringField, value: string | null) => {
     setContactForm((prev) => ({
       ...prev,
       [field]: value ?? "",
@@ -116,12 +140,18 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
         billingEmail: contactForm.billingEmail.trim() || null,
         phone: contactForm.phone.trim() || null,
         paymentTerms: contactForm.paymentTerms.trim() || null,
+        licenseNumber: contactForm.licenseNumber.trim() || null,
         street1: contactForm.street1.trim() || null,
         street2: contactForm.street2.trim() || null,
         city: contactForm.city.trim() || null,
         state: contactForm.state.trim() || null,
         postalCode: contactForm.postalCode.trim() || null,
         country: contactForm.country.trim() || null,
+        deliveryInstructions: contactForm.deliveryInstructions.trim() || null,
+        deliveryMethod: contactForm.deliveryMethod.trim() || null,
+        paymentMethod: contactForm.paymentMethod.trim() || null,
+        defaultWarehouseLocation: contactForm.defaultWarehouseLocation.trim() || null,
+        deliveryWindows: contactForm.deliveryWindows,
         type: classification.type || null,
         volumeCapacity: classification.volumeCapacity || null,
         featurePrograms: classification.featurePrograms,
@@ -216,13 +246,14 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
               <CustomerBasicInfoFields
                 values={{
                   name: contactForm.name,
-                  accountNumber: contactForm.accountNumber,
-                  billingEmail: contactForm.billingEmail,
-                  phone: contactForm.phone,
-                  paymentTerms: contactForm.paymentTerms,
+                  accountNumber: contactForm.accountNumber || null,
+                  billingEmail: contactForm.billingEmail || null,
+                  phone: contactForm.phone || null,
+                  paymentTerms: contactForm.paymentTerms || null,
+                  licenseNumber: contactForm.licenseNumber || null,
                 }}
                 onChange={(field, value) =>
-                  handleContactChange(field as keyof ContactFormState, value)
+                  handleContactChange(field as ContactStringField, value)
                 }
                 disabled={saving}
               />
@@ -235,19 +266,44 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
               </div>
               <CustomerAddressFields
                 values={{
-                  street1: contactForm.street1,
-                  street2: contactForm.street2,
-                  city: contactForm.city,
-                  state: contactForm.state,
-                  postalCode: contactForm.postalCode,
-                  country: contactForm.country,
+                  street1: contactForm.street1 || null,
+                  street2: contactForm.street2 || null,
+                  city: contactForm.city || null,
+                  state: contactForm.state || null,
+                  postalCode: contactForm.postalCode || null,
+                  country: contactForm.country || null,
                 }}
                 onChange={(field, value) =>
-                  handleContactChange(field as keyof ContactFormState, value)
+                  handleContactChange(field as ContactStringField, value)
                 }
                 disabled={saving}
               />
             </section>
+
+            <section className="mt-8 space-y-6">
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Delivery Preferences</h2>
+                <p className="text-sm text-gray-500">
+                  Capture handling instructions, time windows, and preferred payment logistics.
+                </p>
+              </div>
+          <CustomerDeliveryFields
+            values={{
+              deliveryInstructions: contactForm.deliveryInstructions || null,
+              deliveryWindows: contactForm.deliveryWindows,
+              paymentMethod: contactForm.paymentMethod || null,
+              deliveryMethod: contactForm.deliveryMethod || null,
+              defaultWarehouseLocation: contactForm.defaultWarehouseLocation || null,
+            }}
+            disabled={saving}
+            onChange={(updates) =>
+              setContactForm((prev) => ({
+                ...prev,
+                ...(updates as Partial<ContactFormState>),
+              }))
+            }
+          />
+        </section>
 
             <section className="mt-8">
               <CustomerClassificationFields

@@ -7,6 +7,17 @@ import { db } from '@/lib/db';
 import { Order, OrderItem, Customer, Product } from '@/types';
 import { formatUTCDate } from './dates';
 
+type PrimaryContact = {
+  name: string;
+  phone: string;
+};
+
+type OrderWithDetails = Order & {
+  customer?: Customer | null;
+  items?: OrderItem[];
+  primaryContact?: PrimaryContact | null;
+};
+
 export interface AzugaExportFilters {
   territory?: string;
   driver?: string;
@@ -15,7 +26,7 @@ export interface AzugaExportFilters {
 export interface AzugaExportResult {
   csv: string;
   filename: string;
-  orders: Order[];
+  orders: OrderWithDetails[];
 }
 
 export interface AzugaExportRow {
@@ -25,6 +36,8 @@ export interface AzugaExportRow {
   state: string;
   zip: string;
   phone: string;
+  contactName: string;
+  contactPhone: string;
   orderNumber: string;
   items: string;
   deliveryWindow: string;
@@ -81,7 +94,7 @@ async function getPickedOrders(
   tenantId: string,
   deliveryDate: Date,
   filters?: AzugaExportFilters
-): Promise<Order[]> {
+): Promise<OrderWithDetails[]> {
   const startOfDay = new Date(deliveryDate);
   startOfDay.setHours(0, 0, 0, 0);
 
@@ -110,7 +123,7 @@ async function getPickedOrders(
   // Fetch related data for each order
   const enrichedOrders = await Promise.all(
     orders.map(async (order) => {
-      const [customer, items] = await Promise.all([
+      const [customer, items, contact] = await Promise.all([
         db.customers.where('id', '=', order.customer_id).executeTakeFirst(),
         db.orderItems
           .where('order_id', '=', order.id)
@@ -120,13 +133,19 @@ async function getPickedOrders(
             'products.name as product_name',
             'products.category'
           ])
-          .execute()
+          .execute(),
+        db.customerContacts
+          .where('tenant_id', '=', tenantId)
+          .where('customer_id', '=', order.customer_id)
+          .orderBy('created_at', 'asc')
+          .executeTakeFirst()
       ]);
 
       return {
         ...order,
         customer,
-        items
+        items,
+        primaryContact: normalizeContactRecord(contact)
       };
     })
   );
@@ -137,7 +156,7 @@ async function getPickedOrders(
 /**
  * Generate Azuga-formatted CSV from orders
  */
-function generateAzugaCSV(orders: Order[]): string {
+function generateAzugaCSV(orders: OrderWithDetails[]): string {
   const headers = [
     'Customer Name',
     'Address',
@@ -145,6 +164,8 @@ function generateAzugaCSV(orders: Order[]): string {
     'State',
     'Zip',
     'Phone',
+    'Contact Name',
+    'Contact Phone',
     'Order Number',
     'Items',
     'Delivery Window',
@@ -164,9 +185,10 @@ function generateAzugaCSV(orders: Order[]): string {
 /**
  * Format a single order as an Azuga CSV row
  */
-function formatAzugaRow(order: Order): AzugaExportRow {
+function formatAzugaRow(order: OrderWithDetails): AzugaExportRow {
   const customer = order.customer;
   const items = order.items || [];
+  const contact = order.primaryContact;
 
   // Format items summary
   const itemsSummary = formatItemsSummary(items);
@@ -187,10 +209,32 @@ function formatAzugaRow(order: Order): AzugaExportRow {
     state: customer?.state || '',
     zip: customer?.zip_code || '',
     phone: customer?.phone || '',
+    contactName: contact?.name || '',
+    contactPhone: contact?.phone || '',
     orderNumber: order.order_number || order.id,
     items: itemsSummary,
     deliveryWindow,
     specialInstructions: specialInstructions || ''
+  };
+}
+
+function normalizeContactRecord(contact: any | null): PrimaryContact | null {
+  if (!contact) {
+    return null;
+  }
+
+  const rawName = contact.fullName ?? contact.full_name ?? '';
+  const rawPhone = contact.mobile ?? contact.phone ?? '';
+  const name = typeof rawName === 'string' ? rawName.trim() : '';
+  const phone = typeof rawPhone === 'string' ? rawPhone.trim() : '';
+
+  if (!name && !phone) {
+    return null;
+  }
+
+  return {
+    name,
+    phone,
   };
 }
 
@@ -252,6 +296,8 @@ function escapeCSVRow(row: AzugaExportRow): string {
     row.state,
     row.zip,
     row.phone,
+    row.contactName,
+    row.contactPhone,
     row.orderNumber,
     row.items,
     row.deliveryWindow,
@@ -282,7 +328,7 @@ async function createExportAudit(
   tenantId: string,
   userId: string,
   deliveryDate: Date,
-  orders: Order[],
+  orders: OrderWithDetails[],
   filename: string
 ): Promise<void> {
   await db.routeExports.insert({

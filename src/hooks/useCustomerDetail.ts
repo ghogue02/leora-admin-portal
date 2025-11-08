@@ -5,6 +5,8 @@ import type {
   CustomerType,
   FeatureProgram,
   VolumeCapacity,
+  DeliveryWindow,
+  CustomerContact,
 } from "@/types/customer";
 
 interface CustomerDetailData {
@@ -17,6 +19,12 @@ interface CustomerDetailData {
     phone: string | null;
     billingEmail: string | null;
     paymentTerms: string | null;
+    licenseNumber: string | null;
+    deliveryInstructions: string | null;
+    deliveryMethod: string | null;
+    paymentMethod: string | null;
+    defaultWarehouseLocation: string | null;
+    deliveryWindows: DeliveryWindow[] | null;
     address: {
       street1: string | null;
       street2: string | null;
@@ -36,6 +44,7 @@ interface CustomerDetailData {
     volumeCapacity: VolumeCapacity | null;
     featurePrograms: FeatureProgram[];
   };
+  contacts: CustomerContact[];
   metrics: {
     ytdRevenue: number;
     totalOrders: number;

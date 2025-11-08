@@ -455,10 +455,7 @@ export default function CarlaCallPlanPageEnhanced() {
 
       {/* Main Content */}
       {isMobile || isTablet ? (
-        <MobileOptimizedView
-          accounts={selectedAccounts}
-          onContactUpdate={handleContactUpdate}
-        />
+        <MobileOptimizedView accounts={selectedAccounts} onContactUpdate={handleContactUpdate} />
       ) : (
         <Tabs defaultValue="planning" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
@@ -475,11 +472,7 @@ export default function CarlaCallPlanPageEnhanced() {
           </TabsContent>
 
           <TabsContent value="tracking" className="mt-6">
-            <WeeklyAccountsView
-              accounts={selectedAccounts}
-              callPlanId={callPlanId}
-              onContactUpdate={handleContactUpdate}
-            />
+            <WeeklyAccountsView accounts={selectedAccounts} />
           </TabsContent>
         </Tabs>
       )}

@@ -170,10 +170,10 @@ export function ProductGrid({ warehouseLocation, onAddMultipleProducts, existing
     const uniqueCategories = new Set<string>();
     products.forEach(product => {
       if (product.category) {
-        uniqueCategories.add(product.category);
+        uniqueCategories.add(product.category.trim());
       }
     });
-    return Array.from(uniqueCategories).sort();
+    return Array.from(uniqueCategories).sort((a, b) => a.localeCompare(b));
   }, [products]);
 
   // Filter products - TWO STAGE APPROACH
@@ -186,8 +186,12 @@ export function ProductGrid({ warehouseLocation, onAddMultipleProducts, existing
       if (existingSkuIds.includes(product.skuId)) return false;
 
       // Category filter
-      if (categoryFilter && product.category !== categoryFilter) {
-        return false;
+      if (categoryFilter) {
+        const normalizedFilter = categoryFilter.toLowerCase();
+        const normalizedCategory = (product.category ?? '').trim().toLowerCase();
+        if (normalizedCategory !== normalizedFilter) {
+          return false;
+        }
       }
 
       // Search filter

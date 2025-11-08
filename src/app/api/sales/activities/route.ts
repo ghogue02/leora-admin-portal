@@ -344,41 +344,37 @@ export async function POST(request: NextRequest) {
 
         const occurredAtDate = new Date(occurredAt);
 
-        const activity = await db.$transaction(async (tx) => {
-          const created = await tx.activity.create({
-            data: {
-              tenantId,
-              activityTypeId: activityType.id,
-              userId: session.user.id,
-              customerId,
-              subject,
-              notes: notes || null,
-              occurredAt: occurredAtDate,
-              followUpAt: followUpAt ? new Date(followUpAt) : null,
-              outcomes: { set: normalizedOutcomes },
-            },
-          });
-
-          await createActivitySampleItems(tx, created.id, sampleItemsInput);
-
-          await createSampleUsageEntries(tx, {
+        const activity = await db.activity.create({
+          data: {
             tenantId,
-            salesRepId: salesRep.id,
-            customerId,
-            occurredAt: occurredAtDate,
-            sampleSource: "activity_log",
-            items: sampleItemsInput,
-          });
-
-          await createFollowUpTasksForSamples(tx, {
-            tenantId,
+            activityTypeId: activityType.id,
             userId: session.user.id,
             customerId,
+            subject,
+            notes: notes || null,
             occurredAt: occurredAtDate,
-            items: sampleItemsInput,
-          });
+            followUpAt: followUpAt ? new Date(followUpAt) : null,
+            outcomes: { set: normalizedOutcomes },
+          },
+        });
 
-          return created;
+        await createActivitySampleItems(db, activity.id, sampleItemsInput);
+
+        await createSampleUsageEntries(db, {
+          tenantId,
+          salesRepId: salesRep.id,
+          customerId,
+          occurredAt: occurredAtDate,
+          sampleSource: "activity_log",
+          items: sampleItemsInput,
+        });
+
+        await createFollowUpTasksForSamples(db, {
+          tenantId,
+          userId: session.user.id,
+          customerId,
+          occurredAt: occurredAtDate,
+          items: sampleItemsInput,
         });
 
         const fullActivity = await db.activity.findUnique({

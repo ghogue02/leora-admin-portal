@@ -20,6 +20,38 @@ export const FEATURE_PROGRAM_OPTIONS = ["Wine Club", "Catering", "Email Offers"]
 
 export type FeatureProgram = (typeof FEATURE_PROGRAM_OPTIONS)[number];
 
+export const PAYMENT_METHOD_OPTIONS = ["ACH", "Fintech", "Check", "Other"] as const;
+export type PaymentMethod = (typeof PAYMENT_METHOD_OPTIONS)[number];
+
+export type DeliveryWindowType = "BEFORE" | "AFTER" | "BETWEEN";
+
+export type DeliveryWindow =
+  | {
+      type: "BEFORE";
+      time: string;
+    }
+  | {
+      type: "AFTER";
+      time: string;
+    }
+  | {
+      type: "BETWEEN";
+      startTime: string;
+      endTime: string;
+    };
+
+export type CustomerContact = {
+  id: string;
+  fullName: string;
+  role: string | null;
+  phone: string | null;
+  mobile: string | null;
+  email: string | null;
+  notes?: string | null;
+  businessCardUrl?: string | null;
+  createdAt: string;
+};
+
 /**
  * Customer analytics update payload
  */

@@ -9,46 +9,52 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/shared/Breadcrumbs';
-import { CreateInvoiceDialog } from '@/components/invoices/CreateInvoiceDialog';
-import { InvoiceDownloadButton } from '@/components/invoices/InvoiceDownloadButton';
 import { formatCurrency, formatShortDate } from '@/lib/format';
 import { ArrowLeft, Pencil } from 'lucide-react';
 import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { OrderInvoicePanel } from '@/components/orders/OrderInvoicePanel';
+
+const ORDER_STATUS_OPTIONS: Array<{ value: string; label: string; description: string }> = [
+  { value: 'PENDING', label: 'Pending', description: 'Rep is still building the order.' },
+  { value: 'READY_TO_DELIVER', label: 'Ready to Deliver', description: 'Hand off to operations for picking.' },
+  { value: 'PICKED', label: 'Picked', description: 'Order has been staged and is ready to leave.' },
+  { value: 'DELIVERED', label: 'Delivered', description: 'Order delivered and inventory captured.' },
+];
 
 export default function SalesOrderDetailPage() {
   const params = useParams();
   const [order, setOrder] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const [showInvoiceDialog, setShowInvoiceDialog] = useState(false);
   const [updatingStatus, setUpdatingStatus] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [statusSelection, setStatusSelection] = useState<string>('PENDING');
 
-  useEffect(() => {
-    fetchOrder();
-  }, [params.orderId]);
-
-  const fetchOrder = async () => {
+  const fetchOrder = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch(`/api/sales/orders/${params.orderId}`);
       const data = await response.json();
       setOrder(data.order);
+      setStatusSelection(data.order?.status ?? 'PENDING');
     } catch (error) {
       console.error('Failed to fetch order:', error);
     } finally {
       setLoading(false);
     }
-  };
+  }, [params.orderId]);
+
+  useEffect(() => {
+    fetchOrder();
+  }, [fetchOrder]);
 
   const handleStatusChange = async (newStatus: string) => {
-    if (!confirm(`Are you sure you want to change the order status to ${newStatus}?`)) {
+    if (order?.status === newStatus) {
       return;
     }
-
     setUpdatingStatus(true);
     setStatusMessage(null);
 
@@ -81,18 +87,6 @@ export default function SalesOrderDetailPage() {
       setUpdatingStatus(false);
     }
   };
-
-  // Get available status transitions based on current status
-  const getAvailableTransitions = (currentStatus: string): Array<{ value: string; label: string }> => {
-    const transitions: Record<string, Array<{ value: string; label: string }>> = {
-      DRAFT: [{ value: 'PENDING', label: 'Submit Order' }],
-      PENDING: [{ value: 'READY_TO_DELIVER', label: 'Mark Ready to Deliver' }],
-      READY_TO_DELIVER: [{ value: 'PICKED', label: 'Mark as Picked' }],
-      PICKED: [{ value: 'DELIVERED', label: 'Mark as Delivered' }],
-    };
-    return transitions[currentStatus] || [];
-  };
-
 
   if (loading) {
     return (
@@ -215,24 +209,41 @@ export default function SalesOrderDetailPage() {
                 </div>
               </div>
 
-              {/* Status Change Actions */}
-              {getAvailableTransitions(order.status).length > 0 && (
-                <div className="pt-3 border-t">
-                  <p className="text-sm text-gray-600 mb-2">Change Status</p>
-                  <div className="space-y-2">
-                    {getAvailableTransitions(order.status).map(transition => (
-                      <button
-                        key={transition.value}
-                        onClick={() => handleStatusChange(transition.value)}
-                        disabled={updatingStatus}
-                        className="w-full px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-sm font-semibold transition"
-                      >
-                        {updatingStatus ? 'Updating...' : transition.label}
-                      </button>
-                    ))}
-                  </div>
+              <div className="pt-3 border-t space-y-3">
+                <p className="text-sm text-gray-600">Update Status</p>
+                <div className="space-y-2">
+                  {ORDER_STATUS_OPTIONS.map((option) => (
+                    <label
+                      key={option.value}
+                      className={`flex cursor-pointer items-start gap-3 rounded-md border px-3 py-2 text-sm transition ${
+                        statusSelection === option.value
+                          ? 'border-gray-900 bg-gray-900/5'
+                          : 'border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        value={option.value}
+                        checked={statusSelection === option.value}
+                        onChange={(event) => setStatusSelection(event.target.value)}
+                        className="mt-1"
+                      />
+                      <span>
+                        <span className="font-medium text-gray-900">{option.label}</span>
+                        <span className="block text-xs text-gray-600">{option.description}</span>
+                      </span>
+                    </label>
+                  ))}
                 </div>
-              )}
+                <button
+                  type="button"
+                  onClick={() => void handleStatusChange(statusSelection)}
+                  disabled={updatingStatus || statusSelection === order.status}
+                  className="w-full rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {updatingStatus ? 'Updating...' : 'Save Status'}
+                </button>
+              </div>
 
               <div>
                 <p className="text-sm text-gray-600">Ordered</p>
@@ -250,64 +261,28 @@ export default function SalesOrderDetailPage() {
           {/* Invoice Section */}
           <div className="bg-white rounded-lg shadow-sm p-6">
             <h2 className="text-xl font-semibold mb-4">Invoice</h2>
-
-            {order.invoices?.[0] ? (
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-gray-600">Invoice Number</p>
-                  <p className="font-medium">{order.invoices[0].invoiceNumber || '—'}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Status</p>
-                  <p className="font-medium">{order.invoices[0].status}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Total</p>
-                  <p className="font-medium text-lg">
-                    {formatCurrency(order.invoices[0].total, order.currency)}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-600">Due Date</p>
-                  <p>{formatShortDate(order.invoices[0].dueDate)}</p>
-                </div>
-
-                {/* PDF Download */}
-                <div className="mt-6 pt-6 border-t">
-                  <InvoiceDownloadButton
-                    invoiceId={order.invoices[0].id}
-                    invoiceNumber={order.invoices[0].invoiceNumber || 'DRAFT'}
-                    formatType={order.invoices[0].invoiceFormatType || 'STANDARD'}
-                    showPreview={true}
-                  />
-                </div>
-
-                {/* Edit Order After Invoice - Sprint 2 Feature #4 */}
-                {/* Allow editing delivered orders with invoice regeneration */}
-                <div className="mt-4">
-                  <Link
-                    href={`/sales/orders/${order.id}/edit`}
-                    className="flex items-center justify-center gap-2 w-full px-4 py-2 border-2 border-amber-500 text-amber-700 bg-amber-50 rounded-md hover:bg-amber-100 font-semibold transition"
-                  >
-                    <Pencil className="h-4 w-4" />
-                    Edit Order & Regenerate Invoice
-                  </Link>
-                  <p className="text-xs text-amber-600 mt-2 text-center">
-                    ⚠ Editing will create a new invoice version
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <div>
-                <p className="text-gray-500 mb-4">No invoice created yet</p>
-                <button
-                  onClick={() => setShowInvoiceDialog(true)}
-                  className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-                >
-                  Create Invoice
-                </button>
-              </div>
-            )}
+            <OrderInvoicePanel
+              orderId={order.id}
+              customerName={order.customer.name}
+              customerState={order.customer.state}
+              customerPaymentTerms={order.customer.paymentTerms}
+              defaultPoNumber={order.poNumber}
+              defaultSpecialInstructions={order.specialInstructions}
+              invoice={order.invoices?.[0]}
+              onRefresh={fetchOrder}
+            />
+            <div className="mt-4">
+              <Link
+                href={`/sales/orders/${order.id}/edit`}
+                className="flex items-center justify-center gap-2 w-full px-4 py-2 border-2 border-amber-500 text-amber-700 bg-amber-50 rounded-md hover:bg-amber-100 font-semibold transition mt-4"
+              >
+                <Pencil className="h-4 w-4" />
+                Edit Order & Regenerate Invoice
+              </Link>
+              <p className="text-xs text-amber-600 mt-2 text-center">
+                ⚠ Editing will create a new invoice version
+              </p>
+            </div>
           </div>
 
           {/* Customer Info */}
@@ -339,19 +314,6 @@ export default function SalesOrderDetailPage() {
         </div>
       </div>
 
-      {/* CreateInvoiceDialog */}
-      {order && !order.invoices?.[0] && (
-        <CreateInvoiceDialog
-          orderId={order.id}
-          customerId={order.customerId}
-          customerName={order.customer.name}
-          customerState={order.customer.state}
-          open={showInvoiceDialog}
-          onOpenChange={setShowInvoiceDialog}
-          onSuccess={fetchOrder}
-          apiRoute="sales"
-        />
-      )}
     </div>
   );
 }

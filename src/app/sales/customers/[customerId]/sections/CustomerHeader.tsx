@@ -12,6 +12,7 @@ type CustomerHeaderProps = {
     riskStatus: string;
     phone: string | null;
     billingEmail: string | null;
+    licenseNumber: string | null;
     address: {
       street1: string | null;
       street2: string | null;
@@ -115,6 +116,12 @@ export default function CustomerHeader({ customer }: CustomerHeaderProps) {
               <div className="flex items-center gap-2">
                 <span className="font-medium text-gray-500">External ID:</span>
                 <span className="font-mono">{customer.externalId}</span>
+              </div>
+            )}
+            {customer.licenseNumber && (
+              <div className="flex items-center gap-2">
+                <span className="font-medium text-gray-500">License #:</span>
+                <span className="font-mono">{customer.licenseNumber}</span>
               </div>
             )}
           </div>

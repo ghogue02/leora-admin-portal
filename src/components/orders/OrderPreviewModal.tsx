@@ -245,7 +245,7 @@ export function OrderPreviewModal({
                 <div className="flex-1">
                   <span className="text-sm font-medium text-gray-900">Save as Pending</span>
                   <p className="text-xs text-gray-600 mt-1">
-                    Save order for later review. Customer will not be notified yet.
+                    Save order for later review in your queue.
                   </p>
                 </div>
               </label>

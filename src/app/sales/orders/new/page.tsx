@@ -14,7 +14,7 @@
 import { Suspense, useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { showError, notifications } from '@/lib/toast-helpers';
+import { showError, showInfo, notifications } from '@/lib/toast-helpers';
 import { ButtonWithLoading } from '@/components/ui/button-variants';
 import { ProductGrid } from '@/components/orders/ProductGrid';
 import { DeliveryDatePicker } from '@/components/orders/DeliveryDatePicker';
@@ -28,7 +28,10 @@ import { FormProgress } from '@/components/orders/FormProgress';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
 import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
+import { formatCurrency, formatShortDate } from '@/lib/format';
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { useRecentItems } from './hooks/useRecentItems';
+import type { RecentPurchaseSuggestion } from '@/types/orders';
 
 type Customer = {
   id: string;
@@ -99,6 +102,7 @@ function NewOrderPageContent() {
   const [poNumber, setPoNumber] = useState<string>('');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
+  const orderSkuIds = useMemo(() => new Set(orderItems.map((item) => item.skuId)), [orderItems]);
   const [deliveryFee, setDeliveryFee] = useState<number>(0);
   const [splitCaseFee, setSplitCaseFee] = useState<number>(0);
   const [salesRepOptions, setSalesRepOptions] = useState<SalesRepOption[]>([]);
@@ -131,6 +135,12 @@ function NewOrderPageContent() {
       name: selectedCustomer.name,
     };
   }, [selectedCustomer]);
+
+  const {
+    items: recentItems,
+    loading: recentItemsLoading,
+    error: recentItemsError,
+  } = useRecentItems(selectedCustomerId || null);
 
   // UI state
   const [showProductSelector, setShowProductSelector] = useState(false);
@@ -413,6 +423,118 @@ function NewOrderPageContent() {
       `Added ${newItems.length} products to order`
     );
   }, []);
+
+  const buildOrderItemFromRecent = useCallback((recent: RecentPurchaseSuggestion): OrderItem => {
+    const quantity = Math.max(1, recent.lastQuantity);
+    const priceLists = recent.priceLists ?? [];
+    const pricing = resolvePriceForQuantity(priceLists, quantity, customerPricingContext ?? undefined);
+    const shouldApplyOverride = !recent.priceMatchesStandard && recent.lastUnitPrice > 0;
+    const unitPrice = shouldApplyOverride ? recent.lastUnitPrice : pricing.unitPrice;
+    const reason =
+      recent.overrideReason ??
+      `Previous negotiated price from ${formatShortDate(recent.lastOrderedAt)} order ${
+        recent.lastOrderNumber ?? recent.lastOrderId.slice(0, 8).toUpperCase()
+      }`;
+
+    return {
+      skuId: recent.skuId,
+      skuCode: recent.skuCode,
+      productName: recent.productName,
+      brand: recent.brand,
+      size: recent.size,
+      quantity,
+      unitPrice,
+      lineTotal: quantity * unitPrice,
+      inventoryStatus: null,
+      pricing,
+      priceLists,
+      priceOverride: shouldApplyOverride
+        ? {
+            price: recent.lastUnitPrice,
+            reason,
+          }
+        : undefined,
+      usageType: null,
+    };
+  }, [customerPricingContext]);
+
+  const handleAddRecentItem = useCallback((recent: RecentPurchaseSuggestion) => {
+    let addedItem: OrderItem | null = null;
+    setOrderItems((current) => {
+      if (current.some((item) => item.skuId === recent.skuId)) {
+        showInfo('Product already added', `${recent.productName} is already in this order.`);
+        return current;
+      }
+      const nextItem = buildOrderItemFromRecent(recent);
+      addedItem = nextItem;
+      return [...current, nextItem];
+    });
+
+    if (addedItem) {
+      setFieldErrors((prev) => {
+        if (!prev.products) return prev;
+        const next = { ...prev };
+        delete next.products;
+        return next;
+      });
+      notifications.productAdded(
+        addedItem.productName,
+        addedItem.quantity,
+        addedItem.lineTotal,
+        recent.priceMatchesStandard ? undefined : 'Using customer-specific pricing from their last order',
+      );
+    }
+  }, [buildOrderItemFromRecent, setFieldErrors]);
+
+  const handleAddAllRecentItems = useCallback(() => {
+    if (recentItems.length === 0) {
+      showInfo('No recent items available', 'This customer has not ordered in the last six months.');
+      return;
+    }
+
+    let addedCount = 0;
+    let totalQuantity = 0;
+    let totalValue = 0;
+
+    setOrderItems((current) => {
+      const existing = new Set(current.map((item) => item.skuId));
+      const additions: OrderItem[] = [];
+
+      recentItems.forEach((recent) => {
+        if (existing.has(recent.skuId)) {
+          return;
+        }
+        const nextItem = buildOrderItemFromRecent(recent);
+        additions.push(nextItem);
+        existing.add(recent.skuId);
+        addedCount += 1;
+        totalQuantity += nextItem.quantity;
+        totalValue += nextItem.lineTotal;
+      });
+
+      if (additions.length === 0) {
+        showInfo('No recent items added', 'All suggested products are already part of this order.');
+        return current;
+      }
+
+      return [...current, ...additions];
+    });
+
+    if (addedCount > 0) {
+      setFieldErrors((prev) => {
+        if (!prev.products) return prev;
+        const next = { ...prev };
+        delete next.products;
+        return next;
+      });
+      notifications.productAdded(
+        `${addedCount} recent items`,
+        totalQuantity,
+        totalValue,
+        'Loaded from purchase history',
+      );
+    }
+  }, [recentItems, buildOrderItemFromRecent, setFieldErrors]);
 
   // Calculate order total
   const orderTotal = orderItems.reduce((sum, item) => sum + item.lineTotal, 0);
@@ -896,6 +1018,120 @@ function NewOrderPageContent() {
             </div>
           </div>
         </section>
+
+        {/* Section: Recent Purchases */}
+        {selectedCustomer && (
+          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Recent Purchases</h2>
+                <p className="text-sm text-gray-600">
+                  Items this customer has ordered in the last six months. Add them with one click and we&apos;ll reuse the
+                  pricing from their most recent order.
+                </p>
+              </div>
+              {recentItems.length > 0 && (
+                <button
+                  type="button"
+                  onClick={handleAddAllRecentItems}
+                  className="inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-70"
+                  disabled={recentItemsLoading}
+                >
+                  Add All Recent Items
+                </button>
+              )}
+            </div>
+
+            <div className="mt-4">
+              {recentItemsLoading ? (
+                <div className="space-y-3">
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <div key={index} className="animate-pulse rounded-lg border border-slate-100 p-4">
+                      <div className="h-4 w-1/3 rounded bg-slate-200" />
+                      <div className="mt-2 h-3 w-1/2 rounded bg-slate-200" />
+                    </div>
+                  ))}
+                </div>
+              ) : recentItemsError ? (
+                <div className="rounded-lg border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
+                  {recentItemsError}
+                </div>
+              ) : recentItems.length === 0 ? (
+                <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-4 text-sm text-gray-600">
+                  No purchases in the last six months. Use the catalog below to build this order.
+                </div>
+              ) : (
+                <div className="overflow-hidden rounded-lg border border-slate-200">
+                  <table className="min-w-full divide-y divide-slate-200 text-sm">
+                    <thead className="bg-slate-50 text-xs uppercase tracking-wide text-gray-500">
+                      <tr>
+                        <th className="px-4 py-3 text-left">Product</th>
+                        <th className="px-4 py-3 text-left">Last Order</th>
+                        <th className="px-4 py-3 text-left">Last Price</th>
+                        <th className="px-4 py-3 text-left">
+                          <span className="sr-only">Actions</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200 bg-white">
+                      {recentItems.map((item) => {
+                        const alreadyAdded = orderSkuIds.has(item.skuId);
+                        return (
+                          <tr key={item.skuId}>
+                            <td className="px-4 py-3">
+                              <div className="font-medium text-gray-900">{item.productName}</div>
+                              <div className="text-xs text-gray-500">{item.skuCode}</div>
+                              <div className="mt-1 text-xs text-gray-500">
+                                Last quantity: {item.lastQuantity} • {item.timesOrdered} orders
+                              </div>
+                            </td>
+                            <td className="px-4 py-3">
+                              <div className="text-sm text-gray-900">{formatShortDate(item.lastOrderedAt)}</div>
+                              <div className="text-xs text-gray-500">
+                                Order {item.lastOrderNumber ?? item.lastOrderId.slice(0, 8).toUpperCase()}
+                              </div>
+                            </td>
+                            <td className="px-4 py-3">
+                              <div className="text-sm font-semibold text-gray-900">
+                                {formatCurrency(item.lastUnitPrice, 'USD')}
+                              </div>
+                              <div className="mt-1 flex items-center gap-2 text-xs">
+                                <span
+                                  className={`inline-flex items-center rounded-full px-2 py-0.5 font-medium ${
+                                    item.priceMatchesStandard
+                                      ? 'bg-emerald-50 text-emerald-700'
+                                      : 'bg-amber-50 text-amber-700'
+                                  }`}
+                                >
+                                  {item.priceMatchesStandard ? 'Standard price' : 'Customer price'}
+                                </span>
+                                {item.standardPrice && !item.priceMatchesStandard && (
+                                  <span className="text-gray-500">
+                                    Std {formatCurrency(item.standardPrice, 'USD')}
+                                  </span>
+                                )}
+                              </div>
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              <button
+                                type="button"
+                                onClick={() => handleAddRecentItem(item)}
+                                disabled={alreadyAdded}
+                                className="rounded-md border border-gray-300 px-3 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
+                              >
+                                {alreadyAdded ? 'Added' : 'Add'}
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
 
         {/* Section 3: Products */}
         <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">

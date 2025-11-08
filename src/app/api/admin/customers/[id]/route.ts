@@ -2,6 +2,73 @@ import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { logCustomerUpdate } from '@/lib/audit';
 import { Prisma } from '@prisma/client';
+import type { DeliveryWindow } from '@/types/customer';
+
+const TIME_PATTERN = /^([01]\d|2[0-3]):[0-5]\d$/;
+
+function isValidTime(value: unknown): value is string {
+  return typeof value === 'string' && TIME_PATTERN.test(value);
+}
+
+function sanitizeDeliveryWindows(input: unknown): { valid: boolean; value?: DeliveryWindow[]; error?: string } {
+  if (typeof input === 'undefined') {
+    return { valid: false };
+  }
+
+  if (input === null) {
+    return { valid: true, value: [] };
+  }
+
+  if (!Array.isArray(input)) {
+    return { valid: false, error: 'deliveryWindows must be an array' };
+  }
+
+  const cleaned: DeliveryWindow[] = [];
+
+  for (const raw of input) {
+    if (!raw || typeof raw !== 'object') {
+      return { valid: false, error: 'deliveryWindows entries must be objects' };
+    }
+
+    const type = (raw as { type?: string }).type;
+    if (type === 'BEFORE' || type === 'AFTER') {
+      const time = (raw as { time?: unknown }).time;
+      if (!isValidTime(time)) {
+        return { valid: false, error: `delivery window ${type} requires valid HH:MM time` };
+      }
+      cleaned.push({ type, time });
+      continue;
+    }
+
+    if (type === 'BETWEEN') {
+      const startTime = (raw as { startTime?: unknown }).startTime;
+      const endTime = (raw as { endTime?: unknown }).endTime;
+      if (!isValidTime(startTime) || !isValidTime(endTime)) {
+        return { valid: false, error: 'delivery window BETWEEN requires startTime and endTime (HH:MM)' };
+      }
+      cleaned.push({ type, startTime, endTime });
+      continue;
+    }
+
+    return { valid: false, error: 'deliveryWindows entries must specify a valid type' };
+  }
+
+  return { valid: true, value: cleaned };
+}
+
+function formatDeliveryWindow(window: DeliveryWindow | undefined): string | null {
+  if (!window) return null;
+  switch (window.type) {
+    case 'BEFORE':
+      return `Before ${window.time}`;
+    case 'AFTER':
+      return `After ${window.time}`;
+    case 'BETWEEN':
+      return `Between ${window.startTime} - ${window.endTime}`;
+    default:
+      return null;
+  }
+}
 
 const ALLOWED_CUSTOMER_FIELDS = [
   'name',
@@ -14,6 +81,12 @@ const ALLOWED_CUSTOMER_FIELDS = [
   'postalCode',
   'country',
   'paymentTerms',
+  'licenseNumber',
+  'deliveryInstructions',
+  'deliveryMethod',
+  'paymentMethod',
+  'defaultWarehouseLocation',
+  'deliveryWindows',
   'salesRepId',
   'isPermanentlyClosed',
   'closedReason',
@@ -90,6 +163,22 @@ export async function GET(
             status: true,
             lastLoginAt: true,
           }
+        },
+        contacts: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+          select: {
+            id: true,
+            fullName: true,
+            role: true,
+            phone: true,
+            mobile: true,
+            email: true,
+            notes: true,
+            businessCardUrl: true,
+            createdAt: true,
+          },
         },
         orders: {
           select: {
@@ -212,11 +301,30 @@ export async function PUT(
         );
       }
 
+      if (Object.prototype.hasOwnProperty.call(body, 'deliveryWindows')) {
+        const windowsResult = sanitizeDeliveryWindows(body.deliveryWindows);
+        if (!windowsResult.valid) {
+          return NextResponse.json(
+            { error: windowsResult.error ?? 'Invalid deliveryWindows payload' },
+            { status: 400 }
+          );
+        }
+        const sanitized = windowsResult.value ?? [];
+        updateData.deliveryWindows = sanitized;
+        updateData.defaultDeliveryTimeWindow = sanitized.length
+          ? formatDeliveryWindow(sanitized[0])
+          : null;
+      }
+
       // Prepare update data
       const updateData: Prisma.CustomerUpdateInput = {};
 
       for (const field of ALLOWED_CUSTOMER_FIELDS) {
         if (!Object.prototype.hasOwnProperty.call(body, field)) {
+          continue;
+        }
+
+        if (field === 'deliveryWindows') {
           continue;
         }
 

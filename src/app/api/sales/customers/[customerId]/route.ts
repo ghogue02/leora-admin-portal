@@ -10,7 +10,74 @@ import {
   CustomerType,
   FeatureProgram,
   VolumeCapacity,
+  DeliveryWindow,
 } from "@/types/customer";
+
+const TIME_PATTERN = /^([01]\d|2[0-3]):[0-5]\d$/;
+
+function isValidTime(value: unknown): value is string {
+  return typeof value === "string" && TIME_PATTERN.test(value);
+}
+
+function sanitizeDeliveryWindows(input: unknown): { valid: boolean; value?: DeliveryWindow[]; error?: string } {
+  if (typeof input === "undefined") {
+    return { valid: false };
+  }
+
+  if (input === null) {
+    return { valid: true, value: [] };
+  }
+
+  if (!Array.isArray(input)) {
+    return { valid: false, error: "deliveryWindows must be an array" };
+  }
+
+  const cleaned: DeliveryWindow[] = [];
+
+  for (const raw of input) {
+    if (!raw || typeof raw !== "object") {
+      return { valid: false, error: "deliveryWindows entries must be objects" };
+    }
+
+    const type = (raw as { type?: string }).type;
+    if (type === "BEFORE" || type === "AFTER") {
+      const time = (raw as { time?: unknown }).time;
+      if (!isValidTime(time)) {
+        return { valid: false, error: `delivery window ${type} requires valid HH:MM time` };
+      }
+      cleaned.push({ type, time });
+      continue;
+    }
+
+    if (type === "BETWEEN") {
+      const startTime = (raw as { startTime?: unknown }).startTime;
+      const endTime = (raw as { endTime?: unknown }).endTime;
+      if (!isValidTime(startTime) || !isValidTime(endTime)) {
+        return { valid: false, error: "delivery window BETWEEN requires startTime and endTime (HH:MM)" };
+      }
+      cleaned.push({ type, startTime, endTime });
+      continue;
+    }
+
+    return { valid: false, error: "deliveryWindows entries must specify a valid type" };
+  }
+
+  return { valid: true, value: cleaned };
+}
+
+function formatDeliveryWindow(window: DeliveryWindow | undefined): string | null {
+  if (!window) return null;
+  switch (window.type) {
+    case "BEFORE":
+      return `Before ${window.time}`;
+    case "AFTER":
+      return `After ${window.time}`;
+    case "BETWEEN":
+      return `Between ${window.startTime} - ${window.endTime}`;
+    default:
+      return null;
+  }
+}
 
 type RouteContext = {
   params: Promise<{
@@ -94,6 +161,7 @@ export async function GET(
         followUpItems,
         tasks,
         sampleUsageFollowUps,
+        contacts,
       ] = await Promise.all([
         // Order history with invoice links (LIMITED to 50 most recent)
         db.order.findMany({
@@ -394,6 +462,15 @@ export async function GET(
           },
           orderBy: {
             tastedAt: "asc",
+          },
+        }),
+        db.customerContact.findMany({
+          where: {
+            tenantId,
+            customerId,
+          },
+          orderBy: {
+            createdAt: "desc",
           },
         }),
       ]);
@@ -716,6 +793,14 @@ export async function GET(
           phone: customer.phone,
           billingEmail: customer.billingEmail,
           paymentTerms: customer.paymentTerms,
+          licenseNumber: customer.licenseNumber,
+          deliveryInstructions: customer.deliveryInstructions,
+          deliveryMethod: customer.deliveryMethod,
+          paymentMethod: customer.paymentMethod,
+          defaultWarehouseLocation: customer.defaultWarehouseLocation,
+          deliveryWindows: Array.isArray(customer.deliveryWindows)
+            ? (customer.deliveryWindows as DeliveryWindow[])
+            : [],
           type: (customer.type as CustomerType | null) ?? null,
           volumeCapacity: (customer.volumeCapacity as VolumeCapacity | null) ?? null,
           featurePrograms: (customer.featurePrograms as FeatureProgram[]) ?? [],
@@ -803,6 +888,17 @@ export async function GET(
                 }
               : null,
           })),
+        })),
+        contacts: contacts.map((contact) => ({
+          id: contact.id,
+          fullName: contact.fullName,
+          role: contact.role,
+          phone: contact.phone,
+          mobile: contact.mobile,
+          email: contact.email,
+          notes: contact.notes,
+          businessCardUrl: contact.businessCardUrl,
+          createdAt: contact.createdAt?.toISOString() ?? new Date().toISOString(),
         })),
         followUps: combinedFollowUps,
         orders: orders.map((order) => ({
@@ -938,12 +1034,19 @@ export async function PATCH(
         billingEmail: string | null;
         phone: string | null;
         paymentTerms: string | null;
+        licenseNumber: string | null;
         street1: string | null;
         street2: string | null;
         city: string | null;
         state: string | null;
         postalCode: string | null;
         country: string | null;
+        deliveryInstructions: string | null;
+        deliveryMethod: string | null;
+        paymentMethod: string | null;
+        defaultWarehouseLocation: string | null;
+        deliveryWindows: DeliveryWindow[];
+        defaultDeliveryTimeWindow: string | null;
         type: CustomerType | null;
         volumeCapacity: VolumeCapacity | null;
         featurePrograms: FeatureProgram[];
@@ -955,12 +1058,17 @@ export async function PATCH(
         "billingEmail",
         "phone",
         "paymentTerms",
+        "licenseNumber",
         "street1",
         "street2",
         "city",
         "state",
         "postalCode",
         "country",
+        "deliveryInstructions",
+        "deliveryMethod",
+        "paymentMethod",
+        "defaultWarehouseLocation",
       ] as const;
 
       for (const field of editableStringFields) {
@@ -998,6 +1106,22 @@ export async function PATCH(
         if (body.isPermanentlyClosed && body.closedReason) {
           updateData.closedReason = body.closedReason;
         }
+      }
+
+      if (Object.prototype.hasOwnProperty.call(body, "deliveryWindows")) {
+        const windowsResult = sanitizeDeliveryWindows(body.deliveryWindows);
+        if (!windowsResult.valid) {
+          return NextResponse.json(
+            { error: windowsResult.error ?? "Invalid deliveryWindows payload" },
+            { status: 400 }
+          );
+        }
+
+        const sanitized = windowsResult.value ?? [];
+        updateData.deliveryWindows = sanitized;
+        updateData.defaultDeliveryTimeWindow = sanitized.length
+          ? formatDeliveryWindow(sanitized[0])
+          : null;
       }
 
       if (typeof body.type !== "undefined") {

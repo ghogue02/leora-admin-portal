@@ -18,6 +18,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { CalendarClock, RotateCw, AlertCircle } from "lucide-react";
 import { DraggableAccount } from "@/app/sales/calendar/components/DraggableAccount";
 import type { DraggableAccountData } from "@/types/calendar";
@@ -29,7 +30,69 @@ import type {
   CarlaTerritoryBlock,
   CarlaUnscheduledAccount,
 } from "../types";
-import type { CarlaSelectedAccount } from "../types";
+import type { CarlaSelectedAccount, BlockTimeType } from "../types";
+
+const BLOCK_EVENT_TYPES: ReadonlyArray<{
+  type: BlockTimeType;
+  label: string;
+  bgClass: string;
+  description: string;
+  backgroundColor: string;
+  borderColor: string;
+  textColor: string;
+}> = [
+  {
+    type: "DRIVE_TIME",
+    label: "Drive Time",
+    bgClass: "bg-slate-900 text-white",
+    description: "Reserve travel time between accounts.",
+    backgroundColor: "#0f172a",
+    borderColor: "#0f172a",
+    textColor: "#ffffff",
+  },
+  {
+    type: "ADMIN",
+    label: "Admin",
+    bgClass: "bg-orange-500 text-white",
+    description: "Catch up on orders, CRM, and email.",
+    backgroundColor: "#f97316",
+    borderColor: "#ea580c",
+    textColor: "#ffffff",
+  },
+] as const;
+
+const blockPalette = BLOCK_EVENT_TYPES.reduce(
+  (acc, block) => ({
+    ...acc,
+    [block.type]: {
+      backgroundColor: block.backgroundColor,
+      borderColor: block.borderColor,
+      textColor: block.textColor,
+    },
+  }),
+  {} as Record<BlockTimeType, { backgroundColor: string; borderColor: string; textColor: string }>
+);
+
+const OBJECTIVE_COLOR_THEMES: Record<
+  string,
+  { backgroundColor: string; borderColor: string; textColor: string }
+> = {
+  tasting: { backgroundColor: "#22c55e", borderColor: "#16a34a", textColor: "#ffffff" },
+  visit: { backgroundColor: "#3b82f6", borderColor: "#2563eb", textColor: "#ffffff" },
+  email: { backgroundColor: "#a855f7", borderColor: "#9333ea", textColor: "#ffffff" },
+  call: { backgroundColor: "#a855f7", borderColor: "#9333ea", textColor: "#ffffff" },
+  text: { backgroundColor: "#a855f7", borderColor: "#9333ea", textColor: "#ffffff" },
+  "public-event": { backgroundColor: "#ef4444", borderColor: "#dc2626", textColor: "#ffffff" },
+  "cold-call": { backgroundColor: "#facc15", borderColor: "#eab308", textColor: "#1f2937" },
+  other: { backgroundColor: "#94a3b8", borderColor: "#64748b", textColor: "#ffffff" },
+};
+
+const getObjectivePalette = (value?: string | null) => {
+  if (!value) {
+    return null;
+  }
+  return OBJECTIVE_COLOR_THEMES[value] ?? null;
+};
 
 const tenantHeaders = {
   "x-tenant-slug": process.env.NEXT_PUBLIC_TENANT_SLUG ?? "well-crafted",
@@ -56,7 +119,10 @@ type CalendarEventInput = {
   };
 };
 
-type PlannerAccount = DraggableAccountData & { territory?: string | null };
+type PlannerAccount = DraggableAccountData & {
+  territory?: string | null;
+  objectiveValue?: string | null;
+};
 
 function combineDateAndTime(dateIso: string, time: string) {
   const date = new Date(dateIso);
@@ -191,6 +257,36 @@ export default function DragDropCalendar({
     fetchGoogleCalendarEvents();
   }, [fetchSchedule, fetchGoogleCalendarEvents, refreshKey]);
 
+  const plannerAccountMap = useMemo(() => {
+    return weeklyAccounts.map((account) => {
+      const city = account.city ?? account.customer?.city ?? null;
+      const state = account.state ?? account.customer?.state ?? null;
+      const objectiveValue = account.objective ?? account.objectives ?? null;
+      return {
+        id: account.id,
+        customerId: account.id,
+        customerName: account.name ?? account.customer?.customerName ?? "Customer",
+        accountNumber: account.accountNumber ?? account.customer?.accountNumber ?? null,
+        accountType: "ACTIVE",
+        priority: "MEDIUM",
+        objective: objectiveValue ?? "",
+        objectiveValue,
+        lastOrderDate: account.lastOrderDate ?? account.customer?.lastOrderDate ?? null,
+        location: city && state ? `${city}, ${state}` : city ?? state ?? null,
+        territory: account.territory ?? account.customer?.territory ?? null,
+        isScheduled: false,
+      };
+    });
+  }, [weeklyAccounts]);
+
+  const plannedObjectiveMap = useMemo(() => {
+    const map = new Map<string, string | null>();
+    plannerAccountMap.forEach((account) => {
+      map.set(account.customerId, account.objectiveValue ?? null);
+    });
+    return map;
+  }, [plannerAccountMap]);
+
   const calendarEvents: CalendarEventInput[] = useMemo(() => {
     const carlaEvents = schedules.map((schedule) => {
       const start = combineDateAndTime(schedule.scheduledDate, schedule.scheduledTime);
@@ -202,18 +298,30 @@ export default function DragDropCalendar({
       const color = schedule.customer.territory
         ? getTerritoryColor(schedule.customer.territory)
         : getPriorityColor(schedule.customer.priority);
+      const objectiveValue = plannedObjectiveMap.get(schedule.customerId);
+      const objectiveTheme = getObjectivePalette(objectiveValue);
+      const blockTheme = schedule.blockType ? blockPalette[schedule.blockType] : null;
+      const backgroundColor =
+        blockTheme?.backgroundColor ?? objectiveTheme?.backgroundColor ?? color;
+      const borderColor =
+        blockTheme?.borderColor ?? objectiveTheme?.borderColor ?? color;
+      const textColor =
+        blockTheme?.textColor ?? objectiveTheme?.textColor ?? "#0f172a";
 
       return {
         id: schedule.id,
         title,
         start,
         end,
-        backgroundColor: color,
-        borderColor: color,
+        backgroundColor,
+        borderColor,
+        textColor,
         extendedProps: {
           customerId: schedule.customerId,
           territory: schedule.customer.territory,
           source: "carla",
+          blockType: schedule.blockType ?? null,
+          objective: objectiveValue,
         },
       };
     });
@@ -252,44 +360,43 @@ export default function DragDropCalendar({
       .filter((event): event is CalendarEventInput => Boolean(event));
 
     return [...carlaEvents, ...googleEvents];
-  }, [schedules, googleCalendarEvents]);
+  }, [plannedObjectiveMap, schedules, googleCalendarEvents]);
+
+  const scheduleCustomerIds = useMemo(() => {
+    return new Set(schedules.map((schedule) => schedule.customerId));
+  }, [schedules]);
+
+  const serverDraggableAccounts: PlannerAccount[] = useMemo(() => {
+    const plannedIds = new Set(plannerAccountMap.map((account) => account.customerId));
+    return unscheduledAccounts
+      .filter((account) => plannedIds.has(account.customerId))
+      .map((account) => ({
+        id: account.customerId,
+        customerId: account.customerId,
+        customerName: account.customerName,
+        accountNumber: account.accountNumber,
+        accountType: account.accountType,
+        priority: account.priority ?? "MEDIUM",
+        objective: account.objective,
+        objectiveValue: plannedObjectiveMap.get(account.customerId) ?? null,
+        lastOrderDate: account.lastOrderDate,
+        location:
+          account.city && account.state ? `${account.city}, ${account.state}` : null,
+        territory: account.territory,
+        isScheduled: false,
+      }));
+  }, [plannerAccountMap, plannedObjectiveMap, unscheduledAccounts]);
 
   const draggableAccounts: PlannerAccount[] = useMemo(() => {
-    return unscheduledAccounts.map((account) => ({
-      id: account.customerId,
-      customerId: account.customerId,
-      customerName: account.customerName,
-      accountNumber: account.accountNumber,
-      accountType: account.accountType,
-      priority: account.priority ?? "MEDIUM",
-      objective: account.objective,
-      lastOrderDate: account.lastOrderDate,
-      location:
-        account.city && account.state ? `${account.city}, ${account.state}` : null,
-      territory: account.territory,
-      isScheduled: false,
-    }));
-  }, [unscheduledAccounts]);
-
-  const weeklyDraggableAccounts: PlannerAccount[] = useMemo(() => {
-    return weeklyAccounts.map((account) => {
-      const city = account.city ?? account.customer?.city ?? null;
-      const state = account.state ?? account.customer?.state ?? null;
-      return {
-        id: account.id,
-        customerId: account.id,
-        customerName: account.name ?? account.customer?.customerName ?? "Customer",
-        accountNumber: account.accountNumber ?? account.customer?.accountNumber ?? null,
-        accountType: "ACTIVE",
-        priority: "MEDIUM",
-        objective: account.objective ?? "",
-        lastOrderDate: account.lastOrderDate ?? account.customer?.lastOrderDate ?? null,
-        location: city && state ? `${city}, ${state}` : city ?? state ?? null,
-        territory: account.territory ?? account.customer?.territory ?? null,
-        isScheduled: false,
-      };
-    });
-  }, [weeklyAccounts]);
+    const scheduledIds = scheduleCustomerIds;
+    const serverIds = new Set(serverDraggableAccounts.map((account) => account.customerId));
+    const fallback = plannerAccountMap.filter(
+      (account) => !serverIds.has(account.customerId),
+    );
+    return [...serverDraggableAccounts, ...fallback].filter(
+      (account) => !scheduledIds.has(account.customerId),
+    );
+  }, [plannerAccountMap, scheduleCustomerIds, serverDraggableAccounts]);
 
   useEffect(() => {
     if (typeof document === "undefined") {
@@ -336,12 +443,32 @@ export default function DragDropCalendar({
     };
 
     registerDraggables(draggableAccounts, "draggable-account-");
-    registerDraggables(weeklyDraggableAccounts, "weekly-draggable-account-");
+    BLOCK_EVENT_TYPES.forEach((block) => {
+      const draggableEl = document.getElementById(`block-draggable-${block.type}`);
+      if (draggableEl) {
+        const payload = {
+          blockType: block.type,
+          label: block.label,
+        };
+        draggableEl.setAttribute("data-account", JSON.stringify(payload));
+        const draggable = new Draggable(draggableEl, {
+          eventData: {
+            id: `${block.type}-${Date.now()}`,
+            title: block.label,
+            duration: { minutes: 30 },
+            extendedProps: {
+              blockType: block.type,
+            },
+          },
+        });
+        draggables.push(draggable);
+      }
+    });
 
     return () => {
       draggables.forEach((draggable) => draggable.destroy());
     };
-  }, [draggableAccounts, weeklyDraggableAccounts]);
+  }, [draggableAccounts]);
 
   const blocksByDay = useMemo(() => {
     const map = new Map<number, TerritoryBlock[]>();
@@ -481,6 +608,36 @@ export default function DragDropCalendar({
     [callPlanId, isSlotAllowed],
   );
 
+  const persistBlockCreate = useCallback(
+    async (blockType: BlockTimeType, start: Date) => {
+      if (!callPlanId) {
+        toast.error("Create a call plan for this week before blocking time");
+        return;
+      }
+
+      const payload = {
+        callPlanId,
+        blockType,
+        scheduledDate: format(start, "yyyy-MM-dd"),
+        scheduledTime: format(start, "HH:mm"),
+        duration: 30,
+      };
+
+      const response = await fetch("/api/sales/call-plan/carla/schedule", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...tenantHeaders },
+        body: JSON.stringify(payload),
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        const error = await response.json().catch(() => ({}));
+        throw new Error(error.error ?? "unable to create block");
+      }
+    },
+    [callPlanId],
+  );
+
   const persistUpdate = useCallback(async (scheduleId: string, start: Date, end?: Date | null) => {
     const payload: Record<string, unknown> = {
       scheduledDate: format(start, "yyyy-MM-dd"),
@@ -523,19 +680,16 @@ export default function DragDropCalendar({
         return;
       }
 
-      let accountPayload: PlannerAccount | null = null;
+      let parsedPayload: ReturnType<typeof JSON.parse> & Partial<PlannerAccount> & {
+        blockType?: BlockTimeType;
+        label?: string;
+      };
       try {
-        accountPayload = JSON.parse(accountJson) as PlannerAccount;
-        console.log("[DragDrop] ✅ Parsed account", accountPayload);
+        parsedPayload = JSON.parse(accountJson);
+        console.log("[DragDrop] ✅ Parsed payload", parsedPayload);
       } catch (error) {
         console.error("[DragDrop] ❌ JSON parse error", error);
         toast.error("Invalid account data");
-        return;
-      }
-
-      if (!accountPayload?.customerId) {
-        console.error("[DragDrop] ❌ Missing customerId in payload", accountPayload);
-        toast.error("Account missing required data");
         return;
       }
 
@@ -545,14 +699,25 @@ export default function DragDropCalendar({
         return;
       }
 
-      if (!isSlotAllowed(accountPayload.territory ?? null, info.date)) {
-        toast.error("Territory is blocked for this slot");
-        return;
-      }
-
       try {
-        await persistCreate(accountPayload, info.date);
-        toast.success(`Scheduled ${accountPayload.customerName}`);
+        if (parsedPayload.blockType) {
+          await persistBlockCreate(parsedPayload.blockType as BlockTimeType, info.date);
+          toast.success(`${parsedPayload.label ?? "Block"} added`);
+        } else {
+          const accountPayload = parsedPayload as PlannerAccount;
+          if (!accountPayload.customerId) {
+            toast.error("Account missing required data");
+            return;
+          }
+
+          if (!isSlotAllowed(accountPayload.territory ?? null, info.date)) {
+            toast.error("Territory is blocked for this slot");
+            return;
+          }
+
+          await persistCreate(accountPayload, info.date);
+          toast.success(`Scheduled ${accountPayload.customerName}`);
+        }
         await fetchSchedule();
         triggerAutoSync(); // Auto-sync after creating schedule
       } catch (error) {
@@ -560,7 +725,7 @@ export default function DragDropCalendar({
         toast.error(message);
       }
     },
-    [fetchSchedule, isSlotAllowed, persistCreate, triggerAutoSync],
+    [fetchSchedule, isSlotAllowed, persistBlockCreate, persistCreate, triggerAutoSync],
   );
 
   const handleEventChange = useCallback(
@@ -724,6 +889,29 @@ export default function DragDropCalendar({
               )}
             </ScrollArea>
             <div className="rounded-md border border-slate-200 bg-white p-3">
+              <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Block Time
+              </h4>
+              <p className="mt-1 text-xs text-slate-500">
+                Drag to reserve Drive Time or Admin blocks on the calendar.
+              </p>
+              <div className="mt-3 space-y-2">
+                {BLOCK_EVENT_TYPES.map((block) => (
+                  <div
+                    key={block.type}
+                    id={`block-draggable-${block.type}`}
+                    className={cn(
+                      "cursor-grab rounded-md border px-3 py-2 text-sm font-semibold shadow-sm active:cursor-grabbing",
+                      block.bgClass,
+                    )}
+                    draggable
+                  >
+                    {block.label}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-md border border-slate-200 bg-white p-3">
               <h4 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
                 Active Territory Blocks
               </h4>
@@ -775,7 +963,7 @@ export default function DragDropCalendar({
               slotDuration="00:30:00"
               snapDuration="00:30:00"
               allDaySlot={false}
-              weekends={false}
+              weekends
               events={calendarEvents}
               editable
               droppable
@@ -793,12 +981,12 @@ export default function DragDropCalendar({
                 meridiem: "short",
               }}
               businessHours={{
-                daysOfWeek: [1, 2, 3, 4, 5],
+                daysOfWeek: [1, 2, 3, 4, 5, 6, 0],
                 startTime: "08:00",
                 endTime: "18:00",
               }}
               eventContent={(arg) => (
-                <div className="p-2 text-xs text-white">
+                <div className="p-2 text-xs" style={{ color: arg.textColor ?? "#0f172a" }}>
                   <div className="font-semibold leading-tight">{arg.event.title}</div>
                   {arg.event.extendedProps.territory && (
                     <div className="opacity-80">{arg.event.extendedProps.territory}</div>

@@ -2,6 +2,7 @@ import type { ContactOutcome as PrismaContactOutcome } from "@prisma/client";
 import type { DraggableAccountData } from "@/types/calendar";
 
 export type ContactOutcome = PrismaContactOutcome | null;
+export type BlockTimeType = "DRIVE_TIME" | "ADMIN";
 
 export type CarlaScheduleCustomer = {
   id: string;
@@ -23,6 +24,7 @@ export type CarlaScheduleEvent = {
   duration: number;
   googleEventId?: string | null;
   outlookEventId?: string | null;
+  blockType?: BlockTimeType | null;
   customer: CarlaScheduleCustomer;
 };
 

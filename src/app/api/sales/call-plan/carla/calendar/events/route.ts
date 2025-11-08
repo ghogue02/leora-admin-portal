@@ -68,25 +68,38 @@ export async function GET(request: NextRequest) {
 
         console.log("[CalendarEvents] Google API URL:", url);
 
-        // Use helper that auto-refreshes token if expired
-        const response = await makeGoogleCalendarRequest(session.user.id, url, {
-          method: "GET",
-        });
+        try {
+          // Use helper that auto-refreshes token if expired
+          const response = await makeGoogleCalendarRequest(session.user.id, url, {
+            method: "GET",
+          });
 
-        console.log("[CalendarEvents] Google API response status:", response.status);
+          console.log("[CalendarEvents] Google API response status:", response.status);
 
-        if (response.ok) {
-          const data = await response.json();
-          googleEvents = data.items || [];
-          console.log("[CalendarEvents] ✅ Fetched", googleEvents.length, "events from Google");
-          console.log("[CalendarEvents] Events:", googleEvents.map((e) => ({
-            id: e.id,
-            summary: e.summary,
-            start: e.start,
-          })));
-        } else {
-          const errorText = await response.text();
-          console.error("[CalendarEvents] Failed to fetch from Google:", errorText);
+          if (response.ok) {
+            const data = await response.json();
+            googleEvents = data.items || [];
+            console.log("[CalendarEvents] ✅ Fetched", googleEvents.length, "events from Google");
+            console.log("[CalendarEvents] Events:", googleEvents.map((e) => ({
+              id: e.id,
+              summary: e.summary,
+              start: e.start,
+            })));
+          } else {
+            const errorText = await response.text();
+            console.error("[CalendarEvents] Failed to fetch from Google:", errorText);
+          }
+        } catch (googleError) {
+          console.error("[CalendarEvents] Google calendar fetch failed:", googleError);
+          return NextResponse.json(
+            {
+              events: [],
+              error: "google_calendar_disconnected",
+              message:
+                "Google Calendar access has expired or been revoked. Please reconnect your calendar.",
+            },
+            { status: 200 }
+          );
         }
       }
 

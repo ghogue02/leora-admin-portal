@@ -23,6 +23,8 @@ import BtgPlacements from "./sections/BtgPlacements";
 import SampleFollowUpList, { SampleFollowUpItem } from "./sections/SampleFollowUpList";
 import SampleQuickLogPanel from "./sections/SampleQuickLogPanel";
 import { CustomerClassificationCard } from "./sections/CustomerClassificationCard";
+import { DeliveryPreferences } from "./sections/DeliveryPreferences";
+import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -167,6 +169,13 @@ export default function CustomerDetailClient({
       {/* Customer Tags */}
       <CustomerTagManager customerId={customerId} />
 
+      {/* Customer Contacts */}
+      <CustomerContactsManager
+        customerId={customerId}
+        initialContacts={data.contacts ?? []}
+        variant="sales"
+      />
+
       {/* Classification */}
       <CustomerClassificationCard
         customerId={customerId}
@@ -194,6 +203,15 @@ export default function CustomerDetailClient({
           daysSinceLastOrder: data.metrics.daysSinceLastOrder,
           daysUntilExpected: data.metrics.daysUntilExpected,
         }}
+      />
+
+      {/* Delivery Preferences */}
+      <DeliveryPreferences
+        deliveryInstructions={data.customer.deliveryInstructions ?? null}
+        deliveryWindows={data.customer.deliveryWindows ?? []}
+        paymentMethod={data.customer.paymentMethod ?? null}
+        deliveryMethod={data.customer.deliveryMethod ?? null}
+        warehouseLocation={data.customer.defaultWarehouseLocation ?? null}
       />
 
       {/* BTG Placements */}

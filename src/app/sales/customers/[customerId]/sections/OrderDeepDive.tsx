@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { formatCurrency, formatNumber } from "@/lib/utils/format";
 
@@ -28,24 +28,38 @@ export default function OrderDeepDive({ customerId }: OrderDeepDiveProps) {
   const [sortField, setSortField] = useState<keyof ProductBreakdown>("totalRevenue");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
 
-  // Load product breakdown data
-  useState(() => {
+  useEffect(() => {
+    let isMounted = true;
+
     async function loadData() {
+      setLoading(true);
+      setError(null);
       try {
         const response = await fetch(
           `/api/sales/customers/${customerId}/product-history?type=breakdown`
         );
         if (!response.ok) throw new Error("Failed to load product breakdown");
         const data = await response.json();
-        setProducts(data.products || []);
+        if (isMounted) {
+          setProducts(data.products || []);
+        }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Unknown error");
+        if (isMounted) {
+          setError(err instanceof Error ? err.message : "Unknown error");
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     }
+
     void loadData();
-  });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [customerId]);
 
   const handleSort = (field: keyof ProductBreakdown) => {
     if (sortField === field) {

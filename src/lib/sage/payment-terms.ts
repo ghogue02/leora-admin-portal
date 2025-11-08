@@ -20,6 +20,7 @@
  * - Net 30th of Next Month: 2 customers
  * - Net 32 Days: 1 customer
  * - Net 45 Days: 1 customer
+ * - Net 60 Days: 0 customers (new option requested by sales)
  */
 export type PaymentTerms =
   | 'C.O.D.'
@@ -27,7 +28,8 @@ export type PaymentTerms =
   | 'Net 15th of Next Month'
   | 'Net 30th of Next Month'
   | 'Net 32 Days'
-  | 'Net 45 Days';
+  | 'Net 45 Days'
+  | 'Net 60 Days';
 
 /**
  * All valid payment term strings (includes variations and aliases)
@@ -39,6 +41,7 @@ export const VALID_PAYMENT_TERMS: readonly PaymentTerms[] = [
   'Net 30th of Next Month',
   'Net 32 Days',
   'Net 45 Days',
+  'Net 60 Days',
 ] as const;
 
 /**
@@ -73,6 +76,10 @@ const PAYMENT_TERM_ALIASES: Record<string, PaymentTerms> = {
   'c o d': 'C.O.D.',
   'c.o.d': 'C.O.D.',
   'cash on delivery': 'C.O.D.',
+  'net 45': 'Net 45 Days',
+  'net45': 'Net 45 Days',
+  'net 60': 'Net 60 Days',
+  'net60': 'Net 60 Days',
 };
 
 /**
@@ -299,6 +306,13 @@ export function calculateDueDate(
       return dueDate;
     }
 
+    // Net 60 Days - Extended 60-day terms
+    if (normalizedTerms === 'Net 60 Days') {
+      const dueDate = new Date(invoiceDate);
+      dueDate.setDate(dueDate.getDate() + 60);
+      return dueDate;
+    }
+
   } catch (error) {
     // Catch any date manipulation errors
     throw new PaymentTermsError(
@@ -438,6 +452,7 @@ export function getPaymentTermsStats(): Record<PaymentTerms, { count: number; pe
     'Net 30th of Next Month': { count: 2, percentage: '2.0%' },
     'Net 32 Days': { count: 1, percentage: '1.0%' },
     'Net 45 Days': { count: 1, percentage: '1.0%' },
+    'Net 60 Days': { count: 0, percentage: '0%' },
   };
 }
 
@@ -497,6 +512,12 @@ export function getPaymentTermsStats(): Record<PaymentTerms, { count: number; pe
 //     const invoice = new Date('2025-11-05');
 //     const due = calculateDueDate(invoice, 'Net 45 Days');
 //     expect(due.toISOString()).toBe(new Date('2025-12-20').toISOString());
+//   });
+//
+//   test('Net 60 Days - adds 60 days', () => {
+//     const invoice = new Date('2025-11-05');
+//     const due = calculateDueDate(invoice, 'Net 60 Days');
+//     expect(due.toISOString()).toBe(new Date('2026-01-04').toISOString());
 //   });
 //
 //   test('Unknown payment terms - defaults to same day with warning', () => {

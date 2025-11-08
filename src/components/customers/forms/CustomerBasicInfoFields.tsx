@@ -9,6 +9,7 @@ type BasicInfoValues = {
   billingEmail: string | null;
   phone: string | null;
   paymentTerms: string | null;
+  licenseNumber: string | null;
 };
 
 type CustomerBasicInfoFieldsProps = {
@@ -26,9 +27,19 @@ export function CustomerBasicInfoFields({
   requireName = true,
   readOnlyFields = {},
 }: CustomerBasicInfoFieldsProps) {
+  const paymentTermList = [...PAYMENT_TERM_OPTIONS] as string[];
   const hasCustomPaymentTerms =
     !!values.paymentTerms &&
-    !PAYMENT_TERM_OPTIONS.includes(values.paymentTerms as (typeof PAYMENT_TERM_OPTIONS)[number]);
+    !paymentTermList.includes(values.paymentTerms as (typeof PAYMENT_TERM_OPTIONS)[number]);
+  const selectedPaymentOption = hasCustomPaymentTerms ? "__custom__" : values.paymentTerms ?? "";
+
+  const handlePaymentTermsChange = (value: string) => {
+    if (value === "__custom__") {
+      onChange("paymentTerms", values.paymentTerms ?? "");
+      return;
+    }
+    onChange("paymentTerms", value || null);
+  };
 
   return (
     <div className="grid gap-4 md:grid-cols-2">
@@ -102,31 +113,53 @@ export function CustomerBasicInfoFields({
       </div>
 
       <div>
+        <label className="block text-sm font-medium text-gray-700" htmlFor="customer-license">
+          License Number
+        </label>
+        <input
+          id="customer-license"
+          type="text"
+          disabled={disabled}
+          value={values.licenseNumber ?? ""}
+          onChange={(e) => onChange("licenseNumber", e.target.value || null)}
+          className={clsx(
+            "mt-1 w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500",
+            disabled && "bg-gray-50"
+          )}
+        />
+      </div>
+
+      <div>
         <label className="block text-sm font-medium text-gray-700" htmlFor="customer-payment-terms">
           Payment Terms
         </label>
         <select
           id="customer-payment-terms"
           disabled={disabled}
-          value={values.paymentTerms ?? ""}
-          onChange={(e) => onChange("paymentTerms", e.target.value || null)}
+          value={selectedPaymentOption}
+          onChange={(e) => handlePaymentTermsChange(e.target.value)}
           className={clsx(
             "mt-1 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500",
             disabled && "bg-gray-50"
           )}
         >
           <option value="">-- Select Payment Terms --</option>
-          {PAYMENT_TERM_OPTIONS.map((option) => (
+          {paymentTermList.map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
           ))}
-          {hasCustomPaymentTerms && (
-            <option value={values.paymentTerms ?? ""}>
-              Custom: {values.paymentTerms}
-            </option>
-          )}
+          <option value="__custom__">Other / Custom</option>
         </select>
+        {selectedPaymentOption === "__custom__" && (
+          <input
+            type="text"
+            value={values.paymentTerms ?? ""}
+            onChange={(event) => onChange("paymentTerms", event.target.value || null)}
+            placeholder="Enter custom payment terms"
+            className="mt-2 w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+          />
+        )}
         <p className="mt-1 text-xs text-gray-500">
           Options pulled from configured payment terms. Choose a value to keep SAGE exports aligned.
         </p>

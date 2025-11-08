@@ -9,6 +9,8 @@ type CallPlanTaskPayload = {
   dueAt: string;
   title: string;
   description?: string;
+  planObjective?: string | null;
+  planNotes?: string | null;
 };
 
 export async function POST(request: NextRequest) {
@@ -20,7 +22,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
     }
 
-    const { customerId, activityTypeId, dueAt, title, description } = body;
+    const { customerId, activityTypeId, dueAt, title, description, planObjective, planNotes } = body;
 
     if (!customerId || !dueAt || !title) {
       return NextResponse.json(
@@ -85,6 +87,8 @@ export async function POST(request: NextRequest) {
         customerId,
         title,
         description,
+        planObjective: planObjective ?? null,
+        planNotes: planNotes ?? null,
         dueAt: dueDate,
         status: TaskStatus.PENDING,
       },

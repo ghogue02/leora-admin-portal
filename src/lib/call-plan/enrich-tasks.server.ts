@@ -30,6 +30,8 @@ export interface EnrichedCallPlanTask extends CallPlanTaskWithCustomer {
   outcomeTimestamp: string | null;
   contactOutcome: "in_person" | "phone" | "email" | "text" | null;
   markedAt?: string | null;
+  planObjective: string | null;
+  planNotes: string | null;
 }
 
 export const enrichCallPlanTasks = async (
@@ -123,6 +125,8 @@ export const enrichCallPlanTasks = async (
       ...task,
       description: notes || null,
       notes: notes || null,
+      planObjective: task.planObjective ?? null,
+      planNotes: task.planNotes ?? null,
       activityTypeId: metadata.activityTypeId,
       activityTypeCode: activityRecord?.code ?? null,
       activityType: activityMeta.key,

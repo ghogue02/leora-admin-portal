@@ -47,6 +47,11 @@ jest.mock('../db', () => ({
       select: jest.fn().mockReturnThis(),
       execute: jest.fn()
     },
+    customerContacts: {
+      where: jest.fn().mockReturnThis(),
+      orderBy: jest.fn().mockReturnThis(),
+      executeTakeFirst: jest.fn()
+    },
     routeExports: {
       insert: jest.fn().mockReturnThis(),
       execute: jest.fn(),
@@ -78,6 +83,8 @@ jest.mock('../db', () => ({
 describe('Azuga Export', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    const db = require('../db').db;
+    db.customerContacts.executeTakeFirst.mockResolvedValue(null);
   });
 
   describe('CSV Format', () => {
@@ -105,10 +112,11 @@ describe('Azuga Export', () => {
       db.customers.executeTakeFirst.mockResolvedValue(mockOrders[0].customer);
       db.orderItems.execute.mockResolvedValue(mockOrders[0].items);
       db.routeExports.execute.mockResolvedValue({});
+      db.customerContacts.executeTakeFirst.mockResolvedValue({ full_name: 'Jane Contact', phone: '410-555-0000' });
 
       const result = await exportToAzuga('tenant-1', 'user-1', new Date('2025-01-15'));
 
-      expect(result.csv).toContain('Customer Name,Address,City,State,Zip,Phone,Order Number,Items,Delivery Window,Special Instructions');
+      expect(result.csv).toContain('Customer Name,Address,City,State,Zip,Phone,Contact Name,Contact Phone,Order Number,Items,Delivery Window,Special Instructions');
     });
 
     it('should format row data correctly', async () => {
@@ -136,6 +144,10 @@ describe('Azuga Export', () => {
       db.customers.executeTakeFirst.mockResolvedValue(mockOrders[0].customer);
       db.orderItems.execute.mockResolvedValue(mockOrders[0].items);
       db.routeExports.execute.mockResolvedValue({});
+      db.customerContacts.executeTakeFirst.mockResolvedValue({
+        full_name: 'Sam Buyer',
+        mobile: '410-555-5678'
+      });
 
       const result = await exportToAzuga('tenant-1', 'user-1', new Date('2025-01-15'));
 
@@ -143,6 +155,8 @@ describe('Azuga Export', () => {
       expect(result.csv).toContain('ORD-001');
       expect(result.csv).toContain('Wine: 6 items');
       expect(result.csv).toContain('Use back door');
+      expect(result.csv).toContain('Sam Buyer');
+      expect(result.csv).toContain('410-555-5678');
     });
 
     it('should escape special characters in CSV', async () => {
@@ -168,6 +182,10 @@ describe('Azuga Export', () => {
       db.customers.executeTakeFirst.mockResolvedValue(mockOrders[0].customer);
       db.orderItems.execute.mockResolvedValue([]);
       db.routeExports.execute.mockResolvedValue({});
+      db.customerContacts.executeTakeFirst.mockResolvedValue({
+        full_name: 'Alex Contact',
+        phone: '410-555-9999'
+      });
 
       const result = await exportToAzuga('tenant-1', 'user-1', new Date('2025-01-15'));
 

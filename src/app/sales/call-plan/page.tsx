@@ -4,7 +4,7 @@ import { Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { addWeeks, endOfWeek, format, startOfWeek, subWeeks } from "date-fns";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { List, Calendar as CalendarIcon, Map, Repeat } from "lucide-react";
+import { List, Calendar as CalendarIcon, Map as MapIcon, Repeat } from "lucide-react";
 import { toast } from "sonner";
 
 import CallPlanHeader from "./carla/components/CallPlanHeader";
@@ -93,6 +93,37 @@ function CallPlanPageContent() {
       })),
     [accounts],
   );
+
+  const plannedAccounts = useMemo(() => {
+    if (!callPlanOverview?.tasks) {
+      return [];
+    }
+
+    const map = new Map<string, CarlaSelectedAccount>();
+    callPlanOverview.tasks.forEach((task) => {
+      if (!task.customerId || !task.customer) {
+        return;
+      }
+      if (map.has(task.customerId)) {
+        return;
+      }
+
+      map.set(task.customerId, {
+        id: task.customerId,
+        name: task.customer.name ?? "Customer",
+        city: task.customer.city ?? undefined,
+        state: task.customer.state ?? undefined,
+        objective: task.planObjective ?? task.planNotes ?? undefined,
+        customer: {
+          id: task.customerId,
+          customerName: task.customer.name ?? "Customer",
+          accountNumber: null,
+        },
+      });
+    });
+
+    return Array.from(map.values());
+  }, [callPlanOverview?.tasks]);
 
   const tenantHeaders = useMemo(
     () => ({
@@ -268,38 +299,6 @@ function CallPlanPageContent() {
     setCurrentWeekStart(startOfWeek(new Date(), { weekStartsOn: 1 }));
   };
 
-  const handleContactUpdate = async (
-    customerId: string,
-    outcome: string,
-    notes?: string,
-  ) => {
-    if (!callPlanId) return;
-
-    try {
-      const response = await apiFetch("/api/sales/call-plan/carla/accounts/contact", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          callPlanId,
-          customerId,
-          contactOutcome: outcome,
-          notes,
-        }),
-      });
-
-      if (response.ok) {
-        toast.success("Contact status updated");
-        await Promise.all([loadSelectedAccounts(), loadCallPlanOverview()]);
-      } else {
-        const error = await response.json();
-        toast.error(`Error: ${error.error}`);
-      }
-    } catch (error) {
-      console.error("Error updating contact:", error);
-      toast.error("Failed to update contact status");
-    }
-  };
-
   const handleExportPDF = () => {
     toast.info("PDF export coming soon!");
   };
@@ -411,7 +410,7 @@ function CallPlanPageContent() {
             <span className="text-xs">Calendar</span>
           </TabsTrigger>
           <TabsTrigger value="territory" className="flex-col gap-1 h-auto py-3">
-            <Map className="h-5 w-5" />
+            <MapIcon className="h-5 w-5" />
             <span className="text-xs">Territory</span>
           </TabsTrigger>
           <TabsTrigger value="recurring" className="flex-col gap-1 h-auto py-3">
@@ -436,11 +435,7 @@ function CallPlanPageContent() {
             />
           )}
 
-          <WeeklyAccountsView
-            accounts={selectedAccounts}
-            callPlanId={callPlanId}
-            onContactUpdate={handleContactUpdate}
-          />
+          <WeeklyAccountsView accounts={selectedAccounts} callPlanId={callPlanId} />
 
           {callPlanOverview && <CallPlanStats callPlan={callPlanOverview} />}
 
@@ -463,7 +458,7 @@ function CallPlanPageContent() {
             callPlanId={callPlanId}
             weekStart={currentWeekStart}
             refreshKey={scheduleRefreshKey}
-            weeklyAccounts={selectedAccounts}
+            weeklyAccounts={plannedAccounts}
           />
         </TabsContent>
 

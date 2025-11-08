@@ -3,31 +3,55 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, CheckCircle2, Circle, MessageSquare } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Calendar, MapPin } from "lucide-react";
 import { format } from "date-fns";
 import type { CarlaSelectedAccount } from "../types";
 
 interface WeeklyAccountsViewProps {
   accounts: CarlaSelectedAccount[];
-  callPlanId?: string;
-  onContactUpdate: (customerId: string, outcome: string, notes?: string) => void;
 }
 
-const CONTACT_OUTCOMES = [
-  { value: "NOT_ATTEMPTED", label: "Not Attempted", icon: Circle, color: "text-gray-400" },
-  { value: "LEFT_MESSAGE", label: "Left Message", icon: MessageSquare, color: "text-blue-500" },
-  { value: "SPOKE_WITH_CONTACT", label: "Spoke", icon: CheckCircle2, color: "text-green-500" },
-  { value: "IN_PERSON_VISIT", label: "In-Person", icon: CheckCircle2, color: "text-purple-500" },
-  { value: "EMAIL_SENT", label: "Email Sent", icon: MessageSquare, color: "text-yellow-500" },
-];
+const OUTCOME_DISPLAY: Record<
+  string,
+  { label: string; badge: string; text: string; bg: string }
+> = {
+  NOT_ATTEMPTED: {
+    label: "Not attempted",
+    badge: "bg-slate-100 text-slate-600",
+    text: "text-slate-500",
+    bg: "bg-white",
+  },
+  LEFT_MESSAGE: {
+    label: "Left message",
+    badge: "bg-blue-50 text-blue-700",
+    text: "text-blue-700",
+    bg: "bg-blue-50/60",
+  },
+  SPOKE_WITH_CONTACT: {
+    label: "Spoke",
+    badge: "bg-green-100 text-green-800",
+    text: "text-green-700",
+    bg: "bg-green-50/60",
+  },
+  IN_PERSON_VISIT: {
+    label: "Visited",
+    badge: "bg-purple-100 text-purple-800",
+    text: "text-purple-700",
+    bg: "bg-purple-50/60",
+  },
+  EMAIL_SENT: {
+    label: "Email sent",
+    badge: "bg-amber-50 text-amber-700",
+    text: "text-amber-700",
+    bg: "bg-amber-50/60",
+  },
+};
 
-export default function WeeklyAccountsView({
-  accounts,
-  callPlanId,
-  onContactUpdate,
-}: WeeklyAccountsViewProps) {
+export default function WeeklyAccountsView({ accounts }: WeeklyAccountsViewProps) {
   const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set());
   const [draggedAccountId, setDraggedAccountId] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const toggleNotes = (accountId: string) => {
     const newExpanded = new Set(expandedNotes);
@@ -37,11 +61,6 @@ export default function WeeklyAccountsView({
       newExpanded.add(accountId);
     }
     setExpandedNotes(newExpanded);
-  };
-
-  const handleOutcomeClick = async (customerId: string, outcome: string) => {
-    if (!callPlanId) return;
-    onContactUpdate(customerId, outcome);
   };
 
   const buildDragPayload = (account: CarlaSelectedAccount, accountName: string) => {
@@ -79,13 +98,21 @@ export default function WeeklyAccountsView({
     setDraggedAccountId(null);
   };
 
-  const contactedCount = accounts.filter(
-    (a) => (a.contactOutcome ?? "NOT_ATTEMPTED") !== "NOT_ATTEMPTED"
-  ).length;
-
-  const visitedCount = accounts.filter(
-    (a) => a.contactOutcome === "IN_PERSON_VISIT"
-  ).length;
+  const filteredAccounts = accounts.filter((account) => {
+    if (!searchQuery.trim()) return true;
+    const query = searchQuery.toLowerCase();
+    return (
+      (account.name ?? account.customer?.customerName ?? "")
+        .toLowerCase()
+        .includes(query) ||
+      (account.accountNumber ?? account.customer?.accountNumber ?? "")
+        ?.toLowerCase()
+        ?.includes(query) ||
+      (account.city ?? account.customer?.city ?? "")
+        .toLowerCase()
+        .includes(query)
+    );
+  });
 
   if (accounts.length === 0) {
     return (
@@ -104,32 +131,32 @@ export default function WeeklyAccountsView({
   return (
     <Card>
       <CardHeader>
-        <div className="flex items-center justify-between">
-          <CardTitle>Weekly Call Plan ({accounts.length} accounts)</CardTitle>
-          <div className="flex gap-4 text-sm">
-            <div className="flex items-center gap-2">
-              <Badge variant="outline" className="bg-green-50">
-                {contactedCount} Contacted
-              </Badge>
-            </div>
-            <div className="flex items-center gap-2">
-              <Badge variant="outline" className="bg-purple-50">
-                {visitedCount} Visited
-              </Badge>
-            </div>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <CardTitle>Weekly Call Plan ({accounts.length} accounts)</CardTitle>
+            {searchQuery && (
+              <p className="text-sm text-gray-500">
+                Showing {filteredAccounts.length} match
+                {filteredAccounts.length === 1 ? "" : "es"} for “{searchQuery}”
+              </p>
+            )}
           </div>
+          <Input
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+            placeholder="Search customers..."
+            className="w-full sm:w-72"
+          />
         </div>
       </CardHeader>
 
       <CardContent>
-        <div className="space-y-2 max-h-[520px] overflow-y-auto pr-1">
-          {accounts.map((account) => {
+        <div className="max-h-[520px] overflow-y-auto pr-1">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+          {filteredAccounts.map((account) => {
             const outcomeValue = account.contactOutcome ?? "NOT_ATTEMPTED";
-            const currentOutcome =
-              CONTACT_OUTCOMES.find((o) => o.value === outcomeValue) ||
-              CONTACT_OUTCOMES[0];
-            const Icon = currentOutcome.icon;
-            const isContacted = outcomeValue !== "NOT_ATTEMPTED";
+            const statusMeta =
+              OUTCOME_DISPLAY[outcomeValue] ?? OUTCOME_DISPLAY.NOT_ATTEMPTED;
             const notesExpanded = expandedNotes.has(account.id);
             const accountName = account.name ?? account.customer?.customerName ?? "Customer";
             const accountNumber = account.accountNumber ?? account.customer?.accountNumber ?? undefined;
@@ -143,111 +170,71 @@ export default function WeeklyAccountsView({
               <div
                 key={account.id}
                 id={`weekly-draggable-account-${account.id}`}
-                className={`rounded-lg border p-4 transition-colors ${
-                  isContacted
-                    ? "border-green-200 bg-green-50/50"
+                className={`rounded-2xl border p-4 transition-shadow ${
+                  outcomeValue !== "NOT_ATTEMPTED"
+                    ? "border-blue-200 bg-white shadow shadow-blue-50"
                     : "border-gray-200 bg-white"
                 } ${draggedAccountId === account.id ? "ring-2 ring-blue-300" : ""}`}
                 draggable
                 onDragStart={(event) => handleDragStart(event, dragPayload, account.id)}
                 onDragEnd={handleDragEnd}
               >
-                <div className="flex items-start gap-4">
-                  {/* Contact Status Icon */}
-                  <div className="flex-shrink-0 pt-1">
-                    <Icon className={`h-5 w-5 ${currentOutcome.color}`} />
-                  </div>
-
-                  {/* Account Info */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="font-semibold text-gray-900">{accountName}</h3>
-                        {accountNumber && (
-                          <p className="text-sm text-gray-500">#{accountNumber}</p>
-                        )}
-                      </div>
-
-                      {account.contactedAt && (
-                        <div className="text-xs text-gray-500 text-right">
-                          <div>Contacted</div>
-                          <div>{format(new Date(account.contactedAt), "MMM d, h:mm a")}</div>
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="space-y-1">
+                      <h3 className="text-base font-semibold text-gray-900">{accountName}</h3>
+                      {accountNumber && (
+                        <p className="text-xs text-gray-500">#{accountNumber}</p>
+                      )}
+                      {city && state && (
+                        <div className="flex items-center gap-1 text-xs text-gray-500">
+                          <MapPin className="h-3 w-3" />
+                          <span>
+                            {city}, {state}
+                          </span>
                         </div>
                       )}
                     </div>
-
-                    {/* Location */}
-                    {city && state && (
-                      <div className="flex items-center gap-1 mt-1 text-sm text-gray-600">
-                        <MapPin className="h-3.5 w-3.5" />
-                        <span>
-                          {city}, {state}
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Last Order */}
-                    {lastOrderDate && (
-                      <div className="flex items-center gap-1 mt-1 text-sm text-gray-600">
-                        <Calendar className="h-3.5 w-3.5" />
-                        <span>
-                          Last Order: {format(new Date(lastOrderDate), "MMM d, yyyy")}
-                        </span>
-                      </div>
-                    )}
-
-                    {/* Objective */}
-                    {objective && (
-                      <div className="mt-2 text-sm text-gray-700">
-                        <span className="font-medium">Objective:</span> {objective}
-                      </div>
-                    )}
-
-                    {/* Contact Outcome Buttons */}
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {CONTACT_OUTCOMES.map((outcome) => {
-                        const isSelected = outcomeValue === outcome.value;
-                        const OutcomeIcon = outcome.icon;
-
-                        return (
-                          <button
-                            key={outcome.value}
-                            onClick={() => handleOutcomeClick(account.id, outcome.value)}
-                            className={`inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
-                              isSelected
-                                ? "bg-blue-600 text-white"
-                                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                            }`}
-                          >
-                            <OutcomeIcon className="h-3.5 w-3.5" />
-                            {outcome.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Notes Section */}
-                    {account.notes && (
-                      <div className="mt-3">
-                        <button
-                          onClick={() => toggleNotes(account.id)}
-                          className="text-xs font-medium text-blue-600 hover:text-blue-700"
-                        >
-                          {notesExpanded ? "Hide Notes" : "Show Notes"}
-                        </button>
-                        {notesExpanded && (
-                          <div className="mt-2 rounded-md bg-gray-50 p-3 text-sm text-gray-700">
-                            {account.notes}
-                          </div>
-                        )}
-                      </div>
+                    {outcomeValue !== "NOT_ATTEMPTED" && (
+                      <Badge className={`${statusMeta.badge} whitespace-nowrap`}>
+                        {statusMeta.label}
+                      </Badge>
                     )}
                   </div>
 
+                  {lastOrderDate && (
+                    <div className="flex items-center gap-1 text-xs text-gray-600">
+                      <Calendar className="h-3 w-3" />
+                      <span>{format(new Date(lastOrderDate), "MMM d, yyyy")}</span>
+                    </div>
+                  )}
+
+                  {objective && (
+                    <div className="rounded-lg bg-slate-50 p-2 text-xs text-slate-700">
+                      <span className="font-semibold">Plan:</span> {objective}
+                    </div>
+                  )}
+
+                  {account.notes && (
+                    <div className="mt-1">
+                      <button
+                        onClick={() => toggleNotes(account.id)}
+                        className="text-xs font-medium text-blue-600 hover:text-blue-700"
+                      >
+                        {notesExpanded ? "Hide Notes" : "Show Notes"}
+                      </button>
+                      {notesExpanded && (
+                        <div className="mt-2 rounded-md bg-gray-50 p-3 text-xs text-gray-700">
+                          {account.notes}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               </div>
             );
           })}
+          </div>
         </div>
       </CardContent>
     </Card>

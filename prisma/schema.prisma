@@ -38,6 +38,7 @@ model Tenant {
   customerAddresses       CustomerAddress[]
   customerAssignments     CustomerAssignment[]
   customerDuplicateFlags  CustomerDuplicateFlag[]
+  customerContacts        CustomerContact[]
   customerTags            CustomerTag[]
   integritySnapshots      DataIntegritySnapshot[]
   deliveryRoutes          DeliveryRoute[]
@@ -447,6 +448,7 @@ model Customer {
   createdAt                 DateTime                @default(now())
   updatedAt                 DateTime                @updatedAt
   averageOrderIntervalDays  Int?
+  licenseNumber             String?
   closedReason              String?
   dormancySince             DateTime?
   isPermanentlyClosed       Boolean                 @default(false)
@@ -467,8 +469,11 @@ model Customer {
   csvImportedAt             DateTime?
   csvLastSyncedAt           DateTime?
   quarterlyRevenueTarget    Decimal?                @db.Decimal(12, 2)
-  licenseNumber             String?
   licenseType               String?
+  deliveryInstructions      String?
+  deliveryWindows           Json?
+  paymentMethod             String?
+  deliveryMethod            String?
   defaultDeliveryTimeWindow String?
   defaultWarehouseLocation  String?
   requiresPO                Boolean                 @default(false)
@@ -496,6 +501,7 @@ model Customer {
   orders                    Order[]
   pickSheetItems            PickSheetItem[]
   portalUsers               PortalUser[]
+  contacts                  CustomerContact[]
   recurringCallPlans        RecurringCallPlan[]
   sampleUsage               SampleUsage[]
   tasks                     Task[]
@@ -845,6 +851,8 @@ model Task {
   customerId     String?         @db.Uuid
   title          String
   description    String?
+  planObjective  String?
+  planNotes      String?
   dueAt          DateTime?
   status         TaskStatus      @default(PENDING)
   createdAt      DateTime        @default(now())
@@ -1541,6 +1549,25 @@ model GeocodingCache {
 
   @@index([cachedAt])
   @@index([address])
+}
+
+model CustomerContact {
+  id              String   @id @default(uuid()) @db.Uuid
+  tenantId        String   @db.Uuid
+  customerId      String   @db.Uuid
+  fullName        String
+  role            String?
+  phone           String?
+  mobile          String?
+  email           String?
+  notes           String?
+  businessCardUrl String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  customer        Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  tenant          Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId, customerId])
 }
 
 model ImageScan {

@@ -6,10 +6,13 @@ import Link from 'next/link';
 import { CustomerClassificationFields } from '@/components/customers/CustomerClassificationFields';
 import { CustomerBasicInfoFields } from '@/components/customers/forms/CustomerBasicInfoFields';
 import { CustomerAddressFields } from '@/components/customers/forms/CustomerAddressFields';
+import { CustomerDeliveryFields } from '@/components/customers/forms/CustomerDeliveryFields';
+import { CustomerContactsManager } from '@/components/customers/CustomerContactsManager';
 import type {
   CustomerType,
   FeatureProgram,
   VolumeCapacity,
+  DeliveryWindow,
 } from '@/types/customer';
 
 interface Customer {
@@ -25,6 +28,12 @@ interface Customer {
   postalCode: string | null;
   country: string;
   paymentTerms: string | null;
+  licenseNumber: string | null;
+  deliveryInstructions: string | null;
+  deliveryMethod: string | null;
+  paymentMethod: string | null;
+  defaultWarehouseLocation: string | null;
+  deliveryWindows: DeliveryWindow[] | null;
   riskStatus: string;
   lastOrderDate: string | null;
   nextExpectedOrderDate: string | null;
@@ -45,6 +54,17 @@ interface Customer {
     email: string;
     status: string;
     lastLoginAt: string | null;
+  }>;
+  contacts: Array<{
+    id: string;
+    fullName: string;
+    role: string | null;
+    phone: string | null;
+    mobile: string | null;
+    email: string | null;
+    notes: string | null;
+    businessCardUrl: string | null;
+    createdAt: string;
   }>;
   totalRevenue: number;
   totalOrders: number;
@@ -94,6 +114,12 @@ type CustomerFormState = {
   type: CustomerType | '';
   volumeCapacity: VolumeCapacity | '';
   featurePrograms: FeatureProgram[];
+  licenseNumber: string;
+  deliveryInstructions: string;
+  deliveryMethod: string;
+  paymentMethod: string;
+  defaultWarehouseLocation: string;
+  deliveryWindows: DeliveryWindow[];
 };
 
 const INITIAL_FORM_STATE: CustomerFormState = {
@@ -113,6 +139,12 @@ const INITIAL_FORM_STATE: CustomerFormState = {
   type: '',
   volumeCapacity: '',
   featurePrograms: [],
+  licenseNumber: '',
+  deliveryInstructions: '',
+  deliveryMethod: '',
+  paymentMethod: '',
+  defaultWarehouseLocation: '',
+  deliveryWindows: [],
 };
 
 export default function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -165,6 +197,14 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         type: (data.customer.type as CustomerType) || '',
         volumeCapacity: (data.customer.volumeCapacity as VolumeCapacity) || '',
         featurePrograms: data.customer.featurePrograms ?? [],
+        licenseNumber: data.customer.licenseNumber ?? '',
+        deliveryInstructions: data.customer.deliveryInstructions ?? '',
+        deliveryMethod: data.customer.deliveryMethod ?? '',
+        paymentMethod: data.customer.paymentMethod ?? '',
+        defaultWarehouseLocation: data.customer.defaultWarehouseLocation ?? '',
+        deliveryWindows: Array.isArray(data.customer.deliveryWindows)
+          ? (data.customer.deliveryWindows as DeliveryWindow[])
+          : [],
       });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to fetch customer');
@@ -418,10 +458,11 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           <CustomerBasicInfoFields
             values={{
               name: formData.name,
-              accountNumber: customer?.accountNumber || '',
+              accountNumber: customer?.accountNumber ?? null,
               billingEmail: formData.billingEmail,
               phone: formData.phone,
               paymentTerms: formData.paymentTerms,
+              licenseNumber: formData.licenseNumber || null,
             }}
             onChange={(field, value) =>
               updateForm({ [field]: value } as Partial<CustomerFormState>)
@@ -472,6 +513,24 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           </div>
         </div>
 
+        {/* Delivery Preferences */}
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <h2 className="text-xl font-bold mb-4">Delivery Preferences</h2>
+          <CustomerDeliveryFields
+            values={{
+              deliveryInstructions: formData.deliveryInstructions || null,
+              deliveryWindows: formData.deliveryWindows,
+              paymentMethod: formData.paymentMethod || null,
+              deliveryMethod: formData.deliveryMethod || null,
+              defaultWarehouseLocation: formData.defaultWarehouseLocation || null,
+            }}
+            disabled={saving}
+            onChange={(updates) =>
+              updateForm(updates as Partial<CustomerFormState>)
+            }
+          />
+        </div>
+
         {/* Contact Persons */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
           <h2 className="text-xl font-bold mb-4">Contact Persons</h2>
@@ -508,6 +567,16 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
             <p className="text-gray-500">No portal users associated with this customer</p>
           )}
         </div>
+
+        {customer && customerId && (
+          <div className="mb-6">
+            <CustomerContactsManager
+              customerId={customerId}
+              initialContacts={customer.contacts ?? []}
+              variant="admin"
+            />
+          </div>
+        )}
 
         {/* Analytics & Reporting */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">

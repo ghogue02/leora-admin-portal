@@ -14,7 +14,15 @@ const pickSheetExportInclude = {
           product: true,
         },
       },
-      customer: true,
+      customer: {
+        include: {
+          contacts: {
+            orderBy: {
+              createdAt: 'asc',
+            },
+          },
+        },
+      },
     },
   },
 } as const;
@@ -23,7 +31,43 @@ type PickSheetExport = Prisma.PickSheetGetPayload<{
   include: typeof pickSheetExportInclude;
 }>;
 
-function generateCSV(pickSheet: PickSheetExport): string {
+function formatPrimaryContact(customer?: PickSheetExport["items"][number]["customer"]) {
+  if (!customer?.contacts?.length) {
+    return { name: '', phone: '' };
+  }
+  const [primary] = customer.contacts;
+  return {
+    name: primary.fullName ?? '',
+    phone: primary.mobile ?? primary.phone ?? '',
+  };
+}
+
+type DeliveryPacketRow = {
+  productName: string;
+  customerName: string;
+  contactName: string;
+  contactPhone: string;
+  quantity: number;
+  location: string;
+  picked: string;
+};
+
+function buildDeliveryPacketRows(pickSheet: PickSheetExport): DeliveryPacketRow[] {
+  return pickSheet.items.map((item) => {
+    const contact = formatPrimaryContact(item.customer);
+    return {
+      productName: item.sku?.product?.name || 'Unknown',
+      customerName: item.customer?.name || 'Unknown',
+      contactName: contact.name,
+      contactPhone: contact.phone,
+      quantity: item.quantity,
+      location: item.location || 'Unassigned',
+      picked: item.isPicked ? '☑' : '☐',
+    };
+  });
+}
+
+function generateCSV(pickSheet: PickSheetExport, rows: DeliveryPacketRow[]): string {
   const lines: string[] = [];
 
   // Header info
@@ -34,14 +78,13 @@ function generateCSV(pickSheet: PickSheetExport): string {
   lines.push('');
 
   // Column headers
-  lines.push('Item,Customer,Quantity,Location,Picked');
+  lines.push('Item,Customer,Contact,Contact Phone,Quantity,Location,Picked');
 
   // Items
-  for (const item of pickSheet.items) {
-    const productName = item.sku?.product?.name || 'Unknown';
-    const customerName = item.customer?.name || 'Unknown';
-    const picked = item.isPicked ? '☑' : '☐';
-    lines.push(`"${productName}","${customerName}",${item.quantity},"${item.location || 'Unassigned'}",${picked}`);
+  for (const row of rows) {
+    lines.push(
+      `"${row.productName}","${row.customerName}","${row.contactName}","${row.contactPhone}",${row.quantity},"${row.location}",${row.picked}`
+    );
   }
 
   return lines.join('\n');
@@ -80,8 +123,10 @@ export async function GET(
       return NextResponse.json({ error: 'Pick sheet not found' }, { status: 404 });
     }
 
+    const deliveryRows = buildDeliveryPacketRows(pickSheet);
+
     if (format === 'csv') {
-      const csv = generateCSV(pickSheet);
+      const csv = generateCSV(pickSheet, deliveryRows);
       return new NextResponse(csv, {
         headers: {
           'Content-Type': 'text/csv',
@@ -91,9 +136,9 @@ export async function GET(
     }
 
     // PDF generation would go here
-    // For now, return JSON indicating PDF not yet implemented
+    // For now, return JSON indicating PDF not yet implemented, alongside precomputed delivery rows
     return NextResponse.json(
-      { error: 'PDF export not yet implemented. Use CSV format.' },
+      { error: 'PDF export not yet implemented. Use CSV format.', deliveryRows },
       { status: 501 }
     );
   } catch (error) {
