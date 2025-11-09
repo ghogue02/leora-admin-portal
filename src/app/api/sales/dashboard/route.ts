@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { buildCustomerHealthSnapshot } from "@/lib/sales/customer-health-service";
 import {
   activitySampleItemSelect,
   activitySampleItemWithActivitySelect,
@@ -17,18 +18,16 @@ import {
   subDays,
 } from "date-fns";
 
+const MANAGER_EMAIL = "travis@wellcraftedbeverage.com";
+
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
     async ({ db, tenantId, session }) => {
-      // Get sales rep profile for the logged-in user
-      const salesRep = await db.salesRep.findUnique({
-        where: {
-          tenantId_userId: {
-            tenantId,
-            userId: session.user.id,
-          },
-        },
+      const impersonationAllowed = session.user.email?.toLowerCase() === MANAGER_EMAIL;
+      const requestedSalesRepId = request.nextUrl.searchParams.get("salesRepId");
+
+      const commonInclude = {
         include: {
           user: {
             select: {
@@ -37,7 +36,46 @@ export async function GET(request: NextRequest) {
             },
           },
         },
-      });
+      } as const;
+
+      const viewerSalesRep = session.user.salesRep?.id
+        ? await db.salesRep.findUnique({
+            where: {
+              tenantId_userId: {
+                tenantId,
+                userId: session.user.id,
+              },
+            },
+            ...commonInclude,
+          })
+        : null;
+
+      let salesRep = viewerSalesRep;
+
+      if (requestedSalesRepId && impersonationAllowed) {
+        salesRep = await db.salesRep.findFirst({
+          where: {
+            tenantId,
+            id: requestedSalesRepId,
+          },
+          ...commonInclude,
+        });
+      }
+
+      if (!salesRep && impersonationAllowed) {
+        salesRep = await db.salesRep.findFirst({
+          where: {
+            tenantId,
+            isActive: true,
+          },
+          orderBy: {
+            user: {
+              fullName: "asc",
+            },
+          },
+          ...commonInclude,
+        });
+      }
 
       if (!salesRep) {
         return NextResponse.json(
@@ -45,6 +83,39 @@ export async function GET(request: NextRequest) {
           { status: 404 }
         );
       }
+
+      const managerReps = impersonationAllowed
+        ? await db.salesRep.findMany({
+            where: {
+              tenantId,
+              isActive: true,
+            },
+            orderBy: {
+              user: {
+                fullName: "asc",
+              },
+            },
+            include: {
+              user: {
+                select: {
+                  fullName: true,
+                  email: true,
+                },
+              },
+            },
+          })
+        : [];
+
+      const managerView = {
+        enabled: impersonationAllowed,
+        selectedSalesRepId: salesRep.id,
+        reps: managerReps.map((rep) => ({
+          id: rep.id,
+          name: rep.user.fullName ?? "Unnamed",
+          territory: rep.territoryName,
+          email: rep.user.email ?? null,
+        })),
+      };
 
       const now = new Date();
       const monthStart = startOfMonth(now); // Start of current month
@@ -650,6 +721,14 @@ export async function GET(request: NextRequest) {
         }),
       };
 
+      const customerSnapshot = await buildCustomerHealthSnapshot({
+        db,
+        tenantId,
+        salesRepId: salesRep.id,
+        userId: session.user.id,
+        now,
+      });
+
       return NextResponse.json({
         salesRep: {
           id: salesRep.id,
@@ -793,6 +872,14 @@ export async function GET(request: NextRequest) {
             : 0,
         })),
         sampleInsights,
+        managerView,
+        accountPulse: customerSnapshot.accountPulse,
+        customerSignals: customerSnapshot.signals,
+        customerCoverage: customerSnapshot.coverage,
+        portfolioHealth: customerSnapshot.portfolio,
+        targetPipeline: customerSnapshot.targetPipeline,
+        coldLeads: customerSnapshot.coldLeads,
+        customerReportRows: customerSnapshot.reportRows,
         tasks: pendingTasks.map((task) => ({
           id: task.id,
           title: task.title,
@@ -807,7 +894,8 @@ export async function GET(request: NextRequest) {
             : null,
         })),
       });
-    }
+    },
+    { requireSalesRep: false }
   );
 }
 

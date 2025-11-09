@@ -1,37 +1,31 @@
 'use client';
 
-import { useCallback, useEffect, useState } from "react";
-import PerformanceMetrics from "./sections/PerformanceMetrics";
-import CustomerHealthSummary from "./sections/CustomerHealthSummary";
-import CustomersDueList from "./sections/CustomersDueList";
-import WeeklyRevenueChart from "./sections/WeeklyRevenueChart";
-import UpcomingEvents from "./sections/UpcomingEvents";
-import TasksList from "./sections/TasksList";
-import ProductGoals from "./sections/ProductGoals";
-import UpcomingCalendar from "./sections/UpcomingCalendar";
-import AssignedTasks from "./sections/AssignedTasks";
-import Incentives from "./sections/Incentives";
-import TopProducts from "./sections/TopProducts";
-import CustomerBalances from "./sections/CustomerBalances";
-import SampleActivitySummary from "./sections/SampleActivitySummary";
+import { useCallback, useEffect, useState, type ChangeEvent } from "react";
 import type { SampleActivityRecord, SampleInsightsSummary } from "@/types/activities";
-// import NewCustomersMetric from "./sections/NewCustomersMetric";
-import ProductGoalsEnhanced from "./sections/ProductGoalsEnhanced";
 import DashboardCustomizer from "./sections/DashboardCustomizer";
 import { MetricGlossaryModal } from "./sections/MetricDefinitions";
 import { SkeletonDashboard } from "../_components/SkeletonLoader";
 import { Button } from "../_components/Button";
-import { DashboardTile } from "@/components/dashboard/DashboardTile";
 import { DrilldownModal } from "@/components/dashboard/DrilldownModal";
 import type { DashboardDrilldownType } from "@/types/drilldown";
-import { HelpCircle } from "lucide-react";
+import InsightsView from "./sections/InsightsView";
+import ExecutionView from "./sections/ExecutionView";
+import type {
+  AccountPulse,
+  CustomerSignals,
+  CustomerCoverage,
+  PortfolioHealth,
+  TargetPipelineMetrics,
+  ColdLeadsOverview,
+  CustomerReportRow,
+} from "@/types/sales-dashboard";
 
 type DashboardData = {
   salesRep: {
     id: string;
     name: string;
     email: string;
-    territory: string;
+    territory: string | null;
     deliveryDay: string | null;
     weeklyQuota: number;
     monthlyQuota: number;
@@ -80,17 +74,6 @@ type DashboardData = {
       newCustomersAdded: number;
       reactivatedCustomers: number;
     } | null;
-  };
-  customerHealth: {
-    healthy: number;
-    atRiskCadence: number;
-    atRiskRevenue: number;
-    dormant: number;
-    closed: number;
-    prospect: number;
-    prospectCold: number;
-    total: number;
-    totalProspects: number;
   };
   activities: {
     recent: Array<{
@@ -144,6 +127,23 @@ type DashboardData = {
     } | null;
   }>;
   sampleInsights: SampleInsightsSummary;
+  accountPulse: AccountPulse;
+  customerSignals: CustomerSignals;
+  customerCoverage: CustomerCoverage;
+  portfolioHealth: PortfolioHealth;
+  targetPipeline: TargetPipelineMetrics;
+  coldLeads: ColdLeadsOverview;
+  customerReportRows: CustomerReportRow[];
+  managerView: {
+    enabled: boolean;
+    selectedSalesRepId: string;
+    reps: Array<{
+      id: string;
+      name: string;
+      territory: string | null;
+      email: string | null;
+    }>;
+  };
 };
 
 type DashboardState = {
@@ -161,12 +161,19 @@ export default function SalesDashboardPage() {
   const [activeDrilldown, setActiveDrilldown] = useState<DashboardDrilldownType | null>(null);
   const [showGlossary, setShowGlossary] = useState(false);
   const [dashboardPrefs, setDashboardPrefs] = useState<any>(null);
+  const [activeTab, setActiveTab] = useState<"insights" | "classic">("insights");
 
-  const load = useCallback(async () => {
+  const tabs = [
+    { id: "insights", label: "Customer Insights" },
+    { id: "classic", label: "Sales Execution" },
+  ] as const;
+
+  const load = useCallback(async (salesRepId?: string) => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
-      const response = await fetch("/api/sales/dashboard", {
+      const search = salesRepId ? `?salesRepId=${encodeURIComponent(salesRepId)}` : "";
+      const response = await fetch(`/api/sales/dashboard${search}`, {
         cache: "no-store",
       });
 
@@ -227,11 +234,17 @@ export default function SalesDashboardPage() {
   const {
     salesRep,
     metrics,
-    customerHealth,
+    accountPulse,
+    customerSignals,
+    customerCoverage,
+    portfolioHealth,
+    targetPipeline,
+    coldLeads,
     upcomingEvents,
     customersDue,
     tasks,
     sampleInsights,
+    managerView,
   } = state.data;
 
   const isSectionEnabled = (sectionId: string) => {
@@ -240,55 +253,74 @@ export default function SalesDashboardPage() {
     return section?.enabled !== false;
   };
 
+  const handleRepChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    void load(event.target.value);
+  };
+
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
       {/* Dashboard Header */}
       {/* <DashboardCustomizer onPreferencesChange={setDashboardPrefs} /> */}
 
-      {isSectionEnabled('performance-metrics') && (
-        <PerformanceMetrics
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-wrap items-center gap-3">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActiveTab(tab.id)}
+              className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
+                activeTab === tab.id
+                  ? "border-slate-900 bg-slate-900 text-white"
+                  : "border-slate-200 bg-white text-gray-600 hover:border-slate-300"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {managerView.enabled && (
+          <div className="flex flex-wrap items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm shadow-sm">
+            <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">Viewing as</span>
+            <select
+              value={managerView.selectedSalesRepId}
+              onChange={handleRepChange}
+              className="rounded-md border border-slate-200 bg-white px-2 py-1 text-sm text-gray-900 focus:border-slate-400 focus:outline-none"
+            >
+              {managerView.reps.map((rep) => (
+                <option key={rep.id} value={rep.id}>
+                  {rep.name}
+                  {rep.territory ? ` • ${rep.territory}` : ""}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+      </div>
+
+      {activeTab === "insights" ? (
+        <InsightsView
+          salesRep={salesRep}
+          accountPulse={accountPulse}
+          customerSignals={customerSignals}
+          customerCoverage={customerCoverage}
+          portfolioHealth={portfolioHealth}
+          targetPipeline={targetPipeline}
+          coldLeads={coldLeads}
+          isSectionEnabled={isSectionEnabled}
+        />
+      ) : (
+        <ExecutionView
           salesRep={salesRep}
           metrics={metrics}
+          tasks={tasks}
+          customersDue={customersDue}
+          sampleInsights={sampleInsights}
+          upcomingEvents={upcomingEvents}
+          isSectionEnabled={isSectionEnabled}
           onDrilldown={setActiveDrilldown}
         />
-      )}
-
-      {isSectionEnabled('customer-health') && (
-        <CustomerHealthSummary
-          customerHealth={customerHealth}
-          onDrilldown={setActiveDrilldown}
-        />
-      )}
-
-      {isSectionEnabled('tasks') && (
-        <TasksList tasks={tasks} />
-      )}
-
-      {isSectionEnabled('customers-due') && (
-        <CustomersDueList
-          customers={customersDue}
-          onDrilldown={setActiveDrilldown}
-        />
-      )}
-
-      {isSectionEnabled('sample-activities') && (
-        <SampleActivitySummary insights={sampleInsights} />
-      )}
-
-      {/* Top Products Section */}
-      {isSectionEnabled('top-products') && <TopProducts />}
-
-      {/* Product Performance Goals - Enhanced */}
-      {isSectionEnabled('product-goals') && <ProductGoalsEnhanced />}
-
-      {/* 7-10 Day Upcoming Calendar - TEMPORARILY DISABLED */}
-      {/* <UpcomingCalendar /> */}
-
-      {isSectionEnabled('upcoming-events') && <UpcomingEvents events={upcomingEvents} />}
-
-      {/* Customer Balances Widget - surfaced near the end */}
-      {isSectionEnabled('customer-balances') && (
-        <CustomerBalances onDrilldown={setActiveDrilldown} />
       )}
 
       {/* Drilldown Modal */}
