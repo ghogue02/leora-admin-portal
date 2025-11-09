@@ -111,8 +111,9 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
     const focus = focusId ?? selectedId;
     if (!fgRef.current || !focus) return;
     const fg = fgRef.current;
-    const { nodes: fgNodes } = fg.graphData();
-    const node = (fgNodes as RouteGraph3DNode[]).find((item) => item.id === focus);
+    const graphData = (fg as unknown as { graphData?: () => { nodes: RouteGraph3DNode[] } }).graphData?.();
+    if (!graphData) return;
+    const node = graphData.nodes.find((item) => item.id === focus);
     if (!node) return;
 
     const coords = {
