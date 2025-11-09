@@ -9,6 +9,7 @@ import { CustomerBasicInfoFields } from "@/components/customers/forms/CustomerBa
 import { CustomerAddressFields } from "@/components/customers/forms/CustomerAddressFields";
 import { CustomerDeliveryFields } from "@/components/customers/forms/CustomerDeliveryFields";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
+import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
 import type {
   CustomerType,
   FeatureProgram,
@@ -303,7 +304,7 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
               }))
             }
           />
-        </section>
+            </section>
 
             <section className="mt-8">
               <CustomerClassificationFields
@@ -320,6 +321,20 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
                   setClassification((prev) => ({ ...prev, featurePrograms: programs }))
                 }
                 disabled={saving}
+              />
+            </section>
+
+            <section className="mt-8 space-y-4">
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Key Contacts</h2>
+                <p className="text-sm text-gray-500">
+                  Track buyers, sommeliers, and managers linked to this account.
+                </p>
+              </div>
+              <CustomerContactsManager
+                customerId={customerId}
+                initialContacts={data.contacts ?? []}
+                variant="sales"
               />
             </section>
           </>
