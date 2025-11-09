@@ -2,6 +2,20 @@
 
 import { useMemo, useState } from 'react';
 import type { KeyboardEvent } from 'react';
+import dynamic from 'next/dynamic';
+import type { RouteGraph3DLink, RouteGraph3DNode } from '@/components/lesson/RouteGraph3D';
+
+const RouteGraph3D = dynamic(
+  () => import('@/components/lesson/RouteGraph3D').then((mod) => mod.RouteGraph3D),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-[560px] items-center justify-center text-sm text-slate-500">
+        Loading 3D map…
+      </div>
+    ),
+  }
+);
 
 type IntegrationType = 'external' | 'ai' | 'infrastructure' | 'internal';
 type IntegrationStatus = 'active' | 'configured' | 'optional' | 'planned';
@@ -767,6 +781,7 @@ export function LessonContent() {
     node: routeNodes[0],
   });
   const [selectedScenario, setSelectedScenario] = useState<Scenario | null>(null);
+  const [mapMode, setMapMode] = useState<'diagram' | '3d'>('diagram');
   const [showTechnical, setShowTechnical] = useState(true);
 
   const filteredIntegrations = useMemo(() => {
@@ -802,8 +817,15 @@ export function LessonContent() {
     return matches;
   }, [search]);
 
-  const highlightNodes = new Set(selectedScenario?.highlightNodes ?? []);
-  const highlightIntegrations = new Set(selectedScenario?.highlightIntegrations ?? []);
+  const highlightNodes = useMemo(
+    () => new Set(selectedScenario?.highlightNodes ?? []),
+    [selectedScenario]
+  );
+  const highlightIntegrations = useMemo(
+    () => new Set(selectedScenario?.highlightIntegrations ?? []),
+    [selectedScenario]
+  );
+  const searchActive = search.trim().length > 0 && matchedIds.size > 0;
 
   const graph = useMemo(() => {
     const diameter = 620;
@@ -869,6 +891,76 @@ export function LessonContent() {
 
     return { diameter, nodes: positionedRoutes, targets: positionedTargets, lines };
   }, []);
+
+  const graph3DData = useMemo<{
+    nodes: RouteGraph3DNode[];
+    links: RouteGraph3DLink[];
+  }>(() => {
+    const scenarioActive = highlightNodes.size > 0;
+
+    const nodeDimmed = (id: string) => {
+      const scenarioDim = scenarioActive && !highlightNodes.has(id);
+      const searchDim = searchActive && !matchedIds.has(id);
+      return scenarioDim || searchDim;
+    };
+
+    const nodes3d: RouteGraph3DNode[] = [
+      ...routeNodes.map((node) => ({
+        id: node.id,
+        label: node.label,
+        group: node.id === 'core' ? 'core' : 'domain',
+        requestsPerDay: node.requestsPerDay,
+        isHighlighted: highlightNodes.has(node.id),
+        isDimmed: nodeDimmed(node.id),
+      })),
+      ...connectionTargets.map((target) => ({
+        id: target.id,
+        label: target.label,
+        group: 'vendor' as const,
+        requestsPerDay: target.touchpoints * 1000,
+        vendorCount: target.count,
+        isHighlighted: highlightNodes.has(target.id),
+        isDimmed: nodeDimmed(target.id),
+      })),
+    ];
+
+    const links3d: RouteGraph3DLink[] = routeNodes.flatMap((node) =>
+      node.dependencies.map((dependency) => {
+        const dim =
+          (scenarioActive &&
+            !(highlightNodes.has(node.id) || highlightNodes.has(dependency.targetId))) ||
+          (searchActive &&
+            !(matchedIds.has(node.id) || matchedIds.has(dependency.targetId)));
+        return {
+          source: node.id,
+          target: dependency.targetId,
+          importance: dependency.importance,
+          reason: dependency.reason,
+          isDimmed: dim,
+        };
+      })
+    );
+
+    return { nodes: nodes3d, links: links3d };
+  }, [highlightNodes, matchedIds, searchActive]);
+
+  const selectedNodeId =
+    selectedItem.kind === 'route'
+      ? selectedItem.node.id
+      : selectedItem.kind === 'target'
+        ? selectedItem.target.id
+        : undefined;
+
+  const handle3DSelect = (id: string) => {
+    if (routeLookup[id]) {
+      setSelectedItem({ kind: 'route', node: routeLookup[id] });
+      return;
+    }
+    if (targetLookup[id as keyof typeof targetLookup]) {
+      setSelectedItem({ kind: 'target', target: targetLookup[id as keyof typeof targetLookup] });
+      return;
+    }
+  };
 
   const handleSvgKey = (event: KeyboardEvent<SVGGElement>, action: () => void) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -1294,24 +1386,51 @@ export function LessonContent() {
         </section>
 
         <section className="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-lg">
-          <div className="flex flex-col gap-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-              System map
-            </p>
-            <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
-            <p className="text-sm text-slate-600">
-              Nodes are scaled by request volume. Click any node to reveal the “story” of that dependency, plus the why/what of every connection.
-            </p>
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col gap-1">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+                System map
+              </p>
+              <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
+              <p className="text-sm text-slate-600">
+                Nodes are scaled by request volume. Click any node to reveal the “story” of that dependency, plus the why/what of every connection.
+              </p>
+            </div>
+            <div className="flex rounded-full bg-slate-100 p-1 text-xs font-semibold text-slate-700">
+              {(['diagram', '3d'] as const).map((mode) => (
+                <button
+                  key={mode}
+                  type="button"
+                  onClick={() => setMapMode(mode)}
+                  className={[
+                    'rounded-full px-4 py-2 transition',
+                    mapMode === mode ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500',
+                  ].join(' ')}
+                >
+                  {mode === 'diagram' ? 'Diagram' : '3D view'}
+                </button>
+              ))}
+            </div>
           </div>
-          <div
-            className="mt-6 overflow-hidden rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-100/80 to-slate-200/40"
-            style={{ minHeight: 560 }}
-          >
-            <svg
-              viewBox={`0 0 ${graph.diameter} ${graph.diameter}`}
-              role="img"
-              aria-label="Mind map representing connections between Leora route domains and vendors"
-            >
+
+          <div className="mt-6">
+            {mapMode === '3d' ? (
+              <RouteGraph3D
+                nodes={graph3DData.nodes}
+                links={graph3DData.links}
+                selectedId={selectedNodeId}
+                onSelect={handle3DSelect}
+              />
+            ) : (
+              <div
+                className="overflow-hidden rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-100/80 to-slate-200/40"
+                style={{ minHeight: 560 }}
+              >
+                <svg
+                  viewBox={`0 0 ${graph.diameter} ${graph.diameter}`}
+                  role="img"
+                  aria-label="Mind map representing connections between Leora route domains and vendors"
+                >
                 <defs>
                   <radialGradient id="nodeFade" cx="50%" cy="50%" r="75%">
                     <stop offset="0%" stopColor="#fff" />
@@ -1462,7 +1581,9 @@ export function LessonContent() {
                   );
                 })}
               </svg>
-            </div>
+              </div>
+            )}
+          </div>
             <div className="mt-5 rounded-2xl border border-slate-100 bg-slate-50 p-5">
               {renderSelectionPanel()}
             </div>
