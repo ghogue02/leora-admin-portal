@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import ForceGraph3D, { ForceGraphMethods } from 'react-force-graph-3d';
 import * as THREE from 'three';
-import SpriteText from 'three-spritetext';
 
 export type RouteGraph3DNode = {
   id: string;
@@ -40,6 +39,39 @@ const GROUP_COLORS: Record<RouteGraph3DNode['group'], number> = {
   vendor: 0xa855f7,
 };
 const DIM_COLOR = 0xe2e8f0;
+const labelCanvasCache = new Map<string, { texture: THREE.CanvasTexture; width: number; height: number }>();
+
+const LABEL_FONT = `600 96px 'Inter', 'Segoe UI', sans-serif`;
+
+function getLabelTexture(text: string, color: string) {
+  const cacheKey = `${text}-${color}`;
+  const cached = labelCanvasCache.get(cacheKey);
+  if (cached) return cached;
+
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    throw new Error('Unable to get 2D context for label rendering');
+  }
+
+  ctx.font = LABEL_FONT;
+  const textWidth = ctx.measureText(text).width;
+  canvas.width = Math.ceil(textWidth + 60);
+  canvas.height = 120;
+
+  ctx.font = LABEL_FONT;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = color;
+  ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.anisotropy = 4;
+  const payload = { texture, width: canvas.width, height: canvas.height };
+  labelCanvasCache.set(cacheKey, payload);
+  return payload;
+}
 
 export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: RouteGraph3DProps) {
   const fgRef = useRef<ForceGraphMethods<RouteGraph3DNode, RouteGraph3DLink>>(null);
@@ -119,7 +151,7 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
           linkDirectionalArrowLength={8}
           linkDirectionalArrowColor={(link) => link.color as string}
           nodeThreeObject={(node) => {
-            const radius = Math.cbrt((node.val as number) || 1) * 2.4;
+            const radius = Math.cbrt((node.val as number) || 1) * 2.2;
             const geometry = new THREE.SphereGeometry(radius, 32, 32);
             const baseColor = node.isDimmed ? DIM_COLOR : GROUP_COLORS[node.group];
             const material = new THREE.MeshStandardMaterial({
@@ -129,17 +161,26 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
             });
             const sphere = new THREE.Mesh(geometry, material);
 
-            const label = new SpriteText(node.label, node.isDimmed ? 12 : 14);
-            label.color = node.isDimmed ? '#94a3b8' : '#0f172a';
-            label.backgroundColor = node.isDimmed ? '#ffffffaa' : '#ffffff';
-            label.padding = 2;
-            label.borderRadius = 4;
-            label.material.depthWrite = false;
-            label.position.set(0, radius + 10, 0);
+            const { texture, width, height } = getLabelTexture(
+              node.label,
+              node.isDimmed ? '#94a3b8' : '#0f172a'
+            );
+            const worldHeight = 2.4;
+            const aspect = width / height;
+            const geometryLabel = new THREE.PlaneGeometry(worldHeight * aspect, worldHeight);
+            const materialLabel = new THREE.MeshBasicMaterial({
+              map: texture,
+              transparent: true,
+              depthWrite: false,
+            });
+            const labelMesh = new THREE.Mesh(geometryLabel, materialLabel);
+            const offset = radius + 3;
+            labelMesh.position.set(offset, 0, 0);
+            labelMesh.rotation.y = Math.PI / 2;
 
             const group = new THREE.Group();
             group.add(sphere);
-            group.add(label);
+            group.add(labelMesh);
             return group;
           }}
           onNodeClick={(node) => {
