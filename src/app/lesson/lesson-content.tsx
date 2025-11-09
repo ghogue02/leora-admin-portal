@@ -4,7 +4,6 @@ import { useMemo, useState } from 'react';
 import type { KeyboardEvent } from 'react';
 
 type IntegrationType = 'external' | 'ai' | 'infrastructure' | 'internal';
-
 type IntegrationStatus = 'active' | 'configured' | 'optional' | 'planned';
 
 type Integration = {
@@ -39,6 +38,20 @@ type HistoryEvent = {
   event: string;
 };
 
+type StoryCard = {
+  title: string;
+  what: string;
+  why: string;
+  vendorAssist?: string;
+};
+
+type UseCase = {
+  title: string;
+  question: string;
+  answer: string;
+  affectedDependencies: string[];
+};
+
 type RouteNode = {
   id: string;
   label: string;
@@ -51,6 +64,9 @@ type RouteNode = {
   dependencies: Dependency[];
   keyIntegrations: string[];
   sampleRoutes: string[];
+  impactTags: Array<'Customer-facing' | 'Finance-critical' | 'Ops' | 'Internal'>;
+  stories: StoryCard[];
+  useCases: UseCase[];
   lastIncident?: Incident;
   history: HistoryEvent[];
 };
@@ -64,6 +80,20 @@ type ConnectionTarget = {
   summary: string;
   runbookUrl?: string;
   history: HistoryEvent[];
+};
+
+type Scenario = {
+  id: string;
+  title: string;
+  description: string;
+  highlightNodes: string[];
+  highlightIntegrations: string[];
+  playbook: string[];
+};
+
+type GlossaryItem = {
+  term: string;
+  definition: string;
 };
 
 type SelectedItem =
@@ -198,21 +228,21 @@ const routeNodes: RouteNode[] = [
     dependencies: [
       {
         targetId: 'sales',
-        reason: 'Shared session, tenant context, and reporting pipelines.',
+        reason: 'Shares session state, tenant context, and reporting pipelines.',
         sampleRoutes: ['/api/sales/dashboard', '/api/sales/customers/:id'],
         importance: 'critical',
         dataFlow: 'bidirectional',
       },
       {
         targetId: 'infra',
-        reason: 'Job scheduler and alerting propagate through Infra Jobs.',
+        reason: 'Relies on Infra Jobs for scheduled automation and alerting.',
         sampleRoutes: ['/api/devops/health-ping', '/api/devops/incidents/ack'],
         importance: 'critical',
         dataFlow: 'write',
       },
       {
         targetId: 'external',
-        reason: 'Core services broker calls to Twilio, Mailchimp, and SendGrid.',
+        reason: 'Brokers calls to Twilio, Mailchimp, and SendGrid on behalf of domain teams.',
         sampleRoutes: ['/api/admin/customers', '/api/sales/customers/:id/places'],
         importance: 'supporting',
         dataFlow: 'write',
@@ -223,6 +253,36 @@ const routeNodes: RouteNode[] = [
       'GET /api/admin/customers',
       'POST /api/devops/incidents/ack',
       'GET /api/health',
+    ],
+    impactTags: ['Customer-facing', 'Ops'],
+    stories: [
+      {
+        title: 'Sales manager opens dashboard',
+        what: 'Core validates the session, hydrates tenant context, and serves aggregated metrics.',
+        why: 'Ensures every manager sees the correct customers and quotas without handoffs to IT.',
+        vendorAssist: 'None – handled fully in-platform.',
+      },
+      {
+        title: 'Incident acknowledgement from /dev',
+        what: 'Pushes updates into JobRunLog and health tables, notifies Slack webhooks if needed.',
+        why: 'Keeps production ops accountable and auditable.',
+      },
+    ],
+    useCases: [
+      {
+        title: 'How do we roll up customer activity?',
+        question: 'Which service turns raw tasks into the dashboard KPIs Travis sees?',
+        answer:
+          'Core ingests events from Sales Ops, aggregates them nightly, and exposes the roll-up through `/api/sales/dashboard`.',
+        affectedDependencies: ['sales', 'infra'],
+      },
+      {
+        title: 'Where do incident acknowledgements live?',
+        question: 'If an alert fires, who records the acknowledgement?',
+        answer:
+          'Ops acknowledges through `/dev`, which writes to Core → Infra Jobs so alerts do not re-fire.',
+        affectedDependencies: ['infra'],
+      },
     ],
     lastIncident: {
       date: '2025-11-04',
@@ -248,7 +308,7 @@ const routeNodes: RouteNode[] = [
     dependencies: [
       {
         targetId: 'core',
-        reason: 'Depends on auth and customer aggregates from Core Platform.',
+        reason: 'Receives auth context, product data, and analytics from Core.',
         sampleRoutes: ['/api/sales/dashboard', '/api/sales/customers/:id'],
         importance: 'critical',
         dataFlow: 'read',
@@ -265,7 +325,7 @@ const routeNodes: RouteNode[] = [
       },
       {
         targetId: 'ai',
-        reason: 'Feeds anthropic prompts for opportunity summaries.',
+        reason: 'Sends customer context to Copilot for opportunity summaries.',
         sampleRoutes: ['/api/sales/dashboard', '/api/sales/customers/:id'],
         importance: 'supporting',
         dataFlow: 'read',
@@ -277,6 +337,36 @@ const routeNodes: RouteNode[] = [
       'GET /api/sales/customers/:id',
       'POST /api/sales/customers/:id/places',
     ],
+    impactTags: ['Customer-facing'],
+    stories: [
+      {
+        title: 'Rep plans Tuesday visits',
+        what: 'Sales dashboard fetches territory accounts, sends addresses to Maps for drive-time hints.',
+        why: 'Saves reps ~30 minutes/day of manual routing.',
+        vendorAssist: 'Google Maps & Places',
+      },
+      {
+        title: 'Text reminder goes out',
+        what: 'Twilio sends reminder SMS when a sampling appointment is updated.',
+        why: 'Cuts no-shows and shows Travis how automations support reps.',
+      },
+    ],
+    useCases: [
+      {
+        title: '“What is powering the purple customer cards?”',
+        question: 'Travis wants to know how the “needs attention” cards are computed.',
+        answer:
+          'Sales Ops hits `/api/sales/dashboard`, which pulls health metrics from Core and overlays field activities + AI scores.',
+        affectedDependencies: ['core', 'ai'],
+      },
+      {
+        title: '“Why do we need Google Maps?”',
+        question: 'Explain why the map integration matters to a non engineer.',
+        answer:
+          'Reps type partial addresses inside Sales Ops. We call Google Places to autocomplete + validate geos before tasks sync to Twilio.',
+        affectedDependencies: ['external'],
+      },
+    ],
     lastIncident: {
       date: '2025-11-01',
       summary: 'Maps autocomplete quota limit reached.',
@@ -284,7 +374,7 @@ const routeNodes: RouteNode[] = [
       mitigated: true,
     },
     history: [
-      { date: '2025-09-18', event: 'Shipping sampling overhaul (phase 2).' },
+      { date: '2025-09-18', event: 'Sampling workflow overhaul (phase 2).' },
       { date: '2025-10-30', event: 'Customer health metrics added to dashboard.' },
     ],
   },
@@ -307,7 +397,7 @@ const routeNodes: RouteNode[] = [
       },
       {
         targetId: 'infrastructure',
-        reason: 'Writes long-running exports to Supabase storage, S3, and Sage.',
+        reason: 'Writes exports to Supabase storage, S3, and Sage.',
         sampleRoutes: ['/api/devops/health-ping', '/api/health'],
         importance: 'critical',
         dataFlow: 'write',
@@ -318,6 +408,23 @@ const routeNodes: RouteNode[] = [
       'GET /api/admin/customers/:id',
       'POST /api/admin/customers/places/search',
       'POST /api/devops/health-ping',
+    ],
+    impactTags: ['Ops', 'Internal'],
+    stories: [
+      {
+        title: 'Supplier invoice hits the pipeline',
+        what: 'Ops ingests PDF, writes mismatched SKUs to Supabase, and notifies finance.',
+        why: 'Prevents Travis from chasing missing vendor credits manually.',
+      },
+    ],
+    useCases: [
+      {
+        title: '“Who feeds Sage with inventory changes?”',
+        question: 'Ops leaders want to confirm data origin.',
+        answer:
+          'Operations exports nightly via `/api/devops/health-ping` job, writing to Supabase before Sage pulls it down.',
+        affectedDependencies: ['infrastructure'],
+      },
     ],
     history: [
       { date: '2025-07-30', event: 'Supplier invoice ingestion launched.' },
@@ -336,7 +443,7 @@ const routeNodes: RouteNode[] = [
     dependencies: [
       {
         targetId: 'core',
-        reason: 'Needs authoritative customer + order data from Core Platform.',
+        reason: 'Needs authoritative customer + order data.',
         sampleRoutes: ['/api/admin/customers/:id', '/api/admin/customers/places/details'],
         importance: 'critical',
         dataFlow: 'read',
@@ -351,6 +458,23 @@ const routeNodes: RouteNode[] = [
     ],
     keyIntegrations: ['Stripe', 'Sage 50'],
     sampleRoutes: ['POST /api/devops/health-ping', 'GET /api/admin/customers/:id'],
+    impactTags: ['Finance-critical'],
+    stories: [
+      {
+        title: 'Export to Sage each night',
+        what: 'Finance domain batches invoices, stores to Supabase storage, Sage fetches via SFTP.',
+        why: 'Bookkeeping continues without manual CSV work.',
+      },
+    ],
+    useCases: [
+      {
+        title: '“How does Stripe talk to Sage?”',
+        question: 'Non-technical CFO wants assurance the loop closes.',
+        answer:
+          'Finance domain syncs Stripe statuses, then the Sage export job reconciles amounts before GL posting.',
+        affectedDependencies: ['infrastructure'],
+      },
+    ],
     history: [
       { date: '2025-09-01', event: 'Sage export job automated.' },
       { date: '2025-10-15', event: 'Stripe subscription pilot enabled.' },
@@ -383,6 +507,23 @@ const routeNodes: RouteNode[] = [
     ],
     keyIntegrations: ['Anthropic Claude', 'OpenAI'],
     sampleRoutes: ['POST /api/devops/incidents', 'POST /api/admin/customers'],
+    impactTags: ['Customer-facing'],
+    stories: [
+      {
+        title: 'Copilot drafts a recap',
+        what: 'AI domain asks Anthropic for a summary using customer data from Core.',
+        why: 'Gives reps high-quality notes in seconds.',
+      },
+    ],
+    useCases: [
+      {
+        title: '“Why is Claude necessary if we store data ourselves?”',
+        question: 'Explain value to leadership.',
+        answer:
+          'Claude turns structured data into narratives for reps; we do not store the narratives anywhere else.',
+        affectedDependencies: ['ai-vendors'],
+      },
+    ],
     history: [
       { date: '2025-08-05', event: 'Launched Copilot summarization.' },
       { date: '2025-09-27', event: 'Added OCR for invoices + cards.' },
@@ -409,6 +550,22 @@ const routeNodes: RouteNode[] = [
     ],
     keyIntegrations: ['Supabase Auth'],
     sampleRoutes: ['middleware.ts', 'GET /dev'],
+    impactTags: ['Internal'],
+    stories: [
+      {
+        title: 'Manager impersonates a rep',
+        what: 'Identity issues scoped token to Core + Sales Ops.',
+        why: 'Lets managers mentor without sharing passwords.',
+      },
+    ],
+    useCases: [
+      {
+        title: '“Who controls access to /dev?”',
+        question: 'Non-technical owner wants reassurance.',
+        answer: 'Identity enforces admin role; without it, /dev redirects to sales login.',
+        affectedDependencies: ['core'],
+      },
+    ],
     history: [
       { date: '2025-07-15', event: 'Tenant switcher for admins released.' },
       { date: '2025-10-09', event: 'Impersonation flow upgraded for managers.' },
@@ -441,6 +598,23 @@ const routeNodes: RouteNode[] = [
     ],
     keyIntegrations: ['Supabase', 'Vercel Cron'],
     sampleRoutes: ['POST /api/devops/health-ping', 'npm run jobs:run -- smoke'],
+    impactTags: ['Ops', 'Internal'],
+    stories: [
+      {
+        title: 'Cron pings /api/health',
+        what: 'Infra Jobs calls `/api/health` for each tenant and logs results.',
+        why: 'Provides the uptime record Travis asks for in production meetings.',
+      },
+    ],
+    useCases: [
+      {
+        title: '“What happens when /api/health fails?”',
+        question: 'Need to explain to stakeholders.',
+        answer:
+          'Infra Jobs records failure → /dev shows red indicator → alerts post to Slack with runbook link.',
+        affectedDependencies: ['core', 'infrastructure'],
+      },
+    ],
     history: [
       { date: '2025-08-01', event: 'Replay monitor established.' },
       { date: '2025-11-04', event: 'Smoke tests wired into CI.' },
@@ -492,6 +666,67 @@ const connectionTargets: ConnectionTarget[] = [
   },
 ];
 
+const scenarios: Scenario[] = [
+  {
+    id: 'maps-outage',
+    title: 'Maps outage',
+    description:
+      'Google Maps & Places quota exhausted. Explore the domains and vendors that lose functionality.',
+    highlightNodes: ['sales'],
+    highlightIntegrations: ['Google Maps & Places'],
+    playbook: [
+      'Switch Sales Ops to manual address entry (fallback toggle).',
+      'Notify reps via Twilio template that routing suggestions are paused.',
+      'Request quota uplift via Google Cloud console.',
+    ],
+  },
+  {
+    id: 'sage-delay',
+    title: 'Sage export delayed',
+    description:
+      'Infrastructure write from Ops/Finance to Sage 50 is failing. Show chain of impact.',
+    highlightNodes: ['ops', 'finance', 'infra'],
+    highlightIntegrations: ['Sage 50'],
+    playbook: [
+      'Check `/dev` backlog widget for export job.',
+      'Rerun job via Infra Jobs runner if data is ready.',
+      'Alert Finance with manual CSV (link in runbook).',
+    ],
+  },
+  {
+    id: 'incident-mode',
+    title: 'Incident mode',
+    description:
+      'Core Platform degraded; highlight everything that depends on it and the quick steps to mitigate.',
+    highlightNodes: ['core', 'sales', 'ops', 'finance', 'auth', 'infra', 'ai'],
+    highlightIntegrations: [],
+    playbook: [
+      'Confirm health summary in /dev.',
+      'Post update to Slack #ops using template in runbook.',
+      'Prioritize Infra Jobs backlog drains before re-enabling AI features.',
+    ],
+  },
+];
+
+const glossaryItems: GlossaryItem[] = [
+  {
+    term: 'JobRunLog',
+    definition: 'Table that tracks every background job execution (tenant, status, duration).',
+  },
+  {
+    term: 'pg_cron',
+    definition: 'Supabase extension that schedules SQL functions (used for health pings).',
+  },
+  {
+    term: 'Tenant context',
+    definition: 'Bundle of ids/permissions we pass through middleware so multi-brand data stays isolated.',
+  },
+  {
+    term: 'Copilot',
+    definition: 'Anthropic-powered experience embedded in Sales Ops for summaries and recommendations.',
+  },
+];
+
 const routeLookup = Object.fromEntries(routeNodes.map((node) => [node.id, node])) as Record<
   RouteNode['id'],
   RouteNode
@@ -531,6 +766,8 @@ export function LessonContent() {
     kind: 'route',
     node: routeNodes[0],
   });
+  const [selectedScenario, setSelectedScenario] = useState<Scenario | null>(null);
+  const [showTechnical, setShowTechnical] = useState(true);
 
   const filteredIntegrations = useMemo(() => {
     if (filter === 'all') return integrations;
@@ -565,13 +802,16 @@ export function LessonContent() {
     return matches;
   }, [search]);
 
+  const highlightNodes = new Set(selectedScenario?.highlightNodes ?? []);
+  const highlightIntegrations = new Set(selectedScenario?.highlightIntegrations ?? []);
+
   const graph = useMemo(() => {
-    const diameter = 560;
+    const diameter = 620;
     const center = diameter / 2;
-    const innerRadius = 120;
-    const outerRadius = 230;
+    const innerRadius = 150;
+    const outerRadius = 260;
     const minRadius = 28;
-    const maxRadius = 70;
+    const maxRadius = 80;
     const maxRequests = Math.max(...routeNodes.map((node) => node.requestsPerDay));
 
     const positionedRoutes = routeNodes.map((node, index) => {
@@ -600,8 +840,6 @@ export function LessonContent() {
 
     const lines = positionedRoutes.flatMap((node) =>
       node.dependencies.map((dependency) => {
-        const routeTarget = routeLookup[dependency.targetId];
-        const vendorTarget = targetLookup[dependency.targetId as keyof typeof targetLookup];
         const target =
           positionedRoutes.find((candidate) => candidate.id === dependency.targetId) ??
           positionedTargets.find((candidate) => candidate.id === dependency.targetId);
@@ -613,7 +851,10 @@ export function LessonContent() {
           reason: dependency.reason,
           sourceId: node.id,
           targetId: dependency.targetId,
-          targetType: routeTarget ? 'route' : vendorTarget ? 'target' : 'unknown',
+          midpoint: {
+            x: (node.x + target.x) / 2,
+            y: (node.y + target.y) / 2,
+          },
         };
       })
     ).filter(Boolean) as Array<{
@@ -623,7 +864,7 @@ export function LessonContent() {
       reason: string;
       sourceId: string;
       targetId: string;
-      targetType: 'route' | 'target' | 'unknown';
+      midpoint: { x: number; y: number };
     }>;
 
     return { diameter, nodes: positionedRoutes, targets: positionedTargets, lines };
@@ -636,7 +877,7 @@ export function LessonContent() {
     }
   };
 
-  const formatRequests = (value: number) => `${numberFormatter.format(value)} req/day`;
+  const formatRequests = (value: number) => `${numberFormatter.format(value)} req/day (~${Math.round(value / 24)} / hr)`;
 
   const renderIncident = (incident?: Incident) => {
     if (!incident) return null;
@@ -674,21 +915,61 @@ export function LessonContent() {
             className="rounded-xl border border-slate-200 bg-white/80 p-3 text-sm shadow-sm"
           >
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              {dependency.importance === 'critical' ? 'Critical path' : 'Supporting'}
+              {dependency.importance === 'critical' ? 'Critical path' : 'Supporting'} · Flow {dependency.dataFlow}
             </p>
             <p className="text-base font-semibold text-slate-900">{target.label}</p>
             <p className="text-slate-600">{dependency.reason}</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <span className={chipClass}>Flow: {dependency.dataFlow}</span>
-              {dependency.sampleRoutes.slice(0, 2).map((route) => (
-                <span key={route} className={chipClass}>
-                  {route}
-                </span>
-              ))}
-            </div>
+            {showTechnical ? (
+              <div className="mt-2 flex flex-wrap gap-2">
+                {dependency.sampleRoutes.slice(0, 2).map((route) => (
+                  <span key={route} className={chipClass}>
+                    {route}
+                  </span>
+                ))}
+              </div>
+            ) : null}
           </article>
         );
       })}
+    </div>
+  );
+
+  const renderStoryCards = (stories: StoryCard[]) => (
+    <div className="grid gap-3 lg:grid-cols-2">
+      {stories.map((story) => (
+        <article
+          key={story.title}
+          className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm shadow-sm"
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{story.title}</p>
+          <p className="mt-2 text-slate-900">{story.what}</p>
+          <p className="mt-2 text-slate-600">{story.why}</p>
+          {story.vendorAssist ? (
+            <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-indigo-600">
+              Vendor assist: {story.vendorAssist}
+            </p>
+          ) : null}
+        </article>
+      ))}
+    </div>
+  );
+
+  const renderUseCases = (useCases: UseCase[]) => (
+    <div className="space-y-3">
+      {useCases.map((useCase) => (
+        <article key={useCase.title} className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{useCase.title}</p>
+          <p className="mt-1 text-slate-900">{useCase.question}</p>
+          <p className="mt-2 text-slate-600">{useCase.answer}</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {useCase.affectedDependencies.map((dependency) => (
+              <span key={dependency} className={chipClass}>
+                {dependency}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
     </div>
   );
 
@@ -700,10 +981,17 @@ export function LessonContent() {
       );
 
       return (
-        <div className="space-y-5">
-          <div className="space-y-1">
+        <div className="space-y-6">
+          <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Domain</p>
-            <h3 className="text-2xl font-semibold text-slate-900">{node.label}</h3>
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="text-2xl font-semibold text-slate-900">{node.label}</h3>
+              {node.impactTags.map((tag) => (
+                <span key={tag} className="rounded-full bg-slate-900/10 px-3 py-1 text-xs font-semibold text-slate-900">
+                  {tag}
+                </span>
+              ))}
+            </div>
             <p className="text-sm text-slate-600">{node.summary}</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
@@ -712,14 +1000,20 @@ export function LessonContent() {
             <MetricTile label="Jobs per day" value={`${numberFormatter.format(node.jobsPerDay)} jobs`} />
           </div>
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Dependencies</p>
+            <SectionHeader label="Dependencies" description="Why this domain leans on others." />
             {renderDependencies(node.dependencies)}
           </div>
-          {renderIncident(node.lastIncident)}
+          {!showTechnical ? null : renderIncident(node.lastIncident)}
           <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Key integrations
-            </p>
+            <SectionHeader label="Story cards" description="Plain-language explanation of workflows." />
+            {renderStoryCards(node.stories)}
+          </div>
+          <div className="space-y-2">
+            <SectionHeader label="Common questions" description="How to answer stakeholder prompts." />
+            {renderUseCases(node.useCases)}
+          </div>
+          <div className="space-y-2">
+            <SectionHeader label="Key integrations" description="Tap to drill further." />
             <div className="flex flex-wrap gap-2">
               {ownedIntegrations.map((integration) => (
                 <button
@@ -733,18 +1027,18 @@ export function LessonContent() {
               ))}
             </div>
           </div>
-          <div className="space-y-1">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Sample routes</p>
-            <ul className="list-disc space-y-1 pl-4 text-sm text-slate-600">
-              {node.sampleRoutes.map((route) => (
-                <li key={route}>{route}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="space-y-1">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Evolution
-            </p>
+          {showTechnical ? (
+            <div className="space-y-2">
+              <SectionHeader label="Sample routes" description="" />
+              <ul className="list-disc space-y-1 pl-4 text-sm text-slate-600">
+                {node.sampleRoutes.map((route) => (
+                  <li key={route}>{route}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          <div className="space-y-2">
+            <SectionHeader label="Evolution" description="Major milestones." />
             {renderHistory(node.history)}
           </div>
           <a
@@ -766,11 +1060,9 @@ export function LessonContent() {
       );
 
       return (
-        <div className="space-y-5">
-          <div className="space-y-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-              Vendor cluster
-            </p>
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Vendor cluster</p>
             <h3 className="text-2xl font-semibold text-slate-900">{target.label}</h3>
             <p className="text-sm text-slate-600">{target.summary}</p>
           </div>
@@ -780,9 +1072,7 @@ export function LessonContent() {
             <MetricTile label="Owner" value={target.owner} />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              Used by
-            </p>
+            <SectionHeader label="Used by" description="Domains depending on this cluster." />
             <div className="mt-2 flex flex-wrap gap-2">
               {inboundRoutes.map((route) => (
                 <button
@@ -796,8 +1086,8 @@ export function LessonContent() {
               ))}
             </div>
           </div>
-          <div className="space-y-2">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">History</p>
+          <div>
+            <SectionHeader label="History" description="" />
             {renderHistory(target.history)}
           </div>
           {target.runbookUrl ? (
@@ -820,7 +1110,7 @@ export function LessonContent() {
     );
 
     return (
-      <div className="space-y-5">
+      <div className="space-y-6">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Integration</p>
           <h3 className="text-2xl font-semibold text-slate-900">{integration.name}</h3>
@@ -832,9 +1122,7 @@ export function LessonContent() {
           <MetricTile label="Routes" value={integration.routes.length.toString()} />
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Connected domains
-          </p>
+          <SectionHeader label="Connected domains" description="" />
           <div className="mt-2 flex flex-wrap gap-2">
             {touchingRoutes.map((route) => (
               <button
@@ -848,19 +1136,87 @@ export function LessonContent() {
             ))}
           </div>
         </div>
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Sample routes
-          </p>
-          <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-slate-600">
-            {integration.routes.map((route) => (
-              <li key={route}>{route}</li>
-            ))}
-          </ul>
-        </div>
+        {showTechnical ? (
+          <div>
+            <SectionHeader label="Sample routes" description="" />
+            <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-slate-600">
+              {integration.routes.map((route) => (
+                <li key={route}>{route}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </div>
     );
   };
+
+  const renderScenarioStrip = () => (
+    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="flex flex-wrap items-center gap-3">
+        <p className="text-sm font-semibold text-slate-700">Scenario explorer</p>
+        <div className="flex flex-wrap gap-2">
+          {scenarios.map((scenario) => {
+            const isActive = selectedScenario?.id === scenario.id;
+            return (
+              <button
+                key={scenario.id}
+                type="button"
+                onClick={() => setSelectedScenario((prev) => (prev?.id === scenario.id ? null : scenario))}
+                className={[
+                  'rounded-full border px-4 py-1.5 text-xs font-semibold transition',
+                  isActive
+                    ? 'border-indigo-600 bg-indigo-600 text-white'
+                    : 'border-slate-200 bg-slate-100 text-slate-700 hover:border-slate-400',
+                ].join(' ')}
+              >
+                {scenario.title}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      {selectedScenario ? (
+        <div className="mt-4 rounded-xl border border-indigo-100 bg-indigo-50/60 p-4 text-sm text-indigo-900">
+          <p className="font-semibold">{selectedScenario.title}</p>
+          <p className="mt-1 text-indigo-900/90">{selectedScenario.description}</p>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-indigo-700">Playbook</p>
+          <ol className="mt-2 list-decimal space-y-1 pl-5 text-indigo-900/90">
+            {selectedScenario.playbook.map((step, index) => (
+              <li key={`${selectedScenario.id}-step-${index}`}>{step}</li>
+            ))}
+          </ol>
+        </div>
+      ) : (
+        <p className="mt-3 text-sm text-slate-600">Pick a scenario to highlight impacted domains + vendors and see the mitigation steps.</p>
+      )}
+    </div>
+  );
+
+  const renderGlossary = () => (
+    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Glossary</p>
+          <h2 className="text-xl font-semibold text-slate-900">What does that acronym mean?</h2>
+        </div>
+        <button
+          type="button"
+          onClick={() => setShowTechnical((prev) => !prev)}
+          className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-700"
+        >
+          {showTechnical ? 'Hide technical' : 'Show technical'}
+        </button>
+      </div>
+      <dl className="mt-4 grid gap-4 md:grid-cols-2">
+        {glossaryItems.map((item) => (
+          <div key={item.term} className="rounded-xl border border-slate-100 bg-slate-50/80 p-4">
+            <dt className="text-sm font-semibold text-slate-900">{item.term}</dt>
+            <dd className="mt-1 text-sm text-slate-600">{item.definition}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  );
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -931,6 +1287,7 @@ export function LessonContent() {
                 </div>
               </div>
             </div>
+            {renderScenarioStrip()}
           </section>
 
           <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -940,7 +1297,7 @@ export function LessonContent() {
               </p>
               <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
               <p className="text-sm text-slate-600">
-                Nodes are scaled by request volume. Hover or click to reveal why dependencies exist and which routes cross each boundary.
+                Nodes are scaled by request volume. Click any node to reveal the “story” of that dependency, plus the why/what of every connection.
               </p>
             </div>
             <div className="mt-4 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
@@ -968,8 +1325,16 @@ export function LessonContent() {
                 </defs>
                 <rect width="100%" height="100%" fill="url(#nodeFade)" />
                 {graph.lines.map((line, index) => {
-                  const isHighlighted =
-                    matchedIds.has(line.sourceId) || matchedIds.has(line.targetId);
+                  const isScenarioHighlight =
+                    highlightNodes.has(line.sourceId) || highlightNodes.has(line.targetId);
+                  const isSearchHighlight =
+                    matchedIds.has(line.sourceId) || matchedIds.has(line.targetId) || matchedIds.size === 0;
+                  const opacity =
+                    isScenarioHighlight || matchedIds.size === 0
+                      ? 0.95
+                      : isSearchHighlight
+                        ? 0.75
+                        : 0.25;
                   return (
                     <g key={index}>
                       <line
@@ -980,16 +1345,27 @@ export function LessonContent() {
                         stroke={line.importance === 'critical' ? '#0f172a' : '#cbd5f5'}
                         strokeWidth={line.importance === 'critical' ? 2.4 : 1.4}
                         strokeDasharray={line.importance === 'critical' ? undefined : '4 4'}
-                        opacity={isHighlighted || matchedIds.size === 0 ? 0.9 : 0.35}
+                        opacity={opacity}
                         markerEnd="url(#arrowhead)"
                       />
+                      <text
+                        x={line.midpoint.x}
+                        y={line.midpoint.y}
+                        textAnchor="middle"
+                        fontSize="10"
+                        fill="#475569"
+                        opacity={opacity}
+                      >
+                        {line.reason}
+                      </text>
                     </g>
                   );
                 })}
                 {graph.targets.map((target) => {
                   const isActive =
                     selectedItem.kind === 'target' && selectedItem.target.id === target.id;
-                  const isMatched = matchedIds.has(target.id);
+                  const isMatched = matchedIds.size === 0 || matchedIds.has(target.id);
+                  const isScenario = highlightNodes.has(target.id);
                   const activate = () => setSelectedItem({ kind: 'target', target });
                   return (
                     <g
@@ -1005,10 +1381,10 @@ export function LessonContent() {
                         cx={target.x}
                         cy={target.y}
                         r={target.radius}
-                        fill="#f8fafc"
+                        fill={isScenario ? '#fde68a' : '#f8fafc'}
                         stroke={isActive ? '#0f172a' : '#cbd5f5'}
                         strokeWidth={isActive ? 3 : 2}
-                        opacity={isMatched || matchedIds.size === 0 ? 1 : 0.4}
+                        opacity={isMatched ? 1 : 0.3}
                       />
                       <text
                         x={target.x}
@@ -1035,7 +1411,8 @@ export function LessonContent() {
                 {graph.nodes.map((node) => {
                   const isActive =
                     selectedItem.kind === 'route' && selectedItem.node.id === node.id;
-                  const isMatched = matchedIds.has(node.id);
+                  const isMatched = matchedIds.size === 0 || matchedIds.has(node.id);
+                  const isScenario = highlightNodes.has(node.id);
                   const activate = () => setSelectedItem({ kind: 'route', node });
                   return (
                     <g
@@ -1051,10 +1428,10 @@ export function LessonContent() {
                         cx={node.x}
                         cy={node.y}
                         r={node.radius}
-                        fill={isActive ? '#f8fafc' : '#fff'}
+                        fill={isScenario ? '#bfdbfe' : isActive ? '#f8fafc' : '#fff'}
                         stroke={isActive ? '#0f172a' : '#94a3b8'}
                         strokeWidth={isActive ? 3 : 2}
-                        opacity={isMatched || matchedIds.size === 0 ? 1 : 0.4}
+                        opacity={isMatched ? 1 : 0.3}
                       />
                       <text
                         x={node.x}
@@ -1105,7 +1482,9 @@ export function LessonContent() {
               const isSelected =
                 selectedItem.kind === 'integration' &&
                 selectedItem.integration.name === integration.name;
-              const isMatched = matchedIds.has('integration:' + integration.name);
+              const isMatched =
+                matchedIds.size === 0 || matchedIds.has('integration:' + integration.name);
+              const isScenario = highlightIntegrations.has(integration.name);
               return (
                 <button
                   key={integration.name}
@@ -1117,7 +1496,8 @@ export function LessonContent() {
                     isSelected
                       ? 'border-slate-900 shadow-md'
                       : 'border-slate-200 hover:border-slate-400',
-                    isMatched || matchedIds.size === 0 ? '' : 'opacity-50',
+                    isMatched ? '' : 'opacity-50',
+                    isScenario ? 'border-amber-400' : '',
                   ].join(' ')}
                 >
                   <div className="flex items-center justify-between gap-4">
@@ -1143,7 +1523,36 @@ export function LessonContent() {
             })}
           </div>
         </section>
+
+        {renderGlossary()}
+
+        <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+            Coming soon
+          </p>
+          <h2 className="text-xl font-semibold text-slate-900">Screenshots & clips</h2>
+          <p className="text-sm text-slate-600">
+            Short walkthrough clips will appear here so non-technical partners can connect each API dependency to the exact UI it powers.
+          </p>
+          <div className="mt-3 grid gap-3 md:grid-cols-2">
+            <div className="h-40 rounded-xl border border-dashed border-slate-300 bg-slate-100/60 p-4 text-sm text-slate-500">
+              Sales dashboard clip placeholder
+            </div>
+            <div className="h-40 rounded-xl border border-dashed border-slate-300 bg-slate-100/60 p-4 text-sm text-slate-500">
+              /dev console clip placeholder
+            </div>
+          </div>
+        </section>
       </div>
+    </div>
+  );
+}
+
+function SectionHeader({ label, description }: { label: string; description: string }) {
+  return (
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{label}</p>
+      {description ? <p className="text-xs text-slate-500">{description}</p> : null}
     </div>
   );
 }
