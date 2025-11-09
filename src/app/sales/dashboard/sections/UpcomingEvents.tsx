@@ -38,6 +38,9 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
         <div>
           <h3 className="text-lg font-semibold text-gray-900">Upcoming Events</h3>
           <p className="text-xs text-gray-500">Next 7-10 days from your calendar</p>
+          <p className="mt-1 text-xs text-gray-400">
+            Confirm who you’re seeing this week so customer touchpoints stay consistent.
+          </p>
         </div>
         <Link
           href="/sales/calendar"

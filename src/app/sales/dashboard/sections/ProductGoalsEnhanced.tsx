@@ -218,6 +218,9 @@ export default function ProductGoalsEnhanced() {
           <Target className="h-5 w-5 text-blue-600" />
           <h3 className="text-lg font-semibold text-gray-900">Product Goals</h3>
         </div>
+        <p className="text-xs text-slate-500">
+          See which focus items are pacing ahead or falling behind before month-end surprises.
+        </p>
         <button
           onClick={() => {
             setEditingGoal(null);

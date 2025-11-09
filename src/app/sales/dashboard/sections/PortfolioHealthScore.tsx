@@ -13,6 +13,9 @@ export default function PortfolioHealthScore({ portfolio }: Props) {
           <p className="text-xs text-gray-500">
             Weighted by trailing-12 revenue to keep big accounts visible.
           </p>
+          <p className="mt-1 text-xs text-gray-400">
+            Use this snapshot to decide whether to hunt for growth or triage slipping accounts today.
+          </p>
         </div>
         <div className="flex gap-4 text-center">
           <ScoreBadge label="Revenue-weighted" value={portfolio.weightedScore} />

@@ -43,6 +43,9 @@ export default function AccountPulseSection({ salesRep, accountPulse, coverage, 
           <p className="text-sm text-gray-500">Welcome back</p>
           <h1 className="text-2xl font-semibold text-gray-900">{salesRep.name}</h1>
           <p className="text-xs text-gray-500">{salesRep.territory || "Assigned territory"}</p>
+          <p className="mt-2 text-xs text-gray-400">
+            This view tells you if your book is growing or slipping so you can adjust attention fast.
+          </p>
         </div>
         <div className="flex items-center gap-4 rounded-lg border border-slate-100 bg-slate-50 px-4 py-3">
           <div className={`flex h-12 w-12 items-center justify-center rounded-full bg-white ${config.color}`}>

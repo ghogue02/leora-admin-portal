@@ -1,16 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Settings, Eye, EyeOff, X } from 'lucide-react';
 
-type DashboardSection = {
+export type DashboardSection = {
   id: string;
   name: string;
   description: string;
   enabled: boolean;
 };
 
-const DEFAULT_SECTIONS: DashboardSection[] = [
+export type DashboardPreferences = {
+  sections: DashboardSection[];
+};
+
+export const DEFAULT_SECTIONS: DashboardSection[] = [
   { id: 'performance-metrics', name: 'Performance Metrics', description: 'Weekly quota, revenue, and customer counts', enabled: true },
   { id: 'top-products', name: 'Top Products', description: 'Best-selling products by revenue', enabled: true },
   { id: 'customer-health', name: 'Customer Health Summary', description: 'Health status of your customers', enabled: true },
@@ -23,39 +27,22 @@ const DEFAULT_SECTIONS: DashboardSection[] = [
   { id: 'tasks', name: 'Tasks List', description: 'Your pending tasks and follow-ups', enabled: true },
 ];
 
-type DashboardPreferences = {
-  sections: DashboardSection[];
-};
-
 export default function DashboardCustomizer({
   onPreferencesChange,
+  sections: controlledSections,
 }: {
   onPreferencesChange?: (prefs: DashboardPreferences) => void;
+  sections?: DashboardSection[];
 }) {
   const [showModal, setShowModal] = useState(false);
-  const [sections, setSections] = useState<DashboardSection[]>(DEFAULT_SECTIONS);
+  const [sections, setSections] = useState<DashboardSection[]>(controlledSections ?? DEFAULT_SECTIONS);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    void loadPreferences();
-  }, []);
-
-  async function loadPreferences() {
-    try {
-      const response = await fetch('/api/sales/dashboard/preferences', {
-        cache: 'no-store',
-      });
-
-      if (response.ok) {
-        const prefs = await response.json();
-        if (prefs.sections) {
-          setSections(prefs.sections);
-        }
-      }
-    } catch (err) {
-      console.error('Failed to load preferences:', err);
+    if (controlledSections) {
+      setSections(controlledSections);
     }
-  }
+  }, [controlledSections]);
 
   async function savePreferences() {
     setSaving(true);

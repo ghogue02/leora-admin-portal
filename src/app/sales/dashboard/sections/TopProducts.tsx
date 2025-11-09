@@ -89,6 +89,9 @@ export default function TopProducts() {
           <TrendingUp className="h-5 w-5 text-blue-600" />
           <h3 className="text-lg font-semibold text-gray-900">Top Products by Revenue</h3>
         </div>
+        <p className="text-xs text-slate-500">
+          Double down on what’s moving now so you can mention the right products in every call.
+        </p>
         <div className="text-right">
           <p className="text-xs text-gray-500">This Month</p>
           <p className="text-sm font-semibold text-gray-900">

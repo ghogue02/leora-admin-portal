@@ -11,6 +11,9 @@ export default function TargetPipelinePanel({ metrics }: Props) {
         <div>
           <h2 className="text-lg font-semibold text-gray-900">Target Pipeline</h2>
           <p className="text-xs text-gray-500">Conversion progress across all assigned targets</p>
+          <p className="mt-1 text-xs text-gray-400">
+            Quickly see if new logos are moving through visits toward first order or stalling out.
+          </p>
         </div>
       </div>
 

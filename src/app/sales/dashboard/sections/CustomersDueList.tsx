@@ -76,6 +76,9 @@ export default function CustomersDueList({ customers, onDrilldown }: CustomersDu
             <p className="text-xs text-gray-500">
               Based on ordering history and expected cadence
             </p>
+            <p className="mt-1 text-xs text-gray-400">
+              Spot the accounts most likely to lapse so you can reach out before revenue slips away.
+            </p>
           </div>
           <div className="flex items-center gap-3">
             <button

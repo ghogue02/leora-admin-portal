@@ -76,6 +76,9 @@ export default function CustomerSignalsPanel({ signals, reportRows }: Props) {
           <p className="text-xs text-gray-500">
             {signals.totals.active} active accounts / {signals.totals.assigned} assigned total
           </p>
+          <p className="text-xs text-gray-400">
+            Use the buckets to prioritize coaching calls—click any card to see every account inside.
+          </p>
         </div>
         <Link
           href="/api/sales/reports/customer-health?format=csv"

@@ -95,6 +95,9 @@ export default function CustomerBalances({ onDrilldown }: CustomerBalancesProps)
               Past Due
             </p>
           </div>
+          <p className="text-xs text-gray-400">
+            Use this list to prioritize collections before balances age into risky territory.
+          </p>
           {hasCriticalBalances && (
             <span className="inline-flex items-center gap-1 rounded-full bg-red-600 px-2 py-1 text-xs font-semibold text-white">
               <AlertTriangle className="h-3 w-3" />

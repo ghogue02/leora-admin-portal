@@ -48,6 +48,9 @@ export default function SampleActivitySummary({ insights }: SampleActivitySummar
           <p className="mt-1 text-sm text-gray-600">
             Track shared samples, feedback collected, and follow-ups that still need attention.
           </p>
+          <p className="text-xs text-gray-400">
+            Fast follow-ups turn tastings into repeat orders—use this list to keep momentum.
+          </p>
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-4">
           <MetricCard label="Samples Logged (This Week)" value={metrics.loggedThisWeek} />

@@ -13,6 +13,9 @@ export default function ColdLeadsPanel({ coldLeads }: Props) {
           <p className="text-xs text-gray-500">
             Targets or prospects with no orders (or 24+ months inactive) and no activity in the last 30 days.
           </p>
+          <p className="mt-1 text-xs text-gray-400">
+            Revive a handful of these each week to keep the future pipeline healthy.
+          </p>
         </div>
       </div>
 

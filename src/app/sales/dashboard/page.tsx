@@ -1,8 +1,11 @@
 'use client';
 
-import { useCallback, useEffect, useState, type ChangeEvent } from "react";
+import { useCallback, useEffect, useMemo, useState, type ChangeEvent } from "react";
 import type { SampleActivityRecord, SampleInsightsSummary } from "@/types/activities";
-import DashboardCustomizer from "./sections/DashboardCustomizer";
+import DashboardCustomizer, {
+  DEFAULT_SECTIONS,
+  type DashboardPreferences,
+} from "./sections/DashboardCustomizer";
 import { MetricGlossaryModal } from "./sections/MetricDefinitions";
 import { SkeletonDashboard } from "../_components/SkeletonLoader";
 import { Button } from "../_components/Button";
@@ -19,6 +22,7 @@ import type {
   ColdLeadsOverview,
   CustomerReportRow,
 } from "@/types/sales-dashboard";
+import { formatDistanceToNow } from "date-fns";
 
 type DashboardData = {
   salesRep: {
@@ -160,8 +164,12 @@ export default function SalesDashboardPage() {
   });
   const [activeDrilldown, setActiveDrilldown] = useState<DashboardDrilldownType | null>(null);
   const [showGlossary, setShowGlossary] = useState(false);
-  const [dashboardPrefs, setDashboardPrefs] = useState<any>(null);
+  const [dashboardPrefs, setDashboardPrefs] = useState<DashboardPreferences>({
+    sections: DEFAULT_SECTIONS,
+  });
   const [activeTab, setActiveTab] = useState<"insights" | "classic">("insights");
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const localPrefsKey = "sales.dashboard.preferences";
 
   const tabs = [
     { id: "insights", label: "Customer Insights" },
@@ -189,6 +197,7 @@ export default function SalesDashboardPage() {
 
       const payload = (await response.json()) as DashboardData;
       setState({ data: payload, loading: false, error: null });
+      setLastUpdated(new Date());
     } catch (error) {
       setState({
         data: null,
@@ -197,6 +206,78 @@ export default function SalesDashboardPage() {
       });
     }
   }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const storedPrefs = window.localStorage.getItem(localPrefsKey);
+    if (storedPrefs) {
+      try {
+        const parsed = JSON.parse(storedPrefs) as DashboardPreferences;
+        if (parsed.sections?.length) {
+          setDashboardPrefs(parsed);
+        }
+      } catch {
+        // ignore malformed storage
+      }
+    }
+
+    void (async () => {
+      try {
+        const response = await fetch("/api/sales/dashboard/preferences", {
+          cache: "no-store",
+        });
+        if (!response.ok) return;
+        const prefs = (await response.json()) as DashboardPreferences;
+        if (prefs.sections && prefs.sections.length > 0) {
+          setDashboardPrefs(prefs);
+          window.localStorage.setItem(localPrefsKey, JSON.stringify(prefs));
+        }
+      } catch {
+        // ignore network errors
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handlePreferencesChange = useCallback(
+    (prefs: DashboardPreferences) => {
+      setDashboardPrefs(prefs);
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(localPrefsKey, JSON.stringify(prefs));
+      }
+    },
+    [localPrefsKey]
+  );
+
+  const insightDrilldowns = useMemo(
+    () =>
+      new Set<DashboardDrilldownType>([
+        "customer-health",
+        "at-risk-cadence",
+        "at-risk-revenue",
+        "dormant-customers",
+        "healthy-customers",
+        "prospect-customers",
+        "prospect-cold",
+      ]),
+    []
+  );
+
+  const handleDrilldownRequest = useCallback(
+    (type: DashboardDrilldownType) => {
+      if (insightDrilldowns.has(type)) {
+        setActiveTab("insights");
+      } else {
+        setActiveTab("classic");
+      }
+      setActiveDrilldown(type);
+    },
+    [insightDrilldowns]
+  );
+
+  const lastUpdatedLabel = lastUpdated
+    ? formatDistanceToNow(lastUpdated, { addSuffix: true })
+    : "waiting for data";
 
   useEffect(() => {
     void load();
@@ -249,8 +330,7 @@ export default function SalesDashboardPage() {
   } = state.data;
 
   const isSectionEnabled = (sectionId: string) => {
-    if (!dashboardPrefs?.sections) return true; // Show all by default
-    const section = dashboardPrefs.sections.find((s: any) => s.id === sectionId);
+    const section = dashboardPrefs.sections.find((s) => s.id === sectionId);
     return section?.enabled !== false;
   };
 
@@ -260,8 +340,13 @@ export default function SalesDashboardPage() {
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
-      {/* Dashboard Header */}
-      {/* <DashboardCustomizer onPreferencesChange={setDashboardPrefs} /> */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white/70 px-4 py-3 shadow-sm">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Sales Dashboard</p>
+          <p className="text-sm text-slate-600">Live view of quota, customers, and sales motions.</p>
+        </div>
+        <DashboardCustomizer sections={dashboardPrefs.sections} onPreferencesChange={handlePreferencesChange} />
+      </div>
 
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-3">
@@ -279,26 +364,18 @@ export default function SalesDashboardPage() {
               {tab.label}
             </button>
           ))}
+          <span className="text-xs font-medium text-gray-500">Last refreshed {lastUpdatedLabel}</span>
         </div>
-
-        {managerView.enabled && (
-          <div className="flex flex-wrap items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm shadow-sm">
-            <span className="text-xs font-semibold uppercase tracking-wide text-gray-500">Viewing as</span>
-            <select
-              value={managerView.selectedSalesRepId}
-              onChange={handleRepChange}
-              className="rounded-md border border-slate-200 bg-white px-2 py-1 text-sm text-gray-900 focus:border-slate-400 focus:outline-none"
-            >
-              {managerView.reps.map((rep) => (
-                <option key={rep.id} value={rep.id}>
-                  {rep.name}
-                  {rep.territory ? ` • ${rep.territory}` : ""}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
       </div>
+
+{managerView.enabled && (
+        <ManagerToolbar
+          managerView={managerView}
+          metrics={metrics}
+          onRepChange={handleRepChange}
+          lastUpdatedLabel={lastUpdatedLabel}
+        />
+      )}
 
       {activeTab === "insights" ? (
         <InsightsView
@@ -321,7 +398,7 @@ export default function SalesDashboardPage() {
           sampleInsights={sampleInsights}
           upcomingEvents={upcomingEvents}
           isSectionEnabled={isSectionEnabled}
-          onDrilldown={setActiveDrilldown}
+          onDrilldown={handleDrilldownRequest}
         />
       )}
 
@@ -337,5 +414,53 @@ export default function SalesDashboardPage() {
       {/* Metric Glossary Modal */}
       {showGlossary && <MetricGlossaryModal onClose={() => setShowGlossary(false)} />}
     </main>
+  );
+}
+
+type ManagerToolbarProps = {
+  managerView: DashboardData["managerView"];
+  metrics: DashboardData["metrics"];
+  onRepChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  lastUpdatedLabel: string;
+};
+
+function ManagerToolbar({ managerView, metrics, onRepChange, lastUpdatedLabel }: ManagerToolbarProps) {
+  const selectedRep = managerView.reps.find((rep) => rep.id === managerView.selectedSalesRepId);
+  const weeklyProgress = Math.round(metrics.currentWeek.quotaProgress);
+  const monthRevenue = metrics.currentMonth.revenue ?? 0;
+
+  return (
+    <section className="flex flex-col gap-3 rounded-2xl border border-indigo-100 bg-white px-4 py-3 text-sm shadow-sm md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <span>Manager mode:</span>
+        <select
+          value={managerView.selectedSalesRepId}
+          onChange={onRepChange}
+          className="rounded-md border border-slate-200 bg-white px-2 py-1 text-sm text-gray-900 focus:border-slate-400 focus:outline-none"
+        >
+          {managerView.reps.map((rep) => (
+            <option key={rep.id} value={rep.id}>
+              {rep.name}
+              {rep.territory ? ` • ${rep.territory}` : ""}
+            </option>
+          ))}
+        </select>
+        {selectedRep?.territory && (
+          <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[11px] font-semibold text-indigo-700">
+            {selectedRep.territory}
+          </span>
+        )}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600">
+        <div className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-800">
+          Weekly quota: {weeklyProgress}% of goal
+        </div>
+        <div className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-800">
+          MTD revenue: ${monthRevenue.toLocaleString()}
+        </div>
+        <span className="text-slate-400">Updated {lastUpdatedLabel}</span>
+      </div>
+    </section>
   );
 }

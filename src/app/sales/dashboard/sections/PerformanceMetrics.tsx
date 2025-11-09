@@ -87,6 +87,9 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
           {territoryLabel ? `${territoryLabel} - ` : ""}
           Week of {new Date().toLocaleDateString()}
         </p>
+        <p className="text-xs text-gray-400">
+          Track quota pacing at a glance so you know whether to hunt, harvest, or triage.
+        </p>
       </div>
 
       <div className="grid gap-5 [grid-template-columns:repeat(auto-fit,minmax(170px,1fr))]">

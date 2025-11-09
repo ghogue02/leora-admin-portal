@@ -63,7 +63,12 @@ export default function TasksList({ tasks: initialTasks }: TasksListProps) {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-900">Tasks from Management</h3>
-          <p className="text-xs text-gray-500">Action items and to-dos</p>
+          <p className="text-xs text-gray-500">
+            Action items and to-dos
+          </p>
+          <p className="mt-1 text-xs text-gray-400">
+            Clear these first so leadership blockers don’t derail your pipeline for the week.
+          </p>
         </div>
         <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
           {tasks.length} pending
