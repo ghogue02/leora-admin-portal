@@ -8,12 +8,14 @@ import { CustomerBasicInfoFields } from '@/components/customers/forms/CustomerBa
 import { CustomerAddressFields } from '@/components/customers/forms/CustomerAddressFields';
 import { CustomerDeliveryFields } from '@/components/customers/forms/CustomerDeliveryFields';
 import { CustomerContactsManager } from '@/components/customers/CustomerContactsManager';
+import { GoogleMapsAutoFill } from '@/components/customers/GoogleMapsAutoFill';
 import type {
   CustomerType,
   FeatureProgram,
   VolumeCapacity,
   DeliveryWindow,
 } from '@/types/customer';
+import type { GooglePlaceSuggestion } from "@/lib/maps/googlePlaces";
 
 interface Customer {
   id: string;
@@ -212,6 +214,37 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
       setLoading(false);
     }
   }, [customerId]);
+
+  const applyGoogleSuggestion = (
+    suggestion: GooglePlaceSuggestion,
+    { overwriteExisting }: { overwriteExisting: boolean }
+  ) => {
+    setFormData((prev) => {
+      const applyField = (currentValue: string, nextValue?: string | null) => {
+        if (!nextValue) {
+          return currentValue;
+        }
+        if (overwriteExisting || !currentValue.trim()) {
+          return nextValue;
+        }
+        return currentValue;
+      };
+
+      const phone = suggestion.phoneNumber ?? suggestion.internationalPhoneNumber ?? "";
+      const address = suggestion.address ?? null;
+
+      return {
+        ...prev,
+        name: applyField(prev.name, suggestion.name ?? null),
+        phone: phone ? applyField(prev.phone, phone) : prev.phone,
+        street1: applyField(prev.street1, address?.street1 ?? null),
+        city: applyField(prev.city, address?.city ?? null),
+        state: applyField(prev.state, address?.state ?? null),
+        postalCode: applyField(prev.postalCode, address?.postalCode ?? null),
+        country: applyField(prev.country, address?.country ?? null),
+      };
+    });
+  };
 
   useEffect(() => {
     if (customerId) {
@@ -452,6 +485,18 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
 
       {/* Edit Form */}
       <form onSubmit={handleSubmit}>
+        {customerId ? (
+          <div className="mb-6 space-y-2">
+            <h2 className="text-xl font-bold text-gray-900">Auto-fill with Google Maps</h2>
+            <GoogleMapsAutoFill
+              variant="admin"
+              customerId={customerId}
+              defaultQuery={formData.name}
+              onApply={applyGoogleSuggestion}
+            />
+          </div>
+        ) : null}
+
         {/* Basic Information */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
           <h2 className="text-xl font-bold mb-4">Basic Information</h2>

@@ -48,21 +48,26 @@ export async function GET(request: NextRequest, context: RouteContext) {
     if ("error" in access) return access.error;
 
     const customer = access.customer;
-    const queryParts = [
-      customer.name,
-      customer.city ?? "",
-      customer.state ?? "",
-      customer.postalCode ?? "",
-    ]
-      .filter(Boolean)
-      .join(" ");
+    const { searchParams } = new URL(request.url);
+    const customQuery = searchParams.get("query")?.trim();
+    const queryParts = customQuery
+      ? [customQuery]
+      : [
+          customer.name,
+          customer.city ?? "",
+          customer.state ?? "",
+          customer.postalCode ?? "",
+          customer.street1 ?? "",
+        ].filter(Boolean);
 
-    if (!queryParts.trim()) {
+    const queryString = queryParts.join(" ").trim();
+
+    if (!queryString) {
       return NextResponse.json({ error: "Customer name or address missing" }, { status: 400 });
     }
 
     try {
-      const suggestion = await fetchGooglePlaceSuggestion(queryParts);
+      const suggestion = await fetchGooglePlaceSuggestion(queryString);
 
       if (suggestion?.location) {
         await db.customer.update({

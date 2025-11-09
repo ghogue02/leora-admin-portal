@@ -8,7 +8,9 @@ import { CustomerClassificationFields } from "@/components/customers/CustomerCla
 import { CustomerBasicInfoFields } from "@/components/customers/forms/CustomerBasicInfoFields";
 import { CustomerAddressFields } from "@/components/customers/forms/CustomerAddressFields";
 import { CustomerDeliveryFields } from "@/components/customers/forms/CustomerDeliveryFields";
+import { GoogleMapsAutoFill } from "@/components/customers/GoogleMapsAutoFill";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
+import type { GooglePlaceSuggestion } from "@/lib/maps/googlePlaces";
 import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
 import type {
   CustomerType,
@@ -83,6 +85,38 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
   );
   const [saving, setSaving] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+
+  const applyGoogleSuggestion = (
+    suggestion: GooglePlaceSuggestion,
+    { overwriteExisting }: { overwriteExisting: boolean }
+  ) => {
+    setContactForm((prev) => {
+      const applyField = (currentValue: string, nextValue?: string | null) => {
+        if (!nextValue) {
+          return currentValue;
+        }
+        if (overwriteExisting || !currentValue.trim()) {
+          return nextValue;
+        }
+        return currentValue;
+      };
+
+      const phone = suggestion.phoneNumber ?? suggestion.internationalPhoneNumber ?? "";
+      const address = suggestion.address ?? null;
+
+      return {
+        ...prev,
+        name: applyField(prev.name, suggestion.name ?? null),
+        phone: phone ? applyField(prev.phone, phone) : prev.phone,
+        street1: applyField(prev.street1, address?.street1 ?? null),
+        city: applyField(prev.city, address?.city ?? null),
+        state: applyField(prev.state, address?.state ?? null),
+        postalCode: applyField(prev.postalCode, address?.postalCode ?? null),
+        country: applyField(prev.country, address?.country ?? null),
+      };
+    });
+
+  };
 
   useEffect(() => {
     if (data?.customer) {
@@ -237,6 +271,16 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
           </div>
         ) : (
           <>
+            <section className="space-y-3">
+              <h2 className="text-lg font-semibold text-gray-900">Auto-fill with Google Maps</h2>
+              <GoogleMapsAutoFill
+                variant="sales"
+                customerId={customerId}
+                defaultQuery={contactForm.name}
+                onApply={applyGoogleSuggestion}
+              />
+            </section>
+
             <section className="space-y-6">
               <div>
                 <h2 className="text-lg font-semibold text-gray-900">Basic Information</h2>

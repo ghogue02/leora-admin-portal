@@ -68,7 +68,6 @@ export function CustomerContactsManager({
   const [saving, setSaving] = useState(false);
   const [removingId, setRemovingId] = useState<string | null>(null);
   const [businessCardFile, setBusinessCardFile] = useState<File | null>(null);
-  const [mapsLoading, setMapsLoading] = useState(false);
   const [formState, setFormState] = useState<ContactFormState>({
     fullName: "",
     role: "",
@@ -79,10 +78,6 @@ export function CustomerContactsManager({
   });
 
   const apiBase = `${API_PREFIX[variant]}/${customerId}/contacts`;
-  const placesEndpoint =
-    variant === "sales"
-      ? `/api/sales/customers/${customerId}/places`
-      : `/api/admin/customers/${customerId}/places`;
 
   useEffect(() => {
     setContacts(initialContacts);
@@ -182,109 +177,6 @@ export function CustomerContactsManager({
         : prev.notes,
     }));
     showSuccess("Scan complete", "Contact details auto-filled from business card.");
-  };
-
-  const [applyMapsSuggestion, setApplyMapsSuggestion] = useState(false);
-
-  const handleFetchFromMaps = async () => {
-    setMapsLoading(true);
-    try {
-      const response = await fetch(placesEndpoint, { cache: "no-store" });
-      if (!response.ok) {
-        const payload = await response.json().catch(() => ({}));
-        throw new Error(payload.error ?? "Google Maps lookup failed");
-      }
-
-      const payload = (await response.json()) as {
-        suggestion: {
-          formattedAddress: string | null;
-          phoneNumber: string | null;
-          internationalPhoneNumber: string | null;
-          website: string | null;
-          name: string | null;
-          address?: {
-            street1: string | null;
-            city: string | null;
-            state: string | null;
-            postalCode: string | null;
-            country: string | null;
-          } | null;
-        } | null;
-      };
-
-      if (!payload.suggestion) {
-        showError("No Google Maps listing found for this customer.");
-        return;
-      }
-
-      const { formattedAddress, phoneNumber, internationalPhoneNumber, website, name, address } = payload.suggestion;
-
-      if (applyMapsSuggestion) {
-        const updateEndpoint =
-          variant === "sales"
-            ? `/api/sales/customers/${customerId}`
-            : `/api/admin/customers/${customerId}`;
-
-        const phoneToApply = phoneNumber ?? internationalPhoneNumber;
-
-        const updatePayload: Record<string, string> = {};
-        if (phoneToApply) {
-          updatePayload.phone = phoneToApply;
-        }
-        if (address?.street1) {
-          updatePayload.street1 = address.street1;
-        }
-        if (address?.city) {
-          updatePayload.city = address.city;
-        }
-        if (address?.state) {
-          updatePayload.state = address.state;
-        }
-        if (address?.postalCode) {
-          updatePayload.postalCode = address.postalCode;
-        }
-        if (address?.country) {
-          updatePayload.country = address.country;
-        }
-
-        if (Object.keys(updatePayload).length > 0) {
-          await fetch(updateEndpoint, {
-            method: variant === "sales" ? "PATCH" : "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(updatePayload),
-          })
-            .then((res) => {
-              if (!res.ok) {
-                console.warn("Failed to persist Google Maps data to customer.");
-              }
-            })
-            .catch(() => {
-              // Non-blocking: continue even if update fails.
-            });
-        }
-      }
-
-      setFormState((prev) => ({
-        ...prev,
-        fullName: prev.fullName || name || "",
-        phone: prev.phone || internationalPhoneNumber || phoneNumber || "",
-        notes: [prev.notes, formattedAddress, website ? `Website: ${website}` : ""]
-          .filter(Boolean)
-          .join("\n"),
-      }));
-
-      showSuccess(
-        "Google Maps data added",
-        applyMapsSuggestion
-          ? "Customer record updated with Maps phone/address."
-          : "Phone and address fields updated from Google Maps."
-      );
-    } catch (error) {
-      console.error(error);
-      showError(error instanceof Error ? error.message : "Failed to fetch Google Maps data");
-    } finally {
-      setMapsLoading(false);
-    }
   };
 
   return (
@@ -453,23 +345,6 @@ export function CustomerContactsManager({
               >
                 Scan business card
               </button>
-              <button
-                type="button"
-                onClick={handleFetchFromMaps}
-                disabled={mapsLoading}
-                className="inline-flex items-center rounded-md border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-100 disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {mapsLoading ? "Fetching…" : "Fetch from Google Maps"}
-              </button>
-              <label className="inline-flex items-center gap-2 text-xs text-gray-600">
-                <input
-                  type="checkbox"
-                  checked={applyMapsSuggestion}
-                  onChange={(event) => setApplyMapsSuggestion(event.target.checked)}
-                  className="h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500"
-                />
-                Save phone/address to customer profile
-              </label>
             </div>
           </div>
           <DialogFooter className="mt-4 flex gap-2">

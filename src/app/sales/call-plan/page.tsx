@@ -79,7 +79,10 @@ function CallPlanPageContent() {
     [currentWeekStart],
   );
 
-  const selectedCount = selectedAccountIds.size;
+  const plannedActivityCount = useMemo(
+    () => (callPlanOverview?.tasks?.length ? callPlanOverview.tasks.length : 0),
+    [callPlanOverview?.tasks],
+  );
   const availableTerritories = useMemo(() => {
     return Array.from(new Set(accounts.map((acc) => acc.territory).filter(Boolean))) as string[];
   }, [accounts]);
@@ -380,11 +383,11 @@ function CallPlanPageContent() {
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
-      <CallPlanHeader
-        weekStart={currentWeekStart}
-        weekEnd={weekEnd}
-        isCurrentWeek={isCurrentWeek}
-        selectedCount={selectedCount}
+        <CallPlanHeader
+          weekStart={currentWeekStart}
+          weekEnd={weekEnd}
+          isCurrentWeek={isCurrentWeek}
+          selectedCount={plannedActivityCount}
         onPreviousWeek={handlePreviousWeek}
         onNextWeek={handleNextWeek}
         onThisWeek={handleThisWeek}
