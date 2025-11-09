@@ -6,6 +6,7 @@ import CustomerTable from "./sections/CustomerTable";
 import CustomerFilters from "./sections/CustomerFilters";
 import CustomerSearchBar from "./sections/CustomerSearchBar";
 import CustomerTagFilter from "./sections/CustomerTagFilter";
+import CustomerActivityFeed from "./sections/CustomerActivityFeed";
 import { SkeletonTable } from "../_components/SkeletonLoader";
 import { EmptyCustomers, EmptySearch } from "../_components/EmptyState";
 import { CustomerTagType } from "@/constants/customerTags";
@@ -250,6 +251,7 @@ export default function SalesCustomersPage() {
   return (
     <main className="mx-auto max-w-7xl gap-8 px-4 py-6 lg:grid lg:grid-cols-[320px,1fr]">
       <aside className="space-y-6 lg:sticky lg:top-6">
+        <CustomerActivityFeed />
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Overview</p>
           {!data ? (
