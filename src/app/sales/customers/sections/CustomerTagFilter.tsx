@@ -1,22 +1,13 @@
-'use client';
+"use client";
 
-import { useMemo, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuCheckboxItem,
-  DropdownMenuTrigger,
-  DropdownMenuSeparator,
-  DropdownMenuLabel,
-} from '@/components/ui/dropdown-menu';
-import { Badge } from '@/components/ui/badge';
-import { FilterIcon, XIcon } from 'lucide-react';
+import { useMemo, useState } from "react";
+import { XIcon, ChevronDown, ChevronUp } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import {
   CUSTOMER_TAG_META,
   CUSTOMER_TAG_TYPES,
   CustomerTagType,
-} from '@/constants/customerTags';
+} from "@/constants/customerTags";
 
 type TagCount = {
   type: CustomerTagType;
@@ -63,86 +54,78 @@ export default function CustomerTagFilter({
   const hasActiveFilters = selectedTags.length > 0;
 
   return (
-    <div className="flex items-center gap-2">
-      <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-        <DropdownMenuTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            className={hasActiveFilters ? 'border-blue-500 bg-blue-50' : ''}
-            aria-label="Filter by tags"
-          >
-            <FilterIcon className="h-4 w-4" />
-            Tags
+    <section className="rounded-xl border border-slate-200 bg-white/80 p-4 shadow-sm">
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="flex w-full items-center justify-between text-sm font-semibold text-slate-900"
+        aria-expanded={isOpen}
+      >
+        <span>Tag filters</span>
+        <div className="flex items-center gap-2">
+          {hasActiveFilters && (
+            <Badge variant="secondary" className="px-2 py-0.5 text-[11px]">
+              {selectedTags.length} active
+            </Badge>
+          )}
+          {isOpen ? (
+            <ChevronUp className="h-4 w-4 text-slate-500" aria-hidden="true" />
+          ) : (
+            <ChevronDown className="h-4 w-4 text-slate-500" aria-hidden="true" />
+          )}
+        </div>
+      </button>
+      <p className="mt-1 text-xs text-slate-500">
+        Use account tags to zero in on specific playbooks or strategic groups.
+      </p>
+
+      {isOpen && (
+        <div className="mt-4 space-y-3">
+          {!hasAnyTagActivity ? (
+            <p className="rounded-lg bg-slate-50 p-3 text-sm text-slate-500">
+              No tags available in this view.
+            </p>
+          ) : (
+            <div className="grid gap-2">
+              {orderedTagCounts.map(({ type, count }) => (
+                <label
+                  key={type}
+                  className="flex cursor-pointer items-center justify-between rounded-lg border border-slate-200 px-3 py-2 text-sm transition hover:border-slate-400"
+                >
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedTags.includes(type)}
+                      onChange={() => handleTagToggle(type)}
+                      className="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span>{CUSTOMER_TAG_META[type].label}</span>
+                  </div>
+                  <span className="text-xs text-slate-500">{count.toLocaleString()}</span>
+                </label>
+              ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+            <span>
+              Showing {filteredCustomers.toLocaleString()} of {totalCustomers.toLocaleString()} customers
+            </span>
             {hasActiveFilters && (
-              <Badge
-                variant="secondary"
-                className="ml-1.5 h-5 min-w-[1.25rem] rounded-full px-1.5"
-              >
-                {selectedTags.length}
-              </Badge>
-            )}
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="w-64">
-          <DropdownMenuLabel className="flex items-center justify-between">
-            <span>Filter by Tags</span>
-            {hasActiveFilters && (
-              <Button
-                variant="ghost"
-                size="sm"
+              <button
+                type="button"
                 onClick={handleClearAll}
-                className="h-auto p-0 text-xs text-blue-600 hover:text-blue-700"
+                className="text-indigo-600 transition hover:text-indigo-800"
               >
                 Clear all
-              </Button>
+              </button>
             )}
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
+          </div>
+        </div>
+      )}
 
-          {!hasAnyTagActivity ? (
-            <div className="px-2 py-6 text-center text-sm text-slate-500">
-              No tags found
-            </div>
-          ) : (
-            orderedTagCounts.map(({ type, count }) => (
-              <DropdownMenuCheckboxItem
-                key={type}
-                checked={selectedTags.includes(type)}
-                onCheckedChange={() => handleTagToggle(type)}
-                className="cursor-pointer"
-              >
-                <div className="flex w-full items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`h-2 w-2 rounded-full ${CUSTOMER_TAG_META[type].dotClass}`}
-                      aria-hidden="true"
-                    />
-                    <span className="text-sm">{CUSTOMER_TAG_META[type].label}</span>
-                  </div>
-                  <span className="text-xs text-slate-500">
-                    {count.toLocaleString()}
-                  </span>
-                </div>
-              </DropdownMenuCheckboxItem>
-            ))
-          )}
-
-          {hasActiveFilters && (
-            <>
-              <DropdownMenuSeparator />
-              <div className="px-2 py-2 text-xs text-slate-600">
-                Showing {filteredCustomers.toLocaleString()} of{' '}
-                {totalCustomers.toLocaleString()} customers
-              </div>
-            </>
-          )}
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      {/* Active filter chips */}
       {hasActiveFilters && (
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="mt-4 flex flex-wrap items-center gap-2">
           {selectedTags.map((tagType) => (
             <Badge
               key={tagType}
@@ -162,6 +145,6 @@ export default function CustomerTagFilter({
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 }

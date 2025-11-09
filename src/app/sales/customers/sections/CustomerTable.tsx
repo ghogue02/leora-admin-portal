@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { CustomerRiskStatus } from "@prisma/client";
 import CustomerHealthBadge from "./CustomerHealthBadge";
 import QuickSampleModal from "../components/QuickSampleModal";
-import { Package } from "lucide-react";
+import { Package, NotebookPen, CalendarClock } from "lucide-react";
 
 type Customer = {
   id: string;
@@ -47,6 +47,46 @@ export default function CustomerTable({
   loading = false,
 }: CustomerTableProps) {
   const [selectedCustomer, setSelectedCustomer] = useState<{ id: string; name: string } | null>(null);
+  const badgeCache = useMemo(() => new Map<string, Array<{ label: string; className: string }>>(), []);
+
+  const getHealthBadges = (customer: Customer) => {
+    if (badgeCache.has(customer.id)) {
+      return badgeCache.get(customer.id)!;
+    }
+
+    const badges: Array<{ label: string; className: string }> = [];
+
+    if (customer.daysOverdue > 0) {
+      badges.push({
+        label: `Overdue ${customer.daysOverdue}d`,
+        className: "bg-rose-100 text-rose-700 border-rose-200",
+      });
+    } else if (
+      customer.daysUntilExpected !== null &&
+      customer.daysUntilExpected <= 7 &&
+      customer.daysUntilExpected >= 0
+    ) {
+      badges.push({
+        label: `Due in ${customer.daysUntilExpected}d`,
+        className: "bg-amber-100 text-amber-700 border-amber-200",
+      });
+    } else if (customer.isDueToOrder) {
+      badges.push({
+        label: "Due this cycle",
+        className: "bg-blue-100 text-blue-700 border-blue-200",
+      });
+    }
+
+    if (customer.riskStatus === "AT_RISK_REVENUE" || customer.riskStatus === "AT_RISK_CADENCE") {
+      badges.push({
+        label: "At risk",
+        className: "bg-orange-100 text-orange-700 border-orange-200",
+      });
+    }
+
+    badgeCache.set(customer.id, badges);
+    return badges;
+  };
 
   const getAriaSort = (field: SortField): "none" | "ascending" | "descending" => {
     if (sortField !== field) {
@@ -305,13 +345,16 @@ export default function CustomerTable({
                   </span>
                 </th>
                 <th className="px-4 py-3 text-right">
-                  <span className="sr-only">Actions</span>
+                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">
+                    Quick Actions
+                  </span>
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
               {customers.map((customer) => {
                 const nextOrderStatus = getNextOrderStatus(customer);
+                const healthBadges = getHealthBadges(customer);
 
                 return (
                   <tr key={customer.id} className="transition hover:bg-slate-50">
@@ -328,6 +371,18 @@ export default function CustomerTable({
                         )}
                         {customer.location && (
                           <span className="text-xs text-gray-500">{customer.location}</span>
+                        )}
+                        {healthBadges.length > 0 && (
+                          <div className="mt-2 flex flex-wrap gap-1">
+                            {healthBadges.map((badge) => (
+                              <span
+                                key={`${customer.id}-${badge.label}`}
+                                className={`rounded-full border px-2 py-0.5 text-[11px] font-semibold ${badge.className}`}
+                              >
+                                {badge.label}
+                              </span>
+                            ))}
+                          </div>
                         )}
                       </div>
                     </td>
@@ -360,20 +415,34 @@ export default function CustomerTable({
                       {(customer.recentOrderCount ?? 0).toLocaleString()}
                     </td>
                     <td className="px-4 py-3 text-right">
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex flex-wrap items-center justify-end gap-2">
                         <button
                           onClick={() => setSelectedCustomer({ id: customer.id, name: customer.name })}
-                          className="inline-flex items-center gap-1.5 rounded-md border border-purple-300 bg-purple-50 px-3 py-1.5 text-xs font-semibold text-purple-700 shadow-sm transition hover:bg-purple-100"
+                          className="inline-flex items-center gap-1 rounded-md border border-purple-300 bg-purple-50 px-3 py-1.5 text-xs font-semibold text-purple-700 shadow-sm transition hover:bg-purple-100"
                           title="Quick sample assignment"
                         >
-                          <Package className="h-3.5 w-3.5" />
+                          <Package className="h-3.5 w-3.5" aria-hidden="true" />
                           Sample
                         </button>
+                        <Link
+                          href={`/sales/activities/new?customerId=${customer.id}`}
+                          className="inline-flex items-center gap-1 rounded-md border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700 shadow-sm transition hover:bg-indigo-100"
+                        >
+                          <NotebookPen className="h-3.5 w-3.5" aria-hidden="true" />
+                          Log Note
+                        </Link>
+                        <Link
+                          href={`/sales/calendar?customerId=${customer.id}`}
+                          className="inline-flex items-center gap-1 rounded-md border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-700 shadow-sm transition hover:bg-amber-100"
+                        >
+                          <CalendarClock className="h-3.5 w-3.5" aria-hidden="true" />
+                          Schedule
+                        </Link>
                         <Link
                           href={`/sales/customers/${customer.id}`}
                           className="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-semibold text-gray-700 shadow-sm transition hover:bg-gray-50"
                         >
-                          View Details
+                          View
                         </Link>
                       </div>
                     </td>
