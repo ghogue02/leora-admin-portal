@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { CustomerRiskStatus } from "@prisma/client";
 import CustomerHealthBadge from "./CustomerHealthBadge";
