@@ -824,6 +824,7 @@ export function LessonContent() {
     [selectedScenario]
   );
   const searchActive = search.trim().length > 0 && matchedIds.size > 0;
+  const scenarioFocusId = selectedScenario?.highlightNodes?.[0];
 
   const graph3DData = useMemo<{
     nodes: RouteGraph3DNode[];
@@ -1327,6 +1328,7 @@ export function LessonContent() {
               nodes={graph3DData.nodes}
               links={graph3DData.links}
               selectedId={selectedNodeId}
+              focusId={selectedNodeId ?? scenarioFocusId}
               onSelect={handle3DSelect}
             />
           </div>
