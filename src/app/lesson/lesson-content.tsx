@@ -1,7 +1,6 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import type { KeyboardEvent } from 'react';
 import dynamic from 'next/dynamic';
 import type { RouteGraph3DLink, RouteGraph3DNode } from '@/components/lesson/RouteGraph3D';
 
@@ -781,7 +780,6 @@ export function LessonContent() {
     node: routeNodes[0],
   });
   const [selectedScenario, setSelectedScenario] = useState<Scenario | null>(null);
-  const [mapMode, setMapMode] = useState<'diagram' | '3d'>('diagram');
   const [showTechnical, setShowTechnical] = useState(true);
 
   const filteredIntegrations = useMemo(() => {
@@ -826,71 +824,6 @@ export function LessonContent() {
     [selectedScenario]
   );
   const searchActive = search.trim().length > 0 && matchedIds.size > 0;
-
-  const graph = useMemo(() => {
-    const diameter = 620;
-    const center = diameter / 2;
-    const innerRadius = 150;
-    const outerRadius = 260;
-    const minRadius = 28;
-    const maxRadius = 80;
-    const maxRequests = Math.max(...routeNodes.map((node) => node.requestsPerDay));
-
-    const positionedRoutes = routeNodes.map((node, index) => {
-      if (node.id === 'core') {
-        return { ...node, x: center, y: center, radius: maxRadius };
-      }
-      const angle = (index / (routeNodes.length - 1)) * Math.PI * 2;
-      const radius = minRadius + ((node.requestsPerDay / maxRequests) * (maxRadius - minRadius));
-      return {
-        ...node,
-        x: center + innerRadius * Math.cos(angle),
-        y: center + innerRadius * Math.sin(angle),
-        radius,
-      };
-    });
-
-    const positionedTargets = connectionTargets.map((target, index) => {
-      const angle = (index / connectionTargets.length) * Math.PI * 2;
-      return {
-        ...target,
-        x: center + outerRadius * Math.cos(angle + Math.PI / 5),
-        y: center + outerRadius * Math.sin(angle + Math.PI / 5),
-        radius: 45,
-      };
-    });
-
-    const lines = positionedRoutes.flatMap((node) =>
-      node.dependencies.map((dependency) => {
-        const target =
-          positionedRoutes.find((candidate) => candidate.id === dependency.targetId) ??
-          positionedTargets.find((candidate) => candidate.id === dependency.targetId);
-        if (!target) return null;
-        return {
-          from: { x: node.x, y: node.y },
-          to: { x: target.x, y: target.y },
-          importance: dependency.importance,
-          reason: dependency.reason,
-          sourceId: node.id,
-          targetId: dependency.targetId,
-          midpoint: {
-            x: (node.x + target.x) / 2,
-            y: (node.y + target.y) / 2,
-          },
-        };
-      })
-    ).filter(Boolean) as Array<{
-      from: { x: number; y: number };
-      to: { x: number; y: number };
-      importance: DependencyImportance;
-      reason: string;
-      sourceId: string;
-      targetId: string;
-      midpoint: { x: number; y: number };
-    }>;
-
-    return { diameter, nodes: positionedRoutes, targets: positionedTargets, lines };
-  }, []);
 
   const graph3DData = useMemo<{
     nodes: RouteGraph3DNode[];
@@ -959,13 +892,6 @@ export function LessonContent() {
     if (targetLookup[id as keyof typeof targetLookup]) {
       setSelectedItem({ kind: 'target', target: targetLookup[id as keyof typeof targetLookup] });
       return;
-    }
-  };
-
-  const handleSvgKey = (event: KeyboardEvent<SVGGElement>, action: () => void) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      action();
     }
   };
 
@@ -1284,178 +1210,6 @@ export function LessonContent() {
     </div>
   );
 
-  const renderMapView = () => {
-    if (mapMode === '3d') {
-      return (
-        <RouteGraph3D
-          nodes={graph3DData.nodes}
-          links={graph3DData.links}
-          selectedId={selectedNodeId}
-          onSelect={handle3DSelect}
-        />
-      );
-    }
-
-    return (
-      <div
-        className="overflow-hidden rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-100/80 to-slate-200/40"
-        style={{ minHeight: 560 }}
-      >
-        <svg
-          viewBox={`0 0 ${graph.diameter} ${graph.diameter}`}
-          role="img"
-          aria-label="Mind map representing connections between Leora route domains and vendors"
-        >
-          <defs>
-            <radialGradient id="nodeFade" cx="50%" cy="50%" r="75%">
-              <stop offset="0%" stopColor="#fff" />
-              <stop offset="100%" stopColor="#e2e8f0" />
-            </radialGradient>
-            <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" fill="#94a3b8">
-              <path d="M0,0 L6,3 L0,6 Z" />
-            </marker>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#nodeFade)" />
-
-          {graph.lines.map((line, index) => {
-            const isScenarioHighlight =
-              highlightNodes.has(line.sourceId) || highlightNodes.has(line.targetId);
-            const isSearchHighlight =
-              matchedIds.has(line.sourceId) || matchedIds.has(line.targetId) || matchedIds.size === 0;
-            const opacity =
-              isScenarioHighlight || matchedIds.size === 0
-                ? 0.95
-                : isSearchHighlight
-                  ? 0.75
-                  : 0.25;
-
-            return (
-              <g key={index}>
-                <line
-                  x1={line.from.x}
-                  y1={line.from.y}
-                  x2={line.to.x}
-                  y2={line.to.y}
-                  stroke={line.importance === 'critical' ? '#0f172a' : '#cbd5f5'}
-                  strokeWidth={line.importance === 'critical' ? 2.4 : 1.4}
-                  strokeDasharray={line.importance === 'critical' ? undefined : '4 4'}
-                  opacity={opacity}
-                  markerEnd="url(#arrowhead)"
-                />
-                <text
-                  x={line.midpoint.x}
-                  y={line.midpoint.y}
-                  textAnchor="middle"
-                  fontSize="10"
-                  fill="#475569"
-                  opacity={opacity}
-                >
-                  {line.reason}
-                </text>
-              </g>
-            );
-          })}
-
-          {graph.targets.map((target) => {
-            const isActive = selectedItem.kind === 'target' && selectedItem.target.id === target.id;
-            const isMatched = matchedIds.size === 0 || matchedIds.has(target.id);
-            const isScenario = highlightNodes.has(target.id);
-            const activate = () => setSelectedItem({ kind: 'target', target });
-
-            return (
-              <g
-                key={target.id}
-                tabIndex={0}
-                role="button"
-                className="cursor-pointer focus:outline-none"
-                aria-pressed={isActive}
-                onClick={activate}
-                onKeyDown={(event) => handleSvgKey(event, activate)}
-              >
-                <circle
-                  cx={target.x}
-                  cy={target.y}
-                  r={target.radius}
-                  fill={isScenario ? '#fde68a' : '#f8fafc'}
-                  stroke={isActive ? '#0f172a' : '#cbd5f5'}
-                  strokeWidth={isActive ? 3 : 2}
-                  opacity={isMatched ? 1 : 0.3}
-                />
-                <text
-                  x={target.x}
-                  y={target.y - 4}
-                  textAnchor="middle"
-                  fontSize="12"
-                  fontWeight={600}
-                  fill="#0f172a"
-                >
-                  {target.label}
-                </text>
-                <text
-                  x={target.x}
-                  y={target.y + 12}
-                  textAnchor="middle"
-                  fontSize="10"
-                  fill="#475569"
-                >
-                  {target.count} vendors
-                </text>
-              </g>
-            );
-          })}
-
-          {graph.nodes.map((node) => {
-            const isActive = selectedItem.kind === 'route' && selectedItem.node.id === node.id;
-            const isMatched = matchedIds.size === 0 || matchedIds.has(node.id);
-            const isScenario = highlightNodes.has(node.id);
-            const activate = () => setSelectedItem({ kind: 'route', node });
-
-            return (
-              <g
-                key={node.id}
-                tabIndex={0}
-                role="button"
-                className="cursor-pointer focus:outline-none"
-                aria-pressed={isActive}
-                onClick={activate}
-                onKeyDown={(event) => handleSvgKey(event, activate)}
-              >
-                <circle
-                  cx={node.x}
-                  cy={node.y}
-                  r={node.radius}
-                  fill={isScenario ? '#bfdbfe' : isActive ? '#f8fafc' : '#fff'}
-                  stroke={isActive ? '#0f172a' : '#94a3b8'}
-                  strokeWidth={isActive ? 3 : 2}
-                  opacity={isMatched ? 1 : 0.3}
-                />
-                <text
-                  x={node.x}
-                  y={node.y - 4}
-                  textAnchor="middle"
-                  fontSize="12"
-                  fontWeight={600}
-                  fill="#0f172a"
-                >
-                  {node.label}
-                </text>
-                <text
-                  x={node.x}
-                  y={node.y + 12}
-                  textAnchor="middle"
-                  fontSize="10"
-                  fill="#475569"
-                >
-                  {numberFormatter.format(node.requestsPerDay)} req/day
-                </text>
-              </g>
-            );
-          })}
-        </svg>
-      </div>
-    );
-  };
-
   const renderGlossary = () => (
     <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
@@ -1558,34 +1312,24 @@ export function LessonContent() {
         </section>
 
         <section className="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-lg">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="flex flex-col gap-1">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                System map
-              </p>
-              <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
-              <p className="text-sm text-slate-600">
-                Nodes are scaled by request volume. Click any node to reveal the “story” of that dependency, plus the why/what of every connection.
-              </p>
-            </div>
-            <div className="flex rounded-full bg-slate-100 p-1 text-xs font-semibold text-slate-700">
-              {(['diagram', '3d'] as const).map((mode) => (
-                <button
-                  key={mode}
-                  type="button"
-                  onClick={() => setMapMode(mode)}
-                  className={[
-                    'rounded-full px-4 py-2 transition',
-                    mapMode === mode ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500',
-                  ].join(' ')}
-                >
-                  {mode === 'diagram' ? 'Diagram' : '3D view'}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+              System map
+            </p>
+            <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
+            <p className="text-sm text-slate-600">
+              Explore the architecture in 3D—drag to orbit, scroll to zoom, and click spheres to pull their stories into the panel below.
+            </p>
           </div>
 
-          <div className="mt-6">{renderMapView()}</div>
+          <div className="mt-6">
+            <RouteGraph3D
+              nodes={graph3DData.nodes}
+              links={graph3DData.links}
+              selectedId={selectedNodeId}
+              onSelect={handle3DSelect}
+            />
+          </div>
           <div className="mt-5 rounded-2xl border border-slate-100 bg-slate-50 p-5">
             {renderSelectionPanel()}
           </div>
