@@ -77,6 +77,7 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
   const fgRef = useRef<ForceGraphMethods<RouteGraph3DNode, RouteGraph3DLink>>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [{ width, height }, setSize] = useState({ width: 0, height: 0 });
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -140,6 +141,62 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
     fg.cameraPosition(cameraPos, coords, 1500);
   }, [focusId, nodes, selectedId]);
 
+  useEffect(() => {
+    let frame: number;
+    const align = () => {
+      const fg = fgRef.current;
+      if (fg) {
+        const camera = fg.camera();
+        fg.scene().traverse((obj) => {
+          if ((obj as THREE.Object3D).userData?.isLabel) {
+            (obj as THREE.Object3D).lookAt(camera.position);
+          }
+        });
+      }
+      frame = requestAnimationFrame(align);
+    };
+    align();
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    const fg = fgRef.current;
+    if (!fg) return;
+    const scene = fg.scene();
+    const guideGroup = new THREE.Group();
+
+    const makeRing = (inner: number, outer: number, opacity: number) => {
+      const geometry = new THREE.RingGeometry(inner, outer, 64);
+      const material = new THREE.MeshBasicMaterial({
+        color: 0xe2e8f0,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity,
+      });
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.rotation.x = Math.PI / 2;
+      guideGroup.add(mesh);
+    };
+
+    makeRing(25, 27, 0.28);
+    makeRing(42, 44, 0.18);
+
+    scene.add(guideGroup);
+    return () => {
+      scene.remove(guideGroup);
+      guideGroup.traverse((obj) => {
+        if (obj instanceof THREE.Mesh) {
+          obj.geometry.dispose();
+          if (Array.isArray(obj.material)) {
+            obj.material.forEach((mat) => mat.dispose());
+          } else {
+            obj.material.dispose();
+          }
+        }
+      });
+    };
+  }, []);
+
   return (
     <div ref={containerRef} className="h-[560px] w-full">
       {width > 0 && height > 0 ? (
@@ -154,13 +211,18 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
           }
           nodeAutoColorBy="group"
           linkOpacity={0.65}
-          linkWidth={(link) => (link.importance === 'critical' ? 2.4 : 1.1)}
           linkDirectionalParticles={2}
           linkDirectionalParticleSpeed={() => 0.004}
           linkDirectionalParticleWidth={2}
           linkDirectionalParticleColor={() => '#4f46e5'}
           linkDirectionalArrowLength={8}
           linkDirectionalArrowColor={(link) => link.color as string}
+          linkWidth={(link) => {
+            const sourceId = typeof link.source === 'string' ? link.source : (link.source as RouteGraph3DNode).id;
+            const targetId = typeof link.target === 'string' ? link.target : (link.target as RouteGraph3DNode).id;
+            const hoverMatch = hoveredId && (sourceId === hoveredId || targetId === hoveredId);
+            return hoverMatch ? 3.2 : link.importance === 'critical' ? 2.4 : 1.1;
+          }}
           nodeThreeObject={(node) => {
             const radius = Math.cbrt((node.val as number) || 1) * 2.2;
             const geometry = new THREE.SphereGeometry(radius, 32, 32);
@@ -171,6 +233,17 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
               emissiveIntensity: selectedId === node.id ? 0.9 : 0,
             });
             const sphere = new THREE.Mesh(geometry, material);
+
+            if (node.isHighlighted || selectedId === node.id) {
+              const haloGeometry = new THREE.SphereGeometry(radius * 1.35, 32, 32);
+              const haloMaterial = new THREE.MeshBasicMaterial({
+                color: baseColor,
+                transparent: true,
+                opacity: node.isHighlighted ? 0.4 : 0.25,
+              });
+              const halo = new THREE.Mesh(haloGeometry, haloMaterial);
+              sphere.add(halo);
+            }
 
             const { texture, width, height } = getLabelTexture(
               node.label,
@@ -188,6 +261,7 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
             const offset = radius + 3;
             labelMesh.position.set(offset, 0, 0);
             labelMesh.rotation.y = Math.PI / 2;
+            labelMesh.userData.isLabel = true;
 
             const group = new THREE.Group();
             group.add(sphere);
@@ -199,6 +273,7 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
               onSelect?.(String(node.id));
             }
           }}
+          onNodeHover={(node) => setHoveredId(node?.id ? String(node.id) : null)}
         />
       ) : (
         <div className="flex h-full items-center justify-center text-sm text-slate-500">
