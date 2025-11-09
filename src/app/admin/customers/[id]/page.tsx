@@ -9,6 +9,7 @@ import { CustomerAddressFields } from '@/components/customers/forms/CustomerAddr
 import { CustomerDeliveryFields } from '@/components/customers/forms/CustomerDeliveryFields';
 import { CustomerContactsManager } from '@/components/customers/CustomerContactsManager';
 import { GoogleMapsAutoFill } from '@/components/customers/GoogleMapsAutoFill';
+import { CustomerGoogleFields } from '@/components/customers/forms/CustomerGoogleFields';
 import type {
   CustomerType,
   FeatureProgram,
@@ -36,6 +37,14 @@ interface Customer {
   paymentMethod: string | null;
   defaultWarehouseLocation: string | null;
   deliveryWindows: DeliveryWindow[] | null;
+  website: string | null;
+  internationalPhone: string | null;
+  googlePlaceId: string | null;
+  googlePlaceName: string | null;
+  googleFormattedAddress: string | null;
+  googleMapsUrl: string | null;
+  googleBusinessStatus: string | null;
+  googlePlaceTypes: string[];
   riskStatus: string;
   lastOrderDate: string | null;
   nextExpectedOrderDate: string | null;
@@ -103,6 +112,7 @@ type CustomerFormState = {
   name: string;
   billingEmail: string;
   phone: string;
+  internationalPhone: string;
   street1: string;
   street2: string;
   city: string;
@@ -122,12 +132,20 @@ type CustomerFormState = {
   paymentMethod: string;
   defaultWarehouseLocation: string;
   deliveryWindows: DeliveryWindow[];
+  website: string;
+  googlePlaceId: string;
+  googlePlaceName: string;
+  googleFormattedAddress: string;
+  googleMapsUrl: string;
+  googleBusinessStatus: string;
+  googlePlaceTypes: string[];
 };
 
 const INITIAL_FORM_STATE: CustomerFormState = {
   name: '',
   billingEmail: '',
   phone: '',
+  internationalPhone: '',
   street1: '',
   street2: '',
   city: '',
@@ -147,6 +165,13 @@ const INITIAL_FORM_STATE: CustomerFormState = {
   paymentMethod: '',
   defaultWarehouseLocation: '',
   deliveryWindows: [],
+  website: '',
+  googlePlaceId: '',
+  googlePlaceName: '',
+  googleFormattedAddress: '',
+  googleMapsUrl: '',
+  googleBusinessStatus: '',
+  googlePlaceTypes: [],
 };
 
 export default function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -186,6 +211,7 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         name: data.customer.name ?? '',
         billingEmail: data.customer.billingEmail ?? '',
         phone: data.customer.phone ?? '',
+        internationalPhone: data.customer.internationalPhone ?? '',
         street1: data.customer.street1 ?? '',
         street2: data.customer.street2 ?? '',
         city: data.customer.city ?? '',
@@ -207,6 +233,13 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         deliveryWindows: Array.isArray(data.customer.deliveryWindows)
           ? (data.customer.deliveryWindows as DeliveryWindow[])
           : [],
+        website: data.customer.website ?? '',
+        googlePlaceId: data.customer.googlePlaceId ?? '',
+        googlePlaceName: data.customer.googlePlaceName ?? '',
+        googleFormattedAddress: data.customer.googleFormattedAddress ?? '',
+        googleMapsUrl: data.customer.googleMapsUrl ?? '',
+        googleBusinessStatus: data.customer.googleBusinessStatus ?? '',
+        googlePlaceTypes: data.customer.googlePlaceTypes ?? [],
       });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to fetch customer');
@@ -229,7 +262,15 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         }
         return currentValue;
       };
-
+      const applyArray = (currentValues: string[], nextValues?: string[] | null) => {
+        if (!nextValues || nextValues.length === 0) {
+          return currentValues;
+        }
+        if (overwriteExisting || currentValues.length === 0) {
+          return nextValues;
+        }
+        return currentValues;
+      };
       const phone = suggestion.phoneNumber ?? suggestion.internationalPhoneNumber ?? "";
       const address = suggestion.address ?? null;
 
@@ -237,11 +278,21 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         ...prev,
         name: applyField(prev.name, suggestion.name ?? null),
         phone: phone ? applyField(prev.phone, phone) : prev.phone,
+        internationalPhone: suggestion.internationalPhoneNumber
+          ? applyField(prev.internationalPhone, suggestion.internationalPhoneNumber)
+          : prev.internationalPhone,
         street1: applyField(prev.street1, address?.street1 ?? null),
         city: applyField(prev.city, address?.city ?? null),
         state: applyField(prev.state, address?.state ?? null),
         postalCode: applyField(prev.postalCode, address?.postalCode ?? null),
         country: applyField(prev.country, address?.country ?? null),
+        website: applyField(prev.website, suggestion.website ?? null),
+        googlePlaceId: applyField(prev.googlePlaceId, suggestion.placeId ?? null),
+        googlePlaceName: applyField(prev.googlePlaceName, suggestion.name ?? null),
+        googleFormattedAddress: applyField(prev.googleFormattedAddress, suggestion.formattedAddress ?? null),
+        googleMapsUrl: applyField(prev.googleMapsUrl, suggestion.googleMapsUrl ?? null),
+        googleBusinessStatus: applyField(prev.googleBusinessStatus, suggestion.businessStatus ?? null),
+        googlePlaceTypes: applyArray(prev.googlePlaceTypes, suggestion.types ?? null),
       };
     });
   };
@@ -514,6 +565,28 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
             }
             disabled={saving}
             readOnlyFields={{ accountNumber: true }}
+          />
+        </div>
+
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <h2 className="text-xl font-bold mb-2">Google Maps Metadata</h2>
+          <p className="text-sm text-gray-500 mb-4">
+            Store canonical Google data for deduping and quick lookups.
+          </p>
+          <CustomerGoogleFields
+            values={{
+              website: formData.website || null,
+              googlePlaceId: formData.googlePlaceId || null,
+              googlePlaceName: formData.googlePlaceName || null,
+              googleFormattedAddress: formData.googleFormattedAddress || null,
+              internationalPhone: formData.internationalPhone || null,
+              googleMapsUrl: formData.googleMapsUrl || null,
+              googleBusinessStatus: formData.googleBusinessStatus || null,
+              googlePlaceTypes: formData.googlePlaceTypes,
+            }}
+            disabled={saving}
+            onChange={(field, value) => updateForm({ [field]: value ?? "" } as Partial<CustomerFormState>)}
+            onTypesChange={(types) => updateForm({ googlePlaceTypes: types })}
           />
         </div>
 

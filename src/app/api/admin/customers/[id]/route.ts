@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { logCustomerUpdate } from '@/lib/audit';
 import { Prisma } from '@prisma/client';
-import type { DeliveryWindow } from '@/types/customer';
+import type { DeliveryWindow, FeatureProgram } from '@/types/customer';
 
 const TIME_PATTERN = /^([01]\d|2[0-3]):[0-5]\d$/;
 
@@ -81,6 +81,14 @@ const ALLOWED_CUSTOMER_FIELDS = [
   'postalCode',
   'country',
   'paymentTerms',
+  'website',
+  'internationalPhone',
+  'googlePlaceId',
+  'googlePlaceName',
+  'googleFormattedAddress',
+  'googleMapsUrl',
+  'googleBusinessStatus',
+  'googlePlaceTypes',
   'licenseNumber',
   'deliveryInstructions',
   'deliveryMethod',
@@ -249,6 +257,7 @@ export async function GET(
       return NextResponse.json({
         customer: {
           ...customer,
+          googlePlaceTypes: customer.googlePlaceTypes ?? [],
           totalRevenue,
           totalOrders: customer.orders.length,
           openInvoicesCount: openInvoices.length,
@@ -301,6 +310,8 @@ export async function PUT(
         );
       }
 
+      const updateData: Prisma.CustomerUpdateInput = {};
+
       if (Object.prototype.hasOwnProperty.call(body, 'deliveryWindows')) {
         const windowsResult = sanitizeDeliveryWindows(body.deliveryWindows);
         if (!windowsResult.valid) {
@@ -316,9 +327,6 @@ export async function PUT(
           : null;
       }
 
-      // Prepare update data
-      const updateData: Prisma.CustomerUpdateInput = {};
-
       for (const field of ALLOWED_CUSTOMER_FIELDS) {
         if (!Object.prototype.hasOwnProperty.call(body, field)) {
           continue;
@@ -333,11 +341,40 @@ export async function PUT(
           continue;
         }
 
-        if (field === 'featurePrograms' && !Array.isArray(value)) {
-          return NextResponse.json(
-            { error: 'featurePrograms must be an array' },
-            { status: 400 }
-          );
+        if (field === 'featurePrograms') {
+          if (!Array.isArray(value)) {
+            return NextResponse.json(
+              { error: 'featurePrograms must be an array' },
+              { status: 400 }
+            );
+          }
+
+          const cleanedPrograms = (value as unknown[])
+            .filter((program): program is string => typeof program === 'string')
+            .map((program) => program.trim())
+            .filter((program, index, arr) => program.length && arr.indexOf(program) === index);
+
+          updateData.featurePrograms = cleanedPrograms as FeatureProgram[];
+          continue;
+        }
+
+        if (field === 'googlePlaceTypes') {
+          if (value === null) {
+            updateData.googlePlaceTypes = [];
+            continue;
+          }
+          if (!Array.isArray(value)) {
+            return NextResponse.json(
+              { error: 'googlePlaceTypes must be an array' },
+              { status: 400 }
+            );
+          }
+          const cleanedTypes = (value as unknown[])
+            .filter((type): type is string => typeof type === 'string')
+            .map((type) => type.trim())
+            .filter((type, index, arr) => type.length && arr.indexOf(type) === index);
+          updateData.googlePlaceTypes = cleanedTypes;
+          continue;
         }
 
         updateData[field] = value as Prisma.CustomerUpdateInput[typeof field];

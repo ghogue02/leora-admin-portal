@@ -25,6 +25,7 @@ import SampleQuickLogPanel from "./sections/SampleQuickLogPanel";
 import { CustomerClassificationCard } from "./sections/CustomerClassificationCard";
 import { DeliveryPreferences } from "./sections/DeliveryPreferences";
 import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
+import { GoogleProfileCard } from "./sections/GoogleProfileCard";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -182,6 +183,20 @@ export default function CustomerDetailClient({
         type={data.customer.type ?? null}
         volumeCapacity={data.customer.volumeCapacity ?? null}
         featurePrograms={data.customer.featurePrograms ?? []}
+      />
+
+      <GoogleProfileCard
+        customer={{
+          googlePlaceName: data.customer.googlePlaceName ?? null,
+          googlePlaceId: data.customer.googlePlaceId ?? null,
+          googleFormattedAddress: data.customer.googleFormattedAddress ?? null,
+          website: data.customer.website ?? null,
+          googleMapsUrl: data.customer.googleMapsUrl ?? null,
+          googleBusinessStatus: data.customer.googleBusinessStatus ?? null,
+          googlePlaceTypes: data.customer.googlePlaceTypes ?? [],
+          phone: data.customer.phone ?? null,
+          internationalPhone: data.customer.internationalPhone ?? null,
+        }}
       />
 
       {/* Performance Metrics */}

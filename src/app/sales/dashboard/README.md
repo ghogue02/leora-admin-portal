@@ -67,13 +67,13 @@ export default function DashboardPage() {
 
 ## Features
 
-✅ Drag-and-drop repositioning
-✅ Responsive breakpoints (lg, md, sm, xs)
-✅ Save/restore layouts
-✅ Add/remove widgets
-✅ Reset to default layout
-✅ Individual widget data loading
-✅ Error handling and loading states
+- Drag-and-drop repositioning
+- Responsive breakpoints (lg, md, sm, xs)
+- Save/restore layouts
+- Add/remove widgets
+- Reset to default layout
+- Individual widget data loading
+- Error handling and loading states
 
 ## API Endpoints
 

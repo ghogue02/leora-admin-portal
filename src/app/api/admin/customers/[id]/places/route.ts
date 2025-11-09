@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession } from "@/lib/auth/admin";
-import { fetchGooglePlaceSuggestion } from "@/lib/maps/googlePlaces";
+import { fetchGooglePlaceDetails } from "@/lib/maps/googlePlaces";
 
 type RouteContext = {
   params: Promise<{
@@ -11,6 +11,9 @@ type RouteContext = {
 export async function GET(request: NextRequest, context: RouteContext) {
   return withAdminSession(request, async ({ db, tenantId }) => {
     const { id } = await context.params;
+    const { searchParams } = new URL(request.url);
+    const customQuery = searchParams.get("query")?.trim();
+    const placeId = searchParams.get("placeId")?.trim();
     const customerId = id;
 
     const customer = await db.customer.findFirst({
@@ -24,8 +27,6 @@ export async function GET(request: NextRequest, context: RouteContext) {
       return NextResponse.json({ error: "Customer not found" }, { status: 404 });
     }
 
-    const { searchParams } = new URL(request.url);
-    const customQuery = searchParams.get("query")?.trim();
     const queryParts = customQuery
       ? [customQuery]
       : [
@@ -38,12 +39,15 @@ export async function GET(request: NextRequest, context: RouteContext) {
 
     const queryString = queryParts.join(" ").trim();
 
-    if (!queryString) {
+    if (!placeId && !queryString) {
       return NextResponse.json({ error: "Customer name or address missing" }, { status: 400 });
     }
 
     try {
-      const suggestion = await fetchGooglePlaceSuggestion(queryString);
+      const suggestion = await fetchGooglePlaceDetails({
+        placeId: placeId || undefined,
+        query: placeId ? undefined : queryString,
+      });
 
       if (suggestion?.location) {
         await db.customer.update({

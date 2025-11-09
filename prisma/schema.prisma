@@ -476,6 +476,14 @@ model Customer {
   deliveryMethod            String?
   defaultDeliveryTimeWindow String?
   defaultWarehouseLocation  String?
+  website                   String?
+  googlePlaceId             String?
+  googlePlaceName           String?
+  googleFormattedAddress    String?
+  internationalPhone        String?
+  googleMapsUrl             String?
+  googleBusinessStatus      String?
+  googlePlaceTypes          String[]                @default([])
   requiresPO                Boolean                 @default(false)
   invoiceStateCode          String? // State code for invoice numbering (VA, MD, DC, TE)
   isTaxExempt               Boolean                 @default(false)
@@ -1213,6 +1221,42 @@ model AuditLog {
   @@index([tenantId, entityType, entityId])
   @@index([userId])
   @@index([createdAt])
+}
+
+model JobRunLog {
+  id            String        @id @default(uuid()) @db.Uuid
+  jobName       String
+  status        JobRunStatus  @default(RUNNING)
+  environment   String?
+  tenantSlug    String?
+  startedAt     DateTime      @default(now())
+  finishedAt    DateTime?
+  durationMs    Int?
+  errorMessage  String?
+  metadata      Json?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  @@index([jobName, startedAt])
+  @@index([tenantSlug, startedAt])
+}
+
+model HealthPingLog {
+  id             String            @id @default(uuid()) @db.Uuid
+  source         String            @default("internal")
+  targetTenant   String?
+  status         HealthPingStatus  @default(UP)
+  statusCode     Int?
+  responseTimeMs Int?
+  checkedAt      DateTime          @default(now())
+  detail         String?
+  createdAt      DateTime          @default(now())
+  acknowledgedAt DateTime?
+  acknowledgedBy String?
+  acknowledgedByName String?
+
+  @@index([targetTenant, checkedAt])
+  @@index([checkedAt])
 }
 
 model DataIntegritySnapshot {
@@ -2209,10 +2253,22 @@ enum TaskStatus {
   CANCELLED
 }
 
+enum JobRunStatus {
+  RUNNING
+  SUCCESS
+  FAILED
+}
+
 enum TaskPriority {
   LOW
   MEDIUM
   HIGH
+}
+
+enum HealthPingStatus {
+  UP
+  DOWN
+  DEGRADED
 }
 
 enum ComplianceStatus {

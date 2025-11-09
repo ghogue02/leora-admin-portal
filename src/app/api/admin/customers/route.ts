@@ -204,6 +204,13 @@ export async function POST(request: NextRequest) {
         accountNumber = `CUST-${(count + 1).toString().padStart(6, '0')}`;
       }
 
+      const googlePlaceTypes = Array.isArray(body.googlePlaceTypes)
+        ? (body.googlePlaceTypes as unknown[])
+            .filter((type): type is string => typeof type === 'string')
+            .map((type) => type.trim())
+            .filter((type, index, arr) => type.length && arr.indexOf(type) === index)
+        : [];
+
       // Create customer
       const customer = await db.customer.create({
         data: {
@@ -212,6 +219,7 @@ export async function POST(request: NextRequest) {
           accountNumber,
           billingEmail,
           phone,
+          internationalPhone: body.internationalPhone || null,
           street1,
           street2: body.street2 || null,
           city,
@@ -220,6 +228,13 @@ export async function POST(request: NextRequest) {
           country: body.country || 'US',
           paymentTerms: body.paymentTerms || 'Net 30',
           salesRepId: body.salesRepId || null,
+          website: body.website || null,
+          googlePlaceId: body.googlePlaceId || null,
+          googlePlaceName: body.googlePlaceName || null,
+          googleFormattedAddress: body.googleFormattedAddress || null,
+          googleMapsUrl: body.googleMapsUrl || null,
+          googleBusinessStatus: body.googleBusinessStatus || null,
+          googlePlaceTypes,
         },
         include: {
           salesRep: {

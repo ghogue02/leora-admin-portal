@@ -39,6 +39,7 @@
     "start": "next start",
     "test": "vitest run",
     "test:all": "npm run test && npm run test:e2e",
+    "smoke:health": "tsx scripts/smoke-health.ts",
     "test:e2e": "playwright test",
     "test:e2e:chrome": "playwright test --project=chromium",
     "test:e2e:firefox": "playwright test --project=firefox",

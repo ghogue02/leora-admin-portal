@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { GoogleMapsAutoFill } from '@/components/customers/GoogleMapsAutoFill';
+import { CustomerGoogleFields } from '@/components/customers/forms/CustomerGoogleFields';
+import type { GooglePlaceSuggestion } from '@/lib/maps/googlePlaces';
 
 export default function NewCustomerPage() {
   const router = useRouter();
@@ -13,6 +16,7 @@ export default function NewCustomerPage() {
     name: '',
     billingEmail: '',
     phone: '',
+    internationalPhone: '',
     street1: '',
     street2: '',
     city: '',
@@ -22,6 +26,13 @@ export default function NewCustomerPage() {
     paymentTerms: 'Net 30',
     salesRepId: '',
     accountNumber: '', // Optional - will be auto-generated if empty
+    website: '',
+    googlePlaceId: '',
+    googlePlaceName: '',
+    googleFormattedAddress: '',
+    googleMapsUrl: '',
+    googleBusinessStatus: '',
+    googlePlaceTypes: [] as string[],
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,6 +62,51 @@ export default function NewCustomerPage() {
     }
   };
 
+  const applyGoogleSuggestion = (suggestion: GooglePlaceSuggestion, { overwriteExisting }: { overwriteExisting: boolean }) => {
+    setFormData((prev) => {
+      const fill = (current: string, next?: string | null) => {
+        if (!next) return current;
+        if (overwriteExisting || !current.trim()) {
+          return next;
+        }
+        return current;
+      };
+      const fillArray = (current: string[], next?: string[] | null) => {
+        if (!next || next.length === 0) {
+          return current;
+        }
+        if (overwriteExisting || current.length === 0) {
+          return next;
+        }
+        return current;
+      };
+
+      const phone = suggestion.phoneNumber ?? suggestion.internationalPhoneNumber ?? "";
+      const address = suggestion.address ?? null;
+
+      return {
+        ...prev,
+        name: fill(prev.name, suggestion.name ?? null),
+        phone: phone ? fill(prev.phone, phone) : prev.phone,
+        internationalPhone: suggestion.internationalPhoneNumber
+          ? fill(prev.internationalPhone, suggestion.internationalPhoneNumber)
+          : prev.internationalPhone,
+        street1: fill(prev.street1, address?.street1 ?? null),
+        city: fill(prev.city, address?.city ?? null),
+        state: fill(prev.state, address?.state ?? null),
+        postalCode: fill(prev.postalCode, address?.postalCode ?? null),
+        country: fill(prev.country, address?.country ?? null) || "US",
+        website: fill(prev.website, suggestion.website ?? null),
+        googlePlaceId: fill(prev.googlePlaceId, suggestion.placeId ?? null),
+        googlePlaceName: fill(prev.googlePlaceName, suggestion.name ?? null),
+        googleFormattedAddress: fill(prev.googleFormattedAddress, suggestion.formattedAddress ?? null),
+        googleMapsUrl: fill(prev.googleMapsUrl, suggestion.googleMapsUrl ?? null),
+        googleBusinessStatus: fill(prev.googleBusinessStatus, suggestion.businessStatus ?? null),
+        googlePlaceTypes: fillArray(prev.googlePlaceTypes, suggestion.types ?? null),
+      };
+    });
+  };
+
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <div className="mb-6">
@@ -65,6 +121,14 @@ export default function NewCustomerPage() {
       )}
 
       <form onSubmit={handleSubmit}>
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <h2 className="text-xl font-bold mb-3">Auto-fill with Google Maps</h2>
+          <GoogleMapsAutoFill
+            variant="admin"
+            defaultQuery={formData.name}
+            onApply={applyGoogleSuggestion}
+          />
+        </div>
         {/* Basic Information */}
         <div className="bg-white rounded-lg shadow p-6 mb-6">
           <h2 className="text-xl font-bold mb-4">Basic Information</h2>
@@ -133,6 +197,29 @@ export default function NewCustomerPage() {
               </select>
             </div>
           </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <h2 className="text-xl font-bold mb-4">Google Maps Metadata</h2>
+          <CustomerGoogleFields
+            values={{
+              website: formData.website || null,
+              googlePlaceId: formData.googlePlaceId || null,
+              googlePlaceName: formData.googlePlaceName || null,
+              googleFormattedAddress: formData.googleFormattedAddress || null,
+              internationalPhone: formData.internationalPhone || null,
+              googleMapsUrl: formData.googleMapsUrl || null,
+              googleBusinessStatus: formData.googleBusinessStatus || null,
+              googlePlaceTypes: formData.googlePlaceTypes,
+            }}
+            disabled={saving}
+            onChange={(field, value) =>
+              setFormData((prev) => ({ ...prev, [field]: value ?? "" }))
+            }
+            onTypesChange={(types) =>
+              setFormData((prev) => ({ ...prev, googlePlaceTypes: types }))
+            }
+          />
         </div>
 
         {/* Address */}

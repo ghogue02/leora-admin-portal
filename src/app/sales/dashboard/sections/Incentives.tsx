@@ -155,23 +155,7 @@ function IncentiveCard({ incentive }: { incentive: Incentive }) {
     }
   };
 
-  const getPrizeIcon = () => {
-    // Default trophy icon for all incentives
-    return "🏆";
-  };
-
-  const getRankMedal = (rank: number) => {
-    switch (rank) {
-      case 1:
-        return "🥇";
-      case 2:
-        return "🥈";
-      case 3:
-        return "🥉";
-      default:
-        return `#${rank}`;
-    }
-  };
+  const formatRankLabel = (rank: number) => `Rank ${rank}`;
 
   // Determine border color based on status
   const getBorderStyle = () => {
@@ -207,20 +191,19 @@ function IncentiveCard({ incentive }: { incentive: Incentive }) {
       className={`rounded-lg border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-4 ${getBorderStyle()}`}
     >
       <div className="flex items-start justify-between">
-        <div className="flex items-start gap-3">
-          <span className="text-2xl">{getPrizeIcon()}</span>
-          <div>
-            <div className="flex items-center gap-2">
-              <h3 className="font-semibold text-gray-900">{incentive.name}</h3>
-              {getStatusBadge()}
-            </div>
-            <p className="mt-1 text-sm text-gray-600">{incentive.description}</p>
+        <div>
+          <div className="flex items-center gap-2">
+            <h3 className="font-semibold text-gray-900">{incentive.name}</h3>
+            {getStatusBadge()}
           </div>
+          <p className="mt-1 text-sm text-gray-600">{incentive.description}</p>
         </div>
 
         {incentive.rank !== undefined && incentive.totalParticipants !== undefined && (
           <div className="text-right">
-            <div className="text-2xl">{getRankMedal(incentive.rank)}</div>
+            <p className="text-sm font-semibold text-gray-900">
+              {formatRankLabel(incentive.rank)}
+            </p>
             <p className="mt-1 text-xs text-gray-500">
               of {incentive.totalParticipants} reps
             </p>

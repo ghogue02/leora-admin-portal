@@ -1,5 +1,6 @@
 const GOOGLE_PLACES_FIND_URL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json";
 const GOOGLE_PLACES_DETAILS_URL = "https://maps.googleapis.com/maps/api/place/details/json";
+const GOOGLE_PLACES_AUTOCOMPLETE_URL = "https://maps.googleapis.com/maps/api/place/autocomplete/json";
 
 export type GooglePlaceSuggestion = {
   name: string | null;
@@ -15,6 +16,17 @@ export type GooglePlaceSuggestion = {
     postalCode: string | null;
     country: string | null;
   } | null;
+  placeId?: string | null;
+  googleMapsUrl?: string | null;
+  businessStatus?: string | null;
+  types?: string[] | null;
+};
+
+export type GooglePlacePrediction = {
+  placeId: string;
+  description: string;
+  primaryText: string;
+  secondaryText: string;
 };
 
 type FindPlaceResponse = {
@@ -29,6 +41,7 @@ type FindPlaceResponse = {
 type PlaceDetailsResponse = {
   result?: {
     name?: string;
+    place_id?: string;
     formatted_address?: string;
     formatted_phone_number?: string;
     international_phone_number?: string;
@@ -38,6 +51,9 @@ type PlaceDetailsResponse = {
       short_name?: string;
       types?: string[];
     }>;
+    business_status?: string;
+    types?: string[];
+    url?: string;
     geometry?: {
       location?: {
         lat?: number;
@@ -48,12 +64,126 @@ type PlaceDetailsResponse = {
   status: string;
 };
 
-export async function fetchGooglePlaceSuggestion(query: string) {
+type AutocompleteResponse = {
+  predictions?: Array<{
+    place_id?: string;
+    description?: string;
+    structured_formatting?: {
+      main_text?: string;
+      secondary_text?: string;
+    };
+  }>;
+  status: string;
+};
+
+export async function fetchGooglePlacePredictions(input: string): Promise<GooglePlacePrediction[]> {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
   if (!apiKey) {
     throw new Error("GOOGLE_MAPS_API_KEY is not configured");
   }
 
+  const params = new URLSearchParams({
+    input,
+    types: "establishment",
+    components: "country:us",
+    key: apiKey,
+  });
+
+  const response = await fetch(`${GOOGLE_PLACES_AUTOCOMPLETE_URL}?${params.toString()}`, {
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch Google Place predictions");
+  }
+
+  const data = (await response.json()) as AutocompleteResponse;
+  if (data.status !== "OK" || !data.predictions?.length) {
+    return [];
+  }
+
+  return data.predictions
+    .map((prediction) => ({
+      placeId: prediction.place_id ?? "",
+      description: prediction.description ?? "",
+      primaryText: prediction.structured_formatting?.main_text ?? prediction.description ?? "",
+      secondaryText: prediction.structured_formatting?.secondary_text ?? "",
+    }))
+    .filter((prediction) => prediction.placeId && prediction.description);
+}
+
+type GooglePlaceDetailsOptions = {
+  query?: string;
+  placeId?: string;
+};
+
+export async function fetchGooglePlaceDetails(options: GooglePlaceDetailsOptions) {
+  const apiKey = process.env.GOOGLE_MAPS_API_KEY;
+  if (!apiKey) {
+    throw new Error("GOOGLE_MAPS_API_KEY is not configured");
+  }
+
+  const resolvedPlaceId = options.placeId ?? (options.query ? await findPlaceId(options.query, apiKey) : null);
+  if (!resolvedPlaceId) {
+    return null;
+  }
+
+  const detailsParams = new URLSearchParams({
+    place_id: resolvedPlaceId,
+    fields: [
+      "name",
+      "formatted_address",
+      "formatted_phone_number",
+      "international_phone_number",
+      "website",
+      "geometry",
+      "address_components",
+      "business_status",
+      "types",
+      "url",
+    ].join(","),
+    key: apiKey,
+  });
+
+  const detailsResponse = await fetch(`${GOOGLE_PLACES_DETAILS_URL}?${detailsParams.toString()}`, {
+    cache: "no-store",
+  });
+
+  if (!detailsResponse.ok) {
+    throw new Error("Failed to fetch Google Place details");
+  }
+
+  const detailsData = (await detailsResponse.json()) as PlaceDetailsResponse;
+  if (detailsData.status !== "OK" || !detailsData.result) {
+    return null;
+  }
+
+  const result = detailsData.result;
+  const parsedAddress = extractAddress(result.address_components ?? []);
+  const placeId = result.place_id ?? resolvedPlaceId ?? null;
+  const googleMapsUrl =
+    result.url ?? (placeId ? `https://www.google.com/maps/place/?q=place_id:${placeId}` : null);
+  return {
+    name: result.name ?? null,
+    placeId,
+    formattedAddress: result.formatted_address ?? null,
+    phoneNumber: result.formatted_phone_number ?? null,
+    internationalPhoneNumber: result.international_phone_number ?? null,
+    website: result.website ?? null,
+    googleMapsUrl,
+    businessStatus: result.business_status ?? null,
+    types: result.types ?? null,
+    address: parsedAddress,
+    location: result.geometry?.location?.lat && result.geometry?.location?.lng
+      ? {
+          lat: result.geometry.location.lat,
+          lng: result.geometry.location.lng,
+        }
+      : null,
+  } satisfies GooglePlaceSuggestion;
+}
+
+async function findPlaceId(query: string, apiKey: string) {
   const findParams = new URLSearchParams({
     input: query,
     inputtype: "textquery",
@@ -74,54 +204,7 @@ export async function fetchGooglePlaceSuggestion(query: string) {
     return null;
   }
 
-  const placeId = findData.candidates[0].place_id;
-  if (!placeId) {
-    return null;
-  }
-
-  const detailsParams = new URLSearchParams({
-    place_id: placeId,
-    fields: [
-      "name",
-      "formatted_address",
-      "formatted_phone_number",
-      "international_phone_number",
-      "website",
-      "geometry",
-      "address_components",
-    ].join(","),
-    key: apiKey,
-  });
-
-  const detailsResponse = await fetch(`${GOOGLE_PLACES_DETAILS_URL}?${detailsParams.toString()}`, {
-    cache: "no-store",
-  });
-
-  if (!detailsResponse.ok) {
-    throw new Error("Failed to fetch Google Place details");
-  }
-
-  const detailsData = (await detailsResponse.json()) as PlaceDetailsResponse;
-  if (detailsData.status !== "OK" || !detailsData.result) {
-    return null;
-  }
-
-  const result = detailsData.result;
-  const parsedAddress = extractAddress(result.address_components ?? []);
-  return {
-    name: result.name ?? null,
-    formattedAddress: result.formatted_address ?? null,
-    phoneNumber: result.formatted_phone_number ?? null,
-    internationalPhoneNumber: result.international_phone_number ?? null,
-    website: result.website ?? null,
-    address: parsedAddress,
-    location: result.geometry?.location?.lat && result.geometry?.location?.lng
-      ? {
-          lat: result.geometry.location.lat,
-          lng: result.geometry.location.lng,
-        }
-      : null,
-  } satisfies GooglePlaceSuggestion;
+  return findData.candidates[0].place_id ?? null;
 }
 
 function extractAddress(

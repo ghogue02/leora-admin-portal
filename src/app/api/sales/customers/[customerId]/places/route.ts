@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
-import { fetchGooglePlaceSuggestion } from "@/lib/maps/googlePlaces";
+import { fetchGooglePlaceDetails } from "@/lib/maps/googlePlaces";
 import type { PrismaClient } from "@prisma/client";
 
 type RouteContext = {
@@ -44,12 +44,13 @@ async function ensureSalesAccess(db: PrismaClient, tenantId: string, userId: str
 export async function GET(request: NextRequest, context: RouteContext) {
   return withSalesSession(request, async ({ db, tenantId, session }) => {
     const { customerId } = await context.params;
+    const { searchParams } = new URL(request.url);
+    const customQuery = searchParams.get("query")?.trim();
+    const placeId = searchParams.get("placeId")?.trim();
     const access = await ensureSalesAccess(db, tenantId, session.user.id, customerId);
     if ("error" in access) return access.error;
 
     const customer = access.customer;
-    const { searchParams } = new URL(request.url);
-    const customQuery = searchParams.get("query")?.trim();
     const queryParts = customQuery
       ? [customQuery]
       : [
@@ -62,12 +63,15 @@ export async function GET(request: NextRequest, context: RouteContext) {
 
     const queryString = queryParts.join(" ").trim();
 
-    if (!queryString) {
+    if (!placeId && !queryString) {
       return NextResponse.json({ error: "Customer name or address missing" }, { status: 400 });
     }
 
     try {
-      const suggestion = await fetchGooglePlaceSuggestion(queryString);
+      const suggestion = await fetchGooglePlaceDetails({
+        placeId: placeId || undefined,
+        query: placeId ? undefined : queryString,
+      });
 
       if (suggestion?.location) {
         await db.customer.update({

@@ -17,6 +17,7 @@ interface CustomerDetailData {
     externalId: string | null;
     riskStatus: string;
     phone: string | null;
+    internationalPhone: string | null;
     billingEmail: string | null;
     paymentTerms: string | null;
     licenseNumber: string | null;
@@ -25,6 +26,13 @@ interface CustomerDetailData {
     paymentMethod: string | null;
     defaultWarehouseLocation: string | null;
     deliveryWindows: DeliveryWindow[] | null;
+    website: string | null;
+    googlePlaceId: string | null;
+    googlePlaceName: string | null;
+    googleFormattedAddress: string | null;
+    googleMapsUrl: string | null;
+    googleBusinessStatus: string | null;
+    googlePlaceTypes: string[];
     address: {
       street1: string | null;
       street2: string | null;

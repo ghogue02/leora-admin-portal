@@ -1,0 +1,40 @@
+name: Health Smoke Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      baseUrl:
+        description: "Base URL to test"
+        required: false
+        default: "https://web-omega-five-81.vercel.app"
+      tenants:
+        description: "Comma-separated tenant slugs"
+        required: false
+        default: "well-crafted"
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 12 * * *"
+
+jobs:
+  smoke-health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run /api/health smoke tests
+        env:
+          SMOKE_BASE_URL: ${{ inputs.baseUrl || env.SMOKE_BASE_URL || 'https://web-omega-five-81.vercel.app' }}
+          SMOKE_TENANTS: ${{ inputs.tenants || env.SMOKE_TENANTS || 'well-crafted' }}
+        run: |
+          echo "Testing $SMOKE_BASE_URL for tenants $SMOKE_TENANTS"
+          npm run smoke:health

@@ -4,7 +4,7 @@ import type { Prisma, PrismaClient } from "@prisma/client";
 const TENANT_ID_HEADER = "x-tenant-id";
 const TENANT_SLUG_HEADER = "x-tenant-slug";
 
-function getDefaultTenantSlug() {
+export function getDefaultTenantSlug() {
   return (
     process.env.DEFAULT_TENANT_SLUG ||
     process.env.NEXT_PUBLIC_TENANT_SLUG ||

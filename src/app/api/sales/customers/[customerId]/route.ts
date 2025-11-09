@@ -791,6 +791,7 @@ export async function GET(
           externalId: customer.externalId,
           riskStatus: customer.riskStatus,
           phone: customer.phone,
+          internationalPhone: customer.internationalPhone,
           billingEmail: customer.billingEmail,
           paymentTerms: customer.paymentTerms,
           licenseNumber: customer.licenseNumber,
@@ -798,6 +799,13 @@ export async function GET(
           deliveryMethod: customer.deliveryMethod,
           paymentMethod: customer.paymentMethod,
           defaultWarehouseLocation: customer.defaultWarehouseLocation,
+          website: customer.website,
+          googlePlaceId: customer.googlePlaceId,
+          googlePlaceName: customer.googlePlaceName,
+          googleFormattedAddress: customer.googleFormattedAddress,
+          googleMapsUrl: customer.googleMapsUrl,
+          googleBusinessStatus: customer.googleBusinessStatus,
+          googlePlaceTypes: customer.googlePlaceTypes ?? [],
           deliveryWindows: Array.isArray(customer.deliveryWindows)
             ? (customer.deliveryWindows as DeliveryWindow[])
             : [],
@@ -1057,6 +1065,7 @@ export async function PATCH(
         "accountNumber",
         "billingEmail",
         "phone",
+        "internationalPhone",
         "paymentTerms",
         "licenseNumber",
         "street1",
@@ -1069,6 +1078,12 @@ export async function PATCH(
         "deliveryMethod",
         "paymentMethod",
         "defaultWarehouseLocation",
+        "website",
+        "googlePlaceId",
+        "googlePlaceName",
+        "googleFormattedAddress",
+        "googleMapsUrl",
+        "googleBusinessStatus",
       ] as const;
 
       for (const field of editableStringFields) {
@@ -1173,6 +1188,23 @@ export async function PATCH(
         }
 
         updateData.featurePrograms = cleanedPrograms;
+      }
+
+      if (typeof body.googlePlaceTypes !== "undefined") {
+        if (body.googlePlaceTypes === null) {
+          updateData.googlePlaceTypes = [];
+        } else if (!Array.isArray(body.googlePlaceTypes)) {
+          return NextResponse.json(
+            { error: "googlePlaceTypes must be an array" },
+            { status: 400 }
+          );
+        } else {
+          const cleanedTypes = (body.googlePlaceTypes as unknown[])
+            .filter((type): type is string => typeof type === "string")
+            .map((type) => type.trim())
+            .filter((type, index, arr) => type.length && arr.indexOf(type) === index);
+          updateData.googlePlaceTypes = cleanedTypes;
+        }
       }
 
       // Update customer

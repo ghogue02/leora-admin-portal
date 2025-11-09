@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Protect admin routes
-  if (pathname.startsWith("/admin")) {
+  // Protect admin/dev routes
+  if (pathname.startsWith("/admin") || pathname.startsWith("/dev")) {
     // Check for sales or portal session cookies
     const salesSessionId = request.cookies.get("sales_session_id")?.value;
     const portalSessionId = request.cookies.get("portal_session_id")?.value;
@@ -25,6 +25,7 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/admin/:path*",
+    "/dev/:path*",
     // Add other protected routes here as needed
   ],
 };

@@ -8,6 +8,7 @@ import { CustomerClassificationFields } from "@/components/customers/CustomerCla
 import { CustomerBasicInfoFields } from "@/components/customers/forms/CustomerBasicInfoFields";
 import { CustomerAddressFields } from "@/components/customers/forms/CustomerAddressFields";
 import { CustomerDeliveryFields } from "@/components/customers/forms/CustomerDeliveryFields";
+import { CustomerGoogleFields } from "@/components/customers/forms/CustomerGoogleFields";
 import { GoogleMapsAutoFill } from "@/components/customers/GoogleMapsAutoFill";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
 import type { GooglePlaceSuggestion } from "@/lib/maps/googlePlaces";
@@ -28,6 +29,7 @@ type ContactFormState = {
   accountNumber: string;
   billingEmail: string;
   phone: string;
+  internationalPhone: string;
   paymentTerms: string;
   licenseNumber: string;
   street1: string;
@@ -41,6 +43,13 @@ type ContactFormState = {
   paymentMethod: string;
   defaultWarehouseLocation: string;
   deliveryWindows: DeliveryWindow[];
+  website: string;
+  googlePlaceId: string;
+  googlePlaceName: string;
+  googleFormattedAddress: string;
+  googleMapsUrl: string;
+  googleBusinessStatus: string;
+  googlePlaceTypes: string[];
 };
 
 type ClassificationState = {
@@ -54,6 +63,7 @@ const blankContactState: ContactFormState = {
   accountNumber: "",
   billingEmail: "",
   phone: "",
+  internationalPhone: "",
   paymentTerms: "",
   licenseNumber: "",
   street1: "",
@@ -67,6 +77,13 @@ const blankContactState: ContactFormState = {
   paymentMethod: "",
   defaultWarehouseLocation: "",
   deliveryWindows: [],
+  website: "",
+  googlePlaceId: "",
+  googlePlaceName: "",
+  googleFormattedAddress: "",
+  googleMapsUrl: "",
+  googleBusinessStatus: "",
+  googlePlaceTypes: [],
 };
 
 const blankClassificationState: ClassificationState = {
@@ -100,7 +117,15 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
         }
         return currentValue;
       };
-
+      const applyArray = (currentValues: string[], nextValues?: string[] | null) => {
+        if (!nextValues || nextValues.length === 0) {
+          return currentValues;
+        }
+        if (overwriteExisting || currentValues.length === 0) {
+          return nextValues;
+        }
+        return currentValues;
+      };
       const phone = suggestion.phoneNumber ?? suggestion.internationalPhoneNumber ?? "";
       const address = suggestion.address ?? null;
 
@@ -108,14 +133,23 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
         ...prev,
         name: applyField(prev.name, suggestion.name ?? null),
         phone: phone ? applyField(prev.phone, phone) : prev.phone,
+        internationalPhone: suggestion.internationalPhoneNumber
+          ? applyField(prev.internationalPhone, suggestion.internationalPhoneNumber)
+          : prev.internationalPhone,
         street1: applyField(prev.street1, address?.street1 ?? null),
         city: applyField(prev.city, address?.city ?? null),
         state: applyField(prev.state, address?.state ?? null),
         postalCode: applyField(prev.postalCode, address?.postalCode ?? null),
         country: applyField(prev.country, address?.country ?? null),
+        website: applyField(prev.website, suggestion.website ?? null),
+        googlePlaceId: applyField(prev.googlePlaceId, suggestion.placeId ?? null),
+        googlePlaceName: applyField(prev.googlePlaceName, suggestion.name ?? null),
+        googleFormattedAddress: applyField(prev.googleFormattedAddress, suggestion.formattedAddress ?? null),
+        googleMapsUrl: applyField(prev.googleMapsUrl, suggestion.googleMapsUrl ?? null),
+        googleBusinessStatus: applyField(prev.googleBusinessStatus, suggestion.businessStatus ?? null),
+        googlePlaceTypes: applyArray(prev.googlePlaceTypes, suggestion.types ?? null),
       };
     });
-
   };
 
   useEffect(() => {
@@ -125,6 +159,7 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
         accountNumber: data.customer.accountNumber ?? "",
         billingEmail: data.customer.billingEmail ?? "",
         phone: data.customer.phone ?? "",
+        internationalPhone: data.customer.internationalPhone ?? "",
         paymentTerms: data.customer.paymentTerms ?? "",
         licenseNumber: data.customer.licenseNumber ?? "",
         street1: data.customer.address.street1 ?? "",
@@ -140,6 +175,13 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
         deliveryWindows: Array.isArray(data.customer.deliveryWindows)
           ? (data.customer.deliveryWindows as DeliveryWindow[])
           : [],
+        website: data.customer.website ?? "",
+        googlePlaceId: data.customer.googlePlaceId ?? "",
+        googlePlaceName: data.customer.googlePlaceName ?? "",
+        googleFormattedAddress: data.customer.googleFormattedAddress ?? "",
+        googleMapsUrl: data.customer.googleMapsUrl ?? "",
+        googleBusinessStatus: data.customer.googleBusinessStatus ?? "",
+        googlePlaceTypes: data.customer.googlePlaceTypes ?? [],
       });
 
       setClassification({
@@ -150,7 +192,7 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
     }
   }, [data?.customer]);
 
-  type ContactStringField = Exclude<keyof ContactFormState, "deliveryWindows">;
+  type ContactStringField = Exclude<keyof ContactFormState, "deliveryWindows" | "googlePlaceTypes">;
 
   const handleContactChange = (field: ContactStringField, value: string | null) => {
     setContactForm((prev) => ({
@@ -169,24 +211,37 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
     setFormError(null);
 
     try {
+      const normalize = (value: string) => value.trim() || null;
+      const normalizedTypes = contactForm.googlePlaceTypes
+        .map((value) => value.trim())
+        .filter((value, index, arr) => value.length && arr.indexOf(value) === index);
+
       const payload = {
         name: contactForm.name.trim(),
-        accountNumber: contactForm.accountNumber.trim() || null,
-        billingEmail: contactForm.billingEmail.trim() || null,
-        phone: contactForm.phone.trim() || null,
-        paymentTerms: contactForm.paymentTerms.trim() || null,
-        licenseNumber: contactForm.licenseNumber.trim() || null,
-        street1: contactForm.street1.trim() || null,
-        street2: contactForm.street2.trim() || null,
-        city: contactForm.city.trim() || null,
-        state: contactForm.state.trim() || null,
-        postalCode: contactForm.postalCode.trim() || null,
-        country: contactForm.country.trim() || null,
-        deliveryInstructions: contactForm.deliveryInstructions.trim() || null,
-        deliveryMethod: contactForm.deliveryMethod.trim() || null,
-        paymentMethod: contactForm.paymentMethod.trim() || null,
-        defaultWarehouseLocation: contactForm.defaultWarehouseLocation.trim() || null,
+        accountNumber: normalize(contactForm.accountNumber),
+        billingEmail: normalize(contactForm.billingEmail),
+        phone: normalize(contactForm.phone),
+        internationalPhone: normalize(contactForm.internationalPhone),
+        paymentTerms: normalize(contactForm.paymentTerms),
+        licenseNumber: normalize(contactForm.licenseNumber),
+        street1: normalize(contactForm.street1),
+        street2: normalize(contactForm.street2),
+        city: normalize(contactForm.city),
+        state: normalize(contactForm.state),
+        postalCode: normalize(contactForm.postalCode),
+        country: normalize(contactForm.country),
+        deliveryInstructions: normalize(contactForm.deliveryInstructions),
+        deliveryMethod: normalize(contactForm.deliveryMethod),
+        paymentMethod: normalize(contactForm.paymentMethod),
+        defaultWarehouseLocation: normalize(contactForm.defaultWarehouseLocation),
         deliveryWindows: contactForm.deliveryWindows,
+        website: normalize(contactForm.website),
+        googlePlaceId: normalize(contactForm.googlePlaceId),
+        googlePlaceName: normalize(contactForm.googlePlaceName),
+        googleFormattedAddress: normalize(contactForm.googleFormattedAddress),
+        googleMapsUrl: normalize(contactForm.googleMapsUrl),
+        googleBusinessStatus: normalize(contactForm.googleBusinessStatus),
+        googlePlaceTypes: normalizedTypes,
         type: classification.type || null,
         volumeCapacity: classification.volumeCapacity || null,
         featurePrograms: classification.featurePrograms,
@@ -301,6 +356,32 @@ export default function CustomerEditClient({ customerId }: CustomerEditClientPro
                   handleContactChange(field as ContactStringField, value)
                 }
                 disabled={saving}
+              />
+            </section>
+
+            <section className="mt-8 space-y-6">
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">Google Maps Metadata</h2>
+                <p className="text-sm text-gray-500">Store the Google IDs and canonical contact info we pull in.</p>
+              </div>
+              <CustomerGoogleFields
+                values={{
+                  website: contactForm.website || null,
+                  googlePlaceId: contactForm.googlePlaceId || null,
+                  googlePlaceName: contactForm.googlePlaceName || null,
+                  googleFormattedAddress: contactForm.googleFormattedAddress || null,
+                  internationalPhone: contactForm.internationalPhone || null,
+                  googleMapsUrl: contactForm.googleMapsUrl || null,
+                  googleBusinessStatus: contactForm.googleBusinessStatus || null,
+                  googlePlaceTypes: contactForm.googlePlaceTypes,
+                }}
+                disabled={saving}
+                onChange={(field, value) =>
+                  handleContactChange(field as ContactStringField, value)
+                }
+                onTypesChange={(types) =>
+                  setContactForm((prev) => ({ ...prev, googlePlaceTypes: types }))
+                }
               />
             </section>
 
