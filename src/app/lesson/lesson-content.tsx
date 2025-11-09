@@ -1221,8 +1221,8 @@ export function LessonContent() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_1.45fr]">
-          <section className="space-y-6">
+        <section className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr]">
+          <div className="space-y-6">
             <header className="space-y-3">
               <p className="text-xs font-semibold uppercase tracking-[0.4em] text-slate-500">
                 Field Lesson
@@ -1249,7 +1249,9 @@ export function LessonContent() {
                 </article>
               ))}
             </div>
+          </div>
 
+          <div className="space-y-6">
             <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
               <div className="flex flex-col gap-3">
                 <div>
@@ -1288,24 +1290,28 @@ export function LessonContent() {
               </div>
             </div>
             {renderScenarioStrip()}
-          </section>
+          </div>
+        </section>
 
-          <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <div className="flex flex-col gap-1">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-                System map
-              </p>
-              <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
-              <p className="text-sm text-slate-600">
-                Nodes are scaled by request volume. Click any node to reveal the “story” of that dependency, plus the why/what of every connection.
-              </p>
-            </div>
-            <div className="mt-4 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
-              <svg
-                viewBox={`0 0 ${graph.diameter} ${graph.diameter}`}
-                role="img"
-                aria-label="Mind map representing connections between Leora route domains and vendors"
-              >
+        <section className="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-lg">
+          <div className="flex flex-col gap-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+              System map
+            </p>
+            <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
+            <p className="text-sm text-slate-600">
+              Nodes are scaled by request volume. Click any node to reveal the “story” of that dependency, plus the why/what of every connection.
+            </p>
+          </div>
+          <div
+            className="mt-6 overflow-hidden rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-100/80 to-slate-200/40"
+            style={{ minHeight: 560 }}
+          >
+            <svg
+              viewBox={`0 0 ${graph.diameter} ${graph.diameter}`}
+              role="img"
+              aria-label="Mind map representing connections between Leora route domains and vendors"
+            >
                 <defs>
                   <radialGradient id="nodeFade" cx="50%" cy="50%" r="75%">
                     <stop offset="0%" stopColor="#fff" />
