@@ -4,6 +4,7 @@ import { withPortalSession } from "@/lib/auth/portal";
 
 const DEFAULT_RECENT_LIMIT = 5;
 const OPEN_ORDER_STATUSES: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
+const REVENUE_ORDER_STATUSES: OrderStatus[] = ["SUBMITTED", "FULFILLED", "PARTIALLY_FULFILLED"];
 
 type OrdersSummary = {
   totalCount: number;
@@ -26,17 +27,23 @@ export async function GET(request: NextRequest) {
       const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
       const sixtyDaysAgo = new Date(now.getTime() - 60 * 24 * 60 * 60 * 1000);
 
-      const [ordersForRevenue, fulfilledOrders, openOrdersAggregate, recentOrders, groupedStatus, totalCount, outstandingInvoices] =
+      const [revenueCurrentAggregate, revenuePreviousAggregate, fulfilledOrders, openOrdersAggregate, recentOrders, groupedStatus, totalCount, outstandingInvoices] =
         await Promise.all([
-          db.order.findMany({
+          db.order.aggregate({
             where: {
               ...scope,
-              orderedAt: { gte: sixtyDaysAgo },
+              status: { in: REVENUE_ORDER_STATUSES },
+              orderedAt: { gte: thirtyDaysAgo, lte: now },
             },
-            select: {
-              orderedAt: true,
-              total: true,
+            _sum: { total: true },
+          }),
+          db.order.aggregate({
+            where: {
+              ...scope,
+              status: { in: REVENUE_ORDER_STATUSES },
+              orderedAt: { lt: thirtyDaysAgo, gte: sixtyDaysAgo },
             },
+            _sum: { total: true },
           }),
           db.order.findMany({
             where: {
@@ -76,7 +83,10 @@ export async function GET(request: NextRequest) {
           }),
           db.order.groupBy({
             by: ["status"],
-            where: scope,
+            where: {
+              ...scope,
+              status: { in: REVENUE_ORDER_STATUSES },
+            },
             _sum: {
               total: true,
             },
@@ -84,7 +94,12 @@ export async function GET(request: NextRequest) {
               _all: true,
             },
           }),
-        db.order.count({ where: scope }),
+        db.order.count({
+          where: {
+            ...scope,
+            status: { in: REVENUE_ORDER_STATUSES },
+          },
+        }),
         db.invoice.findMany({
           where: {
             tenantId,
@@ -103,16 +118,8 @@ export async function GET(request: NextRequest) {
         }),
       ]);
 
-      const revenueCurrent = sumOrderTotals(
-        ordersForRevenue.filter(
-          (order) => order.orderedAt && order.orderedAt >= thirtyDaysAgo && order.orderedAt <= now,
-        ),
-      );
-      const revenuePrevious = sumOrderTotals(
-        ordersForRevenue.filter(
-          (order) => order.orderedAt && order.orderedAt < thirtyDaysAgo && order.orderedAt >= sixtyDaysAgo,
-        ),
-      );
+      const revenueCurrent = Number(revenueCurrentAggregate._sum.total ?? 0);
+      const revenuePrevious = Number(revenuePreviousAggregate._sum.total ?? 0);
 
       const cadenceDays = calculateCadenceDays(fulfilledOrders.map((order) => order.fulfilledAt));
 
@@ -190,10 +197,6 @@ function buildOrderScope(tenantId: string, portalUserId: string, customerId: str
     ...base,
     portalUserId,
   } satisfies Prisma.OrderWhereInput;
-}
-
-function sumOrderTotals(orders: Array<{ total: Prisma.Decimal | null }>) {
-  return orders.reduce((acc, order) => acc + Number(order.total ?? 0), 0);
 }
 
 function calculateCadenceDays(dates: Array<Date | null>) {
