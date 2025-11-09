@@ -240,6 +240,7 @@ export default function SalesDashboardPage() {
     portfolioHealth,
     targetPipeline,
     coldLeads,
+    customerReportRows,
     upcomingEvents,
     customersDue,
     tasks,
@@ -304,6 +305,7 @@ export default function SalesDashboardPage() {
           salesRep={salesRep}
           accountPulse={accountPulse}
           customerSignals={customerSignals}
+          customerReportRows={customerReportRows}
           customerCoverage={customerCoverage}
           portfolioHealth={portfolioHealth}
           targetPipeline={targetPipeline}

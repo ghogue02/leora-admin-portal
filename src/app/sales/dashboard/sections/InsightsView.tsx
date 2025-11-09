@@ -10,6 +10,7 @@ import type {
   PortfolioHealth,
   TargetPipelineMetrics,
   ColdLeadsOverview,
+  CustomerReportRow,
 } from "@/types/sales-dashboard";
 
 type InsightsViewProps = {
@@ -19,6 +20,7 @@ type InsightsViewProps = {
   };
   accountPulse: AccountPulse;
   customerSignals: CustomerSignals;
+  customerReportRows: CustomerReportRow[];
   customerCoverage: CustomerCoverage;
   portfolioHealth: PortfolioHealth;
   targetPipeline: TargetPipelineMetrics;
@@ -30,6 +32,7 @@ export default function InsightsView({
   salesRep,
   accountPulse,
   customerSignals,
+  customerReportRows,
   customerCoverage,
   portfolioHealth,
   targetPipeline,
@@ -48,7 +51,7 @@ export default function InsightsView({
       )}
 
       {isSectionEnabled("customer-signals") && (
-        <CustomerSignalsPanel signals={customerSignals} />
+        <CustomerSignalsPanel signals={customerSignals} reportRows={customerReportRows} />
       )}
 
       {isSectionEnabled("portfolio-health") && (

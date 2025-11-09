@@ -1284,6 +1284,178 @@ export function LessonContent() {
     </div>
   );
 
+  const renderMapView = () => {
+    if (mapMode === '3d') {
+      return (
+        <RouteGraph3D
+          nodes={graph3DData.nodes}
+          links={graph3DData.links}
+          selectedId={selectedNodeId}
+          onSelect={handle3DSelect}
+        />
+      );
+    }
+
+    return (
+      <div
+        className="overflow-hidden rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-100/80 to-slate-200/40"
+        style={{ minHeight: 560 }}
+      >
+        <svg
+          viewBox={`0 0 ${graph.diameter} ${graph.diameter}`}
+          role="img"
+          aria-label="Mind map representing connections between Leora route domains and vendors"
+        >
+          <defs>
+            <radialGradient id="nodeFade" cx="50%" cy="50%" r="75%">
+              <stop offset="0%" stopColor="#fff" />
+              <stop offset="100%" stopColor="#e2e8f0" />
+            </radialGradient>
+            <marker id="arrowhead" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" fill="#94a3b8">
+              <path d="M0,0 L6,3 L0,6 Z" />
+            </marker>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#nodeFade)" />
+
+          {graph.lines.map((line, index) => {
+            const isScenarioHighlight =
+              highlightNodes.has(line.sourceId) || highlightNodes.has(line.targetId);
+            const isSearchHighlight =
+              matchedIds.has(line.sourceId) || matchedIds.has(line.targetId) || matchedIds.size === 0;
+            const opacity =
+              isScenarioHighlight || matchedIds.size === 0
+                ? 0.95
+                : isSearchHighlight
+                  ? 0.75
+                  : 0.25;
+
+            return (
+              <g key={index}>
+                <line
+                  x1={line.from.x}
+                  y1={line.from.y}
+                  x2={line.to.x}
+                  y2={line.to.y}
+                  stroke={line.importance === 'critical' ? '#0f172a' : '#cbd5f5'}
+                  strokeWidth={line.importance === 'critical' ? 2.4 : 1.4}
+                  strokeDasharray={line.importance === 'critical' ? undefined : '4 4'}
+                  opacity={opacity}
+                  markerEnd="url(#arrowhead)"
+                />
+                <text
+                  x={line.midpoint.x}
+                  y={line.midpoint.y}
+                  textAnchor="middle"
+                  fontSize="10"
+                  fill="#475569"
+                  opacity={opacity}
+                >
+                  {line.reason}
+                </text>
+              </g>
+            );
+          })}
+
+          {graph.targets.map((target) => {
+            const isActive = selectedItem.kind === 'target' && selectedItem.target.id === target.id;
+            const isMatched = matchedIds.size === 0 || matchedIds.has(target.id);
+            const isScenario = highlightNodes.has(target.id);
+            const activate = () => setSelectedItem({ kind: 'target', target });
+
+            return (
+              <g
+                key={target.id}
+                tabIndex={0}
+                role="button"
+                className="cursor-pointer focus:outline-none"
+                aria-pressed={isActive}
+                onClick={activate}
+                onKeyDown={(event) => handleSvgKey(event, activate)}
+              >
+                <circle
+                  cx={target.x}
+                  cy={target.y}
+                  r={target.radius}
+                  fill={isScenario ? '#fde68a' : '#f8fafc'}
+                  stroke={isActive ? '#0f172a' : '#cbd5f5'}
+                  strokeWidth={isActive ? 3 : 2}
+                  opacity={isMatched ? 1 : 0.3}
+                />
+                <text
+                  x={target.x}
+                  y={target.y - 4}
+                  textAnchor="middle"
+                  fontSize="12"
+                  fontWeight={600}
+                  fill="#0f172a"
+                >
+                  {target.label}
+                </text>
+                <text
+                  x={target.x}
+                  y={target.y + 12}
+                  textAnchor="middle"
+                  fontSize="10"
+                  fill="#475569"
+                >
+                  {target.count} vendors
+                </text>
+              </g>
+            );
+          })}
+
+          {graph.nodes.map((node) => {
+            const isActive = selectedItem.kind === 'route' && selectedItem.node.id === node.id;
+            const isMatched = matchedIds.size === 0 || matchedIds.has(node.id);
+            const isScenario = highlightNodes.has(node.id);
+            const activate = () => setSelectedItem({ kind: 'route', node });
+
+            return (
+              <g
+                key={node.id}
+                tabIndex={0}
+                role="button"
+                className="cursor-pointer focus:outline-none"
+                aria-pressed={isActive}
+                onClick={activate}
+                onKeyDown={(event) => handleSvgKey(event, activate)}
+              >
+                <circle
+                  cx={node.x}
+                  cy={node.y}
+                  r={node.radius}
+                  fill={isScenario ? '#bfdbfe' : isActive ? '#f8fafc' : '#fff'}
+                  stroke={isActive ? '#0f172a' : '#94a3b8'}
+                  strokeWidth={isActive ? 3 : 2}
+                  opacity={isMatched ? 1 : 0.3}
+                />
+                <text
+                  x={node.x}
+                  y={node.y - 4}
+                  textAnchor="middle"
+                  fontSize="12"
+                  fontWeight={600}
+                  fill="#0f172a"
+                >
+                  {node.label}
+                </text>
+                <text
+                  x={node.x}
+                  y={node.y + 12}
+                  textAnchor="middle"
+                  fontSize="10"
+                  fill="#475569"
+                >
+                  {numberFormatter.format(node.requestsPerDay)} req/day
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    );
+  };
+
   const renderGlossary = () => (
     <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
@@ -1413,181 +1585,11 @@ export function LessonContent() {
             </div>
           </div>
 
-          <div className="mt-6">
-            {mapMode === '3d' ? (
-              <RouteGraph3D
-                nodes={graph3DData.nodes}
-                links={graph3DData.links}
-                selectedId={selectedNodeId}
-                onSelect={handle3DSelect}
-              />
-            ) : (
-              <div
-                className="overflow-hidden rounded-[32px] border border-slate-100 bg-gradient-to-b from-slate-100/80 to-slate-200/40"
-                style={{ minHeight: 560 }}
-              >
-                <svg
-                  viewBox={`0 0 ${graph.diameter} ${graph.diameter}`}
-                  role="img"
-                  aria-label="Mind map representing connections between Leora route domains and vendors"
-                >
-                <defs>
-                  <radialGradient id="nodeFade" cx="50%" cy="50%" r="75%">
-                    <stop offset="0%" stopColor="#fff" />
-                    <stop offset="100%" stopColor="#e2e8f0" />
-                  </radialGradient>
-                  <marker
-                    id="arrowhead"
-                    markerWidth="6"
-                    markerHeight="6"
-                    refX="5"
-                    refY="3"
-                    orient="auto"
-                    fill="#94a3b8"
-                  >
-                    <path d="M0,0 L6,3 L0,6 Z" />
-                  </marker>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#nodeFade)" />
-                {graph.lines.map((line, index) => {
-                  const isScenarioHighlight =
-                    highlightNodes.has(line.sourceId) || highlightNodes.has(line.targetId);
-                  const isSearchHighlight =
-                    matchedIds.has(line.sourceId) || matchedIds.has(line.targetId) || matchedIds.size === 0;
-                  const opacity =
-                    isScenarioHighlight || matchedIds.size === 0
-                      ? 0.95
-                      : isSearchHighlight
-                        ? 0.75
-                        : 0.25;
-                  return (
-                    <g key={index}>
-                      <line
-                        x1={line.from.x}
-                        y1={line.from.y}
-                        x2={line.to.x}
-                        y2={line.to.y}
-                        stroke={line.importance === 'critical' ? '#0f172a' : '#cbd5f5'}
-                        strokeWidth={line.importance === 'critical' ? 2.4 : 1.4}
-                        strokeDasharray={line.importance === 'critical' ? undefined : '4 4'}
-                        opacity={opacity}
-                        markerEnd="url(#arrowhead)"
-                      />
-                      <text
-                        x={line.midpoint.x}
-                        y={line.midpoint.y}
-                        textAnchor="middle"
-                        fontSize="10"
-                        fill="#475569"
-                        opacity={opacity}
-                      >
-                        {line.reason}
-                      </text>
-                    </g>
-                  );
-                })}
-                {graph.targets.map((target) => {
-                  const isActive =
-                    selectedItem.kind === 'target' && selectedItem.target.id === target.id;
-                  const isMatched = matchedIds.size === 0 || matchedIds.has(target.id);
-                  const isScenario = highlightNodes.has(target.id);
-                  const activate = () => setSelectedItem({ kind: 'target', target });
-                  return (
-                    <g
-                      key={target.id}
-                      tabIndex={0}
-                      role="button"
-                      className="cursor-pointer focus:outline-none"
-                      aria-pressed={isActive}
-                      onClick={activate}
-                      onKeyDown={(event) => handleSvgKey(event, activate)}
-                    >
-                      <circle
-                        cx={target.x}
-                        cy={target.y}
-                        r={target.radius}
-                        fill={isScenario ? '#fde68a' : '#f8fafc'}
-                        stroke={isActive ? '#0f172a' : '#cbd5f5'}
-                        strokeWidth={isActive ? 3 : 2}
-                        opacity={isMatched ? 1 : 0.3}
-                      />
-                      <text
-                        x={target.x}
-                        y={target.y - 4}
-                        textAnchor="middle"
-                        fontSize="12"
-                        fontWeight={600}
-                        fill="#0f172a"
-                      >
-                        {target.label}
-                      </text>
-                      <text
-                        x={target.x}
-                        y={target.y + 12}
-                        textAnchor="middle"
-                        fontSize="10"
-                        fill="#475569"
-                      >
-                        {target.count} vendors
-                      </text>
-                    </g>
-                  );
-                })}
-                {graph.nodes.map((node) => {
-                  const isActive =
-                    selectedItem.kind === 'route' && selectedItem.node.id === node.id;
-                  const isMatched = matchedIds.size === 0 || matchedIds.has(node.id);
-                  const isScenario = highlightNodes.has(node.id);
-                  const activate = () => setSelectedItem({ kind: 'route', node });
-                  return (
-                    <g
-                      key={node.id}
-                      tabIndex={0}
-                      role="button"
-                      className="cursor-pointer focus:outline-none"
-                      aria-pressed={isActive}
-                      onClick={activate}
-                      onKeyDown={(event) => handleSvgKey(event, activate)}
-                    >
-                      <circle
-                        cx={node.x}
-                        cy={node.y}
-                        r={node.radius}
-                        fill={isScenario ? '#bfdbfe' : isActive ? '#f8fafc' : '#fff'}
-                        stroke={isActive ? '#0f172a' : '#94a3b8'}
-                        strokeWidth={isActive ? 3 : 2}
-                        opacity={isMatched ? 1 : 0.3}
-                      />
-                      <text
-                        x={node.x}
-                        y={node.y - 4}
-                        textAnchor="middle"
-                        fontSize="12"
-                        fontWeight={600}
-                        fill="#0f172a"
-                      >
-                        {node.label}
-                      </text>
-                      <text
-                        x={node.x}
-                        y={node.y + 12}
-                        textAnchor="middle"
-                        fontSize="10"
-                        fill="#475569"
-                      >
-                        {numberFormatter.format(node.requestsPerDay)} req/day
-                      </text>
-                    </g>
-                  );
-                })}
-              </svg>
-              </div>
-            )}
+          <div className="mt-6">{renderMapView()}</div>
+          <div className="mt-5 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+            {renderSelectionPanel()}
           </div>
-            <div className="mt-5 rounded-2xl border border-slate-100 bg-slate-50 p-5">
-              {renderSelectionPanel()}
-            </div>
-          </section>
+        </section>
 
         <section className="space-y-4">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
