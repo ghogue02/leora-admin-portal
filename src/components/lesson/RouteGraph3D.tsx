@@ -91,6 +91,16 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!fgRef.current || width === 0 || height === 0) return;
+    const baseDistance = 90;
+    fgRef.current.cameraPosition(
+      { x: baseDistance, y: baseDistance * 0.25, z: baseDistance },
+      { x: 0, y: 0, z: 0 },
+      1200
+    );
+  }, [height, width]);
+
   const graphData = useMemo(() => {
     return {
       nodes: nodes.map((node) => ({
@@ -121,7 +131,7 @@ export function RouteGraph3D({ nodes, links, selectedId, focusId, onSelect }: Ro
       y: node.y ?? 0,
       z: node.z ?? 0,
     };
-    const distance = 160;
+    const distance = 90;
     const cameraPos = {
       x: coords.x + distance,
       y: coords.y + distance * 0.2,
