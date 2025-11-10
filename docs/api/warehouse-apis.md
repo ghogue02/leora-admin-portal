@@ -587,9 +587,9 @@ All APIs use standard error format:
 
 ## Security
 
-- All APIs require authentication via NextAuth session
+- All APIs require authentication via the sales/admin session middleware
 - Tenant isolation enforced at database level
-- CSRF protection via NextAuth
+- CSRF protection handled at the framework/middleware layer
 - Input validation with Zod schemas
 - SQL injection prevention via Prisma ORM
 

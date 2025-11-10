@@ -128,10 +128,6 @@ DATABASE_URL=postgresql://user:password@localhost:5432/database
 SHADOW_DATABASE_URL=postgresql://user:password@localhost:5432/shadow_database
 DIRECT_URL=postgresql://user:password@localhost:5432/database
 
-# NextAuth (if using)
-NEXTAUTH_SECRET=your_nextauth_secret
-NEXTAUTH_URL=http://localhost:3000
-
 # Google Calendar
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret

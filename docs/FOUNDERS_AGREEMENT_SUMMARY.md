@@ -158,7 +158,7 @@ Based on codebase analysis:
 ## SECURITY & COMPLIANCE POSTURE
 
 ### Security Features Implemented
-- **Authentication** - NextAuth.js with JWT, refresh tokens
+- **Authentication** - Custom session middleware with secure cookies + refresh tokens
 - **Authorization** - RBAC with granular permissions
 - **Data Isolation** - Tenant-based, SQL injection prevention (Prisma)
 - **Audit Trail** - Comprehensive logging of all user actions

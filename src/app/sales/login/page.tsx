@@ -161,14 +161,6 @@ export default function SalesLoginPage() {
           {status === "loading" ? "Signing in..." : "Sign in"}
         </button>
 
-        <div className="text-center">
-          <a
-            href="/portal"
-            className="text-sm font-medium text-gray-600 underline decoration-dotted underline-offset-4 hover:text-gray-900"
-          >
-            Customer portal
-          </a>
-        </div>
       </form>
     </main>
   );

@@ -480,7 +480,7 @@ GET    /api/admin/audit-logs/stats
 
 #### **AUTHENTICATION & AUTHORIZATION**
 **Implemented Features:**
-- NextAuth.js integration
+- Custom session middleware (`withSalesSession`, `withPortalSession`, `withAdminSession`)
 - Role-based access control (RBAC)
 - Tenant isolation
 - Multi-user type support:
@@ -494,7 +494,6 @@ GET    /api/admin/audit-logs/stats
 
 **Key Endpoints:**
 ```
-POST   /api/auth/[...nextauth]
 POST   /api/sales/auth/login
 POST   /api/portal/auth/login
 GET    /api/admin/auth/me
@@ -1187,7 +1186,7 @@ Location: `/src/app/api/routes/` & `/src/app/api/routing/`
 - Consistent error handling
 
 **Authentication:**
-- NextAuth.js for internal users
+- Session middleware for internal/portal users (shared cookie model)
 - Token-based for portal users
 - API key support via IntegrationToken model
 
@@ -1609,4 +1608,3 @@ The platform is **significantly more than an MVP**, representing 6+ months of pr
 - **Growth Capacity:** Architecture supports 100x+ scale without major refactoring
 - **Integration Strategy:** Platform designed for ecosystem expansion
 - **IP Classification:** Mixture of custom development + leveraged open-source + SaaS integrations
-

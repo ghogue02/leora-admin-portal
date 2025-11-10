@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { google } from 'googleapis';
 import prisma from '@/lib/prisma';
-import { getServerSession } from 'next-auth';
+import { getServerSession } from '@/lib/auth';
 import { encryptToken } from '@/lib/token-encryption';
 
 const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];

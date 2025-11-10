@@ -307,7 +307,7 @@ Example error response:
 
 ## Security
 
-- **Authentication:** NextAuth session validation on all endpoints
+- **Authentication:** Custom sales/admin session guards (`withSalesSession`, `withAdminSession`)
 - **Tenant Isolation:** All queries filtered by tenantId
 - **Input Validation:** Zod schemas validate all inputs
 - **SQL Injection Prevention:** Prisma ORM parameterized queries

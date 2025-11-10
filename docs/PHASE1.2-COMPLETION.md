@@ -237,10 +237,9 @@ Calendar
 ## 🔄 Next Steps
 
 ### Phase 1.3 - Authentication Setup
-- Install and configure NextAuth.js
-- Set up authentication providers
+- Wire the sales + portal session middleware (`withSalesSession`, `withPortalSession`)
 - Create login/signup pages using shadcn/ui components
-- Implement protected routes
+- Implement protected routes backed by the session cookies
 
 ### Phase 2 - Core Features
 - Build dashboard using Card, Table, Badge components

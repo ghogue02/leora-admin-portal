@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { Prisma } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
+import { buildDeliverySummary } from "./summary";
 
 const deliveryMethodSchema = z.enum(["Delivery", "Pick up", "Will Call", "all"]).optional();
 const usageFilterSchema = z.enum(["all", "standard", "promotion", "sample"]).optional();
@@ -105,6 +106,19 @@ export async function GET(request: NextRequest) {
           return usageValues.includes(usageFilter);
         });
 
+        const summary = buildDeliverySummary(
+          filteredInvoices.map((invoice) => ({
+            id: invoice.id,
+            total: invoice.total,
+            status: invoice.status,
+            issuedAt: invoice.issuedAt,
+            order: {
+              deliveryTimeWindow: invoice.order?.deliveryTimeWindow,
+              deliveryDate: invoice.order?.deliveryDate ?? null,
+            },
+          }))
+        );
+
         // Transform to expected format
         const transformedInvoices = filteredInvoices.map((invoice) => ({
           id: invoice.id,
@@ -122,6 +136,7 @@ export async function GET(request: NextRequest) {
 
         return NextResponse.json({
           invoices: transformedInvoices,
+          summary,
           filters: {
             deliveryMethod,
             startDate,

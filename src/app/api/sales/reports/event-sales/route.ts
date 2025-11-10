@@ -34,6 +34,18 @@ export async function GET(request: NextRequest) {
         dateFilters.push(Prisma.sql`AND o."deliveredAt" <= ${new Date(endDate)}`);
       }
 
+      let dateFilterSql = Prisma.empty;
+      let hasDateFilters = false;
+      for (const fragment of dateFilters) {
+        dateFilterSql = hasDateFilters
+          ? Prisma.sql`${dateFilterSql} ${fragment}`
+          : Prisma.sql`${fragment}`;
+        hasDateFilters = true;
+      }
+      if (!hasDateFilters) {
+        dateFilterSql = Prisma.empty;
+      }
+
       const eventSalesReport = await db.$queryRaw<EventSalesRow[]>(Prisma.sql`
         SELECT
           COALESCE(ct."tagValue", 'Untagged') AS "eventType",
@@ -60,7 +72,7 @@ export async function GET(request: NextRequest) {
           AND ct."removedAt" IS NULL
         LEFT JOIN "Order" o ON c."id" = o."customerId"
           AND c."tenantId" = o."tenantId"
-          ${Prisma.join(dateFilters, Prisma.sql` `)}
+          ${dateFilterSql}
         WHERE c."tenantId" = ${tenantId}::uuid
           AND c."isPermanentlyClosed" = false
         GROUP BY ct."tagValue"
@@ -78,7 +90,13 @@ export async function GET(request: NextRequest) {
       );
 
       return NextResponse.json({
-        report: eventSalesReport,
+        report: eventSalesReport.map((row) => ({
+          eventType: row.eventType,
+          customerCount: Number(row.customerCount),
+          orderCount: Number(row.orderCount),
+          totalRevenue: Number(row.totalRevenue),
+          avgOrderValue: Number(row.avgOrderValue),
+        })),
         summary: {
           totalCustomers: totals.totalCustomers,
           totalOrders: totals.totalOrders,

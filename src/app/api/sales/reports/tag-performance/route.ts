@@ -41,6 +41,18 @@ export async function GET(request: NextRequest) {
         ? Prisma.sql`AND ct."tagType" = ${tagType}`
         : Prisma.empty;
 
+      let dateFilterSql = Prisma.empty;
+      let hasDateFilters = false;
+      for (const fragment of dateFilters) {
+        dateFilterSql = hasDateFilters
+          ? Prisma.sql`${dateFilterSql} ${fragment}`
+          : Prisma.sql`${fragment}`;
+        hasDateFilters = true;
+      }
+      if (!hasDateFilters) {
+        dateFilterSql = Prisma.empty;
+      }
+
       const tagPerformance = await db.$queryRaw<TagPerformanceRow[]>(Prisma.sql`
         WITH TaggedCustomerRevenue AS (
           SELECT
@@ -57,7 +69,7 @@ export async function GET(request: NextRequest) {
           FROM "CustomerTag" ct
           INNER JOIN "Customer" c ON ct."customerId" = c."id" AND ct."tenantId" = c."tenantId"
           LEFT JOIN "Order" o ON c."id" = o."customerId" AND c."tenantId" = o."tenantId"
-            ${Prisma.join(dateFilters, Prisma.sql` `)}
+            ${dateFilterSql}
           WHERE ct."tenantId" = ${tenantId}::uuid
             AND ct."removedAt" IS NULL
             AND c."isPermanentlyClosed" = false

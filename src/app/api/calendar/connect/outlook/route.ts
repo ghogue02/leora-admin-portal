@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { ConfidentialClientApplication } from '@azure/msal-node';
 import prisma from '@/lib/prisma';
-import { getServerSession } from 'next-auth';
+import { getServerSession } from '@/lib/auth';
 import { encryptToken } from '@/lib/token-encryption';
 
 const SCOPES = ['Calendars.Read', 'Calendars.ReadWrite', 'offline_access'];

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
+import { getServerSession } from '@/lib/auth';
 import prisma from '@/lib/prisma';
 import { GoogleCalendarClient, OutlookCalendarClient } from '@/lib/calendar-sync';
 import type { Prisma } from '@prisma/client';
