@@ -21,6 +21,7 @@ interface Invoice {
   deliveryMethod: string;
   status: string;
   invoiceType: string;
+  total?: string;
 }
 
 interface ResultsTableProps {
@@ -116,6 +117,15 @@ export function ResultsTable({ invoices }: ResultsTableProps) {
     }
   };
 
+  const formatCurrency = (value?: string) => {
+    const amount = value ? Number.parseFloat(value) : 0;
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+    }).format(Number.isFinite(amount) ? amount : 0);
+  };
+
   return (
     <div className="space-y-4">
       <div className="rounded-md border">
@@ -182,12 +192,13 @@ export function ResultsTable({ invoices }: ResultsTableProps) {
                   {getSortIcon('status')}
                 </Button>
               </TableHead>
+              <TableHead>Total</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {paginatedInvoices.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={6} className="text-center h-24 text-muted-foreground">
+                <TableCell colSpan={7} className="text-center h-24 text-muted-foreground">
                   No invoices found matching the selected filters.
                 </TableCell>
               </TableRow>
@@ -212,6 +223,9 @@ export function ResultsTable({ invoices }: ResultsTableProps) {
                     <Badge variant={getStatusBadgeVariant(invoice.status)}>
                       {invoice.status}
                     </Badge>
+                  </TableCell>
+                  <TableCell className="font-mono text-right text-sm">
+                    {formatCurrency(invoice.total)}
                   </TableCell>
                 </TableRow>
               ))

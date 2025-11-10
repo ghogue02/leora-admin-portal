@@ -35,7 +35,7 @@ const DAY_OPTIONS = [
   { value: 6, label: 'Saturday' },
 ];
 
-export function ScheduledReports() {
+export function ScheduledReportsPanel() {
   const { pushToast } = useToast();
   const [reports, setReports] = useState<ScheduledReport[]>([]);
   const [loading, setLoading] = useState(true);
@@ -189,14 +189,14 @@ export function ScheduledReports() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">Scheduled Insights</h2>
-          <p className="text-sm text-gray-600">Get automatic email reports on your schedule</p>
+          <h2 className="text-lg font-semibold text-gray-900">Automated report delivery</h2>
+          <p className="text-sm text-gray-600">Email the latest dashboards to managers, reps, or ops on autopilot.</p>
         </div>
         <button
           onClick={() => setShowCreateDialog(true)}
           className="rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-indigo-500"
         >
-          + Schedule Report
+          + New schedule
         </button>
       </div>
 

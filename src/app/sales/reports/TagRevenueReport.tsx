@@ -24,14 +24,11 @@ import {
   DownloadIcon,
   TrendingUpIcon,
 } from 'lucide-react';
-import {
-  CUSTOMER_TAG_META,
-  CustomerTagType,
-} from '@/constants/customerTags';
+import { CUSTOMER_TAG_META } from '@/constants/customerTags';
 
-type TimeFrame = '30d' | '90d' | '1y' | 'all';
+type TimeFrame = '30d' | '90d' | 'ytd' | 'all' | 'custom';
 
-type TopCustomer = {
+type BreakdownEntry = {
   id: string;
   name: string;
   revenue: number;
@@ -39,12 +36,12 @@ type TopCustomer = {
 };
 
 type TagRevenueData = {
-  tagType: CustomerTagType;
+  tagType: string;
   totalRevenue: number;
   customerCount: number;
   orderCount: number;
   averageOrderValue: number;
-  topCustomers: TopCustomer[];
+  breakdowns?: BreakdownEntry[];
 };
 
 type TagRevenueReportProps = {
@@ -58,8 +55,9 @@ type TagRevenueReportProps = {
 const TIMEFRAME_LABELS: Record<TimeFrame, string> = {
   '30d': 'Last 30 Days',
   '90d': 'Last 90 Days',
-  '1y': 'Last Year',
+  ytd: 'Year to Date',
   all: 'All Time',
+  custom: 'Custom Range',
 };
 
 export default function TagRevenueReport({
@@ -69,9 +67,9 @@ export default function TagRevenueReport({
   isLoading = false,
   onExportCSV,
 }: TagRevenueReportProps) {
-  const [expandedRows, setExpandedRows] = useState<Set<CustomerTagType>>(new Set());
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
 
-  const toggleRow = (tagType: CustomerTagType) => {
+  const toggleRow = (tagType: string) => {
     const newExpanded = new Set(expandedRows);
     if (newExpanded.has(tagType)) {
       newExpanded.delete(tagType);
@@ -189,18 +187,20 @@ export default function TagRevenueReport({
             </TableHeader>
             <TableBody>
               {data.map((item) => {
-                const isExpanded = expandedRows.has(item.tagType);
+                const tagKey = item.tagType || 'Untagged';
+                const isExpanded = expandedRows.has(tagKey);
                 const revenuePercent =
                   totalRevenue > 0
                     ? ((item.totalRevenue / totalRevenue) * 100).toFixed(1)
                     : '0';
+                const tagMeta = CUSTOMER_TAG_META[tagKey as keyof typeof CUSTOMER_TAG_META];
 
                 return (
                   <>
                     <TableRow
-                      key={item.tagType}
+                      key={tagKey}
                       className="cursor-pointer hover:bg-slate-50"
-                      onClick={() => toggleRow(item.tagType)}
+                      onClick={() => toggleRow(tagKey)}
                     >
                       <TableCell>
                         <button
@@ -221,10 +221,10 @@ export default function TagRevenueReport({
                       </TableCell>
                       <TableCell>
                         <Badge
-                          className={CUSTOMER_TAG_META[item.tagType].pillClass}
+                          className={tagMeta?.pillClass || 'bg-slate-100 text-slate-800'}
                           variant="outline"
                         >
-                          {CUSTOMER_TAG_META[item.tagType].label}
+                          {tagMeta?.label || tagKey}
                         </Badge>
                       </TableCell>
                       <TableCell className="text-right font-semibold">
@@ -246,23 +246,23 @@ export default function TagRevenueReport({
                       </TableCell>
                     </TableRow>
 
-                    {/* Expanded row: Top customers */}
+                    {/* Expanded row: Tag breakdown */}
                     {isExpanded && (
                       <TableRow>
                         <TableCell colSpan={7} className="bg-slate-50 p-0">
                           <div className="px-12 py-4">
                             <h4 className="mb-3 text-sm font-semibold text-slate-700">
-                              Top Customers
+                              Top contributors
                             </h4>
                             <div className="space-y-2">
-                              {item.topCustomers.length === 0 ? (
+                              {!item.breakdowns || item.breakdowns.length === 0 ? (
                                 <p className="text-sm text-slate-500">
-                                  No customer data available
+                                  No segment breakdown data available
                                 </p>
                               ) : (
-                                item.topCustomers.map((customer, index) => (
+                                item.breakdowns.map((entry, index) => (
                                   <div
-                                    key={customer.id}
+                                    key={entry.id}
                                     className="flex items-center justify-between rounded-md border border-slate-200 bg-white px-4 py-2 text-sm"
                                   >
                                     <div className="flex items-center gap-3">
@@ -270,16 +270,16 @@ export default function TagRevenueReport({
                                         {index + 1}
                                       </span>
                                       <span className="font-medium text-gray-900">
-                                        {customer.name}
+                                        {entry.name}
                                       </span>
                                     </div>
                                     <div className="flex items-center gap-6 text-slate-600">
                                       <span>
-                                        {customer.orderCount} order
-                                        {customer.orderCount !== 1 ? 's' : ''}
+                                        {entry.orderCount} record
+                                        {entry.orderCount !== 1 ? 's' : ''}
                                       </span>
                                       <span className="font-semibold text-gray-900">
-                                        {formatCurrency(customer.revenue)}
+                                        {formatCurrency(entry.revenue)}
                                       </span>
                                     </div>
                                   </div>

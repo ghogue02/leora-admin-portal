@@ -10,8 +10,10 @@
  *   3. Poll status: Check Job.status field in database
  */
 
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { extractBusinessCard, extractLiquorLicense } from './image-extraction';
+import { downloadImportFile } from './imports/upload';
+import { ingestSalesReportRecords, parseSalesReportCsv } from './imports/sales-report-ingestion';
 
 const prisma = new PrismaClient();
 
@@ -227,8 +229,84 @@ async function processReportGeneration(payload: Record<string, any>): Promise<vo
  * Processes bulk data imports (CSV, Excel, etc.)
  */
 async function processBulkImport(payload: Record<string, any>): Promise<void> {
-  // TODO: Implement bulk import logic
-  console.log('Processing bulk import:', payload);
+  const batchId = typeof payload?.batchId === 'string' ? payload.batchId : null;
+  if (!batchId) {
+    console.warn('[job-queue] bulk_import job missing batchId; skipping.');
+    return;
+  }
+
+  const batch = await prisma.importBatch.findUnique({
+    where: { id: batchId },
+  });
+
+  if (!batch) {
+    throw new Error(`Import batch ${batchId} not found.`);
+  }
+
+  if (!batch.fileKey) {
+    throw new Error(`Import batch ${batchId} is missing a file reference.`);
+  }
+
+  const startedAt = new Date();
+  await prisma.importBatch.update({
+    where: { id: batchId },
+    data: {
+      status: 'processing',
+      startedAt,
+    },
+  });
+
+  try {
+    const { buffer } = await downloadImportFile(batch.fileKey);
+    const csvText = buffer.toString('utf-8');
+
+    const normalizedDataType = (batch.dataType ?? '').toLowerCase();
+    let ingestionResult = null;
+
+    switch (normalizedDataType) {
+      case 'sales_report':
+      case 'salesreport':
+      case 'orders':
+      case 'order_lines':
+      case 'orderlines': {
+        const records = parseSalesReportCsv(csvText);
+        ingestionResult = await ingestSalesReportRecords(prisma, batch.tenantId, records);
+        break;
+      }
+      default:
+        throw new Error(`Unsupported bulk import data type: ${batch.dataType}`);
+    }
+
+    const summary: Prisma.JsonObject = {
+      ...toJsonObject(batch.summary),
+      lastRunAt: new Date().toISOString(),
+      lastResult: ingestionResult,
+    };
+
+    await prisma.importBatch.update({
+      where: { id: batchId },
+      data: {
+        status: 'completed',
+        completedAt: new Date(),
+        summary,
+      },
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown bulk import error';
+    await prisma.importBatch.update({
+      where: { id: batchId },
+      data: {
+        status: 'failed',
+        completedAt: new Date(),
+        summary: {
+          ...toJsonObject(batch.summary),
+          lastError: message,
+          lastErrorAt: new Date().toISOString(),
+        },
+      },
+    });
+    throw error;
+  }
 }
 
 /**
@@ -255,6 +333,13 @@ export async function getPendingJobs(limit: number = 50) {
     orderBy: { createdAt: 'asc' },
     take: limit
   });
+}
+
+function toJsonObject(value: Prisma.JsonValue | null | undefined): Prisma.JsonObject {
+  if (value && typeof value === 'object' && !Array.isArray(value)) {
+    return value as Prisma.JsonObject;
+  }
+  return {};
 }
 
 /**

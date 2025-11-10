@@ -3,7 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse } from "csv-parse/sync";
-import { PortalUserStatus, Prisma, PrismaClient } from "@prisma/client";
+import { InvoiceStatus, OrderStatus, PortalUserStatus, Prisma, PrismaClient } from "@prisma/client";
+import { ingestSalesReportRecords } from "@/lib/imports/sales-report-ingestion";
 
 const BASE_PERMISSIONS = [
   { code: "portal.dashboard.view", name: "View portal dashboard" },
@@ -94,7 +95,7 @@ const __dirname = path.dirname(__filename);
 const EXPORTS_DIR =
   process.env.SEED_EXPORTS_PATH ?? path.resolve(__dirname, "../../../data/exports");
 
-const REQUIRED_FILES = {
+const REQUIRED_FILES: Record<string, string | string[]> = {
   suppliers: "Export suppliers",
   products: "Export items",
   prices: "Export prices",
@@ -102,9 +103,9 @@ const REQUIRED_FILES = {
   inventory: "inventory as at",
 };
 
-const OPTIONAL_EXPORTS: Record<string, string> = {
+const OPTIONAL_EXPORTS: Record<string, string | string[]> = {
   orders: "Export orders",
-  orderLines: "Export order lines",
+  orderLines: ["Export order lines", "Sales report"],
   invoices: "Export invoices",
   payments: "Export payments",
   activities: "Export activities",
@@ -120,6 +121,7 @@ type SeedCustomersResult = {
   count: number;
   primaryCustomerId: string | null;
   customersByExternalId: Map<string, { id: string; name: string }>;
+  customersByName: Map<string, { id: string; externalId: string | null }>;
   emails: Map<string, CustomerEmailRecord>;
 };
 
@@ -127,6 +129,20 @@ type SeedPortalUsersResult = {
   created: number;
   updated: number;
   total: number;
+};
+
+type SeedPaymentsResult = {
+  created: number;
+  updated: number;
+  skipped: number;
+  missingInvoices: string[];
+};
+
+type SeedActivitiesResult = {
+  created: number;
+  updated: number;
+  skipped: number;
+  missingCustomers: string[];
 };
 
 type PortalUserSeedCandidate = {
@@ -162,7 +178,7 @@ async function main() {
 
   const missingOptionalExports = listMissingOptionalExports();
 
-  const supplierRecords = readExport("suppliers");
+const supplierRecords = readExport("suppliers");
   const suppliersMap = await seedSuppliers(prisma, tenant.id, supplierRecords);
 
   const productRecords = readExport("products");
@@ -188,6 +204,18 @@ async function main() {
   const inventoryRecords = readExport("inventory");
   const inventories = await seedInventory(prisma, tenant.id, inventoryRecords, skus);
 
+  const orderLineRecords = readOptionalExport("orderLines");
+  const historicalOrders =
+    orderLineRecords.length > 0 ? await ingestSalesReportRecords(prisma, tenant.id, orderLineRecords) : null;
+  const paymentRecords = readOptionalExport("payments");
+  const paymentResults =
+    paymentRecords.length > 0 ? await seedPaymentsFromExport(prisma, tenant.id, paymentRecords) : null;
+  const activityRecords = readOptionalExport("activities");
+  const activityResults =
+    activityRecords.length > 0
+      ? await seedActivitiesFromExport(prisma, tenant.id, activityRecords, customers)
+      : null;
+
   const summary = {
     suppliers: suppliersMap.size,
     products: products.size,
@@ -197,6 +225,9 @@ async function main() {
     priceLists,
     priceListItems,
     inventories,
+    historicalOrders,
+    payments: paymentResults,
+    activities: activityResults,
     missingOptionalExports,
   };
 
@@ -209,6 +240,12 @@ async function main() {
     priceLists: summary.priceLists,
     priceListItems: summary.priceListItems,
     inventories: summary.inventories,
+    ordersImported: historicalOrders
+      ? historicalOrders.ordersCreated + historicalOrders.ordersUpdated
+      : 0,
+    orderLinesImported: historicalOrders?.orderLines ?? 0,
+    paymentsImported: paymentResults ? paymentResults.created + paymentResults.updated : 0,
+    activitiesImported: activityResults ? activityResults.created + activityResults.updated : 0,
     missingOptionalExports:
       summary.missingOptionalExports.length > 0
         ? summary.missingOptionalExports.join(", ")
@@ -216,6 +253,48 @@ async function main() {
   };
 
   console.table(summaryForDisplay);
+
+  if (historicalOrders) {
+    if (historicalOrders.skippedInvoices > 0) {
+      console.warn(
+        `[warn] Skipped ${historicalOrders.skippedInvoices} invoices due to missing customers or SKUs.`,
+      );
+    }
+    if (historicalOrders.missingCustomers.length > 0) {
+      console.warn(
+        `[warn] Missing customers for invoices: ${historicalOrders.missingCustomers.slice(0, 5).join(", ")}${
+          historicalOrders.missingCustomers.length > 5 ? "…" : ""
+        }`,
+      );
+    }
+    if (historicalOrders.missingSkus.length > 0) {
+      console.warn(
+        `[warn] Missing SKUs encountered: ${historicalOrders.missingSkus.slice(0, 5).join(", ")}${
+          historicalOrders.missingSkus.length > 5 ? "…" : ""
+        }`,
+      );
+    }
+  }
+
+  if (paymentResults) {
+    if (paymentResults.missingInvoices.length > 0) {
+      console.warn(
+        `[warn] Payments skipped due to missing invoices: ${paymentResults.missingInvoices.slice(0, 5).join(", ")}${
+          paymentResults.missingInvoices.length > 5 ? "…" : ""
+        }`,
+      );
+    }
+  }
+
+  if (activityResults) {
+    if (activityResults.missingCustomers.length > 0) {
+      console.warn(
+        `[warn] Activities skipped due to missing customers: ${activityResults.missingCustomers
+          .slice(0, 5)
+          .join(", ")}${activityResults.missingCustomers.length > 5 ? "…" : ""}`,
+      );
+    }
+  }
 
   let verification: Awaited<ReturnType<typeof verifySeed>> | null = null;
 
@@ -491,6 +570,7 @@ async function seedCustomers(
   let count = 0;
   let primaryCustomerId: string | null = null;
   const customersByExternalId = new Map<string, { id: string; name: string }>();
+  const customersByName = new Map<string, { id: string; externalId: string | null }>();
   const emails = new Map<string, CustomerEmailRecord>();
 
   for (const record of records) {
@@ -546,6 +626,10 @@ async function seedCustomers(
     }
 
     customersByExternalId.set(externalKey, { id: customer.id, name: customer.name });
+    customersByName.set(normalizeKey(customer.name), {
+      id: customer.id,
+      externalId: customer.externalId,
+    });
 
     const street1 = value(record, "Shipping address line 1");
     const city = value(record, "Shipping address city");
@@ -603,6 +687,7 @@ async function seedCustomers(
     count,
     primaryCustomerId,
     customersByExternalId,
+    customersByName,
     emails,
   };
 }
@@ -789,6 +874,297 @@ async function seedInventory(
   return count;
 }
 
+async function seedPaymentsFromExport(
+  db: PrismaClient,
+  tenantId: string,
+  records: Record<string, string>[],
+): Promise<SeedPaymentsResult | null> {
+  if (!records.length) {
+    return null;
+  }
+
+  const invoiceNumbers = Array.from(
+    new Set(
+      records
+        .map((record) => value(record, "Invoice number") || value(record, "Invoice #") || value(record, "Invoice"))
+        .map((invoice) => invoice.trim())
+        .filter(Boolean),
+    ),
+  );
+
+  if (invoiceNumbers.length === 0) {
+    return null;
+  }
+
+  const invoices = await db.invoice.findMany({
+    where: {
+      tenantId,
+      invoiceNumber: { in: invoiceNumbers },
+    },
+    select: {
+      id: true,
+      invoiceNumber: true,
+      orderId: true,
+    },
+  });
+
+  const invoiceMap = new Map<string, { id: string; orderId: string | null }>();
+  invoices.forEach((invoice) => {
+    if (invoice.invoiceNumber) {
+      invoiceMap.set(invoice.invoiceNumber.trim(), { id: invoice.id, orderId: invoice.orderId });
+    }
+  });
+
+  let created = 0;
+  let updated = 0;
+  let skipped = 0;
+  const missingInvoices = new Set<string>();
+
+  for (const record of records) {
+    const invoiceNumber =
+      value(record, "Invoice number") || value(record, "Invoice #") || value(record, "Invoice");
+    if (!invoiceNumber?.trim()) {
+      skipped += 1;
+      continue;
+    }
+    const normalizedInvoice = invoiceNumber.trim();
+    const invoiceEntry = invoiceMap.get(normalizedInvoice);
+    if (!invoiceEntry) {
+      missingInvoices.add(normalizedInvoice);
+      skipped += 1;
+      continue;
+    }
+
+    const amountValue =
+      parseDecimalNumber(value(record, "Amount")) ??
+      parseDecimalNumber(value(record, "Payment amount")) ??
+      parseDecimalNumber(value(record, "Paid amount"));
+    if (amountValue === null) {
+      skipped += 1;
+      continue;
+    }
+    const amountDecimal = decimal(amountValue.toString());
+
+    const receivedAt =
+      parseDateValue(value(record, "Payment date")) ??
+      parseDateValue(value(record, "Received at")) ??
+      parseDateValue(value(record, "Posted date"));
+    if (!receivedAt) {
+      skipped += 1;
+      continue;
+    }
+
+    const method = value(record, "Payment method") || value(record, "Method") || "Unknown";
+    const reference = value(record, "Reference") || value(record, "Transaction reference") || null;
+
+    const existingPayment = await db.payment.findFirst({
+      where: {
+        tenantId,
+        invoiceId: invoiceEntry.id,
+        amount: amountDecimal,
+        receivedAt,
+      },
+      select: { id: true },
+    });
+
+    if (existingPayment) {
+      await db.payment.update({
+        where: { id: existingPayment.id },
+        data: {
+          method,
+          reference,
+          orderId: invoiceEntry.orderId ?? undefined,
+        },
+      });
+      updated += 1;
+    } else {
+      await db.payment.create({
+        data: {
+          tenantId,
+          invoiceId: invoiceEntry.id,
+          orderId: invoiceEntry.orderId,
+          amount: amountDecimal,
+          method,
+          reference,
+          receivedAt,
+        },
+      });
+      created += 1;
+    }
+  }
+
+  if (created === 0 && updated === 0) {
+    return {
+      created,
+      updated,
+      skipped,
+      missingInvoices: Array.from(missingInvoices),
+    };
+  }
+
+  return {
+    created,
+    updated,
+    skipped,
+    missingInvoices: Array.from(missingInvoices),
+  };
+}
+
+async function seedActivitiesFromExport(
+  db: PrismaClient,
+  tenantId: string,
+  records: Record<string, string>[],
+  customers: SeedCustomersResult,
+): Promise<SeedActivitiesResult | null> {
+  if (!records.length) {
+    return null;
+  }
+
+  const activityType = await db.activityType.upsert({
+    where: {
+      tenantId_code: {
+        tenantId,
+        code: "import.activity",
+      },
+    },
+    update: {
+      name: "Imported activity",
+      description: "Activity created from CSV import.",
+    },
+    create: {
+      tenantId,
+      code: "import.activity",
+      name: "Imported activity",
+      description: "Activity created from CSV import.",
+    },
+    select: { id: true },
+  });
+
+  const portalUserEmails = Array.from(
+    new Set(
+      records
+        .map(
+          (record) =>
+            value(record, "Portal user email") ||
+            value(record, "User email") ||
+            value(record, "Salesperson email"),
+        )
+        .map((email) => email.toLowerCase())
+        .filter(Boolean),
+    ),
+  );
+
+  let portalUserMap = new Map<string, string>();
+  if (portalUserEmails.length > 0) {
+    const portalUsers = await db.portalUser.findMany({
+      where: {
+        tenantId,
+        email: { in: portalUserEmails },
+      },
+      select: {
+        id: true,
+        email: true,
+      },
+    });
+    portalUserMap = new Map(portalUsers.map((user) => [user.email.toLowerCase(), user.id]));
+  }
+
+  let created = 0;
+  let updated = 0;
+  let skipped = 0;
+  const missingCustomers = new Set<string>();
+
+  for (const record of records) {
+    const customerName =
+      value(record, "Customer") || value(record, "Account") || value(record, "Retailer") || value(record, "Venue");
+    if (!customerName?.trim()) {
+      skipped += 1;
+      continue;
+    }
+
+    const normalizedCustomer = normalizeKey(customerName);
+    const customerEntry = customers.customersByName.get(normalizedCustomer);
+    if (!customerEntry) {
+      missingCustomers.add(customerName);
+      skipped += 1;
+      continue;
+    }
+
+    const occurredAt =
+      parseDateValue(value(record, "Occurred at")) ??
+      parseDateValue(value(record, "Activity date")) ??
+      parseDateValue(value(record, "Date"));
+    if (!occurredAt) {
+      skipped += 1;
+      continue;
+    }
+
+    const subject =
+      value(record, "Subject") || value(record, "Activity") || value(record, "Interaction") || "Imported activity";
+    const notes = value(record, "Notes") || value(record, "Description") || null;
+    const followUpAt =
+      parseDateValue(value(record, "Follow up date")) ||
+      parseDateValue(value(record, "Next action date")) ||
+      parseDateValue(value(record, "Reminder date"));
+    const outcome = value(record, "Outcome") || value(record, "Result") || value(record, "Status") || null;
+
+    const portalUserEmail =
+      value(record, "Portal user email") || value(record, "User email") || value(record, "Salesperson email");
+    const portalUserId = portalUserEmail ? portalUserMap.get(portalUserEmail.toLowerCase()) ?? null : null;
+
+    const existingActivity = await db.activity.findFirst({
+      where: {
+        tenantId,
+        customerId: customerEntry.id,
+        subject,
+        occurredAt,
+      },
+      select: { id: true },
+    });
+
+    const payload = {
+      tenantId,
+      customerId: customerEntry.id,
+      activityTypeId: activityType.id,
+      subject,
+      notes,
+      occurredAt,
+      followUpAt: followUpAt ?? undefined,
+      outcomes: outcome ? [outcome] : [],
+      portalUserId: portalUserId ?? undefined,
+    };
+
+    if (existingActivity) {
+      await db.activity.update({
+        where: { id: existingActivity.id },
+        data: payload,
+      });
+      updated += 1;
+    } else {
+      await db.activity.create({
+        data: payload,
+      });
+      created += 1;
+    }
+  }
+
+  if (created === 0 && updated === 0) {
+    return {
+      created,
+      updated,
+      skipped,
+      missingCustomers: Array.from(missingCustomers),
+    };
+  }
+
+  return {
+    created,
+    updated,
+    skipped,
+    missingCustomers: Array.from(missingCustomers),
+  };
+}
+
 async function verifySeed(
   db: PrismaClient,
   tenantId: string,
@@ -895,8 +1271,15 @@ async function verifySeed(
 }
 
 function readExport(key: keyof typeof REQUIRED_FILES) {
-  const prefix = REQUIRED_FILES[key];
-  const file = findExportFile(prefix);
+  return readExportWithPrefix(REQUIRED_FILES[key], { required: true });
+}
+
+function readOptionalExport(key: keyof typeof OPTIONAL_EXPORTS) {
+  return readExportWithPrefix(OPTIONAL_EXPORTS[key], { required: false });
+}
+
+function readExportWithPrefix(prefix: string | string[], options: { required: boolean }) {
+  const file = findExportFile(prefix, { required: options.required });
   if (!file) {
     return [];
   }
@@ -914,12 +1297,25 @@ function readExport(key: keyof typeof REQUIRED_FILES) {
   }) as Record<string, string>[];
 }
 
-function findExportFile(prefix: string, options?: { required?: boolean }) {
+function findExportFile(prefix: string | string[], options?: { required?: boolean }) {
+  if (!fs.existsSync(EXPORTS_DIR)) {
+    if (options?.required === false) {
+      return null;
+    }
+    throw new Error(
+      `Expected export directory at ${EXPORTS_DIR}. Set SEED_EXPORTS_PATH or place exports before running.`,
+    );
+  }
   const entries = fs.readdirSync(EXPORTS_DIR);
-  const normalizedPrefix = prefix.toLowerCase();
+  const prefixes = Array.isArray(prefix) ? prefix : [prefix];
+  const normalizedPrefixes = prefixes.map((item) => item.toLowerCase());
   const match =
-    entries.find((entry) => entry.toLowerCase().startsWith(normalizedPrefix)) ??
-    entries.find((entry) => entry.toLowerCase().includes(normalizedPrefix));
+    entries.find((entry) =>
+      normalizedPrefixes.some((candidate) => entry.toLowerCase().startsWith(candidate)),
+    ) ??
+    entries.find((entry) =>
+      normalizedPrefixes.some((candidate) => entry.toLowerCase().includes(candidate)),
+    );
   if (!match) {
     if (options?.required === false) {
       return null;
@@ -1033,6 +1429,85 @@ function decimal(input: string): Prisma.Decimal {
   }
   return new Prisma.Decimal(sanitized);
 }
+
+function parseDecimalNumber(input: string) {
+  if (!input) return null;
+  const numeric = Number.parseFloat(input.replace(/[^0-9.\-]/g, ""));
+  return Number.isFinite(numeric) ? numeric : null;
+}
+
+function parseDateValue(input: string) {
+  if (!input) return null;
+  const trimmed = input.trim();
+  if (!trimmed) return null;
+  const parsed = new Date(trimmed);
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed;
+  }
+  // Attempt to parse US-style dates (MM/DD/YYYY)
+  const parts = trimmed.split("/");
+  if (parts.length === 3) {
+    const [month, day, year] = parts.map((part) => Number.parseInt(part, 10));
+    if (
+      Number.isFinite(month) &&
+      Number.isFinite(day) &&
+      Number.isFinite(year)
+    ) {
+      const fallback = new Date();
+      fallback.setFullYear(year, month - 1, day);
+      fallback.setHours(0, 0, 0, 0);
+      return fallback;
+    }
+  }
+  return null;
+}
+
+function buildDeliveryTimeWindow(start: string | null, end: string | null) {
+  const normalizedStart = start?.trim();
+  const normalizedEnd = end?.trim();
+  if (normalizedStart && normalizedEnd) {
+    return `${normalizedStart} - ${normalizedEnd}`;
+  }
+  return normalizedStart ?? normalizedEnd ?? null;
+}
+
+function computeIsoWeekNumber(date: Date) {
+  const target = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNumber = target.getUTCDay() || 7;
+  target.setUTCDate(target.getUTCDate() + 4 - dayNumber);
+  const yearStart = new Date(Date.UTC(target.getUTCFullYear(), 0, 1));
+  return Math.ceil((((target.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+}
+
+function mapOrderStatus(status: string | null): OrderStatus {
+  const normalized = status?.toLowerCase();
+  switch (normalized) {
+    case "delivered":
+    case "completed":
+      return OrderStatus.FULFILLED;
+    case "cancelled":
+    case "canceled":
+      return OrderStatus.CANCELLED;
+    case "partially fulfilled":
+      return OrderStatus.PARTIALLY_FULFILLED;
+    default:
+      return OrderStatus.SUBMITTED;
+  }
+}
+
+function mapInvoiceStatus(orderStatus: OrderStatus): InvoiceStatus {
+  switch (orderStatus) {
+    case OrderStatus.FULFILLED:
+    case OrderStatus.DELIVERED:
+      return InvoiceStatus.PAID;
+    case OrderStatus.CANCELLED:
+      return InvoiceStatus.VOID;
+    default:
+      return InvoiceStatus.SENT;
+  }
+}
+
+
 
 main()
   .catch((error) => {
