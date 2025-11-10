@@ -226,14 +226,62 @@ export default function SalesCustomersPage() {
       },
     },
     {
-      id: "natural-focus",
-      label: "Natural wine focus",
-      description: "Tagged for natural or biodynamic programs",
+      id: "high-risk-revenue",
+      label: "High $ at risk",
+      description: "At-risk customers with > $25k YTD revenue",
       apply: () => {
-        setSelectedViewId("natural-focus");
+        setSelectedViewId("high-risk-revenue");
+        setSearchQuery("ytd>25000");
+        setActiveFilter("AT_RISK_REVENUE");
+        setSelectedTags([]);
+        setCurrentPage(1);
+      },
+    },
+    {
+      id: "zero-activity-30",
+      label: "No activity 30+ days",
+      description: "Haven’t ordered or logged activity in 30 days",
+      apply: () => {
+        setSelectedViewId("zero-activity-30");
+        setSearchQuery("lastOrder>30");
         setActiveFilter("ALL");
-        setSearchQuery("");
-        setSelectedTags(["natural_wine", "biodynamic"]);
+        setSelectedTags([]);
+        setCurrentPage(1);
+      },
+    },
+    {
+      id: "fast-movers",
+      label: "Fast movers",
+      description: "Average order interval <= 21 days and due soon",
+      apply: () => {
+        setSelectedViewId("fast-movers");
+        setSearchQuery("interval<=21");
+        setActiveFilter("DUE");
+        setSelectedTags([]);
+        setCurrentPage(1);
+      },
+    },
+    {
+      id: "new-logos",
+      label: "New logos (60d)",
+      description: "New customers in their first 60 days",
+      apply: () => {
+        setSelectedViewId("new-logos");
+        setSearchQuery("new<=60");
+        setActiveFilter("ALL");
+        setSelectedTags([]);
+        setCurrentPage(1);
+      },
+    },
+    {
+      id: "gap-expected",
+      label: "10+ days overdue",
+      description: "Past expected date by 10 days or more",
+      apply: () => {
+        setSelectedViewId("gap-expected");
+        setSearchQuery("overdue>=10");
+        setActiveFilter("ALL");
+        setSelectedTags([]);
         setCurrentPage(1);
       },
     },
