@@ -110,6 +110,9 @@ model Tenant {
   SkuDemandStats          SkuDemandStats[]
   sageExports             SageExport[]
   sageExportErrors        SageExportError[]
+  importBatches           ImportBatch[]
+  importRows              ImportRow[]
+  importTemplates         ImportTemplate[]
 }
 
 model TenantSettings {
@@ -192,6 +195,8 @@ model User {
   resolvedSageErrors     SageExportError[]       @relation("SageErrorResolver")
   tenant                 Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   roles                  UserRole[]
+  initiatedImportBatches ImportBatch[]           @relation("ImportBatchInitiatedBy")
+  createdImportTemplates ImportTemplate[]        @relation("ImportTemplateCreatedBy")
 
   @@unique([tenantId, email])
   @@index([tenantId])
@@ -893,6 +898,68 @@ model AccountHealthSnapshot {
 
   @@unique([tenantId, customerId, snapshotDate])
   @@index([tenantId])
+}
+
+model ImportTemplate {
+  id          String   @id @default(uuid()) @db.Uuid
+  tenantId    String?  @db.Uuid
+  name        String
+  dataType    String
+  description String?
+  config      Json
+  createdById String?  @db.Uuid
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  tenant      Tenant?  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdBy   User?    @relation("ImportTemplateCreatedBy", fields: [createdById], references: [id])
+  batches     ImportBatch[]
+
+  @@index([tenantId])
+  @@index([dataType])
+}
+
+model ImportBatch {
+  id             String          @id @default(uuid()) @db.Uuid
+  tenantId       String          @db.Uuid
+  dataType       String
+  source         String
+  status         String          @default("queued")
+  templateId     String?         @db.Uuid
+  fileKey        String?
+  checksum       String?
+  initiatedById  String?         @db.Uuid
+  summary        Json?
+  createdAt      DateTime        @default(now())
+  startedAt      DateTime?
+  completedAt    DateTime?
+  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  template       ImportTemplate? @relation(fields: [templateId], references: [id])
+  initiatedBy    User?           @relation("ImportBatchInitiatedBy", fields: [initiatedById], references: [id])
+  rows           ImportRow[]
+
+  @@index([tenantId])
+  @@index([tenantId, status])
+  @@index([templateId])
+  @@index([checksum])
+}
+
+model ImportRow {
+  id              String       @id @default(uuid()) @db.Uuid
+  batchId         String       @db.Uuid
+  tenantId        String       @db.Uuid
+  externalKey     String?
+  payload         Json
+  status          String       @default("pending")
+  errors          Json?
+  appliedRecordId String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  batch           ImportBatch  @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  tenant          Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([batchId])
+  @@index([tenantId, status])
+  @@index([tenantId, externalKey])
 }
 
 model SalesMetric {

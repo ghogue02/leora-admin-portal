@@ -57,11 +57,15 @@ export async function GET(request: Request) {
         select: {
           id: true,
           subject: true,
-          typeCode: true,
           occurredAt: true,
           customerId: true,
           customer: {
             select: { name: true },
+          },
+          activityType: {
+            select: {
+              code: true,
+            },
           },
         },
       }),
@@ -120,7 +124,7 @@ export async function GET(request: Request) {
         id: `activity-${activity.id}`,
         type: "activity",
         title: activity.subject || "Customer touchpoint",
-        subtitle: activity.typeCode?.replace(/_/g, " ") ?? "Activity",
+        subtitle: activity.activityType?.code?.replace(/_/g, " ") ?? "Activity",
         timestamp: activity.occurredAt.toISOString(),
         customerId: activity.customerId,
         customerName: activity.customer?.name ?? "Customer",

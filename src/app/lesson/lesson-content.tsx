@@ -2,15 +2,15 @@
 
 import { useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
-import type { RouteGraph3DLink, RouteGraph3DNode } from '@/components/lesson/RouteGraph3D';
+import type { RouteGraphLink, RouteGraphNode } from '@/components/lesson/RouteGraph2D';
 
-const RouteGraph3D = dynamic(
-  () => import('@/components/lesson/RouteGraph3D').then((mod) => mod.RouteGraph3D),
+const RouteGraph2D = dynamic(
+  () => import('@/components/lesson/RouteGraph2D').then((mod) => mod.RouteGraph2D),
   {
     ssr: false,
     loading: () => (
       <div className="flex h-[560px] items-center justify-center text-sm text-slate-500">
-        Loading 3D map…
+        Loading map…
       </div>
     ),
   }
@@ -684,7 +684,7 @@ const scenarios: Scenario[] = [
     id: 'maps-outage',
     title: 'Maps outage',
     description:
-      'Google Maps & Places quota exhausted. Explore the domains and vendors that lose functionality.',
+      'Google Maps & Places hit their limit, so map tools go dark. See which teams and vendors lose key features.',
     highlightNodes: ['sales'],
     highlightIntegrations: ['Google Maps & Places'],
     playbook: [
@@ -697,7 +697,7 @@ const scenarios: Scenario[] = [
     id: 'sage-delay',
     title: 'Sage export delayed',
     description:
-      'Infrastructure write from Ops/Finance to Sage 50 is failing. Show chain of impact.',
+      'Exports to Sage 50 are stuck. Walk through who gets blocked and how the delay travels across teams.',
     highlightNodes: ['ops', 'finance', 'infra'],
     highlightIntegrations: ['Sage 50'],
     playbook: [
@@ -710,7 +710,7 @@ const scenarios: Scenario[] = [
     id: 'incident-mode',
     title: 'Incident mode',
     description:
-      'Core Platform degraded; highlight everything that depends on it and the quick steps to mitigate.',
+      'Core Platform is unstable. Highlight everything that relies on it and list the fastest steps to steady the system.',
     highlightNodes: ['core', 'sales', 'ops', 'finance', 'auth', 'infra', 'ai'],
     highlightIntegrations: [],
     playbook: [
@@ -826,9 +826,9 @@ export function LessonContent() {
   const searchActive = search.trim().length > 0 && matchedIds.size > 0;
   const scenarioFocusId = selectedScenario?.highlightNodes?.[0];
 
-  const graph3DData = useMemo<{
-    nodes: RouteGraph3DNode[];
-    links: RouteGraph3DLink[];
+  const graphData = useMemo<{
+    nodes: RouteGraphNode[];
+    links: RouteGraphLink[];
   }>(() => {
     const scenarioActive = highlightNodes.size > 0;
 
@@ -838,7 +838,7 @@ export function LessonContent() {
       return scenarioDim || searchDim;
     };
 
-    const nodes3d: RouteGraph3DNode[] = [
+    const graphNodes: RouteGraphNode[] = [
       ...routeNodes.map((node) => ({
         id: node.id,
         label: node.label,
@@ -858,7 +858,7 @@ export function LessonContent() {
       })),
     ];
 
-    const links3d: RouteGraph3DLink[] = routeNodes.flatMap((node) =>
+    const graphLinks: RouteGraphLink[] = routeNodes.flatMap((node) =>
       node.dependencies.map((dependency) => {
         const dim =
           (scenarioActive &&
@@ -875,7 +875,7 @@ export function LessonContent() {
       })
     );
 
-    return { nodes: nodes3d, links: links3d };
+    return { nodes: graphNodes, links: graphLinks };
   }, [highlightNodes, matchedIds, searchActive]);
 
   const selectedNodeId =
@@ -885,7 +885,7 @@ export function LessonContent() {
         ? selectedItem.target.id
         : undefined;
 
-  const handle3DSelect = (id: string) => {
+  const handleGraphSelect = (id: string) => {
     if (routeLookup[id]) {
       setSelectedItem({ kind: 'route', node: routeLookup[id] });
       return;
@@ -921,6 +921,16 @@ export function LessonContent() {
     </ol>
   );
 
+  const IMPORTANCE_COPY: Record<DependencyImportance, string> = {
+    critical: 'Must have',
+    supporting: 'Helpful but not blocking',
+  };
+  const FLOW_COPY: Record<DependencyFlow, string> = {
+    read: 'We pull info from them',
+    write: 'We send updates to them',
+    bidirectional: 'We trade data both ways',
+  };
+
   const renderDependencies = (dependencies: Dependency[]) => (
     <div className="space-y-3">
       {dependencies.map((dependency) => {
@@ -934,10 +944,10 @@ export function LessonContent() {
             className="rounded-xl border border-slate-200 bg-white/80 p-3 text-sm shadow-sm"
           >
             <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-              {dependency.importance === 'critical' ? 'Critical path' : 'Supporting'} · Flow {dependency.dataFlow}
+              {IMPORTANCE_COPY[dependency.importance]} · {FLOW_COPY[dependency.dataFlow]}
             </p>
-            <p className="text-base font-semibold text-slate-900">{target.label}</p>
-            <p className="text-slate-600">{dependency.reason}</p>
+            <p className="mt-1 text-base font-semibold text-slate-900">{target.label}</p>
+            <p className="mt-1 text-slate-600">{dependency.reason}</p>
             {showTechnical ? (
               <div className="mt-2 flex flex-wrap gap-2">
                 {dependency.sampleRoutes.slice(0, 2).map((route) => (
@@ -950,26 +960,6 @@ export function LessonContent() {
           </article>
         );
       })}
-    </div>
-  );
-
-  const renderStoryCards = (stories: StoryCard[]) => (
-    <div className="grid gap-3 lg:grid-cols-2">
-      {stories.map((story) => (
-        <article
-          key={story.title}
-          className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm shadow-sm"
-        >
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{story.title}</p>
-          <p className="mt-2 text-slate-900">{story.what}</p>
-          <p className="mt-2 text-slate-600">{story.why}</p>
-          {story.vendorAssist ? (
-            <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-indigo-600">
-              Vendor assist: {story.vendorAssist}
-            </p>
-          ) : null}
-        </article>
-      ))}
     </div>
   );
 
@@ -1019,16 +1009,12 @@ export function LessonContent() {
             <MetricTile label="Jobs per day" value={`${numberFormatter.format(node.jobsPerDay)} jobs`} />
           </div>
           <div className="space-y-2">
-            <SectionHeader label="Dependencies" description="Why this domain leans on others." />
+            <SectionHeader label="Dependencies" description="Quick view of who we lean on and why." />
             {renderDependencies(node.dependencies)}
           </div>
           {!showTechnical ? null : renderIncident(node.lastIncident)}
           <div className="space-y-2">
-            <SectionHeader label="Story cards" description="Plain-language explanation of workflows." />
-            {renderStoryCards(node.stories)}
-          </div>
-          <div className="space-y-2">
-            <SectionHeader label="Common questions" description="How to answer stakeholder prompts." />
+            <SectionHeader label="Common questions" description="Short answers you can share with stakeholders." />
             {renderUseCases(node.useCases)}
           </div>
           <div className="space-y-2">
@@ -1317,19 +1303,15 @@ export function LessonContent() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
               System map
             </p>
-            <h2 className="text-xl font-semibold text-slate-900">Route Mind Map</h2>
-            <p className="text-sm text-slate-600">
-              Explore the architecture in 3D—drag to orbit, scroll to zoom, and click spheres to pull their stories into the panel below.
-            </p>
           </div>
 
           <div className="mt-6">
-            <RouteGraph3D
-              nodes={graph3DData.nodes}
-              links={graph3DData.links}
+            <RouteGraph2D
+              nodes={graphData.nodes}
+              links={graphData.links}
               selectedId={selectedNodeId}
               focusId={selectedNodeId ?? scenarioFocusId}
-              onSelect={handle3DSelect}
+              onSelect={handleGraphSelect}
             />
           </div>
           <div className="mt-5 rounded-2xl border border-slate-100 bg-slate-50 p-5">

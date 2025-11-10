@@ -394,7 +394,16 @@ export default function SalesCustomersPage() {
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 lg:grid lg:grid-cols-[360px,minmax(0,1fr)] lg:items-start lg:gap-10">
       <aside className="space-y-6 lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:pr-2">
+        <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Search</p>
+          <p className="text-xs text-slate-500">Name, account #, email, city</p>
+          <div className="mt-3">
+            <CustomerSearchBar onSearch={handleSearch} initialValue={searchQuery} />
+          </div>
+        </section>
+
         <CustomerActivityFeed />
+
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Overview</p>
           {!data ? (
@@ -410,14 +419,6 @@ export default function SalesCustomersPage() {
               ))}
             </div>
           )}
-        </section>
-
-        <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Search</p>
-          <p className="text-xs text-slate-500">Name, account #, email, city</p>
-          <div className="mt-3">
-            <CustomerSearchBar onSearch={handleSearch} initialValue={searchQuery} />
-          </div>
         </section>
 
         {data && (
