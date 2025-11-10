@@ -331,19 +331,6 @@ export default function CustomerTable({
                     )}
                   </button>
                 </th>
-                <th className="px-4 py-3 text-left">
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wider text-gray-600"
-                    title="Sum of delivered order totals across the last 90 days."
-                  >
-                    $ Revenue (90d)
-                  </span>
-                </th>
-                <th className="px-4 py-3 text-left">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">
-                    Orders (90d)
-                  </span>
-                </th>
                 <th className="px-4 py-3 text-right">
                   <span className="text-xs font-semibold uppercase tracking-wider text-gray-600">
                     Quick Actions
@@ -372,6 +359,14 @@ export default function CustomerTable({
                         {customer.location && (
                           <span className="text-xs text-gray-500">{customer.location}</span>
                         )}
+                        <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+                          <span>
+                            90d: {formatCurrency(customer.recentRevenue)} • Orders:{" "}
+                            {(customer.recentOrderCount ?? 0).toLocaleString()}
+                          </span>
+                          <span className="text-slate-300">|</span>
+                          <span>Lifetime: {formatCurrency(customer.lifetimeRevenue)}</span>
+                        </div>
                         {healthBadges.length > 0 && (
                           <div className="mt-2 flex flex-wrap gap-1">
                             {healthBadges.map((badge) => (
@@ -406,15 +401,7 @@ export default function CustomerTable({
                       {formatCurrency(customer.ytdRevenue)}
                     </td>
                     <td
-                      className="px-4 py-3 text-gray-700"
-                      title={`Lifetime revenue: ${formatCurrency(customer.lifetimeRevenue)}`}
-                    >
-                      {formatCurrency(customer.recentRevenue)}
-                    </td>
-                    <td className="px-4 py-3 text-gray-700">
-                      {(customer.recentOrderCount ?? 0).toLocaleString()}
-                    </td>
-                    <td className="px-4 py-3 text-right">
+                      className="px-4 py-3 text-right">
                       <div className="flex flex-wrap items-center justify-end gap-2">
                         <button
                           onClick={() => setSelectedCustomer({ id: customer.id, name: customer.name })}
