@@ -41,7 +41,7 @@ export async function GET(request: Request) {
             select: { name: true },
           },
           orderedAt: true,
-          number: true,
+          orderNumber: true,
           total: true,
         },
       }),
@@ -106,7 +106,7 @@ export async function GET(request: Request) {
       items.push({
         id: `order-${order.id}`,
         type: "order",
-        title: `Order ${order.number ?? ""} delivered`,
+        title: `Order ${order.orderNumber ?? ""} delivered`,
         subtitle: `Total ${formatCurrency(order.total)} • ${order.customer?.name ?? "Customer"}`,
         timestamp: order.orderedAt?.toISOString() ?? new Date().toISOString(),
         customerId: order.customerId,
