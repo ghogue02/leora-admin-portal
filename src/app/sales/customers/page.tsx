@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import type { CustomerRiskStatus } from "@prisma/client";
 import CustomerTable from "./sections/CustomerTable";
-import CustomerFilters from "./sections/CustomerFilters";
 import CustomerSearchBar from "./sections/CustomerSearchBar";
 import CustomerTagFilter from "./sections/CustomerTagFilter";
 import CustomerActivityFeed from "./sections/CustomerActivityFeed";
@@ -248,6 +247,100 @@ export default function SalesCustomersPage() {
   const filteredInfo =
     data && `${data.pagination.totalCount.toLocaleString()} of ${data.summary.totalCustomers.toLocaleString()} customers`;
 
+  type Tone = "blue" | "emerald" | "amber" | "orange" | "rose" | "gray" | "indigo";
+  type CardConfig = {
+    id: string;
+    label: string;
+    description: string;
+    count?: number;
+    active: boolean;
+    tone: Tone;
+    onClick: () => void;
+  };
+  const toneStyles: Record<Tone, { base: string; active: string }> = {
+    blue: { base: "border-blue-100 bg-blue-50 hover:border-blue-300", active: "border-blue-400 ring-2 ring-blue-200" },
+    emerald: { base: "border-emerald-100 bg-emerald-50 hover:border-emerald-300", active: "border-emerald-400 ring-2 ring-emerald-200" },
+    amber: { base: "border-amber-100 bg-amber-50 hover:border-amber-300", active: "border-amber-400 ring-2 ring-amber-200" },
+    orange: { base: "border-orange-100 bg-orange-50 hover:border-orange-300", active: "border-orange-400 ring-2 ring-orange-200" },
+    rose: { base: "border-rose-100 bg-rose-50 hover:border-rose-300", active: "border-rose-400 ring-2 ring-rose-200" },
+    gray: { base: "border-slate-200 bg-white hover:border-slate-400", active: "border-slate-400 ring-2 ring-slate-200" },
+    indigo: { base: "border-indigo-100 bg-indigo-50 hover:border-indigo-300", active: "border-indigo-400 ring-2 ring-indigo-200" },
+  };
+
+  const riskCounts = data?.summary.riskCounts ?? {};
+  const riskFilterCards: CardConfig[] = data
+    ? [
+        {
+          id: "filter-due",
+          label: "Due soon",
+          description: "Expected to order within the next delivery cycle.",
+          count: data.summary.customersDue,
+          active: activeFilter === "DUE",
+          tone: "blue" as Tone,
+          onClick: () => handleFilterChange("DUE"),
+        },
+        {
+          id: "filter-healthy",
+          label: "Healthy",
+          description: "Consistent cadence over the past 90 days.",
+          count: riskCounts.HEALTHY ?? 0,
+          active: activeFilter === "HEALTHY",
+          tone: "emerald" as Tone,
+          onClick: () => handleFilterChange("HEALTHY"),
+        },
+        {
+          id: "filter-cadence",
+          label: "At risk – cadence",
+          description: "Missed their typical re-order window.",
+          count: riskCounts.AT_RISK_CADENCE ?? 0,
+          active: activeFilter === "AT_RISK_CADENCE",
+          tone: "amber" as Tone,
+          onClick: () => handleFilterChange("AT_RISK_CADENCE"),
+        },
+        {
+          id: "filter-revenue",
+          label: "At risk – revenue",
+          description: "Trailing revenue is trending down sharply.",
+          count: riskCounts.AT_RISK_REVENUE ?? 0,
+          active: activeFilter === "AT_RISK_REVENUE",
+          tone: "orange" as Tone,
+          onClick: () => handleFilterChange("AT_RISK_REVENUE"),
+        },
+        {
+          id: "filter-dormant",
+          label: "Dormant",
+          description: "No orders in 45+ days.",
+          count: riskCounts.DORMANT ?? 0,
+          active: activeFilter === "DORMANT",
+          tone: "rose" as Tone,
+          onClick: () => handleFilterChange("DORMANT"),
+        },
+        {
+          id: "filter-all",
+          label: "All customers",
+          description: "Show the full book without filters.",
+          count: data.summary.totalCustomers,
+          active: activeFilter === "ALL",
+          tone: "gray" as Tone,
+          onClick: () => handleFilterChange("ALL"),
+        },
+      ]
+    : [];
+
+  const savedViewCards: CardConfig[] = data
+    ? savedViews.map((view) => ({
+        id: `view-${view.id}`,
+        label: view.label,
+        description: view.description,
+        count: undefined,
+        active: selectedViewId === view.id,
+        tone: "indigo" as Tone,
+        onClick: () => applySavedView(view.id),
+      }))
+    : [];
+
+  const combinedCards: CardConfig[] = data ? [...savedViewCards, ...riskFilterCards] : [];
+
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 lg:grid lg:grid-cols-[360px,minmax(0,1fr)] lg:items-start lg:gap-10">
       <aside className="space-y-6 lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:pr-2">
@@ -270,41 +363,6 @@ export default function SalesCustomersPage() {
         </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Saved views</p>
-              <p className="text-xs text-slate-500">Jump to your most common slices</p>
-            </div>
-            {selectedViewId && (
-              <button
-                type="button"
-                onClick={() => setSelectedViewId(null)}
-                className="text-xs font-semibold text-indigo-600 hover:text-indigo-800"
-              >
-                Clear
-              </button>
-            )}
-          </div>
-          <div className="mt-3 grid gap-2">
-            {savedViews.map((view) => (
-              <button
-                key={view.id}
-                type="button"
-                onClick={() => applySavedView(view.id)}
-                className={`rounded-xl border px-3 py-2 text-left text-sm transition ${
-                  selectedViewId === view.id
-                    ? "border-indigo-400 bg-indigo-50 shadow-sm"
-                    : "border-slate-200 bg-white hover:border-slate-400"
-                }`}
-              >
-                <p className="font-semibold text-slate-900">{view.label}</p>
-                <p className="text-xs text-slate-500">{view.description}</p>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Search</p>
           <p className="text-xs text-slate-500">Name, account #, email, city</p>
           <div className="mt-3">
@@ -315,13 +373,51 @@ export default function SalesCustomersPage() {
         {data && (
           <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm space-y-4">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Risk filters</p>
-              <CustomerFilters
-                activeFilter={activeFilter}
-                onFilterChange={handleFilterChange}
-                riskCounts={data.summary.riskCounts}
-                customersDueCount={data.summary.customersDue}
-              />
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Views & filters</p>
+                  <p className="text-xs text-slate-500">Hover to preview each slice</p>
+                </div>
+                {(selectedViewId || activeFilter !== "ALL") && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedViewId(null);
+                      handleFilterChange("ALL");
+                    }}
+                    className="text-xs font-semibold text-indigo-600 hover:text-indigo-800"
+                  >
+                    Reset
+                  </button>
+                )}
+              </div>
+              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                {combinedCards.map((card) => {
+                  const tone = toneStyles[card.tone];
+                  return (
+                    <button
+                      key={card.id}
+                      type="button"
+                      onClick={card.onClick}
+                      className={`group relative rounded-xl border px-3 py-2 text-left text-sm font-semibold text-slate-900 transition ${tone.base} ${
+                        card.active ? tone.active : ""
+                      }`}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span>{card.label}</span>
+                        {card.count !== undefined && (
+                          <span className="rounded-full bg-white/70 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
+                            {card.count.toLocaleString()}
+                          </span>
+                        )}
+                      </div>
+                      <div className="pointer-events-none absolute left-1/2 top-full z-20 hidden w-48 -translate-x-1/2 translate-y-2 rounded-lg bg-slate-900 px-3 py-2 text-xs font-medium text-white shadow-lg group-hover:block">
+                        {card.description}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             <CustomerTagFilter
               tagCounts={data.summary.tagCounts}
