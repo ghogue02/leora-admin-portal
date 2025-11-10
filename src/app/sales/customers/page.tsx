@@ -249,8 +249,8 @@ export default function SalesCustomersPage() {
     data && `${data.pagination.totalCount.toLocaleString()} of ${data.summary.totalCustomers.toLocaleString()} customers`;
 
   return (
-    <main className="mx-auto max-w-7xl gap-8 px-4 py-6 lg:grid lg:grid-cols-[320px,1fr]">
-      <aside className="space-y-6 lg:sticky lg:top-6">
+    <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 lg:grid lg:grid-cols-[360px,minmax(0,1fr)] lg:items-start lg:gap-10">
+      <aside className="space-y-6 lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:pr-2">
         <CustomerActivityFeed />
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Overview</p>
@@ -339,7 +339,7 @@ export default function SalesCustomersPage() {
         )}
       </aside>
 
-      <section className="space-y-6">
+      <section className="space-y-6 lg:col-start-2 lg:min-w-0">
         {error && (
           <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-sm text-red-700">
             <p className="font-semibold">We couldn&apos;t load customers right now.</p>
