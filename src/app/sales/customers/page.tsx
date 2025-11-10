@@ -69,6 +69,7 @@ export default function SalesCustomersPage() {
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedTags, setSelectedTags] = useState<CustomerTagType[]>([]);
+  const [viewFilterTab, setViewFilterTab] = useState<"views" | "filters">("views");
 
   const loadCustomers = useCallback(async () => {
     setLoading(true);
@@ -339,7 +340,8 @@ export default function SalesCustomersPage() {
       }))
     : [];
 
-  const combinedCards: CardConfig[] = data ? [...savedViewCards, ...riskFilterCards] : [];
+  const combinedCards: CardConfig[] =
+    data && viewFilterTab === "views" ? savedViewCards : viewFilterTab === "filters" ? riskFilterCards : [];
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 lg:grid lg:grid-cols-[360px,minmax(0,1fr)] lg:items-start lg:gap-10">
@@ -384,12 +386,30 @@ export default function SalesCustomersPage() {
                     onClick={() => {
                       setSelectedViewId(null);
                       handleFilterChange("ALL");
+                      setViewFilterTab("views");
                     }}
                     className="text-xs font-semibold text-indigo-600 hover:text-indigo-800"
                   >
                     Reset
                   </button>
                 )}
+              </div>
+              <div className="mt-3 flex rounded-full border border-slate-200 bg-slate-100 p-1 text-xs font-semibold text-slate-600">
+                {[
+                  { id: "views", label: "Saved views" },
+                  { id: "filters", label: "Risk filters" },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setViewFilterTab(tab.id as "views" | "filters")}
+                    className={`flex-1 rounded-full px-3 py-1 transition ${
+                      viewFilterTab === tab.id ? "bg-white text-slate-900 shadow-sm" : "text-slate-500"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
               </div>
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {combinedCards.map((card) => {
@@ -399,19 +419,19 @@ export default function SalesCustomersPage() {
                       key={card.id}
                       type="button"
                       onClick={card.onClick}
-                      className={`group relative rounded-xl border px-3 py-2 text-left text-sm font-semibold text-slate-900 transition ${tone.base} ${
+                      className={`group relative rounded-xl border px-3 py-1.5 text-left text-xs font-semibold text-slate-900 transition ${tone.base} ${
                         card.active ? tone.active : ""
                       }`}
                     >
                       <div className="flex items-center justify-between gap-2">
-                        <span>{card.label}</span>
+                        <span className="truncate">{card.label}</span>
                         {card.count !== undefined && (
-                          <span className="rounded-full bg-white/70 px-2 py-0.5 text-[11px] font-semibold text-slate-600">
+                          <span className="rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-semibold text-slate-600">
                             {card.count.toLocaleString()}
                           </span>
                         )}
                       </div>
-                      <div className="pointer-events-none absolute left-1/2 top-full z-20 hidden w-48 -translate-x-1/2 translate-y-2 rounded-lg bg-slate-900 px-3 py-2 text-xs font-medium text-white shadow-lg group-hover:block">
+                      <div className="pointer-events-none absolute left-1/2 top-full z-20 hidden w-44 -translate-x-1/2 translate-y-2 rounded-lg bg-slate-900 px-2.5 py-1.5 text-[11px] font-medium text-white shadow-lg group-hover:block">
                         {card.description}
                       </div>
                     </button>

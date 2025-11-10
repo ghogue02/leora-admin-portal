@@ -49,7 +49,7 @@ export default function CustomerActivityFeed() {
   };
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
+    <section className="rounded-2xl border border-slate-200 bg-white/90 p-3 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Win feed</p>
@@ -64,26 +64,24 @@ export default function CustomerActivityFeed() {
         </button>
       </div>
 
-      <div className="mt-3 space-y-3">
+      <div className="mt-3 space-y-2">
         {loading ? (
           <div className="space-y-2">
             {Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className="h-12 rounded-lg bg-slate-100 animate-pulse" />
+              <div key={index} className="h-10 rounded-lg bg-slate-100 animate-pulse" />
             ))}
           </div>
         ) : items.length === 0 ? (
           <p className="text-xs text-slate-500">No recent activity yet. Log a touchpoint to kick things off.</p>
         ) : (
-          items.slice(0, 5).map((item) => (
-            <div key={item.id} className="flex items-start gap-3 rounded-xl border border-slate-100 px-3 py-2">
-              <div className="rounded-full bg-indigo-50 p-2 text-indigo-700">
-                {renderIcon(item.type)}
-              </div>
-              <div className="flex-1 text-sm">
+          items.slice(0, 4).map((item) => (
+            <div key={item.id} className="flex items-start gap-2 rounded-xl border border-slate-100 px-2.5 py-2">
+              <div className="rounded-full bg-indigo-50 p-1.5 text-indigo-700">{renderIcon(item.type)}</div>
+              <div className="flex-1 text-xs">
                 <p className="font-semibold text-slate-900">{item.title}</p>
-                <p className="text-xs text-slate-500">{item.subtitle}</p>
-                <div className="mt-1 flex items-center justify-between text-xs text-slate-400">
-                  <span>{new Date(item.timestamp).toLocaleString()}</span>
+                <p className="text-[11px] text-slate-500">{item.subtitle}</p>
+                <div className="mt-1 flex items-center justify-between text-[11px] text-slate-400">
+                  <span>{new Date(item.timestamp).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</span>
                   <Link
                     href={`/sales/customers/${item.customerId}`}
                     className="text-indigo-600 hover:text-indigo-800"
