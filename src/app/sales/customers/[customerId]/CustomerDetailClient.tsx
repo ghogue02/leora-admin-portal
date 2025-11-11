@@ -168,19 +168,7 @@ export default function CustomerDetailClient({
       </nav>
 
       {/* Customer Header */}
-      <CustomerHeader customer={data.customer} />
-
-      {/* Primary Actions */}
-      <div className="flex flex-wrap gap-3">
-        <button
-          type="button"
-          onClick={handleAddOrderClick}
-          className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-        >
-          <span className="text-base">🛒</span>
-          Add Order
-        </button>
-      </div>
+      <CustomerHeader customer={data.customer} onAddOrder={handleAddOrderClick} />
 
       {/* Customer To-Dos */}
       <CustomerTasks customerId={customerId} tasks={data.tasks} />

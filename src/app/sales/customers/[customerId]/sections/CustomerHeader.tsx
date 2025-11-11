@@ -24,9 +24,10 @@ type CustomerHeaderProps = {
     isPermanentlyClosed: boolean;
     closedReason: string | null;
   };
+  onAddOrder?: () => void;
 };
 
-export default function CustomerHeader({ customer }: CustomerHeaderProps) {
+export default function CustomerHeader({ customer, onAddOrder }: CustomerHeaderProps) {
   const params = useParams();
   const customerId = params.customerId as string;
 
@@ -96,13 +97,25 @@ export default function CustomerHeader({ customer }: CustomerHeaderProps) {
                 CLOSED
               </span>
             )}
-            <Link
-              href={`/sales/customers/${customerId}/edit`}
-              className="inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
-            >
-              <Pencil className="h-4 w-4" />
-              Edit Customer
-            </Link>
+            <div className="ml-auto flex flex-wrap items-center gap-2">
+              {onAddOrder ? (
+                <button
+                  type="button"
+                  onClick={onAddOrder}
+                  className="inline-flex items-center gap-2 rounded-full bg-green-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
+                >
+                  <span className="text-base">🛒</span>
+                  Add Order
+                </button>
+              ) : null}
+              <Link
+                href={`/sales/customers/${customerId}/edit`}
+                className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+              >
+                <Pencil className="h-4 w-4" />
+                Edit Customer
+              </Link>
+            </div>
           </div>
 
           <div className="mt-3 grid gap-2 text-sm text-gray-600">
