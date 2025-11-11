@@ -5,6 +5,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { OrderStatus } from "@prisma/client";
 import { formatCurrency, formatShortDate } from "@/lib/format";
+import { useRealtimeChannel } from "@/hooks/useRealtimeChannel";
+import { tryGetTenantChannelName } from "@/lib/realtime/channels";
+import {
+  ORDER_STATUS_UPDATED_EVENT,
+  type OrderStatusUpdatedEvent,
+} from "@/lib/realtime/events/orders";
 
 type OrdersResponse = {
   summary: {
@@ -16,6 +22,9 @@ type OrdersResponse = {
       revenue: number;
       avgOrderValue: number;
     };
+  };
+  realtimeChannels?: {
+    orders?: string | null;
   };
   orders: Array<{
     id: string;
@@ -64,6 +73,10 @@ export default function OrdersList() {
   const [cancelingId, setCancelingId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [statusFilter, setStatusFilter] = useState<OrderStatus | 'all' | 'unfulfilled'>('all');
+  const tenantChannel = useMemo(
+    () => tryGetTenantChannelName(state.data?.realtimeChannels?.orders),
+    [state.data?.realtimeChannels?.orders],
+  );
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
@@ -97,6 +110,52 @@ export default function OrdersList() {
   useEffect(() => {
     void load();
   }, [load]);
+
+  const handleRealtimeOrderEvent = useCallback(
+    (payload: OrderStatusUpdatedEvent) => {
+      setState((prev) => {
+        if (!prev.data) {
+          return prev;
+        }
+
+        const orderIndex = prev.data.orders.findIndex((order) => order.id === payload.orderId);
+        if (orderIndex === -1) {
+          void load();
+          return prev;
+        }
+
+        const targetOrder = prev.data.orders[orderIndex];
+        if (targetOrder.status === payload.status) {
+          return prev;
+        }
+
+        const updatedOrders = [...prev.data.orders];
+        updatedOrders[orderIndex] = {
+          ...targetOrder,
+          status: payload.status,
+        };
+
+        const updatedSummary = updateSummaryWithStatus(prev.data.summary, targetOrder.status, payload.status);
+
+        return {
+          ...prev,
+          data: {
+            ...prev.data,
+            summary: updatedSummary,
+            orders: updatedOrders,
+          },
+        };
+      });
+    },
+    [load],
+  );
+
+  useRealtimeChannel<OrderStatusUpdatedEvent>({
+    channel: tenantChannel,
+    event: ORDER_STATUS_UPDATED_EVENT,
+    enabled: Boolean(tenantChannel),
+    handler: handleRealtimeOrderEvent,
+  });
 
   // openOrderCount calculation removed - no longer displayed (using 30-day metrics instead)
 
@@ -401,6 +460,33 @@ const CANCELABLE_STATUSES: OrderStatus[] = ["SUBMITTED", "PARTIALLY_FULFILLED"];
 
 function isCancelable(status: OrderStatus) {
   return CANCELABLE_STATUSES.includes(status);
+}
+
+function updateSummaryWithStatus(
+  summary: OrdersResponse["summary"],
+  previousStatus: OrderStatus,
+  nextStatus: OrderStatus,
+): OrdersResponse["summary"] {
+  const byStatus = { ...summary.byStatus };
+
+  const previousEntry = byStatus[previousStatus];
+  if (previousEntry) {
+    byStatus[previousStatus] = {
+      ...previousEntry,
+      count: Math.max(0, previousEntry.count - 1),
+    };
+  }
+
+  const nextEntry = byStatus[nextStatus] ?? { count: 0, total: 0 };
+  byStatus[nextStatus] = {
+    ...nextEntry,
+    count: nextEntry.count + 1,
+  };
+
+  return {
+    ...summary,
+    byStatus,
+  };
 }
 
 function OrdersSummaryStat({ label, value }: { label: string; value: string }) {

@@ -10,6 +10,7 @@ import type {
 } from "@/types/customer";
 
 interface CustomerDetailData {
+  tenantId: string;
   customer: {
     id: string;
     name: string;

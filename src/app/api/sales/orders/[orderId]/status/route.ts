@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { OrderStatus } from "@prisma/client";
 import { z } from "zod";
+import { publishOrderStatusUpdated } from "@/lib/realtime/orders.server";
 
 /**
  * PUT /api/sales/orders/[orderId]/status
@@ -68,9 +69,9 @@ export async function PUT(
 
   const { status: newStatus, notes } = parsed.data;
 
-  return withSalesSession(
-    request,
-    async ({ db, tenantId, session }) => {
+      return withSalesSession(
+        request,
+        async ({ db, tenantId, session }) => {
       const order = await db.order.findFirst({
         where: {
           id: orderId,
@@ -197,6 +198,16 @@ export async function PUT(
           },
         });
       }
+
+      await publishOrderStatusUpdated({
+        tenantId,
+        orderId: updatedOrder.id,
+        customerId: order.customerId,
+        status: updatedOrder.status,
+        previousStatus: currentStatus,
+        salesRepId: order.salesRepId,
+        updatedAt: updatedOrder.updatedAt,
+      });
 
       return NextResponse.json({
         success: true,

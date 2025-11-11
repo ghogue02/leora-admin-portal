@@ -11,8 +11,10 @@
  */
 
 import { prisma } from '@/lib/prisma';
-import { Prisma } from '@prisma/client';
+import { Prisma, type OrderStatus } from '@prisma/client';
 import { getAvailableQty } from './inventory/availability';
+import { publishOrderStatusUpdated } from '@/lib/realtime/orders.server';
+import { publishInventoryStockChanged } from '@/lib/realtime/inventory.server';
 
 /**
  * Inventory transaction types for audit trail
@@ -54,6 +56,26 @@ export class InventoryNotFoundError extends InventoryError {
   }
 }
 
+type InventoryStockEvent = {
+  tenantId: string;
+  inventoryId: string;
+  skuId: string;
+  location: string;
+  onHand: number;
+  allocated: number;
+  updatedAt: Date;
+};
+
+type OrderStatusEvent = {
+  tenantId: string;
+  orderId: string;
+  customerId: string;
+  salesRepId: string | null;
+  previousStatus: OrderStatus;
+  newStatus: OrderStatus;
+  updatedAt: Date;
+};
+
 /**
  * Allocate inventory for an order atomically
  *
@@ -78,6 +100,9 @@ export async function allocateInventory(
   location: string = 'main',
   userId?: string
 ): Promise<void> {
+  const inventoryEvents: InventoryStockEvent[] = [];
+  let orderStatusEvent: OrderStatusEvent | null = null;
+
   await prisma.$transaction(async (tx) => {
     // 1. Get order and verify it exists
     const order = await tx.order.findUnique({
@@ -130,6 +155,16 @@ export async function allocateInventory(
         },
       });
 
+      inventoryEvents.push({
+        tenantId: order.tenantId,
+        inventoryId: inventory.id,
+        skuId: inventory.skuId,
+        location: inventory.location,
+        onHand: updated.onHand,
+        allocated: updated.allocated,
+        updatedAt: updated.updatedAt,
+      });
+
       // 3. Create audit trail record
       await tx.auditLog.create({
         data: {
@@ -166,13 +201,23 @@ export async function allocateInventory(
     }
 
     // 4. Update order status to SUBMITTED
-    await tx.order.update({
+    const updatedOrder = await tx.order.update({
       where: { id: orderId },
       data: {
         status: 'SUBMITTED',
         orderedAt: new Date(),
       },
     });
+
+    orderStatusEvent = {
+      tenantId: order.tenantId,
+      orderId: order.id,
+      customerId: order.customerId,
+      salesRepId: order.salesRepId,
+      previousStatus: order.status as OrderStatus,
+      newStatus: 'SUBMITTED' as OrderStatus,
+      updatedAt: updatedOrder.updatedAt,
+    };
 
     // 5. Create order-level audit log
     await tx.auditLog.create({
@@ -200,6 +245,32 @@ export async function allocateInventory(
     maxWait: 5000, // 5 seconds
     timeout: 10000, // 10 seconds
   });
+
+  await Promise.all(
+    inventoryEvents.map((event) =>
+      publishInventoryStockChanged({
+        tenantId: event.tenantId,
+        inventoryId: event.inventoryId,
+        skuId: event.skuId,
+        location: event.location,
+        onHand: event.onHand,
+        allocated: event.allocated,
+        updatedAt: event.updatedAt,
+      }),
+    ),
+  );
+
+  if (orderStatusEvent) {
+    await publishOrderStatusUpdated({
+      tenantId: orderStatusEvent.tenantId,
+      orderId: orderStatusEvent.orderId,
+      customerId: orderStatusEvent.customerId,
+      salesRepId: orderStatusEvent.salesRepId,
+      previousStatus: orderStatusEvent.previousStatus,
+      status: orderStatusEvent.newStatus,
+      updatedAt: orderStatusEvent.updatedAt,
+    });
+  }
 }
 
 /**
@@ -219,6 +290,9 @@ export async function releaseInventory(
   location: string = 'main',
   userId?: string
 ): Promise<void> {
+  const inventoryEvents: InventoryStockEvent[] = [];
+  let orderStatusEvent: OrderStatusEvent | null = null;
+
   await prisma.$transaction(async (tx) => {
     // 1. Get order with lines
     const order = await tx.order.findUnique({
@@ -261,6 +335,16 @@ export async function releaseInventory(
         },
       });
 
+      inventoryEvents.push({
+        tenantId: order.tenantId,
+        inventoryId: inventory.id,
+        skuId: inventory.skuId,
+        location: inventory.location,
+        onHand: updated.onHand,
+        allocated: updated.allocated,
+        updatedAt: updated.updatedAt,
+      });
+
       // Create audit trail
       await tx.auditLog.create({
         data: {
@@ -289,12 +373,22 @@ export async function releaseInventory(
     }
 
     // 3. Update order status to CANCELLED
-    await tx.order.update({
+    const updatedOrder = await tx.order.update({
       where: { id: orderId },
       data: {
         status: 'CANCELLED',
       },
     });
+
+    orderStatusEvent = {
+      tenantId: order.tenantId,
+      orderId: order.id,
+      customerId: order.customerId,
+      salesRepId: order.salesRepId,
+      previousStatus: order.status as OrderStatus,
+      newStatus: 'CANCELLED' as OrderStatus,
+      updatedAt: updatedOrder.updatedAt,
+    };
 
     // 4. Create order-level audit log
     await tx.auditLog.create({
@@ -317,6 +411,32 @@ export async function releaseInventory(
   }, {
     isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
   });
+
+  await Promise.all(
+    inventoryEvents.map((event) =>
+      publishInventoryStockChanged({
+        tenantId: event.tenantId,
+        inventoryId: event.inventoryId,
+        skuId: event.skuId,
+        location: event.location,
+        onHand: event.onHand,
+        allocated: event.allocated,
+        updatedAt: event.updatedAt,
+      }),
+    ),
+  );
+
+  if (orderStatusEvent) {
+    await publishOrderStatusUpdated({
+      tenantId: orderStatusEvent.tenantId,
+      orderId: orderStatusEvent.orderId,
+      customerId: orderStatusEvent.customerId,
+      salesRepId: orderStatusEvent.salesRepId,
+      previousStatus: orderStatusEvent.previousStatus,
+      status: orderStatusEvent.newStatus,
+      updatedAt: orderStatusEvent.updatedAt,
+    });
+  }
 }
 
 /**
@@ -338,6 +458,9 @@ export async function shipInventory(
   location: string = 'main',
   userId?: string
 ): Promise<void> {
+  const inventoryEvents: InventoryStockEvent[] = [];
+  let orderStatusEvent: OrderStatusEvent | null = null;
+
   await prisma.$transaction(async (tx) => {
     // 1. Get order with lines
     const order = await tx.order.findUnique({
@@ -402,6 +525,16 @@ export async function shipInventory(
         },
       });
 
+      inventoryEvents.push({
+        tenantId: order.tenantId,
+        inventoryId: inventory.id,
+        skuId: inventory.skuId,
+        location: inventory.location,
+        onHand: updated.onHand,
+        allocated: updated.allocated,
+        updatedAt: updated.updatedAt,
+      });
+
       // Create audit trail
       await tx.auditLog.create({
         data: {
@@ -431,13 +564,23 @@ export async function shipInventory(
     }
 
     // 3. Update order status to FULFILLED
-    await tx.order.update({
+    const updatedOrder = await tx.order.update({
       where: { id: orderId },
       data: {
         status: 'FULFILLED',
         fulfilledAt: new Date(),
       },
     });
+
+    orderStatusEvent = {
+      tenantId: order.tenantId,
+      orderId: order.id,
+      customerId: order.customerId,
+      salesRepId: order.salesRepId,
+      previousStatus: order.status as OrderStatus,
+      newStatus: 'FULFILLED' as OrderStatus,
+      updatedAt: updatedOrder.updatedAt,
+    };
 
     // 4. Create order-level audit log
     await tx.auditLog.create({
@@ -461,6 +604,32 @@ export async function shipInventory(
   }, {
     isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
   });
+
+  await Promise.all(
+    inventoryEvents.map((event) =>
+      publishInventoryStockChanged({
+        tenantId: event.tenantId,
+        inventoryId: event.inventoryId,
+        skuId: event.skuId,
+        location: event.location,
+        onHand: event.onHand,
+        allocated: event.allocated,
+        updatedAt: event.updatedAt,
+      }),
+    ),
+  );
+
+  if (orderStatusEvent) {
+    await publishOrderStatusUpdated({
+      tenantId: orderStatusEvent.tenantId,
+      orderId: orderStatusEvent.orderId,
+      customerId: orderStatusEvent.customerId,
+      salesRepId: orderStatusEvent.salesRepId,
+      previousStatus: orderStatusEvent.previousStatus,
+      status: orderStatusEvent.newStatus,
+      updatedAt: orderStatusEvent.updatedAt,
+    });
+  }
 }
 
 /**
@@ -487,6 +656,8 @@ export async function adjustInventory(
   location: string = 'main',
   userId?: string
 ): Promise<void> {
+  let inventoryEvent: InventoryStockEvent | null = null;
+
   await prisma.$transaction(async (tx) => {
     // 1. Get or create inventory record
     let inventory = await tx.inventory.findUnique({
@@ -526,6 +697,16 @@ export async function adjustInventory(
       },
     });
 
+    inventoryEvent = {
+      tenantId,
+      inventoryId: inventory.id,
+      skuId,
+      location: inventory.location,
+      onHand: updated.onHand,
+      allocated: updated.allocated,
+      updatedAt: updated.updatedAt,
+    };
+
     // 3. Create audit trail
     await tx.auditLog.create({
       data: {
@@ -559,6 +740,18 @@ export async function adjustInventory(
   }, {
     isolationLevel: Prisma.TransactionIsolationLevel.Serializable,
   });
+
+  if (inventoryEvent) {
+    await publishInventoryStockChanged({
+      tenantId: inventoryEvent.tenantId,
+      inventoryId: inventoryEvent.inventoryId,
+      skuId: inventoryEvent.skuId,
+      location: inventoryEvent.location,
+      onHand: inventoryEvent.onHand,
+      allocated: inventoryEvent.allocated,
+      updatedAt: inventoryEvent.updatedAt,
+    });
+  }
 }
 
 /**

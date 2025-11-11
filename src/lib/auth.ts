@@ -41,13 +41,13 @@ export type LegacySession = {
  * Resolves either a sales session or a portal session based on cookies.
  */
 export async function getServerSession(..._args: unknown[]): Promise<LegacySession | null> {
-  const headerStore = safeHeaders();
+  const headerStore = await safeHeaders();
   const tenant = await resolveTenant(headerStore);
   if (!tenant) {
     return null;
   }
 
-  const cookieStore = safeCookiesStore();
+  const cookieStore = await safeCookiesStore();
   if (!cookieStore) {
     return null;
   }
@@ -74,18 +74,18 @@ export { withSalesSession } from "./auth/sales";
 export { withPortalSession } from "./auth/portal";
 export { withAdminSession } from "./auth/admin";
 
-function safeHeaders(): Headers {
+async function safeHeaders(): Promise<Headers> {
   try {
-    return headers();
+    return await headers();
   } catch {
     // When called outside of a request (e.g., during build), fall back to empty headers.
     return new Headers();
   }
 }
 
-function safeCookiesStore() {
+async function safeCookiesStore() {
   try {
-    return cookies();
+    return await cookies();
   } catch {
     return null;
   }

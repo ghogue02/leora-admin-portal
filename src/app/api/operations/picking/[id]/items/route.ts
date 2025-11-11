@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import {
+  publishPickSheetItemUpdated,
+  publishPickSheetStatusUpdated,
+} from "@/lib/realtime/warehouse.server";
+import type { PickSheetStatus } from "@prisma/client";
 
 type RouteParams = {
   params: {
@@ -43,27 +48,60 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
           },
         });
 
+        let latestStatus: PickSheetStatus | null = pickSheet?.status ?? null;
+
         if (pickSheet) {
           const allPicked = pickSheet.items.every((sheetItem) => sheetItem.isPicked);
 
           if (allPicked && pickSheet.status !== "PICKED") {
-            await db.pickSheet.update({
+            const updatedSheet = await db.pickSheet.update({
               where: { id: params.id },
               data: {
                 status: "PICKED",
                 completedAt: new Date(),
               },
             });
+            latestStatus = updatedSheet.status;
+
+            await publishPickSheetStatusUpdated({
+              tenantId,
+              pickSheetId: params.id,
+              status: updatedSheet.status,
+              completedAt: updatedSheet.completedAt,
+              updatedAt: updatedSheet.updatedAt,
+            });
           } else if (!allPicked && pickSheet.status === "PICKED") {
-            await db.pickSheet.update({
+            const updatedSheet = await db.pickSheet.update({
               where: { id: params.id },
               data: {
                 status: "PICKING",
                 completedAt: null,
               },
             });
+            latestStatus = updatedSheet.status;
+
+            await publishPickSheetStatusUpdated({
+              tenantId,
+              pickSheetId: params.id,
+              status: updatedSheet.status,
+              completedAt: updatedSheet.completedAt,
+              updatedAt: updatedSheet.updatedAt,
+            });
           }
         }
+
+        await publishPickSheetItemUpdated({
+          tenantId,
+          pickSheetId: params.id,
+          pickSheetStatus: latestStatus ?? pickSheet?.status,
+          itemId,
+          isPicked,
+          pickedAt: item.pickedAt,
+          pickOrder: item.pickOrder,
+          skuId: item.skuId,
+          quantity: item.quantity,
+          updatedAt: item.updatedAt,
+        });
 
         return NextResponse.json({ item });
       } catch (error) {

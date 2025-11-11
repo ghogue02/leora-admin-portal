@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,113 +15,290 @@ import { Search, Plus, Calendar } from 'lucide-react';
 import { PickSheetCard } from './components/PickSheetCard';
 import { PickSheetGenerator } from './sections/PickSheetGenerator';
 import { toast } from 'sonner';
+import type { PickSheetStatus } from '@prisma/client';
+import { useRealtimeChannel } from '@/hooks/useRealtimeChannel';
+import { tryGetTenantChannelName } from '@/lib/realtime/channels';
+import {
+  PICK_SHEET_ITEM_UPDATED_EVENT,
+  PICK_SHEET_STATUS_UPDATED_EVENT,
+  type PickSheetItemUpdatedEvent,
+  type PickSheetStatusUpdatedEvent,
+} from '@/lib/realtime/events/warehouse';
 
-// Mock data - replace with actual API calls
-const mockPickSheets = [
-  {
-    id: '1',
-    sheetNumber: 'PS-2024-001',
-    status: 'PICKING' as const,
-    pickerName: 'John Smith',
-    createdAt: '2024-01-15T08:00:00Z',
-    startedAt: '2024-01-15T08:30:00Z',
-    totalItems: 24,
-    pickedItems: 18,
-  },
-  {
-    id: '2',
-    sheetNumber: 'PS-2024-002',
-    status: 'READY' as const,
-    pickerName: 'Sarah Johnson',
-    createdAt: '2024-01-15T09:00:00Z',
-    totalItems: 15,
-    pickedItems: 0,
-  },
-  {
-    id: '3',
-    sheetNumber: 'PS-2024-003',
-    status: 'PICKED' as const,
-    pickerName: 'Mike Davis',
-    createdAt: '2024-01-14T14:00:00Z',
-    startedAt: '2024-01-14T14:30:00Z',
-    completedAt: '2024-01-14T16:45:00Z',
-    totalItems: 32,
-    pickedItems: 32,
-  },
-];
+type PickSheetItem = {
+  id: string;
+  isPicked: boolean;
+  quantity: number;
+  pickOrder: number | null;
+  pickedAt: string | null;
+};
 
-const mockReadyOrders = [
-  {
-    id: '1',
-    orderNumber: 'SO-2024-045',
-    customerName: 'ABC Corp',
-    itemCount: 8,
-    totalQuantity: 24,
-    hasLocations: true,
-    submittedAt: '2024-01-15T10:00:00Z',
-  },
-  {
-    id: '2',
-    orderNumber: 'SO-2024-046',
-    customerName: 'XYZ Inc',
-    itemCount: 5,
-    totalQuantity: 12,
-    hasLocations: true,
-    submittedAt: '2024-01-15T10:15:00Z',
-  },
-  {
-    id: '3',
-    orderNumber: 'SO-2024-047',
-    customerName: 'Tech Solutions',
-    itemCount: 12,
-    totalQuantity: 36,
-    hasLocations: false,
-    submittedAt: '2024-01-15T10:30:00Z',
-  },
-];
+type PickSheetRecord = {
+  id: string;
+  sheetNumber: string;
+  status: PickSheetStatus;
+  pickerName: string | null;
+  createdAt: string;
+  startedAt: string | null;
+  completedAt: string | null;
+  items: PickSheetItem[];
+};
+
+type ReadyOrder = {
+  id: string;
+  orderNumber: string;
+  customerName: string;
+  itemCount: number;
+  totalQuantity: number;
+  hasLocations: boolean;
+  submittedAt: string;
+};
+
+type PickSheetCardData = {
+  id: string;
+  sheetNumber: string;
+  status: PickSheetStatus;
+  pickerName?: string | null;
+  createdAt: string;
+  startedAt?: string | null;
+  completedAt?: string | null;
+  totalItems: number;
+  pickedItems: number;
+};
 
 export default function PickSheetsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [dateRange, setDateRange] = useState<string>('today');
   const [showGenerator, setShowGenerator] = useState(false);
+  const [pickSheets, setPickSheets] = useState<PickSheetRecord[]>([]);
+  const [readyOrders, setReadyOrders] = useState<ReadyOrder[]>([]);
+  const [warehouseChannel, setWarehouseChannel] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [readyOrdersLoading, setReadyOrdersLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleGeneratePickSheet = async (orderIds: string[], pickerName: string) => {
-    // TODO: Implement actual API call
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  const fetchPickSheets = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('/api/pick-sheets');
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => ({}))) as { error?: string };
+        throw new Error(payload.error ?? 'Unable to load pick sheets');
+      }
+      const data = (await response.json()) as {
+        pickSheets: PickSheetRecord[];
+        realtimeChannels?: { warehouse?: string | null };
+      };
+      setPickSheets(data.pickSheets ?? []);
+      setWarehouseChannel(data.realtimeChannels?.warehouse ?? null);
+      setError(null);
+    } catch (err) {
+      console.error('Failed to load pick sheets', err);
+      setError(err instanceof Error ? err.message : 'Unable to load pick sheets');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-    setShowGenerator(false);
-  };
+  const fetchReadyOrders = useCallback(async () => {
+    setReadyOrdersLoading(true);
+    try {
+      const response = await fetch('/api/operations/pick-sheets/ready-orders');
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => ({}))) as { error?: string };
+        throw new Error(payload.error ?? 'Unable to load ready orders');
+      }
+      const data = (await response.json()) as { readyOrders: ReadyOrder[] };
+      setReadyOrders(data.readyOrders ?? []);
+    } catch (err) {
+      console.error('Failed to load ready orders', err);
+      toast.error(err instanceof Error ? err.message : 'Unable to load ready orders');
+    } finally {
+      setReadyOrdersLoading(false);
+    }
+  }, []);
 
-  const handleExport = (sheetId: string) => {
-    toast.success(`Exporting pick sheet ${sheetId}`);
-    // TODO: Implement export
-  };
+  useEffect(() => {
+    void Promise.all([fetchPickSheets(), fetchReadyOrders()]);
+  }, [fetchPickSheets, fetchReadyOrders]);
 
-  const handleCancel = (sheetId: string) => {
-    toast.success(`Cancelled pick sheet ${sheetId}`);
-    // TODO: Implement cancel
-  };
+  const handleGeneratePickSheet = useCallback(
+    async (orderIds: string[], pickerName: string) => {
+      try {
+        const response = await fetch('/api/pick-sheets', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderIds, pickerName }),
+        });
 
-  // Filter pick sheets
-  const filteredSheets = mockPickSheets.filter(sheet => {
-    const matchesSearch = sheet.sheetNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         sheet.pickerName?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = statusFilter === 'all' || sheet.status === statusFilter;
-    return matchesSearch && matchesStatus;
+        if (!response.ok) {
+          const payload = (await response.json().catch(() => ({}))) as { error?: string };
+          throw new Error(payload.error ?? 'Failed to generate pick sheet');
+        }
+
+        toast.success('Pick sheet generated');
+        setShowGenerator(false);
+        await Promise.all([fetchPickSheets(), fetchReadyOrders()]);
+      } catch (err) {
+        toast.error(err instanceof Error ? err.message : 'Failed to generate pick sheet');
+        throw err;
+      }
+    },
+    [fetchPickSheets, fetchReadyOrders],
+  );
+
+  const handleExport = useCallback(async (sheetId: string, sheetNumber: string) => {
+    try {
+      const response = await fetch(`/api/pick-sheets/${sheetId}/export?format=csv`);
+      if (!response.ok) {
+        const payload = (await response.json().catch(() => ({}))) as { error?: string };
+        throw new Error(payload.error ?? 'Failed to export pick sheet');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${sheetNumber}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : 'Failed to export pick sheet');
+    }
+  }, []);
+
+  const handleCancel = useCallback(
+    async (sheetId: string) => {
+      if (!confirm('Cancel this pick sheet? Orders will return to the ready pool.')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/pick-sheets/${sheetId}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'cancel' }),
+        });
+
+        if (!response.ok) {
+          const payload = (await response.json().catch(() => ({}))) as { error?: string };
+          throw new Error(payload.error ?? 'Failed to cancel pick sheet');
+        }
+
+        toast.success('Pick sheet cancelled');
+        await Promise.all([fetchPickSheets(), fetchReadyOrders()]);
+      } catch (err) {
+        toast.error(err instanceof Error ? err.message : 'Failed to cancel pick sheet');
+      }
+    },
+    [fetchPickSheets, fetchReadyOrders],
+  );
+
+  const tenantChannel = useMemo(
+    () => tryGetTenantChannelName(warehouseChannel),
+    [warehouseChannel],
+  );
+
+  const handleItemRealtime = useCallback((event: PickSheetItemUpdatedEvent) => {
+    setPickSheets((prev) =>
+      prev.map((sheet) => {
+        if (sheet.id !== event.pickSheetId) {
+          return sheet;
+        }
+        return {
+          ...sheet,
+          status: event.pickSheetStatus ?? sheet.status,
+          items: sheet.items.map((item) =>
+            item.id === event.itemId
+              ? {
+                  ...item,
+                  isPicked: event.isPicked,
+                  pickedAt: event.pickedAt,
+                }
+              : item,
+          ),
+        };
+      }),
+    );
+  }, []);
+
+  const handleStatusRealtime = useCallback((event: PickSheetStatusUpdatedEvent) => {
+    setPickSheets((prev) =>
+      prev.map((sheet) =>
+        sheet.id === event.pickSheetId
+          ? {
+              ...sheet,
+              status: event.status,
+              completedAt: event.completedAt,
+            }
+          : sheet,
+      ),
+    );
+  }, []);
+
+  useRealtimeChannel<PickSheetItemUpdatedEvent>({
+    channel: tenantChannel,
+    event: PICK_SHEET_ITEM_UPDATED_EVENT,
+    enabled: Boolean(tenantChannel),
+    handler: handleItemRealtime,
   });
 
-  // Calculate summary stats
-  const stats = {
-    total: filteredSheets.length,
-    totalItems: filteredSheets.reduce((sum, s) => sum + s.totalItems, 0),
-    pickedItems: filteredSheets.reduce((sum, s) => sum + s.pickedItems, 0),
-  };
+  useRealtimeChannel<PickSheetStatusUpdatedEvent>({
+    channel: tenantChannel,
+    event: PICK_SHEET_STATUS_UPDATED_EVENT,
+    enabled: Boolean(tenantChannel),
+    handler: handleStatusRealtime,
+  });
+
+  const computedSheets: PickSheetCardData[] = useMemo(
+    () =>
+      pickSheets.map((sheet) => {
+        const totalItems = sheet.items.length;
+        const pickedItems = sheet.items.filter((item) => item.isPicked).length;
+        return {
+          id: sheet.id,
+          sheetNumber: sheet.sheetNumber,
+          status: sheet.status,
+          pickerName: sheet.pickerName,
+          createdAt: sheet.createdAt,
+          startedAt: sheet.startedAt,
+          completedAt: sheet.completedAt,
+          totalItems,
+          pickedItems,
+        };
+      }),
+    [pickSheets],
+  );
+
+  const filteredSheets = useMemo(
+    () =>
+      computedSheets.filter((sheet) => {
+        const matchesSearch =
+          sheet.sheetNumber.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          sheet.pickerName?.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesStatus = statusFilter === 'all' || sheet.status === statusFilter;
+        return matchesSearch && matchesStatus;
+      }),
+    [computedSheets, searchTerm, statusFilter],
+  );
+
+  const stats = useMemo(() => {
+    const total = filteredSheets.length;
+    const totalItems = filteredSheets.reduce((sum, sheet) => sum + sheet.totalItems, 0);
+    const pickedItems = filteredSheets.reduce((sum, sheet) => sum + sheet.pickedItems, 0);
+
+    return {
+      total,
+      totalItems,
+      pickedItems,
+    };
+  }, [filteredSheets]);
 
   return (
     <div className="container mx-auto py-6 px-4 max-w-7xl">
-      {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
         <div>
           <h1 className="text-3xl font-bold">Pick Sheets</h1>
@@ -137,7 +314,12 @@ export default function PickSheetsPage() {
         </Button>
       </div>
 
-      {/* Summary Stats */}
+      {error && (
+        <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {error}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
           <div className="text-sm text-blue-600 font-semibold">Total Sheets</div>
@@ -153,17 +335,18 @@ export default function PickSheetsPage() {
         </div>
       </div>
 
-      {/* Pick Sheet Generator */}
       {showGenerator && (
         <div className="mb-6">
           <PickSheetGenerator
-            readyOrders={mockReadyOrders}
+            readyOrders={readyOrders}
             onGenerate={handleGeneratePickSheet}
           />
+          {readyOrdersLoading && (
+            <p className="mt-2 text-sm text-gray-500">Loading eligible orders…</p>
+          )}
         </div>
       )}
 
-      {/* Filters */}
       <div className="flex flex-col md:flex-row gap-4 mb-6">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -188,41 +371,45 @@ export default function PickSheetsPage() {
         </Select>
       </div>
 
-      {/* Tabs */}
       <Tabs defaultValue="all" className="space-y-4">
         <TabsList className="grid w-full grid-cols-5 touch-target">
           <TabsTrigger value="all" onClick={() => setStatusFilter('all')}>
-            All ({mockPickSheets.length})
+            All ({computedSheets.length})
           </TabsTrigger>
           <TabsTrigger value="READY" onClick={() => setStatusFilter('READY')}>
-            Ready ({mockPickSheets.filter(s => s.status === 'READY').length})
+            Ready ({computedSheets.filter((s) => s.status === 'READY').length})
           </TabsTrigger>
           <TabsTrigger value="PICKING" onClick={() => setStatusFilter('PICKING')}>
-            Picking ({mockPickSheets.filter(s => s.status === 'PICKING').length})
+            Picking ({computedSheets.filter((s) => s.status === 'PICKING').length})
           </TabsTrigger>
           <TabsTrigger value="PICKED" onClick={() => setStatusFilter('PICKED')}>
-            Completed ({mockPickSheets.filter(s => s.status === 'PICKED').length})
+            Completed ({computedSheets.filter((s) => s.status === 'PICKED').length})
           </TabsTrigger>
           <TabsTrigger value="CANCELLED" onClick={() => setStatusFilter('CANCELLED')}>
-            Cancelled ({mockPickSheets.filter(s => s.status === 'CANCELLED').length})
+            Cancelled ({computedSheets.filter((s) => s.status === 'CANCELLED').length})
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value={statusFilter === 'all' ? 'all' : statusFilter} className="space-y-4">
-          {filteredSheets.length === 0 ? (
-            <div className="text-center py-12 text-gray-500">
-              No pick sheets found
+        <TabsContent value="all">
+          {loading ? (
+            <div className="rounded-lg border border-slate-200 bg-white p-6 text-center text-gray-500">
+              Loading pick sheets…
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {filteredSheets.map((sheet) => (
                 <PickSheetCard
                   key={sheet.id}
                   sheet={sheet}
-                  onExport={handleExport}
+                  onExport={(id) => handleExport(id, sheet.sheetNumber)}
                   onCancel={handleCancel}
                 />
               ))}
+              {filteredSheets.length === 0 && (
+                <div className="rounded-lg border border-dashed border-slate-300 bg-white p-6 text-center text-gray-500">
+                  No pick sheets match the current filters.
+                </div>
+              )}
             </div>
           )}
         </TabsContent>

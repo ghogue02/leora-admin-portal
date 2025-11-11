@@ -7,20 +7,13 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { renderToBuffer } from '@react-pdf/renderer';
-import { createElement } from 'react';
 import { PrismaClient } from '@prisma/client';
 import { buildInvoiceData } from '@/lib/invoices/invoice-data-builder';
-import {
-  VAAbcInstateInvoice,
-  VAAbcInstateInvoiceCondensed,
-  VAAbcTaxExemptInvoice,
-  StandardInvoice,
-} from '@/lib/invoices/templates';
 import {
   getInvoiceTemplateSettings,
   resolveBaseTemplateComponent,
 } from '@/lib/invoices/template-settings';
+import { invokeSupabaseFunction } from '@/lib/supabase/functions';
 
 const prisma = new PrismaClient();
 
@@ -72,25 +65,17 @@ export async function GET(
       templateSettings.baseTemplate
     );
 
-    let PDFComponent;
     let filename = `invoice-${invoice.invoiceNumber}.pdf`;
 
     switch (baseTemplateChoice) {
       case 'VA_ABC_INSTATE_CONDENSED':
-        PDFComponent = VAAbcInstateInvoiceCondensed;
         filename = `invoice-va-instate-${invoice.invoiceNumber}.pdf`;
         break;
       case 'VA_ABC_INSTATE_FULL':
-        PDFComponent = VAAbcInstateInvoice;
         filename = `invoice-va-instate-${invoice.invoiceNumber}.pdf`;
         break;
       case 'VA_ABC_TAX_EXEMPT':
-        PDFComponent = VAAbcTaxExemptInvoice;
         filename = `invoice-va-taxexempt-${invoice.invoiceNumber}.pdf`;
-        break;
-      case 'STANDARD':
-      default:
-        PDFComponent = StandardInvoice;
         break;
     }
 
@@ -105,9 +90,15 @@ export async function GET(
       templateSettings,
     };
 
-    // Generate PDF stream using createElement
-    const PDFDocument = createElement(PDFComponent, { data: pdfData });
-    const pdfBuffer = await renderToBuffer(PDFDocument);
+    const response = await invokeSupabaseFunction<{ pdfBase64: string }>("invoice-pdf", {
+      pdfData,
+    });
+
+    if (!response?.pdfBase64) {
+      throw new Error("Invoice PDF edge function returned no data");
+    }
+
+    const pdfBuffer = Buffer.from(response.pdfBase64, "base64");
 
     // Return PDF as download
     return new Response(pdfBuffer, {

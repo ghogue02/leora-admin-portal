@@ -5,6 +5,7 @@ import { createPickSheetSchema, pickSheetQuerySchema } from '@/lib/validations/w
 import { formatUTCDate } from '@/lib/dates';
 import { z } from 'zod';
 import type { Prisma } from '@prisma/client';
+import { getTenantChannelName } from '@/lib/realtime/channels.server';
 
 export async function GET(request: NextRequest) {
   try {
@@ -53,7 +54,13 @@ export async function GET(request: NextRequest) {
       },
     });
 
-    return NextResponse.json({ pickSheets });
+    const warehouseChannel = getTenantChannelName(session.user.tenantId, "warehouse");
+    return NextResponse.json({
+      pickSheets,
+      realtimeChannels: {
+        warehouse: warehouseChannel,
+      },
+    });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: 'Invalid query parameters', details: error.errors }, { status: 400 });

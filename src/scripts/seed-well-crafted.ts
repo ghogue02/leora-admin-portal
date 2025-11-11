@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { parse } from "csv-parse/sync";
 import { InvoiceStatus, OrderStatus, PortalUserStatus, Prisma, PrismaClient } from "@prisma/client";
-import { ingestSalesReportRecords } from "@/lib/imports/sales-report-ingestion";
+import { ingestSalesReportRecords } from "../lib/imports/sales-report-ingestion";
 
 const BASE_PERMISSIONS = [
   { code: "portal.dashboard.view", name: "View portal dashboard" },
@@ -1460,51 +1460,6 @@ function parseDateValue(input: string) {
     }
   }
   return null;
-}
-
-function buildDeliveryTimeWindow(start: string | null, end: string | null) {
-  const normalizedStart = start?.trim();
-  const normalizedEnd = end?.trim();
-  if (normalizedStart && normalizedEnd) {
-    return `${normalizedStart} - ${normalizedEnd}`;
-  }
-  return normalizedStart ?? normalizedEnd ?? null;
-}
-
-function computeIsoWeekNumber(date: Date) {
-  const target = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-  const dayNumber = target.getUTCDay() || 7;
-  target.setUTCDate(target.getUTCDate() + 4 - dayNumber);
-  const yearStart = new Date(Date.UTC(target.getUTCFullYear(), 0, 1));
-  return Math.ceil((((target.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
-}
-
-function mapOrderStatus(status: string | null): OrderStatus {
-  const normalized = status?.toLowerCase();
-  switch (normalized) {
-    case "delivered":
-    case "completed":
-      return OrderStatus.FULFILLED;
-    case "cancelled":
-    case "canceled":
-      return OrderStatus.CANCELLED;
-    case "partially fulfilled":
-      return OrderStatus.PARTIALLY_FULFILLED;
-    default:
-      return OrderStatus.SUBMITTED;
-  }
-}
-
-function mapInvoiceStatus(orderStatus: OrderStatus): InvoiceStatus {
-  switch (orderStatus) {
-    case OrderStatus.FULFILLED:
-    case OrderStatus.DELIVERED:
-      return InvoiceStatus.PAID;
-    case OrderStatus.CANCELLED:
-      return InvoiceStatus.VOID;
-    default:
-      return InvoiceStatus.SENT;
-  }
 }
 
 

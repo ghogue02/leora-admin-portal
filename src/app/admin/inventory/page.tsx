@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import {
   Search,
@@ -13,6 +13,12 @@ import {
   CheckCircle2,
   XCircle,
 } from "lucide-react";
+import { useRealtimeChannel } from "@/hooks/useRealtimeChannel";
+import { tryGetTenantChannelName } from "@/lib/realtime/channels";
+import {
+  INVENTORY_STOCK_CHANGED_EVENT,
+  type InventoryStockChangedEvent,
+} from "@/lib/realtime/events/inventory";
 
 type InventoryStatus = "in_stock" | "low_stock" | "out_of_stock";
 
@@ -39,6 +45,7 @@ export default function InventoryListPage() {
   const router = useRouter();
   const [items, setItems] = useState<InventoryItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [inventoryChannel, setInventoryChannel] = useState<string | null>(null);
   const [pagination, setPagination] = useState<PaginationData>({
     page: 1,
     limit: 50,
@@ -65,28 +72,15 @@ export default function InventoryListPage() {
   const [categories, setCategories] = useState<string[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
 
-  useEffect(() => {
-    fetchInventory();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    pagination.page,
-    search,
-    selectedCategory,
-    selectedBrand,
-    statusFilters,
-    includeInactive,
-    priceMin,
-    priceMax,
-    sortBy,
-    sortOrder,
-  ]);
+  const page = pagination.page;
+  const limit = pagination.limit;
 
-  const fetchInventory = async () => {
+  const fetchInventory = useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
-        page: pagination.page.toString(),
-        limit: pagination.limit.toString(),
+        page: page.toString(),
+        limit: limit.toString(),
         ...(search && { search }),
         ...(selectedCategory && { category: selectedCategory }),
         ...(selectedBrand && { brand: selectedBrand }),
@@ -103,15 +97,37 @@ export default function InventoryListPage() {
 
       const data = await response.json();
       setItems(data.items);
-      setPagination(data.pagination);
+      setPagination({
+        page,
+        limit,
+        totalCount: data.pagination?.totalCount ?? 0,
+        totalPages: data.pagination?.totalPages ?? 0,
+      });
       setCategories(data.categories || []);
       setBrands(data.brands || []);
+      setInventoryChannel(data.realtimeChannels?.inventory ?? null);
     } catch (error) {
       console.error("Error fetching inventory:", error);
     } finally {
       setLoading(false);
     }
-  };
+  }, [
+    page,
+    limit,
+    search,
+    selectedCategory,
+    selectedBrand,
+    statusFilters,
+    includeInactive,
+    priceMin,
+    priceMax,
+    sortBy,
+    sortOrder,
+  ]);
+
+  useEffect(() => {
+    void fetchInventory();
+  }, [fetchInventory]);
 
   const handleSort = (field: string) => {
     if (sortBy === field) {
@@ -121,6 +137,20 @@ export default function InventoryListPage() {
       setSortOrder("asc");
     }
   };
+
+  const tenantChannel = useMemo(
+    () => tryGetTenantChannelName(inventoryChannel),
+    [inventoryChannel],
+  );
+
+  useRealtimeChannel<InventoryStockChangedEvent>({
+    channel: tenantChannel,
+    event: INVENTORY_STOCK_CHANGED_EVENT,
+    enabled: Boolean(tenantChannel),
+    handler: () => {
+      void fetchInventory();
+    },
+  });
 
   const handleStatusFilterToggle = (status: InventoryStatus) => {
     setStatusFilters((prev) =>

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Prisma, type OrderStatus, OrderUsageType } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
+import { getTenantChannelName } from "@/lib/realtime/channels.server";
 import { runWithTransaction } from "@/lib/prisma";
 import {
   OrderFlowError,
@@ -266,9 +267,14 @@ export async function GET(request: NextRequest) {
         },
       );
 
+      const ordersChannel = getTenantChannelName(tenantId, "orders");
+
       return NextResponse.json({
         summary,
         orders: orders.map(serializeOrder),
+        realtimeChannels: {
+          orders: ordersChannel,
+        },
       });
     }
   );

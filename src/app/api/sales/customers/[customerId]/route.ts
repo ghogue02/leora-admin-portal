@@ -12,6 +12,7 @@ import {
   VolumeCapacity,
   DeliveryWindow,
 } from "@/types/customer";
+import { getTenantChannelName } from "@/lib/realtime/channels.server";
 
 const TIME_PATTERN = /^([01]\d|2[0-3]):[0-5]\d$/;
 
@@ -783,7 +784,13 @@ export async function GET(
           return a.productName.localeCompare(b.productName);
         });
 
+      const ordersChannel = getTenantChannelName(tenantId, "orders");
+
       return NextResponse.json({
+        tenantId,
+        realtimeChannels: {
+          orders: ordersChannel,
+        },
         customer: {
           id: customer.id,
           name: customer.name,

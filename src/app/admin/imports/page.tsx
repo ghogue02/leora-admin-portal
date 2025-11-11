@@ -227,7 +227,7 @@ export default function AdminImportsPage() {
             <input
               type="text"
               className="mt-1 w-full rounded-md border border-slate-300 px-3 py-2 text-sm shadow-sm focus:border-gray-900 focus:outline-none"
-              placeholder="e.g. invoices, orders, payments"
+              placeholder='e.g. "sales_report"'
               value={formState.dataType}
               onChange={(event) => handleFormChange("dataType", event.target.value)}
               required

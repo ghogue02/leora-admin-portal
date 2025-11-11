@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
+import { useCustomerRealtime } from "@/hooks/useCustomerRealtime";
 import { useQueryClient } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
 import CustomerHeader from "./sections/CustomerHeader";
@@ -52,6 +53,10 @@ export default function CustomerDetailClient({
   const { data, isLoading, error } = useCustomerDetail(customerId);
   const queryClient = useQueryClient();
   const fullHistorySectionId = "full-order-history";
+  useCustomerRealtime({
+    customerId,
+    channel: data?.realtimeChannels?.orders,
+  });
 
   const handleFollowUpComplete = async (item: SampleFollowUpItem) => {
     try {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withAdminSession, AdminSessionContext } from "@/lib/auth/admin";
+import { getTenantChannelName } from "@/lib/realtime/channels.server";
 import { Prisma } from "@prisma/client";
 
 /**
@@ -189,6 +190,8 @@ export async function GET(request: NextRequest) {
         filteredItems = items.filter((item) => statusFilters.includes(item.status));
       }
 
+      const inventoryChannel = getTenantChannelName(tenantId, "inventory");
+
       return NextResponse.json({
         items: filteredItems,
         pagination: {
@@ -199,6 +202,9 @@ export async function GET(request: NextRequest) {
         },
         categories,
         brands,
+        realtimeChannels: {
+          inventory: inventoryChannel,
+        },
       });
     } catch (error) {
       console.error("Error fetching inventory:", error);

@@ -4,6 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { updatePickSheetSchema } from '@/lib/validations/warehouse';
 import { z } from 'zod';
 import type { Prisma } from '@prisma/client';
+import { getTenantChannelName } from '@/lib/realtime/channels.server';
 
 export async function GET(
   request: NextRequest,
@@ -41,7 +42,13 @@ export async function GET(
       return NextResponse.json({ error: 'Pick sheet not found' }, { status: 404 });
     }
 
-    return NextResponse.json(pickSheet);
+    const warehouseChannel = getTenantChannelName(session.user.tenantId, 'warehouse');
+    return NextResponse.json({
+      pickSheet,
+      realtimeChannels: {
+        warehouse: warehouseChannel,
+      },
+    });
   } catch (error) {
     console.error('Error fetching pick sheet:', error);
     return NextResponse.json(

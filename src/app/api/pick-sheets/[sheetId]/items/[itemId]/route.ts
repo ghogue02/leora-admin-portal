@@ -3,6 +3,7 @@ import { getServerSession } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { updatePickItemSchema } from '@/lib/validations/warehouse';
 import { z } from 'zod';
+import { publishPickSheetItemUpdated } from '@/lib/realtime/warehouse.server';
 
 export async function PATCH(
   request: NextRequest,
@@ -13,6 +14,7 @@ export async function PATCH(
     if (!session?.user?.tenantId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
+    const tenantId = session.user.tenantId;
 
     const body = await request.json();
     const { isPicked } = updatePickItemSchema.parse(body);
@@ -34,7 +36,25 @@ export async function PATCH(
           },
         },
         customer: true,
+        pickSheet: {
+          select: {
+            status: true,
+          },
+        },
       },
+    });
+
+    await publishPickSheetItemUpdated({
+      tenantId,
+      pickSheetId: params.sheetId,
+      pickSheetStatus: item.pickSheet?.status,
+      itemId: item.id,
+      isPicked,
+      pickedAt: item.pickedAt,
+      pickOrder: item.pickOrder,
+      skuId: item.skuId,
+      quantity: item.quantity,
+      updatedAt: item.updatedAt,
     });
 
     return NextResponse.json(item);
