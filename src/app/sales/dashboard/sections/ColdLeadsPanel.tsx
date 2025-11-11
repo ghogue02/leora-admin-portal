@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from "react";
+import { ChevronRight } from "lucide-react";
 import type { ColdLeadsOverview, CustomerReportRow } from "@/types/sales-dashboard";
 import { InfoHover } from "@/components/InfoHover";
-import { formatNumber } from "@/lib/format";
 import CustomerBucketModal from "./components/CustomerBucketModal";
 import {
   filterBucket,
@@ -137,19 +137,29 @@ type ColdBucketCardProps = {
 };
 
 function ColdBucketCard({ label, value, description, tone = "default", hint, onClick }: ColdBucketCardProps) {
-  const colorClasses = tone === "rose" ? "text-rose-600" : "text-gray-900";
+  const accent = tone === "rose" ? "text-rose-600" : "text-gray-900";
+  const hoverStyles =
+    tone === "rose"
+      ? "hover:border-rose-200 focus-visible:ring-rose-200"
+      : "hover:border-indigo-200 focus-visible:ring-indigo-200";
 
   return (
     <button
       type="button"
       onClick={onClick}
-      className="rounded-md border border-slate-100 bg-slate-50 p-4 text-center transition hover:border-slate-200 hover:bg-white"
+      className={`group flex h-full flex-col gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4 text-left transition hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 ${hoverStyles}`}
     >
-      <p className="flex items-center justify-center gap-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
-        <span>{label}</span>
-        {hint ? <InfoHover text={hint} label={`${label} definition`} align="left" /> : null}
-      </p>
-      <p className={`mt-2 text-4xl font-semibold ${colorClasses}`}>{formatNumber(value)}</p>
+      <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-gray-500">
+        <div className="flex items-center gap-1">
+          <span>{label}</span>
+          {hint ? <InfoHover text={hint} label={`${label} definition`} align="left" /> : null}
+        </div>
+        <span className="flex items-center gap-1 text-[11px] font-semibold text-indigo-500 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
+          View list
+          <ChevronRight className="h-3 w-3" />
+        </span>
+      </div>
+      <p className={`text-4xl font-semibold ${accent}`}>{value.toLocaleString()}</p>
       <p className="text-xs text-gray-500">{description}</p>
     </button>
   );
