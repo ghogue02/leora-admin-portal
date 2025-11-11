@@ -186,11 +186,11 @@ const INITIAL_FORM_STATE: CustomerFormState = {
   googlePlaceTypes: [],
 };
 
-export default function CustomerDetailPage({ params }: { params: { id: string } }) {
+export default function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { id: customerId } = params;
+  const [customerId, setCustomerId] = useState<string | null>(null);
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -205,6 +205,10 @@ export default function CustomerDetailPage({ params }: { params: { id: string } 
   const updateForm = useCallback((updates: Partial<CustomerFormState>) => {
     setFormData((prev) => ({ ...prev, ...updates }));
   }, []);
+
+  useEffect(() => {
+    params.then((resolved) => setCustomerId(resolved.id));
+  }, [params]);
 
   const handleTabChange = useCallback(
     (tab: 'overview' | 'details') => {
