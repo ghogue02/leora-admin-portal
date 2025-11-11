@@ -3,49 +3,47 @@
  * GET /api/map/heat
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { NextRequest, NextResponse } from "next/server";
+import { withSalesSession } from "@/lib/auth/sales";
 
 export async function GET(request: NextRequest) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const tenantId = searchParams.get('tenantId');
-    const metric = (searchParams.get('metric') || 'revenue') as 'revenue' | 'orders';
+  return withSalesSession(request, async ({ db, tenantId }) => {
+    try {
+      const metric = (request.nextUrl.searchParams.get("metric") || "revenue") as
+        | "revenue"
+        | "orders";
 
-    if (!tenantId) {
-      return NextResponse.json({ error: 'tenantId required' }, { status: 400 });
-    }
-
-    const customers = await prisma.customer.findMany({
-      where: {
-        tenantId,
-        latitude: { not: null },
-        longitude: { not: null },
-      },
-      select: {
-        latitude: true,
-        longitude: true,
-        establishedRevenue: true,
-        orders: {
-          where: { status: 'FULFILLED' },
-          select: { total: true },
+      const customers = await db.customer.findMany({
+        where: {
+          tenantId,
+          latitude: { not: null },
+          longitude: { not: null },
         },
-      },
-    });
+        select: {
+          latitude: true,
+          longitude: true,
+          orders: {
+            where: { status: "FULFILLED" },
+            select: { total: true },
+          },
+        },
+      });
 
-    const heatData = customers.map(c => ({
-      latitude: c.latitude,
-      longitude: c.longitude,
-      value: metric === 'revenue' 
-        ? c.orders.reduce((sum, o) => sum + Number(o.total || 0), 0)
-        : c.orders.length,
-    })).filter(d => d.value > 0);
+      const heatData = customers
+        .map((customer) => ({
+          latitude: customer.latitude,
+          longitude: customer.longitude,
+          value:
+            metric === "revenue"
+              ? customer.orders.reduce((sum, order) => sum + Number(order.total || 0), 0)
+              : customer.orders.length,
+        }))
+        .filter((point) => point.value > 0);
 
-    return NextResponse.json({ success: true, metric, data: heatData });
-  } catch (error) {
-    console.error('Heat map error:', error);
-    return NextResponse.json({ error: 'Internal error' }, { status: 500 });
-  }
+      return NextResponse.json({ success: true, metric, data: heatData });
+    } catch (error) {
+      console.error("[map/heat] Failed to load heat data:", error);
+      return NextResponse.json({ error: "Internal error" }, { status: 500 });
+    }
+  });
 }

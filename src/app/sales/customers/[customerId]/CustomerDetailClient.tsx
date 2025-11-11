@@ -33,6 +33,7 @@ import {
   OrderHistorySkeleton,
   ActivityTimelineSkeleton,
   TopProductsSkeleton,
+  ProductRecommendationsSkeleton,
 } from "./components/LoadingSkeletons";
 
 const ProductHistoryReports = dynamic(() => import("./sections/ProductHistoryReports"), {
@@ -127,7 +128,7 @@ export default function CustomerDetailClient({
         <div className="h-20 animate-pulse rounded-lg bg-gray-100"></div>
         <div className="h-32 animate-pulse rounded-lg bg-gray-100"></div>
         <TopProductsSkeleton />
-        <TopProductsSkeleton />
+        <ProductRecommendationsSkeleton />
         <ActivityTimelineSkeleton />
         <OrderHistorySkeleton />
       </main>

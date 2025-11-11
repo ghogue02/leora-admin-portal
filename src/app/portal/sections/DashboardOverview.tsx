@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { OrderStatus } from "@prisma/client";
+import { InfoHover } from "@/components/InfoHover";
 
 type AccountSignalEntry = {
   customerId: string;
@@ -268,11 +269,13 @@ export default function DashboardOverview() {
           title="Open order exposure"
           value={openTotalFormatted}
           hint={`Across ${statusLabel.toLowerCase()} statuses in ${rangeLabel.toLowerCase()}.`}
+          calculation="Sums the value of portal orders that match the selected status and date filters so you can see dollars currently outstanding."
         />
         <DashboardStatCard
           title="Orders this cycle"
           value={summary.totalCount.toString()}
           hint={`Showing last ${displayedLimit} orders (${rangeLabel.toLowerCase()}).`}
+          calculation="Counts the orders returned by the dashboard query for the selected time range and status filter."
         />
       </div>
 
@@ -389,18 +392,21 @@ export default function DashboardOverview() {
             status={health?.paceLabel ?? "Awaiting data"}
             metric={health?.paceSummary ?? "—"}
             description="Average days between portal-visible orders."
+            calculation="Looks at the average days between the last three portal orders and compares it to each account's normal cadence."
           />
           <HealthCard
             title="Revenue trend (30d)"
             status={health?.revenueStatus ?? "Awaiting data"}
             metric={health?.revenueSummary ?? "—"}
             description="Compares the last 30 days of portal orders to the prior 30-day window."
+            calculation="Totals portal order revenue for the last 30 days and benchmarks it against the previous 30-day span."
           />
           <HealthCard
             title="ARPDD (30d)"
             status={arpdd.status}
             metric={arpddMetric}
             description={arpddDescription || "Average revenue per delivery day across the last 30 days."}
+            calculation="Divides total revenue from the last 30 days by the number of active delivery days to show average revenue per day."
           />
         </div>
 
@@ -459,10 +465,25 @@ function formatDisplayTimestamp(timestamp: string | null) {
   return date.toLocaleString();
 }
 
-function DashboardStatCard({ title, value, hint }: { title: string; value: string; hint: string }) {
+function DashboardStatCard({
+  title,
+  value,
+  hint,
+  calculation,
+}: {
+  title: string;
+  value: string;
+  hint: string;
+  calculation?: string;
+}) {
   return (
     <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <p className="text-xs font-medium uppercase tracking-widest text-gray-500">{title}</p>
+      <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-gray-500">
+        <span>{title}</span>
+        {calculation ? (
+          <InfoHover text={calculation} label={`How ${title.toLowerCase()} is calculated`} />
+        ) : null}
+      </div>
       <p className="mt-2 text-2xl font-semibold text-gray-900">{value}</p>
       <p className="mt-2 text-xs text-gray-500">{hint}</p>
     </div>
@@ -475,9 +496,24 @@ function AccountSignalsPanel({
   signals: DashboardResponse["health"]["accountSignals"];
 }) {
   const stats = [
-    { label: "Tracked accounts", value: signals.tracked, tone: "slate" as const },
-    { label: "Due soon", value: signals.dueSoon, tone: "amber" as const },
-    { label: "At risk", value: signals.atRisk, tone: "rose" as const },
+    {
+      label: "Tracked accounts",
+      value: signals.tracked,
+      tone: "slate" as const,
+      calculation: "Accounts with enough history to baseline their typical cadence.",
+    },
+    {
+      label: "Due soon",
+      value: signals.dueSoon,
+      tone: "amber" as const,
+      calculation: "Tracked accounts within 80% of their usual reorder pace but not yet late.",
+    },
+    {
+      label: "At risk",
+      value: signals.atRisk,
+      tone: "rose" as const,
+      calculation: "Tracked accounts whose days-since-last-order exceed their normal cadence.",
+    },
   ];
 
   const hotlist = signals.hotlist;
@@ -508,11 +544,13 @@ function AccountSignalsPanel({
 
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
         {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className={`rounded-md border p-4 ${statClass(stat.tone)}`}
-          >
-            <p className="text-xs uppercase tracking-wide text-gray-500">{stat.label}</p>
+          <div key={stat.label} className={`rounded-md border p-4 ${statClass(stat.tone)}`}>
+            <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-gray-500">
+              <span>{stat.label}</span>
+              {stat.calculation ? (
+                <InfoHover text={stat.calculation} label={`How ${stat.label} is calculated`} />
+              ) : null}
+            </div>
             <p className="mt-1 text-lg font-semibold">{stat.value}</p>
           </div>
         ))}
@@ -556,16 +594,23 @@ function HealthCard({
   status,
   metric,
   description,
+  calculation,
 }: {
   title: string;
   status: string;
   metric: string;
   description: string;
+  calculation?: string;
 }) {
   return (
     <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
-      <header className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
+      <header className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
+          {calculation ? (
+            <InfoHover text={calculation} label={`How ${title} is calculated`} />
+          ) : null}
+        </div>
         <span className="rounded-full bg-white px-3 py-0.5 text-xs font-semibold text-gray-700">
           {status}
         </span>

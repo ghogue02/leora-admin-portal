@@ -92,19 +92,7 @@ export default function CustomerMarkers({
     const fetchCustomers = async () => {
       setLoading(true);
       try {
-        // Get tenantId from context or environment
-        const tenantId = localStorage.getItem('tenantId') || process.env.NEXT_PUBLIC_TENANT_ID;
-
-        if (!tenantId) {
-          console.error('Tenant ID not found');
-          const data = generateMockCustomers();
-          setCustomers(data);
-          setLoading(false);
-          return;
-        }
-
-        // Build query params
-        const params = new URLSearchParams({ tenantId });
+        const params = new URLSearchParams();
 
         if (filters.territories.length > 0) {
           filters.territories.forEach(t => params.append('territories', t));
@@ -118,7 +106,10 @@ export default function CustomerMarkers({
           filters.salesReps.forEach(sr => params.append('salesReps', sr));
         }
 
-        const response = await fetch(`/api/maps/customers?${params}`);
+        const queryString = params.toString();
+        const response = await fetch(
+          queryString ? `/api/maps/customers?${queryString}` : '/api/maps/customers'
+        );
 
         if (!response.ok) {
           throw new Error('Failed to fetch customers');

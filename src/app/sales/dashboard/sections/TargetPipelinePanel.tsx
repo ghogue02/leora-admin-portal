@@ -1,4 +1,5 @@
 import type { TargetPipelineMetrics } from "@/types/sales-dashboard";
+import { InfoHover } from "@/components/InfoHover";
 
 type Props = {
   metrics: TargetPipelineMetrics;
@@ -9,7 +10,14 @@ export default function TargetPipelinePanel({ metrics }: Props) {
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">Target Pipeline</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-semibold text-gray-900">Target Pipeline</h2>
+            <InfoHover
+              text="Shows how assigned targets move from outreach to first order, including visits, conversions, and time-to-first-order."
+              label="How target pipeline is calculated"
+              align="left"
+            />
+          </div>
           <p className="text-xs text-gray-500">Conversion progress across all assigned targets</p>
           <p className="mt-1 text-xs text-gray-400">
             Quickly see if new logos are moving through visits toward first order or stalling out.

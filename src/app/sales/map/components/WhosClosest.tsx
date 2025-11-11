@@ -32,13 +32,11 @@ interface NearbyCustomer {
 }
 
 interface WhosClosestProps {
-  tenantId: string;
   onCustomerSelect?: (customerIds: string[]) => void;
   onShowOnMap?: (customers: NearbyCustomer[]) => void;
 }
 
 export default function WhosClosest({
-  tenantId,
   onCustomerSelect,
   onShowOnMap,
 }: WhosClosestProps) {
@@ -83,7 +81,6 @@ export default function WhosClosest({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          tenantId,
           latitude: parseFloat(location.latitude),
           longitude: parseFloat(location.longitude),
           radiusMiles: parseInt(radius),
@@ -135,7 +132,7 @@ export default function WhosClosest({
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Navigation className="h-5 w-5" />
-          Who's Closest?
+          Who&apos;s Closest?
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">

@@ -234,7 +234,6 @@ export default function MapSidebar({
           {/* Who's Closest Tab */}
           <TabsContent value="closest" className="p-4 mt-0">
             <WhosClosest
-              tenantId={process.env.NEXT_PUBLIC_TENANT_ID || 'default'}
               onCustomerSelect={(ids) => console.log('Add to call plan:', ids)}
               onShowOnMap={(customers) => console.log('Show on map:', customers)}
             />
@@ -243,7 +242,6 @@ export default function MapSidebar({
           {/* Route Planner Tab */}
           <TabsContent value="route" className="p-4 mt-0">
             <RoutePlanner
-              tenantId={process.env.NEXT_PUBLIC_TENANT_ID || 'default'}
               selectedCustomers={selectedCustomers}
               onRouteGenerated={(route) => console.log('Route generated:', route)}
             />

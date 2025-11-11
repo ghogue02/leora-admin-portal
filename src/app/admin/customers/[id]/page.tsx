@@ -10,6 +10,7 @@ import { CustomerDeliveryFields } from '@/components/customers/forms/CustomerDel
 import { CustomerContactsManager } from '@/components/customers/CustomerContactsManager';
 import { GoogleMapsAutoFill } from '@/components/customers/GoogleMapsAutoFill';
 import { CustomerGoogleFields } from '@/components/customers/forms/CustomerGoogleFields';
+import ReassignModal from '@/app/admin/customers/components/ReassignModal';
 import type {
   CustomerType,
   FeatureProgram,
@@ -174,23 +175,19 @@ const INITIAL_FORM_STATE: CustomerFormState = {
   googlePlaceTypes: [],
 };
 
-export default function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
+export default function CustomerDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter();
-  const [customerId, setCustomerId] = useState<string | null>(null);
+  const { id: customerId } = params;
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState<CustomerFormState>(INITIAL_FORM_STATE);
   const [resolvingFlagId, setResolvingFlagId] = useState<string | null>(null);
+  const [isReassignModalOpen, setIsReassignModalOpen] = useState(false);
   const updateForm = useCallback((updates: Partial<CustomerFormState>) => {
     setFormData((prev) => ({ ...prev, ...updates }));
   }, []);
-
-  // Unwrap params with React.use()
-  useEffect(() => {
-    params.then(p => setCustomerId(p.id));
-  }, [params]);
 
   const fetchCustomer = useCallback(async () => {
     if (!customerId) return;
@@ -398,7 +395,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
   }
 
   return (
-    <div className="p-6 max-w-6xl">
+    <>
+      <div className="p-6 max-w-6xl">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div>
@@ -620,10 +618,7 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
             )}
             <button
               type="button"
-              onClick={() => {
-                // TODO: Open reassignment modal
-                alert('Reassignment modal - to be implemented');
-              }}
+              onClick={() => setIsReassignModalOpen(true)}
               className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
             >
               Reassign to Different Rep
@@ -739,6 +734,26 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
           </Link>
         </div>
       </form>
-    </div>
+      </div>
+      {customer && customerId ? (
+        <ReassignModal
+          customerId={customerId}
+          customerName={customer.name}
+          currentSalesRep={
+            customer.salesRep
+              ? {
+                  id: customer.salesRep.id,
+                  name: customer.salesRep.user.fullName,
+                  email: customer.salesRep.user.email,
+                  territoryName: customer.salesRep.territoryName,
+                }
+              : null
+          }
+          isOpen={isReassignModalOpen}
+          onClose={() => setIsReassignModalOpen(false)}
+          onSuccess={fetchCustomer}
+        />
+      ) : null}
+    </>
   );
 }

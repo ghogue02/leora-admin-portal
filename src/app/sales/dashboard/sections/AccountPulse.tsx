@@ -4,6 +4,7 @@ import type {
   CustomerCoverage,
   PortfolioHealth,
 } from "@/types/sales-dashboard";
+import { InfoHover } from "@/components/InfoHover";
 
 type AccountPulseProps = {
   salesRep: {
@@ -35,6 +36,12 @@ const directionConfig = {
 
 export default function AccountPulseSection({ salesRep, accountPulse, coverage, portfolio }: AccountPulseProps) {
   const config = directionConfig[accountPulse.direction];
+  const formatCount = (value: number) => value.toLocaleString();
+  const totalActive = portfolio.totalActive;
+  const healthFocusCalculation =
+    totalActive > 0
+      ? `Healthy % = ${formatCount(portfolio.healthyCount)} healthy ÷ ${formatCount(totalActive)} active accounts.\nImmediate % = ${formatCount(portfolio.immediateAttentionCount)} flagged ÷ ${formatCount(totalActive)} active accounts.`
+      : "No active accounts yet. Percentages start calculating after you have active customers.";
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -52,7 +59,14 @@ export default function AccountPulseSection({ salesRep, accountPulse, coverage, 
             <config.icon className="h-6 w-6" />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wide text-gray-500">Book Trend</p>
+            <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-gray-500">
+              <span>Book Trend</span>
+              <InfoHover
+                text="Compares trailing 60-day revenue to your baseline to show whether the book is growing, flat, or shrinking."
+                label="How book trend is calculated"
+                align="left"
+              />
+            </p>
             <p className="text-lg font-semibold text-gray-900 flex items-center gap-2">
               {config.label}
               <span className={config.color}>{accountPulse.deltaPercent.toFixed(1)}%</span>
@@ -64,7 +78,14 @@ export default function AccountPulseSection({ salesRep, accountPulse, coverage, 
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <div className="rounded-md border border-slate-100 bg-white p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Coverage</p>
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+            <span>Coverage</span>
+            <InfoHover
+              text="Snapshot of how many accounts you have in each state: Active, Targets, Prospects, and Unassigned."
+              label="How coverage is calculated"
+              align="left"
+            />
+          </p>
           <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-gray-900">
             <CoverageStat label="Active" value={coverage.active} />
             <CoverageStat label="Targets" value={coverage.targets} />
@@ -73,7 +94,14 @@ export default function AccountPulseSection({ salesRep, accountPulse, coverage, 
           </div>
         </div>
         <div className="rounded-md border border-slate-100 bg-white p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Health Focus</p>
+          <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+            <span>Health Focus</span>
+            <InfoHover
+              text={healthFocusCalculation}
+              label="How health focus is calculated"
+              align="left"
+            />
+          </p>
           <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-gray-900">
             <div>
               <p className="text-2xl font-semibold text-gray-900">{portfolio.healthyPercent.toFixed(0)}%</p>

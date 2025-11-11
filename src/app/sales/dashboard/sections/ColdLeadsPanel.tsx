@@ -1,4 +1,5 @@
 import type { ColdLeadsOverview } from "@/types/sales-dashboard";
+import { InfoHover } from "@/components/InfoHover";
 
 type Props = {
   coldLeads: ColdLeadsOverview;
@@ -9,7 +10,14 @@ export default function ColdLeadsPanel({ coldLeads }: Props) {
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">Cold Leads</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-semibold text-gray-900">Cold Leads</h2>
+            <InfoHover
+              text="Counts targets or prospects with no orders (or 24+ months idle) and no logged outreach in the past 30 days."
+              label="How cold leads are calculated"
+              align="left"
+            />
+          </div>
           <p className="text-xs text-gray-500">
             Targets or prospects with no orders (or 24+ months inactive) and no activity in the last 30 days.
           </p>

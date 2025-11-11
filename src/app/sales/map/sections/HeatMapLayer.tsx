@@ -70,20 +70,10 @@ export default function HeatMapLayer({
   useEffect(() => {
     const fetchHeatMapData = async () => {
       try {
-        // Get tenantId
-        const tenantId = localStorage.getItem('tenantId') || process.env.NEXT_PUBLIC_TENANT_ID;
-
-        if (!tenantId) {
-          console.error('Tenant ID not found');
-          const data = generateHeatMapData();
-          setHeatMapData(data);
-          return;
-        }
-
         const response = await fetch('/api/maps/heatmap', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ tenantId, filters, metric }),
+          body: JSON.stringify({ filters, metric }),
         });
 
         if (!response.ok) {

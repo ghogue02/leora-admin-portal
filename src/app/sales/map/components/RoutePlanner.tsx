@@ -52,13 +52,11 @@ interface OptimizedRoute {
 }
 
 interface RoutePlannerProps {
-  tenantId: string;
   selectedCustomers: string[];
   onRouteGenerated?: (route: OptimizedRoute) => void;
 }
 
 export default function RoutePlanner({
-  tenantId,
   selectedCustomers,
   onRouteGenerated,
 }: RoutePlannerProps) {
@@ -107,7 +105,6 @@ export default function RoutePlanner({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          tenantId,
           startLatitude: parseFloat(startLocation.latitude),
           startLongitude: parseFloat(startLocation.longitude),
           customerIds: selectedCustomers,

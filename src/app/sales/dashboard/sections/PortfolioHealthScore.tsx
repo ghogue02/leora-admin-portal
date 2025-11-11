@@ -1,4 +1,5 @@
 import type { PortfolioHealth } from "@/types/sales-dashboard";
+import { InfoHover } from "@/components/InfoHover";
 
 type Props = {
   portfolio: PortfolioHealth;
@@ -9,7 +10,14 @@ export default function PortfolioHealthScore({ portfolio }: Props) {
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">Portfolio Health Score</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-semibold text-gray-900">Portfolio Health Score</h2>
+            <InfoHover
+              text="Blends health buckets (Healthy, Down, Dormant) and weights them by trailing-12 revenue so large accounts count appropriately."
+              label="How the health score is calculated"
+              align="left"
+            />
+          </div>
           <p className="text-xs text-gray-500">
             Weighted by trailing-12 revenue to keep big accounts visible.
           </p>

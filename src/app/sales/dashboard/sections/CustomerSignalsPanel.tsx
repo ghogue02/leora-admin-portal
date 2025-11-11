@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { KeyboardEvent } from "react";
 import Link from "next/link";
 import { Download, X } from "lucide-react";
+import { InfoHover } from "@/components/InfoHover";
 import type {
   CustomerSignals,
   CustomerSignalClassification,
@@ -72,7 +73,14 @@ export default function CustomerSignalsPanel({ signals, reportRows }: Props) {
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
         <div>
-          <h2 className="text-lg font-semibold text-gray-900">Customer Signals</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="text-lg font-semibold text-gray-900">Customer Signals</h2>
+            <InfoHover
+              text="Buckets every assigned account based on 90-day revenue versus their baseline so you know who is growing, flat, slipping, or dormant."
+              label="How customer signals are calculated"
+              align="left"
+            />
+          </div>
           <p className="text-xs text-gray-500">
             {signals.totals.active} active accounts / {signals.totals.assigned} assigned total
           </p>
