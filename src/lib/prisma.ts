@@ -5,10 +5,28 @@ const globalForPrisma = globalThis as unknown as {
   prisma?: PrismaClient;
 };
 
+const ensurePgBouncerParam = (url?: string) => {
+  if (!url) return url;
+  if (url.includes("pgbouncer=")) {
+    return url;
+  }
+  const separator = url.includes("?") ? "&" : "?";
+  return `${url}${separator}pgbouncer=true`;
+};
+
+const databaseUrl = ensurePgBouncerParam(process.env.DATABASE_URL);
+
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
     log: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
+    datasources: databaseUrl
+      ? {
+          db: {
+            url: databaseUrl,
+          },
+        }
+      : undefined,
   });
 
 // Alias for db
