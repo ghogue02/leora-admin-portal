@@ -52,6 +52,7 @@ type Props = {
   deliveryDate: string;
   warehouseLocation: string;
   deliveryTimeWindow: string;
+  deliveryMethod: string;
   poNumber: string;
   specialInstructions: string;
   customerDeliveryInstructions?: string | null;
@@ -73,6 +74,7 @@ export function OrderPreviewModal({
   deliveryDate,
   warehouseLocation,
   deliveryTimeWindow,
+  deliveryMethod,
   poNumber,
   specialInstructions,
   customerDeliveryInstructions,
@@ -158,6 +160,10 @@ export function OrderPreviewModal({
               <div className="flex justify-between">
                 <span className="text-gray-600">Time Window:</span>
                 <span className="font-medium text-gray-900">{deliveryTimeWindow || 'Anytime'}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-600">Delivery Method:</span>
+                <span className="font-medium text-gray-900">{deliveryMethod}</span>
               </div>
               {poNumber && (
                 <div className="flex justify-between">

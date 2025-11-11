@@ -7,6 +7,7 @@ import { showError, showSuccess } from '@/lib/toast-helpers';
 import { InvoiceDownloadButton } from '@/components/invoices/InvoiceDownloadButton';
 import { Loader2 } from 'lucide-react';
 import { calculateDueDate } from '@/lib/sage/payment-terms';
+import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 
 const INVOICE_FORMAT_OPTIONS: Array<{ value: InvoiceFormatType; label: string }> = [
   { value: 'STANDARD', label: 'Standard' },
@@ -14,12 +15,10 @@ const INVOICE_FORMAT_OPTIONS: Array<{ value: InvoiceFormatType; label: string }>
   { value: 'VA_ABC_TAX_EXEMPT', label: 'VA ABC – Tax Exempt/Out-of-State' },
 ];
 
-const SHIPPING_METHOD_PRESETS = [
-  { value: 'Rep Delivery', label: 'Rep Delivery' },
-  { value: 'WCB Delivery', label: 'WCB Delivery' },
-  { value: 'Customer Pickup', label: 'Customer Pickup' },
-  { value: 'Virginia Tax Exempt', label: 'Virginia Tax Exempt' },
-];
+const SHIPPING_METHOD_PRESETS = DELIVERY_METHOD_OPTIONS.map((method) => ({
+  value: method,
+  label: method,
+}));
 
 type InvoiceSummary = {
   id: string;
@@ -41,6 +40,7 @@ type Props = {
   customerPaymentTerms?: string | null;
   defaultPoNumber?: string | null;
   defaultSpecialInstructions?: string | null;
+  defaultShippingMethod?: string | null;
   invoice?: InvoiceSummary;
   onRefresh?: () => Promise<void> | void;
 };
@@ -90,6 +90,7 @@ export function OrderInvoicePanel({
   customerPaymentTerms,
   defaultPoNumber,
   defaultSpecialInstructions,
+  defaultShippingMethod,
   invoice,
   onRefresh,
 }: Props) {
@@ -99,7 +100,7 @@ export function OrderInvoicePanel({
   );
   const [formState, setFormState] = useState(() => ({
     formatType: invoice?.invoiceFormatType ?? recommendedFormat,
-    shippingMethod: invoice?.shippingMethod ?? SHIPPING_METHOD_PRESETS[0].value,
+    shippingMethod: invoice?.shippingMethod ?? defaultShippingMethod ?? SHIPPING_METHOD_PRESETS[0].value,
     dueDate: deriveDueDateString(invoice?.dueDate, customerPaymentTerms),
     poNumber: invoice?.poNumber ?? defaultPoNumber ?? '',
     specialInstructions: invoice?.specialInstructions ?? defaultSpecialInstructions ?? '',
@@ -110,7 +111,7 @@ export function OrderInvoicePanel({
   useEffect(() => {
     setFormState({
       formatType: invoice?.invoiceFormatType ?? recommendedFormat,
-      shippingMethod: invoice?.shippingMethod ?? SHIPPING_METHOD_PRESETS[0].value,
+      shippingMethod: invoice?.shippingMethod ?? defaultShippingMethod ?? SHIPPING_METHOD_PRESETS[0].value,
       dueDate: deriveDueDateString(invoice?.dueDate, customerPaymentTerms),
       poNumber: invoice?.poNumber ?? defaultPoNumber ?? '',
       specialInstructions: invoice?.specialInstructions ?? defaultSpecialInstructions ?? '',
@@ -125,25 +126,27 @@ export function OrderInvoicePanel({
     customerPaymentTerms,
     defaultPoNumber,
     defaultSpecialInstructions,
+    defaultShippingMethod,
   ]);
 
   const shippingOptions = useMemo(() => {
-    if (!invoice?.shippingMethod) {
+    const seedMethod = invoice?.shippingMethod ?? defaultShippingMethod;
+    if (!seedMethod) {
       return SHIPPING_METHOD_PRESETS;
     }
 
     const exists = SHIPPING_METHOD_PRESETS.some(
-      (option) => option.value === invoice.shippingMethod,
+      (option) => option.value === seedMethod,
     );
     if (exists) {
       return SHIPPING_METHOD_PRESETS;
     }
 
     return [
-      { value: invoice.shippingMethod, label: invoice.shippingMethod },
+      { value: seedMethod, label: seedMethod },
       ...SHIPPING_METHOD_PRESETS,
     ];
-  }, [invoice?.shippingMethod]);
+  }, [invoice?.shippingMethod, defaultShippingMethod]);
 
   const handleFieldChange = <K extends keyof typeof formState>(field: K, value: (typeof formState)[K]) => {
     setFormState((prev) => ({

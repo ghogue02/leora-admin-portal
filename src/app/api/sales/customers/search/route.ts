@@ -59,6 +59,7 @@ export async function GET(request: NextRequest) {
             },
             deliveryInstructions: true,
             deliveryWindows: true,
+            deliveryMethod: true,
           },
           orderBy: {
             lastOrderDate: 'desc',
@@ -116,6 +117,7 @@ export async function GET(request: NextRequest) {
           },
           deliveryInstructions: true,
           deliveryWindows: true,
+          deliveryMethod: true,
         },
         orderBy: {
           name: 'asc',

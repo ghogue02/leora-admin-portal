@@ -34,6 +34,7 @@ export type Customer = {
   salesRepName?: string | null;
   deliveryInstructions?: string | null;
   deliveryWindows?: DeliveryWindowInfo[];
+  deliveryMethod?: string | null;
 };
 
 type CustomerApiResult = {
@@ -59,6 +60,7 @@ type CustomerApiResult = {
   } | null;
   deliveryInstructions?: string | null;
   deliveryWindows?: DeliveryWindowInfo[] | null;
+  deliveryMethod?: string | null;
 };
 
 export type DeliveryWindowInfo = {
@@ -84,6 +86,7 @@ const toCustomer = (entry: CustomerApiResult): Customer => ({
   deliveryWindows: Array.isArray(entry.deliveryWindows)
     ? entry.deliveryWindows.filter(Boolean)
     : [],
+  deliveryMethod: entry.deliveryMethod ?? null,
 });
 
 type Props = {

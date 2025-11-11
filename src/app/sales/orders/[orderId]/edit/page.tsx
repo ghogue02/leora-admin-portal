@@ -25,6 +25,7 @@ import { OrderSummarySidebar } from '@/components/orders/OrderSummarySidebar';
 import { OrderPreviewModal } from '@/components/orders/OrderPreviewModal';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 import { formatDeliveryWindows, type DeliveryWindow } from '@/lib/delivery-window';
 
 type Customer = {
@@ -39,6 +40,7 @@ type Customer = {
   paymentTerms: string | null;
   deliveryInstructions: string | null;
   deliveryWindows: DeliveryWindow[];
+  deliveryMethod: string | null;
 };
 
 type InventoryStatus = {
@@ -77,6 +79,7 @@ export default function EditOrderPage() {
   const [deliveryDate, setDeliveryDate] = useState<string>('');
   const [warehouseLocation, setWarehouseLocation] = useState<string>('');
   const [deliveryTimeWindow, setDeliveryTimeWindow] = useState<string>('');
+  const [deliveryMethod, setDeliveryMethod] = useState<string>(DELIVERY_METHOD_OPTIONS[0]);
   const [poNumber, setPoNumber] = useState<string>('');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
@@ -147,11 +150,13 @@ export default function EditOrderPage() {
           paymentTerms: order.customer.paymentTerms || null,
           deliveryInstructions: order.customer.deliveryInstructions ?? null,
           deliveryWindows: Array.isArray(order.customer.deliveryWindows) ? order.customer.deliveryWindows : [],
+          deliveryMethod: order.customer.deliveryMethod ?? null,
         });
 
         setDeliveryDate(order.deliveryDate ? new Date(order.deliveryDate).toISOString().split('T')[0] : '');
         setWarehouseLocation(order.warehouseLocation || 'main');
         setDeliveryTimeWindow(order.deliveryTimeWindow || 'anytime');
+        setDeliveryMethod(order.shippingMethod || data.customer.deliveryMethod || DELIVERY_METHOD_OPTIONS[0]);
         setPoNumber(order.poNumber || '');
         setSpecialInstructions(order.specialInstructions || '');
 
@@ -283,10 +288,11 @@ export default function EditOrderPage() {
       customer &&
       deliveryDate &&
       warehouseLocation &&
+      deliveryMethod &&
       orderItems.length > 0 &&
       orderItems.every(item => item.quantity > 0)
     );
-  }, [customer, deliveryDate, warehouseLocation, orderItems]);
+  }, [customer, deliveryDate, warehouseLocation, deliveryMethod, orderItems]);
 
   // Show preview modal before submission
   const handleShowPreview = useCallback((e: React.FormEvent) => {
@@ -316,6 +322,7 @@ export default function EditOrderPage() {
           deliveryDate,
           warehouseLocation,
           deliveryTimeWindow,
+          deliveryMethod,
           poNumber: poNumber.trim() || undefined,
           specialInstructions: specialInstructions.trim() || undefined,
           items: orderItems.map(item => ({
@@ -348,7 +355,7 @@ export default function EditOrderPage() {
     } finally {
       setSubmitting(false);
     }
-  }, [orderId, deliveryDate, warehouseLocation, deliveryTimeWindow, poNumber, specialInstructions, orderItems, router]);
+  }, [orderId, deliveryDate, warehouseLocation, deliveryTimeWindow, deliveryMethod, poNumber, specialInstructions, orderItems, router]);
 
   if (loading) {
     return (
@@ -469,6 +476,24 @@ export default function EditOrderPage() {
                   <option value="8am-12pm">Morning (8am - 12pm)</option>
                   <option value="12pm-5pm">Afternoon (12pm - 5pm)</option>
                   <option value="after-5pm">Evening (After 5pm)</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="deliveryMethod" className="block text-sm font-medium text-gray-700">
+                  Delivery Method
+                </label>
+                <select
+                  id="deliveryMethod"
+                  value={deliveryMethod}
+                  onChange={(event) => setDeliveryMethod(event.target.value)}
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
+                >
+                  {DELIVERY_METHOD_OPTIONS.map((method) => (
+                    <option key={method} value={method}>
+                      {method}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -687,6 +712,7 @@ export default function EditOrderPage() {
           deliveryDate={deliveryDate}
           warehouseLocation={warehouseLocation}
           deliveryTimeWindow={deliveryTimeWindow}
+          deliveryMethod={deliveryMethod}
           poNumber={poNumber}
           items={orderItems}
           onRemoveItem={(skuId) => {
@@ -734,6 +760,7 @@ export default function EditOrderPage() {
           deliveryDate={deliveryDate}
           warehouseLocation={warehouseLocation}
           deliveryTimeWindow={deliveryTimeWindow}
+          deliveryMethod={deliveryMethod}
           poNumber={poNumber}
           specialInstructions={specialInstructions}
           customerDeliveryInstructions={customer.deliveryInstructions}

@@ -13,6 +13,7 @@ import { z } from "zod";
 import { calculateOrderTotal } from "@/lib/orders/calculations";
 import { parseUTCDate } from "@/lib/dates";
 import { generateOrderNumber } from "@/lib/orders/order-number-generator";
+import { DELIVERY_METHOD_OPTIONS } from "@/constants/deliveryMethods";
 
 const DEFAULT_LIMIT = 25;
 const OPEN_STATUSES: OrderStatus[] = [
@@ -330,6 +331,7 @@ function serializeOrder(order: OrderWithRelations) {
     status: order.status,
     orderedAt: order.orderedAt,
     deliveryDate: order.deliveryDate,
+    deliveryMethod: order.shippingMethod,
     customer: order.customer
       ? {
           id: order.customer.id,
@@ -367,6 +369,7 @@ const CreateOrderSchema = z.object({
   deliveryDate: z.string(), // ISO date string
   warehouseLocation: z.string().min(1),
   deliveryTimeWindow: z.string().optional(),
+  deliveryMethod: z.enum(DELIVERY_METHOD_OPTIONS).optional(),
   poNumber: z.string().optional(),
   specialInstructions: z.string().optional(),
   salesRepId: z.string().uuid().optional(),
@@ -427,6 +430,7 @@ export async function POST(request: NextRequest) {
           state: true,
           accountNumber: true,
           salesRepId: true,
+          deliveryMethod: true,
           salesRep: {
             select: {
               id: true,
@@ -525,6 +529,9 @@ export async function POST(request: NextRequest) {
           },
         });
       }
+
+      const resolvedDeliveryMethod =
+        orderData.deliveryMethod ?? customer.deliveryMethod ?? DELIVERY_METHOD_OPTIONS[0];
 
       if (!selectedSalesRep) {
         return NextResponse.json(
@@ -692,6 +699,7 @@ export async function POST(request: NextRequest) {
               deliveryDate: orderData.deliveryDate ? parseUTCDate(orderData.deliveryDate) : null,
               warehouseLocation: orderData.warehouseLocation,
               deliveryTimeWindow: orderData.deliveryTimeWindow,
+              shippingMethod: resolvedDeliveryMethod,
               poNumber: orderData.poNumber?.trim() || null,
               specialInstructions: orderData.specialInstructions?.trim() || null,
               requiresApproval,

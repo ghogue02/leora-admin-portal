@@ -30,6 +30,7 @@ import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
 import { formatCurrency, formatShortDate } from '@/lib/format';
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 import { formatDeliveryWindows } from '@/lib/delivery-window';
 import { useRecentItems } from './hooks/useRecentItems';
 import type { RecentPurchaseSuggestion } from '@/types/orders';
@@ -86,6 +87,7 @@ function NewOrderPageContent() {
   const [deliveryDate, setDeliveryDate] = useState<string>('');
   const [warehouseLocation, setWarehouseLocation] = useState<string>('Warrenton');
   const [deliveryTimeWindow, setDeliveryTimeWindow] = useState<string>('');
+  const [deliveryMethod, setDeliveryMethod] = useState<string>(DELIVERY_METHOD_OPTIONS[0]);
   const [poNumber, setPoNumber] = useState<string>('');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
   const [customerDeliveryWindows, setCustomerDeliveryWindows] = useState<string[]>([]);
@@ -247,6 +249,7 @@ function NewOrderPageContent() {
     setDeliveryTimeWindow(preferredWindow || 'anytime');
 
     setSpecialInstructions(customer.deliveryInstructions ?? '');
+    setDeliveryMethod(customer.deliveryMethod || DELIVERY_METHOD_OPTIONS[0]);
 
     // PHASE 2: Clear customer error when selected
     setFieldErrors(prev => {
@@ -293,6 +296,7 @@ function NewOrderPageContent() {
           salesRepName: data.customer.salesRep?.user?.fullName ?? null,
           deliveryInstructions: data.customer.deliveryInstructions ?? null,
           deliveryWindows: Array.isArray(data.customer.deliveryWindows) ? data.customer.deliveryWindows : [],
+          deliveryMethod: data.customer.deliveryMethod ?? null,
         };
 
         handleCustomerSelect(customerData);
@@ -566,6 +570,9 @@ function NewOrderPageContent() {
     if (!warehouseLocation) {
       errors.push({ field: 'Warehouse', message: 'Please select a warehouse location', type: 'missing' });
     }
+    if (!deliveryMethod) {
+      errors.push({ field: 'Delivery Method', message: 'Please choose a delivery method', type: 'missing' });
+    }
     if (selectedCustomer?.requiresPO && !poNumber.trim()) {
       errors.push({ field: 'PO Number', message: 'PO number is required for this customer', type: 'validation' });
     }
@@ -580,7 +587,7 @@ function NewOrderPageContent() {
 
     setValidationErrors(errors);
     return errors.length === 0;
-  }, [selectedCustomer, deliveryDate, warehouseLocation, poNumber, orderItems, selectedSalesRepId]);
+  }, [selectedCustomer, deliveryDate, warehouseLocation, deliveryMethod, poNumber, orderItems, selectedSalesRepId]);
 
   // PHASE 2: Show preview modal before submission
   const handleShowPreview = useCallback((e: React.FormEvent) => {
@@ -613,6 +620,7 @@ function NewOrderPageContent() {
             deliveryDate,
             warehouseLocation,
             deliveryTimeWindow,
+            deliveryMethod,
             poNumber: poNumber.trim() || undefined,
             specialInstructions: specialInstructions.trim() || undefined,
             salesRepId: selectedSalesRepId ?? undefined,
@@ -981,6 +989,24 @@ function NewOrderPageContent() {
                     ))}
                   </optgroup>
                 )}
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="deliveryMethod" className="block text-sm font-medium text-gray-700">
+                Delivery Method <span className="text-xs font-normal text-gray-500">(Required)</span>
+              </label>
+              <select
+                id="deliveryMethod"
+                value={deliveryMethod}
+                onChange={(event) => setDeliveryMethod(event.target.value)}
+                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
+              >
+                {DELIVERY_METHOD_OPTIONS.map((method) => (
+                  <option key={method} value={method}>
+                    {method}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -1367,6 +1393,7 @@ function NewOrderPageContent() {
           deliveryDate={deliveryDate}
           warehouseLocation={warehouseLocation}
           deliveryTimeWindow={deliveryTimeWindow}
+          deliveryMethod={deliveryMethod}
           poNumber={poNumber}
           items={orderItems}
           onRemoveItem={(skuId) => {
@@ -1415,6 +1442,7 @@ function NewOrderPageContent() {
           deliveryDate={deliveryDate}
           warehouseLocation={warehouseLocation}
           deliveryTimeWindow={deliveryTimeWindow}
+          deliveryMethod={deliveryMethod}
           poNumber={poNumber}
           specialInstructions={specialInstructions}
           customerDeliveryInstructions={selectedCustomer.deliveryInstructions ?? null}
@@ -1457,6 +1485,7 @@ function NewOrderPageContent() {
             setDeliveryDate('');
             setWarehouseLocation('');
             setDeliveryTimeWindow('');
+            setDeliveryMethod(DELIVERY_METHOD_OPTIONS[0]);
             setPoNumber('');
             setSpecialInstructions('');
             setOrderItems([]);

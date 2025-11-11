@@ -10,6 +10,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Prisma } from '@prisma/client';
 import { withSalesSession } from '@/lib/auth/sales';
 import { isValidOrderUsage } from '@/constants/orderUsage';
+import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 
 type RouteParams = {
   params: Promise<{ orderId: string }>;
@@ -152,6 +153,9 @@ export async function GET(request: NextRequest, props: RouteParams) {
             paymentTerms: true,
             licenseNumber: true,
             licenseType: true,
+            deliveryMethod: true,
+            deliveryInstructions: true,
+            deliveryWindows: true,
             defaultWarehouseLocation: true,
             defaultDeliveryTimeWindow: true,
             deliveryInstructions: true,
@@ -273,6 +277,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
       deliveryDate,
       warehouseLocation,
       deliveryTimeWindow,
+      deliveryMethod,
       poNumber,
       specialInstructions,
       items, // Array of { skuId, quantity, usageType? }
@@ -336,6 +341,13 @@ export async function PUT(request: NextRequest, props: RouteParams) {
     if (warehouseLocation !== existingOrder.warehouseLocation) {
       changes.before.warehouseLocation = existingOrder.warehouseLocation;
       changes.after.warehouseLocation = warehouseLocation;
+    }
+
+    if (deliveryMethod && !DELIVERY_METHOD_OPTIONS.includes(deliveryMethod)) {
+      return NextResponse.json(
+        { error: 'Invalid delivery method specified.' },
+        { status: 400 },
+      );
     }
 
     // 5. Update order and order lines in transaction
@@ -427,6 +439,7 @@ export async function PUT(request: NextRequest, props: RouteParams) {
           deliveryDate: deliveryDate ? new Date(deliveryDate) : undefined,
           warehouseLocation,
           deliveryTimeWindow,
+          shippingMethod: deliveryMethod ?? existingOrder.shippingMethod,
           poNumber: poNumber || null,
           specialInstructions: specialInstructions || null,
           total: new Prisma.Decimal(newTotal.toFixed(2)),

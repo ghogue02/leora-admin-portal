@@ -268,6 +268,7 @@ export default function SalesOrderDetailPage() {
               customerPaymentTerms={order.customer.paymentTerms}
               defaultPoNumber={order.poNumber}
               defaultSpecialInstructions={order.specialInstructions}
+              defaultShippingMethod={order.shippingMethod ?? null}
               invoice={order.invoices?.[0]}
               onRefresh={fetchOrder}
             />

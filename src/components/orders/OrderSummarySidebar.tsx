@@ -36,6 +36,7 @@ type Props = {
   deliveryDate: string;
   warehouseLocation: string;
   deliveryTimeWindow: string;
+  deliveryMethod: string;
   poNumber: string;
   items: OrderItem[];
   onRemoveItem: (skuId: string) => void;
@@ -51,6 +52,7 @@ export function OrderSummarySidebar({
   deliveryDate,
   warehouseLocation,
   deliveryTimeWindow,
+  deliveryMethod,
   poNumber,
   items,
   onRemoveItem,
@@ -195,6 +197,18 @@ export function OrderSummarySidebar({
             <div className="mt-0.5 text-gray-900">
               {warehouseLocation ? (
                 <span className="font-medium">{warehouseLocation}</span>
+              ) : (
+                <span className="text-gray-400">Not selected</span>
+              )}
+            </div>
+          </div>
+
+          {/* Delivery Method */}
+          <div>
+            <div className="text-xs font-medium text-gray-600">Delivery Method</div>
+            <div className="mt-0.5 text-gray-900">
+              {deliveryMethod ? (
+                <span className="font-medium">{deliveryMethod}</span>
               ) : (
                 <span className="text-gray-400">Not selected</span>
               )}
