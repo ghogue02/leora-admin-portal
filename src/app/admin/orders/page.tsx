@@ -67,14 +67,6 @@ export default function OrdersListPage() {
   const [salesReps, setSalesReps] = useState<{ id: string; name: string }[]>([]);
   const [selectedOrders, setSelectedOrders] = useState<Set<string>>(new Set());
 
-  useEffect(() => {
-    fetchSalesReps();
-  }, [fetchSalesReps]);
-
-  useEffect(() => {
-    fetchOrders();
-  }, [fetchOrders]);
-
   const fetchSalesReps = useCallback(async () => {
     try {
       const response = await fetch("/api/admin/sales-reps");
@@ -127,6 +119,14 @@ export default function OrdersListPage() {
       setLoading(false);
     }
   }, [pagination.page, pagination.limit, sortBy, sortOrder, filters]);
+
+  useEffect(() => {
+    fetchSalesReps();
+  }, [fetchSalesReps]);
+
+  useEffect(() => {
+    fetchOrders();
+  }, [fetchOrders]);
 
   const handleSort = (column: string) => {
     if (sortBy === column) {

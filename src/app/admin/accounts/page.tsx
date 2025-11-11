@@ -96,14 +96,6 @@ export default function AccountsPage() {
   // Bulk selection
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-  useEffect(() => {
-    if (activeTab === 'internal') {
-      fetchUsers();
-    } else {
-      fetchPortalUsers();
-    }
-  }, [activeTab, fetchUsers, fetchPortalUsers]);
-
   const fetchUsers = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -185,6 +177,14 @@ export default function AccountsPage() {
     appliedRole,
     appliedStatus,
   ]);
+
+  useEffect(() => {
+    if (activeTab === 'internal') {
+      fetchUsers();
+    } else {
+      fetchPortalUsers();
+    }
+  }, [activeTab, fetchUsers, fetchPortalUsers]);
 
   const handleSearch = () => {
     setAppliedFilters({ ...filters });
