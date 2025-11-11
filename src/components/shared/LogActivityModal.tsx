@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants/activityOutcomes";
 import SampleItemsSelector from "@/components/activities/SampleItemsSelector";
@@ -47,6 +47,7 @@ export default function LogActivityModal({
 }: LogActivityModalProps) {
   const queryClient = useQueryClient();
   const [customers, setCustomers] = useState<Customer[]>([]);
+  const [customerSearch, setCustomerSearch] = useState("");
   const [activityTypes, setActivityTypes] = useState<ActivityType[]>([]);
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -157,6 +158,12 @@ export default function LogActivityModal({
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) {
+      setCustomerSearch("");
+    }
+  }, [isOpen]);
+
   // Auto-generate subject when fields change
   useEffect(() => {
     if (formData.activityTypeCode && formData.customerId && !initialSubject) {
@@ -171,6 +178,20 @@ export default function LogActivityModal({
       }
     }
   }, [formData.activityTypeCode, formData.customerId, activityTypes, customers, initialSubject]);
+
+  const filteredCustomers = useMemo(() => {
+    if (!customerSearch.trim()) {
+      return customers;
+    }
+    const term = customerSearch.toLowerCase();
+    return customers.filter((customer) => {
+      const account = customer.accountNumber ?? "";
+      return (
+        customer.name.toLowerCase().includes(term) ||
+        account.toLowerCase().includes(term)
+      );
+    });
+  }, [customers, customerSearch]);
 
   const toggleVoiceInput = () => {
     if (!recognitionRef.current) return;
@@ -346,21 +367,33 @@ export default function LogActivityModal({
                   <label htmlFor="customer" className="block text-sm font-semibold text-gray-700">
                     Customer <span className="text-rose-500">*</span>
                   </label>
-                  <select
-                    id="customer"
-                    value={formData.customerId}
-                    onChange={(e) => setFormData({ ...formData, customerId: e.target.value })}
-                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    required
-                    disabled={loading || !!presetCustomerId}
-                  >
-                    <option value="">Select customer...</option>
-                    {customers.map((customer) => (
-                      <option key={customer.id} value={customer.id}>
-                        {customer.name} {customer.accountNumber ? `(#${customer.accountNumber})` : ""}
+                  <div className="mt-1 flex flex-col gap-2">
+                    <input
+                      type="text"
+                      placeholder="Search by name or account #"
+                      value={customerSearch}
+                      onChange={(e) => setCustomerSearch(e.target.value)}
+                      disabled={loading || !!presetCustomerId}
+                      className="rounded-md border border-gray-200 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:bg-gray-100"
+                    />
+                    <select
+                      id="customer"
+                      value={formData.customerId}
+                      onChange={(e) => setFormData({ ...formData, customerId: e.target.value })}
+                      className="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      required
+                      disabled={loading || !!presetCustomerId}
+                    >
+                      <option value="">
+                        {filteredCustomers.length === 0 ? "No matches found" : "Select customer..."}
                       </option>
-                    ))}
-                  </select>
+                      {filteredCustomers.map((customer) => (
+                        <option key={customer.id} value={customer.id}>
+                          {customer.name} {customer.accountNumber ? `(#${customer.accountNumber})` : ""}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
 
