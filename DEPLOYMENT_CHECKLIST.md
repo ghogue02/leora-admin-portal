@@ -3,7 +3,7 @@
 ## ✅ Pre-Deployment Checklist
 
 ### 1. Environment Variables
-- [ ] `ANTHROPIC_API_KEY` set in production environment
+- [ ] `OPENAI_API_KEY` set in production environment
 - [ ] `SUPABASE_URL` configured
 - [ ] `SUPABASE_SERVICE_ROLE_KEY` configured
 - [ ] Test keys work in production environment
@@ -40,7 +40,7 @@ npm install
 ```
 
 New packages:
-- [x] `@anthropic-ai/sdk`
+- [x] `openai`
 - [x] `@supabase/supabase-js`
 
 ### 5. Test API Endpoints
@@ -166,7 +166,7 @@ DROP TABLE "Job" CASCADE;
 - [ ] Check average confidence scores (target: >0.85)
 - [ ] Review failed scans manually
 - [ ] Adjust prompts if needed
-- [ ] Monitor API costs (Anthropic usage)
+- [ ] Monitor API costs (OpenAI usage)
 
 ### Week 2-4
 - [ ] Gather user feedback
@@ -199,9 +199,9 @@ npx tsx scripts/init-supabase-storage.ts
 
 ### Issue: "API key invalid" errors
 **Fix:**
-1. Verify `ANTHROPIC_API_KEY` in environment
-2. Test key: `curl https://api.anthropic.com/v1/messages ...`
-3. Check Anthropic dashboard for key status
+1. Verify `OPENAI_API_KEY` in environment
+2. Test key with `npm run test-openai` or `openai responses.create`
+3. Check OpenAI dashboard for key status
 4. Rotate key if needed
 
 ### Issue: Upload fails with 500 errors
@@ -220,7 +220,7 @@ Track these KPIs:
 - **Processing Time**: p50, p95, p99 latency
 - **Extraction Accuracy**: % of fields correctly extracted (manual audit)
 - **Customer Creation Rate**: % of scans that result in customer creation
-- **Cost per Scan**: Anthropic API costs + storage costs
+- **Cost per Scan**: OpenAI API costs + storage costs
 
 Target metrics:
 - Success rate: >90%

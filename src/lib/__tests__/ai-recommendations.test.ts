@@ -9,21 +9,23 @@ import {
   type RecommendationContext,
 } from '../ai-recommendations';
 
-// Mock Anthropic SDK
-vi.mock('@anthropic-ai/sdk', () => {
+const mockResponsesCreate = vi.hoisted(() => vi.fn());
+
+vi.mock('@/lib/openai-client', () => {
   return {
-    default: vi.fn().mockImplementation(() => ({
-      messages: {
-        create: vi.fn(),
+    getOpenAIClient: () => ({
+      responses: {
+        create: mockResponsesCreate,
       },
-    })),
+    }),
   };
 });
 
 describe('AI Recommendations', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    process.env.ANTHROPIC_API_KEY = 'test-api-key';
+    process.env.OPENAI_API_KEY = 'test-api-key';
+    mockResponsesCreate.mockReset();
   });
 
   describe('buildRecommendationPrompt', () => {
@@ -110,7 +112,7 @@ describe('AI Recommendations', () => {
 
   describe('getProductRecommendations', () => {
     it('should throw error if API key is missing', async () => {
-      delete process.env.ANTHROPIC_API_KEY;
+      delete process.env.OPENAI_API_KEY;
 
       const context: RecommendationContext = {};
       const availableProducts = [
@@ -119,17 +121,16 @@ describe('AI Recommendations', () => {
 
       await expect(
         getProductRecommendations('customer-123', context, availableProducts)
-      ).rejects.toThrow('ANTHROPIC_API_KEY is not configured');
+      ).rejects.toThrow('OPENAI_API_KEY is not configured');
     });
 
-    it('should call Claude API with correct parameters', async () => {
-      const Anthropic = (await import('@anthropic-ai/sdk')).default;
-      const mockCreate = vi.fn().mockResolvedValue({
-        content: [
+    it('should call OpenAI API with correct parameters', async () => {
+      mockResponsesCreate.mockResolvedValue({
+        output: [
           {
-            type: 'tool_use',
+            type: 'function_call',
             name: 'recommend_products',
-            input: {
+            arguments: JSON.stringify({
               recommendations: [
                 {
                   productId: 'prod-1',
@@ -137,15 +138,10 @@ describe('AI Recommendations', () => {
                   confidence: 0.85,
                 },
               ],
-            },
+            }),
           },
         ],
       });
-
-      // @ts-ignore
-      Anthropic.mockImplementation(() => ({
-        messages: { create: mockCreate },
-      }));
 
       const context: RecommendationContext = {
         occasion: 'seasonal',
@@ -160,12 +156,14 @@ describe('AI Recommendations', () => {
         availableProducts
       );
 
-      expect(mockCreate).toHaveBeenCalledWith(
+      expect(mockResponsesCreate).toHaveBeenCalledWith(
         expect.objectContaining({
-          model: 'claude-3-5-sonnet-20241022',
+          model: 'gpt-5-mini',
           tools: expect.arrayContaining([
             expect.objectContaining({
-              name: 'recommend_products',
+              function: expect.objectContaining({
+                name: 'recommend_products',
+              }),
             }),
           ]),
         })
@@ -180,13 +178,12 @@ describe('AI Recommendations', () => {
     });
 
     it('should filter recommendations by confidence threshold', async () => {
-      const Anthropic = (await import('@anthropic-ai/sdk')).default;
-      const mockCreate = vi.fn().mockResolvedValue({
-        content: [
+      mockResponsesCreate.mockResolvedValue({
+        output: [
           {
-            type: 'tool_use',
+            type: 'function_call',
             name: 'recommend_products',
-            input: {
+            arguments: JSON.stringify({
               recommendations: [
                 {
                   productId: 'prod-1',
@@ -199,15 +196,10 @@ describe('AI Recommendations', () => {
                   confidence: 0.4,
                 },
               ],
-            },
+            }),
           },
         ],
       });
-
-      // @ts-ignore
-      Anthropic.mockImplementation(() => ({
-        messages: { create: mockCreate },
-      }));
 
       const context: RecommendationContext = {};
       const availableProducts = [
@@ -227,13 +219,12 @@ describe('AI Recommendations', () => {
     });
 
     it('should validate product IDs against available products', async () => {
-      const Anthropic = (await import('@anthropic-ai/sdk')).default;
-      const mockCreate = vi.fn().mockResolvedValue({
-        content: [
+      mockResponsesCreate.mockResolvedValue({
+        output: [
           {
-            type: 'tool_use',
+            type: 'function_call',
             name: 'recommend_products',
-            input: {
+            arguments: JSON.stringify({
               recommendations: [
                 {
                   productId: 'prod-1',
@@ -246,15 +237,10 @@ describe('AI Recommendations', () => {
                   confidence: 0.8,
                 },
               ],
-            },
+            }),
           },
         ],
       });
-
-      // @ts-ignore
-      Anthropic.mockImplementation(() => ({
-        messages: { create: mockCreate },
-      }));
 
       const context: RecommendationContext = {};
       const availableProducts = [
@@ -272,28 +258,22 @@ describe('AI Recommendations', () => {
     });
 
     it('should respect max recommendations limit', async () => {
-      const Anthropic = (await import('@anthropic-ai/sdk')).default;
-      const mockCreate = vi.fn().mockResolvedValue({
-        content: [
+      mockResponsesCreate.mockResolvedValue({
+        output: [
           {
-            type: 'tool_use',
+            type: 'function_call',
             name: 'recommend_products',
-            input: {
+            arguments: JSON.stringify({
               recommendations: [
                 { productId: 'prod-1', reason: 'Rec 1', confidence: 0.9 },
                 { productId: 'prod-2', reason: 'Rec 2', confidence: 0.85 },
                 { productId: 'prod-3', reason: 'Rec 3', confidence: 0.8 },
                 { productId: 'prod-4', reason: 'Rec 4', confidence: 0.75 },
               ],
-            },
+            }),
           },
         ],
       });
-
-      // @ts-ignore
-      Anthropic.mockImplementation(() => ({
-        messages: { create: mockCreate },
-      }));
 
       const context: RecommendationContext = {};
       const availableProducts = [
@@ -314,20 +294,19 @@ describe('AI Recommendations', () => {
     });
 
     it('should return empty array if no tool use in response', async () => {
-      const Anthropic = (await import('@anthropic-ai/sdk')).default;
-      const mockCreate = vi.fn().mockResolvedValue({
-        content: [
+      mockResponsesCreate.mockResolvedValue({
+        output: [
           {
-            type: 'text',
-            text: 'No recommendations available',
+            type: 'message',
+            content: [
+              {
+                type: 'output_text',
+                text: 'No recommendations available',
+              },
+            ],
           },
         ],
       });
-
-      // @ts-ignore
-      Anthropic.mockImplementation(() => ({
-        messages: { create: mockCreate },
-      }));
 
       const context: RecommendationContext = {};
       const availableProducts = [
@@ -344,13 +323,7 @@ describe('AI Recommendations', () => {
     });
 
     it('should handle API errors gracefully', async () => {
-      const Anthropic = (await import('@anthropic-ai/sdk')).default;
-      const mockCreate = vi.fn().mockRejectedValue(new Error('API Error'));
-
-      // @ts-ignore
-      Anthropic.mockImplementation(() => ({
-        messages: { create: mockCreate },
-      }));
+      mockResponsesCreate.mockRejectedValue(new Error('API Error'));
 
       const context: RecommendationContext = {};
       const availableProducts = [

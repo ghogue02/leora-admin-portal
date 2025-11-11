@@ -1,14 +1,12 @@
 /**
- * AI-powered product recommendations using Claude's tool calling
+ * AI-powered product recommendations using GPT-5 mini function calling
  * Uses structured tool responses to return specific product IDs
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+import type { ResponseFunctionToolCall } from 'openai/resources/responses/responses';
+import { getOpenAIClient } from '@/lib/openai-client';
 
-// Initialize Anthropic client
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || '',
-});
+const RECOMMENDATIONS_MODEL = process.env.AI_RECOMMENDATIONS_MODEL ?? "gpt-5-mini";
 
 export interface Order {
   id: string;
@@ -58,7 +56,7 @@ interface RecommendToolInput {
 }
 
 /**
- * Get AI-powered product recommendations using Claude
+ * Get AI-powered product recommendations using GPT-5 mini
  */
 export async function getProductRecommendations(
   customerId: string,
@@ -71,17 +69,17 @@ export async function getProductRecommendations(
 ): Promise<ProductRecommendation[]> {
   const { maxRecommendations = 5, minConfidence = 0.6 } = options;
 
-  // Validate API key
-  if (!process.env.ANTHROPIC_API_KEY) {
-    throw new Error('ANTHROPIC_API_KEY is not configured');
+  // Ensure OpenAI credentials exist before attempting to call the API
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('OPENAI_API_KEY is not configured');
   }
 
-  // Define the tool for Claude to return structured product recommendations
-  const tools: Anthropic.Tool[] = [
-    {
+  const recommendProductsTool = {
+    type: 'function' as const,
+    function: {
       name: 'recommend_products',
       description: `Recommend specific products by ID from the catalog. Return up to ${maxRecommendations} recommendations with reasoning and confidence scores.`,
-      input_schema: {
+      parameters: {
         type: 'object',
         properties: {
           recommendations: {
@@ -112,7 +110,7 @@ export async function getProductRecommendations(
         required: ['recommendations'],
       },
     },
-  ];
+  };
 
   // Build the system prompt
   const systemPrompt = buildSystemPrompt();
@@ -121,40 +119,53 @@ export async function getProductRecommendations(
   const userMessage = buildUserMessage(customerId, context, availableProducts, maxRecommendations);
 
   try {
-    // Call Claude with tool use capability
-    const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 4096,
-      tools,
-      messages: [
+    const client = getOpenAIClient();
+    const response = await client.responses.create({
+      model: RECOMMENDATIONS_MODEL,
+      reasoning: { effort: 'low' },
+      max_output_tokens: 1600,
+      tools: [recommendProductsTool],
+      input: [
+        {
+          role: 'system',
+          content: [
+            {
+              type: 'input_text',
+              text: systemPrompt,
+            },
+          ],
+        },
         {
           role: 'user',
-          content: userMessage,
+          content: [
+            {
+              type: 'input_text',
+              text: userMessage,
+            },
+          ],
         },
       ],
-      system: systemPrompt,
     });
 
-    // Extract tool use from response
-    const toolUseBlock = response.content.find(
-      (block): block is Anthropic.ToolUseBlock => block.type === 'tool_use'
+    const toolCall = (response.output ?? []).find(
+      (item): item is ResponseFunctionToolCall =>
+        item.type === 'function_call' && item.name === 'recommend_products'
     );
 
-    if (toolUseBlock && toolUseBlock.name === 'recommend_products') {
-      const input = toolUseBlock.input as RecommendToolInput;
-
-      // Filter by minimum confidence and validate product IDs
-      const validRecommendations = input.recommendations.filter(rec => {
-        const isValidProduct = availableProducts.some(p => p.id === rec.productId);
-        const meetsConfidence = rec.confidence >= minConfidence;
-        return isValidProduct && meetsConfidence;
-      });
-
-      return validRecommendations.slice(0, maxRecommendations);
+    if (!toolCall) {
+      return [];
     }
 
-    // If no tool use found, return empty array
-    return [];
+    const input = JSON.parse(toolCall.arguments) as RecommendToolInput;
+
+    // Filter by minimum confidence and validate product IDs
+    const validRecommendations = input.recommendations.filter(rec => {
+      const isValidProduct = availableProducts.some(p => p.id === rec.productId);
+      const meetsConfidence = rec.confidence >= minConfidence;
+      return isValidProduct && meetsConfidence;
+    });
+
+    return validRecommendations.slice(0, maxRecommendations);
   } catch (error) {
     console.error('Error getting AI recommendations:', error);
     throw new Error(
@@ -164,7 +175,7 @@ export async function getProductRecommendations(
 }
 
 /**
- * Build the system prompt for Claude
+ * Build the system prompt for GPT-5 mini
  */
 function buildSystemPrompt(): string {
   return `You are an expert wine sommelier and sales assistant for Well Crafted Wine & Beverage Co.

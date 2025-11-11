@@ -1,4 +1,6 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { getOpenAIClient } from "@/lib/openai-client";
+
+const DRILLDOWN_MODEL = process.env.AI_ACTIONS_MODEL ?? "gpt-5-mini";
 
 /**
  * AI-generated action steps for customer health drilldowns
@@ -21,49 +23,51 @@ interface ActionStep {
 
 /**
  * Generate AI-powered action steps for a customer drilldown
- * Uses Claude to analyze customer data and provide specific recommendations
+ * Uses GPT-5 mini to analyze customer data and provide specific recommendations
  */
 export async function generateDrilldownActions(
   request: DrilldownActionRequest
 ): Promise<ActionStep[]> {
-  // Check if Anthropic API key is configured
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.warn("[AI Actions] ANTHROPIC_API_KEY not configured - returning static actions");
+  // Check if OpenAI API key is configured
+  if (!process.env.OPENAI_API_KEY) {
+    console.warn("[AI Actions] OPENAI_API_KEY not configured - returning static actions");
     return getStaticActions(request);
   }
 
   try {
     console.log(`[AI Actions] Generating actions for ${request.drilldownType} with ${request.customerData.length} customers`);
 
-    const anthropic = new Anthropic({
-      apiKey: process.env.ANTHROPIC_API_KEY!,
-    });
-
     const prompt = buildPrompt(request);
 
-    console.log(`[AI Actions] Calling Claude API...`);
+    console.log(`[AI Actions] Calling OpenAI (${DRILLDOWN_MODEL})...`);
 
-    const response = await anthropic.messages.create({
-      model: "claude-3-5-sonnet-20241022",
-      max_tokens: 2048,
-      temperature: 0.7,
-      messages: [
+    const client = getOpenAIClient();
+    const response = await client.responses.create({
+      model: DRILLDOWN_MODEL,
+      reasoning: { effort: "low" },
+      max_output_tokens: 1200,
+      input: [
         {
           role: "user",
-          content: prompt,
+          content: [
+            {
+              type: "input_text",
+              text: prompt,
+            },
+          ],
         },
       ],
     });
 
     // Parse AI response
-    const content = response.content[0];
-    if (content.type !== "text") {
-      throw new Error("Unexpected response type from Claude");
+    const content = (response.output_text ?? []).join("").trim();
+    if (!content) {
+      throw new Error("OpenAI returned an empty response");
     }
 
-    console.log(`[AI Actions] Claude response received: ${content.text.substring(0, 200)}...`);
+    console.log(`[AI Actions] OpenAI response received: ${content.substring(0, 200)}...`);
 
-    const actionSteps = JSON.parse(content.text);
+    const actionSteps = JSON.parse(content);
     console.log(`[AI Actions] ✅ Generated ${actionSteps.length} AI action steps`);
     return actionSteps;
   } catch (error) {

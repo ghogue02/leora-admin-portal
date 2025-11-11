@@ -51,9 +51,9 @@ describe('E2E Scanning Workflows', () => {
       await page.waitForSelector('[data-testid="upload-progress"]');
       await expect(page.locator('.status')).toContainText('Uploading');
 
-      // Step 5: Wait for Claude extraction
+      // Step 5: Wait for OpenAI extraction
       await page.waitForSelector('[data-testid="extraction-complete"]', {
-        timeout: 30000 // Claude can take up to 10s
+        timeout: 30000 // Vision processing can take up to 10s
       });
 
       // Step 6: Review extracted data

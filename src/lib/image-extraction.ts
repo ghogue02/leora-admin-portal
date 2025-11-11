@@ -1,8 +1,8 @@
 /**
- * Image Extraction Service using Claude Vision API
+ * Image Extraction Service using OpenAI GPT-5 mini vision
  *
  * Extracts structured data from business cards and liquor licenses
- * using Anthropic's Claude Vision capability.
+ * using OpenAI's multimodal Responses API.
  *
  * Features:
  * - Business card extraction (name, title, company, contact info)
@@ -12,13 +12,11 @@
  * - Integration with job queue for async processing
  */
 
-import Anthropic from '@anthropic-ai/sdk';
 import { PrismaClient } from '@prisma/client';
+import { getOpenAIClient } from '@/lib/openai-client';
 
 const prisma = new PrismaClient();
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY
-});
+const IMAGE_EXTRACTION_MODEL = process.env.IMAGE_EXTRACTION_MODEL ?? 'gpt-5-mini';
 
 /**
  * Extracted data from a business card
@@ -51,35 +49,38 @@ export interface LicenseData {
   confidence: number; // 0-1 scale
 }
 
-/**
- * Extract business card information using Claude Vision
- *
- * @param imageUrl - Public URL to the business card image
- * @returns Structured business card data
- *
- * @example
- * const data = await extractBusinessCard('https://example.com/card.jpg');
- * console.log(data.name, data.email);
- */
-export async function extractBusinessCard(imageUrl: string): Promise<BusinessCardData> {
-  try {
-    const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 1024,
-      messages: [
-        {
-          role: 'user',
-          content: [
-            {
-              type: 'image',
-              source: {
-                type: 'url',
-                url: imageUrl
-              }
-            },
-            {
-              type: 'text',
-              text: `Analyze this business card image and extract all contact information.
+async function runVisionRequest(imageUrl: string, prompt: string, maxOutputTokens = 900): Promise<string> {
+  const client = getOpenAIClient();
+  const response = await client.responses.create({
+    model: IMAGE_EXTRACTION_MODEL,
+    reasoning: { effort: 'low' },
+    max_output_tokens: maxOutputTokens,
+    input: [
+      {
+        role: 'user',
+        content: [
+          {
+            type: 'input_text',
+            text: prompt,
+          },
+          {
+            type: 'input_image',
+            image_url: imageUrl,
+          },
+        ],
+      },
+    ],
+  });
+
+  const text = (response.output_text ?? []).join('').trim();
+  if (!text) {
+    throw new Error('OpenAI returned an empty response');
+  }
+
+  return text;
+}
+
+const BUSINESS_CARD_PROMPT = `Analyze this business card image and extract all contact information.
 
 Return a JSON object with the following structure:
 {
@@ -100,23 +101,50 @@ Guidelines:
 - Set confidence based on image quality (0-1 scale)
 - If a field is not visible, omit it or set to null
 - Include any social media handles in notes
-- Return ONLY the JSON object, no other text`
-            }
-          ]
-        }
-      ]
-    });
+- Return ONLY the JSON object, no other text`;
 
-    // Extract JSON from response
-    const content = response.content[0];
-    if (content.type !== 'text') {
-      throw new Error('Unexpected response type from Claude Vision');
-    }
+const LICENSE_PROMPT = `Analyze this liquor license image and extract all license information.
+
+Return a JSON object with the following structure:
+{
+  "licenseNumber": "License number/ID",
+  "businessName": "Business/establishment name",
+  "licenseType": "Type of license (e.g., On-Premises, Off-Premises, Wholesale)",
+  "issuedDate": "Issue date (YYYY-MM-DD format if possible)",
+  "expiryDate": "Expiration date (YYYY-MM-DD format if possible)",
+  "state": "State/jurisdiction",
+  "address": "Business address",
+  "restrictions": "Any restrictions or conditions listed",
+  "notes": "Any other relevant information",
+  "confidence": 0.95
+}
+
+Guidelines:
+- Use exact text from the license, don't invent information
+- Format dates as YYYY-MM-DD when possible
+- Set confidence based on image quality (0-1 scale)
+- If a field is not visible, omit it or set to null
+- Include permit classes, endorsements in notes
+- Return ONLY the JSON object, no other text`;
+
+/**
+ * Extract business card information using OpenAI vision
+ *
+ * @param imageUrl - Public URL to the business card image
+ * @returns Structured business card data
+ *
+ * @example
+ * const data = await extractBusinessCard('https://example.com/card.jpg');
+ * console.log(data.name, data.email);
+ */
+export async function extractBusinessCard(imageUrl: string): Promise<BusinessCardData> {
+  try {
+    const visionResponse = await runVisionRequest(imageUrl, BUSINESS_CARD_PROMPT, 900);
 
     // Parse JSON response
-    const jsonMatch = content.text.match(/\{[\s\S]*\}/);
+    const jsonMatch = visionResponse.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-      throw new Error('No JSON found in Claude Vision response');
+      throw new Error('No JSON found in OpenAI vision response');
     }
 
     const extractedData = JSON.parse(jsonMatch[0]) as BusinessCardData;
@@ -139,7 +167,7 @@ Guidelines:
 }
 
 /**
- * Extract liquor license information using Claude Vision
+ * Extract liquor license information using OpenAI vision
  *
  * @param imageUrl - Public URL to the license image
  * @returns Structured license data
@@ -150,61 +178,11 @@ Guidelines:
  */
 export async function extractLiquorLicense(imageUrl: string): Promise<LicenseData> {
   try {
-    const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 1024,
-      messages: [
-        {
-          role: 'user',
-          content: [
-            {
-              type: 'image',
-              source: {
-                type: 'url',
-                url: imageUrl
-              }
-            },
-            {
-              type: 'text',
-              text: `Analyze this liquor license image and extract all license information.
+    const visionResponse = await runVisionRequest(imageUrl, LICENSE_PROMPT, 900);
 
-Return a JSON object with the following structure:
-{
-  "licenseNumber": "License number/ID",
-  "businessName": "Business/establishment name",
-  "licenseType": "Type of license (e.g., On-Premises, Off-Premises, Wholesale)",
-  "issuedDate": "Issue date (YYYY-MM-DD format if possible)",
-  "expiryDate": "Expiration date (YYYY-MM-DD format if possible)",
-  "state": "State/jurisdiction",
-  "address": "Business address",
-  "restrictions": "Any restrictions or conditions listed",
-  "notes": "Any other relevant information",
-  "confidence": 0.95
-}
-
-Guidelines:
-- Use exact text from the license, don't invent information
-- Format dates as YYYY-MM-DD when possible
-- Set confidence based on image quality (0-1 scale)
-- If a field is not visible, omit it or set to null
-- Include permit classes, endorsements in notes
-- Return ONLY the JSON object, no other text`
-            }
-          ]
-        }
-      ]
-    });
-
-    // Extract JSON from response
-    const content = response.content[0];
-    if (content.type !== 'text') {
-      throw new Error('Unexpected response type from Claude Vision');
-    }
-
-    // Parse JSON response
-    const jsonMatch = content.text.match(/\{[\s\S]*\}/);
+    const jsonMatch = visionResponse.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
-      throw new Error('No JSON found in Claude Vision response');
+      throw new Error('No JSON found in OpenAI vision response');
     }
 
     const extractedData = JSON.parse(jsonMatch[0]) as LicenseData;

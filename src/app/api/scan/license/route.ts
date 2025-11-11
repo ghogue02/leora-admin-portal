@@ -1,7 +1,7 @@
 /**
  * POST /api/scan/license
  *
- * Upload and scan a liquor license image using Claude Vision.
+ * Upload and scan a liquor license image using the OpenAI vision flow.
  * Returns immediately with scanId for async status polling.
  *
  * Request: multipart/form-data
@@ -14,7 +14,7 @@
  * Workflow:
  *   1. Upload image to Supabase Storage
  *   2. Create ImageScan record
- *   3. Enqueue job for Claude Vision extraction
+ *   3. Enqueue job for OpenAI extraction via Supabase
  *   4. Return scanId immediately (non-blocking)
  *   5. Client polls GET /api/scan/{scanId} for results
  */

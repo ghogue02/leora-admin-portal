@@ -1,14 +1,14 @@
 import { PrismaClient } from '@prisma/client';
 import { config } from 'dotenv';
 import { resolve } from 'path';
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
 
 // Load environment variables
 config({ path: resolve(__dirname, '../.env.local') });
 
 const prisma = new PrismaClient();
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 interface WineDetails {
@@ -88,7 +88,7 @@ function extractWineDetails(productName: string, brand: string | null): WineDeta
 }
 
 /**
- * Research wine using Claude with web search
+ * Research wine using OpenAI with web search
  */
 async function researchWine(details: WineDetails): Promise<EnrichmentResult> {
   const searchQuery = `${details.name} wine tasting notes reviews`;
@@ -96,13 +96,17 @@ async function researchWine(details: WineDetails): Promise<EnrichmentResult> {
   console.log(`  🔍 Researching: ${searchQuery}`);
 
   try {
-    const message = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 2000,
-      messages: [
+    const response = await openai.responses.create({
+      model: process.env.WINE_ENRICHMENT_MODEL ?? 'gpt-5-mini',
+      reasoning: { effort: 'medium' },
+      max_output_tokens: 2000,
+      input: [
         {
           role: 'user',
-          content: `You are a wine expert tasked with creating accurate, detailed tasting notes for a specific wine.
+          content: [
+            {
+              type: 'input_text',
+              text: `You are a wine expert tasked with creating accurate, detailed tasting notes for a specific wine.
 
 Wine: ${details.name}
 Producer: ${details.producer}
@@ -147,13 +151,14 @@ Return ONLY valid JSON with this exact structure (no markdown, no code blocks):
     "researchedAt": "${new Date().toISOString()}"
   }
 }`,
+            },
+          ],
         },
       ],
     });
 
-    const responseText = message.content[0].type === 'text' ? message.content[0].text : '';
+    const responseText = (response.output_text ?? []).join('').trim();
 
-    // Extract JSON from response (remove markdown if present)
     const jsonMatch = responseText.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       throw new Error('No JSON found in response');
@@ -194,7 +199,7 @@ async function enrichProduct(product: {
       servingInfo: enrichment.servingInfo as any,
       wineDetails: enrichment.wineDetails as any,
       enrichedAt: new Date(),
-      enrichedBy: 'claude-code-accurate',
+      enrichedBy: 'openai-gpt5-accurate',
     },
   });
 
@@ -218,7 +223,7 @@ async function main() {
   const products = await prisma.product.findMany({
     where: {
       // Optionally filter out already enriched products
-      // enrichedBy: { not: 'claude-code-accurate' }
+      // enrichedBy: { not: 'openai-gpt5-accurate' }
     },
     select: {
       id: true,

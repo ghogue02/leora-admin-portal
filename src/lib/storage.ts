@@ -6,7 +6,7 @@
  *
  * Features:
  * - Upload images to Supabase Storage
- * - Generate public URLs for Claude Vision
+ * - Generate public URLs for OpenAI vision
  * - Delete images when no longer needed
  * - Tenant-based file organization
  * - File size validation (5MB max)

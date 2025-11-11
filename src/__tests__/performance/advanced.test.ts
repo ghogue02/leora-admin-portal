@@ -41,7 +41,7 @@ describe('Phase 7 Performance Tests', () => {
     });
   });
 
-  describe('Claude Extraction Performance', () => {
+  describe('OpenAI Extraction Performance', () => {
     it('should extract business card data in under 10 seconds', async () => {
       const scanId = await createTestScan();
 

@@ -11,7 +11,7 @@
  */
 
 import { Prisma, PrismaClient } from '@prisma/client';
-import { extractBusinessCard, extractLiquorLicense } from './image-extraction';
+import { invokeSupabaseFunction } from '@/lib/supabase/functions';
 import { downloadImportFile } from './imports/upload';
 import { ingestSalesReportRecords, parseSalesReportCsv } from './imports/sales-report-ingestion';
 
@@ -178,24 +178,10 @@ async function routeJobToHandler(type: JobType, payload: JobPayload): Promise<vo
 /**
  * Handler: Image Extraction (Business Cards & Licenses)
  *
- * Uses Claude Vision API to extract structured data from images
+ * Uses the Supabase Edge function + OpenAI vision to extract structured data
  */
 async function processImageExtraction(payload: ImageExtractionPayload): Promise<void> {
-  const { scanId, imageUrl, scanType } = payload;
-
-  // Extract data using Claude Vision
-  const extractedData = scanType === 'business_card'
-    ? await extractBusinessCard(imageUrl)
-    : await extractLiquorLicense(imageUrl);
-
-  // Update scan record with extracted data
-  await prisma.imageScan.update({
-    where: { id: scanId },
-    data: {
-      extractedData,
-      status: 'completed'
-    }
-  });
+  await invokeSupabaseFunction("image-extraction", payload);
 }
 
 /**
@@ -207,7 +193,7 @@ async function processCustomerEnrichment(payload: CustomerEnrichmentPayload): Pr
   const { customerId, productId } = payload;
 
   // TODO: Implement customer/product enrichment logic
-  // This would call Claude API to generate product descriptions,
+  // This would call OpenAI to generate product descriptions,
   // tasting notes, food pairings, etc.
 
   console.log(`Processing enrichment for customer ${customerId}, product ${productId}`);

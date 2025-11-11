@@ -1,28 +1,28 @@
 /**
  * Unit Tests for Image Extraction Service
  *
- * Tests Claude Vision integration with mocked API calls.
+ * Tests OpenAI vision integration with mocked API calls.
  * Validates business card and license extraction logic.
  */
 
-import { describe, it, expect, jest, beforeEach } from '@jest/globals';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { BusinessCardData, LicenseData } from '../image-extraction';
 
-// Mock Anthropic SDK
-const mockCreate = jest.fn();
-jest.mock('@anthropic-ai/sdk', () => ({
-  default: jest.fn().mockImplementation(() => ({
-    messages: {
-      create: mockCreate
-    }
-  }))
+const mockResponsesCreate = vi.hoisted(() => vi.fn());
+
+vi.mock('@/lib/openai-client', () => ({
+  getOpenAIClient: () => ({
+    responses: {
+      create: mockResponsesCreate,
+    },
+  }),
 }));
 
 // Mock Prisma
-const mockPrismaUpdate = jest.fn();
-const mockPrismaFindUnique = jest.fn();
-jest.mock('@prisma/client', () => ({
-  PrismaClient: jest.fn().mockImplementation(() => ({
+const mockPrismaUpdate = vi.hoisted(() => vi.fn());
+const mockPrismaFindUnique = vi.hoisted(() => vi.fn());
+vi.mock('@prisma/client', () => ({
+  PrismaClient: vi.fn().mockImplementation(() => ({
     imageScan: {
       update: mockPrismaUpdate,
       findUnique: mockPrismaFindUnique
@@ -35,31 +35,29 @@ import { extractBusinessCard, extractLiquorLicense, processImageScan } from '../
 
 describe('Image Extraction Service', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
+    mockResponsesCreate.mockReset();
   });
 
   describe('extractBusinessCard', () => {
     it('should extract business card data successfully', async () => {
-      // Mock Claude Vision response
+      // Mock OpenAI vision response
       const mockResponse = {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              name: 'John Smith',
-              title: 'Sales Director',
-              company: 'Wine Co',
-              phone: '(555) 123-4567',
-              email: 'john@wineco.com',
-              address: '123 Main St, NY',
-              website: 'www.wineco.com',
-              confidence: 0.95
-            })
-          }
+        output_text: [
+          JSON.stringify({
+            name: 'John Smith',
+            title: 'Sales Director',
+            company: 'Wine Co',
+            phone: '(555) 123-4567',
+            email: 'john@wineco.com',
+            address: '123 Main St, NY',
+            website: 'www.wineco.com',
+            confidence: 0.95
+          })
         ]
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       const result = await extractBusinessCard('https://example.com/card.jpg');
 
@@ -70,29 +68,26 @@ describe('Image Extraction Service', () => {
         email: 'john@wineco.com'
       });
       expect(result.confidence).toBeGreaterThan(0.9);
-      expect(mockCreate).toHaveBeenCalledWith(
+      expect(mockResponsesCreate).toHaveBeenCalledWith(
         expect.objectContaining({
-          model: 'claude-3-5-sonnet-20241022',
-          max_tokens: 1024
+          model: 'gpt-5-mini',
+          max_output_tokens: 900
         })
       );
     });
 
     it('should throw error if name is missing', async () => {
       const mockResponse = {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              company: 'Wine Co',
-              email: 'info@wineco.com',
-              confidence: 0.7
-            })
-          }
+        output_text: [
+          JSON.stringify({
+            company: 'Wine Co',
+            email: 'info@wineco.com',
+            confidence: 0.7
+          })
         ]
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       await expect(
         extractBusinessCard('https://example.com/card.jpg')
@@ -101,23 +96,18 @@ describe('Image Extraction Service', () => {
 
     it('should throw error if JSON parsing fails', async () => {
       const mockResponse = {
-        content: [
-          {
-            type: 'text',
-            text: 'Invalid JSON response'
-          }
-        ]
+        output_text: ['Invalid JSON response']
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       await expect(
         extractBusinessCard('https://example.com/card.jpg')
       ).rejects.toThrow('No JSON found');
     });
 
-    it('should handle Claude API errors', async () => {
-      mockCreate.mockRejectedValue(new Error('API rate limit exceeded'));
+    it('should handle OpenAI API errors', async () => {
+      mockResponsesCreate.mockRejectedValue(new Error('API rate limit exceeded'));
 
       await expect(
         extractBusinessCard('https://example.com/card.jpg')
@@ -128,25 +118,22 @@ describe('Image Extraction Service', () => {
   describe('extractLiquorLicense', () => {
     it('should extract license data successfully', async () => {
       const mockResponse = {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              licenseNumber: 'ABC-123456',
-              businessName: 'Best Liquor Store',
-              licenseType: 'Off-Premises',
-              issuedDate: '2024-01-15',
-              expiryDate: '2025-01-14',
-              state: 'NY',
-              address: '456 Oak Ave, New York, NY',
-              restrictions: 'No Sunday sales',
-              confidence: 0.92
-            })
-          }
+        output_text: [
+          JSON.stringify({
+            licenseNumber: 'ABC-123456',
+            businessName: 'Best Liquor Store',
+            licenseType: 'Off-Premises',
+            issuedDate: '2024-01-15',
+            expiryDate: '2025-01-14',
+            state: 'NY',
+            address: '456 Oak Ave, New York, NY',
+            restrictions: 'No Sunday sales',
+            confidence: 0.92
+          })
         ]
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       const result = await extractLiquorLicense('https://example.com/license.jpg');
 
@@ -161,19 +148,16 @@ describe('Image Extraction Service', () => {
 
     it('should throw error if required fields are missing', async () => {
       const mockResponse = {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              licenseType: 'Off-Premises',
-              state: 'NY',
-              confidence: 0.6
-            })
-          }
+        output_text: [
+          JSON.stringify({
+            licenseType: 'Off-Premises',
+            state: 'NY',
+            confidence: 0.6
+          })
         ]
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       await expect(
         extractLiquorLicense('https://example.com/license.jpg')
@@ -182,19 +166,20 @@ describe('Image Extraction Service', () => {
 
     it('should handle malformed response', async () => {
       const mockResponse = {
-        content: [
+        output: [
           {
-            type: 'image',
-            source: {}
-          }
-        ]
+            type: 'message',
+            content: [],
+          },
+        ],
+        output_text: [],
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       await expect(
         extractLiquorLicense('https://example.com/license.jpg')
-      ).rejects.toThrow('Unexpected response type');
+      ).rejects.toThrow('OpenAI returned an empty response');
     });
   });
 
@@ -217,8 +202,8 @@ describe('Image Extraction Service', () => {
       };
 
       mockPrismaFindUnique.mockResolvedValue(mockScan);
-      mockCreate.mockResolvedValue({
-        content: [{ type: 'text', text: JSON.stringify(mockExtractedData) }]
+      mockResponsesCreate.mockResolvedValue({
+        output_text: [JSON.stringify(mockExtractedData)],
       });
       mockPrismaUpdate.mockResolvedValue({});
 
@@ -251,8 +236,8 @@ describe('Image Extraction Service', () => {
       };
 
       mockPrismaFindUnique.mockResolvedValue(mockScan);
-      mockCreate.mockResolvedValue({
-        content: [{ type: 'text', text: JSON.stringify(mockExtractedData) }]
+      mockResponsesCreate.mockResolvedValue({
+        output_text: [JSON.stringify(mockExtractedData)],
       });
       mockPrismaUpdate.mockResolvedValue({});
 
@@ -274,7 +259,7 @@ describe('Image Extraction Service', () => {
       };
 
       mockPrismaFindUnique.mockResolvedValue(mockScan);
-      mockCreate.mockRejectedValue(new Error('Extraction failed'));
+      mockResponsesCreate.mockRejectedValue(new Error('Extraction failed'));
 
       await expect(processImageScan('scan-789')).rejects.toThrow();
 
@@ -309,19 +294,16 @@ describe('Image Extraction Service', () => {
   describe('Edge Cases', () => {
     it('should handle low confidence scores', async () => {
       const mockResponse = {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              name: 'Blurry Name',
-              email: 'unclear@example.com',
-              confidence: 0.4
-            })
-          }
+        output_text: [
+          JSON.stringify({
+            name: 'Blurry Name',
+            email: 'unclear@example.com',
+            confidence: 0.4
+          })
         ]
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       const result = await extractBusinessCard('https://example.com/blurry.jpg');
 
@@ -331,19 +313,15 @@ describe('Image Extraction Service', () => {
 
     it('should handle partial data extraction', async () => {
       const mockResponse = {
-        content: [
-          {
-            type: 'text',
-            text: JSON.stringify({
-              name: 'John Partial',
-              confidence: 0.85
-              // Missing other fields
-            })
-          }
+        output_text: [
+          JSON.stringify({
+            name: 'John Partial',
+            confidence: 0.85
+          })
         ]
       };
 
-      mockCreate.mockResolvedValue(mockResponse);
+      mockResponsesCreate.mockResolvedValue(mockResponse);
 
       const result = await extractBusinessCard('https://example.com/partial.jpg');
 

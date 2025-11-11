@@ -3,7 +3,7 @@
 import { PrismaClient } from '@prisma/client';
 import { config } from 'dotenv';
 import { resolve } from 'path';
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
 
 // Load environment variables
 config({ path: resolve(__dirname, '../.env.local') });
@@ -11,8 +11,8 @@ config({ path: resolve(__dirname, '../.env.local') });
 const prisma = new PrismaClient();
 
 // Initialize Anthropic client
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 interface TastingNotes {
@@ -140,28 +140,32 @@ IMPORTANT INSTRUCTIONS:
 - Respond ONLY with valid JSON, no additional text.`;
 
   try {
-    const message = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 2048,
-      temperature: 0.7,
-      messages: [
+    const response = await openai.responses.create({
+      model: process.env.WINE_ENRICHMENT_MODEL ?? 'gpt-5-mini',
+      reasoning: { effort: 'medium' },
+      max_output_tokens: 2048,
+      input: [
         {
           role: 'user',
-          content: prompt,
+          content: [
+            {
+              type: 'input_text',
+              text: prompt,
+            },
+          ],
         },
       ],
     });
 
-    const content = message.content[0];
-    if (content.type !== 'text') {
-      throw new Error('Unexpected response type from Claude');
+    const responseText = (response.output_text ?? []).join('').trim();
+
+    const jsonMatch = responseText.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) {
+      throw new Error('No JSON found in OpenAI response');
     }
 
-    // Parse the JSON response
-    const jsonText = content.text.trim();
-    const data = JSON.parse(jsonText);
+    const data = JSON.parse(jsonMatch[0]);
 
-    // Validate the structure
     if (
       !data.description ||
       !data.tastingNotes ||
@@ -169,7 +173,7 @@ IMPORTANT INSTRUCTIONS:
       !data.servingInfo ||
       !data.wineDetails
     ) {
-      throw new Error('Invalid response structure from Claude');
+      throw new Error('Invalid response structure from OpenAI');
     }
 
     return data as EnrichedProductData;
@@ -182,7 +186,7 @@ IMPORTANT INSTRUCTIONS:
 async function enrichProducts(options: CliOptions) {
   const { preview, test, batch, all } = options;
 
-  console.log('🍷 Claude Product Enrichment\n');
+  console.log('🍷 OpenAI Product Enrichment\n');
   console.log('═'.repeat(80));
   console.log(`Mode: ${preview ? '👁️  PREVIEW (No saves)' : '💾 SAVE to database'}`);
   console.log(`Batch size: ${batch}`);
@@ -196,8 +200,8 @@ async function enrichProducts(options: CliOptions) {
 
   try {
     // Check API key
-    if (!process.env.ANTHROPIC_API_KEY) {
-      console.error('❌ Error: ANTHROPIC_API_KEY not found in environment variables');
+    if (!process.env.OPENAI_API_KEY) {
+      console.error('❌ Error: OPENAI_API_KEY not found in environment variables');
       console.error('   Add it to .env.local file');
       process.exit(1);
     }
@@ -256,8 +260,8 @@ async function enrichProducts(options: CliOptions) {
       }
 
       try {
-        // Generate enriched data using Claude
-        console.log('\n   🤖 Generating enrichment data with Claude...');
+        // Generate enriched data using OpenAI
+        console.log('\n   🤖 Generating enrichment data with OpenAI...');
         const enrichedData = await generateProductData(product, sku);
 
         // Display preview
@@ -346,7 +350,7 @@ function sleep(ms: number): Promise<void> {
 
 function printUsage() {
   console.log(`
-🍷 Claude Product Enrichment Script
+🍷 OpenAI Product Enrichment Script
 
 USAGE:
   tsx scripts/claude-enrich-products.ts [options]
@@ -374,7 +378,7 @@ EXAMPLES:
   tsx scripts/claude-enrich-products.ts --preview --all
 
 REQUIREMENTS:
-  - ANTHROPIC_API_KEY must be set in .env.local
+  - OPENAI_API_KEY must be set in .env.local
   - Products must have null descriptions to be processed
 
 RATE LIMITING:

@@ -2,7 +2,7 @@
  * POST /api/scan/{scanId}/retry
  *
  * Retry a failed image scan.
- * Re-enqueues the job for processing with Claude Vision.
+ * Re-enqueues the job for processing with OpenAI vision.
  *
  * Request: (empty body)
  *

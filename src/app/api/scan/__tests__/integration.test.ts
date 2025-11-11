@@ -308,7 +308,7 @@ describe('Scan API Integration Tests', () => {
       expect(response.status).toBe(500);
     });
 
-    it('should handle Claude API failures gracefully', async () => {
+    it('should handle OpenAI API failures gracefully', async () => {
       const scanId = 'scan_claude_error';
       mockRequest = {
         url: `http://localhost/api/scan/${scanId}`
