@@ -3,6 +3,7 @@
 import { DashboardTile } from "@/components/dashboard/DashboardTile";
 import type { DashboardDrilldownType } from "@/types/drilldown";
 import { MetricTooltip } from "./MetricDefinitions";
+import { formatCurrency, formatNumber } from "@/lib/format";
 
 type PerformanceMetricsProps = {
   salesRep: {
@@ -57,13 +58,6 @@ type PerformanceMetricsProps = {
 };
 
 export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: PerformanceMetricsProps) {
-  const formatCurrency = (value: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(value);
-
   const tileBaseClasses =
     "flex h-full flex-col gap-4 rounded-lg border border-slate-200 bg-white p-6 shadow-sm";
   const tileTitleClasses = "text-xs font-medium uppercase tracking-widest text-gray-500";
@@ -106,7 +100,7 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
             </div>
             <div className="flex flex-1 flex-col justify-end gap-2">
               <p className={tileValueClasses}>
-                {metrics.currentWeek.quotaProgress.toFixed(0)}%
+                {`${formatNumber(metrics.currentWeek.quotaProgress)}%`}
               </p>
               <p className={tileSubtextClasses}>
                 {formatCurrency(metrics.currentWeek.revenue)} of {formatCurrency(salesRep.weeklyQuota)}
@@ -154,7 +148,9 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
               <p className={tileValueClasses}>
                 {formatCurrency(metrics.mtd?.revenue || 0)}
               </p>
-              <p className={tileSubtextClasses}>{metrics.mtd?.uniqueCustomers || 0} customers</p>
+              <p className={tileSubtextClasses}>
+                {formatNumber(metrics.mtd?.uniqueCustomers ?? 0)} customers
+              </p>
             </div>
           </div>
         </DashboardTile>
@@ -196,7 +192,9 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
               <p className={tileValueClasses}>
                 {formatCurrency(metrics.ytd?.revenue || 0)}
               </p>
-              <p className={tileSubtextClasses}>{metrics.ytd?.uniqueCustomers || 0} customers</p>
+              <p className={tileSubtextClasses}>
+                {formatNumber(metrics.ytd?.uniqueCustomers ?? 0)} customers
+              </p>
             </div>
           </div>
         </DashboardTile>
@@ -213,7 +211,7 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
               <MetricTooltip metricKey="unique-customers" />
             </div>
             <div className="flex flex-1 flex-col justify-end gap-2">
-              <p className={tileValueClasses}>{metrics.currentWeek.uniqueCustomers}</p>
+              <p className={tileValueClasses}>{formatNumber(metrics.currentWeek.uniqueCustomers)}</p>
               <p className={tileSubtextClasses}>Orders this week</p>
             </div>
           </div>
@@ -252,13 +250,13 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
             <div className="flex items-center gap-2 text-sm">
               <span className="text-gray-500">New Customers:</span>
               <span className="font-semibold text-green-700">
-                +{metrics.weeklyMetrics.newCustomersAdded}
+                +{formatNumber(metrics.weeklyMetrics.newCustomersAdded)}
               </span>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <span className="text-gray-500">Reactivated:</span>
               <span className="font-semibold text-blue-700">
-                +{metrics.weeklyMetrics.reactivatedCustomers}
+                +{formatNumber(metrics.weeklyMetrics.reactivatedCustomers)}
               </span>
             </div>
           </div>
@@ -272,7 +270,7 @@ function ActivityMetric({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2">
       <p className="text-xs text-gray-500">{label}</p>
-      <p className="mt-1 text-lg font-semibold text-gray-900">{value}</p>
+      <p className="mt-1 text-lg font-semibold text-gray-900">{formatNumber(value)}</p>
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { formatCurrency } from "@/lib/format";
 
 type Order = {
   id: string;
@@ -216,12 +217,8 @@ export default function OrdersListPage() {
     }
   };
 
-  const formatCurrency = (amount: number, currency: string) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: currency || "USD",
-    }).format(amount);
-  };
+  const formatMoney = (amount: number, currency: string) =>
+    formatCurrency(amount, currency || "USD", { decimals: 2 });
 
   const formatDate = (date: string | null) => {
     if (!date) return "—";
@@ -529,7 +526,7 @@ export default function OrdersListPage() {
                         {formatDate(order.orderedAt)}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {formatCurrency(order.total, order.currency)}
+                        {formatMoney(order.total, order.currency)}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span

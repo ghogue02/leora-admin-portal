@@ -1,10 +1,25 @@
+'use client';
+
+import { useMemo, useState } from "react";
 import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
 import type {
   AccountPulse as AccountPulseMetrics,
   CustomerCoverage,
+  CustomerReportRow,
   PortfolioHealth,
 } from "@/types/sales-dashboard";
 import { InfoHover } from "@/components/InfoHover";
+import { formatNumber } from "@/lib/format";
+import CustomerBucketModal from "./components/CustomerBucketModal";
+import {
+  filterBucket,
+  hasRecentOrder,
+  isActiveAccount,
+  isKeyAccount,
+  isProspectAccount,
+  isTargetAccount,
+  needsAttention,
+} from "./customerBucketFilters";
 
 type AccountPulseProps = {
   salesRep: {
@@ -14,6 +29,7 @@ type AccountPulseProps = {
   accountPulse: AccountPulseMetrics;
   coverage: CustomerCoverage;
   portfolio: PortfolioHealth;
+  customers: CustomerReportRow[];
 };
 
 const directionConfig = {
@@ -34,14 +50,74 @@ const directionConfig = {
   },
 } as const;
 
-export default function AccountPulseSection({ salesRep, accountPulse, coverage, portfolio }: AccountPulseProps) {
+type BucketConfig = {
+  key: CoverageBucketKey;
+  title: string;
+  description: string;
+  filter: (row: CustomerReportRow) => boolean;
+};
+
+type CoverageBucketKey =
+  | "active"
+  | "targets"
+  | "prospects"
+  | "healthy"
+  | "immediate";
+
+export default function AccountPulseSection({
+  salesRep,
+  accountPulse,
+  coverage,
+  portfolio,
+  customers,
+}: AccountPulseProps) {
   const config = directionConfig[accountPulse.direction];
-  const formatCount = (value: number) => value.toLocaleString();
+  const formatCount = (value: number, decimals = 0) => formatNumber(value, decimals);
   const totalActive = portfolio.totalActive;
   const healthFocusCalculation =
     totalActive > 0
       ? `Healthy % = ${formatCount(portfolio.healthyCount)} healthy ÷ ${formatCount(totalActive)} active accounts.\nImmediate % = ${formatCount(portfolio.immediateAttentionCount)} flagged ÷ ${formatCount(totalActive)} active accounts.`
       : "No active accounts yet. Percentages start calculating after you have active customers.";
+
+  const [bucketModal, setBucketModal] = useState<BucketConfig | null>(null);
+
+  const coverageBuckets: Record<CoverageBucketKey, BucketConfig> = useMemo(
+    () => ({
+      active: {
+        key: "active",
+        title: "Active Accounts",
+        description: "Customers who have ordered in the last 12 months.",
+        filter: (row) => isActiveAccount(row),
+      },
+      targets: {
+        key: "targets",
+        title: "Target Accounts",
+        description: "Prospects you are actively pursuing.",
+        filter: (row) => isTargetAccount(row),
+      },
+      prospects: {
+        key: "prospects",
+        title: "Prospect Accounts",
+        description: "Accounts without recent purchasing history.",
+        filter: (row) => isProspectAccount(row),
+      },
+      healthy: {
+        key: "healthy",
+        title: "Recently Ordering Accounts",
+        description: "Active or target accounts that have ordered within the last 45 days.",
+        filter: (row) => isKeyAccount(row) && hasRecentOrder(row),
+      },
+      immediate: {
+        key: "immediate",
+        title: "Needs Attention",
+        description: "Active or target accounts that have gone 45+ days without an order.",
+        filter: (row) => isKeyAccount(row) && needsAttention(row),
+      },
+    }),
+    [],
+  );
+
+  const modalCustomers = bucketModal ? filterBucket(customers, bucketModal.filter) : [];
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -69,7 +145,7 @@ export default function AccountPulseSection({ salesRep, accountPulse, coverage, 
             </p>
             <p className="text-lg font-semibold text-gray-900 flex items-center gap-2">
               {config.label}
-              <span className={config.color}>{accountPulse.deltaPercent.toFixed(1)}%</span>
+              <span className={config.color}>{`${formatCount(accountPulse.deltaPercent, 1)}%`}</span>
             </p>
             <p className="text-xs text-gray-500">{accountPulse.summary}</p>
           </div>
@@ -81,16 +157,27 @@ export default function AccountPulseSection({ salesRep, accountPulse, coverage, 
           <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
             <span>Coverage</span>
             <InfoHover
-              text="Snapshot of how many accounts you have in each state: Active, Targets, Prospects, and Unassigned."
+              text="Snapshot of how many accounts you have in Active, Target, and Prospect states."
               label="How coverage is calculated"
               align="left"
             />
           </p>
           <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-gray-900">
-            <CoverageStat label="Active" value={coverage.active} />
-            <CoverageStat label="Targets" value={coverage.targets} />
-            <CoverageStat label="Prospects" value={coverage.prospects} />
-            <CoverageStat label="Unassigned" value={coverage.unassigned} />
+            <CoverageStat
+              label="Active"
+              value={coverage.active}
+              onClick={() => setBucketModal(coverageBuckets.active)}
+            />
+            <CoverageStat
+              label="Targets"
+              value={coverage.targets}
+              onClick={() => setBucketModal(coverageBuckets.targets)}
+            />
+            <CoverageStat
+              label="Prospects"
+              value={coverage.prospects}
+              onClick={() => setBucketModal(coverageBuckets.prospects)}
+            />
           </div>
         </div>
         <div className="rounded-md border border-slate-100 bg-white p-4">
@@ -103,32 +190,72 @@ export default function AccountPulseSection({ salesRep, accountPulse, coverage, 
             />
           </p>
           <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-gray-900">
-            <div>
-              <p className="text-2xl font-semibold text-gray-900">{portfolio.healthyPercent.toFixed(0)}%</p>
+            <button
+              type="button"
+              onClick={() => setBucketModal(coverageBuckets.healthy)}
+              className="text-left"
+            >
+              <p className="text-2xl font-semibold text-gray-900">{`${formatCount(portfolio.healthyPercent)}%`}</p>
               <p className="text-xs text-gray-500 flex items-center gap-1">
                 Healthy ({portfolio.healthyCount} / {portfolio.totalActive})
               </p>
-            </div>
-            <div>
+            </button>
+            <button
+              type="button"
+              onClick={() => setBucketModal(coverageBuckets.immediate)}
+              className="text-left"
+            >
               <p className="text-2xl font-semibold text-rose-600">
-                {portfolio.immediateAttentionPercent.toFixed(0)}%
+                {`${formatCount(portfolio.immediateAttentionPercent)}%`}
               </p>
               <p className="text-xs text-gray-500">
                 Immediate ({portfolio.immediateAttentionCount} / {portfolio.totalActive})
               </p>
-            </div>
+            </button>
           </div>
         </div>
       </div>
+
+      {bucketModal ? (
+        <CustomerBucketModal
+          open
+          title={bucketModal.title}
+          description={bucketModal.description}
+          customers={modalCustomers}
+          onClose={() => setBucketModal(null)}
+        />
+      ) : null}
     </section>
   );
 }
 
-function CoverageStat({ label, value }: { label: string; value: number }) {
-  return (
-    <div>
-      <p className="text-2xl font-semibold text-gray-900">{value.toLocaleString()}</p>
+function CoverageStat({
+  label,
+  value,
+  onClick,
+}: {
+  label: string;
+  value: number;
+  onClick?: () => void;
+}) {
+  const content = (
+    <>
+      <p className="text-2xl font-semibold text-gray-900">{formatNumber(value)}</p>
       <p className="text-xs text-gray-500">{label}</p>
-    </div>
+    </>
+  );
+
+  if (!onClick) {
+    return <div>{content}</div>;
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="text-left transition hover:text-gray-900"
+    >
+      {content}
+    </button>
   );
 }

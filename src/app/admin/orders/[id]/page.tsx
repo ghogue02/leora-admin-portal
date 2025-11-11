@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import type { Order } from "@/types/orders";
+import { formatCurrency } from "@/lib/format";
 
 type OrderDetail = Order & {
   lines: LineItem[];
@@ -325,12 +326,8 @@ export default function OrderDetailPage() {
     }
   };
 
-  const formatCurrency = (amount: number, currency: string = "USD") => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency,
-    }).format(amount);
-  };
+  const formatMoney = (amount: number, currency: string = "USD") =>
+    formatCurrency(amount, currency, { decimals: 2 });
 
   const formatDate = (date: string | null) => {
     if (!date) return "—";
@@ -674,7 +671,7 @@ export default function OrderDetailPage() {
                           )}
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
-                          {formatCurrency(line.unitPrice, order.currency)}
+                        {formatMoney(line.unitPrice, order.currency)}
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
                           {line.isSample ? (
@@ -684,7 +681,7 @@ export default function OrderDetailPage() {
                           )}
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap font-medium">
-                          {formatCurrency(line.total, order.currency)}
+                          {formatMoney(line.total, order.currency)}
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap text-sm">
                           <button
@@ -706,7 +703,7 @@ export default function OrderDetailPage() {
                         Order Total:
                       </td>
                       <td className="px-4 py-2 font-bold text-lg text-gray-900">
-                        {formatCurrency(order.total, order.currency)}
+                        {formatMoney(order.total, order.currency)}
                       </td>
                       <td></td>
                     </tr>
@@ -841,19 +838,19 @@ export default function OrderDetailPage() {
                   <div>
                     <p className="text-sm text-gray-600">Total</p>
                     <p className="font-medium text-lg">
-                      {formatCurrency(order.invoice.total, order.currency)}
+                      {formatMoney(order.invoice.total, order.currency)}
                     </p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Paid</p>
                     <p className="font-medium text-green-600">
-                      {formatCurrency(order.invoice.paidAmount, order.currency)}
+                      {formatMoney(order.invoice.paidAmount, order.currency)}
                     </p>
                   </div>
                   <div>
                     <p className="text-sm text-gray-600">Outstanding</p>
                     <p className="font-medium text-red-600">
-                      {formatCurrency(order.invoice.outstandingAmount, order.currency)}
+                      {formatMoney(order.invoice.outstandingAmount, order.currency)}
                     </p>
                   </div>
                   <div>
@@ -867,7 +864,7 @@ export default function OrderDetailPage() {
                         {order.invoice.payments.map((payment) => (
                           <div key={payment.id} className="text-sm bg-gray-50 p-2 rounded">
                             <p>
-                              {formatCurrency(payment.amount, order.currency)} via{" "}
+                              {formatMoney(payment.amount, order.currency)} via{" "}
                               {payment.method}
                             </p>
                             <p className="text-xs text-gray-600">

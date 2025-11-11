@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { formatCurrency } from "@/lib/format";
 
 type LineItem = {
   skuId: string;
@@ -162,12 +163,8 @@ export default function NewOrderPage() {
     }
   };
 
-  const formatCurrency = (amount: number, currency: string = "USD") => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency,
-    }).format(amount);
-  };
+  const formatMoney = (amount: number, currency: string = "USD") =>
+    formatCurrency(amount, currency, { decimals: 2 });
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -385,7 +382,7 @@ export default function NewOrderPage() {
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">{item.quantity}</td>
                         <td className="px-4 py-2 whitespace-nowrap">
-                          {formatCurrency(item.unitPrice, formData.currency)}
+                          {formatMoney(item.unitPrice, formData.currency)}
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
                           {item.isSample ? (
@@ -395,7 +392,7 @@ export default function NewOrderPage() {
                           )}
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap font-medium">
-                          {formatCurrency(item.quantity * item.unitPrice, formData.currency)}
+                          {formatMoney(item.quantity * item.unitPrice, formData.currency)}
                         </td>
                         <td className="px-4 py-2 whitespace-nowrap">
                           <button
@@ -418,7 +415,7 @@ export default function NewOrderPage() {
                         Order Total:
                       </td>
                       <td className="px-4 py-3 font-bold text-lg text-gray-900">
-                        {formatCurrency(calculateTotal(), formData.currency)}
+                        {formatMoney(calculateTotal(), formData.currency)}
                       </td>
                       <td></td>
                     </tr>

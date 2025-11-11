@@ -1,5 +1,6 @@
 import type { TargetPipelineMetrics } from "@/types/sales-dashboard";
 import { InfoHover } from "@/components/InfoHover";
+import { formatNumber } from "@/lib/format";
 
 type Props = {
   metrics: TargetPipelineMetrics;
@@ -28,18 +29,18 @@ export default function TargetPipelinePanel({ metrics }: Props) {
       <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <PipelineTile
           label="Targets Assigned"
-          primary={`${metrics.assignedCount}`}
+          primary={formatNumber(metrics.assignedCount)}
           secondary="Currently owned"
         />
         <PipelineTile
           label="Targets Turned Active (30d)"
-          primary={`${metrics.turnedActiveCount}`}
-          secondary={`${metrics.turnedActivePercent.toFixed(1)}% of targets`}
+          primary={formatNumber(metrics.turnedActiveCount)}
+          secondary={`${formatNumber(metrics.turnedActivePercent, 1)}% of targets`}
         />
         <PipelineTile
           label="Targets Visited (30d)"
-          primary={`${metrics.visitedCount}`}
-          secondary={`${metrics.visitedPercent.toFixed(1)}% with in-person touch`}
+          primary={formatNumber(metrics.visitedCount)}
+          secondary={`${formatNumber(metrics.visitedPercent, 1)}% with in-person touch`}
         />
         <PipelineTile
           label="TTFO Median"

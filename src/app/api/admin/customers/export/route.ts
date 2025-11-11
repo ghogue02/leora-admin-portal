@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
             }
           },
           orders: {
-            select: { id: true, total: true },
+            select: { id: true, total: true, deliveredAt: true, orderedAt: true, createdAt: true },
             where: { status: { not: 'CANCELLED' } }
           },
         },
@@ -74,6 +74,7 @@ export async function POST(request: NextRequest) {
         'Territory',
         'Sales Rep',
         'Sales Rep Email',
+        'Customer Since',
         'Last Order Date',
         'Total Orders',
         'Total Revenue',
@@ -86,6 +87,18 @@ export async function POST(request: NextRequest) {
           (sum, order) => sum + (Number(order.total) || 0),
           0
         );
+
+        let firstOrderDate: Date | null = null;
+        customer.orders.forEach((order) => {
+          const candidate =
+            order.deliveredAt ??
+            order.orderedAt ??
+            order.createdAt ??
+            null;
+          if (candidate && (!firstOrderDate || candidate < firstOrderDate)) {
+            firstOrderDate = candidate;
+          }
+        });
 
         return [
           customer.id,
@@ -100,6 +113,7 @@ export async function POST(request: NextRequest) {
           customer.salesRep?.territoryName || '',
           customer.salesRep?.user.fullName || '',
           customer.salesRep?.user.email || '',
+          firstOrderDate ? formatUTCDate(firstOrderDate) : '',
           customer.lastOrderDate ? formatUTCDate(customer.lastOrderDate) : '',
           customer.orders.length.toString(),
           totalRevenue.toFixed(2),

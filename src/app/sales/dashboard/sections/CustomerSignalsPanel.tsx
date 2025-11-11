@@ -10,6 +10,7 @@ import type {
   CustomerSignalClassification,
   CustomerReportRow,
 } from "@/types/sales-dashboard";
+import { formatCurrency, formatNumber } from "@/lib/format";
 
 const LABELS: Record<CustomerSignalClassification, { title: string; description: string }> = {
   GROWING: {
@@ -43,14 +44,8 @@ export default function CustomerSignalsPanel({ signals, reportRows }: Props) {
     if (!activeClassification) return [];
     return reportRows.filter((row) => row.classification === activeClassification);
   }, [activeClassification, reportRows]);
+  const selectedCount = selectedCustomers.length;
   const activeLabel = activeClassification ? LABELS[activeClassification]?.title ?? activeClassification : "";
-
-  const formatCurrency = (value: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(value);
 
   const formatDate = (value: string | null) => {
     if (!value) return "—";
@@ -111,14 +106,14 @@ export default function CustomerSignalsPanel({ signals, reportRows }: Props) {
             >
               <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">{label.title}</p>
               <div className="mt-3 flex items-baseline gap-2">
-                <p className="text-3xl font-semibold text-gray-900">{bucket.count}</p>
+                <p className="text-3xl font-semibold text-gray-900">{formatNumber(bucket.count)}</p>
                 <span className="text-xs text-gray-500">
-                  {bucket.percentOfActive.toFixed(0)}% active / {bucket.percentOfAssigned.toFixed(0)}% assigned
+                  {`${formatNumber(bucket.percentOfActive)}%`} active / {`${formatNumber(bucket.percentOfAssigned)}%`} assigned
                 </span>
               </div>
               <p className="text-xs text-gray-500">{label.description}</p>
               <p className="mt-2 text-xs text-gray-400">
-                Revenue share: {(bucket.revenueShare * 100).toFixed(1)}%
+                Revenue share: {`${formatNumber(bucket.revenueShare * 100, 1)}%`}
               </p>
               {bucket.topCustomers.length > 0 && (
                 <div className="mt-3 text-xs text-gray-600">
@@ -160,7 +155,7 @@ export default function CustomerSignalsPanel({ signals, reportRows }: Props) {
                   Customer Signals • {activeLabel}
                 </p>
                 <h3 className="mt-1 text-2xl font-semibold text-gray-900">
-                  {selectedCustomers.length} account{selectedCustomers.length === 1 ? "" : "s"}
+                  {formatNumber(selectedCount)} account{selectedCount === 1 ? "" : "s"}
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   {LABELS[activeClassification].description}
@@ -176,7 +171,7 @@ export default function CustomerSignalsPanel({ signals, reportRows }: Props) {
               </button>
             </div>
 
-            {selectedCustomers.length === 0 ? (
+            {selectedCount === 0 ? (
               <div className="p-6 text-sm text-gray-500">
                 No customers found for this signal classification.
               </div>

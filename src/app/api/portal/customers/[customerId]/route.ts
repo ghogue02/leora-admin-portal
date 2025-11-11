@@ -113,6 +113,30 @@ export async function GET(request: NextRequest) {
             ? await buildTenantWideStats(db, tenantId, customer.id)
             : buildScopedStats();
 
+        const firstOrderRecord = await db.order.findFirst({
+          where: {
+            tenantId,
+            customerId: customer.id,
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          select: {
+            createdAt: true,
+            orderedAt: true,
+            deliveredAt: true,
+          },
+          orderBy: {
+            createdAt: "asc",
+          },
+        });
+
+        const firstOrderDate =
+          firstOrderRecord?.deliveredAt ??
+          firstOrderRecord?.orderedAt ??
+          firstOrderRecord?.createdAt ??
+          null;
+
         const [recentOrders, recentInvoices, recentActivities] = tenantWide
           ? await Promise.all([
               db.order.findMany({
@@ -189,6 +213,7 @@ export async function GET(request: NextRequest) {
             contactName: customer.contactName,
             createdAt: customer.createdAt.toISOString(),
             updatedAt: customer.updatedAt.toISOString(),
+            firstOrderDate: firstOrderDate ? firstOrderDate.toISOString() : null,
             lastOrderDate: customer.lastOrderDate?.toISOString() ?? null,
             nextExpectedOrderDate: customer.nextExpectedOrderDate?.toISOString() ?? null,
             riskStatus: customer.riskStatus,

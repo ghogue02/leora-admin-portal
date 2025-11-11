@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { TrendingUp, Package, DollarSign, Users } from 'lucide-react';
+import { formatCurrency, formatNumber } from "@/lib/format";
 
 type TopProduct = {
   skuId: string;
@@ -126,8 +127,8 @@ export default function TopProducts() {
                     <DollarSign className="h-3 w-3" />
                     <p className="text-xs">Revenue</p>
                   </div>
-                  <p className="font-semibold text-gray-900">{formatCurrency(product.totalRevenue)}</p>
-                  <p className="text-xs text-gray-500">{product.percentOfTotal.toFixed(1)}%</p>
+                  <p className="font-semibold text-gray-900">{formatCurrency(product.totalRevenue, "USD", { decimals: 0 })}</p>
+                  <p className="text-xs text-gray-500">{`${formatNumber(product.percentOfTotal, 1)}%`}</p>
                 </div>
 
                 <div>
@@ -135,7 +136,7 @@ export default function TopProducts() {
                     <Package className="h-3 w-3" />
                     <p className="text-xs">Cases</p>
                   </div>
-                  <p className="font-semibold text-gray-900">{product.totalCases}</p>
+                  <p className="font-semibold text-gray-900">{formatNumber(product.totalCases)}</p>
                 </div>
 
                 <div>
@@ -143,7 +144,7 @@ export default function TopProducts() {
                     <Users className="h-3 w-3" />
                     <p className="text-xs">Customers</p>
                   </div>
-                  <p className="font-semibold text-gray-900">{product.uniqueCustomers}</p>
+                  <p className="font-semibold text-gray-900">{formatNumber(product.uniqueCustomers)}</p>
                 </div>
               </div>
             </div>
@@ -195,21 +196,21 @@ export default function TopProducts() {
               <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-blue-700">Revenue</p>
                 <p className="mt-2 text-2xl font-bold text-blue-900">
-                  {formatCurrency(selectedProduct.totalRevenue)}
+                  {formatCurrency(selectedProduct.totalRevenue, "USD", { decimals: 0 })}
                 </p>
                 <p className="mt-1 text-xs text-blue-600">
-                  {selectedProduct.percentOfTotal.toFixed(1)}% of weekly total
+                  {`${formatNumber(selectedProduct.percentOfTotal, 1)}%`} of weekly total
                 </p>
               </div>
 
               <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-gray-700">Cases Sold</p>
-                <p className="mt-2 text-2xl font-bold text-gray-900">{selectedProduct.totalCases}</p>
+                <p className="mt-2 text-2xl font-bold text-gray-900">{formatNumber(selectedProduct.totalCases)}</p>
               </div>
 
               <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
                 <p className="text-xs font-semibold uppercase tracking-wide text-gray-700">Customers</p>
-                <p className="mt-2 text-2xl font-bold text-gray-900">{selectedProduct.uniqueCustomers}</p>
+                <p className="mt-2 text-2xl font-bold text-gray-900">{formatNumber(selectedProduct.uniqueCustomers)}</p>
               </div>
             </div>
 

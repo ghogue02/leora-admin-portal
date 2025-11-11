@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";
+import { format, formatDistanceToNow } from "date-fns";
 import { FlagDuplicateButton } from "./FlagDuplicateButton";
 import { PortalContactList } from "./ContactList";
 
@@ -47,6 +48,7 @@ type CustomerDetail = {
   nextExpectedOrderDate: string | null;
   riskStatus: string;
   dormancySince: string | null;
+  firstOrderDate: string | null;
   healthSummary: {
     riskStatus: string;
     cadenceBaselineDays: number;
@@ -209,8 +211,18 @@ export default async function CustomerDetailPage({ params }: CustomerPageProps) 
   const customer = await fetchCustomer(customerId);
   const healthSummary = customer.healthSummary;
   const riskBadgeClass = riskStatusStyles[customer.riskStatus] ?? "bg-slate-100 text-slate-700 border-slate-200";
+  const firstOrderDate = customer.firstOrderDate ? new Date(customer.firstOrderDate) : null;
+  const customerSinceValue = firstOrderDate ? format(firstOrderDate, "MMMM d, yyyy") : "No orders yet";
+  const customerSinceHint = firstOrderDate
+    ? `First recorded order ${formatDistanceToNow(firstOrderDate, { addSuffix: true })}`
+    : "First order has not been recorded yet.";
 
   const statCards = [
+    {
+      label: "Customer since",
+      value: customerSinceValue,
+      hint: customerSinceHint,
+    },
     {
       label: "Total orders",
       value: integerFormatter.format(customer.stats.totalOrders),

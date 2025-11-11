@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { DashboardTile } from "@/components/dashboard/DashboardTile";
 import type { DashboardDrilldownType } from "@/types/drilldown";
+import { formatNumber } from "@/lib/format";
 
 type CustomerHealthSummaryProps = {
   customerHealth: {
@@ -82,7 +83,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
         <div>
           <h3 className="text-lg font-semibold text-gray-900">Customer Portfolio Health</h3>
           <p className="text-xs text-gray-500">
-            Segmented view of {activeCustomersTotal + customerHealth.totalProspects + customerHealth.dormant + customerHealth.closed} total accounts
+            Segmented view of {formatNumber(activeCustomersTotal + customerHealth.totalProspects + customerHealth.dormant + customerHealth.closed)} total accounts
           </p>
         </div>
         <Link
@@ -100,7 +101,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
             ACTIVE CUSTOMERS <span className="ml-2 text-gray-500">({activeCustomersTotal})</span>
           </h4>
           <p className="text-xs text-gray-500">
-            {healthyPercentage.toFixed(0)}% healthy
+            {`${formatNumber(healthyPercentage)}%`} healthy
           </p>
         </div>
         <div className="grid gap-3 sm:grid-cols-3">
@@ -113,7 +114,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
           >
             <div className={cardBaseClasses}>
               <p className="text-xs font-semibold uppercase tracking-wide text-gray-600">{card.label}</p>
-              <p className="mt-2 text-3xl font-bold text-gray-900">{card.count}</p>
+              <p className="mt-2 text-3xl font-bold text-gray-900">{formatNumber(card.count)}</p>
               <p className="mt-1 text-xs text-gray-500">{card.description}</p>
             </div>
           </DashboardTile>
@@ -125,7 +126,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
       <div className="mt-6">
         <div className="mb-3">
           <h4 className="text-sm font-semibold text-gray-700">
-            PROSPECT PIPELINE <span className="ml-2 text-gray-500">({customerHealth.totalProspects})</span>
+            PROSPECT PIPELINE <span className="ml-2 text-gray-500">({formatNumber(customerHealth.totalProspects)})</span>
           </h4>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -138,7 +139,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
           >
             <div className={cardBaseClasses}>
               <p className="text-xs font-semibold uppercase tracking-wide text-gray-600">{card.label}</p>
-              <p className="mt-2 text-3xl font-bold text-gray-900">{card.count}</p>
+              <p className="mt-2 text-3xl font-bold text-gray-900">{formatNumber(card.count)}</p>
               <p className="mt-1 text-xs text-gray-500">{card.description}</p>
             </div>
           </DashboardTile>
@@ -150,7 +151,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
       <div className="mt-6">
         <div className="mb-3">
           <h4 className="text-sm font-semibold text-gray-700">
-            LOST/CHURNED <span className="ml-2 text-gray-500">({customerHealth.dormant + customerHealth.closed})</span>
+            LOST/CHURNED <span className="ml-2 text-gray-500">({formatNumber(customerHealth.dormant + customerHealth.closed)})</span>
           </h4>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -163,7 +164,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
           >
             <div className={cardBaseClasses}>
               <p className="text-xs font-semibold uppercase tracking-wide text-gray-600">{card.label}</p>
-              <p className="mt-2 text-3xl font-bold text-gray-900">{card.count}</p>
+              <p className="mt-2 text-3xl font-bold text-gray-900">{formatNumber(card.count)}</p>
               <p className="mt-1 text-xs text-gray-500">{card.description}</p>
             </div>
           </DashboardTile>
@@ -177,12 +178,12 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
           <div>
             <p className="font-semibold text-gray-900">Portfolio Health Score</p>
             <p className="text-xs text-gray-500">
-              {customerHealth.healthy} healthy out of {activeCustomersTotal} active customers
+              {formatNumber(customerHealth.healthy)} healthy out of {formatNumber(activeCustomersTotal)} active customers
             </p>
           </div>
           <div className="text-right">
             <p className="text-2xl font-bold text-gray-900">
-              {healthyPercentage.toFixed(0)}%
+              {`${formatNumber(healthyPercentage)}%`}
             </p>
             <p className="text-xs text-gray-500">Healthy rate</p>
           </div>
@@ -191,7 +192,7 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
         {atRiskTotal > 0 && (
           <div className="mt-4 rounded-md border border-slate-200 bg-white p-3 text-sm text-gray-700">
             <p className="font-semibold">
-              {atRiskTotal} customer{atRiskTotal === 1 ? "" : "s"} need{atRiskTotal === 1 ? "s" : ""} immediate attention
+              {formatNumber(atRiskTotal)} customer{atRiskTotal === 1 ? "" : "s"} need{atRiskTotal === 1 ? "s" : ""} immediate attention
             </p>
             <p className="mt-1 text-xs">
               Review at-risk accounts to prevent churn. Consider scheduling visits or tastings to address declining revenue or ordering frequency.
@@ -202,10 +203,10 @@ export default function CustomerHealthSummary({ customerHealth, onDrilldown }: C
         {customerHealth.totalProspects > 0 && (
           <div className="mt-4 rounded-md border border-slate-200 bg-white p-3 text-sm text-gray-700">
             <p className="font-semibold">
-              {customerHealth.totalProspects} prospects in pipeline
+              {formatNumber(customerHealth.totalProspects)} prospects in pipeline
             </p>
             <p className="mt-1 text-xs">
-              {customerHealth.prospect} recent prospects (&lt; 90 days) and {customerHealth.prospectCold} cold leads need conversion outreach.
+              {formatNumber(customerHealth.prospect)} recent prospects (&lt; 90 days) and {formatNumber(customerHealth.prospectCold)} cold leads need conversion outreach.
             </p>
           </div>
         )}

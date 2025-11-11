@@ -9,6 +9,7 @@ import {
   Trash2,
   Search,
 } from 'lucide-react';
+import { formatCurrency, formatNumber } from "@/lib/format";
 import {
   endOfMonth,
   endOfQuarter,
@@ -122,13 +123,6 @@ function formatPeriod(goal: ProductGoal) {
 
 function formatMetric(goal: ProductGoal) {
   if (goal.metricType === 'revenue') {
-    const formatCurrency = (value: number) =>
-      new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        maximumFractionDigits: 0,
-      }).format(value);
-
     return {
       current: formatCurrency(goal.currentRevenue ?? 0),
       target: formatCurrency(goal.targetRevenue ?? 0),
@@ -137,14 +131,14 @@ function formatMetric(goal: ProductGoal) {
 
   if (goal.metricType === 'cases') {
     return {
-      current: `${goal.currentCases ?? 0} cases`,
-      target: `${goal.targetCases ?? 0} cases`,
+      current: `${formatNumber(goal.currentCases ?? 0)} cases`,
+      target: `${formatNumber(goal.targetCases ?? 0)} cases`,
     };
   }
 
   return {
-    current: `${goal.currentPod ?? 0} POD`,
-    target: `${goal.targetPod ?? 0} POD`,
+    current: `${formatNumber(goal.currentPod ?? 0)} POD`,
+    target: `${formatNumber(goal.targetPod ?? 0)} POD`,
   };
 }
 
@@ -299,7 +293,7 @@ export default function ProductGoalsEnhanced() {
               <div className="mt-3 flex items-center justify-between text-sm">
                 <span className="font-medium text-gray-700">Progress</span>
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-gray-900">{goal.progressPercent.toFixed(0)}%</span>
+                  <span className="font-bold text-gray-900">{`${formatNumber(goal.progressPercent)}%`}</span>
                   {goal.progressPercent >= 100 && (
                     <TrendingUp className="h-4 w-4 text-green-600" />
                   )}

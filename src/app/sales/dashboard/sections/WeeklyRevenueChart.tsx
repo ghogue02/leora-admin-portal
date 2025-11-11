@@ -1,5 +1,7 @@
 'use client';
 
+import { formatCurrency, formatNumber } from "@/lib/format";
+
 type WeeklyRevenueChartProps = {
   currentMonthRevenue: number;
   lastMonthRevenue: number;
@@ -9,18 +11,12 @@ export default function WeeklyRevenueChart({
   currentMonthRevenue,
   lastMonthRevenue,
 }: WeeklyRevenueChartProps) {
-  const formatCurrency = (value: number) =>
-    new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(value);
 
   const revenueChangeRaw =
     lastMonthRevenue > 0
       ? ((currentMonthRevenue - lastMonthRevenue) / lastMonthRevenue) * 100
       : 0;
-  const revenueChangePercent = revenueChangeRaw.toFixed(1);
+  const revenueChangePercent = formatNumber(revenueChangeRaw, 1);
 
   const maxValue = Math.max(currentMonthRevenue, lastMonthRevenue);
   const currentBarHeight = maxValue > 0 ? (currentMonthRevenue / maxValue) * 100 : 0;

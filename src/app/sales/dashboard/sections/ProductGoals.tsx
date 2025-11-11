@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { formatCurrency, formatNumber } from "@/lib/format";
 
 type ProductGoal = {
   id: string;
@@ -56,13 +57,6 @@ export default function ProductGoals() {
 
     void loadProductGoals();
   }, []);
-
-  const formatCurrency = (value: number) =>
-    new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      maximumFractionDigits: 0,
-    }).format(value);
 
   if (loading) {
     return (
@@ -161,15 +155,15 @@ export default function ProductGoals() {
         <div className="flex gap-2 text-xs">
           <div className="flex items-center gap-1">
             <span className="text-gray-500">On Track:</span>
-            <span className="font-semibold text-green-700">{summary.onTrack}</span>
+              <span className="font-semibold text-green-700">{formatNumber(summary.onTrack)}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="text-gray-500">At Risk:</span>
-            <span className="font-semibold text-amber-700">{summary.atRisk}</span>
+              <span className="font-semibold text-amber-700">{formatNumber(summary.atRisk)}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="text-gray-500">Behind:</span>
-            <span className="font-semibold text-rose-700">{summary.behind}</span>
+              <span className="font-semibold text-rose-700">{formatNumber(summary.behind)}</span>
           </div>
         </div>
       </div>
@@ -231,7 +225,7 @@ export default function ProductGoals() {
                     {getStatusLabel(goal.status)}
                   </span>
                   <span className="text-lg font-bold text-gray-900">
-                    {goal.progressPct.toFixed(0)}%
+                    {`${formatNumber(goal.progressPct)}%`}
                   </span>
                 </div>
               </div>
@@ -245,13 +239,13 @@ export default function ProductGoals() {
                 <div
                   className="absolute top-0 h-full w-0.5 bg-gray-900 opacity-30"
                   style={{ left: `${Math.min(goal.expectedPct, 100)}%` }}
-                  title={`Expected: ${goal.expectedPct.toFixed(0)}%`}
+                  title={`Expected: ${formatNumber(goal.expectedPct)}%`}
                 />
               </div>
 
               <div className="mt-1 flex items-center justify-between text-xs text-gray-600">
                 <span>YTD Progress</span>
-                <span>Expected: {goal.expectedPct.toFixed(0)}%</span>
+                <span>Expected: {`${formatNumber(goal.expectedPct)}%`}</span>
               </div>
             </div>
           );

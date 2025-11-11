@@ -4,6 +4,7 @@ import { format, parseISO } from "date-fns";
 import Link from "next/link";
 import LogActivityButton from "@/components/shared/LogActivityButton";
 import type { SampleActivityRecord, SampleInsightsSummary } from "@/types/activities";
+import { formatNumber } from "@/lib/format";
 
 type SampleActivitySummaryProps = {
   insights: SampleInsightsSummary;
@@ -20,7 +21,10 @@ const formatDate = (value: string | null | undefined) => {
 
 export default function SampleActivitySummary({ insights }: SampleActivitySummaryProps) {
   const { metrics, recentActivities, followUps } = insights;
-  const periodConversionPercent = (metrics.periodCustomerConversionRate * 100).toFixed(1);
+  const periodConversionPercent = formatNumber(
+    metrics.periodCustomerConversionRate * 100,
+    1,
+  );
 
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -59,7 +63,7 @@ export default function SampleActivitySummary({ insights }: SampleActivitySummar
           <MetricCard
             label={`${metrics.periodLabel} Conversion`}
             valueLabel={`${periodConversionPercent}%`}
-            sublabel={`${metrics.periodSampleQuantity.toLocaleString()} samples across ${metrics.periodUniqueCustomers.toLocaleString()} customers`}
+            sublabel={`${formatNumber(metrics.periodSampleQuantity)} samples across ${formatNumber(metrics.periodUniqueCustomers)} customers`}
           />
         </div>
       </div>
@@ -107,7 +111,7 @@ function MetricCard({
           highlight ? "text-amber-700" : "text-gray-900"
         }`}
       >
-        {valueLabel ?? value}
+        {valueLabel ?? (typeof value === "number" ? formatNumber(value) : "--")}
       </p>
       {sublabel && <p className="mt-1 text-xs text-gray-500">{sublabel}</p>}
     </div>

@@ -1,5 +1,6 @@
 import type { PortfolioHealth } from "@/types/sales-dashboard";
 import { InfoHover } from "@/components/InfoHover";
+import { formatNumber } from "@/lib/format";
 
 type Props = {
   portfolio: PortfolioHealth;
@@ -26,21 +27,30 @@ export default function PortfolioHealthScore({ portfolio }: Props) {
           </p>
         </div>
         <div className="flex gap-4 text-center">
-          <ScoreBadge label="Revenue-weighted" value={portfolio.weightedScore} />
-          <ScoreBadge label="Unweighted" value={portfolio.unweightedScore} subtle />
+          <ScoreBadge
+            label="Revenue-weighted"
+            value={portfolio.weightedScore}
+            hint="Weights each account's health by its trailing-12 revenue so big customers influence the score more."
+          />
+          <ScoreBadge
+            label="Unweighted"
+            value={portfolio.unweightedScore}
+            hint="Simple average of each account's health classification, treating every customer equally."
+            subtle
+          />
         </div>
       </div>
 
       <div className="mt-4 grid gap-4 md:grid-cols-3">
         <BreakdownCard
           title="Healthy"
-          primary={`${portfolio.healthyCount} / ${portfolio.totalActive}`}
-          secondary={`${portfolio.healthyPercent.toFixed(0)}% of active customers`}
+          primary={`${formatNumber(portfolio.healthyCount)} / ${formatNumber(portfolio.totalActive)}`}
+          secondary={`${formatNumber(portfolio.healthyPercent)}% of active customers`}
         />
         <BreakdownCard
           title="Needs Attention"
-          primary={`${portfolio.immediateAttentionCount} / ${portfolio.totalActive}`}
-          secondary={`${portfolio.immediateAttentionPercent.toFixed(0)}% (Down + Dormant)`}
+          primary={`${formatNumber(portfolio.immediateAttentionCount)} / ${formatNumber(portfolio.totalActive)}`}
+          secondary={`${formatNumber(portfolio.immediateAttentionPercent)}% (Down + Dormant)`}
         />
         <div className="rounded-md border border-slate-100 bg-slate-50 p-4">
           <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Signals</p>
@@ -53,12 +63,25 @@ export default function PortfolioHealthScore({ portfolio }: Props) {
   );
 }
 
-function ScoreBadge({ label, value, subtle }: { label: string; value: number | null; subtle?: boolean }) {
+function ScoreBadge({
+  label,
+  value,
+  subtle,
+  hint,
+}: {
+  label: string;
+  value: number | null;
+  subtle?: boolean;
+  hint?: string;
+}) {
   return (
     <div className={`rounded-md border px-4 py-3 ${subtle ? "border-slate-100 bg-slate-50" : "border-slate-200 bg-white"}`}>
-      <p className="text-xs uppercase tracking-wide text-gray-500">{label}</p>
+      <p className="flex items-center gap-2 text-xs uppercase tracking-wide text-gray-500">
+        <span>{label}</span>
+        {hint ? <InfoHover text={hint} label={`${label} definition`} align="left" /> : null}
+      </p>
       <p className="text-2xl font-semibold text-gray-900">
-        {value !== null ? value.toFixed(0) : "--"}
+        {value !== null ? formatNumber(value) : "--"}
       </p>
     </div>
   );
