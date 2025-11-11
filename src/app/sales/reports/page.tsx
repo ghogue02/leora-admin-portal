@@ -8,6 +8,7 @@ import { SegmentPerformancePanel } from './modules/SegmentPerformancePanel';
 import { EventMixPanel } from './modules/EventMixPanel';
 import { CustomerHealthPanel } from './modules/CustomerHealthPanel';
 import { ScheduledReportsPanel } from './modules/ScheduledReportsPanel';
+import { SalesRepPerformancePanel } from './modules/SalesRepPerformancePanel';
 
 export default function SalesReportsWorkspacePage() {
   return (
@@ -26,12 +27,17 @@ export default function SalesReportsWorkspacePage() {
 
         <Tabs defaultValue="delivery" className="space-y-6">
           <TabsList className="flex flex-wrap gap-2">
+            <TabsTrigger value="performance">Sales reps</TabsTrigger>
             <TabsTrigger value="delivery">Delivery mix</TabsTrigger>
             <TabsTrigger value="segments">Segments</TabsTrigger>
             <TabsTrigger value="events">Events</TabsTrigger>
             <TabsTrigger value="health">Customer health</TabsTrigger>
             <TabsTrigger value="scheduled">Automations</TabsTrigger>
           </TabsList>
+
+          <TabsContent value="performance">
+            <SalesRepPerformancePanel />
+          </TabsContent>
 
           <TabsContent value="delivery" className="space-y-4">
             <DeliveryInsightsPanel />

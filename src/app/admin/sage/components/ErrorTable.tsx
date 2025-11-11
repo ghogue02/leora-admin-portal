@@ -28,7 +28,7 @@ export interface ErrorTableProps {
   onFixError?: (error: ValidationError) => void;
 }
 
-const ERROR_TYPE_LABELS: Record<ValidationError['type'], string> = {
+const ERROR_TYPE_LABELS: Record<string, string> = {
   MISSING_CUSTOMER_CODE: 'Missing Customer Code',
   MISSING_SKU_CODE: 'Missing SKU Code',
   INVALID_AMOUNT: 'Invalid Amount',
@@ -36,7 +36,7 @@ const ERROR_TYPE_LABELS: Record<ValidationError['type'], string> = {
 };
 
 const ERROR_TYPE_VARIANTS: Record<
-  ValidationError['type'],
+  string,
   'default' | 'secondary' | 'destructive' | 'outline'
 > = {
   MISSING_CUSTOMER_CODE: 'destructive',
@@ -112,10 +112,10 @@ export function ErrorTable({ errors, onFixError }: ErrorTableProps) {
   };
 
   const getFixUrl = (error: ValidationError): string | null => {
-    if (error.type === 'MISSING_CUSTOMER_CODE' && error.customerName) {
+    if (error.customerName) {
       return `/admin/customers?search=${encodeURIComponent(error.customerName)}`;
     }
-    if (error.type === 'MISSING_SKU_CODE' && error.skuCode) {
+    if (error.skuCode) {
       return `/admin/inventory?search=${encodeURIComponent(error.skuCode)}`;
     }
     if (error.invoiceNumber) {
@@ -230,8 +230,8 @@ export function ErrorTable({ errors, onFixError }: ErrorTableProps) {
                 return (
                   <TableRow key={index}>
                     <TableCell>
-                      <Badge variant={ERROR_TYPE_VARIANTS[error.type]}>
-                        {ERROR_TYPE_LABELS[error.type]}
+                      <Badge variant={ERROR_TYPE_VARIANTS[error.type] ?? 'secondary'}>
+                        {ERROR_TYPE_LABELS[error.type] ?? error.type}
                       </Badge>
                     </TableCell>
                     <TableCell className="max-w-xs truncate" title={error.message}>

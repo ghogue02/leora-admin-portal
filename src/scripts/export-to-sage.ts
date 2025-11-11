@@ -25,6 +25,14 @@ import { PrismaClient } from '@prisma/client';
 import { parse } from 'date-fns';
 import { formatDateForSAGE, parseUTCDate, formatUTCDate } from '@/lib/dates';
 import { normalizePaymentTerms, VALID_PAYMENT_TERMS } from '@/lib/sage/payment-terms';
+import {
+  SageOrderCategory,
+  classifyOrderForExport,
+} from '@/lib/sage/classification';
+import {
+  generateInventoryAdjustmentCSV,
+} from '@/lib/sage/inventory-adjustment';
+import type { InventoryAdjustmentOrder } from '@/lib/sage/inventory-adjustment';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 
@@ -42,8 +50,13 @@ interface SageExportResult {
   exportId: string;
   recordCount: number;
   invoiceCount: number;
+  sampleRecordCount: number;
+  sampleInvoiceCount: number;
+  storageInvoiceCount: number;
   csvContent: string;
+  sampleCsvContent: string | null;
   fileName: string;
+  sampleFileName: string | null;
   errors?: ValidationError[];
 }
 
@@ -541,7 +554,7 @@ async function exportToSage(
     console.log('  Start date:', startDate.toISOString());
     console.log('  End date:', endDate.toISOString());
 
-    const orders = await prisma.order.findMany({
+    let orders = await prisma.order.findMany({
       where: {
         tenantId,
         invoices: {
@@ -604,6 +617,43 @@ async function exportToSage(
     }) as OrderWithRelations[];
 
     console.log(`Found ${orders.length} orders with invoices`);
+
+    const classifiedOrders = orders.map((order) => ({
+      order,
+      category: classifyOrderForExport({
+        customer: { name: order.customer?.name ?? '' },
+        lines: order.lines,
+      }),
+    }));
+
+    const storageOrders = classifiedOrders
+      .filter(({ category }) => category === SageOrderCategory.STORAGE)
+      .map(({ order }) => order);
+
+    const sampleOrders = classifiedOrders
+      .filter(({ category }) => category === SageOrderCategory.SAMPLE)
+      .map(({ order }) => order);
+
+    const standardOrders = classifiedOrders
+      .filter(({ category }) => category === SageOrderCategory.STANDARD)
+      .map(({ order }) => order);
+
+    const sampleOrderExports = sampleOrders;
+
+    orders = [...standardOrders];
+
+    const storageInvoiceSet = new Set<string>();
+    for (const order of storageOrders) {
+      const invoiceNumber = order.invoices[0]?.invoiceNumber;
+      if (invoiceNumber) {
+        storageInvoiceSet.add(invoiceNumber);
+      }
+    }
+    const storageInvoiceCount = storageInvoiceSet.size;
+
+    console.log(
+      `Classified orders → Standard: ${standardOrders.length}, Sample: ${sampleOrders.length}, Storage skipped: ${storageOrders.length}`
+    );
 
     // ========================================================================
     // STEP 3: Validate all orders
@@ -719,6 +769,26 @@ async function exportToSage(
     const dateStr = formatUTCDate(startDate);
     const fileName = `SAGE_Export_${dateStr}.csv`;
 
+    let sampleCsvContent: string | null = null;
+    let sampleRecordCount = 0;
+    let sampleInvoiceCount = 0;
+    let sampleFileName: string | null = null;
+
+    if (sampleOrderExports.length > 0) {
+      const sampleResult = generateInventoryAdjustmentCSV(
+        sampleOrderExports as InventoryAdjustmentOrder[]
+      );
+      sampleCsvContent = sampleResult.csv;
+      sampleRecordCount = sampleResult.rows.length;
+      sampleInvoiceCount = sampleResult.invoiceCount;
+      sampleFileName = `SAGE_Inventory_Adjustment_${dateStr}.csv`;
+      console.log(
+        `Generated ${sampleRecordCount} sample line items for ${sampleInvoiceCount} invoices`
+      );
+    } else {
+      console.log('No sample invoices found for this range');
+    }
+
     // ========================================================================
     // STEP 7: Update export record
     // ========================================================================
@@ -729,7 +799,15 @@ async function exportToSage(
         status: 'COMPLETED',
         recordCount: allRows.length,
         invoiceCount: invoiceSet.size,
+        sampleRecordCount,
+        sampleInvoiceCount,
+        storageInvoiceCount,
         fileName: fileName,
+        fileContent: Buffer.from(csvContent, 'utf-8'),
+        sampleFileName,
+        sampleFileContent: sampleCsvContent
+          ? Buffer.from(sampleCsvContent, 'utf-8')
+          : null,
         completedAt: new Date(),
       },
     });
@@ -741,8 +819,13 @@ async function exportToSage(
       exportId: exportRecord.id,
       recordCount: allRows.length,
       invoiceCount: invoiceSet.size,
+      sampleRecordCount,
+      sampleInvoiceCount,
+      storageInvoiceCount,
       csvContent,
+      sampleCsvContent,
       fileName,
+      sampleFileName,
     };
 
   } catch (error) {
@@ -824,26 +907,44 @@ async function main() {
     const result = await exportToSage(tenantId, startDate, endDate, userId);
 
     if (result.success) {
-      // Determine output path
-      const outputPath = outputDir
-        ? path.join(outputDir, result.fileName)
-        : path.join(process.cwd(), 'exports', result.fileName);
+      const baseDir = outputDir
+        ? outputDir
+        : path.join(process.cwd(), 'exports');
 
-      // Ensure output directory exists
-      await fs.mkdir(path.dirname(outputPath), { recursive: true });
+      const outputPath = path.join(baseDir, result.fileName);
 
-      // Write CSV file
+      await fs.mkdir(baseDir, { recursive: true });
+
+      // Write standard CSV
       await fs.writeFile(outputPath, result.csvContent, 'utf-8');
+
+      let sampleOutputPath: string | null = null;
+      if (
+        result.sampleFileName &&
+        result.sampleRecordCount > 0 &&
+        result.sampleCsvContent
+      ) {
+        sampleOutputPath = path.join(baseDir, result.sampleFileName);
+        await fs.writeFile(sampleOutputPath, result.sampleCsvContent, 'utf-8');
+      }
 
       console.log('');
       console.log('════════════════════════════════════════════════════════════');
       console.log('  Export Summary');
       console.log('════════════════════════════════════════════════════════════');
-      console.log(`Export ID:      ${result.exportId}`);
-      console.log(`Invoices:       ${result.invoiceCount}`);
-      console.log(`Line Items:     ${result.recordCount}`);
-      console.log(`File:           ${outputPath}`);
-      console.log(`File Size:      ${Buffer.byteLength(result.csvContent, 'utf-8')} bytes`);
+      console.log(`Export ID:        ${result.exportId}`);
+      console.log(`Invoices:         ${result.invoiceCount}`);
+      console.log(`Line Items:       ${result.recordCount}`);
+      console.log(`Sample Invoices:  ${result.sampleInvoiceCount}`);
+      console.log(`Sample Lines:     ${result.sampleRecordCount}`);
+      console.log(`Storage Skipped:  ${result.storageInvoiceCount}`);
+      console.log(`File:             ${outputPath}`);
+      console.log(
+        `File Size:      ${Buffer.byteLength(result.csvContent, 'utf-8')} bytes`
+      );
+      if (sampleOutputPath) {
+        console.log(`Sample File:    ${sampleOutputPath}`);
+      }
       console.log('════════════════════════════════════════════════════════════');
       console.log('');
       console.log('✓ Export completed successfully!');

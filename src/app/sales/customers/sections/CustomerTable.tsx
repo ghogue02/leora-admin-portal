@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import type { CustomerRiskStatus } from "@prisma/client";
 import CustomerHealthBadge from "./CustomerHealthBadge";
@@ -47,46 +47,6 @@ export default function CustomerTable({
   loading = false,
 }: CustomerTableProps) {
   const [selectedCustomer, setSelectedCustomer] = useState<{ id: string; name: string } | null>(null);
-  const badgeCache = useMemo(() => new Map<string, Array<{ label: string; className: string }>>(), []);
-
-  const getHealthBadges = (customer: Customer) => {
-    if (badgeCache.has(customer.id)) {
-      return badgeCache.get(customer.id)!;
-    }
-
-    const badges: Array<{ label: string; className: string }> = [];
-
-    if (customer.daysOverdue > 0) {
-      badges.push({
-        label: `Overdue ${customer.daysOverdue}d`,
-        className: "bg-rose-100 text-rose-700 border-rose-200",
-      });
-    } else if (
-      customer.daysUntilExpected !== null &&
-      customer.daysUntilExpected <= 7 &&
-      customer.daysUntilExpected >= 0
-    ) {
-      badges.push({
-        label: `Due in ${customer.daysUntilExpected}d`,
-        className: "bg-amber-100 text-amber-700 border-amber-200",
-      });
-    } else if (customer.isDueToOrder) {
-      badges.push({
-        label: "Due this cycle",
-        className: "bg-blue-100 text-blue-700 border-blue-200",
-      });
-    }
-
-    if (customer.riskStatus === "AT_RISK_REVENUE" || customer.riskStatus === "AT_RISK_CADENCE") {
-      badges.push({
-        label: "At risk",
-        className: "bg-orange-100 text-orange-700 border-orange-200",
-      });
-    }
-
-    badgeCache.set(customer.id, badges);
-    return badges;
-  };
 
   const getAriaSort = (field: SortField): "none" | "ascending" | "descending" => {
     if (sortField !== field) {
@@ -341,7 +301,6 @@ export default function CustomerTable({
             <tbody className="divide-y divide-slate-200">
               {customers.map((customer) => {
                 const nextOrderStatus = getNextOrderStatus(customer);
-                const healthBadges = getHealthBadges(customer);
 
                 return (
                   <tr key={customer.id} className="transition hover:bg-slate-50">
@@ -367,18 +326,6 @@ export default function CustomerTable({
                           <span className="text-slate-300">|</span>
                           <span>Lifetime: {formatCurrency(customer.lifetimeRevenue)}</span>
                         </div>
-                        {healthBadges.length > 0 && (
-                          <div className="mt-2 flex flex-wrap gap-1">
-                            {healthBadges.map((badge) => (
-                              <span
-                                key={`${customer.id}-${badge.label}`}
-                                className={`rounded-full border px-2 py-0.5 text-[11px] font-semibold ${badge.className}`}
-                              >
-                                {badge.label}
-                              </span>
-                            ))}
-                          </div>
-                        )}
                       </div>
                     </td>
                     <td className="px-4 py-3">

@@ -52,6 +52,13 @@ export async function GET(request: NextRequest) {
         fileName:
           record.fileName ??
           `SAGE_Export_${formatUTCDate(record.startDate)}.csv`,
+        sampleFileName: record.sampleFileName,
+        sampleRecordCount: record.sampleRecordCount,
+        sampleInvoiceCount: record.sampleInvoiceCount,
+        storageInvoiceCount: record.storageInvoiceCount,
+        hasSampleFile: Boolean(
+          record.sampleFileName && record.sampleRecordCount > 0
+        ),
         createdAt: record.exportedAt.toISOString(),
         completedAt: record.completedAt ? record.completedAt.toISOString() : null,
         errorMessage: record.errorMessage ?? null,

@@ -21,7 +21,7 @@ import {
 import { ErrorTable } from './ErrorTable';
 
 export interface ValidationError {
-  type: 'MISSING_CUSTOMER_CODE' | 'MISSING_SKU_CODE' | 'INVALID_AMOUNT' | 'DUPLICATE_INVOICE';
+  type: string;
   message: string;
   invoiceNumber: string | null;
   customerName: string | null;
@@ -36,6 +36,12 @@ export interface ValidationResult {
   validInvoices: number;
   errorCount: number;
   errors: ValidationError[];
+  warnings?: ValidationError[];
+  warningCount?: number;
+  metadata?: {
+    sampleInvoices?: number;
+    storageInvoices?: number;
+  };
   timestamp: Date;
 }
 
@@ -51,8 +57,11 @@ export function ValidationPanel({
   onRefresh,
 }: ValidationPanelProps) {
   const [isErrorsExpanded, setIsErrorsExpanded] = React.useState(false);
+  const [isWarningsExpanded, setIsWarningsExpanded] = React.useState(false);
 
   const hasErrors = validation && !validation.isValid && validation.errorCount > 0;
+  const warningCount = validation?.warningCount ?? validation?.warnings?.length ?? 0;
+  const hasWarnings = Boolean(warningCount);
 
   return (
     <Card>
@@ -163,6 +172,43 @@ export function ValidationPanel({
               </div>
             </div>
 
+            {validation.metadata && (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div>
+                  <div className="text-sm text-muted-foreground">Sample Invoices</div>
+                  <div className="text-xl font-semibold">
+                    {validation.metadata.sampleInvoices ?? 0}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm text-muted-foreground">Storage Skipped</div>
+                  <div className="text-xl font-semibold">
+                    {validation.metadata.storageInvoices ?? 0}
+                  </div>
+                </div>
+                {hasWarnings && (
+                  <div>
+                    <div className="text-sm text-muted-foreground">Warnings</div>
+                    <div className="text-xl font-semibold text-amber-600 dark:text-amber-400">
+                      {warningCount}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Warning State */}
+            {hasWarnings && (
+              <Alert className="border-amber-200 bg-amber-50 text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-200">
+                <AlertTriangle className="h-4 w-4" />
+                <AlertTitle>Warnings detected</AlertTitle>
+                <AlertDescription>
+                  {warningCount} warning{warningCount === 1 ? '' : 's'} found. These
+                  will not block export but should be reviewed.
+                </AlertDescription>
+              </Alert>
+            )}
+
             {/* Expandable Error Table */}
             {hasErrors && (
               <div className="border rounded-lg">
@@ -186,6 +232,34 @@ export function ValidationPanel({
                 {isErrorsExpanded && (
                   <div id="error-details" className="border-t p-4">
                     <ErrorTable errors={validation.errors} />
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Expandable Warning Table */}
+            {hasWarnings && validation.warnings && (
+              <div className="border rounded-lg">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between p-4"
+                  onClick={() => setIsWarningsExpanded(!isWarningsExpanded)}
+                  aria-expanded={isWarningsExpanded}
+                  aria-controls="warning-details"
+                >
+                  <span className="font-medium">
+                    View Warning Details ({warningCount})
+                  </span>
+                  {isWarningsExpanded ? (
+                    <ChevronUp className="h-4 w-4" />
+                  ) : (
+                    <ChevronDown className="h-4 w-4" />
+                  )}
+                </Button>
+
+                {isWarningsExpanded && (
+                  <div id="warning-details" className="border-t p-4">
+                    <ErrorTable errors={validation.warnings} />
                   </div>
                 )}
               </div>

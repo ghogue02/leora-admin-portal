@@ -70,6 +70,10 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
       : territoryName
       ? `${territoryName} territory`
       : null;
+  const currentMonthLabel = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  }).format(new Date());
 
   return (
     <section className="grid gap-6">
@@ -141,7 +145,7 @@ export default function PerformanceMetrics({ salesRep, metrics, onDrilldown }: P
         >
           <div className={tileBaseClasses}>
             <div className="flex items-start justify-between gap-2">
-              <p className={tileTitleClasses}>MTD Revenue (Oct 2025)</p>
+              <p className={tileTitleClasses}>MTD Revenue ({currentMonthLabel})</p>
               <MetricTooltip metricKey="mtd-revenue" />
             </div>
             <div className="flex flex-1 flex-col justify-end gap-2">

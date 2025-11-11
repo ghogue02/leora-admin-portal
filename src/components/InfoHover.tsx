@@ -14,13 +14,14 @@ export function InfoHover({ text, label, align = "center" }: InfoHoverProps) {
 
   return (
     <span className="relative inline-flex">
-      <button
-        type="button"
+      <span
+        role="button"
+        tabIndex={0}
         className="peer inline-flex h-4 w-4 items-center justify-center rounded-full border border-slate-300 text-[10px] font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
         aria-label={label ?? "Show calculation details"}
       >
         ?
-      </button>
+      </span>
       <span
         className={`pointer-events-none absolute top-full z-20 mt-2 hidden w-64 rounded-md bg-slate-900 px-3 py-2 text-left text-xs text-white shadow-lg whitespace-pre-line ${alignmentClass} peer-hover:block peer-focus-visible:block`}
       >

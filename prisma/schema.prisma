@@ -2583,8 +2583,15 @@ model SageExport {
   status       SageExportStatus @default(PENDING)
   recordCount  Int              @default(0)
   invoiceCount Int              @default(0)
+  sampleRecordCount  Int        @default(0)
+  sampleInvoiceCount Int        @default(0)
+  storageInvoiceCount Int       @default(0)
   filePath     String?
   fileName     String?
+  fileContent  Bytes?
+  sampleFilePath String?
+  sampleFileName String?
+  sampleFileContent Bytes?
   exportedBy   String           @db.Uuid // User ID
   exportedAt   DateTime         @default(now())
   completedAt  DateTime?

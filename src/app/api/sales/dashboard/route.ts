@@ -31,6 +31,7 @@ export async function GET(request: NextRequest) {
         include: {
           user: {
             select: {
+              id: true,
               fullName: true,
               email: true,
             },
@@ -117,6 +118,7 @@ export async function GET(request: NextRequest) {
         })),
       };
 
+      const targetUserId = salesRep.user.id;
       const now = new Date();
       const monthStart = startOfMonth(now); // Start of current month
       const lastMonthStart = startOfMonth(subMonths(now, 1)); // Start of last month
@@ -263,6 +265,9 @@ export async function GET(request: NextRequest) {
             status: {
               not: "CANCELLED",
             },
+            deliveredAt: {
+              lte: now,
+            },
           },
           _sum: {
             total: true,
@@ -374,7 +379,7 @@ export async function GET(request: NextRequest) {
         db.activity.findMany({
           where: {
             tenantId,
-            userId: session.user.id,
+            userId: targetUserId,
             occurredAt: {
               gte: subWeeks(now, 1),
             },
@@ -401,7 +406,7 @@ export async function GET(request: NextRequest) {
         db.calendarEvent.findMany({
           where: {
             tenantId,
-            userId: session.user.id,
+            userId: targetUserId,
             startTime: {
               gte: now,
               lte: addDays(now, 10),
@@ -431,7 +436,7 @@ export async function GET(request: NextRequest) {
               lte: currentWeekEnd,
             },
             riskStatus: {
-              in: ["HEALTHY", "AT_RISK_CADENCE"],
+              in: ["HEALTHY", "AT_RISK_CADENCE", "AT_RISK_REVENUE"],
             },
           },
           select: {
@@ -461,7 +466,7 @@ export async function GET(request: NextRequest) {
         db.task.findMany({
           where: {
             tenantId,
-            userId: session.user.id,
+            userId: targetUserId,
             status: {
               in: ["PENDING", "IN_PROGRESS"],
             },
@@ -484,7 +489,7 @@ export async function GET(request: NextRequest) {
           where: {
             activity: {
               tenantId,
-              userId: session.user.id,
+              userId: targetUserId,
               occurredAt: {
                 gte: subWeeks(now, 1),
               },
@@ -505,7 +510,7 @@ export async function GET(request: NextRequest) {
             followUpCompletedAt: null,
             activity: {
               tenantId,
-              userId: session.user.id,
+              userId: targetUserId,
             },
           },
           select: activitySampleItemWithActivitySelect,
@@ -521,7 +526,7 @@ export async function GET(request: NextRequest) {
           where: {
             activity: {
               tenantId,
-              userId: session.user.id,
+              userId: targetUserId,
               occurredAt: {
                 gte: currentWeekStart,
                 lte: now,

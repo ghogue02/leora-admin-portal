@@ -16,7 +16,7 @@ export default function AdminHeader({ user, onToggleSidebar }: AdminHeaderProps)
   const router = useRouter();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const handleBackToSales = () => {
-    router.push("/portal");
+    router.push("/sales/dashboard");
   };
 
   const handleLogout = async () => {

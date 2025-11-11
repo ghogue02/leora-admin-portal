@@ -23,8 +23,8 @@ import Decimal from 'decimal.js';
 const prisma = new PrismaClient();
 
 // File paths
-const SALES_REPORT_PATH = '/Users/greghogue/Leora2/Sales report 2025-10-27 to 2025-11-02.csv';
-const INVENTORY_PATH = '/Users/greghogue/Leora2/Well Crafted Wine & Beverage Co. inventory as at 2025-11-03.csv';
+const SALES_REPORT_PATH = '/Users/greghogue/Leora2/Sales report 2025-11-01 to 2025-11-11.csv';
+const INVENTORY_PATH = '/Users/greghogue/Leora2/Well Crafted Wine & Beverage Co. inventory as at 2025-11-11.csv';
 
 // Tenant ID
 const TENANT_ID = '58b8126a-2d2f-4f55-bc98-5b6784800bed';
@@ -391,13 +391,19 @@ async function importInvoices(salesData: SalesReportRow[], stats: ImportStats) {
       // Create order and invoice in transaction
       await prisma.$transaction(async (tx) => {
         // Create order first (required for invoice)
+        const deliveryTimestamp = postedDate ?? invoiceDate;
+
         const order = await tx.order.create({
           data: {
             tenantId: TENANT_ID,
             customerId: customer.id,
+            salesRepId,
             status: 'FULFILLED', // Delivered/completed
             orderedAt: invoiceDate,
+            deliveredAt: deliveryTimestamp,
+            fulfilledAt: deliveryTimestamp,
             deliveryDate: dueDate,
+            poNumber: firstRow['Purchase order number'] || null,
             total: new Decimal(total),
           },
         });

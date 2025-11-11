@@ -10,6 +10,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withAdminSession, AdminSessionContext } from '@/lib/auth/admin';
 import { validateOrdersForExport, OrderToValidate, SageErrorType } from '@/lib/sage/validation';
+import { classifyOrderForExport, SageOrderCategory } from '@/lib/sage/classification';
 import { parse } from 'date-fns';
 
 /**
@@ -17,8 +18,15 @@ import { parse } from 'date-fns';
  */
 interface ValidationResponse {
   valid: boolean;
+  classification: {
+    total: number;
+    standard: number;
+    sample: number;
+    storage: number;
+  };
   invoiceCount: number;
   recordCount: number;
+  warningCount: number;
   errors: Array<{
     type: SageErrorType;
     message: string;
@@ -26,6 +34,10 @@ interface ValidationResponse {
     customerId?: string;
     skuId?: string;
     orderId?: string;
+    orderLineId?: string;
+    invoiceNumber?: string | null;
+    customerName?: string | null;
+    skuCode?: string | null;
   }>;
   warnings: Array<{
     type: SageErrorType;
@@ -34,6 +46,10 @@ interface ValidationResponse {
     customerId?: string;
     skuId?: string;
     orderId?: string;
+    orderLineId?: string;
+    invoiceNumber?: string | null;
+    customerName?: string | null;
+    skuCode?: string | null;
   }>;
 }
 
@@ -104,7 +120,7 @@ export async function GET(request: NextRequest) {
       }
 
       // Query orders with invoices in date range (same query as export script)
-      const orders = await db.order.findMany({
+      const rawOrders = await db.order.findMany({
         where: {
           tenantId,
           invoices: {
@@ -123,6 +139,7 @@ export async function GET(request: NextRequest) {
           customer: {
             select: {
               id: true,
+              name: true,
               paymentTerms: true,
               salesRepId: true,
             },
@@ -149,11 +166,59 @@ export async function GET(request: NextRequest) {
               quantity: true,
               unitPrice: true,
               isSample: true,
+              sku: {
+                select: {
+                  code: true,
+                  product: {
+                    select: {
+                      name: true,
+                    },
+                  },
+                },
+              },
             },
           },
         },
         take: 1000, // Limit to prevent performance issues
       });
+
+      const classifiedOrders = rawOrders.map((order) => ({
+        order,
+        category: classifyOrderForExport({
+          customer: { name: order.customer?.name ?? '' },
+          lines: order.lines,
+        }),
+      }));
+
+      const storageOrders = classifiedOrders
+        .filter(({ category }) => category === SageOrderCategory.STORAGE)
+        .map(({ order }) => order);
+
+      const sampleOrders = classifiedOrders
+        .filter(({ category }) => category === SageOrderCategory.SAMPLE)
+        .map(({ order }) => order);
+
+      const standardOrders = classifiedOrders
+        .filter(({ category }) => category === SageOrderCategory.STANDARD)
+        .map(({ order }) => order);
+
+      const orders = [...standardOrders, ...sampleOrders];
+
+      const orderMap = new Map<string, typeof orders[number]>();
+      const lineMap = new Map<string, (typeof orders[number]['lines'][number])>();
+      for (const order of orders) {
+        orderMap.set(order.id, order);
+        for (const line of order.lines) {
+          lineMap.set(line.id, line);
+        }
+      }
+
+      const classificationSummary = {
+        total: rawOrders.length,
+        standard: standardOrders.length,
+        sample: sampleOrders.length,
+        storage: storageOrders.length,
+      };
 
       // Transform to validation format
       const ordersToValidate: OrderToValidate[] = orders.map(order => ({
@@ -188,27 +253,55 @@ export async function GET(request: NextRequest) {
         lineItemCount += order.lines.filter(line => !line.isSample).length;
       }
 
+      const enrichError = (item: (typeof validationResult.errors)[number]) => {
+        const order = item.orderId ? orderMap.get(item.orderId) : undefined;
+        const invoiceNumber = order?.invoices[0]?.invoiceNumber ?? null;
+        const customerName = order?.customer?.name ?? null;
+        const line =
+          (item.orderLineId && lineMap.get(item.orderLineId)) ||
+          (item.skuId && order
+            ? order.lines.find((orderLine) => orderLine.skuId === item.skuId)
+            : undefined);
+        const skuCode = line?.sku?.code ?? null;
+
+        return { invoiceNumber, customerName, skuCode };
+      };
+
       // Format response
       const response: ValidationResponse = {
         valid: validationResult.isValid,
+        classification: classificationSummary,
         invoiceCount: invoiceSet.size,
         recordCount: lineItemCount,
-        errors: validationResult.errors.map(error => ({
-          type: error.type,
-          message: error.message,
-          orderId: error.orderId,
-          customerId: error.customerId,
-          skuId: error.skuId,
-          invoiceId: error.orderLineId, // Map orderLineId to invoiceId for consistency
-        })),
-        warnings: validationResult.warnings.map(warning => ({
-          type: warning.type,
-          message: warning.message,
-          orderId: warning.orderId,
-          customerId: warning.customerId,
-          skuId: warning.skuId,
-          invoiceId: warning.orderLineId,
-        })),
+        warningCount: validationResult.warnings.length,
+        errors: validationResult.errors.map(error => {
+          const meta = enrichError(error);
+          return {
+            type: error.type,
+            message: error.message,
+            orderId: error.orderId,
+            customerId: error.customerId,
+            skuId: error.skuId,
+            orderLineId: error.orderLineId,
+            invoiceNumber: meta.invoiceNumber,
+            customerName: meta.customerName,
+            skuCode: meta.skuCode,
+          };
+        }),
+        warnings: validationResult.warnings.map(warning => {
+          const meta = enrichError(warning);
+          return {
+            type: warning.type,
+            message: warning.message,
+            orderId: warning.orderId,
+            customerId: warning.customerId,
+            skuId: warning.skuId,
+            orderLineId: warning.orderLineId,
+            invoiceNumber: meta.invoiceNumber,
+            customerName: meta.customerName,
+            skuCode: meta.skuCode,
+          };
+        }),
       };
 
       return NextResponse.json(response);

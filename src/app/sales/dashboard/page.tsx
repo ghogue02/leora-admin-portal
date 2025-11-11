@@ -176,6 +176,19 @@ export default function SalesDashboardPage() {
     { id: "classic", label: "Sales Execution" },
   ] as const;
 
+  const getTabClasses = (tabId: (typeof tabs)[number]["id"]) => {
+    const isActive = activeTab === tabId;
+    if (tabId === "classic") {
+      return isActive
+        ? "border-red-600 bg-red-600 text-white shadow-sm"
+        : "border-red-200 bg-red-50 text-red-700 hover:border-red-300 hover:bg-red-100";
+    }
+
+    return isActive
+      ? "border-slate-900 bg-slate-900 text-white"
+      : "border-slate-200 bg-white text-gray-600 hover:border-slate-300";
+  };
+
   const load = useCallback(async (salesRepId?: string) => {
     setState((prev) => ({ ...prev, loading: true, error: null }));
 
@@ -355,11 +368,7 @@ export default function SalesDashboardPage() {
               key={tab.id}
               type="button"
               onClick={() => setActiveTab(tab.id)}
-              className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${
-                activeTab === tab.id
-                  ? "border-slate-900 bg-slate-900 text-white"
-                  : "border-slate-200 bg-white text-gray-600 hover:border-slate-300"
-              }`}
+              className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition ${getTabClasses(tab.id)}`}
             >
               {tab.label}
             </button>
@@ -445,11 +454,6 @@ function ManagerToolbar({ managerView, metrics, onRepChange, lastUpdatedLabel }:
             </option>
           ))}
         </select>
-        {selectedRep?.territory && (
-          <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[11px] font-semibold text-indigo-700">
-            {selectedRep.territory}
-          </span>
-        )}
       </div>
 
       <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600">

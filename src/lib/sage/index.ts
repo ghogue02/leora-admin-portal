@@ -43,3 +43,20 @@ export {
   type SAGEOrderLineExport,
   type SAGECustomerExport,
 } from './formatting';
+
+// Classification exports
+export {
+  classifyOrderForExport,
+  isSampleOrder,
+  isStorageOrder,
+  SageOrderCategory,
+  type SageOrderForClassification,
+} from './classification';
+
+// Inventory adjustment exports
+export {
+  orderToInventoryAdjustmentRows,
+  generateInventoryAdjustmentCSV,
+  type InventoryAdjustmentOrder,
+  type InventoryAdjustmentRow,
+} from './inventory-adjustment';

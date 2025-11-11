@@ -1,29 +1,67 @@
 /**
- * SAGE Export API - TEMPORARILY DISABLED
- *
- * This endpoint is temporarily disabled while we fix Vercel module resolution issues.
- * The export functionality works locally but fails in Vercel production builds.
+ * SAGE Export API
  *
  * @route POST /api/sage/export
- * @status 503 Service Unavailable
+ * @description Kicks off an export for the provided date range and returns metadata.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { parse } from 'date-fns';
 import { withAdminSession } from '@/lib/auth/admin';
+import { exportToSage } from '@/scripts/export-to-sage';
 
 export async function POST(request: NextRequest) {
-  return withAdminSession(request, async () => {
-    // TEMPORARY: SAGE export disabled due to Vercel module resolution issue
-    // The export-to-sage script works locally but Vercel can't resolve '@/scripts/export-to-sage'
-    // This will be re-enabled once the module resolution issue is fixed
+  return withAdminSession(request, async ({ tenantId, user }) => {
+    try {
+      const body = await request.json();
+      const { startDate, endDate } = body ?? {};
 
-    return NextResponse.json(
-      {
-        error: 'SAGE export temporarily disabled',
-        code: 'SAGE_DISABLED',
-        details: 'Module resolution issue in Vercel production builds. Feature works locally and will be re-enabled shortly. For now, use the manual export script: npx tsx scripts/export-to-sage.ts',
-      },
-      { status: 503 }
-    );
+      if (!startDate || !endDate) {
+        return NextResponse.json(
+          { error: 'Missing required parameters: startDate and endDate' },
+          { status: 400 }
+        );
+      }
+
+      const start = parse(startDate, 'yyyy-MM-dd', new Date());
+      start.setUTCHours(0, 0, 0, 0);
+
+      const end = parse(endDate, 'yyyy-MM-dd', new Date());
+      end.setUTCHours(23, 59, 59, 999);
+
+      if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) {
+        return NextResponse.json(
+          { error: 'Invalid date format. Use YYYY-MM-DD.' },
+          { status: 400 }
+        );
+      }
+
+      if (start > end) {
+        return NextResponse.json(
+          { error: 'startDate must be before endDate.' },
+          { status: 400 }
+        );
+      }
+
+      const result = await exportToSage(tenantId, start, end, user.id);
+
+      return NextResponse.json({
+        exportId: result.exportId,
+        fileName: result.fileName,
+        sampleFileName: result.sampleFileName,
+        recordCount: result.recordCount,
+        invoiceCount: result.invoiceCount,
+        sampleRecordCount: result.sampleRecordCount,
+        sampleInvoiceCount: result.sampleInvoiceCount,
+        storageInvoiceCount: result.storageInvoiceCount,
+        hasSampleFile: Boolean(result.sampleFileName && result.sampleRecordCount > 0),
+      });
+    } catch (error) {
+      console.error('[SAGE Export API] Failed to export', error);
+      return NextResponse.json(
+        { error: error instanceof Error ? error.message : 'Failed to export SAGE data' },
+        { status: 500 }
+      );
+    }
   });
 }
