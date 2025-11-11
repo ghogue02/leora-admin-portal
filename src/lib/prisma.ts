@@ -49,7 +49,10 @@ export async function withTenant<T>(
   callback: (tx: Prisma.TransactionClient) => Promise<T>,
 ) {
   return prisma.$transaction(async (tx) => {
-    await tx.$executeRaw`select set_config('app.current_tenant_id', ${tenantId}, false)`;
+    const sanitizedTenantId = tenantId.replace(/'/g, "''");
+    await tx.$executeRawUnsafe(
+      `select set_config('app.current_tenant_id', '${sanitizedTenantId}', false)`,
+    );
     return callback(tx);
   }, {
     timeout: 60000, // 60 seconds - safety timeout for AI operations
