@@ -32,7 +32,10 @@ describe('Order Status Transitions', () => {
       PENDING: [
         { value: 'READY_TO_DELIVER', label: 'Mark Ready to Deliver' },
       ],
-      READY_TO_DELIVER: [{ value: 'PICKED', label: 'Mark as Picked' }],
+      READY_TO_DELIVER: [
+        { value: 'PICKED', label: 'Mark as Picked' },
+        { value: 'PENDING', label: 'Move back to Pending' },
+      ],
       PICKED: [{ value: 'DELIVERED', label: 'Mark as Delivered' }],
       DELIVERED: [], // Terminal state
       CANCELLED: [], // Terminal state
@@ -64,11 +67,13 @@ describe('Order Status Transitions', () => {
     it('should allow READY_TO_DELIVER → PICKED', () => {
       const transitions = getAvailableTransitions('READY_TO_DELIVER');
 
-      expect(transitions).toHaveLength(1);
-      expect(transitions[0]).toEqual({
-        value: 'PICKED',
-        label: 'Mark as Picked',
-      });
+      expect(transitions.some((t) => t.value === 'PICKED')).toBe(true);
+    });
+
+    it('should allow READY_TO_DELIVER → PENDING', () => {
+      const transitions = getAvailableTransitions('READY_TO_DELIVER');
+
+      expect(transitions.some((t) => t.value === 'PENDING')).toBe(true);
     });
 
     it('should allow PICKED → DELIVERED', () => {

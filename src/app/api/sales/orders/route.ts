@@ -692,6 +692,8 @@ export async function POST(request: NextRequest) {
               deliveryDate: orderData.deliveryDate ? parseUTCDate(orderData.deliveryDate) : null,
               warehouseLocation: orderData.warehouseLocation,
               deliveryTimeWindow: orderData.deliveryTimeWindow,
+              poNumber: orderData.poNumber?.trim() || null,
+              specialInstructions: orderData.specialInstructions?.trim() || null,
               requiresApproval,
               orderedAt: new Date(),
               total: new Prisma.Decimal(orderTotal.toFixed(2)),

@@ -15,6 +15,7 @@ import {
   UserCog,
   ActivitySquare,
   BellRing,
+  Plug,
 } from "lucide-react";
 
 const navigation = [
@@ -78,6 +79,11 @@ const navigation = [
     label: "Data Integrity",
     href: "/admin/data-integrity",
     icon: Settings,
+  },
+  {
+    label: "Integrations",
+    href: "/admin/integrations",
+    icon: Plug,
   },
 ];
 

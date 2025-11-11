@@ -5,15 +5,16 @@
  * for any invoice format (Standard, VA ABC In-State, VA ABC Tax-Exempt)
  */
 
-import { PrismaClient, InvoiceFormatType, Prisma } from '@prisma/client';
+import { InvoiceFormatType, Prisma } from '@prisma/client';
 import { Decimal } from '@prisma/client/runtime/library';
 import { determineInvoiceFormat } from './format-selector';
 import { calculateLineItemLiters, calculateInvoiceTotalLiters } from './liter-calculator';
 import { bottlesToCases } from './case-converter';
 import { getVACollectionTerms, getVAComplianceNotice, VA_INTEREST_RATE } from './interest-calculator';
+import { formatDeliveryWindows, type DeliveryWindow } from '../delivery-window';
+import { calculateDueDate } from '@/lib/sage/payment-terms';
 import type { InvoiceTemplateSettings } from './template-settings';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 type CustomerRecord = Prisma.CustomerGetPayload<{
   include: {
@@ -79,8 +80,16 @@ export interface CompleteInvoiceData {
   customer: CustomerRecord;
   billingAddress: InvoiceAddress;
   shippingAddress: InvoiceAddress;
+  customerDeliveryInstructions: string | null;
+  customerDeliveryWindows: string[];
 
   // Order details
+  orderId: string;
+  orderNumber: string | null;
+  orderStatus: string;
+  orderDeliveryDate: Date | null;
+  orderDeliveryTimeWindow: string | null;
+  orderWarehouseLocation: string | null;
   salesperson: string;
   paymentTermsText: string;
   shippingMethod: string;
@@ -168,6 +177,13 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
     customerLicenseType: customer.licenseType,
     distributorState: 'VA', // TODO: Make this configurable per tenant
   });
+
+  const deliveryWindowsRaw = Array.isArray(customer.deliveryWindows)
+    ? (customer.deliveryWindows as DeliveryWindow[])
+    : [];
+  const formattedCustomerWindows = formatDeliveryWindows(deliveryWindowsRaw);
+  const resolvedSpecialInstructions = specialInstructions ?? order.specialInstructions ?? null;
+  const resolvedPoNumber = poNumber ?? order.poNumber ?? null;
 
   // Calculate enriched order lines with liters and cases
   const enrichedOrderLines: EnrichedOrderLine[] = order.lines.map((line) => {
@@ -265,14 +281,22 @@ export async function buildInvoiceData(input: InvoiceDataInput): Promise<Complet
     customer,
     billingAddress,
     shippingAddress,
+    customerDeliveryInstructions: customer.deliveryInstructions ?? null,
+    customerDeliveryWindows: formattedCustomerWindows,
 
     // Order details
+    orderId: order.id,
+    orderNumber: order.orderNumber ?? null,
+    orderStatus: order.status,
+    orderDeliveryDate: order.deliveryDate ?? null,
+    orderDeliveryTimeWindow: order.deliveryTimeWindow ?? null,
+    orderWarehouseLocation: order.warehouseLocation ?? null,
     salesperson,
     paymentTermsText,
     shippingMethod: shippingMethod || 'Hand deliver',
     shipDate,
-    specialInstructions: specialInstructions || null,
-    poNumber: poNumber || null,
+    specialInstructions: resolvedSpecialInstructions,
+    poNumber: resolvedPoNumber,
 
     // Calculations
     totalLiters: invoiceTotalLiters,
@@ -331,29 +355,6 @@ async function generateInvoiceNumber(tenantId: string): Promise<string> {
   }
 
   return `${prefix}${sequence.toString().padStart(4, '0')}`;
-}
-
-/**
- * Calculate due date from payment terms
- *
- * @param issuedAt - Invoice issue date
- * @param paymentTerms - Payment terms string
- * @returns Due date
- */
-function calculateDueDate(issuedAt: Date, paymentTerms: string): Date {
-  const dueDate = new Date(issuedAt);
-
-  // Parse common payment terms
-  if (paymentTerms.toLowerCase().includes('cod') || paymentTerms.toLowerCase().includes('c.o.d')) {
-    return dueDate; // Due immediately
-  }
-
-  // Extract number of days from terms like "Net 30", "30 days", etc.
-  const daysMatch = paymentTerms.match(/(\d+)/);
-  const days = daysMatch ? parseInt(daysMatch[1], 10) : 30;
-
-  dueDate.setDate(dueDate.getDate() + days);
-  return dueDate;
 }
 
 /**

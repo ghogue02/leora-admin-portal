@@ -14,6 +14,11 @@ const SAMPLE_CUSTOMER = {
   territory: 'DC Metro',
   phone: '(703) 555-0100',
   billingEmail: 'orders@cheesetique.com',
+  deliveryInstructions: 'Ring bell at side door',
+  deliveryWindows: [
+    { type: 'BEFORE', time: '11:00' },
+    { type: 'AFTER', time: '16:00' },
+  ],
 };
 
 const BILLING_ADDRESS = {
@@ -115,6 +120,14 @@ export function buildSampleInvoiceData(
     customer: SAMPLE_CUSTOMER,
     billingAddress: BILLING_ADDRESS,
     shippingAddress: SHIPPING_ADDRESS,
+    customerDeliveryInstructions: SAMPLE_CUSTOMER.deliveryInstructions,
+    customerDeliveryWindows: ['Before 11:00', 'After 4:00 PM'],
+    orderId: 'sample-order-id',
+    orderNumber: 'VA-25-0001',
+    orderStatus: 'READY_TO_DELIVER',
+    orderDeliveryDate: NOW,
+    orderDeliveryTimeWindow: 'Before 11:00',
+    orderWarehouseLocation: 'Warrenton',
     salesperson: 'Travis Leonard',
     paymentTermsText: 'Net 30',
     shippingMethod: 'Common carrier',

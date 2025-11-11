@@ -139,7 +139,10 @@ export async function GET(request: NextRequest, props: RouteParams) {
           select: {
             id: true,
             name: true,
+            territory: true,
             state: true,
+            accountNumber: true,
+            requiresPO: true,
             city: true,
             street1: true,
             street2: true,
@@ -149,6 +152,10 @@ export async function GET(request: NextRequest, props: RouteParams) {
             paymentTerms: true,
             licenseNumber: true,
             licenseType: true,
+            defaultWarehouseLocation: true,
+            defaultDeliveryTimeWindow: true,
+            deliveryInstructions: true,
+            deliveryWindows: true,
           },
         },
         salesRep: {

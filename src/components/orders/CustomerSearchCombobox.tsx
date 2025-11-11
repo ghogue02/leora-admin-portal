@@ -20,7 +20,7 @@ import { Combobox, Transition } from '@headlessui/react';
 import { ChevronDown, Search, CheckIcon } from 'lucide-react';
 import { debounce } from 'lodash';
 
-type Customer = {
+export type Customer = {
   id: string;
   name: string;
   territory: string | null;
@@ -32,6 +32,8 @@ type Customer = {
   state?: string | null;
   salesRepId?: string | null;
   salesRepName?: string | null;
+  deliveryInstructions?: string | null;
+  deliveryWindows?: DeliveryWindowInfo[];
 };
 
 type CustomerApiResult = {
@@ -55,6 +57,15 @@ type CustomerApiResult = {
       fullName?: string | null;
     } | null;
   } | null;
+  deliveryInstructions?: string | null;
+  deliveryWindows?: DeliveryWindowInfo[] | null;
+};
+
+export type DeliveryWindowInfo = {
+  type?: 'BEFORE' | 'AFTER' | 'BETWEEN' | null;
+  time?: string | null;
+  startTime?: string | null;
+  endTime?: string | null;
 };
 
 const toCustomer = (entry: CustomerApiResult): Customer => ({
@@ -69,6 +80,10 @@ const toCustomer = (entry: CustomerApiResult): Customer => ({
   state: entry.address?.state ?? entry.state ?? null,
   salesRepId: entry.salesRepId ?? entry.salesRep?.id ?? null,
   salesRepName: entry.salesRep?.user?.fullName ?? null,
+  deliveryInstructions: entry.deliveryInstructions ?? null,
+  deliveryWindows: Array.isArray(entry.deliveryWindows)
+    ? entry.deliveryWindows.filter(Boolean)
+    : [],
 });
 
 type Props = {

@@ -80,9 +80,9 @@ export async function generateInvoicePDF(
  * Generate simple text invoice (fallback if PDF fails)
  */
 export function generateInvoiceText(invoiceData: CompleteInvoiceData): string {
-  const { order, customer, lines } = invoiceData;
+  const { customer, orderLines } = invoiceData;
 
-  const lineItems = lines.map((line, index) => {
+  const lineItems = orderLines.map((line, index) => {
     const quantity = line.quantity;
     const unitPrice = new Decimal(line.unitPrice);
     // Use money-safe arithmetic for line total
@@ -94,19 +94,45 @@ export function generateInvoiceText(invoiceData: CompleteInvoiceData): string {
   }).join('\n\n');
 
   // Use unified money-safe subtotal calculation
-  const subtotal = calcSubtotal(lines.map(line => ({
+  const subtotal = calcSubtotal(orderLines.map(line => ({
     quantity: line.quantity,
     unitPrice: line.unitPrice
   })));
   const subtotalNumber = Number(subtotal.toFixed(2));
+
+  const deliveryDate = invoiceData.orderDeliveryDate
+    ? new Date(invoiceData.orderDeliveryDate).toLocaleDateString()
+    : 'Not set';
+  const warehouse = invoiceData.orderWarehouseLocation || 'Not specified';
+  const timeWindow = invoiceData.orderDeliveryTimeWindow
+    || invoiceData.customerDeliveryWindows?.[0]
+    || 'Anytime';
+
+  const instructionBlocks: string[] = [];
+  if (invoiceData.customerDeliveryInstructions) {
+    instructionBlocks.push(`Customer Instructions: ${invoiceData.customerDeliveryInstructions}`);
+  }
+  if (invoiceData.customerDeliveryWindows?.length) {
+    instructionBlocks.push(`Preferred Windows: ${invoiceData.customerDeliveryWindows.join(', ')}`);
+  }
+  if (invoiceData.specialInstructions) {
+    instructionBlocks.push(`Order Notes: ${invoiceData.specialInstructions}`);
+  }
+  const instructionSection = instructionBlocks.length
+    ? `${instructionBlocks.join('\n')}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+`
+    : '';
 
   return `
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
                          INVOICE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Invoice Number: ${order.invoiceNumber || order.id.slice(0, 8)}
-Order ID: ${order.id}
+Invoice Number: ${invoiceData.invoiceNumber}
+Order ID: ${invoiceData.orderId}
 Date: ${new Date().toLocaleDateString()}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -121,10 +147,10 @@ ${customer.licenseNumber ? `License: ${customer.licenseNumber}` : ''}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 DELIVERY INFORMATION:
-Scheduled: ${order.deliveryDate ? new Date(order.deliveryDate).toLocaleDateString() : 'Not set'}
-Warehouse: ${order.warehouseLocation || 'Not specified'}
-Time Window: ${order.deliveryTimeWindow || 'Anytime'}
-${order.poNumber ? `PO Number: ${order.poNumber}` : ''}
+Scheduled: ${deliveryDate}
+Warehouse: ${warehouse}
+Time Window: ${timeWindow}
+${invoiceData.poNumber ? `PO Number: ${invoiceData.poNumber}` : ''}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -138,16 +164,16 @@ SUMMARY:
 
 Subtotal:        $${subtotalNumber.toFixed(2)}
 Tax:             (Calculated at delivery)
-Total:           $${Number(order.total || 0).toFixed(2)}
+Total:           $${Number(invoiceData.total || 0).toFixed(2)}
 
-Payment Terms:   ${customer.paymentTerms || 'Net 30'}
+Payment Terms:   ${invoiceData.paymentTermsText || customer.paymentTerms || 'Net 30'}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-${order.specialInstructions ? `SPECIAL INSTRUCTIONS:\n${order.specialInstructions}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` : ''}
+${instructionSection}
 
 Generated: ${new Date().toISOString()}
-Status: ${order.status}
+Status: ${invoiceData.orderStatus}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 `;

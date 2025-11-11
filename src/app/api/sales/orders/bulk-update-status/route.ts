@@ -28,7 +28,7 @@ const BulkUpdateSchema = z.object({
 
 // Valid bulk transitions (more permissive than single updates)
 const BULK_ALLOWED_FROM: Record<string, OrderStatus[]> = {
-  PENDING: ['DRAFT'],
+  PENDING: ['DRAFT', 'READY_TO_DELIVER'],
   READY_TO_DELIVER: ['PENDING', 'READY_TO_DELIVER'],
   PICKED: ['READY_TO_DELIVER', 'PICKED'],
   DELIVERED: ['PICKED', 'READY_TO_DELIVER'],

@@ -6,6 +6,7 @@ import { formatUTCDate } from '@/lib/dates';
 import { showError, showSuccess } from '@/lib/toast-helpers';
 import { InvoiceDownloadButton } from '@/components/invoices/InvoiceDownloadButton';
 import { Loader2 } from 'lucide-react';
+import { calculateDueDate } from '@/lib/sage/payment-terms';
 
 const INVOICE_FORMAT_OPTIONS: Array<{ value: InvoiceFormatType; label: string }> = [
   { value: 'STANDARD', label: 'Standard' },
@@ -59,15 +60,25 @@ const deriveDueDateString = (existing?: string | null, paymentTerms?: string | n
     try {
       return formatUTCDate(new Date(existing));
     } catch {
-      // fall through to default
+      // fall through to recalculation
     }
   }
 
-  const extractedDays = paymentTerms ? parseInt(paymentTerms.replace(/\D/g, ''), 10) : NaN;
-  const days = Number.isFinite(extractedDays) && extractedDays > 0 ? extractedDays : 30;
-  const base = new Date();
-  base.setDate(base.getDate() + days);
-  return formatUTCDate(base);
+  if (paymentTerms) {
+    try {
+      const calculated = calculateDueDate(new Date(), paymentTerms);
+      return formatUTCDate(calculated);
+    } catch (error) {
+      console.warn('Unable to calculate due date from payment terms, defaulting to Net 30', {
+        paymentTerms,
+        error,
+      });
+    }
+  }
+
+  const fallback = new Date();
+  fallback.setDate(fallback.getDate() + 30);
+  return formatUTCDate(fallback);
 };
 
 const sanitizePayloadString = (value: string) => (value.trim().length ? value.trim() : null);

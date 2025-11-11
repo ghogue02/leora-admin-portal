@@ -54,6 +54,8 @@ type Props = {
   deliveryTimeWindow: string;
   poNumber: string;
   specialInstructions: string;
+  customerDeliveryInstructions?: string | null;
+  customerDeliveryWindows?: string[];
   items: OrderItem[];
   total: number;
   requiresApproval: boolean;
@@ -61,6 +63,8 @@ type Props = {
   onCancel: () => void;
   submitting?: boolean;
   salesRepName?: string | null;
+  statusSelectionEnabled?: boolean;
+  confirmLabel?: string;
 };
 
 export function OrderPreviewModal({
@@ -71,6 +75,8 @@ export function OrderPreviewModal({
   deliveryTimeWindow,
   poNumber,
   specialInstructions,
+  customerDeliveryInstructions,
+  customerDeliveryWindows,
   items,
   total,
   requiresApproval,
@@ -78,6 +84,8 @@ export function OrderPreviewModal({
   onCancel,
   submitting = false,
   salesRepName,
+  statusSelectionEnabled = true,
+  confirmLabel,
 }: Props) {
   const [selectedStatus, setSelectedStatus] = React.useState<'PENDING' | 'READY'>(
     requiresApproval ? 'PENDING' : 'READY'
@@ -157,10 +165,26 @@ export function OrderPreviewModal({
                   <span className="font-medium text-gray-900">{poNumber}</span>
                 </div>
               )}
+              {customerDeliveryInstructions && (
+                <div className="mt-2 pt-2 border-t border-gray-300">
+                  <span className="text-gray-600">Customer Delivery Instructions:</span>
+                  <p className="mt-1 text-gray-900 whitespace-pre-line">{customerDeliveryInstructions}</p>
+                </div>
+              )}
+              {customerDeliveryWindows?.length ? (
+                <div className={`pt-2 ${customerDeliveryInstructions ? '' : 'mt-2'} border-t border-gray-300`}>
+                  <span className="text-gray-600">Preferred Time Windows:</span>
+                  <ul className="mt-1 space-y-1 text-gray-900">
+                    {customerDeliveryWindows.map((window) => (
+                      <li key={window}>{window}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
               {specialInstructions && (
                 <div className="mt-2 pt-2 border-t border-gray-300">
                   <span className="text-gray-600">Special Instructions:</span>
-                  <p className="mt-1 text-gray-900">{specialInstructions}</p>
+                  <p className="mt-1 text-gray-900 whitespace-pre-line">{specialInstructions}</p>
                 </div>
               )}
             </div>
@@ -229,48 +253,49 @@ export function OrderPreviewModal({
             </div>
           </section>
 
-          {/* Order Status Selection */}
-          <section>
-            <h3 className="text-sm font-semibold text-gray-900 mb-3">Order Status</h3>
-            <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 space-y-3">
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="orderStatus"
-                  value="PENDING"
-                  checked={selectedStatus === 'PENDING'}
-                  onChange={() => setSelectedStatus('PENDING')}
-                  className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
-                />
-                <div className="flex-1">
-                  <span className="text-sm font-medium text-gray-900">Save as Pending</span>
-                  <p className="text-xs text-gray-600 mt-1">
-                    Save order for later review in your queue.
-                  </p>
-                </div>
-              </label>
+          {statusSelectionEnabled && (
+            <section>
+              <h3 className="text-sm font-semibold text-gray-900 mb-3">Order Status</h3>
+              <div className="rounded-lg border border-gray-200 bg-gray-50 p-4 space-y-3">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="orderStatus"
+                    value="PENDING"
+                    checked={selectedStatus === 'PENDING'}
+                    onChange={() => setSelectedStatus('PENDING')}
+                    className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
+                  />
+                  <div className="flex-1">
+                    <span className="text-sm font-medium text-gray-900">Save as Pending</span>
+                    <p className="text-xs text-gray-600 mt-1">
+                      Save order for later review in your queue.
+                    </p>
+                  </div>
+                </label>
 
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  type="radio"
-                  name="orderStatus"
-                  value="READY"
-                  checked={selectedStatus === 'READY'}
-                  onChange={() => setSelectedStatus('READY')}
-                  className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
-                />
-                <div className="flex-1">
-                  <span className="text-sm font-medium text-gray-900">Mark as Ready</span>
-                  <p className="text-xs text-gray-600 mt-1">
-                    Order is complete and ready for processing/fulfillment.
-                  </p>
-                </div>
-              </label>
-            </div>
-          </section>
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="orderStatus"
+                    value="READY"
+                    checked={selectedStatus === 'READY'}
+                    onChange={() => setSelectedStatus('READY')}
+                    className="mt-1 h-4 w-4 text-gray-900 focus:ring-gray-900"
+                  />
+                  <div className="flex-1">
+                    <span className="text-sm font-medium text-gray-900">Mark as Ready</span>
+                    <p className="text-xs text-gray-600 mt-1">
+                      Order is complete and ready for processing/fulfillment.
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </section>
+          )}
 
           {/* Warnings */}
-          {(requiresApproval || inventoryIssues.length > 0 || priceOverrides.length > 0) && (
+          {(requiresApproval || inventoryIssues.length > 0 || priceOverrides.length > 0) && statusSelectionEnabled && (
             <section>
               {requiresApproval && (
                 <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-3">
@@ -327,7 +352,15 @@ export function OrderPreviewModal({
             disabled={submitting}
             className="rounded-md bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            {submitting ? 'Creating Order...' : selectedStatus === 'READY' ? 'Confirm & Create Order' : 'Save as Pending'}
+            {submitting
+              ? statusSelectionEnabled
+                ? 'Creating Order...'
+                : confirmLabel ?? 'Updating Order...'
+              : statusSelectionEnabled
+                ? selectedStatus === 'READY'
+                  ? 'Confirm & Create Order'
+                  : 'Save as Pending'
+                : confirmLabel ?? 'Update Order'}
           </button>
         </div>
       </div>

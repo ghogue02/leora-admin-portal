@@ -7,15 +7,14 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client';
 import { buildInvoiceData } from '@/lib/invoices/invoice-data-builder';
 import {
   getInvoiceTemplateSettings,
   resolveBaseTemplateComponent,
 } from '@/lib/invoices/template-settings';
 import { invokeSupabaseFunction } from '@/lib/supabase/functions';
-
-const prisma = new PrismaClient();
+import { generateInvoicePDF } from '@/lib/invoices/pdf-generator';
+import { prisma } from '@/lib/prisma';
 
 export const runtime = 'nodejs';
 
@@ -90,15 +89,34 @@ export async function GET(
       templateSettings,
     };
 
-    const response = await invokeSupabaseFunction<{ pdfBase64: string }>("invoice-pdf", {
-      pdfData,
-    });
+    const supabaseConfigured =
+      Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
+      Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY);
 
-    if (!response?.pdfBase64) {
-      throw new Error("Invoice PDF edge function returned no data");
+    let pdfBuffer: Buffer | null = null;
+
+    if (supabaseConfigured) {
+      try {
+        const response = await invokeSupabaseFunction<{ pdfBase64: string }>('invoice-pdf', {
+          pdfData,
+        });
+
+        if (!response?.pdfBase64) {
+          throw new Error('Invoice PDF edge function returned no data');
+        }
+
+        pdfBuffer = Buffer.from(response.pdfBase64, 'base64');
+      } catch (supabaseError) {
+        console.warn(
+          '[invoice pdf] Supabase function failed, falling back to local generator:',
+          supabaseError,
+        );
+      }
     }
 
-    const pdfBuffer = Buffer.from(response.pdfBase64, "base64");
+    if (!pdfBuffer) {
+      pdfBuffer = await generateInvoicePDF(pdfData, templateSettings);
+    }
 
     // Return PDF as download
     return new Response(pdfBuffer, {
@@ -118,8 +136,6 @@ export async function GET(
       },
       { status: 500 }
     );
-  } finally {
-    await prisma.$disconnect();
   }
 }
 

@@ -37,7 +37,7 @@ const UpdateStatusSchema = z.object({
 const VALID_TRANSITIONS: Record<OrderStatus, OrderStatus[]> = {
   DRAFT: ['PENDING', 'CANCELLED'],
   PENDING: ['READY_TO_DELIVER', 'CANCELLED'],
-  READY_TO_DELIVER: ['PICKED', 'CANCELLED'],
+  READY_TO_DELIVER: ['PICKED', 'CANCELLED', 'PENDING'],
   PICKED: ['DELIVERED', 'CANCELLED'],
   DELIVERED: [], // Terminal state
   SUBMITTED: ['READY_TO_DELIVER', 'FULFILLED', 'CANCELLED'], // Legacy support

@@ -19,7 +19,7 @@ import { ButtonWithLoading } from '@/components/ui/button-variants';
 import { ProductGrid } from '@/components/orders/ProductGrid';
 import { DeliveryDatePicker } from '@/components/orders/DeliveryDatePicker';
 import { WarehouseSelector } from '@/components/orders/WarehouseSelector';
-import { CustomerSearchCombobox } from '@/components/orders/CustomerSearchCombobox';
+import { CustomerSearchCombobox, type Customer } from '@/components/orders/CustomerSearchCombobox';
 import { OrderSummarySidebar } from '@/components/orders/OrderSummarySidebar';
 import { ValidationErrorSummary } from '@/components/orders/ValidationErrorSummary';
 import { OrderSuccessModal } from '@/components/orders/OrderSuccessModal';
@@ -30,22 +30,9 @@ import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
 import { formatCurrency, formatShortDate } from '@/lib/format';
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { formatDeliveryWindows } from '@/lib/delivery-window';
 import { useRecentItems } from './hooks/useRecentItems';
 import type { RecentPurchaseSuggestion } from '@/types/orders';
-
-type Customer = {
-  id: string;
-  name: string;
-  territory: string | null;
-  state: string | null;
-  accountNumber: string | null;
-  requiresPO: boolean;
-  defaultWarehouseLocation: string | null;
-  defaultDeliveryTimeWindow: string | null;
-  paymentTerms: string | null;
-  salesRepId: string | null;
-  salesRepName: string | null;
-};
 
 type InventoryStatus = {
   onHand: number;
@@ -101,6 +88,7 @@ function NewOrderPageContent() {
   const [deliveryTimeWindow, setDeliveryTimeWindow] = useState<string>('');
   const [poNumber, setPoNumber] = useState<string>('');
   const [specialInstructions, setSpecialInstructions] = useState<string>('');
+  const [customerDeliveryWindows, setCustomerDeliveryWindows] = useState<string[]>([]);
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
   const orderSkuIds = useMemo(() => new Set(orderItems.map((item) => item.skuId)), [orderItems]);
   const [deliveryFee, setDeliveryFee] = useState<number>(0);
@@ -252,7 +240,13 @@ function NewOrderPageContent() {
     }
     setWarehouseLocation(defaultWarehouse || 'Warrenton');
 
-    setDeliveryTimeWindow(customer.defaultDeliveryTimeWindow || 'anytime');
+    const formattedWindows = formatDeliveryWindows(customer.deliveryWindows);
+    setCustomerDeliveryWindows(formattedWindows);
+
+    const preferredWindow = formattedWindows[0] || customer.defaultDeliveryTimeWindow || 'anytime';
+    setDeliveryTimeWindow(preferredWindow || 'anytime');
+
+    setSpecialInstructions(customer.deliveryInstructions ?? '');
 
     // PHASE 2: Clear customer error when selected
     setFieldErrors(prev => {
@@ -297,6 +291,8 @@ function NewOrderPageContent() {
           paymentTerms: data.customer.paymentTerms ?? null,
           salesRepId: data.customer.salesRepId ?? data.customer.salesRep?.id ?? null,
           salesRepName: data.customer.salesRep?.user?.fullName ?? null,
+          deliveryInstructions: data.customer.deliveryInstructions ?? null,
+          deliveryWindows: Array.isArray(data.customer.deliveryWindows) ? data.customer.deliveryWindows : [],
         };
 
         handleCustomerSelect(customerData);
@@ -970,10 +966,21 @@ function NewOrderPageContent() {
                 onChange={(e) => setDeliveryTimeWindow(e.target.value)}
                 className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
               >
-                <option value="anytime">Anytime</option>
-                <option value="8am-12pm">Morning (8am - 12pm)</option>
-                <option value="12pm-5pm">Afternoon (12pm - 5pm)</option>
-                <option value="after-5pm">Evening (After 5pm)</option>
+                <optgroup label="Standard Windows">
+                  <option value="anytime">Anytime</option>
+                  <option value="8am-12pm">Morning (8am - 12pm)</option>
+                  <option value="12pm-5pm">Afternoon (12pm - 5pm)</option>
+                  <option value="after-5pm">Evening (After 5pm)</option>
+                </optgroup>
+                {customerDeliveryWindows.length > 0 && (
+                  <optgroup label="Customer Preferences">
+                    {customerDeliveryWindows.map((window) => (
+                      <option key={window} value={window}>
+                        {window}
+                      </option>
+                    ))}
+                  </optgroup>
+                )}
               </select>
             </div>
 
@@ -1410,6 +1417,8 @@ function NewOrderPageContent() {
           deliveryTimeWindow={deliveryTimeWindow}
           poNumber={poNumber}
           specialInstructions={specialInstructions}
+          customerDeliveryInstructions={selectedCustomer.deliveryInstructions ?? null}
+          customerDeliveryWindows={customerDeliveryWindows}
           items={orderItems}
           total={orderTotal}
           requiresApproval={requiresApproval}
@@ -1422,6 +1431,7 @@ function NewOrderPageContent() {
           onConfirm={handleConfirmSubmit}
           onCancel={() => setShowPreviewModal(false)}
           submitting={submitting}
+          statusSelectionEnabled
         />
       )}
 
@@ -1459,6 +1469,7 @@ function NewOrderPageContent() {
             setSelectedSalesRepName(loggedInSalesRepName ?? null);
             setFieldErrors({});
             setValidationErrors([]);
+            setCustomerDeliveryWindows([]);
           }}
         />
       )}

@@ -25,6 +25,7 @@ import { OrderSummarySidebar } from '@/components/orders/OrderSummarySidebar';
 import { OrderPreviewModal } from '@/components/orders/OrderPreviewModal';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { formatDeliveryWindows, type DeliveryWindow } from '@/lib/delivery-window';
 
 type Customer = {
   id: string;
@@ -36,6 +37,8 @@ type Customer = {
   defaultWarehouseLocation: string | null;
   defaultDeliveryTimeWindow: string | null;
   paymentTerms: string | null;
+  deliveryInstructions: string | null;
+  deliveryWindows: DeliveryWindow[];
 };
 
 type InventoryStatus = {
@@ -142,6 +145,8 @@ export default function EditOrderPage() {
           defaultWarehouseLocation: order.customer.defaultWarehouseLocation || null,
           defaultDeliveryTimeWindow: order.customer.defaultDeliveryTimeWindow || null,
           paymentTerms: order.customer.paymentTerms || null,
+          deliveryInstructions: order.customer.deliveryInstructions ?? null,
+          deliveryWindows: Array.isArray(order.customer.deliveryWindows) ? order.customer.deliveryWindows : [],
         });
 
         setDeliveryDate(order.deliveryDate ? new Date(order.deliveryDate).toISOString().split('T')[0] : '');
@@ -267,6 +272,10 @@ export default function EditOrderPage() {
 
   // Calculate order total
   const orderTotal = orderItems.reduce((sum, item) => sum + item.lineTotal, 0);
+  const customerPreferredWindows = useMemo(
+    () => formatDeliveryWindows(customer?.deliveryWindows ?? []),
+    [customer?.deliveryWindows]
+  );
 
   // Check if form is valid
   const isFormValid = useMemo(() => {
@@ -727,9 +736,13 @@ export default function EditOrderPage() {
           deliveryTimeWindow={deliveryTimeWindow}
           poNumber={poNumber}
           specialInstructions={specialInstructions}
+          customerDeliveryInstructions={customer.deliveryInstructions}
+          customerDeliveryWindows={customerPreferredWindows}
           items={orderItems}
           total={orderTotal}
           requiresApproval={false}
+          statusSelectionEnabled={false}
+          confirmLabel="Update Order"
           onConfirm={handleConfirmSubmit}
           onCancel={() => setShowPreviewModal(false)}
           submitting={submitting}

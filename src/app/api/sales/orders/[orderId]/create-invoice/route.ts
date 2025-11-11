@@ -12,6 +12,7 @@ import { createAuditLog } from '@/lib/audit-log';
 import { runWithTransaction } from '@/lib/prisma';
 import { InvoiceFormatType } from '@prisma/client';
 import { generateInvoiceNumber } from '@/lib/invoices/invoice-number-generator';
+import { calculateDueDate } from '@/lib/sage/payment-terms';
 
 type RouteParams = {
   params: Promise<{ orderId: string }>;
@@ -101,9 +102,20 @@ export async function POST(request: NextRequest, props: RouteParams) {
     } = body;
 
     // 6. Calculate due date (default 30 days)
-    const defaultDueDate = new Date();
-    defaultDueDate.setDate(defaultDueDate.getDate() + 30);
-    const invoiceDueDate = dueDate ? new Date(dueDate) : defaultDueDate;
+    const invoiceIssuedAt = new Date();
+    const customerPaymentTerms = order.customer?.paymentTerms || 'Net 30';
+    let computedDueDate = invoiceIssuedAt;
+    try {
+      computedDueDate = calculateDueDate(invoiceIssuedAt, customerPaymentTerms);
+    } catch (error) {
+      console.warn('Falling back to same-day due date for invoice', {
+        orderId,
+        customerPaymentTerms,
+        error,
+      });
+    }
+
+    const invoiceDueDate = dueDate ? new Date(dueDate) : computedDueDate;
 
     // 7. Generate invoice number using Travis's format
     // Format: [STATE][YY][00000]
@@ -142,12 +154,12 @@ export async function POST(request: NextRequest, props: RouteParams) {
           subtotal: order.total,
           total: order.total,
           dueDate: invoiceDueDate,
-          issuedAt: new Date(),
+          issuedAt: invoiceIssuedAt,
 
           // VA-specific fields
           invoiceFormatType: finalFormatType,
           salesperson: session.user.fullName,
-          paymentTermsText: order.customer?.paymentTerms || 'Net 30',
+          paymentTermsText: customerPaymentTerms,
           shippingMethod: shippingMethod || 'Hand deliver',
           shipDate: new Date(),
           specialInstructions,
