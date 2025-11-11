@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
 import { useCustomerRealtime } from "@/hooks/useCustomerRealtime";
 import { useQueryClient } from "@tanstack/react-query";
@@ -52,6 +53,7 @@ export default function CustomerDetailClient({
 }: {
   customerId: string;
 }) {
+  const router = useRouter();
   const { data, isLoading, error } = useCustomerDetail(customerId);
   const queryClient = useQueryClient();
   const fullHistorySectionId = "full-order-history";
@@ -90,6 +92,11 @@ export default function CustomerDetailClient({
       console.error("Failed to mark follow-up complete", err);
       alert("Could not mark item as completed. Please try again.");
     }
+  };
+
+  const handleAddOrderClick = () => {
+    const targetUrl = `/sales/orders/new?customerId=${encodeURIComponent(customerId)}`;
+    router.push(targetUrl);
   };
 
   if (error) {
@@ -162,6 +169,18 @@ export default function CustomerDetailClient({
 
       {/* Customer Header */}
       <CustomerHeader customer={data.customer} />
+
+      {/* Primary Actions */}
+      <div className="flex flex-wrap gap-3">
+        <button
+          type="button"
+          onClick={handleAddOrderClick}
+          className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        >
+          <span className="text-base">🛒</span>
+          Add Order
+        </button>
+      </div>
 
       {/* Customer To-Dos */}
       <CustomerTasks customerId={customerId} tasks={data.tasks} />

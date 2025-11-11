@@ -55,13 +55,6 @@ export default function QuickActions({
     setIsSavingToDo(false);
   };
 
-  const handleAddOrder = () => {
-    const targetUrl = customerId
-      ? `/sales/orders/new?customerId=${encodeURIComponent(customerId)}`
-      : "/sales/orders/new";
-    router.push(targetUrl);
-  };
-
   const handleCreateToDo = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!todoTitle.trim()) {
@@ -165,14 +158,6 @@ export default function QuickActions({
             label="Log Activity"
           />
         </div>
-
-        <button
-          onClick={handleAddOrder}
-          className="flex items-center justify-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-semibold text-green-700 transition hover:bg-green-100"
-        >
-          <span className="text-lg">🛒</span>
-          Add Order
-        </button>
 
         <Dialog
           open={isDialogOpen}
