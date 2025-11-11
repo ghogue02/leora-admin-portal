@@ -47,6 +47,7 @@ export default function InsightsView({
           accountPulse={accountPulse}
           coverage={customerCoverage}
           portfolio={portfolioHealth}
+          customers={customerReportRows}
         />
       )}
 
@@ -62,7 +63,9 @@ export default function InsightsView({
         <TargetPipelinePanel metrics={targetPipeline} />
       )}
 
-      {isSectionEnabled("cold-leads") && <ColdLeadsPanel coldLeads={coldLeads} />}
+      {isSectionEnabled("cold-leads") && (
+        <ColdLeadsPanel coldLeads={coldLeads} customers={customerReportRows} />
+      )}
     </>
   );
 }

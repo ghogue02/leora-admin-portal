@@ -16,7 +16,7 @@ const salesReps = [
   {
     name: 'Travis Vernon',
     email: 'travis.vernon@wellcrafted.com',
-    territory: 'Multi-State (VA, TX, IA, IL, CO, NC, DC, MD, DE)',
+    territory: 'House Accounts',
     weeklyQuota: 17000,
     monthlyQuota: 68000,
     deliveryDay: 'Tuesday',
@@ -24,7 +24,7 @@ const salesReps = [
   {
     name: 'Angela Fultz',
     email: 'angela.fultz@wellcrafted.com',
-    territory: 'Virginia',
+    territory: 'Hampton Roads',
     weeklyQuota: 15000,
     monthlyQuota: 60000,
     deliveryDay: 'Wednesday',
@@ -32,7 +32,7 @@ const salesReps = [
   {
     name: 'Rosa-Anna Winchell',
     email: 'rosa.winchell@wellcrafted.com',
-    territory: 'Central Virginia',
+    territory: 'Richmond, Charlottesville, & Fredericksburg',
     weeklyQuota: 19000,
     monthlyQuota: 76000,
     deliveryDay: 'Thursday',
@@ -40,7 +40,7 @@ const salesReps = [
   {
     name: 'Ebony Booth',
     email: 'ebony.booth@wellcrafted.com',
-    territory: 'DC Metro (DC, MD, VA)',
+    territory: 'DC & Eastern MD',
     weeklyQuota: 19000,
     monthlyQuota: 76000,
     deliveryDay: 'Thursday',
@@ -48,7 +48,7 @@ const salesReps = [
   {
     name: 'Jose Bustillo',
     email: 'jose.bustillo@wellcrafted.com',
-    territory: 'Maryland',
+    territory: 'Baltimore & Frederick',
     weeklyQuota: 14000,
     monthlyQuota: 56000,
     deliveryDay: 'Monday',
@@ -56,7 +56,7 @@ const salesReps = [
   {
     name: 'Mike Allen',
     email: 'mike.allen@wellcrafted.com',
-    territory: 'Northern Virginia',
+    territory: 'Eastern NoVA',
     weeklyQuota: 15000,
     monthlyQuota: 60000,
     deliveryDay: 'Tuesday',
@@ -64,7 +64,7 @@ const salesReps = [
   {
     name: 'Jared Lorenz',
     email: 'jared.lorenz@wellcrafted.com',
-    territory: 'Northern Virginia',
+    territory: 'Western NoVA',
     weeklyQuota: 7500,
     monthlyQuota: 30000,
     deliveryDay: 'Friday',
@@ -72,10 +72,34 @@ const salesReps = [
   {
     name: 'Nicole Shenandoah',
     email: 'nicole.shenandoah@wellcrafted.com',
-    territory: 'Shenandoah Valley',
+    territory: 'Southwest VA',
     weeklyQuota: 10000,
     monthlyQuota: 40000,
     deliveryDay: 'Tuesday',
+  },
+  {
+    name: 'Kelly Neel',
+    email: 'kelly@wellcraftedbeverage.com',
+    territory: 'Select MD',
+    weeklyQuota: 12000,
+    monthlyQuota: 48000,
+    deliveryDay: 'Wednesday',
+  },
+  {
+    name: 'Carolyn Vernon',
+    email: 'carolyn@wellcraftedbeverage.com',
+    territory: 'House Accounts',
+    weeklyQuota: 10000,
+    monthlyQuota: 40000,
+    deliveryDay: 'Thursday',
+  },
+  {
+    name: 'Josh Barbour',
+    email: 'josh@wellcraftedbeverage.com',
+    territory: 'Sales Manager',
+    weeklyQuota: 0,
+    monthlyQuota: 0,
+    deliveryDay: 'Monday',
   },
 ];
 
@@ -138,13 +162,16 @@ async function main() {
   console.log('📊 Assigning Customers to Sales Reps...\n');
 
   const assignments = [
-    { repName: 'Travis Vernon', states: ['TX', 'IA', 'IL', 'CO', 'NC', 'DE'] },
-    { repName: 'Angela Fultz', states: ['VA'], cityPattern: '%beach%' },
-    { repName: 'Rosa-Anna Winchell', states: ['VA'], cityPattern: '%richmond%' },
-    { repName: 'Ebony Booth', states: ['DC', 'MD'] },
-    { repName: 'Jose Bustillo', states: ['MD'] },
-    { repName: 'Mike Allen', states: ['VA'], cityPattern: '%arlington%' },
-    { repName: 'Jared Lorenz', states: ['VA'], cityPattern: '%falls%' },
+    { repName: 'Travis Vernon', territories: ['House Accounts'] },
+    { repName: 'Angela Fultz', territories: ['Hampton Roads'] },
+    { repName: 'Rosa-Anna Winchell', territories: ['Richmond, Charlottesville, & Fredericksburg'] },
+    { repName: 'Ebony Booth', territories: ['DC & Eastern MD'] },
+    { repName: 'Jose Bustillo', territories: ['Baltimore & Frederick'] },
+    { repName: 'Mike Allen', territories: ['Eastern NoVA'] },
+    { repName: 'Jared Lorenz', territories: ['Western NoVA'] },
+    { repName: 'Nicole Shenandoah', territories: ['Southwest VA'] },
+    { repName: 'Kelly Neel', territories: ['Select MD'] },
+    { repName: 'Carolyn Vernon', territories: ['House Accounts'] },
   ];
 
   let customersAssigned = 0;
@@ -156,18 +183,22 @@ async function main() {
     const { error } = await supabase
       .from('customer')
       .update({ salesrepid: repId })
-      .in('state', assignment.states)
+      .eq('tenantid', TENANT_ID)
+      .in('territoryname', assignment.territories)
       .is('salesrepid', null);
 
-    if (!error) {
-      const { count } = await supabase
-        .from('customer')
-        .select('*', { count: 'exact', head: true })
-        .eq('salesrepid', repId);
-
-      customersAssigned += count || 0;
-      console.log(`  ${assignment.repName}: ${count} customers assigned`);
+    if (error) {
+      console.log(`  ⚠️ Failed to auto-assign ${assignment.repName}: ${error.message}`);
+      continue;
     }
+
+    const { count } = await supabase
+      .from('customer')
+      .select('*', { count: 'exact', head: true })
+      .eq('salesrepid', repId);
+
+    customersAssigned += count || 0;
+    console.log(`  ${assignment.repName}: ${count ?? 0} customers assigned`);
   }
 
   console.log(`\n✅ Total customers assigned: ${customersAssigned}\n`);

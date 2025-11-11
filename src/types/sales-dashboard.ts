@@ -49,9 +49,14 @@ export type TargetPipelineMetrics = {
 };
 
 export type ColdLeadsOverview = {
-  count: number;
+  minimallyServicedCount: number;
+  coldLeadCount: number;
   dormantToColdCount: number;
-  sample: Array<{ id: string; name: string }>;
+  sample: Array<{
+    id: string;
+    name: string;
+    bucket: "MINIMALLY_SERVICED" | "COLD_LEAD" | "DORMANT_TO_COLD";
+  }>;
 };
 
 export type AccountPulse = {
@@ -74,6 +79,8 @@ export type CustomerReportRow = {
   last60Revenue: number;
   lastOrderDate: string | null;
   daysSinceLastOrder: number | null;
+  lastActivityAt: string | null;
+  daysSinceLastActivity: number | null;
   isDormant: boolean;
   targetStartDate: string | null;
   firstOrderDate: string | null;

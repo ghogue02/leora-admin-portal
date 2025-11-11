@@ -46,13 +46,12 @@ export default function LogActivityModal({
   contextLabel,
 }: LogActivityModalProps) {
   const queryClient = useQueryClient();
-  const [customers, setCustomers] = useState<Customer[]>([]);
-  const [customerSearch, setCustomerSearch] = useState("");
   const [activityTypes, setActivityTypes] = useState<ActivityType[]>([]);
   const [loading, setLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showToast, setShowToast] = useState(false);
+  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
   // Voice-to-text state
   const [isRecording, setIsRecording] = useState(false);
@@ -126,22 +125,13 @@ export default function LogActivityModal({
     };
   }, []);
 
-  // Load initial data
+  // Load activity types
   useEffect(() => {
     if (isOpen) {
       const loadData = async () => {
         setLoading(true);
         try {
-          const [customersRes, typesRes] = await Promise.all([
-            fetch("/api/sales/customers?pageSize=1000"),
-            fetch("/api/sales/activity-types"),
-          ]);
-
-          if (customersRes.ok) {
-            const data = await customersRes.json();
-            setCustomers(data.customers || []);
-          }
-
+          const typesRes = await fetch("/api/sales/activity-types");
           if (typesRes.ok) {
             const data = await typesRes.json();
             setActivityTypes(data.activityTypes || []);

@@ -29,6 +29,8 @@ export type CustomerHealthReportRow = {
   last60Revenue: number;
   lastOrderDate: string | null;
   daysSinceLastOrder: number | null;
+  lastActivityAt: string | null;
+  daysSinceLastActivity: number | null;
   isDormant: boolean;
   targetStartDate: string | null;
   firstOrderDate: string | null;
@@ -73,9 +75,14 @@ export type CustomerHealthSnapshot = {
     ttfoKmMedianDays: number | null;
   };
   coldLeads: {
-    count: number;
+    minimallyServicedCount: number;
+    coldLeadCount: number;
     dormantToColdCount: number;
-    sample: Array<{ id: string; name: string }>;
+    sample: Array<{
+      id: string;
+      name: string;
+      bucket: "MINIMALLY_SERVICED" | "COLD_LEAD" | "DORMANT_TO_COLD";
+    }>;
   };
   accountPulse: {
     direction: "UP" | "FLAT" | "DOWN";
@@ -151,7 +158,14 @@ export async function buildCustomerHealthSnapshot({
     .filter((customer) => customer.accountType === "TARGET" || customer.accountType === "PROSPECT")
     .map((customer) => customer.id);
 
-  const [ttmRevenueRows, last90Rows, last60Rows, targetFirstOrderRows, targetActivities, coldLeadActivities] = assignedIds.length
+  const [
+    ttmRevenueRows,
+    last90Rows,
+    last60Rows,
+    targetFirstOrderRows,
+    targetActivities,
+    latestActivityRows,
+  ] = assignedIds.length
     ? await Promise.all([
         db.order.groupBy({
           by: ["customerId"],
@@ -240,6 +254,19 @@ export async function buildCustomerHealthSnapshot({
               },
             })
           : Promise.resolve([]),
+        assignedIds.length
+          ? db.activity.groupBy({
+              by: ["customerId"],
+              where: {
+                tenantId,
+                customerId: { in: assignedIds },
+                userId,
+              },
+              _max: {
+                occurredAt: true,
+              },
+            })
+          : Promise.resolve([]),
       ])
     : [[], [], [], [], [], []];
 
@@ -270,7 +297,13 @@ export async function buildCustomerHealthSnapshot({
     }
   }
 
-  const recentActivitySet = new Set<string>((coldLeadActivities as Array<{ customerId: string }>).map((activity) => activity.customerId));
+  const lastActivityMap = new Map<string, Date>();
+  for (const row of latestActivityRows as Array<{ customerId: string; _max?: { occurredAt: Date | null } }>) {
+    const occurredAt = row._max?.occurredAt;
+    if (occurredAt) {
+      lastActivityMap.set(row.customerId, occurredAt);
+    }
+  }
 
   const reportRows: CustomerHealthReportRow[] = [];
 
@@ -307,6 +340,9 @@ export async function buildCustomerHealthSnapshot({
     const assignmentStart = customer.assignments[0]?.assignedAt ?? customer.createdAt;
     const firstOrder = firstOrderMap.get(customer.id) ?? null;
     const ttfoDays = assignmentStart && firstOrder ? Math.max(0, differenceInCalendarDays(firstOrder, assignmentStart)) : null;
+    const lastActivityDate = lastActivityMap.get(customer.id) ?? null;
+    const daysSinceLastActivity = lastActivityDate ? differenceInCalendarDays(now, lastActivityDate) : null;
+    const daysSinceLastOrder = lastOrderDate ? differenceInCalendarDays(now, lastOrderDate) : null;
 
     reportRows.push({
       customerId: customer.id,
@@ -318,7 +354,9 @@ export async function buildCustomerHealthSnapshot({
       last90Revenue: last90,
       last60Revenue: last60,
       lastOrderDate: lastOrderDate ? lastOrderDate.toISOString() : null,
-      daysSinceLastOrder: lastOrderDate ? differenceInCalendarDays(now, lastOrderDate) : null,
+      daysSinceLastOrder,
+      lastActivityAt: lastActivityDate ? lastActivityDate.toISOString() : null,
+      daysSinceLastActivity,
       isDormant,
       targetStartDate: assignmentStart ? assignmentStart.toISOString() : null,
       firstOrderDate: firstOrder ? firstOrder.toISOString() : null,
@@ -364,8 +402,29 @@ export async function buildCustomerHealthSnapshot({
     })),
   });
 
-  const healthyCount = bucketCounts.GROWING + bucketCounts.FLAT;
-  const immediateAttentionCount = bucketCounts.SHRINKING + bucketCounts.DORMANT;
+  const keyAccountRows = reportRows.filter((row) => row.accountType === "ACTIVE" || row.accountType === "TARGET");
+  const keyAccountCount = keyAccountRows.length;
+  const recentOrderRows = keyAccountRows.filter(
+    (row) => row.daysSinceLastOrder !== null && row.daysSinceLastOrder <= 45,
+  );
+  const needsAttentionRows = keyAccountRows.filter(
+    (row) => row.daysSinceLastOrder === null || row.daysSinceLastOrder > 45,
+  );
+  const minimallyServicedRows = reportRows.filter(
+    (row) => row.accountType === "ACTIVE" && (row.daysSinceLastActivity === null || row.daysSinceLastActivity > 30),
+  );
+  const coldLeadRows = reportRows.filter(
+    (row) => row.accountType === "TARGET" && (row.daysSinceLastActivity === null || row.daysSinceLastActivity > 60),
+  );
+  const dormantToColdRows = reportRows.filter(
+    (row) =>
+      row.classification === "DORMANT" &&
+      (row.daysSinceLastOrder === null || row.daysSinceLastOrder > 365) &&
+      (row.daysSinceLastActivity === null || row.daysSinceLastActivity > 365),
+  );
+
+  const healthyCount = recentOrderRows.length;
+  const immediateAttentionCount = needsAttentionRows.length;
 
   const targetAssignments = targetCustomers.map((customer) => ({
     id: customer.id,
@@ -390,21 +449,6 @@ export async function buildCustomerHealthSnapshot({
     }
     ttfoObservations.push({ time: days, event: Boolean(entry.firstOrderDate) });
   }
-
-  const coldLeads = assignedCustomers.filter((customer) => {
-    if (customer.accountType !== "TARGET" && customer.accountType !== "PROSPECT") {
-      return false;
-    }
-    if (recentActivitySet.has(customer.id)) {
-      return false;
-    }
-    if (!customer.lastOrderDate) {
-      return true;
-    }
-    return customer.lastOrderDate < lookback730;
-  });
-
-  const dormantToColdCount = coldLeads.filter((customer) => Boolean(customer.lastOrderDate)).length;
 
   const bookTtm = reportRows.reduce((sum, row) => sum + row.trailingTwelveRevenue, 0);
   const bookLast60 = reportRows.reduce((sum, row) => sum + row.last60Revenue, 0);
@@ -435,13 +479,7 @@ export async function buildCustomerHealthSnapshot({
       active: activeCount,
       targets: targetCustomers.length,
       prospects: prospectCustomers.length,
-      unassigned: await db.customer.count({
-        where: {
-          tenantId,
-          salesRepId: null,
-          isPermanentlyClosed: false,
-        },
-      }),
+      unassigned: 0,
     },
     signals: {
       buckets,
@@ -452,12 +490,12 @@ export async function buildCustomerHealthSnapshot({
     },
     portfolio: {
       healthyCount,
-      healthyPercent: activeCount ? (healthyCount / activeCount) * 100 : 0,
+      healthyPercent: keyAccountCount ? (healthyCount / keyAccountCount) * 100 : 0,
       immediateAttentionCount,
-      immediateAttentionPercent: activeCount ? (immediateAttentionCount / activeCount) * 100 : 0,
+      immediateAttentionPercent: keyAccountCount ? (immediateAttentionCount / keyAccountCount) * 100 : 0,
       downCount: bucketCounts.SHRINKING,
       dormantCount: bucketCounts.DORMANT,
-      totalActive: activeCount,
+      totalActive: keyAccountCount,
       weightedScore: portfolioScores.weightedScore,
       unweightedScore: portfolioScores.unweightedScore,
     },
@@ -472,9 +510,26 @@ export async function buildCustomerHealthSnapshot({
       ttfoKmMedianDays: calculateKaplanMeierMedian(ttfoObservations),
     },
     coldLeads: {
-      count: coldLeads.length,
-      dormantToColdCount,
-      sample: coldLeads.slice(0, 5).map((customer) => ({ id: customer.id, name: customer.name })),
+      minimallyServicedCount: minimallyServicedRows.length,
+      coldLeadCount: coldLeadRows.length,
+      dormantToColdCount: dormantToColdRows.length,
+      sample: [
+        ...minimallyServicedRows.slice(0, 3).map((row) => ({
+          id: row.customerId,
+          name: row.name,
+          bucket: "MINIMALLY_SERVICED" as const,
+        })),
+        ...coldLeadRows.slice(0, 3).map((row) => ({
+          id: row.customerId,
+          name: row.name,
+          bucket: "COLD_LEAD" as const,
+        })),
+        ...dormantToColdRows.slice(0, 3).map((row) => ({
+          id: row.customerId,
+          name: row.name,
+          bucket: "DORMANT_TO_COLD" as const,
+        })),
+      ],
     },
     accountPulse: {
       direction,
