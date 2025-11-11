@@ -149,12 +149,6 @@ export default function LogActivityModal({
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (!isOpen) {
-      setCustomerSearch("");
-    }
-  }, [isOpen]);
-
   // Auto-generate subject when fields change
   useEffect(() => {
     if (
