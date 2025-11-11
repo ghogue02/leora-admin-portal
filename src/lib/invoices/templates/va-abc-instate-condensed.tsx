@@ -210,6 +210,8 @@ const DEFAULT_SECTIONS = {
   showBillTo: true,
   showShipTo: true,
   showCustomerInfo: true,
+  showDeliveryInfo: true,
+  showDistributorInfo: true,
   showTotals: true,
   showSignature: true,
   showComplianceNotice: true,
@@ -343,6 +345,63 @@ function renderCustomerSection(
           )}
           {data.paymentTermsText && (
             <Text style={styles.customerAddress}>Terms: {data.paymentTermsText}</Text>
+          )}
+          {data.customerDeliveryWindows?.length ? (
+            <Text style={styles.customerAddress}>
+              Preferred Windows: {data.customerDeliveryWindows.join(', ')}
+            </Text>
+          ) : null}
+          {data.specialInstructions && (
+            <Text style={styles.customerAddress}>Order Notes: {data.specialInstructions}</Text>
+          )}
+        </>
+      );
+    case 'deliveryInfo':
+      return (
+        <>
+          <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Delivery</Text>
+          {data.orderDeliveryDate && (
+            <Text style={styles.customerAddress}>
+              Delivery Date: {formatShortDate(data.orderDeliveryDate)}
+            </Text>
+          )}
+          {data.orderDeliveryTimeWindow && (
+            <Text style={styles.customerAddress}>
+              Window: {data.orderDeliveryTimeWindow}
+            </Text>
+          )}
+          {!data.orderDeliveryTimeWindow && data.customerDeliveryWindows?.length ? (
+            <Text style={styles.customerAddress}>
+              Preferred Windows: {data.customerDeliveryWindows.join(', ')}
+            </Text>
+          ) : null}
+          {data.orderWarehouseLocation && (
+            <Text style={styles.customerAddress}>
+              Warehouse: {data.orderWarehouseLocation}
+            </Text>
+          )}
+          {data.customerDeliveryInstructions && (
+            <Text style={styles.customerAddress}>
+              Instructions: {data.customerDeliveryInstructions}
+            </Text>
+          )}
+        </>
+      );
+    case 'distributorInfo':
+      return (
+        <>
+          <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Distributor Info</Text>
+          <Text style={styles.customerAddress}>{data.tenantName}</Text>
+          {data.wholesalerLicenseNumber && (
+            <Text style={styles.customerAddress}>License #: {data.wholesalerLicenseNumber}</Text>
+          )}
+          {data.wholesalerPhone && (
+            <Text style={styles.customerAddress}>Phone: {data.wholesalerPhone}</Text>
+          )}
+          {data.templateSettings?.options?.companyWebsite && (
+            <Text style={styles.customerAddress}>
+              Website: {data.templateSettings.options.companyWebsite}
+            </Text>
           )}
         </>
       );
@@ -478,12 +537,6 @@ export const VAAbcInstateInvoiceCondensed: React.FC<VAAbcInstateInvoiceProps> = 
             </View>
           )}
         </View>
-
-        {sectionBuckets.fullWidth.map((sectionKey) => (
-          <View key={sectionKey} style={styles.orderDetails}>
-            {renderCustomerSection(sectionKey, data)}
-          </View>
-        ))}
 
         {renderNotesBlock(headerNotes.beforeTable)}
 

@@ -94,6 +94,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 3,
   },
+  orderDetailsColumns: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  orderDetailsColumn: {
+    flex: 1,
+  },
+  orderDetailsColumnSpacing: {
+    marginRight: 18,
+  },
   detailLabel: {
     width: 120,
     fontSize: 9,
@@ -158,6 +168,8 @@ const DEFAULT_SECTIONS = {
   showBillTo: true,
   showShipTo: true,
   showCustomerInfo: true,
+  showDeliveryInfo: true,
+  showDistributorInfo: true,
   showTotals: true,
   showSignature: true,
   showComplianceNotice: true,
@@ -277,58 +289,175 @@ function renderCustomerSection(
           </Text>
         </>
       );
-    case 'customerInfo':
+    case 'customerInfo': {
+      const detailItems: Array<{ label: string; value: string }> = [
+        { label: 'Invoice #:', value: data.invoiceNumber || 'N/A' },
+        {
+          label: 'Invoice Date:',
+          value: data.issuedAt ? formatShortDate(data.issuedAt) : 'N/A',
+        },
+        {
+          label: 'Due Date:',
+          value: data.dueDate ? formatShortDate(data.dueDate) : 'N/A',
+        },
+        {
+          label: 'Ship Date:',
+          value: formatShortDate(data.shipDate || data.issuedAt),
+        },
+      ];
+
+      if (data.paymentTermsText) {
+        detailItems.push({ label: 'Terms:', value: data.paymentTermsText });
+      }
+      if (data.shippingMethod) {
+        detailItems.push({ label: 'Ship Method:', value: data.shippingMethod });
+      }
+      if (data.customerDeliveryWindows?.length) {
+        detailItems.push({ label: 'Preferred Windows:', value: data.customerDeliveryWindows.join(', ') });
+      }
+      if (data.specialInstructions) {
+        detailItems.push({ label: 'Order Notes:', value: data.specialInstructions });
+      }
+      if (data.poNumber) {
+        detailItems.push({ label: 'PO Number:', value: data.poNumber });
+      }
+      if (data.salesperson) {
+        detailItems.push({ label: 'Salesperson:', value: data.salesperson });
+      }
+
+      const midpoint = Math.ceil(detailItems.length / 2);
+      const firstColumn = detailItems.slice(0, midpoint);
+      const secondColumn = detailItems.slice(midpoint);
+
       return (
         <>
           <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Order Details</Text>
-          <View style={styles.detailRow}>
-            <Text style={styles.detailLabel}>Invoice #:</Text>
-            <Text style={styles.detailValue}>{data.invoiceNumber}</Text>
+          <View style={styles.orderDetailsColumns}>
+            <View
+              style={[
+                styles.orderDetailsColumn,
+                secondColumn.length > 0 ? styles.orderDetailsColumnSpacing : undefined,
+              ]}
+            >
+              {firstColumn.map((detail) => (
+                <View key={detail.label} style={styles.detailRow}>
+                  <Text style={styles.detailLabel}>{detail.label}</Text>
+                  <Text style={styles.detailValue}>{detail.value}</Text>
+                </View>
+              ))}
+            </View>
+            {secondColumn.length > 0 && (
+              <View style={styles.orderDetailsColumn}>
+                {secondColumn.map((detail) => (
+                  <View key={detail.label} style={styles.detailRow}>
+                    <Text style={styles.detailLabel}>{detail.label}</Text>
+                    <Text style={styles.detailValue}>{detail.value}</Text>
+                  </View>
+                ))}
+              </View>
+            )}
           </View>
-          <View style={styles.detailRow}>
-            <Text style={styles.detailLabel}>Invoice Date:</Text>
-            <Text style={styles.detailValue}>{formatShortDate(data.issuedAt)}</Text>
-          </View>
-          <View style={styles.detailRow}>
-            <Text style={styles.detailLabel}>Due Date:</Text>
-            <Text style={styles.detailValue}>{formatShortDate(data.dueDate)}</Text>
-          </View>
-          <View style={styles.detailRow}>
-            <Text style={styles.detailLabel}>Ship Date:</Text>
-            <Text style={styles.detailValue}>{formatShortDate(data.shipDate || data.issuedAt)}</Text>
-          </View>
-          {data.paymentTermsText && (
-            <View style={styles.detailRow}>
-              <Text style={styles.detailLabel}>Terms:</Text>
-              <Text style={styles.detailValue}>{data.paymentTermsText}</Text>
-            </View>
-          )}
-          {data.shippingMethod && (
-            <View style={styles.detailRow}>
-              <Text style={styles.detailLabel}>Ship Method:</Text>
-              <Text style={styles.detailValue}>{data.shippingMethod}</Text>
-            </View>
-          )}
-          {data.specialInstructions && (
-            <View style={styles.detailRow}>
-              <Text style={styles.detailLabel}>Instructions:</Text>
-              <Text style={styles.detailValue}>{data.specialInstructions}</Text>
-            </View>
-          )}
-          {data.poNumber && (
-            <View style={styles.detailRow}>
-              <Text style={styles.detailLabel}>PO Number:</Text>
-              <Text style={styles.detailValue}>{data.poNumber}</Text>
-            </View>
-          )}
-          {data.salesperson && (
-            <View style={styles.detailRow}>
-              <Text style={styles.detailLabel}>Salesperson:</Text>
-              <Text style={styles.detailValue}>{data.salesperson}</Text>
-            </View>
-          )}
         </>
       );
+    }
+    case 'deliveryInfo': {
+      const detailItems: Array<{ label: string; value: string }> = [];
+
+      if (data.orderDeliveryDate) {
+        detailItems.push({
+          label: 'Delivery Date:',
+          value: formatShortDate(data.orderDeliveryDate),
+        });
+      }
+      if (data.orderDeliveryTimeWindow) {
+        detailItems.push({
+          label: 'Delivery Window:',
+          value: data.orderDeliveryTimeWindow,
+        });
+      } else if (data.customerDeliveryWindows?.length) {
+        detailItems.push({
+          label: 'Preferred Windows:',
+          value: data.customerDeliveryWindows.join(', '),
+        });
+      }
+      if (data.orderWarehouseLocation) {
+        detailItems.push({
+          label: 'Warehouse:',
+          value: data.orderWarehouseLocation,
+        });
+      }
+      if (data.customerDeliveryInstructions) {
+        detailItems.push({
+          label: 'Instructions:',
+          value: data.customerDeliveryInstructions,
+        });
+      }
+      if (!detailItems.length) {
+        detailItems.push({
+          label: 'Delivery Status:',
+          value: 'Scheduling pending',
+        });
+      }
+
+      return (
+        <>
+          <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Delivery Details</Text>
+          {detailItems.map((detail) => (
+            <View key={detail.label} style={styles.detailRow}>
+              <Text style={styles.detailLabel}>{detail.label}</Text>
+              <Text style={styles.detailValue}>{detail.value}</Text>
+            </View>
+          ))}
+        </>
+      );
+    }
+    case 'distributorInfo': {
+      const detailItems: Array<{ label: string; value: string }> = [
+        { label: 'Distributor:', value: data.tenantName },
+      ];
+
+      if (data.wholesalerLicenseNumber) {
+        detailItems.push({
+          label: 'License #:',
+          value: data.wholesalerLicenseNumber,
+        });
+      }
+      if (data.wholesalerPhone) {
+        detailItems.push({
+          label: 'Phone:',
+          value: data.wholesalerPhone,
+        });
+      }
+      const companyWebsite = data.templateSettings?.options?.companyWebsite;
+      if (companyWebsite) {
+        detailItems.push({
+          label: 'Website:',
+          value: companyWebsite,
+        });
+      }
+
+      const contactLines = data.templateSettings?.options?.companyContactLines ?? [];
+      contactLines
+        .filter((line): line is string => Boolean(line && line.trim().length))
+        .forEach((line, index) => {
+          detailItems.push({
+            label: index === 0 ? 'Contact:' : '',
+            value: line,
+          });
+        });
+
+      return (
+        <>
+          <Text style={[styles.columnHeader, columnHeaderBackgroundStyle]}>Distributor Info</Text>
+          {detailItems.map((detail, index) => (
+            <View key={`${detail.label}-${detail.value}-${index}`} style={styles.detailRow}>
+              {detail.label ? <Text style={styles.detailLabel}>{detail.label}</Text> : <Text style={styles.detailLabel} />}
+              <Text style={styles.detailValue}>{detail.value}</Text>
+            </View>
+          ))}
+        </>
+      );
+    }
     default:
       return null;
   }
@@ -456,12 +585,6 @@ export const VAAbcInstateInvoice: React.FC<VAAbcInstateInvoiceProps> = ({ data }
             </View>
           )}
         </View>
-
-        {sectionBuckets.fullWidth.map((sectionKey) => (
-          <View key={sectionKey} style={styles.orderDetails}>
-            {renderCustomerSection(sectionKey, data)}
-          </View>
-        ))}
 
         {renderNotesBlock(headerNotes.beforeTable)}
 

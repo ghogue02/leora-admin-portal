@@ -21,7 +21,7 @@ type BaseTemplate = "STANDARD" | "VA_ABC_INSTATE_FULL" | "VA_ABC_INSTATE_CONDENS
 type SignatureStyle = "full" | "condensed";
 type ColumnAlign = "left" | "center" | "right";
 type SectionArea = "headerLeft" | "headerRight" | "fullWidth";
-type TemplateSectionKey = "billTo" | "shipTo" | "customerInfo";
+type TemplateSectionKey = "billTo" | "shipTo" | "customerInfo" | "deliveryInfo" | "distributorInfo";
 type BodyBlockId = "totals" | "signature" | "compliance";
 
 interface TemplateSectionPlacement {
@@ -68,6 +68,8 @@ interface TemplateSections {
   showBillTo: boolean;
   showShipTo: boolean;
   showCustomerInfo: boolean;
+  showDeliveryInfo: boolean;
+  showDistributorInfo: boolean;
   showTotals: boolean;
   showSignature: boolean;
   showComplianceNotice: boolean;
@@ -121,6 +123,14 @@ const SECTION_METADATA: Record<TemplateSectionKey, { label: string; description:
     label: "Order Details",
     description: "Invoice dates, PO, salesperson, and logistics",
   },
+  deliveryInfo: {
+    label: "Delivery Details",
+    description: "Scheduled drop windows, warehouse, and instructions",
+  },
+  distributorInfo: {
+    label: "Distributor Info",
+    description: "Your license number, phone, and remit-to contact",
+  },
 };
 
 const BODY_BLOCK_METADATA: Record<BodyBlockId, { label: string; description: string }> = {
@@ -145,12 +155,12 @@ const BODY_BLOCK_VISIBILITY_FIELDS: Record<BodyBlockId, keyof TemplateSections> 
 };
 
 const AREA_LABELS: Record<SectionArea, string> = {
-  headerLeft: "Left Column",
-  headerRight: "Right Column",
-  fullWidth: "Full Width Row",
+  headerLeft: "Column 1 (Left)",
+  headerRight: "Column 2 (Right)",
+  fullWidth: "Unused",
 };
 
-const SECTION_KEYS: TemplateSectionKey[] = ["billTo", "shipTo", "customerInfo"];
+const SECTION_KEYS: TemplateSectionKey[] = ["billTo", "shipTo", "customerInfo", "deliveryInfo", "distributorInfo"];
 const SECTION_AREAS: SectionArea[] = ["headerLeft", "headerRight", "fullWidth"];
 const TEMPLATE_BODY_BLOCK_IDS: BodyBlockId[] = ["totals", "signature", "compliance"];
 const DEFAULT_BODY_BLOCKS: BodyBlockConfig[] = TEMPLATE_BODY_BLOCK_IDS.map((id, index) => ({
@@ -217,6 +227,8 @@ const SECTION_LABELS: Record<keyof TemplateSections, { label: string; descriptio
   showBillTo: { label: "Bill To" },
   showShipTo: { label: "Ship To" },
   showCustomerInfo: { label: "Invoice details" },
+  showDeliveryInfo: { label: "Delivery details", description: "Delivery window, warehouse, instructions" },
+  showDistributorInfo: { label: "Distributor info", description: "License, phone, and remit-to contact" },
   showTotals: { label: "Totals block" },
   showSignature: { label: "Signature block" },
   showComplianceNotice: { label: "Compliance notice" },
@@ -410,6 +422,11 @@ export function TemplateSettingsManager() {
         [section]: value,
       },
     }));
+  };
+
+  const handleRemoveSection = (section: TemplateSectionKey) => {
+    const field = SECTION_VISIBILITY_FIELDS[section] as keyof TemplateSections;
+    handleSectionToggle(field, false);
   };
 
   const handleColumnChange = (index: number, changes: Partial<Omit<TemplateColumn, "id">>) => {
@@ -1080,7 +1097,7 @@ export function TemplateSettingsManager() {
           <div>
             <h3 className="font-medium text-gray-900">Visual Layout (WYSIWYG)</h3>
             <p className="text-xs text-muted-foreground">
-              Drag the section cards between columns or into the full-width row. The live preview on the right updates instantly.
+              Drag section cards between Column 1 and Column 2. Use the remove icon on a card to tuck it away—flip the toggle above to bring it back.
             </p>
           </div>
         </div>
@@ -1090,6 +1107,7 @@ export function TemplateSettingsManager() {
             placements={sectionPlacementBuckets}
             sections={currentSettings.layout.sections}
             onMove={handleSectionPlacementChange}
+            onRemove={handleRemoveSection}
           />
         </div>
       </section>
@@ -1711,9 +1729,10 @@ interface SectionDesignerProps {
   placements: Record<SectionArea, TemplateSectionPlacement[]>;
   sections: TemplateSections;
   onMove: (section: TemplateSectionKey, area: SectionArea, index?: number) => void;
+  onRemove: (section: TemplateSectionKey) => void;
 }
 
-function SectionDesigner({ placements, sections, onMove }: SectionDesignerProps) {
+function SectionDesigner({ placements, sections, onMove, onRemove }: SectionDesignerProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="grid gap-4 md:grid-cols-2">
@@ -1724,16 +1743,10 @@ function SectionDesigner({ placements, sections, onMove }: SectionDesignerProps)
             placements={placements[area]}
             sections={sections}
             onMove={onMove}
+            onRemove={onRemove}
           />
         ))}
       </div>
-      <SectionDropZone
-        area="fullWidth"
-        placements={placements.fullWidth}
-        sections={sections}
-        onMove={onMove}
-        fullWidth
-      />
     </div>
   );
 }
@@ -1743,10 +1756,10 @@ interface SectionDropZoneProps {
   placements: TemplateSectionPlacement[];
   sections: TemplateSections;
   onMove: (section: TemplateSectionKey, area: SectionArea, index?: number) => void;
-  fullWidth?: boolean;
+  onRemove: (section: TemplateSectionKey) => void;
 }
 
-function SectionDropZone({ area, placements, sections, onMove, fullWidth }: SectionDropZoneProps) {
+function SectionDropZone({ area, placements, sections, onMove, onRemove }: SectionDropZoneProps) {
   const handleDrop = (event: React.DragEvent, index?: number) => {
     event.preventDefault();
     event.stopPropagation();
@@ -1756,20 +1769,22 @@ function SectionDropZone({ area, placements, sections, onMove, fullWidth }: Sect
   };
 
   return (
-    <div
-      className={`rounded-md border border-dashed bg-muted/20 p-3 ${fullWidth ? "" : ""}`}
-      onDragOver={(event) => event.preventDefault()}
-      onDrop={(event) => handleDrop(event)}
-    >
+    <div className="rounded-md border border-dashed bg-muted/20 p-3" onDragOver={(event) => event.preventDefault()} onDrop={(event) => handleDrop(event)}>
       <p className="text-xs font-semibold uppercase text-muted-foreground">{AREA_LABELS[area]}</p>
       <div className="mt-2 flex flex-col gap-2">
-        {placements.map((placement, index) => (
-          <div key={placement.section} onDrop={(event) => handleDrop(event, index)}>
-            <SectionCard placement={placement} sections={sections} />
-          </div>
-        ))}
+        {placements.map((placement, index) => {
+          const isVisible = sections[SECTION_VISIBILITY_FIELDS[placement.section]];
+          if (!isVisible) {
+            return null;
+          }
+          return (
+            <div key={placement.section} onDrop={(event) => handleDrop(event, index)}>
+              <SectionCard placement={placement} sections={sections} onRemove={onRemove} />
+            </div>
+          );
+        })}
       </div>
-      {!placements.length && (
+      {!placements.some((placement) => sections[SECTION_VISIBILITY_FIELDS[placement.section]]) && (
         <div className="mt-2 rounded-md border border-dashed bg-white/60 px-3 py-6 text-center text-xs text-muted-foreground">
           Drag a section here
         </div>
@@ -1781,10 +1796,15 @@ function SectionDropZone({ area, placements, sections, onMove, fullWidth }: Sect
 interface SectionCardProps {
   placement: TemplateSectionPlacement;
   sections: TemplateSections;
+  onRemove: (section: TemplateSectionKey) => void;
 }
 
-function SectionCard({ placement, sections }: SectionCardProps) {
+function SectionCard({ placement, sections, onRemove }: SectionCardProps) {
   const isVisible = sections[SECTION_VISIBILITY_FIELDS[placement.section]];
+  const handleRemove = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    onRemove(placement.section);
+  };
 
   return (
     <div
@@ -1796,11 +1816,25 @@ function SectionCard({ placement, sections }: SectionCardProps) {
     >
       <GripVertical className="mt-1 h-4 w-4 text-muted-foreground" />
       <div className="flex-1">
-        <p className="text-sm font-medium text-gray-900">{SECTION_METADATA[placement.section].label}</p>
-        <p className="text-xs text-muted-foreground">{SECTION_METADATA[placement.section].description}</p>
-        {!isVisible && (
-          <span className="mt-1 inline-flex text-[10px] font-semibold uppercase text-amber-600">Hidden</span>
-        )}
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <p className="text-sm font-medium text-gray-900">{SECTION_METADATA[placement.section].label}</p>
+            <p className="text-xs text-muted-foreground">{SECTION_METADATA[placement.section].description}</p>
+            {!isVisible && (
+              <span className="mt-1 inline-flex text-[10px] font-semibold uppercase text-amber-600">Hidden</span>
+            )}
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-7 w-7 text-muted-foreground"
+            onClick={handleRemove}
+            title="Remove block"
+            aria-label="Remove block"
+          >
+            <Trash2 className="h-3.5 w-3.5" />
+          </Button>
+        </div>
       </div>
     </div>
   );
@@ -1926,34 +1960,20 @@ function InvoicePreview({ settings, sectionBuckets, bodyBlocks, branding, footer
 
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         <PreviewColumn
-          title="Left column"
+          title="Column 1"
           sections={sectionBuckets.headerLeft}
           borderColor={borderColor}
           sectionBackground={sectionHeaderBackground}
           accentColor={accentTextColor}
         />
         <PreviewColumn
-          title="Right column"
+          title="Column 2"
           sections={sectionBuckets.headerRight}
           borderColor={borderColor}
           sectionBackground={sectionHeaderBackground}
           accentColor={accentTextColor}
         />
       </div>
-
-      {sectionBuckets.fullWidth.length > 0 && (
-        <div className="mt-4 space-y-2">
-          {sectionBuckets.fullWidth.map((section) => (
-            <PreviewSection
-              key={`full-${section}`}
-              section={section}
-              borderColor={borderColor}
-              sectionBackground={sectionHeaderBackground}
-              accentColor={accentTextColor}
-            />
-          ))}
-        </div>
-      )}
 
       <div className="mt-6">
         <div className="overflow-hidden rounded border" style={{ borderColor }}>
@@ -2056,12 +2076,18 @@ function PreviewSection({ section, borderColor, sectionBackground, accentColor }
 function bucketPlacements(placements?: TemplateSectionPlacement[]) {
   const buckets = createEmptyPlacementBuckets();
   const seen = new Set<TemplateSectionKey>();
+  const pickColumn = (): SectionArea =>
+    buckets.headerLeft.length <= buckets.headerRight.length ? "headerLeft" : "headerRight";
 
   (placements ?? []).forEach((placement) => {
-    const area = SECTION_AREAS.includes(placement.area) ? placement.area : "fullWidth";
-    buckets[area].push({
+    if (seen.has(placement.section)) {
+      return;
+    }
+    const area = SECTION_AREAS.includes(placement.area) ? placement.area : "headerLeft";
+    const normalizedArea: SectionArea = area === "fullWidth" ? pickColumn() : area;
+    buckets[normalizedArea].push({
       section: placement.section,
-      area,
+      area: normalizedArea,
       order: placement.order,
     });
     seen.add(placement.section);
@@ -2069,11 +2095,13 @@ function bucketPlacements(placements?: TemplateSectionPlacement[]) {
 
   SECTION_KEYS.forEach((section) => {
     if (!seen.has(section)) {
-      buckets.fullWidth.push({
+      const target = pickColumn();
+      buckets[target].push({
         section,
-        area: "fullWidth",
-        order: buckets.fullWidth.length,
+        area: target,
+        order: buckets[target].length,
       });
+      seen.add(section);
     }
   });
 
@@ -2137,6 +2165,18 @@ const SECTION_SAMPLE_CONTENT: Record<TemplateSectionKey, string[]> = {
     "Salesperson: Travis Leonard",
     "Ship Method: Common carrier",
     "Terms: Net 30",
+  ],
+  deliveryInfo: [
+    "Delivery Date: Jan 26, 2025",
+    "Window: 10:00a – 2:00p",
+    "Warehouse: Richmond DC",
+    "Instructions: Call main line on arrival",
+  ],
+  distributorInfo: [
+    "Well Crafted Brands",
+    "VA Wholesale #045678",
+    "Phone: (804) 555-0199",
+    "website: wellcrafted.example",
   ],
 };
 

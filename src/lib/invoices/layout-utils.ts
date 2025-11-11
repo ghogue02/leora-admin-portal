@@ -12,6 +12,8 @@ export const SECTION_VISIBILITY_FIELDS: Record<
   billTo: 'showBillTo',
   shipTo: 'showShipTo',
   customerInfo: 'showCustomerInfo',
+  deliveryInfo: 'showDeliveryInfo',
+  distributorInfo: 'showDistributorInfo',
 };
 
 export function getSectionBuckets(layout: InvoiceTemplateLayout) {
@@ -22,14 +24,22 @@ export function getSectionBuckets(layout: InvoiceTemplateLayout) {
   };
 
   const placements = layout.sectionPlacements ?? [];
+  const seen = new Set<InvoiceSectionKey>();
+
   placements
     .slice()
     .sort((a, b) => a.order - b.order || a.section.localeCompare(b.section))
     .forEach((placement) => {
-      if (!buckets[placement.area]) {
+      if (seen.has(placement.section)) {
         return;
       }
-      buckets[placement.area].push(placement.section);
+      const areaName = placement.area;
+      const targetArea: InvoiceSectionArea =
+        areaName === 'headerLeft' || areaName === 'headerRight' || areaName === 'fullWidth'
+          ? (areaName as InvoiceSectionArea)
+          : 'headerLeft';
+      buckets[targetArea].push(placement.section);
+      seen.add(placement.section);
     });
 
   return buckets;
@@ -43,10 +53,30 @@ export function getVisibleSectionBuckets(layout: InvoiceTemplateLayout) {
     fullWidth: [],
   };
 
+  const pushToBalancedColumn = (sectionKey: InvoiceSectionKey) => {
+    const target =
+      visible.headerLeft.length <= visible.headerRight.length ? 'headerLeft' : 'headerRight';
+    visible[target].push(sectionKey);
+  };
+
   (Object.keys(buckets) as InvoiceSectionArea[]).forEach((area) => {
-    visible[area] = buckets[area].filter((sectionKey) => {
+    if (area === 'fullWidth') {
+      buckets[area].forEach((sectionKey) => {
+        const visibilityField = SECTION_VISIBILITY_FIELDS[sectionKey];
+        if (!layout.sections[visibilityField]) {
+          return;
+        }
+        pushToBalancedColumn(sectionKey);
+      });
+      return;
+    }
+
+    buckets[area].forEach((sectionKey) => {
       const visibilityField = SECTION_VISIBILITY_FIELDS[sectionKey];
-      return layout.sections[visibilityField];
+      if (!layout.sections[visibilityField]) {
+        return;
+      }
+      visible[area].push(sectionKey);
     });
   });
 

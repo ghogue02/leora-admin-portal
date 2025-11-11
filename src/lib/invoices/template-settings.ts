@@ -51,12 +51,14 @@ const sectionsSchema = z.object({
   showBillTo: z.boolean().default(true),
   showShipTo: z.boolean().default(true),
   showCustomerInfo: z.boolean().default(true),
+  showDeliveryInfo: z.boolean().default(true),
+  showDistributorInfo: z.boolean().default(true),
   showTotals: z.boolean().default(true),
   showSignature: z.boolean().default(true),
   showComplianceNotice: z.boolean().default(true),
 });
 
-const SECTION_KEYS = ['billTo', 'shipTo', 'customerInfo'] as const;
+const SECTION_KEYS = ['billTo', 'shipTo', 'customerInfo', 'deliveryInfo', 'distributorInfo'] as const;
 
 const SECTION_AREAS = ['headerLeft', 'headerRight', 'fullWidth'] as const;
 
@@ -179,18 +181,24 @@ function columnConfig(
 const DEFAULT_SECTION_PLACEMENTS: Record<InvoiceFormatType, InvoiceSectionPlacement[]> = {
   STANDARD: [
     { section: 'billTo', area: 'headerLeft', order: 0 },
-    { section: 'shipTo', area: 'headerRight', order: 0 },
-    { section: 'customerInfo', area: 'fullWidth', order: 0 },
+    { section: 'shipTo', area: 'headerLeft', order: 1 },
+    { section: 'customerInfo', area: 'headerRight', order: 0 },
+    { section: 'deliveryInfo', area: 'headerRight', order: 1 },
+    { section: 'distributorInfo', area: 'headerRight', order: 2 },
   ],
   VA_ABC_INSTATE: [
     { section: 'billTo', area: 'headerLeft', order: 0 },
-    { section: 'shipTo', area: 'headerRight', order: 0 },
-    { section: 'customerInfo', area: 'fullWidth', order: 0 },
+    { section: 'shipTo', area: 'headerLeft', order: 1 },
+    { section: 'customerInfo', area: 'headerRight', order: 0 },
+    { section: 'deliveryInfo', area: 'headerRight', order: 1 },
+    { section: 'distributorInfo', area: 'headerRight', order: 2 },
   ],
   VA_ABC_TAX_EXEMPT: [
     { section: 'billTo', area: 'headerLeft', order: 0 },
-    { section: 'shipTo', area: 'headerRight', order: 0 },
-    { section: 'customerInfo', area: 'fullWidth', order: 0 },
+    { section: 'shipTo', area: 'headerLeft', order: 1 },
+    { section: 'customerInfo', area: 'headerRight', order: 0 },
+    { section: 'deliveryInfo', area: 'headerRight', order: 1 },
+    { section: 'distributorInfo', area: 'headerRight', order: 2 },
   ],
 };
 
@@ -200,6 +208,8 @@ const DEFAULT_LAYOUTS: Record<InvoiceFormatType, InvoiceTemplateLayout> = {
       ...DEFAULT_SECTIONS,
       showShipTo: false,
       showCustomerInfo: true,
+      showDeliveryInfo: false,
+      showDistributorInfo: false,
     },
     columns: [
       columnConfig('quantity', { width: 12 }),
@@ -215,6 +225,8 @@ const DEFAULT_LAYOUTS: Record<InvoiceFormatType, InvoiceTemplateLayout> = {
   VA_ABC_INSTATE: {
     sections: {
       ...DEFAULT_SECTIONS,
+      showDeliveryInfo: true,
+      showDistributorInfo: true,
     },
     columns: [
       columnConfig('quantity', { width: 10, label: 'No. bottles' }),
@@ -233,6 +245,8 @@ const DEFAULT_LAYOUTS: Record<InvoiceFormatType, InvoiceTemplateLayout> = {
   VA_ABC_TAX_EXEMPT: {
     sections: {
       ...DEFAULT_SECTIONS,
+      showDeliveryInfo: true,
+      showDistributorInfo: true,
     },
     columns: [
       columnConfig('cases', { width: 10, label: 'Total cases' }),
@@ -277,11 +291,14 @@ function mergeSectionPlacements(
       if (!SECTION_KEYS.includes(placement.section)) {
         return;
       }
+      const allowedArea = SECTION_AREAS.includes(placement.area as InvoiceSectionArea)
+        ? (placement.area as InvoiceSectionArea)
+        : (mergedMap.get(placement.section)?.area ?? 'headerLeft');
+      const normalizedArea: InvoiceSectionArea =
+        allowedArea === 'fullWidth' ? 'headerRight' : allowedArea;
       mergedMap.set(placement.section, {
         section: placement.section,
-        area: SECTION_AREAS.includes(placement.area as InvoiceSectionArea)
-          ? (placement.area as InvoiceSectionArea)
-          : (mergedMap.get(placement.section)?.area ?? 'headerLeft'),
+        area: normalizedArea,
         order:
           typeof placement.order === 'number'
             ? Math.max(0, placement.order)

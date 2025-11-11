@@ -73,6 +73,8 @@ const DEFAULT_SECTIONS = {
   showBillTo: true,
   showShipTo: false,
   showCustomerInfo: true,
+  showDeliveryInfo: false,
+  showDistributorInfo: false,
   showTotals: true,
   showSignature: false,
   showComplianceNotice: true,
@@ -264,12 +266,6 @@ export const StandardInvoice: React.FC<StandardInvoiceProps> = ({ data }) => {
           )}
         </View>
 
-        {sectionBuckets.fullWidth.map((sectionKey) => (
-          <View key={sectionKey} style={[styles.sectionBlock, styles.orderDetails]}>
-            {renderSectionBlock(sectionKey, data, sections)}
-          </View>
-        ))}
-
         {renderNotesBlock(headerNotes.beforeTable)}
 
         {/* Line Items Table */}
@@ -403,6 +399,18 @@ function renderSectionBlock(
       }
       return (
         <>
+          <View style={styles.detailRow}>
+            <Text style={styles.detailLabel}>Invoice #:</Text>
+            <Text style={styles.detailValue}>{data.invoiceNumber}</Text>
+          </View>
+          <View style={styles.detailRow}>
+            <Text style={styles.detailLabel}>Invoice Date:</Text>
+            <Text style={styles.detailValue}>{formatShortDate(data.issuedAt)}</Text>
+          </View>
+          <View style={styles.detailRow}>
+            <Text style={styles.detailLabel}>Due Date:</Text>
+            <Text style={styles.detailValue}>{formatShortDate(data.dueDate)}</Text>
+          </View>
           {data.salesperson && (
             <View style={styles.detailRow}>
               <Text style={styles.detailLabel}>Salesperson:</Text>
@@ -414,6 +422,59 @@ function renderSectionBlock(
               <Text style={styles.detailLabel}>PO Number:</Text>
               <Text style={styles.detailValue}>{data.poNumber}</Text>
             </View>
+          )}
+          {data.orderDeliveryTimeWindow && (
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Delivery Window:</Text>
+              <Text style={styles.detailValue}>{data.orderDeliveryTimeWindow}</Text>
+            </View>
+          )}
+          {data.customerDeliveryWindows?.length ? (
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Preferred Windows:</Text>
+              <Text style={styles.detailValue}>{data.customerDeliveryWindows.join(', ')}</Text>
+            </View>
+          ) : null}
+          {data.specialInstructions && (
+            <View style={styles.detailRow}>
+              <Text style={styles.detailLabel}>Order Notes:</Text>
+              <Text style={styles.detailValue}>{data.specialInstructions}</Text>
+            </View>
+          )}
+        </>
+      );
+    case 'deliveryInfo':
+      return (
+        <>
+          <Text style={styles.label}>Delivery Details</Text>
+          {data.orderDeliveryDate && (
+            <Text style={styles.value}>{formatShortDate(data.orderDeliveryDate)}</Text>
+          )}
+          {data.orderDeliveryTimeWindow && (
+            <Text style={styles.value}>{data.orderDeliveryTimeWindow}</Text>
+          )}
+          {!data.orderDeliveryTimeWindow && data.customerDeliveryWindows?.length ? (
+            <Text style={styles.value}>{data.customerDeliveryWindows.join(', ')}</Text>
+          ) : null}
+          {data.orderWarehouseLocation && (
+            <Text style={styles.value}>Warehouse: {data.orderWarehouseLocation}</Text>
+          )}
+          {data.customerDeliveryInstructions && (
+            <Text style={styles.value}>Instructions: {data.customerDeliveryInstructions}</Text>
+          )}
+        </>
+      );
+    case 'distributorInfo':
+      return (
+        <>
+          <Text style={styles.label}>Distributor Info</Text>
+          <Text style={styles.value}>{data.tenantName}</Text>
+          {data.wholesalerLicenseNumber && (
+            <Text style={styles.value}>License #: {data.wholesalerLicenseNumber}</Text>
+          )}
+          {data.wholesalerPhone && <Text style={styles.value}>Phone: {data.wholesalerPhone}</Text>}
+          {data.templateSettings?.options?.companyWebsite && (
+            <Text style={styles.value}>{data.templateSettings.options.companyWebsite}</Text>
           )}
         </>
       );
