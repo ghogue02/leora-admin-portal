@@ -53,7 +53,6 @@ export default function LogActivityModal({
   const [error, setError] = useState<string | null>(null);
   const [showToast, setShowToast] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
-  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
   // Voice-to-text state
   const [isRecording, setIsRecording] = useState(false);
