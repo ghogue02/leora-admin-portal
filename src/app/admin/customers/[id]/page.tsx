@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { CustomerClassificationFields } from '@/components/customers/CustomerClassificationFields';
 import { CustomerBasicInfoFields } from '@/components/customers/forms/CustomerBasicInfoFields';
@@ -10,6 +10,8 @@ import { CustomerDeliveryFields } from '@/components/customers/forms/CustomerDel
 import { CustomerContactsManager } from '@/components/customers/CustomerContactsManager';
 import { GoogleMapsAutoFill } from '@/components/customers/GoogleMapsAutoFill';
 import { CustomerGoogleFields } from '@/components/customers/forms/CustomerGoogleFields';
+import { formatCurrency, formatShortDate } from '@/lib/format';
+import { formatDistanceToNow } from 'date-fns';
 import ReassignModal from '@/app/admin/customers/components/ReassignModal';
 import type {
   CustomerType,
@@ -83,6 +85,15 @@ interface Customer {
   openInvoicesCount: number;
   outstandingAmount: number;
   daysSinceLastOrder: number | null;
+  firstOrderDate: string | null;
+  orders: Array<{
+    id: string;
+    total: number;
+    orderedAt: string | null;
+    deliveredAt: string | null;
+    status: string;
+    createdAt: string;
+  }>;
   duplicateFlags: Array<{
     id: string;
     notes: string | null;
@@ -177,6 +188,8 @@ const INITIAL_FORM_STATE: CustomerFormState = {
 
 export default function CustomerDetailPage({ params }: { params: { id: string } }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { id: customerId } = params;
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [loading, setLoading] = useState(true);
@@ -185,9 +198,28 @@ export default function CustomerDetailPage({ params }: { params: { id: string } 
   const [formData, setFormData] = useState<CustomerFormState>(INITIAL_FORM_STATE);
   const [resolvingFlagId, setResolvingFlagId] = useState<string | null>(null);
   const [isReassignModalOpen, setIsReassignModalOpen] = useState(false);
+  const initialTabParam = searchParams.get('tab');
+  const [activeTab, setActiveTab] = useState<'overview' | 'details'>(
+    initialTabParam === 'details' ? 'details' : 'overview'
+  );
   const updateForm = useCallback((updates: Partial<CustomerFormState>) => {
     setFormData((prev) => ({ ...prev, ...updates }));
   }, []);
+
+  const handleTabChange = useCallback(
+    (tab: 'overview' | 'details') => {
+      setActiveTab(tab);
+      const params = new URLSearchParams(searchParams.toString());
+      if (tab === 'overview') {
+        params.delete('tab');
+      } else {
+        params.set('tab', tab);
+      }
+      const query = params.toString();
+      router.replace(`${pathname}${query ? `?${query}` : ''}`, { scroll: false });
+    },
+    [pathname, router, searchParams]
+  );
 
   const fetchCustomer = useCallback(async () => {
     if (!customerId) return;
@@ -406,134 +438,237 @@ export default function CustomerDetailPage({ params }: { params: { id: string } 
           <h1 className="text-3xl font-bold">{customer.name}</h1>
           <p className="text-gray-500">Account #{customer.accountNumber}</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href={`/sales/customers/${customerId}`}
+            target="_blank"
+            className="border border-gray-300 px-4 py-2 rounded hover:bg-gray-50 text-sm font-medium text-gray-700"
+          >
+            View Sales Dashboard
+          </Link>
+          <Link
+            href={`/sales/orders/new?customerId=${customerId}`}
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 text-sm font-medium"
+          >
+            Add Order
+          </Link>
           <button
             onClick={handleArchive}
-            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm font-medium"
           >
             Archive Customer
           </button>
         </div>
       </div>
 
-      {/* Account Health Overview */}
-      <div className="bg-white rounded-lg shadow p-6 mb-6">
-        <h2 className="text-xl font-bold mb-4">Account Health</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div>
-            <div className="text-sm text-gray-500">Risk Status</div>
-            <span
-              className={`inline-block px-3 py-1 rounded font-medium border ${
-                RISK_STATUS_COLORS[customer.riskStatus as keyof typeof RISK_STATUS_COLORS]
-              }`}
-            >
-              {customer.riskStatus}
-            </span>
-          </div>
-          <div>
-            <div className="text-sm text-gray-500">Last Order</div>
-            <div className="font-semibold">
-              {customer.lastOrderDate
-                ? new Date(customer.lastOrderDate).toLocaleDateString()
-                : 'Never'}
-            </div>
-            {customer.daysSinceLastOrder !== null && (
-              <div className="text-sm text-gray-500">{customer.daysSinceLastOrder} days ago</div>
-            )}
-          </div>
-          <div>
-            <div className="text-sm text-gray-500">Total Orders</div>
-            <div className="font-semibold text-2xl">{customer.totalOrders}</div>
-          </div>
-          <div>
-            <div className="text-sm text-gray-500">Lifetime Revenue</div>
-            <div className="font-semibold text-2xl">${customer.totalRevenue.toFixed(2)}</div>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-          <div>
-            <div className="text-sm text-gray-500">Next Expected Order</div>
-            <div className="font-semibold">
-              {customer.nextExpectedOrderDate
-                ? new Date(customer.nextExpectedOrderDate).toLocaleDateString()
-                : '-'}
-            </div>
-          </div>
-          <div>
-            <div className="text-sm text-gray-500">Avg Order Interval</div>
-            <div className="font-semibold">
-              {customer.averageOrderIntervalDays
-                ? `${customer.averageOrderIntervalDays} days`
-                : '-'}
-            </div>
-          </div>
-          <div>
-            <div className="text-sm text-gray-500">Open Invoices</div>
-            <div className="font-semibold">{customer.openInvoicesCount}</div>
-          </div>
-          <div>
-            <div className="text-sm text-gray-500">Outstanding Amount</div>
-            <div className="font-semibold text-red-600">
-              ${customer.outstandingAmount.toFixed(2)}
-            </div>
-          </div>
-        </div>
+      <div className="mt-6 flex flex-wrap gap-3">
+        {[
+          { key: 'overview', label: 'Overview' },
+          { key: 'details', label: 'Details & Editing' },
+        ].map((tab) => (
+          <button
+            key={tab.key}
+            type="button"
+            onClick={() => handleTabChange(tab.key as 'overview' | 'details')}
+            className={`rounded-full px-4 py-2 text-sm font-semibold ${
+              activeTab === tab.key
+                ? 'bg-blue-600 text-white shadow'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
 
-      {customer.duplicateFlags.length > 0 && (
-        <div className="bg-white rounded-lg shadow p-6 mb-6">
-          <h2 className="text-xl font-bold mb-4">Duplicate Flags</h2>
-          <div className="space-y-4">
-            {customer.duplicateFlags.map((flag) => (
-              <div
-                key={flag.id}
-                className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900"
-              >
-                <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <p className="font-semibold">Flagged for review</p>
-                    <p className="text-amber-800">
-                      {flag.notes ?? 'No notes provided.'}
-                    </p>
-                    <p className="text-xs text-amber-700">
-                      Raised {new Date(flag.createdAt).toLocaleString()} by {flag.flaggedByPortalUser?.fullName ?? 'unknown user'}
-                      {flag.flaggedByPortalUser?.email ? ` (${flag.flaggedByPortalUser.email})` : ''}
-                    </p>
-                    {flag.duplicateOf ? (
-                      <p className="text-xs text-amber-700">
-                        Suggested merge with {flag.duplicateOf.name}
-                        {flag.duplicateOf.accountNumber ? ` (Account #${flag.duplicateOf.accountNumber})` : ''}
-                        {flag.duplicateOf.id ? (
-                          <span>
-                            {' '}
-                            <Link
-                              href={`/admin/customers/${flag.duplicateOf.id}`}
-                              className="text-amber-800 underline transition hover:text-amber-900"
-                            >
-                              Review customer
-                            </Link>
-                          </span>
-                        ) : null}
-                      </p>
-                    ) : null}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleResolveDuplicate(flag.id)}
-                    disabled={resolvingFlagId === flag.id}
-                    className="inline-flex items-center justify-center rounded-md border border-amber-300 bg-white px-3 py-2 text-xs font-semibold text-amber-700 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {resolvingFlagId === flag.id ? 'Resolving…' : 'Mark resolved'}
-                  </button>
+      {activeTab === 'overview' ? (
+        <>
+          {/* Account Health Overview */}
+          <div className="bg-white rounded-lg shadow p-6 mb-6">
+            <h2 className="text-xl font-bold mb-4">Account Health</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div>
+                <div className="text-sm text-gray-500">Risk Status</div>
+                <span
+                  className={`inline-block px-3 py-1 rounded font-medium border ${
+                    RISK_STATUS_COLORS[customer.riskStatus as keyof typeof RISK_STATUS_COLORS]
+                  }`}
+                >
+                  {customer.riskStatus}
+                </span>
+              </div>
+              <div>
+                <div className="text-sm text-gray-500">Last Order</div>
+                <div className="font-semibold">
+                  {customer.lastOrderDate
+                    ? new Date(customer.lastOrderDate).toLocaleDateString()
+                    : 'Never'}
+                </div>
+                {customer.daysSinceLastOrder !== null && (
+                  <div className="text-sm text-gray-500">{customer.daysSinceLastOrder} days ago</div>
+                )}
+              </div>
+              <div>
+                <div className="text-sm text-gray-500">Total Orders</div>
+                <div className="font-semibold text-2xl">{customer.totalOrders}</div>
+              </div>
+              <div>
+                <div className="text-sm text-gray-500">Lifetime Revenue</div>
+                <div className="font-semibold text-2xl">
+                  {formatCurrency(customer.totalRevenue, 'USD', { decimals: 2 })}
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+              <div>
+                <div className="text-sm text-gray-500">Next Expected Order</div>
+                <div className="font-semibold">
+                  {customer.nextExpectedOrderDate
+                    ? new Date(customer.nextExpectedOrderDate).toLocaleDateString()
+                    : '-'}
+                </div>
+              </div>
+              <div>
+                <div className="text-sm text-gray-500">Avg Order Interval</div>
+                <div className="font-semibold">
+                  {customer.averageOrderIntervalDays
+                    ? `${customer.averageOrderIntervalDays} days`
+                    : '-'}
+                </div>
+              </div>
+              <div>
+                <div className="text-sm text-gray-500">Open Invoices</div>
+                <div className="font-semibold">{customer.openInvoicesCount}</div>
+              </div>
+              <div>
+                <div className="text-sm text-gray-500">Outstanding Amount</div>
+                <div className="font-semibold text-red-600">
+                  {formatCurrency(customer.outstandingAmount, 'USD', { decimals: 2 })}
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 rounded-lg border border-blue-100 bg-blue-50 p-4">
+              <div className="text-sm font-semibold text-blue-900">Customer Since</div>
+              <div className="text-2xl font-bold text-blue-900">
+                {customer.firstOrderDate
+                  ? formatShortDate(customer.firstOrderDate)
+                  : 'No orders yet'}
+              </div>
+              {customer.firstOrderDate && (
+                <div className="text-xs text-blue-700 mt-1">
+                  First recorded order{' '}
+                  {formatDistanceToNow(new Date(customer.firstOrderDate), { addSuffix: true })}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      )}
 
-      {/* Edit Form */}
-      <form onSubmit={handleSubmit}>
+          {customer.duplicateFlags.length > 0 && (
+            <div className="bg-white rounded-lg shadow p-6 mb-6">
+              <h2 className="text-xl font-bold mb-4">Duplicate Flags</h2>
+              <div className="space-y-4">
+                {customer.duplicateFlags.map((flag) => (
+                  <div
+                    key={flag.id}
+                    className="rounded-md border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900"
+                  >
+                    <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                      <div>
+                        <p className="font-semibold">Flagged for review</p>
+                        <p className="text-amber-800">
+                          {flag.notes ?? 'No notes provided.'}
+                        </p>
+                        <p className="text-xs text-amber-700">
+                          Raised {new Date(flag.createdAt).toLocaleString()} by {flag.flaggedByPortalUser?.fullName ?? 'unknown user'}
+                          {flag.flaggedByPortalUser?.email ? ` (${flag.flaggedByPortalUser.email})` : ''}
+                        </p>
+                        {flag.duplicateOf ? (
+                          <p className="text-xs text-amber-700">
+                            Suggested merge with {flag.duplicateOf.name}
+                            {flag.duplicateOf.accountNumber ? ` (Account #${flag.duplicateOf.accountNumber})` : ''}
+                            {flag.duplicateOf.id ? (
+                              <span>
+                                {' '}
+                                <Link
+                                  href={`/admin/customers/${flag.duplicateOf.id}`}
+                                  className="text-amber-800 underline transition hover:text-amber-900"
+                                >
+                                  Review customer
+                                </Link>
+                              </span>
+                            ) : null}
+                          </p>
+                        ) : null}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => handleResolveDuplicate(flag.id)}
+                        disabled={resolvingFlagId === flag.id}
+                        className="inline-flex items-center justify-center rounded-md border border-amber-300 bg-white px-3 py-2 text-xs font-semibold text-amber-700 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-60"
+                      >
+                        {resolvingFlagId === flag.id ? 'Resolving…' : 'Mark resolved'}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="bg-white rounded-lg shadow p-6 mb-6">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold">Recent Orders</h2>
+              <Link
+                href={`/admin/orders?customerId=${customer.id}`}
+                className="text-sm text-blue-600 hover:underline"
+              >
+                View all
+              </Link>
+            </div>
+            {customer.orders.length === 0 ? (
+              <p className="mt-4 text-sm text-gray-500">No orders recorded yet.</p>
+            ) : (
+              <div className="mt-4 overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200 text-sm">
+                  <thead className="bg-gray-50">
+                    <tr>
+                      <th className="px-4 py-2 text-left font-semibold text-gray-600">Order #</th>
+                      <th className="px-4 py-2 text-left font-semibold text-gray-600">Ordered</th>
+                      <th className="px-4 py-2 text-left font-semibold text-gray-600">Delivered</th>
+                      <th className="px-4 py-2 text-left font-semibold text-gray-600">Status</th>
+                      <th className="px-4 py-2 text-right font-semibold text-gray-600">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 bg-white">
+                    {customer.orders.slice(0, 5).map((order) => (
+                      <tr key={order.id} className="hover:bg-gray-50">
+                        <td className="px-4 py-2 font-mono text-gray-900">{order.id.slice(0, 8)}</td>
+                        <td className="px-4 py-2 text-gray-600">
+                          {order.orderedAt ? formatShortDate(order.orderedAt) : '-'}
+                        </td>
+                        <td className="px-4 py-2 text-gray-600">
+                          {order.deliveredAt ? formatShortDate(order.deliveredAt) : '—'}
+                        </td>
+                        <td className="px-4 py-2">
+                          <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">
+                            {order.status}
+                          </span>
+                        </td>
+                        <td className="px-4 py-2 text-right font-semibold text-gray-900">
+                          {formatCurrency(order.total, 'USD', { decimals: 2 })}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+        {/* Edit Form */}
+        <form onSubmit={handleSubmit}>
         {customerId ? (
           <div className="mb-6 space-y-2">
             <h2 className="text-xl font-bold text-gray-900">Auto-fill with Google Maps</h2>
@@ -733,7 +868,9 @@ export default function CustomerDetailPage({ params }: { params: { id: string } 
             Cancel
           </Link>
         </div>
-      </form>
+        </form>
+        </>
+      )}
       </div>
       {customer && customerId ? (
         <ReassignModal

@@ -195,6 +195,7 @@ export async function GET(
             orderedAt: true,
             deliveredAt: true,
             status: true,
+            createdAt: true,
           },
           where: { status: { not: 'CANCELLED' } },
           orderBy: { createdAt: 'desc' },
@@ -253,6 +254,16 @@ export async function GET(
       const diffTime = Date.now() - customer.lastOrderDate.getTime();
       daysSinceLastOrder = Math.floor(diffTime / (1000 * 60 * 60 * 24));
     }
+    const firstOrderDateValue = customer.orders.reduce<Date | null>((earliest, order) => {
+      const candidate = order.deliveredAt ?? order.orderedAt ?? order.createdAt ?? null;
+      if (!candidate) {
+        return earliest;
+      }
+      if (!earliest || candidate < earliest) {
+        return candidate;
+      }
+      return earliest;
+    }, null);
 
       return NextResponse.json({
         customer: {
@@ -263,6 +274,7 @@ export async function GET(
           openInvoicesCount: openInvoices.length,
           outstandingAmount,
           daysSinceLastOrder,
+          firstOrderDate: firstOrderDateValue ? firstOrderDateValue.toISOString() : null,
           duplicateFlags: customer.duplicateFlags,
         }
       });

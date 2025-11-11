@@ -27,6 +27,7 @@ import { CustomerClassificationCard } from "./sections/CustomerClassificationCar
 import { DeliveryPreferences } from "./sections/DeliveryPreferences";
 import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
 import { GoogleProfileCard } from "./sections/GoogleProfileCard";
+import CustomerSinceCard from "./sections/CustomerSinceCard";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -214,6 +215,9 @@ export default function CustomerDetailClient({
           outstandingBalance: data.metrics.outstandingBalance,
         }}
       />
+
+      {/* Customer Since */}
+      <CustomerSinceCard firstOrderDate={data.customer.firstOrderDate ?? null} />
 
       {/* Ordering Pace Indicator */}
       <OrderingPaceIndicator

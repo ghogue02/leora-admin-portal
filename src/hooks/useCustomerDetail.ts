@@ -34,6 +34,7 @@ interface CustomerDetailData {
     googleMapsUrl: string | null;
     googleBusinessStatus: string | null;
     googlePlaceTypes: string[];
+    firstOrderDate: string | null;
     address: {
       street1: string | null;
       street2: string | null;

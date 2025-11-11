@@ -37,7 +37,13 @@ export function CustomerDeliveryFields({
   disabled = false,
 }: CustomerDeliveryFieldsProps) {
   const paymentOptions = PAYMENT_METHOD_OPTIONS as readonly string[];
-  const deliveryOptions = DELIVERY_METHOD_OPTIONS as readonly string[];
+  const deliveryOptions = useMemo(() => {
+    const baseOptions = [...DELIVERY_METHOD_OPTIONS];
+    if (values.deliveryMethod && !baseOptions.includes(values.deliveryMethod)) {
+      baseOptions.push(values.deliveryMethod);
+    }
+    return baseOptions;
+  }, [values.deliveryMethod]);
 
   const deliveryWindowSummary = useMemo(() => {
     if (!values.deliveryWindows?.length) return values.deliveryInstructions ? null : "No preferred delivery window recorded.";
@@ -235,7 +241,6 @@ export function CustomerDeliveryFields({
                 {option}
               </option>
             ))}
-            <option value="Custom">Other / Custom</option>
           </select>
         </div>
       </div>

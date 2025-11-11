@@ -96,7 +96,15 @@ export function formatQueueDate(date: string | Date): string {
  * Format currency with symbol
  * Example: "$1,234.56"
  */
-export function formatCurrency(amount: number | string, currency: string = 'USD'): string {
+type FormatCurrencyOptions = {
+  decimals?: number;
+};
+
+export function formatCurrency(
+  amount: number | string,
+  currency: string = 'USD',
+  options?: FormatCurrencyOptions
+): string {
   // Convert to number (handle Prisma Decimal too)
   let numAmount: number;
   if (typeof amount === 'string') {
@@ -112,10 +120,11 @@ export function formatCurrency(amount: number | string, currency: string = 'USD'
   // React 19-safe manual formatting (no Intl)
   const isNegative = numAmount < 0;
   const absAmount = Math.abs(numAmount);
+  const decimals = Math.max(0, options?.decimals ?? 0);
 
-  // Format with 0 decimals (whole dollars) and thousand separators
+  // Format with requested precision and thousand separators
   const formatted = absAmount
-    .toFixed(0)
+    .toFixed(decimals)
     .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   // Currency symbols

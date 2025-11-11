@@ -163,6 +163,7 @@ export async function GET(
         tasks,
         sampleUsageFollowUps,
         contacts,
+        firstOrderRecord,
       ] = await Promise.all([
         // Order history with invoice links (LIMITED to 50 most recent)
         db.order.findMany({
@@ -472,6 +473,23 @@ export async function GET(
           },
           orderBy: {
             createdAt: "desc",
+          },
+        }),
+        db.order.findFirst({
+          where: {
+            tenantId,
+            customerId,
+            status: {
+              not: "CANCELLED",
+            },
+          },
+          orderBy: {
+            createdAt: "asc",
+          },
+          select: {
+            createdAt: true,
+            orderedAt: true,
+            deliveredAt: true,
           },
         }),
       ]);
@@ -785,6 +803,14 @@ export async function GET(
         });
 
       const ordersChannel = getTenantChannelName(tenantId, "orders");
+      const firstOrderDateValue =
+        firstOrderRecord?.deliveredAt ??
+        firstOrderRecord?.orderedAt ??
+        firstOrderRecord?.createdAt ??
+        null;
+      const firstOrderDateIso = firstOrderDateValue
+        ? firstOrderDateValue.toISOString()
+        : null;
 
       return NextResponse.json({
         tenantId,
@@ -836,6 +862,7 @@ export async function GET(
             : null,
           isPermanentlyClosed: customer.isPermanentlyClosed,
           closedReason: customer.closedReason,
+          firstOrderDate: firstOrderDateIso,
         },
         metrics: {
           ytdRevenue,

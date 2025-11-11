@@ -1,8 +1,8 @@
 export const DELIVERY_METHOD_OPTIONS = [
-  "Company Truck",
-  "Distributor Courier",
-  "Customer Pickup",
-  "Third-Party Logistics",
+  "WCB Delivery",
+  "Rep Delivery",
+  "Customer Pick-up",
+  "Third Party Courier",
   "Other",
 ] as const;
 

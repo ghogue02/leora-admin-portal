@@ -370,10 +370,16 @@ export default function CustomersPage() {
                       {customer.riskStatus}
                     </span>
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-4 py-3 space-x-3">
                     <Link
                       href={`/admin/customers/${customer.id}`}
                       className="text-blue-600 hover:underline text-sm"
+                    >
+                      View
+                    </Link>
+                    <Link
+                      href={`/admin/customers/${customer.id}?tab=details`}
+                      className="text-indigo-600 hover:underline text-sm"
                     >
                       Edit
                     </Link>
