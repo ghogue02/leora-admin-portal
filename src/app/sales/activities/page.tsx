@@ -240,7 +240,6 @@ export default function SalesActivitiesPage() {
           </p>
           <div className="mt-6">
             <ActivityForm
-              customers={customers}
               activityTypes={activityTypes}
               onSubmit={handleLogActivity}
               onCancel={() => setShowForm(false)}

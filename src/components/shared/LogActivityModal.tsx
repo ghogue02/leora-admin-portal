@@ -1,10 +1,11 @@
 'use client';
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants/activityOutcomes";
 import SampleItemsSelector from "@/components/activities/SampleItemsSelector";
 import type { ActivitySampleSelection } from "@/types/activities";
+import { CustomerSearchCombobox } from "@/components/orders/CustomerSearchCombobox";
 
 type ActivityType = {
   id: string;
@@ -51,6 +52,7 @@ export default function LogActivityModal({
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showToast, setShowToast] = useState(false);
+  const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
 
   // Voice-to-text state
@@ -156,32 +158,71 @@ export default function LogActivityModal({
 
   // Auto-generate subject when fields change
   useEffect(() => {
-    if (formData.activityTypeCode && formData.customerId && !initialSubject) {
+    if (
+      formData.activityTypeCode &&
+      formData.customerId &&
+      selectedCustomer &&
+      !initialSubject
+    ) {
       const activityType = activityTypes.find((t) => t.code === formData.activityTypeCode);
-      const customer = customers.find((c) => c.id === formData.customerId);
 
-      if (activityType && customer) {
+      if (activityType) {
         setFormData((prev) => ({
           ...prev,
-          subject: `${activityType.name} - ${customer.name}`,
+          subject: `${activityType.name} - ${selectedCustomer.name}`,
         }));
       }
     }
-  }, [formData.activityTypeCode, formData.customerId, activityTypes, customers, initialSubject]);
+  }, [formData.activityTypeCode, formData.customerId, activityTypes, selectedCustomer, initialSubject]);
 
-  const filteredCustomers = useMemo(() => {
-    if (!customerSearch.trim()) {
-      return customers;
+  useEffect(() => {
+    if (!formData.customerId) {
+      setSelectedCustomer(null);
+      return;
     }
-    const term = customerSearch.toLowerCase();
-    return customers.filter((customer) => {
-      const account = customer.accountNumber ?? "";
-      return (
-        customer.name.toLowerCase().includes(term) ||
-        account.toLowerCase().includes(term)
-      );
+
+    if (selectedCustomer?.id === formData.customerId) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const loadCustomer = async () => {
+      try {
+        const response = await fetch(`/api/sales/customers/${formData.customerId}`);
+        if (!response.ok) {
+          return;
+        }
+        const data = await response.json();
+        if (cancelled || !data?.customer) {
+          return;
+        }
+        const fetchedCustomer = data.customer as Customer;
+        setSelectedCustomer({
+          id: fetchedCustomer.id,
+          name: fetchedCustomer.name,
+          accountNumber: fetchedCustomer.accountNumber ?? null,
+        });
+      } catch (err) {
+        console.error("Failed to load customer details:", err);
+      }
+    };
+
+    void loadCustomer();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [formData.customerId, selectedCustomer?.id]);
+
+  const handleCustomerChange = (customer: { id: string; name: string; accountNumber?: string | null }) => {
+    setSelectedCustomer({
+      id: customer.id,
+      name: customer.name,
+      accountNumber: customer.accountNumber ?? null,
     });
-  }, [customers, customerSearch]);
+    setFormData((prev) => ({ ...prev, customerId: customer.id }));
+  };
 
   const toggleVoiceInput = () => {
     if (!recognitionRef.current) return;
@@ -357,32 +398,12 @@ export default function LogActivityModal({
                   <label htmlFor="customer" className="block text-sm font-semibold text-gray-700">
                     Customer <span className="text-rose-500">*</span>
                   </label>
-                  <div className="mt-1 flex flex-col gap-2">
-                    <input
-                      type="text"
-                      placeholder="Search by name or account #"
-                      value={customerSearch}
-                      onChange={(e) => setCustomerSearch(e.target.value)}
-                      disabled={loading || !!presetCustomerId}
-                      className="rounded-md border border-gray-200 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:bg-gray-100"
-                    />
-                    <select
-                      id="customer"
+                  <div className="mt-1">
+                    <CustomerSearchCombobox
                       value={formData.customerId}
-                      onChange={(e) => setFormData({ ...formData, customerId: e.target.value })}
-                      className="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                      required
+                      onChange={handleCustomerChange}
                       disabled={loading || !!presetCustomerId}
-                    >
-                      <option value="">
-                        {filteredCustomers.length === 0 ? "No matches found" : "Select customer..."}
-                      </option>
-                      {filteredCustomers.map((customer) => (
-                        <option key={customer.id} value={customer.id}>
-                          {customer.name} {customer.accountNumber ? `(#${customer.accountNumber})` : ""}
-                        </option>
-                      ))}
-                    </select>
+                    />
                   </div>
                 </div>
               </div>
