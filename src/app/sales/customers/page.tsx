@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { AccountPriority, CustomerRiskStatus } from "@prisma/client";
 import CustomerTable from "./sections/CustomerTable";
@@ -77,6 +77,14 @@ const parsePriorityParam = (value: string | null): PriorityFilter => {
 };
 
 export default function SalesCustomersPage() {
+  return (
+    <Suspense fallback={<CustomersPageFallback />}>
+      <CustomersPageContent />
+    </Suspense>
+  );
+}
+
+function CustomersPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [data, setData] = useState<CustomersResponse | null>(null);
@@ -735,6 +743,17 @@ export default function SalesCustomersPage() {
           </>
         )}
       </section>
+    </main>
+  );
+}
+
+function CustomersPageFallback() {
+  return (
+    <main className="mx-auto max-w-7xl px-4 py-6">
+      <div className="rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-sm">
+        <p className="text-sm font-semibold text-slate-900">Loading customer workspace…</p>
+        <p className="mt-1 text-sm text-slate-500">One moment while we pull in your filters and account list.</p>
+      </div>
     </main>
   );
 }
