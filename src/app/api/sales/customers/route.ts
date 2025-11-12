@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Prisma, CustomerRiskStatus } from "@prisma/client";
+import { Prisma, CustomerRiskStatus, AccountPriority } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
 import {
   CUSTOMER_TAG_TYPES,
   CustomerTagType,
 } from "@/constants/customerTags";
+import { getUnlovedStateMap, type UnlovedCustomerState } from "@/lib/sales/unloved";
 import {
   startOfYear,
   startOfMonth,
@@ -57,6 +58,14 @@ export async function GET(request: NextRequest) {
               CUSTOMER_TAG_TYPES.includes(tag as CustomerTagType)
             )
         : [];
+      const priorityParam = searchParams.get("priority");
+      const priorityFilter =
+        priorityParam === "NONE"
+          ? "NONE"
+          : priorityParam && Object.values(AccountPriority).includes(priorityParam as AccountPriority)
+            ? (priorityParam as AccountPriority)
+            : null;
+      const unlovedOnly = searchParams.get("unloved") === "true";
 
       // Shared visibility scope (ignores UI filters)
       const baseWhere: Prisma.CustomerWhereInput = {
@@ -84,6 +93,50 @@ export async function GET(request: NextRequest) {
       const today = startOfDay(now);
       const ninetyDaysAgo = startOfDay(subDays(today, 90));
       const dueWindowEnd = addDays(today, 7);
+      let unlovedStateMap: Map<string, UnlovedCustomerState> | null = null;
+
+      if (unlovedOnly) {
+        const stateMap = await getUnlovedStateMap({
+          db,
+          tenantId,
+          now,
+          salesRepIds: showAll ? undefined : [salesRep.id],
+        });
+        const unlovedEntries = Array.from(stateMap.entries()).filter(([, state]) => state.isUnloved);
+
+        if (unlovedEntries.length === 0) {
+          const emptyTagCounts = CUSTOMER_TAG_TYPES.map((tag) => ({ type: tag, count: 0 }));
+          return NextResponse.json({
+            customers: [],
+            pagination: {
+              page,
+              pageSize,
+              totalCount: 0,
+              totalPages: 0,
+            },
+            summary: {
+              totalCustomers: 0,
+              totalRevenue: 0,
+              mtdRevenue: 0,
+              ytdRevenue: 0,
+              customersDue: 0,
+              riskCounts: {
+                HEALTHY: 0,
+                AT_RISK_CADENCE: 0,
+                AT_RISK_REVENUE: 0,
+                DORMANT: 0,
+                CLOSED: 0,
+              },
+              tagCounts: emptyTagCounts,
+            },
+          });
+        }
+
+        unlovedStateMap = new Map(unlovedEntries);
+        where.id = {
+          in: unlovedEntries.map(([id]) => id),
+        };
+      }
 
       // Apply risk status filter
       if (riskFilter) {
@@ -111,6 +164,10 @@ export async function GET(request: NextRequest) {
         }));
 
         where.AND = [...(where.AND ?? []), ...tagFilters];
+      }
+
+      if (priorityFilter) {
+        where.accountPriority = priorityFilter === "NONE" ? null : priorityFilter;
       }
 
       // Build order by clause
@@ -158,6 +215,7 @@ export async function GET(request: NextRequest) {
             city: true,
             state: true,
             territory: true,
+            accountPriority: true,
           },
           orderBy,
           skip: (page - 1) * pageSize,
@@ -442,6 +500,7 @@ export async function GET(request: NextRequest) {
           ![CustomerRiskStatus.DORMANT, CustomerRiskStatus.CLOSED].includes(effectiveRiskStatus)
             ? true
             : false;
+        const dueForOutreachState = unlovedStateMap?.get(customer.id) ?? null;
 
         return {
           id: customer.id,
@@ -457,6 +516,7 @@ export async function GET(request: NextRequest) {
           location: customer.city && customer.state ? `${customer.city}, ${customer.state}` : null,
           state: customer.state,
           territory: customer.territory,
+          accountPriority: customer.accountPriority,
           lifetimeRevenue: allTimeData?.revenue ?? 0,
           recentRevenue: ninetyDayData?.revenue ?? 0,
           mtdRevenue: mtdRevenueAmount,
@@ -465,6 +525,16 @@ export async function GET(request: NextRequest) {
           daysOverdue,
           isDueToOrder,
           daysUntilExpected,
+          dueForOutreach:
+            dueForOutreachState && dueForOutreachState.isUnloved
+              ? {
+                  priority: dueForOutreachState.priority,
+                  thresholdDays: dueForOutreachState.thresholdDays,
+                  lastLovedAt: dueForOutreachState.lastLovedAt?.toISOString() ?? null,
+                  daysSinceLove: dueForOutreachState.daysSinceLove,
+                  avgMonthlyRevenue: dueForOutreachState.avgMonthlyRevenue,
+                }
+              : null,
         };
       });
 

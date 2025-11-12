@@ -1,7 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useState } from "react";
-import type { CustomerRiskStatus } from "@prisma/client";
+import { useRouter, useSearchParams } from "next/navigation";
+import type { AccountPriority, CustomerRiskStatus } from "@prisma/client";
 import CustomerTable from "./sections/CustomerTable";
 import CustomerSearchBar from "./sections/CustomerSearchBar";
 import CustomerTagFilter from "./sections/CustomerTagFilter";
@@ -30,6 +31,14 @@ type Customer = {
   daysOverdue: number;
   daysUntilExpected: number | null;
   isDueToOrder: boolean;
+  accountPriority: AccountPriority | null;
+  dueForOutreach: null | {
+    priority: AccountPriority | "NONE";
+    thresholdDays: number;
+    lastLovedAt: string | null;
+    daysSinceLove: number | null;
+    avgMonthlyRevenue: number;
+  };
 };
 
 type CustomersResponse = {
@@ -56,8 +65,20 @@ type CustomersResponse = {
 
 type SortField = "name" | "lastOrderDate" | "nextExpectedOrderDate" | "revenue";
 type SortDirection = "asc" | "desc";
+type PriorityFilter = "ALL" | "NONE" | AccountPriority;
+
+const parsePriorityParam = (value: string | null): PriorityFilter => {
+  if (!value) return "ALL";
+  if (value === "NONE") return "NONE";
+  if (value === "HIGH" || value === "MEDIUM" || value === "LOW") {
+    return value;
+  }
+  return "ALL";
+};
 
 export default function SalesCustomersPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [data, setData] = useState<CustomersResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -70,6 +91,8 @@ export default function SalesCustomersPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedTags, setSelectedTags] = useState<CustomerTagType[]>([]);
   const [viewFilterTab, setViewFilterTab] = useState<"views" | "filters">("views");
+  const priorityFilter = parsePriorityParam(searchParams?.get("priority"));
+  const unlovedOnly = searchParams?.get("unloved") === "true";
 
   const loadCustomers = useCallback(async () => {
     setLoading(true);
@@ -102,6 +125,14 @@ export default function SalesCustomersPage() {
         params.set("tags", selectedTags.join(","));
       }
 
+      if (priorityFilter !== "ALL") {
+        params.set("priority", priorityFilter === "NONE" ? "NONE" : priorityFilter);
+      }
+
+      if (unlovedOnly) {
+        params.set("unloved", "true");
+      }
+
       const response = await fetch(`/api/sales/customers?${params.toString()}`, {
         cache: "no-store",
       });
@@ -120,15 +151,42 @@ export default function SalesCustomersPage() {
     } finally {
       setLoading(false);
     }
-  }, [searchQuery, activeFilter, sortField, sortDirection, currentPage, selectedTags]);
+  }, [searchQuery, activeFilter, sortField, sortDirection, currentPage, selectedTags, priorityFilter, unlovedOnly]);
 
   useEffect(() => {
     void loadCustomers();
   }, [loadCustomers]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [priorityFilter, unlovedOnly]);
+
   const [selectedViewId, setSelectedViewId] = useState<string | null>(null);
 
-  const resetSavedView = () => setSelectedViewId(null);
+  const resetSavedView = useCallback(() => setSelectedViewId(null), []);
+
+  const syncUrlFilters = useCallback(
+    (nextPriority: PriorityFilter, nextUnloved: boolean) => {
+      const params = new URLSearchParams(searchParams?.toString() ?? "");
+
+      if (nextPriority !== "ALL") {
+        params.set("priority", nextPriority === "NONE" ? "NONE" : nextPriority);
+      } else {
+        params.delete("priority");
+      }
+
+      if (nextUnloved) {
+        params.set("unloved", "true");
+      } else {
+        params.delete("unloved");
+      }
+
+      const queryString = params.toString();
+      const nextUrl = queryString ? `/sales/customers?${queryString}` : "/sales/customers";
+      router.replace(nextUrl, { scroll: false });
+    },
+    [router, searchParams]
+  );
 
   const handleFilterChange = (filter: CustomerRiskStatus | "ALL" | "DUE") => {
     resetSavedView();
@@ -147,6 +205,21 @@ export default function SalesCustomersPage() {
     setSearchQuery(query);
     setCurrentPage(1);
   }, []);
+
+  const handlePriorityFilterChange = (value: PriorityFilter) => {
+    resetSavedView();
+    if (activeFilter !== "ALL") {
+      setActiveFilter("ALL");
+    }
+    setCurrentPage(1);
+    syncUrlFilters(value, unlovedOnly);
+  };
+
+  const clearUnlovedFilter = () => {
+    resetSavedView();
+    setCurrentPage(1);
+    syncUrlFilters(priorityFilter, false);
+  };
 
   const handleSort = (field: SortField) => {
     if (sortField === field) {
@@ -391,6 +464,45 @@ export default function SalesCustomersPage() {
   const combinedCards: CardConfig[] =
     data && viewFilterTab === "views" ? savedViewCards : viewFilterTab === "filters" ? riskFilterCards : [];
 
+  const priorityOptions: { label: string; value: PriorityFilter; description: string }[] = [
+    {
+      label: "All priorities",
+      value: "ALL",
+      description: "Show every account regardless of focus level",
+    },
+    {
+      label: "Priority 1 (High)",
+      value: "HIGH",
+      description: "Avg monthly revenue ≥ $2.5k (auto) or manually pinned logos.",
+    },
+    {
+      label: "Priority 2 (Medium)",
+      value: "MEDIUM",
+      description: "Roughly $1k–$2.5k per month; still need steady touches.",
+    },
+    {
+      label: "Priority 3 (Low)",
+      value: "LOW",
+      description: "Under $1k per month; nurture/long-tail accounts.",
+    },
+    {
+      label: "Not set",
+      value: "NONE",
+      description: "Accounts missing a priority flag",
+    },
+  ];
+
+  const priorityFilterLabel =
+    priorityFilter === "ALL"
+      ? "All priorities"
+      : priorityFilter === "NONE"
+        ? "Not set"
+        : priorityFilter === "HIGH"
+          ? "Priority 1"
+          : priorityFilter === "MEDIUM"
+            ? "Priority 2"
+            : "Priority 3";
+
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-6 lg:grid lg:grid-cols-[360px,minmax(0,1fr)] lg:items-start lg:gap-10">
       <aside className="space-y-6 lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:pr-2">
@@ -403,6 +515,41 @@ export default function SalesCustomersPage() {
         </section>
 
         <CustomerActivityFeed />
+
+        <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Account priority</p>
+              <p className="text-xs text-slate-500">Focus on the most important accounts first</p>
+            </div>
+            {priorityFilter !== "ALL" && (
+              <button
+                type="button"
+                onClick={() => handlePriorityFilterChange("ALL")}
+                className="text-xs font-semibold text-indigo-600 hover:text-indigo-800"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          <div className="mt-3 space-y-2">
+            {priorityOptions.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => handlePriorityFilterChange(option.value)}
+                className={`w-full rounded-xl border px-3 py-2.5 text-left text-xs transition ${
+                  priorityFilter === option.value
+                    ? "border-blue-400 bg-blue-50 text-blue-900"
+                    : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                }`}
+              >
+                <p className="font-semibold">{option.label}</p>
+                <p className="mt-0.5 text-[11px] text-slate-500">{option.description}</p>
+              </button>
+            ))}
+          </div>
+        </section>
 
         <section className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Overview</p>
@@ -521,6 +668,30 @@ export default function SalesCustomersPage() {
 
         {!error && (
           <>
+            {unlovedOnly && (
+              <div className="rounded-2xl border border-rose-200 bg-rose-50/80 px-5 py-4 text-sm text-rose-900 shadow-sm">
+                <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+                  <div>
+                    <p className="text-base font-semibold">Due for outreach filter is on</p>
+                    <p className="text-rose-800">
+                      Showing accounts without an order or in-person visit beyond their priority threshold.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full border border-rose-200 bg-white/70 px-3 py-1 text-xs font-semibold text-rose-700">
+                      {priorityFilterLabel}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={clearUnlovedFilter}
+                      className="rounded-full border border-rose-300 bg-white px-3 py-1 text-xs font-semibold text-rose-800 transition hover:bg-rose-100"
+                    >
+                      Show all accounts
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
             {loading && !data ? (
               <SkeletonTable />
             ) : data && data.customers.length === 0 ? (

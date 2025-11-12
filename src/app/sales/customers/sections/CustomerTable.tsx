@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { CustomerRiskStatus } from "@prisma/client";
+import type { AccountPriority, CustomerRiskStatus } from "@prisma/client";
 import CustomerHealthBadge from "./CustomerHealthBadge";
 import QuickSampleModal from "../components/QuickSampleModal";
 import { Package, NotebookPen, CalendarClock } from "lucide-react";
@@ -26,6 +26,14 @@ type Customer = {
   daysOverdue: number;
   daysUntilExpected: number | null;
   isDueToOrder: boolean;
+  accountPriority: AccountPriority | null;
+  dueForOutreach: null | {
+    priority: AccountPriority | "NONE";
+    thresholdDays: number;
+    lastLovedAt: string | null;
+    daysSinceLove: number | null;
+    avgMonthlyRevenue: number;
+  };
 };
 
 type SortField = "name" | "lastOrderDate" | "nextExpectedOrderDate" | "revenue";
@@ -53,6 +61,32 @@ export default function CustomerTable({
       return "none";
     }
     return sortDirection === "asc" ? "ascending" : "descending";
+  };
+
+  const getPriorityBadgeStyles = (priority: AccountPriority | null) => {
+    switch (priority) {
+      case "HIGH":
+        return "bg-red-50 text-red-700 border-red-200";
+      case "MEDIUM":
+        return "bg-amber-50 text-amber-700 border-amber-200";
+      case "LOW":
+        return "bg-emerald-50 text-emerald-700 border-emerald-200";
+      default:
+        return "bg-slate-50 text-slate-500 border-slate-200";
+    }
+  };
+
+  const getPriorityLabel = (priority: AccountPriority | null) => {
+    switch (priority) {
+      case "HIGH":
+        return "Priority 1";
+      case "MEDIUM":
+        return "Priority 2";
+      case "LOW":
+        return "Priority 3";
+      default:
+        return "Not set";
+    }
   };
 
   if (loading && customers.length === 0) {
@@ -305,18 +339,37 @@ export default function CustomerTable({
                 return (
                   <tr key={customer.id} className="transition hover:bg-slate-50">
                     <td className="px-4 py-3">
-                      <div className="flex flex-col">
-                        <Link
-                          href={`/sales/customers/${customer.id}`}
-                          className="font-semibold text-gray-900 underline decoration-dotted underline-offset-4 transition hover:text-blue-600"
-                        >
-                          {customer.name}
-                        </Link>
+                      <div className="flex flex-col gap-1.5">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <Link
+                            href={`/sales/customers/${customer.id}`}
+                            className="font-semibold text-gray-900 underline decoration-dotted underline-offset-4 transition hover:text-blue-600"
+                          >
+                            {customer.name}
+                          </Link>
+                          {customer.accountPriority && (
+                            <span
+                              className={`rounded-full border px-2 py-0.5 text-[11px] font-semibold ${getPriorityBadgeStyles(
+                                customer.accountPriority
+                              )}`}
+                            >
+                              {getPriorityLabel(customer.accountPriority)}
+                            </span>
+                          )}
+                        </div>
                         {customer.accountNumber && (
                           <span className="text-xs text-gray-500">#{customer.accountNumber}</span>
                         )}
                         {customer.location && (
                           <span className="text-xs text-gray-500">{customer.location}</span>
+                        )}
+                        {customer.dueForOutreach && (
+                          <div className="text-xs font-semibold text-rose-600">
+                            {customer.dueForOutreach.daysSinceLove !== null
+                              ? `No visits/orders for ${pluralize(customer.dueForOutreach.daysSinceLove, "day")}`
+                              : "No visits/orders logged yet"}
+                            {` • Threshold ${customer.dueForOutreach.thresholdDays}d`}
+                          </div>
                         )}
                         <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
                           <span>
