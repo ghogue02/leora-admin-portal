@@ -3,7 +3,7 @@ import { randomUUID } from 'crypto';
 import fs from 'fs/promises';
 import path from 'path';
 import { withAdminSession } from '@/lib/auth/admin';
-import { importSalesReports } from '../../../../../../scripts/import-csv-data';
+import { importHalCsv } from '@/lib/hal/import-runner';
 
 export const runtime = 'nodejs';
 
@@ -38,8 +38,8 @@ export async function POST(request: NextRequest) {
     await fs.writeFile(tempPath, buffer);
 
     try {
-      const summary = await importSalesReports({
-        files: [tempPath],
+      const summary = await importHalCsv({
+        file: tempPath,
         dryRun,
         autoCreateSkus,
         startDate,

@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parse } from 'date-fns';
 import { withAdminSession } from '@/lib/auth/admin';
-import { exportToSage } from '../../../../../scripts/export-to-sage';
+import { exportToSage } from '@/lib/sage/export-runner';
 
 export async function POST(request: NextRequest) {
   return withAdminSession(request, async ({ tenantId, user }) => {
