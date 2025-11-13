@@ -291,15 +291,6 @@ const guardrails = [
   },
 ];
 
-const validationQuestions = [
-  "How valuable is 7-day delayed supplier data vs. 24h vs. near real time?",
-  "Which additional systems would you pay $150/mo to connect (beyond ERP + email)?",
-  "If Leora generated target lists + follow-ups automatically, what monthly value would that unlock?",
-  "Would a credit on your bill for supplier data sharing motivate you to invite them sooner?",
-  "Do you prefer visible AI/SMS bundles with low overages or 'unlimited with fair use' wording?",
-  "What does 'Launch Concierge' need to include so you know there is no hidden setup cost?",
-];
-
 const faqs = [
   {
     question: "Is there any setup or implementation fee?",
@@ -785,37 +776,6 @@ export default function PricingPage() {
         exampleScenarios={exampleScenarios}
         supplierFaqs={supplierFaqs}
       />
-      <section className="layout-shell mt-16">
-        <div className="surface-card p-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Conversation starters</p>
-          <h2 className="mt-2 text-2xl font-semibold text-gray-900">Questions we keep testing with every wholesaler</h2>
-          <p className="mt-2 text-gray-600">Use these prompts in upcoming calls to pressure-test the knobs before rollout.</p>
-          <ol className="mt-6 list-decimal space-y-3 pl-5 text-sm text-gray-700">
-            {validationQuestions.map((question) => (
-              <li key={question}>{question}</li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="layout-shell mt-12">
-        <div className="rounded-3xl border border-dashed border-gray-300 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Coming soon</p>
-          <h2 className="mt-2 text-2xl font-semibold text-gray-900">Roadmap you can point prospects to</h2>
-          <ul className="mt-5 space-y-3 text-sm text-gray-700">
-            <li>
-              <strong>Upcoming Calendar (Q2).</strong> Activity grouping + quick invites based on the spec in <code>UPCOMING_CALENDAR_INTEGRATION.md</code>.
-            </li>
-            <li>
-              <strong>Automation trigger expansion.</strong> More conditions (burn rate, win-back, compliance) building on the workflows defined in <code>docs/AUTOMATED_TRIGGERS_GUIDE.md</code>.
-            </li>
-            <li>
-              <strong>OCR & compliance enhancements.</strong> State license verification, batch scanning, and AR capture extending the Phase 4 work documented in <code>docs/PHASE4_SCANNER_README.md</code>.
-            </li>
-          </ul>
-        </div>
-      </section>
-
     </div>
   );
 }
