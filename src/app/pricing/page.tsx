@@ -493,7 +493,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
     latencyLabel: "Best for read-only access",
     keyFeatures: ["Inventory + depletion views", "Scheduled digests & PDF exports", "Default wholesaler permissions"],
     bestFor: "Trade marketing teams needing read-only visibility (first 30 days free when invited)",
-    upgrade: "Upgrade to Insights →",
+    upgrade: null,
   },
   {
     id: "insights",
@@ -508,7 +508,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
       "Leakage + attrition drilldowns",
     ],
     bestFor: "Supplier revenue & analytics teams across multiple wholesalers",
-    upgrade: "Upgrade to Actions →",
+    upgrade: null,
   },
   {
     id: "actions",
