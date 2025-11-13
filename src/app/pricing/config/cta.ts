@@ -11,22 +11,25 @@ type CTAConfig = {
 
 export const CTA_CONFIG: Record<CTAIntent, CTAConfig> = {
   SELF_SERVE: {
-    text: "Get started",
+    text: "Apply for launch pricing",
     style: "primary",
-    destination: "/signup?plan=silver&utm_source=pricing&utm_medium=cta&utm_campaign=get_started",
-    tooltip: "Start your Leora self-serve setup",
+    destination:
+      "mailto:hello@joinleora.com?subject=Founding%2020%20application&body=Hi%20Leora%20team%2C%0A%0AWe%27d%20like%20to%20join%20the%20launch%20cohort.%20Here%27s%20a%20quick%20overview%20of%20our%20team%3A",
+    tooltip: "Reserve a Founding 20 slot",
   },
   DEMO_NEEDED: {
-    text: "Get a demo",
+    text: "Book cohort interview",
     style: "primary-gold",
-    destination: "mailto:hello@joinleora.com?subject=Gold%20Plan%20Demo&body=We%27d%20like%20a%2020-minute%20Gold%20walkthrough.",
-    tooltip: "Schedule a 20-minute walkthrough",
+    destination:
+      "mailto:hello@joinleora.com?subject=Launch%20pricing%20interview&body=Can%20we%20schedule%20a%2030-minute%20call%20to%20review%20launch%20pricing%20fit%3F",
+    tooltip: "Schedule a 30-minute qualification call",
   },
   SALES_CALL: {
-    text: "Contact sales",
+    text: "Talk through launch fit",
     style: "secondary",
-    destination: "mailto:hello@joinleora.com?subject=Platinum%20Enterprise%20Inquiry&body=We%27d%20like%20to%20chat%20about%20Platinum.",
-    tooltip: "Speak with a specialist",
+    destination:
+      "mailto:hello@joinleora.com?subject=Enterprise%20launch%20planning&body=We%27d%20like%20to%20discuss%20launch%20pricing%20and%20post-launch%20support.",
+    tooltip: "Speak with the team about enterprise rollout",
   },
 };
 

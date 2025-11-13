@@ -48,6 +48,8 @@ export type SimplifiedPlan = {
   name: string;
   price: string;
   priceInterval: string;
+  launchPrice?: string;
+  launchNote?: string;
   discountedPrice?: string;
   discountNote?: string;
   badge?: string | null;

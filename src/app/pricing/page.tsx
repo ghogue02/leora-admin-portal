@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import clsx from "clsx";
+import { LaunchCountdown } from "./components/LaunchCountdown";
 import { PricingTabsClient } from "./components/PricingTabsClient";
 import {
   ExampleScenario,
@@ -22,9 +22,34 @@ export const metadata: Metadata = {
     "Flat wholesaler plans that scale on usage plus supplier analytics priced per connection. No per-seat licensing or heavy implementation fees.",
 };
 
-const PricingTabsFallback = () => (
-  <div className="layout-shell mt-12 text-sm text-gray-500">Loading pricing experience…</div>
-);
+const FOUNDING_SLOT_LIMIT = 20;
+const LAUNCH_END_DATE = "2025-06-30T23:59:59Z";
+
+const foundingCommitments = [
+  "Enable supplier data sharing within 60 days so the flywheel spins fast.",
+  "Join one 30-minute roadmap / telemetry session with us each month.",
+  "Let us share anonymized outcomes (or a light case study) after go-live.",
+];
+
+const foundingPerks = [
+  "Launch pricing locked for 12 months ($100 / $250 / $400).",
+  "Concierge data import + workflow wiring included.",
+  "Priority access to automation recipes and forecasting pilots.",
+];
+
+const resolvedSlotsRemaining = (() => {
+  const envValue = Number(process.env.NEXT_PUBLIC_FOUNDING_SLOTS_REMAINING ?? "");
+  if (Number.isFinite(envValue)) {
+    return Math.max(0, Math.min(FOUNDING_SLOT_LIMIT, Math.floor(envValue)));
+  }
+  return FOUNDING_SLOT_LIMIT;
+})();
+
+const foundingSlots = {
+  remaining: resolvedSlotsRemaining,
+  claimed: FOUNDING_SLOT_LIMIT - resolvedSlotsRemaining,
+  progressPercent: Math.min(100, Math.max(0, ((FOUNDING_SLOT_LIMIT - resolvedSlotsRemaining) / FOUNDING_SLOT_LIMIT) * 100)),
+};
 
 const wholesalerPlans: Plan[] = [
   {
@@ -300,6 +325,13 @@ const pricingFeatures: PricingFeatureCategory[] = [
     category: "Core pricing",
     features: [
       {
+        name: "Launch-year cost (Founding 20)",
+        Silver: "$100/mo (first 12 months)",
+        Gold: "$250/mo (first 12 months)",
+        Platinum: "$400/mo (first 12 months)",
+        type: "pricing",
+      },
+      {
         name: "Monthly cost",
         Silver: "$400/mo",
         Gold: "$650/mo",
@@ -406,6 +438,8 @@ const simplifiedWholesalerPlans: SimplifiedPlan[] = [
     name: "Silver",
     price: "$400",
     priceInterval: "/mo",
+    launchPrice: "$100/mo (first 12 months)",
+    launchNote: "Founding 20 pricing · Reverts to $400/mo at renewal with 15% supplier credit once data sharing is on.",
     discountedPrice: "$340/mo",
     discountNote: "with supplier incentive discount",
     badge: null,
@@ -423,6 +457,8 @@ const simplifiedWholesalerPlans: SimplifiedPlan[] = [
     name: "Gold",
     price: "$650",
     priceInterval: "/mo",
+    launchPrice: "$250/mo (first 12 months)",
+    launchNote: "Founding 20 pricing · Reverts to $650/mo at renewal; keep 15% off with supplier sharing.",
     discountedPrice: "$552.50/mo",
     discountNote: "with supplier incentive discount",
     badge: "Most popular",
@@ -441,6 +477,8 @@ const simplifiedWholesalerPlans: SimplifiedPlan[] = [
     name: "Platinum",
     price: "$950",
     priceInterval: "/mo",
+    launchPrice: "$400/mo (first 12 months)",
+    launchNote: "Founding 20 pricing · Reverts to $950/mo; supplier sharing keeps the 15% credit.",
     discountedPrice: "$807.50/mo",
     discountNote: "with supplier incentive discount",
     badge: null,
@@ -529,6 +567,14 @@ const exampleScenarios: ExampleScenario[] = [
       "Suppliers choose Viewer/Insights/Actions tiers and are invoiced separately.",
     ],
   },
+  {
+    title: "Launch pricing + supplier credit",
+    bullets: [
+      "Silver launch price: $100/mo for the first 12 months (Founding 20 only).",
+      "Share supplier data within 60 days and keep the 15% credit when you roll to $400/mo.",
+      "Launch pricing requires monthly feedback so we can prioritize automations and supplier workflows.",
+    ],
+  },
 ];
 
 const supplierDiscounts: SupplierDiscount[] = [
@@ -557,11 +603,11 @@ const pricingStrategies = [
     title: "Adoption-first (current focus)",
     badge: "Current focus",
     description:
-      "30 distributors live in 12 months. Keep pricing flat, bundle every core workflow, and use supplier incentives to remove friction.",
+      "Recruit the Founding 20 wholesalers, keep friction low with $100 launch pricing, and prove the supplier flywheel before scaling price.",
     bullets: [
-      "Invite suppliers with a 30-day free Viewer pass; as soon as they connect, your plan drops 15% (Silver $400 → $340, Gold $650 → $552.50, Platinum $950 → $807.50).",
-      "No user thresholds or approvals—teams can start CRM + purchasing + automations immediately.",
-      "Proof inside 30 days: shared data + supplier collaboration shows value before renewal.",
+      "Launch pricing: Silver $100/mo, Gold $250/mo, Platinum $400/mo for the first 12 months (limited to 20 wholesalers).",
+      "Supplier data credit: once Viewer or Insights is on, invoices auto-drop 15% even after launch pricing expires.",
+      "Telemetry expectation: monthly feedback + supplier invites within 60 days give us proof before renewal.",
     ],
   },
   {
@@ -601,28 +647,42 @@ export default function PricingPage() {
     <div className="safe-nav-offset pb-16">
       <section className="layout-shell">
         <div className="rounded-[32px] border border-white/10 bg-slate-900 px-8 py-12 text-white shadow-[0_25px_70px_rgba(15,23,42,0.4)]">
-          <div className="flex flex-wrap items-center gap-3 text-sm font-medium uppercase tracking-[0.2em] text-white/70">
-            <Sparkles className="h-4 w-4" aria-hidden />
-            No seats - No setup fees - Usage scales with value
+          <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-white/90">
+            <span className="inline-flex items-center gap-2 rounded-full bg-amber-400/20 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-amber-200">
+              <Sparkles className="h-3.5 w-3.5" aria-hidden />
+              Launch pricing
+            </span>
+            <span className="text-white/70">
+              {foundingSlots.remaining} of {FOUNDING_SLOT_LIMIT} slots remaining
+            </span>
+            <span className="text-white/70">
+              Ends in <LaunchCountdown endDate={LAUNCH_END_DATE} />
+            </span>
           </div>
           <div className="mt-6 max-w-3xl space-y-4">
             <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Pricing that keeps your team moving.</h1>
             <p className="text-lg text-white/80">
-              Leora connects CRM, purchasing, automation, and supplier collaboration in one system. Plans stay simple while usage entitlements scale on refresh
-              speed, integrations, and messaging volume.
+              Leora connects CRM, purchasing, automation, and supplier collaboration in one system. Launch pricing keeps friction low so we can ship value,
+              collect telemetry, and invite suppliers faster.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="mailto:hello@joinleora.com?subject=Leora%20pricing"
+              href="mailto:hello@joinleora.com?subject=Founding%2020%20application"
               className="flex items-center gap-2 rounded-full bg-amber-400 px-6 py-3 text-base font-semibold text-slate-950 shadow-lg transition hover:bg-amber-300 focus-visible:outline-white/80"
             >
-              Request a walkthrough
+              Apply for launch pricing
               <ArrowUpRight className="h-4 w-4" aria-hidden />
             </Link>
             <Link
-              href="#wholesaler"
+              href="#founding"
               className="rounded-full border border-white/40 px-6 py-3 text-base font-medium text-white transition hover:bg-white/10"
+            >
+              See cohort criteria
+            </Link>
+            <Link
+              href="#wholesaler"
+              className="rounded-full border border-transparent px-6 py-3 text-base font-medium text-white/70 transition hover:bg-white/10"
             >
               Compare plans
             </Link>
@@ -638,8 +698,64 @@ export default function PricingPage() {
             </div>
             <div>
               <p className="font-semibold text-white">Supplier flywheel</p>
-              <p>Suppliers choose their analytics tier, you see credits automatically applied.</p>
+              <p>Suppliers choose their analytics tier once the data is live—you see 15% credits automatically.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="founding" className="layout-shell mt-8">
+        <div className="rounded-3xl border border-indigo-100 bg-white p-6 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-500">Founding 20 launch cohort</p>
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            <h2 className="text-2xl font-semibold text-gray-900">First {FOUNDING_SLOT_LIMIT} wholesalers lock $100 launch pricing</h2>
+            <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">Launch pricing</span>
+          </div>
+          <p className="mt-3 text-sm text-gray-600">
+            Pay $100 / $250 / $400 per month for your first year, then revert to list price with the 15% supplier data credit available forever. We only ask
+            for fast feedback so the supplier experience compounds.
+          </p>
+          <div className="mt-4">
+            <div className="flex flex-wrap items-center justify-between text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+              <span>
+                {foundingSlots.claimed} / {FOUNDING_SLOT_LIMIT} claimed
+              </span>
+              <span>{foundingSlots.remaining} spots left</span>
+            </div>
+            <div className="mt-2 h-2 rounded-full bg-indigo-100">
+              <div
+                className="h-full rounded-full bg-indigo-500 transition-all"
+                style={{ width: `${foundingSlots.progressPercent}%` }}
+              />
+            </div>
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">Commitments</p>
+              <ul className="mt-3 space-y-2 text-sm text-gray-700">
+                {foundingCommitments.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-indigo-500">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">Perks</p>
+              <ul className="mt-3 space-y-2 text-sm text-gray-700">
+                {foundingPerks.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-emerald-500">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-gray-600">
+            <span className="font-semibold text-gray-900">Auto discount:</span>
+            <span>Share data within 60 days and the 15% supplier credit stays on your invoice long term.</span>
           </div>
         </div>
       </section>

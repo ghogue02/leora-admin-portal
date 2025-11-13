@@ -190,21 +190,25 @@ function WholesalerTab({
               ) : null}
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">{plan.tagline}</p>
               <h3 className="plan-name mt-2 text-2xl font-semibold text-gray-900">{plan.name}</h3>
-              <div className="plan-price mt-4 flex items-baseline gap-2">
-                <div className="flex flex-col gap-1">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-xl font-semibold text-gray-400 line-through">
-                      {plan.price}
-                      {plan.priceInterval}
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-semibold text-gray-900">{plan.discountedPrice ?? `${plan.price}${plan.priceInterval}`}</span>
-                  </div>
-                  {plan.discountNote ? (
-                    <p className="text-xs font-semibold text-emerald-600">{plan.discountNote}</p>
-                  ) : null}
+              {plan.launchPrice ? (
+                <div className="mt-4 rounded-2xl border border-emerald-200 bg-emerald-50/70 px-4 py-3 text-sm text-emerald-900">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-emerald-600">Launch pricing · first 12 months</p>
+                  <p className="mt-1 text-3xl font-semibold">{plan.launchPrice}</p>
+                  {plan.launchNote ? <p className="mt-1 text-xs text-emerald-700">{plan.launchNote}</p> : null}
                 </div>
+              ) : null}
+              <div className="plan-price mt-4 rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-gray-500">Standard after launch</p>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="text-base font-semibold text-gray-400 line-through">
+                    {plan.price}
+                    {plan.priceInterval}
+                  </span>
+                  <span className="text-3xl font-semibold text-gray-900">{plan.discountedPrice ?? `${plan.price}${plan.priceInterval}`}</span>
+                </div>
+                {plan.discountNote ? (
+                  <p className="mt-1 text-xs font-semibold text-emerald-600">{plan.discountNote}</p>
+                ) : null}
               </div>
               <p className="description mt-3 text-sm font-medium text-gray-700">{plan.description}</p>
               <div className="best-for mt-4 rounded-xl border border-gray-100 bg-gray-50 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
