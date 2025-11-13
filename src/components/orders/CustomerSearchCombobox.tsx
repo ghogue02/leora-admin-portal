@@ -35,6 +35,8 @@ export type Customer = {
   deliveryInstructions?: string | null;
   deliveryWindows?: DeliveryWindowInfo[];
   deliveryMethod?: string | null;
+  minimumOrderOverride?: number | null;
+  minimumOrderOverrideNotes?: string | null;
 };
 
 type CustomerApiResult = {
@@ -61,6 +63,8 @@ type CustomerApiResult = {
   deliveryInstructions?: string | null;
   deliveryWindows?: DeliveryWindowInfo[] | null;
   deliveryMethod?: string | null;
+  minimumOrderOverride?: number | string | null;
+  minimumOrderOverrideNotes?: string | null;
 };
 
 export type DeliveryWindowInfo = {
@@ -87,6 +91,11 @@ const toCustomer = (entry: CustomerApiResult): Customer => ({
     ? entry.deliveryWindows.filter(Boolean)
     : [],
   deliveryMethod: entry.deliveryMethod ?? null,
+  minimumOrderOverride:
+    entry.minimumOrderOverride === null || typeof entry.minimumOrderOverride === 'undefined'
+      ? null
+      : Number(entry.minimumOrderOverride),
+  minimumOrderOverrideNotes: entry.minimumOrderOverrideNotes ?? null,
 });
 
 type Props = {

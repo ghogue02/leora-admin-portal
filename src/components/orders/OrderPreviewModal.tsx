@@ -15,6 +15,7 @@
 import React from 'react';
 import { X, AlertTriangle, CheckCircle } from 'lucide-react';
 import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { formatCurrency } from '@/lib/format';
 
 type Customer = {
   id: string;
@@ -60,6 +61,12 @@ type Props = {
   items: OrderItem[];
   total: number;
   requiresApproval: boolean;
+  minimumOrderThreshold?: number | null;
+  minimumOrderViolation?: boolean;
+  minimumOrderShortfall?: number;
+  minimumOrderEnforced?: boolean;
+  minimumOrderSource?: 'tenant' | 'customer' | null;
+  minimumOrderWarningOnly?: boolean;
   onConfirm: (selectedStatus: 'PENDING' | 'READY') => void;
   onCancel: () => void;
   submitting?: boolean;
@@ -82,6 +89,12 @@ export function OrderPreviewModal({
   items,
   total,
   requiresApproval,
+  minimumOrderThreshold,
+  minimumOrderViolation,
+  minimumOrderShortfall,
+  minimumOrderEnforced,
+  minimumOrderSource,
+  minimumOrderWarningOnly,
   onConfirm,
   onCancel,
   submitting = false,
@@ -301,7 +314,12 @@ export function OrderPreviewModal({
           )}
 
           {/* Warnings */}
-          {(requiresApproval || inventoryIssues.length > 0 || priceOverrides.length > 0) && statusSelectionEnabled && (
+          {(requiresApproval ||
+            inventoryIssues.length > 0 ||
+            priceOverrides.length > 0 ||
+            minimumOrderViolation ||
+            minimumOrderWarningOnly) &&
+            statusSelectionEnabled && (
             <section>
               {requiresApproval && (
                 <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 mb-3">
@@ -322,6 +340,21 @@ export function OrderPreviewModal({
                           • {priceOverrides.length} item(s) with manual pricing
                         </p>
                       )}
+                      {minimumOrderViolation && minimumOrderThreshold !== null && (
+                        <p className="mt-1 text-xs text-amber-800">
+                          • Order total is {formatCurrency(minimumOrderShortfall ?? 0)} short of the{' '}
+                          {minimumOrderSource === 'customer' ? 'customer override' : 'tenant'} minimum of{' '}
+                          {formatCurrency(minimumOrderThreshold)}
+                        </p>
+                      )}
+                      {!minimumOrderViolation &&
+                        minimumOrderWarningOnly &&
+                        minimumOrderThreshold !== null &&
+                        (
+                          <p className="mt-1 text-xs text-amber-800">
+                            • Below the preferred minimum of {formatCurrency(minimumOrderThreshold)} (informational only)
+                          </p>
+                        )}
                     </div>
                   </div>
                 </div>

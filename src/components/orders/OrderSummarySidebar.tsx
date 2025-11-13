@@ -19,6 +19,7 @@ import { useMemo, useState } from 'react';
 import { format, parse } from 'date-fns';
 import { DiscountIndicator } from './DiscountIndicator';
 import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
+import { formatCurrency } from '@/lib/format';
 
 type OrderItem = {
   skuId: string;
@@ -41,6 +42,12 @@ type Props = {
   items: OrderItem[];
   onRemoveItem: (skuId: string) => void;
   requiresApproval: boolean;
+  minimumOrderThreshold?: number | null;
+  minimumOrderViolation?: boolean;
+  minimumOrderShortfall?: number;
+  minimumOrderSource?: 'tenant' | 'customer' | null;
+  minimumOrderWarningOnly?: boolean;
+  minimumOrderEnforced?: boolean;
   deliveryFee?: number;
   splitCaseFee?: number;
   onDeliveryFeeChange?: (fee: number) => void;
@@ -57,6 +64,12 @@ export function OrderSummarySidebar({
   items,
   onRemoveItem,
   requiresApproval,
+  minimumOrderThreshold = null,
+  minimumOrderViolation = false,
+  minimumOrderShortfall = 0,
+  minimumOrderSource = null,
+  minimumOrderWarningOnly = false,
+  minimumOrderEnforced = false,
   deliveryFee = 0,
   splitCaseFee = 0,
   onDeliveryFeeChange,
@@ -202,6 +215,53 @@ export function OrderSummarySidebar({
               )}
             </div>
           </div>
+
+          {/* Minimum Order */}
+          {minimumOrderThreshold !== null && minimumOrderThreshold > 0 && (
+            <div
+              className={`rounded-md border p-3 ${
+                minimumOrderViolation || minimumOrderWarningOnly
+                  ? 'border-amber-200 bg-amber-50'
+                  : 'border-gray-200 bg-gray-50'
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-xs font-medium text-gray-600">
+                    {minimumOrderSource === 'customer'
+                      ? 'Customer minimum order'
+                      : 'Tenant minimum order'}
+                  </div>
+                  <div className="text-base font-semibold text-gray-900">
+                    {formatCurrency(minimumOrderThreshold)}
+                  </div>
+                </div>
+                {minimumOrderEnforced && (
+                  <span
+                    className={`text-xs font-semibold ${
+                      minimumOrderViolation ? 'text-amber-700' : 'text-emerald-700'
+                    }`}
+                  >
+                    {minimumOrderViolation
+                      ? `Short ${formatCurrency(minimumOrderShortfall)}`
+                      : 'Meets minimum'}
+                  </span>
+                )}
+              </div>
+
+              {minimumOrderViolation && (
+                <p className="mt-2 text-xs text-amber-700">
+                  Below the enforced minimum. Order will route to manager approval automatically.
+                </p>
+              )}
+
+              {!minimumOrderEnforced && minimumOrderWarningOnly && (
+                <p className="mt-2 text-xs text-amber-700">
+                  Below the preferred minimum. Add more items or submit with manager awareness.
+                </p>
+              )}
+            </div>
+          )}
 
           {/* Delivery Method */}
           <div>

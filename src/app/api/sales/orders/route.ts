@@ -15,6 +15,12 @@ import { parseUTCDate } from "@/lib/dates";
 import { generateOrderNumber } from "@/lib/orders/order-number-generator";
 import { DELIVERY_METHOD_OPTIONS } from "@/constants/deliveryMethods";
 import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
+import {
+  buildMinimumOrderPolicy,
+  evaluateMinimumOrder,
+  addApprovalReason,
+} from "@/lib/orders/minimum-order-policy";
+import type { OrderApprovalReason, OrderApprovalReasonCode } from "@/types/orders";
 
 const DEFAULT_LIMIT = 25;
 const OPEN_STATUSES: OrderStatus[] = [
@@ -448,6 +454,8 @@ export async function POST(request: NextRequest) {
           accountNumber: true,
           salesRepId: true,
           deliveryMethod: true,
+          minimumOrderOverride: true,
+          minimumOrderOverrideNotes: true,
           salesRep: {
             select: {
               id: true,
@@ -564,7 +572,29 @@ export async function POST(request: NextRequest) {
       }
 
       try {
+        const tenantSettings = await db.tenantSettings.findUnique({
+          where: { tenantId },
+          select: {
+            minimumOrderAmount: true,
+            minimumOrderEnforcementEnabled: true,
+          },
+        });
+
         const result = await runWithTransaction(db, async (tx) => {
+          const approvalReasons: OrderApprovalReason[] = [];
+          const approvalReasonCodes = new Set<OrderApprovalReasonCode>();
+          const minimumPolicy = buildMinimumOrderPolicy({
+            tenantSettings: tenantSettings
+              ? {
+                  minimumOrderAmount: tenantSettings.minimumOrderAmount,
+                  minimumOrderEnforcementEnabled: tenantSettings.minimumOrderEnforcementEnabled,
+                }
+              : undefined,
+            customer: {
+              minimumOrderOverride: customer.minimumOrderOverride ?? null,
+            },
+          });
+
           // 1. Fetch SKU details with pricing
           const skus = await tx.sku.findMany({
             where: {
@@ -608,6 +638,7 @@ export async function POST(request: NextRequest) {
 
           // Determine if any items have insufficient inventory
           let requiresApproval = false;
+          const inventoryShortfalls: Array<{ skuId: string; requested: number; available: number }> = [];
           const inventoryChecks = quantityDescriptors.map(item => {
             const inventories = inventoryMap.get(item.skuId) ?? [];
             const available = inventories.reduce((sum, inv) => {
@@ -617,6 +648,11 @@ export async function POST(request: NextRequest) {
             const sufficient = available >= item.quantity;
             if (!sufficient) {
               requiresApproval = true;
+              inventoryShortfalls.push({
+                skuId: item.skuId,
+                requested: item.quantity,
+                available,
+              });
             }
 
             return {
@@ -626,6 +662,20 @@ export async function POST(request: NextRequest) {
               sufficient,
             };
           });
+
+          if (inventoryShortfalls.length > 0) {
+            addApprovalReason(
+              approvalReasons,
+              {
+                code: "INVENTORY",
+                summary: "Insufficient inventory",
+                metadata: {
+                  shortfalls: inventoryShortfalls,
+                },
+              },
+              approvalReasonCodes,
+            );
+          }
 
           // 3. Allocate inventory (this will throw if insufficient)
           let allocationsBySku;
@@ -644,6 +694,9 @@ export async function POST(request: NextRequest) {
           }
 
           // 4. Calculate pricing for each item
+          const pricingOverrideSkus: string[] = [];
+          const manualPriceOverrideSkus: string[] = [];
+
           const orderLines = orderData.items.map(item => {
             const sku = skus.find(s => s.id === item.skuId);
             if (!sku) {
@@ -658,12 +711,14 @@ export async function POST(request: NextRequest) {
 
             if (selection.overrideApplied) {
               requiresApproval = true;
+              pricingOverrideSkus.push(sku.product.name ?? sku.product.id);
             }
 
             // Check for manual price override
             const hasPriceOverride = !!item.priceOverride;
             if (hasPriceOverride) {
               requiresApproval = true;
+              manualPriceOverrideSkus.push(sku.product.name ?? sku.product.id);
             }
 
             const baseUnitPrice = Number(selection.item.price ?? sku.pricePerUnit ?? 0);
@@ -699,10 +754,56 @@ export async function POST(request: NextRequest) {
             };
           });
 
+          if (pricingOverrideSkus.length > 0) {
+            addApprovalReason(
+              approvalReasons,
+              {
+                code: "PRICING_OVERRIDE",
+                summary: "Price list override applied",
+                metadata: { items: pricingOverrideSkus },
+              },
+              approvalReasonCodes,
+            );
+          }
+
+          if (manualPriceOverrideSkus.length > 0) {
+            addApprovalReason(
+              approvalReasons,
+              {
+                code: "MANUAL_PRICE",
+                summary: "Manual price override entered",
+                metadata: { items: manualPriceOverrideSkus },
+              },
+              approvalReasonCodes,
+            );
+          }
+
           // Calculate order total
           const orderTotal = orderLines.reduce((sum, line) => {
             return sum + (line.quantity * Number(line.unitPrice));
           }, 0);
+
+          const minimumEvaluation = evaluateMinimumOrder(minimumPolicy, orderTotal);
+          const minimumOrderThresholdValue =
+            typeof minimumPolicy.appliedAmount === "number" ? minimumPolicy.appliedAmount : null;
+          const minimumOrderViolation = minimumPolicy.enforcementEnabled && minimumEvaluation.violation;
+
+          if (minimumOrderViolation) {
+            requiresApproval = true;
+            addApprovalReason(
+              approvalReasons,
+              {
+                code: "MIN_ORDER",
+                summary: "Below minimum order amount",
+                metadata: {
+                  shortfall: minimumEvaluation.shortfall,
+                  threshold: minimumEvaluation.threshold,
+                  source: minimumPolicy.source,
+                },
+              },
+              approvalReasonCodes,
+            );
+          }
 
           // 5. Determine order status
           // DRAFT if needs approval, PENDING if inventory sufficient
@@ -726,6 +827,12 @@ export async function POST(request: NextRequest) {
               poNumber: orderData.poNumber?.trim() || null,
               specialInstructions: orderData.specialInstructions?.trim() || null,
               requiresApproval,
+              minimumOrderThreshold:
+                minimumOrderThresholdValue !== null
+                  ? new Prisma.Decimal(minimumOrderThresholdValue)
+                  : null,
+              minimumOrderViolation,
+              approvalReasons: approvalReasons.length ? (approvalReasons as Prisma.JsonValue) : null,
               orderedAt: new Date(),
               total: new Prisma.Decimal(orderTotal.toFixed(2)),
               currency: 'USD',
@@ -794,6 +901,12 @@ export async function POST(request: NextRequest) {
               ? ` Sales credit assigned to ${selectedSalesRep.user.fullName}.`
               : "";
 
+            const approvalNote = requiresApproval
+              ? approvalReasons.length > 0
+                ? ` Requires manager approval due to ${approvalReasons.map((reason) => reason.summary).join(', ')}.`
+                : ' Requires manager approval.'
+              : '';
+
             await tx.activity.create({
               data: {
                 tenantId,
@@ -802,7 +915,7 @@ export async function POST(request: NextRequest) {
                 customerId: orderData.customerId,
                 orderId: order.id,
                 subject: `Order created for ${customer.name}`,
-                notes: `Order created by ${session.user.fullName}. Delivery: ${orderData.deliveryDate}. Warehouse: ${orderData.warehouseLocation}.${requiresApproval ? ' Requires manager approval due to insufficient inventory.' : ''}${salesRepAssignmentNote}`,
+                notes: `Order created by ${session.user.fullName}. Delivery: ${orderData.deliveryDate}. Warehouse: ${orderData.warehouseLocation}.${approvalNote}${salesRepAssignmentNote}`,
                 occurredAt: new Date(),
               },
             });
@@ -834,23 +947,32 @@ export async function POST(request: NextRequest) {
           currency: result.order.currency,
           deliveryDate: result.order.deliveryDate,
           salesRepId: selectedSalesRep.id,
-           salesRep: result.order.salesRep
-             ? {
-                 id: result.order.salesRep.id,
-                 name: result.order.salesRep.user.fullName,
-                 territory: result.order.salesRep.territoryName,
-               }
-             : {
-                 id: selectedSalesRep.id,
-                 name: selectedSalesRep.user.fullName,
-                 territory: selectedSalesRep.territoryName,
-               },
-          inventoryStatus: {
-            checks: result.inventoryChecks,
-            allSufficient: !result.order.requiresApproval,
+          salesRep: result.order.salesRep
+            ? {
+                id: result.order.salesRep.id,
+                name: result.order.salesRep.user.fullName,
+                territory: result.order.salesRep.territoryName,
+              }
+            : {
+                id: selectedSalesRep.id,
+                name: selectedSalesRep.user.fullName,
+                territory: selectedSalesRep.territoryName,
+              },
+         inventoryStatus: {
+           checks: result.inventoryChecks,
+           allSufficient: !result.order.requiresApproval,
+         },
+          minimumOrder: {
+            threshold: result.order.minimumOrderThreshold
+              ? Number(result.order.minimumOrderThreshold)
+              : null,
+            violation: result.order.minimumOrderViolation,
           },
+          approvalReasons: Array.isArray(result.order.approvalReasons)
+            ? result.order.approvalReasons
+            : [],
           message: result.order.requiresApproval
-            ? 'Order created but requires manager approval due to insufficient inventory.'
+            ? 'Order created but requires manager approval due to policy triggers (inventory, pricing, or minimum order).'
             : 'Order created successfully and is pending processing.',
         });
       } catch (error) {

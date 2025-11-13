@@ -20,3 +20,26 @@ export type RecentPurchaseSuggestion = {
   priceLists: PriceListSummary[];
   timesOrdered: number;
 };
+
+export type MinimumOrderPolicySource = "tenant" | "customer";
+
+export type MinimumOrderPolicyClient = {
+  enforcementEnabled: boolean;
+  tenantAmount: number;
+  appliedAmount: number;
+  source: MinimumOrderPolicySource;
+  overrideAmount: number | null;
+};
+
+export type OrderApprovalReasonCode =
+  | "MIN_ORDER"
+  | "INVENTORY"
+  | "PRICING_OVERRIDE"
+  | "MANUAL_PRICE";
+
+export type OrderApprovalReason = {
+  code: OrderApprovalReasonCode;
+  summary: string;
+  details?: string;
+  metadata?: Record<string, unknown>;
+};

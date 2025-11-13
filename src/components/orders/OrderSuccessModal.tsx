@@ -16,6 +16,10 @@ type Props = {
   orderNumber: string;
   total: number;
   requiresApproval: boolean;
+  minimumOrder?: {
+    threshold: number | null;
+    violation: boolean;
+  } | null;
   customerName: string;
   deliveryDate: string | null;
   onClose: () => void;
@@ -28,6 +32,7 @@ export function OrderSuccessModal({
   orderNumber,
   total,
   requiresApproval,
+  minimumOrder,
   customerName,
   deliveryDate,
   onClose,
@@ -90,8 +95,16 @@ export function OrderSuccessModal({
                 <div>
                   <div className="text-sm font-semibold text-amber-900">Manager Approval Required</div>
                   <div className="mt-1 text-xs text-amber-700">
-                    This order has insufficient inventory or pricing overrides. It's been submitted to your manager for review.
+                    This order triggered approval (inventory, pricing, or minimum order policy). It's been sent to your manager for review.
                     <strong className="block mt-1">Expected approval time: 2-4 hours</strong>
+                    {minimumOrder?.violation && (
+                      <span className="mt-1 block">
+                        Minimum order threshold applied
+                        {typeof minimumOrder.threshold === 'number'
+                          ? ` (${minimumOrder.threshold.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}).`
+                          : '.'}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>

@@ -104,6 +104,13 @@ export async function GET(request: NextRequest) {
           total: Number(order.total || 0),
           createdAt: order.createdAt,
           orderedAt: order.orderedAt,
+          approvalReasons: Array.isArray(order.approvalReasons) ? order.approvalReasons : [],
+          minimumOrder: {
+            threshold: order.minimumOrderThreshold
+              ? Number(order.minimumOrderThreshold)
+              : null,
+            violation: order.minimumOrderViolation,
+          },
           lines: order.lines.map(line => ({
             id: line.id,
             quantity: line.quantity,

@@ -25,6 +25,12 @@ import { ValidationErrorSummary } from '@/components/orders/ValidationErrorSumma
 import { OrderSuccessModal } from '@/components/orders/OrderSuccessModal';
 import { OrderPreviewModal } from '@/components/orders/OrderPreviewModal';
 import { FormProgress } from '@/components/orders/FormProgress';
+import {
+  OrderAccordionSection,
+  OrderActionFooter,
+  type OrderSectionKey,
+  type OrderAccordionStatus,
+} from '@/components/orders/OrderFormLayout';
 import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
 import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
@@ -35,7 +41,7 @@ import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/
 import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 import { formatDeliveryWindows } from '@/lib/delivery-window';
 import { useRecentItems } from './hooks/useRecentItems';
-import type { RecentPurchaseSuggestion } from '@/types/orders';
+import type { MinimumOrderPolicyClient, RecentPurchaseSuggestion } from '@/types/orders';
 
 type InventoryStatus = {
   onHand: number;
@@ -95,6 +101,7 @@ function NewOrderPageContent() {
   const [customerDefaultSalesRepName, setCustomerDefaultSalesRepName] = useState<string | null>(null);
   const [loggedInSalesRepId, setLoggedInSalesRepId] = useState<string | null>(null);
   const [loggedInSalesRepName, setLoggedInSalesRepName] = useState<string | null>(null);
+  const [tenantMinimumPolicy, setTenantMinimumPolicy] = useState<MinimumOrderPolicyClient | null>(null);
   const [openSections, setOpenSections] = useState<Record<OrderSectionKey, boolean>>({
     customer: true,
     delivery: true,
@@ -144,7 +151,13 @@ function NewOrderPageContent() {
   const [salesRepDeliveryDays, setSalesRepDeliveryDays] = useState<string[]>([]);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
-  const [createdOrderData, setCreatedOrderData] = useState<{orderId: string; orderNumber: string; total: number; requiresApproval: boolean} | null>(null);
+  const [createdOrderData, setCreatedOrderData] = useState<{
+    orderId: string;
+    orderNumber: string;
+    total: number;
+    requiresApproval: boolean;
+    minimumOrder: { threshold: number | null; violation: boolean } | null;
+  } | null>(null);
   const [canOverridePrices, setCanOverridePrices] = useState(false);
   const handleUsageSelect = useCallback((rowIndex: number, value: OrderUsageCode) => {
     setOrderItems(prev => {
@@ -221,6 +234,24 @@ function NewOrderPageContent() {
       }
     }
     void loadSalesReps();
+  }, []);
+
+  useEffect(() => {
+    async function loadMinimumOrderPolicy() {
+      try {
+        const response = await fetch('/api/sales/settings/minimum-order');
+        if (!response.ok) {
+          throw new Error('Failed to load minimum order policy');
+        }
+        const data = await response.json();
+        setTenantMinimumPolicy(data.policy ?? null);
+      } catch (err) {
+        console.error('Failed to load minimum order policy', err);
+        setTenantMinimumPolicy(null);
+      }
+    }
+
+    void loadMinimumOrderPolicy();
   }, []);
 
   // Auto-fill defaults when customer selected
@@ -301,6 +332,11 @@ function NewOrderPageContent() {
           deliveryInstructions: data.customer.deliveryInstructions ?? null,
           deliveryWindows: Array.isArray(data.customer.deliveryWindows) ? data.customer.deliveryWindows : [],
           deliveryMethod: data.customer.deliveryMethod ?? null,
+          minimumOrderOverride:
+            data.customer.minimumOrderOverride !== null && typeof data.customer.minimumOrderOverride !== 'undefined'
+              ? Number(data.customer.minimumOrderOverride)
+              : null,
+          minimumOrderOverrideNotes: data.customer.minimumOrderOverrideNotes ?? null,
         };
 
         handleCustomerSelect(customerData);
@@ -542,11 +578,59 @@ function NewOrderPageContent() {
 
   // Calculate order total
   const orderTotal = orderItems.reduce((sum, item) => sum + item.lineTotal, 0);
-  const requiresApproval = orderItems.some(item =>
-    (item.inventoryStatus && !item.inventoryStatus.sufficient) ||
-    item.pricing.overrideApplied ||
-    !!item.priceOverride
+
+  const minimumOrderContext = useMemo(() => {
+    if (!tenantMinimumPolicy) {
+      return null;
+    }
+
+    const overrideAmount =
+      selectedCustomer?.minimumOrderOverride !== null && typeof selectedCustomer?.minimumOrderOverride !== 'undefined'
+        ? selectedCustomer?.minimumOrderOverride
+        : null;
+
+    const tenantAmount = tenantMinimumPolicy.appliedAmount ?? null;
+    const threshold = overrideAmount ?? tenantAmount;
+
+    if (threshold === null) {
+      return {
+        threshold: null,
+        source: tenantMinimumPolicy.source,
+        enforcementEnabled: tenantMinimumPolicy.enforcementEnabled,
+      };
+    }
+
+    return {
+      threshold,
+      source: overrideAmount ? 'customer' : 'tenant',
+      enforcementEnabled: tenantMinimumPolicy.enforcementEnabled,
+    };
+  }, [tenantMinimumPolicy, selectedCustomer]);
+
+  const minimumOrderThreshold =
+    typeof minimumOrderContext?.threshold === 'number' ? minimumOrderContext.threshold : null;
+  const minimumOrderEnforced = Boolean(minimumOrderContext?.enforcementEnabled);
+  const minimumOrderApplies =
+    minimumOrderThreshold !== null && Number.isFinite(minimumOrderThreshold) && minimumOrderThreshold > 0;
+  const minimumOrderViolation =
+    minimumOrderApplies && minimumOrderEnforced ? orderTotal < (minimumOrderThreshold ?? 0) : false;
+  const minimumOrderShortfall =
+    minimumOrderApplies && minimumOrderThreshold !== null
+      ? Math.max(0, minimumOrderThreshold - orderTotal)
+      : 0;
+  const minimumOrderSource = minimumOrderContext?.source ?? null;
+  const minimumOrderWarningOnly =
+    minimumOrderApplies && !minimumOrderEnforced && minimumOrderThreshold !== null
+      ? orderTotal < minimumOrderThreshold
+      : false;
+
+  const lineLevelApproval = orderItems.some(
+    (item) =>
+      (item.inventoryStatus && !item.inventoryStatus.sufficient) ||
+      item.pricing.overrideApplied ||
+      !!item.priceOverride,
   );
+  const requiresApproval = lineLevelApproval || minimumOrderViolation;
   const estimatedTotal = useMemo(
     () => orderTotal + deliveryFee + splitCaseFee,
     [orderTotal, deliveryFee, splitCaseFee],
@@ -687,6 +771,7 @@ function NewOrderPageContent() {
         orderNumber: result.orderNumber || result.orderId.slice(0, 8).toUpperCase(),
         total: orderTotal,
         requiresApproval: result.requiresApproval || false,
+        minimumOrder: result.minimumOrder ?? null,
       });
       setShowSuccessModal(true);
       setShowPreviewModal(false);
@@ -1448,6 +1533,12 @@ function NewOrderPageContent() {
             setOrderItems(orderItems.filter(item => item.skuId !== skuId));
           }}
           requiresApproval={requiresApproval}
+          minimumOrderThreshold={minimumOrderThreshold}
+          minimumOrderViolation={minimumOrderViolation}
+          minimumOrderShortfall={minimumOrderShortfall}
+          minimumOrderSource={minimumOrderSource}
+          minimumOrderWarningOnly={minimumOrderWarningOnly}
+          minimumOrderEnforced={minimumOrderEnforced}
           deliveryFee={deliveryFee}
           splitCaseFee={splitCaseFee}
           onDeliveryFeeChange={setDeliveryFee}
@@ -1498,6 +1589,12 @@ function NewOrderPageContent() {
           items={orderItems}
           total={orderTotal}
           requiresApproval={requiresApproval}
+          minimumOrderThreshold={minimumOrderThreshold}
+          minimumOrderViolation={minimumOrderViolation}
+          minimumOrderShortfall={minimumOrderShortfall}
+          minimumOrderEnforced={minimumOrderEnforced}
+          minimumOrderSource={minimumOrderSource}
+          minimumOrderWarningOnly={minimumOrderWarningOnly}
           salesRepName={
             selectedSalesRepName ??
             customerDefaultSalesRepName ??
@@ -1519,6 +1616,7 @@ function NewOrderPageContent() {
           orderNumber={createdOrderData.orderNumber}
           total={createdOrderData.total}
           requiresApproval={createdOrderData.requiresApproval}
+          minimumOrder={createdOrderData.minimumOrder}
           customerName={selectedCustomer?.name || ''}
           deliveryDate={deliveryDate}
           onClose={() => {

@@ -16,6 +16,7 @@ import {
   ActivitySquare,
   BellRing,
   Plug,
+  SlidersHorizontal,
 } from "lucide-react";
 
 const navigation = [
@@ -79,6 +80,11 @@ const navigation = [
     label: "Data Integrity",
     href: "/admin/data-integrity",
     icon: Settings,
+  },
+  {
+    label: "Settings",
+    href: "/admin/settings/orders",
+    icon: SlidersHorizontal,
   },
   {
     label: "Integrations",

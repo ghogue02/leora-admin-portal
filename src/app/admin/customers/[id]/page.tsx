@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
@@ -11,6 +11,7 @@ import { CustomerContactsManager } from '@/components/customers/CustomerContacts
 import { GoogleMapsAutoFill } from '@/components/customers/GoogleMapsAutoFill';
 import { CustomerGoogleFields } from '@/components/customers/forms/CustomerGoogleFields';
 import { formatCurrency, formatShortDate } from '@/lib/format';
+import type { MinimumOrderPolicyClient } from '@/types/orders';
 import { formatDistanceToNow } from 'date-fns';
 import ReassignModal from '@/app/admin/customers/components/ReassignModal';
 import type {
@@ -20,6 +21,12 @@ import type {
   DeliveryWindow,
 } from '@/types/customer';
 import type { GooglePlaceSuggestion } from "@/lib/maps/googlePlaces";
+
+const TENANT_SLUG =
+  process.env.NEXT_PUBLIC_PORTAL_TENANT_SLUG ??
+  process.env.NEXT_PUBLIC_TENANT_SLUG ??
+  "well-crafted";
+const TENANT_HEADERS = TENANT_SLUG ? { "X-Tenant-Slug": TENANT_SLUG } : {};
 
 interface Customer {
   id: string;
@@ -86,6 +93,10 @@ interface Customer {
   outstandingAmount: number;
   daysSinceLastOrder: number | null;
   firstOrderDate: string | null;
+  minimumOrderOverride: number | null;
+  minimumOrderOverrideNotes: string | null;
+  minimumOrderOverrideUpdatedAt: string | null;
+  minimumOrderOverrideUpdatedBy: string | null;
   orders: Array<{
     id: string;
     total: number;
@@ -151,6 +162,8 @@ type CustomerFormState = {
   googleMapsUrl: string;
   googleBusinessStatus: string;
   googlePlaceTypes: string[];
+  minimumOrderOverride: number | null;
+  minimumOrderOverrideNotes: string;
 };
 
 const INITIAL_FORM_STATE: CustomerFormState = {
@@ -184,6 +197,8 @@ const INITIAL_FORM_STATE: CustomerFormState = {
   googleMapsUrl: '',
   googleBusinessStatus: '',
   googlePlaceTypes: [],
+  minimumOrderOverride: null,
+  minimumOrderOverrideNotes: '',
 };
 
 export default function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -198,6 +213,7 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
   const [formData, setFormData] = useState<CustomerFormState>(INITIAL_FORM_STATE);
   const [resolvingFlagId, setResolvingFlagId] = useState<string | null>(null);
   const [isReassignModalOpen, setIsReassignModalOpen] = useState(false);
+  const [tenantPolicy, setTenantPolicy] = useState<MinimumOrderPolicyClient | null>(null);
   const initialTabParam = searchParams.get('tab');
   const [activeTab, setActiveTab] = useState<'overview' | 'details'>(
     initialTabParam === 'details' ? 'details' : 'overview'
@@ -232,14 +248,28 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
     setError(null);
 
     try {
-      const response = await fetch(`/api/admin/customers/${customerId}`);
+      const response = await fetch(`/api/admin/customers/${customerId}`, {
+        headers: TENANT_HEADERS,
+        credentials: 'include',
+      });
       const data = await response.json();
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to fetch customer');
       }
 
-      setCustomer(data.customer);
+      const normalizedCustomer: Customer = {
+        ...data.customer,
+        minimumOrderOverride:
+          data.customer.minimumOrderOverride !== null
+            ? Number(data.customer.minimumOrderOverride)
+            : null,
+        minimumOrderOverrideNotes: data.customer.minimumOrderOverrideNotes ?? null,
+        minimumOrderOverrideUpdatedAt: data.customer.minimumOrderOverrideUpdatedAt ?? null,
+        minimumOrderOverrideUpdatedBy: data.customer.minimumOrderOverrideUpdatedBy ?? null,
+      };
+
+      setCustomer(normalizedCustomer);
       setFormData({
         name: data.customer.name ?? '',
         billingEmail: data.customer.billingEmail ?? '',
@@ -273,6 +303,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
         googleMapsUrl: data.customer.googleMapsUrl ?? '',
         googleBusinessStatus: data.customer.googleBusinessStatus ?? '',
         googlePlaceTypes: data.customer.googlePlaceTypes ?? [],
+        minimumOrderOverride: normalizedCustomer.minimumOrderOverride,
+        minimumOrderOverrideNotes: normalizedCustomer.minimumOrderOverrideNotes ?? '',
       });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to fetch customer');
@@ -336,6 +368,25 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
     }
   }, [customerId, fetchCustomer]);
 
+  const fetchTenantPolicy = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/orders/minimum-order');
+      if (!response.ok) {
+        return;
+      }
+      const data = await response.json();
+      if (data.policy) {
+        setTenantPolicy(data.policy);
+      }
+    } catch (err) {
+      console.error('Failed to load tenant minimum order policy', err);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchTenantPolicy();
+  }, [fetchTenantPolicy]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!customerId) return;
@@ -346,7 +397,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
     try {
       const response = await fetch(`/api/admin/customers/${customerId}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...TENANT_HEADERS },
+        credentials: 'include',
         body: JSON.stringify(formData),
       });
 
@@ -378,7 +430,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
     try {
       const response = await fetch(`/api/admin/customers/${customerId}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...TENANT_HEADERS },
+        credentials: 'include',
         body: JSON.stringify({
           isPermanentlyClosed: true,
           closedReason: reason,
@@ -407,6 +460,8 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
     try {
       const response = await fetch(`/api/admin/customers/${customerId}/duplicate-flags/${flagId}/resolve`, {
         method: 'POST',
+        headers: TENANT_HEADERS,
+        credentials: 'include',
       });
 
       if (!response.ok) {
@@ -781,6 +836,92 @@ export default function CustomerDetailPage({ params }: { params: Promise<{ id: s
               updateForm(updates as Partial<CustomerFormState>)
             }
           />
+        </div>
+
+        {/* Minimum Order Override */}
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <h2 className="text-xl font-bold mb-2">Minimum Order Override</h2>
+          <p className="text-sm text-gray-600">
+            Tenant default:{" "}
+            <span className="font-semibold">
+              {tenantPolicy
+                ? formatCurrency(tenantPolicy.tenantAmount ?? 200)
+                : "$200.00"}
+            </span>
+            {" · "}
+            {tenantPolicy?.enforcementEnabled
+              ? "Enforcement enabled"
+              : "Enforcement disabled"}
+          </p>
+          <p className="text-xs text-gray-500 mb-4">
+            Leave the override blank to inherit the tenant-wide minimum. Managers can
+            set higher thresholds for remote customers or special accounts.
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium text-gray-700" htmlFor="minimum-order-override">
+                Override Amount
+              </label>
+              <div className="mt-1 flex gap-2">
+                <input
+                  id="minimum-order-override"
+                  type="number"
+                  min={0}
+                  step="10"
+                  value={formData.minimumOrderOverride ?? ''}
+                  onChange={(event) =>
+                    updateForm({
+                      minimumOrderOverride: event.target.value === ''
+                        ? null
+                        : Number(event.target.value),
+                    })
+                  }
+                  disabled={saving}
+                  className="flex-1 rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+                {formData.minimumOrderOverride !== null && (
+                  <button
+                    type="button"
+                    onClick={() => updateForm({ minimumOrderOverride: null })}
+                    className="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+              <p className="mt-1 text-xs text-gray-500">
+                Example: enter 1000 to require $1,000 minimum before approval.
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700" htmlFor="minimum-order-notes">
+                Override Notes
+              </label>
+              <textarea
+                id="minimum-order-notes"
+                rows={3}
+                value={formData.minimumOrderOverrideNotes}
+                onChange={(event) => updateForm({ minimumOrderOverrideNotes: event.target.value })}
+                disabled={saving}
+                className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                placeholder="Document why this customer has a unique minimum order threshold."
+              />
+            </div>
+          </div>
+
+          <div className="mt-3 text-xs text-gray-500">
+            {customer?.minimumOrderOverrideUpdatedAt ? (
+              <>
+                Last updated{" "}
+                {new Date(customer.minimumOrderOverrideUpdatedAt).toLocaleString()}{" "}
+                by {customer.minimumOrderOverrideUpdatedBy ?? "unknown"}.
+              </>
+            ) : (
+              "No override history yet."
+            )}
+          </div>
         </div>
 
         {/* Contact Persons */}
