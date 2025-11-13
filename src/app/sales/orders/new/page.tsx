@@ -102,9 +102,10 @@ function NewOrderPageContent() {
   const [loggedInSalesRepId, setLoggedInSalesRepId] = useState<string | null>(null);
   const [loggedInSalesRepName, setLoggedInSalesRepName] = useState<string | null>(null);
   const [tenantMinimumPolicy, setTenantMinimumPolicy] = useState<MinimumOrderPolicyClient | null>(null);
-  const [openSections, setOpenSections] = useState<Record<OrderSectionKey, boolean>>({
+  const [openSections, setOpenSections] = useState<Record<OrderSectionKey | 'recentPurchases', boolean>>({
     customer: true,
     delivery: true,
+    recentPurchases: true,
     products: true,
   });
 
@@ -117,7 +118,7 @@ function NewOrderPageContent() {
     [salesRepOptions],
   );
 
-  const toggleSection = useCallback((section: OrderSectionKey) => {
+  const toggleSection = useCallback((section: OrderSectionKey | 'recentPurchases') => {
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],
@@ -1197,6 +1198,8 @@ function NewOrderPageContent() {
           <OrderAccordionSection
             title="Recent Purchases"
             description="Items this customer has ordered in the last six months—add them with one tap."
+            isOpen={openSections.recentPurchases}
+            onToggle={() => toggleSection('recentPurchases')}
           >
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
               {recentItems.length > 0 && (
