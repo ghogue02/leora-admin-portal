@@ -1,11 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import {
+  ResponsiveCard,
+  ResponsiveCardDescription,
+  ResponsiveCardHeader,
+  ResponsiveCardTitle,
+} from "@/components/ui/responsive-card";
 import RepManagement from "./sections/RepManagement";
 import CustomerAssignment from "./sections/CustomerAssignment";
 import ProductGoals from "./sections/ProductGoals";
 
-type TabType = "reps" | "assignments" | "goals" | "incentives" | "budget" | "jobs";
+type TabType = "reps" | "assignments" | "goals" | "incentives" | "budget";
+
+const tabs: Array<{ id: TabType; label: string; description: string }> = [
+  { id: "reps", label: "Sales Representatives", description: "Manage assignments and quotas" },
+  { id: "assignments", label: "Customer Assignments", description: "Balance coverage across reps" },
+  { id: "goals", label: "Product Goals", description: "Track SKU/category targets by rep" },
+  { id: "incentives", label: "Incentives", description: "Competitions + bonus structures" },
+  { id: "budget", label: "Sample Budget", description: "Monitor spend by territory" },
+];
 
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<TabType>("reps");
@@ -13,7 +28,6 @@ export default function AdminPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Check user role
     fetch("/api/sales/auth/me", {
       credentials: "include",
     })
@@ -21,8 +35,7 @@ export default function AdminPage() {
       .then((data) => {
         const roles = data.user?.roles || [];
         const isAdmin = roles.some(
-          (r: { role: { code: string } }) =>
-            r.role.code === "sales.admin" || r.role.code === "admin"
+          (r: { role: { code: string } }) => r.role.code === "sales.admin" || r.role.code === "admin",
         );
 
         if (!isAdmin) {
@@ -38,14 +51,16 @@ export default function AdminPage() {
       });
   }, []);
 
+  const activeTabMeta = useMemo(() => tabs.find((tab) => tab.id === activeTab), [activeTab]);
+
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
+      <main className="layout-shell-tight layout-stack pb-12">
+        <ResponsiveCard className="flex flex-col items-center gap-3 text-sm text-gray-600">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600" />
+          Checking admin access...
+        </ResponsiveCard>
+      </main>
     );
   }
 
@@ -54,99 +69,89 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Sales Administration</h1>
-          <p className="mt-2 text-gray-600">
-            Manage sales representatives, customer assignments, goals, and incentives
-          </p>
-        </div>
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="flex flex-col gap-2">
+        <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Operations</p>
+        <h1 className="text-3xl font-bold text-gray-900">Sales administration</h1>
+        <p className="text-sm text-gray-600">
+          Keep reps, assignments, and incentives aligned without switching to a separate mobile UI.
+        </p>
+      </header>
 
-        {/* Tab Navigation */}
-        <div className="bg-white shadow-sm rounded-lg mb-6">
-          <div className="border-b border-gray-200">
-            <nav className="-mb-px flex space-x-8 px-6" aria-label="Tabs">
-              <button
-                onClick={() => setActiveTab("reps")}
-                className={`${
-                  activeTab === "reps"
-                    ? "border-blue-500 text-blue-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-              >
-                Sales Representatives
-              </button>
-              <button
-                onClick={() => setActiveTab("assignments")}
-                className={`${
-                  activeTab === "assignments"
-                    ? "border-blue-500 text-blue-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-              >
-                Customer Assignments
-              </button>
-              <button
-                onClick={() => setActiveTab("goals")}
-                className={`${
-                  activeTab === "goals"
-                    ? "border-blue-500 text-blue-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-              >
-                Product Goals
-              </button>
-              <button
-                onClick={() => setActiveTab("incentives")}
-                className={`${
-                  activeTab === "incentives"
-                    ? "border-blue-500 text-blue-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-              >
-                Incentives & Competitions
-              </button>
-              <button
-                onClick={() => setActiveTab("budget")}
-                className={`${
-                  activeTab === "budget"
-                    ? "border-blue-500 text-blue-600"
-                    : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-              >
-                Sample Budget
-              </button>
-              <button
-                onClick={() => window.location.href = "/sales/admin/jobs"}
-                className="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors"
-              >
-                Job Queue
-              </button>
-            </nav>
+      <ResponsiveCard className="p-0">
+        <ResponsiveCardHeader className="p-4 pb-2">
+          <ResponsiveCardTitle>Workspace sections</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Jump between staffing, assignments, and planning tools.
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <div className="flex flex-col gap-4 border-t border-slate-100 p-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div className="text-sm text-gray-600">
+              {activeTabMeta?.description ?? "Select a section to begin"}
+            </div>
+            <Link
+              href="/sales/admin/jobs"
+              className="touch-target inline-flex items-center justify-center rounded-md border border-slate-300 px-4 py-2 text-sm font-medium text-gray-700 transition hover:bg-slate-50"
+            >
+              Open Job Queue
+            </Link>
           </div>
+          <nav className="flex flex-wrap gap-2" aria-label="Sales admin sections">
+            {tabs.map((tab) => {
+              const isActive = tab.id === activeTab;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`touch-target rounded-full px-4 py-2 text-sm font-medium transition ${
+                    isActive
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
+                  aria-pressed={isActive}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </nav>
         </div>
+      </ResponsiveCard>
 
-        {/* Tab Content */}
-        <div className="bg-white shadow-sm rounded-lg">
-          {activeTab === "reps" && <RepManagement />}
-          {activeTab === "assignments" && <CustomerAssignment />}
-          {activeTab === "goals" && <ProductGoals />}
-          {activeTab === "incentives" && (
-            <div className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Incentives & Competitions</h2>
-              <p className="text-gray-600">Feature coming soon...</p>
-            </div>
-          )}
-          {activeTab === "budget" && (
-            <div className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Sample Budget Monitoring</h2>
-              <p className="text-gray-600">Feature coming soon...</p>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+      <section className="layout-stack">
+        {activeTab === "reps" && <RepManagement />}
+        {activeTab === "assignments" && <CustomerAssignment />}
+        {activeTab === "goals" && <ProductGoals />}
+        {activeTab === "incentives" && (
+          <ResponsiveCard>
+            <ResponsiveCardHeader>
+              <ResponsiveCardTitle>Incentives & competitions</ResponsiveCardTitle>
+              <ResponsiveCardDescription>
+                Bonus ladders and SPIF tracking will land after the card/table reskin wraps.
+              </ResponsiveCardDescription>
+            </ResponsiveCardHeader>
+            <p className="text-sm text-gray-600">
+              Track quarterly bonus programs, draft SPIF rules, and share standings with the team. This
+              experience is slated for CRM-48E (charts/dashboards).
+            </p>
+          </ResponsiveCard>
+        )}
+        {activeTab === "budget" && (
+          <ResponsiveCard>
+            <ResponsiveCardHeader>
+              <ResponsiveCardTitle>Sample budget monitoring</ResponsiveCardTitle>
+              <ResponsiveCardDescription>
+                Mobile-friendly readouts for sample spend by territory and rep.
+              </ResponsiveCardDescription>
+            </ResponsiveCardHeader>
+            <p className="text-sm text-gray-600">
+              Budget visualizations will ship alongside the remaining responsive chart work (CRM-48E).
+            </p>
+          </ResponsiveCard>
+        )}
+      </section>
+    </main>
   );
 }

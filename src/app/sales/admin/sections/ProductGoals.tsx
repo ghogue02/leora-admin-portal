@@ -1,6 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  ResponsiveCard,
+  ResponsiveCardDescription,
+  ResponsiveCardHeader,
+  ResponsiveCardTitle,
+} from "@/components/ui/responsive-card";
+import { ResponsiveTable } from "@/components/ui/responsive-table";
 
 type SalesRep = {
   id: string;
@@ -8,13 +17,6 @@ type SalesRep = {
   user: {
     fullName: string;
   };
-};
-
-type Product = {
-  id: string;
-  name: string;
-  brand: string | null;
-  category: string | null;
 };
 
 type ProductGoal = {
@@ -40,29 +42,28 @@ type ProductGoal = {
   } | null;
 };
 
+const defaultFormState = {
+  salesRepId: "",
+  goalType: "product" as "product" | "category",
+  skuId: "",
+  productCategory: "",
+  targetRevenue: "",
+  targetCases: "",
+  periodStart: "",
+  periodEnd: "",
+};
+
 export default function ProductGoals() {
   const [reps, setReps] = useState<SalesRep[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
   const [goals, setGoals] = useState<ProductGoal[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
-
-  // Form state
-  const [formData, setFormData] = useState({
-    salesRepId: "",
-    goalType: "product" as "product" | "category",
-    skuId: "",
-    productCategory: "",
-    targetRevenue: "",
-    targetCases: "",
-    periodStart: "",
-    periodEnd: "",
-  });
+  const [formData, setFormData] = useState(defaultFormState);
 
   useEffect(() => {
-    fetchData();
+    void fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -108,9 +109,7 @@ export default function ProductGoals() {
 
       const response = await fetch("/api/sales/admin/goals", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
@@ -120,17 +119,7 @@ export default function ProductGoals() {
       }
 
       setSuccessMessage("Product goal created successfully");
-      setFormData({
-        salesRepId: "",
-        goalType: "product",
-        skuId: "",
-        productCategory: "",
-        targetRevenue: "",
-        targetCases: "",
-        periodStart: "",
-        periodEnd: "",
-      });
-
+      setFormData(defaultFormState);
       await fetchData();
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
@@ -147,75 +136,77 @@ export default function ProductGoals() {
     }).format(value);
   };
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
+  const formatDate = (dateString: string) =>
+    new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
     });
-  };
 
   if (isLoading) {
     return (
-      <div className="p-6">
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-200 rounded w-1/4"></div>
-          <div className="h-64 bg-gray-200 rounded"></div>
-        </div>
-      </div>
+      <ResponsiveCard className="animate-pulse space-y-4">
+        <div className="h-6 w-48 rounded bg-slate-200" />
+        <div className="h-24 rounded bg-slate-100" />
+        <div className="h-40 rounded bg-slate-100" />
+      </ResponsiveCard>
     );
   }
 
   return (
-    <div className="p-6">
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">Product Goals</h2>
-        <p className="mt-1 text-sm text-gray-600">
-          Create and manage product sales goals for representatives
+    <section className="layout-stack">
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Product goals</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Create SKU or category targets with dates and revenue/case expectations.
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <p className="text-sm text-gray-600">
+          These responsive forms keep field leaders aligned regardless of device width.
         </p>
-      </div>
+      </ResponsiveCard>
 
-      {/* Goal Creation Form */}
-      <div className="bg-gray-50 rounded-lg p-6 mb-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Create New Goal</h3>
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Create new goal</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Assign a rep, select goal type, and capture the period + metrics.
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
 
         {error && (
-          <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-4">
-            <p className="text-red-800 text-sm">{error}</p>
+          <div className="mb-4 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {error}
           </div>
         )}
-
         {successMessage && (
-          <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-4">
-            <p className="text-green-800 text-sm">{successMessage}</p>
+          <div className="mb-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+            {successMessage}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Sales Representative *
-              </label>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Sales representative *</label>
               <select
+                required
                 value={formData.salesRepId}
                 onChange={(e) => setFormData({ ...formData, salesRepId: e.target.value })}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="touch-target w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="">Select a rep...</option>
+                <option value="">Choose a rep...</option>
                 {reps.map((rep) => (
                   <option key={rep.id} value={rep.id}>
-                    {rep.user.fullName} - {rep.territoryName}
+                  {rep.user.fullName} - {rep.territoryName}
                   </option>
                 ))}
               </select>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Goal Type *
-              </label>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Goal type *</label>
               <select
                 value={formData.goalType}
                 onChange={(e) =>
@@ -224,184 +215,139 @@ export default function ProductGoals() {
                     goalType: e.target.value as "product" | "category",
                   })
                 }
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="touch-target w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="product">Specific Product</option>
-                <option value="category">Product Category</option>
+                <option value="product">Specific product</option>
+                <option value="category">Product category</option>
               </select>
             </div>
 
             {formData.goalType === "product" ? (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Product SKU
-                </label>
-                <input
-                  type="text"
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">Product SKU</label>
+                <Input
+                  className="touch-target"
+                  placeholder="Enter SKU ID"
                   value={formData.skuId}
                   onChange={(e) => setFormData({ ...formData, skuId: e.target.value })}
-                  placeholder="Enter SKU ID"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
             ) : (
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Product Category
-                </label>
-                <input
-                  type="text"
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-gray-700">Product category</label>
+                <Input
+                  className="touch-target"
+                  placeholder="e.g., Wine, Beer, Spirits"
                   value={formData.productCategory}
                   onChange={(e) => setFormData({ ...formData, productCategory: e.target.value })}
-                  placeholder="e.g., Wine, Beer, Spirits"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
             )}
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Target Revenue
-              </label>
-              <input
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Target revenue</label>
+              <Input
                 type="number"
+                step="0.01"
+                className="touch-target"
+                placeholder="10000.00"
                 value={formData.targetRevenue}
                 onChange={(e) => setFormData({ ...formData, targetRevenue: e.target.value })}
-                placeholder="10000.00"
-                step="0.01"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Target Cases
-              </label>
-              <input
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Target cases</label>
+              <Input
                 type="number"
+                className="touch-target"
+                placeholder="100"
                 value={formData.targetCases}
                 onChange={(e) => setFormData({ ...formData, targetCases: e.target.value })}
-                placeholder="100"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Period Start *
-              </label>
-              <input
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Period start *</label>
+              <Input
                 type="date"
+                required
+                className="touch-target"
                 value={formData.periodStart}
                 onChange={(e) => setFormData({ ...formData, periodStart: e.target.value })}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Period End *
-              </label>
-              <input
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">Period end *</label>
+              <Input
                 type="date"
+                required
+                className="touch-target"
                 value={formData.periodEnd}
                 onChange={(e) => setFormData({ ...formData, periodEnd: e.target.value })}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
           </div>
 
           <div className="flex justify-end">
-            <button
-              type="submit"
-              disabled={isSaving}
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
-            >
-              {isSaving ? "Creating..." : "Create Goal"}
-            </button>
+            <Button type="submit" className="touch-target" disabled={isSaving}>
+              {isSaving ? "Creating..." : "Create goal"}
+            </Button>
           </div>
         </form>
-      </div>
+      </ResponsiveCard>
 
-      {/* Goals List */}
-      <div>
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Active Goals</h3>
-
-        {goals.length === 0 ? (
-          <div className="text-center py-12 bg-gray-50 rounded-lg">
-            <p className="text-gray-500">No product goals created yet</p>
-          </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Representative
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Product/Category
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Target Revenue
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Target Cases
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Period
-                  </th>
+      {goals.length === 0 ? (
+        <ResponsiveCard variant="muted">
+          <p className="text-sm text-gray-600">No product goals created yet.</p>
+        </ResponsiveCard>
+      ) : (
+        <ResponsiveTable stickyHeader>
+          <table className="min-w-full divide-y divide-gray-200 text-sm">
+            <thead className="bg-gray-50 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
+              <tr>
+                {["Representative", "Product/Category", "Target Revenue", "Target Cases", "Period"].map(
+                  (heading) => (
+                    <th key={heading} className="px-6 py-3">
+                      {heading}
+                    </th>
+                  ),
+                )}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100 bg-white">
+              {goals.map((goal) => (
+                <tr key={goal.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4">
+                    <div className="font-semibold text-gray-900">{goal.salesRep.user.fullName}</div>
+                    <div className="text-xs text-gray-500">{goal.salesRep.territoryName}</div>
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {goal.sku ? (
+                      <>
+                        <span className="font-semibold">{goal.sku.product.name}</span>
+                        {goal.sku.product.brand && (
+                          <span className="block text-xs text-gray-500">{goal.sku.product.brand}</span>
+                        )}
+                      </>
+                    ) : (
+                      goal.productCategory || "--"
+                    )}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">{formatCurrency(goal.targetRevenue)}</td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {goal.targetCases !== null ? goal.targetCases : "N/A"}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {formatDate(goal.periodStart)} - {formatDate(goal.periodEnd)}
+                  </td>
                 </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {goals.map((goal) => (
-                  <tr key={goal.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">
-                          {goal.salesRep.user.fullName}
-                        </div>
-                        <div className="text-sm text-gray-500">{goal.salesRep.territoryName}</div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {goal.sku ? (
-                        <div>
-                          <div className="text-sm font-medium text-gray-900">
-                            {goal.sku.product.name}
-                          </div>
-                          {goal.sku.product.brand && (
-                            <div className="text-sm text-gray-500">{goal.sku.product.brand}</div>
-                          )}
-                        </div>
-                      ) : (
-                        <div className="text-sm text-gray-900">{goal.productCategory}</div>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {formatCurrency(goal.targetRevenue)}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {goal.targetCases ? goal.targetCases : "N/A"}
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {formatDate(goal.periodStart)} - {formatDate(goal.periodEnd)}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
-    </div>
+              ))}
+            </tbody>
+          </table>
+        </ResponsiveTable>
+      )}
+    </section>
   );
 }

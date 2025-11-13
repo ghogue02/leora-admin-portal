@@ -1,6 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
+  ResponsiveCard,
+  ResponsiveCardDescription,
+  ResponsiveCardHeader,
+  ResponsiveCardTitle,
+} from "@/components/ui/responsive-card";
+import { ResponsiveTable } from "@/components/ui/responsive-table";
 
 type SalesRep = {
   id: string;
@@ -38,7 +47,7 @@ export default function CustomerAssignment() {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchData();
+    void fetchData();
   }, []);
 
   const fetchData = async () => {
@@ -78,9 +87,7 @@ export default function CustomerAssignment() {
 
       const response = await fetch("/api/sales/admin/assignments", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           customerId: selectedCustomer.id,
           salesRepId: selectedRepId,
@@ -92,13 +99,8 @@ export default function CustomerAssignment() {
         throw new Error(data.error || "Failed to assign customer");
       }
 
-      setSuccessMessage(
-        `Successfully assigned ${selectedCustomer.name} to ${
-          reps.find((r) => r.id === selectedRepId)?.user.fullName
-        }`
-      );
-
-      // Reset form and refresh data
+      const repName = reps.find((r) => r.id === selectedRepId)?.user.fullName;
+      setSuccessMessage(`Assigned ${selectedCustomer.name} to ${repName ?? "selected rep"}`);
       setSelectedCustomer(null);
       setSelectedRepId("");
       await fetchData();
@@ -109,85 +111,92 @@ export default function CustomerAssignment() {
     }
   };
 
-  const filteredCustomers = customers.filter((customer) => {
-    const searchLower = searchTerm.toLowerCase();
-    return (
-      customer.name.toLowerCase().includes(searchLower) ||
-      customer.accountNumber?.toLowerCase().includes(searchLower) ||
-      customer.salesRep?.user.fullName.toLowerCase().includes(searchLower)
-    );
-  });
+  const filteredCustomers = useMemo(() => {
+    const searchLower = searchTerm.trim().toLowerCase();
+    if (!searchLower) return customers;
+    return customers.filter((customer) => {
+      return (
+        customer.name.toLowerCase().includes(searchLower) ||
+        customer.accountNumber?.toLowerCase().includes(searchLower) ||
+        customer.salesRep?.user.fullName.toLowerCase().includes(searchLower)
+      );
+    });
+  }, [customers, searchTerm]);
 
   if (isLoading) {
     return (
-      <div className="p-6">
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-200 rounded w-1/4"></div>
-          <div className="h-64 bg-gray-200 rounded"></div>
-        </div>
-      </div>
+      <ResponsiveCard className="animate-pulse space-y-4">
+        <div className="h-6 w-48 rounded bg-slate-200" />
+        <div className="h-24 rounded bg-slate-100" />
+        <div className="h-40 rounded bg-slate-100" />
+      </ResponsiveCard>
     );
   }
 
   return (
-    <div className="p-6">
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-900">Customer Assignment</h2>
-        <p className="mt-1 text-sm text-gray-600">
-          Assign or reassign customers to sales representatives
+    <section className="layout-stack">
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Customer assignment</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Balance territories without leaving the responsive CRM shell.
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <p className="text-sm text-gray-600">
+          Search for a customer, pick the right rep, and update assignments with touch-friendly
+          controls.
         </p>
-      </div>
+      </ResponsiveCard>
 
-      {/* Assignment Form */}
-      <div className="bg-gray-50 rounded-lg p-6 mb-6">
-        <h3 className="text-lg font-medium text-gray-900 mb-4">Assign Customer</h3>
+      <ResponsiveCard className="space-y-4">
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Assign customer</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Choose a customer + rep, then sync assignments in one tap.
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
 
         {error && (
-          <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-4">
-            <p className="text-red-800 text-sm">{error}</p>
+          <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {error}
           </div>
         )}
-
         {successMessage && (
-          <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-4">
-            <p className="text-green-800 text-sm">{successMessage}</p>
+          <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-700">
+            {successMessage}
           </div>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Select Customer
-            </label>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-gray-700">Select customer</label>
             <select
-              value={selectedCustomer?.id || ""}
+              value={selectedCustomer?.id ?? ""}
               onChange={(e) => {
                 const customer = customers.find((c) => c.id === e.target.value);
-                setSelectedCustomer(customer || null);
+                setSelectedCustomer(customer ?? null);
                 setError(null);
                 setSuccessMessage(null);
               }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="touch-target w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Choose a customer...</option>
               {customers.map((customer) => (
                 <option key={customer.id} value={customer.id}>
                   {customer.name}
-                  {customer.accountNumber && ` (${customer.accountNumber})`}
+                  {customer.accountNumber ? ` (${customer.accountNumber})` : ""}
                 </option>
               ))}
             </select>
             {selectedCustomer?.salesRep && (
-              <p className="mt-2 text-sm text-gray-600">
-                Currently assigned to: {selectedCustomer.salesRep.user.fullName}
+              <p className="text-xs text-gray-500">
+                Currently assigned to {selectedCustomer.salesRep.user.fullName}
               </p>
             )}
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Assign to Representative
-            </label>
+          <div className="space-y-2">
+            <label className="text-sm font-medium text-gray-700">Assign to representative</label>
             <select
               value={selectedRepId}
               onChange={(e) => {
@@ -195,7 +204,7 @@ export default function CustomerAssignment() {
                 setError(null);
                 setSuccessMessage(null);
               }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="touch-target w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="">Choose a rep...</option>
               {reps.map((rep) => (
@@ -207,90 +216,80 @@ export default function CustomerAssignment() {
           </div>
 
           <div className="flex items-end">
-            <button
+            <Button
+              type="button"
+              className="w-full touch-target"
               onClick={handleAssignCustomer}
               disabled={!selectedCustomer || !selectedRepId || isSaving}
-              className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
             >
               {isSaving ? "Assigning..." : "Assign Customer"}
-            </button>
+            </Button>
           </div>
         </div>
-      </div>
+      </ResponsiveCard>
 
-      {/* Customer List */}
-      <div>
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Search customers by name, account, or rep..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          />
-        </div>
+      <ResponsiveCard className="space-y-3">
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Customer list</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Filter by name, account number, or rep to find coverage gaps fast.
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <Input
+          className="touch-target"
+          placeholder="Search customers by name, account, or rep..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </ResponsiveCard>
 
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+      {filteredCustomers.length === 0 ? (
+        <ResponsiveCard variant="muted">
+          <p className="text-sm text-gray-600">No customers match that search.</p>
+        </ResponsiveCard>
+      ) : (
+        <ResponsiveTable stickyHeader>
+          <table className="min-w-full divide-y divide-gray-200 text-sm">
+            <thead className="bg-gray-50 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Customer
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Account Number
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Location
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Assigned Rep
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
-                </th>
+                {["Customer", "Account #", "Location", "Assigned Rep", "Actions"].map((heading) => (
+                  <th key={heading} className="px-6 py-3">
+                    {heading}
+                  </th>
+                ))}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-100 bg-white">
               {filteredCustomers.map((customer) => (
                 <tr key={customer.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">{customer.name}</div>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900">{customer.name}</td>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {customer.accountNumber ?? "N/A"}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {customer.accountNumber || "N/A"}
-                    </div>
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {customer.city && customer.state ? `${customer.city}, ${customer.state}` : "N/A"}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {customer.city && customer.state
-                        ? `${customer.city}, ${customer.state}`
-                        : "N/A"}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 text-sm text-gray-900">
                     {customer.salesRep ? (
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">
-                          {customer.salesRep.user.fullName}
-                        </div>
-                        <div className="text-sm text-gray-500">
+                      <>
+                        <span className="font-semibold">{customer.salesRep.user.fullName}</span>
+                        <span className="block text-xs text-gray-500">
                           {customer.salesRep.territoryName}
-                        </div>
-                      </div>
+                        </span>
+                      </>
                     ) : (
-                      <span className="text-sm text-gray-500 italic">Unassigned</span>
+                      <span className="italic text-gray-500">Unassigned</span>
                     )}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">
+                  <td className="px-6 py-4 text-sm">
                     <button
+                      type="button"
+                      className="text-blue-600 underline-offset-2 transition hover:text-blue-800 hover:underline"
                       onClick={() => {
                         setSelectedCustomer(customer);
-                        setSelectedRepId(customer.salesRepId || "");
+                        setSelectedRepId(customer.salesRepId ?? "");
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="text-blue-600 hover:text-blue-900"
                     >
                       Reassign
                     </button>
@@ -299,14 +298,8 @@ export default function CustomerAssignment() {
               ))}
             </tbody>
           </table>
-        </div>
-
-        {filteredCustomers.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500">No customers found</p>
-          </div>
-        )}
-      </div>
-    </div>
+        </ResponsiveTable>
+      )}
+    </section>
   );
 }

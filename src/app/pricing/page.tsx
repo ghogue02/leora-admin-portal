@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { ArrowUpRight, Sparkles } from "lucide-react";
 import { PricingTabsClient } from "./components/PricingTabsClient";
 import {
   ExampleScenario,
-  FeatureConfig,
-  FeatureType,
   Plan,
   PricingFeatureCategory,
   PricingTab,
@@ -14,7 +13,6 @@ import {
   SupplierDiscount,
   SupplierFaq,
   SupplierTier,
-  tierOrder,
 } from "./types";
 
 export const metadata: Metadata = {
@@ -22,6 +20,10 @@ export const metadata: Metadata = {
   description:
     "Flat wholesaler plans that scale on usage plus supplier analytics priced per connection. No per-seat licensing or heavy implementation fees.",
 };
+
+const PricingTabsFallback = () => (
+  <div className="layout-shell mt-12 text-sm text-gray-500">Loading pricing experience…</div>
+);
 
 const wholesalerPlans: Plan[] = [
   {
@@ -230,9 +232,9 @@ const implementationHighlights = [
 
 const flywheelCredits = [
   {
-    title: "Sponsorship credit",
+    title: "Supplier data credit",
     detail:
-      "Credit wholesalers 15% of supplier subscription fees on their invoice. You still collect directly from suppliers while wholesalers see Leora paying for itself.",
+      "If you opt in to supplier data sharing, we credit 15% off your Leora plan price every month (e.g., Silver drops from $300 to $255). Suppliers still pay their own Viewer/Insights/Actions fees.",
   },
   {
     title: "Default access with a timer",
@@ -262,7 +264,7 @@ const validationQuestions = [
   "How valuable is 7-day delayed supplier data vs. 24h vs. near real time?",
   "Which additional systems would you pay $150/mo to connect (beyond ERP + email)?",
   "If Leora generated target lists + follow-ups automatically, what monthly value would that unlock?",
-  "Would a 15% credit on supplier fees motivate you to invite them sooner?",
+  "Would a credit on your bill for supplier data sharing motivate you to invite them sooner?",
   "Do you prefer visible AI/SMS bundles with low overages or 'unlimited with fair use' wording?",
   "What does 'Launch Concierge' need to include so you know there is no hidden setup cost?",
 ];
@@ -278,7 +280,7 @@ const faqs = [
   },
   {
     question: "How do supplier analytics fees get billed?",
-    answer: "Suppliers pay per connection per month. Volume discounts start at five connections and wholesalers automatically receive the 15% sponsorship credit on their invoice.",
+    answer: "Suppliers pay per connection per month with volume discounts. When you share data, we credit 15% off your Leora plan price—you are never paying their fees.",
   },
   {
     question: "Do you offer annual billing or discounts?",
@@ -516,22 +518,21 @@ const pricingTabs: PricingTab[] = [
 
 const exampleScenarios: ExampleScenario[] = [
   {
-    title: "Gold wholesaler + 10 supplier Insights connections",
+    title: "Gold plan with data sharing enabled",
     bullets: [
-      "Wholesaler plan: $500/mo (Gold)",
-      "Supplier fees: 10 x $149 = $1,490/mo",
-      "15% wholesaler credit applied: -$223.50",
-      "Net monthly total: $1,766.50 (~$21,198/yr)",
+      "Gold plan price: $500/mo",
+      "Supplier data credit (15%): -$75/mo",
+      "Net bill with data sharing: $425/mo (~$5,100/yr)",
+      "Suppliers still pay for Insights/Actions directly; the credit only reduces your plan price.",
     ],
   },
   {
-    title: "Platinum wholesaler + 20 Action connections",
+    title: "Platinum plan with data sharing",
     bullets: [
-      "Wholesaler plan: $600/mo (Platinum)",
-      "Supplier fees: 20 x $299 = $5,980/mo",
-      "Volume discount: 20% off supplier spend = -$1,196",
-      "15% wholesaler credit on net supplier spend = -$717.60",
-      "Net monthly total: $4,666.40 (~$55,996/yr)",
+      "Platinum plan price: $600/mo",
+      "Supplier data credit (15%): -$90/mo",
+      "Net bill with data sharing: $510/mo (~$6,120/yr)",
+      "Suppliers choose Viewer/Insights/Actions tiers and are invoiced separately.",
     ],
   },
 ];
@@ -545,7 +546,7 @@ const supplierDiscounts: SupplierDiscount[] = [
 const supplierFaqs: SupplierFaq[] = [
   {
     question: "How do suppliers upgrade their tier?",
-    answer: "Suppliers can upgrade inside their portal at any time. When they do, your wholesaler invoice automatically reflects the 15% sponsorship credit.",
+    answer: "Suppliers can upgrade inside their portal at any time. As long as you keep sharing data, your 15% plan credit stays active regardless of which tiers they choose.",
   },
   {
     question: "Can we invite suppliers to a trial?",

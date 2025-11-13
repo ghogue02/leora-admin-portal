@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import { ResponsiveCard } from "@/components/ui/responsive-card";
 import JobStatsCards from "./_components/JobStatsCards";
 import JobFilters, { FilterState } from "./_components/JobFilters";
 import JobsTable from "./_components/JobsTable";
@@ -204,12 +205,12 @@ export default function JobsAdminPage() {
 
   if (isChecking) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
-        </div>
-      </div>
+      <main className="layout-shell-tight layout-stack pb-12">
+        <ResponsiveCard className="flex flex-col items-center gap-3 text-sm text-gray-600">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600" />
+          Validating admin permissions...
+        </ResponsiveCard>
+      </main>
     );
   }
 
@@ -218,23 +219,18 @@ export default function JobsAdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Job Queue Monitor</h1>
-          <p className="mt-2 text-gray-600">
-            Monitor background jobs, view errors, and retry failed tasks
-          </p>
-        </div>
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="flex flex-col gap-2">
+        <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Operations</p>
+        <h1 className="text-3xl font-bold text-gray-900">Job queue monitor</h1>
+        <p className="text-sm text-gray-600">
+          Track imports, enrichment, and reporting jobs from any device.
+        </p>
+      </header>
 
-        {/* Stats Cards */}
+      <section className="layout-stack">
         <JobStatsCards />
-
-        {/* Filters */}
         <JobFilters onFilterChange={handleFilterChange} />
-
-        {/* Jobs Table */}
         <JobsTable
           jobs={jobs}
           loading={loading}
@@ -242,75 +238,78 @@ export default function JobsAdminPage() {
           onBulkRetry={handleBulkRetry}
           onBulkDelete={handleBulkDelete}
         />
+      </section>
 
-        {/* Pagination */}
-        {pagination.totalPages > 1 && (
-          <div className="mt-6 flex items-center justify-between bg-white px-6 py-4 rounded-lg shadow">
-            <div className="text-sm text-gray-700">
-              Showing <span className="font-medium">{(pagination.page - 1) * pagination.limit + 1}</span> to{' '}
-              <span className="font-medium">
-                {Math.min(pagination.page * pagination.limit, pagination.total)}
-              </span>{' '}
-              of <span className="font-medium">{pagination.total}</span> results
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => handlePageChange(pagination.page - 1)}
-                disabled={pagination.page === 1}
-                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                Previous
-              </button>
-              <div className="flex items-center gap-1">
-                {[...Array(pagination.totalPages)].map((_, i) => {
-                  const page = i + 1;
-                  const showPage =
-                    page === 1 ||
-                    page === pagination.totalPages ||
-                    Math.abs(page - pagination.page) <= 1;
-
-                  if (!showPage && page === 2) {
-                    return <span key={page} className="px-2">...</span>;
-                  }
-                  if (!showPage && page === pagination.totalPages - 1) {
-                    return <span key={page} className="px-2">...</span>;
-                  }
-                  if (!showPage) return null;
-
-                  return (
-                    <button
-                      key={page}
-                      onClick={() => handlePageChange(page)}
-                      className={`px-4 py-2 border rounded-md text-sm font-medium transition-colors ${
-                        page === pagination.page
-                          ? 'bg-blue-600 text-white border-blue-600'
-                          : 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50'
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  );
-                })}
-              </div>
-              <button
-                onClick={() => handlePageChange(pagination.page + 1)}
-                disabled={pagination.page === pagination.totalPages}
-                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                Next
-              </button>
-            </div>
+      {pagination.totalPages > 1 && (
+        <ResponsiveCard className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="text-sm text-gray-700">
+            Showing{" "}
+            <span className="font-semibold">
+              {(pagination.page - 1) * pagination.limit + 1}
+            </span>{" "}
+            to{" "}
+            <span className="font-semibold">
+              {Math.min(pagination.page * pagination.limit, pagination.total)}
+            </span>{" "}
+            of <span className="font-semibold">{pagination.total}</span> jobs
           </div>
-        )}
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => handlePageChange(pagination.page - 1)}
+              disabled={pagination.page === 1}
+              className="touch-target rounded-md border border-slate-300 px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <div className="flex items-center gap-1">
+              {[...Array(pagination.totalPages)].map((_, i) => {
+                const page = i + 1;
+                const showPage =
+                  page === 1 ||
+                  page === pagination.totalPages ||
+                  Math.abs(page - pagination.page) <= 1;
 
-        {/* Job Details Modal */}
-        <JobDetailsModal
-          job={selectedJob}
-          onClose={() => setSelectedJob(null)}
-          onRetry={handleRetryJob}
-          onDelete={handleDeleteJob}
-        />
-      </div>
-    </div>
+                if (!showPage && (page === 2 || page === pagination.totalPages - 1)) {
+                  return (
+                    <span key={`ellipsis-${page}`} className="px-2 text-sm text-gray-500">
+                      ...
+                    </span>
+                  );
+                }
+                if (!showPage) return null;
+
+                return (
+                  <button
+                    key={page}
+                    onClick={() => handlePageChange(page)}
+                    className={`touch-target rounded-md border px-3 py-2 text-sm font-medium transition ${
+                      page === pagination.page
+                        ? "border-blue-600 bg-blue-600 text-white"
+                        : "border-slate-300 bg-white text-gray-700 hover:bg-slate-50"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+            </div>
+            <button
+              onClick={() => handlePageChange(pagination.page + 1)}
+              disabled={pagination.page === pagination.totalPages}
+              className="touch-target rounded-md border border-slate-300 px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        </ResponsiveCard>
+      )}
+
+      <JobDetailsModal
+        job={selectedJob}
+        onClose={() => setSelectedJob(null)}
+        onRetry={handleRetryJob}
+        onDelete={handleDeleteJob}
+      />
+    </main>
   );
 }

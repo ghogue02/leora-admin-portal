@@ -77,6 +77,36 @@ type ProductSummary = {
   priceLists?: PriceListSummary[] | null;
 };
 
+type OrderAccordionSectionProps = {
+  title: string;
+  description?: string;
+  defaultOpen?: boolean;
+  children: React.ReactNode;
+};
+
+function OrderAccordionSection({
+  title,
+  description,
+  defaultOpen = true,
+  children,
+}: OrderAccordionSectionProps) {
+  return (
+    <details
+      className="rounded-2xl border border-slate-200 bg-white shadow-sm"
+      defaultOpen={defaultOpen}
+    >
+      <summary className="flex cursor-pointer items-center justify-between gap-3 px-6 py-4 text-left text-gray-900 [&::-webkit-details-marker]:hidden">
+        <div>
+          <h2 className="text-lg font-semibold">{title}</h2>
+          {description ? <p className="text-sm text-gray-600">{description}</p> : null}
+        </div>
+        <span className="text-xs font-semibold text-gray-500">Toggle</span>
+      </summary>
+      <div className="px-6 pb-6 pt-0">{children}</div>
+    </details>
+  );
+}
+
 function NewOrderPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -853,11 +883,8 @@ function NewOrderPageContent() {
       {/* 2-Column Layout: Form + Sidebar */}
       <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
         {/* Main Form Column */}
-        <form onSubmit={handleShowPreview} className="space-y-6">
-        {/* Section 1: Customer Selection */}
-        <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">Customer Information</h2>
-
+        <form onSubmit={handleShowPreview} className="relative space-y-6 pb-24">
+        <OrderAccordionSection title="Customer Information">
           <div className="space-y-4">
             <div>
               <label htmlFor="customer" className="block text-sm font-medium text-gray-700 mb-1">
@@ -924,12 +951,10 @@ function NewOrderPageContent() {
               )}
             </div>
           </div>
-        </section>
+        </OrderAccordionSection>
 
         {/* Section 2: Delivery Settings */}
-        <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-lg font-semibold text-gray-900">Delivery Settings</h2>
-
+        <OrderAccordionSection title="Delivery Settings" description="Schedule, warehouses, and delivery context">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="deliveryDate" className="block text-sm font-medium text-gray-700">
@@ -1061,19 +1086,15 @@ function NewOrderPageContent() {
               />
             </div>
           </div>
-        </section>
+        </OrderAccordionSection>
 
         {/* Section: Recent Purchases */}
         {selectedCustomer && (
-          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+          <OrderAccordionSection
+            title="Recent Purchases"
+            description="Items this customer has ordered in the last six months—add them with one tap."
+          >
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">Recent Purchases</h2>
-                <p className="text-sm text-gray-600">
-                  Items this customer has ordered in the last six months. Add them with one click and we&apos;ll reuse the
-                  pricing from their most recent order.
-                </p>
-              </div>
               {recentItems.length > 0 && (
                 <button
                   type="button"
@@ -1174,7 +1195,7 @@ function NewOrderPageContent() {
                 </div>
               )}
             </div>
-          </section>
+          </OrderAccordionSection>
         )}
 
         {/* Section 3: Products */}

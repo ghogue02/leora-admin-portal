@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import clsx from "clsx";
 import {
   ArrowUpRight,
@@ -35,7 +34,7 @@ import {
 } from "../types";
 import { TierCTA } from "./TierCTA";
 
-type PricingTabsClientProps = {
+export type PricingTabsClientProps = {
   tabs: PricingTab[];
   simplifiedWholesalerPlans: SimplifiedPlan[];
   simplifiedSupplierPlans: SimplifiedSupplierPlan[];
@@ -134,7 +133,6 @@ export function PricingTabsClient(props: PricingTabsClientProps) {
             supplierTiers={supplierTiers}
             supplierDiscounts={supplierDiscounts}
             supplierFaqs={supplierFaqs}
-            exampleScenarios={exampleScenarios}
           />
         )}
       </div>
@@ -246,8 +244,6 @@ function WholesalerTab({
         />
       </section>
 
-      <PricingEstimator plans={plans} />
-
       <section className="mt-12 grid gap-6 lg:grid-cols-2">
         {exampleScenarios.map((scenario) => (
           <div key={scenario.title} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -267,7 +263,7 @@ function WholesalerTab({
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Launch & services</p>
           <h2 className="mt-2 text-2xl font-semibold text-gray-900">Product-led implementation</h2>
           <p className="mt-2 text-gray-600">
-            We ship the portal ready-to-run. The only "service" is a bounded concierge so larger wholesalers know we will stand up their workflows quickly.
+            We ship the portal ready-to-run. The only service layer is a bounded concierge so larger wholesalers know we will stand up their workflows quickly.
           </p>
           <div className="mt-6 space-y-4">
             {implementationHighlights.map((item) => (
@@ -324,13 +320,11 @@ function SupplierTab({
   supplierTiers,
   supplierDiscounts,
   supplierFaqs,
-  exampleScenarios,
 }: {
   simplifiedPlans: SimplifiedSupplierPlan[];
   supplierTiers: SupplierTier[];
   supplierDiscounts: SupplierDiscount[];
   supplierFaqs: SupplierFaq[];
-  exampleScenarios: ExampleScenario[];
 }) {
   return (
     <div>
@@ -339,7 +333,7 @@ function SupplierTab({
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Supplier analytics</p>
           <h2 className="text-3xl font-semibold text-gray-900">Let suppliers pay for deeper data access</h2>
           <p className="text-base text-gray-600">
-            Suppliers choose how fast and how deep they want the data. You still own the relationship and see a 15% credit on your bill every month.
+            Suppliers choose how fast and how deep they want the data. You still own the relationship and see 15% off your plan price every month you share data.
           </p>
         </header>
         <div className="cards-container grid gap-6 lg:grid-cols-3">
@@ -369,22 +363,9 @@ function SupplierTab({
         </div>
         <div className="rounded-3xl border border-dashed border-gray-300 bg-indigo-50/60 px-6 py-4 text-sm text-gray-700">
           <strong className="font-semibold text-gray-900">How it works:</strong> Suppliers can start in Viewer (7-day delay) for 30 days, then upgrade
-          anytime. You see a 15% sponsorship credit on their subscription fees without lifting a finger.
+          anytime. When they share data back, we take 15% off your Leora plan price—suppliers still pay their own subscriptions.
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {exampleScenarios.map((scenario) => (
-            <div key={`supplier-scenario-${scenario.title}`} className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Wholesaler + supplier math</p>
-              <h3 className="mt-2 text-xl font-semibold text-gray-900">{scenario.title}</h3>
-              <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                {scenario.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className="mt-16">
@@ -451,10 +432,10 @@ function SupplierTab({
           </div>
         </div>
         <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Sponsorship credit</p>
-          <h3 className="mt-2 text-xl font-semibold text-gray-900">15% credited back to your invoice</h3>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Supplier data credit</p>
+          <h3 className="mt-2 text-xl font-semibold text-gray-900">15% off your plan when data sharing is on</h3>
           <p className="mt-3 text-sm text-gray-600">
-            Example: 10 suppliers on Insights = 10 x $149 = $1,490/mo. Volume discount applies automatically, then we credit 15% ($223.50) directly to your wholesaler invoice.
+            Example: Gold plan is $500/mo. Turn on data sharing and we credit $75 every month, so your invoice shows $425/mo. Suppliers still pay for Viewer/Insights/Actions separately.
           </p>
         </div>
       </section>
@@ -634,137 +615,4 @@ function isUniformFeature(feature: FeatureConfig) {
   return values.every((value) => value === values[0]);
 }
 
-function PricingEstimator({ plans }: { plans: Plan[] }) {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const initialPlan = useMemo(() => {
-    const param = searchParams.get("plan");
-    if (param && plans.some((plan) => plan.name === param)) {
-      return param;
-    }
-    return "Gold";
-  }, [plans, searchParams]);
-
-  const initialInsights = useMemo(() => {
-    const param = Number(searchParams.get("insights"));
-    return Number.isFinite(param) && param >= 0 ? param : 10;
-  }, [searchParams]);
-
-  const initialActions = useMemo(() => {
-    const param = Number(searchParams.get("actions"));
-    return Number.isFinite(param) && param >= 0 ? param : 0;
-  }, [searchParams]);
-
-  const [selectedPlan, setSelectedPlan] = useState<string>(initialPlan);
-  const [insights, setInsights] = useState(initialInsights);
-  const [actions, setActions] = useState(initialActions);
-
-  const planPrice = useMemo(() => {
-    const plan = plans.find((p) => p.name === selectedPlan);
-    return plan ? Number(plan.price.replace(/[^0-9]/g, "")) : 0;
-  }, [plans, selectedPlan]);
-
-  const { total, discountRate, credit } = useMemo(() => {
-    const supplierRate = insights * 149 + actions * 299;
-    const connections = insights + actions;
-    let discountRate = 0;
-    if (connections >= 51) discountRate = 0.3;
-    else if (connections >= 21) discountRate = 0.2;
-    else if (connections >= 5) discountRate = 0.1;
-    const discountedSupplierSpend = supplierRate * (1 - discountRate);
-    const credit = discountedSupplierSpend * 0.15;
-    const total = planPrice + discountedSupplierSpend - credit;
-    return { total, discountRate, credit };
-  }, [planPrice, insights, actions]);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    params.set("plan", selectedPlan);
-    params.set("insights", String(insights));
-    params.set("actions", String(actions));
-    const query = params.toString();
-    const url = query ? `${pathname}?${query}` : pathname;
-    router.replace(url, { scroll: false });
-  }, [selectedPlan, insights, actions, pathname, router]);
-
-  return (
-    <section className="mt-16 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Pricing calculator</p>
-          <h2 className="text-2xl font-semibold text-gray-900">Estimate your monthly spend</h2>
-        </div>
-        <Link href="mailto:hello@joinleora.com?subject=Pricing%20estimate" className="rounded-full border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50">
-          Send me this estimate
-        </Link>
-      </div>
-      <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <div className="space-y-4">
-          <label className="flex flex-col gap-2 text-sm font-medium text-gray-700">
-            Wholesaler plan
-            <select
-              value={selectedPlan}
-              onChange={(event) => setSelectedPlan(event.target.value)}
-              className="rounded-2xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              {plans.map((plan) => (
-                <option key={plan.name} value={plan.name}>
-                  {plan.name} ({plan.price}/mo)
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="flex flex-col gap-2 text-sm font-medium text-gray-700">
-            Insights supplier connections
-            <input
-              type="number"
-              min={0}
-              value={insights}
-              onChange={(event) => {
-                const next = Number(event.target.value);
-                setInsights(Number.isFinite(next) ? Math.max(0, next) : 0);
-              }}
-              className="rounded-2xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </label>
-          <label className="flex flex-col gap-2 text-sm font-medium text-gray-700">
-            Actions supplier connections
-            <input
-              type="number"
-              min={0}
-              value={actions}
-              onChange={(event) => {
-                const next = Number(event.target.value);
-                setActions(Number.isFinite(next) ? Math.max(0, next) : 0);
-              }}
-              className="rounded-2xl border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-          </label>
-        </div>
-        <div className="rounded-3xl border border-gray-100 bg-gray-50 p-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Estimate</p>
-          <div className="mt-4 space-y-2 text-sm text-gray-700">
-            <p className="flex items-center justify-between">
-              <span>Wholesaler plan</span>
-              <span>${planPrice.toLocaleString("en-US", { maximumFractionDigits: 0 })}/mo</span>
-            </p>
-            <p className="flex items-center justify-between">
-              <span>Supplier discount</span>
-              <span>{discountRate * 100}%</span>
-            </p>
-            <p className="flex items-center justify-between">
-              <span>15% sponsorship credit</span>
-              <span>- ${credit.toLocaleString("en-US", { maximumFractionDigits: 0 })}/mo</span>
-            </p>
-            <div className="mt-4 rounded-2xl bg-white px-4 py-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">Estimated total</p>
-              <p className="text-3xl font-semibold text-gray-900">${total.toLocaleString("en-US", { maximumFractionDigits: 0 })}/mo</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+export default PricingTabsClient;

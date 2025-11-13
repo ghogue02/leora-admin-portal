@@ -1,6 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  ResponsiveCard,
+  ResponsiveCardDescription,
+  ResponsiveCardHeader,
+  ResponsiveCardTitle,
+} from "@/components/ui/responsive-card";
+import { ResponsiveTable } from "@/components/ui/responsive-table";
 
 type SalesRep = {
   id: string;
@@ -31,7 +39,7 @@ export default function RepManagement() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchReps();
+    void fetchReps();
   }, []);
 
   const fetchReps = async () => {
@@ -60,104 +68,94 @@ export default function RepManagement() {
     }).format(value);
   };
 
-  const formatPercentage = (value: number) => {
-    return `${Math.round(value)}%`;
-  };
+  const formatPercentage = (value: number) => `${Math.round(value)}%`;
 
   if (isLoading) {
     return (
-      <div className="p-6">
-        <div className="animate-pulse space-y-4">
-          <div className="h-8 bg-gray-200 rounded w-1/4"></div>
-          <div className="h-64 bg-gray-200 rounded"></div>
-        </div>
-      </div>
+      <ResponsiveCard className="animate-pulse space-y-3">
+        <div className="h-6 w-40 rounded bg-slate-200" />
+        <div className="h-6 w-32 rounded bg-slate-200" />
+        <div className="h-32 rounded bg-slate-100" />
+      </ResponsiveCard>
     );
   }
 
   if (error) {
     return (
-      <div className="p-6">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <p className="text-red-800">{error}</p>
-        </div>
-      </div>
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Sales representatives</ResponsiveCardTitle>
+          <ResponsiveCardDescription>Unable to load data.</ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <p className="text-sm text-red-600">{error}</p>
+      </ResponsiveCard>
     );
   }
 
   return (
-    <div className="p-6">
-      <div className="mb-6 flex items-center justify-between">
-        <div>
-          <h2 className="text-xl font-semibold text-gray-900">Sales Representatives</h2>
-          <p className="mt-1 text-sm text-gray-600">
-            {reps.length} {reps.length === 1 ? "representative" : "representatives"}
-          </p>
-        </div>
-        <button
-          onClick={fetchReps}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-        >
-          Refresh
-        </button>
-      </div>
+    <section className="layout-stack">
+      <ResponsiveCard>
+        <ResponsiveCardHeader className="gap-2 sm:flex sm:items-center sm:justify-between">
+          <div>
+            <ResponsiveCardTitle>Sales representatives</ResponsiveCardTitle>
+            <ResponsiveCardDescription>
+              {reps.length} {reps.length === 1 ? "rep" : "reps"} synced across desktop + mobile.
+            </ResponsiveCardDescription>
+          </div>
+          <Button
+            type="button"
+            variant="outline"
+            className="touch-target"
+            onClick={fetchReps}
+          >
+            Refresh
+          </Button>
+        </ResponsiveCardHeader>
+        <p className="text-sm text-gray-600">
+          Track coverage, quota progress, and sample spend to spot gaps before they impact service.
+        </p>
+      </ResponsiveCard>
 
       {reps.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-gray-500">No sales representatives found</p>
-        </div>
+        <ResponsiveCard variant="muted">
+          <p className="text-sm text-gray-600">No sales representatives found.</p>
+        </ResponsiveCard>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+        <ResponsiveTable stickyHeader>
+          <table className="min-w-full divide-y divide-gray-200 text-sm">
+            <thead className="bg-gray-50 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Representative
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Territory
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Customers
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Week Revenue
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Month Revenue
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Samples
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Status
-                </th>
+                {[
+                  "Representative",
+                  "Territory",
+                  "Customers",
+                  "Week Revenue",
+                  "Month Revenue",
+                  "Samples",
+                  "Status",
+                ].map((heading) => (
+                  <th key={heading} className="px-6 py-3">
+                    {heading}
+                  </th>
+                ))}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-100 bg-white">
               {reps.map((rep) => (
                 <tr key={rep.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div>
-                      <div className="text-sm font-medium text-gray-900">
-                        {rep.user.fullName}
-                      </div>
-                      <div className="text-sm text-gray-500">{rep.user.email}</div>
-                    </div>
+                  <td className="px-6 py-4">
+                    <div className="text-sm font-semibold text-gray-900">{rep.user.fullName}</div>
+                    <div className="text-xs text-gray-500">{rep.user.email}</div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{rep.territoryName}</div>
-                    {rep.deliveryDay && (
-                      <div className="text-sm text-gray-500">{rep.deliveryDay}</div>
-                    )}
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    {rep.territoryName}
+                    {rep.deliveryDay ? (
+                      <span className="block text-xs text-gray-500">{rep.deliveryDay}</span>
+                    ) : null}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
-                      {rep.performance.customerCount}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
+                  <td className="px-6 py-4 text-sm text-gray-900">{rep.performance.customerCount}</td>
+                  <td className="px-6 py-4 text-sm">
+                    <div className="font-semibold text-gray-900">
                       {formatCurrency(rep.performance.currentWeekRevenue)}
                     </div>
                     {rep.weeklyRevenueQuota && (
@@ -166,8 +164,8 @@ export default function RepManagement() {
                       </div>
                     )}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
+                  <td className="px-6 py-4 text-sm">
+                    <div className="font-semibold text-gray-900">
                       {formatCurrency(rep.performance.currentMonthRevenue)}
                     </div>
                     {rep.monthlyRevenueQuota && (
@@ -176,33 +174,30 @@ export default function RepManagement() {
                       </div>
                     )}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
+                  <td className="px-6 py-4 text-sm text-gray-900">
+                    <div className="font-semibold">
                       {rep.performance.samplesUsedThisMonth} / {rep.sampleAllowancePerMonth}
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                    <div className="mt-1 h-1.5 w-full rounded-full bg-gray-200">
                       <div
                         className={`h-1.5 rounded-full ${
                           rep.performance.samplesUsedThisMonth > rep.sampleAllowancePerMonth
-                            ? "bg-red-600"
+                            ? "bg-red-500"
                             : "bg-blue-600"
                         }`}
                         style={{
                           width: `${Math.min(
-                            (rep.performance.samplesUsedThisMonth / rep.sampleAllowancePerMonth) *
-                              100,
-                            100
+                            (rep.performance.samplesUsedThisMonth / rep.sampleAllowancePerMonth) * 100,
+                            100,
                           )}%`,
                         }}
-                      ></div>
+                      />
                     </div>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
+                  <td className="px-6 py-4 text-sm">
                     <span
-                      className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        rep.isActive
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-800"
+                      className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
+                        rep.isActive ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-700"
                       }`}
                     >
                       {rep.isActive ? "Active" : "Inactive"}
@@ -212,8 +207,8 @@ export default function RepManagement() {
               ))}
             </tbody>
           </table>
-        </div>
+        </ResponsiveTable>
       )}
-    </div>
+    </section>
   );
 }
