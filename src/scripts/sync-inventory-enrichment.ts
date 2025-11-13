@@ -5,8 +5,10 @@ import * as fs from "fs";
 const prisma = new PrismaClient();
 
 const TENANT_ID = "58b8126a-2d2f-4f55-bc98-5b6784800bed";
-const INVENTORY_CSV = "/Users/greghogue/Leora2/Well Crafted Wine & Beverage Co. inventory as at 2025-10-29.csv";
-const EXPORT_CSV = "/Users/greghogue/Leora2/Export items 2025-10-29.csv";
+const DEFAULT_INVENTORY_CSV = "/Users/greghogue/Leora2/Well Crafted Wine & Beverage Co. inventory as at 2025-10-29.csv";
+const DEFAULT_EXPORT_CSV = "/Users/greghogue/Leora2/Export items 2025-10-29.csv";
+const INVENTORY_CSV = process.env.INVENTORY_CSV ?? DEFAULT_INVENTORY_CSV;
+const EXPORT_CSV = process.env.EXPORT_CSV ?? DEFAULT_EXPORT_CSV;
 
 type InventoryRow = {
   Warehouse: string;
@@ -57,13 +59,44 @@ type ExportRow = {
   "Warehouse Location": string;
 };
 
+type AggregatedLocation = {
+  warehouse: string;
+  units: number;
+  binLocation: string | null;
+  sampleRow: InventoryRow;
+};
+
+type AggregatedInventory = {
+  sku: string;
+  sampleRow: InventoryRow;
+  locations: AggregatedLocation[];
+};
+
+function parseNumeric(value?: string | null) {
+  if (!value) return 0;
+  const sanitized = value.replace(/,/g, "");
+  const parsed = Number.parseFloat(sanitized);
+  return Number.isFinite(parsed) ? parsed : 0;
+}
+
+function calculateUnits(row: InventoryRow) {
+  const unitQty = parseNumeric(row["Unit quantity"]);
+  if (unitQty > 0) {
+    return unitQty;
+  }
+  const cases = parseNumeric(row.Cases);
+  const itemsPerCase = parseNumeric(row["Items per case"]);
+  return cases * (itemsPerCase || 12);
+}
+
 async function main() {
   console.log("🚀 Starting Inventory Enrichment Sync");
   console.log("=".repeat(80));
 
   // Parse inventory CSV
   console.log("\n📄 Step 1: Parsing Inventory CSV...");
-  const inventoryContent = fs.readFileSync(INVENTORY_CSV, "utf-8");
+  console.log(`   → File: ${INVENTORY_CSV}`);
+  const inventoryContent = stripExcelPrefixes(fs.readFileSync(INVENTORY_CSV, "utf-8"));
   const inventoryRecords = parse(inventoryContent, {
     columns: true,
     skip_empty_lines: true,
@@ -76,7 +109,8 @@ async function main() {
 
   // Parse export CSV
   console.log("\n📄 Step 2: Parsing Export Items CSV...");
-  const exportContent = fs.readFileSync(EXPORT_CSV, "utf-8");
+  console.log(`   → File: ${EXPORT_CSV}`);
+  const exportContent = stripExcelPrefixes(fs.readFileSync(EXPORT_CSV, "utf-8"));
   const exportRecords = parse(exportContent, {
     columns: true,
     skip_empty_lines: true,
@@ -88,7 +122,35 @@ async function main() {
   console.log(`✅ Valid records with SKUs: ${validExport.length}`);
 
   // Create lookup maps
-  const inventoryMap = new Map(validInventory.map((r) => [r.SKU.trim(), r]));
+  const inventoryMap = new Map<string, AggregatedInventory>();
+  for (const record of validInventory) {
+    const skuCode = record.SKU.trim();
+    const warehouse = record.Warehouse?.trim() || "Main";
+    const units = calculateUnits(record);
+
+    const existing = inventoryMap.get(skuCode) ?? {
+      sku: skuCode,
+      sampleRow: record,
+      locations: [],
+    };
+
+    const location = existing.locations.find((loc) => loc.warehouse === warehouse);
+    if (location) {
+      location.units += units;
+      location.sampleRow = record;
+      location.binLocation = record["Warehouse Location"]?.trim() || null;
+    } else {
+      existing.locations.push({
+        warehouse,
+        units,
+        sampleRow: record,
+        binLocation: record["Warehouse Location"]?.trim() || null,
+      });
+    }
+
+    existing.sampleRow = existing.sampleRow || record;
+    inventoryMap.set(skuCode, existing);
+  }
   const exportMap = new Map(validExport.map((r) => [r.SKU.trim(), r]));
 
   console.log(`\n📊 Step 3: Analyzing data...`);
@@ -116,7 +178,8 @@ async function main() {
   console.log(`✅ Found ${allSkus.length} active SKUs in database`);
 
   for (const sku of allSkus) {
-    const invData = inventoryMap.get(sku.code);
+    const aggregate = inventoryMap.get(sku.code);
+    const invData = aggregate?.sampleRow;
     const expData = exportMap.get(sku.code);
 
     if (!invData && !expData) {
@@ -232,16 +295,12 @@ async function main() {
       }
 
       // Update Inventory
-      if (invData) {
-        const cases = parseFloat(invData.Cases) || 0;
-        const itemsPerCase = parseInt(invData["Items per case"]) || 12;
-        const unitQty = parseFloat(invData["Unit quantity"]) || 0;
-        const totalOnHand = Math.floor(cases * itemsPerCase + unitQty);
+      if (aggregate) {
+        for (const location of aggregate.locations) {
+          const totalOnHand = Math.max(0, Math.round(location.units));
+          const warehouse = location.warehouse;
+          const binLoc = location.binLocation;
 
-        const warehouse = invData.Warehouse?.trim() || "Main";
-        const binLoc = invData["Warehouse Location"]?.trim() || null;
-
-        if (totalOnHand >= 0) {
           await prisma.inventory.upsert({
             where: {
               tenantId_skuId_location: {
@@ -312,6 +371,24 @@ async function main() {
 
   console.log("\n🎉 Inventory enrichment completed successfully!");
   console.log("=".repeat(80));
+}
+
+function stripExcelPrefixes(content: string) {
+  const lines = content.split(/\r?\n/);
+  while (lines.length > 0) {
+    const trimmed = lines[0]?.trim() ?? "";
+    if (
+      trimmed === "" ||
+      /^"?sep\s*=/.test(trimmed.toLowerCase()) ||
+      /^"?.*inventory as at/.test(trimmed.toLowerCase()) ||
+      trimmed === '" "'
+    ) {
+      lines.shift();
+      continue;
+    }
+    break;
+  }
+  return lines.join("\n");
 }
 
 main()

@@ -73,26 +73,11 @@ export async function GET(request: NextRequest) {
         ],
       });
 
-      // Filter out invalid/corrupted products with aggressive rules
-      const validSkus = skus.filter(sku => {
-        const productName = sku.product?.name || "";
-
-        // Exclude empty or very short names (likely corrupted)
-        if (productName.length < 5) return false;
-
-        // Exclude pure numbers ("1", "2", "021", "022", etc.)
-        if (/^\d+$/.test(productName.trim())) return false;
-
-        // Exclude pattern "X.XXX 0.00 0.00" or similar (corrupted data)
-        if (/^[\d.]+\s+[\d.]+\s+[\d.]+/.test(productName)) return false;
-
-        // Exclude names that are mostly numbers/periods/spaces (first 10 chars)
-        const first10 = productName.substring(0, Math.min(10, productName.length));
-        if (/^[\d\s.]+$/.test(first10)) return false;
-
-        // Exclude names starting with "0 " or "0."
-        if (/^0[\s.]/.test(productName)) return false;
-
+      // Filter out only truly invalid products (blank name or numeric placeholder)
+      const validSkus = skus.filter((sku) => {
+        const productName = sku.product?.name?.trim() ?? "";
+        if (productName.length === 0) return false;
+        if (/^\d+$/.test(productName)) return false;
         return true;
       });
 
