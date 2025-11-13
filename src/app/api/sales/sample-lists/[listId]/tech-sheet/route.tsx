@@ -14,6 +14,7 @@ const requestSchema = z.object({
   priceListIds: z.array(z.string().uuid()).min(1).max(5),
   layout: z.enum(["multi", "single"]).default("multi"),
   hideDiscountAbove: z.number().int().min(1).max(5000).optional(),
+  excludeDescriptions: z.boolean().optional(),
 });
 
 function sanitizeFileName(value: string) {
@@ -86,7 +87,13 @@ export async function POST(request: NextRequest, { params }: { params: { listId:
       );
     }
 
-    const { priceListIds, layout, hideDiscountAbove } = parsed.data;
+    const {
+      priceListIds,
+      layout,
+      hideDiscountAbove,
+      excludeDescriptions,
+    } = parsed.data;
+    const shouldExcludeDescriptions = excludeDescriptions ?? false;
 
     const [priceLists, sampleList, tenant, salesRep] = await Promise.all([
       db.priceList.findMany({
@@ -193,7 +200,9 @@ export async function POST(request: NextRequest, { params }: { params: { listId:
           };
         });
 
-        const description = coerceDescription(product.description, item.notes);
+        const description = shouldExcludeDescriptions
+          ? null
+          : coerceDescription(product.description, item.notes);
         const tastingNotes = ensureArrayOfStrings(product.tastingNotes).slice(0, 4);
         const foodPairings = ensureArrayOfStrings(product.foodPairings).slice(0, 4);
         const wineDetails = product.wineDetails;

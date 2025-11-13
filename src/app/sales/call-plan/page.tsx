@@ -167,7 +167,7 @@ function CallPlanPageContent() {
       setAccounts([]);
       toast.error("Failed to load accounts");
     }
-  }, [currentWeekStart]);
+  }, [apiFetch, currentWeekStart]);
 
   const loadSelectedAccounts = useCallback(async () => {
     try {
@@ -207,7 +207,7 @@ function CallPlanPageContent() {
     }
     setScheduleRefreshKey(Date.now());
     setSuggestionsRefreshKey((prev) => prev + 1);
-  }, [currentWeekStart]);
+  }, [apiFetch, currentWeekStart]);
 
   const loadCallPlanOverview = useCallback(async () => {
     setCallPlanLoading(true);
@@ -235,7 +235,7 @@ function CallPlanPageContent() {
     } finally {
       setCallPlanLoading(false);
     }
-  }, [currentWeekStart]);
+  }, [apiFetch, currentWeekStart]);
 
   useEffect(() => {
     loadAccounts();
@@ -343,7 +343,7 @@ function CallPlanPageContent() {
         throw error;
       }
     },
-    [callPlanId, loadSelectedAccounts, loadCallPlanOverview, selectedAccountIds],
+    [apiFetch, callPlanId, loadCallPlanOverview, loadSelectedAccounts, selectedAccountIds],
   );
 
   const handleSampleFollowUpLogged = useCallback(() => {
@@ -379,30 +379,35 @@ function CallPlanPageContent() {
       console.error("Error generating recurring schedules:", error);
       toast.error("Failed to generate recurring schedules");
     }
-  }, [callPlanId, currentWeekStart]);
+  }, [apiFetch, callPlanId, currentWeekStart]);
 
   return (
-    <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
+    <main className="layout-shell-tight layout-stack pb-12">
+      <section className="surface-card p-4 shadow-sm">
         <CallPlanHeader
           weekStart={currentWeekStart}
           weekEnd={weekEnd}
           isCurrentWeek={isCurrentWeek}
           selectedCount={plannedActivityCount}
-        onPreviousWeek={handlePreviousWeek}
-        onNextWeek={handleNextWeek}
-        onThisWeek={handleThisWeek}
-        onCreatePlan={() => toast.success("Plan saved automatically")}
-        onExportPDF={handleExportPDF}
-        calendarSyncButton={<CalendarSync callPlanId={callPlanId} weekStart={currentWeekStart} />}
-      />
+          onPreviousWeek={handlePreviousWeek}
+          onNextWeek={handleNextWeek}
+          onThisWeek={handleThisWeek}
+          onCreatePlan={() => toast.success("Plan saved automatically")}
+          onExportPDF={handleExportPDF}
+          calendarSyncButton={<CalendarSync callPlanId={callPlanId} weekStart={currentWeekStart} />}
+        />
+      </section>
 
-      <SuggestedAccounts
-        callPlanId={callPlanId ?? null}
-        onAddAccount={handleAddSuggestedAccount}
-        refreshKey={suggestionsRefreshKey}
-      />
+      <section className="surface-card p-4 shadow-sm">
+        <SuggestedAccounts
+          callPlanId={callPlanId ?? null}
+          onAddAccount={handleAddSuggestedAccount}
+          refreshKey={suggestionsRefreshKey}
+        />
+      </section>
 
-      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+      <section className="surface-card p-4 shadow-sm">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
         <TabsList className="grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-0 h-auto p-2">
           <TabsTrigger value="list" className="flex-col gap-1 h-auto py-3">
             <List className="h-5 w-5" />
@@ -489,6 +494,7 @@ function CallPlanPageContent() {
           />
         </TabsContent>
       </Tabs>
+      </section>
 
     </main>
   );
@@ -496,7 +502,15 @@ function CallPlanPageContent() {
 
 export default function CallPlanPage() {
   return (
-    <Suspense fallback={<div className="container mx-auto p-6">Loading call plan...</div>}>
+    <Suspense
+      fallback={
+        <main className="layout-shell-tight layout-stack pb-12">
+          <section className="surface-card p-6 text-sm text-gray-600 shadow-sm">
+            Loading call plan...
+          </section>
+        </main>
+      }
+    >
       <CallPlanPageContent />
     </Suspense>
   );

@@ -1,10 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfYear } from "date-fns";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 export async function GET(request: NextRequest) {
-  return withSalesSession(request, async ({ db, tenantId }) => {
-    const now = new Date();
+  return withSalesSession(
+    request,
+    async ({ db, tenantId, roles }) => {
+      if (!hasSalesManagerPrivileges(roles)) {
+        return NextResponse.json({ error: "Manager role required." }, { status: 403 });
+      }
+      const now = new Date();
     const yearStart = startOfYear(now);
     const weeksElapsed = Math.floor(
       (now.getTime() - yearStart.getTime()) / (7 * 24 * 60 * 60 * 1000)
@@ -157,5 +163,6 @@ export async function GET(request: NextRequest) {
       },
       monthlyProjection,
     });
-  });
+  },
+  { requireSalesRep: false });
 }

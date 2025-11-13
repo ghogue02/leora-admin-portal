@@ -7,41 +7,90 @@
  * - Download invoice PDFs
  */
 
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
-import { useParams } from 'next/navigation';
-import Link from 'next/link';
-import Breadcrumbs from '@/components/shared/Breadcrumbs';
-import { formatCurrency, formatShortDate } from '@/lib/format';
-import { ArrowLeft, Pencil } from 'lucide-react';
-import { ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
-import { OrderInvoicePanel } from '@/components/orders/OrderInvoicePanel';
+import { useState, useEffect, useCallback } from "react";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { formatCurrency, formatShortDate } from "@/lib/format";
+import { Pencil } from "lucide-react";
+import { ORDER_USAGE_LABELS, type OrderUsageCode } from "@/constants/orderUsage";
+import { OrderInvoicePanel } from "@/components/orders/OrderInvoicePanel";
 
 const ORDER_STATUS_OPTIONS: Array<{ value: string; label: string; description: string }> = [
-  { value: 'PENDING', label: 'Pending', description: 'Rep is still building the order.' },
-  { value: 'READY_TO_DELIVER', label: 'Ready to Deliver', description: 'Hand off to operations for picking.' },
-  { value: 'PICKED', label: 'Picked', description: 'Order has been staged and is ready to leave.' },
-  { value: 'DELIVERED', label: 'Delivered', description: 'Order delivered and inventory captured.' },
+  { value: "PENDING", label: "Pending", description: "Rep is still building the order." },
+  { value: "READY_TO_DELIVER", label: "Ready to Deliver", description: "Hand off to operations for picking." },
+  { value: "PICKED", label: "Picked", description: "Order has been staged and is ready to leave." },
+  { value: "DELIVERED", label: "Delivered", description: "Order delivered and inventory captured." },
 ];
+
+type OrderLine = {
+  id: string;
+  quantity: number;
+  total: number;
+  unitPrice: number;
+  isSample?: boolean;
+  usageType?: OrderUsageCode | null;
+  sku: {
+    code: string;
+    size: string | null;
+    product: {
+      name: string;
+    };
+  };
+};
+
+type OrderInvoice = {
+  id: string;
+  status?: string;
+  createdAt?: string;
+};
+
+type OrderRecord = {
+  id: string;
+  orderNumber?: string | null;
+  customer: {
+    id: string;
+    name: string;
+    state?: string | null;
+    paymentTerms?: string | null;
+  };
+  salesRep?: {
+    name: string;
+    territory?: string | null;
+  } | null;
+  orderedAt: string | null;
+  fulfilledAt?: string | null;
+  status: string;
+  total: number;
+  currency: string;
+  lines: OrderLine[];
+  shippingMethod?: string | null;
+  specialInstructions?: string | null;
+  poNumber?: string | null;
+  invoices?: OrderInvoice[];
+};
+
+type StatusMessage = { type: "success" | "error"; text: string } | null;
 
 export default function SalesOrderDetailPage() {
   const params = useParams();
-  const [order, setOrder] = useState<any>(null);
+  const [order, setOrder] = useState<OrderRecord | null>(null);
   const [loading, setLoading] = useState(true);
   const [updatingStatus, setUpdatingStatus] = useState(false);
-  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [statusSelection, setStatusSelection] = useState<string>('PENDING');
+  const [statusMessage, setStatusMessage] = useState<StatusMessage>(null);
+  const [statusSelection, setStatusSelection] = useState<string>("PENDING");
 
   const fetchOrder = useCallback(async () => {
     setLoading(true);
     try {
       const response = await fetch(`/api/sales/orders/${params.orderId}`);
       const data = await response.json();
-      setOrder(data.order);
-      setStatusSelection(data.order?.status ?? 'PENDING');
+      setOrder(data.order as OrderRecord);
+      setStatusSelection((data.order?.status as string) ?? "PENDING");
     } catch (error) {
-      console.error('Failed to fetch order:', error);
+      console.error("Failed to fetch order:", error);
     } finally {
       setLoading(false);
     }
@@ -90,25 +139,34 @@ export default function SalesOrderDetailPage() {
 
   if (loading) {
     return (
-      <div className="mx-auto max-w-6xl p-8">
-        <p>Loading order...</p>
-      </div>
+      <main className="layout-shell-tight layout-stack pb-12">
+        <section className="surface-card p-6 shadow-sm">
+          <p className="text-sm text-gray-600">Loading order…</p>
+        </section>
+      </main>
     );
   }
 
   if (!order) {
     return (
-      <div className="mx-auto max-w-6xl p-8">
-        <p className="text-red-600">Order not found or you don't have access to this order.</p>
-        <Link href="/sales/orders" className="text-blue-600 hover:underline mt-4 inline-block">
-          ← Back to Orders
-        </Link>
-      </div>
+      <main className="layout-shell-tight layout-stack pb-12">
+        <section className="surface-card p-6 shadow-sm">
+          <p className="text-sm text-red-700">
+            Order not found or you don&apos;t have access to this order.
+          </p>
+          <Link
+            href="/sales/orders"
+            className="mt-4 inline-flex items-center text-sm font-semibold text-blue-600 hover:underline"
+          >
+            ← Back to Orders
+          </Link>
+        </section>
+      </main>
     );
   }
 
   return (
-    <div className="mx-auto max-w-6xl p-8">
+    <main className="layout-shell-tight layout-stack pb-12">
       {/* Breadcrumbs */}
       <div className="mb-4">
         <Breadcrumbs
@@ -133,10 +191,10 @@ export default function SalesOrderDetailPage() {
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Order Items */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="surface-card p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-4">Order Items</h2>
             <div className="space-y-4">
-              {order.lines.map((line: any) => (
+              {order.lines.map((line: OrderLine) => (
                 <div key={line.id} className="flex justify-between items-start border-b pb-4 last:border-0">
                   <div className="flex-1">
                     <p className="font-medium">{line.sku.product.name}</p>
@@ -179,7 +237,7 @@ export default function SalesOrderDetailPage() {
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Order Status */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="surface-card p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-4">Status</h2>
 
             {/* Status Messages */}
@@ -259,7 +317,7 @@ export default function SalesOrderDetailPage() {
           </div>
 
           {/* Invoice Section */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="surface-card p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-4">Invoice</h2>
             <OrderInvoicePanel
               orderId={order.id}
@@ -287,7 +345,7 @@ export default function SalesOrderDetailPage() {
           </div>
 
           {/* Customer Info */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="surface-card p-6 shadow-sm">
             <h2 className="text-xl font-semibold mb-4">Customer</h2>
             <Link
               href={`/sales/customers/${order.customer.id}`}
@@ -315,6 +373,6 @@ export default function SalesOrderDetailPage() {
         </div>
       </div>
 
-    </div>
+    </main>
   );
 }

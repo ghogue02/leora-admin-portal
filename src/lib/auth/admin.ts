@@ -33,7 +33,7 @@ export type AdminAuthorizationOptions = {
 export type AdminSessionHandler = (context: AdminSessionContext) => Promise<Response>;
 
 // Admin roles that grant access to the admin portal
-const ADMIN_ROLES = ["admin", "sales.admin", "portal.admin"];
+const ADMIN_ROLES = ["admin", "sales.admin", "portal.admin", "sales.manager"];
 
 /**
  * Check if a user has admin privileges based on their roles

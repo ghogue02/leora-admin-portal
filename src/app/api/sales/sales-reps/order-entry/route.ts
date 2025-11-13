@@ -2,10 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 
 export async function GET(request: NextRequest) {
-  return withSalesSession(request, async ({ db, tenantId }) => {
-    const reps = await db.salesRep.findMany({
-      where: {
-        tenantId,
+  return withSalesSession(
+    request,
+    async ({ db, tenantId }) => {
+      const reps = await db.salesRep.findMany({
+        where: {
+          tenantId,
         isActive: true,
         orderEntryEnabled: true,
       },
@@ -38,5 +40,7 @@ export async function GET(request: NextRequest) {
       });
 
     return NextResponse.json({ salesReps: sorted });
-  });
+    },
+    { requireSalesRep: false },
+  );
 }

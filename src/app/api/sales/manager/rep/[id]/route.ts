@@ -8,6 +8,7 @@ import {
   startOfYear,
   differenceInDays,
 } from "date-fns";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 export async function GET(
   request: NextRequest,
@@ -15,7 +16,12 @@ export async function GET(
 ) {
   const { id } = await params;
 
-  return withSalesSession(request, async ({ db, tenantId }) => {
+  return withSalesSession(
+    request,
+    async ({ db, tenantId, roles }) => {
+      if (!hasSalesManagerPrivileges(roles)) {
+        return NextResponse.json({ error: "Manager role required." }, { status: 403 });
+      }
     const now = new Date();
     const weekStart = startOfWeek(now, { weekStartsOn: 1 });
     const weekEnd = endOfWeek(now, { weekStartsOn: 1 });
@@ -239,5 +245,6 @@ export async function GET(
         avgOrderValue,
       },
     });
-  });
+  },
+  { requireSalesRep: false });
 }

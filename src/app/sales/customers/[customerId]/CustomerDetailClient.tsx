@@ -29,6 +29,7 @@ import { DeliveryPreferences } from "./sections/DeliveryPreferences";
 import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
 import { GoogleProfileCard } from "./sections/GoogleProfileCard";
 import CustomerSinceCard from "./sections/CustomerSinceCard";
+import { CustomerPrioritySelector } from "./sections/CustomerPrioritySelector";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -169,6 +170,12 @@ export default function CustomerDetailClient({
 
       {/* Customer Header */}
       <CustomerHeader customer={data.customer} onAddOrder={handleAddOrderClick} />
+      <CustomerPrioritySelector
+        customerId={customerId}
+        initialPriority={data.customer.accountPriority ?? null}
+        initialManualOverride={data.customer.accountPriorityManuallySet}
+        autoAssignedAt={data.customer.accountPriorityAutoAssignedAt}
+      />
 
       {/* Customer To-Dos */}
       <CustomerTasks customerId={customerId} tasks={data.tasks} />

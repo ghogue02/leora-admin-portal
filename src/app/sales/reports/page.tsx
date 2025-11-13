@@ -13,7 +13,7 @@ import { SalesRepPerformancePanel } from './modules/SalesRepPerformancePanel';
 export default function SalesReportsWorkspacePage() {
   return (
     <ReportFiltersProvider>
-      <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
+      <main className="layout-shell-tight layout-stack pb-12">
         <header className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-wide text-indigo-600">Insights hub</p>
           <h1 className="text-3xl font-bold tracking-tight text-slate-900">Sales reports & automations</h1>
@@ -23,42 +23,46 @@ export default function SalesReportsWorkspacePage() {
           </p>
         </header>
 
-        <ReportFiltersBar />
+        <section className="surface-card p-4 shadow-sm">
+          <ReportFiltersBar />
+        </section>
 
-        <Tabs defaultValue="delivery" className="space-y-6">
-          <TabsList className="flex flex-wrap gap-2">
+        <section className="surface-card p-4 shadow-sm">
+          <Tabs defaultValue="delivery" className="space-y-6">
+            <TabsList className="flex flex-wrap gap-2">
             <TabsTrigger value="performance">Sales reps</TabsTrigger>
             <TabsTrigger value="delivery">Delivery mix</TabsTrigger>
             <TabsTrigger value="segments">Segments</TabsTrigger>
             <TabsTrigger value="events">Events</TabsTrigger>
             <TabsTrigger value="health">Customer health</TabsTrigger>
             <TabsTrigger value="scheduled">Automations</TabsTrigger>
-          </TabsList>
+            </TabsList>
 
-          <TabsContent value="performance">
-            <SalesRepPerformancePanel />
-          </TabsContent>
+            <TabsContent value="performance">
+              <SalesRepPerformancePanel />
+            </TabsContent>
 
-          <TabsContent value="delivery" className="space-y-4">
-            <DeliveryInsightsPanel />
-          </TabsContent>
+            <TabsContent value="delivery" className="space-y-4">
+              <DeliveryInsightsPanel />
+            </TabsContent>
 
-          <TabsContent value="segments">
-            <SegmentPerformancePanel />
-          </TabsContent>
+            <TabsContent value="segments">
+              <SegmentPerformancePanel />
+            </TabsContent>
 
-          <TabsContent value="events">
-            <EventMixPanel />
-          </TabsContent>
+            <TabsContent value="events">
+              <EventMixPanel />
+            </TabsContent>
 
-          <TabsContent value="health">
-            <CustomerHealthPanel />
-          </TabsContent>
+            <TabsContent value="health">
+              <CustomerHealthPanel />
+            </TabsContent>
 
-          <TabsContent value="scheduled">
-            <ScheduledReportsPanel />
-          </TabsContent>
-        </Tabs>
+            <TabsContent value="scheduled">
+              <ScheduledReportsPanel />
+            </TabsContent>
+          </Tabs>
+        </section>
       </main>
     </ReportFiltersProvider>
   );

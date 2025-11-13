@@ -77,6 +77,7 @@ async function fetchUnlovedRows({
   salesRepIds,
 }: ComputeStatesArgs) {
   const sixMonthsAgo = subMonths(now, MONTHS_FOR_UNLOVED_AVG);
+  const tenantIdSql = Prisma.sql`${tenantId}::uuid`;
   const inPersonArray = Prisma.sql`ARRAY[${Prisma.join(
     IN_PERSON_ACTIVITY_CODES.map((code) => Prisma.sql`${code}`)
   )}]::text[]`;
@@ -92,7 +93,7 @@ async function fetchUnlovedRows({
       SELECT o."customerId" AS customer_id,
              COALESCE(SUM(o.total), 0) AS total
       FROM "Order" o
-      WHERE o."tenantId" = ${tenantId}
+      WHERE o."tenantId" = ${tenantIdSql}
         AND o."status" != 'CANCELLED'
         AND o."orderedAt" >= ${sixMonthsAgo}
       GROUP BY o."customerId"
@@ -117,7 +118,7 @@ async function fetchUnlovedRows({
      AND at.code = ANY(${inPersonArray})
     LEFT JOIN recent_revenue rr
       ON rr.customer_id = c.id
-    WHERE c."tenantId" = ${tenantId}
+    WHERE c."tenantId" = ${tenantIdSql}
       AND c."isPermanentlyClosed" = false
       ${salesRepFilter}
     GROUP BY c.id, c.name, c."accountPriority", rr.total

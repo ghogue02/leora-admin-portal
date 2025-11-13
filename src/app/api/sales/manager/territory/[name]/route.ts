@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 export async function GET(
   request: NextRequest,
@@ -8,7 +9,12 @@ export async function GET(
   const { name } = await params;
   const territoryName = decodeURIComponent(name);
 
-  return withSalesSession(request, async ({ db, tenantId }) => {
+  return withSalesSession(
+    request,
+    async ({ db, tenantId, roles }) => {
+      if (!hasSalesManagerPrivileges(roles)) {
+        return NextResponse.json({ error: "Manager role required." }, { status: 403 });
+      }
     // Find rep with this territory
     const rep = await db.salesRep.findFirst({
       where: {
@@ -116,5 +122,6 @@ export async function GET(
         avgRevenuePerAccount,
       },
     });
-  });
+  },
+  { requireSalesRep: false });
 }

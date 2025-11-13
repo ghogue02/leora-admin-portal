@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 /**
  * GET /api/sales/manager/approvals
@@ -11,9 +12,10 @@ import { withSalesSession } from "@/lib/auth/sales";
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
-      // TODO: Add role check - only managers can access
-      // For now, any sales user can access
+    async ({ db, tenantId, roles }) => {
+      if (!hasSalesManagerPrivileges(roles)) {
+        return NextResponse.json({ error: "Manager role required." }, { status: 403 });
+      }
 
       const orders = await db.order.findMany({
         where: {
@@ -110,6 +112,7 @@ export async function GET(request: NextRequest) {
           })),
         })),
       });
-    }
+    },
+    { requireSalesRep: false },
   );
 }

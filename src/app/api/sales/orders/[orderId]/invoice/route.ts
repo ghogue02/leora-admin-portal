@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { InvoiceFormatType } from "@prisma/client";
 import { withSalesSession } from "@/lib/auth/sales";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 type RouteParams = {
   params: Promise<{
@@ -39,9 +40,10 @@ export async function PUT(request: NextRequest, props: RouteParams) {
 
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
+    async ({ db, tenantId, session, roles }) => {
       const salesRepId = session.user.salesRep?.id;
-      if (!salesRepId) {
+      const managerScope = hasSalesManagerPrivileges(roles);
+      if (!salesRepId && !managerScope) {
         return NextResponse.json(
           { error: "Sales rep profile required" },
           { status: 403 },
@@ -75,9 +77,13 @@ export async function PUT(request: NextRequest, props: RouteParams) {
         where: {
           id: orderId,
           tenantId,
-          customer: {
-            salesRepId,
-          },
+          ...(managerScope
+            ? {}
+            : {
+                customer: {
+                  salesRepId,
+                },
+              }),
         },
         select: {
           id: true,

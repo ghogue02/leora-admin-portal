@@ -13,6 +13,7 @@ import { runWithTransaction } from '@/lib/prisma';
 import { InvoiceFormatType } from '@prisma/client';
 import { generateInvoiceNumber } from '@/lib/invoices/invoice-number-generator';
 import { calculateDueDate } from '@/lib/sage/payment-terms';
+import { hasSalesManagerPrivileges } from '@/lib/sales/role-helpers';
 
 type RouteParams = {
   params: Promise<{ orderId: string }>;
@@ -22,10 +23,11 @@ export async function POST(request: NextRequest, props: RouteParams) {
   const params = await props.params;
   const orderId = params.orderId;
 
-  return withSalesSession(request, async ({ db, tenantId, session }) => {
+  return withSalesSession(request, async ({ db, tenantId, session, roles }) => {
     // 1. Validate sales rep exists
     const salesRepId = session.user.salesRep?.id;
-    if (!salesRepId) {
+    const managerScope = hasSalesManagerPrivileges(roles);
+    if (!salesRepId && !managerScope) {
       return NextResponse.json(
         { error: 'Sales rep profile required' },
         { status: 403 }
@@ -69,7 +71,7 @@ export async function POST(request: NextRequest, props: RouteParams) {
     }
 
     // 3. SECURITY: Verify customer is assigned to this sales rep
-    if (order.customer?.salesRepId !== salesRepId) {
+    if (!managerScope && order.customer?.salesRepId !== salesRepId) {
       return NextResponse.json(
         { error: 'You can only create invoices for your assigned customers' },
         { status: 403 }

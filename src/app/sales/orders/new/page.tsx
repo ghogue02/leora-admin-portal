@@ -662,7 +662,18 @@ function NewOrderPageContent() {
     } finally {
       setSubmitting(false);
     }
-  }, [selectedCustomer, deliveryDate, warehouseLocation, deliveryTimeWindow, poNumber, specialInstructions, orderItems, orderTotal, selectedSalesRepId]);
+  }, [
+    selectedCustomer,
+    deliveryDate,
+    warehouseLocation,
+    deliveryTimeWindow,
+    deliveryMethod,
+    poNumber,
+    specialInstructions,
+    orderItems,
+    orderTotal,
+    selectedSalesRepId,
+  ]);
 
   // Calculate form progress
   const formSteps = useMemo(() => [
@@ -791,8 +802,8 @@ function NewOrderPageContent() {
   }, [selectedCustomer, orderItems.length, selectedSalesRepId]);
 
   return (
-    <div className="mx-auto max-w-7xl">
-      <header className="mb-6 flex items-center justify-between">
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="flex flex-col gap-4 sm:mb-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Create New Order</h1>
           <p className="mt-1 text-sm text-gray-600">
@@ -801,7 +812,7 @@ function NewOrderPageContent() {
         </div>
         <Link
           href="/sales/orders"
-          className="rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+          className="touch-target inline-flex items-center justify-center rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
         >
           Cancel
         </Link>
@@ -1502,7 +1513,7 @@ function NewOrderPageContent() {
           }}
         />
       )}
-    </div>
+    </main>
   );
 }
 
@@ -1510,7 +1521,7 @@ export default function NewOrderPage() {
   return (
     <Suspense
       fallback={
-        <main className="mx-auto flex max-w-7xl flex-col gap-6 pb-12">
+        <main className="layout-shell-tight layout-stack pb-12">
           <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-lg font-semibold text-gray-900">Loading order form...</h2>
             <p className="mt-2 text-sm text-gray-600">

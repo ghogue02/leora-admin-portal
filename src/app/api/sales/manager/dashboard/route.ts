@@ -1,10 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
 import { startOfWeek, endOfWeek, subWeeks, startOfMonth, endOfMonth, startOfYear, subMonths } from "date-fns";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 export async function GET(request: NextRequest) {
-  return withSalesSession(request, async ({ db, tenantId }) => {
-    const now = new Date();
+  return withSalesSession(
+    request,
+    async ({ db, tenantId, roles }) => {
+      if (!hasSalesManagerPrivileges(roles)) {
+        return NextResponse.json({ error: "Manager role required." }, { status: 403 });
+      }
+      const now = new Date();
     const monthStart = startOfMonth(now);
     const monthEnd = endOfMonth(now);
     const lastMonthStart = startOfMonth(subMonths(now, 1));
@@ -277,5 +283,6 @@ export async function GET(request: NextRequest) {
         totalActivities: repsData.reduce((sum, rep) => sum + rep.activitiesThisWeek, 0),
       },
     });
-  });
+  },
+  { requireSalesRep: false });
 }

@@ -190,22 +190,20 @@ export default function SalesActivitiesPage() {
     }
   };
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(amount);
-  };
-
   return (
-    <main className="mx-auto flex max-w-7xl flex-col gap-8">
+    <main className="layout-shell-tight layout-stack pb-12">
       {/* Header */}
-      <header className="flex justify-end">
+      <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Activity Log</h1>
+          <p className="mt-1 text-sm text-gray-600">
+            Track customer touchpoints and conversions from any device.
+          </p>
+        </div>
         <button
           type="button"
           onClick={() => setShowForm(!showForm)}
-          className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className="touch-target inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
         >
           {showForm ? "Hide Form" : "Log Activity"}
         </button>
@@ -214,17 +212,17 @@ export default function SalesActivitiesPage() {
       {/* Summary Stats */}
       {data && (
         <div className="grid gap-4 sm:grid-cols-3">
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="surface-card p-4 shadow-sm">
             <p className="text-xs uppercase tracking-widest text-gray-500">Total Activities</p>
             <p className="mt-2 text-2xl font-semibold text-gray-900">{data.summary.totalActivities}</p>
           </div>
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="surface-card p-4 shadow-sm">
             <p className="text-xs uppercase tracking-widest text-gray-500">Activities with Orders</p>
             <p className="mt-2 text-2xl font-semibold text-emerald-600">
               {data.summary.activitiesWithOrders}
             </p>
           </div>
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="surface-card p-4 shadow-sm">
             <p className="text-xs uppercase tracking-widest text-gray-500">Conversion Rate</p>
             <p className="mt-2 text-2xl font-semibold text-blue-600">{data.summary.conversionRate}%</p>
           </div>
@@ -233,7 +231,7 @@ export default function SalesActivitiesPage() {
 
       {/* Activity Form */}
       {showForm && (
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+        <div className="surface-card p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-gray-900">Log New Activity</h2>
           <p className="mt-1 text-sm text-gray-600">
             Record a customer interaction and track its outcome.
@@ -249,7 +247,7 @@ export default function SalesActivitiesPage() {
       )}
 
       {/* Search Bar */}
-      <div>
+      <div className="surface-card p-4 shadow-sm">
         <label htmlFor="search" className="block text-sm font-semibold text-gray-700">
           Search Activities
         </label>
@@ -306,7 +304,7 @@ export default function SalesActivitiesPage() {
 
           {/* Pagination */}
           {data && data.pagination.totalPages > 1 && (
-            <div className="flex items-center justify-between rounded-lg border border-slate-200 bg-white px-6 py-4 shadow-sm">
+            <div className="surface-card flex flex-col gap-4 px-6 py-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
               <div className="text-sm text-gray-600">
                 Showing page {data.pagination.page} of {data.pagination.totalPages} (
                 {data.pagination.totalCount} total activities)

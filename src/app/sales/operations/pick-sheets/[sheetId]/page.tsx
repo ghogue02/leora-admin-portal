@@ -1,10 +1,16 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  ResponsiveCard,
+  ResponsiveCardHeader,
+  ResponsiveCardTitle,
+  ResponsiveCardDescription,
+} from '@/components/ui/responsive-card';
 import { ArrowLeft, Package } from 'lucide-react';
 import { PickItemRow } from '../components/PickItemRow';
 import { PickingControls } from '../components/PickingControls';
@@ -54,7 +60,6 @@ function formatLocation(location?: string | null) {
 export default function PickSheetDetailPage() {
   const params = useParams<{ sheetId: string }>();
   const sheetId = Array.isArray(params?.sheetId) ? params?.sheetId[0] : params?.sheetId ?? '';
-  const router = useRouter();
   const [pickSheet, setPickSheet] = useState<PickSheetResponse['pickSheet'] | null>(null);
   const [warehouseChannel, setWarehouseChannel] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -238,40 +243,40 @@ export default function PickSheetDetailPage() {
 
   if (loading) {
     return (
-      <div className="container mx-auto py-6 px-4 max-w-7xl">
-        <div className="rounded-lg border border-slate-200 bg-white p-6 text-center text-gray-500">
+      <main className="layout-shell-tight layout-stack pb-12">
+        <section className="surface-card p-6 text-center text-gray-500 shadow-sm">
           Loading pick sheet…
-        </div>
-      </div>
+        </section>
+      </main>
     );
   }
 
   if (error || !pickSheet) {
     return (
-      <div className="container mx-auto py-6 px-4 max-w-7xl">
-        <Button variant="ghost" onClick={() => router.push('/sales/operations/pick-sheets')} className="mb-4 touch-target">
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Pick Sheets
+      <main className="layout-shell-tight layout-stack pb-12">
+        <Button variant="ghost" asChild className="touch-target w-fit">
+          <Link href="/sales/operations/pick-sheets">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Pick Sheets
+          </Link>
         </Button>
-        <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-700">
+        <section className="surface-card border border-red-200 bg-red-50 p-6 text-red-700 shadow-sm">
           {error ?? 'Pick sheet not found'}
-        </div>
-      </div>
+        </section>
+      </main>
     );
   }
 
   return (
-    <div className="container mx-auto py-6 px-4 max-w-7xl">
-      <Button
-        variant="ghost"
-        onClick={() => router.push('/sales/operations/pick-sheets')}
-        className="mb-4 touch-target"
-      >
-        <ArrowLeft className="mr-2 h-4 w-4" />
-        Back to Pick Sheets
+    <main className="layout-shell-tight layout-stack pb-12">
+      <Button variant="ghost" asChild className="touch-target w-fit">
+        <Link href="/sales/operations/pick-sheets">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to Pick Sheets
+        </Link>
       </Button>
 
-      <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div>
           <div className="flex items-center gap-3">
             <h1 className="text-3xl font-bold font-mono">{pickSheet.sheetNumber}</h1>
@@ -291,32 +296,33 @@ export default function PickSheetDetailPage() {
         </div>
       </div>
 
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle className="flex items-center">
-            <Package className="mr-2 h-5 w-5" />
-            Picking Progress
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div>
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-gray-600">Items Picked</span>
-                <span className="font-semibold">
-                  {pickedItems} of {totalItems}
-                </span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-4">
-                <div
-                  className="bg-green-500 h-4 rounded-full transition-all"
-                  style={{ width: `${totalItems > 0 ? Math.round((pickedItems / totalItems) * 100) : 0}%` }}
-                />
-              </div>
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle className="flex items-center gap-2">
+            <Package className="h-5 w-5" />
+            Picking progress
+          </ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Track progress across {totalItems} items
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <div className="space-y-4">
+          <div>
+            <div className="mb-2 flex justify-between text-sm">
+              <span className="text-gray-600">Items Picked</span>
+              <span className="font-semibold">
+                {pickedItems} of {totalItems}
+              </span>
+            </div>
+            <div className="h-4 w-full rounded-full bg-gray-200">
+              <div
+                className="h-4 rounded-full bg-green-500 transition-all"
+                style={{ width: `${totalItems > 0 ? Math.round((pickedItems / totalItems) * 100) : 0}%` }}
+              />
             </div>
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </ResponsiveCard>
 
       <PickingControls
         status={pickSheet.status as 'READY' | 'PICKING' | 'PICKED' | 'CANCELLED'}
@@ -330,7 +336,7 @@ export default function PickSheetDetailPage() {
         disabled={pickSheet.status === 'CANCELLED'}
       />
 
-      <div className="mt-6 rounded-lg border border-slate-200 bg-white">
+      <div className="rounded-lg border border-slate-200 bg-white">
         {pickSheet.items.length === 0 ? (
           <div className="p-6 text-center text-gray-500">No items assigned to this pick sheet.</div>
         ) : (
@@ -354,6 +360,6 @@ export default function PickSheetDetailPage() {
           ))
         )}
       </div>
-    </div>
+    </main>
   );
 }

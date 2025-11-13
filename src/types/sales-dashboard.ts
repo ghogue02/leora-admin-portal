@@ -17,6 +17,30 @@ export type CustomerSignals = {
   };
 };
 
+export type UnlovedAccountPriority = "HIGH" | "MEDIUM" | "LOW" | "NONE";
+
+export type UnlovedAccount = {
+  id: string;
+  name: string;
+  avgMonthlyRevenue: number;
+  lastLovedAt: string | null;
+  daysSinceLove: number | null;
+};
+
+export type UnlovedAccountBucket = {
+  priority: UnlovedAccountPriority;
+  label: string;
+  thresholdDays: number;
+  count: number;
+  potentialMonthlyRevenue: number;
+  accounts: UnlovedAccount[];
+};
+
+export type UnlovedAccountsSummary = {
+  buckets: UnlovedAccountBucket[];
+  updatedAt: string;
+};
+
 export type CustomerCoverage = {
   assigned: number;
   active: number;

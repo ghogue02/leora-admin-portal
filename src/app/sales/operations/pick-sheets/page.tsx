@@ -298,11 +298,12 @@ export default function PickSheetsPage() {
   }, [filteredSheets]);
 
   return (
-    <div className="container mx-auto py-6 px-4 max-w-7xl">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Pick Sheets</h1>
-          <p className="text-gray-600 mt-1">Warehouse picking management</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">Warehouse</p>
+          <h1 className="text-3xl font-bold text-gray-900">Pick sheets</h1>
+          <p className="text-sm text-gray-600">Generate, assign, and monitor pick sheets.</p>
         </div>
         <Button
           onClick={() => setShowGenerator(!showGenerator)}
@@ -312,31 +313,31 @@ export default function PickSheetsPage() {
           <Plus className="mr-2 h-5 w-5" />
           New Pick Sheet
         </Button>
-      </div>
+      </header>
 
       {error && (
-        <div className="mb-4 rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        <div className="surface-card border border-red-200 bg-red-50 p-4 text-sm text-red-700 shadow-sm">
           {error}
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="surface-card border border-blue-200 bg-blue-50 p-4 shadow-sm">
           <div className="text-sm text-blue-600 font-semibold">Total Sheets</div>
           <div className="text-2xl font-bold mt-1">{stats.total}</div>
         </div>
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+        <div className="surface-card border border-green-200 bg-green-50 p-4 shadow-sm">
           <div className="text-sm text-green-600 font-semibold">Picked Items</div>
           <div className="text-2xl font-bold mt-1">{stats.pickedItems}</div>
         </div>
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <div className="surface-card border border-amber-200 bg-amber-50 p-4 shadow-sm">
           <div className="text-sm text-amber-600 font-semibold">Remaining Items</div>
           <div className="text-2xl font-bold mt-1">{stats.totalItems - stats.pickedItems}</div>
         </div>
-      </div>
+      </section>
 
       {showGenerator && (
-        <div className="mb-6">
+        <section className="surface-card p-4 shadow-sm">
           <PickSheetGenerator
             readyOrders={readyOrders}
             onGenerate={handleGeneratePickSheet}
@@ -344,10 +345,10 @@ export default function PickSheetsPage() {
           {readyOrdersLoading && (
             <p className="mt-2 text-sm text-gray-500">Loading eligible orders…</p>
           )}
-        </div>
+        </section>
       )}
 
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
+      <section className="flex flex-col gap-4 md:flex-row">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
@@ -369,9 +370,10 @@ export default function PickSheetsPage() {
             <SelectItem value="all">All Time</SelectItem>
           </SelectContent>
         </Select>
-      </div>
+      </section>
 
-      <Tabs defaultValue="all" className="space-y-4">
+      <section className="surface-card p-4 shadow-sm">
+        <Tabs defaultValue="all" className="space-y-4">
         <TabsList className="grid w-full grid-cols-5 touch-target">
           <TabsTrigger value="all" onClick={() => setStatusFilter('all')}>
             All ({computedSheets.length})
@@ -392,7 +394,7 @@ export default function PickSheetsPage() {
 
         <TabsContent value="all">
           {loading ? (
-            <div className="rounded-lg border border-slate-200 bg-white p-6 text-center text-gray-500">
+            <div className="surface-card p-6 text-center text-gray-500">
               Loading pick sheets…
             </div>
           ) : (
@@ -406,7 +408,7 @@ export default function PickSheetsPage() {
                 />
               ))}
               {filteredSheets.length === 0 && (
-                <div className="rounded-lg border border-dashed border-slate-300 bg-white p-6 text-center text-gray-500">
+                <div className="surface-card border border-dashed border-slate-300 p-6 text-center text-gray-500">
                   No pick sheets match the current filters.
                 </div>
               )}
@@ -414,6 +416,7 @@ export default function PickSheetsPage() {
           )}
         </TabsContent>
       </Tabs>
-    </div>
+      </section>
+    </main>
   );
 }

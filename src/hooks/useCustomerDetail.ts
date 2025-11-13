@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import type {
+  AccountPriority,
   CustomerType,
   FeatureProgram,
   VolumeCapacity,
@@ -35,6 +36,10 @@ interface CustomerDetailData {
     googleBusinessStatus: string | null;
     googlePlaceTypes: string[];
     firstOrderDate: string | null;
+    accountPriority: AccountPriority | null;
+    accountPriorityManuallySet: boolean;
+    accountPriorityAutoAssignedAt: string | null;
+    accountPriority: AccountPriority | null;
     address: {
       street1: string | null;
       street2: string | null;

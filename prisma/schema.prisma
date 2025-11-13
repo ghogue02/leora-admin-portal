@@ -465,6 +465,8 @@ model Customer {
   salesRepId                String?                 @db.Uuid
   accountType               AccountType?
   accountPriority           AccountPriority?
+  accountPriorityAutoAssignedAt DateTime?
+  accountPriorityManuallySet Boolean @default(false)
   territory                 String?
   doNotContactUntil         DateTime?               @db.Timestamp(6)
   latitude                  Float?

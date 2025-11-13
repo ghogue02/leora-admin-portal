@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 /**
  * GET /api/sales/customers/search
@@ -17,21 +18,33 @@ export async function GET(request: NextRequest) {
 
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
+    async ({ db, tenantId, session, roles }) => {
       const salesRepId = session.user.salesRep?.id;
-      if (!salesRepId) {
+      const managerScope = hasSalesManagerPrivileges(roles);
+      if (!salesRepId && !managerScope) {
         return NextResponse.json(
           { error: "Sales rep profile required." },
           { status: 403 },
         );
       }
 
+      const requestedSalesRepId = managerScope ? searchParams.get("salesRepId") : null;
+      const scopedFilter: Record<string, unknown> = {
+        tenantId,
+      };
+      if (managerScope) {
+        if (requestedSalesRepId) {
+          scopedFilter.salesRepId = requestedSalesRepId;
+        }
+      } else if (salesRepId) {
+        scopedFilter.salesRepId = salesRepId;
+      }
+
       // If no query, return recent customers (last 50 ordered from)
       if (!query.trim()) {
         const recentCustomers = await db.customer.findMany({
           where: {
-            tenantId,
-            salesRepId,
+            ...scopedFilter,
             lastOrderDate: {
               not: null,
             },
@@ -87,8 +100,7 @@ export async function GET(request: NextRequest) {
 
       const customers = await db.customer.findMany({
         where: {
-          tenantId,
-          salesRepId,
+          ...scopedFilter,
           OR: fuzzySearchTerms.flatMap(term => [
             { name: { contains: term, mode: 'insensitive' } },
             { accountNumber: { contains: term, mode: 'insensitive' } },

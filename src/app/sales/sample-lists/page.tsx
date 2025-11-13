@@ -703,6 +703,7 @@ function TechSheetModal({
   const [selectedPriceListIds, setSelectedPriceListIds] = useState<string[]>([]);
   const [layout, setLayout] = useState<"multi" | "single">("multi");
   const [hideAbove, setHideAbove] = useState("12");
+  const [excludeDescriptions, setExcludeDescriptions] = useState(false);
   const [downloading, setDownloading] = useState(false);
 
   useEffect(() => {
@@ -718,6 +719,7 @@ function TechSheetModal({
     } else {
       setSelectedPriceListIds([]);
     }
+    setExcludeDescriptions(false);
   }, [list.preferredPriceListIds, priceLists, defaultPriceListId, open, list]);
 
   if (!open) return null;
@@ -750,6 +752,7 @@ function TechSheetModal({
           priceListIds: selectedPriceListIds,
           layout,
           hideDiscountAbove: hideAbove ? Number(hideAbove) : undefined,
+          excludeDescriptions,
         }),
       });
       if (!response.ok) throw new Error("Download failed");
@@ -885,6 +888,24 @@ function TechSheetModal({
             />
             <p className="mt-1 text-xs text-gray-500">
               Use this to only show frontline pricing for small accounts.
+            </p>
+          </div>
+
+          <div>
+            <label className="text-sm font-semibold text-gray-900">Product details</label>
+            <label className="mt-2 flex items-start gap-2 text-sm text-gray-700">
+              <input
+                type="checkbox"
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                checked={excludeDescriptions}
+                onChange={(event) => setExcludeDescriptions(event.target.checked)}
+              />
+              <span>
+                Exclude long product descriptions (generate a bare-bones tech sheet with pricing, tasting notes, and pairings only).
+              </span>
+            </label>
+            <p className="mt-1 text-xs text-gray-500">
+              Helpful when you just need quick one-pagers without marketing copy.
             </p>
           </div>
         </div>

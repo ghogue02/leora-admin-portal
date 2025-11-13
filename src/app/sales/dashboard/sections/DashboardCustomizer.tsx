@@ -23,6 +23,7 @@ export const DEFAULT_SECTIONS: DashboardSection[] = [
   { id: 'product-goals', name: 'Product Goals', description: 'Track progress toward sales goals', enabled: true },
   { id: 'revenue-chart', name: 'Weekly Revenue Chart', description: 'Visual revenue comparison', enabled: true },
   { id: 'customers-due', name: 'Customers Due to Order', description: 'Accounts that should be ordering soon', enabled: true },
+  { id: 'unloved-accounts', name: 'Due for Outreach (“Unloved” Accounts)', description: 'Accounts without recent visits or orders by priority', enabled: true },
   { id: 'upcoming-events', name: 'Upcoming Events', description: 'Calendar appointments and visits', enabled: true },
   { id: 'tasks', name: 'Tasks List', description: 'Your pending tasks and follow-ups', enabled: true },
 ];

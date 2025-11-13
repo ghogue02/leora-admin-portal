@@ -1,10 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Card } from '@/components/ui/card';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
 import {
   Table,
   TableBody,
@@ -21,6 +19,12 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Search, MapPin, Edit, Upload, Download, Plus } from 'lucide-react';
+import {
+  ResponsiveCard,
+  ResponsiveCardHeader,
+  ResponsiveCardTitle,
+  ResponsiveCardDescription,
+} from '@/components/ui/responsive-card';
 import { toast } from 'sonner';
 import { formatUTCDate } from '@/lib/dates';
 
@@ -47,106 +51,107 @@ export default function LocationsPage() {
   const [editingLocation, setEditingLocation] = useState<InventoryLocation | null>(null);
   const [newLocation, setNewLocation] = useState('');
 
-  useEffect(() => {
-    fetchLocations();
-  }, []);
-
-  const fetchLocations = async () => {
+  const fetchLocations = useCallback(async () => {
     try {
+      setLoading(true);
       const response = await fetch('/api/operations/locations');
-      const data = await response.json();
-      setLocations(data.inventories || []);
+      if (!response.ok) throw new Error('Failed to load locations');
+      const data = (await response.json()) as { inventories?: InventoryLocation[] };
+      setLocations(data.inventories ?? []);
     } catch (error) {
+      console.error('Failed to load locations', error);
       toast.error('Failed to load locations');
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const handleUpdateLocation = async (skuId: string, location: string) => {
-    if (!location.match(/^[A-Z]\d+-[A-Z]?\d+-[A-Z]?\d+$/)) {
-      toast.error('Invalid location format. Use: A1-B2-S3');
-      return;
-    }
+  useEffect(() => {
+    void fetchLocations();
+  }, [fetchLocations]);
 
-    const [aisle, bay, shelf] = location.split('-');
+  const handleUpdateLocation = useCallback(
+    async (skuId: string, location: string) => {
+      if (!location.match(/^[A-Z]\d+-[A-Z]?\d+-[A-Z]?\d+$/)) {
+        toast.error('Invalid location format. Use: A1-B2-S3');
+        return;
+      }
+      const [aisle, bay] = location.split('-');
+      try {
+        const response = await fetch('/api/operations/locations', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            skuId,
+            location,
+            aisle,
+            row: parseInt(bay, 10) || undefined,
+          }),
+        });
+        if (!response.ok) throw new Error('Failed to update location');
+        toast.success('Location updated successfully');
+        setEditingLocation(null);
+        setNewLocation('');
+        void fetchLocations();
+      } catch (error) {
+        console.error('Failed to update location', error);
+        toast.error('Failed to update location');
+      }
+    },
+    [fetchLocations],
+  );
 
-    try {
-      const response = await fetch('/api/operations/locations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          skuId,
-          location,
-          aisle,
-          row: parseInt(bay) || undefined,
-        }),
-      });
-
-      if (!response.ok) throw new Error('Failed to update location');
-
-      toast.success('Location updated successfully');
-      fetchLocations();
-      setEditingLocation(null);
-      setNewLocation('');
-    } catch (error) {
-      toast.error('Failed to update location');
-    }
-  };
-
-  const handleBulkUpload = () => {
+  const handleBulkUpload = useCallback(() => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.csv';
-    input.onchange = async (e: any) => {
-      const file = e.target.files[0];
+    input.onchange = async (event) => {
+      const target = event.target as HTMLInputElement | null;
+      const file = target?.files?.[0];
       if (!file) return;
-
       const reader = new FileReader();
-      reader.onload = async (event) => {
+      reader.onload = async (loadEvent) => {
         try {
-          const csv = event.target?.result as string;
+          const csv = loadEvent.target?.result as string;
           const lines = csv.split('\n');
           const updates = [];
-
-          // Skip header row
-          for (let i = 1; i < lines.length; i++) {
-            const [skuCode, location, aisle, row] = lines[i].split(',').map(s => s.trim());
+          for (let i = 1; i < lines.length; i += 1) {
+            const [skuCode, location, aisle, row] = lines[i].split(',').map((s) => s.trim());
             if (skuCode && location) {
               updates.push({
-                skuId: skuCode, // In production, lookup SKU ID by code
+                skuId: skuCode,
                 location,
                 aisle,
-                row: row ? parseInt(row) : undefined,
+                row: row ? parseInt(row, 10) : undefined,
               });
             }
           }
-
           const response = await fetch('/api/operations/locations/bulk', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ updates }),
           });
-
+          if (!response.ok) throw new Error('Failed to upload locations');
           const result = await response.json();
           toast.success(`Updated ${result.success} locations`);
           if (result.failed > 0) {
             toast.warning(`Failed to update ${result.failed} locations`);
           }
-          fetchLocations();
+          void fetchLocations();
         } catch (error) {
+          console.error('Failed to process CSV file', error);
           toast.error('Failed to process CSV file');
         }
       };
       reader.readAsText(file);
     };
     input.click();
-  };
+  }, [fetchLocations]);
 
-  const handleExportLocations = () => {
+  const handleExportLocations = useCallback(() => {
     const csv = [
       'SKU Code,Location,Aisle,Row,On Hand,Allocated,Product Name',
-      ...locations.map(inv =>
+      ...locations.map((inv) =>
         [
           inv.sku.code,
           inv.location,
@@ -155,10 +160,9 @@ export default function LocationsPage() {
           inv.onHand,
           inv.allocated,
           inv.sku.product.name,
-        ].join(',')
+        ].join(','),
       ),
     ].join('\n');
-
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -166,199 +170,174 @@ export default function LocationsPage() {
     a.download = `warehouse-locations-${formatUTCDate(new Date())}.csv`;
     a.click();
     toast.success('Locations exported');
-  };
+  }, [locations]);
 
-  const filteredLocations = locations.filter(inv =>
-    inv.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    inv.sku.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    inv.sku.product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredLocations = useMemo(
+    () =>
+      locations.filter(
+        (inv) =>
+          inv.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          inv.sku.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          inv.sku.product.name.toLowerCase().includes(searchTerm.toLowerCase()),
+      ),
+    [locations, searchTerm],
   );
 
-  const groupedByLocation = filteredLocations.reduce((acc, inv) => {
-    const loc = inv.location || 'Unassigned';
-    if (!acc[loc]) acc[loc] = [];
-    acc[loc].push(inv);
-    return acc;
-  }, {} as Record<string, InventoryLocation[]>);
+  const groupedByLocation = useMemo(() => {
+    return filteredLocations.reduce<Record<string, InventoryLocation[]>>((acc, inv) => {
+      const loc = inv.location || 'Unassigned';
+      if (!acc[loc]) acc[loc] = [];
+      acc[loc].push(inv);
+      return acc;
+    }, {});
+  }, [filteredLocations]);
 
   return (
-    <div className="container mx-auto py-6 px-4 max-w-7xl">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Warehouse Locations</h1>
-          <p className="text-gray-600 mt-1">Manage inventory locations and warehouse layout</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-emerald-600">
+            Warehouse
+          </p>
+          <h1 className="text-3xl font-bold text-gray-900">Inventory locations</h1>
+          <p className="text-sm text-gray-600">
+            Manage bin assignments and track on-hand vs allocated inventory.
+          </p>
         </div>
-        <div className="flex gap-3 mt-4 md:mt-0">
-          <Button onClick={handleBulkUpload} variant="outline">
+        <div className="flex flex-wrap gap-3">
+          <Button onClick={handleBulkUpload} variant="outline" className="touch-target">
             <Upload className="mr-2 h-4 w-4" />
             Bulk Upload
           </Button>
-          <Button onClick={handleExportLocations} variant="outline">
+          <Button onClick={handleExportLocations} variant="outline" className="touch-target">
             <Download className="mr-2 h-4 w-4" />
             Export CSV
           </Button>
         </div>
-      </div>
+      </header>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <Card className="p-4">
-          <div className="text-sm text-gray-600 font-semibold">Total Items</div>
-          <div className="text-2xl font-bold">{locations.length}</div>
-        </Card>
-        <Card className="p-4">
-          <div className="text-sm text-gray-600 font-semibold">Unique Locations</div>
-          <div className="text-2xl font-bold">{Object.keys(groupedByLocation).length}</div>
-        </Card>
-        <Card className="p-4">
-          <div className="text-sm text-gray-600 font-semibold">Total On Hand</div>
-          <div className="text-2xl font-bold">
-            {locations.reduce((sum, inv) => sum + inv.onHand, 0)}
+      <ResponsiveCard className="p-4 shadow-sm">
+        <ResponsiveCardHeader className="mb-4">
+          <ResponsiveCardTitle>Search & Assign Locations</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Filter bins or assign new locations without leaving the page.
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="relative flex-1">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+            <Input
+              placeholder="Search SKU, location, or product"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 touch-target"
+            />
           </div>
-        </Card>
-        <Card className="p-4">
-          <div className="text-sm text-gray-600 font-semibold">Total Allocated</div>
-          <div className="text-2xl font-bold">
-            {locations.reduce((sum, inv) => sum + inv.allocated, 0)}
-          </div>
-        </Card>
-      </div>
-
-      {/* Search */}
-      <div className="mb-6">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-          <Input
-            placeholder="Search by location, SKU, or product..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
-          />
+          <Dialog open={!!editingLocation} onOpenChange={() => setEditingLocation(null)}>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="touch-target">
+                <Plus className="mr-2 h-4 w-4" />
+                Assign Location
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>
+                  Assign Location {editingLocation && `for ${editingLocation.sku.product.name}`}
+                </DialogTitle>
+              </DialogHeader>
+              <Input
+                placeholder="A1-B2-S3"
+                value={newLocation}
+                onChange={(e) => setNewLocation(e.target.value)}
+              />
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" onClick={() => setEditingLocation(null)}>
+                  Cancel
+                </Button>
+                <Button
+                  onClick={() =>
+                    editingLocation && handleUpdateLocation(editingLocation.id, newLocation)
+                  }
+                >
+                  Save
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
-      </div>
+      </ResponsiveCard>
 
-      {/* Location Format Guide */}
-      <Card className="p-4 mb-6 bg-blue-50 border-blue-200">
-        <div className="flex items-start gap-3">
-          <MapPin className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
-          <div>
-            <div className="font-semibold text-blue-900">Location Format</div>
-            <div className="text-sm text-blue-700 mt-1">
-              Use format: <span className="font-mono font-bold">Aisle-Bay-Shelf</span>
-              <br />
-              Example: <span className="font-mono font-bold">A3-B2-S4</span> (Aisle A3, Bay B2, Shelf S4)
-            </div>
-          </div>
-        </div>
-      </Card>
+      {loading ? (
+        <section className="surface-card p-10 text-center text-gray-500 shadow-sm">
+          Loading locations...
+        </section>
+      ) : Object.keys(groupedByLocation).length === 0 ? (
+        <section className="surface-card border border-dashed border-gray-300 bg-gray-50 p-10 text-center text-gray-500 shadow-sm">
+          No locations found.
+        </section>
+      ) : (
+        <section className="space-y-4">
+          {Object.entries(groupedByLocation).map(([location, inventories]) => (
+            <ResponsiveCard key={location} className="p-4 shadow-sm">
+              <div className="mb-4 flex items-center justify-between">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-gray-500" />
+                    <h2 className="text-lg font-semibold text-gray-900">{location}</h2>
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    {inventories.length} SKU{inventories.length !== 1 ? 's' : ''} in this bin
+                  </p>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setEditingLocation({
+                      ...inventories[0],
+                      id: inventories[0].sku.code,
+                    });
+                  }}
+                >
+                  <Edit className="mr-2 h-4 w-4" />
+                  Update Location
+                </Button>
+              </div>
 
-      {/* Locations Table */}
-      <Card>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Location</TableHead>
-              <TableHead>SKU</TableHead>
-              <TableHead>Product</TableHead>
-              <TableHead className="text-right">On Hand</TableHead>
-              <TableHead className="text-right">Allocated</TableHead>
-              <TableHead className="text-right">Available</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {loading ? (
-              <TableRow>
-                <TableCell colSpan={7} className="text-center py-8 text-gray-500">
-                  Loading locations...
-                </TableCell>
-              </TableRow>
-            ) : filteredLocations.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={7} className="text-center py-8 text-gray-500">
-                  No locations found
-                </TableCell>
-              </TableRow>
-            ) : (
-              filteredLocations.map((inv) => (
-                <TableRow key={inv.id}>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-gray-400" />
-                      <span className="font-mono font-semibold">{inv.location}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <span className="font-mono text-sm">{inv.sku.code}</span>
-                  </TableCell>
-                  <TableCell>
-                    <div>
-                      <div className="font-medium">{inv.sku.product.name}</div>
-                      {inv.sku.product.brand && (
-                        <div className="text-sm text-gray-600">{inv.sku.product.brand}</div>
-                      )}
-                    </div>
-                  </TableCell>
-                  <TableCell className="text-right font-semibold">{inv.onHand}</TableCell>
-                  <TableCell className="text-right text-gray-600">{inv.allocated}</TableCell>
-                  <TableCell className="text-right">
-                    <Badge variant={inv.onHand - inv.allocated > 0 ? 'default' : 'secondary'}>
-                      {inv.onHand - inv.allocated}
-                    </Badge>
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => {
-                            setEditingLocation(inv);
-                            setNewLocation(inv.location);
-                          }}
-                        >
-                          <Edit className="h-4 w-4" />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent>
-                        <DialogHeader>
-                          <DialogTitle>Update Location</DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4">
-                          <div>
-                            <label className="text-sm font-medium">Product</label>
-                            <div className="text-sm text-gray-600">{inv.sku.product.name}</div>
-                            <div className="text-xs text-gray-500">SKU: {inv.sku.code}</div>
-                          </div>
-                          <div>
-                            <label className="text-sm font-medium">New Location</label>
-                            <Input
-                              value={newLocation}
-                              onChange={(e) => setNewLocation(e.target.value.toUpperCase())}
-                              placeholder="A3-B2-S4"
-                              className="font-mono"
-                            />
-                            <div className="text-xs text-gray-500 mt-1">
-                              Format: Aisle-Bay-Shelf (e.g., A3-B2-S4)
-                            </div>
-                          </div>
-                          <Button
-                            onClick={() => handleUpdateLocation(inv.sku.id, newLocation)}
-                            className="w-full"
-                          >
-                            Update Location
-                          </Button>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                  </TableCell>
-                </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
-      </Card>
-    </div>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>SKU</TableHead>
+                    <TableHead>Product</TableHead>
+                    <TableHead className="text-right">On Hand</TableHead>
+                    <TableHead className="text-right">Allocated</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {inventories.map((inv) => (
+                    <TableRow key={inv.id}>
+                      <TableCell className="font-medium">{inv.sku.code}</TableCell>
+                      <TableCell>
+                        <div className="text-sm text-gray-900">{inv.sku.product.name}</div>
+                        {inv.sku.product.brand && (
+                          <div className="text-xs text-gray-500">{inv.sku.product.brand}</div>
+                        )}
+                      </TableCell>
+                      <TableCell className="text-right text-sm font-semibold text-gray-900">
+                        {inv.onHand}
+                      </TableCell>
+                      <TableCell className="text-right text-sm text-gray-600">
+                        {inv.allocated}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </ResponsiveCard>
+          ))}
+        </section>
+      )}
+    </main>
   );
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { Pencil } from "lucide-react";
+import type { AccountPriority } from "@prisma/client";
 
 type CustomerHeaderProps = {
   customer: {
@@ -13,6 +14,7 @@ type CustomerHeaderProps = {
     phone: string | null;
     billingEmail: string | null;
     licenseNumber: string | null;
+    accountPriority: AccountPriority | null;
     address: {
       street1: string | null;
       street2: string | null;
@@ -65,6 +67,32 @@ export default function CustomerHeader({ customer, onAddOrder }: CustomerHeaderP
     }
   };
 
+  const getPriorityBadge = (priority: AccountPriority | null) => {
+    switch (priority) {
+      case "HIGH":
+        return "bg-red-50 text-red-700 border-red-200";
+      case "MEDIUM":
+        return "bg-amber-50 text-amber-700 border-amber-200";
+      case "LOW":
+        return "bg-emerald-50 text-emerald-700 border-emerald-200";
+      default:
+        return "bg-slate-50 text-slate-500 border-slate-200";
+    }
+  };
+
+  const getPriorityLabel = (priority: AccountPriority | null) => {
+    switch (priority) {
+      case "HIGH":
+        return "Priority 1";
+      case "MEDIUM":
+        return "Priority 2";
+      case "LOW":
+        return "Priority 3";
+      default:
+        return "Not set";
+    }
+  };
+
   const formatAddress = () => {
     const parts = [
       customer.address.street1,
@@ -91,6 +119,13 @@ export default function CustomerHeader({ customer, onAddOrder }: CustomerHeaderP
               )}`}
             >
               {getRiskLabel(customer.riskStatus)}
+            </span>
+            <span
+              className={`rounded-full border px-3 py-1 text-xs font-semibold ${getPriorityBadge(
+                customer.accountPriority ?? null
+              )}`}
+            >
+              {getPriorityLabel(customer.accountPriority ?? null)}
             </span>
             {customer.isPermanentlyClosed && (
               <span className="rounded-full border border-slate-300 bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">

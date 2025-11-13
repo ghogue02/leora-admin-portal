@@ -11,6 +11,7 @@ import { Prisma } from '@prisma/client';
 import { withSalesSession } from '@/lib/auth/sales';
 import { isValidOrderUsage } from '@/constants/orderUsage';
 import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
+import { hasSalesManagerPrivileges } from '@/lib/sales/role-helpers';
 
 type RouteParams = {
   params: Promise<{ orderId: string }>;
@@ -108,33 +109,39 @@ export async function GET(request: NextRequest, props: RouteParams) {
   const params = await props.params;
   const orderId = params.orderId;
 
-  return withSalesSession(request, async ({ db, tenantId, session }) => {
-    // 1. Validate sales rep exists
+  return withSalesSession(request, async ({ db, tenantId, session, roles }) => {
+    // 1. Validate access scope
     const salesRepId = session.user.salesRep?.id;
-    if (!salesRepId) {
+    const managerScope = hasSalesManagerPrivileges(roles);
+    if (!salesRepId && !managerScope) {
       return NextResponse.json(
         { error: 'Sales rep profile required' },
         { status: 403 }
       );
     }
 
-    // 2. Get order with customer validation
-    // SECURITY: Only return orders where the customer is assigned to this sales rep
+    // 2. Get order with visibility enforcement
+    const where: Prisma.OrderWhereInput = {
+      id: orderId,
+      tenantId,
+      ...(managerScope
+        ? {}
+        : {
+            OR: [
+              {
+                customer: {
+                  salesRepId,
+                },
+              },
+              {
+                salesRepId,
+              },
+            ],
+          }),
+    };
+
     const order = await db.order.findFirst({
-      where: {
-        id: orderId,
-        tenantId,
-        OR: [
-          {
-            customer: {
-              salesRepId,
-            },
-          },
-          {
-            salesRepId,
-          },
-        ],
-      },
+      where,
       include: {
         customer: {
           select: {
@@ -258,13 +265,14 @@ export async function PUT(request: NextRequest, props: RouteParams) {
   const params = await props.params;
   const orderId = params.orderId;
 
-  return withSalesSession(request, async ({ db, tenantId, session }) => {
+  return withSalesSession(request, async ({ db, tenantId, session, roles }) => {
     const { createAuditLog } = await import('@/lib/audit-log');
     const { runWithTransaction } = await import('@/lib/prisma');
 
     // 1. Validate sales rep exists
     const salesRepId = session.user.salesRep?.id;
-    if (!salesRepId) {
+    const managerScope = hasSalesManagerPrivileges(roles);
+    if (!salesRepId && !managerScope) {
       return NextResponse.json(
         { error: 'Sales rep profile required' },
         { status: 403 }
@@ -293,16 +301,20 @@ export async function PUT(request: NextRequest, props: RouteParams) {
       where: {
         id: orderId,
         tenantId,
-        OR: [
-          {
-            customer: {
-              salesRepId,
-            },
-          },
-          {
-            salesRepId,
-          },
-        ],
+        ...(managerScope
+          ? {}
+          : {
+              OR: [
+                {
+                  customer: {
+                    salesRepId,
+                  },
+                },
+                {
+                  salesRepId,
+                },
+              ],
+            }),
       },
       include: {
         customer: true,

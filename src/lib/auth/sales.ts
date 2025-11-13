@@ -3,6 +3,7 @@ import type { Prisma, PrismaClient } from "@prisma/client";
 import { readSalesSessionCookies } from "@/lib/auth/sales-cookies";
 import { getActiveSalesSession, type SalesSession } from "@/lib/auth/sales-session";
 import { withTenantFromRequest } from "@/lib/tenant";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 export type SalesSessionContext = {
   tenantId: string;
@@ -63,8 +64,11 @@ export async function withSalesSession(
       console.log("🔐 [withSalesSession] User ID:", session.user.id);
       console.log("🔐 [withSalesSession] Sales rep:", session.user.salesRep?.id);
 
+      const roleCodes = session.user.roles.map((item) => item.role.code);
+      const managerScope = hasSalesManagerPrivileges(roleCodes);
+
       // Check if user has sales rep profile if required
-      if (options.requireSalesRep !== false && !session.user.salesRep) {
+      if (options.requireSalesRep !== false && !session.user.salesRep && !managerScope) {
         return NextResponse.json({
           error: "Sales representative profile required to access this page.",
           code: "MISSING_SALES_REP_PROFILE",
@@ -83,7 +87,7 @@ export async function withSalesSession(
         }, { status: 403 });
       }
 
-      const roles = session.user.roles.map((item) => item.role.code);
+      const roles = roleCodes;
       const permissions = new Set<string>();
       session.user.roles.forEach((userRole) => {
         userRole.role.permissions.forEach((rolePermission) => {

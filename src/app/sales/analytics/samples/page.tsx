@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { format, subDays } from 'date-fns';
 import ConversionChart from './sections/ConversionChart';
 import TopPerformers from './sections/TopPerformers';
@@ -8,6 +8,12 @@ import RepLeaderboard from './sections/RepLeaderboard';
 import CustomerSampleHistory from './sections/CustomerSampleHistory';
 import SupplierReport from './sections/SupplierReport';
 import { Calendar, TrendingUp, DollarSign, Package } from 'lucide-react';
+import {
+  ResponsiveCard,
+  ResponsiveCardHeader,
+  ResponsiveCardTitle,
+  ResponsiveCardDescription,
+} from '@/components/ui/responsive-card';
 
 type AnalyticsData = {
   overview: {
@@ -70,15 +76,7 @@ export default function SampleAnalyticsPage() {
     setFilters((prev) => ({ ...prev, [field]: value }));
   };
 
-  useEffect(() => {
-    void loadAnalytics();
-  }, [dateRange, filters]);
-
-  useEffect(() => {
-    void loadSuppliers();
-  }, [dateRange]);
-
-  const loadAnalytics = async () => {
+  const loadAnalytics = useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams({
@@ -99,9 +97,9 @@ export default function SampleAnalyticsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [dateRange.end, dateRange.start, filters]);
 
-  const loadSuppliers = async () => {
+  const loadSuppliers = useCallback(async () => {
     const params = new URLSearchParams({
       startDate: format(dateRange.start, 'yyyy-MM-dd'),
       endDate: format(dateRange.end, 'yyyy-MM-dd'),
@@ -120,7 +118,15 @@ export default function SampleAnalyticsPage() {
     } catch (error) {
       console.error('Failed to load supplier options', error);
     }
-  };
+  }, [dateRange.end, dateRange.start]);
+
+  useEffect(() => {
+    void loadAnalytics();
+  }, [loadAnalytics]);
+
+  useEffect(() => {
+    void loadSuppliers();
+  }, [loadSuppliers]);
 
   const handleDateRangeChange = (days: number) => {
     setDateRange({
@@ -159,13 +165,13 @@ export default function SampleAnalyticsPage() {
 
   if (loading) {
     return (
-      <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
-        <div className="flex items-center justify-center rounded-lg border border-gray-200 bg-white p-12">
-          <div className="text-center">
-            <div className="mx-auto h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600"></div>
-            <p className="mt-4 text-gray-600">Loading analytics...</p>
+      <main className="layout-shell-tight layout-stack pb-12">
+        <section className="surface-card flex items-center justify-center p-12 shadow-sm">
+          <div className="text-center text-sm text-gray-600">
+            <div className="mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-b-2 border-blue-600" />
+            Loading sample analytics...
           </div>
-        </div>
+        </section>
       </main>
     );
   }
@@ -175,9 +181,16 @@ export default function SampleAnalyticsPage() {
   }
 
   return (
-    <main className="mx-auto flex max-w-7xl flex-col gap-6 p-6">
-      {/* Header */}
-      <header className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="space-y-2">
+        <p className="text-xs font-semibold uppercase tracking-wide text-rose-600">Samples</p>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Sample analytics</h1>
+        <p className="text-sm text-gray-600">
+          Track conversions, revenue impact, and rep performance while filtering by rep, supplier, or SKU.
+        </p>
+      </header>
+
+      <ResponsiveCard className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <FilterPanel
           filters={filters}
           repOptions={repOptions}
@@ -188,7 +201,7 @@ export default function SampleAnalyticsPage() {
         <div className="flex flex-wrap gap-2">
           <button
             onClick={() => handleDateRangeChange(30)}
-            className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
+            className={`touch-target rounded-md border px-3 py-1.5 text-sm font-medium transition ${
               dateRange.start >= subDays(new Date(), 30)
                 ? 'border-blue-600 bg-blue-50 text-blue-700'
                 : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
@@ -198,7 +211,7 @@ export default function SampleAnalyticsPage() {
           </button>
           <button
             onClick={() => handleDateRangeChange(90)}
-            className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
+            className={`touch-target rounded-md border px-3 py-1.5 text-sm font-medium transition ${
               dateRange.start < subDays(new Date(), 30) && dateRange.start >= subDays(new Date(), 90)
                 ? 'border-blue-600 bg-blue-50 text-blue-700'
                 : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
@@ -208,7 +221,7 @@ export default function SampleAnalyticsPage() {
           </button>
           <button
             onClick={() => handleDateRangeChange(180)}
-            className={`rounded-md border px-3 py-1.5 text-sm font-medium transition ${
+            className={`touch-target rounded-md border px-3 py-1.5 text-sm font-medium transition ${
               dateRange.start < subDays(new Date(), 90)
                 ? 'border-blue-600 bg-blue-50 text-blue-700'
                 : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
@@ -219,21 +232,20 @@ export default function SampleAnalyticsPage() {
           <div className="h-6 w-px bg-gray-300"></div>
           <button
             onClick={() => handleExport('csv')}
-            className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
+            className="touch-target rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
           >
             Export CSV
           </button>
           <button
             onClick={() => handleExport('pdf')}
-            className="rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
+            className="touch-target rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400"
           >
             Export PDF
           </button>
         </div>
-      </header>
+      </ResponsiveCard>
 
-      {/* Overview Metrics */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <AnalyticsStatCard
           icon={<Package className="h-5 w-5" />}
           label="Total Samples"
@@ -258,22 +270,50 @@ export default function SampleAnalyticsPage() {
           value={analytics.overview.activeProducts.toLocaleString()}
           color="orange"
         />
-      </div>
+      </section>
 
-      {/* Conversion Chart */}
-      <ConversionChart trends={analytics.trends} />
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Conversion trend</ResponsiveCardTitle>
+          <ResponsiveCardDescription>Samples vs conversions over time</ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <ConversionChart trends={analytics.trends} />
+      </ResponsiveCard>
 
-      {/* Top Performers & Rep Leaderboard */}
-      <div className="grid gap-6 lg:grid-cols-2">
-        <TopPerformers products={analytics.topProducts} />
-        <RepLeaderboard reps={analytics.repPerformance} />
-      </div>
+      <section className="grid gap-6 lg:grid-cols-2">
+        <ResponsiveCard>
+          <ResponsiveCardHeader>
+            <ResponsiveCardTitle>Top products</ResponsiveCardTitle>
+            <ResponsiveCardDescription>Best performing samples</ResponsiveCardDescription>
+          </ResponsiveCardHeader>
+          <TopPerformers products={analytics.topProducts} />
+        </ResponsiveCard>
+        <ResponsiveCard>
+          <ResponsiveCardHeader>
+            <ResponsiveCardTitle>Rep leaderboard</ResponsiveCardTitle>
+            <ResponsiveCardDescription>Revenue impact by rep</ResponsiveCardDescription>
+          </ResponsiveCardHeader>
+          <RepLeaderboard reps={analytics.repPerformance} />
+        </ResponsiveCard>
+      </section>
 
-      {/* Customer Sample History */}
-      <CustomerSampleHistory />
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Customer sample history</ResponsiveCardTitle>
+          <ResponsiveCardDescription>Recent follow-ups and results</ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <CustomerSampleHistory />
+      </ResponsiveCard>
 
-      {/* Supplier Report */}
-      <SupplierReport startDate={dateRange.start} endDate={dateRange.end} />
+      <ResponsiveCard>
+        <ResponsiveCardHeader>
+          <ResponsiveCardTitle>Supplier performance</ResponsiveCardTitle>
+          <ResponsiveCardDescription>
+            Drill into suppliers for {format(dateRange.start, 'MMM d')} – {format(dateRange.end, 'MMM d')}
+          </ResponsiveCardDescription>
+        </ResponsiveCardHeader>
+        <SupplierReport startDate={dateRange.start} endDate={dateRange.end} />
+      </ResponsiveCard>
     </main>
   );
 }
@@ -311,7 +351,7 @@ const colorMap = {
 function AnalyticsStatCard({ icon, label, value, color }: StatCardProps) {
   const palette = colorMap[color];
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+    <ResponsiveCard className="p-4">
       <div className="flex items-start justify-between">
         <div className={`rounded-lg ${palette.bg} p-2`}>{icon}</div>
       </div>
@@ -319,7 +359,7 @@ function AnalyticsStatCard({ icon, label, value, color }: StatCardProps) {
         <p className="text-xs font-medium uppercase tracking-wide text-gray-500">{label}</p>
         <p className={`mt-1 text-2xl font-bold ${palette.text}`}>{value}</p>
       </div>
-    </div>
+    </ResponsiveCard>
   );
 }
 

@@ -3,6 +3,7 @@ import { withSalesSession } from "@/lib/auth/sales";
 import { OrderStatus } from "@prisma/client";
 import { z } from "zod";
 import { publishOrderStatusUpdated } from "@/lib/realtime/orders.server";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 /**
  * PUT /api/sales/orders/[orderId]/status
@@ -71,7 +72,15 @@ export async function PUT(
 
       return withSalesSession(
         request,
-        async ({ db, tenantId, session }) => {
+        async ({ db, tenantId, session, roles }) => {
+      const salesRepId = session.user.salesRep?.id;
+      const managerScope = hasSalesManagerPrivileges(roles);
+      if (!salesRepId && !managerScope) {
+        return NextResponse.json(
+          { error: "Sales rep profile required." },
+          { status: 403 }
+        );
+      }
       const order = await db.order.findFirst({
         where: {
           id: orderId,
@@ -101,9 +110,8 @@ export async function PUT(
         );
       }
 
-      // Verify sales rep has access to this order
-      const salesRepId = session.user.salesRep?.id;
-      if (order.customer.salesRepId !== salesRepId) {
+      // Verify access scope
+      if (!managerScope && order.customer.salesRepId !== salesRepId) {
         return NextResponse.json(
           { error: "You don't have access to this order." },
           { status: 403 }

@@ -17,14 +17,14 @@ import {
   endOfMonth,
   subDays,
 } from "date-fns";
-
-const MANAGER_EMAIL = "travis@wellcraftedbeverage.com";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
+import { buildUnlovedSummary } from "@/lib/sales/unloved";
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
-      const impersonationAllowed = session.user.email?.toLowerCase() === MANAGER_EMAIL;
+    async ({ db, tenantId, session, roles }) => {
+      const impersonationAllowed = hasSalesManagerPrivileges(roles);
       const requestedSalesRepId = request.nextUrl.searchParams.get("salesRepId");
 
       const commonInclude = {
@@ -734,6 +734,13 @@ export async function GET(request: NextRequest) {
         now,
       });
 
+      const unlovedSummary = await buildUnlovedSummary({
+        db,
+        tenantId,
+        salesRepId: salesRep.id,
+        now,
+      });
+
       return NextResponse.json({
         salesRep: {
           id: salesRep.id,
@@ -878,6 +885,7 @@ export async function GET(request: NextRequest) {
         })),
         sampleInsights,
         managerView,
+        unloved: unlovedSummary,
         accountPulse: customerSnapshot.accountPulse,
         customerSignals: customerSnapshot.signals,
         customerCoverage: customerSnapshot.coverage,

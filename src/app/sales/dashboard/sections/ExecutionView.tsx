@@ -8,6 +8,8 @@ import UpcomingEvents from "./UpcomingEvents";
 import CustomerBalances from "./CustomerBalances";
 import type { SampleInsightsSummary } from "@/types/activities";
 import type { DashboardDrilldownType } from "@/types/drilldown";
+import type { UnlovedAccountsSummary } from "@/types/sales-dashboard";
+import UnlovedAccounts from "./UnlovedAccounts";
 
 type SalesRep = {
   id: string;
@@ -108,6 +110,7 @@ type ExecutionViewProps = {
   customersDue: CustomerDue[];
   sampleInsights: SampleInsightsSummary;
   upcomingEvents: UpcomingEvent[];
+  unloved: UnlovedAccountsSummary;
   isSectionEnabled: (sectionId: string) => boolean;
   onDrilldown: (type: DashboardDrilldownType) => void;
 };
@@ -119,6 +122,7 @@ export default function ExecutionView({
   customersDue,
   sampleInsights,
   upcomingEvents,
+  unloved,
   isSectionEnabled,
   onDrilldown,
 }: ExecutionViewProps) {
@@ -133,6 +137,8 @@ export default function ExecutionView({
       {isSectionEnabled("customers-due") && (
         <CustomersDueList customers={customersDue} onDrilldown={onDrilldown} />
       )}
+
+      {isSectionEnabled("unloved-accounts") && <UnlovedAccounts data={unloved} />}
 
       {isSectionEnabled("sample-activities") && <SampleActivitySummary insights={sampleInsights} />}
 

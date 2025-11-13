@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { subMonths } from "date-fns";
 import { withSalesSession } from "@/lib/auth/sales";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 import {
   aggregateRecentOrderLines,
   type RawRecentOrderLine,
@@ -20,11 +21,12 @@ const MAX_SUGGESTIONS = 20;
 export async function GET(request: NextRequest, context: RouteContext) {
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
+    async ({ db, tenantId, session, roles }) => {
       const { customerId } = await context.params;
       const salesRepId = session.user.salesRep?.id;
+      const managerScope = hasSalesManagerPrivileges(roles);
 
-      if (!salesRepId) {
+      if (!salesRepId && !managerScope) {
         return NextResponse.json({ error: "Sales rep profile required." }, { status: 403 });
       }
 
@@ -32,7 +34,7 @@ export async function GET(request: NextRequest, context: RouteContext) {
         where: {
           id: customerId,
           tenantId,
-          salesRepId,
+          ...(managerScope ? {} : { salesRepId }),
         },
         select: {
           id: true,

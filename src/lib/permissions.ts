@@ -67,7 +67,7 @@ export function canOverridePrices(session: SalesSession | null): boolean {
   }
 
   // Fallback to role-based check (manager or admin)
-  return hasAnyRole(session, ['manager', 'admin', 'system_admin']);
+  return hasAnyRole(session, ['sales.manager', 'manager', 'admin', 'system_admin']);
 }
 
 /**
@@ -82,7 +82,7 @@ export function canApproveOrders(session: SalesSession | null): boolean {
   }
 
   // Fallback to role-based check (manager or admin)
-  return hasAnyRole(session, ['manager', 'admin', 'system_admin']);
+  return hasAnyRole(session, ['sales.manager', 'manager', 'admin', 'system_admin']);
 }
 
 /**

@@ -73,18 +73,37 @@ export default function SalesNav() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-200 bg-white/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
-        <Link href="/sales/dashboard" className="text-lg font-semibold tracking-tight text-gray-900">
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-xl">
+      <div className="nav-inner">
+        <Link
+          href="/sales/dashboard"
+          className="text-base font-semibold tracking-tight text-gray-900 sm:text-lg"
+        >
           Leora Sales
         </Link>
         <button
           type="button"
-          className="inline-flex items-center gap-2 rounded-md border border-gray-300 px-3 py-1 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 md:hidden"
+          className="touch-target inline-flex items-center gap-2 rounded-md border border-gray-300 px-3 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-gray-400 md:hidden"
           onClick={() => setMobileOpen((value) => !value)}
           aria-expanded={mobileOpen}
           aria-controls="sales-nav-menu"
+          aria-label="Toggle sales navigation"
         >
           Menu
           <span className="text-xs text-gray-500">{mobileOpen ? "Close" : "Open"}</span>
@@ -93,18 +112,28 @@ export default function SalesNav() {
           <NavList pathname={pathname} onNavigate={closeMobile} onLogout={handleLogout} isLoggingOut={isLoggingOut} />
         </nav>
       </div>
-      {mobileOpen ? (
-        <div className="md:hidden">
+      {mobileOpen && (
+        <>
           <div
-            className="border-t border-slate-200 bg-white/95 px-4 py-4 shadow-lg"
-            id="sales-nav-menu"
-            role="dialog"
-            aria-modal="true"
-          >
-            <NavList pathname={pathname} onNavigate={closeMobile} onLogout={handleLogout} isLoggingOut={isLoggingOut} vertical />
+            className="fixed inset-0 z-30 bg-black/40 md:hidden"
+            aria-hidden="true"
+            onClick={closeMobile}
+          />
+          <div className="md:hidden">
+            <div className="border-t border-slate-200 bg-white/95 shadow-lg relative z-40">
+              <div
+                className="page-gutters pb-6 pt-4"
+                id="sales-nav-menu"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Sales navigation menu"
+              >
+                <NavList pathname={pathname} onNavigate={closeMobile} onLogout={handleLogout} isLoggingOut={isLoggingOut} vertical />
+              </div>
+            </div>
           </div>
-        </div>
-      ) : null}
+        </>
+      )}
     </header>
   );
 }

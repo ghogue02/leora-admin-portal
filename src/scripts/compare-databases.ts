@@ -5,7 +5,7 @@
 import { createClient } from '@supabase/supabase-js';
 
 const WELLCRAFTED_URL = 'https://zqezunzlyjkseugujkrl.supabase.co';
-const WELLCRAFTED_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxZXp1bnpseWprc2V1Z3Vqa3JsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1OTM1Mzk1OSwiZXhwIjoyMDc0OTI5OTU5fQ.wsMKWFKQBWa8qOSqSoGLH0xnhitT-NYV13s2wcCRfzk';
+const WELLCRAFTED_KEY = '<SUPABASE_SERVICE_ROLE_KEY>';
 
 const LOVABLE_URL = 'https://wlwqkblueezqydturcpv.supabase.co';
 const LOVABLE_KEY = '***SUPABASE_JWT_REMOVED***';

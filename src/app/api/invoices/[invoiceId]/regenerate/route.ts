@@ -14,6 +14,7 @@ import { withSalesSession } from '@/lib/auth/sales';
 import { createAuditLog } from '@/lib/audit-log';
 import { buildInvoiceData } from '@/lib/invoices/invoice-data-builder';
 import { generateInvoicePDF } from '@/lib/invoices/pdf-generator';
+import { hasSalesManagerPrivileges } from '@/lib/sales/role-helpers';
 
 type RouteParams = {
   params: Promise<{ invoiceId: string }>;
@@ -23,10 +24,11 @@ export async function POST(request: NextRequest, props: RouteParams) {
   const params = await props.params;
   const invoiceId = params.invoiceId;
 
-  return withSalesSession(request, async ({ db, tenantId, session }) => {
+  return withSalesSession(request, async ({ db, tenantId, session, roles }) => {
     // 1. Validate sales rep exists
     const salesRepId = session.user.salesRep?.id;
-    if (!salesRepId) {
+    const managerScope = hasSalesManagerPrivileges(roles);
+    if (!salesRepId && !managerScope) {
       return NextResponse.json(
         { error: 'Sales rep profile required' },
         { status: 403 }
@@ -91,7 +93,7 @@ export async function POST(request: NextRequest, props: RouteParams) {
     }
 
     // 3. SECURITY: Verify customer is assigned to this sales rep
-    if (invoice.order?.customer?.salesRepId !== salesRepId) {
+    if (!managerScope && invoice.order?.customer?.salesRepId !== salesRepId) {
       return NextResponse.json(
         { error: 'You can only regenerate invoices for your assigned customers' },
         { status: 403 }

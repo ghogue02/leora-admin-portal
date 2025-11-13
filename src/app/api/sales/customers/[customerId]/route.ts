@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withSalesSession } from "@/lib/auth/sales";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 import { subMonths, startOfYear, differenceInDays, addDays } from "date-fns";
-import { TaskStatus } from "@prisma/client";
+import { AccountPriority, TaskStatus } from "@prisma/client";
 import { activitySampleItemSelect } from "@/app/api/sales/activities/_helpers";
 import {
   CUSTOMER_TYPE_OPTIONS,
@@ -92,24 +93,32 @@ export async function GET(
 ) {
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
+    async ({ db, tenantId, session, roles }) => {
       const { customerId } = await context.params;
 
-      // Get sales rep profile
-      const salesRep = await db.salesRep.findUnique({
-        where: {
-          tenantId_userId: {
-            tenantId,
-            userId: session.user.id,
-          },
-        },
-      });
+      const managerScope = hasSalesManagerPrivileges(roles);
+      let salesRep:
+        | {
+            id: string;
+          }
+        | null = null;
 
-      if (!salesRep) {
-        return NextResponse.json(
-          { error: "Sales rep profile not found" },
-          { status: 404 }
-        );
+      if (!managerScope) {
+        salesRep = await db.salesRep.findUnique({
+          where: {
+            tenantId_userId: {
+              tenantId,
+              userId: session.user.id,
+            },
+          },
+        });
+
+        if (!salesRep) {
+          return NextResponse.json(
+            { error: "Sales rep profile not found" },
+            { status: 404 }
+          );
+        }
       }
 
       // Get customer with full details
@@ -139,7 +148,7 @@ export async function GET(
       }
 
       // Verify customer is assigned to this sales rep
-      if (customer.salesRepId !== salesRep.id) {
+      if (!managerScope && customer.salesRepId !== salesRep?.id) {
         return NextResponse.json(
           { error: "You do not have access to this customer" },
           { status: 403 }
@@ -842,6 +851,11 @@ export async function GET(
           deliveryWindows: Array.isArray(customer.deliveryWindows)
             ? (customer.deliveryWindows as DeliveryWindow[])
             : [],
+          accountPriority: customer.accountPriority,
+          accountPriorityManuallySet: customer.accountPriorityManuallySet,
+          accountPriorityAutoAssignedAt: customer.accountPriorityAutoAssignedAt
+            ? customer.accountPriorityAutoAssignedAt.toISOString()
+            : null,
           type: (customer.type as CustomerType | null) ?? null,
           volumeCapacity: (customer.volumeCapacity as VolumeCapacity | null) ?? null,
           featurePrograms: (customer.featurePrograms as FeatureProgram[]) ?? [],
@@ -1092,6 +1106,9 @@ export async function PATCH(
         type: CustomerType | null;
         volumeCapacity: VolumeCapacity | null;
         featurePrograms: FeatureProgram[];
+        accountPriority: AccountPriority | null;
+        accountPriorityAutoAssignedAt: Date | null;
+        accountPriorityManuallySet: boolean;
       }> = {};
 
       const editableStringFields = [
@@ -1222,6 +1239,39 @@ export async function PATCH(
         }
 
         updateData.featurePrograms = cleanedPrograms;
+      }
+
+      let manualOverrideValue: boolean | undefined;
+
+      if (typeof body.accountPriority !== "undefined") {
+        if (
+          body.accountPriority !== null &&
+          !Object.values(AccountPriority).includes(body.accountPriority as AccountPriority)
+        ) {
+          return NextResponse.json(
+            { error: "Invalid account priority" },
+            { status: 400 },
+          );
+        }
+        updateData.accountPriority = body.accountPriority ?? null;
+        manualOverrideValue =
+          typeof body.accountPriorityManuallySet === "boolean"
+            ? body.accountPriorityManuallySet
+            : true;
+      }
+
+      if (
+        typeof manualOverrideValue === "undefined" &&
+        typeof body.accountPriorityManuallySet === "boolean"
+      ) {
+        manualOverrideValue = body.accountPriorityManuallySet;
+      }
+
+      if (typeof manualOverrideValue === "boolean") {
+        updateData.accountPriorityManuallySet = manualOverrideValue;
+        if (!manualOverrideValue) {
+          updateData.accountPriorityAutoAssignedAt = new Date();
+        }
       }
 
       if (typeof body.googlePlaceTypes !== "undefined") {

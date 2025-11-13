@@ -1,10 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Truck,
   MapPin,
@@ -12,7 +11,6 @@ import {
   CheckCircle2,
   Phone,
   Bell,
-  Navigation,
   Package,
 } from 'lucide-react';
 import { toast } from 'sonner';
@@ -58,21 +56,22 @@ export default function DeliveryTrackingPage() {
   const [loading, setLoading] = useState(true);
   const [selectedDate, setSelectedDate] = useState(getTodayLocal());
 
-  useEffect(() => {
-    fetchStops();
-  }, [selectedDate]);
-
-  const fetchStops = async () => {
+  const fetchStops = useCallback(async () => {
     try {
       const response = await fetch(`/api/operations/delivery-tracking?date=${selectedDate}`);
       const data = await response.json();
       setStops(data.stops || []);
     } catch (error) {
+      console.error('Failed to load delivery tracking', error);
       toast.error('Failed to load delivery tracking');
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedDate]);
+
+  useEffect(() => {
+    void fetchStops();
+  }, [fetchStops]);
 
   const handleUpdateStopStatus = async (stopId: string, status: string) => {
     try {
@@ -88,6 +87,7 @@ export default function DeliveryTrackingPage() {
       toast.success('Status updated');
       fetchStops();
     } catch (error) {
+      console.error('Failed to update status', error);
       toast.error('Failed to update status');
     }
   };
@@ -104,6 +104,7 @@ export default function DeliveryTrackingPage() {
 
       toast.success('Customer notified');
     } catch (error) {
+      console.error('Failed to send notification', error);
       toast.error('Failed to send notification');
     }
   };
@@ -122,7 +123,9 @@ export default function DeliveryTrackingPage() {
     }
   };
 
-  const groupedByRoute = stops.reduce((acc, stop) => {
+  type RouteGroup = { route: RouteStop['route']; stops: RouteStop[] };
+
+  const groupedByRoute = stops.reduce<Record<string, RouteGroup>>((acc, stop) => {
     const routeId = stop.route.id;
     if (!acc[routeId]) {
       acc[routeId] = {
@@ -132,61 +135,56 @@ export default function DeliveryTrackingPage() {
     }
     acc[routeId].stops.push(stop);
     return acc;
-  }, {} as Record<string, { route: any; stops: RouteStop[] }>);
+  }, {});
 
   const pendingStops = stops.filter(s => s.status === 'pending');
   const inProgressStops = stops.filter(s => s.status === 'in_progress');
   const completedStops = stops.filter(s => s.status === 'completed' || s.status === 'delivered');
 
   return (
-    <div className="container mx-auto py-6 px-4 max-w-7xl">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+    <main className="layout-shell-tight layout-stack pb-12">
+      <section className="surface-card flex flex-col gap-4 p-4 shadow-sm md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Delivery Tracking</h1>
-          <p className="text-gray-600 mt-1">Real-time delivery status and notifications</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">Operations</p>
+          <h1 className="text-3xl font-bold text-gray-900">Delivery tracking</h1>
+          <p className="text-sm text-gray-600">Real-time delivery status and notifications.</p>
         </div>
-        <div>
-          <input
-            type="date"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-            className="px-4 py-2 border rounded-lg"
-          />
-        </div>
-      </div>
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+          className="touch-target rounded-md border border-gray-300 px-4 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        />
+      </section>
 
-      {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <Card className="p-4 bg-gray-50">
-          <div className="text-sm text-gray-600 font-semibold">Pending</div>
-          <div className="text-2xl font-bold">{pendingStops.length}</div>
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Card className="surface-card p-4 shadow-sm">
+          <div className="text-sm font-semibold text-gray-600">Pending</div>
+          <div className="text-2xl font-bold text-gray-900">{pendingStops.length}</div>
         </Card>
-        <Card className="p-4 bg-blue-50">
-          <div className="text-sm text-blue-600 font-semibold">In Progress</div>
-          <div className="text-2xl font-bold">{inProgressStops.length}</div>
+        <Card className="surface-card p-4 shadow-sm">
+          <div className="text-sm font-semibold text-blue-600">In Progress</div>
+          <div className="text-2xl font-bold text-gray-900">{inProgressStops.length}</div>
         </Card>
-        <Card className="p-4 bg-green-50">
-          <div className="text-sm text-green-600 font-semibold">Completed</div>
-          <div className="text-2xl font-bold">{completedStops.length}</div>
+        <Card className="surface-card p-4 shadow-sm">
+          <div className="text-sm font-semibold text-green-600">Completed</div>
+          <div className="text-2xl font-bold text-gray-900">{completedStops.length}</div>
         </Card>
-        <Card className="p-4 bg-purple-50">
-          <div className="text-sm text-purple-600 font-semibold">Total Routes</div>
-          <div className="text-2xl font-bold">{Object.keys(groupedByRoute).length}</div>
+        <Card className="surface-card p-4 shadow-sm">
+          <div className="text-sm font-semibold text-purple-600">Total Routes</div>
+          <div className="text-2xl font-bold text-gray-900">{Object.keys(groupedByRoute).length}</div>
         </Card>
-      </div>
+      </section>
 
-      {/* Routes */}
-      <div className="space-y-6">
+      <section className="space-y-6">
         {Object.values(groupedByRoute).map(({ route, stops: routeStops }) => {
           const sortedStops = [...routeStops].sort((a, b) => a.stopNumber - b.stopNumber);
-          const currentStop = sortedStops.find(s => s.status === 'in_progress');
           const completedCount = sortedStops.filter(s =>
             s.status === 'completed' || s.status === 'delivered'
           ).length;
 
           return (
-            <Card key={route.id} className="p-6">
+            <Card key={route.id} className="surface-card p-6 shadow-sm">
               {/* Route Header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-4">
@@ -360,12 +358,12 @@ export default function DeliveryTrackingPage() {
           );
         })}
 
-        {Object.keys(groupedByRoute).length === 0 && (
-          <Card className="p-12 text-center text-gray-500">
+        {Object.keys(groupedByRoute).length === 0 && !loading && (
+          <Card className="surface-card p-12 text-center text-gray-500 shadow-sm">
             No deliveries scheduled for this date
           </Card>
         )}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }

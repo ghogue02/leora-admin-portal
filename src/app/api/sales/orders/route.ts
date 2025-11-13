@@ -14,6 +14,7 @@ import { calculateOrderTotal } from "@/lib/orders/calculations";
 import { parseUTCDate } from "@/lib/dates";
 import { generateOrderNumber } from "@/lib/orders/order-number-generator";
 import { DELIVERY_METHOD_OPTIONS } from "@/constants/deliveryMethods";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 const DEFAULT_LIMIT = 25;
 const OPEN_STATUSES: OrderStatus[] = [
@@ -127,29 +128,44 @@ export async function GET(request: NextRequest) {
 
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
-      // Sales rep must be present (enforced by withSalesSession by default)
+    async ({ db, tenantId, session, roles }) => {
       const salesRepId = session.user.salesRep?.id;
-      if (!salesRepId) {
+      const managerScope = hasSalesManagerPrivileges(roles);
+      if (!salesRepId && !managerScope) {
         return NextResponse.json(
           { error: "Sales rep profile required." },
           { status: 403 },
         );
       }
 
-      // Allow reps to see orders they own via customer assignment or explicit credit
+      const requestedSalesRepId = managerScope
+        ? request.nextUrl.searchParams.get("salesRepId")
+        : null;
+
+      // Allow reps to see orders they own; managers can see all or filter by rep
       const where: Prisma.OrderWhereInput = {
         tenantId,
-        OR: [
-          {
-            customer: {
-              salesRepId,
-            },
-          },
-          {
-            salesRepId,
-          },
-        ],
+        ...(managerScope
+          ? requestedSalesRepId
+            ? {
+                OR: [
+                  { customer: { salesRepId: requestedSalesRepId } },
+                  { salesRepId: requestedSalesRepId },
+                ],
+              }
+            : {}
+          : {
+              OR: [
+                {
+                  customer: {
+                    salesRepId,
+                  },
+                },
+                {
+                  salesRepId,
+                },
+              ],
+            }),
       };
 
       const [orders, grouped, totalCount, openOrdersWithLines, last30DaysOrders] = await Promise.all([
@@ -406,9 +422,10 @@ export async function POST(request: NextRequest) {
 
   return withSalesSession(
     request,
-    async ({ db, tenantId, session }) => {
+    async ({ db, tenantId, session, roles }) => {
       const salesRepId = session.user.salesRep?.id;
-      if (!salesRepId) {
+      const managerScope = hasSalesManagerPrivileges(roles);
+      if (!salesRepId && !managerScope) {
         return NextResponse.json(
           { error: "Sales rep profile required." },
           { status: 403 },
@@ -420,7 +437,7 @@ export async function POST(request: NextRequest) {
         where: {
           id: orderData.customerId,
           tenantId,
-          salesRepId,
+          ...(managerScope ? {} : { salesRepId }),
         },
         select: {
           id: true,
@@ -447,7 +464,9 @@ export async function POST(request: NextRequest) {
 
       if (!customer) {
         return NextResponse.json(
-          { error: "Customer not found or not assigned to this sales rep." },
+          managerScope
+            ? { error: "Customer not found." }
+            : { error: "Customer not found or not assigned to this sales rep." },
           { status: 404 },
         );
       }
@@ -535,7 +554,11 @@ export async function POST(request: NextRequest) {
 
       if (!selectedSalesRep) {
         return NextResponse.json(
-          { error: "Unable to determine salesperson for this order." },
+          {
+            error: managerScope
+              ? "Select a sales rep to assign credit for this order."
+              : "Unable to determine salesperson for this order.",
+          },
           { status: 400 },
         );
       }

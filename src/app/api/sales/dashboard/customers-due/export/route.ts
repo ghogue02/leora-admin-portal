@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { endOfWeek, format } from "date-fns";
 import { withSalesSession } from "@/lib/auth/sales";
+import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 
 const CSV_HEADER = [
   "Customer Name",
@@ -25,8 +26,10 @@ function escapeCsv(value: string | number | null | undefined) {
 }
 
 export async function GET(request: NextRequest) {
-  return withSalesSession(request, async ({ db, tenantId, session }) => {
-    if (!session.user.salesRep?.id) {
+  return withSalesSession(request, async ({ db, tenantId, session, roles }) => {
+    const salesRepId = session.user.salesRep?.id;
+    const managerScope = hasSalesManagerPrivileges(roles);
+    if (!salesRepId && !managerScope) {
       return NextResponse.json(
         { error: "Sales rep profile not found" },
         { status: 404 }
@@ -35,12 +38,17 @@ export async function GET(request: NextRequest) {
 
     const now = new Date();
     const currentWeekEnd = endOfWeek(now, { weekStartsOn: 1 });
+    const requestedSalesRepId = managerScope ? request.nextUrl.searchParams.get("salesRepId") : null;
 
     // Find customers due to order using same filters as dashboard widget
     const dueCustomers = await db.customer.findMany({
       where: {
         tenantId,
-        salesRepId: session.user.salesRep.id,
+        ...(managerScope
+          ? requestedSalesRepId
+            ? { salesRepId: requestedSalesRepId }
+            : {}
+          : { salesRepId }),
         isPermanentlyClosed: false,
         nextExpectedOrderDate: {
           lte: currentWeekEnd,

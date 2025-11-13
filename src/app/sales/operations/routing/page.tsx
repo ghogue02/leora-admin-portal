@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Download, Upload, Calendar } from 'lucide-react';
+import { ResponsiveCard } from '@/components/ui/responsive-card';
 import { ExportDialog } from './components/ExportDialog';
 import { RouteViewer } from './components/RouteViewer';
 import { TodayRoutes } from './components/TodayRoutes';
 import { toast } from 'sonner';
 
-// Mock data - replace with actual API calls
+// TODO: replace mocks with API data
 const mockReadyOrders = [
   {
     id: '1',
@@ -144,127 +145,118 @@ export default function RoutingPage() {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.csv';
-    input.onchange = (e: any) => {
-      const file = e.target.files[0];
+    input.onchange = (event) => {
+      const target = event.target as HTMLInputElement | null;
+      const file = target?.files?.[0];
       if (file) {
         toast.success(`Uploading ${file.name}...`);
-        // TODO: Implement route upload
       }
     };
     input.click();
   };
 
   return (
-    <div className="container mx-auto py-6 px-4 max-w-7xl">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Delivery Routing</h1>
-          <p className="text-gray-600 mt-1">Export to Azuga and manage delivery routes</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+            Operations
+          </p>
+          <h1 className="text-3xl font-bold text-gray-900">Delivery routing</h1>
+          <p className="text-sm text-gray-600">
+            Export routes to Azuga, manage daily assignments, and monitor progress.
+          </p>
         </div>
-        <div className="flex gap-3 mt-4 md:mt-0">
-          <Button
-            onClick={() => setShowExportDialog(true)}
-            size="lg"
-            className="touch-target"
-          >
+        <div className="flex gap-3">
+          <Button onClick={() => setShowExportDialog(true)} size="lg" className="touch-target">
             <Download className="mr-2 h-5 w-5" />
             Export to Azuga
           </Button>
-          <Button
-            onClick={handleUploadRoutes}
-            variant="outline"
-            size="lg"
-            className="touch-target"
-          >
+          <Button onClick={handleUploadRoutes} variant="outline" size="lg" className="touch-target">
             <Upload className="mr-2 h-5 w-5" />
             Upload Routes
           </Button>
         </div>
-      </div>
+      </header>
 
-      {/* Summary Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-          <div className="text-sm text-blue-600 font-semibold">Ready for Export</div>
-          <div className="text-2xl font-bold mt-1">{mockReadyOrders.length}</div>
-        </div>
-        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-          <div className="text-sm text-green-600 font-semibold">Active Routes</div>
-          <div className="text-2xl font-bold mt-1">
-            {mockTodayRoutes.filter(r => r.status === 'in_progress').length}
-          </div>
-        </div>
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-          <div className="text-sm text-amber-600 font-semibold">Pending</div>
-          <div className="text-2xl font-bold mt-1">
-            {mockTodayRoutes.filter(r => r.status === 'not_started').length}
-          </div>
-        </div>
-        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-          <div className="text-sm text-purple-600 font-semibold">Completed</div>
-          <div className="text-2xl font-bold mt-1">
-            {mockTodayRoutes.filter(r => r.status === 'completed').length}
-          </div>
-        </div>
-      </div>
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-4">
+        <ResponsiveCard className="border border-blue-200 bg-blue-50 p-4 shadow-sm">
+          <p className="text-sm font-semibold text-blue-600">Ready for Export</p>
+          <p className="text-2xl font-bold text-gray-900">{mockReadyOrders.length}</p>
+        </ResponsiveCard>
+        <ResponsiveCard className="border border-green-200 bg-green-50 p-4 shadow-sm">
+          <p className="text-sm font-semibold text-green-600">Active Routes</p>
+          <p className="text-2xl font-bold text-gray-900">
+            {mockTodayRoutes.filter((r) => r.status === 'in_progress').length}
+          </p>
+        </ResponsiveCard>
+        <ResponsiveCard className="border border-amber-200 bg-amber-50 p-4 shadow-sm">
+          <p className="text-sm font-semibold text-amber-600">Pending</p>
+          <p className="text-2xl font-bold text-gray-900">
+            {mockTodayRoutes.filter((r) => r.status === 'not_started').length}
+          </p>
+        </ResponsiveCard>
+        <ResponsiveCard className="border border-purple-200 bg-purple-50 p-4 shadow-sm">
+          <p className="text-sm font-semibold text-purple-600">Completed</p>
+          <p className="text-2xl font-bold text-gray-900">
+            {mockTodayRoutes.filter((r) => r.status === 'completed').length}
+          </p>
+        </ResponsiveCard>
+      </section>
 
-      {/* Tabs */}
-      <Tabs value={selectedTab} onValueChange={setSelectedTab} className="space-y-6">
-        <TabsList className="grid w-full grid-cols-3 touch-target">
-          <TabsTrigger value="today">
-            <Calendar className="mr-2 h-4 w-4" />
-            Today's Routes
-          </TabsTrigger>
-          <TabsTrigger value="routes">Route Details</TabsTrigger>
-          <TabsTrigger value="export">Ready to Export</TabsTrigger>
-        </TabsList>
+      <ResponsiveCard className="p-4 shadow-sm">
+        <Tabs value={selectedTab} onValueChange={setSelectedTab} className="space-y-6">
+          <TabsList className="grid w-full grid-cols-3 touch-target">
+            <TabsTrigger value="today">
+              <Calendar className="mr-2 h-4 w-4" />
+              Today&apos;s Routes
+            </TabsTrigger>
+            <TabsTrigger value="routes">Route Details</TabsTrigger>
+            <TabsTrigger value="export">Ready to Export</TabsTrigger>
+          </TabsList>
 
-        {/* Today's Routes */}
-        <TabsContent value="today">
-          <TodayRoutes
-            routes={mockTodayRoutes}
-            onContactDriver={handleContactDriver}
-            onViewRoute={handleViewRoute}
-          />
-        </TabsContent>
+          <TabsContent value="today">
+            <TodayRoutes
+              routes={mockTodayRoutes}
+              onContactDriver={handleContactDriver}
+              onViewRoute={handleViewRoute}
+            />
+          </TabsContent>
 
-        {/* Route Details */}
-        <TabsContent value="routes">
-          <RouteViewer route={mockRoute} />
-        </TabsContent>
+          <TabsContent value="routes">
+            <RouteViewer route={mockRoute} />
+          </TabsContent>
 
-        {/* Ready to Export */}
-        <TabsContent value="export">
-          <div className="space-y-4">
-            {mockReadyOrders.map((order) => (
-              <div key={order.id} className="p-4 border rounded-lg">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-semibold">{order.orderNumber}</div>
-                    <div className="text-sm text-gray-600 mt-1">{order.customerName}</div>
-                    <div className="text-sm text-gray-500 mt-1">
-                      {order.address}, {order.city}, {order.state} {order.zip}
+          <TabsContent value="export">
+            <div className="space-y-4">
+              {mockReadyOrders.map((order) => (
+                <ResponsiveCard key={order.id} className="border border-slate-200 p-4 shadow-sm">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-semibold text-gray-900">{order.orderNumber}</p>
+                      <p className="text-sm text-gray-600">{order.customerName}</p>
+                      <p className="text-sm text-gray-500">
+                        {order.address}, {order.city}, {order.state} {order.zip}
+                      </p>
                     </div>
+                    {order.territory && (
+                      <span className="rounded bg-blue-100 px-2 py-1 text-xs font-semibold text-blue-800">
+                        {order.territory}
+                      </span>
+                    )}
                   </div>
-                  {order.territory && (
-                    <div className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                      {order.territory}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </TabsContent>
-      </Tabs>
+                </ResponsiveCard>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </ResponsiveCard>
 
-      {/* Export Dialog */}
       <ExportDialog
         open={showExportDialog}
         onOpenChange={setShowExportDialog}
         orders={mockReadyOrders}
       />
-    </div>
+    </main>
   );
 }

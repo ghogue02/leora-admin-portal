@@ -42,6 +42,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --page-inline: clamp(1rem, 0.75rem + 1vw, 3rem);
+  --page-inline-tight: clamp(0.75rem, 0.6rem + 0.8vw, 2rem);
+  --page-section-gap: clamp(1.25rem, 1rem + 1vw, 3rem);
+  --page-max-width: min(100%, 78rem);
+  --nav-height: clamp(3.5rem, 3.2rem + 0.6vw, 4.5rem);
+  --nav-padding-block: clamp(0.75rem, 0.55rem + 0.5vw, 1.25rem);
+  --content-max-width: min(100%, 72rem);
 }
 
 @theme inline {
@@ -87,6 +94,7 @@
 body {
   background-color: var(--brand-bg);
   color: var(--brand-text);
+  min-height: 100vh;
   font-family: var(--font-sans, "Inter", "Helvetica Neue", Arial, sans-serif);
   -webkit-font-smoothing: antialiased;
 }
@@ -154,6 +162,64 @@ button {
   /* Large touch targets for warehouse iPad/mobile use (44px minimum) */
   .touch-target {
     @apply min-h-[44px] min-w-[44px];
+  }
+
+  .layout-shell {
+    width: min(100%, var(--page-max-width));
+    margin-inline: auto;
+    padding-inline: var(--page-inline);
+  }
+
+  .page-gutters {
+    padding-inline: var(--page-inline);
+  }
+
+  .layout-shell-tight {
+    width: min(100%, var(--content-max-width));
+    margin-inline: auto;
+    padding-inline: var(--page-inline-tight);
+  }
+
+  .layout-stack {
+    @apply flex flex-col;
+    gap: var(--page-section-gap);
+  }
+
+  .safe-nav-offset {
+    padding-top: calc(var(--nav-height) + var(--page-section-gap));
+  }
+
+  @supports (padding-top: max(0px)) {
+    .safe-nav-offset {
+      padding-top: calc(
+        var(--nav-height) + var(--page-section-gap) + env(safe-area-inset-top, 0px)
+      );
+    }
+  }
+
+  .nav-inner {
+    width: min(100%, var(--page-max-width));
+    margin-inline: auto;
+    padding-inline: var(--page-inline);
+    padding-block: var(--nav-padding-block);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(0.75rem, 0.5rem + 0.5vw, 1.5rem);
+  }
+
+  @supports (padding-top: max(0px)) {
+    .nav-inner {
+      padding-top: calc(
+        var(--nav-padding-block) + env(safe-area-inset-top, 0px)
+      );
+    }
+  }
+
+  .surface-card {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background-color: var(--card);
   }
 
   /* Print-optimized styles */

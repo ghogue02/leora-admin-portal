@@ -14,7 +14,6 @@
 
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { Clock, DollarSign, AlertTriangle, CheckCircle } from 'lucide-react';
 
@@ -49,7 +48,6 @@ type ApprovalOrder = {
 };
 
 export default function ManagerApprovalsPage() {
-  const router = useRouter();
   const [orders, setOrders] = useState<ApprovalOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -178,14 +176,19 @@ export default function ManagerApprovalsPage() {
   }, [orders]);
 
   return (
-    <div className="mx-auto max-w-7xl">
-      <header className="mb-6" />
+    <main className="layout-shell-tight layout-stack pb-12">
+      <header className="flex flex-col gap-2">
+        <p className="text-xs font-semibold uppercase tracking-wide text-amber-600">Approvals</p>
+        <h1 className="text-2xl font-bold text-gray-900">Inventory-sensitive orders</h1>
+        <p className="text-sm text-gray-600">
+          Review orders that require manager attention before inventory can be released.
+        </p>
+      </header>
 
-      {/* PHASE 2: Dashboard Statistics */}
       {!loading && orders.length > 0 && (
-        <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* Total Pending */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="surface-card p-4 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-blue-100 p-2">
                 <Clock className="h-5 w-5 text-blue-700" />
@@ -198,7 +201,7 @@ export default function ManagerApprovalsPage() {
           </div>
 
           {/* Total Value */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="surface-card p-4 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-emerald-100 p-2">
                 <DollarSign className="h-5 w-5 text-emerald-700" />
@@ -211,7 +214,7 @@ export default function ManagerApprovalsPage() {
           </div>
 
           {/* Urgent Orders */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="surface-card p-4 shadow-sm">
             <div className="flex items-center gap-3">
               <div className={`rounded-lg p-2 ${stats.urgentCount > 0 ? 'bg-amber-100' : 'bg-gray-100'}`}>
                 <AlertTriangle className={`h-5 w-5 ${stats.urgentCount > 0 ? 'text-amber-700' : 'text-gray-500'}`} />
@@ -224,7 +227,7 @@ export default function ManagerApprovalsPage() {
           </div>
 
           {/* Average Wait Time */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="surface-card p-4 shadow-sm">
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-purple-100 p-2">
                 <CheckCircle className="h-5 w-5 text-purple-700" />
@@ -239,18 +242,18 @@ export default function ManagerApprovalsPage() {
       )}
 
       {error && (
-        <div className="mb-6 rounded-lg border border-rose-200 bg-rose-50 p-4">
+        <div className="surface-card border border-rose-200 bg-rose-50 p-4 shadow-sm">
           <p className="text-sm font-semibold text-rose-900">Error</p>
           <p className="mt-1 text-sm text-rose-700">{error}</p>
         </div>
       )}
 
       {loading ? (
-        <div className="flex items-center justify-center p-12">
+        <div className="surface-card flex items-center justify-center p-12 shadow-sm">
           <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-200 border-t-gray-900" />
         </div>
       ) : orders.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-12 text-center">
+        <div className="surface-card border border-dashed border-gray-300 bg-gray-50 p-12 text-center shadow-sm">
           <p className="text-sm font-medium text-gray-900">No orders pending approval</p>
           <p className="mt-1 text-sm text-gray-600">
             All orders have sufficient inventory or have been processed.
@@ -259,7 +262,7 @@ export default function ManagerApprovalsPage() {
       ) : (
         <div className="space-y-4">
           {orders.map(order => (
-            <article key={order.id} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <article key={order.id} className="surface-card p-6 shadow-sm">
               {/* Order Header */}
               <div className="mb-4 flex items-start justify-between">
                 <div>
@@ -337,7 +340,7 @@ export default function ManagerApprovalsPage() {
                   type="button"
                   onClick={() => handleReject(order.id)}
                   disabled={processingId === order.id}
-                  className="rounded-md border border-rose-300 px-4 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="touch-target rounded-md border border-rose-300 px-4 py-2 text-sm font-semibold text-rose-700 transition hover:bg-rose-50 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {processingId === order.id ? 'Processing...' : 'Reject'}
                 </button>
@@ -345,7 +348,7 @@ export default function ManagerApprovalsPage() {
                   type="button"
                   onClick={() => handleApprove(order.id)}
                   disabled={processingId === order.id}
-                  className="rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="touch-target rounded-md bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {processingId === order.id ? 'Approving...' : 'Approve Order'}
                 </button>
@@ -354,6 +357,6 @@ export default function ManagerApprovalsPage() {
           ))}
         </div>
       )}
-    </div>
+    </main>
   );
 }

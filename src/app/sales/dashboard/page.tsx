@@ -21,6 +21,7 @@ import type {
   TargetPipelineMetrics,
   ColdLeadsOverview,
   CustomerReportRow,
+  UnlovedAccountsSummary,
 } from "@/types/sales-dashboard";
 import { formatDistanceToNow } from "date-fns";
 
@@ -148,6 +149,7 @@ type DashboardData = {
       email: string | null;
     }>;
   };
+  unloved: UnlovedAccountsSummary;
 };
 
 type DashboardState = {
@@ -298,7 +300,7 @@ export default function SalesDashboardPage() {
 
   if (state.loading) {
     return (
-      <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
+      <main className="layout-shell-tight layout-stack pb-8">
         <SkeletonDashboard />
       </main>
     );
@@ -306,9 +308,9 @@ export default function SalesDashboardPage() {
 
   if (state.error || !state.data) {
     return (
-      <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
+      <main className="layout-shell-tight layout-stack pb-8">
         <section className="rounded-lg border border-red-100 bg-red-50 p-6 text-sm text-red-700">
-          <p className="font-medium">We couldn't load your dashboard just now.</p>
+          <p className="font-medium">We couldn&apos;t load your dashboard just now.</p>
           <p className="mt-1">{state.error ?? "Try again shortly or contact support."}</p>
           <Button
             variant="secondary"
@@ -340,6 +342,7 @@ export default function SalesDashboardPage() {
     tasks,
     sampleInsights,
     managerView,
+    unloved,
   } = state.data;
 
   const isSectionEnabled = (sectionId: string) => {
@@ -352,8 +355,8 @@ export default function SalesDashboardPage() {
   };
 
   return (
-    <main className="mx-auto flex max-w-7xl flex-col gap-8 p-6">
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white/70 px-4 py-3 shadow-sm">
+    <main className="layout-shell-tight layout-stack pb-8">
+      <div className="surface-card flex flex-wrap items-center justify-between gap-3 bg-white/90 px-4 py-4 shadow-sm">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Sales Dashboard</p>
           <p className="text-sm text-slate-600">Live view of quota, customers, and sales motions.</p>
@@ -406,6 +409,7 @@ export default function SalesDashboardPage() {
           customersDue={customersDue}
           sampleInsights={sampleInsights}
           upcomingEvents={upcomingEvents}
+          unloved={unloved}
           isSectionEnabled={isSectionEnabled}
           onDrilldown={handleDrilldownRequest}
         />

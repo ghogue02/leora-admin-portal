@@ -291,6 +291,15 @@ async function createSalesRepProfiles(tenantId: string) {
     },
     include: {
       salesRepProfile: true,
+      roles: {
+        include: {
+          role: {
+            select: {
+              code: true,
+            },
+          },
+        },
+      },
     },
   });
 
@@ -304,6 +313,13 @@ async function createSalesRepProfiles(tenantId: string) {
     // Skip if already has a sales rep profile
     if (user.salesRepProfile) {
       salesReps.push(user.salesRepProfile);
+      continue;
+    }
+
+    // Skip manager-only accounts (no commissions/rep profile)
+    const hasManagerRole = user.roles.some((assignment) => assignment.role?.code === "sales.manager");
+    if (hasManagerRole) {
+      console.log(`  ↪︎ Skipping sales rep profile for manager account: ${user.fullName}`);
       continue;
     }
 

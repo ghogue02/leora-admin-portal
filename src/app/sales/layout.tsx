@@ -16,14 +16,20 @@ export default function SalesLayout({ children }: { children: ReactNode }) {
       <ToastProvider>
         <div className="min-h-screen bg-slate-50 text-gray-900">
           {!isLoginPage && <SalesNav />}
-          <div className={isLoginPage ? "" : "px-4 pb-12 pt-24 md:px-8"}>
+          <main
+            className={
+              isLoginPage
+                ? "layout-shell-tight py-10"
+                : "page-gutters safe-nav-offset pb-12"
+            }
+          >
             {!isLoginPage && (
-              <div className="mx-auto mb-4 w-full max-w-7xl px-2 sm:px-4 md:px-6">
+              <div className="layout-shell-tight mb-4">
                 <Breadcrumbs homeHref="/sales" homeLabel="Sales Dashboard" />
               </div>
             )}
             {children}
-          </div>
+          </main>
         </div>
       </ToastProvider>
     </CustomerProvider>

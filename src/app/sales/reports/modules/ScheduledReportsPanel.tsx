@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useToast } from '../../_components/ToastProvider';
 
 type ScheduledReport = {
@@ -50,11 +50,7 @@ export function ScheduledReportsPanel() {
     recipientEmail: '',
   });
 
-  useEffect(() => {
-    loadReports();
-  }, []);
-
-  const loadReports = async () => {
+  const loadReports = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch('/api/sales/leora/reports');
@@ -72,7 +68,11 @@ export function ScheduledReportsPanel() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [pushToast]);
+
+  useEffect(() => {
+    void loadReports();
+  }, [loadReports]);
 
   const handleCreateReport = async () => {
     if (!formData.name || !formData.recipientEmail) {
@@ -115,11 +115,12 @@ export function ScheduledReportsPanel() {
         const data = await response.json();
         throw new Error(data.error || 'Failed to create report');
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Could not schedule report';
       pushToast({
         tone: 'error',
         title: 'Creation failed',
-        description: error.message || 'Could not schedule report',
+        description: message,
       });
     }
   };
@@ -141,10 +142,11 @@ export function ScheduledReportsPanel() {
         loadReports();
       }
     } catch (error) {
+      const message = error instanceof Error ? error.message : 'Could not update report';
       pushToast({
         tone: 'error',
         title: 'Update failed',
-        description: 'Could not update report status',
+        description: message,
       });
     }
   };
@@ -168,17 +170,18 @@ export function ScheduledReportsPanel() {
         loadReports();
       }
     } catch (error) {
+      const message = error instanceof Error ? error.message : 'Could not delete report';
       pushToast({
         tone: 'error',
         title: 'Delete failed',
-        description: 'Could not delete report',
+        description: message,
       });
     }
   };
 
   if (loading) {
     return (
-      <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="surface-card p-6 shadow-sm">
         <p className="text-sm text-gray-600">Loading scheduled reports...</p>
       </div>
     );
@@ -186,15 +189,17 @@ export function ScheduledReportsPanel() {
 
   return (
     <div className="space-y-4">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="surface-card flex flex-col gap-3 p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-lg font-semibold text-gray-900">Automated report delivery</h2>
-          <p className="text-sm text-gray-600">Email the latest dashboards to managers, reps, or ops on autopilot.</p>
+          <p className="text-sm text-gray-600">
+            Email the latest dashboards to managers, reps, or ops on autopilot.
+          </p>
         </div>
         <button
+          type="button"
           onClick={() => setShowCreateDialog(true)}
-          className="rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white hover:bg-indigo-500"
+          className="touch-target inline-flex items-center justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
         >
           + New schedule
         </button>
@@ -203,7 +208,7 @@ export function ScheduledReportsPanel() {
       {/* Reports List */}
       <div className="space-y-3">
         {reports.length === 0 ? (
-          <div className="rounded-lg border border-slate-200 bg-slate-50 p-8 text-center">
+          <div className="surface-card p-8 text-center shadow-sm">
             <p className="text-sm text-gray-600">
               No scheduled reports yet. Create one to get insights delivered to your inbox!
             </p>
@@ -212,10 +217,8 @@ export function ScheduledReportsPanel() {
           reports.map((report) => (
             <div
               key={report.id}
-              className={`rounded-lg border p-4 ${
-                report.isActive
-                  ? 'border-slate-200 bg-white'
-                  : 'border-gray-200 bg-gray-50 opacity-60'
+              className={`surface-card p-4 shadow-sm transition ${
+                report.isActive ? "" : "opacity-60"
               }`}
             >
               <div className="flex items-start justify-between">
