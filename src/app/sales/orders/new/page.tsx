@@ -29,6 +29,8 @@ import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPr
 import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
 import { formatCurrency, formatShortDate } from '@/lib/format';
+import { cn } from '@/lib/utils';
+import { ChevronDown } from 'lucide-react';
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 import { formatDeliveryWindows } from '@/lib/delivery-window';
@@ -77,33 +79,129 @@ type ProductSummary = {
   priceLists?: PriceListSummary[] | null;
 };
 
+type OrderSectionKey = 'customer' | 'delivery' | 'products';
+
+type OrderAccordionStatus = {
+  label: string;
+  tone: 'neutral' | 'success' | 'warning' | 'danger';
+};
+
 type OrderAccordionSectionProps = {
+  id: string;
   title: string;
   description?: string;
-  defaultOpen?: boolean;
+  status?: OrderAccordionStatus;
+  isOpen: boolean;
+  onToggle: () => void;
   children: React.ReactNode;
 };
 
 function OrderAccordionSection({
   title,
   description,
-  defaultOpen = true,
+  status,
+  isOpen,
+  onToggle,
   children,
 }: OrderAccordionSectionProps) {
+  const statusTone = status?.tone ?? 'neutral';
+  const statusClassMap: Record<OrderAccordionStatus['tone'], string> = {
+    neutral: 'border border-slate-200 bg-slate-100 text-slate-700',
+    success: 'border border-emerald-200 bg-emerald-50 text-emerald-700',
+    warning: 'border border-amber-200 bg-amber-50 text-amber-700',
+    danger: 'border border-rose-200 bg-rose-50 text-rose-700',
+  };
+
   return (
-    <details
-      className="rounded-2xl border border-slate-200 bg-white shadow-sm"
-      defaultOpen={defaultOpen}
+    <section
+      className={cn(
+        'rounded-2xl border border-slate-200 bg-white shadow-sm transition',
+        isOpen ? 'ring-1 ring-slate-200' : 'opacity-95',
+      )}
     >
-      <summary className="flex cursor-pointer items-center justify-between gap-3 px-6 py-4 text-left text-gray-900 [&::-webkit-details-marker]:hidden">
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="flex w-full items-center justify-between gap-3 px-6 py-4 text-left focus:outline-none"
+      >
         <div>
-          <h2 className="text-lg font-semibold">{title}</h2>
+          <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
           {description ? <p className="text-sm text-gray-600">{description}</p> : null}
         </div>
-        <span className="text-xs font-semibold text-gray-500">Toggle</span>
-      </summary>
-      <div className="px-6 pb-6 pt-0">{children}</div>
-    </details>
+        <div className="flex items-center gap-3">
+          {status ? (
+            <span className={cn('rounded-full px-3 py-1 text-xs font-semibold', statusClassMap[statusTone])}>
+              {status.label}
+            </span>
+          ) : null}
+          <ChevronDown
+            className={cn(
+              'h-4 w-4 text-gray-500 transition-transform',
+              isOpen ? 'rotate-180' : 'rotate-0',
+            )}
+          />
+        </div>
+      </button>
+      <div className={cn('px-6 pb-6 pt-0', isOpen ? 'block' : 'hidden')}>{children}</div>
+    </section>
+  );
+}
+
+type OrderActionFooterProps = {
+  total: number;
+  requiresApproval: boolean;
+  issuesCount: number;
+  isFormValid: boolean;
+  submitting: boolean;
+};
+
+function OrderActionFooter({
+  total,
+  requiresApproval,
+  issuesCount,
+  isFormValid,
+  submitting,
+}: OrderActionFooterProps) {
+  const issueCopy =
+    issuesCount > 0
+      ? `${issuesCount} ${issuesCount === 1 ? 'issue' : 'issues'} to review`
+      : requiresApproval
+        ? 'Routes for manager approval'
+        : 'Ready to submit';
+  const issueTone =
+    issuesCount > 0 ? 'text-rose-600' : requiresApproval ? 'text-amber-600' : 'text-emerald-600';
+  const primaryLabel = requiresApproval ? 'Review & Route' : 'Review Order';
+
+  return (
+    <div className="sticky bottom-0 left-0 right-0 mt-8 border-t border-slate-200 bg-white/95 px-4 py-4 shadow-[0_-8px_30px_rgba(15,23,42,0.08)] backdrop-blur">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">Estimated total</p>
+          <p className="text-2xl font-bold text-slate-900">{formatCurrency(total)}</p>
+          <p className={cn('text-xs font-semibold', issueTone)}>{issueCopy}</p>
+        </div>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <Link
+            href="/sales/orders"
+            className="touch-target rounded-md border border-slate-300 px-5 py-2 text-center text-sm font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+          >
+            Cancel
+          </Link>
+          <ButtonWithLoading
+            type="submit"
+            loading={submitting}
+            loadingText="Creating order..."
+            variant="primary"
+            size="lg"
+            disabled={!isFormValid || submitting}
+            className="touch-target"
+          >
+            {primaryLabel}
+          </ButtonWithLoading>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -133,6 +231,11 @@ function NewOrderPageContent() {
   const [customerDefaultSalesRepName, setCustomerDefaultSalesRepName] = useState<string | null>(null);
   const [loggedInSalesRepId, setLoggedInSalesRepId] = useState<string | null>(null);
   const [loggedInSalesRepName, setLoggedInSalesRepName] = useState<string | null>(null);
+  const [openSections, setOpenSections] = useState<Record<OrderSectionKey, boolean>>({
+    customer: true,
+    delivery: true,
+    products: true,
+  });
 
   const getSalesRepNameById = useCallback(
     (repId: string | null | undefined) => {
@@ -142,6 +245,13 @@ function NewOrderPageContent() {
     },
     [salesRepOptions],
   );
+
+  const toggleSection = useCallback((section: OrderSectionKey) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  }, []);
 
   // Inline validation state (Phase 2)
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
@@ -573,6 +683,38 @@ function NewOrderPageContent() {
     item.pricing.overrideApplied ||
     !!item.priceOverride
   );
+  const estimatedTotal = useMemo(
+    () => orderTotal + deliveryFee + splitCaseFee,
+    [orderTotal, deliveryFee, splitCaseFee],
+  );
+
+  const sectionStatuses = useMemo<Record<OrderSectionKey, OrderAccordionStatus>>(() => {
+    const customerReady = Boolean(selectedCustomer && selectedSalesRepId);
+    const deliveryReady = Boolean(deliveryDate && warehouseLocation && deliveryMethod);
+    const productsReady =
+      orderItems.length > 0 && orderItems.every((item) => item.quantity && item.quantity > 0);
+
+    return {
+      customer: customerReady
+        ? { tone: 'success', label: 'Complete' }
+        : {
+            tone: selectedCustomer ? 'warning' : 'danger',
+            label: selectedCustomer ? 'Assign salesperson' : 'Select customer',
+          },
+      delivery: deliveryReady
+        ? { tone: 'success', label: 'Scheduled' }
+        : { tone: 'warning', label: 'Add delivery details' },
+      products: productsReady
+        ? { tone: 'success', label: 'Ready' }
+        : {
+            tone: orderItems.length === 0 ? 'danger' : 'warning',
+            label: orderItems.length === 0 ? 'Add products' : 'Check quantities',
+          },
+    };
+  }, [deliveryDate, deliveryMethod, orderItems, selectedCustomer, selectedSalesRepId, warehouseLocation]);
+
+  const inlineFieldIssueCount = Object.keys(fieldErrors).length;
+  const outstandingIssues = validationErrors.length > 0 ? validationErrors.length : inlineFieldIssueCount;
 
   // Check if form is valid for submit button
   const isFormValid = useMemo(() => {
@@ -883,8 +1025,14 @@ function NewOrderPageContent() {
       {/* 2-Column Layout: Form + Sidebar */}
       <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
         {/* Main Form Column */}
-        <form onSubmit={handleShowPreview} className="relative space-y-6 pb-24">
-        <OrderAccordionSection title="Customer Information">
+        <form onSubmit={handleShowPreview} className="relative space-y-6 pb-48">
+        <OrderAccordionSection
+          id="customer"
+          title="Customer Information"
+          status={sectionStatuses.customer}
+          isOpen={openSections.customer}
+          onToggle={() => toggleSection('customer')}
+        >
           <div className="space-y-4">
             <div>
               <label htmlFor="customer" className="block text-sm font-medium text-gray-700 mb-1">
@@ -954,7 +1102,14 @@ function NewOrderPageContent() {
         </OrderAccordionSection>
 
         {/* Section 2: Delivery Settings */}
-        <OrderAccordionSection title="Delivery Settings" description="Schedule, warehouses, and delivery context">
+        <OrderAccordionSection
+          id="delivery"
+          title="Delivery Settings"
+          description="Schedule, warehouses, and delivery context"
+          status={sectionStatuses.delivery}
+          isOpen={openSections.delivery}
+          onToggle={() => toggleSection('delivery')}
+        >
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label htmlFor="deliveryDate" className="block text-sm font-medium text-gray-700">
@@ -1199,7 +1354,14 @@ function NewOrderPageContent() {
         )}
 
         {/* Section 3: Products */}
-        <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+        <OrderAccordionSection
+          id="products"
+          title="Products & Pricing"
+          description="Add SKUs, adjust pricing, and review live inventory"
+          status={sectionStatuses.products}
+          isOpen={openSections.products}
+          onToggle={() => toggleSection('products')}
+        >
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-lg font-semibold text-gray-900">Products</h2>
             <ButtonWithLoading
@@ -1327,6 +1489,8 @@ function NewOrderPageContent() {
                       <td className="px-4 py-3 text-right">
                         <input
                           type="number"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
                           value={item.quantity}
                           onChange={(e) => {
                             const parsedQty = parseInt(e.target.value, 10);
@@ -1396,27 +1560,15 @@ function NewOrderPageContent() {
               </table>
             </div>
           )}
-        </section>
+        </OrderAccordionSection>
 
-          {/* Submit Button */}
-          <div className="flex items-center justify-end gap-4">
-            <Link
-              href="/sales/orders"
-              className="rounded-md border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
-            >
-              Cancel
-            </Link>
-            <ButtonWithLoading
-              type="submit"
-              loading={submitting}
-              loadingText="Creating Order..."
-              variant="primary"
-              size="lg"
-              disabled={!isFormValid || submitting}
-            >
-              {requiresApproval ? 'Submit for Approval' : 'Create Order'}
-            </ButtonWithLoading>
-          </div>
+          <OrderActionFooter
+            total={estimatedTotal}
+            requiresApproval={requiresApproval}
+            issuesCount={outstandingIssues}
+            isFormValid={isFormValid}
+            submitting={submitting}
+          />
         </form>
 
         {/* Sidebar Column */}

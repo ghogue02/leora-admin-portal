@@ -20,6 +20,44 @@ type DateRange = {
   end: Date;
 };
 
+type ValidationIssueDto = {
+  type?: string;
+  message?: string;
+  invoiceNumber?: string | null;
+  customerName?: string | null;
+  skuCode?: string | null;
+};
+
+type ValidationResponseDto = {
+  valid?: boolean;
+  errors?: ValidationIssueDto[];
+  warnings?: ValidationIssueDto[];
+  invoiceCount?: number;
+  warningCount?: number;
+  classification?: {
+    sample?: number;
+    storage?: number;
+  };
+};
+
+type HistoryExportDto = {
+  id: string;
+  status?: string;
+  createdAt: string;
+  exportedBy?: {
+    firstName?: string;
+    lastName?: string;
+  } | null;
+  startDate: string;
+  endDate: string;
+  invoiceCount?: number;
+  recordCount?: number;
+  sampleInvoiceCount?: number;
+  sampleRecordCount?: number;
+  storageInvoiceCount?: number;
+  hasSampleFile?: boolean;
+};
+
 const INITIAL_RANGE: DateRange = {
   start: startOfDay(subDays(new Date(), 7)),
   end: endOfDay(new Date()),
@@ -29,7 +67,7 @@ function formatForApi(date: Date) {
   return formatDate(date, 'yyyy-MM-dd');
 }
 
-function mapIssue(issue: any): PanelValidationError {
+function mapIssue(issue: ValidationIssueDto = {}): PanelValidationError {
   return {
     type: issue.type ?? 'UNKNOWN',
     message: issue.message ?? 'Unknown validation issue',
@@ -39,7 +77,7 @@ function mapIssue(issue: any): PanelValidationError {
   };
 }
 
-function mapValidationResponse(data: any): PanelValidationResult {
+function mapValidationResponse(data: ValidationResponseDto): PanelValidationResult {
   const errors = Array.isArray(data.errors) ? data.errors.map(mapIssue) : [];
   const warnings = Array.isArray(data.warnings) ? data.warnings.map(mapIssue) : [];
   const totalInvoices = data.invoiceCount ?? 0;
@@ -62,7 +100,7 @@ function mapValidationResponse(data: any): PanelValidationResult {
   };
 }
 
-function mapHistoryResponse(items: any[]): HistoryExport[] {
+function mapHistoryResponse(items: HistoryExportDto[]): HistoryExport[] {
   return items.map((item) => ({
     id: item.id,
     status: (item.status?.toLowerCase?.() ?? 'completed') as HistoryExport['status'],
