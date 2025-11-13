@@ -11,7 +11,6 @@ import {
   PricingTab,
   SimplifiedPlan,
   SimplifiedSupplierPlan,
-  SupplierDiscount,
   SupplierFaq,
   SupplierTier,
 } from "./types";
@@ -577,12 +576,6 @@ const exampleScenarios: ExampleScenario[] = [
   },
 ];
 
-const supplierDiscounts: SupplierDiscount[] = [
-  { range: "5-20 connections", discount: "10% discount" },
-  { range: "21-50 connections", discount: "20% discount" },
-  { range: "51+ connections", discount: "30% discount" },
-];
-
 const supplierFaqs: SupplierFaq[] = [
   {
     question: "How do suppliers upgrade their tier?",
@@ -790,7 +783,6 @@ export default function PricingPage() {
         guardrails={guardrails}
         faqs={faqs}
         exampleScenarios={exampleScenarios}
-        supplierDiscounts={supplierDiscounts}
         supplierFaqs={supplierFaqs}
       />
       <section className="layout-shell mt-16">

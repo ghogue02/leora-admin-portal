@@ -84,11 +84,6 @@ export type ExampleScenario = {
   bullets: string[];
 };
 
-export type SupplierDiscount = {
-  range: string;
-  discount: string;
-};
-
 export type SupplierFaq = {
   question: string;
   answer: string;

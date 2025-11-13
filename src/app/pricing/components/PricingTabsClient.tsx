@@ -26,7 +26,6 @@ import {
   PricingTab,
   SimplifiedPlan,
   SimplifiedSupplierPlan,
-  SupplierDiscount,
   SupplierFaq,
   SupplierTier,
   Tier,
@@ -46,7 +45,6 @@ export type PricingTabsClientProps = {
   guardrails: Array<{ title: string; detail: string }>;
   faqs: Array<{ question: string; answer: string }>;
   exampleScenarios: ExampleScenario[];
-  supplierDiscounts: SupplierDiscount[];
   supplierFaqs: SupplierFaq[];
 };
 
@@ -72,7 +70,6 @@ export function PricingTabsClient(props: PricingTabsClientProps) {
     guardrails,
     faqs,
     exampleScenarios,
-    supplierDiscounts,
     supplierFaqs,
   } = props;
 
@@ -133,7 +130,6 @@ export function PricingTabsClient(props: PricingTabsClientProps) {
           <SupplierTab
             simplifiedPlans={simplifiedSupplierPlans}
             supplierTiers={supplierTiers}
-            supplierDiscounts={supplierDiscounts}
             supplierFaqs={supplierFaqs}
           />
         )}
@@ -336,12 +332,10 @@ function WholesalerTab({
 function SupplierTab({
   simplifiedPlans,
   supplierTiers,
-  supplierDiscounts,
   supplierFaqs,
 }: {
   simplifiedPlans: SimplifiedSupplierPlan[];
   supplierTiers: SupplierTier[];
-  supplierDiscounts: SupplierDiscount[];
   supplierFaqs: SupplierFaq[];
 }) {
   return (
@@ -434,27 +428,6 @@ function SupplierTab({
               </tbody>
             </table>
           </div>
-        </div>
-      </section>
-
-      <section className="mt-12 grid gap-6 lg:grid-cols-2">
-        <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Volume discounts</p>
-          <div className="mt-4 space-y-3">
-            {supplierDiscounts.map((discount) => (
-              <div key={discount.range} className="flex items-center justify-between rounded-2xl border border-gray-100 bg-gray-50 px-4 py-3 text-sm">
-                <span className="font-medium text-gray-900">{discount.range}</span>
-                <span className="text-gray-600">{discount.discount}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Supplier data credit</p>
-          <h3 className="mt-2 text-xl font-semibold text-gray-900">15% off your plan when data sharing is on</h3>
-          <p className="mt-3 text-sm text-gray-600">
-            Example: Gold plan is $650/mo. Turn on data sharing and we credit $97.50 every month, so your invoice shows about $552.50/mo. Suppliers still pay for Viewer/Insights/Actions separately.
-          </p>
         </div>
       </section>
 
