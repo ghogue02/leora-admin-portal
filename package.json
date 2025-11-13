@@ -21,6 +21,8 @@
     "jobs:supabase-replay": "npm run jobs:run -- supabase-replay",
     "jobs:update-account-types": "npm run jobs:run -- update-account-types",
     "audit:inventory": "tsx src/scripts/audit-inventory-sync.ts",
+    "pricing:sync": "tsx src/scripts/sync-pricing-from-csv.ts",
+    "seed:missing-skus": "tsx src/scripts/seed-missing-skus.ts",
     "lint": "eslint",
     "migrate:orderlines-final": "tsx src/scripts/migrate-orderlines-final.ts",
     "migrate:orderlines-now": "tsx src/scripts/migrate-orderlines-supabase-to-supabase.ts",
