@@ -15,6 +15,7 @@ import {
 } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { formatCurrency, formatPercentage } from "@/lib/utils/format";
+import { ResponsiveChartContainer } from "@/components/ui/responsive-chart-container";
 
 type ForecastData = {
   reps: {
@@ -147,45 +148,49 @@ export default function RevenueForecast() {
       {/* Monthly Projection Chart */}
       <div className="rounded-lg border border-gray-200 bg-white p-6">
         <h3 className="font-semibold mb-4">12-Month Revenue Projection</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <AreaChart data={data.monthlyProjection}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip
-              formatter={(value: number) => formatCurrency(Number(value))}
-              labelStyle={{ color: "#000" }}
-            />
-            <Legend />
-            <Area
-              type="monotone"
-              dataKey="upper"
-              stackId="1"
-              stroke="#3b82f6"
-              fill="#93c5fd"
-              fillOpacity={0.3}
-              name="Upper Bound"
-            />
-            <Area
-              type="monotone"
-              dataKey="projected"
-              stackId="2"
-              stroke="#3b82f6"
-              fill="#3b82f6"
-              fillOpacity={0.6}
-              name="Projected"
-            />
-            <Area
-              type="monotone"
-              dataKey="lower"
-              stackId="3"
-              stroke="#3b82f6"
-              fill="#93c5fd"
-              fillOpacity={0.3}
-              name="Lower Bound"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
+        <ResponsiveChartContainer minHeight={320}>
+          {({ height, isCompact }) => (
+            <ResponsiveContainer width="100%" height={height}>
+              <AreaChart data={data.monthlyProjection}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip
+                  formatter={(value: number) => formatCurrency(Number(value))}
+                  labelStyle={{ color: "#000" }}
+                />
+                {!isCompact && <Legend />}
+                <Area
+                  type="monotone"
+                  dataKey="upper"
+                  stackId="1"
+                  stroke="#3b82f6"
+                  fill="#93c5fd"
+                  fillOpacity={0.3}
+                  name="Upper Bound"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="projected"
+                  stackId="2"
+                  stroke="#3b82f6"
+                  fill="#3b82f6"
+                  fillOpacity={0.6}
+                  name="Projected"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="lower"
+                  stackId="3"
+                  stroke="#3b82f6"
+                  fill="#93c5fd"
+                  fillOpacity={0.3}
+                  name="Lower Bound"
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          )}
+        </ResponsiveChartContainer>
       </div>
 
       {/* Individual Rep Forecasts */}

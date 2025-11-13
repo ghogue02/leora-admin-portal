@@ -27,6 +27,12 @@ import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPr
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 import { formatDeliveryWindows, type DeliveryWindow } from '@/lib/delivery-window';
+import {
+  OrderAccordionSection,
+  OrderActionFooter,
+  type OrderSectionKey,
+  type OrderAccordionStatus,
+} from '@/components/orders/OrderFormLayout';
 
 type Customer = {
   id: string;
@@ -85,6 +91,11 @@ export default function EditOrderPage() {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
   const [deliveryFee, setDeliveryFee] = useState<number>(0);
   const [splitCaseFee, setSplitCaseFee] = useState<number>(0);
+  const [openSections, setOpenSections] = useState<Record<OrderSectionKey, boolean>>({
+    customer: true,
+    delivery: true,
+    products: true,
+  });
 
   // UI state
   const [loading, setLoading] = useState(true);
@@ -92,6 +103,12 @@ export default function EditOrderPage() {
   const [submitting, setSubmitting] = useState(false);
   const [showPreviewModal, setShowPreviewModal] = useState(false);
   const [salesRepDeliveryDays, setSalesRepDeliveryDays] = useState<string[]>([]);
+  const toggleSection = useCallback((section: OrderSectionKey) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  }, []);
   const handleUsageSelect = useCallback((rowIndex: number, value: OrderUsageCode) => {
     setOrderItems(prev => {
       const next = [...prev];
@@ -293,6 +310,39 @@ export default function EditOrderPage() {
       orderItems.every(item => item.quantity > 0)
     );
   }, [customer, deliveryDate, warehouseLocation, deliveryMethod, orderItems]);
+  const sectionStatuses = useMemo<Record<OrderSectionKey, OrderAccordionStatus>>(() => {
+    const productsReady = orderItems.length > 0 && orderItems.every((item) => item.quantity > 0);
+    return {
+      customer: customer
+        ? { tone: 'success', label: 'Locked' }
+        : { tone: 'warning', label: 'Missing' },
+      delivery:
+        deliveryDate && warehouseLocation
+          ? { tone: 'success', label: 'Scheduled' }
+          : { tone: 'warning', label: 'Add details' },
+      products: productsReady
+        ? { tone: 'success', label: `${orderItems.length} items` }
+        : {
+            tone: orderItems.length === 0 ? 'danger' : 'warning',
+            label: orderItems.length === 0 ? 'Add products' : 'Check quantities',
+          },
+    };
+  }, [customer, deliveryDate, warehouseLocation, orderItems]);
+
+  const outstandingIssues = useMemo(() => {
+    let issues = 0;
+    if (!deliveryDate) issues += 1;
+    if (!warehouseLocation) issues += 1;
+    if (!orderItems.length) issues += 1;
+    if (orderItems.some((item) => item.quantity <= 0)) issues += 1;
+    return issues;
+  }, [deliveryDate, warehouseLocation, orderItems]);
+
+  const estimatedTotal = orderTotal + deliveryFee + splitCaseFee;
+  const primaryActionLabel = 'Review Changes';
+  const actionLoadingText = 'Updating order...';
+  const issueMessage =
+    outstandingIssues > 0 ? 'Resolve outstanding fields to continue' : 'Changes ready to review';
 
   // Show preview modal before submission
   const handleShowPreview = useCallback((e: React.FormEvent) => {
@@ -357,27 +407,27 @@ export default function EditOrderPage() {
     }
   }, [orderId, deliveryDate, warehouseLocation, deliveryTimeWindow, deliveryMethod, poNumber, specialInstructions, orderItems, router]);
 
-  if (loading) {
-    return (
-      <div className="mx-auto max-w-7xl p-8">
-        <p>Loading order...</p>
-      </div>
-    );
-  }
-
-  if (!originalOrder || !customer) {
-    return (
-      <div className="mx-auto max-w-7xl p-8">
-        <p className="text-rose-600">Order not found or you don't have access to this order.</p>
-        <Link href="/sales/orders" className="text-blue-600 hover:underline mt-4 inline-block">
-          ← Back to Orders
-        </Link>
-      </div>
-    );
-  }
-
+if (loading) {
   return (
-    <div className="mx-auto max-w-7xl">
+    <div className="mx-auto max-w-7xl p-8">
+      <p>Loading order...</p>
+    </div>
+  );
+}
+
+if (!originalOrder || !customer) {
+  return (
+    <div className="mx-auto max-w-7xl p-8">
+      <p className="text-rose-600">Order not found or you don't have access to this order.</p>
+      <Link href="/sales/orders" className="text-blue-600 hover:underline mt-4 inline-block">
+        ← Back to Orders
+      </Link>
+    </div>
+  );
+}
+
+return (
+  <main className="layout-shell-tight layout-stack pb-12">
       <header className="mb-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Edit Order</h1>
@@ -415,31 +465,42 @@ export default function EditOrderPage() {
       {/* 2-Column Layout: Form + Sidebar */}
       <div className="grid gap-6 lg:grid-cols-[1fr_380px]">
         {/* Main Form Column */}
-        <form onSubmit={handleShowPreview} className="space-y-6">
+        <form onSubmit={handleShowPreview} className="relative space-y-6 pb-48">
           {/* Section 1: Customer Information (LOCKED) */}
-          <section className="rounded-lg border border-slate-200 bg-gray-50 p-6 shadow-sm">
-            <h2 className="mb-4 text-lg font-semibold text-gray-900">Customer Information (Locked)</h2>
-            <div className="space-y-2">
+          <OrderAccordionSection
+            id="customer"
+            title="Customer Information"
+            description="Locked when editing an existing order"
+            status={sectionStatuses.customer}
+            isOpen={openSections.customer}
+            onToggle={() => toggleSection('customer')}
+          >
+            <div className="space-y-2 text-sm">
               <div>
-                <p className="text-sm text-gray-600">Customer Name</p>
+                <p className="text-gray-600">Customer Name</p>
                 <p className="font-medium text-gray-900">{customer.name}</p>
               </div>
               {customer.accountNumber && (
                 <div>
-                  <p className="text-sm text-gray-600">Account Number</p>
+                  <p className="text-gray-600">Account Number</p>
                   <p className="font-medium text-gray-900">{customer.accountNumber}</p>
                 </div>
               )}
-              <p className="text-xs text-gray-500 mt-3">
+              <p className="mt-3 text-xs text-gray-500">
                 🔒 Customer cannot be changed when editing an existing order
               </p>
             </div>
-          </section>
+          </OrderAccordionSection>
 
           {/* Section 2: Delivery Settings */}
-          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 className="mb-4 text-lg font-semibold text-gray-900">Delivery Settings</h2>
-
+          <OrderAccordionSection
+            id="delivery"
+            title="Delivery Settings"
+            description="Schedule, warehouses, and delivery context"
+            status={sectionStatuses.delivery}
+            isOpen={openSections.delivery}
+            onToggle={() => toggleSection('delivery')}
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <label htmlFor="deliveryDate" className="block text-sm font-medium text-gray-700">
@@ -525,10 +586,17 @@ export default function EditOrderPage() {
                 />
               </div>
             </div>
-          </section>
+          </OrderAccordionSection>
 
           {/* Section 3: Products */}
-          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+          <OrderAccordionSection
+            id="products"
+            title="Products"
+            description="Adjust quantities, usage, and pricing"
+            status={sectionStatuses.products}
+            isOpen={openSections.products}
+            onToggle={() => toggleSection('products')}
+          >
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-lg font-semibold text-gray-900">Products</h2>
               <ButtonWithLoading
@@ -627,6 +695,8 @@ export default function EditOrderPage() {
                         <td className="px-4 py-3 text-right">
                           <input
                             type="number"
+                            inputMode="numeric"
+                            pattern="[0-9]*"
                             value={item.quantity}
                             onChange={(e) => {
                               const parsedQty = parseInt(e.target.value, 10);
@@ -683,27 +753,19 @@ export default function EditOrderPage() {
                 </table>
               </div>
             )}
-          </section>
+          </OrderAccordionSection>
 
-          {/* Submit Button */}
-          <div className="flex items-center justify-end gap-4">
-            <Link
-              href={`/sales/orders/${orderId}`}
-              className="rounded-md border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
-            >
-              Cancel
-            </Link>
-            <ButtonWithLoading
-              type="submit"
-              loading={submitting}
-              loadingText="Updating Order..."
-              variant="primary"
-              size="lg"
-              disabled={!isFormValid || submitting}
-            >
-              Update Order & Regenerate Invoice
-            </ButtonWithLoading>
-          </div>
+          <OrderActionFooter
+            total={estimatedTotal}
+            requiresApproval={false}
+            issuesCount={outstandingIssues}
+            isFormValid={isFormValid}
+            submitting={submitting}
+            primaryLabel={primaryActionLabel}
+            loadingText={actionLoadingText}
+            issueMessage={issueMessage}
+            cancelHref={`/sales/orders/${orderId}`}
+          />
         </form>
 
         {/* Sidebar Column */}
@@ -775,6 +837,6 @@ export default function EditOrderPage() {
           submitting={submitting}
         />
       )}
-    </div>
+    </main>
   );
 }

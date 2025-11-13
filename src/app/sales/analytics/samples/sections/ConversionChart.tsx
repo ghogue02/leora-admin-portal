@@ -1,17 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { format, parseISO } from 'date-fns';
+import { ResponsiveChartContainer } from '@/components/ui/responsive-chart-container';
 
 type Trend = {
   date: string;
@@ -106,9 +98,11 @@ export default function ConversionChart({ trends }: ConversionChartProps) {
         </div>
       </div>
 
-      <div className="mt-6 h-80 w-full">
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={processedData}>
+      <div className="mt-6">
+        <ResponsiveChartContainer minHeight={320}>
+          {({ height, isCompact }) => (
+            <ResponsiveContainer width="100%" height={height}>
+              <LineChart data={processedData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
             <XAxis
               dataKey="date"
@@ -134,10 +128,9 @@ export default function ConversionChart({ trends }: ConversionChartProps) {
                 fontSize: '12px',
               }}
             />
-            <Legend
-              wrapperStyle={{ fontSize: '12px', paddingTop: '16px' }}
-              iconType="circle"
-            />
+            {!isCompact && (
+              <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '16px' }} iconType="circle" />
+            )}
             <Line
               yAxisId="left"
               type="monotone"
@@ -181,7 +174,9 @@ export default function ConversionChart({ trends }: ConversionChartProps) {
               />
             )}
           </LineChart>
-        </ResponsiveContainer>
+            </ResponsiveContainer>
+          )}
+        </ResponsiveChartContainer>
       </div>
     </section>
   );

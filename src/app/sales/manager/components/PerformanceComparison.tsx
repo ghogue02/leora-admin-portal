@@ -18,6 +18,7 @@ import {
 } from "recharts";
 import { Badge } from "@/components/ui/badge";
 import { formatCurrency, formatPercentage } from "@/lib/utils/format";
+import { ResponsiveChartContainer } from "@/components/ui/responsive-chart-container";
 
 type Rep = {
   id: string;
@@ -207,69 +208,81 @@ export default function PerformanceComparison({ reps }: Props) {
       {/* Bar Chart Comparison */}
       <div className="rounded-lg border border-gray-200 bg-white p-6">
         <h3 className="font-semibold mb-4">Revenue Comparison - {getViewLabel()}</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={barChartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip
-              formatter={(value: number) => formatCurrency(Number(value))}
-              labelStyle={{ color: "#000" }}
-            />
-            <Legend />
-            <Bar dataKey="revenue" fill="#3b82f6" name="Revenue" />
-          </BarChart>
-        </ResponsiveContainer>
+        <ResponsiveChartContainer minHeight={300}>
+          {({ height, isCompact }) => (
+            <ResponsiveContainer width="100%" height={height}>
+              <BarChart data={barChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip
+                  formatter={(value: number) => formatCurrency(Number(value))}
+                  labelStyle={{ color: "#000" }}
+                />
+                {!isCompact && <Legend />}
+                <Bar dataKey="revenue" fill="#3b82f6" name="Revenue" />
+              </BarChart>
+            </ResponsiveContainer>
+          )}
+        </ResponsiveChartContainer>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Pie Chart - Market Share */}
         <div className="rounded-lg border border-gray-200 bg-white p-6">
           <h3 className="font-semibold mb-4">Team Revenue Distribution</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={pieChartData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={({ name, percent }) =>
-                  `${name.split(" ")[0]}: ${formatPercentage(percent * 100)}`
-                }
-                outerRadius={100}
-                fill="#8884d8"
-                dataKey="value"
-              >
-                {pieChartData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip formatter={(value: number) => formatCurrency(Number(value))} />
-            </PieChart>
-          </ResponsiveContainer>
+          <ResponsiveChartContainer minHeight={300}>
+            {({ height }) => (
+              <ResponsiveContainer width="100%" height={height}>
+                <PieChart>
+                  <Pie
+                    data={pieChartData}
+                    cx="50%"
+                    cy="50%"
+                    labelLine={false}
+                    label={({ name, percent }) =>
+                      `${name.split(" ")[0]}: ${formatPercentage(percent * 100)}`
+                    }
+                    outerRadius={100}
+                    fill="#8884d8"
+                    dataKey="value"
+                  >
+                    {pieChartData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip formatter={(value: number) => formatCurrency(Number(value))} />
+                </PieChart>
+              </ResponsiveContainer>
+            )}
+          </ResponsiveChartContainer>
         </div>
 
         {/* Line Chart - Trends */}
         <div className="rounded-lg border border-gray-200 bg-white p-6">
           <h3 className="font-semibold mb-4">4-Week Trend</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={weeklyTrendData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="week" />
-              <YAxis />
-              <Tooltip formatter={(value: number) => formatCurrency(Number(value))} />
-              <Legend />
-              {reps.slice(0, 5).map((rep, idx) => (
-                <Line
-                  key={rep.id}
-                  type="monotone"
-                  dataKey={rep.name}
-                  stroke={CHART_COLORS[idx]}
-                  strokeWidth={2}
-                />
-              ))}
-            </LineChart>
-          </ResponsiveContainer>
+          <ResponsiveChartContainer minHeight={300}>
+            {({ height, isCompact }) => (
+              <ResponsiveContainer width="100%" height={height}>
+                <LineChart data={weeklyTrendData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="week" />
+                  <YAxis />
+                  <Tooltip formatter={(value: number) => formatCurrency(Number(value))} />
+                  {!isCompact && <Legend />}
+                  {reps.slice(0, 5).map((rep, idx) => (
+                    <Line
+                      key={rep.id}
+                      type="monotone"
+                      dataKey={rep.name}
+                      stroke={CHART_COLORS[idx]}
+                      strokeWidth={2}
+                    />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            )}
+          </ResponsiveChartContainer>
         </div>
       </div>
     </div>
