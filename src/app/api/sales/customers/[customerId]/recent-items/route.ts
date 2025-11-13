@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { subMonths } from "date-fns";
 import { withSalesSession } from "@/lib/auth/sales";
+import { withTenant } from "@/lib/prisma";
 import { hasSalesManagerPrivileges } from "@/lib/sales/role-helpers";
 import {
   aggregateRecentOrderLines,
@@ -30,28 +31,30 @@ export async function GET(request: NextRequest, context: RouteContext) {
         return NextResponse.json({ error: "Sales rep profile required." }, { status: 403 });
       }
 
-      const customer = await db.customer.findFirst({
-        where: {
-          id: customerId,
-          tenantId,
-          ...(managerScope ? {} : { salesRepId }),
-        },
-        select: {
-          id: true,
-          name: true,
-          state: true,
-          territory: true,
-          accountNumber: true,
-        },
-      });
+      // ✅ Use withTenant to set RLS context for database queries
+      const result = await withTenant(tenantId, async (tx) => {
+        const customer = await tx.customer.findFirst({
+          where: {
+            id: customerId,
+            tenantId,
+            ...(managerScope ? {} : { salesRepId }),
+          },
+          select: {
+            id: true,
+            name: true,
+            state: true,
+            territory: true,
+            accountNumber: true,
+          },
+        });
 
-      if (!customer) {
-        return NextResponse.json({ error: "Customer not found or not assigned to this sales rep." }, { status: 404 });
-      }
+        if (!customer) {
+          return null;
+        }
 
-      const sixMonthsAgo = subMonths(new Date(), LOOKBACK_MONTHS);
+        const sixMonthsAgo = subMonths(new Date(), LOOKBACK_MONTHS);
 
-      const orderLines = await db.orderLine.findMany({
+        const orderLines = await tx.orderLine.findMany({
         where: {
           tenantId,
           order: {
@@ -108,7 +111,16 @@ export async function GET(request: NextRequest, context: RouteContext) {
           },
         },
         take: MAX_LINES,
+        });
+
+        return { customer, orderLines };
       });
+
+      if (!result) {
+        return NextResponse.json({ error: "Customer not found or not assigned to this sales rep." }, { status: 404 });
+      }
+
+      const { customer, orderLines } = result;
 
       const normalizedLines: RawRecentOrderLine[] = orderLines
         .filter((line) => line.order?.orderedAt && line.sku)
