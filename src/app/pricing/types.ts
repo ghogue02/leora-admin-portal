@@ -56,7 +56,6 @@ export type SimplifiedPlan = {
   description: string;
   keyDifferentiators: Array<{ icon: DifferentiatorIcon; label: string; detail: string }>;
   bestFor: string;
-  cta: string;
 };
 
 export type SimplifiedSupplierPlan = {

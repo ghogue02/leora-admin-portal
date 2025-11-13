@@ -301,9 +301,9 @@ const pricingFeatures: PricingFeatureCategory[] = [
     features: [
       {
         name: "Monthly cost",
-        Silver: "$300",
-        Gold: "$500",
-        Platinum: "$600",
+        Silver: "$400/mo",
+        Gold: "$650/mo",
+        Platinum: "$950/mo",
         type: "pricing",
       },
     ],

@@ -87,6 +87,9 @@ export function PricingTabsClient(props: PricingTabsClientProps) {
 
   const handleTabChange = (tabId: PricingTab["id"]) => {
     setActiveTab(tabId);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `#${tabId}`);
+    }
   };
 
   return (

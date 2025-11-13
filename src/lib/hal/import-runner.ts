@@ -1,13 +1,18 @@
 import path from 'path';
+import { pathToFileURL } from 'url';
 
-type ImportCsvModule = typeof import('../../../scripts/import-csv-data');
+type ImportCsvModule = typeof import('scripts/import-csv-data');
 type ImportSalesReportsFn = ImportCsvModule['importSalesReports'];
 type ImportSalesOptions = Parameters<ImportSalesReportsFn>[0];
 
 export type ImportSummary = Awaited<ReturnType<ImportSalesReportsFn>>;
 
 async function importSalesReportsInternal(options: ImportSalesOptions) {
-  const mod: ImportCsvModule = await import('../../../scripts/import-csv-data');
+  const modulePath = path.join(process.cwd(), 'scripts/import-csv-data.ts');
+  const mod: ImportCsvModule = await import(
+    /* webpackIgnore: true */
+    pathToFileURL(modulePath).href
+  );
   return mod.importSalesReports(options);
 }
 

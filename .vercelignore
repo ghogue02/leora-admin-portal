@@ -12,6 +12,8 @@ data/.claude-flow/
 .swarm/
 test-results/
 scripts/
+!scripts/import-csv-data.ts
+!scripts/export-to-sage.ts
 migrations/
 
 # Exclude documentation
