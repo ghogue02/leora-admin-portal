@@ -18,7 +18,7 @@ import {
 export const metadata: Metadata = {
   title: "Pricing | Leora",
   description:
-    "Flat wholesaler plans that scale on usage plus supplier analytics priced per connection. No per-seat licensing or heavy implementation fees.",
+    "Flat wholesaler plans that scale on usage plus supplier analytics for suppliers. No per-seat licensing or heavy implementation fees.",
 };
 
 const FOUNDING_SLOT_LIMIT = 20;
@@ -302,7 +302,7 @@ const faqs = [
   },
   {
     question: "How do supplier analytics fees get billed?",
-    answer: "Suppliers pay per connection per month with volume discounts. When you share data, we credit 15% off your Leora plan price—you are never paying their fees.",
+    answer: "Suppliers pay monthly for whichever Viewer, Insights, or Actions tier they activate. When you share data, we credit 15% off your Leora plan price—you are never paying their fees.",
   },
   {
     question: "Do you offer annual billing or discounts?",
