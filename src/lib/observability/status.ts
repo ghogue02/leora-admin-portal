@@ -216,7 +216,11 @@ async function computeSnapshot(tenantId: string, tenantSlug: string): Promise<Op
     checks.push({
       id: "order-flow",
       label: "Order Flow",
-      status: !lastOrderAgeHours || lastOrderAgeHours < 4 ? "ok" : lastOrderAgeHours < 24 ? "warn" : "error",
+      status: !lastOrderAgeHours || lastOrderAgeHours < 4
+        ? "ok"
+        : lastOrderAgeHours < 72
+          ? "warn"
+          : "error",
       detail: orderDetail,
     });
 
