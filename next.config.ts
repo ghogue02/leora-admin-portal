@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
     '@react-pdf/renderer',
     'yoga-layout',
     'canvas',
+    'exceljs',
   ],
   // Only set outputFileTracingRoot in local development
   ...(process.env.VERCEL ? {} : {
