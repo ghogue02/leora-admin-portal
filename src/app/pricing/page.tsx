@@ -492,7 +492,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
     latency: "7-day delay",
     latencyLabel: "Best for read-only access",
     keyFeatures: ["Inventory + depletion views", "Scheduled digests & PDF exports", "Default wholesaler permissions"],
-    bestFor: "Trade marketing teams needing read-only visibility (first 30 days free when invited)",
+    bestFor: "Trade marketing teams that want baseline visibility without chasing spreadsheets",
     upgrade: null,
   },
   {
@@ -507,7 +507,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
       "Rep-level & placement data",
       "Leakage + attrition drilldowns",
     ],
-    bestFor: "Supplier revenue & analytics teams across multiple wholesalers",
+    bestFor: "Revenue & analytics teams coordinating programs across multiple distributors",
     upgrade: null,
   },
   {
@@ -518,7 +518,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
     latency: "Near real-time",
     latencyLabel: "Best for driving action",
     keyFeatures: ["Everything in Insights", "Sampling impact & prescriptive recs", "Workflow pushbacks + API/export"],
-    bestFor: "Brands that want Leora driving action (auto tasks, data shares)",
+    bestFor: "Brands that need Leora pushing tasks, requests, and workflow signals directly into the field",
     upgrade: null,
   },
 ];
@@ -534,7 +534,7 @@ const pricingTabs: PricingTab[] = [
     id: "supplier",
     label: "Supplier analytics",
     icon: "chart",
-    description: "Pricing for your suppliers",
+    description: "Pricing for supplier teams",
   },
 ];
 
@@ -569,16 +569,16 @@ const exampleScenarios: ExampleScenario[] = [
 
 const supplierFaqs: SupplierFaq[] = [
   {
-    question: "How do suppliers upgrade their tier?",
-    answer: "Suppliers can upgrade inside their portal at any time. As long as you keep sharing data, your 15% plan credit stays active regardless of which tiers they choose.",
+    question: "How do I upgrade tiers?",
+    answer: "Sign in to your Leora supplier workspace and click Upgrade. We extend your access request to the distributor automatically and start the new tier on your next billing cycle.",
   },
   {
-    question: "Can we invite suppliers to a trial?",
-    answer: "Yes. Every supplier you invite lands in Viewer free for 30 days with 7-day delayed data. Upgrade nudges run automatically.",
+    question: "Is there a trial or evaluation window?",
+    answer: "Viewer is automatically available for 30 days with 7-day delayed data when your distributor invites you. Use that time to explore, then move to Insights or Actions if you need faster telemetry.",
   },
   {
     question: "What are the fair-use boundaries?",
-    answer: "Viewer includes delayed dashboards and exports. Insights adds hourly refresh and analytics workloads, while Actions covers API/export usage and workflow pushbacks with defined burst limits.",
+    answer: "Viewer covers read-only dashboards and exports, Insights unlocks hourly refresh and heavier analytics, and Actions includes workflow pushbacks plus API/export usage with defined burst limits so performance stays predictable.",
   },
 ];
 

@@ -343,9 +343,10 @@ function SupplierTab({
       <section className="mt-10 space-y-6">
         <header className="space-y-2 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Supplier analytics</p>
-          <h2 className="text-3xl font-semibold text-gray-900">Let suppliers pay for deeper data access</h2>
+          <h2 className="text-3xl font-semibold text-gray-900">Choose the signal depth your brand needs</h2>
           <p className="text-base text-gray-600">
-            Suppliers choose how fast and how deep they want the data. You still own the relationship and see 15% off your plan price every month you share data.
+            Viewer, Insights, and Actions give supplier teams the mix of latency, data fields, and workflow pushbacks they need once their distributor enables
+            sharing. Billing is month-to-month per connection and you can upgrade whenever new programs demand more.
           </p>
         </header>
         <div className="cards-container grid gap-6 lg:grid-cols-3">
@@ -374,8 +375,9 @@ function SupplierTab({
           ))}
         </div>
         <div className="rounded-3xl border border-dashed border-gray-300 bg-indigo-50/60 px-6 py-4 text-sm text-gray-700">
-          <strong className="font-semibold text-gray-900">How it works:</strong> Suppliers can start in Viewer (7-day delay) for 30 days, then upgrade
-          anytime. When they share data back, we take 15% off your Leora plan price—suppliers still pay their own subscriptions.
+          <strong className="font-semibold text-gray-900">How it works:</strong> Your distributor invites you into Viewer (7-day delay) so you can validate the
+          feed. When you need hourly insights or workflow pushbacks, upgrade to Insights or Actions. Billing is per connection per month, and you can change
+          tiers anytime.
         </div>
 
       </section>
@@ -444,14 +446,16 @@ function SupplierTab({
       </section>
 
       <section className="mt-12 rounded-3xl border border-gray-200 bg-white p-6 shadow-sm text-center">
-        <h3 className="text-2xl font-semibold text-gray-900">Ready to connect your suppliers?</h3>
-        <p className="mt-2 text-sm text-gray-600">We will walk the supplier team through Viewer, Insights, or Actions and help them pick the right tier.</p>
+        <h3 className="text-2xl font-semibold text-gray-900">Ready to plug your team into Leora?</h3>
+        <p className="mt-2 text-sm text-gray-600">
+          We&apos;ll walk your revenue, trade, or analytics team through Viewer, Insights, and Actions so you can pick the tier that matches your data needs.
+        </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="mailto:suppliers@joinleora.com?subject=Supplier%20analytics"
             className="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-5 py-2 text-sm font-semibold text-white shadow-lg hover:bg-indigo-400"
           >
-            Talk through supplier packaging
+            Talk through your data needs
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </Link>
           <a href="mailto:suppliers@joinleora.com" className="text-sm font-semibold text-indigo-600">
