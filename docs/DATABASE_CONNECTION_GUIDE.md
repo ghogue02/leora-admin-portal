@@ -2,7 +2,7 @@
 
 **Database:** zqezunzlyjkseugujkrl.supabase.co
 **Updated:** October 25, 2025
-**Current Password:** 9gpGHuAIr2vKf4hO
+**Current Password:** `<REDACTED_PASSWORD>`
 
 ---
 
@@ -11,10 +11,10 @@
 ### **For Application (Prisma)**
 ```env
 # Use pooler for application queries (works with pgbouncer)
-DATABASE_URL="postgresql://postgres.zqezunzlyjkseugujkrl:9gpGHuAIr2vKf4hO@aws-1-us-east-1.pooler.supabase.com:6543/postgres?pgbouncer=true&connection_limit=10"
+DATABASE_URL="postgresql://postgres.zqezunzlyjkseugujkrl:<REDACTED_PASSWORD>@aws-1-us-east-1.pooler.supabase.com:6543/postgres?pgbouncer=true&connection_limit=10"
 
 # Use direct for migrations (DDL operations)
-DIRECT_URL="postgresql://postgres.zqezunzlyjkseugujkrl:9gpGHuAIr2vKf4hO@db.zqezunzlyjkseugujkrl.supabase.co:5432/postgres"
+DIRECT_URL="postgresql://postgres.zqezunzlyjkseugujkrl:<REDACTED_PASSWORD>@db.zqezunzlyjkseugujkrl.supabase.co:5432/postgres"
 ```
 
 ### **For Admin Operations**
@@ -74,7 +74,7 @@ const orders = await prisma.order.findMany();
 **When It Works (Sometimes):**
 ```bash
 # Pooler connection (port 5432)
-PGPASSWORD="9gpGHuAIr2vKf4hO" psql \
+PGPASSWORD="<REDACTED_PASSWORD>" psql \
   "postgresql://postgres.zqezunzlyjkseugujkrl@aws-1-us-east-1.pooler.supabase.com:5432/postgres"
 ```
 
