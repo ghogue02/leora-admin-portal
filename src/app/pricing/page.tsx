@@ -214,7 +214,7 @@ const wholesalerPlans: Plan[] = [
 const supplierTiers: SupplierTier[] = [
   {
     name: "Viewer",
-    price: "$49 / connection / mo",
+    price: "$49 / month",
     latency: "7-day delay",
     includes: [
       "Inventory + depletion views",
@@ -225,7 +225,7 @@ const supplierTiers: SupplierTier[] = [
   },
   {
     name: "Insights",
-    price: "$149 / connection / mo",
+    price: "$149 / month",
     latency: "24h / hourly",
     includes: [
       "Everything in Viewer",
@@ -236,7 +236,7 @@ const supplierTiers: SupplierTier[] = [
   },
   {
     name: "Actions",
-    price: "$299 / connection / mo",
+    price: "$299 / month",
     latency: "Near real time",
     includes: [
       "Everything in Insights",
@@ -498,7 +498,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
     id: "viewer",
     name: "Viewer",
     price: "$49",
-    priceInterval: "/connection/mo",
+    priceInterval: "/month",
     latency: "7-day delay",
     latencyLabel: "Best for read-only access",
     keyFeatures: ["Inventory + depletion views", "Scheduled digests & PDF exports", "Default wholesaler permissions"],
@@ -509,7 +509,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
     id: "insights",
     name: "Insights",
     price: "$149",
-    priceInterval: "/connection/mo",
+    priceInterval: "/month",
     latency: "24h / Hourly refresh",
     latencyLabel: "Best for balanced insights",
     keyFeatures: [
@@ -524,7 +524,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
     id: "actions",
     name: "Actions",
     price: "$299",
-    priceInterval: "/connection/mo",
+    priceInterval: "/month",
     latency: "Near real-time",
     latencyLabel: "Best for driving action",
     keyFeatures: ["Everything in Insights", "Sampling impact & prescriptive recs", "Workflow pushbacks + API/export"],
