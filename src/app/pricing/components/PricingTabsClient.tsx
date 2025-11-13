@@ -87,7 +87,6 @@ export function PricingTabsClient(props: PricingTabsClientProps) {
 
   const handleTabChange = (tabId: PricingTab["id"]) => {
     setActiveTab(tabId);
-    window.history.pushState(null, "", `#${tabId}`);
   };
 
   return (
@@ -189,8 +188,20 @@ function WholesalerTab({
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gray-500">{plan.tagline}</p>
               <h3 className="plan-name mt-2 text-2xl font-semibold text-gray-900">{plan.name}</h3>
               <div className="plan-price mt-4 flex items-baseline gap-2">
-                <span className="amount text-4xl font-semibold text-gray-900">{plan.price}</span>
-                <span className="interval text-sm text-gray-500">{plan.priceInterval}</span>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-xl font-semibold text-gray-400 line-through">
+                      {plan.price}
+                      {plan.priceInterval}
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-4xl font-semibold text-gray-900">{plan.discountedPrice ?? `${plan.price}${plan.priceInterval}`}</span>
+                  </div>
+                  {plan.discountNote ? (
+                    <p className="text-xs font-semibold text-emerald-600">{plan.discountNote}</p>
+                  ) : null}
+                </div>
               </div>
               <p className="description mt-3 text-sm font-medium text-gray-700">{plan.description}</p>
               <div className="best-for mt-4 rounded-xl border border-gray-100 bg-gray-50 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
@@ -435,7 +446,7 @@ function SupplierTab({
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Supplier data credit</p>
           <h3 className="mt-2 text-xl font-semibold text-gray-900">15% off your plan when data sharing is on</h3>
           <p className="mt-3 text-sm text-gray-600">
-            Example: Gold plan is $500/mo. Turn on data sharing and we credit $75 every month, so your invoice shows $425/mo. Suppliers still pay for Viewer/Insights/Actions separately.
+            Example: Gold plan is $650/mo. Turn on data sharing and we credit $97.50 every month, so your invoice shows about $552.50/mo. Suppliers still pay for Viewer/Insights/Actions separately.
           </p>
         </div>
       </section>
@@ -557,8 +568,12 @@ function TierHeaderCell({ tier, plan }: { tier: Tier; plan: Plan | undefined }) 
             {plan.badge}
           </span>
         ) : null}
-        <p className="text-xl font-semibold text-gray-900">{plan.price}</p>
-        <p className="text-xs text-gray-500">per month</p>
+        <span className="text-sm font-semibold text-gray-400 line-through">
+          {plan.price}
+          {plan.frequency}
+        </span>
+        <p className="text-xl font-semibold text-gray-900">{plan.discountedPrice ?? `${plan.price}${plan.frequency}`}</p>
+        {plan.discountNote ? <p className="text-[11px] font-semibold text-emerald-600">{plan.discountNote}</p> : null}
       </div>
       <TierCTA
         tierId={plan.name.toLowerCase() as "silver" | "gold" | "platinum"}

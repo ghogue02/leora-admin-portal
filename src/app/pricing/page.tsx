@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import clsx from "clsx";
 import { PricingTabsClient } from "./components/PricingTabsClient";
 import {
   ExampleScenario,
@@ -28,11 +29,13 @@ const PricingTabsFallback = () => (
 const wholesalerPlans: Plan[] = [
   {
     name: "Silver",
-    price: "$300",
-    annualPrice: "$3,600/yr",
+    price: "$400",
+    discountedPrice: "$340/mo",
+    discountNote: "with supplier incentive discount",
+    annualPrice: "$4,800/yr",
     frequency: "/mo",
     tagline: "Modern CRM + goals for lean teams",
-    description: "Daily planning, supplier collaboration, and CRM coverage without heavy admin.",
+    description: "Core CRM, call plans, purchasing basics, and sample tracking for smaller orgs.",
     fit: "Single-market distributors or teams under 10 reps.",
     entitlements: [
       { label: "Integrations", value: "1 (ERP or email/calendar)" },
@@ -78,11 +81,13 @@ const wholesalerPlans: Plan[] = [
   },
   {
     name: "Gold",
-    price: "$500",
-    annualPrice: "$6,000/yr",
+    price: "$650",
+    discountedPrice: "$552.50/mo",
+    discountNote: "with supplier incentive discount",
+    annualPrice: "$7,800/yr",
     frequency: "/mo",
     tagline: "Multi-market automation & analytics",
-    description: "Hourly data plus automation for regional teams coordinating sampling, suppliers, and task boards.",
+    description: "Hourly syncs, automation triggers, and stronger purchasing + CRM controls.",
     fit: "Regional wholesalers with 2+ markets or 10-25 reps.",
     entitlements: [
       { label: "Integrations", value: "2 (ERP + marketing/data warehouse)" },
@@ -113,7 +118,7 @@ const wholesalerPlans: Plan[] = [
         items: [
           "2,000 AI credits for prep, targeting, and opportunity scoring",
           "2,000 SMS credits for compliant follow-ups",
-          "Automation triggers when samples are scanned or goals slip",
+          "Automation triggers when samples or goals slip",
           "Supplier scorecards auto-generated before QBRs",
         ],
       },
@@ -130,11 +135,13 @@ const wholesalerPlans: Plan[] = [
   },
   {
     name: "Platinum",
-    price: "$600",
-    annualPrice: "$7,200/yr",
+    price: "$950",
+    discountedPrice: "$807.50/mo",
+    discountNote: "with supplier incentive discount",
+    annualPrice: "$11,400/yr",
     frequency: "/mo",
     tagline: "Forecasting, purchasing, and automation recipes",
-    description: "Near real-time data with purchasing, forecasting, and automation recipes built in.",
+    description: "Near real-time forecasting cockpit, purchasing workflows, and managed automations.",
     fit: "Enterprise wholesalers or multi-state networks.",
     entitlements: [
       { label: "Integrations", value: "4 (ERP, finance, supplier portals, etc.)" },
@@ -234,7 +241,7 @@ const flywheelCredits = [
   {
     title: "Supplier data credit",
     detail:
-      "If you opt in to supplier data sharing, we credit 15% off your Leora plan price every month (e.g., Silver drops from $300 to $255). Suppliers still pay their own Viewer/Insights/Actions fees.",
+      "If you opt in to supplier data sharing, we credit 15% off your Leora plan price every month (e.g., Silver drops from $400 to $340). Suppliers still pay their own Viewer/Insights/Actions fees.",
   },
   {
     title: "Default access with a timer",
@@ -302,17 +309,17 @@ const pricingFeatures: PricingFeatureCategory[] = [
     ],
   },
   {
-    category: "Daily work",
+    category: "Sales workspace",
     features: [
       {
-        name: "Task board & overdue alerts",
-        Silver: "Included",
-        Gold: "Includes manager rollups",
-        Platinum: "Includes SLA routing",
+        name: "CRM + task board",
+        Silver: "Pipeline, call plans, overdue alerts",
+        Gold: "Adds manager rollups",
+        Platinum: "Adds SLA routing + territory filters",
         type: "value",
       },
       {
-        name: "Team calendar (Q2)",
+        name: "Team calendar & ride-alongs (Q2)",
         Silver: "Optional beta",
         Gold: "Included",
         Platinum: "Included + territory filters",
@@ -321,32 +328,32 @@ const pricingFeatures: PricingFeatureCategory[] = [
     ],
   },
   {
-    category: "Sample tracking & ROI",
+    category: "Samples & purchasing",
     features: [
       {
-        name: "Sample logging & notes",
-        Silver: "Log tastings + feedback",
+        name: "Sample logging + ROI view",
+        Silver: "Logging + exports",
         Gold: "Logging + auto follow-ups",
-        Platinum: "Logging + budgets & approvals",
+        Platinum: "Logging + budgets/approvals & exec rollups",
         type: "value",
       },
       {
-        name: "Sample → order ROI view",
-        Silver: "Exports & cost workbook",
-        Gold: "Live dashboards",
-        Platinum: "Executive rollups + alerts",
+        name: "Purchasing & forecast workspace",
+        Silver: false,
+        Gold: "Basic purchasing + order guardrails",
+        Platinum: "Scenario planning + anomaly alerts",
         type: "value",
       },
     ],
   },
   {
-    category: "Automations & reminders",
+    category: "Automations & alerts",
     features: [
       {
         name: "Triggers (samples, first orders, burn rate)",
         Silver: "Manual reminders",
         Gold: "Auto task creation",
-        Platinum: "Auto + purchasing/compliance triggers",
+        Platinum: "Auto + purchasing & compliance triggers",
         type: "value",
       },
       {
@@ -359,26 +366,7 @@ const pricingFeatures: PricingFeatureCategory[] = [
     ],
   },
   {
-    category: "Field capture & forecasting",
-    features: [
-      {
-        name: "OCR capture (cards, licenses)",
-        Silver: "Manual upload",
-        Gold: "Business-card OCR + contact sync",
-        Platinum: "OCR + license verification",
-        type: "value",
-      },
-      {
-        name: "Purchasing & forecast workspace",
-        Silver: false,
-        Gold: false,
-        Platinum: true,
-        type: "boolean",
-      },
-    ],
-  },
-  {
-    category: "Data refresh & usage entitlements",
+    category: "Data refresh & allowances",
     features: [
       {
         name: "Integrations included",
@@ -416,46 +404,52 @@ const simplifiedWholesalerPlans: SimplifiedPlan[] = [
   {
     id: "silver",
     name: "Silver",
-    price: "$300",
+    price: "$400",
     priceInterval: "/mo",
+    discountedPrice: "$340/mo",
+    discountNote: "with supplier incentive discount",
     badge: null,
     tagline: "For lean teams",
-    description: "Day-one workspace with call plans, task lists, and sample tracking.",
+    description: "CRM, call plans, purchasing basics, and sample tracking out of the box.",
     keyDifferentiators: [
-      { icon: "refresh", label: "Daily syncs + scoreboards", detail: "Goals dashboard shows progress without spreadsheets" },
+      { icon: "refresh", label: "Daily syncs + goals", detail: "Call plan + goal dashboards stay current without spreadsheets" },
       { icon: "link", label: "Task management", detail: "Auto-prioritized tasks with overdue nudges" },
-      { icon: "sparkles", label: "Sample intelligence", detail: "Log tastings, capture feedback, see what converts" },
+      { icon: "sparkles", label: "Sample tracking", detail: "Log tastings, capture feedback, see what converts" },
     ],
     bestFor: "Single-market distributors or teams under 10 reps",
   },
   {
     id: "gold",
     name: "Gold",
-    price: "$500",
+    price: "$650",
     priceInterval: "/mo",
+    discountedPrice: "$552.50/mo",
+    discountNote: "with supplier incentive discount",
     badge: "Most popular",
     badgeColor: "#5b5bff",
     tagline: "For regional teams",
-    description: "Live data and automated follow-ups so multi-market teams stay ahead.",
+    description: "Hourly syncs, automation triggers, and multi-market purchasing visibility.",
     keyDifferentiators: [
       { icon: "clock", label: "Hourly data syncs", detail: "Leakage + attrition watchlist stays current all day" },
       { icon: "sparkles", label: "Automation triggers", detail: "Samples, first orders, burn-rate dips create tasks automatically" },
-      { icon: "link", label: "Upcoming calendar (Q2)", detail: "Team calendar with invites + supplier sharing" },
+      { icon: "link", label: "Team calendar (Q2)", detail: "Ride-alongs + supplier invites from the same view" },
     ],
     bestFor: "Regional wholesalers with 2+ markets or 10-25 reps",
   },
   {
     id: "platinum",
     name: "Platinum",
-    price: "$600",
+    price: "$950",
     priceInterval: "/mo",
+    discountedPrice: "$807.50/mo",
+    discountNote: "with supplier incentive discount",
     badge: null,
     tagline: "For enterprises",
-    description: "Near real-time data, purchasing controls, and OCR capture for compliance.",
+    description: "Near real-time forecasting, purchasing workflows, and managed automations.",
     keyDifferentiators: [
-      { icon: "bolt", label: "15-minute syncs", detail: "Forecast view with instant anomaly alerts" },
+      { icon: "bolt", label: "15-minute syncs", detail: "Forecast cockpit with instant anomaly alerts" },
       { icon: "network", label: "4 integrations", detail: "ERP, finance, supplier portals, and warehouse data" },
-      { icon: "sparkles", label: "OCR + recipes", detail: "Business card + license OCR feeding automation playbooks" },
+      { icon: "sparkles", label: "Managed recipes", detail: "Automation playbooks maintained by Leora" },
     ],
     bestFor: "Enterprise wholesalers or multi-state networks",
   },
@@ -470,7 +464,7 @@ const simplifiedSupplierPlans: SimplifiedSupplierPlan[] = [
     latency: "7-day delay",
     latencyLabel: "Best for read-only access",
     keyFeatures: ["Inventory + depletion views", "Scheduled digests & PDF exports", "Default wholesaler permissions"],
-    bestFor: "Trade marketing teams needing read-only visibility",
+    bestFor: "Trade marketing teams needing read-only visibility (first 30 days free when invited)",
     upgrade: "Upgrade to Insights →",
   },
   {
@@ -520,18 +514,18 @@ const exampleScenarios: ExampleScenario[] = [
   {
     title: "Gold plan with data sharing enabled",
     bullets: [
-      "Gold plan price: $500/mo",
-      "Supplier data credit (15%): -$75/mo",
-      "Net bill with data sharing: $425/mo (~$5,100/yr)",
+      "Gold plan price: $650/mo",
+      "Supplier data credit (15%): -$97.50/mo",
+      "Net bill with data sharing: ~$552.50/mo (~$6,630/yr)",
       "Suppliers still pay for Insights/Actions directly; the credit only reduces your plan price.",
     ],
   },
   {
     title: "Platinum plan with data sharing",
     bullets: [
-      "Platinum plan price: $600/mo",
-      "Supplier data credit (15%): -$90/mo",
-      "Net bill with data sharing: $510/mo (~$6,120/yr)",
+      "Platinum plan price: $950/mo",
+      "Supplier data credit (15%): -$142.50/mo",
+      "Net bill with data sharing: ~$807.50/mo (~$9,690/yr)",
       "Suppliers choose Viewer/Insights/Actions tiers and are invoiced separately.",
     ],
   },
@@ -558,6 +552,50 @@ const supplierFaqs: SupplierFaq[] = [
   },
 ];
 
+const pricingStrategies = [
+  {
+    title: "Adoption-first (current focus)",
+    badge: "Current focus",
+    description:
+      "30 distributors live in 12 months. Keep pricing flat, bundle every core workflow, and use supplier incentives to remove friction.",
+    bullets: [
+      "Invite suppliers with a 30-day free Viewer pass; as soon as they connect, your plan drops 15% (Silver $400 → $340, Gold $650 → $552.50, Platinum $950 → $807.50).",
+      "No user thresholds or approvals—teams can start CRM + purchasing + automations immediately.",
+      "Proof inside 30 days: shared data + supplier collaboration shows value before renewal.",
+    ],
+  },
+  {
+    title: "Automation Plus add-on (optional)",
+    description:
+      "Once early adopters want more hands-on help, layer an add-on instead of raising base price.",
+    bullets: [
+      "Automation Plus (+$250/mo): managed trigger tuning, QA, and 2 hrs/mo of Success time.",
+      "Great for multi-market teams that want guarantees without rethinking pricing.",
+      "Keep supplier credit + free Viewer invites so the adoption motion stays intact.",
+    ],
+  },
+  {
+    title: "Enterprise uplift",
+    description:
+      "For multi-state groups that need near real-time forecasting, purchasing approvals, and managed automations with SLAs.",
+    bullets: [
+      "Platinum becomes the base; we scope success/advisory retainers on top (forecast workshops, purchasing reviews).",
+      "Supplier data credit still applies, but ROI stories lean on purchasing + forecasting visibility.",
+      "Ready once supplier collaboration tools are fully live (target six weeks).",
+    ],
+  },
+  {
+    title: "Supplier collaboration track",
+    description:
+      "Plan the shared supplier workspace rollout: Viewer → Insights → Actions with shared scorecards, tasks, and timelines.",
+    bullets: [
+      "Viewer always free for 30 days; Insights/Actions billed to suppliers with volume discounts.",
+      "Roadmap: shared scorecards, supplier-triggered tasks, and invite workflows already wired into Leora.",
+      "Messaging: \"Leora connects it all\"—wholesalers control the data, suppliers pay for deeper action.",
+    ],
+  },
+];
+
 export default function PricingPage() {
   return (
     <div className="safe-nav-offset pb-16">
@@ -570,7 +608,8 @@ export default function PricingPage() {
           <div className="mt-6 max-w-3xl space-y-4">
             <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-5xl">Pricing that keeps your team moving.</h1>
             <p className="text-lg text-white/80">
-              Flat wholesaler plans stay simple while usage entitlements scale on supplier connections, refresh speed, automations, and messaging volume.
+              Leora connects CRM, purchasing, automation, and supplier collaboration in one system. Plans stay simple while usage entitlements scale on refresh
+              speed, integrations, and messaging volume.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
@@ -603,6 +642,24 @@ export default function PricingPage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="layout-shell mt-10">
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">Strategy snapshots</p>
+        <h2 className="mt-2 text-2xl font-semibold text-gray-900">How we price for adoption now and optional uplifts later</h2>
+        <p className="mt-2 text-sm text-gray-600">
+          Adoption-first is our north star. The cards below capture the current focus plus optional levers once we hit scale.
+        </p>
+        {pricingStrategies.length > 0 ? (
+          <>
+            <StrategyCard strategy={pricingStrategies[0]} primary />
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {pricingStrategies.slice(1).map((strategy) => (
+                <StrategyCard key={strategy.title} strategy={strategy} />
+              ))}
+            </div>
+          </>
+        ) : null}
       </section>
 
       <PricingTabsClient
@@ -651,6 +708,46 @@ export default function PricingPage() {
         </div>
       </section>
 
+    </div>
+  );
+}
+
+function StrategyCard({
+  strategy,
+  primary,
+}: {
+  strategy: {
+    title: string;
+    description: string;
+    bullets: string[];
+    badge?: string;
+  };
+  primary?: boolean;
+}) {
+  return (
+    <div
+      className={clsx(
+        "rounded-3xl border p-6 shadow-sm",
+        primary ? "border-indigo-400 bg-indigo-50/80" : "border-gray-200 bg-white"
+      )}
+    >
+      <div className="flex items-center gap-3">
+        <h3 className="text-lg font-semibold text-gray-900">{strategy.title}</h3>
+        {strategy.badge ? (
+          <span className="rounded-full bg-indigo-500/20 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
+            {strategy.badge}
+          </span>
+        ) : null}
+      </div>
+      <p className="mt-2 text-sm text-gray-600">{strategy.description}</p>
+      <ul className="mt-4 space-y-2 text-sm text-gray-800">
+        {strategy.bullets.map((bullet) => (
+          <li key={bullet} className="flex gap-2">
+            <span className="text-indigo-500">•</span>
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

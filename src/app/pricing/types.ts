@@ -7,6 +7,8 @@ export type FeatureType = "pricing" | "value" | "progressive" | "quantity" | "bo
 export type Plan = {
   name: string;
   price: string;
+  discountedPrice?: string;
+  discountNote?: string;
   annualPrice: string;
   frequency: string;
   tagline: string;
@@ -46,6 +48,8 @@ export type SimplifiedPlan = {
   name: string;
   price: string;
   priceInterval: string;
+  discountedPrice?: string;
+  discountNote?: string;
   badge?: string | null;
   badgeColor?: string;
   tagline: string;
