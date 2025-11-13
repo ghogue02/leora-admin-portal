@@ -122,8 +122,20 @@ export async function GET(request: NextRequest, context: RouteContext) {
 
       const { customer, orderLines } = result;
 
-      const normalizedLines: RawRecentOrderLine[] = orderLines
-        .filter((line) => line.order?.orderedAt && line.sku)
+      console.log(`[recent-items] Customer: ${customer.name}`);
+      console.log(`[recent-items] Found ${orderLines.length} order lines`);
+      console.log(`[recent-items] Sample order line:`, orderLines[0] ? {
+        skuId: orderLines[0].skuId,
+        orderId: orderLines[0].orderId,
+        hasSku: !!orderLines[0].sku,
+        hasOrder: !!orderLines[0].order,
+        hasOrderedAt: !!orderLines[0].order?.orderedAt,
+      } : 'No order lines');
+
+      const filteredLines = orderLines.filter((line) => line.order?.orderedAt && line.sku);
+      console.log(`[recent-items] After filtering: ${filteredLines.length} lines (filtered out ${orderLines.length - filteredLines.length})`);
+
+      const normalizedLines: RawRecentOrderLine[] = filteredLines
         .map((line) => ({
           skuId: line.skuId,
           skuCode: line.sku!.code,
@@ -158,6 +170,9 @@ export async function GET(request: NextRequest, context: RouteContext) {
       };
 
       const items = aggregateRecentOrderLines(normalizedLines, customerPricing, MAX_SUGGESTIONS);
+
+      console.log(`[recent-items] After aggregation: ${items.length} suggestions`);
+      console.log(`[recent-items] Returning ${items.length} recent purchase suggestions`);
 
       return NextResponse.json({ items });
     },
