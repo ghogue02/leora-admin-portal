@@ -6,6 +6,7 @@ import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants
 import SampleItemsSelector from "@/components/activities/SampleItemsSelector";
 import type { ActivitySampleSelection } from "@/types/activities";
 import { CustomerSearchCombobox } from "@/components/orders/CustomerSearchCombobox";
+import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
 
 type ActivityType = {
   id: string;
@@ -60,6 +61,9 @@ export default function LogActivityModal({
   const recognitionRef = useRef<any>(null);
   const [sampleSelections, setSampleSelections] = useState<ActivitySampleSelection[]>([]);
 
+  // UI state for collapsible sections
+  const [showDateEditor, setShowDateEditor] = useState(false);
+
   // Form state
   const [formData, setFormData] = useState({
     activityTypeCode: presetActivityType || "",
@@ -68,7 +72,8 @@ export default function LogActivityModal({
     sampleId: presetSampleId || "",
     subject: initialSubject || "",
     notes: "",
-    occurredAt: new Date().toISOString().slice(0, 16),
+    // Fix: Use local timezone format for datetime-local input
+    occurredAt: new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16),
     followUpAt: "",
     outcomes: [] as ActivityOutcomeValue[],
   });
@@ -264,10 +269,22 @@ export default function LogActivityModal({
           followUpNeeded: item.followUp,
         }));
 
+      // Fix: Only include optional fields if they have values
       const payload = {
-        ...formData,
-        sampleItems: selectedSampleItems,
+        activityTypeCode: formData.activityTypeCode,
+        customerId: formData.customerId,
+        subject: formData.subject,
+        notes: formData.notes,
+        occurredAt: formData.occurredAt,
+        ...(formData.orderId ? { orderId: formData.orderId } : {}),
+        ...(formData.sampleId ? { sampleId: formData.sampleId } : {}),
+        ...(formData.followUpAt ? { followUpAt: formData.followUpAt } : {}),
+        ...(formData.outcomes.length > 0 ? { outcomes: formData.outcomes } : {}),
+        ...(selectedSampleItems.length > 0 ? { sampleItems: selectedSampleItems } : {}),
       };
+
+      // Debug logging
+      console.log('[LogActivityModal] Submitting payload:', payload);
 
       // Submit to quick-log endpoint
       const response = await fetch("/api/sales/activities/quick-log", {
@@ -278,8 +295,11 @@ export default function LogActivityModal({
         body: JSON.stringify(payload),
       });
 
+      console.log('[LogActivityModal] Response status:', response.status);
+
       if (!response.ok) {
         const body = await response.json().catch(() => ({}));
+        console.error('[LogActivityModal] Error response:', body);
         throw new Error(body.error || "Failed to log activity");
       }
 
@@ -306,7 +326,8 @@ export default function LogActivityModal({
           sampleId: presetSampleId || "",
           subject: initialSubject || "",
           notes: "",
-          occurredAt: new Date().toISOString().slice(0, 16),
+          // Fix: Use local timezone format for datetime-local input
+          occurredAt: new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16),
           followUpAt: "",
           outcomes: [] as ActivityOutcomeValue[],
         });
@@ -314,6 +335,7 @@ export default function LogActivityModal({
         onClose();
       }, 1000);
     } catch (err) {
+      console.error('[LogActivityModal] Submit error:', err);
       setError(err instanceof Error ? err.message : "Failed to log activity");
     } finally {
       setSubmitting(false);
@@ -364,7 +386,7 @@ export default function LogActivityModal({
           {/* Form */}
           <form onSubmit={handleSubmit} className="max-h-[calc(100vh-200px)] overflow-y-auto px-6 py-4">
             <div className="space-y-4">
-              {/* Activity Type & Customer */}
+              {/* Activity Type & Subject - 2-column row */}
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label htmlFor="activityType" className="block text-sm font-semibold text-gray-700">
@@ -388,36 +410,22 @@ export default function LogActivityModal({
                 </div>
 
                 <div>
-                  <label htmlFor="customer" className="block text-sm font-semibold text-gray-700">
-                    Customer <span className="text-rose-500">*</span>
+                  <label htmlFor="subject" className="block text-sm font-semibold text-gray-700">
+                    Subject <span className="text-rose-500">*</span>
                   </label>
-                  <div className="mt-1">
-                    <CustomerSearchCombobox
-                      value={formData.customerId}
-                      onChange={handleCustomerChange}
-                      disabled={loading || !!presetCustomerId}
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    id="subject"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    placeholder="Brief description of activity"
+                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    required
+                  />
                 </div>
               </div>
 
-              {/* Subject */}
-              <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-gray-700">
-                  Subject <span className="text-rose-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  value={formData.subject}
-                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  placeholder="Brief description of activity"
-                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              {/* Notes with Voice Input */}
+              {/* Notes with Voice Input Icon */}
               <div>
                 <div className="flex items-center justify-between">
                   <label htmlFor="notes" className="block text-sm font-semibold text-gray-700">
@@ -427,73 +435,108 @@ export default function LogActivityModal({
                     <button
                       type="button"
                       onClick={toggleVoiceInput}
-                      className={`inline-flex items-center gap-2 rounded-md px-3 py-1 text-xs font-semibold transition ${
+                      title={isRecording ? 'Stop recording' : 'Start voice input'}
+                      className={`rounded-full p-2 transition ${
                         isRecording
                           ? 'bg-red-100 text-red-700 hover:bg-red-200'
-                          : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                       }`}
                     >
-                      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clipRule="evenodd" />
                       </svg>
-                      {isRecording ? 'Recording...' : 'Voice Input'}
-                </button>
-              )}
-            </div>
-
-            {/* Samples */}
-            <div>
-              <span className="block text-sm font-semibold text-gray-700">
-                Samples Shared
-              </span>
-              <SampleItemsSelector value={sampleSelections} onChange={setSampleSelections} />
-            </div>
+                    </button>
+                  )}
+                </div>
                 <textarea
                   id="notes"
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Additional details, outcomes, next steps..."
-                  rows={4}
+                  rows={3}
                   className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
 
-              {/* Date, Follow-up, Outcome */}
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="occurredAt" className="block text-sm font-semibold text-gray-700">
-                    Date & Time <span className="text-rose-500">*</span>
-                  </label>
-                  <input
-                    type="datetime-local"
-                    id="occurredAt"
-                    value={formData.occurredAt}
-                    onChange={(e) => setFormData({ ...formData, occurredAt: e.target.value })}
-                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                    required
-                  />
+              {/* Date Display with Edit Button */}
+              {!showDateEditor ? (
+                <div className="flex items-center justify-between rounded-md border border-gray-200 bg-gray-50 px-3 py-2">
+                  <div className="flex items-center gap-2 text-sm text-gray-700">
+                    <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="font-medium">Just now</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowDateEditor(true)}
+                    className="text-xs font-semibold text-blue-600 hover:text-blue-800"
+                  >
+                    Edit dates
+                  </button>
                 </div>
-
-                <div>
-                  <label htmlFor="followUpAt" className="block text-sm font-semibold text-gray-700">
-                    Follow-up Date
-                  </label>
-                  <input
-                    type="datetime-local"
-                    id="followUpAt"
-                    value={formData.followUpAt}
-                    onChange={(e) => setFormData({ ...formData, followUpAt: e.target.value })}
-                    className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                  />
+              ) : (
+                <div className="space-y-3 rounded-md border border-gray-200 bg-gray-50 p-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-700">Date & Time Settings</span>
+                    <button
+                      type="button"
+                      onClick={() => setShowDateEditor(false)}
+                      className="text-xs font-semibold text-gray-600 hover:text-gray-800"
+                    >
+                      Collapse
+                    </button>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="occurredAt" className="block text-xs font-semibold text-gray-700">
+                        Occurred At <span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        type="datetime-local"
+                        id="occurredAt"
+                        value={formData.occurredAt}
+                        onChange={(e) => setFormData({ ...formData, occurredAt: e.target.value })}
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="followUpAt" className="block text-xs font-semibold text-gray-700">
+                        Follow-up Date
+                      </label>
+                      <input
+                        type="datetime-local"
+                        id="followUpAt"
+                        value={formData.followUpAt}
+                        onChange={(e) => setFormData({ ...formData, followUpAt: e.target.value })}
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      />
+                    </div>
+                  </div>
                 </div>
+              )}
 
-              </div>
+              {/* Collapsible Samples Section */}
+              <CollapsibleSection
+                title="Samples Shared"
+                badge={sampleSelections.filter(s => s.selected).length > 0
+                  ? `${sampleSelections.filter(s => s.selected).length} items`
+                  : "0 items"}
+                defaultOpen={false}
+              >
+                <SampleItemsSelector value={sampleSelections} onChange={setSampleSelections} />
+              </CollapsibleSection>
 
-              <div>
-                <span className="block text-sm font-semibold text-gray-700">
-                  Outcomes (Select all that apply)
-                </span>
-                <div className="mt-2 grid gap-2 sm:grid-cols-2">
+              {/* Collapsible Outcomes Section */}
+              <CollapsibleSection
+                title="Outcomes"
+                badge={formData.outcomes.length > 0
+                  ? `${formData.outcomes.length} selected`
+                  : "None selected"}
+                defaultOpen={false}
+              >
+                <div className="grid gap-2 sm:grid-cols-2">
                   {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
                     const checked = formData.outcomes.includes(option.value);
                     return (
@@ -530,12 +573,12 @@ export default function LogActivityModal({
                         outcomes: [],
                       }))
                     }
-                    className="mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800"
+                    className="mt-3 text-xs font-semibold text-blue-600 hover:text-blue-800"
                   >
-                    Clear selections
+                    Clear all selections
                   </button>
                 )}
-              </div>
+              </CollapsibleSection>
 
               {/* Error Message */}
               {error && (
