@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 const TENANT_ID = "58b8126a-2d2f-4f55-bc98-5b6784800bed";
 const DEFAULT_PRICING_CSV = path.resolve(
   process.cwd(),
-  "../Pricing Single Source - Pricing Single Source (1).csv",
+  "../Pricing Single Source - Pricing Single Source.csv",
 );
 const PRICING_CSV = process.env.PRICING_CSV ?? DEFAULT_PRICING_CSV;
 
