@@ -219,7 +219,7 @@ export default function CustomerDetailClientV2({
         {/* OVERVIEW TAB */}
         {activeTab === "overview" && (
           <>
-            {/* Recent Orders + Detailed Metrics */}
+            {/* Recent Orders + Activity Timeline */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <OrderHistory
                 orders={data.orders}
@@ -227,37 +227,18 @@ export default function CustomerDetailClientV2({
                 isCompact={true}
                 fullHistorySectionId={fullHistorySectionId}
               />
-              <div className="space-y-4">
-                <CollapsibleSection title="Detailed Metrics" defaultOpen={true}>
-                  <CustomerMetrics
-                    metrics={{
-                      ytdRevenue: data.metrics.ytdRevenue,
-                      totalOrders: data.metrics.totalOrders,
-                      avgOrderValue: data.metrics.avgOrderValue,
-                      outstandingBalance: data.metrics.outstandingBalance,
-                    }}
-                  />
-                </CollapsibleSection>
-                <CollapsibleSection title="Ordering Pace Analysis" defaultOpen={true}>
-                  <OrderingPaceIndicator
-                    metrics={{
-                      lastOrderDate: data.metrics.lastOrderDate,
-                      nextExpectedOrderDate: data.metrics.nextExpectedOrderDate,
-                      averageOrderIntervalDays: data.metrics.averageOrderIntervalDays,
-                      daysSinceLastOrder: data.metrics.daysSinceLastOrder,
-                      daysUntilExpected: data.metrics.daysUntilExpected,
-                    }}
-                  />
-                </CollapsibleSection>
-              </div>
+              <CollapsibleSection
+                title="Activity Timeline"
+                badge={`${data.activities.length} activities`}
+                defaultOpen={false}
+              >
+                <ActivityTimeline
+                  activities={data.activities}
+                  customerId={customerId}
+                  customerName={data.customer.name}
+                />
+              </CollapsibleSection>
             </div>
-
-            {/* Activity Timeline - Compact */}
-            <ActivityTimeline
-              activities={data.activities}
-              customerId={customerId}
-              customerName={data.customer.name}
-            />
           </>
         )}
 

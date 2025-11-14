@@ -362,6 +362,25 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
               )}
             </div>
 
+            {/* Ordering Pace Detail Line */}
+            {metrics && metrics.lastOrderDate && (
+              <div className="flex items-center gap-3 text-xs text-gray-500 mt-1">
+                <span>Last order: {formatShortDate(metrics.lastOrderDate)}</span>
+                {metrics.daysSinceLastOrder && (
+                  <>
+                    <span className="text-gray-300">•</span>
+                    <span>{metrics.daysSinceLastOrder} days ago</span>
+                  </>
+                )}
+                {metrics.daysUntilExpected !== null && metrics.daysUntilExpected > 0 && (
+                  <>
+                    <span className="text-gray-300">•</span>
+                    <span>Next expected in {metrics.daysUntilExpected} days</span>
+                  </>
+                )}
+              </div>
+            )}
+
             {/* Tags Row */}
             {tags && tags.length > 0 && (
               <div className="flex items-center gap-1.5 mt-2 flex-wrap">
