@@ -37,7 +37,6 @@ import { DeliveryPreferences } from "./sections/DeliveryPreferences";
 import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
 import { GoogleProfileCard } from "./sections/GoogleProfileCard";
 import CustomerSinceCard from "./sections/CustomerSinceCard";
-import PermanentNotesPanel from "./sections/PermanentNotesPanel";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -196,11 +195,8 @@ export default function CustomerDetailClientV2({
           daysUntilExpected: data.metrics.daysUntilExpected,
         }}
         tags={data.customer.tags?.map((t: { name: string }) => t.name) || []}
+        permanentNotes={data.majorChanges || []}
       />
-
-      {data.majorChanges && data.majorChanges.length > 0 && (
-        <PermanentNotesPanel notes={data.majorChanges} />
-      )}
 
       {data.invoices && data.invoices.length > 0 && data.metrics.outstandingBalance > 0 && (
         <AccountHolds
@@ -227,17 +223,11 @@ export default function CustomerDetailClientV2({
                 isCompact={true}
                 fullHistorySectionId={fullHistorySectionId}
               />
-              <CollapsibleSection
-                title="Activity Timeline"
-                badge={`${data.activities.length} activities`}
-                defaultOpen={false}
-              >
-                <ActivityTimeline
-                  activities={data.activities}
-                  customerId={customerId}
-                  customerName={data.customer.name}
-                />
-              </CollapsibleSection>
+              <ActivityTimeline
+                activities={data.activities}
+                customerId={customerId}
+                customerName={data.customer.name}
+              />
             </div>
           </>
         )}

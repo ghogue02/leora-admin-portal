@@ -1,8 +1,8 @@
 'use client';
 
-import Link from "next/link";
+import { ActivityCard } from "@/components/activities/ActivityCard";
 import type { OrderStatus } from "@prisma/client";
-import { ACTIVITY_OUTCOME_OPTIONS, type ActivityOutcomeValue } from "@/constants/activityOutcomes";
+import type { ActivityOutcomeValue } from "@/constants/activityOutcomes";
 
 type Activity = {
   id: string;
@@ -147,56 +147,6 @@ export default function ActivityList({
     );
   };
 
-  const formatDateTime = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    });
-  };
-
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-      maximumFractionDigits: 0,
-    }).format(amount);
-  };
-
-  const getOutcomeBadges = (outcomes: ActivityOutcomeValue[] = []) => {
-    if (!outcomes.length) return null;
-
-    const labelMap = ACTIVITY_OUTCOME_OPTIONS.reduce<Record<ActivityOutcomeValue, string>>((acc, option) => {
-      acc[option.value] = option.label;
-      return acc;
-    }, {} as Record<ActivityOutcomeValue, string>);
-
-    return outcomes.map((outcome) => (
-      <span
-        key={outcome}
-        className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-blue-700"
-      >
-        {labelMap[outcome] ?? outcome}
-      </span>
-    ));
-  };
-
-  const getActivityTypeIcon = (code: string) => {
-    const icons: Record<string, string> = {
-      "IN_PERSON_VISIT": "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
-      "TASTING_APPOINTMENT": "M9 3v1m6-1v1m4 4H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V10a2 2 0 00-2-2z",
-      "EMAIL_FOLLOW_UP": "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-      "PHONE_CALL": "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z",
-      "TEXT_MESSAGE": "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z",
-      "PUBLIC_TASTING_EVENT": "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-    };
-
-    return icons[code] || "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2";
-  };
-
   return (
     <div className="space-y-4">
       {/* Filters */}
@@ -295,109 +245,14 @@ export default function ActivityList({
             </thead>
             <tbody className="divide-y divide-slate-200">
               {activities.map((activity) => (
-                <tr key={activity.id} className="transition hover:bg-slate-50">
-                  <td className="px-4 py-3">
-                    <div className="flex items-center gap-2">
-                      <svg
-                        className="h-5 w-5 text-gray-500"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d={getActivityTypeIcon(activity.activityType.code)}
-                        />
-                      </svg>
-                      <span className="text-sm font-medium text-gray-900">
-                        {activity.activityType.name}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    <div className="flex flex-col">
-                      <span className="font-semibold text-gray-900">{activity.subject}</span>
-                      {activity.notes && (
-                        <span className="mt-1 text-xs text-gray-500 line-clamp-2">
-                          {activity.notes}
-                        </span>
-                      )}
-                      {activity.followUpAt && (
-                        <span className="mt-1 text-xs text-blue-600">
-                          Follow-up: {formatDateTime(activity.followUpAt)}
-                        </span>
-                      )}
-                      {activity.samples.length > 0 && (
-                        <div className="mt-2 space-y-1">
-                          {activity.samples.map((sample) => (
-                            <div key={sample.id} className="text-xs text-gray-600">
-                              <span className="font-semibold text-gray-700">
-                                {sample.sku?.name ?? "Sample"}
-                              </span>
-                              {sample.feedback && (
-                                <span className="ml-2 text-gray-500">
-                                  “{sample.feedback}”
-                                </span>
-                              )}
-                              {sample.followUpNeeded && !sample.followUpCompletedAt && (
-                                <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
-                                  Follow-up
-                                </span>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    {activity.customer ? (
-                      <div className="flex flex-col">
-                        <Link
-                          href={`/sales/customers/${activity.customer.id}`}
-                          className="font-semibold text-gray-900 underline decoration-dotted underline-offset-4 transition hover:text-blue-600"
-                        >
-                          {activity.customer.name}
-                        </Link>
-                        {activity.customer.accountNumber && (
-                          <span className="text-xs text-gray-500">
-                            #{activity.customer.accountNumber}
-                          </span>
-                        )}
-                      </div>
-                    ) : (
-                      <span className="text-gray-400">—</span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-gray-700">{formatDateTime(activity.occurredAt)}</td>
-                  <td className="px-4 py-3">
-                    <div className="flex flex-wrap gap-1">
-                      {getOutcomeBadges(activity.outcomes)}
-                    </div>
-                  </td>
-                  <td className="px-4 py-3">
-                    {activity.order ? (
-                      <div className="flex flex-col">
-                        <Link
-                          href={`/sales/orders/${activity.order.id}`}
-                          className="font-semibold text-emerald-600 underline decoration-dotted underline-offset-4 transition hover:text-emerald-700"
-                        >
-                          {formatCurrency(activity.order.total)}
-                        </Link>
-                        {activity.order.orderNumber && (
-                          <span className="text-xs text-gray-500">
-                            Order #{activity.order.orderNumber}
-                          </span>
-                        )}
-                      </div>
-                    ) : (
-                      <span className="text-gray-400">—</span>
-                    )}
-                  </td>
-                </tr>
+                <ActivityCard
+                  key={activity.id}
+                  activity={activity}
+                  variant="table"
+                  showCustomer
+                  showSamples
+                  showRelatedOrder
+                />
               ))}
             </tbody>
           </table>

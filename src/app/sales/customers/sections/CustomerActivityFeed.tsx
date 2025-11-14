@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { NotebookPen, PhoneCall, CalendarClock, Sparkles } from "lucide-react";
+import { ActivityCard } from "@/components/activities/ActivityCard";
 
 type ActivityFeedItem = {
   id: string;
@@ -12,6 +11,10 @@ type ActivityFeedItem = {
   timestamp: string;
   customerId: string;
   customerName: string;
+  activityTypeCode?: string;
+  subject?: string;
+  notes?: string | null;
+  occurredAt?: string;
 };
 
 export default function CustomerActivityFeed() {
@@ -32,19 +35,6 @@ export default function CustomerActivityFeed() {
       console.error("Failed to load activity feed", error);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const renderIcon = (type: ActivityFeedItem["type"]) => {
-    switch (type) {
-      case "activity":
-        return <PhoneCall className="h-4 w-4" aria-hidden="true" />;
-      case "sample":
-        return <Sparkles className="h-4 w-4" aria-hidden="true" />;
-      case "note":
-        return <NotebookPen className="h-4 w-4" aria-hidden="true" />;
-      default:
-        return <CalendarClock className="h-4 w-4" aria-hidden="true" />;
     }
   };
 
@@ -75,25 +65,46 @@ export default function CustomerActivityFeed() {
           <p className="text-xs text-slate-500">No recent activity yet. Log a touchpoint to kick things off.</p>
         ) : (
           items.slice(0, 4).map((item) => (
-            <div key={item.id} className="flex items-start gap-2 rounded-xl border border-slate-100 px-2.5 py-2">
-              <div className="rounded-full bg-indigo-50 p-1.5 text-indigo-700">{renderIcon(item.type)}</div>
-              <div className="flex-1 text-xs">
-                <p className="font-semibold text-slate-900">{item.title}</p>
-                <p className="text-[11px] text-slate-500">{item.subtitle}</p>
-                <div className="mt-1 flex items-center justify-between text-[11px] text-slate-400">
-                  <span>{new Date(item.timestamp).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })}</span>
-                  <Link
-                    href={`/sales/customers/${item.customerId}`}
-                    className="text-indigo-600 hover:text-indigo-800"
-                  >
-                    {item.customerName}
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <ActivityCard
+              key={item.id}
+              activity={{
+                id: item.id,
+                subject: item.title,
+                notes: item.subtitle,
+                occurredAt: item.timestamp,
+                followUpAt: null,
+                outcomes: [],
+                activityType: {
+                  id: item.activityTypeCode ?? item.type,
+                  name: getActivityTypeName(item.type),
+                  code: item.activityTypeCode ?? item.type,
+                },
+                customer: {
+                  id: item.customerId,
+                  name: item.customerName,
+                  accountNumber: null,
+                },
+                samples: [],
+              }}
+              variant="feed"
+            />
           ))
         )}
       </div>
     </section>
   );
+}
+
+/**
+ * Map feed item type to activity type name
+ */
+function getActivityTypeName(type: string): string {
+  const typeMap: Record<string, string> = {
+    order: "Order Placed",
+    activity: "Activity Logged",
+    sample: "Sample Provided",
+    note: "Note Added",
+  };
+
+  return typeMap[type] ?? type;
 }
