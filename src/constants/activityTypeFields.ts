@@ -35,7 +35,7 @@ export type ActivityTypeFieldConfig = {
 };
 
 export const ACTIVITY_TYPE_FIELDS: Record<string, ActivityTypeFieldConfig> = {
-  'FOLLOW_UP_EMAIL': {
+  'email': {
     showSamples: false,
     requireNotes: false,
     suggestedFollowUpDays: 3,
@@ -48,7 +48,7 @@ export const ACTIVITY_TYPE_FIELDS: Record<string, ActivityTypeFieldConfig> = {
       { value: 'BOUNCED', label: 'Email Bounced' },
     ],
   },
-  'FOLLOW_UP_PHONE': {
+  'call': {
     showCallDuration: true,
     requireNotes: true,
     showSamples: true,
@@ -64,7 +64,7 @@ export const ACTIVITY_TYPE_FIELDS: Record<string, ActivityTypeFieldConfig> = {
       { value: 'ORDER_PLACED', label: 'Order Placed' },
     ],
   },
-  'FOLLOW_UP_TEXT': {
+  'text': {
     showSamples: false,
     requireNotes: false,
     charLimit: 500,
@@ -76,7 +76,7 @@ export const ACTIVITY_TYPE_FIELDS: Record<string, ActivityTypeFieldConfig> = {
       { value: 'UNSUBSCRIBE_REQUESTED', label: 'Unsubscribe Requested' },
     ],
   },
-  'IN_PERSON_VISIT': {
+  'visit': {
     showVisitDuration: true,
     showAttendees: true,
     showLocation: true,
@@ -102,7 +102,7 @@ export const ACTIVITY_TYPE_FIELDS: Record<string, ActivityTypeFieldConfig> = {
     showSamples: false,
     showOutcomes: false, // Use changeType instead
   },
-  'TASTING_APPOINTMENT': {
+  'tasting': {
     showLocation: true,
     showAttendees: true,
     showSamples: true,
@@ -117,7 +117,7 @@ export const ACTIVITY_TYPE_FIELDS: Record<string, ActivityTypeFieldConfig> = {
       { value: 'FOLLOWUP_REQUESTED', label: 'Follow-up Requested' },
     ],
   },
-  'PUBLIC_TASTING_EVENT': {
+  'event': {
     showLocation: true,
     showAttendees: true,
     showSamples: true,
@@ -131,7 +131,7 @@ export const ACTIVITY_TYPE_FIELDS: Record<string, ActivityTypeFieldConfig> = {
       { value: 'SAMPLES_DISTRIBUTED', label: 'Samples Distributed' },
     ],
   },
-  'PORTAL_FOLLOWUP': {
+  'portal.follow-up': {
     showPortalInteraction: true,
     showSamples: false,
     autoSubject: 'Portal activity follow-up',
