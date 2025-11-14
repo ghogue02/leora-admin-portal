@@ -23,6 +23,7 @@ export function CollapsibleSection({
   return (
     <div className={`rounded-lg border border-gray-200 bg-white shadow-sm ${className}`}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
       >
