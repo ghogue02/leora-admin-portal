@@ -1,11 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
-import type { CatalogFieldDefinition } from "@/types/catalog";
-
-import { TastingNotesCard } from "./TastingNotesCard";
-import { TechnicalDetailsPanel } from "./TechnicalDetailsPanel";
 import { ProductEditForm } from "./ProductEditForm";
 
 type ProductDetails = {
@@ -94,7 +90,6 @@ type ProductDetails = {
     };
   };
   insights: string[];
-  fields?: CatalogFieldDefinition[];
 };
 
 type ProductDrilldownModalProps = {
@@ -106,12 +101,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<ProductDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details' | 'technical' | 'tasting' | 'edit'>('inventory');
   const [isEditMode, setIsEditMode] = useState(false);
-  const fieldSections = useMemo(
-    () => buildFieldSections(data?.fields ?? []),
-    [data?.fields],
-  );
 
   useEffect(() => {
     fetchProductDetails();
@@ -177,31 +167,6 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
               </button>
             </div>
           </div>
-
-          {/* Tabs */}
-          {!loading && (
-            <div className="mt-4 flex gap-1 border-b border-gray-200">
-              {[
-                { key: 'inventory', label: '📦 Inventory', icon: '📦' },
-                { key: 'pricing', label: '💰 Pricing', icon: '💰' },
-                { key: 'sales', label: '📈 Sales History', icon: '📈' },
-                { key: 'technical', label: '📋 Technical Details', icon: '📋' },
-                ...(data?.enrichedData ? [{ key: 'tasting', label: '🍷 Tasting Notes', icon: '🍷' }] : []),
-              ].map((tab) => (
-                <button
-                  key={tab.key}
-                  onClick={() => setActiveTab(tab.key as any)}
-                  className={`px-4 py-2 text-sm font-medium transition ${
-                    activeTab === tab.key
-                      ? 'border-b-2 border-indigo-600 text-indigo-600'
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Content */}
@@ -249,29 +214,9 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
           )}
 
           {!loading && !error && data && !isEditMode && (
-            <>
-              {fieldSections.length > 0 && (
-                <div className="mb-6 space-y-6">
-                  {fieldSections.map((section, index) => (
-                    <div key={index} className="space-y-3">
-                      <h3 className="text-sm font-semibold text-gray-900">{section.title}</h3>
-                      <dl className="grid gap-3 md:grid-cols-2">
-                        {section.fields.map((field) => (
-                          <div key={field.id} className="rounded border border-slate-200 bg-white p-3 text-sm">
-                            <dt className="text-xs uppercase tracking-wide text-gray-500">{field.label}</dt>
-                            <dd className="mt-1 font-semibold text-gray-900">
-                              {renderFieldValue(field, data)}
-                            </dd>
-                          </div>
-                        ))}
-                      </dl>
-                    </div>
-                  ))}
-                </div>
-              )}
-
+            <div className="space-y-6">
               {/* Product Info Summary */}
-              <div className="mb-6 grid gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 md:grid-cols-4">
+              <div className="grid gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 md:grid-cols-5">
                 <div>
                   <p className="text-xs text-gray-600">Size</p>
                   <p className="mt-1 font-semibold text-gray-900">{data.product.size ?? '—'}</p>
@@ -290,274 +235,60 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                   <p className="text-xs text-gray-600">Category</p>
                   <p className="mt-1 font-semibold text-gray-900">{data.product.category ?? 'Uncategorized'}</p>
                 </div>
+                <div>
+                  <p className="text-xs text-gray-600">Price</p>
+                  <p className="mt-1 font-semibold text-gray-900">
+                    {data.pricing.priceLists.length > 0
+                      ? new Intl.NumberFormat('en-US', {
+                          style: 'currency',
+                          currency: data.pricing.priceLists[0].currency,
+                        }).format(data.pricing.priceLists[0].price)
+                      : '—'}
+                  </p>
+                </div>
               </div>
 
-              {/* Inventory Tab */}
-              {activeTab === 'inventory' && (
-                <div className="space-y-6">
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div className="rounded-lg border border-green-200 bg-green-50 p-4">
-                      <p className="text-sm text-green-800">Total On Hand</p>
-                      <p className="mt-1 text-3xl font-bold text-green-900">{data.inventory.totalOnHand}</p>
-                    </div>
-                    <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
-                      <p className="text-sm text-blue-800">Available to Sell</p>
-                      <p className="mt-1 text-3xl font-bold text-blue-900">{data.inventory.totalAvailable}</p>
-                    </div>
-                  </div>
+              {/* Inventory Section */}
+              <div>
+                <h3 className="mb-4 text-lg font-semibold text-gray-900">Inventory</h3>
 
-                  <div>
-                    <h3 className="mb-3 text-sm font-semibold text-gray-900">Inventory by Location</h3>
-                    <div className="overflow-hidden rounded-lg border border-gray-200">
-                      <table className="min-w-full divide-y divide-gray-200">
-                        <thead className="bg-gray-50">
-                          <tr>
-                            <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-600">Location</th>
-                            <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">On Hand</th>
-                            <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">Allocated</th>
-                            <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">Available</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200 bg-white">
-                          {data.inventory.byLocation.map((loc, idx) => (
-                            <tr key={idx} className="hover:bg-gray-50">
-                              <td className="px-6 py-4 text-sm font-medium text-gray-900">{loc.location}</td>
-                              <td className="px-6 py-4 text-right text-sm text-gray-900">{loc.onHand}</td>
-                              <td className="px-6 py-4 text-right text-sm text-gray-600">{loc.allocated}</td>
-                              <td className="px-6 py-4 text-right text-sm font-semibold text-green-600">
-                                {loc.available}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                <div className="mb-4 grid gap-4 md:grid-cols-2">
+                  <div className="rounded-lg border border-green-200 bg-green-50 p-4">
+                    <p className="text-sm text-green-800">Total On Hand</p>
+                    <p className="mt-1 text-3xl font-bold text-green-900">{data.inventory.totalOnHand}</p>
+                  </div>
+                  <div className="rounded-lg border border-blue-200 bg-blue-50 p-4">
+                    <p className="text-sm text-blue-800">Available to Sell</p>
+                    <p className="mt-1 text-3xl font-bold text-blue-900">{data.inventory.totalAvailable}</p>
                   </div>
                 </div>
-              )}
 
-              {/* Pricing Tab */}
-              {activeTab === 'pricing' && (
-                <div className="space-y-4">
-                  <h3 className="text-sm font-semibold text-gray-900">Price Lists</h3>
-                  <div className="space-y-3">
-                    {data.pricing.priceLists.map((price, idx) => (
-                      <div
-                        key={idx}
-                        className="rounded-lg border border-gray-200 bg-white p-4 hover:border-indigo-300 hover:shadow-md transition"
-                      >
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <h4 className="font-semibold text-gray-900">{price.priceListName}</h4>
-                            <div className="mt-2 flex flex-wrap gap-3 text-xs text-gray-600">
-                              <span>Min Qty: {price.minQuantity}</span>
-                              {price.maxQuantity && <span>Max Qty: {price.maxQuantity}</span>}
-                              {price.effectiveAt && (
-                                <span>Effective: {new Date(price.effectiveAt).toLocaleDateString()}</span>
-                              )}
-                              {price.expiresAt && (
-                                <span>Expires: {new Date(price.expiresAt).toLocaleDateString()}</span>
-                              )}
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <p className="text-2xl font-bold text-gray-900">
-                              {new Intl.NumberFormat('en-US', {
-                                style: 'currency',
-                                currency: price.currency,
-                              }).format(price.price)}
-                            </p>
-                            <p className="text-xs text-gray-600">per unit</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                <div className="overflow-hidden rounded-lg border border-gray-200">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-600">Location</th>
+                        <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">On Hand</th>
+                        <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">Allocated</th>
+                        <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">Available</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 bg-white">
+                      {data.inventory.byLocation.map((loc, idx) => (
+                        <tr key={idx} className="hover:bg-gray-50">
+                          <td className="px-6 py-4 text-sm font-medium text-gray-900">{loc.location}</td>
+                          <td className="px-6 py-4 text-right text-sm text-gray-900">{loc.onHand}</td>
+                          <td className="px-6 py-4 text-right text-sm text-gray-600">{loc.allocated}</td>
+                          <td className="px-6 py-4 text-right text-sm font-semibold text-green-600">
+                            {loc.available}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
-              )}
-
-              {/* Technical Details Tab */}
-              {activeTab === 'technical' && (
-                <div>
-                  <TechnicalDetailsPanel
-                    details={{
-                      abv: data.product.abv ?? undefined,
-                      vintage: data.enrichedData?.wineDetails.ageability,
-                      region: data.enrichedData?.wineDetails.region,
-                      producer: data.enrichedData?.wineDetails.region,
-                      grapeVariety: data.enrichedData?.wineDetails.grape,
-                      style: data.enrichedData?.wineDetails.style,
-                      bottleBarcode: data.product.bottleBarcode ?? undefined,
-                      caseBarcode: data.product.caseBarcode ?? undefined,
-                    }}
-                  />
-                </div>
-              )}
-
-              {/* Tasting Notes Tab */}
-              {activeTab === 'tasting' && data.enrichedData && (
-                <div className="space-y-6">
-                  {/* Description */}
-                  {data.enrichedData.description && (
-                    <div>
-                      <h3 className="mb-3 text-sm font-semibold text-gray-900">Description</h3>
-                      <p className="text-sm leading-relaxed text-gray-700">{data.enrichedData.description}</p>
-                    </div>
-                  )}
-
-                  {/* Tasting Notes */}
-                  <div>
-                    <h3 className="mb-3 text-sm font-semibold text-gray-900">Tasting Notes</h3>
-                    <TastingNotesCard
-                      tastingNotes={{
-                        aroma: data.enrichedData.tastingNotes.aroma,
-                        palate: data.enrichedData.tastingNotes.palate,
-                        finish: data.enrichedData.tastingNotes.finish,
-                        foodPairings: data.enrichedData.foodPairings,
-                      }}
-                    />
-                  </div>
-
-                  {/* Serving Info */}
-                  <div>
-                    <h3 className="mb-3 text-sm font-semibold text-gray-900">Serving Information</h3>
-                    <div className="grid gap-4 md:grid-cols-3">
-                      <div className="rounded-lg border border-gray-200 bg-white p-4">
-                        <div className="mb-2 flex items-center gap-2">
-                          <span className="text-lg">🌡️</span>
-                          <h4 className="text-xs font-semibold uppercase text-gray-600">Temperature</h4>
-                        </div>
-                        <p className="text-sm font-medium text-gray-900">{data.enrichedData.servingInfo.temperature}</p>
-                      </div>
-
-                      <div className="rounded-lg border border-gray-200 bg-white p-4">
-                        <div className="mb-2 flex items-center gap-2">
-                          <span className="text-lg">⏱️</span>
-                          <h4 className="text-xs font-semibold uppercase text-gray-600">Decanting</h4>
-                        </div>
-                        <p className="text-sm font-medium text-gray-900">{data.enrichedData.servingInfo.decanting}</p>
-                      </div>
-
-                      <div className="rounded-lg border border-gray-200 bg-white p-4">
-                        <div className="mb-2 flex items-center gap-2">
-                          <span className="text-lg">🍷</span>
-                          <h4 className="text-xs font-semibold uppercase text-gray-600">Glassware</h4>
-                        </div>
-                        <p className="text-sm font-medium text-gray-900">{data.enrichedData.servingInfo.glassware}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Sales Tab */}
-              {activeTab === 'sales' && (
-                <div className="space-y-6">
-                  {/* Summary Stats */}
-                  <div className="grid gap-4 md:grid-cols-4">
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-xs text-gray-600">Total Orders</p>
-                      <p className="mt-1 text-2xl font-bold text-gray-900">{data.sales.totalOrders}</p>
-                    </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-xs text-gray-600">Units Sold</p>
-                      <p className="mt-1 text-2xl font-bold text-gray-900">{data.sales.totalUnits}</p>
-                    </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-xs text-gray-600">Total Revenue</p>
-                      <p className="mt-1 text-2xl font-bold text-gray-900">
-                        ${data.sales.totalRevenue.toLocaleString()}
-                      </p>
-                    </div>
-                    <div className="rounded-lg border border-gray-200 bg-white p-4">
-                      <p className="text-xs text-gray-600">Avg Order Size</p>
-                      <p className="mt-1 text-2xl font-bold text-gray-900">
-                        {data.sales.avgOrderSize.toFixed(1)}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Top Customers */}
-                  {data.sales.topCustomers.length > 0 && (
-                    <div>
-                      <h3 className="mb-3 text-sm font-semibold text-gray-900">Top Customers for This Product</h3>
-                      <div className="overflow-hidden rounded-lg border border-gray-200">
-                        <table className="min-w-full divide-y divide-gray-200">
-                          <thead className="bg-gray-50">
-                            <tr>
-                              <th className="px-6 py-3 text-left text-xs font-medium uppercase text-gray-600">Customer</th>
-                              <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">Units</th>
-                              <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">Revenue</th>
-                              <th className="px-6 py-3 text-right text-xs font-medium uppercase text-gray-600">Orders</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-gray-200 bg-white">
-                            {data.sales.topCustomers.map((customer) => (
-                              <tr key={customer.customerId} className="hover:bg-gray-50">
-                                <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                                  {customer.customerName}
-                                </td>
-                                <td className="px-6 py-4 text-right text-sm text-gray-900">
-                                  {customer.totalUnits}
-                                </td>
-                                <td className="px-6 py-4 text-right text-sm text-gray-900">
-                                  ${customer.totalRevenue.toFixed(2)}
-                                </td>
-                                <td className="px-6 py-4 text-right text-sm text-gray-900">
-                                  {customer.orderCount}
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Monthly Trend */}
-                  {data.sales.monthlyTrend.length > 0 && (
-                    <div>
-                      <h3 className="mb-3 text-sm font-semibold text-gray-900">Sales Trend (Last 6 Months)</h3>
-                      <div className="space-y-2">
-                        {data.sales.monthlyTrend.map((month) => (
-                          <div
-                            key={month.month}
-                            className="flex items-center justify-between rounded-lg border border-gray-200 bg-white px-4 py-3"
-                          >
-                            <span className="text-sm font-medium text-gray-900">{month.month}</span>
-                            <div className="flex items-center gap-4 text-sm">
-                              <span className="text-gray-600">{month.units} units</span>
-                              <span className="text-gray-600">{month.orders} orders</span>
-                              <span className="font-semibold text-gray-900">
-                                ${month.revenue.toFixed(2)}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* AI Insights */}
-              {data.insights.length > 0 && (
-                <div className="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-4">
-                  <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold text-blue-900">
-                    <span>💡</span>
-                    <span>Insights</span>
-                  </h3>
-                  <ul className="space-y-2 text-sm text-blue-800">
-                    {data.insights.map((insight, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="mt-0.5 text-blue-600">•</span>
-                        <span>{insight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </>
+              </div>
+            </div>
           )}
         </div>
 
@@ -575,88 +306,4 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
       </div>
     </div>
   );
-}
-
-function buildFieldSections(fields: CatalogFieldDefinition[]) {
-  if (!fields.length) return [];
-
-  const groups = new Map<string, CatalogFieldDefinition[]>();
-  fields
-    .filter((field) => field.visible)
-    .forEach((field) => {
-      const title = field.section ?? defaultSectionLabel(field.scope);
-      if (!title) return;
-      const existing = groups.get(title) ?? [];
-      existing.push(field);
-      groups.set(title, existing);
-    });
-
-  return Array.from(groups.entries()).map(([title, groupedFields]) => ({
-    title,
-    fields: groupedFields.sort((a, b) => {
-      if (a.displayOrder === b.displayOrder) {
-        return a.label.localeCompare(b.label);
-      }
-      return (a.displayOrder ?? 0) - (b.displayOrder ?? 0);
-    }),
-  }));
-}
-
-function defaultSectionLabel(scope: string) {
-  switch (scope) {
-    case "PRODUCT":
-      return "Product Details";
-    case "PRICING":
-      return "Pricing";
-    case "INVENTORY":
-      return "Inventory";
-    case "SALES":
-      return "Sales";
-    default:
-      return "Details";
-  }
-}
-
-function renderFieldValue(field: CatalogFieldDefinition, data: ProductDetails) {
-  const root: Record<string, unknown> = {
-    product: data.product,
-    inventory: {
-      ...data.inventory,
-      available: data.inventory.totalAvailable,
-      onHand: data.inventory.totalOnHand,
-    },
-    pricing: {
-      priceLists: data.pricing.priceLists,
-      frontline: data.pricing.priceLists.reduce<number | null>((acc, priceList) => {
-        if (acc === null) return priceList.price;
-        return Math.min(acc, priceList.price);
-      }, null),
-    },
-    sales: data.sales,
-  };
-
-  const value = field.key.split(".").reduce<unknown>((current, segment) => {
-    if (current && typeof current === "object") {
-      return (current as Record<string, unknown>)[segment];
-    }
-    return undefined;
-  }, root);
-
-  if (value === null || value === undefined || value === "") {
-    return "—";
-  }
-
-  if (typeof value === "number") {
-    return value.toLocaleString();
-  }
-
-  if (typeof value === "boolean") {
-    return value ? "Yes" : "No";
-  }
-
-  if (Array.isArray(value)) {
-    return value.length ? value.join(", ") : "—";
-  }
-
-  return String(value);
 }
