@@ -657,6 +657,9 @@ function NewOrderPageContent() {
       ? orderTotal < minimumOrderThreshold
       : false;
 
+  const hasLowInventoryItems = orderItems.some(
+    (item) => item.inventoryStatus && !item.inventoryStatus.sufficient
+  );
   const lineLevelApproval = orderItems.some(
     (item) =>
       (item.inventoryStatus && !item.inventoryStatus.sufficient) ||
@@ -1129,7 +1132,7 @@ function NewOrderPageContent() {
           onRemoveItem={(skuId) => {
             setOrderItems(orderItems.filter(item => item.skuId !== skuId));
           }}
-          requiresApproval={requiresApproval}
+          requiresApproval={hasLowInventoryItems}
           minimumOrderThreshold={minimumOrderThreshold}
           minimumOrderViolation={minimumOrderViolation}
           minimumOrderShortfall={minimumOrderShortfall}
