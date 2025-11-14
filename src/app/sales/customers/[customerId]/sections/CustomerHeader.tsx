@@ -50,6 +50,10 @@ type CustomerHeaderProps = {
     isPermanentlyClosed: boolean;
     closedReason: string | null;
     firstOrderDate?: string | null;
+    type?: string | null;
+    volumeCapacity?: string | null;
+    deliveryMethod?: string | null;
+    deliveryWindows?: string[];
   };
   onAddOrder?: () => void;
   metrics?: {
@@ -641,9 +645,9 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
         </div>
       </div>
 
-      {/* Bottom Row: Contact Info + Account Details Grid */}
+      {/* Bottom Row: Expanded Info Grid (6 columns) */}
       <div className="px-6 py-4 bg-slate-50">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-sm">
           {/* Contact Information */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
@@ -651,13 +655,13 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
             </p>
             {customer.phone && (
               <div className="text-gray-900">
-                <a href={`tel:${customer.phone}`} className="text-blue-600 hover:underline">
+                <a href={`tel:${customer.phone}`} className="text-blue-600 hover:underline text-xs">
                   {customer.phone}
                 </a>
               </div>
             )}
             {customer.billingEmail && (
-              <div className="text-gray-600 truncate">
+              <div className="text-gray-600 truncate text-xs">
                 <a href={`mailto:${customer.billingEmail}`} className="hover:underline">
                   {customer.billingEmail}
                 </a>
@@ -675,26 +679,72 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
             </div>
           </div>
 
+          {/* Classification */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
+              Classification
+            </p>
+            <div className="text-gray-600 text-xs space-y-0.5">
+              {customer.type && (
+                <div>
+                  <span className="text-gray-500">Type:</span> <span className="font-medium text-gray-900">{customer.type}</span>
+                </div>
+              )}
+              {customer.volumeCapacity && (
+                <div>
+                  <span className="text-gray-500">Volume:</span> <span className="font-medium text-gray-900">{customer.volumeCapacity}</span>
+                </div>
+              )}
+              {!customer.type && !customer.volumeCapacity && (
+                <span className="text-gray-400 italic">Not set</span>
+              )}
+            </div>
+          </div>
+
+          {/* Delivery */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
+              Delivery
+            </p>
+            <div className="text-gray-600 text-xs space-y-0.5">
+              {customer.deliveryMethod && (
+                <div>
+                  <span className="text-gray-500">Method:</span> <span className="font-medium text-gray-900">{customer.deliveryMethod}</span>
+                </div>
+              )}
+              {customer.deliveryWindows && customer.deliveryWindows.length > 0 && (
+                <div>
+                  <span className="text-gray-500">Window:</span> <span className="font-medium text-gray-900">{customer.deliveryWindows[0]}</span>
+                </div>
+              )}
+              {!customer.deliveryMethod && !customer.deliveryWindows?.length && (
+                <span className="text-gray-400 italic">Not set</span>
+              )}
+            </div>
+          </div>
+
           {/* Account Numbers */}
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
               Account IDs
             </p>
-            {customer.accountNumber && (
-              <div className="text-gray-600">
-                <span className="text-gray-500">Acct:</span> <span className="font-mono text-xs">{customer.accountNumber}</span>
-              </div>
-            )}
-            {customer.externalId && (
-              <div className="text-gray-600">
-                <span className="text-gray-500">Ext:</span> <span className="font-mono text-xs">{customer.externalId}</span>
-              </div>
-            )}
-            {customer.licenseNumber && (
-              <div className="text-gray-600">
-                <span className="text-gray-500">Lic:</span> <span className="font-mono text-xs">{customer.licenseNumber}</span>
-              </div>
-            )}
+            <div className="text-gray-600 text-xs space-y-0.5">
+              {customer.accountNumber && (
+                <div>
+                  <span className="text-gray-500">Acct:</span> <span className="font-mono">{customer.accountNumber}</span>
+                </div>
+              )}
+              {customer.externalId && (
+                <div>
+                  <span className="text-gray-500">Ext:</span> <span className="font-mono">{customer.externalId}</span>
+                </div>
+              )}
+              {customer.licenseNumber && (
+                <div>
+                  <span className="text-gray-500">Lic:</span> <span className="font-mono">{customer.licenseNumber}</span>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Performance Summary */}
@@ -703,14 +753,14 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
               <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
                 Performance
               </p>
-              <div className="text-gray-600 space-y-0.5">
+              <div className="text-gray-600 text-xs space-y-0.5">
                 <div>
                   <span className="text-gray-500">AOV:</span> <span className="font-medium text-gray-900">{formatCurrency(metrics.avgOrderValue, 'USD')}</span>
                 </div>
                 {metrics.lastOrderDate && (
-                  <div className="text-xs">
-                    Last order: {formatShortDate(metrics.lastOrderDate)}
-                    {metrics.daysSinceLastOrder && ` (${metrics.daysSinceLastOrder}d ago)`}
+                  <div>
+                    Last: {formatShortDate(metrics.lastOrderDate)}
+                    {metrics.daysSinceLastOrder && ` (${metrics.daysSinceLastOrder}d)`}
                   </div>
                 )}
               </div>

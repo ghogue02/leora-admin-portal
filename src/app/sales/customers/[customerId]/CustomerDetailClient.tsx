@@ -180,7 +180,13 @@ export default function CustomerDetailClientV2({
 
       {/* ALWAYS VISIBLE: Critical Information */}
       <CustomerHeader
-        customer={data.customer}
+        customer={{
+          ...data.customer,
+          type: data.customer.type ?? null,
+          volumeCapacity: data.customer.volumeCapacity ?? null,
+          deliveryMethod: data.customer.deliveryMethod ?? null,
+          deliveryWindows: data.customer.deliveryWindows ?? [],
+        }}
         onAddOrder={handleAddOrderClick}
         metrics={{
           ytdRevenue: data.metrics.ytdRevenue,
@@ -249,26 +255,6 @@ export default function CustomerDetailClientV2({
               </div>
             </div>
 
-            {/* Customer Info Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <CollapsibleSection title="Classification" defaultOpen={true}>
-                <CustomerClassificationCard
-                  customerId={customerId}
-                  type={data.customer.type ?? null}
-                  volumeCapacity={data.customer.volumeCapacity ?? null}
-                  featurePrograms={data.customer.featurePrograms ?? []}
-                />
-              </CollapsibleSection>
-              <CollapsibleSection title="Delivery Preferences" defaultOpen={true}>
-                <DeliveryPreferences
-                  deliveryInstructions={data.customer.deliveryInstructions ?? null}
-                  deliveryWindows={data.customer.deliveryWindows ?? []}
-                  paymentMethod={data.customer.paymentMethod ?? null}
-                  deliveryMethod={data.customer.deliveryMethod ?? null}
-                  warehouseLocation={data.customer.defaultWarehouseLocation ?? null}
-                />
-              </CollapsibleSection>
-            </div>
           </>
         )}
 
