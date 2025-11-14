@@ -533,9 +533,9 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
               >
                 <DialogTrigger asChild>
                   <button
-                    className="inline-flex items-center gap-1.5 rounded-md border border-purple-200 bg-purple-50 px-3 py-1.5 text-xs font-semibold text-purple-700 transition hover:bg-purple-100"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
                   >
-                    ✓ Add To-Do
+                    Add To-Do
                   </button>
                 </DialogTrigger>
 
@@ -630,16 +630,6 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
                   </form>
                 </DialogContent>
               </Dialog>
-
-              {!customer.isPermanentlyClosed && (
-                <button
-                  onClick={handleMarkClosed}
-                  disabled={isClosing}
-                  className="inline-flex items-center gap-1.5 rounded-md border border-rose-200 bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-700 transition hover:bg-rose-100 disabled:opacity-50"
-                >
-                  🔒 {isClosing ? "Processing..." : "Mark Closed"}
-                </button>
-              )}
             </div>
           </div>
         </div>

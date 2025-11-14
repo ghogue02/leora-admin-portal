@@ -1,13 +1,14 @@
 /**
  * Seed Activity Types
  *
- * Creates the 6 required activity types for the sales system:
+ * Creates the 7 required activity types for the sales system:
  * 1. In-Person Visit (in_person)
  * 2. Tasting Appointment (in_person)
  * 3. Public Tasting Event (in_person)
  * 4. Follow-up - Phone Call (electronic)
  * 5. Follow-up - Email (electronic)
  * 6. Follow-up - Text Message (electronic)
+ * 7. Major Change (special)
  *
  * Note: The ActivityType model does not currently have a 'category' field.
  * The category is encoded in the description field for now.
@@ -68,6 +69,11 @@ const ACTIVITY_TYPES = [
     code: "text",
     name: "Follow-up - Text Message",
     description: "Text message follow-up (category: electronic)",
+  },
+  {
+    code: "MAJOR_CHANGE",
+    name: "Major Change",
+    description: "Significant account changes or permanent notes that should be highlighted at the top of the customer page (category: special)",
   },
 ];
 

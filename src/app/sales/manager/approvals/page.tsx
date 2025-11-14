@@ -16,6 +16,8 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { Clock, DollarSign, AlertTriangle, CheckCircle } from 'lucide-react';
+import type { OrderApprovalReason } from '@/types/orders';
+import { formatCurrency } from '@/lib/format';
 
 type ApprovalOrder = {
   id: string;
@@ -45,6 +47,11 @@ type ApprovalOrder = {
       shortfall: number;
     };
   }>;
+  approvalReasons: OrderApprovalReason[];
+  minimumOrder?: {
+    threshold: number | null;
+    violation: boolean;
+  };
 };
 
 export default function ManagerApprovalsPage() {
@@ -283,15 +290,42 @@ export default function ManagerApprovalsPage() {
                     {order.warehouseLocation && ` • Warehouse: ${order.warehouseLocation}`}
                   </p>
                 </div>
-                <div className="text-right">
-                  <p className="text-xl font-bold text-gray-900">
-                    ${order.total.toFixed(2)}
-                  </p>
-                  <p className="text-xs text-gray-500">
-                    Created {new Date(order.createdAt).toLocaleDateString()}
-                  </p>
-                </div>
+              <div className="text-right">
+                <p className="text-xl font-bold text-gray-900">
+                  ${order.total.toFixed(2)}
+                </p>
+                <p className="text-xs text-gray-500">
+                  Created {new Date(order.createdAt).toLocaleDateString()}
+                </p>
               </div>
+            </div>
+
+              {(order.approvalReasons?.length ?? 0) > 0 && (
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {order.approvalReasons.map((reason, idx) => {
+                    const key = `${order.id}-${reason.code}-${idx}`;
+                    let label = reason.summary;
+                    if (reason.code === 'MIN_ORDER' && order.minimumOrder?.threshold) {
+                      label = `Min order (${formatCurrency(order.minimumOrder.threshold)})`;
+                    } else if (reason.code === 'INVENTORY') {
+                      label = 'Inventory shortfall';
+                    } else if (reason.code === 'PRICING_OVERRIDE') {
+                      label = 'Price list override';
+                    } else if (reason.code === 'MANUAL_PRICE') {
+                      label = 'Manual pricing';
+                    }
+
+                    return (
+                      <span
+                        key={key}
+                        className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800"
+                      >
+                        {label}
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
 
               {/* Order Lines with Inventory Status */}
               <div className="mb-4 space-y-2">

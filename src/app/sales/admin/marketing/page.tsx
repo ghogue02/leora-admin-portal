@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { ResponsiveChartContainer } from '@/components/ui/responsive-chart-container';
 import {
   Mail,
   TrendingUp,
@@ -260,29 +261,33 @@ export default function MarketingAdminPage() {
               <CardDescription>Monthly subscriber and campaign trends</CardDescription>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <AreaChart data={mockGrowthData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="month" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Area
-                    type="monotone"
-                    dataKey="subscribers"
-                    stroke="#7c3aed"
-                    fill="#7c3aed"
-                    fillOpacity={0.6}
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="campaigns"
-                    stroke="#3b82f6"
-                    fill="#3b82f6"
-                    fillOpacity={0.6}
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
+              <ResponsiveChartContainer minHeight={320}>
+                {({ height, isCompact }) => (
+                  <ResponsiveContainer width="100%" height={height}>
+                    <AreaChart data={mockGrowthData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="month" />
+                      <YAxis />
+                      <Tooltip />
+                      {!isCompact && <Legend />}
+                      <Area
+                        type="monotone"
+                        dataKey="subscribers"
+                        stroke="#7c3aed"
+                        fill="#7c3aed"
+                        fillOpacity={0.6}
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="campaigns"
+                        stroke="#3b82f6"
+                        fill="#3b82f6"
+                        fillOpacity={0.6}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                )}
+              </ResponsiveChartContainer>
             </CardContent>
           </Card>
         </TabsContent>
@@ -294,18 +299,22 @@ export default function MarketingAdminPage() {
               <CardDescription>Opens, clicks, and conversions by campaign</CardDescription>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={mockPerformanceData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="campaign" />
-                  <YAxis />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="opens" fill="#7c3aed" />
-                  <Bar dataKey="clicks" fill="#3b82f6" />
-                  <Bar dataKey="conversions" fill="#10b981" />
-                </BarChart>
-              </ResponsiveContainer>
+              <ResponsiveChartContainer minHeight={320}>
+                {({ height, isCompact }) => (
+                  <ResponsiveContainer width="100%" height={height}>
+                    <BarChart data={mockPerformanceData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="campaign" />
+                      <YAxis />
+                      <Tooltip />
+                      {!isCompact && <Legend />}
+                      <Bar dataKey="opens" fill="#7c3aed" />
+                      <Bar dataKey="clicks" fill="#3b82f6" />
+                      <Bar dataKey="conversions" fill="#10b981" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                )}
+              </ResponsiveChartContainer>
             </CardContent>
           </Card>
         </TabsContent>

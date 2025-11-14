@@ -101,6 +101,8 @@ const ALLOWED_CUSTOMER_FIELDS = [
   'type',
   'volumeCapacity',
   'featurePrograms',
+  'minimumOrderOverride',
+  'minimumOrderOverrideNotes',
 ] as const satisfies readonly (keyof Prisma.CustomerUpdateInput)[];
 
 type AllowedCustomerField = (typeof ALLOWED_CUSTOMER_FIELDS)[number];
@@ -323,6 +325,15 @@ export async function PUT(
       }
 
       const updateData: Prisma.CustomerUpdateInput = {};
+      let overrideMetadataTouched = false;
+      const markOverrideUpdated = () => {
+        if (overrideMetadataTouched) {
+          return;
+        }
+        overrideMetadataTouched = true;
+        updateData.minimumOrderOverrideUpdatedAt = new Date();
+        updateData.minimumOrderOverrideUpdatedBy = context.user.id;
+      };
 
       if (Object.prototype.hasOwnProperty.call(body, 'deliveryWindows')) {
         const windowsResult = sanitizeDeliveryWindows(body.deliveryWindows);
@@ -367,6 +378,44 @@ export async function PUT(
             .filter((program, index, arr) => program.length && arr.indexOf(program) === index);
 
           updateData.featurePrograms = cleanedPrograms as FeatureProgram[];
+          continue;
+        }
+
+        if (field === 'minimumOrderOverride') {
+          if (value === null || value === '') {
+            updateData.minimumOrderOverride = null;
+            markOverrideUpdated();
+            continue;
+          }
+
+          const numericValue =
+            typeof value === 'number'
+              ? value
+              : typeof value === 'string'
+              ? Number(value)
+              : NaN;
+
+          if (!Number.isFinite(numericValue) || numericValue < 0) {
+            return NextResponse.json(
+              { error: 'minimumOrderOverride must be a positive number or null' },
+              { status: 400 },
+            );
+          }
+
+          updateData.minimumOrderOverride = new Prisma.Decimal(numericValue);
+          markOverrideUpdated();
+          continue;
+        }
+
+        if (field === 'minimumOrderOverrideNotes') {
+          if (value !== null && typeof value !== 'string') {
+            return NextResponse.json(
+              { error: 'minimumOrderOverrideNotes must be a string or null' },
+              { status: 400 },
+            );
+          }
+          updateData.minimumOrderOverrideNotes = value as string | null;
+          markOverrideUpdated();
           continue;
         }
 

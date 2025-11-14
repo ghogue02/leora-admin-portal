@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { withSalesSession } from "@/lib/auth/sales";
 import { subMonths } from "date-fns";
+import { ProductFieldScope } from "@prisma/client";
+
+import { withSalesSession } from "@/lib/auth/sales";
+import { getTenantProductFieldConfig } from "@/lib/product-fields/config";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ skuId: string }> }
+  { params }: { params: Promise<{ skuId: string }> },
 ) {
   return withSalesSession(
     request,
@@ -55,6 +58,7 @@ export async function GET(
         priceListData,
         orderLinesData,
         monthlyTrendData,
+        fieldConfig,
       ] = await Promise.all([
         // Inventory by location
         db.inventory.findMany({
@@ -129,6 +133,14 @@ export async function GET(
           GROUP BY DATE_TRUNC('month', o."orderedAt")
           ORDER BY month DESC
         `,
+        getTenantProductFieldConfig(tenantId, {
+          scopes: [
+            ProductFieldScope.PRODUCT,
+            ProductFieldScope.PRICING,
+            ProductFieldScope.INVENTORY,
+            ProductFieldScope.SALES,
+          ],
+        }),
       ]);
 
       // Calculate inventory totals
@@ -294,6 +306,7 @@ export async function GET(
           }
         } : {}),
         insights,
+        fields: fieldConfig,
       };
 
       return NextResponse.json(details);

@@ -1,37 +1,17 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useToast } from "../../_components/ToastProvider";
 import Link from "next/link";
 
-type CatalogItem = {
-  skuId: string;
-  skuCode: string;
-  productName: string;
-  brand: string | null;
-  category: string | null;
-  unitOfMeasure: string | null;
-  size: string | null;
-  priceLists: Array<{
-    priceListId: string;
-    priceListName: string;
-    price: number;
-    currency: string;
-    minQuantity: number;
-    maxQuantity: number | null;
-  }>;
-  inventory: {
-    totals: {
-      onHand: number;
-      available: number;
-    };
-  };
-};
+import { useToast } from "../../_components/ToastProvider";
 
-type CatalogResponse = {
-  items: CatalogItem[];
-};
+import type {
+  CatalogFacets,
+  CatalogItem,
+  CatalogResponse,
+} from "@/types/catalog";
 
+type CatalogMeta = CatalogResponse["meta"];
 type SortOption = "priority" | "availability" | "az";
 
 export default function CatalogGrid() {
@@ -45,8 +25,19 @@ export default function CatalogGrid() {
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>("priority");
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
+  const [facets, setFacets] = useState<CatalogFacets | null>(null);
+  const [fields, setFields] = useState<CatalogResponse["fields"] | null>(null);
+  const [meta, setMeta] = useState<CatalogMeta | null>(null);
+  const [selectedLifecycle, setSelectedLifecycle] = useState<string[]>([]);
+  const [minAvailable, setMinAvailable] = useState<number | undefined>(undefined);
+  const [page, setPage] = useState(1);
+  const [pageSize] = useState(24);
 
   const { pushToast } = useToast();
+
+  useEffect(() => {
+    setPage(1);
+  }, [search, selectedCategories, selectedBrands, selectedLifecycle, priceListFilter, onlyInStock, sortOption, minAvailable]);
 
   useEffect(() => {
     let isMounted = true;
@@ -56,7 +47,25 @@ export default function CatalogGrid() {
       setError(null);
 
       try {
-        const response = await fetch("/api/portal/catalog", { cache: "no-store" });
+        const params = new URLSearchParams();
+        if (search.trim()) params.set("q", search.trim());
+        selectedCategories.forEach((category) => params.append("category", category));
+        selectedBrands.forEach((brand) => params.append("brand", brand));
+        selectedLifecycle.forEach((status) => params.append("lifecycle", status));
+        if (priceListFilter !== "all") params.set("priceListId", priceListFilter);
+        if (onlyInStock) params.set("onlyInStock", "true");
+        if (sortOption && sortOption !== "priority") params.set("sort", sortOption);
+        if (typeof minAvailable === "number" && !Number.isNaN(minAvailable)) {
+          params.set("minAvailable", String(minAvailable));
+        }
+        params.set("page", page.toString());
+        params.set("pageSize", pageSize.toString());
+
+        const queryString = params.toString();
+        const response = await fetch(
+          `/api/portal/catalog${queryString ? `?${queryString}` : ""}`,
+          { cache: "no-store" },
+        );
         if (!response.ok) {
           const body = (await response.json().catch(() => ({}))) as { error?: string };
           throw new Error(body.error ?? "Unable to load catalog.");
@@ -65,6 +74,12 @@ export default function CatalogGrid() {
         const payload = (await response.json()) as CatalogResponse;
         if (isMounted) {
           setItems(payload.items);
+          setFacets(payload.facets);
+          setFields(payload.fields ?? null);
+          setMeta(payload.meta ?? null);
+          if (payload.meta?.page && payload.meta.page !== page) {
+            setPage(payload.meta.page);
+          }
           setQuantityBySku(
             payload.items.reduce<Record<string, number>>((acc, item) => {
               const primaryPrice = getPrimaryPrice(item, "all");
@@ -89,25 +104,26 @@ export default function CatalogGrid() {
     return () => {
       isMounted = false;
     };
-  }, []);
-
-  const categoryOptions = useMemo(() => {
-    const set = new Set<string>();
-    items.forEach((item) => {
-      if (item.category) set.add(item.category);
-    });
-    return Array.from(set.values()).sort((a, b) => a.localeCompare(b));
-  }, [items]);
-
-  const brandOptions = useMemo(() => {
-    const set = new Set<string>();
-    items.forEach((item) => {
-      if (item.brand) set.add(item.brand);
-    });
-    return Array.from(set.values()).sort((a, b) => a.localeCompare(b));
-  }, [items]);
+  }, [
+    search,
+    selectedCategories,
+    selectedBrands,
+    selectedLifecycle,
+    priceListFilter,
+    onlyInStock,
+    sortOption,
+    minAvailable,
+    page,
+    pageSize,
+  ]);
 
   const priceListOptions = useMemo(() => {
+    if (facets?.priceLists) {
+      return facets.priceLists.map((bucket) => ({
+        id: bucket.value,
+        name: bucket.label,
+      }));
+    }
     const map = new Map<string, string>();
     items.forEach((item) => {
       item.priceLists.forEach((price) => {
@@ -117,7 +133,50 @@ export default function CatalogGrid() {
     return Array.from(map.entries())
       .map(([id, name]) => ({ id, name }))
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [items]);
+  }, [facets, items]);
+
+  const filterSections = useMemo(() => {
+    if (!fields || !facets) return [];
+    return fields
+      .filter((field) => field.filterable)
+      .map((field) => {
+        if (field.key === "product.brand") {
+          return {
+            field,
+            facets: facets.brands ?? [],
+            selected: selectedBrands,
+            toggle: (value: string) =>
+              setSelectedBrands((prev) =>
+                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value],
+              ),
+          };
+        }
+        if (field.key === "product.category") {
+          return {
+            field,
+            facets: facets.categories ?? [],
+            selected: selectedCategories,
+            toggle: (value: string) =>
+              setSelectedCategories((prev) =>
+                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value],
+              ),
+          };
+        }
+        if (field.key === "product.lifecycleStatus") {
+          return {
+            field,
+            facets: facets.lifecycle ?? [],
+            selected: selectedLifecycle,
+            toggle: (value: string) =>
+              setSelectedLifecycle((prev) =>
+                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value],
+              ),
+          };
+        }
+        return null;
+      })
+      .filter((section): section is NonNullable<typeof section> => Boolean(section) && section.facets.length > 0);
+  }, [fields, facets, selectedBrands, selectedCategories, selectedLifecycle]);
 
   const filteredItems = useMemo(() => {
     const normalizedSearch = search.trim().toLowerCase();
@@ -131,10 +190,13 @@ export default function CatalogGrid() {
     };
 
     const matchesCategory = (item: CatalogItem) =>
-      selectedCategories.length === 0 || (item.category && selectedCategories.includes(item.category));
+      selectedCategories.length === 0 || selectedCategories.includes(item.category ?? "");
 
     const matchesBrand = (item: CatalogItem) =>
-      selectedBrands.length === 0 || (item.brand && selectedBrands.includes(item.brand));
+      selectedBrands.length === 0 || selectedBrands.includes(item.brand ?? "");
+
+    const matchesLifecycle = (item: CatalogItem) =>
+      selectedLifecycle.length === 0 || selectedLifecycle.includes(item.lifecycleStatus ?? "Uncategorized");
 
     const matchesPriceList = (item: CatalogItem) =>
       priceListFilter === "all" || item.priceLists.some((price) => price.priceListId === priceListFilter);
@@ -146,10 +208,11 @@ export default function CatalogGrid() {
         matchesSearch(item) &&
         matchesCategory(item) &&
         matchesBrand(item) &&
+        matchesLifecycle(item) &&
         matchesPriceList(item) &&
         matchesStock(item),
     );
-  }, [items, search, selectedCategories, selectedBrands, priceListFilter, onlyInStock]);
+  }, [items, search, selectedCategories, selectedBrands, selectedLifecycle, priceListFilter, onlyInStock]);
 
   const sortedItems = useMemo(() => {
     const sorted = [...filteredItems];
@@ -161,7 +224,15 @@ export default function CatalogGrid() {
     return sorted;
   }, [filteredItems, sortOption]);
 
-  const totalFiltered = sortedItems.length;
+  const totalFiltered = meta?.total ?? sortedItems.length;
+  const totalPages = useMemo(() => {
+    if (!meta?.total || !meta.pageSize) {
+      return Math.max(1, Math.ceil(totalFiltered / pageSize));
+    }
+    return Math.max(1, Math.ceil(meta.total / meta.pageSize));
+  }, [meta, pageSize, totalFiltered]);
+  const canGoPrev = page > 1;
+  const canGoNext = page < totalPages;
 
   const handleQuantityChange = useCallback((skuId: string, value: string) => {
     const parsed = Number.parseInt(value, 10);
@@ -184,9 +255,12 @@ export default function CatalogGrid() {
   const handleClearFilters = useCallback(() => {
     setSelectedCategories([]);
     setSelectedBrands([]);
+    setSelectedLifecycle([]);
     setPriceListFilter("all");
     setOnlyInStock(false);
     setSortOption("priority");
+    setMinAvailable(undefined);
+    setPage(1);
   }, []);
 
   // Cart system removed - catalog is now view-only
@@ -208,7 +282,7 @@ export default function CatalogGrid() {
           </label>
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500 md:w-auto">
             <span>
-              Showing {totalFiltered} of {items.length} SKUs
+              Showing {items.length} of {totalFiltered} SKUs
             </span>
             <button
               type="button"
@@ -221,66 +295,6 @@ export default function CatalogGrid() {
         </div>
 
         <form className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm" aria-label="Catalog filters">
-          <fieldset className="flex flex-wrap items-center gap-3">
-            <legend className="text-xs font-semibold uppercase tracking-wide text-gray-500">Categories</legend>
-            {categoryOptions.length === 0 ? (
-              <span className="text-xs text-gray-400">No categories yet</span>
-            ) : (
-              categoryOptions.map((category) => {
-                const active = selectedCategories.includes(category);
-                return (
-                  <button
-                    key={category}
-                    type="button"
-                    onClick={() =>
-                      setSelectedCategories((prev) =>
-                        active ? prev.filter((item) => item !== category) : [...prev, category],
-                      )
-                    }
-                    className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
-                      active
-                        ? "border-gray-900 bg-gray-900 text-white"
-                        : "border-slate-300 bg-white text-gray-700 hover:border-gray-900/40"
-                    }`}
-                    aria-pressed={active}
-                  >
-                    {category}
-                  </button>
-                );
-              })
-            )}
-          </fieldset>
-
-          <fieldset className="flex flex-wrap items-center gap-3">
-            <legend className="text-xs font-semibold uppercase tracking-wide text-gray-500">Brands</legend>
-            {brandOptions.length === 0 ? (
-              <span className="text-xs text-gray-400">No brands yet</span>
-            ) : (
-              brandOptions.map((brand) => {
-                const active = selectedBrands.includes(brand);
-                return (
-                  <button
-                    key={brand}
-                    type="button"
-                    onClick={() =>
-                      setSelectedBrands((prev) =>
-                        active ? prev.filter((item) => item !== brand) : [...prev, brand],
-                      )
-                    }
-                    className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
-                      active
-                        ? "border-gray-900 bg-gray-900 text-white"
-                        : "border-slate-300 bg-white text-gray-700 hover:border-gray-900/40"
-                    }`}
-                    aria-pressed={active}
-                  >
-                    {brand}
-                  </button>
-                );
-              })
-            )}
-          </fieldset>
-
           <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-gray-600">
             <label className="flex items-center gap-2">
               <span className="uppercase tracking-wide text-gray-500">Price list</span>
@@ -320,8 +334,79 @@ export default function CatalogGrid() {
                 <option value="az">A → Z</option>
               </select>
             </label>
+
+            <label className="flex items-center gap-2">
+              <span className="uppercase tracking-wide text-gray-500">Min Inventory</span>
+              <input
+                type="number"
+                min={0}
+                value={minAvailable ?? ""}
+                onChange={(event) => {
+                  const next = event.target.value;
+                  setMinAvailable(next === "" ? undefined : Number(next));
+                }}
+                className="w-24 rounded-md border border-gray-300 px-2 py-1 text-sm focus:border-gray-500 focus:outline-none"
+              />
+            </label>
           </div>
         </form>
+
+        <div className="flex flex-wrap items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-gray-600">
+          <span>
+            Page {page} of {totalPages}
+          </span>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+              disabled={!canGoPrev}
+              className="rounded-md border border-gray-300 px-3 py-1 font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              onClick={() => setPage((prev) => prev + 1)}
+              disabled={!canGoNext}
+              className="rounded-md border border-gray-300 px-3 py-1 font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        {filterSections.length > 0 && (
+          <div className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            {filterSections.map((section) => (
+              <fieldset key={section.field.id} className="space-y-2">
+                <legend className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  {section.field.label}
+                </legend>
+                <div className="flex flex-wrap gap-2">
+                  {section.facets.map((bucket) => {
+                    const active = section.selected.includes(bucket.value);
+                    return (
+                      <button
+                        type="button"
+                        key={bucket.value}
+                        onClick={() => section.toggle(bucket.value)}
+                        className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+                          active
+                            ? "border-gray-900 bg-gray-900 text-white"
+                            : "border-slate-300 bg-white text-gray-700 hover:border-gray-900/40"
+                        }`}
+                        aria-pressed={active}
+                      >
+                        {bucket.label}
+                        <span className="ml-1 text-[10px] text-gray-500">({bucket.count})</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </fieldset>
+            ))}
+          </div>
+        )}
       </div>
 
      {loading ? (

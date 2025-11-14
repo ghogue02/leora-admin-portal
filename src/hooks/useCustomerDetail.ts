@@ -39,7 +39,6 @@ interface CustomerDetailData {
     accountPriority: AccountPriority | null;
     accountPriorityManuallySet: boolean;
     accountPriorityAutoAssignedAt: string | null;
-    accountPriority: AccountPriority | null;
     address: {
       street1: string | null;
       street2: string | null;
@@ -117,6 +116,39 @@ interface CustomerDetailData {
     salesRepName: string;
   }>;
   activities: Array<{
+    id: string;
+    type: string;
+    typeCode: string;
+    subject: string;
+    notes: string | null;
+    occurredAt: string;
+    followUpAt: string | null;
+    outcome: string | null;
+    outcomes: string[];
+    userName: string;
+    relatedOrder: {
+      id: string;
+      orderedAt: string | null;
+      total: number;
+    } | null;
+    samples: Array<{
+      id: string;
+      skuId: string;
+      sampleListItemId: string | null;
+      feedback: string;
+      followUpNeeded: boolean;
+      followUpCompletedAt: string | null;
+      sku: {
+        id: string;
+        code: string;
+        name: string | null;
+        brand: string | null;
+        unitOfMeasure: string | null;
+        size: string | null;
+      } | null;
+    }>;
+  }>;
+  majorChanges: Array<{
     id: string;
     type: string;
     typeCode: string;

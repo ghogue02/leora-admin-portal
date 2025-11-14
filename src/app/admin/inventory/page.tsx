@@ -12,6 +12,7 @@ import {
   AlertCircle,
   CheckCircle2,
   XCircle,
+  Download,
 } from "lucide-react";
 import { useRealtimeChannel } from "@/hooks/useRealtimeChannel";
 import { tryGetTenantChannelName } from "@/lib/realtime/channels";
@@ -19,6 +20,7 @@ import {
   INVENTORY_STOCK_CHANGED_EVENT,
   type InventoryStockChangedEvent,
 } from "@/lib/realtime/events/inventory";
+import { toastError, toastInfo, toastSuccess } from "../components/Toast";
 
 type InventoryStatus = "in_stock" | "low_stock" | "out_of_stock";
 
@@ -64,6 +66,7 @@ export default function InventoryListPage() {
   const [sortBy, setSortBy] = useState("productName");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [showFilters, setShowFilters] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
 
   // Bulk actions
   const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set());
@@ -75,24 +78,45 @@ export default function InventoryListPage() {
   const page = pagination.page;
   const limit = pagination.limit;
 
-  const fetchInventory = useCallback(async () => {
-    setLoading(true);
-    try {
+  const buildQueryParams = useCallback(
+    (overrides?: { page?: number; limit?: number }) => {
       const params = new URLSearchParams({
-        page: page.toString(),
-        limit: limit.toString(),
-        ...(search && { search }),
-        ...(selectedCategory && { category: selectedCategory }),
-        ...(selectedBrand && { brand: selectedBrand }),
-        ...(statusFilters.length > 0 && { status: statusFilters.join(",") }),
-        ...(includeInactive && { includeInactive: "true" }),
-        ...(priceMin && { priceMin }),
-        ...(priceMax && { priceMax }),
+        page: (overrides?.page ?? page).toString(),
+        limit: (overrides?.limit ?? limit).toString(),
         sortBy,
         sortOrder,
       });
 
-      const response = await fetch(`/api/admin/inventory?${params}`);
+      if (search) params.set("search", search);
+      if (selectedCategory) params.set("category", selectedCategory);
+      if (selectedBrand) params.set("brand", selectedBrand);
+      if (statusFilters.length > 0) params.set("status", statusFilters.join(","));
+      if (includeInactive) params.set("includeInactive", "true");
+      if (priceMin) params.set("priceMin", priceMin);
+      if (priceMax) params.set("priceMax", priceMax);
+
+      return params;
+    },
+    [
+      page,
+      limit,
+      sortBy,
+      sortOrder,
+      search,
+      selectedCategory,
+      selectedBrand,
+      statusFilters,
+      includeInactive,
+      priceMin,
+      priceMax,
+    ],
+  );
+
+  const fetchInventory = useCallback(async () => {
+    setLoading(true);
+    try {
+      const params = buildQueryParams();
+      const response = await fetch(`/api/admin/inventory?${params.toString()}`);
       if (!response.ok) throw new Error("Failed to fetch inventory");
 
       const data = await response.json();
@@ -111,19 +135,7 @@ export default function InventoryListPage() {
     } finally {
       setLoading(false);
     }
-  }, [
-    page,
-    limit,
-    search,
-    selectedCategory,
-    selectedBrand,
-    statusFilters,
-    includeInactive,
-    priceMin,
-    priceMax,
-    sortBy,
-    sortOrder,
-  ]);
+  }, [buildQueryParams, page, limit]);
 
   useEffect(() => {
     void fetchInventory();
@@ -176,6 +188,50 @@ export default function InventoryListPage() {
     }
     setSelectedItems(newSelected);
   };
+
+  const handleExport = useCallback(async () => {
+    setIsExporting(true);
+    try {
+      const exportLimit = 200;
+      let currentPage = 1;
+      let totalPages = 1;
+      const allItems: InventoryItem[] = [];
+
+      while (true) {
+        const params = buildQueryParams({ page: currentPage, limit: exportLimit });
+        const response = await fetch(`/api/admin/inventory?${params.toString()}`, {
+          cache: "no-store",
+        });
+        if (!response.ok) {
+          throw new Error("Failed to fetch inventory for export");
+        }
+        const data = await response.json();
+        const batch: InventoryItem[] = data.items ?? [];
+        allItems.push(...batch);
+        totalPages = data.pagination?.totalPages ?? currentPage;
+
+        if (currentPage >= totalPages || batch.length === 0) {
+          break;
+        }
+        currentPage += 1;
+      }
+
+      if (allItems.length === 0) {
+        toastInfo("No inventory matches your filters", "Adjust filters and try again.");
+        return;
+      }
+
+      const csv = buildInventoryCsv(allItems);
+      const filename = `inventory-export-${new Date().toISOString().split("T")[0]}.csv`;
+      downloadCsvFile(csv, filename);
+      toastSuccess("Inventory export ready", `${allItems.length} rows downloaded.`);
+    } catch (error) {
+      console.error("Inventory export failed", error);
+      toastError("Inventory export failed", error instanceof Error ? error.message : undefined);
+    } finally {
+      setIsExporting(false);
+    }
+  }, [buildQueryParams]);
 
   const handleBulkActivate = async () => {
     if (selectedItems.size === 0) return;
@@ -272,13 +328,21 @@ export default function InventoryListPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Inventory & Products</h1>
           <p className="mt-1 text-sm text-gray-500">
             Manage product catalog, inventory levels, and pricing
           </p>
         </div>
+        <button
+          onClick={handleExport}
+          disabled={isExporting}
+          className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          <Download className="h-4 w-4" aria-hidden="true" />
+          {isExporting ? "Preparing CSV…" : "Export CSV"}
+        </button>
       </div>
 
       {/* Search and Filters */}
@@ -629,4 +693,51 @@ export default function InventoryListPage() {
       </div>
     </div>
   );
+}
+
+const INVENTORY_CSV_HEADERS = [
+  "SKU Code",
+  "Product Name",
+  "Brand",
+  "Category",
+  "Price",
+  "Inventory Level",
+  "Status",
+  "Active",
+];
+
+function buildInventoryCsv(items: InventoryItem[]) {
+  const rows = items.map((item) => [
+    item.skuCode,
+    item.productName,
+    item.brand ?? "",
+    item.category ?? "",
+    item.price != null ? item.price.toFixed(2) : "",
+    item.inventoryLevel.toString(),
+    item.status,
+    item.isActive ? "Yes" : "No",
+  ]);
+
+  return [INVENTORY_CSV_HEADERS, ...rows]
+    .map((row) => row.map(formatCsvValue).join(","))
+    .join("\n");
+}
+
+function formatCsvValue(value: string) {
+  if (/["\n,]/.test(value)) {
+    return `"${value.replace(/"/g, '""')}"`;
+  }
+  return value;
+}
+
+function downloadCsvFile(csv: string, filename: string) {
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 }

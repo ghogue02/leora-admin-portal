@@ -14,6 +14,7 @@ import { Prisma, PrismaClient } from '@prisma/client';
 import { invokeSupabaseFunction } from '@/lib/supabase/functions';
 import { downloadImportFile } from './imports/upload';
 import { ingestSalesReportRecords, parseSalesReportCsv } from './imports/sales-report-ingestion';
+import { processProductExportJob, type ProductExportJobPayload } from '@/lib/exports/product-export-job';
 
 const prisma = new PrismaClient();
 
@@ -24,7 +25,8 @@ export type JobType =
   | 'image_extraction'
   | 'customer_enrichment'
   | 'report_generation'
-  | 'bulk_import';
+  | 'bulk_import'
+  | 'product_export';
 
 /**
  * Job Status States
@@ -48,6 +50,7 @@ export interface CustomerEnrichmentPayload {
 export type JobPayload =
   | ImageExtractionPayload
   | CustomerEnrichmentPayload
+  | ProductExportJobPayload
   | Record<string, any>;
 
 /**
@@ -168,6 +171,10 @@ async function routeJobToHandler(type: JobType, payload: JobPayload): Promise<vo
 
     case 'bulk_import':
       await processBulkImport(payload);
+      break;
+
+    case 'product_export':
+      await processProductExportJob(payload as ProductExportJobPayload);
       break;
 
     default:

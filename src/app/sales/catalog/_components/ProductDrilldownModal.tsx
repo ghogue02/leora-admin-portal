@@ -1,9 +1,12 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { TastingNotesCard } from './TastingNotesCard';
-import { TechnicalDetailsPanel } from './TechnicalDetailsPanel';
-import { ProductEditForm } from './ProductEditForm';
+import { useEffect, useMemo, useState } from "react";
+
+import type { CatalogFieldDefinition } from "@/types/catalog";
+
+import { TastingNotesCard } from "./TastingNotesCard";
+import { TechnicalDetailsPanel } from "./TechnicalDetailsPanel";
+import { ProductEditForm } from "./ProductEditForm";
 
 type ProductDetails = {
   product: {
@@ -12,6 +15,7 @@ type ProductDetails = {
     productName: string;
     brand: string | null;
     category: string | null;
+    description?: string | null;
     size: string | null;
     unitOfMeasure: string | null;
     abv: number | null;
@@ -23,6 +27,11 @@ type ProductDetails = {
     itemsPerCase: number | null;
     bottleBarcode: string | null;
     caseBarcode: string | null;
+    abcCode?: string | null;
+    mocoNumber?: string | null;
+    liters?: number | null;
+    batchNumber?: string | null;
+    barrelOrTank?: string | null;
   };
   inventory: {
     totalOnHand: number;
@@ -85,6 +94,7 @@ type ProductDetails = {
     };
   };
   insights: string[];
+  fields?: CatalogFieldDefinition[];
 };
 
 type ProductDrilldownModalProps = {
@@ -98,6 +108,10 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'inventory' | 'pricing' | 'sales' | 'details' | 'technical' | 'tasting' | 'edit'>('inventory');
   const [isEditMode, setIsEditMode] = useState(false);
+  const fieldSections = useMemo(
+    () => buildFieldSections(data?.fields ?? []),
+    [data?.fields],
+  );
 
   useEffect(() => {
     fetchProductDetails();
@@ -236,6 +250,26 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
 
           {!loading && !error && data && !isEditMode && (
             <>
+              {fieldSections.length > 0 && (
+                <div className="mb-6 space-y-6">
+                  {fieldSections.map((section, index) => (
+                    <div key={index} className="space-y-3">
+                      <h3 className="text-sm font-semibold text-gray-900">{section.title}</h3>
+                      <dl className="grid gap-3 md:grid-cols-2">
+                        {section.fields.map((field) => (
+                          <div key={field.id} className="rounded border border-slate-200 bg-white p-3 text-sm">
+                            <dt className="text-xs uppercase tracking-wide text-gray-500">{field.label}</dt>
+                            <dd className="mt-1 font-semibold text-gray-900">
+                              {renderFieldValue(field, data)}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Product Info Summary */}
               <div className="mb-6 grid gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 md:grid-cols-4">
                 <div>
@@ -541,4 +575,88 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
       </div>
     </div>
   );
+}
+
+function buildFieldSections(fields: CatalogFieldDefinition[]) {
+  if (!fields.length) return [];
+
+  const groups = new Map<string, CatalogFieldDefinition[]>();
+  fields
+    .filter((field) => field.visible)
+    .forEach((field) => {
+      const title = field.section ?? defaultSectionLabel(field.scope);
+      if (!title) return;
+      const existing = groups.get(title) ?? [];
+      existing.push(field);
+      groups.set(title, existing);
+    });
+
+  return Array.from(groups.entries()).map(([title, groupedFields]) => ({
+    title,
+    fields: groupedFields.sort((a, b) => {
+      if (a.displayOrder === b.displayOrder) {
+        return a.label.localeCompare(b.label);
+      }
+      return (a.displayOrder ?? 0) - (b.displayOrder ?? 0);
+    }),
+  }));
+}
+
+function defaultSectionLabel(scope: string) {
+  switch (scope) {
+    case "PRODUCT":
+      return "Product Details";
+    case "PRICING":
+      return "Pricing";
+    case "INVENTORY":
+      return "Inventory";
+    case "SALES":
+      return "Sales";
+    default:
+      return "Details";
+  }
+}
+
+function renderFieldValue(field: CatalogFieldDefinition, data: ProductDetails) {
+  const root: Record<string, unknown> = {
+    product: data.product,
+    inventory: {
+      ...data.inventory,
+      available: data.inventory.totalAvailable,
+      onHand: data.inventory.totalOnHand,
+    },
+    pricing: {
+      priceLists: data.pricing.priceLists,
+      frontline: data.pricing.priceLists.reduce<number | null>((acc, priceList) => {
+        if (acc === null) return priceList.price;
+        return Math.min(acc, priceList.price);
+      }, null),
+    },
+    sales: data.sales,
+  };
+
+  const value = field.key.split(".").reduce<unknown>((current, segment) => {
+    if (current && typeof current === "object") {
+      return (current as Record<string, unknown>)[segment];
+    }
+    return undefined;
+  }, root);
+
+  if (value === null || value === undefined || value === "") {
+    return "—";
+  }
+
+  if (typeof value === "number") {
+    return value.toLocaleString();
+  }
+
+  if (typeof value === "boolean") {
+    return value ? "Yes" : "No";
+  }
+
+  if (Array.isArray(value)) {
+    return value.length ? value.join(", ") : "—";
+  }
+
+  return String(value);
 }

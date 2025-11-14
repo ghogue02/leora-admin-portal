@@ -1,3 +1,4 @@
+import { existsSync } from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
 
@@ -7,8 +8,23 @@ type ImportSalesOptions = Parameters<ImportSalesReportsFn>[0];
 
 export type ImportSummary = Awaited<ReturnType<ImportSalesReportsFn>>;
 
+function resolveScriptModulePath(moduleName: string) {
+  const scriptsDir = path.join(process.cwd(), 'scripts');
+  const candidates = ['.ts', '.js', '.mjs', '.cjs'].map((ext) =>
+    path.join(scriptsDir, `${moduleName}${ext}`)
+  );
+
+  for (const candidate of candidates) {
+    if (existsSync(candidate)) {
+      return candidate;
+    }
+  }
+
+  throw new Error(`Unable to locate ${moduleName} script in ${scriptsDir}`);
+}
+
 async function importSalesReportsInternal(options: ImportSalesOptions) {
-  const modulePath = path.join(process.cwd(), 'scripts/import-csv-data.ts');
+  const modulePath = resolveScriptModulePath('import-csv-data');
   const mod: ImportCsvModule = await import(
     /* webpackIgnore: true */
     pathToFileURL(modulePath).href

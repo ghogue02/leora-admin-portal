@@ -168,14 +168,54 @@ async function main() {
   const allSkus = await prisma.sku.findMany({
     where: {
       tenantId: TENANT_ID,
-      isActive: true,
     },
     include: {
       product: true,
     },
   });
 
-  console.log(`✅ Found ${allSkus.length} active SKUs in database`);
+  const skuByCode = new Map<string, typeof allSkus[number]>();
+  allSkus.forEach((sku) => {
+    skuByCode.set(sku.code, sku);
+  });
+
+  console.log(`✅ Found ${allSkus.length} SKUs in database`);
+
+  const desiredLocations = new Map<string, Set<string>>();
+  for (const [code, aggregate] of inventoryMap) {
+    const sku = skuByCode.get(code);
+    if (!sku) continue;
+    const set = desiredLocations.get(sku.id) ?? new Set<string>();
+    aggregate.locations.forEach((loc) => set.add(loc.warehouse));
+    desiredLocations.set(sku.id, set);
+  }
+
+  console.log("\n🧹 Removing inventory rows not present in source CSV...");
+  const existingInventories = await prisma.inventory.findMany({
+    where: { tenantId: TENANT_ID },
+    select: { id: true, skuId: true, location: true },
+  });
+
+  const idsToDelete: string[] = [];
+  for (const row of existingInventories) {
+    const allowedLocations = desiredLocations.get(row.skuId);
+    if (!allowedLocations || !allowedLocations.has(row.location)) {
+      idsToDelete.push(row.id);
+    }
+  }
+
+  if (idsToDelete.length > 0) {
+    const chunkSize = 500;
+    for (let i = 0; i < idsToDelete.length; i += chunkSize) {
+      const chunk = idsToDelete.slice(i, i + chunkSize);
+      await prisma.inventory.deleteMany({
+        where: { id: { in: chunk } },
+      });
+    }
+    console.log(`   → Deleted ${idsToDelete.length} CRM inventory rows not present in CSV`);
+  } else {
+    console.log("   → No orphaned inventory rows detected");
+  }
 
   for (const sku of allSkus) {
     const aggregate = inventoryMap.get(sku.code);

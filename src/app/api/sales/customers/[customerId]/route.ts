@@ -164,6 +164,7 @@ export async function GET(
       const [
         orders,
         activities,
+        majorChangeActivities,
         samples,
         topProductsRaw,
         companyTopProducts,
@@ -235,6 +236,39 @@ export async function GET(
           where: {
             tenantId,
             customerId,
+          },
+          include: {
+            activityType: true,
+            user: {
+              select: {
+                fullName: true,
+              },
+            },
+            order: {
+              select: {
+                id: true,
+                orderedAt: true,
+                total: true,
+              },
+            },
+            sampleItems: {
+              select: activitySampleItemSelect,
+            },
+          },
+          orderBy: {
+            occurredAt: "desc",
+          },
+          take: 20,
+        }),
+
+        // Major change activities (separate query for filtering)
+        db.activity.findMany({
+          where: {
+            tenantId,
+            customerId,
+            activityType: {
+              code: "MAJOR_CHANGE",
+            },
           },
           include: {
             activityType: true,
@@ -909,6 +943,43 @@ export async function GET(
           salesRepName: sample.salesRep.user.fullName,
         })),
         activities: activities.map((activity) => ({
+          id: activity.id,
+          type: activity.activityType.name,
+          typeCode: activity.activityType.code,
+          subject: activity.subject,
+          notes: activity.notes,
+          occurredAt: activity.occurredAt.toISOString(),
+          followUpAt: activity.followUpAt?.toISOString() ?? null,
+          outcome: activity.outcomes?.[0] ?? null,
+          outcomes: activity.outcomes ?? [],
+          userName: activity.user?.fullName ?? "Unknown",
+          relatedOrder: activity.order
+            ? {
+                id: activity.order.id,
+                orderedAt: activity.order.orderedAt?.toISOString() ?? null,
+                total: Number(activity.order.total ?? 0),
+              }
+            : null,
+          samples: (activity.sampleItems ?? []).map((item) => ({
+            id: item.id,
+            skuId: item.skuId,
+            sampleListItemId: item.sampleListItemId ?? null,
+            feedback: item.feedback ?? "",
+            followUpNeeded: item.followUpNeeded ?? false,
+            followUpCompletedAt: item.followUpCompletedAt?.toISOString() ?? null,
+            sku: item.sku
+              ? {
+                  id: item.sku.id,
+                  code: item.sku.code,
+                  name: item.sku.product?.name ?? null,
+                  brand: item.sku.product?.brand ?? null,
+                  unitOfMeasure: item.sku.unitOfMeasure ?? null,
+                  size: item.sku.size ?? null,
+                }
+              : null,
+          })),
+        })),
+        majorChanges: majorChangeActivities.map((activity) => ({
           id: activity.id,
           type: activity.activityType.name,
           typeCode: activity.activityType.code,

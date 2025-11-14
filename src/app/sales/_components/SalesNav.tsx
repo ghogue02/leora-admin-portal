@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
+
+import { SearchBar } from "./SearchBar";
 
 // Reorganized navigation structure with dropdown categories
 const salesHubMenu = [
@@ -41,6 +43,8 @@ export default function SalesNav() {
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchResultsAnchor, setSearchResultsAnchor] = useState<HTMLDivElement | null>(null);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
 
@@ -90,13 +94,20 @@ export default function SalesNav() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-200 bg-white/90 shadow-sm backdrop-blur-xl">
-      <div className="nav-inner">
+      <div className="nav-inner gap-4">
         <Link
           href="/sales/dashboard"
           className="text-base font-semibold tracking-tight text-gray-900 sm:text-lg"
         >
           Leora Sales
         </Link>
+        <div className="relative hidden flex-1 md:block" ref={setSearchResultsAnchor}>
+          <SearchBar
+            anchorRef={searchResultsAnchor}
+            open={searchOpen}
+            onToggle={(state) => setSearchOpen(state)}
+          />
+        </div>
         <button
           type="button"
           className="touch-target inline-flex items-center gap-2 rounded-md border border-gray-300 px-3 text-sm font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-gray-400 md:hidden"
@@ -187,6 +198,9 @@ function NavList({
   if (vertical) {
     return (
       <ul className="flex flex-col gap-4 text-sm font-medium text-gray-600">
+        <li>
+          <SearchBar />
+        </li>
         {/* Dashboard */}
         <li>
           <Link

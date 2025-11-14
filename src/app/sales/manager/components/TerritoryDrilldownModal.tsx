@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
+import { ResponsiveChartContainer } from "@/components/ui/responsive-chart-container";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import Link from "next/link";
 
 type TerritoryDrilldownData = {
@@ -139,27 +140,31 @@ export default function TerritoryDrilldownModal({ territoryName, open, onClose }
             <div className="rounded-lg border bg-white p-6">
               <h3 className="font-semibold mb-4">Customer Health Distribution</h3>
               <div className="grid md:grid-cols-2 gap-4">
-                <ResponsiveContainer width="100%" height={200}>
-                  <PieChart>
-                    <Pie
-                      data={healthChartData}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={false}
-                      label={({ name, percent }) =>
-                        `${name}: ${(percent * 100).toFixed(0)}%`
-                      }
-                      outerRadius={80}
-                      fill="#8884d8"
-                      dataKey="value"
-                    >
-                      {healthChartData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
+                <ResponsiveChartContainer minHeight={260}>
+                  {({ height }) => (
+                    <ResponsiveContainer width="100%" height={height}>
+                      <PieChart>
+                        <Pie
+                          data={healthChartData}
+                          cx="50%"
+                          cy="50%"
+                          labelLine={false}
+                          label={({ name, percent }) =>
+                            `${name}: ${(percent * 100).toFixed(0)}%`
+                          }
+                          outerRadius={80}
+                          fill="#8884d8"
+                          dataKey="value"
+                        >
+                          {healthChartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          ))}
+                        </Pie>
+                        <Tooltip />
+                      </PieChart>
+                    </ResponsiveContainer>
+                  )}
+                </ResponsiveChartContainer>
                 <div className="flex flex-col justify-center space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-sm">Healthy:</span>

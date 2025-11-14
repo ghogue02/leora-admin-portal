@@ -2,7 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { Download, TrendingUp, TrendingDown } from "lucide-react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import { ResponsiveChartContainer } from "@/components/ui/responsive-chart-container";
 import { formatCurrency, formatPercentage } from "@/lib/utils/format";
 
 type ProductHistoryReportsProps = {
@@ -131,25 +141,29 @@ export default function ProductHistoryReports({ customerId }: ProductHistoryRepo
 
       {/* Chart */}
       <div className="p-6">
-        <ResponsiveContainer width="100%" height={400}>
-          <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip formatter={(value: number) => formatCurrency(value)} />
-            <Legend />
-            {timeline.products.slice(0, 6).map((product, index) => (
-              <Line
-                key={product.id}
-                type="monotone"
-                dataKey={product.name}
-                stroke={colors[index % colors.length]}
-                strokeWidth={2}
-                dot={{ r: 4 }}
-              />
-            ))}
-          </LineChart>
-        </ResponsiveContainer>
+        <ResponsiveChartContainer minHeight={360}>
+          {({ height, isCompact }) => (
+            <ResponsiveContainer width="100%" height={height}>
+              <LineChart data={chartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <Tooltip formatter={(value: number) => formatCurrency(value)} />
+                {!isCompact && <Legend />}
+                {timeline.products.slice(0, 6).map((product, index) => (
+                  <Line
+                    key={product.id}
+                    type="monotone"
+                    dataKey={product.name}
+                    stroke={colors[index % colors.length]}
+                    strokeWidth={2}
+                    dot={{ r: 4 }}
+                  />
+                ))}
+              </LineChart>
+            </ResponsiveContainer>
+          )}
+        </ResponsiveChartContainer>
       </div>
 
       {/* Trends */}

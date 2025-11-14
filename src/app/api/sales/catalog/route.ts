@@ -1,156 +1,76 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ProductFieldScope } from "@prisma/client";
+
 import { withSalesSession } from "@/lib/auth/sales";
+import { queryCatalog } from "@/lib/catalog/query";
+import { getTenantProductFieldConfig } from "@/lib/product-fields/config";
+import { CatalogResponse } from "@/types/catalog";
+
+function parseBoolean(value: string | null): boolean | undefined {
+  if (value === null) return undefined;
+  return value === "true";
+}
 
 export async function GET(request: NextRequest) {
   return withSalesSession(
     request,
-    async ({ db, tenantId }) => {
-      const skus = await db.sku.findMany({
-        where: {
-          tenantId,
-          isActive: true,
-        },
-        include: {
-          product: {
-            select: {
-              id: true,
-              name: true,
-              brand: true,
-              category: true,
-              description: true,
-              tastingNotes: true,
-              foodPairings: true,
-              servingInfo: true,
-              wineDetails: true,
-              enrichedAt: true,
-              enrichedBy: true,
-            },
-          },
-          inventories: {
-            select: {
-              onHand: true,
-              allocated: true,
-              location: true,
-            },
-          },
-          priceListItems: {
-            include: {
-              priceList: {
-                select: {
-                  id: true,
-                  name: true,
-                  currency: true,
-                  jurisdictionType: true,
-                  jurisdictionValue: true,
-                  allowManualOverride: true,
-                },
-              },
-            },
-            where: {
-              priceList: {
-                OR: [
-                  { expiresAt: null },
-                  { expiresAt: { gte: new Date() } },
-                ],
-              },
-            },
-          },
-        },
-        orderBy: [
-          {
-            product: {
-              brand: "asc",
-            },
-          },
-          {
-            product: {
-              name: "asc",
-            },
-          },
-          {
-            code: "asc",
-          },
+    async ({ tenantId }) => {
+      const searchParams = request.nextUrl.searchParams;
+      const search = searchParams.get("q") ?? "";
+      const brands = searchParams.getAll("brand").filter(Boolean);
+      const categories = searchParams.getAll("category").filter(Boolean);
+      const lifecycle = searchParams
+        .getAll("lifecycle")
+        .filter(Boolean) as Parameters<typeof queryCatalog>[0]["lifecycle"];
+      const priceListId = searchParams.get("priceListId");
+      const onlyInStock = parseBoolean(searchParams.get("onlyInStock"));
+      const sort = (searchParams.get("sort") as
+        | "priority"
+        | "availability"
+        | "az"
+        | null) ?? "priority";
+
+      const data = await queryCatalog({
+        tenantId,
+        search,
+        brands,
+        categories,
+        lifecycle,
+        priceListId,
+        onlyInStock,
+        sort,
+      });
+
+      const fieldConfig = await getTenantProductFieldConfig(tenantId, {
+        scopes: [
+          ProductFieldScope.PRODUCT,
+          ProductFieldScope.PRICING,
+          ProductFieldScope.INVENTORY,
+          ProductFieldScope.SALES,
         ],
       });
 
-      // Filter out only truly invalid products (blank name or numeric placeholder)
-      const validSkus = skus.filter((sku) => {
-        const productName = sku.product?.name?.trim() ?? "";
-        if (productName.length === 0) return false;
-        if (/^\d+$/.test(productName)) return false;
-        return true;
-      });
+      const response: CatalogResponse = {
+        ...data,
+        fields: fieldConfig.map((field) => ({
+          id: field.id,
+          key: field.key,
+          label: field.label,
+          description: field.description,
+          section: field.section,
+          scope: field.scope,
+          inputType: field.inputType,
+          supportsManualEntry: field.supportsManualEntry,
+          visible: field.visible,
+          required: field.required,
+          displayOrder: field.displayOrder,
+          showInPortal: field.showInPortal,
+          filterable: field.filterable,
+          options: field.options,
+        })),
+      };
 
-      // Batch fetch all inventory for all SKUs (much faster than individual queries)
-      const skuIds = validSkus.map(s => s.id);
-
-      const inventoryRecords = await db.inventory.groupBy({
-        by: ['skuId'],
-        where: {
-          skuId: { in: skuIds },
-          tenantId,
-        },
-        _sum: {
-          onHand: true,
-          allocated: true,
-        },
-      });
-
-      // Create inventory map for O(1) lookup
-      const inventoryMap = new Map(
-        inventoryRecords.map(inv => [
-          inv.skuId,
-          {
-            onHand: inv._sum.onHand || 0,
-            allocated: inv._sum.allocated || 0,
-            available: (inv._sum.onHand || 0) - (inv._sum.allocated || 0),
-          }
-        ])
-      );
-
-      // Map SKUs to catalog items (no async queries!)
-      const items = validSkus.map((sku) => {
-        const inventory = inventoryMap.get(sku.id) || { onHand: 0, allocated: 0, available: 0 };
-
-        return {
-          skuId: sku.id,
-          skuCode: sku.code,
-          productName: sku.product.name,
-          brand: sku.product.brand,
-          category: sku.product.category,
-          unitOfMeasure: sku.unitOfMeasure,
-          size: sku.size,
-          priceLists: sku.priceListItems.map((item) => ({
-            priceListId: item.priceList.id,
-            priceListName: item.priceList.name,
-            price: Number(item.price),
-            currency: item.priceList.currency,
-            minQuantity: item.minQuantity,
-            maxQuantity: item.maxQuantity,
-            jurisdictionType: item.priceList.jurisdictionType,
-            jurisdictionValue: item.priceList.jurisdictionValue,
-            allowManualOverride: item.priceList.allowManualOverride,
-          })),
-          inventory: {
-            totals: inventory,
-            // Phase 2 Improvement: Uses conservative ROP estimate
-            // TODO: Make this async and use actual getReorderPoint(sku.id, tenantId)
-            lowStock: inventory.available < 10, // Conservative until async refactor
-            outOfStock: inventory.available <= 0,
-          },
-          product: {
-            description: sku.product.description,
-            tastingNotes: sku.product.tastingNotes,
-            foodPairings: sku.product.foodPairings,
-            servingInfo: sku.product.servingInfo,
-            wineDetails: sku.product.wineDetails,
-            enrichedAt: sku.product.enrichedAt,
-            enrichedBy: sku.product.enrichedBy,
-          },
-        };
-      });
-
-      return NextResponse.json({ items });
+      return NextResponse.json(response);
     },
     { requireSalesRep: false },
   );

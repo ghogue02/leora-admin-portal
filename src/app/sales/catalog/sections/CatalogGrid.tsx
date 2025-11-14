@@ -1,44 +1,28 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { useToast } from "../../_components/ToastProvider";
-import { ProductDrilldownModal } from "../_components/ProductDrilldownModal";
-import { TastingNotesCard } from "../_components/TastingNotesCard";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { Download } from "lucide-react";
 
-type CatalogItem = {
-  skuId: string;
-  skuCode: string;
-  productName: string;
-  brand: string | null;
-  category: string | null;
-  unitOfMeasure: string | null;
-  size: string | null;
-  priceLists: Array<{
-    priceListId: string;
-    priceListName: string;
-    price: number;
-    currency: string;
-    minQuantity: number;
-    maxQuantity: number | null;
-  }>;
-  inventory: {
-    totals: {
-      onHand: number;
-      available: number;
-    };
-  };
-  product?: {
-    tastingNotes?: {
-      aroma?: string;
-      palate?: string;
-      finish?: string;
-    };
-  };
-};
+import { useToast } from "../../_components/ToastProvider";
 
-type CatalogResponse = {
-  items: CatalogItem[];
+import type {
+  CatalogFacets,
+  CatalogItem,
+  CatalogResponse,
+} from "@/types/catalog";
+
+import { ProductDrilldownModal } from "../_components/ProductDrilldownModal";
+
+type CatalogMeta = CatalogResponse["meta"];
+type ProductExportJob = {
+  id: string;
+  format: "CSV" | "PDF" | "EXCEL";
+  status: "QUEUED" | "PROCESSING" | "COMPLETED" | "FAILED";
+  fileUrl: string | null;
+  createdAt: string;
+  completedAt: string | null;
+  errorMessage: string | null;
 };
 
 type SortOption = "priority" | "availability" | "az";
@@ -53,8 +37,28 @@ export default function CatalogGrid() {
   const [sortOption, setSortOption] = useState<SortOption>("priority");
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
   const [drilldownSkuId, setDrilldownSkuId] = useState<string | null>(null);
+  const [isSubmittingExport, setIsSubmittingExport] = useState(false);
+  const [facets, setFacets] = useState<CatalogFacets | null>(null);
+  const [fields, setFields] = useState<CatalogResponse["fields"] | null>(null);
+  const [meta, setMeta] = useState<CatalogMeta | null>(null);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [selectedLifecycle, setSelectedLifecycle] = useState<string[]>([]);
+  const [minAvailable, setMinAvailable] = useState<number | undefined>(undefined);
+  const [page, setPage] = useState(1);
+  const [pageSize] = useState(24);
+  const [exportJobs, setExportJobs] = useState<ProductExportJob[]>([]);
+const [exportJobsLoading, setExportJobsLoading] = useState(false);
+const previousJobStatuses = useRef<Map<string, ProductExportJob["status"]>>(new Map());
+const hasInitializedJobStatuses = useRef(false);
+const [showExportMenu, setShowExportMenu] = useState(false);
+const exportMenuRef = useRef<HTMLDivElement | null>(null);
 
   const { pushToast } = useToast();
+
+  useEffect(() => {
+    setPage(1);
+  }, [search, selectedBrands, selectedCategories, selectedLifecycle, priceListFilter, onlyInStock, sortOption, minAvailable]);
 
   useEffect(() => {
     let isMounted = true;
@@ -64,7 +68,25 @@ export default function CatalogGrid() {
       setError(null);
 
       try {
-        const response = await fetch("/api/sales/catalog", { cache: "no-store" });
+        const params = new URLSearchParams();
+        if (search.trim()) params.set("q", search.trim());
+        selectedBrands.forEach((brand) => params.append("brand", brand));
+        selectedCategories.forEach((category) => params.append("category", category));
+        selectedLifecycle.forEach((status) => params.append("lifecycle", status));
+        if (priceListFilter !== "all") params.set("priceListId", priceListFilter);
+        if (onlyInStock) params.set("onlyInStock", "true");
+        if (sortOption && sortOption !== "priority") params.set("sort", sortOption);
+        if (typeof minAvailable === "number" && !Number.isNaN(minAvailable)) {
+          params.set("minAvailable", String(minAvailable));
+        }
+        params.set("page", page.toString());
+        params.set("pageSize", pageSize.toString());
+
+        const queryString = params.toString();
+        const response = await fetch(
+          `/api/sales/catalog${queryString ? `?${queryString}` : ""}`,
+          { cache: "no-store" },
+        );
         if (!response.ok) {
           const body = (await response.json().catch(() => ({}))) as { error?: string };
           throw new Error(body.error ?? "Unable to load catalog.");
@@ -73,6 +95,12 @@ export default function CatalogGrid() {
         const payload = (await response.json()) as CatalogResponse;
         if (isMounted) {
           setItems(payload.items);
+          setFacets(payload.facets);
+          setMeta(payload.meta);
+          setFields(payload.fields ?? null);
+          if (payload.meta?.page && payload.meta.page !== page) {
+            setPage(payload.meta.page);
+          }
           setQuantityBySku(
             payload.items.reduce<Record<string, number>>((acc, item) => {
               const primaryPrice = getPrimaryPrice(item, "all");
@@ -97,9 +125,26 @@ export default function CatalogGrid() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [
+    search,
+    selectedBrands,
+    selectedCategories,
+    selectedLifecycle,
+    priceListFilter,
+    onlyInStock,
+    sortOption,
+    minAvailable,
+    page,
+    pageSize,
+  ]);
 
   const priceListOptions = useMemo(() => {
+    if (facets?.priceLists) {
+      return facets.priceLists.map((bucket) => ({
+        id: bucket.value,
+        name: bucket.label,
+      }));
+    }
     const map = new Map<string, string>();
     items.forEach((item) => {
       item.priceLists.forEach((price) => {
@@ -109,7 +154,73 @@ export default function CatalogGrid() {
     return Array.from(map.entries())
       .map(([id, name]) => ({ id, name }))
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [items]);
+  }, [facets, items]);
+
+  const filtersPayload = useMemo(
+    () => ({
+      search: search.trim() || undefined,
+      brands: selectedBrands,
+      categories: selectedCategories,
+      lifecycle: selectedLifecycle,
+      priceListId: priceListFilter !== "all" ? priceListFilter : undefined,
+      onlyInStock,
+      sort: sortOption,
+      minAvailable: typeof minAvailable === "number" ? minAvailable : undefined,
+    }),
+    [
+      search,
+      selectedBrands,
+      selectedCategories,
+      selectedLifecycle,
+      priceListFilter,
+      onlyInStock,
+      sortOption,
+      minAvailable,
+    ],
+  );
+
+  const filterSections = useMemo(() => {
+    if (!fields || !facets) return [];
+    return fields
+      .filter((field) => field.filterable)
+      .map((field) => {
+        if (field.key === "product.brand") {
+          return {
+            field,
+            facets: facets.brands ?? [],
+            selected: selectedBrands,
+            toggle: (value: string) =>
+              setSelectedBrands((prev) =>
+                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value],
+              ),
+          };
+        }
+        if (field.key === "product.category") {
+          return {
+            field,
+            facets: facets.categories ?? [],
+            selected: selectedCategories,
+            toggle: (value: string) =>
+              setSelectedCategories((prev) =>
+                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value],
+              ),
+          };
+        }
+        if (field.key === "product.lifecycleStatus") {
+          return {
+            field,
+            facets: facets.lifecycle ?? [],
+            selected: selectedLifecycle,
+            toggle: (value: string) =>
+              setSelectedLifecycle((prev) =>
+                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value],
+              ),
+          };
+        }
+        return null;
+      })
+      .filter((section): section is NonNullable<typeof section> => Boolean(section) && section.facets.length > 0);
+  }, [fields, facets, selectedBrands, selectedCategories, selectedLifecycle]);
 
   const filteredItems = useMemo(() => {
     const normalizedSearch = search.trim().toLowerCase();
@@ -145,7 +256,15 @@ export default function CatalogGrid() {
     return sorted;
   }, [filteredItems, sortOption]);
 
-  const totalFiltered = sortedItems.length;
+  const totalFiltered = meta?.total ?? sortedItems.length;
+  const totalPages = useMemo(() => {
+    if (!meta?.total || !meta.pageSize) {
+      return Math.max(1, Math.ceil(totalFiltered / pageSize));
+    }
+    return Math.max(1, Math.ceil(meta.total / meta.pageSize));
+  }, [meta, pageSize, totalFiltered]);
+  const canGoPrev = page > 1;
+  const canGoNext = page < totalPages;
 
   const handleQuantityChange = useCallback((skuId: string, value: string) => {
     const parsed = Number.parseInt(value, 10);
@@ -169,7 +288,133 @@ export default function CatalogGrid() {
     setPriceListFilter("all");
     setOnlyInStock(false);
     setSortOption("priority");
+    setSelectedBrands([]);
+    setSelectedCategories([]);
+    setSelectedLifecycle([]);
+    setMinAvailable(undefined);
+    setPage(1);
   }, []);
+
+  const processJobStatusNotifications = useCallback((jobs: ProductExportJob[]) => {
+    if (!hasInitializedJobStatuses.current) {
+      jobs.forEach((job) => previousJobStatuses.current.set(job.id, job.status));
+      hasInitializedJobStatuses.current = true;
+      return;
+    }
+
+    const statusMap = previousJobStatuses.current;
+    jobs.forEach((job) => {
+      const previousStatus = statusMap.get(job.id);
+      if (previousStatus && previousStatus !== job.status) {
+        if (job.status === "COMPLETED") {
+          pushToast({
+            tone: "success",
+            title: "Export ready",
+            description: job.fileUrl
+              ? `Download ready: ${job.fileUrl}`
+              : "CSV available in Recent Exports.",
+          });
+        } else if (job.status === "FAILED") {
+          pushToast({
+            tone: "error",
+            title: "Export failed",
+            description: job.errorMessage ?? "Please try again.",
+          });
+        }
+      }
+      statusMap.set(job.id, job.status);
+    });
+
+    const jobIds = new Set(jobs.map((job) => job.id));
+    Array.from(statusMap.keys()).forEach((id) => {
+      if (!jobIds.has(id)) {
+        statusMap.delete(id);
+      }
+    });
+  }, [pushToast]);
+
+  const fetchExportJobs = useCallback(async () => {
+    setExportJobsLoading(true);
+    try {
+      const response = await fetch("/api/sales/catalog/export", { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error("Unable to load export jobs");
+      }
+      const payload = (await response.json()) as { jobs: ProductExportJob[] };
+      const jobs = payload.jobs ?? [];
+      processJobStatusNotifications(jobs);
+      setExportJobs(jobs);
+    } catch (err) {
+      console.error("Failed to load export jobs", err);
+      pushToast({
+        tone: "error",
+        title: "Unable to load export jobs",
+        description: err instanceof Error ? err.message : undefined,
+      });
+    } finally {
+      setExportJobsLoading(false);
+    }
+  }, [processJobStatusNotifications, pushToast]);
+
+useEffect(() => {
+  void fetchExportJobs();
+  const interval = setInterval(() => {
+    void fetchExportJobs();
+  }, 15000);
+  return () => clearInterval(interval);
+}, [fetchExportJobs]);
+
+useEffect(() => {
+  if (!showExportMenu) return;
+  const handler = (event: MouseEvent) => {
+    if (!exportMenuRef.current?.contains(event.target as Node)) {
+      setShowExportMenu(false);
+    }
+  };
+  document.addEventListener("mousedown", handler);
+  return () => document.removeEventListener("mousedown", handler);
+}, [showExportMenu]);
+
+  const handleExportRequest = useCallback(async (format: ProductExportJob["format"]) => {
+    if ((meta?.total ?? items.length) === 0) {
+      pushToast({
+        tone: "warning",
+        title: "Nothing to export",
+        description: "Adjust your filters to include at least one SKU.",
+      });
+      return;
+    }
+
+    setIsSubmittingExport(true);
+    try {
+      const response = await fetch("/api/sales/catalog/export", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          format,
+          filters: filtersPayload,
+        }),
+      });
+      if (!response.ok) {
+        const body = (await response.json().catch(() => ({}))) as { error?: string };
+        throw new Error(body.error ?? "Unable to start export.");
+      }
+      pushToast({
+        tone: "success",
+        title: "Export queued",
+        description: "We'll notify you once the file is ready.",
+      });
+      void fetchExportJobs();
+    } catch (err) {
+      pushToast({
+        tone: "error",
+        title: "Export failed",
+        description: err instanceof Error ? err.message : undefined,
+      });
+    } finally {
+      setIsSubmittingExport(false);
+    }
+  }, [filtersPayload, fetchExportJobs, pushToast, meta?.total, items.length]);
 
   // Cart system removed - catalog is now view-only
   // To create an order, sales reps use the "New Order" button from Orders page
@@ -190,15 +435,45 @@ export default function CatalogGrid() {
           </label>
           <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500 md:w-auto">
             <span>
-              Showing {totalFiltered} of {items.length} SKUs
+              Showing {items.length} of {totalFiltered} SKUs
             </span>
-            <button
-              type="button"
-              onClick={handleClearFilters}
-              className="rounded-md border border-gray-300 px-3 py-1 font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
-            >
-              Clear filters
-            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={handleClearFilters}
+                className="rounded-md border border-gray-300 px-3 py-1 font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+              >
+                Clear filters
+              </button>
+              <div className="relative" ref={exportMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => setShowExportMenu((prev) => !prev)}
+                  disabled={isSubmittingExport}
+                  className="inline-flex items-center gap-1 rounded-md border border-gray-300 px-3 py-1 font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:opacity-60"
+                >
+                  <Download className="h-3 w-3" aria-hidden="true" />
+                  {isSubmittingExport ? "Queuing…" : "Export"}
+                </button>
+                {showExportMenu && (
+                  <div className="absolute right-0 z-10 mt-2 w-40 rounded-md border border-slate-200 bg-white shadow-lg">
+                    {["CSV", "PDF", "EXCEL"].map((format) => (
+                      <button
+                        key={format}
+                        type="button"
+                        onClick={() => {
+                          setShowExportMenu(false);
+                          void handleExportRequest(format as ProductExportJob["format"]);
+                        }}
+                        className="block w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-slate-50"
+                      >
+                        {format}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -242,8 +517,131 @@ export default function CatalogGrid() {
                 <option value="az">A → Z</option>
               </select>
             </label>
+
+            <label className="flex items-center gap-2">
+              <span className="uppercase tracking-wide text-gray-500">Min Inventory</span>
+              <input
+                type="number"
+                min={0}
+                value={minAvailable ?? ""}
+                onChange={(event) => {
+                  const next = event.target.value;
+                  setMinAvailable(next === "" ? undefined : Number(next));
+                }}
+                className="w-24 rounded-md border border-gray-300 px-2 py-1 text-sm focus:border-gray-500 focus:outline-none"
+              />
+            </label>
           </div>
         </form>
+
+        {filterSections.length > 0 && (
+          <div className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+            {filterSections.map((section) => (
+              <fieldset key={section.field.id} className="space-y-2">
+                <legend className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+                  {section.field.label}
+                </legend>
+                <div className="flex flex-wrap gap-2">
+                  {section.facets.map((bucket) => {
+                    const active = section.selected.includes(bucket.value);
+                    return (
+                      <button
+                        type="button"
+                        key={bucket.value}
+                        onClick={() => section.toggle(bucket.value)}
+                        className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
+                          active
+                            ? "border-gray-900 bg-gray-900 text-white"
+                            : "border-slate-300 bg-white text-gray-700 hover:border-gray-900/40"
+                        }`}
+                        aria-pressed={active}
+                      >
+                        {bucket.label}
+                        <span className="ml-1 text-[10px] text-gray-500">({bucket.count})</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </fieldset>
+            ))}
+          </div>
+        )}
+
+        <div className="flex flex-wrap items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-gray-600">
+          <span>
+            Page {page} of {totalPages}
+          </span>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+              disabled={!canGoPrev}
+              className="rounded-md border border-gray-300 px-3 py-1 font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <button
+              type="button"
+              onClick={() => setPage((prev) => prev + 1)}
+              disabled={!canGoNext}
+              className="rounded-md border border-gray-300 px-3 py-1 font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900">Recent Exports</h3>
+              <p className="text-xs text-gray-500">Exports continue in the background; download once complete.</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => void fetchExportJobs()}
+              className="rounded-md border border-gray-300 px-3 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+            >
+              Refresh
+            </button>
+          </div>
+        {exportJobsLoading ? (
+          <div className="text-sm text-gray-500">Checking export jobs…</div>
+        ) : exportJobs.length === 0 ? (
+          <div className="text-sm text-gray-500">No exports yet. Use the Export button above to start one.</div>
+        ) : (
+          <ul className="divide-y divide-slate-200 text-sm">
+            {exportJobs.map((job) => (
+              <li key={job.id} className="flex flex-col gap-1 py-3 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <div className="font-medium text-gray-900">
+                    {job.format} export
+                    <span className="ml-2 text-xs text-gray-500">
+                      {new Date(job.createdAt).toLocaleString()}
+                    </span>
+                  </div>
+                  {job.errorMessage && (
+                    <p className="text-xs text-rose-600">{job.errorMessage}</p>
+                  )}
+                </div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <StatusBadge status={job.status} />
+                  {job.fileUrl && job.status === "COMPLETED" && (
+                    <a
+                      href={job.fileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold text-indigo-600 hover:text-indigo-800"
+                    >
+                      Download
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+        </div>
       </div>
 
      {loading ? (
@@ -419,4 +817,18 @@ function getPrimaryPrice(item: CatalogItem, priceListFilter: string) {
     if (match) return match;
   }
   return item.priceLists[0] ?? null;
+}
+
+function StatusBadge({ status }: { status: ProductExportJob["status"] }) {
+  const palette: Record<ProductExportJob["status"], string> = {
+    QUEUED: "bg-slate-100 text-slate-700",
+    PROCESSING: "bg-amber-100 text-amber-700",
+    COMPLETED: "bg-emerald-100 text-emerald-700",
+    FAILED: "bg-rose-100 text-rose-700",
+  };
+  return (
+    <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${palette[status]}`}>
+      {status.toLowerCase()}
+    </span>
+  );
 }

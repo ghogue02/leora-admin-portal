@@ -65,10 +65,14 @@ export default function ActivityTimeline({ activities, customerId, customerName 
         return "💬";
       case "PUBLIC_TASTING_EVENT":
         return "🎉";
+      case "MAJOR_CHANGE":
+        return "📌";
       default:
         return "📋";
     }
   };
+
+  const isMajorChange = (typeCode: string) => typeCode === "MAJOR_CHANGE";
 
   const outcomeLabelMap = ACTIVITY_OUTCOME_OPTIONS.reduce<Record<string, string>>((acc, option) => {
     acc[option.value] = option.label;
@@ -129,7 +133,12 @@ export default function ActivityTimeline({ activities, customerId, customerName 
           {activities.map((activity, index) => (
             <div
               key={activity.id}
-              className="relative rounded-lg border border-slate-200 bg-slate-50 p-4"
+              id={`activity-${activity.id}`}
+              className={`relative rounded-lg border p-4 ${
+                isMajorChange(activity.typeCode)
+                  ? "border-amber-300 bg-amber-50/50"
+                  : "border-slate-200 bg-slate-50"
+              }`}
             >
               <div className="flex items-start gap-3">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white text-2xl shadow-sm">
@@ -143,6 +152,11 @@ export default function ActivityTimeline({ activities, customerId, customerName 
                         <h4 className="font-semibold text-gray-900">
                           {activity.subject}
                         </h4>
+                        {isMajorChange(activity.typeCode) && (
+                          <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                            📌 Major Change
+                          </span>
+                        )}
                         {renderOutcomeBadges(activity.outcomes)}
                       </div>
                       <p className="mt-1 text-xs text-gray-500">
