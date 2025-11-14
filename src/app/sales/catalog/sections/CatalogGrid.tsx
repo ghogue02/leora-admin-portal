@@ -99,8 +99,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
           }
           setQuantityBySku(
             payload.items.reduce<Record<string, number>>((acc, item) => {
-              const primaryPrice = getPrimaryPrice(item, "all");
-              acc[item.skuId] = primaryPrice?.minQuantity ?? 1;
+              acc[item.skuId] = 1; // Default quantity
               return acc;
             }, {}),
           );
