@@ -41,7 +41,6 @@ export default function CatalogGrid() {
   const [facets, setFacets] = useState<CatalogFacets | null>(null);
   const [fields, setFields] = useState<CatalogResponse["fields"] | null>(null);
   const [meta, setMeta] = useState<CatalogMeta | null>(null);
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLifecycle, setSelectedLifecycle] = useState<string[]>([]);
   const [minAvailable, setMinAvailable] = useState<number | undefined>(undefined);
@@ -58,7 +57,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setPage(1);
-  }, [search, selectedBrands, selectedCategories, selectedLifecycle, priceListFilter, onlyInStock, sortOption, minAvailable]);
+  }, [search, selectedCategories, selectedLifecycle, priceListFilter, onlyInStock, sortOption, minAvailable]);
 
   useEffect(() => {
     let isMounted = true;
@@ -70,7 +69,6 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
       try {
         const params = new URLSearchParams();
         if (search.trim()) params.set("q", search.trim());
-        selectedBrands.forEach((brand) => params.append("brand", brand));
         selectedCategories.forEach((category) => params.append("category", category));
         selectedLifecycle.forEach((status) => params.append("lifecycle", status));
         if (priceListFilter !== "all") params.set("priceListId", priceListFilter);
@@ -127,7 +125,6 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     };
   }, [
     search,
-    selectedBrands,
     selectedCategories,
     selectedLifecycle,
     priceListFilter,
@@ -159,7 +156,6 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
   const filtersPayload = useMemo(
     () => ({
       search: search.trim() || undefined,
-      brands: selectedBrands,
       categories: selectedCategories,
       lifecycle: selectedLifecycle,
       priceListId: priceListFilter !== "all" ? priceListFilter : undefined,
@@ -169,7 +165,6 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     }),
     [
       search,
-      selectedBrands,
       selectedCategories,
       selectedLifecycle,
       priceListFilter,
@@ -184,17 +179,6 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     return fields
       .filter((field) => field.filterable)
       .map((field) => {
-        if (field.key === "product.brand") {
-          return {
-            field,
-            facets: facets.brands ?? [],
-            selected: selectedBrands,
-            toggle: (value: string) =>
-              setSelectedBrands((prev) =>
-                prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value],
-              ),
-          };
-        }
         if (field.key === "product.category") {
           return {
             field,
@@ -220,7 +204,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
         return null;
       })
       .filter((section): section is NonNullable<typeof section> => Boolean(section) && section.facets.length > 0);
-  }, [fields, facets, selectedBrands, selectedCategories, selectedLifecycle]);
+  }, [fields, facets, selectedCategories, selectedLifecycle]);
 
   const filteredItems = useMemo(() => {
     const normalizedSearch = search.trim().toLowerCase();
@@ -288,7 +272,6 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     setPriceListFilter("all");
     setOnlyInStock(false);
     setSortOption("priority");
-    setSelectedBrands([]);
     setSelectedCategories([]);
     setSelectedLifecycle([]);
     setMinAvailable(undefined);
