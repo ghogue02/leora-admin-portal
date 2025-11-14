@@ -92,17 +92,16 @@ export async function queryCatalog(
     };
   }
 
-  if (priceListId && priceListId !== "all") {
-    where.priceListItems = {
-      some: {
-        priceListId,
-      },
-    };
-  }
+  // Price list filter removed - using SKU.pricePerUnit only
 
   const skus = await db.sku.findMany({
     where,
-    include: {
+    select: {
+      id: true,
+      code: true,
+      unitOfMeasure: true,
+      size: true,
+      pricePerUnit: true,
       product: {
         select: {
           id: true,
@@ -120,25 +119,6 @@ export async function queryCatalog(
             where: ACTIVE_LIFECYCLE_FILTER,
             orderBy: { effectiveAt: "desc" },
             take: 1,
-          },
-        },
-      },
-      priceListItems: {
-        include: {
-          priceList: {
-            select: {
-              id: true,
-              name: true,
-              currency: true,
-              jurisdictionType: true,
-              jurisdictionValue: true,
-              allowManualOverride: true,
-            },
-          },
-        },
-        where: {
-          priceList: {
-            OR: [{ expiresAt: null }, { expiresAt: { gte: new Date() } }],
           },
         },
       },
@@ -173,6 +153,9 @@ export async function queryCatalog(
     const lifecycleStatus =
       sku.product?.lifecycleSnapshots?.[0]?.status ?? null;
 
+    // Use SKU.pricePerUnit as the single source of truth
+    const price = sku.pricePerUnit ? Number(sku.pricePerUnit) : 0;
+
     return {
       skuId: sku.id,
       skuCode: sku.code,
@@ -183,17 +166,7 @@ export async function queryCatalog(
       lifecycleStatus,
       unitOfMeasure: sku.unitOfMeasure,
       size: sku.size,
-      priceLists: sku.priceListItems.map((item) => ({
-        priceListId: item.priceList.id,
-        priceListName: item.priceList.name,
-        price: Number(item.price),
-        currency: item.priceList.currency,
-        minQuantity: item.minQuantity,
-        maxQuantity: item.maxQuantity,
-        jurisdictionType: item.priceList.jurisdictionType,
-        jurisdictionValue: item.priceList.jurisdictionValue,
-        allowManualOverride: item.priceList.allowManualOverride,
-      })),
+      price,
       inventory: {
         totals,
         lowStock: totals.available < 10,
@@ -284,27 +257,10 @@ function buildFacets(items: CatalogItem[]): CatalogFacets {
       .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
   };
 
-  const priceListCounts = new Map<string, { label: string; count: number }>();
-  items.forEach((item) => {
-    item.priceLists.forEach((priceList) => {
-      const record =
-        priceListCounts.get(priceList.priceListId) ??
-        { label: priceList.priceListName, count: 0 };
-      record.count += 1;
-      priceListCounts.set(priceList.priceListId, record);
-    });
-  });
-
   return {
     brands: bucketize(items.map((item) => item.brand)),
     categories: bucketize(items.map((item) => item.category)),
     lifecycle: bucketize(items.map((item) => item.lifecycleStatus)),
-    priceLists: Array.from(priceListCounts.entries())
-      .map(([value, record]) => ({
-        value,
-        label: record.label,
-        count: record.count,
-      }))
-      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label)),
+    priceLists: [], // Removed - no longer using price lists
   };
 }
