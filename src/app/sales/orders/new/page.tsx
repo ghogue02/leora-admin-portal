@@ -15,10 +15,7 @@ import { Suspense, useState, useEffect, useCallback, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { showError, showInfo, notifications } from '@/lib/toast-helpers';
-import { ButtonWithLoading } from '@/components/ui/button-variants';
 import { ProductGrid } from '@/components/orders/ProductGrid';
-import { DeliveryDatePicker } from '@/components/orders/DeliveryDatePicker';
-import { WarehouseSelector } from '@/components/orders/WarehouseSelector';
 import { CustomerSearchCombobox, type Customer } from '@/components/orders/CustomerSearchCombobox';
 import { OrderSummarySidebar } from '@/components/orders/OrderSummarySidebar';
 import { ValidationErrorSummary } from '@/components/orders/ValidationErrorSummary';
@@ -31,17 +28,19 @@ import {
   type OrderSectionKey,
   type OrderAccordionStatus,
 } from '@/components/orders/OrderFormLayout';
-import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext, describePriceListForDisplay } from '@/components/orders/pricing-utils';
+import { resolvePriceForQuantity, PriceListSummary, PricingSelection, CustomerPricingContext } from '@/components/orders/pricing-utils';
 import { PriceOverride } from '@/components/orders/ProductGrid';
 import { formatUTCDate } from '@/lib/dates';
-import { formatCurrency, formatShortDate } from '@/lib/format';
-import { cn } from '@/lib/utils';
-import { ChevronDown } from 'lucide-react';
+import { formatShortDate } from '@/lib/format';
 import { ORDER_USAGE_OPTIONS, ORDER_USAGE_LABELS, type OrderUsageCode } from '@/constants/orderUsage';
 import { DELIVERY_METHOD_OPTIONS } from '@/constants/deliveryMethods';
 import { formatDeliveryWindows } from '@/lib/delivery-window';
 import { useRecentItems } from './hooks/useRecentItems';
 import type { MinimumOrderPolicyClient, RecentPurchaseSuggestion } from '@/types/orders';
+import { CustomerSection } from './sections/CustomerSection';
+import { DeliverySection } from './sections/DeliverySection';
+import { RecentPurchasesSection } from './sections/RecentPurchasesSection';
+import { ProductsSection } from './sections/ProductsSection';
 
 type InventoryStatus = {
   onHand: number;
@@ -175,6 +174,39 @@ function NewOrderPageContent() {
       return next;
     });
   }, []);
+
+  const handleQuantityChange = useCallback((index: number, quantity: number) => {
+    setOrderItems(prev => {
+      const item = prev[index];
+      if (!item) return prev;
+
+      const pricing = resolvePriceForQuantity(
+        item.priceLists,
+        Math.max(quantity, 1),
+        customerPricingContext ?? undefined,
+      );
+      const effectivePricing: PricingSelection =
+        pricing.priceList || !item.pricing.priceList
+          ? pricing
+          : {
+              priceList: item.pricing.priceList,
+              unitPrice: item.unitPrice,
+              overrideApplied: true,
+              reason: "manualOverride",
+            };
+      const resolvedUnitPrice = effectivePricing.unitPrice || item.unitPrice;
+
+      const newItems = [...prev];
+      newItems[index] = {
+        ...item,
+        quantity,
+        unitPrice: resolvedUnitPrice,
+        lineTotal: quantity * resolvedUnitPrice,
+        pricing: effectivePricing,
+      };
+      return newItems;
+    });
+  }, [customerPricingContext]);
 
   // Load sales rep delivery days and permission checks
   useEffect(() => {
@@ -652,7 +684,7 @@ function NewOrderPageContent() {
           },
       delivery: deliveryReady
         ? { tone: 'success', label: 'Scheduled' }
-        : { tone: 'warning', label: 'Add delivery details' },
+        : undefined, // Don't show warning badge for delivery section
       products: productsReady
         ? { tone: 'success', label: 'Ready' }
         : {
@@ -964,11 +996,11 @@ function NewOrderPageContent() {
         </div>
       )}
 
-      {requiresApproval && validationErrors.length === 0 && (
+      {validationErrors.length === 0 && orderItems.some(item => item.inventoryStatus && !item.inventoryStatus.sufficient) && (
         <div className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4">
           <p className="text-sm font-semibold text-amber-900">⚠ Manager Approval Required</p>
           <p className="mt-1 text-sm text-amber-700">
-            This order includes low inventory items or manual pricing overrides and will require manager review before processing.
+            This order includes low inventory items and will require manager review before processing.
           </p>
         </div>
       )}
@@ -984,72 +1016,26 @@ function NewOrderPageContent() {
           isOpen={openSections.customer}
           onToggle={() => toggleSection('customer')}
         >
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="customer" className="block text-sm font-medium text-gray-700 mb-1">
-                Customer <span className="text-rose-600">*</span>
-              </label>
-              <CustomerSearchCombobox
-                value={selectedCustomerId}
-                onChange={handleCustomerSelect}
-                error={fieldErrors.customer}
-              />
-              {fieldErrors.customer && (
-                <p className="mt-1 text-xs text-rose-600">{fieldErrors.customer}</p>
-              )}
-            </div>
-            <div>
-              <label htmlFor="salesRep" className="block text-sm font-medium text-gray-700 mb-1">
-                Salesperson <span className="text-rose-600">*</span>
-              </label>
-              <select
-                id="salesRep"
-                value={selectedSalesRepId ?? ''}
-                onChange={(e) => {
-                  const nextId = e.target.value || null;
-                  setSelectedSalesRepId(nextId);
-                  const derivedName =
-                    getSalesRepNameById(nextId) ??
-                    (nextId === customerDefaultSalesRepId ? customerDefaultSalesRepName : null) ??
-                    (nextId === loggedInSalesRepId ? loggedInSalesRepName : null);
-                  setSelectedSalesRepName(derivedName ?? null);
-                  validateField('salesRep', nextId);
-                }}
-                onBlur={(e) => validateField('salesRep', e.target.value)}
-                disabled={salesRepOptionsLoading && !selectedSalesRepId}
-                className={`mt-1 block w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 ${
-                  fieldErrors.salesRep
-                    ? 'border-rose-300 bg-rose-50 focus:border-rose-500 focus:ring-rose-200'
-                    : 'border-gray-300 focus:border-gray-500 focus:ring-gray-200'
-                } ${salesRepOptionsLoading && !selectedSalesRepId ? 'bg-gray-50 text-gray-500' : ''}`}
-              >
-                <option value="" disabled>
-                  {salesRepOptionsLoading && !selectedSalesRepId
-                    ? 'Loading sales reps...'
-                    : 'Select salesperson'}
-                </option>
-                {combinedSalesRepOptions.map((rep) => (
-                  <option key={rep.id} value={rep.id}>
-                    {rep.name}
-                    {rep.orderEntryEnabled === false ? ' (not order-entry enabled)' : ''}
-                  </option>
-                ))}
-              </select>
-              {isSalesRepOverride && customerDefaultSalesRepName && (
-                <p className="mt-1 text-xs text-amber-700">
-                  Reassigned from {customerDefaultSalesRepName}. Make sure commissions are updated accordingly.
-                </p>
-              )}
-              {!selectedSalesRepId && (
-                <p className="mt-1 text-xs text-gray-500">
-                  Defaulted to the salesperson on the customer record. Override if another rep should receive credit.
-                </p>
-              )}
-              {fieldErrors.salesRep && (
-                <p className="mt-1 text-xs text-rose-600">{fieldErrors.salesRep}</p>
-              )}
-            </div>
-          </div>
+          <CustomerSection
+            selectedCustomerId={selectedCustomerId}
+            selectedCustomer={selectedCustomer}
+            selectedSalesRepId={selectedSalesRepId}
+            customerDefaultSalesRepName={customerDefaultSalesRepName}
+            salesRepOptions={combinedSalesRepOptions}
+            salesRepOptionsLoading={salesRepOptionsLoading}
+            isSalesRepOverride={isSalesRepOverride}
+            fieldErrors={fieldErrors}
+            onCustomerSelect={handleCustomerSelect}
+            onSalesRepChange={(repId) => {
+              setSelectedSalesRepId(repId);
+              const derivedName =
+                getSalesRepNameById(repId) ??
+                (repId === customerDefaultSalesRepId ? customerDefaultSalesRepName : null) ??
+                (repId === loggedInSalesRepId ? loggedInSalesRepName : null);
+              setSelectedSalesRepName(derivedName ?? null);
+            }}
+            validateField={validateField}
+          />
         </OrderAccordionSection>
 
         {/* Section 2: Delivery Settings */}
@@ -1061,137 +1047,25 @@ function NewOrderPageContent() {
           isOpen={openSections.delivery}
           onToggle={() => toggleSection('delivery')}
         >
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label htmlFor="deliveryDate" className="block text-sm font-medium text-gray-700">
-                Delivery Date <span className="text-rose-600">*</span>
-                {deliveryDate && salesRepDeliveryDays.length > 0 && (
-                  <span className="ml-2 text-xs text-emerald-600 font-normal">
-                    ✓ Auto-selected next delivery day
-                  </span>
-                )}
-              </label>
-              <DeliveryDatePicker
-                value={deliveryDate}
-                onChange={(date) => {
-                  setDeliveryDate(date);
-                  validateField('deliveryDate', date);
-                }}
-                deliveryDays={salesRepDeliveryDays}
-                error={fieldErrors.deliveryDate}
-              />
-              {fieldErrors.deliveryDate && (
-                <p className="mt-1 text-xs text-rose-600">{fieldErrors.deliveryDate}</p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="warehouse" className="block text-sm font-medium text-gray-700">
-                Warehouse Location <span className="text-rose-600">*</span>
-              </label>
-              <WarehouseSelector
-                value={warehouseLocation}
-                onChange={(warehouse) => {
-                  setWarehouseLocation(warehouse);
-                  validateField('warehouse', warehouse);
-                  // Remember warehouse selection for next order
-                  if (typeof window !== 'undefined') {
-                    localStorage.setItem('lastUsedWarehouse', warehouse);
-                  }
-                }}
-              />
-              {fieldErrors.warehouse && (
-                <p className="mt-1 text-xs text-rose-600">{fieldErrors.warehouse}</p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="timeWindow" className="block text-sm font-medium text-gray-700">
-                Delivery Time Window <span className="text-xs font-normal text-gray-500">(Optional)</span>
-                <span className="ml-1 cursor-help text-gray-400" title="Preferred time window for delivery. Leave as 'Anytime' if no preference.">ⓘ</span>
-              </label>
-              <select
-                id="timeWindow"
-                value={deliveryTimeWindow}
-                onChange={(e) => setDeliveryTimeWindow(e.target.value)}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
-              >
-                <optgroup label="Standard Windows">
-                  <option value="anytime">Anytime</option>
-                  <option value="8am-12pm">Morning (8am - 12pm)</option>
-                  <option value="12pm-5pm">Afternoon (12pm - 5pm)</option>
-                  <option value="after-5pm">Evening (After 5pm)</option>
-                </optgroup>
-                {customerDeliveryWindows.length > 0 && (
-                  <optgroup label="Customer Preferences">
-                    {customerDeliveryWindows.map((window) => (
-                      <option key={window} value={window}>
-                        {window}
-                      </option>
-                    ))}
-                  </optgroup>
-                )}
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="deliveryMethod" className="block text-sm font-medium text-gray-700">
-                Delivery Method <span className="text-xs font-normal text-gray-500">(Required)</span>
-              </label>
-              <select
-                id="deliveryMethod"
-                value={deliveryMethod}
-                onChange={(event) => setDeliveryMethod(event.target.value)}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
-              >
-                {DELIVERY_METHOD_OPTIONS.map((method) => (
-                  <option key={method} value={method}>
-                    {method}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="poNumber" className="block text-sm font-medium text-gray-700">
-                PO Number {selectedCustomer?.requiresPO ? <span className="text-rose-600">*</span> : <span className="text-xs font-normal text-gray-500">(Optional)</span>}
-              </label>
-              <input
-                id="poNumber"
-                type="text"
-                value={poNumber}
-                onChange={(e) => setPoNumber(e.target.value)}
-                onBlur={(e) => validateField('poNumber', e.target.value)}
-                placeholder="Customer PO number"
-                className={`mt-1 block w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 ${
-                  fieldErrors.poNumber
-                    ? 'border-rose-300 bg-rose-50 focus:border-rose-500 focus:ring-rose-200'
-                    : 'border-gray-300 focus:border-gray-500 focus:ring-gray-200'
-                }`}
-                required={selectedCustomer?.requiresPO}
-              />
-              {selectedCustomer?.requiresPO && !fieldErrors.poNumber && (
-                <p className="mt-1 text-xs text-gray-600">This customer requires a PO number for all orders</p>
-              )}
-              {fieldErrors.poNumber && (
-                <p className="mt-1 text-xs text-rose-600">{fieldErrors.poNumber}</p>
-              )}
-            </div>
-
-            <div className="sm:col-span-2">
-              <label htmlFor="instructions" className="block text-sm font-medium text-gray-700">
-                Special Instructions <span className="text-xs font-normal text-gray-500">(Optional)</span>
-              </label>
-              <textarea
-                id="instructions"
-                value={specialInstructions}
-                onChange={(e) => setSpecialInstructions(e.target.value)}
-                placeholder="Delivery instructions, gate codes, special handling requirements, etc."
-                rows={3}
-                className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-gray-500 focus:outline-none"
-              />
-            </div>
-          </div>
+          <DeliverySection
+            deliveryDate={deliveryDate}
+            warehouseLocation={warehouseLocation}
+            deliveryTimeWindow={deliveryTimeWindow}
+            deliveryMethod={deliveryMethod}
+            poNumber={poNumber}
+            specialInstructions={specialInstructions}
+            customerDeliveryWindows={customerDeliveryWindows}
+            salesRepDeliveryDays={salesRepDeliveryDays}
+            customerRequiresPO={selectedCustomer?.requiresPO ?? false}
+            fieldErrors={fieldErrors}
+            onDeliveryDateChange={setDeliveryDate}
+            onWarehouseChange={setWarehouseLocation}
+            onDeliveryTimeWindowChange={setDeliveryTimeWindow}
+            onDeliveryMethodChange={setDeliveryMethod}
+            onPoNumberChange={setPoNumber}
+            onSpecialInstructionsChange={setSpecialInstructions}
+            validateField={validateField}
+          />
         </OrderAccordionSection>
 
         {/* Section: Recent Purchases */}
@@ -1202,107 +1076,14 @@ function NewOrderPageContent() {
             isOpen={openSections.recentPurchases}
             onToggle={() => toggleSection('recentPurchases')}
           >
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              {recentItems.length > 0 && (
-                <button
-                  type="button"
-                  onClick={handleAddAllRecentItems}
-                  className="inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-70"
-                  disabled={recentItemsLoading}
-                >
-                  Add All Recent Items
-                </button>
-              )}
-            </div>
-
-            <div className="mt-4">
-              {recentItemsLoading ? (
-                <div className="space-y-3">
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <div key={index} className="animate-pulse rounded-lg border border-slate-100 p-4">
-                      <div className="h-4 w-1/3 rounded bg-slate-200" />
-                      <div className="mt-2 h-3 w-1/2 rounded bg-slate-200" />
-                    </div>
-                  ))}
-                </div>
-              ) : recentItemsError ? (
-                <div className="rounded-lg border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
-                  {recentItemsError}
-                </div>
-              ) : recentItems.length === 0 ? (
-                <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 p-4 text-sm text-gray-600">
-                  No purchases in the last six months. Use the catalog below to build this order.
-                </div>
-              ) : (
-                <div className="overflow-hidden rounded-lg border border-slate-200">
-                  <table className="min-w-full divide-y divide-slate-200 text-sm">
-                    <thead className="bg-slate-50 text-xs uppercase tracking-wide text-gray-500">
-                      <tr>
-                        <th className="px-4 py-3 text-left">Product</th>
-                        <th className="px-4 py-3 text-left">Last Order</th>
-                        <th className="px-4 py-3 text-left">Last Price</th>
-                        <th className="px-4 py-3 text-left">
-                          <span className="sr-only">Actions</span>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-200 bg-white">
-                      {recentItems.map((item) => {
-                        const alreadyAdded = orderSkuIds.has(item.skuId);
-                        return (
-                          <tr key={item.skuId}>
-                            <td className="px-4 py-3">
-                              <div className="font-medium text-gray-900">{item.productName}</div>
-                              <div className="text-xs text-gray-500">{item.skuCode}</div>
-                              <div className="mt-1 text-xs text-gray-500">
-                                Last quantity: {item.lastQuantity} • {item.timesOrdered} orders
-                              </div>
-                            </td>
-                            <td className="px-4 py-3">
-                              <div className="text-sm text-gray-900">{formatShortDate(item.lastOrderedAt)}</div>
-                              <div className="text-xs text-gray-500">
-                                Order {item.lastOrderNumber ?? item.lastOrderId.slice(0, 8).toUpperCase()}
-                              </div>
-                            </td>
-                            <td className="px-4 py-3">
-                              <div className="text-sm font-semibold text-gray-900">
-                                {formatCurrency(item.lastUnitPrice, 'USD')}
-                              </div>
-                              <div className="mt-1 flex items-center gap-2 text-xs">
-                                <span
-                                  className={`inline-flex items-center rounded-full px-2 py-0.5 font-medium ${
-                                    item.priceMatchesStandard
-                                      ? 'bg-emerald-50 text-emerald-700'
-                                      : 'bg-amber-50 text-amber-700'
-                                  }`}
-                                >
-                                  {item.priceMatchesStandard ? 'Standard price' : 'Customer price'}
-                                </span>
-                                {item.standardPrice && !item.priceMatchesStandard && (
-                                  <span className="text-gray-500">
-                                    Std {formatCurrency(item.standardPrice, 'USD')}
-                                  </span>
-                                )}
-                              </div>
-                            </td>
-                            <td className="px-4 py-3 text-right">
-                              <button
-                                type="button"
-                                onClick={() => handleAddRecentItem(item)}
-                                disabled={alreadyAdded}
-                                className="rounded-md border border-gray-300 px-3 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:cursor-not-allowed disabled:opacity-50"
-                              >
-                                {alreadyAdded ? 'Added' : 'Add'}
-                              </button>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
+            <RecentPurchasesSection
+              recentItems={recentItems}
+              loading={recentItemsLoading}
+              error={recentItemsError}
+              orderSkuIds={orderSkuIds}
+              onAddItem={handleAddRecentItem}
+              onAddAllItems={handleAddAllRecentItems}
+            />
           </OrderAccordionSection>
         )}
 
@@ -1315,204 +1096,15 @@ function NewOrderPageContent() {
           isOpen={openSections.products}
           onToggle={() => toggleSection('products')}
         >
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">Products</h2>
-            <ButtonWithLoading
-              type="button"
-              onClick={() => setShowProductSelector(true)}
-              disabled={!selectedCustomer || !warehouseLocation}
-              variant="primary"
-            >
-              Add Products{orderItems.length > 0 && ` (${orderItems.length})`}
-            </ButtonWithLoading>
-          </div>
-
-          {orderItems.length === 0 ? (
-            <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-8 text-center">
-              <p className="text-sm text-gray-600">
-                No products added yet. Use the Add Products button to start building the order.
-              </p>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600">
-                      Product
-                    </th>
-                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-600">
-                      Usage <span className="font-normal lowercase text-gray-400">(optional)</span>
-                    </th>
-                    <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-600">
-                      Qty
-                    </th>
-                    <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-600">
-                      Unit Price
-                    </th>
-                    <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-600">
-                      Total
-                    </th>
-                    <th className="px-4 py-3 text-right">
-                      <span className="sr-only">Actions</span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 bg-white">
-                  {orderItems.map((item, index) => (
-                    <tr key={item.skuId} className="hover:bg-gray-50">
-                      <td className="px-4 py-3">
-                        <div className="text-sm font-medium text-gray-900">{item.productName}</div>
-                        <div className="text-xs text-gray-500">
-                          {item.skuCode} {item.size && `• ${item.size}`}
-                        </div>
-                        {item.brand && <div className="text-xs text-gray-500">{item.brand}</div>}
-                        <div
-                          className={`text-xs ${
-                            item.priceOverride
-                              ? 'text-blue-700'
-                              : item.pricing.priceList
-                              ? item.pricing.overrideApplied
-                                ? 'text-amber-700'
-                                : 'text-gray-500'
-                              : 'text-rose-700'
-                          }`}
-                        >
-                          {item.priceOverride ? (
-                            <>
-                              Manual Price Override
-                              <div className="text-xs text-gray-600 mt-0.5">
-                                {item.priceOverride.reason}
-                              </div>
-                            </>
-                          ) : item.pricing.priceList ? (
-                            <>
-                              {describePriceListForDisplay(item.pricing.priceList)}
-                              {item.pricing.overrideApplied && item.pricing.priceList ? ' • manual review' : ''}
-                            </>
-                          ) : (
-                            'No price list match'
-                          )}
-                        </div>
-                        {item.inventoryStatus ? (
-                          <div className="mt-2 text-xs text-gray-500">
-                            <div
-                              className={`font-medium ${
-                                item.inventoryStatus.sufficient ? 'text-emerald-700' : 'text-rose-700'
-                              }`}
-                            >
-                              {item.inventoryStatus.available} available
-                            </div>
-                            <div>
-                              {item.inventoryStatus.onHand} on hand • {item.inventoryStatus.allocated} allocated
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="mt-2 text-xs text-gray-400">Inventory info unavailable</div>
-                        )}
-                      </td>
-                      <td className="px-4 py-3 align-top">
-                        <div className="flex flex-col gap-2">
-                          <div className="flex flex-wrap gap-2">
-                            {ORDER_USAGE_OPTIONS.map(option => {
-                              const isActive = item.usageType === option.value;
-                              return (
-                                <button
-                                  key={option.value}
-                                  type="button"
-                                  onClick={() => handleUsageSelect(index, option.value)}
-                                  className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition ${
-                                    isActive
-                                      ? 'border-gray-900 bg-gray-900 text-white shadow-sm'
-                                      : 'border-gray-300 bg-gray-100 text-gray-700 hover:border-gray-400 hover:bg-gray-200'
-                                  }`}
-                                  title={option.helper}
-                                  aria-pressed={isActive}
-                                >
-                                  {option.label}
-                                </button>
-                              );
-                            })}
-                          </div>
-                          <span className="text-xs text-gray-500">
-                            {item.usageType ? ORDER_USAGE_LABELS[item.usageType] : 'Leave blank for standard sales'}
-                          </span>
-                        </div>
-                      </td>
-                      <td className="px-4 py-3 text-right">
-                        <input
-                          type="number"
-                          inputMode="numeric"
-                          pattern="[0-9]*"
-                          value={item.quantity}
-                          onChange={(e) => {
-                            const parsedQty = parseInt(e.target.value, 10);
-                            const safeQty = Number.isNaN(parsedQty) ? 0 : Math.max(parsedQty, 0);
-                            const pricing = resolvePriceForQuantity(
-                              item.priceLists,
-                              Math.max(safeQty, 1),
-                              customerPricingContext ?? undefined,
-                            );
-                            const effectivePricing: PricingSelection =
-                              pricing.priceList || !item.pricing.priceList
-                                ? pricing
-                                : {
-                                    priceList: item.pricing.priceList,
-                                    unitPrice: item.unitPrice,
-                                    overrideApplied: true,
-                                    reason: "manualOverride",
-                                  };
-                            const resolvedUnitPrice = effectivePricing.unitPrice || item.unitPrice;
-                            const newItems = [...orderItems];
-                            newItems[index] = {
-                              ...item,
-                              quantity: safeQty,
-                              unitPrice: resolvedUnitPrice,
-                              lineTotal: safeQty * resolvedUnitPrice,
-                              pricing: effectivePricing,
-                            };
-                            setOrderItems(newItems);
-                          }}
-                          min="0"
-                          className="w-20 rounded-md border border-gray-300 px-2 py-1 text-sm text-right focus:border-gray-500 focus:outline-none"
-                        />
-                      </td>
-                      <td className="px-4 py-3 text-right">
-                        {item.priceOverride ? (
-                          <div className="text-right">
-                            <div className="text-sm font-semibold text-blue-700">
-                              ${item.unitPrice.toFixed(2)}
-                            </div>
-                            <div className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 mt-1">
-                              Override Applied
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="text-sm text-gray-900">
-                            ${item.unitPrice.toFixed(2)}
-                          </div>
-                        )}
-                      </td>
-                      <td className="px-4 py-3 text-right text-sm font-semibold text-gray-900">
-                        ${item.lineTotal.toFixed(2)}
-                      </td>
-                      <td className="px-4 py-3 text-right">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setOrderItems(orderItems.filter((_, i) => i !== index));
-                          }}
-                          className="text-xs font-semibold text-rose-600 transition hover:text-rose-800"
-                        >
-                          Remove
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
+          <ProductsSection
+            orderItems={orderItems}
+            canOpenProductSelector={Boolean(selectedCustomer && warehouseLocation)}
+            fieldErrors={fieldErrors}
+            onAddProductsClick={() => setShowProductSelector(true)}
+            onQuantityChange={handleQuantityChange}
+            onUsageSelect={handleUsageSelect}
+            onRemoveItem={(index) => setOrderItems(orderItems.filter((_, i) => i !== index))}
+          />
         </OrderAccordionSection>
 
           <OrderActionFooter
@@ -1521,6 +1113,7 @@ function NewOrderPageContent() {
             issuesCount={outstandingIssues}
             isFormValid={isFormValid}
             submitting={submitting}
+            primaryLabel="Review Order"
           />
         </form>
 

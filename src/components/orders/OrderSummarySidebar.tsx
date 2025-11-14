@@ -217,7 +217,7 @@ export function OrderSummarySidebar({
           </div>
 
           {/* Minimum Order */}
-          {minimumOrderThreshold !== null && minimumOrderThreshold > 0 && (
+          {items.length > 0 && minimumOrderThreshold !== null && minimumOrderThreshold > 0 && (
             <div
               className={`rounded-md border p-3 ${
                 minimumOrderViolation || minimumOrderWarningOnly
