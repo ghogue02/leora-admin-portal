@@ -23,7 +23,6 @@ import TopProducts from "./sections/TopProducts";
 import ProductRecommendations from "./sections/ProductRecommendations";
 import SampleHistory from "./sections/SampleHistory";
 import ActivityTimeline from "./sections/ActivityTimeline";
-import QuickActions from "./sections/QuickActions";
 import OrderHistory from "./sections/OrderHistory";
 import AccountHolds from "./sections/AccountHolds";
 import CustomerContextSetter from "./sections/CustomerContextSetter";
@@ -284,12 +283,6 @@ export default function CustomerDetailClientV2({
         {/* ORDERS TAB */}
         {activeTab === "orders" && (
           <>
-            <QuickActions
-              customerId={customerId}
-              isPermanentlyClosed={data.customer.isPermanentlyClosed}
-              customerName={data.customer.name}
-            />
-
             <SampleQuickLogPanel customerId={customerId} customerName={data.customer.name} />
 
             <OrderHistory
