@@ -32,6 +32,7 @@ export default function CatalogGrid() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
+  const [priceListFilter, setPriceListFilter] = useState<string>("all");
   const [onlyInStock, setOnlyInStock] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>("priority");
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
@@ -56,7 +57,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setPage(1);
-  }, [search, selectedCategories, selectedLifecycle, onlyInStock, sortOption, minAvailable]);
+  }, [search, selectedCategories, selectedLifecycle, priceListFilter, onlyInStock, sortOption, minAvailable]);
 
   useEffect(() => {
     let isMounted = true;
@@ -70,6 +71,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
         if (search.trim()) params.set("q", search.trim());
         selectedCategories.forEach((category) => params.append("category", category));
         selectedLifecycle.forEach((status) => params.append("lifecycle", status));
+        if (priceListFilter !== "all") params.set("priceListId", priceListFilter);
         if (onlyInStock) params.set("onlyInStock", "true");
         if (sortOption && sortOption !== "priority") params.set("sort", sortOption);
         if (typeof minAvailable === "number" && !Number.isNaN(minAvailable)) {
@@ -99,7 +101,8 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
           }
           setQuantityBySku(
             payload.items.reduce<Record<string, number>>((acc, item) => {
-              acc[item.skuId] = 1; // Default quantity
+              const primaryPrice = getPrimaryPrice(item, "all");
+              acc[item.skuId] = primaryPrice?.minQuantity ?? 1;
               return acc;
             }, {}),
           );
@@ -124,6 +127,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     search,
     selectedCategories,
     selectedLifecycle,
+    priceListFilter,
     onlyInStock,
     sortOption,
     minAvailable,
@@ -131,13 +135,30 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     pageSize,
   ]);
 
-  // Price list options removed - using SKU.pricePerUnit only
+  const priceListOptions = useMemo(() => {
+    if (facets?.priceLists) {
+      return facets.priceLists.map((bucket) => ({
+        id: bucket.value,
+        name: bucket.label,
+      }));
+    }
+    const map = new Map<string, string>();
+    items.forEach((item) => {
+      item.priceLists.forEach((price) => {
+        map.set(price.priceListId, price.priceListName);
+      });
+    });
+    return Array.from(map.entries())
+      .map(([id, name]) => ({ id, name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [facets, items]);
 
   const filtersPayload = useMemo(
     () => ({
       search: search.trim() || undefined,
       categories: selectedCategories,
       lifecycle: selectedLifecycle,
+      priceListId: priceListFilter !== "all" ? priceListFilter : undefined,
       onlyInStock,
       sort: sortOption,
       minAvailable: typeof minAvailable === "number" ? minAvailable : undefined,
@@ -146,6 +167,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
       search,
       selectedCategories,
       selectedLifecycle,
+      priceListFilter,
       onlyInStock,
       sortOption,
       minAvailable,
@@ -195,14 +217,18 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
         .includes(normalizedSearch);
     };
 
+    const matchesPriceList = (item: CatalogItem) =>
+      priceListFilter === "all" || item.priceLists.some((price) => price.priceListId === priceListFilter);
+
     const matchesStock = (item: CatalogItem) => !onlyInStock || item.inventory.totals.available > 0;
 
     return items.filter(
       (item) =>
         matchesSearch(item) &&
+        matchesPriceList(item) &&
         matchesStock(item),
     );
-  }, [items, search, onlyInStock]);
+  }, [items, search, priceListFilter, onlyInStock]);
 
   const sortedItems = useMemo(() => {
     const sorted = [...filteredItems];
@@ -232,17 +258,18 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     }));
   }, []);
 
-  const handleQuantityAdjust = useCallback((skuId: string, delta: number) => {
+  const handleQuantityAdjust = useCallback((skuId: string, delta: number, minQuantity = 1) => {
     setQuantityBySku((prev) => {
-      const current = prev[skuId] ?? 1;
+      const current = prev[skuId] ?? minQuantity;
       return {
         ...prev,
-        [skuId]: Math.max(1, current + delta),
+        [skuId]: Math.max(minQuantity, current + delta),
       };
     });
   }, []);
 
   const handleClearFilters = useCallback(() => {
+    setPriceListFilter("all");
     setOnlyInStock(false);
     setSortOption("priority");
     setSelectedCategories([]);
@@ -435,6 +462,22 @@ useEffect(() => {
 
         <form className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm" aria-label="Catalog filters">
           <div className="flex flex-wrap items-center gap-3 text-xs font-semibold text-gray-600">
+            <label className="flex items-center gap-2">
+              <span className="uppercase tracking-wide text-gray-500">Price list</span>
+              <select
+                value={priceListFilter}
+                onChange={(event) => setPriceListFilter(event.target.value)}
+                className="rounded-md border border-gray-300 px-3 py-1 focus:border-gray-500 focus:outline-none"
+              >
+                <option value="all">All price lists</option>
+                {priceListOptions.map((option) => (
+                  <option key={option.id} value={option.id}>
+                    {option.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+
             <label className="inline-flex items-center gap-2">
               <input
                 type="checkbox"
@@ -522,14 +565,15 @@ useEffect(() => {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {sortedItems.map((item) => {
-            const quantity = quantityBySku[item.skuId] ?? 1;
-            const hasPrice = item.price > 0;
-            const priceLabel = hasPrice
+            const primaryPrice = getPrimaryPrice(item, priceListFilter);
+            const minQuantity = primaryPrice?.minQuantity ?? 1;
+            const quantity = quantityBySku[item.skuId] ?? minQuantity;
+            const priceLabel = primaryPrice
               ? new Intl.NumberFormat("en-US", {
                   style: "currency",
-                  currency: "USD",
-                }).format(item.price)
-              : "No price set";
+                  currency: primaryPrice.currency,
+                }).format(primaryPrice.price)
+              : "—";
             const outOfStock = item.inventory.totals.available <= 0;
 
             return (
@@ -574,13 +618,42 @@ useEffect(() => {
                     <dt>Unit</dt>
                     <dd>{item.unitOfMeasure ?? "—"}</dd>
                   </div>
-                  <div className="flex justify-between col-span-2">
-                    <dt className="font-semibold">Price</dt>
-                    <dd className={`font-semibold ${hasPrice ? "text-gray-900" : "text-amber-600"}`}>
-                      {priceLabel}
-                    </dd>
+                  <div className="flex justify-between">
+                    <dt>Best price</dt>
+                    <dd>{priceLabel}</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt>Min qty</dt>
+                    <dd>{minQuantity}</dd>
                   </div>
                 </dl>
+
+                <div className="mt-4 space-y-2 text-xs text-gray-600">
+                  {item.priceLists.map((price) => (
+                    <div
+                      key={`${item.skuId}-${price.priceListId}`}
+                      className={`flex items-center justify-between rounded border px-3 py-2 text-sm ${
+                        price.priceListId === (primaryPrice?.priceListId ?? "")
+                          ? "border-gray-900 bg-gray-900/5"
+                          : "border-slate-200"
+                      }`}
+                    >
+                      <div className="flex flex-col">
+                        <span className="font-medium text-gray-900">{price.priceListName}</span>
+                        <span className="text-xs text-gray-500">
+                          {price.minQuantity > 1 ? `Min ${price.minQuantity}` : "Each"}
+                          {price.maxQuantity ? ` · Max ${price.maxQuantity}` : ""}
+                        </span>
+                      </div>
+                      <span className="text-gray-700">
+                        {new Intl.NumberFormat("en-US", {
+                          style: "currency",
+                          currency: price.currency,
+                        }).format(price.price)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
                 </div>
 
                 <footer className="mt-4 flex flex-col gap-3">
@@ -589,27 +662,24 @@ useEffect(() => {
                       Qty
                       <input
                         type="number"
-                        min={1}
+                        min={minQuantity}
                         value={quantity}
                         onChange={(event) => handleQuantityChange(item.skuId, event.target.value)}
                         className="mt-1 w-20 rounded-md border border-gray-300 px-2 py-1 text-sm focus:border-gray-500 focus:outline-none"
-                        disabled={!hasPrice}
                       />
                     </label>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
-                        onClick={() => handleQuantityAdjust(item.skuId, -1)}
-                        disabled={!hasPrice}
-                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                        onClick={() => handleQuantityAdjust(item.skuId, -minQuantity, minQuantity)}
+                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
                       >
                         −
                       </button>
                       <button
                         type="button"
-                        onClick={() => handleQuantityAdjust(item.skuId, 1)}
-                        disabled={!hasPrice}
-                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+                        onClick={() => handleQuantityAdjust(item.skuId, minQuantity, minQuantity)}
+                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
                       >
                         +
                       </button>
@@ -617,18 +687,9 @@ useEffect(() => {
                   </div>
                   <Link
                     href="/sales/orders"
-                    className={`flex w-full items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-white transition ${
-                      outOfStock || !hasPrice
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-gray-900 hover:bg-gray-700"
-                    }`}
-                    onClick={(e) => {
-                      if (outOfStock || !hasPrice) {
-                        e.preventDefault();
-                      }
-                    }}
+                    className="flex w-full items-center justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-gray-700"
                   >
-                    {outOfStock ? "Out of Stock" : !hasPrice ? "No Price Set" : "Create Order"}
+                    {outOfStock ? "Out of Stock" : "Create Order"}
                   </Link>
                 </footer>
               </article>
@@ -646,6 +707,14 @@ useEffect(() => {
       )}
     </section>
   );
+}
+
+function getPrimaryPrice(item: CatalogItem, priceListFilter: string) {
+  if (priceListFilter !== "all") {
+    const match = item.priceLists.find((price) => price.priceListId === priceListFilter);
+    if (match) return match;
+  }
+  return item.priceLists[0] ?? null;
 }
 
 function StatusBadge({ status }: { status: ProductExportJob["status"] }) {

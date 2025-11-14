@@ -1,3 +1,15 @@
+export type CatalogPriceListInfo = {
+  priceListId: string;
+  priceListName: string;
+  price: number;
+  currency: string;
+  minQuantity: number;
+  maxQuantity: number | null;
+  jurisdictionType?: string | null;
+  jurisdictionValue?: string | null;
+  allowManualOverride?: boolean;
+};
+
 export type CatalogItem = {
   skuId: string;
   skuCode: string;
@@ -8,7 +20,7 @@ export type CatalogItem = {
   lifecycleStatus: string | null;
   unitOfMeasure: string | null;
   size: string | null;
-  price: number; // Single source of truth from SKU.pricePerUnit
+  priceLists: CatalogPriceListInfo[];
   inventory: {
     totals: {
       onHand: number;
