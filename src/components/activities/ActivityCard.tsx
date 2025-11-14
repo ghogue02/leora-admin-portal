@@ -5,6 +5,7 @@
 
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { formatCurrency, formatDateTime } from "@/lib/formatters";
 import { getActivityIcon, getActivityIconColor, getActivityIconBgColor } from "@/lib/activityIcons";
@@ -123,22 +124,34 @@ function TimelineVariant({
   compact: boolean;
   className: string;
 }) {
+  const [isExpanded, setIsExpanded] = React.useState(false);
   const Icon = getActivityIcon(activity.activityType.code);
   const iconColor = getActivityIconColor(activity.activityType.code);
   const iconBg = getActivityIconBgColor(activity.activityType.code);
   const isMajorChange = activity.activityType.code === "MAJOR_CHANGE";
 
+  // Determine if activity has expandable content
+  const hasExpandableContent =
+    activity.notes ||
+    (activity.samples && activity.samples.length > 0) ||
+    (activity.callDuration || activity.visitDuration || activity.location || activity.attendees ||
+     activity.changeType || activity.effectiveDate || activity.impactAssessment || activity.portalInteraction);
+
+  // In compact mode, force unexpanded unless clicked
+  const effectiveCompact = compact && !isExpanded;
+
   // Compact mode: smaller, less padding
-  const padding = compact ? "p-3" : "p-4";
-  const iconSize = compact ? "h-8 w-8" : "h-10 w-10";
-  const iconInnerSize = compact ? "h-4 w-4" : "h-5 w-5";
+  const padding = effectiveCompact ? "p-3" : "p-4";
+  const iconSize = effectiveCompact ? "h-8 w-8" : "h-10 w-10";
+  const iconInnerSize = effectiveCompact ? "h-4 w-4" : "h-5 w-5";
 
   return (
     <div
       id={`activity-${activity.id}`}
-      className={`group rounded-lg border bg-white transition hover:border-slate-300 ${padding} ${
+      className={`group rounded-lg border bg-white transition ${padding} ${
         isMajorChange ? "border-amber-300 bg-amber-50/30" : "border-slate-200"
-      } ${className}`}
+      } ${hasExpandableContent ? "cursor-pointer hover:border-slate-400 hover:shadow-sm" : "hover:border-slate-300"} ${className}`}
+      onClick={() => hasExpandableContent && compact && setIsExpanded(!isExpanded)}
     >
       <div className="flex items-start gap-2.5">
         {/* Icon */}
@@ -186,12 +199,12 @@ function TimelineVariant({
           {/* Outcomes */}
           {activity.outcomes.length > 0 && (
             <div className="mt-1.5">
-              <OutcomeBadges outcomes={activity.outcomes} size="sm" maxDisplay={compact ? 2 : undefined} />
+              <OutcomeBadges outcomes={activity.outcomes} size="sm" maxDisplay={effectiveCompact ? 2 : undefined} />
             </div>
           )}
 
-          {/* Type-specific metadata - hide in compact */}
-          {!compact && (
+          {/* Type-specific metadata - hide in effective compact */}
+          {!effectiveCompact && (
             <ActivityMetadata
               typeCode={activity.activityType.code}
               callDuration={activity.callDuration}
@@ -206,15 +219,15 @@ function TimelineVariant({
             />
           )}
 
-          {/* Notes - hide in compact */}
-          {activity.notes && !compact && (
+          {/* Notes - hide in effective compact */}
+          {activity.notes && !effectiveCompact && (
             <div className="mt-2.5 rounded-md border border-slate-200 bg-slate-50 p-2.5">
               <p className="text-sm text-gray-900 whitespace-pre-wrap">{activity.notes}</p>
             </div>
           )}
 
-          {/* Samples - hide in compact */}
-          {showSamples && !compact && activity.samples && activity.samples.length > 0 && (
+          {/* Samples - hide in effective compact */}
+          {showSamples && !effectiveCompact && activity.samples && activity.samples.length > 0 && (
             <div className="mt-2.5 space-y-1.5">
               {activity.samples.map((sample) => (
                 <div key={sample.id} className="rounded-md border border-blue-100 bg-blue-50 px-2.5 py-2">
@@ -252,10 +265,17 @@ function TimelineVariant({
             </div>
           )}
 
-          {/* Follow-up - hide in compact */}
-          {!compact && activity.followUpAt && (
+          {/* Follow-up - hide in effective compact */}
+          {!effectiveCompact && activity.followUpAt && (
             <div className="mt-1.5 text-xs text-amber-600">
               Follow-up: {formatDateTime(activity.followUpAt).short}
+            </div>
+          )}
+
+          {/* Click to expand hint - show in compact mode with expandable content */}
+          {compact && hasExpandableContent && !isExpanded && (
+            <div className="mt-2 text-xs text-slate-400">
+              Click to view details
             </div>
           )}
         </div>
