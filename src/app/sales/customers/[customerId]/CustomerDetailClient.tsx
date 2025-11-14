@@ -1,11 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCustomerDetail } from "@/hooks/useCustomerDetail";
 import { useCustomerRealtime } from "@/hooks/useCustomerRealtime";
 import { useQueryClient } from "@tanstack/react-query";
 import dynamic from "next/dynamic";
+import {
+  LayoutDashboard,
+  ShoppingCart,
+  Package,
+  Activity,
+  Info
+} from "lucide-react";
+import { TabNavigation, type Tab } from "@/components/ui/TabNavigation";
+import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
 import CustomerHeader from "./sections/CustomerHeader";
 import CustomerMetrics from "./sections/CustomerMetrics";
 import OrderingPaceIndicator from "./sections/OrderingPaceIndicator";
@@ -30,6 +40,7 @@ import { CustomerContactsManager } from "@/components/customers/CustomerContacts
 import { GoogleProfileCard } from "./sections/GoogleProfileCard";
 import CustomerSinceCard from "./sections/CustomerSinceCard";
 import { CustomerPrioritySelector } from "./sections/CustomerPrioritySelector";
+import PermanentNotesPanel from "./sections/PermanentNotesPanel";
 import {
   CustomerHeaderSkeleton,
   CustomerMetricsSkeleton,
@@ -49,7 +60,7 @@ const ProductHistoryReports = dynamic(() => import("./sections/ProductHistoryRep
   ),
 });
 
-export default function CustomerDetailClient({
+export default function CustomerDetailClientV2({
   customerId,
 }: {
   customerId: string;
@@ -57,11 +68,44 @@ export default function CustomerDetailClient({
   const router = useRouter();
   const { data, isLoading, error } = useCustomerDetail(customerId);
   const queryClient = useQueryClient();
+  const [activeTab, setActiveTab] = useState("overview");
   const fullHistorySectionId = "full-order-history";
+
   useCustomerRealtime({
     customerId,
     channel: data?.realtimeChannels?.orders,
   });
+
+  const tabs: Tab[] = [
+    {
+      id: "overview",
+      label: "Overview",
+      icon: <LayoutDashboard className="h-4 w-4" />
+    },
+    {
+      id: "orders",
+      label: "Orders & Actions",
+      icon: <ShoppingCart className="h-4 w-4" />,
+      badge: data?.orders?.length || 0
+    },
+    {
+      id: "products",
+      label: "Products",
+      icon: <Package className="h-4 w-4" />,
+      badge: data?.followUps?.length || 0
+    },
+    {
+      id: "activity",
+      label: "Activity & Insights",
+      icon: <Activity className="h-4 w-4" />,
+      badge: data?.activities?.length || 0
+    },
+    {
+      id: "details",
+      label: "Details",
+      icon: <Info className="h-4 w-4" />
+    },
+  ];
 
   const handleFollowUpComplete = async (item: SampleFollowUpItem) => {
     try {
@@ -122,23 +166,11 @@ export default function CustomerDetailClient({
   if (isLoading || !data) {
     return (
       <main className="mx-auto flex max-w-7xl flex-col gap-6 pb-12">
-        {/* Breadcrumb Skeleton */}
-        <nav className="flex items-center gap-2 text-sm text-gray-600">
-          <div className="h-4 w-20 animate-pulse rounded bg-gray-200"></div>
-          <span>/</span>
-          <div className="h-4 w-24 animate-pulse rounded bg-gray-200"></div>
-          <span>/</span>
-          <div className="h-4 w-32 animate-pulse rounded bg-gray-200"></div>
-        </nav>
-
         <CustomerHeaderSkeleton />
+        <div className="animate-pulse rounded-lg border-2 border-amber-200 bg-amber-50 p-6">
+          <div className="mb-4 h-6 w-48 rounded bg-amber-200"></div>
+        </div>
         <CustomerMetricsSkeleton />
-        <div className="h-32 animate-pulse rounded-lg bg-gray-100"></div>
-        <div className="h-20 animate-pulse rounded-lg bg-gray-100"></div>
-        <div className="h-32 animate-pulse rounded-lg bg-gray-100"></div>
-        <TopProductsSkeleton />
-        <ProductRecommendationsSkeleton />
-        <ActivityTimelineSkeleton />
         <OrderHistorySkeleton />
       </main>
     );
@@ -146,30 +178,15 @@ export default function CustomerDetailClient({
 
   return (
     <main className="mx-auto flex max-w-7xl flex-col gap-6 pb-12">
-      {/* Set customer context for cart and other features */}
       <CustomerContextSetter customerId={customerId} />
 
-      {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-sm text-gray-600">
-        <Link
-          href="/sales/dashboard"
-          className="hover:text-gray-900 hover:underline"
-        >
-          Dashboard
-        </Link>
-        <span>/</span>
-        <Link
-          href="/sales/customers"
-          className="hover:text-gray-900 hover:underline"
-        >
-          Customers
-        </Link>
-        <span>/</span>
-        <span className="font-semibold text-gray-900">{data.customer.name}</span>
-      </nav>
-
-      {/* Customer Header */}
+      {/* ALWAYS VISIBLE: Critical Information */}
       <CustomerHeader customer={data.customer} onAddOrder={handleAddOrderClick} />
+
+      {data.majorChanges && data.majorChanges.length > 0 && (
+        <PermanentNotesPanel notes={data.majorChanges} />
+      )}
+
       <CustomerPrioritySelector
         customerId={customerId}
         initialPriority={data.customer.accountPriority ?? null}
@@ -177,135 +194,169 @@ export default function CustomerDetailClient({
         autoAssignedAt={data.customer.accountPriorityAutoAssignedAt}
       />
 
-      {/* Customer To-Dos */}
       <CustomerTasks customerId={customerId} tasks={data.tasks} />
 
-      {/* Recent Orders - Moved to TOP (position 2) */}
-      <OrderHistory
-        orders={data.orders}
-        customerId={customerId}
-        isCompact={true}
-        fullHistorySectionId={fullHistorySectionId}
-      />
+      {data.invoices && data.invoices.length > 0 && data.metrics.outstandingBalance > 0 && (
+        <AccountHolds
+          invoices={data.invoices}
+          outstandingBalance={data.metrics.outstandingBalance}
+        />
+      )}
 
-      {/* Customer Tags */}
-      <CustomerTagManager customerId={customerId} />
+      {/* TAB NAVIGATION */}
+      <div className="sticky top-0 z-10 bg-slate-50 pt-4 pb-2">
+        <TabNavigation tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
+      </div>
 
-      {/* Customer Contacts */}
-      <CustomerContactsManager
-        customerId={customerId}
-        initialContacts={data.contacts ?? []}
-        variant="sales"
-      />
+      {/* TAB CONTENT */}
+      <div className="space-y-6">
+        {/* OVERVIEW TAB */}
+        {activeTab === "overview" && (
+          <>
+            {/* Recent Orders + Key Metrics Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2">
+                <OrderHistory
+                  orders={data.orders}
+                  customerId={customerId}
+                  isCompact={true}
+                  fullHistorySectionId={fullHistorySectionId}
+                />
+              </div>
+              <div className="space-y-4">
+                <CustomerMetrics
+                  metrics={{
+                    ytdRevenue: data.metrics.ytdRevenue,
+                    totalOrders: data.metrics.totalOrders,
+                    avgOrderValue: data.metrics.avgOrderValue,
+                    outstandingBalance: data.metrics.outstandingBalance,
+                  }}
+                />
+                <OrderingPaceIndicator
+                  metrics={{
+                    lastOrderDate: data.metrics.lastOrderDate,
+                    nextExpectedOrderDate: data.metrics.nextExpectedOrderDate,
+                    averageOrderIntervalDays: data.metrics.averageOrderIntervalDays,
+                    daysSinceLastOrder: data.metrics.daysSinceLastOrder,
+                    daysUntilExpected: data.metrics.daysUntilExpected,
+                  }}
+                />
+              </div>
+            </div>
 
-      {/* Classification */}
-      <CustomerClassificationCard
-        customerId={customerId}
-        type={data.customer.type ?? null}
-        volumeCapacity={data.customer.volumeCapacity ?? null}
-        featurePrograms={data.customer.featurePrograms ?? []}
-      />
+            {/* Customer Info Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <CustomerClassificationCard
+                customerId={customerId}
+                type={data.customer.type ?? null}
+                volumeCapacity={data.customer.volumeCapacity ?? null}
+                featurePrograms={data.customer.featurePrograms ?? []}
+              />
+              <CustomerSinceCard firstOrderDate={data.customer.firstOrderDate ?? null} />
+              <CustomerTagManager customerId={customerId} />
+            </div>
 
-      <GoogleProfileCard
-        customer={{
-          googlePlaceName: data.customer.googlePlaceName ?? null,
-          googlePlaceId: data.customer.googlePlaceId ?? null,
-          googleFormattedAddress: data.customer.googleFormattedAddress ?? null,
-          website: data.customer.website ?? null,
-          googleMapsUrl: data.customer.googleMapsUrl ?? null,
-          googleBusinessStatus: data.customer.googleBusinessStatus ?? null,
-          googlePlaceTypes: data.customer.googlePlaceTypes ?? [],
-          phone: data.customer.phone ?? null,
-          internationalPhone: data.customer.internationalPhone ?? null,
-        }}
-      />
+            <DeliveryPreferences
+              deliveryInstructions={data.customer.deliveryInstructions ?? null}
+              deliveryWindows={data.customer.deliveryWindows ?? []}
+              paymentMethod={data.customer.paymentMethod ?? null}
+              deliveryMethod={data.customer.deliveryMethod ?? null}
+              warehouseLocation={data.customer.defaultWarehouseLocation ?? null}
+            />
+          </>
+        )}
 
-      {/* Performance Metrics */}
-      <CustomerMetrics
-        metrics={{
-          ytdRevenue: data.metrics.ytdRevenue,
-          totalOrders: data.metrics.totalOrders,
-          avgOrderValue: data.metrics.avgOrderValue,
-          outstandingBalance: data.metrics.outstandingBalance,
-        }}
-      />
+        {/* ORDERS TAB */}
+        {activeTab === "orders" && (
+          <>
+            <QuickActions
+              customerId={customerId}
+              isPermanentlyClosed={data.customer.isPermanentlyClosed}
+              customerName={data.customer.name}
+            />
 
-      {/* Customer Since */}
-      <CustomerSinceCard firstOrderDate={data.customer.firstOrderDate ?? null} />
+            <SampleQuickLogPanel customerId={customerId} customerName={data.customer.name} />
 
-      {/* Ordering Pace Indicator */}
-      <OrderingPaceIndicator
-        metrics={{
-          lastOrderDate: data.metrics.lastOrderDate,
-          nextExpectedOrderDate: data.metrics.nextExpectedOrderDate,
-          averageOrderIntervalDays: data.metrics.averageOrderIntervalDays,
-          daysSinceLastOrder: data.metrics.daysSinceLastOrder,
-          daysUntilExpected: data.metrics.daysUntilExpected,
-        }}
-      />
+            <OrderHistory
+              orders={data.orders}
+              customerId={customerId}
+              sectionId={fullHistorySectionId}
+            />
 
-      {/* Delivery Preferences */}
-      <DeliveryPreferences
-        deliveryInstructions={data.customer.deliveryInstructions ?? null}
-        deliveryWindows={data.customer.deliveryWindows ?? []}
-        paymentMethod={data.customer.paymentMethod ?? null}
-        deliveryMethod={data.customer.deliveryMethod ?? null}
-        warehouseLocation={data.customer.defaultWarehouseLocation ?? null}
-      />
+            <OrderDeepDive customerId={customerId} />
+          </>
+        )}
 
-      {/* BTG Placements */}
-      <BtgPlacements placements={data.btgPlacements} />
+        {/* PRODUCTS TAB */}
+        {activeTab === "products" && (
+          <>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <TopProducts topProducts={data.topProducts} />
+              <ProductRecommendations recommendations={data.recommendations} />
+            </div>
 
-      {/* Quick Actions */}
-      <QuickActions
-        customerId={customerId}
-        isPermanentlyClosed={data.customer.isPermanentlyClosed}
-        customerName={data.customer.name}
-      />
+            <BtgPlacements placements={data.btgPlacements} />
 
-      {/* Sample Quick Log */}
-      <SampleQuickLogPanel customerId={customerId} customerName={data.customer.name} />
+            <SampleHistory samples={data.samples} />
 
-      {/* Account Holds/Balances */}
-      <AccountHolds
-        invoices={data.invoices}
-        outstandingBalance={data.metrics.outstandingBalance}
-      />
+            <SampleFollowUpList items={data.followUps} onComplete={handleFollowUpComplete} />
 
-      {/* Top Products */}
-      <TopProducts topProducts={data.topProducts} />
+            <ProductHistoryReports customerId={customerId} />
+          </>
+        )}
 
-      {/* Product Recommendations */}
-      <ProductRecommendations recommendations={data.recommendations} />
+        {/* ACTIVITY TAB */}
+        {activeTab === "activity" && (
+          <>
+            <CustomerInsights customerId={customerId} />
 
-      {/* Sample History */}
-      <SampleHistory samples={data.samples} />
+            <ActivityTimeline
+              activities={data.activities}
+              customerId={customerId}
+              customerName={data.customer.name}
+            />
+          </>
+        )}
 
-      {/* Follow-up Queue */}
-      <SampleFollowUpList items={data.followUps} onComplete={handleFollowUpComplete} />
+        {/* DETAILS TAB */}
+        {activeTab === "details" && (
+          <>
+            <CollapsibleSection title="Contacts" defaultOpen={true}>
+              <CustomerContactsManager
+                customerId={customerId}
+                initialContacts={data.contacts ?? []}
+                variant="sales"
+              />
+            </CollapsibleSection>
 
-      {/* AI-Powered Customer Insights */}
-      <CustomerInsights customerId={customerId} />
+            <CollapsibleSection title="Google Business Profile" defaultOpen={false}>
+              <GoogleProfileCard
+                customer={{
+                  googlePlaceName: data.customer.googlePlaceName ?? null,
+                  googlePlaceId: data.customer.googlePlaceId ?? null,
+                  googleFormattedAddress: data.customer.googleFormattedAddress ?? null,
+                  website: data.customer.website ?? null,
+                  googleMapsUrl: data.customer.googleMapsUrl ?? null,
+                  googleBusinessStatus: data.customer.googleBusinessStatus ?? null,
+                  googlePlaceTypes: data.customer.googlePlaceTypes ?? [],
+                  phone: data.customer.phone ?? null,
+                  internationalPhone: data.customer.internationalPhone ?? null,
+                }}
+              />
+            </CollapsibleSection>
 
-      {/* Order Deep Dive - Product Breakdown */}
-      <OrderDeepDive customerId={customerId} />
-
-      {/* Product History Reports */}
-      <ProductHistoryReports customerId={customerId} />
-
-      {/* Full Order History */}
-      <OrderHistory
-        orders={data.orders}
-        customerId={customerId}
-        sectionId={fullHistorySectionId}
-      />
-
-      {/* Activity Timeline */}
-      <ActivityTimeline
-        activities={data.activities}
-        customerId={customerId}
-        customerName={data.customer.name}
-      />
+            <CollapsibleSection title="Delivery Preferences (Detailed)" defaultOpen={false}>
+              <DeliveryPreferences
+                deliveryInstructions={data.customer.deliveryInstructions ?? null}
+                deliveryWindows={data.customer.deliveryWindows ?? []}
+                paymentMethod={data.customer.paymentMethod ?? null}
+                deliveryMethod={data.customer.deliveryMethod ?? null}
+                warehouseLocation={data.customer.defaultWarehouseLocation ?? null}
+              />
+            </CollapsibleSection>
+          </>
+        )}
+      </div>
     </main>
   );
 }
