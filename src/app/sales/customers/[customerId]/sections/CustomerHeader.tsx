@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { Pencil } from "lucide-react";
+import { Pencil, Tag, Calendar, TrendingUp } from "lucide-react";
 import type { AccountPriority } from "@prisma/client";
+import { formatCurrency, formatShortDate } from "@/lib/format";
 
 type CustomerHeaderProps = {
   customer: {
@@ -25,11 +26,21 @@ type CustomerHeaderProps = {
     };
     isPermanentlyClosed: boolean;
     closedReason: string | null;
+    firstOrderDate?: string | null;
   };
   onAddOrder?: () => void;
+  metrics?: {
+    ytdRevenue: number;
+    totalOrders: number;
+    avgOrderValue: number;
+    lastOrderDate: string | null;
+    daysSinceLastOrder: number | null;
+    daysUntilExpected: number | null;
+  };
+  tags?: string[];
 };
 
-export default function CustomerHeader({ customer, onAddOrder }: CustomerHeaderProps) {
+export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: CustomerHeaderProps) {
   const params = useParams();
   const customerId = params.customerId as string;
 
@@ -105,113 +116,200 @@ export default function CustomerHeader({ customer, onAddOrder }: CustomerHeaderP
     return parts.length > 0 ? parts.join(", ") : "No address on file";
   };
 
+  // Calculate urgency indicator
+  const getUrgencyIndicator = () => {
+    if (!metrics?.daysUntilExpected) return null;
+
+    if (metrics.daysUntilExpected < -14) {
+      return { text: `Overdue by ${Math.abs(metrics.daysUntilExpected)} days`, color: 'text-red-600 font-semibold' };
+    } else if (metrics.daysUntilExpected < 0) {
+      return { text: `Overdue by ${Math.abs(metrics.daysUntilExpected)} days`, color: 'text-orange-600 font-medium' };
+    } else if (metrics.daysUntilExpected <= 7) {
+      return { text: `Order expected in ${metrics.daysUntilExpected} days`, color: 'text-amber-600' };
+    }
+    return null;
+  };
+
+  const urgency = getUrgencyIndicator();
+
   return (
-    <header className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div className="flex-1">
-          <div className="flex items-center gap-3 flex-wrap">
-            <h1 className="text-3xl font-semibold text-gray-900">
-              {customer.name}
-            </h1>
-            <span
-              className={`rounded-full border px-3 py-1 text-xs font-semibold ${getRiskBadge(
-                customer.riskStatus
-              )}`}
-            >
-              {getRiskLabel(customer.riskStatus)}
-            </span>
-            <span
-              className={`rounded-full border px-3 py-1 text-xs font-semibold ${getPriorityBadge(
-                customer.accountPriority ?? null
-              )}`}
-            >
-              {getPriorityLabel(customer.accountPriority ?? null)}
-            </span>
-            {customer.isPermanentlyClosed && (
-              <span className="rounded-full border border-slate-300 bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                CLOSED
-              </span>
-            )}
-            <div className="ml-auto flex flex-wrap items-center gap-2">
-              {onAddOrder ? (
-                <button
-                  type="button"
-                  onClick={onAddOrder}
-                  className="inline-flex items-center gap-2 rounded-full bg-green-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
-                >
-                  <span className="text-base">🛒</span>
-                  Add Order
-                </button>
-              ) : null}
-              <Link
-                href={`/sales/customers/${customerId}/edit`}
-                className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+    <header className="rounded-lg border border-slate-200 bg-white shadow-sm">
+      {/* Top Row: Name, Badges, Actions */}
+      <div className="border-b border-slate-200 px-6 py-4">
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 min-w-0">
+            {/* Name and Primary Badges */}
+            <div className="flex items-center gap-2 flex-wrap mb-2">
+              <h1 className="text-2xl font-semibold text-gray-900">
+                {customer.name}
+              </h1>
+              <span
+                className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${getRiskBadge(customer.riskStatus)}`}
               >
-                <Pencil className="h-4 w-4" />
-                Edit Customer
-              </Link>
+                {getRiskLabel(customer.riskStatus)}
+              </span>
+              <span
+                className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${getPriorityBadge(customer.accountPriority ?? null)}`}
+              >
+                {getPriorityLabel(customer.accountPriority ?? null)}
+              </span>
+              {customer.isPermanentlyClosed && (
+                <span className="rounded-full border border-slate-300 bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
+                  CLOSED
+                </span>
+              )}
             </div>
+
+            {/* Summary Line: Customer Since, Orders, Revenue, Urgency */}
+            <div className="flex items-center gap-4 text-sm text-gray-600 flex-wrap">
+              {customer.firstOrderDate && (
+                <div className="flex items-center gap-1">
+                  <Calendar className="h-3.5 w-3.5" />
+                  <span>Since {formatShortDate(customer.firstOrderDate)}</span>
+                </div>
+              )}
+              {metrics && (
+                <>
+                  <span className="text-gray-300">•</span>
+                  <div className="flex items-center gap-1">
+                    <TrendingUp className="h-3.5 w-3.5" />
+                    <span>
+                      <strong className="text-gray-900">{metrics.totalOrders}</strong> orders
+                    </span>
+                  </div>
+                  <span className="text-gray-300">•</span>
+                  <span>
+                    <strong className="text-gray-900">{formatCurrency(metrics.ytdRevenue, 'USD')}</strong> YTD
+                  </span>
+                  {urgency && (
+                    <>
+                      <span className="text-gray-300">•</span>
+                      <span className={urgency.color}>{urgency.text}</span>
+                    </>
+                  )}
+                </>
+              )}
+            </div>
+
+            {/* Tags Row */}
+            {tags && tags.length > 0 && (
+              <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                <Tag className="h-3.5 w-3.5 text-gray-400" />
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 border border-blue-200"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className="mt-3 grid gap-2 text-sm text-gray-600">
-            {customer.accountNumber && (
-              <div className="flex items-center gap-2">
-                <span className="font-medium text-gray-500">Account #:</span>
-                <span className="font-mono">{customer.accountNumber}</span>
-              </div>
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {onAddOrder && (
+              <button
+                type="button"
+                onClick={onAddOrder}
+                className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700"
+              >
+                Add Order
+              </button>
             )}
-            {customer.externalId && (
-              <div className="flex items-center gap-2">
-                <span className="font-medium text-gray-500">External ID:</span>
-                <span className="font-mono">{customer.externalId}</span>
-              </div>
-            )}
-            {customer.licenseNumber && (
-              <div className="flex items-center gap-2">
-                <span className="font-medium text-gray-500">License #:</span>
-                <span className="font-mono">{customer.licenseNumber}</span>
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="rounded-md border border-slate-200 bg-slate-50 p-4">
-          <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-            Contact Information
-          </p>
-          <div className="mt-2 space-y-1 text-sm">
-            {customer.billingEmail && (
-              <div>
-                <span className="font-medium text-gray-900">Email:</span>{" "}
-                <a
-                  href={`mailto:${customer.billingEmail}`}
-                  className="text-blue-600 hover:underline"
-                >
-                  {customer.billingEmail}
-                </a>
-              </div>
-            )}
-            {customer.phone && (
-              <div>
-                <span className="font-medium text-gray-900">Phone:</span>{" "}
-                <a
-                  href={`tel:${customer.phone}`}
-                  className="text-blue-600 hover:underline"
-                >
-                  {customer.phone}
-                </a>
-              </div>
-            )}
-            <div>
-              <span className="font-medium text-gray-900">Address:</span>{" "}
-              <span className="text-gray-600">{formatAddress()}</span>
-            </div>
+            <Link
+              href={`/sales/customers/${customerId}/edit`}
+              className="inline-flex items-center gap-2 rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+            >
+              <Pencil className="h-4 w-4" />
+              Edit
+            </Link>
           </div>
         </div>
       </div>
 
+      {/* Bottom Row: Contact Info + Account Details Grid */}
+      <div className="px-6 py-4 bg-slate-50">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
+          {/* Contact Information */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
+              Contact
+            </p>
+            {customer.phone && (
+              <div className="text-gray-900">
+                <a href={`tel:${customer.phone}`} className="text-blue-600 hover:underline">
+                  {customer.phone}
+                </a>
+              </div>
+            )}
+            {customer.billingEmail && (
+              <div className="text-gray-600 truncate">
+                <a href={`mailto:${customer.billingEmail}`} className="hover:underline">
+                  {customer.billingEmail}
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Address */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
+              Address
+            </p>
+            <div className="text-gray-600 text-xs leading-relaxed">
+              {formatAddress()}
+            </div>
+          </div>
+
+          {/* Account Numbers */}
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
+              Account IDs
+            </p>
+            {customer.accountNumber && (
+              <div className="text-gray-600">
+                <span className="text-gray-500">Acct:</span> <span className="font-mono text-xs">{customer.accountNumber}</span>
+              </div>
+            )}
+            {customer.externalId && (
+              <div className="text-gray-600">
+                <span className="text-gray-500">Ext:</span> <span className="font-mono text-xs">{customer.externalId}</span>
+              </div>
+            )}
+            {customer.licenseNumber && (
+              <div className="text-gray-600">
+                <span className="text-gray-500">Lic:</span> <span className="font-mono text-xs">{customer.licenseNumber}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Performance Summary */}
+          {metrics && (
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1.5">
+                Performance
+              </p>
+              <div className="text-gray-600 space-y-0.5">
+                <div>
+                  <span className="text-gray-500">AOV:</span> <span className="font-medium text-gray-900">{formatCurrency(metrics.avgOrderValue, 'USD')}</span>
+                </div>
+                {metrics.lastOrderDate && (
+                  <div className="text-xs">
+                    Last order: {formatShortDate(metrics.lastOrderDate)}
+                    {metrics.daysSinceLastOrder && ` (${metrics.daysSinceLastOrder}d ago)`}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Closed Account Alert */}
       {customer.isPermanentlyClosed && customer.closedReason && (
-        <div className="mt-4 rounded-md border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
+        <div className="mx-6 mb-4 rounded-md border border-rose-200 bg-rose-50 p-3 text-sm text-rose-900">
           <p className="font-semibold">Account Closed</p>
           <p className="mt-1">{customer.closedReason}</p>
         </div>

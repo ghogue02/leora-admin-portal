@@ -181,7 +181,19 @@ export default function CustomerDetailClientV2({
       <CustomerContextSetter customerId={customerId} />
 
       {/* ALWAYS VISIBLE: Critical Information */}
-      <CustomerHeader customer={data.customer} onAddOrder={handleAddOrderClick} />
+      <CustomerHeader
+        customer={data.customer}
+        onAddOrder={handleAddOrderClick}
+        metrics={{
+          ytdRevenue: data.metrics.ytdRevenue,
+          totalOrders: data.metrics.totalOrders,
+          avgOrderValue: data.metrics.avgOrderValue,
+          lastOrderDate: data.metrics.lastOrderDate,
+          daysSinceLastOrder: data.metrics.daysSinceLastOrder,
+          daysUntilExpected: data.metrics.daysUntilExpected,
+        }}
+        tags={data.customer.tags?.map((t: { name: string }) => t.name) || []}
+      />
 
       {data.majorChanges && data.majorChanges.length > 0 && (
         <PermanentNotesPanel notes={data.majorChanges} />
@@ -213,56 +225,59 @@ export default function CustomerDetailClientV2({
         {/* OVERVIEW TAB */}
         {activeTab === "overview" && (
           <>
-            {/* Recent Orders + Key Metrics Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2">
-                <OrderHistory
-                  orders={data.orders}
-                  customerId={customerId}
-                  isCompact={true}
-                  fullHistorySectionId={fullHistorySectionId}
-                />
-              </div>
+            {/* Recent Orders + Detailed Metrics */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <OrderHistory
+                orders={data.orders}
+                customerId={customerId}
+                isCompact={true}
+                fullHistorySectionId={fullHistorySectionId}
+              />
               <div className="space-y-4">
-                <CustomerMetrics
-                  metrics={{
-                    ytdRevenue: data.metrics.ytdRevenue,
-                    totalOrders: data.metrics.totalOrders,
-                    avgOrderValue: data.metrics.avgOrderValue,
-                    outstandingBalance: data.metrics.outstandingBalance,
-                  }}
-                />
-                <OrderingPaceIndicator
-                  metrics={{
-                    lastOrderDate: data.metrics.lastOrderDate,
-                    nextExpectedOrderDate: data.metrics.nextExpectedOrderDate,
-                    averageOrderIntervalDays: data.metrics.averageOrderIntervalDays,
-                    daysSinceLastOrder: data.metrics.daysSinceLastOrder,
-                    daysUntilExpected: data.metrics.daysUntilExpected,
-                  }}
-                />
+                <CollapsibleSection title="Detailed Metrics" defaultOpen={true}>
+                  <CustomerMetrics
+                    metrics={{
+                      ytdRevenue: data.metrics.ytdRevenue,
+                      totalOrders: data.metrics.totalOrders,
+                      avgOrderValue: data.metrics.avgOrderValue,
+                      outstandingBalance: data.metrics.outstandingBalance,
+                    }}
+                  />
+                </CollapsibleSection>
+                <CollapsibleSection title="Ordering Pace Analysis" defaultOpen={true}>
+                  <OrderingPaceIndicator
+                    metrics={{
+                      lastOrderDate: data.metrics.lastOrderDate,
+                      nextExpectedOrderDate: data.metrics.nextExpectedOrderDate,
+                      averageOrderIntervalDays: data.metrics.averageOrderIntervalDays,
+                      daysSinceLastOrder: data.metrics.daysSinceLastOrder,
+                      daysUntilExpected: data.metrics.daysUntilExpected,
+                    }}
+                  />
+                </CollapsibleSection>
               </div>
             </div>
 
             {/* Customer Info Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <CustomerClassificationCard
-                customerId={customerId}
-                type={data.customer.type ?? null}
-                volumeCapacity={data.customer.volumeCapacity ?? null}
-                featurePrograms={data.customer.featurePrograms ?? []}
-              />
-              <CustomerSinceCard firstOrderDate={data.customer.firstOrderDate ?? null} />
-              <CustomerTagManager customerId={customerId} />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <CollapsibleSection title="Classification" defaultOpen={true}>
+                <CustomerClassificationCard
+                  customerId={customerId}
+                  type={data.customer.type ?? null}
+                  volumeCapacity={data.customer.volumeCapacity ?? null}
+                  featurePrograms={data.customer.featurePrograms ?? []}
+                />
+              </CollapsibleSection>
+              <CollapsibleSection title="Delivery Preferences" defaultOpen={true}>
+                <DeliveryPreferences
+                  deliveryInstructions={data.customer.deliveryInstructions ?? null}
+                  deliveryWindows={data.customer.deliveryWindows ?? []}
+                  paymentMethod={data.customer.paymentMethod ?? null}
+                  deliveryMethod={data.customer.deliveryMethod ?? null}
+                  warehouseLocation={data.customer.defaultWarehouseLocation ?? null}
+                />
+              </CollapsibleSection>
             </div>
-
-            <DeliveryPreferences
-              deliveryInstructions={data.customer.deliveryInstructions ?? null}
-              deliveryWindows={data.customer.deliveryWindows ?? []}
-              paymentMethod={data.customer.paymentMethod ?? null}
-              deliveryMethod={data.customer.deliveryMethod ?? null}
-              warehouseLocation={data.customer.defaultWarehouseLocation ?? null}
-            />
           </>
         )}
 
