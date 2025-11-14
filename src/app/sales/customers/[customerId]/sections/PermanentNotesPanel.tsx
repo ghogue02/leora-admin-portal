@@ -20,7 +20,7 @@ type PermanentNotesPanelProps = {
 export default function PermanentNotesPanel({ notes }: PermanentNotesPanelProps) {
   // Filter and sort permanent notes
   const permanentNotes = notes
-    .filter(note => note.activityType.code === "MAJOR_CHANGE")
+    .filter(note => note.activityType?.code === "MAJOR_CHANGE")
     .sort((a, b) => new Date(b.occurredAt).getTime() - new Date(a.occurredAt).getTime());
 
   const scrollToTimeline = (noteId: string) => {
