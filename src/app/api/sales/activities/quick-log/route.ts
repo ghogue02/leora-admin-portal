@@ -37,7 +37,6 @@ export async function POST(request: NextRequest) {
       const {
         activityTypeCode,
         customerId,
-        orderId,
         subject,
         notes,
         occurredAt,
@@ -45,6 +44,15 @@ export async function POST(request: NextRequest) {
         outcome,
         outcomes,
         sampleItems,
+        // Activity type-specific fields
+        callDuration,
+        visitDuration,
+        attendees,
+        location,
+        changeType,
+        effectiveDate,
+        impactAssessment,
+        portalInteraction,
       } = body;
 
       const sampleItemsParse = sampleItemsInputSchema.safeParse(sampleItems ?? []);
@@ -128,27 +136,8 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      // Verify order if provided
-      if (orderId) {
-        const order = await db.order.findFirst({
-          where: {
-            id: orderId,
-            tenantId,
-            customerId,
-          },
-        });
-
-        if (!order) {
-          return NextResponse.json(
-            { error: "Order not found or doesn't belong to this customer" },
-            { status: 404 }
-          );
-        }
-      }
-
-      // Verify sample if provided
       try {
-        // Create activity with auto-linking
+        // Create activity
         const normalizedOutcomes: string[] = Array.isArray(outcomes)
           ? outcomes
           : outcome
@@ -157,42 +146,46 @@ export async function POST(request: NextRequest) {
 
         const occurredAtDate = new Date(occurredAt);
 
-        const activity = await db.$transaction(async (tx) => {
-          const created = await tx.activity.create({
-            data: {
-              tenantId,
-              activityTypeId: activityType.id,
-              userId: session.user.id,
-              customerId,
-              orderId: orderId || null,
-              subject,
-              notes: notes || null,
-              occurredAt: occurredAtDate,
-              followUpAt: followUpAt ? new Date(followUpAt) : null,
-              outcomes: { set: normalizedOutcomes },
-            },
-          });
-
-          await createActivitySampleItems(tx, created.id, sampleItemsInput);
-
-          await createSampleUsageEntries(tx, {
+        const activity = await db.activity.create({
+          data: {
             tenantId,
-            salesRepId: salesRep.id,
-            customerId,
-            occurredAt: occurredAtDate,
-            sampleSource: "activity_quick_log",
-            items: sampleItemsInput,
-          });
-
-          await createFollowUpTasksForSamples(tx, {
-            tenantId,
+            activityTypeId: activityType.id,
             userId: session.user.id,
             customerId,
+            subject,
+            notes: notes || null,
             occurredAt: occurredAtDate,
-            items: sampleItemsInput,
-          });
+            followUpAt: followUpAt ? new Date(followUpAt) : null,
+            outcomes: { set: normalizedOutcomes },
+            // Activity type-specific fields
+            callDuration: callDuration || null,
+            visitDuration: visitDuration || null,
+            attendees: attendees || null,
+            location: location || null,
+            changeType: changeType || null,
+            effectiveDate: effectiveDate ? new Date(effectiveDate) : null,
+            impactAssessment: impactAssessment || null,
+            portalInteraction: portalInteraction || null,
+          },
+        });
 
-          return created;
+        await createActivitySampleItems(db, activity.id, sampleItemsInput);
+
+        await createSampleUsageEntries(db, {
+          tenantId,
+          salesRepId: salesRep.id,
+          customerId,
+          occurredAt: occurredAtDate,
+          sampleSource: "activity_quick_log",
+          items: sampleItemsInput,
+        });
+
+        await createFollowUpTasksForSamples(db, {
+          tenantId,
+          userId: session.user.id,
+          customerId,
+          occurredAt: occurredAtDate,
+          items: sampleItemsInput,
         });
 
         const fullActivity = await db.activity.findUnique({

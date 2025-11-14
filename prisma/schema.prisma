@@ -11,120 +11,125 @@ datasource db {
 }
 
 model Tenant {
-  id                      String                    @id @default(uuid()) @db.Uuid
-  slug                    String                    @unique
-  name                    String
-  timezone                String                    @default("America/New_York")
-  createdAt               DateTime                  @default(now())
-  updatedAt               DateTime                  @updatedAt
-  wholesalerLicenseNumber String?
-  wholesalerPhone         String?
-  accountSnapshots        AccountHealthSnapshot[]
-  activities              Activity[]
-  activityTypes           ActivityType[]
-  auditLogs               AuditLog[]
-  automatedTriggers       AutomatedTrigger[]
-  calendarEvents          CalendarEvent[]
-  calendarSyncs           CalendarSync[]
-  callPlans               CallPlan[]
-  callPlanAccounts        CallPlanAccount[]
-  callPlanActivities      CallPlanActivity[]
-  callPlanSchedules       CallPlanSchedule[]
-  carts                   Cart[]
-  cartItems               CartItem[]
-  communicationPrefs      CommunicationPreference[]
-  complianceFilings       ComplianceFiling[]
-  customers               Customer[]
-  customerAddresses       CustomerAddress[]
-  customerAssignments     CustomerAssignment[]
-  customerDuplicateFlags  CustomerDuplicateFlag[]
-  customerContacts        CustomerContact[]
-  customerTags            CustomerTag[]
-  integritySnapshots      DataIntegritySnapshot[]
-  deliveryRoutes          DeliveryRoute[]
-  emailCampaigns          EmailCampaign[]
-  emailCampaignLists      EmailCampaignList[]
-  emailLists              EmailList[]
-  emailListMembers        EmailListMember[]
-  emailMessages           EmailMessage[]
-  emailTemplates          EmailTemplate[]
-  imageScans              ImageScan[]
-  integrationTokens       IntegrationToken[]
-  azugaIntegration        AzugaIntegrationSettings?
-  inventories             Inventory[]
-  InventoryReservation    InventoryReservation[]
-  invoices                Invoice[]
-  invoiceTemplates        InvoiceTemplate[]
-  mailchimpConnection     MailchimpConnection?
-  mailchimpSyncs          MailchimpSync[]
-  orders                  Order[]
-  orderLines              OrderLine[]
-  payments                Payment[]
-  pickSheets              PickSheet[]
-  pickSheetItems          PickSheetItem[]
-  portalNotifications     PortalNotification[]
-  PortalReplayStatus      PortalReplayStatus[]
-  portalSessions          PortalSession[]
-  portalUsers             PortalUser[]
-  priceLists              PriceList[]
-  priceListItems          PriceListItem[]
-  products                Product[]
-  PurchaseOrder           PurchaseOrder[]
-  PurchaseOrderLine       PurchaseOrderLine[]
-  queryHistory            QueryHistory[]
-  recurringCallPlans      RecurringCallPlan[]
-  repProductGoals         RepProductGoal[]
-  repWeeklyMetrics        RepWeeklyMetric[]
-  roles                   Role[]
-  routeExports            RouteExport[]
-  routeStops              RouteStop[]
-  smsConversations        SMSConversation[]
-  smsMessages             SMSMessage[]
-  smsTemplates            SMSTemplate[]
-  salesIncentives         SalesIncentive[]
-  salesMetrics            SalesMetric[]
-  salesReps               SalesRep[]
-  salesSessions           SalesSession[]
-  sampleFeedbackTemplates SampleFeedbackTemplate[]
-  sampleMetrics           SampleMetrics[]
-  sampleUsage             SampleUsage[]
-  sampleLists             SampleList[]
-  savedQueries            SavedQuery[]
-  scheduledReports        ScheduledReport[]
-  skus                    Sku[]
-  stateCompliances        StateCompliance[]
-  stateTaxRates           StateTaxRate[]
-  suppliers               Supplier[]
-  tagDefinitions          TagDefinition[]
-  tasks                   Task[]
-  taxRules                TaxRule[]
-  settings                TenantSettings?
-  territories             Territory[]
-  territoryBlocks         TerritoryBlock[]
-  topProducts             TopProduct[]
-  triggeredTasks          TriggeredTask[]
-  users                   User[]
-  warehouseConfig         WarehouseConfig?
-  webhookEvents           WebhookEvent[]
-  webhookSubs             WebhookSubscription[]
-  healthThresholds        HealthThreshold[]
-  SkuDemandStats          SkuDemandStats[]
-  sageExports             SageExport[]
-  sageExportErrors        SageExportError[]
-  importBatches           ImportBatch[]
-  importRows              ImportRow[]
-  importTemplates         ImportTemplate[]
+  id                        String                     @id @default(uuid()) @db.Uuid
+  slug                      String                     @unique
+  name                      String
+  timezone                  String                     @default("America/New_York")
+  createdAt                 DateTime                   @default(now())
+  updatedAt                 DateTime                   @updatedAt
+  wholesalerLicenseNumber   String?
+  wholesalerPhone           String?
+  accountSnapshots          AccountHealthSnapshot[]
+  activities                Activity[]
+  activityTypes             ActivityType[]
+  auditLogs                 AuditLog[]
+  automatedTriggers         AutomatedTrigger[]
+  calendarEvents            CalendarEvent[]
+  calendarSyncs             CalendarSync[]
+  callPlans                 CallPlan[]
+  callPlanAccounts          CallPlanAccount[]
+  callPlanActivities        CallPlanActivity[]
+  callPlanSchedules         CallPlanSchedule[]
+  carts                     Cart[]
+  cartItems                 CartItem[]
+  communicationPrefs        CommunicationPreference[]
+  complianceFilings         ComplianceFiling[]
+  customers                 Customer[]
+  customerAddresses         CustomerAddress[]
+  customerAssignments       CustomerAssignment[]
+  customerDuplicateFlags    CustomerDuplicateFlag[]
+  customerContacts          CustomerContact[]
+  customerTags              CustomerTag[]
+  integritySnapshots        DataIntegritySnapshot[]
+  deliveryRoutes            DeliveryRoute[]
+  emailCampaigns            EmailCampaign[]
+  emailCampaignLists        EmailCampaignList[]
+  emailLists                EmailList[]
+  emailListMembers          EmailListMember[]
+  emailMessages             EmailMessage[]
+  emailTemplates            EmailTemplate[]
+  imageScans                ImageScan[]
+  integrationTokens         IntegrationToken[]
+  azugaIntegration          AzugaIntegrationSettings?
+  inventories               Inventory[]
+  InventoryReservation      InventoryReservation[]
+  invoices                  Invoice[]
+  invoiceTemplates          InvoiceTemplate[]
+  mailchimpConnection       MailchimpConnection?
+  mailchimpSyncs            MailchimpSync[]
+  orders                    Order[]
+  orderLines                OrderLine[]
+  payments                  Payment[]
+  pickSheets                PickSheet[]
+  pickSheetItems            PickSheetItem[]
+  portalNotifications       PortalNotification[]
+  PortalReplayStatus        PortalReplayStatus[]
+  portalSessions            PortalSession[]
+  portalUsers               PortalUser[]
+  priceLists                PriceList[]
+  priceListItems            PriceListItem[]
+  products                  Product[]
+  PurchaseOrder             PurchaseOrder[]
+  PurchaseOrderLine         PurchaseOrderLine[]
+  queryHistory              QueryHistory[]
+  recurringCallPlans        RecurringCallPlan[]
+  repProductGoals           RepProductGoal[]
+  repWeeklyMetrics          RepWeeklyMetric[]
+  roles                     Role[]
+  routeExports              RouteExport[]
+  routeStops                RouteStop[]
+  smsConversations          SMSConversation[]
+  smsMessages               SMSMessage[]
+  smsTemplates              SMSTemplate[]
+  salesIncentives           SalesIncentive[]
+  salesMetrics              SalesMetric[]
+  salesReps                 SalesRep[]
+  salesSessions             SalesSession[]
+  sampleFeedbackTemplates   SampleFeedbackTemplate[]
+  sampleMetrics             SampleMetrics[]
+  sampleUsage               SampleUsage[]
+  sampleLists               SampleList[]
+  savedQueries              SavedQuery[]
+  scheduledReports          ScheduledReport[]
+  skus                      Sku[]
+  stateCompliances          StateCompliance[]
+  stateTaxRates             StateTaxRate[]
+  suppliers                 Supplier[]
+  tagDefinitions            TagDefinition[]
+  tasks                     Task[]
+  taxRules                  TaxRule[]
+  settings                  TenantSettings?
+  territories               Territory[]
+  territoryBlocks           TerritoryBlock[]
+  topProducts               TopProduct[]
+  triggeredTasks            TriggeredTask[]
+  users                     User[]
+  warehouseConfig           WarehouseConfig?
+  webhookEvents             WebhookEvent[]
+  webhookSubs               WebhookSubscription[]
+  healthThresholds          HealthThreshold[]
+  SkuDemandStats            SkuDemandStats[]
+  sageExports               SageExport[]
+  sageExportErrors          SageExportError[]
+  importBatches             ImportBatch[]
+  importRows                ImportRow[]
+  importTemplates           ImportTemplate[]
+  productFieldConfigs       TenantProductFieldConfig[]
+  productLifecycleSnapshots ProductLifecycleSnapshot[]
+  productExportJobs         ProductExportJob[]
 }
 
 model TenantSettings {
-  id                        String   @id @default(uuid()) @db.Uuid
-  tenantId                  String   @unique @db.Uuid
-  defaultPortalRole         String   @default("portal.viewer")
-  revenueDropAlertThreshold Float    @default(0.15)
-  sampleAllowancePerMonth   Int      @default(60)
-  createdAt                 DateTime @default(now())
-  updatedAt                 DateTime @updatedAt
-  tenant                    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  id                             String   @id @default(uuid()) @db.Uuid
+  tenantId                       String   @unique @db.Uuid
+  defaultPortalRole              String   @default("portal.viewer")
+  revenueDropAlertThreshold      Float    @default(0.15)
+  sampleAllowancePerMonth        Int      @default(60)
+  minimumOrderAmount             Decimal  @default(200.00) @db.Decimal(10, 2)
+  minimumOrderEnforcementEnabled Boolean  @default(false)
+  createdAt                      DateTime @default(now())
+  updatedAt                      DateTime @updatedAt
+  tenant                         Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 }
 
 model Role {
@@ -198,6 +203,7 @@ model User {
   roles                  UserRole[]
   initiatedImportBatches ImportBatch[]           @relation("ImportBatchInitiatedBy")
   createdImportTemplates ImportTemplate[]        @relation("ImportTemplateCreatedBy")
+  productExportJobs      ProductExportJob[]
 
   @@unique([tenantId, email])
   @@index([tenantId])
@@ -288,42 +294,145 @@ model Supplier {
   @@index([tenantId])
 }
 
+model ProductExportJob {
+  id              String              @id @default(uuid()) @db.Uuid
+  tenantId        String              @db.Uuid
+  createdByUserId String              @db.Uuid
+  jobId           String?             @db.Uuid
+  format          ProductExportFormat
+  status          ProductExportStatus @default(QUEUED)
+  filters         Json?
+  filePath        String?
+  fileUrl         String?
+  rowCount        Int?
+  errorMessage    String?
+  startedAt       DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  tenant          Tenant              @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdBy       User                @relation(fields: [createdByUserId], references: [id], onDelete: Cascade)
+  job             Job?                @relation(fields: [jobId], references: [id], onDelete: SetNull)
+
+  @@index([tenantId])
+  @@index([createdByUserId])
+  @@index([jobId])
+}
+
 model Product {
-  id                 String    @id @default(uuid()) @db.Uuid
-  tenantId           String    @db.Uuid
-  supplierId         String?   @db.Uuid
+  id                 String                     @id @default(uuid()) @db.Uuid
+  tenantId           String                     @db.Uuid
+  supplierId         String?                    @db.Uuid
   name               String
   brand              String?
   description        String?
   category           String?
-  isSampleOnly       Boolean   @default(false)
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
+  isSampleOnly       Boolean                    @default(false)
+  createdAt          DateTime                   @default(now())
+  updatedAt          DateTime                   @updatedAt
   tastingNotes       Json?
   foodPairings       Json?
   servingInfo        Json?
   wineDetails        Json?
   enrichedAt         DateTime?
-  enrichedBy         String?   @default("claude-ai")
-  isPromotion        Boolean   @default(false)
-  promotionStartDate DateTime? @db.Timestamp(6)
-  promotionEndDate   DateTime? @db.Timestamp(6)
-  promotionDiscount  Decimal?  @db.Decimal(5, 2)
-  isCloseout         Boolean   @default(false)
+  enrichedBy         String?                    @default("claude-ai")
+  isPromotion        Boolean                    @default(false)
+  promotionStartDate DateTime?                  @db.Timestamp(6)
+  promotionEndDate   DateTime?                  @db.Timestamp(6)
+  promotionDiscount  Decimal?                   @db.Decimal(5, 2)
+  isCloseout         Boolean                    @default(false)
   vintage            Int?
   colour             String?
   varieties          String?
   style              String?
-  unitCogs           Decimal?  @db.Decimal(10, 4)
+  unitCogs           Decimal?                   @db.Decimal(10, 4)
   manufacturer       String?
   abcCode            String?
   mocoNumber         String?
-  supplier           Supplier? @relation(fields: [supplierId], references: [id])
-  tenant             Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  supplier           Supplier?                  @relation(fields: [supplierId], references: [id])
+  tenant             Tenant                     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
   skus               Sku[]
+  lifecycleSnapshots ProductLifecycleSnapshot[]
 
   @@unique([tenantId, name])
   @@index([tenantId])
+}
+
+model ProductFieldDefinition {
+  id                    String                     @id @default(uuid()) @db.Uuid
+  key                   String                     @unique
+  label                 String
+  description           String?
+  section               String?
+  scope                 ProductFieldScope          @default(PRODUCT)
+  inputType             ProductFieldInputType      @default(TEXT)
+  supportsManualEntry   Boolean                    @default(true)
+  defaultVisibility     Boolean                    @default(true)
+  defaultRequired       Boolean                    @default(false)
+  defaultDisplayOrder   Int?
+  showInPortalByDefault Boolean                    @default(false)
+  filterableByDefault   Boolean                    @default(false)
+  defaultValue          Json?
+  createdAt             DateTime                   @default(now())
+  updatedAt             DateTime                   @updatedAt
+  options               ProductFieldOption[]
+  tenantConfigs         TenantProductFieldConfig[]
+
+  @@index([scope])
+}
+
+model ProductFieldOption {
+  id        String                 @id @default(uuid()) @db.Uuid
+  fieldId   String                 @db.Uuid
+  label     String
+  value     String
+  sortOrder Int                    @default(0)
+  isActive  Boolean                @default(true)
+  isDefault Boolean                @default(false)
+  createdAt DateTime               @default(now())
+  updatedAt DateTime               @updatedAt
+  field     ProductFieldDefinition @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+
+  @@unique([fieldId, value])
+  @@index([fieldId, sortOrder])
+}
+
+model TenantProductFieldConfig {
+  id           String                 @id @default(uuid()) @db.Uuid
+  tenantId     String                 @db.Uuid
+  fieldId      String                 @db.Uuid
+  visible      Boolean                @default(true)
+  required     Boolean                @default(false)
+  displayOrder Int?
+  showInPortal Boolean                @default(false)
+  filterable   Boolean                @default(false)
+  defaultValue Json?
+  createdAt    DateTime               @default(now())
+  updatedAt    DateTime               @updatedAt
+  tenant       Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  field        ProductFieldDefinition @relation(fields: [fieldId], references: [id], onDelete: Cascade)
+
+  @@unique([tenantId, fieldId])
+  @@index([tenantId])
+  @@index([fieldId])
+}
+
+model ProductLifecycleSnapshot {
+  id          String                 @id @default(uuid()) @db.Uuid
+  tenantId    String                 @db.Uuid
+  productId   String                 @db.Uuid
+  status      ProductLifecycleStatus
+  effectiveAt DateTime               @default(now())
+  expiresAt   DateTime?
+  notes       String?
+  createdAt   DateTime               @default(now())
+  updatedAt   DateTime               @updatedAt
+  tenant      Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  product     Product                @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([tenantId])
+  @@index([productId, status, effectiveAt])
+  @@index([status])
 }
 
 model Sku {
@@ -435,94 +544,98 @@ model PriceListItem {
 }
 
 model Customer {
-  id                        String                  @id @default(uuid()) @db.Uuid
-  tenantId                  String                  @db.Uuid
-  externalId                String?
-  name                      String
-  accountNumber             String?
-  billingEmail              String?
-  phone                     String?
-  street1                   String?
-  street2                   String?
-  city                      String?
-  state                     String?
-  postalCode                String?
-  country                   String?                 @default("US")
-  paymentTerms              String?                 @default("Net 30")
-  orderingPaceDays          Int?
-  establishedRevenue        Decimal?                @db.Decimal(12, 2)
-  createdAt                 DateTime                @default(now())
-  updatedAt                 DateTime                @updatedAt
-  averageOrderIntervalDays  Int?
-  licenseNumber             String?
-  closedReason              String?
-  dormancySince             DateTime?
-  isPermanentlyClosed       Boolean                 @default(false)
-  lastOrderDate             DateTime?
-  nextExpectedOrderDate     DateTime?
-  reactivatedDate           DateTime?
-  riskStatus                CustomerRiskStatus      @default(HEALTHY)
-  salesRepId                String?                 @db.Uuid
-  accountType               AccountType?
-  accountPriority           AccountPriority?
+  id                            String                  @id @default(uuid()) @db.Uuid
+  tenantId                      String                  @db.Uuid
+  externalId                    String?
+  name                          String
+  accountNumber                 String?
+  billingEmail                  String?
+  phone                         String?
+  street1                       String?
+  street2                       String?
+  city                          String?
+  state                         String?
+  postalCode                    String?
+  country                       String?                 @default("US")
+  paymentTerms                  String?                 @default("Net 30")
+  orderingPaceDays              Int?
+  establishedRevenue            Decimal?                @db.Decimal(12, 2)
+  createdAt                     DateTime                @default(now())
+  updatedAt                     DateTime                @updatedAt
+  averageOrderIntervalDays      Int?
+  licenseNumber                 String?
+  closedReason                  String?
+  dormancySince                 DateTime?
+  isPermanentlyClosed           Boolean                 @default(false)
+  lastOrderDate                 DateTime?
+  nextExpectedOrderDate         DateTime?
+  reactivatedDate               DateTime?
+  riskStatus                    CustomerRiskStatus      @default(HEALTHY)
+  salesRepId                    String?                 @db.Uuid
+  accountType                   AccountType?
+  accountPriority               AccountPriority?
   accountPriorityAutoAssignedAt DateTime?
-  accountPriorityManuallySet Boolean @default(false)
-  territory                 String?
-  doNotContactUntil         DateTime?               @db.Timestamp(6)
-  latitude                  Float?
-  longitude                 Float?
-  geocodedAt                DateTime?               @db.Timestamp(6)
-  buyerFirstName            String?
-  buyerLastName             String?
-  csvImportedAt             DateTime?
-  csvLastSyncedAt           DateTime?
-  quarterlyRevenueTarget    Decimal?                @db.Decimal(12, 2)
-  licenseType               String?
-  deliveryInstructions      String?
-  deliveryWindows           Json?
-  paymentMethod             String?
-  deliveryMethod            String?
-  defaultDeliveryTimeWindow String?
-  defaultWarehouseLocation  String?
-  website                   String?
-  googlePlaceId             String?
-  googlePlaceName           String?
-  googleFormattedAddress    String?
-  internationalPhone        String?
-  googleMapsUrl             String?
-  googleBusinessStatus      String?
-  googlePlaceTypes          String[]                @default([])
-  requiresPO                Boolean                 @default(false)
-  invoiceStateCode          String? // State code for invoice numbering (VA, MD, DC, TE)
-  isTaxExempt               Boolean                 @default(false)
-  taxExemptNumber           String? // Tax exempt certificate number
-  type                      String? // "On Premise", "Off Premise", "On and Off Premise", "Distributor", "Caterer"
-  volumeCapacity            String? // "High", "Medium", "Low"
-  featurePrograms           String[]                @default([]) // ["Wine Club", "Catering", "Email Offers"]
-  accountSnapshots          AccountHealthSnapshot[]
-  activities                Activity[]
-  calendarEvents            CalendarEvent[]
-  callPlanAccounts          CallPlanAccount[]
-  callPlanActivities        CallPlanActivity[]
-  callPlanSchedules         CallPlanSchedule[]
-  salesRep                  SalesRep?               @relation(fields: [salesRepId], references: [id])
-  tenant                    Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  addresses                 CustomerAddress[]
-  assignments               CustomerAssignment[]
-  duplicateFlags            CustomerDuplicateFlag[]
-  duplicateOfRecords        CustomerDuplicateFlag[] @relation("DuplicateOfCustomer")
-  tags                      CustomerTag[]
-  imageScans                ImageScan[]
-  invoices                  Invoice[]
-  orders                    Order[]
-  pickSheetItems            PickSheetItem[]
-  portalUsers               PortalUser[]
-  contacts                  CustomerContact[]
-  recurringCallPlans        RecurringCallPlan[]
-  sampleUsage               SampleUsage[]
-  tasks                     Task[]
-  triggeredTasks            TriggeredTask[]
-  sageExportErrors          SageExportError[]
+  accountPriorityManuallySet    Boolean                 @default(false)
+  territory                     String?
+  doNotContactUntil             DateTime?               @db.Timestamp(6)
+  latitude                      Float?
+  longitude                     Float?
+  geocodedAt                    DateTime?               @db.Timestamp(6)
+  buyerFirstName                String?
+  buyerLastName                 String?
+  csvImportedAt                 DateTime?
+  csvLastSyncedAt               DateTime?
+  quarterlyRevenueTarget        Decimal?                @db.Decimal(12, 2)
+  licenseType                   String?
+  deliveryInstructions          String?
+  deliveryWindows               Json?
+  paymentMethod                 String?
+  deliveryMethod                String?
+  defaultDeliveryTimeWindow     String?
+  defaultWarehouseLocation      String?
+  website                       String?
+  googlePlaceId                 String?
+  googlePlaceName               String?
+  googleFormattedAddress        String?
+  internationalPhone            String?
+  googleMapsUrl                 String?
+  googleBusinessStatus          String?
+  googlePlaceTypes              String[]                @default([])
+  requiresPO                    Boolean                 @default(false)
+  invoiceStateCode              String? // State code for invoice numbering (VA, MD, DC, TE)
+  isTaxExempt                   Boolean                 @default(false)
+  taxExemptNumber               String? // Tax exempt certificate number
+  type                          String? // "On Premise", "Off Premise", "On and Off Premise", "Distributor", "Caterer"
+  volumeCapacity                String? // "High", "Medium", "Low"
+  featurePrograms               String[]                @default([]) // ["Wine Club", "Catering", "Email Offers"]
+  minimumOrderOverride          Decimal?                @db.Decimal(10, 2)
+  minimumOrderOverrideNotes     String?
+  minimumOrderOverrideUpdatedAt DateTime?
+  minimumOrderOverrideUpdatedBy String?
+  accountSnapshots              AccountHealthSnapshot[]
+  activities                    Activity[]
+  calendarEvents                CalendarEvent[]
+  callPlanAccounts              CallPlanAccount[]
+  callPlanActivities            CallPlanActivity[]
+  callPlanSchedules             CallPlanSchedule[]
+  salesRep                      SalesRep?               @relation(fields: [salesRepId], references: [id])
+  tenant                        Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  addresses                     CustomerAddress[]
+  assignments                   CustomerAssignment[]
+  duplicateFlags                CustomerDuplicateFlag[]
+  duplicateOfRecords            CustomerDuplicateFlag[] @relation("DuplicateOfCustomer")
+  tags                          CustomerTag[]
+  imageScans                    ImageScan[]
+  invoices                      Invoice[]
+  orders                        Order[]
+  pickSheetItems                PickSheetItem[]
+  portalUsers                   PortalUser[]
+  contacts                      CustomerContact[]
+  recurringCallPlans            RecurringCallPlan[]
+  sampleUsage                   SampleUsage[]
+  tasks                         Task[]
+  triggeredTasks                TriggeredTask[]
+  sageExportErrors              SageExportError[]
 
   @@unique([tenantId, externalId])
   @@index([tenantId])
@@ -569,6 +682,9 @@ model Order {
   splitCaseFee          Decimal                @default(0) @db.Decimal(10, 2)
   poNumber              String?
   specialInstructions   String?
+  minimumOrderThreshold Decimal?               @db.Decimal(10, 2)
+  minimumOrderViolation Boolean                @default(false)
+  approvalReasons       Json?
   activities            Activity[]
   InventoryReservation  InventoryReservation[]
   invoices              Invoice[]
@@ -591,6 +707,7 @@ model Order {
   @@index([requiresApproval, status])
   @@index([orderNumber])
   @@index([salesRepId])
+  @@index([tenantId, orderNumber], map: "Order_tenant_order_number_idx")
 }
 
 model OrderLine {
@@ -759,43 +876,52 @@ model ActivityType {
 }
 
 model Activity {
-  id             String               @id @default(uuid()) @db.Uuid
-  tenantId       String               @db.Uuid
-  activityTypeId String               @db.Uuid
-  userId         String?              @db.Uuid
-  portalUserId   String?              @db.Uuid
-  customerId     String?              @db.Uuid
-  orderId        String?              @db.Uuid
-  subject        String
-  notes          String?
-  occurredAt     DateTime
-  followUpAt     DateTime?
-  outcomes       String[]             @default([])
-  createdAt      DateTime             @default(now())
-  updatedAt      DateTime             @updatedAt
-  activityType   ActivityType         @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
-  customer       Customer?            @relation(fields: [customerId], references: [id])
-  order          Order?               @relation(fields: [orderId], references: [id])
-  portalUser     PortalUser?          @relation(fields: [portalUserId], references: [id])
-  tenant         Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user           User?                @relation(fields: [userId], references: [id])
-  sampleItems    ActivitySampleItem[]
+  id                 String               @id @default(uuid()) @db.Uuid
+  tenantId           String               @db.Uuid
+  activityTypeId     String               @db.Uuid
+  userId             String?              @db.Uuid
+  portalUserId       String?              @db.Uuid
+  customerId         String?              @db.Uuid
+  orderId            String?              @db.Uuid
+  subject            String
+  notes              String?
+  occurredAt         DateTime
+  followUpAt         DateTime?
+  outcomes           String[]             @default([])
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  // Activity type-specific fields
+  callDuration       String?              // For phone calls: "<5min", "5-15min", "15-30min", "30min+"
+  visitDuration      String?              // For visits: "<30min", "30min-1hr", "1-2hr", "2hr+"
+  attendees          String?              // For visits/events: names or count
+  location           String?              // For visits/events: location/venue
+  changeType         String?              // For major changes: "OWNERSHIP", "MANAGEMENT", "LICENSE", etc.
+  effectiveDate      DateTime?            // For major changes: when change takes effect
+  impactAssessment   String?              // For major changes: "HIGH", "MEDIUM", "LOW"
+  portalInteraction  String?              // For portal follow-ups: "VIEWED_CATALOG", "SUBMITTED_ORDER", etc.
+  activityType       ActivityType         @relation(fields: [activityTypeId], references: [id], onDelete: Cascade)
+  customer           Customer?            @relation(fields: [customerId], references: [id])
+  order              Order?               @relation(fields: [orderId], references: [id])
+  portalUser         PortalUser?          @relation(fields: [portalUserId], references: [id])
+  tenant             Tenant               @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user               User?                @relation(fields: [userId], references: [id])
+  sampleItems        ActivitySampleItem[]
 
   @@index([tenantId])
 }
 
 model SampleList {
-  id         String           @id @default(uuid()) @db.Uuid
-  tenantId   String           @db.Uuid
-  salesRepId String           @db.Uuid
-  name       String
-  isActive   Boolean          @default(true)
-  preferredPriceListIds Json? @default("[]")
-  createdAt  DateTime         @default(now())
-  updatedAt  DateTime         @updatedAt
-  items      SampleListItem[]
-  tenant     Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  salesRep   SalesRep         @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
+  id                    String           @id @default(uuid()) @db.Uuid
+  tenantId              String           @db.Uuid
+  salesRepId            String           @db.Uuid
+  name                  String
+  isActive              Boolean          @default(true)
+  preferredPriceListIds Json?            @default("[]")
+  createdAt             DateTime         @default(now())
+  updatedAt             DateTime         @updatedAt
+  items                 SampleListItem[]
+  tenant                Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  salesRep              SalesRep         @relation(fields: [salesRepId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
   @@index([salesRepId, isActive])
@@ -863,26 +989,26 @@ model CallPlan {
 }
 
 model Task {
-  id             String          @id @default(uuid()) @db.Uuid
-  tenantId       String          @db.Uuid
-  userId         String?         @db.Uuid
-  callPlanId     String?         @db.Uuid
-  customerId     String?         @db.Uuid
-  title          String
-  description    String?
-  planObjective  String?
-  planNotes      String?
-  dueAt          DateTime?
-  status         TaskStatus      @default(PENDING)
-  createdAt      DateTime        @default(now())
-  updatedAt      DateTime        @updatedAt
-  assignedById   String?         @db.Uuid
-  priority       TaskPriority?   @default(MEDIUM)
-  callPlan       CallPlan?       @relation(fields: [callPlanId], references: [id])
-  customer       Customer?       @relation(fields: [customerId], references: [id])
-  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user           User?           @relation("AssignedTasks", fields: [userId], references: [id])
-  triggeredTasks TriggeredTask[]
+  id              String          @id @default(uuid()) @db.Uuid
+  tenantId        String          @db.Uuid
+  userId          String?         @db.Uuid
+  callPlanId      String?         @db.Uuid
+  customerId      String?         @db.Uuid
+  title           String
+  description     String?
+  planObjective   String?
+  planNotes       String?
+  dueAt           DateTime?
+  status          TaskStatus      @default(PENDING)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  assignedById    String?         @db.Uuid
+  priority        TaskPriority?   @default(MEDIUM)
+  callPlan        CallPlan?       @relation(fields: [callPlanId], references: [id])
+  customer        Customer?       @relation(fields: [customerId], references: [id])
+  tenant          Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  user            User?           @relation("AssignedTasks", fields: [userId], references: [id])
+  triggeredTasks  TriggeredTask[]
   sampleFollowUps SampleUsage[]
 
   @@index([tenantId])
@@ -907,17 +1033,17 @@ model AccountHealthSnapshot {
 }
 
 model ImportTemplate {
-  id          String   @id @default(uuid()) @db.Uuid
-  tenantId    String?  @db.Uuid
+  id          String        @id @default(uuid()) @db.Uuid
+  tenantId    String?       @db.Uuid
   name        String
   dataType    String
   description String?
   config      Json
-  createdById String?  @db.Uuid
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  tenant      Tenant?  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  createdBy   User?    @relation("ImportTemplateCreatedBy", fields: [createdById], references: [id])
+  createdById String?       @db.Uuid
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  tenant      Tenant?       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdBy   User?         @relation("ImportTemplateCreatedBy", fields: [createdById], references: [id])
   batches     ImportBatch[]
 
   @@index([tenantId])
@@ -925,23 +1051,23 @@ model ImportTemplate {
 }
 
 model ImportBatch {
-  id             String          @id @default(uuid()) @db.Uuid
-  tenantId       String          @db.Uuid
-  dataType       String
-  source         String
-  status         String          @default("queued")
-  templateId     String?         @db.Uuid
-  fileKey        String?
-  checksum       String?
-  initiatedById  String?         @db.Uuid
-  summary        Json?
-  createdAt      DateTime        @default(now())
-  startedAt      DateTime?
-  completedAt    DateTime?
-  tenant         Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  template       ImportTemplate? @relation(fields: [templateId], references: [id])
-  initiatedBy    User?           @relation("ImportBatchInitiatedBy", fields: [initiatedById], references: [id])
-  rows           ImportRow[]
+  id            String          @id @default(uuid()) @db.Uuid
+  tenantId      String          @db.Uuid
+  dataType      String
+  source        String
+  status        String          @default("queued")
+  templateId    String?         @db.Uuid
+  fileKey       String?
+  checksum      String?
+  initiatedById String?         @db.Uuid
+  summary       Json?
+  createdAt     DateTime        @default(now())
+  startedAt     DateTime?
+  completedAt   DateTime?
+  tenant        Tenant          @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  template      ImportTemplate? @relation(fields: [templateId], references: [id])
+  initiatedBy   User?           @relation("ImportBatchInitiatedBy", fields: [initiatedById], references: [id])
+  rows          ImportRow[]
 
   @@index([tenantId])
   @@index([tenantId, status])
@@ -950,18 +1076,18 @@ model ImportBatch {
 }
 
 model ImportRow {
-  id              String       @id @default(uuid()) @db.Uuid
-  batchId         String       @db.Uuid
-  tenantId        String       @db.Uuid
+  id              String      @id @default(uuid()) @db.Uuid
+  batchId         String      @db.Uuid
+  tenantId        String      @db.Uuid
   externalKey     String?
   payload         Json
-  status          String       @default("pending")
+  status          String      @default("pending")
   errors          Json?
   appliedRecordId String?
-  createdAt       DateTime     @default(now())
-  updatedAt       DateTime     @updatedAt
-  batch           ImportBatch  @relation(fields: [batchId], references: [id], onDelete: Cascade)
-  tenant          Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  batch           ImportBatch @relation(fields: [batchId], references: [id], onDelete: Cascade)
+  tenant          Tenant      @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([batchId])
   @@index([tenantId, status])
@@ -1098,29 +1224,29 @@ enum AzugaAuthType {
 }
 
 model AzugaIntegrationSettings {
-  id                     String                  @id @default(uuid()) @db.Uuid
-  tenantId               String                  @unique @db.Uuid
-  status                 AzugaIntegrationStatus  @default(PENDING)
-  authType               AzugaAuthType           @default(CREDENTIALS)
-  environment            String                  @default("production")
+  id                     String                 @id @default(uuid()) @db.Uuid
+  tenantId               String                 @unique @db.Uuid
+  status                 AzugaIntegrationStatus @default(PENDING)
+  authType               AzugaAuthType          @default(CREDENTIALS)
+  environment            String                 @default("production")
   loginUsername          String?
   encryptedLoginPassword String?
   encryptedApiKey        String?
   encryptedWebhookSecret String?
-  webhookAuthType        String?                 @default("BASIC")
+  webhookAuthType        String?                @default("BASIC")
   webhookUrl             String?
-  rateLimitPerMinute     Int                     @default(1)
-  isTelematicsEnabled    Boolean                 @default(false)
-  isRouteExportEnabled   Boolean                 @default(true)
-  isRouteImportEnabled   Boolean                 @default(false)
-  isWebhookEnabled       Boolean                 @default(false)
+  rateLimitPerMinute     Int                    @default(1)
+  isTelematicsEnabled    Boolean                @default(false)
+  isRouteExportEnabled   Boolean                @default(true)
+  isRouteImportEnabled   Boolean                @default(false)
+  isWebhookEnabled       Boolean                @default(false)
   lastConnectedAt        DateTime?
   lastSyncAt             DateTime?
   notes                  String?
   metadata               Json?
-  createdAt              DateTime                @default(now())
-  updatedAt              DateTime                @updatedAt
-  tenant                 Tenant                  @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  createdAt              DateTime               @default(now())
+  updatedAt              DateTime               @updatedAt
+  tenant                 Tenant                 @relation(fields: [tenantId], references: [id], onDelete: Cascade)
 
   @@index([tenantId])
 }
@@ -1338,35 +1464,35 @@ model AuditLog {
 }
 
 model JobRunLog {
-  id            String        @id @default(uuid()) @db.Uuid
-  jobName       String
-  status        JobRunStatus  @default(RUNNING)
-  environment   String?
-  tenantSlug    String?
-  startedAt     DateTime      @default(now())
-  finishedAt    DateTime?
-  durationMs    Int?
-  errorMessage  String?
-  metadata      Json?
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
+  id           String       @id @default(uuid()) @db.Uuid
+  jobName      String
+  status       JobRunStatus @default(RUNNING)
+  environment  String?
+  tenantSlug   String?
+  startedAt    DateTime     @default(now())
+  finishedAt   DateTime?
+  durationMs   Int?
+  errorMessage String?
+  metadata     Json?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
 
   @@index([jobName, startedAt])
   @@index([tenantSlug, startedAt])
 }
 
 model HealthPingLog {
-  id             String            @id @default(uuid()) @db.Uuid
-  source         String            @default("internal")
-  targetTenant   String?
-  status         HealthPingStatus  @default(UP)
-  statusCode     Int?
-  responseTimeMs Int?
-  checkedAt      DateTime          @default(now())
-  detail         String?
-  createdAt      DateTime          @default(now())
-  acknowledgedAt DateTime?
-  acknowledgedBy String?
+  id                 String           @id @default(uuid()) @db.Uuid
+  source             String           @default("internal")
+  targetTenant       String?
+  status             HealthPingStatus @default(UP)
+  statusCode         Int?
+  responseTimeMs     Int?
+  checkedAt          DateTime         @default(now())
+  detail             String?
+  createdAt          DateTime         @default(now())
+  acknowledgedAt     DateTime?
+  acknowledgedBy     String?
   acknowledgedByName String?
 
   @@index([targetTenant, checkedAt])
@@ -1749,14 +1875,15 @@ model ImageScan {
 }
 
 model Job {
-  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  type        String
-  payload     Json
-  status      String?   @default("pending")
-  attempts    Int?      @default(0)
-  error       String?
-  createdAt   DateTime? @default(now()) @db.Timestamp(6)
-  completedAt DateTime? @db.Timestamp(6)
+  id                String             @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  type              String
+  payload           Json
+  status            String?            @default("pending")
+  attempts          Int?               @default(0)
+  error             String?
+  createdAt         DateTime?          @default(now()) @db.Timestamp(6)
+  completedAt       DateTime?          @db.Timestamp(6)
+  productExportJobs ProductExportJob[]
 
   @@index([status, createdAt])
 }
@@ -2315,6 +2442,46 @@ model HealthThreshold {
   @@index([accountPriority])
 }
 
+enum ProductFieldScope {
+  PRODUCT
+  SKU
+  PRICING
+  INVENTORY
+  SALES
+}
+
+enum ProductFieldInputType {
+  TEXT
+  TEXTAREA
+  NUMBER
+  DECIMAL
+  BOOLEAN
+  SELECT
+  MULTI_SELECT
+  DATE
+  RICH_TEXT
+}
+
+enum ProductLifecycleStatus {
+  CORE
+  NEW
+  PROMO
+  CLOSEOUT
+}
+
+enum ProductExportFormat {
+  CSV
+  PDF
+  EXCEL
+}
+
+enum ProductExportStatus {
+  QUEUED
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
 enum InvoiceFormatType {
   STANDARD
   VA_ABC_INSTATE
@@ -2578,26 +2745,26 @@ model SkuDemandStats {
 // ============================================================================
 
 model SageExport {
-  id           String           @id @default(uuid()) @db.Uuid
-  tenantId     String           @db.Uuid
-  startDate    DateTime
-  endDate      DateTime
-  status       SageExportStatus @default(PENDING)
-  recordCount  Int              @default(0)
-  invoiceCount Int              @default(0)
-  sampleRecordCount  Int        @default(0)
-  sampleInvoiceCount Int        @default(0)
-  storageInvoiceCount Int       @default(0)
-  filePath     String?
-  fileName     String?
-  fileContent  Bytes?
-  sampleFilePath String?
-  sampleFileName String?
-  sampleFileContent Bytes?
-  exportedBy   String           @db.Uuid // User ID
-  exportedAt   DateTime         @default(now())
-  completedAt  DateTime?
-  errorMessage String?
+  id                  String           @id @default(uuid()) @db.Uuid
+  tenantId            String           @db.Uuid
+  startDate           DateTime
+  endDate             DateTime
+  status              SageExportStatus @default(PENDING)
+  recordCount         Int              @default(0)
+  invoiceCount        Int              @default(0)
+  sampleRecordCount   Int              @default(0)
+  sampleInvoiceCount  Int              @default(0)
+  storageInvoiceCount Int              @default(0)
+  filePath            String?
+  fileName            String?
+  fileContent         Bytes?
+  sampleFilePath      String?
+  sampleFileName      String?
+  sampleFileContent   Bytes?
+  exportedBy          String           @db.Uuid // User ID
+  exportedAt          DateTime         @default(now())
+  completedAt         DateTime?
+  errorMessage        String?
 
   // Relations
   tenant Tenant            @relation(fields: [tenantId], references: [id], onDelete: Cascade)

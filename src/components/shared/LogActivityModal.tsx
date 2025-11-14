@@ -7,6 +7,15 @@ import SampleItemsSelector from "@/components/activities/SampleItemsSelector";
 import type { ActivitySampleSelection } from "@/types/activities";
 import { CustomerSearchCombobox } from "@/components/orders/CustomerSearchCombobox";
 import { CollapsibleSection } from "@/components/ui/CollapsibleSection";
+import {
+  getActivityTypeConfig,
+  getOutcomesForActivityType,
+  CALL_DURATION_OPTIONS,
+  VISIT_DURATION_OPTIONS,
+  CHANGE_TYPE_OPTIONS,
+  IMPACT_ASSESSMENT_OPTIONS,
+  PORTAL_INTERACTION_OPTIONS,
+} from "@/constants/activityTypeFields";
 
 type ActivityType = {
   id: string;
@@ -76,6 +85,15 @@ export default function LogActivityModal({
     occurredAt: new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16),
     followUpAt: "",
     outcomes: [] as ActivityOutcomeValue[],
+    // Activity type-specific fields
+    callDuration: "",
+    visitDuration: "",
+    attendees: "",
+    location: "",
+    changeType: "",
+    effectiveDate: "",
+    impactAssessment: "",
+    portalInteraction: "",
   });
 
   // Check for Web Speech API support
@@ -154,7 +172,7 @@ export default function LogActivityModal({
     }
   }, [isOpen]);
 
-  // Auto-generate subject when fields change
+  // Auto-generate subject and apply follow-up suggestions when activity type changes
   useEffect(() => {
     if (
       formData.activityTypeCode &&
@@ -163,11 +181,27 @@ export default function LogActivityModal({
       !initialSubject
     ) {
       const activityType = activityTypes.find((t) => t.code === formData.activityTypeCode);
+      const config = getActivityTypeConfig(formData.activityTypeCode);
 
       if (activityType) {
+        // Auto-generate subject
+        const subjectTemplate = config.autoSubject || `${activityType.name} - \${customerName}`;
+        const generatedSubject = subjectTemplate.replace('${customerName}', selectedCustomer.name);
+
+        // Auto-suggest follow-up date
+        let suggestedFollowUpAt = "";
+        if (config.suggestedFollowUpDays) {
+          const followUpDate = new Date();
+          followUpDate.setDate(followUpDate.getDate() + config.suggestedFollowUpDays);
+          suggestedFollowUpAt = new Date(followUpDate.getTime() - followUpDate.getTimezoneOffset() * 60000)
+            .toISOString()
+            .slice(0, 16);
+        }
+
         setFormData((prev) => ({
           ...prev,
-          subject: `${activityType.name} - ${selectedCustomer.name}`,
+          subject: generatedSubject,
+          followUpAt: suggestedFollowUpAt || prev.followUpAt,
         }));
       }
     }
@@ -260,6 +294,29 @@ export default function LogActivityModal({
         throw new Error("Please select a date and time");
       }
 
+      // Activity type-specific validation
+      const config = getActivityTypeConfig(formData.activityTypeCode);
+
+      if (config.requireNotes && !formData.notes.trim()) {
+        throw new Error("Notes are required for this activity type");
+      }
+
+      if (config.notesMinLength && formData.notes.trim().length < config.notesMinLength) {
+        throw new Error(`Notes must be at least ${config.notesMinLength} characters for this activity type`);
+      }
+
+      if (config.showCallDuration && !formData.callDuration) {
+        throw new Error("Call duration is required");
+      }
+
+      if (config.showChangeType && !formData.changeType) {
+        throw new Error("Change type is required");
+      }
+
+      if (config.showImpactAssessment && !formData.impactAssessment) {
+        throw new Error("Impact assessment is required");
+      }
+
       const selectedSampleItems = sampleSelections
         .filter((item) => item.selected)
         .map((item) => ({
@@ -281,6 +338,15 @@ export default function LogActivityModal({
         ...(formData.followUpAt ? { followUpAt: formData.followUpAt } : {}),
         ...(formData.outcomes.length > 0 ? { outcomes: formData.outcomes } : {}),
         ...(selectedSampleItems.length > 0 ? { sampleItems: selectedSampleItems } : {}),
+        // Activity type-specific fields
+        ...(formData.callDuration ? { callDuration: formData.callDuration } : {}),
+        ...(formData.visitDuration ? { visitDuration: formData.visitDuration } : {}),
+        ...(formData.attendees ? { attendees: formData.attendees } : {}),
+        ...(formData.location ? { location: formData.location } : {}),
+        ...(formData.changeType ? { changeType: formData.changeType } : {}),
+        ...(formData.effectiveDate ? { effectiveDate: formData.effectiveDate } : {}),
+        ...(formData.impactAssessment ? { impactAssessment: formData.impactAssessment } : {}),
+        ...(formData.portalInteraction ? { portalInteraction: formData.portalInteraction } : {}),
       };
 
       // Debug logging
@@ -330,6 +396,15 @@ export default function LogActivityModal({
           occurredAt: new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 16),
           followUpAt: "",
           outcomes: [] as ActivityOutcomeValue[],
+          // Reset activity type-specific fields
+          callDuration: "",
+          visitDuration: "",
+          attendees: "",
+          location: "",
+          changeType: "",
+          effectiveDate: "",
+          impactAssessment: "",
+          portalInteraction: "",
         });
         setSampleSelections([]);
         onClose();
@@ -425,11 +500,187 @@ export default function LogActivityModal({
                 </div>
               </div>
 
+              {/* Activity Type-Specific Fields */}
+              {formData.activityTypeCode && (() => {
+                const config = getActivityTypeConfig(formData.activityTypeCode);
+
+                return (
+                  <>
+                    {/* Call Duration */}
+                    {config.showCallDuration && (
+                      <div>
+                        <label htmlFor="callDuration" className="block text-sm font-semibold text-gray-700">
+                          Call Duration <span className="text-rose-500">*</span>
+                        </label>
+                        <select
+                          id="callDuration"
+                          value={formData.callDuration}
+                          onChange={(e) => setFormData({ ...formData, callDuration: e.target.value })}
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          required
+                        >
+                          <option value="">Select duration...</option>
+                          {CALL_DURATION_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+
+                    {/* Visit Duration */}
+                    {config.showVisitDuration && (
+                      <div>
+                        <label htmlFor="visitDuration" className="block text-sm font-semibold text-gray-700">
+                          Visit Duration
+                        </label>
+                        <select
+                          id="visitDuration"
+                          value={formData.visitDuration}
+                          onChange={(e) => setFormData({ ...formData, visitDuration: e.target.value })}
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        >
+                          <option value="">Select duration...</option>
+                          {VISIT_DURATION_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+
+                    {/* Location */}
+                    {config.showLocation && (
+                      <div>
+                        <label htmlFor="location" className="block text-sm font-semibold text-gray-700">
+                          Location
+                        </label>
+                        <input
+                          type="text"
+                          id="location"
+                          value={formData.location}
+                          onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                          placeholder="Enter location or venue"
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        />
+                      </div>
+                    )}
+
+                    {/* Attendees */}
+                    {config.showAttendees && (
+                      <div>
+                        <label htmlFor="attendees" className="block text-sm font-semibold text-gray-700">
+                          Attendees
+                        </label>
+                        <input
+                          type="text"
+                          id="attendees"
+                          value={formData.attendees}
+                          onChange={(e) => setFormData({ ...formData, attendees: e.target.value })}
+                          placeholder="Names or number of attendees"
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        />
+                      </div>
+                    )}
+
+                    {/* Change Type */}
+                    {config.showChangeType && (
+                      <div>
+                        <label htmlFor="changeType" className="block text-sm font-semibold text-gray-700">
+                          Change Type <span className="text-rose-500">*</span>
+                        </label>
+                        <select
+                          id="changeType"
+                          value={formData.changeType}
+                          onChange={(e) => setFormData({ ...formData, changeType: e.target.value })}
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          required
+                        >
+                          <option value="">Select change type...</option>
+                          {CHANGE_TYPE_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+
+                    {/* Effective Date */}
+                    {config.showEffectiveDate && (
+                      <div>
+                        <label htmlFor="effectiveDate" className="block text-sm font-semibold text-gray-700">
+                          Effective Date
+                        </label>
+                        <input
+                          type="date"
+                          id="effectiveDate"
+                          value={formData.effectiveDate}
+                          onChange={(e) => setFormData({ ...formData, effectiveDate: e.target.value })}
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        />
+                      </div>
+                    )}
+
+                    {/* Impact Assessment */}
+                    {config.showImpactAssessment && (
+                      <div>
+                        <label htmlFor="impactAssessment" className="block text-sm font-semibold text-gray-700">
+                          Impact Assessment <span className="text-rose-500">*</span>
+                        </label>
+                        <select
+                          id="impactAssessment"
+                          value={formData.impactAssessment}
+                          onChange={(e) => setFormData({ ...formData, impactAssessment: e.target.value })}
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          required
+                        >
+                          <option value="">Select impact level...</option>
+                          {IMPACT_ASSESSMENT_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+
+                    {/* Portal Interaction */}
+                    {config.showPortalInteraction && (
+                      <div>
+                        <label htmlFor="portalInteraction" className="block text-sm font-semibold text-gray-700">
+                          Portal Interaction
+                        </label>
+                        <select
+                          id="portalInteraction"
+                          value={formData.portalInteraction}
+                          onChange={(e) => setFormData({ ...formData, portalInteraction: e.target.value })}
+                          className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        >
+                          <option value="">Select interaction type...</option>
+                          {PORTAL_INTERACTION_OPTIONS.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
+
               {/* Notes with Voice Input Icon */}
               <div>
                 <div className="flex items-center justify-between">
                   <label htmlFor="notes" className="block text-sm font-semibold text-gray-700">
                     Notes
+                    {formData.activityTypeCode &&
+                      getActivityTypeConfig(formData.activityTypeCode).requireNotes &&
+                      <span className="text-rose-500"> *</span>
+                    }
                   </label>
                   {voiceSupported && (
                     <button
@@ -454,8 +705,33 @@ export default function LogActivityModal({
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Additional details, outcomes, next steps..."
                   rows={3}
+                  maxLength={formData.activityTypeCode ?
+                    getActivityTypeConfig(formData.activityTypeCode).charLimit :
+                    undefined}
                   className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm transition focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  required={formData.activityTypeCode &&
+                    getActivityTypeConfig(formData.activityTypeCode).requireNotes}
                 />
+                {formData.activityTypeCode && (() => {
+                  const config = getActivityTypeConfig(formData.activityTypeCode);
+                  if (config.charLimit) {
+                    return (
+                      <p className="mt-1 text-xs text-gray-500">
+                        {formData.notes.length}/{config.charLimit} characters
+                      </p>
+                    );
+                  }
+                  if (config.notesMinLength) {
+                    return (
+                      <p className="mt-1 text-xs text-gray-500">
+                        Minimum {config.notesMinLength} characters required
+                        {formData.notes.trim().length > 0 &&
+                          ` (${formData.notes.trim().length}/${config.notesMinLength})`}
+                      </p>
+                    );
+                  }
+                  return null;
+                })()}
               </div>
 
               {/* Date Display with Edit Button */}
@@ -518,67 +794,78 @@ export default function LogActivityModal({
               )}
 
               {/* Collapsible Samples Section */}
-              <CollapsibleSection
-                title="Samples Shared"
-                badge={sampleSelections.filter(s => s.selected).length > 0
-                  ? `${sampleSelections.filter(s => s.selected).length} items`
-                  : "0 items"}
-                defaultOpen={false}
-              >
-                <SampleItemsSelector value={sampleSelections} onChange={setSampleSelections} />
-              </CollapsibleSection>
+              {(!formData.activityTypeCode ||
+                getActivityTypeConfig(formData.activityTypeCode).showSamples !== false) && (
+                <CollapsibleSection
+                  title="Samples Shared"
+                  badge={sampleSelections.filter(s => s.selected).length > 0
+                    ? `${sampleSelections.filter(s => s.selected).length} items`
+                    : "0 items"}
+                  defaultOpen={formData.activityTypeCode ?
+                    getActivityTypeConfig(formData.activityTypeCode).samplesExpandedByDefault :
+                    false}
+                >
+                  <SampleItemsSelector value={sampleSelections} onChange={setSampleSelections} />
+                </CollapsibleSection>
+              )}
 
               {/* Collapsible Outcomes Section */}
-              <CollapsibleSection
-                title="Outcomes"
-                badge={formData.outcomes.length > 0
-                  ? `${formData.outcomes.length} selected`
-                  : "None selected"}
-                defaultOpen={false}
-              >
-                <div className="grid gap-2 sm:grid-cols-2">
-                  {ACTIVITY_OUTCOME_OPTIONS.map((option) => {
-                    const checked = formData.outcomes.includes(option.value);
-                    return (
-                      <label
-                        key={option.value}
-                        className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
-                          checked ? "border-blue-500 bg-blue-50 text-blue-900" : "border-gray-200 bg-white hover:border-gray-300"
-                        }`}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={checked}
-                          onChange={() =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              outcomes: prev.outcomes.includes(option.value)
-                                ? prev.outcomes.filter((value) => value !== option.value)
-                                : [...prev.outcomes, option.value],
-                            }))
-                          }
-                          className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                        />
-                        <span className="break-words leading-tight">{option.label}</span>
-                      </label>
-                    );
-                  })}
-                </div>
-                {formData.outcomes.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setFormData((prev) => ({
-                        ...prev,
-                        outcomes: [],
-                      }))
-                    }
-                    className="mt-3 text-xs font-semibold text-blue-600 hover:text-blue-800"
-                  >
-                    Clear all selections
-                  </button>
-                )}
-              </CollapsibleSection>
+              {(!formData.activityTypeCode ||
+                getActivityTypeConfig(formData.activityTypeCode).showOutcomes !== false) && (
+                <CollapsibleSection
+                  title="Outcomes"
+                  badge={formData.outcomes.length > 0
+                    ? `${formData.outcomes.length} selected`
+                    : "None selected"}
+                  defaultOpen={false}
+                >
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {getOutcomesForActivityType(
+                      formData.activityTypeCode,
+                      ACTIVITY_OUTCOME_OPTIONS
+                    ).map((option) => {
+                      const checked = formData.outcomes.includes(option.value);
+                      return (
+                        <label
+                          key={option.value}
+                          className={`flex items-start gap-3 rounded-lg border px-3 py-2 text-sm transition ${
+                            checked ? "border-blue-500 bg-blue-50 text-blue-900" : "border-gray-200 bg-white hover:border-gray-300"
+                          }`}
+                        >
+                          <input
+                            type="checkbox"
+                            checked={checked}
+                            onChange={() =>
+                              setFormData((prev) => ({
+                                ...prev,
+                                outcomes: prev.outcomes.includes(option.value)
+                                  ? prev.outcomes.filter((value) => value !== option.value)
+                                  : [...prev.outcomes, option.value],
+                              }))
+                            }
+                            className="mt-1 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          />
+                          <span className="break-words leading-tight">{option.label}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                  {formData.outcomes.length > 0 && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          outcomes: [],
+                        }))
+                      }
+                      className="mt-3 text-xs font-semibold text-blue-600 hover:text-blue-800"
+                    >
+                      Clear all selections
+                    </button>
+                  )}
+                </CollapsibleSection>
+              )}
 
               {/* Error Message */}
               {error && (
