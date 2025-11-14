@@ -132,23 +132,6 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     pageSize,
   ]);
 
-  const priceListOptions = useMemo(() => {
-    if (facets?.priceLists) {
-      return facets.priceLists.map((bucket) => ({
-        id: bucket.value,
-        name: bucket.label,
-      }));
-    }
-    const map = new Map<string, string>();
-    items.forEach((item) => {
-      item.priceLists.forEach((price) => {
-        map.set(price.priceListId, price.priceListName);
-      });
-    });
-    return Array.from(map.entries())
-      .map(([id, name]) => ({ id, name }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, [facets, items]);
 
   const filtersPayload = useMemo(
     () => ({
@@ -539,16 +522,16 @@ useEffect(() => {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {sortedItems.map((item) => {
-            const primaryPrice = getPrimaryPrice(item, priceListFilter);
-            const minQuantity = primaryPrice?.minQuantity ?? 1;
-            const quantity = quantityBySku[item.skuId] ?? minQuantity;
+            const primaryPrice = item.priceLists[0] ?? null;
+            const quantity = quantityBySku[item.skuId] ?? 1;
             const priceLabel = primaryPrice
               ? new Intl.NumberFormat("en-US", {
                   style: "currency",
                   currency: primaryPrice.currency,
                 }).format(primaryPrice.price)
-              : "—";
+              : "No price set";
             const outOfStock = item.inventory.totals.available <= 0;
+            const hasPrice = primaryPrice !== null;
 
             return (
               <article
@@ -606,24 +589,27 @@ useEffect(() => {
                       Qty
                       <input
                         type="number"
-                        min={minQuantity}
+                        min={1}
                         value={quantity}
                         onChange={(event) => handleQuantityChange(item.skuId, event.target.value)}
-                        className="mt-1 w-20 rounded-md border border-gray-300 px-2 py-1 text-sm focus:border-gray-500 focus:outline-none"
+                        disabled={!hasPrice}
+                        className="mt-1 w-20 rounded-md border border-gray-300 px-2 py-1 text-sm focus:border-gray-500 focus:outline-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                       />
                     </label>
                     <div className="flex items-center gap-2">
                       <button
                         type="button"
-                        onClick={() => handleQuantityAdjust(item.skuId, -minQuantity, minQuantity)}
-                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+                        onClick={() => handleQuantityAdjust(item.skuId, -1)}
+                        disabled={!hasPrice}
+                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         −
                       </button>
                       <button
                         type="button"
-                        onClick={() => handleQuantityAdjust(item.skuId, minQuantity, minQuantity)}
-                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
+                        onClick={() => handleQuantityAdjust(item.skuId, 1)}
+                        disabled={!hasPrice}
+                        className="rounded-md border border-gray-300 px-2 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         +
                       </button>
@@ -631,9 +617,16 @@ useEffect(() => {
                   </div>
                   <Link
                     href="/sales/orders"
-                    className="flex w-full items-center justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white transition hover:bg-gray-700"
+                    onClick={(e) => {
+                      if (!hasPrice || outOfStock) e.preventDefault();
+                    }}
+                    className={`flex w-full items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-white transition ${
+                      !hasPrice || outOfStock
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-gray-900 hover:bg-gray-700"
+                    }`}
                   >
-                    {outOfStock ? "Out of Stock" : "Create Order"}
+                    {!hasPrice ? "No Price Set" : outOfStock ? "Out of Stock" : "Create Order"}
                   </Link>
                 </footer>
               </article>
@@ -651,14 +644,6 @@ useEffect(() => {
       )}
     </section>
   );
-}
-
-function getPrimaryPrice(item: CatalogItem, priceListFilter: string) {
-  if (priceListFilter !== "all") {
-    const match = item.priceLists.find((price) => price.priceListId === priceListFilter);
-    if (match) return match;
-  }
-  return item.priceLists[0] ?? null;
 }
 
 function StatusBadge({ status }: { status: ProductExportJob["status"] }) {
