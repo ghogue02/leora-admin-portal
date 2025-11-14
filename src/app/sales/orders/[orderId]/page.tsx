@@ -12,7 +12,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { formatCurrency, formatShortDate } from "@/lib/format";
 import { Pencil } from "lucide-react";
 import { ORDER_USAGE_LABELS, type OrderUsageCode } from "@/constants/orderUsage";
@@ -167,18 +166,6 @@ export default function SalesOrderDetailPage() {
 
   return (
     <main className="layout-shell-tight layout-stack pb-12">
-      {/* Breadcrumbs */}
-      <div className="mb-4">
-        <Breadcrumbs
-          homeHref="/sales/dashboard"
-          homeLabel="Sales"
-          items={[
-            { label: 'Orders', href: '/sales/orders' },
-            { label: order.orderNumber || `Order #${order.id.substring(0, 8)}`, href: null },
-          ]}
-        />
-      </div>
-
       {/* Header */}
       <div className="mb-6">
         <h1 className="text-3xl font-semibold">{order.orderNumber || `Order #${order.id.substring(0, 8)}`}</h1>
@@ -187,93 +174,44 @@ export default function SalesOrderDetailPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Main Content */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Order Items */}
-          <div className="surface-card p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Order Items</h2>
-            <div className="space-y-4">
-              {order.lines.map((line: OrderLine) => (
-                <div key={line.id} className="flex justify-between items-start border-b pb-4 last:border-0">
-                  <div className="flex-1">
-                    <p className="font-medium">{line.sku.product.name}</p>
-                    <p className="text-sm text-gray-600">
-                      SKU: {line.sku.code} · Size: {line.sku.size || 'N/A'}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      Quantity: {line.quantity} {line.isSample && '(Sample)'}
-                    </p>
-                    <p className="mt-1 text-xs text-gray-500">
-                      {line.usageType ? (
-                        <span className="inline-flex items-center rounded-full bg-gray-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-700">
-                          {ORDER_USAGE_LABELS[(line.usageType as OrderUsageCode)] ?? line.usageType}
-                        </span>
-                      ) : (
-                        <span className="italic text-gray-400">Standard sale</span>
-                      )}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-medium">{formatCurrency(line.total, order.currency)}</p>
-                    <p className="text-sm text-gray-600">
-                      @ {formatCurrency(line.unitPrice, order.currency)} each
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 pt-6 border-t">
-              <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold">Total</span>
-                <span className="text-2xl font-bold">
-                  {formatCurrency(order.total, order.currency)}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Sidebar */}
-        <div className="space-y-6">
-          {/* Order Status */}
-          <div className="surface-card p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Status</h2>
+      {/* Three-column grid at top: Status, Invoice, Customer */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        {/* Order Status - Compact */}
+        <div className="surface-card p-5 shadow-sm">
+            <h2 className="text-lg font-semibold mb-3">Status</h2>
 
             {/* Status Messages */}
             {statusMessage && (
-              <div className={`mb-4 p-3 rounded-md ${
+              <div className={`mb-3 p-2.5 rounded-md ${
                 statusMessage.type === 'success'
                   ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                   : 'bg-rose-50 text-rose-800 border border-rose-200'
               }`}>
-                <p className="text-sm font-medium">{statusMessage.text}</p>
+                <p className="text-xs font-medium">{statusMessage.text}</p>
               </div>
             )}
 
             <div className="space-y-3">
-              <div>
+              <div className="flex items-center justify-between">
                 <p className="text-sm text-gray-600">Current Status</p>
-                <div className="flex items-center gap-2 mt-1">
-                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    order.status === 'DELIVERED' ? 'bg-emerald-100 text-emerald-800' :
-                    order.status === 'PICKED' ? 'bg-blue-100 text-blue-800' :
-                    order.status === 'READY_TO_DELIVER' ? 'bg-amber-100 text-amber-800' :
-                    order.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
-                    'bg-gray-100 text-gray-800'
-                  }`}>
-                    {order.status}
-                  </span>
-                </div>
+                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  order.status === 'DELIVERED' ? 'bg-emerald-100 text-emerald-800' :
+                  order.status === 'PICKED' ? 'bg-blue-100 text-blue-800' :
+                  order.status === 'READY_TO_DELIVER' ? 'bg-amber-100 text-amber-800' :
+                  order.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' :
+                  'bg-gray-100 text-gray-800'
+                }`}>
+                  {order.status}
+                </span>
               </div>
 
-              <div className="pt-3 border-t space-y-3">
-                <p className="text-sm text-gray-600">Update Status</p>
-                <div className="space-y-2">
+              <div className="pt-3 border-t space-y-2">
+                <p className="text-sm text-gray-600 mb-2">Update Status</p>
+                <div className="space-y-1.5">
                   {ORDER_STATUS_OPTIONS.map((option) => (
                     <label
                       key={option.value}
-                      className={`flex cursor-pointer items-start gap-3 rounded-md border px-3 py-2 text-sm transition ${
+                      className={`flex cursor-pointer items-start gap-2 rounded-md border px-2.5 py-1.5 text-xs transition ${
                         statusSelection === option.value
                           ? 'border-gray-900 bg-gray-900/5'
                           : 'border-gray-200 hover:border-gray-300'
@@ -284,11 +222,11 @@ export default function SalesOrderDetailPage() {
                         value={option.value}
                         checked={statusSelection === option.value}
                         onChange={(event) => setStatusSelection(event.target.value)}
-                        className="mt-1"
+                        className="mt-0.5"
                       />
                       <span>
-                        <span className="font-medium text-gray-900">{option.label}</span>
-                        <span className="block text-xs text-gray-600">{option.description}</span>
+                        <span className="font-medium text-gray-900 block">{option.label}</span>
+                        <span className="text-[10px] text-gray-600">{option.description}</span>
                       </span>
                     </label>
                   ))}
@@ -297,28 +235,28 @@ export default function SalesOrderDetailPage() {
                   type="button"
                   onClick={() => void handleStatusChange(statusSelection)}
                   disabled={updatingStatus || statusSelection === order.status}
-                  className="w-full rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full rounded-md bg-gray-900 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-60 mt-2"
                 >
                   {updatingStatus ? 'Updating...' : 'Save Status'}
                 </button>
               </div>
 
-              <div>
-                <p className="text-sm text-gray-600">Ordered</p>
-                <p>{formatShortDate(order.orderedAt)}</p>
+              <div className="pt-2 border-t text-sm">
+                <p className="text-gray-600">Ordered</p>
+                <p className="font-medium">{formatShortDate(order.orderedAt)}</p>
               </div>
               {order.fulfilledAt && (
-                <div>
-                  <p className="text-sm text-gray-600">Fulfilled</p>
-                  <p>{formatShortDate(order.fulfilledAt)}</p>
+                <div className="text-sm">
+                  <p className="text-gray-600">Fulfilled</p>
+                  <p className="font-medium">{formatShortDate(order.fulfilledAt)}</p>
                 </div>
               )}
             </div>
-          </div>
+        </div>
 
-          {/* Invoice Section */}
-          <div className="surface-card p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Invoice</h2>
+        {/* Invoice Section - Compact */}
+        <div className="surface-card p-5 shadow-sm">
+            <h2 className="text-lg font-semibold mb-3">Invoice</h2>
             <OrderInvoicePanel
               orderId={order.id}
               customerName={order.customer.name}
@@ -330,45 +268,87 @@ export default function SalesOrderDetailPage() {
               invoice={order.invoices?.[0]}
               onRefresh={fetchOrder}
             />
-            <div className="mt-4">
+            <div className="mt-3">
               <Link
                 href={`/sales/orders/${order.id}/edit`}
-                className="flex items-center justify-center gap-2 w-full px-4 py-2 border-2 border-amber-500 text-amber-700 bg-amber-50 rounded-md hover:bg-amber-100 font-semibold transition mt-4"
+                className="flex items-center justify-center gap-2 w-full px-3 py-2 border-2 border-amber-500 text-amber-700 bg-amber-50 rounded-md hover:bg-amber-100 font-semibold transition text-sm"
               >
-                <Pencil className="h-4 w-4" />
+                <Pencil className="h-3.5 w-3.5" />
                 Edit Order & Regenerate Invoice
               </Link>
-              <p className="text-xs text-amber-600 mt-2 text-center">
+              <p className="text-[10px] text-amber-600 mt-1.5 text-center">
                 ⚠ Editing will create a new invoice version
               </p>
             </div>
-          </div>
+        </div>
 
-          {/* Customer Info */}
-          <div className="surface-card p-6 shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Customer</h2>
+        {/* Customer Info - Compact */}
+        <div className="surface-card p-5 shadow-sm">
+            <h2 className="text-lg font-semibold mb-3">Customer</h2>
             <Link
               href={`/sales/customers/${order.customer.id}`}
-              className="text-blue-600 hover:text-blue-800 font-medium"
+              className="text-blue-600 hover:text-blue-800 font-medium text-sm"
             >
               {order.customer.name}
             </Link>
             {order.salesRep && (
-              <div className="mt-4">
-                <p className="text-sm text-gray-600">Sales Representative</p>
-                <p className="font-medium">{order.salesRep.name}</p>
-                <p className="text-sm text-gray-500">{order.salesRep.territory}</p>
+              <div className="mt-3 pt-3 border-t">
+                <p className="text-xs text-gray-600">Sales Representative</p>
+                <p className="font-medium text-sm">{order.salesRep.name}</p>
+                <p className="text-xs text-gray-500">{order.salesRep.territory}</p>
               </div>
             )}
-            <div className="mt-6 pt-4 border-t border-gray-200">
+            <div className="mt-3 pt-3 border-t">
               <Link
                 href={`/sales/customers/${order.customer.id}/edit`}
-                className="inline-flex items-center gap-2 w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+                className="inline-flex items-center gap-2 w-full justify-center rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
               >
-                <Pencil className="h-4 w-4" />
+                <Pencil className="h-3.5 w-3.5" />
                 Edit Customer
               </Link>
             </div>
+        </div>
+      </div>
+
+      {/* Full-width Order Items section below */}
+      <div className="surface-card p-6 shadow-sm">
+        <h2 className="text-xl font-semibold mb-4">Order Items</h2>
+        <div className="space-y-4">
+          {order.lines.map((line: OrderLine) => (
+            <div key={line.id} className="flex justify-between items-start border-b pb-4 last:border-0">
+              <div className="flex-1">
+                <p className="font-medium">{line.sku.product.name}</p>
+                <p className="text-sm text-gray-600">
+                  SKU: {line.sku.code} · Size: {line.sku.size || 'N/A'}
+                </p>
+                <p className="text-sm text-gray-600">
+                  Quantity: {line.quantity} {line.isSample && '(Sample)'}
+                </p>
+                <p className="mt-1 text-xs text-gray-500">
+                  {line.usageType ? (
+                    <span className="inline-flex items-center rounded-full bg-gray-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-700">
+                      {ORDER_USAGE_LABELS[(line.usageType as OrderUsageCode)] ?? line.usageType}
+                    </span>
+                  ) : (
+                    <span className="italic text-gray-400">Standard sale</span>
+                  )}
+                </p>
+              </div>
+              <div className="text-right">
+                <p className="font-medium">{formatCurrency(line.total, order.currency)}</p>
+                <p className="text-sm text-gray-600">
+                  @ {formatCurrency(line.unitPrice, order.currency)} each
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 pt-6 border-t">
+          <div className="flex justify-between items-center">
+            <span className="text-lg font-semibold">Total</span>
+            <span className="text-2xl font-bold">
+              {formatCurrency(order.total, order.currency)}
+            </span>
           </div>
         </div>
       </div>

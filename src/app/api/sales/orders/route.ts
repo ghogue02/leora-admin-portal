@@ -391,7 +391,7 @@ const CreateOrderSchema = z.object({
   deliveryDate: z.string(), // ISO date string
   warehouseLocation: z.string().min(1),
   deliveryTimeWindow: z.string().optional(),
-  deliveryMethod: z.enum(DELIVERY_METHOD_OPTIONS).optional(),
+  deliveryMethod: z.enum(["WCB Delivery", "Rep Delivery", "Customer Pick-up", "Third Party Courier", "Other"]).optional(),
   poNumber: z.string().optional(),
   specialInstructions: z.string().optional(),
   salesRepId: z.string().uuid().optional(),

@@ -761,7 +761,8 @@ function NewOrderPageContent() {
 
       if (!response.ok) {
         const data = await response.json();
-        throw new Error(data.error || 'Failed to create order');
+        const errorMessage = data.error || 'Failed to create order';
+        throw new Error(errorMessage);
       }
 
       const result = await response.json();
