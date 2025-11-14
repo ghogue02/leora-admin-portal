@@ -18,7 +18,14 @@ import {
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/dialog";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { showError, showSuccess } from "@/lib/toast-helpers";
+import { toast } from "sonner";
+import { Info } from "lucide-react";
 
 type CustomerHeaderProps = {
   customer: {
@@ -30,6 +37,8 @@ type CustomerHeaderProps = {
     billingEmail: string | null;
     licenseNumber: string | null;
     accountPriority: AccountPriority | null;
+    accountPriorityManuallySet?: boolean;
+    accountPriorityAutoAssignedAt?: string | null;
     address: {
       street1: string | null;
       street2: string | null;
@@ -56,10 +65,42 @@ type CustomerHeaderProps = {
 
 type TaskPriorityOption = "LOW" | "MEDIUM" | "HIGH";
 
-const PRIORITY_OPTIONS: Array<{ value: TaskPriorityOption; label: string }> = [
+const TASK_PRIORITY_OPTIONS: Array<{ value: TaskPriorityOption; label: string }> = [
   { value: "HIGH", label: "High" },
   { value: "MEDIUM", label: "Medium" },
   { value: "LOW", label: "Low" },
+];
+
+const ACCOUNT_PRIORITY_OPTIONS: Array<{
+  value: AccountPriority | null;
+  label: string;
+  shortLabel: string;
+  description: string;
+}> = [
+  {
+    value: "HIGH",
+    label: "Priority 1 (High)",
+    shortLabel: "P1",
+    description: "Avg monthly revenue ≥ $2.5k or strategic logos needing weekly focus.",
+  },
+  {
+    value: "MEDIUM",
+    label: "Priority 2 (Medium)",
+    shortLabel: "P2",
+    description: "Roughly $1k–$2.5k per month; steady cadence accounts.",
+  },
+  {
+    value: "LOW",
+    label: "Priority 3 (Low)",
+    shortLabel: "P3",
+    description: "Under $1k per month. Long-tail or nurture accounts.",
+  },
+  {
+    value: null,
+    label: "Not set",
+    shortLabel: "None",
+    description: "Remove the priority flag for this account.",
+  },
 ];
 
 export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: CustomerHeaderProps) {
@@ -75,6 +116,10 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
   const [todoDueDate, setTodoDueDate] = useState("");
   const [todoNotes, setTodoNotes] = useState("");
   const [todoPriority, setTodoPriority] = useState<TaskPriorityOption>("MEDIUM");
+
+  const [accountPriority, setAccountPriority] = useState<AccountPriority | null>(customer.accountPriority);
+  const [manualOverride, setManualOverride] = useState(customer.accountPriorityManuallySet ?? false);
+  const [savingPriority, setSavingPriority] = useState(false);
 
   const getRiskBadge = (status: string) => {
     switch (status) {
@@ -258,6 +303,66 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
     }
   };
 
+  const handlePriorityUpdate = async (next: AccountPriority | null) => {
+    if (savingPriority || next === accountPriority || !manualOverride) return;
+
+    setSavingPriority(true);
+    try {
+      const response = await fetch(`/api/sales/customers/${customerId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          accountPriority: next,
+          accountPriorityManuallySet: true,
+        }),
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error ?? "Unable to update priority");
+      }
+
+      setAccountPriority(next);
+      await queryClient.invalidateQueries({ queryKey: ["customer", customerId] });
+      toast.success("Account priority updated");
+    } catch (error) {
+      console.error(error);
+      toast.error(error instanceof Error ? error.message : "Unable to update account priority");
+    } finally {
+      setSavingPriority(false);
+    }
+  };
+
+  const handleManualToggle = async () => {
+    if (savingPriority) return;
+    const next = !manualOverride;
+
+    setSavingPriority(true);
+    try {
+      const response = await fetch(`/api/sales/customers/${customerId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          accountPriorityManuallySet: next,
+        }),
+      });
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.error ?? "Unable to update priority mode");
+      }
+
+      setManualOverride(next);
+      await queryClient.invalidateQueries({ queryKey: ["customer", customerId] });
+      toast.success(next ? "Manual override enabled" : "Priority is now auto-managed");
+    } catch (error) {
+      console.error(error);
+      toast.error(error instanceof Error ? error.message : "Unable to update priority mode");
+    } finally {
+      setSavingPriority(false);
+    }
+  };
+
   return (
     <header className="rounded-lg border border-slate-200 bg-white shadow-sm">
       {/* Top Row: Name, Badges, Actions */}
@@ -274,11 +379,61 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
               >
                 {getRiskLabel(customer.riskStatus)}
               </span>
-              <span
-                className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${getPriorityBadge(customer.accountPriority ?? null)}`}
-              >
-                {getPriorityLabel(customer.accountPriority ?? null)}
-              </span>
+
+              <Popover>
+                <PopoverTrigger asChild>
+                  <button
+                    className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold inline-flex items-center gap-1 transition hover:opacity-80 ${getPriorityBadge(accountPriority)}`}
+                  >
+                    {getPriorityLabel(accountPriority)}
+                    <Info className="h-3 w-3" />
+                  </button>
+                </PopoverTrigger>
+                <PopoverContent className="w-80" align="start">
+                  <div className="space-y-3">
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Account Priority</h4>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {manualOverride
+                          ? "You control the priority for this account."
+                          : "Auto-managed based on revenue + cadence."}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={handleManualToggle}
+                      disabled={savingPriority}
+                      className={`w-full rounded-md px-3 py-1.5 text-xs font-semibold transition ${
+                        manualOverride
+                          ? "border border-slate-300 text-slate-700 hover:bg-slate-100"
+                          : "bg-blue-600 text-white hover:bg-blue-700"
+                      }`}
+                    >
+                      {manualOverride ? "Switch to auto" : "Enable manual control"}
+                    </button>
+
+                    <div className="space-y-1.5 border-t pt-3">
+                      {ACCOUNT_PRIORITY_OPTIONS.map((option) => (
+                        <button
+                          key={option.label}
+                          type="button"
+                          onClick={() => handlePriorityUpdate(option.value)}
+                          disabled={savingPriority || !manualOverride}
+                          className={`w-full rounded-md border px-3 py-2 text-left text-xs transition ${
+                            accountPriority === option.value
+                              ? "border-blue-400 bg-blue-50 text-blue-900"
+                              : "border-slate-200 bg-white text-slate-700 hover:border-slate-300"
+                          } ${savingPriority || !manualOverride ? "opacity-50 cursor-not-allowed" : ""}`}
+                        >
+                          <p className="font-semibold">{option.label}</p>
+                          <p className="mt-0.5 text-[10px] text-slate-500">{option.description}</p>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </PopoverContent>
+              </Popover>
               {customer.isPermanentlyClosed && (
                 <span className="rounded-full border border-slate-300 bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700">
                   CLOSED
@@ -514,7 +669,7 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
                       value={todoPriority}
                       onChange={(event) => setTodoPriority(event.target.value as TaskPriorityOption)}
                     >
-                      {PRIORITY_OPTIONS.map((option) => (
+                      {TASK_PRIORITY_OPTIONS.map((option) => (
                         <option key={option.value} value={option.value}>
                           {option.label}
                         </option>

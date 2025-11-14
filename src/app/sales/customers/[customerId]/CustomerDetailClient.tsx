@@ -38,7 +38,6 @@ import { DeliveryPreferences } from "./sections/DeliveryPreferences";
 import { CustomerContactsManager } from "@/components/customers/CustomerContactsManager";
 import { GoogleProfileCard } from "./sections/GoogleProfileCard";
 import CustomerSinceCard from "./sections/CustomerSinceCard";
-import { CustomerPrioritySelector } from "./sections/CustomerPrioritySelector";
 import PermanentNotesPanel from "./sections/PermanentNotesPanel";
 import {
   CustomerHeaderSkeleton,
@@ -197,13 +196,6 @@ export default function CustomerDetailClientV2({
       {data.majorChanges && data.majorChanges.length > 0 && (
         <PermanentNotesPanel notes={data.majorChanges} />
       )}
-
-      <CustomerPrioritySelector
-        customerId={customerId}
-        initialPriority={data.customer.accountPriority ?? null}
-        initialManualOverride={data.customer.accountPriorityManuallySet}
-        autoAssignedAt={data.customer.accountPriorityAutoAssignedAt}
-      />
 
       <CustomerTasks customerId={customerId} tasks={data.tasks} />
 
