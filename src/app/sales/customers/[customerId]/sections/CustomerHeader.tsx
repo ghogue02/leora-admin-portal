@@ -1,31 +1,19 @@
 'use client';
 
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
-import { Pencil, Tag, Calendar, TrendingUp } from "lucide-react";
+import { Pencil, Tag, Calendar, TrendingUp, Info } from "lucide-react";
 import type { AccountPriority } from "@prisma/client";
 import { formatCurrency, formatShortDate } from "@/lib/format";
 import LogActivityButton from "@/components/shared/LogActivityButton";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-  DialogClose,
-} from "@/components/ui/dialog";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { showError, showSuccess } from "@/lib/toast-helpers";
 import { toast } from "sonner";
-import { Info } from "lucide-react";
 
 type CustomerHeaderProps = {
   customer: {
@@ -112,14 +100,6 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
   const router = useRouter();
   const queryClient = useQueryClient();
   const customerId = params.customerId as string;
-
-  const [isClosing, setIsClosing] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [isSavingToDo, setIsSavingToDo] = useState(false);
-  const [todoTitle, setTodoTitle] = useState("");
-  const [todoDueDate, setTodoDueDate] = useState("");
-  const [todoNotes, setTodoNotes] = useState("");
-  const [todoPriority, setTodoPriority] = useState<TaskPriorityOption>("MEDIUM");
 
   const [accountPriority, setAccountPriority] = useState<AccountPriority | null>(customer.accountPriority);
   const [manualOverride, setManualOverride] = useState(customer.accountPriorityManuallySet ?? false);
@@ -212,100 +192,6 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
   };
 
   const urgency = getUrgencyIndicator();
-
-  const resetToDoForm = () => {
-    setTodoTitle("");
-    setTodoDueDate("");
-    setTodoNotes("");
-    setTodoPriority("MEDIUM");
-    setIsSavingToDo(false);
-  };
-
-  const handleCreateToDo = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (!todoTitle.trim()) {
-      return;
-    }
-
-    setIsSavingToDo(true);
-    try {
-      const dueAtIso = todoDueDate
-        ? new Date(`${todoDueDate}T12:00:00Z`).toISOString()
-        : null;
-      const payload: Record<string, unknown> = {
-        title: todoTitle.trim(),
-        priority: todoPriority,
-      };
-      if (dueAtIso) {
-        payload.dueAt = dueAtIso;
-      }
-      if (todoNotes.trim()) {
-        payload.description = todoNotes.trim();
-      }
-
-      const response = await fetch(`/api/sales/customers/${customerId}/tasks`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        const body = await response.json().catch(() => ({}));
-        throw new Error(body.error ?? "Failed to create To-Do");
-      }
-
-      showSuccess("To-Do added", `Reminder saved for ${customer.name}.`);
-      await queryClient.invalidateQueries({ queryKey: ["customer", customerId] });
-      setIsDialogOpen(false);
-      resetToDoForm();
-    } catch (error) {
-      console.error("Failed to create To-Do task", error);
-      showError(error instanceof Error ? error : "Failed to create To-Do");
-    } finally {
-      setIsSavingToDo(false);
-    }
-  };
-
-  const handleMarkClosed = async () => {
-    if (!confirm("Are you sure you want to mark this customer as permanently closed?")) {
-      return;
-    }
-
-    const reason = prompt("Please provide a reason for closing this account:");
-    if (!reason?.trim()) {
-      alert("A reason is required to close the account.");
-      return;
-    }
-
-    setIsClosing(true);
-    try {
-      const response = await fetch(`/api/sales/customers/${customerId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          isPermanentlyClosed: true,
-          closedReason: reason.trim(),
-        }),
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || "Failed to close customer account");
-      }
-
-      showSuccess("Customer marked closed", "Account has been closed successfully.");
-      router.refresh();
-    } catch (error) {
-      console.error("Error closing customer:", error);
-      showError(
-        error instanceof Error ? error.message : "Failed to close customer account"
-      );
-    } finally {
-      setIsClosing(false);
-    }
-  };
 
   const handlePriorityUpdate = async (next: AccountPriority | null) => {
     if (savingPriority || next === accountPriority || !manualOverride) return;
@@ -521,115 +407,6 @@ export default function CustomerHeader({ customer, onAddOrder, metrics, tags }: 
                 size="sm"
                 label="Log Activity"
               />
-
-              <Dialog
-                open={isDialogOpen}
-                onOpenChange={(open) => {
-                  setIsDialogOpen(open);
-                  if (!open) {
-                    resetToDoForm();
-                  }
-                }}
-              >
-                <DialogTrigger asChild>
-                  <button
-                    className="inline-flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
-                  >
-                    Add To-Do
-                  </button>
-                </DialogTrigger>
-
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Add a To-Do</DialogTitle>
-                    <DialogDescription>
-                      Create a follow-up reminder for {customer.name}.
-                    </DialogDescription>
-                  </DialogHeader>
-
-                  <form onSubmit={handleCreateToDo} className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700" htmlFor="todo-title">
-                        Title <span className="text-rose-600">*</span>
-                      </label>
-                      <input
-                        id="todo-title"
-                        type="text"
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200"
-                        value={todoTitle}
-                        onChange={(event) => setTodoTitle(event.target.value)}
-                        placeholder="Follow up about order, schedule tasting, etc."
-                        required
-                      />
-                    </div>
-
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700" htmlFor="todo-due">
-                          Due Date
-                        </label>
-                        <input
-                          id="todo-due"
-                          type="date"
-                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200"
-                          value={todoDueDate}
-                          onChange={(event) => setTodoDueDate(event.target.value)}
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700" htmlFor="todo-priority">
-                          Priority
-                        </label>
-                        <select
-                          id="todo-priority"
-                          className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200"
-                          value={todoPriority}
-                          onChange={(event) => setTodoPriority(event.target.value as TaskPriorityOption)}
-                        >
-                          {TASK_PRIORITY_OPTIONS.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700" htmlFor="todo-notes">
-                        Notes <span className="text-xs font-normal text-gray-500">(Optional)</span>
-                      </label>
-                      <textarea
-                        id="todo-notes"
-                        className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200"
-                        rows={3}
-                        value={todoNotes}
-                        onChange={(event) => setTodoNotes(event.target.value)}
-                        placeholder="Add context or next steps to remember later."
-                      />
-                    </div>
-
-                    <DialogFooter className="pt-2">
-                      <DialogClose asChild>
-                        <button
-                          type="button"
-                          className="rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-gray-100"
-                        >
-                          Cancel
-                        </button>
-                      </DialogClose>
-                      <button
-                        type="submit"
-                        disabled={isSavingToDo || !todoTitle.trim()}
-                        className="inline-flex items-center justify-center rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-60"
-                      >
-                        {isSavingToDo ? "Saving..." : "Save To-Do"}
-                      </button>
-                    </DialogFooter>
-                  </form>
-                </DialogContent>
-              </Dialog>
             </div>
           </div>
         </div>

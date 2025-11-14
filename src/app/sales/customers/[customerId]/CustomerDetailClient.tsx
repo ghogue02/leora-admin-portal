@@ -29,7 +29,6 @@ import CustomerContextSetter from "./sections/CustomerContextSetter";
 import OrderDeepDive from "./sections/OrderDeepDive";
 import CustomerInsights from "./sections/CustomerInsights";
 import CustomerTagManager from "./sections/CustomerTagManager";
-import CustomerTasks from "./sections/CustomerTasks";
 import BtgPlacements from "./sections/BtgPlacements";
 import SampleFollowUpList, { SampleFollowUpItem } from "./sections/SampleFollowUpList";
 import SampleQuickLogPanel from "./sections/SampleQuickLogPanel";
@@ -203,8 +202,6 @@ export default function CustomerDetailClientV2({
         <PermanentNotesPanel notes={data.majorChanges} />
       )}
 
-      <CustomerTasks customerId={customerId} tasks={data.tasks} />
-
       {data.invoices && data.invoices.length > 0 && data.metrics.outstandingBalance > 0 && (
         <AccountHolds
           invoices={data.invoices}
@@ -255,6 +252,12 @@ export default function CustomerDetailClientV2({
               </div>
             </div>
 
+            {/* Activity Timeline - Compact */}
+            <ActivityTimeline
+              activities={data.activities}
+              customerId={customerId}
+              customerName={data.customer.name}
+            />
           </>
         )}
 
@@ -295,12 +298,6 @@ export default function CustomerDetailClientV2({
         {activeTab === "activity" && (
           <>
             <CustomerInsights customerId={customerId} />
-
-            <ActivityTimeline
-              activities={data.activities}
-              customerId={customerId}
-              customerName={data.customer.name}
-            />
           </>
         )}
 
