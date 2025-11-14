@@ -521,7 +521,11 @@ useEffect(() => {
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {sortedItems.map((item) => {
-            const primaryPrice = item.priceLists[0] ?? null;
+            // Price priority: Frontline → Discount → Any other → None
+            const frontlinePrice = item.priceLists.find(p => p.priceListName === "Well Crafted Wholesale 2025");
+            const discountPrice = item.priceLists.find(p => p.priceListName === "VA, MD, DC wholesale");
+            const primaryPrice = frontlinePrice ?? discountPrice ?? item.priceLists[0] ?? null;
+
             const quantity = quantityBySku[item.skuId] ?? 1;
             const priceLabel = primaryPrice
               ? new Intl.NumberFormat("en-US", {
