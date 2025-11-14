@@ -517,39 +517,6 @@ useEffect(() => {
           </div>
         </form>
 
-        {filterSections.length > 0 && (
-          <div className="grid gap-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-            {filterSections.map((section) => (
-              <fieldset key={section.field.id} className="space-y-2">
-                <legend className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-                  {section.field.label}
-                </legend>
-                <div className="flex flex-wrap gap-2">
-                  {section.facets.map((bucket) => {
-                    const active = section.selected.includes(bucket.value);
-                    return (
-                      <button
-                        type="button"
-                        key={bucket.value}
-                        onClick={() => section.toggle(bucket.value)}
-                        className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${
-                          active
-                            ? "border-gray-900 bg-gray-900 text-white"
-                            : "border-slate-300 bg-white text-gray-700 hover:border-gray-900/40"
-                        }`}
-                        aria-pressed={active}
-                      >
-                        {bucket.label}
-                        <span className="ml-1 text-[10px] text-gray-500">({bucket.count})</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </fieldset>
-            ))}
-          </div>
-        )}
-
         <div className="flex flex-wrap items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-gray-600">
           <span>
             Page {page} of {totalPages}
@@ -572,58 +539,6 @@ useEffect(() => {
               Next
             </button>
           </div>
-        </div>
-
-        <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-sm font-semibold text-gray-900">Recent Exports</h3>
-              <p className="text-xs text-gray-500">Exports continue in the background; download once complete.</p>
-            </div>
-            <button
-              type="button"
-              onClick={() => void fetchExportJobs()}
-              className="rounded-md border border-gray-300 px-3 py-1 text-xs font-semibold text-gray-700 transition hover:border-gray-400 hover:text-gray-900"
-            >
-              Refresh
-            </button>
-          </div>
-        {exportJobsLoading ? (
-          <div className="text-sm text-gray-500">Checking export jobs…</div>
-        ) : exportJobs.length === 0 ? (
-          <div className="text-sm text-gray-500">No exports yet. Use the Export button above to start one.</div>
-        ) : (
-          <ul className="divide-y divide-slate-200 text-sm">
-            {exportJobs.map((job) => (
-              <li key={job.id} className="flex flex-col gap-1 py-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <div className="font-medium text-gray-900">
-                    {job.format} export
-                    <span className="ml-2 text-xs text-gray-500">
-                      {new Date(job.createdAt).toLocaleString()}
-                    </span>
-                  </div>
-                  {job.errorMessage && (
-                    <p className="text-xs text-rose-600">{job.errorMessage}</p>
-                  )}
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <StatusBadge status={job.status} />
-                  {job.fileUrl && job.status === "COMPLETED" && (
-                    <a
-                      href={job.fileUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-indigo-600 hover:text-indigo-800"
-                    >
-                      Download
-                    </a>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
         </div>
       </div>
 
