@@ -81,6 +81,7 @@ function NewOrderPageContent() {
   // Form state
   const [selectedCustomerId, setSelectedCustomerId] = useState<string>('');
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
+  const [pendingProductAdd, setPendingProductAdd] = useState<{sku: string; qty: number} | null>(null);
   const [deliveryDate, setDeliveryDate] = useState<string>('');
   const [warehouseLocation, setWarehouseLocation] = useState<string>('Warrenton');
   const [deliveryTimeWindow, setDeliveryTimeWindow] = useState<string>('');
@@ -384,6 +385,57 @@ function NewOrderPageContent() {
       cancelled = true;
     };
   }, [prefillCustomerId, selectedCustomerId, handleCustomerSelect]);
+
+  // Capture SKU and qty from URL params
+  useEffect(() => {
+    const sku = searchParams.get('sku');
+    const qty = searchParams.get('qty');
+    if (sku && qty) {
+      setPendingProductAdd({ sku, qty: parseInt(qty) || 1 });
+    }
+  }, [searchParams]);
+
+  // Auto-add pending product (works without customer too)
+  useEffect(() => {
+    if (!pendingProductAdd) return;
+
+    // Find and add the product
+    const addPendingProduct = async () => {
+      try {
+        // Fetch product details with pricing
+        const response = await fetch(`/api/sales/catalog?q=${encodeURIComponent(pendingProductAdd.sku)}`);
+        if (!response.ok) return;
+
+        const data = await response.json();
+        if (data && data.items && data.items.length > 0) {
+          const product = data.items[0];
+
+          // Resolve pricing for customer (or use first available price)
+          const pricing = customerPricingContext
+            ? resolvePriceForQuantity(product.priceLists, pendingProductAdd.qty, customerPricingContext)
+            : { unitPrice: product.priceLists[0]?.price || 0, priceListName: product.priceLists[0]?.priceListName || 'Default', currency: 'USD', breakdown: null };
+
+          // Build inventory status
+          const inventoryStatus = product.inventory ? {
+            onHand: product.inventory.totals.onHand,
+            allocated: product.inventory.totals.allocated,
+            available: product.inventory.totals.available,
+            sufficient: product.inventory.totals.available >= pendingProductAdd.qty,
+            warningLevel: product.inventory.lowStock ? 'low' as const : 'none' as const,
+          } : undefined;
+
+          handleAddProduct(product, pendingProductAdd.qty, inventoryStatus, pricing);
+          setPendingProductAdd(null); // Clear pending
+          showInfo(`Added ${pendingProductAdd.qty}x ${pendingProductAdd.sku} to order`);
+        }
+      } catch (error) {
+        console.error('Failed to auto-add product:', error);
+      }
+    };
+
+    void addPendingProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingProductAdd]);
 
   useEffect(() => {
     if (!selectedSalesRepId) return;
@@ -1101,8 +1153,9 @@ function NewOrderPageContent() {
         >
           <ProductsSection
             orderItems={orderItems}
-            canOpenProductSelector={Boolean(selectedCustomer && warehouseLocation)}
+            canOpenProductSelector={true}
             fieldErrors={fieldErrors}
+            pendingProduct={pendingProductAdd}
             onAddProductsClick={() => setShowProductSelector(true)}
             onQuantityChange={handleQuantityChange}
             onUsageSelect={handleUsageSelect}

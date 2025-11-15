@@ -38,6 +38,7 @@ type ProductsSectionProps = {
   orderItems: OrderItem[];
   canOpenProductSelector: boolean;
   fieldErrors: Record<string, string>;
+  pendingProduct?: {sku: string; qty: number} | null;
   onAddProductsClick: () => void;
   onQuantityChange: (index: number, quantity: number) => void;
   onUsageSelect: (index: number, usageType: OrderUsageCode) => void;
@@ -48,6 +49,7 @@ export function ProductsSection({
   orderItems,
   canOpenProductSelector,
   fieldErrors,
+  pendingProduct,
   onAddProductsClick,
   onQuantityChange,
   onUsageSelect,
@@ -71,9 +73,20 @@ export function ProductsSection({
       {/* Empty State */}
       {orderItems.length === 0 ? (
         <div className="rounded-lg border border-dashed border-gray-300 bg-gray-50 p-8 text-center">
-          <p className="text-sm text-gray-600">
-            No products added yet. Use the Add Products button to start building the order.
-          </p>
+          {pendingProduct ? (
+            <div className="space-y-2">
+              <p className="text-sm font-medium text-indigo-600">
+                🎯 Product ready: {pendingProduct.qty}x {pendingProduct.sku}
+              </p>
+              <p className="text-sm text-gray-600">
+                👆 Scroll up and select a customer to automatically add this product
+              </p>
+            </div>
+          ) : (
+            <p className="text-sm text-gray-600">
+              No products added yet. Use the Add Products button to start building the order.
+            </p>
+          )}
         </div>
       ) : (
         /* Order Items Table */
