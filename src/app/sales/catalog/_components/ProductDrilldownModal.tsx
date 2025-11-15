@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Wine } from "lucide-react";
+import { Wine, X } from "lucide-react";
 
 import { ProductEditForm } from "./ProductEditForm";
 
@@ -265,60 +265,60 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
               {data.images && (
                 <div className="rounded-lg border border-gray-200 bg-white p-4">
                   <h3 className="mb-3 text-sm font-semibold text-gray-700">Product Images</h3>
-                  <div className="flex gap-3">
+                  <div className="flex gap-4">
                     {data.images.packshot && (
-                      <button
-                        onClick={() => window.open(data.images!.packshot!, '_blank')}
-                        className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
-                        title="Click to view full size"
-                      >
-                        <Image
-                          src={data.images.packshot}
-                          alt="Product packshot"
-                          fill
-                          className="object-cover"
-                          sizes="128px"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white group-hover:bg-black/70 transition-colors">
-                          Packshot
-                        </div>
-                      </button>
+                      <div className="flex flex-col">
+                        <button
+                          onClick={() => setLightboxImage({ url: data.images!.packshot!, label: 'Packshot' })}
+                          className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
+                          title="Click to enlarge"
+                        >
+                          <Image
+                            src={data.images.packshot}
+                            alt="Product packshot"
+                            fill
+                            className="object-cover"
+                            sizes="128px"
+                          />
+                        </button>
+                        <p className="mt-1 text-center text-xs text-gray-600">Packshot</p>
+                      </div>
                     )}
                     {data.images.frontLabel && (
-                      <button
-                        onClick={() => window.open(data.images!.frontLabel!, '_blank')}
-                        className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
-                        title="Click to view full size"
-                      >
-                        <Image
-                          src={data.images.frontLabel}
-                          alt="Front label"
-                          fill
-                          className="object-cover"
-                          sizes="128px"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white group-hover:bg-black/70 transition-colors">
-                          Front Label
-                        </div>
-                      </button>
+                      <div className="flex flex-col">
+                        <button
+                          onClick={() => setLightboxImage({ url: data.images!.frontLabel!, label: 'Front Label' })}
+                          className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
+                          title="Click to enlarge"
+                        >
+                          <Image
+                            src={data.images.frontLabel}
+                            alt="Front label"
+                            fill
+                            className="object-cover"
+                            sizes="128px"
+                          />
+                        </button>
+                        <p className="mt-1 text-center text-xs text-gray-600">Front Label</p>
+                      </div>
                     )}
                     {data.images.backLabel && (
-                      <button
-                        onClick={() => window.open(data.images!.backLabel!, '_blank')}
-                        className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
-                        title="Click to view full size"
-                      >
-                        <Image
-                          src={data.images.backLabel}
-                          alt="Back label"
-                          fill
-                          className="object-cover"
-                          sizes="128px"
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white group-hover:bg-black/70 transition-colors">
-                          Back Label
-                        </div>
-                      </button>
+                      <div className="flex flex-col">
+                        <button
+                          onClick={() => setLightboxImage({ url: data.images!.backLabel!, label: 'Back Label' })}
+                          className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
+                          title="Click to enlarge"
+                        >
+                          <Image
+                            src={data.images.backLabel}
+                            alt="Back label"
+                            fill
+                            className="object-cover"
+                            sizes="128px"
+                          />
+                        </button>
+                        <p className="mt-1 text-center text-xs text-gray-600">Back Label</p>
+                      </div>
                     )}
                     {!data.images.packshot && !data.images.frontLabel && !data.images.backLabel && (
                       <div className="flex h-32 w-32 items-center justify-center rounded-lg border border-gray-200 bg-gray-50">
