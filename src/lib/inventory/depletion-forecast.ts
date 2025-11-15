@@ -190,6 +190,25 @@ export async function calculateDepletionForecast(
 }
 
 /**
+ * Process items in batches to avoid overwhelming the connection pool
+ */
+async function processBatch<T, R>(
+  items: T[],
+  processor: (item: T) => Promise<R>,
+  batchSize: number = 10
+): Promise<R[]> {
+  const results: R[] = [];
+
+  for (let i = 0; i < items.length; i += batchSize) {
+    const batch = items.slice(i, i + batchSize);
+    const batchResults = await Promise.all(batch.map(processor));
+    results.push(...batchResults);
+  }
+
+  return results;
+}
+
+/**
  * Calculate depletion forecasts for all SKUs with filtering
  *
  * @param tenantId - Tenant ID
@@ -220,11 +239,16 @@ export async function calculateAllDepletionForecasts(
     select: {
       id: true,
     },
+    // Limit to prevent overwhelming calculations
+    take: 200,
   });
 
-  // Calculate forecast for each SKU (parallel processing)
-  const forecasts = await Promise.all(
-    skus.map(sku => calculateDepletionForecast(tenantId, sku.id, config))
+  // Calculate forecast for each SKU in batches to avoid connection pool exhaustion
+  // Process 5 SKUs at a time (each SKU makes 5 velocity queries = 25 total queries per batch)
+  const forecasts = await processBatch(
+    skus,
+    (sku) => calculateDepletionForecast(tenantId, sku.id, config),
+    5  // Process 5 SKUs at a time
   );
 
   // Filter out nulls and apply urgency filters
