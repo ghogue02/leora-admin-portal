@@ -38,6 +38,9 @@ export async function GET(
               wineDetails: true,
               enrichedAt: true,
               enrichedBy: true,
+              isArchived: true,
+              archivedAt: true,
+              archivedBy: true,
               images: {
                 select: {
                   imageType: true,
@@ -282,6 +285,7 @@ export async function GET(
           caseBarcode: sku.caseBarcode,
           batchNumber: sku.batchNumber,
           barrelOrTank: sku.barrelOrTank,
+          isArchived: sku.product.isArchived,
         },
         images: Object.keys(images).length > 0 ? images : undefined,
         inventory: {

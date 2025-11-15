@@ -34,6 +34,7 @@ export default function CatalogGrid() {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
   const [onlyInStock, setOnlyInStock] = useState(false);
+  const [showArchived, setShowArchived] = useState(false);
   const [sortOption, setSortOption] = useState<SortOption>("priority");
   const [quantityBySku, setQuantityBySku] = useState<Record<string, number>>({});
   const [drilldownSkuId, setDrilldownSkuId] = useState<string | null>(null);
@@ -57,7 +58,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setPage(1);
-  }, [search, selectedCategories, selectedLifecycle, onlyInStock, sortOption, minAvailable]);
+  }, [search, selectedCategories, selectedLifecycle, onlyInStock, showArchived, sortOption, minAvailable]);
 
   useEffect(() => {
     let isMounted = true;
@@ -72,6 +73,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
         selectedCategories.forEach((category) => params.append("category", category));
         selectedLifecycle.forEach((status) => params.append("lifecycle", status));
         if (onlyInStock) params.set("onlyInStock", "true");
+        if (showArchived) params.set("showArchived", "true");
         if (sortOption && sortOption !== "priority") params.set("sort", sortOption);
         if (typeof minAvailable === "number" && !Number.isNaN(minAvailable)) {
           params.set("minAvailable", String(minAvailable));
@@ -126,6 +128,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
     selectedCategories,
     selectedLifecycle,
     onlyInStock,
+    showArchived,
     sortOption,
     minAvailable,
     page,
@@ -139,6 +142,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
       categories: selectedCategories,
       lifecycle: selectedLifecycle,
       onlyInStock,
+      showArchived,
       sort: sortOption,
       minAvailable: typeof minAvailable === "number" ? minAvailable : undefined,
     }),
@@ -147,6 +151,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
       selectedCategories,
       selectedLifecycle,
       onlyInStock,
+      showArchived,
       sortOption,
       minAvailable,
     ],
@@ -244,6 +249,7 @@ const exportMenuRef = useRef<HTMLDivElement | null>(null);
 
   const handleClearFilters = useCallback(() => {
     setOnlyInStock(false);
+    setShowArchived(false);
     setSortOption("priority");
     setSelectedCategories([]);
     setSelectedLifecycle([]);
@@ -445,6 +451,16 @@ useEffect(() => {
               In stock only
             </label>
 
+            <label className="inline-flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={showArchived}
+                onChange={(event) => setShowArchived(event.target.checked)}
+                className="h-4 w-4 rounded border-gray-300 text-gray-900 focus:ring-gray-900"
+              />
+              Show archived products
+            </label>
+
             <label className="flex items-center gap-2">
               <span className="uppercase tracking-wide text-gray-500">Sort</span>
               <select
@@ -544,17 +560,24 @@ useEffect(() => {
               >
                 <div onClick={() => setDrilldownSkuId(item.skuId)} className="cursor-pointer">
                   <header className="space-y-1">
-                    <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center justify-between text-xs flex-wrap gap-2">
                       <span className="uppercase tracking-wide text-gray-500">
                         {item.category ?? "Uncategorized"}
                       </span>
-                      <span
-                        className={`rounded-full px-2 py-0.5 font-semibold ${
-                          outOfStock ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"
-                        }`}
-                      >
-                        {outOfStock ? "Out of stock" : `${item.inventory.totals.available} available`}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        {item.isArchived && (
+                          <span className="rounded-full px-2 py-0.5 font-semibold bg-gray-100 text-gray-600">
+                            🗄️ Archived
+                          </span>
+                        )}
+                        <span
+                          className={`rounded-full px-2 py-0.5 font-semibold ${
+                            outOfStock ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-700"
+                          }`}
+                        >
+                          {outOfStock ? "Out of stock" : `${item.inventory.totals.available} available`}
+                        </span>
+                      </div>
                     </div>
                     <div className="flex items-start gap-3 mt-3">
                       {/* Product Image */}

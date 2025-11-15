@@ -24,6 +24,7 @@ export async function GET(request: NextRequest) {
         .filter(Boolean) as Parameters<typeof queryCatalog>[0]["lifecycle"];
       const priceListId = searchParams.get("priceListId");
       const onlyInStock = parseBoolean(searchParams.get("onlyInStock"));
+      const showArchived = parseBoolean(searchParams.get("showArchived"));
       const sort = (searchParams.get("sort") as
         | "priority"
         | "availability"
@@ -38,6 +39,7 @@ export async function GET(request: NextRequest) {
         lifecycle,
         priceListId,
         onlyInStock,
+        showArchived,
         sort,
       });
 

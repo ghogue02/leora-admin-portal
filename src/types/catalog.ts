@@ -20,6 +20,7 @@ export type CatalogItem = {
   lifecycleStatus: string | null;
   unitOfMeasure: string | null;
   size: string | null;
+  isArchived?: boolean;
   priceLists: CatalogPriceListInfo[];
   inventory: {
     totals: {

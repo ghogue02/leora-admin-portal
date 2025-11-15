@@ -30,6 +30,7 @@ type ProductDetails = {
     liters?: number | null;
     batchNumber?: string | null;
     barrelOrTank?: string | null;
+    isArchived?: boolean;
   };
   images?: {
     packshot?: string;
@@ -109,6 +110,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
   const [data, setData] = useState<ProductDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [isArchiving, setIsArchiving] = useState(false);
 
   useEffect(() => {
     fetchProductDetails();
@@ -130,6 +132,42 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
       setError(err instanceof Error ? err.message : 'Failed to load details');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleArchive = async () => {
+    if (!data) return;
+
+    const confirmMessage = data.product.isArchived
+      ? 'Are you sure you want to unarchive this product? It will become visible in the catalog again.'
+      : 'Are you sure you want to archive this product? It will be hidden from the catalog.';
+
+    if (!confirm(confirmMessage)) {
+      return;
+    }
+
+    try {
+      setIsArchiving(true);
+      const response = await fetch(`/api/sales/catalog/${skuId}?action=archive`, {
+        method: 'PATCH',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to archive product');
+      }
+
+      const result = await response.json();
+
+      // Success - close modal and let parent refresh
+      alert(result.message || 'Product archive status updated');
+      onClose();
+
+      // Parent component should refresh catalog
+      window.location.reload();
+    } catch (err) {
+      alert(err instanceof Error ? err.message : 'Failed to archive product');
+    } finally {
+      setIsArchiving(false);
     }
   };
 
@@ -416,7 +454,22 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
 
         {/* Footer */}
         <div className="sticky bottom-0 border-t border-gray-200 bg-gray-50 px-6 py-4">
-          <div className="flex items-center justify-end gap-3">
+          <div className="flex items-center justify-between gap-3">
+            {!loading && !error && data && !isEditMode && (
+              <button
+                onClick={handleArchive}
+                disabled={isArchiving}
+                className="rounded-md border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isArchiving
+                  ? 'Processing...'
+                  : data.product.isArchived
+                    ? '📦 Unarchive Product'
+                    : '🗄️ Archive Product'
+                }
+              </button>
+            )}
+            {(!loading && !error && data && !isEditMode) || <div />}
             <button
               onClick={onClose}
               className="rounded-md bg-gray-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-700 active:scale-95"

@@ -124,3 +124,88 @@ export async function PUT(
     { requireSalesRep: false } // Anyone can edit per Travis
   );
 }
+
+/**
+ * PATCH /api/sales/catalog/[skuId]?action=archive
+ * Archive or unarchive a product
+ */
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: { skuId: string } }
+) {
+  return withSalesSession(
+    request,
+    async ({ db, tenantId, session }) => {
+      const { skuId } = params;
+      const { searchParams } = new URL(request.url);
+      const action = searchParams.get("action");
+
+      if (action !== "archive") {
+        return NextResponse.json({ error: "Invalid action" }, { status: 400 });
+      }
+
+      try {
+        // Get current SKU with product
+        const sku = await db.sku.findFirst({
+          where: {
+            id: skuId,
+            tenantId,
+          },
+          include: {
+            product: true,
+          },
+        });
+
+        if (!sku) {
+          return NextResponse.json({ error: "SKU not found" }, { status: 404 });
+        }
+
+        const isArchived = sku.product.isArchived;
+        const newArchivedState = !isArchived;
+
+        // Update product archive status
+        await db.product.update({
+          where: { id: sku.product.id },
+          data: {
+            isArchived: newArchivedState,
+            archivedAt: newArchivedState ? new Date() : null,
+            archivedBy: newArchivedState ? session.user.id : null,
+          },
+        });
+
+        // Audit log
+        await db.auditLog.create({
+          data: {
+            tenantId,
+            userId: session.user.id,
+            action: newArchivedState ? "ARCHIVE_PRODUCT" : "UNARCHIVE_PRODUCT",
+            entityType: "Product",
+            entityId: sku.product.id,
+            changes: {
+              isArchived: newArchivedState,
+              productName: sku.product.name,
+            },
+          },
+        });
+
+        return NextResponse.json({
+          success: true,
+          message: newArchivedState
+            ? "Product archived successfully"
+            : "Product unarchived successfully",
+          isArchived: newArchivedState,
+        });
+      } catch (error: unknown) {
+        console.error("[ProductArchive] Error:", error);
+        return NextResponse.json(
+          {
+            error: "Failed to archive product",
+            details: error instanceof Error ? error.message : undefined,
+          },
+          { status: 500 }
+        );
+      }
+    },
+    { requireSalesRep: false } // Anyone can archive
+  );
+}

@@ -19,6 +19,7 @@ type CatalogQueryFilters = {
   minAvailable?: number;
   page?: number;
   pageSize?: number;
+  showArchived?: boolean;
 };
 
 type CatalogQueryResult = {
@@ -46,6 +47,7 @@ export async function queryCatalog(
     minAvailable,
     page = 1,
     pageSize = 50,
+    showArchived = false,
   } = filters;
 
   const where: Prisma.SkuWhereInput = {
@@ -53,6 +55,7 @@ export async function queryCatalog(
     isActive: true,
     product: {
       name: { not: "" },
+      isArchived: showArchived ? undefined : false,
     },
   };
 
@@ -110,6 +113,7 @@ export async function queryCatalog(
           brand: true,
           category: true,
           description: true,
+          isArchived: true,
           tastingNotes: true,
           foodPairings: true,
           servingInfo: true,
@@ -206,6 +210,7 @@ export async function queryCatalog(
       lifecycleStatus,
       unitOfMeasure: sku.unitOfMeasure,
       size: sku.size,
+      isArchived: sku.product?.isArchived ?? false,
       priceLists: sku.priceListItems.map((item) => ({
         priceListId: item.priceList.id,
         priceListName: item.priceList.name,
@@ -270,6 +275,7 @@ export async function queryCatalog(
         onlyInStock: Boolean(onlyInStock),
         sort,
         minAvailable,
+        showArchived,
       },
     },
   };
