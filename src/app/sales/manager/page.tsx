@@ -8,6 +8,7 @@ import SampleBudgetOverview from "./sections/SampleBudgetOverview";
 import RepDrilldownModal from "./components/RepDrilldownModal";
 import TerritoryDrilldownModal from "./components/TerritoryDrilldownModal";
 import RevenueForecast from "./components/RevenueForecast";
+import InventoryDepletionForecast from "./components/InventoryDepletionForecast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { formatCurrency, formatNumber } from "@/lib/utils/format";
 
@@ -83,9 +84,10 @@ export default function ManagerDashboardPage() {
           {/* Tabs for Different Views */}
           <section className="surface-card p-4 shadow-sm">
             <Tabs value={activeView} onValueChange={setActiveView} className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
+              <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="forecast">Forecast</TabsTrigger>
+                <TabsTrigger value="forecast">Revenue Forecast</TabsTrigger>
+                <TabsTrigger value="inventory">Inventory Depletion</TabsTrigger>
                 <TabsTrigger value="samples">Samples</TabsTrigger>
               </TabsList>
 
@@ -144,6 +146,10 @@ export default function ManagerDashboardPage() {
 
               <TabsContent value="forecast" className="mt-6">
                 <RevenueForecast />
+              </TabsContent>
+
+              <TabsContent value="inventory" className="mt-6">
+                <InventoryDepletionForecast />
               </TabsContent>
 
               <TabsContent value="samples" className="mt-6">
