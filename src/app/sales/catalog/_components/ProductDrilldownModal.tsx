@@ -495,6 +495,33 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
           </div>
         </div>
       </div>
+
+      {/* Image Lightbox Overlay */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            onClick={() => setLightboxImage(null)}
+            className="absolute top-4 right-4 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition"
+            aria-label="Close"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <div className="relative max-h-[90vh] max-w-[90vw]" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={lightboxImage.url}
+              alt={lightboxImage.label}
+              width={800}
+              height={800}
+              className="h-auto w-auto max-h-[90vh] max-w-[90vw] object-contain"
+              unoptimized
+            />
+            <p className="mt-2 text-center text-sm font-medium text-white">{lightboxImage.label}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
