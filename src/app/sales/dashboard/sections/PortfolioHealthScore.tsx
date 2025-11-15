@@ -149,16 +149,13 @@ function ClickableBreakdownCard({
     <button
       type="button"
       onClick={onClick}
-      className="group flex h-full flex-col gap-2 rounded-md border border-slate-100 bg-white p-4 text-left transition hover:border-indigo-200 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200"
+      className="group flex h-full flex-col gap-2 rounded-md border-2 border-slate-200 bg-white p-4 text-left shadow-sm transition-all hover:border-indigo-400 hover:bg-indigo-50/50 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer"
     >
       <div className="flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">{title}</p>
-        <span className="flex items-center gap-1 text-[11px] font-semibold text-indigo-500 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
-          View list
-          <ChevronRight className="h-3 w-3" />
-        </span>
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 group-hover:text-indigo-600 transition-colors">{title}</p>
+        <ChevronRight className="h-4 w-4 text-indigo-400 opacity-40 transition-all group-hover:opacity-100 group-hover:translate-x-0.5" />
       </div>
-      <p className="mt-2 text-2xl font-semibold text-gray-900">{primary}</p>
+      <p className="mt-2 text-2xl font-semibold text-gray-900 group-hover:text-indigo-900 transition-colors">{primary}</p>
       <p className="text-xs text-gray-500">{secondary}</p>
     </button>
   );
