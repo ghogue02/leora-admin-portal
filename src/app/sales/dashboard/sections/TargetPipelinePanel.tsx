@@ -1,12 +1,54 @@
-import type { TargetPipelineMetrics } from "@/types/sales-dashboard";
+'use client';
+
+import { useState } from "react";
+import type { TargetPipelineMetrics, CustomerReportRow } from "@/types/sales-dashboard";
 import { InfoHover } from "@/components/InfoHover";
 import { formatNumber } from "@/lib/format";
+import { ChevronRight } from "lucide-react";
+import CustomerBucketModal from "./components/CustomerBucketModal";
 
 type Props = {
   metrics: TargetPipelineMetrics;
+  customers?: CustomerReportRow[];
 };
 
-export default function TargetPipelinePanel({ metrics }: Props) {
+export default function TargetPipelinePanel({ metrics, customers = [] }: Props) {
+  const [activeBucket, setActiveBucket] = useState<'assigned' | 'turned-active' | 'visited' | null>(null);
+
+  // Filter customers by target pipeline status
+  const assignedTargets = customers.filter(c =>
+    c.accountType === 'TARGET' || c.accountType === 'PROSPECT'
+  );
+
+  const turnedActiveTargets = assignedTargets.filter(c =>
+    c.lastOrderDate && new Date(c.lastOrderDate) >= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+  );
+
+  const visitedTargets = assignedTargets.filter(c =>
+    c.lastActivityAt && new Date(c.lastActivityAt) >= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+  );
+
+  const modalCustomers =
+    activeBucket === 'assigned' ? assignedTargets :
+    activeBucket === 'turned-active' ? turnedActiveTargets :
+    activeBucket === 'visited' ? visitedTargets :
+    [];
+
+  const bucketConfig = {
+    'assigned': {
+      title: 'All Assigned Targets',
+      description: 'All target accounts currently assigned to this rep'
+    },
+    'turned-active': {
+      title: 'Targets Turned Active (30d)',
+      description: 'Target accounts that placed their first order in the last 30 days'
+    },
+    'visited': {
+      title: 'Targets Visited (30d)',
+      description: 'Target accounts with in-person visits in the last 30 days'
+    }
+  };
+
   return (
     <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
       <div className="flex items-center justify-between">
@@ -27,20 +69,23 @@ export default function TargetPipelinePanel({ metrics }: Props) {
       </div>
 
       <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <PipelineTile
+        <ClickablePipelineTile
           label="Targets Assigned"
           primary={formatNumber(metrics.assignedCount)}
           secondary="Currently owned"
+          onClick={() => setActiveBucket('assigned')}
         />
-        <PipelineTile
+        <ClickablePipelineTile
           label="Targets Turned Active (30d)"
           primary={formatNumber(metrics.turnedActiveCount)}
           secondary={`${formatNumber(metrics.turnedActivePercent, 1)}% of targets`}
+          onClick={() => setActiveBucket('turned-active')}
         />
-        <PipelineTile
+        <ClickablePipelineTile
           label="Targets Visited (30d)"
           primary={formatNumber(metrics.visitedCount)}
           secondary={`${formatNumber(metrics.visitedPercent, 1)}% with in-person touch`}
+          onClick={() => setActiveBucket('visited')}
         />
         <PipelineTile
           label="TTFO Median"
@@ -58,7 +103,47 @@ export default function TargetPipelinePanel({ metrics }: Props) {
           {formatDays(metrics.ttfoKmMedianDays)} median days
         </p>
       </div>
+
+      {activeBucket && bucketConfig[activeBucket] ? (
+        <CustomerBucketModal
+          open
+          title={bucketConfig[activeBucket].title}
+          description={bucketConfig[activeBucket].description}
+          customers={modalCustomers}
+          onClose={() => setActiveBucket(null)}
+        />
+      ) : null}
     </section>
+  );
+}
+
+function ClickablePipelineTile({
+  label,
+  primary,
+  secondary,
+  onClick
+}: {
+  label: string;
+  primary: string;
+  secondary: string;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="group flex h-full flex-col gap-2 rounded-md border border-slate-100 bg-white p-4 text-left transition hover:border-indigo-200 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-200"
+    >
+      <div className="flex items-center justify-between">
+        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">{label}</p>
+        <span className="flex items-center gap-1 text-[11px] font-semibold text-indigo-500 opacity-0 transition group-hover:opacity-100 group-focus-visible:opacity-100">
+          View list
+          <ChevronRight className="h-3 w-3" />
+        </span>
+      </div>
+      <p className="mt-2 text-3xl font-semibold text-gray-900">{primary}</p>
+      <p className="text-xs text-gray-500">{secondary}</p>
+    </button>
   );
 }
 

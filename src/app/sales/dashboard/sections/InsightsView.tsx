@@ -56,11 +56,11 @@ export default function InsightsView({
       )}
 
       {isSectionEnabled("portfolio-health") && (
-        <PortfolioHealthScore portfolio={portfolioHealth} />
+        <PortfolioHealthScore portfolio={portfolioHealth} customers={customerReportRows} />
       )}
 
       {isSectionEnabled("target-pipeline") && (
-        <TargetPipelinePanel metrics={targetPipeline} />
+        <TargetPipelinePanel metrics={targetPipeline} customers={customerReportRows} />
       )}
 
       {isSectionEnabled("cold-leads") && (
