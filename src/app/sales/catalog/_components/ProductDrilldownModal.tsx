@@ -286,6 +286,57 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                 </div>
               )}
 
+              {/* Technical Details from HAL */}
+              {(data.product.manufacturer || data.product.abcCode || data.product.bottleBarcode || data.product.itemsPerCase || data.product.vintage || data.product.colour) && (
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
+                  <h3 className="mb-3 text-sm font-semibold text-gray-700">Technical Details</h3>
+                  <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+                    {data.product.manufacturer && (
+                      <>
+                        <dt className="font-medium text-gray-600">Manufacturer:</dt>
+                        <dd className="text-gray-900">{data.product.manufacturer}</dd>
+                      </>
+                    )}
+                    {data.product.vintage && (
+                      <>
+                        <dt className="font-medium text-gray-600">Vintage:</dt>
+                        <dd className="text-gray-900">{data.product.vintage}</dd>
+                      </>
+                    )}
+                    {data.product.colour && (
+                      <>
+                        <dt className="font-medium text-gray-600">Color:</dt>
+                        <dd className="text-gray-900">{data.product.colour}</dd>
+                      </>
+                    )}
+                    {data.product.itemsPerCase && (
+                      <>
+                        <dt className="font-medium text-gray-600">Items per Case:</dt>
+                        <dd className="text-gray-900">{data.product.itemsPerCase}</dd>
+                      </>
+                    )}
+                    {data.product.abcCode && (
+                      <>
+                        <dt className="font-medium text-gray-600">ABC Code:</dt>
+                        <dd className="font-mono text-xs text-gray-900">{data.product.abcCode}</dd>
+                      </>
+                    )}
+                    {data.product.bottleBarcode && (
+                      <>
+                        <dt className="font-medium text-gray-600">Bottle Barcode:</dt>
+                        <dd className="font-mono text-xs text-gray-900">{data.product.bottleBarcode}</dd>
+                      </>
+                    )}
+                    {data.product.caseBarcode && (
+                      <>
+                        <dt className="font-medium text-gray-600">Case Barcode:</dt>
+                        <dd className="font-mono text-xs text-gray-900">{data.product.caseBarcode}</dd>
+                      </>
+                    )}
+                  </dl>
+                </div>
+              )}
+
               {/* Product Info Summary */}
               <div className="grid gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 md:grid-cols-5">
                 <div>
