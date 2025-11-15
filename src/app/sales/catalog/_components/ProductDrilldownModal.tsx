@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Wine } from "lucide-react";
 
 import { ProductEditForm } from "./ProductEditForm";
 
@@ -28,6 +30,11 @@ type ProductDetails = {
     liters?: number | null;
     batchNumber?: string | null;
     barrelOrTank?: string | null;
+  };
+  images?: {
+    packshot?: string;
+    frontLabel?: string;
+    backLabel?: string;
   };
   inventory: {
     totalOnHand: number;
@@ -215,6 +222,70 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
 
           {!loading && !error && data && !isEditMode && (
             <div className="space-y-6">
+              {/* Product Images */}
+              {data.images && (
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
+                  <h3 className="mb-3 text-sm font-semibold text-gray-700">Product Images</h3>
+                  <div className="flex gap-3">
+                    {data.images.packshot && (
+                      <div className="relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200">
+                        <Image
+                          src={data.images.packshot}
+                          alt="Product packshot"
+                          fill
+                          className="object-cover"
+                          sizes="128px"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white">
+                          Packshot
+                        </div>
+                      </div>
+                    )}
+                    {data.images.frontLabel && (
+                      <div className="relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200">
+                        <Image
+                          src={data.images.frontLabel}
+                          alt="Front label"
+                          fill
+                          className="object-cover"
+                          sizes="128px"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white">
+                          Front Label
+                        </div>
+                      </div>
+                    )}
+                    {data.images.backLabel && (
+                      <div className="relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200">
+                        <Image
+                          src={data.images.backLabel}
+                          alt="Back label"
+                          fill
+                          className="object-cover"
+                          sizes="128px"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white">
+                          Back Label
+                        </div>
+                      </div>
+                    )}
+                    {!data.images.packshot && !data.images.frontLabel && !data.images.backLabel && (
+                      <div className="flex h-32 w-32 items-center justify-center rounded-lg border border-gray-200 bg-gray-50">
+                        <Wine className="h-12 w-12 text-gray-400" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Product Description */}
+              {data.product.description && (
+                <div className="rounded-lg border border-gray-200 bg-white p-4">
+                  <h3 className="mb-2 text-sm font-semibold text-gray-700">Description</h3>
+                  <p className="text-sm leading-relaxed text-gray-600">{data.product.description}</p>
+                </div>
+              )}
+
               {/* Product Info Summary */}
               <div className="grid gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 md:grid-cols-5">
                 <div>

@@ -38,6 +38,17 @@ export async function GET(
               wineDetails: true,
               enrichedAt: true,
               enrichedBy: true,
+              images: {
+                select: {
+                  imageType: true,
+                  storageUrl: true,
+                  catalogUrl: true,
+                  displayOrder: true,
+                },
+                orderBy: {
+                  displayOrder: 'asc',
+                },
+              },
             },
           },
         },
@@ -241,6 +252,12 @@ export async function GET(
         insights.push(`Stocked in ${inventoryData.length} locations`);
       }
 
+      // Map images by type for easy access
+      const images = sku.product.images.reduce((acc, img) => {
+        acc[img.imageType] = img.catalogUrl || img.storageUrl;
+        return acc;
+      }, {} as Record<string, string>);
+
       const details = {
         product: {
           skuId: sku.id,
@@ -266,6 +283,7 @@ export async function GET(
           batchNumber: sku.batchNumber,
           barrelOrTank: sku.barrelOrTank,
         },
+        images: Object.keys(images).length > 0 ? images : undefined,
         inventory: {
           totalOnHand,
           totalAvailable,
