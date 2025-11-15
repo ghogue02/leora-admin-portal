@@ -18,6 +18,16 @@ const nextConfig: NextConfig = {
     'canvas',
     'exceljs',
   ],
+  // Image optimization configuration
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
+    ],
+  },
   // Only set outputFileTracingRoot in local development
   ...(process.env.VERCEL ? {} : {
     outputFileTracingRoot: path.join(__dirname, '../'),

@@ -121,6 +121,13 @@ export async function queryCatalog(
             orderBy: { effectiveAt: "desc" },
             take: 1,
           },
+          images: {
+            select: {
+              imageType: true,
+              catalogUrl: true,
+              storageUrl: true,
+            },
+          },
         },
       },
       priceListItems: {
@@ -173,6 +180,22 @@ export async function queryCatalog(
     const lifecycleStatus =
       sku.product?.lifecycleSnapshots?.[0]?.status ?? null;
 
+    // Map product images by type, preferring catalogUrl over storageUrl
+    const images = sku.product?.images?.reduce(
+      (acc, img) => {
+        const imageUrl = img.catalogUrl || img.storageUrl;
+        if (img.imageType === "packshot") {
+          acc.packshot = imageUrl;
+        } else if (img.imageType === "frontLabel") {
+          acc.frontLabel = imageUrl;
+        } else if (img.imageType === "backLabel") {
+          acc.backLabel = imageUrl;
+        }
+        return acc;
+      },
+      {} as { packshot?: string; frontLabel?: string; backLabel?: string },
+    );
+
     return {
       skuId: sku.id,
       skuCode: sku.code,
@@ -199,6 +222,7 @@ export async function queryCatalog(
         lowStock: totals.available < 10,
         outOfStock: totals.available <= 0,
       },
+      images: images && Object.keys(images).length > 0 ? images : undefined,
       product: sku.product
         ? {
             description: sku.product.description,

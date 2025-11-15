@@ -30,6 +30,11 @@ export type CatalogItem = {
     lowStock: boolean;
     outOfStock: boolean;
   };
+  images?: {
+    packshot?: string | null;
+    frontLabel?: string | null;
+    backLabel?: string | null;
+  };
   product?: {
     description?: string | null;
     tastingNotes?: Record<string, unknown> | null;

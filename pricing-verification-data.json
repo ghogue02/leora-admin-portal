@@ -1,0 +1,462 @@
+{
+  "totalSkus": 50,
+  "skus": [
+    {
+      "sku": "ITA1138",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 14.66,
+        "VA, MD, DC wholesale": 13.33,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SPA1097",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 33.33,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": 23.33
+      }
+    },
+    {
+      "sku": "NON1026",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ORO1057",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 29.99,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "NON1022",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 23.33,
+        "VA, MD, DC wholesale": 22.33,
+        "Custom S&V Group": null,
+        "DLC": 21.33
+      }
+    },
+    {
+      "sku": "ORO1033",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 22,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "NWZ1001",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 10.67,
+        "VA, MD, DC wholesale": 9.99,
+        "Custom S&V Group": 9.66,
+        "DLC": 9.49
+      }
+    },
+    {
+      "sku": "NWZ1020",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 39.99,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SAF1112",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 14.66,
+        "VA, MD, DC wholesale": 13.99,
+        "Custom S&V Group": 12.5,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "POR1031",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 25,
+        "VA, MD, DC wholesale": 23.33,
+        "Custom S&V Group": 24,
+        "DLC": 22.33
+      }
+    },
+    {
+      "sku": "SAF1085",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 11.99,
+        "VA, MD, DC wholesale": 11.33,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ORO1026",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 14.33,
+        "VA, MD, DC wholesale": 13.33,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "NWZ1009",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": 12.66,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SAF1110",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": 12.99,
+        "Custom S&V Group": 11.5,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SAF1088",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 10.67,
+        "VA, MD, DC wholesale": 9.99,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "POR1032",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 9.99,
+        "VA, MD, DC wholesale": 9.66,
+        "Custom S&V Group": null,
+        "DLC": 6.67
+      }
+    },
+    {
+      "sku": "SAF1109",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 18.66,
+        "VA, MD, DC wholesale": 17.99,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SAF1067",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": 12.66,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "NON1006",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 17.33,
+        "VA, MD, DC wholesale": 16.67,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SAF1090",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": 12.66,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SPA1001",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 17.33,
+        "VA, MD, DC wholesale": 16.67,
+        "Custom S&V Group": 13,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "CAL1372",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 156.66,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SPA1076",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 43.33,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ITA1006",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 7.99,
+        "VA, MD, DC wholesale": 7.33,
+        "Custom S&V Group": 6.33,
+        "DLC": 6
+      }
+    },
+    {
+      "sku": "ITA1145",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 23.33,
+        "VA, MD, DC wholesale": 22.66,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SAF1096",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 23.33,
+        "VA, MD, DC wholesale": 21.33,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ORO1011",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 2.99,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "SAF1061",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": 12.66,
+        "Custom S&V Group": 12,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ITA1094",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 9.99,
+        "VA, MD, DC wholesale": 9.66,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "WAS1005",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 14.67,
+        "VA, MD, DC wholesale": 13.99,
+        "Custom S&V Group": 12,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "CHL1023",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 9.99,
+        "VA, MD, DC wholesale": 9.66,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "FRA1079",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 10.67,
+        "VA, MD, DC wholesale": 10.33,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "UKR1006",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 17.33,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": 15.5,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "CAL1371",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 80,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": 72
+      }
+    },
+    {
+      "sku": "NON1011",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 16.67,
+        "VA, MD, DC wholesale": 15.99,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ORO1051",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 16.67,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": 15,
+        "DLC": 15.5
+      }
+    },
+    {
+      "sku": "SPA1080",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 6.67,
+        "VA, MD, DC wholesale": 5.99,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "CAL1368",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 39.99,
+        "VA, MD, DC wholesale": 36.67,
+        "Custom S&V Group": 34,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "CAL1320",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 4.66,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "CAL1247",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 6.67,
+        "VA, MD, DC wholesale": 6.33,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "NYS1009",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": 12.66,
+        "Custom S&V Group": 12,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ITA1018",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 9.99,
+        "VA, MD, DC wholesale": 9.33,
+        "Custom S&V Group": 9,
+        "DLC": 9
+      }
+    },
+    {
+      "sku": "CAL1370",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 70,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": 60
+      }
+    },
+    {
+      "sku": "SPA1334",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 13.33,
+        "VA, MD, DC wholesale": 12.66,
+        "Custom S&V Group": 12,
+        "DLC": 12
+      }
+    },
+    {
+      "sku": "ITA1119",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 9.99,
+        "VA, MD, DC wholesale": 9.49,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "CAL1218",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 23.33,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "FRA1113",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 47.33,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": 45.33
+      }
+    },
+    {
+      "sku": "NON1036",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 2.92,
+        "VA, MD, DC wholesale": 2.67,
+        "Custom S&V Group": null,
+        "DLC": 2.5
+      }
+    },
+    {
+      "sku": "CAL1255",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 59.99,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    },
+    {
+      "sku": "ITA1130",
+      "expectedPrices": {
+        "Well Crafted Wholesale 2025": 12.25,
+        "VA, MD, DC wholesale": null,
+        "Custom S&V Group": null,
+        "DLC": null
+      }
+    }
+  ],
+  "priceListIds": {
+    "Well Crafted Wholesale 2025": "d8ad22e0-c069-493b-a23a-a0ad84af7079",
+    "VA, MD, DC wholesale": "df99bbaf-2253-4421-affb-93da669a6763",
+    "Custom S&V Group": "3e6c13eb-5328-4015-8613-c99bcd1433ec",
+    "DLC": "cd64f651-c699-4013-8d47-0f2cc75dc215"
+  },
+  "tenantId": "410544b2-4001-4271-9855-fec4b6a6442a"
+}

@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Download } from "lucide-react";
+import Image from "next/image";
+import { Download, Wine } from "lucide-react";
 
 import { useToast } from "../../_components/ToastProvider";
 
@@ -555,17 +556,42 @@ useEffect(() => {
                         {outOfStock ? "Out of stock" : `${item.inventory.totals.available} available`}
                       </span>
                     </div>
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex-1">
-                        <h2 className="text-lg font-semibold text-gray-900 hover:text-indigo-600 transition">
+                    <div className="flex items-start gap-3 mt-3">
+                      {/* Product Image */}
+                      <div className="flex-shrink-0">
+                        {item.images?.packshot ? (
+                          <div className="relative w-20 h-20 rounded overflow-hidden bg-gray-50">
+                            <Image
+                              src={item.images.packshot}
+                              alt={item.productName}
+                              fill
+                              sizes="80px"
+                              className="object-contain"
+                              unoptimized
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-20 h-20 bg-gray-100 rounded flex items-center justify-center">
+                            <Wine className="w-10 h-10 text-gray-300" />
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Product Info */}
+                      <div className="flex-1 min-w-0">
+                        <h2 className="text-lg font-semibold text-gray-900 hover:text-indigo-600 transition truncate">
                           {item.productName}
                         </h2>
                         <p className="text-sm text-gray-600">{item.brand ?? "Brand TBD"}</p>
                         <p className="text-xs text-gray-500">{item.skuCode}</p>
                       </div>
-                      <span className="flex-shrink-0 text-xs text-indigo-600 hover:text-indigo-800">
-                        View details →
-                      </span>
+
+                      {/* View Details Link */}
+                      <div className="flex-shrink-0">
+                        <span className="text-xs text-indigo-600 hover:text-indigo-800 whitespace-nowrap">
+                          View details →
+                        </span>
+                      </div>
                     </div>
                   </header>
 

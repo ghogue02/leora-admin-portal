@@ -69,6 +69,7 @@ model Tenant {
   priceLists                PriceList[]
   priceListItems            PriceListItem[]
   products                  Product[]
+  productImages             ProductImage[]
   PurchaseOrder             PurchaseOrder[]
   PurchaseOrderLine         PurchaseOrderLine[]
   queryHistory              QueryHistory[]
@@ -349,13 +350,37 @@ model Product {
   manufacturer       String?
   abcCode            String?
   mocoNumber         String?
+  halUrl             String?
+  halWarehouseLocation String?
   supplier           Supplier?                  @relation(fields: [supplierId], references: [id])
   tenant             Tenant                     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  images             ProductImage[]
   skus               Sku[]
   lifecycleSnapshots ProductLifecycleSnapshot[]
 
   @@unique([tenantId, name])
   @@index([tenantId])
+}
+
+model ProductImage {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @db.Uuid
+  productId    String?  @db.Uuid
+  skuCode      String
+  imageType    String   // 'packshot', 'frontLabel', 'backLabel'
+  storageUrl   String   // Full Supabase Storage URL
+  thumbnailUrl String?  // Optimized 200x200
+  catalogUrl   String?  // Optimized 400x400
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  product      Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  tenant       Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+  @@index([skuCode])
+  @@index([tenantId])
+  @@index([tenantId, skuCode])
 }
 
 model ProductFieldDefinition {
