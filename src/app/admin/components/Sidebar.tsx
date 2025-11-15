@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import {
   LayoutDashboard,
   Users,
@@ -17,6 +18,10 @@ import {
   BellRing,
   Plug,
   SlidersHorizontal,
+  ChevronDown,
+  ChevronRight,
+  DollarSign,
+  List,
 } from "lucide-react";
 
 const navigation = [
@@ -60,6 +65,23 @@ const navigation = [
     label: "Inventory & Products",
     href: "/admin/inventory",
     icon: Package,
+    submenu: [
+      {
+        label: "All Products",
+        href: "/admin/inventory",
+        icon: List,
+      },
+      {
+        label: "Price Management",
+        href: "/admin/inventory/prices",
+        icon: DollarSign,
+      },
+      {
+        label: "Price Lists",
+        href: "/admin/inventory/pricing",
+        icon: FileText,
+      },
+    ],
   },
   {
     label: "Sample Follow-ups",
@@ -95,6 +117,16 @@ const navigation = [
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const [expandedMenus, setExpandedMenus] = useState<Record<string, boolean>>({
+    "/admin/inventory": true, // Inventory menu starts expanded
+  });
+
+  const toggleMenu = (href: string) => {
+    setExpandedMenus((prev) => ({
+      ...prev,
+      [href]: !prev[href],
+    }));
+  };
 
   return (
     <div className="flex h-screen w-64 flex-col border-r border-slate-200 bg-white">
@@ -110,20 +142,66 @@ export default function Sidebar() {
           const isActive = item.exact
             ? pathname === item.href
             : pathname.startsWith(item.href);
+          const hasSubmenu = item.submenu && item.submenu.length > 0;
+          const isExpanded = expandedMenus[item.href];
 
           return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                isActive
-                  ? "bg-slate-100 text-gray-900"
-                  : "text-gray-600 hover:bg-slate-50 hover:text-gray-900"
-              }`}
-            >
-              <Icon className="h-5 w-5" />
-              {item.label}
-            </Link>
+            <div key={item.href}>
+              {hasSubmenu ? (
+                <>
+                  <button
+                    onClick={() => toggleMenu(item.href)}
+                    className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-slate-100 text-gray-900"
+                        : "text-gray-600 hover:bg-slate-50 hover:text-gray-900"
+                    }`}
+                  >
+                    <Icon className="h-5 w-5" />
+                    <span className="flex-1 text-left">{item.label}</span>
+                    {isExpanded ? (
+                      <ChevronDown className="h-4 w-4" />
+                    ) : (
+                      <ChevronRight className="h-4 w-4" />
+                    )}
+                  </button>
+                  {isExpanded && (
+                    <div className="ml-6 mt-1 space-y-1">
+                      {item.submenu.map((subitem) => {
+                        const SubIcon = subitem.icon;
+                        const isSubActive = pathname === subitem.href;
+                        return (
+                          <Link
+                            key={subitem.href}
+                            href={subitem.href}
+                            className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                              isSubActive
+                                ? "bg-slate-100 text-gray-900"
+                                : "text-gray-600 hover:bg-slate-50 hover:text-gray-900"
+                            }`}
+                          >
+                            <SubIcon className="h-4 w-4" />
+                            {subitem.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={item.href}
+                  className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-slate-100 text-gray-900"
+                      : "text-gray-600 hover:bg-slate-50 hover:text-gray-900"
+                  }`}
+                >
+                  <Icon className="h-5 w-5" />
+                  {item.label}
+                </Link>
+              )}
+            </div>
           );
         })}
       </nav>
