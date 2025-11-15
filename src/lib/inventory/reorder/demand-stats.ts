@@ -7,10 +7,8 @@
  * @see docs/CALCULATION_MODERNIZATION_PLAN.md Phase 2.5
  */
 
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { formatUTCDate } from '../../dates';
-
-const prisma = new PrismaClient();
 
 /**
  * Daily demand observation

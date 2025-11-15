@@ -7,7 +7,7 @@
  * and predicting when current stock will be depleted.
  */
 
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@/lib/prisma';
 import { calculateDemandStats } from './reorder/demand-stats';
 import { getAvailabilityBreakdown } from './availability';
 import {
@@ -21,8 +21,6 @@ import {
   type DepletionFilters,
   type DepletionSummary,
 } from '@/types/inventory-forecast';
-
-const prisma = new PrismaClient();
 
 /**
  * Calculate velocity metric for a specific timeframe
