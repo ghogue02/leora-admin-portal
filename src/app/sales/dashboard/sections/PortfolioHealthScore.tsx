@@ -6,6 +6,7 @@ import { InfoHover } from "@/components/InfoHover";
 import { formatNumber } from "@/lib/format";
 import { ChevronRight } from "lucide-react";
 import CustomerBucketModal from "./components/CustomerBucketModal";
+import { isKeyAccount, hasRecentOrder, needsAttention } from "./customerBucketFilters";
 
 type Props = {
   portfolio: PortfolioHealth;
@@ -15,14 +16,15 @@ type Props = {
 export default function PortfolioHealthScore({ portfolio, customers = [] }: Props) {
   const [activeBucket, setActiveBucket] = useState<'healthy' | 'needs-attention' | null>(null);
 
-  // Filter customers by health status
+  // Filter customers by health status (using same logic as Account Pulse)
+  // Healthy = Key accounts (Active or Target) that have ordered recently (within 45 days)
   const healthyCustomers = customers.filter(c =>
-    c.healthStatus === 'HEALTHY' || c.healthBucket === 'healthy'
+    isKeyAccount(c) && hasRecentOrder(c, 45)
   );
 
+  // Needs Attention = Key accounts (Active or Target) that haven't ordered in 45+ days
   const needsAttentionCustomers = customers.filter(c =>
-    c.healthStatus === 'DOWN' || c.healthStatus === 'DORMANT' ||
-    c.healthBucket === 'down' || c.healthBucket === 'dormant'
+    isKeyAccount(c) && needsAttention(c, 45)
   );
 
   const modalCustomers = activeBucket === 'healthy'

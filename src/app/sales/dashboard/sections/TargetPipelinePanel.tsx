@@ -6,6 +6,7 @@ import { InfoHover } from "@/components/InfoHover";
 import { formatNumber } from "@/lib/format";
 import { ChevronRight } from "lucide-react";
 import CustomerBucketModal from "./components/CustomerBucketModal";
+import { isTargetAccount, isProspectAccount } from "./customerBucketFilters";
 
 type Props = {
   metrics: TargetPipelineMetrics;
@@ -17,15 +18,18 @@ export default function TargetPipelinePanel({ metrics, customers = [] }: Props) 
 
   // Filter customers by target pipeline status
   const assignedTargets = customers.filter(c =>
-    c.accountType === 'TARGET' || c.accountType === 'PROSPECT'
+    isTargetAccount(c) || isProspectAccount(c)
   );
 
+  // Turned active = targets that have a first order in the last 30 days
   const turnedActiveTargets = assignedTargets.filter(c =>
-    c.lastOrderDate && new Date(c.lastOrderDate) >= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+    c.firstOrderDate &&
+    new Date(c.firstOrderDate) >= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
   );
 
+  // Visited = targets with any activity in the last 30 days
   const visitedTargets = assignedTargets.filter(c =>
-    c.lastActivityAt && new Date(c.lastActivityAt) >= new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+    c.daysSinceLastActivity !== null && c.daysSinceLastActivity <= 30
   );
 
   const modalCustomers =
