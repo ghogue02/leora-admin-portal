@@ -13,9 +13,9 @@ export default function TerritoryHealthOverview({ territories, onTerritoryClick 
       <h3 className="mb-4 text-lg font-semibold">Territory Health</h3>
       <p className="text-sm text-gray-600 mb-4">Click territory for detailed account breakdown</p>
       <div className="grid gap-4 md:grid-cols-3">
-        {territories.map((territory: any) => (
+        {territories.map((territory: any, index: number) => (
           <button
-            key={territory.name}
+            key={`${territory.name}-${territory.repName || index}`}
             onClick={() => onTerritoryClick(territory.name)}
             className="rounded-lg border border-gray-200 p-4 hover:border-blue-500 hover:shadow-md transition-all text-left"
           >

@@ -20,27 +20,18 @@
  * }
  */
 
-import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { NextRequest, NextResponse } from 'next/server';
+import { withSalesSession } from '@/lib/auth/sales';
 import {
   calculateAllDepletionForecasts,
   generateDepletionSummary,
 } from '@/lib/inventory/depletion-forecast';
 import type { DepletionFilters, DepletionUrgency } from '@/types/inventory-forecast';
 
-export async function GET(request: Request) {
-  try {
-    // Authentication
-    const session = await getServerSession(authOptions);
-    if (!session?.user?.tenantId) {
-      return NextResponse.json(
-        { error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
-
-    const { searchParams } = new URL(request.url);
+export async function GET(request: NextRequest) {
+  return withSalesSession(request, async (session) => {
+    try {
+      const { searchParams } = new URL(request.url);
 
     // Build filters from query params
     const filters: DepletionFilters = {};
@@ -71,7 +62,7 @@ export async function GET(request: Request) {
 
     // Calculate forecasts
     const allForecasts = await calculateAllDepletionForecasts(
-      session.user.tenantId,
+      session.tenantId,
       filters
     );
 
@@ -101,4 +92,5 @@ export async function GET(request: Request) {
       { status: 500 }
     );
   }
+  });
 }
