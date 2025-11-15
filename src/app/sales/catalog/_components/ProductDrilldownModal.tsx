@@ -266,7 +266,11 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                   <h3 className="mb-3 text-sm font-semibold text-gray-700">Product Images</h3>
                   <div className="flex gap-3">
                     {data.images.packshot && (
-                      <div className="relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200">
+                      <button
+                        onClick={() => window.open(data.images!.packshot!, '_blank')}
+                        className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
+                        title="Click to view full size"
+                      >
                         <Image
                           src={data.images.packshot}
                           alt="Product packshot"
@@ -274,13 +278,17 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                           className="object-cover"
                           sizes="128px"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white">
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white group-hover:bg-black/70 transition-colors">
                           Packshot
                         </div>
-                      </div>
+                      </button>
                     )}
                     {data.images.frontLabel && (
-                      <div className="relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200">
+                      <button
+                        onClick={() => window.open(data.images!.frontLabel!, '_blank')}
+                        className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
+                        title="Click to view full size"
+                      >
                         <Image
                           src={data.images.frontLabel}
                           alt="Front label"
@@ -288,13 +296,17 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                           className="object-cover"
                           sizes="128px"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white">
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white group-hover:bg-black/70 transition-colors">
                           Front Label
                         </div>
-                      </div>
+                      </button>
                     )}
                     {data.images.backLabel && (
-                      <div className="relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200">
+                      <button
+                        onClick={() => window.open(data.images!.backLabel!, '_blank')}
+                        className="group relative h-32 w-32 overflow-hidden rounded-lg border border-gray-200 transition-transform hover:scale-105 cursor-pointer"
+                        title="Click to view full size"
+                      >
                         <Image
                           src={data.images.backLabel}
                           alt="Back label"
@@ -302,10 +314,10 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
                           className="object-cover"
                           sizes="128px"
                         />
-                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white">
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 px-2 py-1 text-center text-xs text-white group-hover:bg-black/70 transition-colors">
                           Back Label
                         </div>
-                      </div>
+                      </button>
                     )}
                     {!data.images.packshot && !data.images.frontLabel && !data.images.backLabel && (
                       <div className="flex h-32 w-32 items-center justify-center rounded-lg border border-gray-200 bg-gray-50">
