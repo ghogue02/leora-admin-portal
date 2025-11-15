@@ -668,7 +668,7 @@ useEffect(() => {
                     </div>
                   </div>
                   <Link
-                    href="/sales/orders"
+                    href={`/sales/orders/new?sku=${item.skuCode}&qty=${quantity}`}
                     onClick={(e) => {
                       if (!hasPrice || outOfStock) e.preventDefault();
                     }}
