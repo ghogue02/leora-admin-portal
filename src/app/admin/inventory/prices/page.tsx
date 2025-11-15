@@ -356,9 +356,9 @@ export default function InventoryPricesPage() {
               <input
                 type="text"
                 placeholder="Search by SKU code or product name..."
-                value={search}
+                value={searchInput}
                 onChange={(e) => {
-                  setSearch(e.target.value);
+                  setSearchInput(e.target.value);
                   setPage(1);
                 }}
                 className="w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
