@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from "react";
-import { ArrowDownRight, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, ChevronRight } from "lucide-react";
 import type {
   AccountPulse as AccountPulseMetrics,
   CustomerCoverage,
@@ -193,24 +193,34 @@ export default function AccountPulseSection({
             <button
               type="button"
               onClick={() => setBucketModal(coverageBuckets.healthy)}
-              className="text-left"
+              className="group relative rounded-lg border-2 border-transparent bg-slate-50 p-3 text-left transition-all hover:border-green-400 hover:bg-green-50/50 hover:shadow-md hover:scale-[1.05] active:scale-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 cursor-pointer"
             >
-              <p className="text-2xl font-semibold text-gray-900">{`${formatCount(portfolio.healthyPercent)}%`}</p>
-              <p className="text-xs text-gray-500 flex items-center gap-1">
-                Healthy ({portfolio.healthyCount} / {portfolio.totalActive})
-              </p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-2xl font-semibold text-gray-900 group-hover:text-green-900 transition-colors">{`${formatCount(portfolio.healthyPercent)}%`}</p>
+                  <p className="text-xs text-gray-500 flex items-center gap-1 group-hover:text-green-600 transition-colors">
+                    Healthy ({portfolio.healthyCount} / {portfolio.totalActive})
+                  </p>
+                </div>
+                <ChevronRight className="h-4 w-4 text-green-400 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5" />
+              </div>
             </button>
             <button
               type="button"
               onClick={() => setBucketModal(coverageBuckets.immediate)}
-              className="text-left"
+              className="group relative rounded-lg border-2 border-transparent bg-slate-50 p-3 text-left transition-all hover:border-rose-400 hover:bg-rose-50/50 hover:shadow-md hover:scale-[1.05] active:scale-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500 cursor-pointer"
             >
-              <p className="text-2xl font-semibold text-rose-600">
-                {`${formatCount(portfolio.immediateAttentionPercent)}%`}
-              </p>
-              <p className="text-xs text-gray-500">
-                Immediate ({portfolio.immediateAttentionCount} / {portfolio.totalActive})
-              </p>
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-2xl font-semibold text-rose-600 group-hover:text-rose-700 transition-colors">
+                    {`${formatCount(portfolio.immediateAttentionPercent)}%`}
+                  </p>
+                  <p className="text-xs text-gray-500 group-hover:text-rose-600 transition-colors">
+                    Immediate ({portfolio.immediateAttentionCount} / {portfolio.totalActive})
+                  </p>
+                </div>
+                <ChevronRight className="h-4 w-4 text-rose-400 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5" />
+              </div>
             </button>
           </div>
         </div>
@@ -238,24 +248,28 @@ function CoverageStat({
   value: number;
   onClick?: () => void;
 }) {
-  const content = (
-    <>
-      <p className="text-2xl font-semibold text-gray-900">{formatNumber(value)}</p>
-      <p className="text-xs text-gray-500">{label}</p>
-    </>
-  );
-
   if (!onClick) {
-    return <div>{content}</div>;
+    return (
+      <div>
+        <p className="text-2xl font-semibold text-gray-900">{formatNumber(value)}</p>
+        <p className="text-xs text-gray-500">{label}</p>
+      </div>
+    );
   }
 
   return (
     <button
       type="button"
       onClick={onClick}
-      className="text-left transition hover:text-gray-900"
+      className="group relative rounded-lg border-2 border-transparent bg-slate-50 p-3 text-left transition-all hover:border-indigo-400 hover:bg-indigo-50/50 hover:shadow-md hover:scale-[1.05] active:scale-[0.95] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer"
     >
-      {content}
+      <div className="flex items-start justify-between">
+        <div>
+          <p className="text-2xl font-semibold text-gray-900 group-hover:text-indigo-900 transition-colors">{formatNumber(value)}</p>
+          <p className="text-xs text-gray-500 group-hover:text-indigo-600 transition-colors">{label}</p>
+        </div>
+        <ChevronRight className="h-4 w-4 text-indigo-400 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5" />
+      </div>
     </button>
   );
 }
