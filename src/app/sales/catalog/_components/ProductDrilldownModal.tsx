@@ -111,6 +111,7 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
   const [error, setError] = useState<string | null>(null);
   const [isEditMode, setIsEditMode] = useState(false);
   const [isArchiving, setIsArchiving] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<{ url: string; label: string } | null>(null);
 
   useEffect(() => {
     fetchProductDetails();

@@ -583,14 +583,7 @@ useEffect(() => {
                       {/* Product Image */}
                       <div className="flex-shrink-0">
                         {item.images?.packshot ? (
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              window.open(item.images!.packshot!, '_blank');
-                            }}
-                            className="group relative w-20 h-20 rounded overflow-hidden bg-gray-50 transition-transform hover:scale-105"
-                            title="Click to view full size"
-                          >
+                          <div className="relative w-20 h-20 rounded overflow-hidden bg-gray-50">
                             <Image
                               src={item.images.packshot}
                               alt={item.productName}
