@@ -289,11 +289,11 @@ export function ProductDrilldownModal({ skuId, onClose }: ProductDrilldownModalP
               {/* Technical Details from HAL */}
               {(data.product.manufacturer || data.product.abcCode || data.product.bottleBarcode || data.product.itemsPerCase || data.product.vintage || data.product.colour) && (
                 <div className="rounded-lg border border-gray-200 bg-white p-4">
-                  <h3 className="mb-3 text-sm font-semibold text-gray-700">Technical Details</h3>
+                  <h3 className="mb-3 text-sm font-semibold text-gray-700">Product Specifications</h3>
                   <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
                     {data.product.manufacturer && (
                       <>
-                        <dt className="font-medium text-gray-600">Manufacturer:</dt>
+                        <dt className="font-medium text-gray-600">Supplier/Manufacturer:</dt>
                         <dd className="text-gray-900">{data.product.manufacturer}</dd>
                       </>
                     )}
